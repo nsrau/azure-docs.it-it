@@ -17,9 +17,9 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 543483b08b32b7a280979502c5548702995f90af
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/18/2017
 Questo documento fornisce una procedura dettagliata dell'uso del comando Pig per l'esecuzione di istruzioni Pig Latin da una connessione Desktop remoto a un cluster HDInsight basato su Windows. Pig Latin consente di creare applicazioni MapReduce descrivendo le trasformazioni di dati, anziché eseguendo il mapping e la riduzione delle funzioni.
 
 > [!IMPORTANT]
-> Desktop remoto è disponibile solo nei cluster HDInsight che usano Windows come sistema operativo. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Desktop remoto è disponibile solo nei cluster HDInsight che usano Windows come sistema operativo. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 >
 > Per HDInsight 3.4 o versione successiva, vedere [Usare Pig con HDInsight e SSH](hdinsight-hadoop-use-pig-ssh.md) per informazioni sull'esecuzione interattiva di processi Pig sul cluster dalla riga di comando.
 

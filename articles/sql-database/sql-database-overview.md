@@ -8,16 +8,17 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: single databases
+ms.custom: DBs and servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 06639080dec485395d6821c371a4f792c7c02845
-ms.openlocfilehash: 5e3ac3a08ea3e5c72082dcc7faa209d848acf2fe
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ebfc2a6a2e16140953abbb9da3b81702fcc26e60
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ Ogni database SQL di Azure è associato a un server logico. Il database può ess
 - **Firewall del database SQL**: per proteggere i dati, il firewall del database SQL impedisce qualsiasi accesso al server di database o ai propri database finché non vengono specificati i computer autorizzati. Vedere [Panoramica sulle regole del firewall per il database SQL di Azure](sql-database-firewall-configure.md).
 
 ## <a name="what-collations-are-supported"></a>Regole di confronto supportate
-La regola di confronto del database predefinito usato dal database SQL di Microsoft Azure è **SQL_LATIN1_GENERAL_CP1_CI_AS**, in cui **LATIN1_GENERAL** indica la lingua inglese (Stati Uniti), **CP1** la pagina del codice 1252, **CI** l'assenza di distinzione tra maiuscole e minuscole e **AS** l'assenza di distinzione tra caratteri accentati e non accentati. Non è possibile modificare le regole di confronto per i database V12. Per altre informazioni su come impostare le regole di confronto, vedere [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+La regola di confronto del database predefinito usato dal database SQL di Microsoft Azure è **SQL_LATIN1_GENERAL_CP1_CI_AS**, in cui **LATIN1_GENERAL** indica la lingua inglese (Stati Uniti), **CP1** la pagina del codice 1252, **CI** l'assenza di distinzione tra maiuscole e minuscole e **AS** l'assenza di distinzione tra caratteri accentati e non accentati. Per altre informazioni su come impostare le regole di confronto, vedere [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>Requisiti di denominazione per oggetti del database
 
@@ -53,9 +54,10 @@ Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database feat
 ## <a name="how-do-i-manage-an-azure-sql-database"></a>Gestione di un database SQL di Azure
 
 È possibile gestire i server logici del database SQL di Azure in diversi modi:
-- [Portale di Azure](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
-- [Transact-SQL](sql-database-manage-azure-ssms.md)
+- [Portale di Azure](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
+- [Transact-SQL](sql-database-connect-query-ssms.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
 - [REST](/rest/api/sql/)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -67,10 +69,5 @@ Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database feat
 - Informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**. Per una panoramica dei livelli di servizio, vedere [Livelli di servizio del Database SQL](sql-database-service-tiers.md).
 - Per una panoramica della sicurezza, vedere [Azure SQL Database Security Overview](sql-database-security-overview.md) (Panoramica della sicurezza del database SQL di Azure).
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

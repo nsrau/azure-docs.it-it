@@ -17,9 +17,9 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 0c7f570db388b0ed96479e994a4a2f79e7919b17
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7de810dc712e7fdcd66ddedae5ccaa2a9753102f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/18/2017
 In questo articolo si apprenderà come usare Query Console per eseguire query Hive in un cluster HDInsight Hadoop dal browser.
 
 > [!IMPORTANT]
-> Query Console di HDInsight è disponibile solo nei cluster HDInsight basati su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Query Console di HDInsight è disponibile solo nei cluster HDInsight basati su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 >
 > Per HDInsight 3.4 o versione successiva, vedere [Run Hive queries in Ambari Hive View](hdinsight-hadoop-use-hive-ambari-view.md) (Eseguire query Hive nella vista Ambari Hive) per informazioni sull'esecuzione di query Hive da un Web browser.
 
@@ -42,29 +42,29 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 ## <a id="run"></a> Eseguire query Hive usando Query Console
 1. Aprire un Web browser e passare a **https://CLUSTERNAME.azurehdinsight.net**, dove **CLUSTERNAME** è il nome del cluster HDInsight. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
 2. Nei collegamenti nella parte superiore della pagina fare clic su **Hive Editor**. Verrà visualizzato un modulo che può essere usato per immettere le istruzioni HiveQL che si desidera eseguire nel cluster HDInsight.
-   
+
     ![L'editor Hive](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
-   
+
     Sostituire il testo `Select * from hivesampletable` con le seguenti istruzioni HiveQL:
-   
+
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-   
+
     Di seguito sono elencate le istruzioni che eseguono queste azioni:
-   
+
    * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
    * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
-     
+
      > [!NOTE]
      > È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
-     > 
+     >
      > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
-     > 
-     > 
+     >
+     >
    * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
    * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
    * **SELECT**: seleziona il numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3** , poiché sono presenti tre righe contenenti questo valore.

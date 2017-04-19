@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 4/13/2017
 ms.author: johnkem
 translationtype: Human Translation
 ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
+ms.lasthandoff: 12/22/2016
 
 
 ---
@@ -377,7 +378,7 @@ In genere, un avviso in un modello di Resource Manager è più utile quando si c
                         "resourceUri": "[variables('vmID')]",
                         "metricName": "[variables('metricName')]"
                     },
-                    "operator": "[parameters('operator')]",
+                    "operator": "[variables('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"
@@ -403,10 +404,5 @@ In genere, un avviso in un modello di Resource Manager è più utile quando si c
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sugli avvisi](insights-receive-alert-notifications.md)
 * [Aggiungere impostazioni di diagnostica](monitoring-enable-diagnostic-logs-using-template.md) al modello di Resource Manager
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

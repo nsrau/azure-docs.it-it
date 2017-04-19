@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 892d24199be5065ee54d46863cca2fd958db3236
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -114,6 +114,7 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 * Gestione traffico
 * Macchine virtuali: non è supportato lo spostamento in una nuova sottoscrizione se i relativi certificati sono archiviati in un insieme di credenziali delle chiavi
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
+* Set di scalabilità di macchine virtuali
 * Reti virtuali: attualmente non è possibile spostare una rete virtuale con peering fino a quando non viene disabilitato il peering di rete virtuale. Dopo che il peering è stato disabilitato, è possibile spostare la rete virtuale e abilitare il peering di rete virtuale.
 * Gateway VPN 
 
@@ -134,11 +135,9 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * Macchine virtuali con certificato archiviato in insieme di credenziali delle chiavi
 * Macchine virtuali con Managed Disks
 * Set di disponibilità con macchine virtuali con Managed Disks
-* Set di scalabilità di macchine virtuali con Managed Disks
 * Managed Disks
 * Immagini create da Managed Disks
 * Snapshot creati da Managed Disks
-* Set di scalabilità di macchine virtuali
 * Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Impossibile spostare le macchine virtuali create da risorse Marketplace fra sottoscrizioni. La risorsa deve essere sottoposta a deprovisioning nella sottoscrizione corrente e distribuita nuovamente nella nuova sottoscrizione
 

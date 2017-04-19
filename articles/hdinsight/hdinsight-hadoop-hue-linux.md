@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: a5fbd7cd4b57b1bd54c5483fc39733cfd3a8dcca
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: b0bd7539e0ec3dbbeaa759f66f3097ed6caab1a8
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/25/2017
 Informazioni su come installare Hue nei cluster HDInsight e usare il tunneling per instradare le richieste a Hue.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="what-is-hue"></a>Informazioni su Hue
 Hue è un insieme di applicazioni Web che consente di interagire con un cluster Hadoop. È possibile usare Hue per esplorare lo spazio di archiviazione associato a un cluster Hadoop (WASB nel caso di cluster HDInsight), eseguire processi Hive e script Pig e così via. I componenti seguenti sono disponibili con l'installazione di Hue in un cluster Hadoop di HDInsight.

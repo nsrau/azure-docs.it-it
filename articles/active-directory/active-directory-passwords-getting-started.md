@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Introduzione alla gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** , [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** , [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -69,9 +69,9 @@ Ecco alcuni suggerimenti principali che sono risultati utili per i clienti che d
 * [**Suggerimento 9 - RISOLUZIONE DEI PROBLEMI**: se è ancora necessaria assistenza, includere le informazioni necessarie per ottenere supporto](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>SUGGERIMENTO PRINCIPALE - ESPLORAZIONE DELLA DOCUMENTAZIONE: usare il sommario e la funzionalità Trova del browser per trovare le risposte
-Se si usa la documentazione Microsoft, nel sommario sono disponibili collegamenti rapidi a tutti i contenuti rilevanti e utili per gli amministratori. 
+Se si usa la documentazione Microsoft, nel sommario sono disponibili collegamenti rapidi a tutti i contenuti rilevanti e utili per gli amministratori.
 
-Vedere il sommario seguente: 
+Vedere il sommario seguente:
 * [Reimpostazione della password di Azure AD: Sommario della documentazione](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Suggerimento 1 - LICENZE: assicurarsi di comprendere i requisiti relativi alle licenze
@@ -93,9 +93,9 @@ I criteri configurati nell'esperienza utente amministrativa vengono applicati SO
  * ...per i primi 30 giorni dopo la creazione iniziale di una versione di valutazione **OPPURE**
  * ...quando un dominio personale non è presente **E** Azure AD Connect non esegue la sincronizzazione delle identità
  * **_Richiede_**: che **uno** dei campi Indirizzo di posta elettronica per l'autenticazione, Indirizzo di posta elettronica alternativo, Telefono per autenticazione, Cellulare oppure Telefono ufficio includa un valore
-* **Un criterio a due gate è applicabile...** 
+* **Un criterio a due gate è applicabile...**
  * ...dopo il passaggio dei primi 30 giorni di una versione di valutazione **OPPURE**
- * ...se è presente un dominio personale **OPPURE** 
+ * ...se è presente un dominio personale **OPPURE**
  * ...se è stato abilitato Azure AD Connect per la sincronizzazione delle identità dall'ambiente locale
  * _**Richiede**_: che **due** dei campi Indirizzo di posta elettronica per l'autenticazione, Indirizzo di posta elettronica alternativo, Telefono per autenticazione, Cellulare oppure Telefono ufficio includano un valore
 
@@ -145,7 +145,7 @@ Per un elenco completo di indicazioni sulla risoluzione dei problemi e per indic
 * [Distribuzione del writeback - Passaggio 3: Configurare il firewall](#step-3-configure-your-firewall)
 * [Distribuzione del writeback - Passaggio 4: Impostare le autorizzazioni appropriate](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Suggerimento 7 - CREAZIONE DI REPORT: verificare quali utenti stanno eseguendo la registrazione o reimpostando le password con i log di controllo di Azure AD SSPR 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Suggerimento 7 - CREAZIONE DI REPORT: verificare quali utenti stanno eseguendo la registrazione o reimpostando le password con i log di controllo di Azure AD SSPR
 Dopo la distribuzione e l'attivazione della reimpostazione della password, è necessario verificarne il funzionamento e analizzare gli utenti che devono ancora eseguire la registrazione, i problemi comuni rilevati dagli utenti durante la reimpostazione e il ritorno sugli investimenti per la funzionalità.
 
 Usando i log di controllo del servizio di reimpostazione della password di Azure AD, è possibile eseguire queste operazioni e altro ancora dal portale di Azure, da PowerBI, dall'API di segnalazione di eventi di Azure AD o da PowerShell.  Per altre informazioni su come usare queste funzionalità di creazione di report, vedere:
@@ -495,7 +495,7 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
 * [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione

@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: d10ae92ba79014d9700613c06ef37a437089f5ac
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5e91f640ab72fd3a5fffcb0f9d7bac1e9e031249
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +36,7 @@ La figura illustra una VM con tre schede di interfaccia di rete, ciascuna connes
 * Attualmente, gli indirizzi IP pubblici a livello di istanza (LPIP) (distribuzioni classiche) non sono supportati per le macchine virtuali a più NIC.
 * L'ordine delle NIC all'interno della macchina virtuale sarà casuale e potrebbe cambiare con gli aggiornamenti dell'infrastruttura di Azure. Tuttavia, gli indirizzi IP e gli indirizzi MAC ethernet corrispondenti resteranno invariati. Si supponga, ad esempio, che **Eth1** abbia l'indirizzo IP 10.1.0.100 e l'indirizzo MAC 00-0D-3A-B0-39-0D; dopo un aggiornamento dell'infrastruttura di Azure e il riavvio, potrebbe essere modificato in **Eth2**, ma l'abbinamento di indirizzo IP e MAC resterà invariato. Quando un riavvio è eseguito dal cliente, l'ordine delle NIC rimane invariato.
 * L'indirizzo di ciascuna NIC su ciascuna macchina virtuale deve trovarsi in una subnet, a più NIC in una singola macchina virtuale possono essere assegnati indirizzi che si trovano nella stessa subnet.
-* Le dimensioni della macchina virtuale determinano il numero di NIC che è possibile creare per una macchina virtuale. Fare riferimento agli articoli sulle dimensioni delle VM in [Windows Server](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per determinare il numero di schede di interfacce di rete supportate da ciascuna dimensione di VM. 
+* Le dimensioni della macchina virtuale determinano il numero di NIC che è possibile creare per una macchina virtuale. Fare riferimento agli articoli sulle dimensioni delle VM in [Windows Server](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per determinare il numero di schede di interfacce di rete supportate da ciascuna dimensione di VM. 
 
 ## <a name="network-security-groups-nsgs"></a>Gruppi di sicurezza di rete (NGS)
 In una distribuzione di Gestione risorse, qualsiasi NIC in una macchina virtuale può essere associata a un Gruppo di sicurezza di rete, incluse eventuali NIC in una macchina virtuale che presenta la funzionalità Multi-NIC abilitata. Se a una NIC viene assegnato un indirizzo all'interno di una subnet dove la subnet è associata a un Gruppo di sicurezza di rete, le regole del Gruppo di sicurezza di rete della subnet si applicano anche a tale NIC. Oltre alle subnet, è possibile associare ai Gruppi di sicurezza di rete anche una NIC.
@@ -45,7 +46,7 @@ Se una subnet è associata a un Gruppo di sicurezza di rete e una NIC all'intern
 * **Il traffico in entrata** , la cui destinazione è la NIC in questione, passa innanzitutto attraverso la subnet, attivando le regole del Gruppo di sicurezza di rete della subnet, prima di passare nella NIC, attivando quindi le regole del Gruppo di sicurezza di rete della NIC.
 * **Il traffico in uscita** , la cui origine è la NIC in questione, fuoriesce innanzitutto dalla subnet, attivando le regole del Gruppo di sicurezza di rete della NIC, prima di passare attraverso la sunet, attivando quindi le regole del Gruppo di sicurezza di rete della subnet.
 
-Ulteriori informazioni su [Gruppi di sicurezza di rete](virtual-networks-nsg.md) e su come vengono applicati in base alle associazioni con le subnet, con le macchine virtuali e con le schede di rete..
+Ulteriori informazioni su [Gruppi di sicurezza di rete](virtual-networks-nsg.md) e su come vengono applicati in base alle associazioni con le subnet, con le macchine virtuali e con le schede di rete.
 
 ## <a name="how-to-configure-a-multi-nic-vm-in-a-classic-deployment"></a>Come configurare una macchina virtuale Multi-NIC in una distribuzione classica
 Le istruzioni seguenti consentono di creare una macchina virtuale Multi-NIC contenente 3 NIC: una NIC predefinita e due NIC aggiuntive. La procedura di configurazione consente di creare una macchina virtuale che verrà configurata in base al frammento del file di configurazione del servizio riportato di seguito:
@@ -227,10 +228,5 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 ## <a name="next-steps"></a>Passaggi successivi
 * Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione di Gestione risorse](virtual-network-deploy-multinic-arm-template.md).
 * Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione classica](virtual-network-deploy-multinic-classic-ps.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

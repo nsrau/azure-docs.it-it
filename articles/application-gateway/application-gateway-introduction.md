@@ -1,5 +1,5 @@
 ---
-title: Introduzione al servizio Gateway applicazione | Documentazione Microsoft
+title: Introduzione al gateway applicazione di Azure | Microsoft Docs
 description: "Questa pagina offre una panoramica del servizio gateway applicazione per il bilanciamento del carico di livello 7, incluse dimensioni del gateway, bilanciamento del carico HTTP, affinità di sessione basata su cookie e offload SSL."
 documentationcenter: na
 services: application-gateway
@@ -13,28 +13,38 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 15db7dad6b83f6df3891aea60b308f2cf6008dd9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: d23b400d8e6db66bc596731770a98e2833302543
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="overview-of-application-gateway"></a>Panoramica del gateway applicazione
 
-## <a name="what-is-application-gateway"></a>Che cos'è il gateway applicazione?
+Il gateway applicazione di Microsoft Azure è un'appliance virtuale dedicata che offre un servizio di controller per la distribuzione di applicazioni con varie funzionalità di bilanciamento del carico di livello 7 per l'applicazione. È costituito da più istanze del ruolo di lavoro che ne garantiscono la scalabilità e la disponibilità elevata. Consente ai clienti di ottimizzare la produttività delle Web farm eseguendo l'offload al gateway applicazione della terminazione SSL con utilizzo elevato di CPU. Offre anche altre funzionalità di routing di livello 7, tra cui la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione può essere configurato come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni. È completamente gestito in Azure e offre scalabilità e disponibilità elevata, oltre a un set completo di funzionalità di registrazione e diagnostica che ne migliorano la gestibilità. Quando si crea un gateway applicazione, un endpoint (indirizzo VIP o IP ILB interno) viene associato e usato per il traffico di rete in ingresso. L'indirizzo VIP o IP ILB viene fornito da Azure Load Balancer, che opera a livello di trasporto (TCP/UDP) e garantisce il bilanciamento del carico di tutto il traffico di rete in ingresso nelle istanze del ruolo di lavoro del gateway applicazione. Il gateway applicazione instrada quindi il traffico HTTP/HTTPS in base alla relativa configurazione, sia che si tratti di una macchina virtuale, di un servizio cloud o di un indirizzo IP interno o esterno.
 
-Il gateway applicazione di Microsoft Azure offre un servizio di controller per la distribuzione di applicazioni con numerose funzionalità di bilanciamento del carico di livello 7. Consente ai clienti di ottimizzare la produttività delle Web farm tramite l'offload della terminazione SSL con utilizzo elevato di CPU al gateway applicazione. Offre anche altre funzionalità di routing di livello 7, tra cui la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione è dotato anche di un Web application firewall (WAF) che protegge l'applicazione dalla maggior parte delle 10 vulnerabilità Web OWASP più diffuse. Il gateway applicazione può essere configurato come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni. È completamente gestito in Azure e offre scalabilità e disponibilità elevata, oltre a un set completo di funzionalità di registrazione e diagnostica che ne migliorano la gestibilità. Il gateway applicazione è compatibile con macchine virtuali, servizi cloud e applicazioni Web interne o con accesso all'esterno.
+Nello SKU WAF del gateway applicazione è incluso anche un Web application firewall (WAF) che offre alle applicazioni Web la protezione da exploit e vulnerabilità Web comuni. A questo scopo, il Web application firewall usa le regole di [OWASP Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9.
 
-Il gateway applicazione è un dispositivo virtuale dedicato per l'applicazione, costituito da più istanze del ruolo di lavoro che ne garantiscono la scalabilità e la disponibilità elevata. Quando si crea un gateway applicazione, un endpoint (indirizzo VIP o IP ILB interno) viene associato e usato per il traffico di rete in ingresso. L'indirizzo VIP o IP ILB viene fornito da Azure Load Balancer che opera a livello di trasporto (TCP/UDP) e garantisce il bilanciamento del carico di tutto il traffico di rete in ingresso nelle istanze del ruolo di lavoro del gateway applicazione. Il gateway applicazione instrada quindi il traffico HTTP/HTTPS in base alla relativa configurazione, sia che si tratti di una macchina virtuale, di un servizio cloud o di un indirizzo IP interno o esterno. Per il contratto di servizio e i prezzi, vedere le pagine [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/) e [Prezzi](https://azure.microsoft.com/pricing/details/application-gateway/).
+## <a name="differences-between-application-gateway-skus"></a>Differenze tra gli SKU del gateway applicazione
+
+Il gateway applicazione è disponibile in due SKU: uno SKU standard e uno SKU WAF (Web application firewall).
+
+### <a name="standard"></a>Standard
+
+Lo SKU standard offre terminazione SSL, affinità di sessione basata su cookie, distribuzione del carico round robin, routing basato sul contenuto, possibilità di ospitare più siti Web e miglioramenti della sicurezza. I miglioramenti della sicurezza offerti dal gateway applicazione includono la gestione dei criteri SSL, il supporto SSL end-to-end e la terminazione SSL.
+
+### <a name="web-application-firewall-waf"></a>WAF (Web application firewall)
+
+Lo SKU WAF offre tutte le funzionalità dello SKU standard con l'aggiunta del [Web application firewall](application-gateway-web-application-firewall-overview.md), che fornisce regole di rilevamento degli attacchi che garantiscono la protezione delle applicazioni Web da exploit e vulnerabilità Web comuni.
 
 ## <a name="features"></a>Funzionalità
 
 Il gateway applicazione attualmente supporta la distribuzione di applicazioni di livello 7 con le funzionalità seguenti.
 
-* **[Firewall applicazione Web (anteprima)](application-gateway-webapplicationfirewall-overview.md)**: il Web application firewall (WAF) nel gateway applicazione di Azure protegge le applicazioni Web dai comuni attacchi basati sul Web, come attacchi SQL injection, attacchi di scripting intersito e hijack delle sessioni.
+* **[Web application firewall](application-gateway-webapplicationfirewall-overview.md)**: il Web application firewall (WAF) del gateway applicazione di Azure protegge le applicazioni Web da attacchi basati sul Web comuni come SQL injection, cross-site scripting e hijack della sessione.
 * **Bilanciamento del carico HTTP** : il gateway applicazione fornisce il bilanciamento del carico round robin. Il bilanciamento del carico viene eseguito al livello 7 e viene usato solo per il traffico HTTP(S).
 * **Affinità di sessione basata su cookie**: questa funzionalità è utile quando si vuole mantenere una sessione utente nello stesso back-end. Usando i cookie gestiti del gateway, il gateway applicazione può indirizzare il traffico successivo proveniente da una sessione utente allo stesso back-end per l'elaborazione. Questa funzionalità è importante nei casi in cui lo stato della sessione viene salvato in locale sul server back-end per una sessione utente.
 * **[Offload SSL (Secure Sockets Layer)](application-gateway-ssl-arm.md)**: questa funzionalità consente di evitare costose attività di decrittografia del traffico HTTPS nei server Web. Terminando la connessione SSL in corrispondenza del gateway applicazione e inoltrando al server la richiesta non crittografata, il server Web non deve gestire la decrittografia.  Il gateway applicazione crittografa nuovamente la risposta prima di restituirla al client. Questa funzionalità è utile negli scenari in cui il back-end si trova nella stessa rete virtuale protetta del gateway applicazione in Azure.
@@ -49,8 +59,8 @@ Il gateway applicazione attualmente supporta la distribuzione di applicazioni di
 
 Il gateway applicazione è utile per:
 
-* Applicazioni che necessitano delle richieste provenienti dalla stessa sessione utente/client per raggiungere la stessa macchina virtuale back-end, ad esempio app carrello acquisti e server di posta Web.
-* Applicazioni che hanno la funzione di liberare le server farm Web dal sovraccarico della terminazione SSL.
+* Applicazioni che necessitano delle richieste provenienti dalla stessa sessione utente/client per raggiungere la stessa macchina virtuale back-end, ad esempio applicazioni carrello acquisti e server di posta Web.
+* Rimozione del sovraccarico della terminazione SSL per le server farm Web.
 * Applicazioni, come la rete per la distribuzione di contenuti, per cui è necessario che più richieste HTTP nella stessa connessione TCP con esecuzione prolungata vengano instradate/bilanciate in server back-end diversi.
 * Applicazioni che supportano il traffico WebSocket
 * Protezione delle applicazioni Web dai comuni attacchi basati sul Web, come attacchi SQL injection, attacchi di scripting intersito e hijack delle sessioni.
@@ -64,8 +74,6 @@ Il bilanciamento del carico del gateway applicazione come servizio gestito da Az
 ## <a name="gateway-sizes-and-instances"></a>Istanze e dimensioni del gateway
 
 Il servizio Gateway applicazione è attualmente disponibile in tre dimensioni: **Small**, **Medium** e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
-
-Sono attualmente disponibili due SKU: **WAF** e **Standard**.
 
 È possibile creare fino a 50 gateway applicazione per sottoscrizione e ogni gateway applicazione può includere fino a 10 istanze. Ogni gateway applicazione può essere costituito da 20 listener HTTP. Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -85,9 +93,13 @@ Il gateway applicazione di Azure monitora automaticamente l'integrità delle ist
 
 ## <a name="configuring-and-managing"></a>Configurazione e gestione
 
-Quando viene configurato, il gateway applicazione può usare per l'endpoint un IP pubblico, un IP privato o entrambi. Il gateway applicazione viene configurato in una propria subnet all'interno di una rete virtuale. La subnet creata o usata per il gateway applicazione non può contenere altri tipi di risorse. Le uniche risorse consentite nella subnet sono altri gateway applicazione. Per proteggere le risorse di back-end, i server back-end possono essere contenuti in una subnet diversa nella stessa rete virtuale del gateway applicazione. Questa subnet aggiuntiva non è necessario per le applicazioni back-end, purché il gateway applicazione sia in grado di raggiungere l'indirizzo ip e di fornire funzionalità ADC ai server back-end.
+Quando viene configurato, il gateway applicazione può usare per l'endpoint un IP pubblico, un IP privato o entrambi. Il gateway applicazione viene configurato in una propria subnet all'interno di una rete virtuale. La subnet creata o usata per il gateway applicazione non può contenere altri tipi di risorse. Le uniche risorse consentite nella subnet sono altri gateway applicazione. Per proteggere le risorse di back-end, i server back-end possono essere contenuti in una subnet diversa nella stessa rete virtuale del gateway applicazione. Questa subnet aggiuntiva non è necessario per le applicazioni back-end, purché il gateway applicazione sia in grado di raggiungere l'indirizzo ip e di fornire funzionalità ADC ai server back-end. 
 
-È possibile creare e gestire un gateway applicazione usando API REST, cmdlet di PowerShell, l'interfaccia della riga di comando di Azure o il [portale di Azure](https://portal.azure.com/).
+È possibile creare e gestire un gateway applicazione usando API REST, cmdlet di PowerShell, l'interfaccia della riga di comando di Azure o il [portale di Azure](https://portal.azure.com/). Per altre domande sul gateway applicazione, vedere l'elenco contenuto in [Domande frequenti sul gateway applicazione](application-gateway-faq.md).
+
+## <a name="pricing"></a>Prezzi
+
+I prezzi sono basati su una tariffa oraria per istanza del gateway e una tariffa di elaborazione dei dati. I prezzi orari del gateway per lo SKU WAF sono diversi dalle tariffe dello SKU standard e sono indicati nella pagina relativa ai [dettagli sui prezzi del gateway applicazione](https://azure.microsoft.com/pricing/details/application-gateway/). Le tariffe di elaborazione dei dati rimangono invariate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6cb781b9bc0cfe672e2734661be958d4794e08d8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 713e4a29550f37b03af3547bead42146a84a417f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -41,7 +41,7 @@ Azure attualmente offre due opzioni per l'hosting dei carichi di lavoro su SQL S
 La connessione al database SQL di Azure è del tutto analoga e attualmente sono disponibili due modi per connettersi ai database: ODBC (Open Database Connectivity) e OLE DB (Object Linking and Embedding Database). Negli ultimi anni Microsoft si è allineata a [ODBC per l'accesso ai dati relazionali nativi](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC è relativamente semplice e molto più veloce rispetto a OLE DB. Si tenga tuttavia presente che ODBC usa una vecchia API di tipo C. 
 
 ## <a id="Create"></a>Passaggio 1: Creazione di un database SQL di Azure
-Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database di esempio.  In alternativa, è possibile guardare questo [breve video di due minuti](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) per creare un database SQL di Azure mediante il portale di Azure.
+Vedere la [pagina introduttiva](sql-database-get-started-portal.md) per informazioni su come creare un database di esempio.  In alternativa, è possibile guardare questo [breve video di due minuti](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) per creare un database SQL di Azure mediante il portale di Azure.
 
 ## <a id="ConnectionString"></a>Passaggio 2: Ottenere la stringa di connessione
 Dopo aver eseguito il provisioning del database SQLdi Azure, è necessario eseguire la procedura seguente per determinare le informazioni di connessione e aggiungere l'IP client per l'accesso al firewall. 
@@ -79,7 +79,7 @@ In alternativa, è possibile creare un file DSN mediante la procedura guidata av
 Congratulazioni. È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux. 
 
 ## <a id="Linux"></a>Passaggio 5: Connessione da un'applicazione C/C++ per Linux
-Visual Studio ora consente di sviluppare anche applicazioni C++ per Linux. Per informazioni su questo nuovo scenario, vedere il blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) (Visual C++ per sviluppo di applicazioni Linux). Per la compilazione per Linux è necessario un computer remoto in cui è in esecuzione la distribuzione Linux. Se non si ha disponibile un computer remoto con Linux, è possibile configurarlo rapidamente seguendo i passaggi presenti nell'articolo [Linux Azure Virtual machines](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Macchine virtuali di Linux in Azure). 
+Visual Studio ora consente di sviluppare anche applicazioni C++ per Linux. Per informazioni su questo nuovo scenario, vedere il blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) (Visual C++ per sviluppo di applicazioni Linux). Per la compilazione per Linux è necessario un computer remoto in cui è in esecuzione la distribuzione Linux. Se non si ha disponibile un computer remoto con Linux, è possibile configurarlo rapidamente seguendo i passaggi presenti nell'articolo [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Macchine virtuali di Linux in Azure). 
 
 Per questa esercitazione, si supponga di avere configurata una distribuzione di Linux Ubuntu 16.04. I passaggi qui di seguito si applicano anche a Ubuntu 15.10, Red Hat 6 e Red Hat 7. 
 

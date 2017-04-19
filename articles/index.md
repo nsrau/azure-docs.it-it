@@ -1,16 +1,17 @@
----
+--- 
 layout: HubPage
 hide_bc: true
-title: Documentazione di Microsoft Azure | Documentazione Microsoft
+title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 24a921e6ccb73d3092e774243d51085f2d7835b9
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 11c880885b501f402413dec9175c8b2659f65bf3
+ms.lasthandoff: 04/18/2017
 
 ---
 <div id="main" class="v2">
     <div class="container">
+        <h1 class="screenReader">Documentazione di Microsoft Azure</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="http://aka.ms/azuredevgetstarted/">
@@ -23,7 +24,7 @@ ms.lasthandoff: 03/31/2017
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Guida introduttiva per gli sviluppatori di Azure</h3>
+                                    <span class="likeAnH3">Guida introduttiva per gli sviluppatori di Azure</span>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +42,7 @@ ms.lasthandoff: 03/31/2017
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Guida introduttiva per gli operatori IT di Azure</h3>
+                                    <span class="likeAnH3">Guida introduttiva per gli operatori IT di Azure</span>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +60,7 @@ ms.lasthandoff: 03/31/2017
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Training video gratuito PluralSight per Azure</h3>
+                                    <span class="likeAnH3">Video di formazione gratuiti su PluralSight per Azure</span>
                                 </div>
                             </div>
                         </div>
@@ -548,19 +549,19 @@ ms.lasthandoff: 03/31/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-web">
+                                            <a href="/azure/app-service-web/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
                                                 <p>App Web</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-mobile">
+                                            <a href="/azure/app-service-mobile/">
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
                                                 <p>App per dispositivi mobili</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-api">
+                                            <a href="/azure/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
                                                 <p>App per le API</p>
                                             </a>
@@ -667,7 +668,113 @@ ms.lasthandoff: 03/31/2017
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Calcolo</a>
+                        <a data-default="true" href="#get-started">Introduzione</a>
+                        <ul id="get-started" class="cardsL">
+                            <li>
+                                <div class="container intro">
+                                    <h2 class="likeAnH1">Introduzione ad Azure</h2>
+                                    <p>È possibile esplorare i servizi più diffusi con guide rapide, esempi ed esercitazioni.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Distribuire l'infrastruttura</h3>
+                                                <a class="barLink" href="/azure/virtual-machines/linux/">Macchine virtuali Linux</a>
+                                                <a class="barLink" href="/azure/virtual-machines/windows/">Macchine virtuali Windows</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Sviluppo di applicazioni</h3>
+                                                <div class="ico48Link">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
+                                                        <img src="media/index/logo_NET.svg" alt="">
+                                                        <span>.NET</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
+                                                        <img src="media/index/logo_nodejs.svg" alt="">
+                                                        <span>Node.js</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-php">
+                                                        <img src="media/index/logo_PHP.svg" alt="">
+                                                        <span>PHP</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-java">
+                                                        <img src="media/index/logo_java.svg" alt="">
+                                                        <span>Java</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-python">
+                                                        <img src="media/index/logo_python.svg" alt="">
+                                                        <span>Python</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Gestire i dati</h3>
+                                                <a class="barLink" href="/azure/sql-database/">Database SQL distribuito come servizio</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Strumenti da riga di comando</h3>
+                                                <div class="ico48Link">
+                                                    <a href="/cli/azure/overview">
+                                                        <img src="media/index/azure_dev-7.svg" alt="">
+                                                        <span>Interfaccia della riga<br />di comando di Azure</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/powershell/azure/overview">
+                                                        <img src="media/index/azure_dev-8.svg" alt="">
+                                                        <span>Azure<br />PowerShell</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li></li>
+                            <li class="bottomRightItem">
+                              <a href="https://aka.ms/j3wr7y">
+                                <button style="cursor: pointer;position: relative; background: #3498db; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">Visualizzare tutti i servizi di Azure<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
+                              </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Compute">Calcolo</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -2446,7 +2553,7 @@ ms.lasthandoff: 03/31/2017
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h1>Linguaggi &amp; Framework</h1>
+                                    <h2>Linguaggi &amp; Framework</h2>
                                 </div>
                             </li>
                             <li>
@@ -2460,13 +2567,13 @@ ms.lasthandoff: 03/31/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/api">Ottenere .NET SDK</a>
+                                                    <a href="/azure/dotnet/ ">Ottenere .NET SDK</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/app-service-web/app-service-web-get-started-dotnet">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/api">Informazioni di riferimento sulle API</a>
+                                                    <a href="/dotnet/api/?term=Microsoft.Azure">Informazioni di riferimento sulle API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Ottenere gli esempi</a>
@@ -2553,7 +2660,7 @@ ms.lasthandoff: 03/31/2017
                                                     <a href="https://github.com/Azure/azure-sdk-for-java#download">Ottenere Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/java/api/">Introduzione</a>
+                                                    <a href="/java/api/">Introduzione</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">Informazioni di riferimento sulle API</a>
@@ -2610,7 +2717,7 @@ ms.lasthandoff: 03/31/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://docs.microsoft.com/rest/api/">Introduzione a REST</a>
+                                                    <a href="/rest/api/">Introduzione a REST</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/rest/api">Informazioni di riferimento</a>
@@ -2625,7 +2732,7 @@ ms.lasthandoff: 03/31/2017
                             </li>
                             <li>
                                 <div class="container">
-                                    <h1>Interfaccia della riga di comando</h1>
+                                    <h2>Interfaccia della riga di comando</h2>
                                 </div>
                             </li>
                             <li>
@@ -2665,13 +2772,13 @@ ms.lasthandoff: 03/31/2017
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="/azure/powershell-install-configure">Introduzione</a>
+                                                    <a href="/powershell/azure/get-started-azureps">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Scaricare PowerShell</a>
+                                                    <a href="/powershell/azure/install-azurerm-ps">Scaricare PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/">Informazioni di riferimento</a>
+                                                    <a href="/powershell/azure/overview">Informazioni di riferimento</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2702,7 +2809,7 @@ ms.lasthandoff: 03/31/2017
                                                     <a href="http://aka.ms/webpi-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">Informazioni di riferimento</a>
+                                                    <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Informazioni di riferimento</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2711,7 +2818,7 @@ ms.lasthandoff: 03/31/2017
                             </li>
                             <li>
                                 <div class="container">
-                                    <h1>Strumenti ed estensioni</h1>
+                                    <h2>Strumenti ed estensioni</h2>
                                 </div>
                             </li>
                             <li>
@@ -2797,10 +2904,10 @@ ms.lasthandoff: 03/31/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com/">Storage Explorer</a>
+                                                    <a href="http://storageexplorer.com">Storage Explorer</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Introduzione</a>
+                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Introduzione</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download per Linux</a>
@@ -2856,7 +2963,7 @@ ms.lasthandoff: 03/31/2017
                                 </div>
                             </li>
                             <li>
-                                <a href="http://aka.ms/cloud-fundamentals">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2875,7 +2982,7 @@ ms.lasthandoff: 03/31/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/architecture">
+                                <a href="/azure/architecture/reference-architectures/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2894,7 +3001,7 @@ ms.lasthandoff: 03/31/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/cloud-design-patterns">
+                                <a href="/azure/architecture/patterns/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2913,7 +3020,7 @@ ms.lasthandoff: 03/31/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/practices">
+                                <a href="/azure/architecture/best-practices/api-design">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2931,8 +3038,8 @@ ms.lasthandoff: 03/31/2017
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="http://aka.ms/cloud-scenarios">
+<!--                            <li>
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2942,19 +3049,19 @@ ms.lasthandoff: 03/31/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Guide relative agli scenari</h3>
-                                                    <p>Informazioni aggiuntive sui diversi scenari di applicazione end-to-end nel cloud. Include informazioni aggiuntive scritte e implementazioni di riferimento.</p>
+                                                    <h3>Scenario Guides</h3>
+                                                    <p>Guidance for various end-to-end application scenarios in the cloud. Includes
+                                                        written guidance and reference implementations.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-                        </ul>
+-->                        </ul>
                     </li>
                 </ul>
             </li>
         </ul>
     </div>
 </div>
-

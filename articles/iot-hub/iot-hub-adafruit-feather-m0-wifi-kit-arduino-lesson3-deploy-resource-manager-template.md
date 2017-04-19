@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: archiviazione di dati nel cloud, dati archiviati nel cloud, servizio cloud iot
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 9c8f4cd1-9511-4601-ad7e-51761a986753
 ms.service: iot-hub
 ms.devlang: arduino

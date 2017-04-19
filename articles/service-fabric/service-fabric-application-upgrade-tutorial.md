@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9fc53417c40225c87d3849cbe51712849e5cc93a
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/03/2017
 Azure Service Fabric semplifica il processo di aggiornamento delle applicazioni cloud garantendo che solo i servizi modificati vengano aggiornati e che l'integrità delle applicazioni venga monitorata durante l'intero processo di aggiornamento. Se rileva un problema, esegue automaticamente il rollback dell'applicazione alla versione precedente. Gli aggiornamenti delle applicazioni di Service Fabric, inoltre, sono *privi di tempi di inattività*. Questa esercitazione illustra come completare un aggiornamento in sequenza da Visual Studio.
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Passaggio 1: creare e pubblicare l'applicazione Oggetti visivi di esempio
-Innanzitutto scaricare l'applicazione [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) da GitHub. Quindi compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjects**, e selezionando il comando **Pubblica** dalla voce di menu Service Fabric.
+Innanzitutto scaricare l'applicazione [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) da GitHub. Quindi compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjects**, e selezionando il comando **Pubblica** dalla voce di menu Service Fabric.
 
 ![Menu di scelta rapida per un'applicazione di Service Fabric][image1]
 

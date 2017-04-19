@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a06d97216373ddc6a35160e6226b8eee8df52d27
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4ad60c18d451ee5f92eafaf5ca81176698496dd2
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -156,7 +156,7 @@ Aprire il pannello Esportazione continua e modificare l'esportazione. Modificare
 L'esportazione continua verrà riavviata.
 
 ## <a name="export-samples"></a>Esempi di esportazione
-* [Esportare in SQL usando un ruolo di lavoro][exportcode]
+
 * [Eseguire l'esportazione in SQL usando l'analisi di flusso][exportasa]
 * [Esempio di analisi di flusso 2](app-insights-export-stream-analytics.md)
 
@@ -190,14 +190,13 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
     Sì. Fare clic su Disabilita.
 
 ## <a name="code-samples"></a>Esempi di codice
-* [Analizzare un documento JSON esportato con un ruolo di lavoro][exportcode]
+
 * [Esempio di analisi di flusso](app-insights-export-stream-analytics.md)
 * [Eseguire l'esportazione in SQL usando l'analisi di flusso][exportasa]
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 

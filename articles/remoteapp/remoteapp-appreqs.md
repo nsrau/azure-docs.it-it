@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 74bba898d2a4f5e35b2312dd28cb515a2e159df2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a9a305e4c07e2c348b1c1503d53f1da05da57966
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="app-requirements"></a>Requisiti delle app
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -59,10 +60,5 @@ Usare le linee guida seguenti per lo sviluppo di applicazioni per RemoteApp.
 * Per ottimizzare la disponibilità della CPU per tutti gli utenti, disabilitare le [attività in background ](https://msdn.microsoft.com/library/aa380665.aspx) o creare attività in background efficienti che non richiedano molte risorse.
 * È consigliabile ottimizzare e bilanciare l' [utilizzo del thread](https://msdn.microsoft.com/library/aa383520.aspx) dell'applicazione per un ambiente multiutente e multiprocessore.
 * Per ottimizzare le prestazioni, è consigliabile che le applicazioni [rilevino](https://msdn.microsoft.com/library/aa380798.aspx) se sono in esecuzione in una sessione client.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

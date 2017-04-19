@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 593718b0d0d99f813321cb9ad6a7241e2315f6d0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 41c8a13ebd008ed4f9d8a5399bf8e272bf0fd7b2
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="update-a-collection-in-azure-remoteapp"></a>Aggiornare una raccolta in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -41,10 +42,5 @@ Quindi, come si esegue l'aggiornamento della raccolta? È piuttosto semplice:
    * **Concedere agli utenti 60 minuti dopo l'aggiornamento**. Non appena completato l'aggiornamento, in Azure RemoteApp viene visualizzato un messaggio con cui viene richiesto a tutti gli utenti attivi di salvare il lavoro, disconnettersi e accedere di nuovo. Dopo 60 minuti, tutti gli utenti attivi che non si sono disconnessi vengono disconnessi automaticamente. Gli utenti possono accedere di nuovo immediatamente.
    * **Disconnettere gli utenti immediatamente**. Non appena completato l'aggiornamento, disconnettere tutti gli utenti automaticamente senza alcun avviso. Se si sceglie questa opzione, gli utenti potrebbero perdere i dati. Tuttavia, possano riconnettersi all'app immediatamente.
 6. Fare clic sul segno di spunta per avviare l'aggiornamento.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

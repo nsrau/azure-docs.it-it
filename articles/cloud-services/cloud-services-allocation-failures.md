@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 4/6/2017
 ms.author: v-six
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c91a34eb34a73abe5c5ac2bb6aeb08c818a97856
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -71,9 +72,4 @@ Ecco gli scenari di allocazione comuni che causano una richiesta di allocazione 
    * Seguire #2 dall'alto, assicurandosi di specificare il nuovo ReservedIP nel CSCFG del servizio.
 4. Rimuovere il gruppo di affinità per le nuove distribuzioni: i gruppi di affinità non sono più consigliati. Attenersi alla procedura #1 indicata in precedenza per distribuire un nuovo servizio cloud. Assicurarsi che il servizio cloud non sia in un gruppo di affinità.
 5. Eseguire la conversione a una rete virtuale regionale: vedere [Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

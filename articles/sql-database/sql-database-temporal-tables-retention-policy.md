@@ -16,9 +16,9 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: dd09cf5f9ad4bc82d9685b656eb40d31ac13fbd2
-ms.openlocfilehash: a0f5ef966bf4de86d337a561a4b9e2ded8b55488
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8687603e7dbb91d60520be8952a78128595d9f46
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -170,7 +170,7 @@ Tuttavia, se si esegue una query direttamente in una tabella di cronologia, è p
 Non affidare la logica di business alla lettura della tabella di cronologia oltre il periodo di conservazione, perché si potrebbero ottenere risultati incoerenti o imprevisti. È consigliabile usare query temporali con la clausola FOR SYSTEM_TIME per l'analisi dei dati nelle tabelle temporali.
 
 ## <a name="point-in-time-restore-considerations"></a>Considerazioni sul ripristino temporizzato
-Quando si crea un nuovo database attraverso il [ripristino di un database esistente in un punto specifico nel tempo](sql-database-point-in-time-restore-portal.md), la conservazione temporale è disabilitata a livello di database. (Il flag **is_temporal_history_retention_enabled** è impostato su OFF). Questa funzionalità consente di esaminare tutte le righe di cronologia al momento del ripristino, senza doversi preoccupare che le righe obsolete vengano rimosse prima di procedere con l'esecuzione di query. È possibile usarla per *esaminare i dati cronologici oltre il periodo di conservazione configurato*.
+Quando si crea un nuovo database attraverso il [ripristino di un database esistente in un punto specifico nel tempo](sql-database-recovery-using-backups.md), la conservazione temporale è disabilitata a livello di database. (Il flag **is_temporal_history_retention_enabled** è impostato su OFF). Questa funzionalità consente di esaminare tutte le righe di cronologia al momento del ripristino, senza doversi preoccupare che le righe obsolete vengano rimosse prima di procedere con l'esecuzione di query. È possibile usarla per *esaminare i dati cronologici oltre il periodo di conservazione configurato*.
 
 Si supponga che per una tabella temporale sia specificato il periodo di conservazione MONTH. Se il database è stato creato al livello di servizio Premium, è possibile creare una copia del database con lo stato del database risalendo fino a 35 giorni prima. Una tale efficacia consentirebbe di analizzare le righe cronologiche risalenti anche a 65 giorni prima eseguendo una query direttamente nella tabella di cronologia.
 

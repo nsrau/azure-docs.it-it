@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 04/06/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -241,7 +241,10 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
     I due termini vengono usati in modo intercambiabile.
 * *È possibile usare test di disponibilità nel server interno protetto da un firewall?*
 
-    Configurare il firewall per consentire richieste dagli [indirizzi IP degli agenti di test Web](app-insights-ip-addresses.md).
+    Le soluzioni possono essere due:
+    
+    * Configurare il firewall per consentire richieste in ingresso dagli [indirizzi IP degli agenti di test Web](app-insights-ip-addresses.md).
+    * Scrivere il proprio codice per testare periodicamente il server interno. Eseguire il codice come processo in background in un server di prova protetto da firewall. Il processo di test può inviare i risultati ad Application Insights tramite l'API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) nel pacchetto SDK di base. In questo modo è necessario testare il server per avere un accesso in uscita per l'endpoint di inserimento di Application Insights, ma questo rappresenta un minore rischio per la sicurezza rispetto all'alternativa di consentire le richieste in ingresso. I risultati non verranno visualizzati in pannelli di test Web della disponibilità, ma verranno visualizzati come risultati relativi alla disponibilità Analisi, Ricerca ed Esplorazione metriche.
 * *Non è possibile caricare un test Web in più passi*
 
     È previsto un limite di dimensioni pari a 300 KB.
@@ -260,10 +263,6 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
     Questa funzionalità non è supportata.
 
-## <a name="video"></a>Video
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
->
->
 
 ## <a name="next"></a>Passaggi successivi
 [Ricerca nei registri di diagnostica][diagnostic]

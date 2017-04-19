@@ -13,7 +13,7 @@ ACU: 180 - 240
 
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_GS1 |2 |28 |56 |4 |10.000/100 (264) |5.000/125 |1/alta |
+| Standard_GS1 |2 |28 |56 |4 |10.000/100 (264) |5.000/125 |2/alta |
 | Standard_GS2 |4 |56 |112 |8 |20.000/200 (528) |10.000/250 |2/alta |
 | Standard_GS3 |8 |112 |224 |16 |40.000/400 (1.056) |20.000/500 |4/molto alta |
 | Standard_GS4 |16 |224 |448 |32 |80.000/800 (2,112) |40.000/1.000 |8/estremamente alta |
@@ -32,7 +32,7 @@ ACU: 180 - 240
 
 | Dimensione         | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Velocità effettiva massima del disco locale: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Larghezza di banda della rete/scheda NIC max |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4/4 x 500                       | 1/alta                     |
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4/4 x 500                       | 2/alta                     |
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 8/8 x 500                       | 2/alta                     |
 | Standard_G3  | 8         | 112         | 1.536          | 24000 / 375 / 187                                        | 16/16 x 500                     | 4/molto alta                |
 | Standard_G4  | 16        | 224         | 3.072          | 48000 / 750 / 375                                        | 32/32 x 500                     | 8/estremamente alta           |

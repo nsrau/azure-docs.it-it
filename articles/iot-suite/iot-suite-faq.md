@@ -34,7 +34,7 @@ Il codice sorgente è memorizzato nei repository di GitHub seguenti:
 * Se la soluzione preconfigurata viene distribuita tramite la riga di comando, è possibile aggiornare una distribuzione esistente con il nuovo codice. Vedere [Distribuzione cloud][lnk-cloud-deployment] nel [repository][lnk-remote-monitoring-github] GitHub.
 
 ### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Come aggiungere il supporto per un nuovo metodo del dispositivo alla soluzione preconfigurata di monitoraggio remoto?
-Vedere la sezione [Aggiungere il supporto per un nuovo metodo al simulatore] [ lnk-add-method] nell'articolo [Personalizzare una soluzione preconfigurata][lnk-customize].
+Vedere la sezione [Aggiungere il supporto per un nuovo metodo al simulatore][lnk-add-method] nell'articolo [Personalizzare una soluzione preconfigurata][lnk-customize].
 
 ### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>Perché il dispositivo simulato ignora le modifiche alle proprietà desiderate?
 Nella soluzione preconfigurata per il monitoraggio remoto, il codice del dispositivo simulato usa le proprietà desiderate **Desired.Config.TemperatureMeanValue** e **Desired.Config.TelemetryInterval** per aggiornare le proprietà segnalate. Tutte le altre richieste di modifica delle proprietà desiderate vengono ignorate.

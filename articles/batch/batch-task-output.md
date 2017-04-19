@@ -182,7 +182,7 @@ Il frammento di codice seguente esegue l'iterazione in tutte le attività del pr
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
 {
-    foreach (TaskOutputStorage output in
+    foreach (OutputFileReference output in
         task.OutputStorage(storageAccount).ListOutputs(
             TaskOutputKind.TaskOutput))
     {

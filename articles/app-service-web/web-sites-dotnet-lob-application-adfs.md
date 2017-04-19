@@ -15,9 +15,9 @@ ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 29b7146837f8a88baebd67fc448954f01388d67b
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -87,14 +87,17 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet](
 4. In App_Start\Startup.Auth.cs modificare le definizioni delle stringhe statiche seguenti:  
    
    <pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"]; <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+   private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+   <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
    
    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
    </pre>
-5. Ora apportare le modifiche corrispondenti nel file Web.config. Aprire Web.config e modificare le impostazioni dell'app seguenti:  <pre class="prettyprint">
+5. Ora apportare le modifiche corrispondenti nel file Web.config. Aprire Web.config e modificare le impostazioni dell'app seguenti:  
+   
+   <pre class="prettyprint">
    &lt;appSettings&gt;
    &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
    &lt;add key="webpages:Enabled" value="false" /&gt;
@@ -208,7 +211,16 @@ Prima di poter usare l'applicazione di esempio e autenticarla effettivamente con
     
     <pre class="prettyprint">
     c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"] => add( store = "_OpaqueIdStore", types = ("<mark>http://contoso.com/internal/sessionid</mark>"), query = "{0};{1};{2};{3};{4}", param = "useEntropy", param = c1.Value, param = c1.OriginalIssuer, param = "", param = c2.Value);
+    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+     => add(
+         store = "_OpaqueIdStore",
+         types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+         query = "{0};{1};{2};{3};{4}",
+         param = "useEntropy",
+         param = c1.Value,
+         param = c1.OriginalIssuer,
+         param = "",
+         param = c2.Value);
     </pre>
     
     La regola personalizzata sarà simile allo screenshot seguente:
@@ -243,7 +255,7 @@ Dopo il caricamento dell'applicazione Web, fare clic su **Accedi**. Dovrebbe ora
 
 ![](./media/web-sites-dotnet-lob-application-adfs/9-test-debugging.png)
 
-Dopo l'accesso come utente nel dominio AD della distribuzione di AD FS, verrà ora nuovamente visualizzata la home page con **Hello, <User Name>!**.  nell'angolo. Questo è quanto viene visualizzato nell'ambiente di questo esempio.
+Dopo l'accesso come utente nel dominio AD della distribuzione di AD FS, verrà ora nuovamente visualizzata la home page con **Hello, <User Name>!**. nell'angolo. Questo è quanto viene visualizzato nell'ambiente di questo esempio.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)
 
@@ -267,7 +279,9 @@ Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ru
    
     <pre class="prettyprint">
     <mark>[Authorize(Roles="Test Group")]</mark>
-    public ActionResult About() { ViewBag.Message = "Your application description page.";
+    public ActionResult About()
+    {
+        ViewBag.Message = "Your application description page.";
    
         return View();
     }
@@ -288,7 +302,11 @@ Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ru
    
     <pre class="prettyprint">
     Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
-   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)  </pre>
+       at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+       at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+    </pre>
    
     Il motivo di questo errore è che, per impostazione predefinita, MVC restituisce un codice 401 Unauthorized quando i ruoli di un utente non sono autorizzati. Questo attiva una richiesta di ri-autenticazione al provider di identità (ovvero ADFS). Poiché l'utente è già autenticato, ADFS torna alla stessa pagina, che a sua volta invia un nuovo codice 401, creando un ciclo di reindirizzamento. Verrà eseguito l'override del metodo `HandleUnauthorizedRequest` di AuthorizeAttribute con una logica semplice per visualizzare qualcosa di sensato anziché continuare il ciclo di reindirizzamento.
 5. Creare un file denominato AuthorizeAttribute.cs nel progetto e incollare il codice seguente nel file.

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -227,7 +227,7 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
    ![][19]
 8. Fare clic su **OK**.
-9. A questo punto è necessario configurare le risorse di Azure per una nuova app Web. Seguire tutti i passaggi in [Creare un'applicazione Web](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) e [Creare le risorse di Azure](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Tornare quindi a questa esercitazione e procedere al passaggio successivo.
+9. A questo punto è necessario configurare le risorse di Azure per una nuova app Web. Seguire tutti i passaggi in [Creare un'applicazione Web](../app-service-web/app-service-web-get-started-dotnet.md) e [Creare le risorse di Azure](../app-service-web/app-service-web-get-started-dotnet.md). Tornare quindi a questa esercitazione e procedere al passaggio successivo.
 10. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Modelli**, scegliere **Aggiungi** e infine fare clic su **Classe**. Nella casella **Nome** digitare il nome **Product.cs**. Fare quindi clic su **Aggiungi**.
 
     ![][17]
@@ -395,7 +395,7 @@ Fare clic su **Aggiorna** nella pagina **ProductsPortal**. Ogni volta che si agg
 Chiudere entrambe le applicazioni prima di procedere al passaggio successivo.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Distribuire il progetto ProductsPortal in un'app Web di Azure
-Nel passaggio successivo si convertirà il front-end **ProductsPortal** in un'app Web di Azure. Distribuire prima di tutto il progetto **ProductsPortal** seguendo tutti i passaggi nella sezione [Distribuire il progetto Web in Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). Una volta completata la distribuzione, tornare a questa esercitazione e procedere al passaggio successivo.
+Nel passaggio successivo si convertirà il front-end **ProductsPortal** in un'app Web di Azure. Distribuire prima di tutto il progetto **ProductsPortal** seguendo tutti i passaggi nella sezione [Distribuire il progetto Web in Azure](../app-service-web/app-service-web-get-started-dotnet.md). Una volta completata la distribuzione, tornare a questa esercitazione e procedere al passaggio successivo.
 
 > [!NOTE]
 > È possibile che nella finestra del browser venga visualizzato un messaggio di errore quando il progetto Web **ProductsPortal** viene avviato automaticamente dopo la distribuzione. Si tratta di un comportamento previsto che si verifica perché l'applicazione **ProductsServer** non è ancora in esecuzione.

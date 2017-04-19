@@ -17,7 +17,7 @@
     ```
 2. Aggiungere il valore `constants` di inoltro seguente al file `sender.js` per i dettagli della connessione ibrida. Sostituire i segnaposto tra parentesi con i valori specifici ottenuti durante la creazione della connessione ibrida.
    
-   1. `const ns`: spazio dei nomi di inoltro
+   1. `const ns`: spazio dei nomi di inoltro (usare FQDN, ad esempio `{namespace}.servicebus.windows.net`)
    2. `const path`: nome della connessione ibrida
    3. `const keyrule`: nome della chiave di firma di accesso condiviso
    4. `const key`: valore della chiave di firma di accesso condiviso
@@ -71,9 +71,4 @@
         }
     );
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -113,7 +113,7 @@ $resultDatabase
 
 ## <a name="check-database-state"></a>Controllare lo stato del database
 
-Come illustrato negli esempi precedenti, è possibile usare il cmdlet [Get-AzureRmSqlDatabase] [ Get-AzureRmSqlDatabase] per ottenere informazioni su un database, controllando quindi lo stato, oppure usarlo come argomento. 
+Come illustrato negli esempi precedenti, è possibile usare il cmdlet [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] per ottenere informazioni su un database, controllando quindi lo stato, oppure usarlo come argomento. 
 
 ```powershell
 Get-AzureRmSqlDatabase [-ResourceGroupName] <String> [-ServerName] <String> [[-DatabaseName] <String>]

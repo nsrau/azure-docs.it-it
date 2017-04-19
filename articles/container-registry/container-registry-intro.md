@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introduzione ai registri per contenitori Docker privati
@@ -48,9 +48,7 @@ Gli sviluppatori possono anche effettuare il push in un registro contenitori nel
 
 
 ## <a name="key-concepts"></a>Concetti chiave
-* **Registro**. Creare uno o più registri contenitori nella sottoscrizione di Azure. Ogni registro è supportato da un [account di archiviazione](../storage/storage-introduction.md) di Azure standard nella stessa località. Sfruttare l'archiviazione locale con prossimità di rete delle immagini contenitore creando un registro nella stessa località di Azure delle distribuzioni.
-
-  Ai registri viene assegnato un nome in un dominio radice in base al [tenant Azure Active Directory](../active-directory/active-directory-howto-tenant.md) della sottoscrizione. In caso di account aziendale nel dominio Contoso, ad esempio, il nome completo del registro avrà il formato `myregistry-contoso.azurecr.io`.
+* **Registro**. Creare uno o più registri contenitori nella sottoscrizione di Azure. Ogni registro è supportato da un [account di archiviazione](../storage/storage-introduction.md) di Azure standard nella stessa località. Sfruttare l'archiviazione locale con prossimità di rete delle immagini contenitore creando un registro nella stessa località di Azure delle distribuzioni. Il nome completo di un registro ha il formato `myregistry.azurecr.io`.
 
   Per [controllare l'accesso](container-registry-authentication.md) a un registro contenitori si usa un'[entità servizio](../active-directory/active-directory-application-objects.md) supportata da Azure Active Directory o un account amministratore specificato. Per l'autenticazione al registro, eseguire il comando `docker login` standard.
 

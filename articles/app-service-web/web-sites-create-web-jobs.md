@@ -3,7 +3,7 @@ title: "Eseguire attività in background con processi Web"
 description: "Informazioni su come eseguire attività in background nelle app Web di Azure."
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -24,6 +24,8 @@ ms.lasthandoff: 03/01/2017
 # <a name="run-background-tasks-with-webjobs"></a>Eseguire attività in background con processi Web
 ## <a name="overview"></a>Panoramica
 È possibile eseguire programmi o script in Processi Web nell'app Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) in tre modi: su richiesta, sempre, in base a una pianificazione. Non sono previsti costi aggiuntivi per l'uso di Processi Web.
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 Nell'articolo viene descritto come distribuire Processi Web utilizzando il [Portale di Azure](https://portal.azure.com). Per informazioni sulla distribuzione mediante Visual Studio o un processo di distribuzione continua, vedere [Come distribuire Processi Web di Azure nelle App Web](websites-dotnet-deploy-webjobs.md).
 

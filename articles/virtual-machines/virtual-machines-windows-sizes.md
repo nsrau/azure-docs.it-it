@@ -17,21 +17,21 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 365d6ad9ec0e0a7ad8d9742d863540646257e298
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 193cb2570e4c71c5205cc029543a3a7602a6574e
+ms.lasthandoff: 04/03/2017
 
 ---
 
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Dimensioni per le macchine virtuali Windows in Azure
 
-Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire le app Windows e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.  Questo articolo è disponibile anche per le [macchine virtuali Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire le app Windows e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.  Questo articolo è disponibile anche per le [macchine virtuali Linux](linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!IMPORTANT]
 >* Per informazioni sui prezzi di varie dimensioni, vedere [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
 >* Per trovare i limiti generali delle VM di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 >* I costi di archiviazione vengono calcolati separatamente in base alle pagine usate nell'account di archiviazione. Per informazioni dettagliate, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
-> * Altre informazioni su come le [unità di calcolo di Azure](virtual-machines-windows-acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
+> * Altre informazioni su come le [unità di calcolo di Azure](windows/acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
 >
 >
 <br>    
@@ -50,7 +50,7 @@ Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine 
 
 <br>
 
-Altre informazioni su come le [unità di calcolo di Azure](virtual-machines-windows-acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
+Altre informazioni su come le [unità di calcolo di Azure](windows/acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
 
 Altre informazioni sulle diverse dimensioni di macchina virtuale disponibili:
 - [Utilizzo generico](virtual-machines-windows-sizes-general.md)

@@ -7,7 +7,7 @@ author: adhurwit
 manager: jhubbard
 ms.assetid: 1052c83c-e7f5-4736-922f-216194d8874b
 ms.service: sql-database
-ms.custom: overview
+ms.custom: manage-how-to
 ms.workload: data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 9916eb7deaae6acb784cac1b7b64d93a03f3c590
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 92cad42344fb6f77b3088f74ea0e37a542bd0378
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -58,11 +58,11 @@ Ecco i passaggi per creare la raccolta Azure RemoteApp con SSMS:
 Per creare la nuova VM, usare l'immagine "Host sessione Desktop remoto di Windows Server 2012 R2" dalla raccolta.
 
 ### <a name="2-install-ssms-from-sql-express"></a>2. Installare SSMS da SQL Express
-Nella nuova VM passare alla pagina di download: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/en-us/download/details.aspx?id=42299)
+Nella nuova VM passare alla pagina di download: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/download/details.aspx?id=42299)
 
 È disponibile un'opzione per scaricare solo SSMS. Dopo il download, passare alla directory di installazione ed eseguire il programma di installazione di SSMS.
 
-È necessario installare anche SQL Server 2014 Service Pack 1. Scaricarlo qui: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/en-us/download/details.aspx?id=46694)
+È necessario installare anche SQL Server 2014 Service Pack 1. Scaricarlo qui: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/download/details.aspx?id=46694)
 
 SQL Server 2014 Service Pack 1 include le funzionalità essenziali per l'utilizzo del database SQL di Azure.
 

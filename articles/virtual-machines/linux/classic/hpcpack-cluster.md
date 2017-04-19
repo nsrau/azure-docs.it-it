@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 28426f048205e7cf836375d8b8855e06d5de807e
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 868026150e81347aa3a7914f63bc19c3a878c586
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -39,7 +39,7 @@ Questo articolo illustra due opzioni per distribuire un cluster HPC Pack in Azur
 * **Modello di Azure Resource Manager** : usare un modello di Azure Marketplace o un modello di avvio rapido fornito dalla community per automatizzare la creazione del cluster nel modello di distribuzione Resource Manager. Ad esempio, il modello [Cluster HPC Pack per carichi di lavoro Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) in Azure Marketplace consente di creare un'infrastruttura di cluster HPC Pack per carichi di lavoro HPC Linux.
 * **Script PowerShell**: usare lo [script di distribuzione IaaS di Microsoft HPC Pack](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (**New-HpcIaaSCluster.ps1**) per automatizzare la distribuzione completa di cluster nel modello di distribuzione classica. Questo script di Azure PowerShell usa un'immagine di macchina virtuale di HPC Pack in Azure Marketplace per accelerare la distribuzione e fornisce un set completo di parametri di configurazione per distribuire nodi di calcolo Linux.
 
-Per altre informazioni sulle opzioni di distribuzione del cluster HPC Pack in Azure, vedere le [opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack](../../virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per altre informazioni sulle opzioni di distribuzione del cluster HPC Pack in Azure, vedere le [opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="prerequisites"></a>Prerequisiti
 * **Sottoscrizione di Azure** : è possibile usare una sottoscrizione nel servizio Azure globale o Azure Cina. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
@@ -52,7 +52,7 @@ Per altre informazioni sulle opzioni di distribuzione del cluster HPC Pack in Az
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > Per usare una rete RDMA di Azure con una delle dimensioni di macchina virtuale con supporto per RDMA, specificare un'immagine HPC SUSE Linux Enterprise Server 12 o un'immagine HPC basata su CentOS da Azure Marketplace. Per altre informazioni, vedere [Informazioni sulle macchine virtuali serie H e serie A a elevato utilizzo di calcolo](../../virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Per usare una rete RDMA di Azure con una delle dimensioni di macchina virtuale con supporto per RDMA, specificare un'immagine HPC SUSE Linux Enterprise Server 12 o un'immagine HPC basata su CentOS da Azure Marketplace. Per altre informazioni, vedere [Informazioni sulle macchine virtuali serie H e serie A a elevato utilizzo di calcolo](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
@@ -166,7 +166,7 @@ Modificare il file in base alle necessità dell'ambiente e della configurazione 
    > 
 
 ## <a name="connect-to-the-head-node"></a>Connettersi al nodo head
-Dopo aver distribuito il cluster HPC Pack in Azure, [connettersi con Desktop remoto](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) alla macchina virtuale del nodo head usando le credenziali del dominio specificate durante la distribuzione del cluster, ad esempio, *hpc\\clusteradmin*. Il cluster viene gestito dal nodo head.
+Dopo aver distribuito il cluster HPC Pack in Azure, [connettersi con Desktop remoto](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) alla macchina virtuale del nodo head usando le credenziali del dominio specificate durante la distribuzione del cluster, ad esempio, *hpc\\clusteradmin*. Il cluster viene gestito dal nodo head.
 
 Nel nodo head avviare Gestione cluster HPC per controllare lo stato del cluster HPC Pack. È possibile gestire e monitorare i nodi di calcolo di Linux nello stesso modo dei nodi di calcolo di Windows. Ad esempio, vengono visualizzati i nodi Linux elencati in **Gestione risorse**. Questi nodi vengono distribuiti con il modello **LinuxNode**.
 
@@ -269,7 +269,7 @@ Esistono vari metodi per inviare i processi al cluster HPC Pack:
 * Portale Web HPC
 * API REST
 
-La procedura di invio di processi al cluster in Azure tramite gli strumenti dell'interfaccia utente grafica di HPC Pack e il portale Web HPC è uguale a quella usata per i nodi di calcolo di Windows. Vedere [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) (Gestore dei processi HPC Pack) e la [procedura per inviare i processi da un computer client locale](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+La procedura di invio di processi al cluster in Azure tramite gli strumenti dell'interfaccia utente grafica di HPC Pack e il portale Web HPC è uguale a quella usata per i nodi di calcolo di Windows. Vedere [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) (Gestore dei processi HPC Pack) e la [procedura per inviare i processi da un computer client locale](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Per inviare processi tramite l'API REST, vedere l'articolo relativo a [creazione e invio di processi tramite uso dell'API REST in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Per inviare processi a un client Linux, fare riferimento anche all'esempio Python in [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
 
@@ -299,7 +299,7 @@ Lo strumento [clusrun](https://technet.microsoft.com/library/cc947685.aspx) di H
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Provare ad aumentare il numero di nodi del cluster o a eseguire un carico di lavoro Linux nel cluster. Per un esempio, vedere [Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure](hpcpack-cluster-namd.md).
-* Provare un cluster con [macchine virtuali a elevato utilizzo di calcolo e con supporto di RDMA](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per eseguire carichi di lavoro MPI. Per un esempio, vedere [Eseguire OpenFOAM con Microsoft HPC Pack in un cluster Linux RDMA in Azure](hpcpack-cluster-openfoam.md).
+* Provare un cluster con [macchine virtuali a elevato utilizzo di calcolo e con supporto di RDMA](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per eseguire carichi di lavoro MPI. Per un esempio, vedere [Eseguire OpenFOAM con Microsoft HPC Pack in un cluster Linux RDMA in Azure](hpcpack-cluster-openfoam.md).
 * Se si è interessati a usare i nodi Linux in un cluster di HPC Pack locale, vedere le [linee guida di TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->

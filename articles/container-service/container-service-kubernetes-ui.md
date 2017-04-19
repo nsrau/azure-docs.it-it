@@ -58,7 +58,7 @@ $ az acs kubernetes install-cli
 È possibile avviare l'interfaccia utente Web Kubernetes eseguendo:
 
 ```console
-$ az acs kubernetes browse
+$ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
 Viene aperto un browser web configurato per comunicare con un proxy sicuro che collega il computer locale all'interfaccia utente Web Kubernetes.

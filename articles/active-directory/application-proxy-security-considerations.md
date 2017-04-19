@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 5d741836f5defd5d9287b90e53e71aeea439a1df
-ms.openlocfilehash: 81a7a57e6b025710660f7d55145ee286b71acf24
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 4019b379939e43e4e974552f1f0be245c5b1d33e
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -38,7 +38,7 @@ Il proxy applicazione Azure AD offre i vantaggi di sicurezza seguenti:
 **Accesso condizionale:** applicare controlli dei criteri più completi prima che vengano stabilite connessioni alla rete.
 
 * Con l'accesso condizionale è possibile definire restrizioni più complete per determinare il traffico che può accedere alle applicazioni back-end. È possibile definire restrizioni in base alla posizione, al livello di autenticazione e al profilo di rischio.
-* Questa funzionalità consente di creare barriere aggiuntive per gli utenti malintenzionati. Per altre informazioni sull'accesso condizionale, vedere [Introduzione all'accesso condizionale di Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-azuread-connected-apps).
+* Questa funzionalità consente di creare barriere aggiuntive per gli utenti malintenzionati. Per altre informazioni sull'accesso condizionale, vedere [Introduzione all'accesso condizionale di Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-azuread-connected-apps).
 
 **Terminazione del traffico:** tutto il traffico viene terminato nel cloud.
 
@@ -53,14 +53,14 @@ Il proxy applicazione Azure AD offre i vantaggi di sicurezza seguenti:
 
 * Azure AD Identity Protection con intelligence basata su Machine Learning e feed di dati provenienti dalla Digital Crimes Unit e da Microsoft Security Response Center. Insieme identifichiamo in modo proattivo gli account compromessi e offriamo una protezione in tempo reale contro gli accessi ad alto rischio. Vengono presi in considerazione diversi fattori, ad esempio l'accesso da dispositivi infetti e tramite reti anonime, da posizioni atipiche e improbabili.
 * Molti di questi eventi e segnalazioni sono già disponibili tramite un'API per l'integrazione con i sistemi SIEM (Security Information and Event Management, Sistema di gestione delle informazioni e degli eventi di sicurezza).
-* Per altre informazioni, vedere [Azure AD Identity Protection](https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection).
+* Per altre informazioni, vedere [Azure AD Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection).
 
 **Accesso remoto come servizio:** non è necessario preoccuparsi di mantenere e applicare patch ai server locali.
 
 * Il proxy applicazione di Azure AD è un servizio Internet di Microsoft, quindi si otterranno sempre le patch di sicurezza e gli aggiornamenti più recenti.
 * Il software senza patch è tuttora responsabile di un numero elevato di attacchi. Con il modello di servizio di Microsoft non è necessario farsi carico della gestione di più server perimetrali.
 
-I servizi di accesso remoto forniti con Azure AD operano in base alle linee guida e agli standard indicati nel [Centro protezione di Azure](https://azure.microsoft.com/en-us/support/trust-center).
+I servizi di accesso remoto forniti con Azure AD operano in base alle linee guida e agli standard indicati nel [Centro protezione di Azure](https://azure.microsoft.com/support/trust-center).
 
 Il diagramma seguente illustra in che modo Azure AD consente l'accesso remoto sicuro alle applicazioni locali.
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a70b82770a13231ee59ac768deb45b232f95687d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ Attualmente sono supportati i contenitori Linux con tutti gli agenti di orchestr
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>È consigliabile un agente di orchestrazione specifico nel servizio contenitore di Azure? 
 In genere non viene consigliato un agente di orchestrazione specifico. Se si ha già familiarità con uno degli agenti di orchestrazione supportati, è possibile servirsi di tale esperienza per il servizio contenitore di Azure. Le tendenze dei dati suggeriscono tuttavia che DC/OS è il prodotto collaudato per i carichi di lavoro di Big Data e IoT, Kubernetes è ideale per i carichi di lavoro nativi del cloud e Docker Swarm è noto per l'integrazione con gli strumenti di Docker e la facile curva di apprendimento.
 
-A seconda dello scenario, è anche possibile compilare e gestire soluzioni contenitore personalizzate con altri servizi di Azure. Questi servizi includono [Macchine virtuali](../virtual-machines/virtual-machines-linux-azure-overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [App Web](../app-service-web/app-service-web-overview.md) e [Batch](../batch/batch-technical-overview.md).  
+A seconda dello scenario, è anche possibile compilare e gestire soluzioni contenitore personalizzate con altri servizi di Azure. Questi servizi includono [Macchine virtuali](../virtual-machines/linux/overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [App Web](../app-service-web/app-service-web-overview.md) e [Batch](../batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Qual è la differenza tra il servizio contenitore di Azure e il motore ACS? 
 Il servizio contenitore di Azure è un servizio di Azure supportato dal Contratto di servizio con funzionalità nel portale di Azure, strumenti da riga di comando di Azure e API di Azure. Il servizio consente di implementare rapidamente e di gestire i cluster che eseguono strumenti di orchestrazione contenitore standard con un numero relativamente basso di scelte di configurazione. 
@@ -55,7 +55,7 @@ Il [motore ACS](http://github.com/Azure/acs-engine) è un progetto open source c
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Come si creano le chiavi SSH per il cluster?
 
-È possibile usare gli strumenti standard del sistema operativo per creare una coppia di chiavi pubblica e privata RSA SSH per l'autenticazione nelle macchine virtuali Linux per il cluster. Per i passaggi, vedere il materiale sussidiario per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o per [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+È possibile usare gli strumenti standard del sistema operativo per creare una coppia di chiavi pubblica e privata RSA SSH per l'autenticazione nelle macchine virtuali Linux per il cluster. Per i passaggi, vedere il materiale sussidiario per [OS X e Linux](../virtual-machines/linux/mac-create-ssh-keys.md) o per [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 Se si usano i [comandi dell'interfaccia della riga di comando di Azure 2.0](container-service-create-acs-cluster-cli.md) per distribuire un cluster del servizio contenitore, le chiavi SSH possono essere generate automaticamente per il cluster.
 
@@ -66,6 +66,12 @@ Per creare un cluster Kubernetes nel servizio contenitore di Azure, sono necessa
 
 Se si usano i [comandi dell'interfaccia della riga di comando di Azure 2.0](container-service-create-acs-cluster-cli.md) per distribuire un cluster Kubernetes, le credenziali dell'entità servizio possono essere generate automaticamente per il cluster.
 
+### <a name="how-large-a-cluster-can-i-create"></a>Quali possono essere le dimensioni dei cluster creati?
+È possibile creare un cluster con 1, 3 o 5 nodi master e scegliere fino a 100 nodi agente.
+
+> [!IMPORTANT]
+> Per cluster di maggiori dimensioni, a seconda della dimensione di VM scelta per i nodi potrebbe essere necessario aumentare la quota di core nella sottoscrizione. Per richiedere un aumento della quota, è possibile aprire una [richiesta di assistenza clienti online](../azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
+> 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Come si aumenta il numero di master dopo la creazione di un cluster? 
 Dopo la creazione del cluster, il numero di master è fisso e non può essere modificato. Durante la creazione del cluster, è consigliabile selezionare più master per una disponibilità elevata.

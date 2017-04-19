@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 58011fe25a96edfe2744990180b2f2866537bd37
-ms.openlocfilehash: ec35e177d1bb94671b1703020c9aa863a3805af1
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 316a3b6bd0ff32213df4baa9f722ff36ecc41d22
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -28,7 +30,7 @@ Il [portale di Azure][azure-portal] consente di creare cluster Hadoop basati su 
 Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sulla gestione dei cluster basati su Linux, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -376,9 +378,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

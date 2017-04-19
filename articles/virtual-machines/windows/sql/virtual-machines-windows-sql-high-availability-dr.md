@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8a6b48437eecd9f2f5c3fe8447b31192d8318149
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 65e3564111b1f291bead685ae0c831951460c827
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,7 @@ Le tecnologie HADR di SQL Server supportate in Azure includono:
 La macchina virtuale, l'archiviazione e la rete di Azure hanno caratteristiche operative diverse rispetto a un'infrastruttura IT locale non virtualizzata. Per una corretta implementazione di una soluzione HADR di SQL Server in Azure è necessario capire queste differenze e progettare una soluzione adeguata.
 
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nodi a disponibilità elevata in un set di disponibilità
-I set di disponibilità in Azure consentono di collocare i nodi a disponibilità elevata in domini di errore (FD, Fault Domain) e domini di aggiornamento (UD, Update Domain) separati. Per collocare le macchine virtuali di Azure nello stesso set di disponibilità, è necessario distribuirle nello stesso servizio cloud. Solo i nodi dello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Per altre informazioni, vedere [Gestione della disponibilità delle macchine virtuali](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+I set di disponibilità in Azure consentono di collocare i nodi a disponibilità elevata in domini di errore (FD, Fault Domain) e domini di aggiornamento (UD, Update Domain) separati. Per collocare le macchine virtuali di Azure nello stesso set di disponibilità, è necessario distribuirle nello stesso servizio cloud. Solo i nodi dello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Per altre informazioni, vedere [Gestione della disponibilità delle macchine virtuali](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Comportamento del cluster di failover nella rete di Azure
 Il servizio DHCP non conforme a RFC di Azure può provocare la non riuscita della creazione di determinate configurazioni del cluster di failover, a causa dell'assegnazione al nome di rete del cluster di un indirizzo IP duplicato (lo stesso indirizzo IP di uno dei nodi del cluster). Ciò costituisce un problema quando si implementano i Gruppi di disponibilità Always On, che dipendono dalla funzionalità del cluster di failover di Windows.

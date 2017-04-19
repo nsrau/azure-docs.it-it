@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 4f5eaf5f6ba56709b69d97c1f646f71396fd031b
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 19b1757dd694e756cfd2d0d6cd67e64f43ccab7f
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/22/2017
 È possibile completare questa attività usando l'interfaccia della riga di comando di Azure 2.0 (questo articolo) o l'[interfaccia della riga di comando di Azure 1.0](virtual-network-deploy-multinic-cli-nodejs.md). I valori in "" per le variabili nei passaggi seguenti creano le risorse con le impostazioni usate nello scenario. Sostituire i valori in base alle esigenze specifiche dell'ambiente.
 
 1. Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2), se non è già stata installata.
-2. Creare una coppia di chiavi SSH pubblica e privata per le VM Linux completando i passaggi descritti in [Creare una coppia di chiavi SSH pubblica e privata per le VM Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Creare una coppia di chiavi SSH pubblica e privata per le VM Linux completando i passaggi descritti in [Creare una coppia di chiavi SSH pubblica e privata per le VM Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. Da una shell dei comandi accedere con il comando `az login`.
 4. Creare la VM eseguendo lo script seguente in un computer Linux o Mac. Lo script crea un gruppo di risorse, una rete virtuale con due subnet, due schede di interfaccia di rete e una VM con due schede di interfaccia di rete collegate. Una delle schede di interfaccia di rete è connessa a una subnet a cui sono stati assegnati un indirizzo IP pubblico e un indirizzo IP privato. L'altra scheda di interfaccia di rete è connessa all'altra subnet a cui è stato assegnato un indirizzo IP privato statico e nessun indirizzo IP pubblico. Le risorse di schede di interfaccia di rete, indirizzo IP pubblico, rete virtuale e VM devono essere tutte presenti nella stessa località e nella stessa sottoscrizione. Lo script seguente esamina un caso in cui tutte le risorse sono incluse nello stesso gruppo di risorse, anche se questo non è un requisito.
 
@@ -159,7 +159,7 @@ az vm create \
 ```
 
 Oltre a creare una VM con due schede di interfaccia di rete, lo script crea:
-- Un unico disco gestito Premium per impostazione predefinita, ma sono disponibili altre opzioni per il tipo di disco che è possibile creare. Leggere [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per informazioni dettagliate.
+- Un unico disco gestito Premium per impostazione predefinita, ma sono disponibili altre opzioni per il tipo di disco che è possibile creare. Leggere [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per informazioni dettagliate.
 - Una rete virtuale con due subnet e un singolo indirizzo IP pubblico. In alternativa, è possibile usare le risorse *esistenti* di rete virtuale, subnet, scheda di interfaccia di rete o indirizzo IP pubblico. Per informazioni su come usare le risorse di rete esistenti anziché creare risorse aggiuntive, immettere `az vm create -h`.
 
 ## <a name = "validate"></a>Convalidare la creazione di VM e le schede di interfacce di rete

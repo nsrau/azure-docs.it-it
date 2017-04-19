@@ -25,7 +25,7 @@ Il pacchetto NuGet scarica e aggiunge i riferimenti ad assembly necessari per co
 > 
 > 
 
-È anche possibile installare il pacchetto NuGet StackExchange.Redis facendo clic su **Gestione pacchetti NuGet**, **Console di Gestione pacchetti** dal menu **Strumenti** ed eseguendo questo comando dalla finestra `Package Manager Console`.
+È anche possibile installare il pacchetto NuGet StackExchange.Redis facendo clic su **Gestione pacchetti NuGet**, **Console di Gestione pacchetti** dal menu **Strumenti** ed eseguendo questo comando dalla finestra **Console di Gestione pacchetti**.
     
 ```
 Install-Package StackExchange.Redis

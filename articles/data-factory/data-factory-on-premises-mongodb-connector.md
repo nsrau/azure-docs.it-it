@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 3540e9c151890468be028af7224a6d11045aec6b
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: b1d31112f024ddc8856835f639f58e2defd67bdf
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -53,6 +53,44 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory utilizzate per copiare dati da un archivio dati MongoDB locale, vedere la sezione [Esempio JSON: Copiare dati da MongoDB al BLOB di Azure](#json-example-copy-data-from-mongodb-to-azure-blob) di questo articolo. 
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche dell'origine MongoDB:
+
+## <a name="linked-service-properties"></a>Proprietà del servizio collegato
+La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato **OnPremisesMongoDB** .
+
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
+| type |La proprietà type deve essere impostata su: **OnPremisesMongoDb** |Sì |
+| server |Indirizzo IP o nome host del server MongoDB. |Sì |
+| port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |Facoltativo, valore predefinito: 27017 |
+| authenticationType |Di base o anonima. |Sì |
+| username |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
+| password |Password per l'utente. |Sì (se si usa l'autenticazione di base). |
+| authSource |Nome del database MongoDB che si vuole usare per controllare le credenziali di autenticazione. |Facoltativo (se si usa l'autenticazione di base). Predefinito: usa l'account di amministrazione e il database specificato usando la proprietà databaseName. |
+| databaseName |Nome del database MongoDB a cui si vuole accedere. |Sì |
+| gatewayName |Nome del gateway che accede all'archivio dati. |Sì |
+| encryptedCredential |Credenziali crittografate in base al gateway. |Facoltativo |
+
+## <a name="dataset-properties"></a>Proprietà dei set di dati
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
+
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **MongoDbCollection** presenta le proprietà seguenti:
+
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
+| collectionName |Nome della raccolta nel database MongoDB. |Sì |
+
+## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
+
+D'altra parte, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
+
+In caso di origine di tipo **MongoDbSource** , nella sezione typeProperties sono disponibili le proprietà seguenti:
+
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| --- | --- | --- | --- |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL-92. Ad esempio: selezionare * da MyTable. |No, se **collectionName** di **set di dati** è specificato |
+
+
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>Esempio JSON: Copiare dati da MongoDB al BLOB di Azure
 Questo esempio fornisce le definizioni JSON di esempio da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustra come copiare dati da un MongoDB locale a un'archiviazione BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
@@ -236,41 +274,6 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 }
 ```
 
-## <a name="linked-service-properties"></a>Proprietà del servizio collegato
-La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato **OnPremisesMongoDB** .
-
-| Proprietà | Descrizione | Obbligatorio |
-| --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesMongoDb** |Sì |
-| server |Indirizzo IP o nome host del server MongoDB. |Sì |
-| port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |Facoltativo, valore predefinito: 27017 |
-| authenticationType |Di base o anonima. |Sì |
-| username |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
-| password |Password per l'utente. |Sì (se si usa l'autenticazione di base). |
-| authSource |Nome del database MongoDB che si vuole usare per controllare le credenziali di autenticazione. |Facoltativo (se si usa l'autenticazione di base). Predefinito: usa l'account di amministrazione e il database specificato usando la proprietà databaseName. |
-| databaseName |Nome del database MongoDB a cui si vuole accedere. |Sì |
-| gatewayName |Nome del gateway che accede all'archivio dati. |Sì |
-| encryptedCredential |Credenziali crittografate in base al gateway. |Facoltativo |
-
-## <a name="dataset-properties"></a>Proprietà dei set di dati
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
-
-La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **MongoDbCollection** presenta le proprietà seguenti:
-
-| Proprietà | Descrizione | Obbligatorio |
-| --- | --- | --- |
-| collectionName |Nome della raccolta nel database MongoDB. |Sì |
-
-## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
-
-D'altra parte, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
-
-In caso di origine di tipo **MongoDbSource** , nella sezione typeProperties sono disponibili le proprietà seguenti:
-
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
-| --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL-92. Ad esempio: selezionare * da MyTable. |No, se **collectionName** di **set di dati** è specificato |
 
 ## <a name="schema-by-data-factory"></a>Schema da Data Factory
 Il servizio Azure Data Factory deduce lo schema da una raccolta MongoDB usando gli ultimi 100 documenti nella raccolta. Se questi 100 documenti non contengono lo schema completo, alcune colonne possono essere ignorate durante l'operazione di copia.

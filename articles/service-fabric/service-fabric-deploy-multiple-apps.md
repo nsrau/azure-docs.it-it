@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/17/2017
+ms.date: 04/07/2017
 ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
-ms.openlocfilehash: 8ff5933239521f8ed986da5a12aced3110085376
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d967d70c7fad45f7a10a5288623440491dcfffa3
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -29,7 +29,7 @@ Questa procedura dettagliata illustra come distribuire un'applicazione con un fr
 È possibile usare Visual Studio per generare il pacchetto dell'applicazione che contiene più eseguibili guest. Vedere [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). Dopo aver aggiunto il primo eseguibile guest, fare clic con il tasto destro sul progetto dell'applicazione e selezionare **Aggiungi -> Nuovo servizio Service Fabric** per aggiungere il secondo progetto eseguibile guest alla soluzione. Nota: se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. 
 
 ## <a name="samples"></a>Esempi
-* [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Creare manualmente i pacchetti dell'applicazione eseguibile guest multipla
@@ -217,6 +217,6 @@ Per aggiungere un altro servizio a un'applicazione già creata mediante `yo`, se
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per avere informazioni sulla distribuzione di contenitori, consultare [Panoramica di Service Fabric e contenitori](service-fabric-containers-overview.md)
-* [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 

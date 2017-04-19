@@ -17,9 +17,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 4f59512d83e6d000dd60b3fba46e483be8466292
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -196,6 +196,6 @@ Per creare una rete virtuale usando l'interfaccia della riga di comando di Azure
 
 Leggere le informazioni su come connettere:
 
-- Una macchina virtuale (VM) a una rete virtuale nell'articolo [Creare una VM Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md). Anziché creare una rete virtuale e una subnet, come illustrato nelle procedure degli articoli, è possibile selezionare una rete virtuale e una subnet esistenti a cui connettere una VM.
+- Una macchina virtuale (VM) a una rete virtuale nell'articolo [Creare una VM Linux](../virtual-machines/linux/quick-create-cli.md). Anziché creare una rete virtuale e una subnet, come illustrato nelle procedure degli articoli, è possibile selezionare una rete virtuale e una subnet esistenti a cui connettere una VM.
 - La rete virtuale ad altre reti virtuali nell'articolo [Connettere reti virtuali](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 - La rete virtuale a una rete locale tramite una rete privata virtuale (VPN) da sito a sito o il circuito ExpressRoute Per le informazioni su come procedere, leggere [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Connettere una rete virtuale a una rete locale tramite una VPN da sito a sito) e [Collegare una rete virtuale a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

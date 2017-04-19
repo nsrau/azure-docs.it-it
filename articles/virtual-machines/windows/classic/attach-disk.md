@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4debed5ceed2c94b2e5b666d6fcebec5667bfda7
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 806634bb66ebb538020f1ffa693704433fc43352
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +30,7 @@ Refernce article:
 
 Questo articolo illustra come collegare dischi nuovi o esistenti creati con il modello di distribuzione classica a una macchina virtuale Windows usando il portale di Azure.
 
-È possibile anche [collegare un disco dati a una macchina virtuale Linux nel portale di Azure](../../virtual-machines-linux-attach-disk-portal.md).
+È possibile anche [collegare un disco dati a una macchina virtuale Linux nel portale di Azure](../../linux/attach-disk-portal.md).
 
 Prima di collegare un disco, esaminare i seguenti suggerimenti:
 

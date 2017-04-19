@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 253b7fe3614579d5a9a74d1de21bd2d3efe50d09
-ms.openlocfilehash: bf642e08d92414543f55ddeceff297c886b82882
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 9684a04b9ce12e6ca09e60909167f7557212c8be
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -50,7 +51,7 @@ Nella tabella seguente sono riportate le impostazioni minime relative agli URL a
 | \*.microsoftonline.com |HTTPS/443 |Usato per configurare la directory di Azure AD e i dati di importazione/esportazione. |
 
 ## <a name="errors-in-the-wizard"></a>Errori nella procedura guidata
-L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connessione ad Azure AD** usa l'utente attualmente connesso. Nella pagina **Configura** passa all'[account che esegue il servizio per il motore di sincronizzazione](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). La presenza di un eventuale problema sarà probabilmente già evidente nella pagina **Connessione ad Azure AD** della procedura guidata, in quanto la configurazione del proxy è globale.
+L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connessione ad Azure AD** usa l'utente attualmente connesso. Nella pagina **Configura** passa all'[account che esegue il servizio per il motore di sincronizzazione](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). La presenza di un eventuale problema sarà probabilmente già evidente nella pagina **Connessione ad Azure AD** della procedura guidata, in quanto la configurazione del proxy è globale.
 
 Di seguito sono riportati i problemi più comuni che vengono visualizzati nell'Installazione guidata.
 
@@ -196,9 +197,4 @@ Questo errore viene visualizzato quando l'Assistente per l'accesso non riesce a 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

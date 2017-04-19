@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59619d78959f9fcc3144a30af883021a8f5f3044
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: b245c889513e3527960bf9ed1f9360ea84bff758
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-create-a-cloud-collection-of-azure-remoteapp"></a>Come creare una raccolta cloud di Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -104,10 +105,5 @@ La procedura è stata completata e la raccolta di Azure RemoteApp nel cloud è s
 
 ### <a name="help-us-help-you"></a>Come contribuire al miglioramento
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche e suggerire miglioramenti, che saranno esaminati e approvati per poi essere applicati a questo articolo.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

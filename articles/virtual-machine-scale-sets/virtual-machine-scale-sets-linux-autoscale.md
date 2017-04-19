@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: fefd6f08d3150a28f73d7733fb397f7db38aef95
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -55,7 +55,7 @@ Nell'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) pas
     ```
    
     > [!NOTE]
-    > Se si ha un ID aziendale o dell'istituto di istruzione e l'autenticazione a due fattori non è abilitata, usare `azure login -u` con l'ID per eseguire l'accesso senza una sessione interattiva. Se non si ha un'identità aziendale o dell'istituto di istruzione, è possibile [crearne una dall'account Microsoft personale](../virtual-machines/virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Se si ha un ID aziendale o dell'istituto di istruzione e l'autenticazione a due fattori non è abilitata, usare `azure login -u` con l'ID per eseguire l'accesso senza una sessione interattiva. Se non si ha un'identità aziendale o dell'istituto di istruzione, è possibile [crearne una dall'account Microsoft personale](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     
 2. **Creare un gruppo di risorse**  
 Tutte le risorse devono essere distribuite in un gruppo di risorse. Per questa esercitazione, assegnare al gruppo di risorse il nome **vmsstest1**.
@@ -132,7 +132,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
    * Prefissi e nomi di indirizzi IP per la rete virtuale e le subnet.
    * Nomi e identificatori di rete virtuale, servizio di bilanciamento del carico e rete.
    * Nomi di account di archiviazione per gli account associati alle macchine virtuali nel set di scalabilità.
-   * Impostazioni per l'estensione Diagnostica installata nelle macchine virtuali. Per altre informazioni sull'estensione Diagnostica, vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante il modello di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+   * Impostazioni per l'estensione Diagnostica installata nelle macchine virtuali. Per altre informazioni sull'estensione Diagnostica, vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante il modello di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 4. Aggiungere la risorsa account di archiviazione all'interno dell'elemento padre delle risorse aggiunto al modello. Questo modello usa un ciclo per creare cinque account di archiviazione consigliati in cui sono archiviati i dischi del sistema operativo e i dati di diagnostica. Questo set di account può supportare fino a 100 macchine virtuali in un set di scalabilità, ovvero il limite massimo corrente. A ogni account di archiviazione è assegnato un nome costituito da un indicatore di lettera definito nelle variabili in combinazione con il suffisso specificato nei parametri per il modello.
    

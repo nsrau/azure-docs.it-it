@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 715720d22b58ddd3d0e5042de151219e49549c5e
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: cc5136c209483b6b72e8d456084338688792c0d0
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -52,7 +53,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     Usare l'URL di connessione indicata nel passaggio precedente. Viene visualizzato un errore in cui si notifica che si è verificato un problema con il certificato di sicurezza del sito Web. Fare clic su **Passa a questa pagina Web**.
    
     ![errore di certificato di sicurezza](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
-2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata nel Passaggio 3: Avviare il dispositivo virtuale dell'articolo [Distribuire un array virtuale StorSimple: eseguire il provisioning di un dispositivo virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o [Distribuire un array virtuale StorSimple: eseguire il provisioning di un dispositivo virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata nel Passaggio 3: Avviare il dispositivo virtuale dell'articolo [Distribuire un array virtuale StorSimple: eseguire il provisioning di un dispositivo virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o [Distribuire un array virtuale StorSimple: eseguire il provisioning di un dispositivo virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md). L'utente e la password predefiniti sono rispettivamente *StorSimpleAdmin* e *Password1*. 
    
     ![Pagina di accesso](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 3. Si passa così alla pagina **Home** . Questa pagina illustra le varie impostazioni necessarie per configurare e registrare il dispositivo virtuale con il servizio StorSimple Manager. Notare che le **Impostazioni di rete**, le **Impostazioni proxy Web** e le **Impostazioni ora** sono facoltative. Le uniche impostazioni obbligatorie sono le **Impostazioni del dispositivo** e le **Impostazioni cloud**.
@@ -242,10 +243,5 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

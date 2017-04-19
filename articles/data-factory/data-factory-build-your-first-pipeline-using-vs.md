@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 23927acae12f0db13fe6dd24a4e1fde8ced25d40
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 5c6a6fcf86867fb2195a31d636003f16ed503da2
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -502,6 +502,9 @@ Per pubblicare entità in un progetto di Data factory di Azure usando il file di
 6. Fare clic su **Fine** al termine dell'operazione di distribuzione.
 
 Quando si esegue la distribuzione, i valori del file di configurazione vengono usati per impostare i valori per le proprietà nei file JSON per le entità di Data Factory prima che le entità vengano distribuite nel servizio Azure Data Factory.   
+
+## <a name="use-azure-key-vault"></a>Usare l'Insieme di credenziali delle chiavi di Azure
+Non è consigliabile ed è spesso contrario ai criteri di sicurezza eseguire il commit di dati sensibili come le stringhe di connessione nel repository del codice. Per altre informazioni sull'archiviazione di informazioni riservate in Azure Key Vault e sul relativo uso durante la pubblicazione di entità di Data Factory, vedere l'esempio di [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) in GitHub. L'estensione Secure Publish per Visual Studio permette di archiviare i segreti in Key Vault, mentre in servizi collegati o configurazioni di distribuzione vengono specificati solo riferimenti a tali segreti. I riferimenti vengono risolti quando si pubblicano entità di Data Factory di Azure. È possibile eseguire il commit di questi file al repository di origine senza esporre i segreti.
 
 ## <a name="summary"></a>Riepilogo
 In questa esercitazione è stata creata un'istanza di Azure Data Factory per elaborare i dati eseguendo lo script Hive in un cluster Hadoop di HDInsight. È stato usato l'editor di Data Factory nel portale di Azure per eseguire questa procedura:  

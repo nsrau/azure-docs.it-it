@@ -17,9 +17,9 @@ ms.date: 11/8/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 54094c18dcbb751835bfa56d53358ce19e08387d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 988510350ceb97a15bb305edff397a0e3212a89d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,13 +32,13 @@ Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la dis
 Questo articolo illustra come creare una rete virtuale tramite il modello di distribuzione Resource Manager usando il portale di Azure. È anche possibile creare una rete virtuale tramite Resource Manager usando altri strumenti oppure tramite il modello di distribuzione classica selezionando un'opzione diversa dall'elenco seguente:
 
 > [!div class="op_single_selector"]
-- [Portale](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
-- [Modello](virtual-networks-create-vnet-arm-template-click.md)
-- [Portale (versione classica)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (versione classica)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [Interfaccia della riga di comando (versione classica)](virtual-networks-create-vnet-classic-cli.md)
+> * [Portale](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [CLI](virtual-networks-create-vnet-arm-cli.md)
+> * [Modello](virtual-networks-create-vnet-arm-template-click.md)
+> * [Portale (versione classica)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (versione classica)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [Interfaccia della riga di comando (versione classica)](virtual-networks-create-vnet-classic-cli.md)
 
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
@@ -80,6 +80,6 @@ Questo articolo ha illustrato come creare una rete virtuale con due subnet a sco
 
 Leggere le informazioni su come connettere:
 
-- Una macchina virtuale (VM) a una rete virtuale negli articoli [Creare una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creare una VM Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Anziché creare una rete virtuale e una subnet, come illustrato nelle procedure degli articoli, è possibile selezionare una rete virtuale e una subnet esistenti a cui connettere una VM.
+- Una macchina virtuale (VM) a una rete virtuale negli articoli [Creare una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creare una VM Linux](../virtual-machines/linux/quick-create-portal.md). Anziché creare una rete virtuale e una subnet, come illustrato nelle procedure degli articoli, è possibile selezionare una rete virtuale e una subnet esistenti a cui connettere una VM.
 - La rete virtuale ad altre reti virtuali nell'articolo [Connettere reti virtuali](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 - La rete virtuale a una rete locale tramite una rete privata virtuale (VPN) da sito a sito o il circuito ExpressRoute negli articoli [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Connettere una rete virtuale a una rete locale tramite una VPN da sito a sito) e [Collegare una rete virtuale a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

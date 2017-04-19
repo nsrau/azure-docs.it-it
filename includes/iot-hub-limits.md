@@ -47,14 +47,14 @@ Il servizio IoT Hub limita le richieste quando vengono superate le quote seguent
 
 | Limitazione | Valore per ogni hub |
 | --- | --- |
-| Operazioni del registro delle identità <br/> (creazione, recupero, elenco, aggiornamento, eliminazione), <br/> importazione/esportazione singola o in blocco |5000/min/unità (per S3)  <br/> &100;/min/unità (per S1 e S2). |
+| Operazioni del registro delle identità <br/> (creazione, recupero, elenco, aggiornamento, eliminazione), <br/> importazione/esportazione singola o in blocco |83,33/sec/unità (5000/min/unità) (per S3) <br/> 1.67/sec/unità (100/min/unità) (per S1 e S2). |
 | Connessioni del dispositivo |6000/sec/unità (per S3), 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Minimo di 100/sec. |
 | Inoltri dal dispositivo al cloud |6000/sec/unità (per S3), 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Minimo di 100/sec. |
-| Inoltri dal cloud al dispositivo |5000/min/unità (per S3), 100/min/unità (per S1 e S2). |
-| Ricezioni dal cloud al dispositivo |50000/min/unità (per S3), 1000/min/unità (per S1 e S2). |
-| Operazioni di caricamento file |5000 notifiche di caricamento file/min/unità (per S3), 100 notifiche di caricamento file/min/unità (per S1 e S2). <br/> 10.000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione di Azure.<br/> &10; URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
+| Inoltri dal cloud al dispositivo | 83,33/sec/unità (5000/min/unità) (per S3), 1,67/sec/unità (100/min/unità) (per S1 e S2). |
+| Ricezioni dal cloud al dispositivo |833,33/sec/unità (50000/min/unità) (per S3), 16,67/sec/unità (1000/min/unità) (per S1 e S2). |
+| Operazioni di caricamento file |83,33 notifiche di caricamento file/sec/unità (5000/min/unità) (per S3), 1,67 notifiche di caricamento file/sec/unità (100/min/unità) (per S1 e S2). <br/> 10.000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione di Azure.<br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
 | Metodi diretti | 1500/sec/unità (per S3), 30/sec/unità (per S2), 10/sec/unità (per S1) |
 | Letture del dispositivo gemello | 50/sec/unità (per S3), un massimo di 10/sec o di 1/sec/unità (per S2), 10/sec (per S1) |
 | Aggiornamenti dei dispositivi gemelli | 50/sec/unità (per S3), un massimo di 10/sec o di 1/sec/unità (per S2), 10/sec (per S1) |
-| Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | 5000/sec/unità (per S3), 100/sec/unità (per S2), 100/min/unità (per S1) |
+| Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | 83,33/sec/unità (5000/min/unità) (per S3), 1,67/sec/unità (100/min/unità) (per S2), 1,67/sec/unità (100/min/unità) (per S1) |
 | Velocità effettiva delle operazioni dei processi per dispositivo | 50/sec/unità (per S3), un massimo di 10/sec o di 1/sec/unità (per S2), 10/sec (per S1) |

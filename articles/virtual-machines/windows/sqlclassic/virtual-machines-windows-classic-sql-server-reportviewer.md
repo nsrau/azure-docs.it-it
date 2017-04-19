@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8f85a4cee6a59316eb5c321007b5b9d562c71302
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 3d9bdd4f07d22a7bc6c80150ae27453813d39f07
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -78,7 +78,7 @@ In modalità di elaborazione remota il controllo ReportViewer usa gli assembly s
 ReportViewer deve usare le credenziali appropriate per l'autenticazione con il server di report e le credenziali devono essere autorizzate dal server di report per accedere ai report desiderati. Per informazioni sull'autenticazione, vedere il white paper [Controllo visualizzatore di report del servizio di creazione report e server di report basati sulle macchine virtuali di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Pubblicare l'applicazione Web ASP.NET in Azure
-Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vedere la [procedura per la migrazione e la pubblicazione di un'applicazione Web in Azure da Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e l'articolo di [introduzione alle app Web e ASP.NET](../../../app-service-web/web-sites-dotnet-get-started.md).
+Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vedere la [procedura per la migrazione e la pubblicazione di un'applicazione Web in Azure da Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e l'articolo di [introduzione alle app Web e ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Se il comando Aggiungi progetto di distribuzione di Azure o Aggiungi progetto di servizio cloud Azure non viene visualizzato nel menu di scelta rapida in Esplora soluzioni, potrebbe essere necessario modificare il framework di destinazione per il progetto in .NET Framework 4.

@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
 ms.openlocfilehash: 6dafec65b2e8091954cae39994d0013d9fd06558
-
+ms.lasthandoff: 12/22/2016
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
@@ -97,9 +98,4 @@ Se si vuole aggiungere manualmente un account all'app per dispositivi mobili, an
 * Modificare le opzioni desiderate e [gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)
 * Impostare [password di app](multi-factor-authentication-end-user-app-passwords.md) per tutte le app di dispositivo native che non supportano la verifica in due passaggi.
 * Estrarre l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per eseguire un'autenticazione sicura e veloce, anche in assenza di copertura di rete.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

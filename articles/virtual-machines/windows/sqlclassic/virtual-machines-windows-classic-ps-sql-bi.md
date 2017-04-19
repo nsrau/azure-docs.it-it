@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 90e443fe69afdda8786dd00ffb32e9680a476cd4
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: ee480f4382a93a2420f7c73f7259ce1f0a03d595
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -92,7 +92,7 @@ Nella tabella seguente sono riepilogate le funzionalità di Business Intelligenc
 ## <a name="general-recommendations-and-best-practices"></a>Indicazioni generali e procedure consigliate
 * Le dimensioni minime consigliate per una macchina virtuale corrispondono ad **A3** quando si usa SQL Server Enterprise Edition. La dimensione **A4** della macchina virtuale è consigliata per distribuzioni di SQL Server Business Intelligence di Analysis Services e Reporting Services.
   
-    Per informazioni sulle dimensioni correnti delle macchine virtuali, vedere [Dimensioni delle macchine virtuali](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    Per informazioni sulle dimensioni correnti delle macchine virtuali, vedere [Dimensioni delle macchine virtuali](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * La procedura consigliata per la gestione del disco consiste nell'archiviare dati, log e file di backup in unità diverse da **C**: e **D**:. Ad esempio, è possibile creare i dischi dati **E**: e **F**:.
   
   * Il criterio di memorizzazione nella cache per l'unità predefinita **C**: non è ottimale per l'uso dei dati.

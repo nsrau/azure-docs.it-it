@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fa2425a3341d27b8f68fbcfd849018106d737319
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -40,7 +42,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 2. Passare al pannello di configurazione dell’SQL Data Warehouse che si vuole monitorare. Nel pannello Impostazioni selezionare **Controllo e rilevamento minacce**.
    
     ![Riquadro di spostamento][1]
-3. Nel pannello di configurazione **Controllo e rilevamento minacce** impostare il controllo su **attivo** per visualizzare le impostazioni di rilevamento delle minacce.
+3. Nel pannello di configurazione **Controllo e rilevamento minacce** selezionare **ON** per attivare il controllo, che mostrerà le impostazioni di rilevamento delle minacce.
    
     ![Riquadro di spostamento][2]
 4. Impostare il rilevamento delle minacce su **SÌ** .
@@ -51,7 +53,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
 ## <a name="explore-anomalous-data-warehouse-activities-upon-detection-of-a-suspicious-event"></a>Esaminare le attività anomale di data warehouse quando viene rilevato un evento sospetto
 1. Si riceverà una notifica tramite posta elettronica al rilevamento di attività di database anomale. <br/>
-    Il messaggio di posta elettronica fornirà informazioni sull'evento di sicurezza sospetto, inclusi la natura delle attività anomale, il nome del database, il nome del server e l'ora dell'evento. Verranno anche fornite informazioni sulle possibili cause e le azioni consigliate per analizzare e ridurre il rischio di una potenziale minaccia al database.<br/>
+   Il messaggio di posta elettronica fornirà informazioni sull'evento di sicurezza sospetto, inclusi la natura delle attività anomale, il nome del database, il nome del server e l'ora dell'evento. Verranno anche fornite informazioni sulle possibili cause e le azioni consigliate per analizzare e ridurre il rischio di una potenziale minaccia al database.<br/>
    
     ![Riquadro di spostamento][4]
 2. Nel messaggio di posta elettronica fare clic sul collegamento relativo al **log di controllo SQL di Azure** che avvierà il portale di Azure classico visualizzando i record di controllo pertinenti intorno all'ora dell'evento sospetto.
@@ -60,7 +62,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 3. Fare clic sui record di controllo per visualizzare altri dettagli sulle attività di database sospette, come l'istruzione SQL, il motivo dell'errore e l'indirizzo IP del client.
    
     ![Riquadro di spostamento][6]
-4. Nel pannello Record di controllo fare clic su **Apri in Excel** per aprire un modello di Excel preconfigurato per importare ed eseguire un'analisi più approfondita del log di controllo in corrispondenza dell'ora in cui si è verificato l'evento sospetto.<br/>
+4. Nel pannello Auditing Records (Controllo record) fare clic su  **Apri in Excel** per aprire un modello Excel preconfigurato per importare ed eseguire un'analisi più approfondita del log di controllo sull'orario in cui si è verificato l'evento sospetto.<br/>
    **Nota**: in Excel 2010 o versione successiva sono richiesti Power Query e l'impostazione **Combinazione rapida**.
    
     ![Riquadro di spostamento][7]
@@ -82,9 +84,4 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 [7]: ./media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

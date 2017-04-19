@@ -76,6 +76,7 @@ Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
+
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 

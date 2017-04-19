@@ -10,13 +10,13 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
+ms.topic: get-started-article
+ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d7a8d669e75991f6707641e4ce53c9b63d04853c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -52,6 +52,8 @@ In un secondo momento, se si desidera è possibile compilare e ridistribuire l'a
 Application Insights può fornire ulteriori dati di telemetria installando un SDK nell'applicazione. In particolare, è possibile raccogliere i log di traccia, [scrivere dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md) e ottenere report di eccezione più dettagliati.
 
 1. **In Visual Studio** 2013 Update 2 o versione successiva configurare Application Insights per il progetto.
+
+    Fare clic con il pulsante destro del mouse sul progetto Web e scegliere **Configura Application Insights** o **Aggiungi > Application Insights**.
    
     ![Fare clic con il pulsante destro del mouse sul progetto Web e scegliere Aggiungi o Configura Application Insights](./media/app-insights-azure-web-apps/03-add.png)
    
@@ -91,15 +93,21 @@ Application Insights può fornire ulteriori dati di telemetria installando un SD
 
 Per le ricerche più avanzate nei dati di telemetria, usare il [linguaggio di query di Analisi](app-insights-analytics-tour.md).
 
+## <a name="more-telemetry"></a>Altri dati di telemetria
+
+* [Dati di caricamento della pagina Web](app-insights-javascript.md)
+* [Telemetria personalizzata](app-insights-api-custom-events-metrics.md)
+
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Passaggi successivi
+* [Eseguire il profiler sull'app live](app-insights-profiler.md).
 * [Abilitare l'invio dei dati di diagnostica di Azure](app-insights-azure-diagnostics.md) ad Application Insights.
 * [Monitorare le metriche di integrità del servizio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
-* Usare [Analisi dell'utilizzo per applicazioni Web con Application Insights](app-insights-web-track-usage.md) per ottenere i dati di telemetria dei client dai browser che visitano una pagina Web.
+* Usare [Analisi dell'utilizzo per applicazioni Web con Application Insights](app-insights-javascript.md) per ottenere i dati di telemetria dei client dai browser che visitano una pagina Web.
 * [Monitorare la disponibilità e la velocità di risposta dei siti Web](app-insights-monitor-web-app-availability.md) per ricevere un avviso se il sito è inattivo.
 
 

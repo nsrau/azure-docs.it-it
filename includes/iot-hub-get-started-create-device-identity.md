@@ -6,7 +6,7 @@ In questa sezione si usa uno strumento di Node.js denominato [IoT Hub Explorer][
     ```
     npm install -g iothub-explorer@latest
     ```
-2. Eseguire quindi il comando seguente per accedere all'hub, ricordando di sostituire `{iot hub connection string}` con la stringa di connessione dell'hub IoT copiata in precedenza:
+2. Eseguire quindi il comando indicato di seguito per accedere all'hub. Sostituire `{iot hub connection string}` con la stringa di connessione all'hub IoT copiata prima:
 
     ```
     iothub-explorer login "{iot hub connection string}"
@@ -21,7 +21,7 @@ Annotare la stringa di connessione del dispositivo visualizzata nei risultati. Q
 
 ![][img-identity]
 
-Per informazioni su come creare identità del dispositivo a livello di codice, vedere [Introduzione all'hub IoT][lnk-getstarted].
+Per creare identità del dispositivo a livello di codice, vedere [Introduzione all'hub IoT][lnk-getstarted].
 
 <!-- images and links -->
 [img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png

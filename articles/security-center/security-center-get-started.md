@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/11/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -50,7 +50,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 1. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**.
 
    ![Menu di Azure][1]
-2. Se si accede al Centro sicurezza per la prima volta, verrà visualizzato il pannello **iniziale**. Selezionare **Sì! Voglio avviare il Centro sicurezza di Azure** per aprire il pannello **Centro sicurezza** e abilitare la raccolta dati.
+2. Se si accede al Centro sicurezza per la prima volta, verrà visualizzato il pannello **iniziale**. Selezionare **Launch Security Center** (Avvia Centro sicurezza) per aprire il pannello **Centro sicurezza** e abilitare la raccolta dati.
    ![Schermata iniziale][10]
 3. Dopo aver avviato il Centro sicurezza dal pannello iniziale o aver selezionato Centro sicurezza dal menu Microsoft Azure, si aprirà il pannello **Centro sicurezza**. Per semplificare l'accesso al pannello **Centro sicurezza** in futuro, selezionare l'opzione **Aggiungi pannello al dashboard** (in alto a destra).
    ![Opzione Aggiungi pannello al dashboard][2]
@@ -82,10 +82,16 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 
 ### <a name="view-the-health-and-security-state-of-your-resources"></a>Visualizzare lo stato di integrità e di sicurezza delle risorse
 1. Tornare al pannello **Centro sicurezza PC** . Il riquadro **Integrità sicurezza delle risorse** contiene indicatori dello stato di sicurezza per macchine virtuali, rete, dati e applicazioni.
-2. Selezionare **Macchine virtuali** per visualizzare ulteriori informazioni. Il pannello **Macchine virtuali** visualizzerà un riepilogo dello stato di programmi antimalware, aggiornamenti del sistema, riavvii e vulnerabilità del sistema operativo delle macchine virtuali.
-   ![Riquadro Integrità sicurezza delle risorse nel Centro sicurezza di Azure][6]
-3. Selezionare una raccomandazione in **RACCOMANDAZIONI SULLE MACCHINE VIRTUALI** per visualizzare altre informazioni e/o intervenire per configurare i controlli necessari.
-4. Selezionare una VM in **Macchine virtuali** per visualizzare altri dettagli.
+2. Selezionare **Calcolo** per visualizzare altre informazioni. Viene visualizzato il pannello **Calcolo** con tre schede:
+
+  - **Panoramica**: fornisce consigli sul monitoraggio e sulle macchine virtuali.
+  - **Macchine virtuali**: elenca tutte le macchine virtuali e il rispettivo stato di sicurezza corrente.
+  - **Servizi cloud**: elenca di tutti i ruoli Web e di lavoro monitorati dal Centro sicurezza.
+
+    ![Riquadro Integrità delle risorse nel Centro sicurezza di Azure][6]
+
+3. Nella scheda **Panoraimca** selezionare una raccomandazione in **RACCOMANDAZIONI SULLE MACCHINE VIRTUALI** per visualizzare altre informazioni e/o intervenire per configurare i controlli necessari.
+4. Selezionare una macchina virtuale nella scheda **Macchine virtuali** per visualizzare altri dettagli.
 
 ### <a name="view-security-alerts"></a>Visualizzare avvisi di sicurezza
 1. Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Avvisi di sicurezza**. Nel pannello **Avvisi di sicurezza** verrà visualizzato un elenco di avvisi. Gli avvisi vengono generati dall'analisi dei log di sicurezza e dell'attività di rete effettuata dal Centro sicurezza. Sono inclusi gli avvisi generati da soluzioni partner integrate.
@@ -102,7 +108,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 1. Tornare al pannello **Centro sicurezza PC** . Il riquadro **Soluzioni partner** consente di monitorare a colpo d'occhio lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
 2. Selezionare il riquadro **Soluzioni partner** . Verrà visualizzato un pannello con un elenco di soluzioni dei partner connesse al Centro sicurezza.
    ![soluzioni partner][9]
-3. Selezionare una soluzione dei partner. In questo esempio verrà selezionata la soluzione **F5-WAF**.  Verrà visualizzato un pannello con lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione.
+3. Selezionare una soluzione dei partner. In questo esempio verrà selezionata la soluzione **QualysVa1**.  Verrà visualizzato un pannello con lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo sono stati presentati i componenti di monitoraggio della sicurezza e di gestione dei criteri del Centro sicurezza. Dopo aver acquisito familiarità con il Centro sicurezza, provare a eseguire questi passaggi:

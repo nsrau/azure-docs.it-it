@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8dd8aafcae3ef9652e6f45cd3a07cdd1fd74d58f
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b002d21b198fa4887e30d30c20ec67d21ae30579
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
-Informazioni su come configurare un cluster Linux RDMA in Azure con [macchine virtuali serie H o serie A a elevato uso di calcolo](../../virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per eseguire applicazioni MPI (Message Passing Interface) in parallelo. Questo articolo illustra la procedura per preparare un'immagine Linux HPC per l'esecuzione di Intel MPI in un cluster. Dopo la preparazione viene distribuito un cluster di macchine virtuali usando questa immagine e una delle dimensioni di macchina virtuale di Azure con supporto per RDMA (attualmente H16r, H16mr, A8 o A9). Usare il cluster per eseguire applicazioni MPI in grado di comunicare in modo efficiente tramite una rete a bassa latenza e velocità effettiva elevata basata sulla tecnologia di accesso diretto a memoria remota (RDMA).
+Informazioni su come configurare un cluster Linux RDMA in Azure con [macchine virtuali serie H o serie A a elevato uso di calcolo](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per eseguire applicazioni MPI (Message Passing Interface) in parallelo. Questo articolo illustra la procedura per preparare un'immagine Linux HPC per l'esecuzione di Intel MPI in un cluster. Dopo la preparazione viene distribuito un cluster di macchine virtuali usando questa immagine e una delle dimensioni di macchina virtuale di Azure con supporto per RDMA (attualmente H16r, H16mr, A8 o A9). Usare il cluster per eseguire applicazioni MPI in grado di comunicare in modo efficiente tramite una rete a bassa latenza e velocità effettiva elevata basata sulla tecnologia di accesso diretto a memoria remota (RDMA).
 
 > [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager](../../../resource-manager-deployment-model.md) e la distribuzione classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
@@ -85,7 +85,7 @@ Dove:
 
 
 ### <a name="customize-the-vm"></a>Personalizzazione della macchina virtuale
-Quando la macchina virtuale completa il provisioning, assegnare una porta SSH alla macchina virtuale usando l'indirizzo IP esterno della macchina virtuale (o nome DNS) e il numero della porta esterna configurata, quindi personalizzarla. Per informazioni dettagliate sulla connessione, vedere [Come accedere a una macchina virtuale che esegue Linux](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Eseguire i comandi come l'utente configurato nella VM, a meno che non sia necessario l'accesso alla radice per eseguire un passaggio.
+Quando la macchina virtuale completa il provisioning, assegnare una porta SSH alla macchina virtuale usando l'indirizzo IP esterno della macchina virtuale (o nome DNS) e il numero della porta esterna configurata, quindi personalizzarla. Per informazioni dettagliate sulla connessione, vedere [Come accedere a una macchina virtuale che esegue Linux](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Eseguire i comandi come l'utente configurato nella VM, a meno che non sia necessario l'accesso alla radice per eseguire un passaggio.
 
 > [!IMPORTANT]
 > Microsoft Azure non fornisce l'accesso alla directory principale per le macchine virtuali Linux. Per ottenere l'accesso amministrativo quando si è connessi come utente alla macchina virtuale, eseguire i comandi con `sudo`.

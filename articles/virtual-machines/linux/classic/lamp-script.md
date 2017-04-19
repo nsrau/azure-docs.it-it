@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 3c1877f0dd560894099fb7c50c30846c2cc720b3
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1c1591079bf09da6fbe50d848b05ec7791657e04
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sulla distribuzione di uno stack LAMP con il modello di Resource Manager, vedere [qui](../../virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sulla distribuzione di uno stack LAMP con il modello di Resource Manager, vedere [qui](../create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 L'estensione CustomScript di Microsoft Azure per Linux fornisce un modo per personalizzare le macchine virtuali (VM) tramite l'esecuzione di codice arbitrario scritto in un linguaggio supportato dalla macchina virtuale (ad esempio, Python e Bash). In tal modo è possibile automatizzare la distribuzione di applicazioni a più computer in un modo molto flessibile.
 
@@ -105,6 +105,6 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 
 [Estensioni per Linux di Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Computing Linux e open source in Azure](../../virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Computing Linux e open source in Azure](../opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 

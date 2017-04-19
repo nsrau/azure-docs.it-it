@@ -4,7 +4,7 @@ description: Gli asset credenziali in Automazione di Azure includono le credenzi
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 04/14/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: afb6662e1b4af6cf66fd3c8e7b155b5b6bea85ff
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 17b4dc2223d30ef13877efc650b56268b707c4bd
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -88,7 +89,7 @@ Per aggiungere un'attività **Get-AutomationPSCredential** a un runbook grafico,
 
 ![Aggiungere credenziali all'area di disegno](media/automation-credentials/credential-add-canvas.png)
 
-La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafico.  In questo caso vengono usate per fornire l'autenticazione per un runbook a risorse di Azure, come illustrato in [Autenticare i runbook con Azure Service Management e Azure Resource Manager](automation-sec-configure-aduser-account.md).  La prima attività recupera le credenziali che possono accedere alla sottoscrizione di Azure.  L'attività **Add-AzureAccount** usa quindi queste credenziali per fornire l'autenticazione per eventuali attività successive.  Viene usato un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow) poiché **Get-AutomationPSCredential** prevede un singolo oggetto.  
+La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafico.  In questo caso vengono usate per fornire l'autenticazione per un runbook a risorse di Azure, come illustrato in [Autenticare i runbook con Azure Service Management e Azure Resource Manager](automation-create-aduser-account.md).  La prima attività recupera le credenziali che possono accedere alla sottoscrizione di Azure.  L'attività **Add-AzureAccount** usa quindi queste credenziali per fornire l'autenticazione per eventuali attività successive.  Viene usato un [collegamento pipeline](automation-graphical-authoring-intro.md#links-and-workflow) poiché **Get-AutomationPSCredential** prevede un singolo oggetto.  
 
 ![Aggiungere credenziali all'area di disegno](media/automation-credentials/get-credential.png)
 
@@ -100,10 +101,5 @@ Anche se le configurazioni DSC in Automazione di Azure possono fare riferimento 
 * Per comprendere i diversi metodi di autenticazione con Automazione, vedere [Sicurezza in Automazione di Azure](automation-security-overview.md)
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

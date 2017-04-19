@@ -17,9 +17,9 @@ ms.date: 09/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 2dd6e9ba1d08d3528cdf8194e1e338422361d1d5
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5edba79e5c65f0e9411a418ac1a121fd938feff2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -56,7 +56,7 @@ L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 * **Creazione di una macchina virtuale:** un'interfaccia di rete con Rete accelerata abilitata può essere associata a una macchina virtuale solo durante la creazione della macchina virtuale. Non è possibile collegare l'interfaccia di rete a una macchina virtuale esistente.
 * **Aree:** sono disponibili solo le aree di Azure Stati Uniti centro-occidentali ed Europa occidentale. In futuro il set di aree disponibili verrà ampliato.
 * **Sistemi operativi supportati:** Microsoft Windows Server 2012 R2 e Windows Server 2016 Technical Preview 5. Presto verrà aggiunto il supporto per Linux e Windows Server 2012.
-* **Dimensioni della macchina virtuale:** le uniche dimensioni delle istanze di macchina virtuale supportate sono Standard_D15_v2 e Standard_DS15_v2. Per altre informazioni, vedere l'articolo [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . In futuro il set di dimensioni delle istanze di macchina virtuale supportate verrà ampliato.
+* **Dimensioni della macchina virtuale:** le uniche dimensioni delle istanze di macchina virtuale supportate sono Standard_D15_v2 e Standard_DS15_v2. Per altre informazioni, vedere l'articolo [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . In futuro il set di dimensioni delle istanze di macchina virtuale supportate verrà ampliato.
 
 Le modifiche apportate a queste limitazioni verranno annunciate nella pagina relativa agli [aggiornamenti sulla rete virtuale di Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 

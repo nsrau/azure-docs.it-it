@@ -47,6 +47,7 @@
 ### [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Modifica della password dell'account del servizio Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Modifica della password dell'account Active Directory Domain Services](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [Abilitare il Cestino di AD](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## Gestire Federation Services
 ### [Gestire e personalizzare](active-directory-aadconnect-federation-management.md)
+### [Attuare la federazione di più istanze di Azure AD con un'unica istanza di AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Risoluzione dei problemi

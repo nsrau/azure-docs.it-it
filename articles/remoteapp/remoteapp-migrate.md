@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 456175d718898287496d9e19cae8da259fba2e8e
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 39dd726078c4dcc55063300bdca998ad822feadd
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>Come eseguire la migrazione di dati in entrata e in uscita da Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -60,10 +61,5 @@ Anche se non è possibile abilitare l'agente di sincronizzazione OneDrive for Bu
 
 ## <a name="copy-files-by-using-drive-redirection"></a>Copiare i file usando il reindirizzamento delle unità
 Se è stato abilitato il [reindirizzamento delle unità](remoteapp-redirection.md), è già stata creata un'unità mappata per gli utenti. In questo caso, è possibile comprimere i file sull'unità reindirizzata e salvarli nel PC locale.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

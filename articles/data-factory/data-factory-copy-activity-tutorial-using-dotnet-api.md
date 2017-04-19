@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0664888dbb14aaa353d5d126cdf799b62711d71f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -106,7 +106,7 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
     ```PowerShell
     $azureAdApplication    
     ```
-    Annotare l'ID applicazione (**applicationID** ) dall'output.
+    Annotare l'ID applicazione (applicationID) dall'output.
 
 Da questi passaggi si avranno i quattro valori seguenti:
 
@@ -124,7 +124,7 @@ Da questi passaggi si avranno i quattro valori seguenti:
    5. Immettere **DataFactoryAPITestApp** per Nome.
    6. Selezionare **C:\ADFGetStarted** come percorso.
    7. Fare clic su **OK** per creare il progetto.
-2. Fare clic su **Strumenti**, scegliere **Gestione pacchetti NuGet** e fare clic su **Console di Gestione pacchetti**.
+2. Fare clic su **Strumenti**, scegliere **Gestione pacchetti NuGet** e quindi fare clic su **Console di Gestione pacchetti**.
 3. Nella finestra **Console di Gestione pacchetti** seguire questa procedura:
    1. Eseguire questo comando per installare il pacchetto di Data factory: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Eseguire questo comando per installare il pacchetto di Azure Active Directory. Nel codice viene usata l'API di Active Directory: `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -184,7 +184,7 @@ Da questi passaggi si avranno i quattro valori seguenti:
    > [!IMPORTANT]
    > Sostituire il valore di **resourceGroupName** con il nome del gruppo di risorse di Azure.
    >
-   > Aggiornare il nome della data factory (**dataFactoryName**) in modo che sia univoco. Il nome della data factory deve essere globalmente univoco. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .
+   > Aggiornare il nome della data factory (dataFactoryName) in modo che sia univoco. Il nome della data factory deve essere globalmente univoco. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .
 
 7. Aggiungere al metodo **Main** il codice seguente che crea una **data factory**.
 
@@ -473,7 +473,7 @@ Da questi passaggi si avranno i quattro valori seguenti:
     }
     ```
 
-15. In Esplora soluzioni espandere il progetto (**DataFactoryAPITestApp**), fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**. Selezionare la casella di controllo per l'assembly "**System.Configuration**" e fare clic su **OK**.
+15. In Esplora soluzioni espandere il progetto (DataFactoryAPITestApp), fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**. Selezionare la casella di controllo per l'assembly **System.Configuration** e fare clic su **OK**.
 16. Compilare l'applicazione console. Scegliere **Compila** dal menu e fare clic su **Compila soluzione**.
 17. Verificare che esista almeno un file nel contenitore **adftutorial** nell'archivio BLOB di Azure. In caso contrario, creare il file **Emp.txt** nel Blocco note con il contenuto seguente e caricarlo nel contenitore adftutorial.
 
@@ -486,7 +486,7 @@ Da questi passaggi si avranno i quattro valori seguenti:
    * Servizio collegato: **LinkedService_AzureStorage**.
    * Set di dati: **DatasetBlobSource** e **DatasetBlobDestination**.
    * Pipeline: **PipelineBlobSample**
-20. Verificare che i due record dipendente vengano creati nella tabella "**emp**" del database SQL di Azure specificato.
+20. Verificare che i due record dipendente vengano creati nella tabella **emp** del database SQL di Azure specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 | Argomento | Descrizione |

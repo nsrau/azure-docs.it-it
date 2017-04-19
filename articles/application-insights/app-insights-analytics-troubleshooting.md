@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 07/11/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 6533b1e6a40b7cbf7d3d6961523144b3d0e5263b
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 82a1888cca687ce60f811c2c3cec6b971d4a0461
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,21 +32,21 @@ Problemi con [Application Insights Analytics](app-insights-analytics.md)? Inizia
 
 Disabilitare l'estensione o utilizzare un altro browser.
 
-## <a name="a-namee-aa-unexpected-error"></a><a name="e-a"></a> "Errore imprevisto"
+## <a name="e-a"></a> "Errore imprevisto"
 ![Schermata di errore imprevisto](./media/app-insights-analytics-troubleshooting/010.png)
 
 Si è verificato un errore interno durante il runtime del portale: eccezione non gestita.
 
 * Svuotare la cache del browser. 
 
-## <a name="a-namee-ba403--please-try-to-reload"></a><a name="e-b"></a>403 ... provare a ricaricare la pagina
+## <a name="e-b"></a>403 ... provare a ricaricare la pagina
 ![403 ... please try to reload](./media/app-insights-analytics-troubleshooting/020.png)
 
 Si è verificato un errore correlato all'autenticazione (durante l'autenticazione o durante la generazione del token di accesso). Potrebbe non essere possibile ripristinare il portale senza modificare le impostazioni del browser.
 
 * Verificare che nel browser siano attivati i [cookie di terze parti](#cookies) . 
 
-## <a name="a-nameauthenticationa403--verify-security-zone"></a><a name="authentication"></a>403 ... verificare l'area di sicurezza
+## <a name="authentication"></a>403 ... verificare l'area di sicurezza
 ![403 ... verify security zone](./media/app-insights-analytics-troubleshooting/030.png)
 
 Si è verificato un errore correlato all'autenticazione (durante l'autenticazione o durante la generazione del token di accesso). Potrebbe non essere possibile ripristinare il portale senza modificare le impostazioni del browser.
@@ -68,12 +69,12 @@ Si è verificato un errore correlato all'autenticazione (durante l'autenticazion
      https://login.microsoftonline.com<br/>
      https://login.windows.net
 
-## <a name="a-namee-da404--resource-not-found"></a><a name="e-d"></a>404 ... Resource not found
+## <a name="e-d"></a>404 ... Resource not found
 ![404 ... resource not found](./media/app-insights-analytics-troubleshooting/040.png)
 
 Una risorsa dell'applicazione è stata eliminata da Application Insights e non è più disponibile. Questa situazione può verificarsi se è stato salvato l'URL alla pagina di Analytics.
 
-## <a name="a-namee-ea403--no-authorization"></a><a name="e-e"></a>403 ... No authorization
+## <a name="e-e"></a>403 ... No authorization
 ![403 ... not authorized](./media/app-insights-analytics-troubleshooting/050.png)
 
 Non si dispone dell'autorizzazione ad aprire questa applicazione in Analytics.
@@ -81,7 +82,7 @@ Non si dispone dell'autorizzazione ad aprire questa applicazione in Analytics.
 * Se il collegamento è stato fornito da un altro utente, Chiedere la conferma che l'utente destinatario sia un [lettore o collaboratore di questo gruppo di risorse](app-insights-resources-roles-access-control.md).
 * Se il collegamento è stato salvato con credenziali diverse, Aprire il [portale di Azure](https://portal.azure.com), disconnettersi e riprovare a usare questo collegamento, inserendo le credenziali corrette.
 
-## <a name="a-namehtml-storagea403--html5-storage"></a><a name="html-storage"></a>403 ... HTML5 Storage
+## <a name="html-storage"></a>403 ... HTML5 Storage
 Il portale utilizza HTML5 localStorage e sessionStorage.
 
 * Chrome: Impostazioni, Privacy, Impostazioni contenuti.
@@ -89,31 +90,24 @@ Il portale utilizza HTML5 localStorage e sessionStorage.
 
 ![403 ... try to enable HTML5 storage](./media/app-insights-analytics-troubleshooting/060.png)
 
-## <a name="a-namee-ga404--subscription-not-found"></a><a name="e-g"></a>404 ... Sottoscrizione non trovata
+## <a name="e-g"></a>404 ... Sottoscrizione non trovata
 ![404 ... Sottoscrizione non trovata](./media/app-insights-analytics-troubleshooting/070.png)
 
 L'URL non è valido. 
 
 * Aprire la risorsa dell'app nel [portale di Application Insights](https://portal.azure.com), quindi utilizzare il pulsante di analisi.
 
-## <a name="a-namee-ha404--page-doesnt-exist"></a><a name="e-h"></a>404 ... la pagina non esiste
+## <a name="e-h"></a>404 ... la pagina non esiste
 ![404 ... Page does not exist](./media/app-insights-analytics-troubleshooting/080.png)
 
 L'URL non è valido.
 
 * Aprire la risorsa dell'app nel [portale di Application Insights](https://portal.azure.com), quindi utilizzare il pulsante di analisi.
 
-## <a name="a-namecookiesaenable-third-party-cookies"></a><a name="cookies"></a>Abilitare i cookie di terze parti
+## <a name="cookies"></a>Abilitare i cookie di terze parti
   Vedere [come disabilitare il cookie di terze parti](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), tenendo conto che in questo caso è necessario **abilitarli** .
 
-## <a name="a-namee-xaif-all-else-fails"></a><a name="e-x"></a>Se il problema non viene risolto,
-[Contattaci](app-insights-get-dev-support.md).
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

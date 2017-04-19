@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24d41c7eb6b5bd34c07d21318740ecf4c6db2d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>SQL Azure con Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -56,10 +57,5 @@ Se si è rallentati dall'uso di un'applicazione client ospitata in Azure RemoteA
 * La latenza di rete dal dispositivo ad Azure è elevata. Per prestazioni ottimali, usare la connessione di rete più efficiente e rapida possibile. Usare [azurespeed.com](http://azurespeed.com/) come strumento generale per testare la latenza dei dispositivi nel data center di Azure.  
 * L'app client ospitata in Azure RemoteApp è in condizione di stress. Selezionare un altro piano di fatturazione, ad esempio la fatturazione Premium, per migliorare le prestazioni. Un altro espediente consiste nel monitorare le risorse utilizzate dall'applicazione: durante una sessione attiva eseguire una sequenza di tasti CTRL+ALT+FINE per avviare la schermata della firma di accesso condiviso, selezionare Gestione attività e osservare l'utilizzo delle risorse per l'app.
 * SQL Server è in condizioni di stress o non è ottimizzato. Seguire le indicazioni relative a SQL per la risoluzione dei problemi. 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/02/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1d010dd85ccf2dd708a7740eb8399fc06a603574
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -65,7 +65,7 @@ Le organizzazioni che non applicano il controllo di accesso ai dati sfruttando f
 
 ## <a name="vm-availability-and-network-access"></a>Disponibilità e accesso alla rete della VM
 
-Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più VM. Per una maggiore disponibilità, creare almeno due macchine virtuali nel [set di disponibilità](../virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md).
+Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più VM. Per una maggiore disponibilità, creare almeno due macchine virtuali nel [set di disponibilità](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) richiede inoltre che le VM con carico bilanciato appartengano allo stesso set di disponibilità. Se per queste VM è necessario eseguire l'accesso da Internet, si dovrà configurare un [servizio di bilanciamento del carico con connessione Internet](../load-balancer/load-balancer-internet-overview.md).
 
@@ -123,7 +123,7 @@ Le organizzazioni che non applicano condizioni di sicurezza avanzate per le prop
 
 L'uso improprio delle risorse può essere un problema quando i processi della VM utilizzano più risorse di quanto dovrebbero. I problemi di prestazioni di una VM possono causare interruzioni del servizio, il che viola il principio di disponibilità della sicurezza. Per questo motivo è fondamentale monitorare l'accesso alla VM non solo in modo reattivo (mentre un problema si sta verificando) ma anche in modo proattivo, rispetto alle prestazioni misurate durante il periodo di normale funzionamento.
 
-Analizzando [i file di log di diagnostica di Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), è possibile monitorare le risorse della VM e identificare i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità. L'estensione Diagnostica di Azure offre funzionalità di monitoraggio e diagnostica nelle VM Windows. È possibile abilitare queste funzionalità includendo l'estensione come parte del [modello di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
+Analizzando [i file di log di diagnostica di Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), è possibile monitorare le risorse della VM e identificare i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità. L'estensione Diagnostica di Azure offre funzionalità di monitoraggio e diagnostica nelle VM Windows. È possibile abilitare queste funzionalità includendo l'estensione come parte del [modello di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 È possibile usare [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) per ottenere visibilità sull'integrità della risorsa.
 

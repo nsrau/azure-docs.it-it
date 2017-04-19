@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 translationtype: Human Translation
-ms.sourcegitcommit: f67ff1cc18b23c3d4006121e266a5d96933e49bf
-ms.openlocfilehash: d6c4d0b9f9cbf05341d30fe75e9828d0237a1962
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18c7a013c01fee26c5455535af6d9fba2b98fac7
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -328,5 +328,5 @@ if __name__ == '__main__':
 
 ```
 ## <a name="next-steps"></a>Passaggi successivi 
-[Manutenzione pianificata per macchine virtuali in Azure](./virtual-machines-linux-planned-maintenance.md)
+[Manutenzione pianificata per macchine virtuali in Azure](linux/planned-maintenance.md)
 

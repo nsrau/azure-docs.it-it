@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 284bf43ceae0c42b88d6ea3fe8a2e68e7530e5fe
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 6c84c21a0a61ab3e4d043e85d48780fc23f23a08
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET per MongoDB](documentdb-mongodb-application.md)
-> * [Node.js](documentdb-nodejs-application.md)
+> * [Node.JS](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
 > 
@@ -51,7 +51,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
    OPPURE
 
    Un'installazione locale dell'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md).
-* [Node.js][Node.js]&0;.10.29 o versione successiva.
+* [Node.js][Node.js] 0.10.29 o versione successiva.
 * [Generatore di Express](http://www.expressjs.com/starter/generator.html), installabile tramite `npm install express-generator -g`
 * [Git][Git].
 

@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e476a80a3846b8c80c35d6803d5518727f008824
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -153,7 +153,7 @@ L'associazione di output usa l'oggetto JSON seguente nella matrice `bindings` di
 Tenere presente quanto segue:
 
 * Impostare `createIfNotExists` su `true` per creare il database e la raccolta se non esiste. Il valore predefinito è `false`. Le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di prezzi. Per altre informazioni, vedere [DocumentDB - Prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
-* `connection` deve essere il nome di un'impostazione di app che punta all'endpoint per l'account di DocumentDB (con il valore `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Se si crea un account di DocumentDB dall'interfaccia utente del portale Funzioni, il processo di creazione dell'account crea automaticamente una nuova impostazione dell'app. Per usare un account di DocumentDB esistente, è necessario [configurare manualmente questa impostazione dell'app](). 
+* `connection` deve essere il nome di un'impostazione di app che punta all'endpoint per l'account di DocumentDB (con il valore `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Se si crea un account di DocumentDB dall'interfaccia utente del portale Funzioni, il processo di creazione dell'account crea automaticamente una nuova impostazione dell'app. Per usare un account di DocumentDB esistente, è necessario [configurare manualmente questa impostazione dell'app](functions-how-to-use-azure-function-app-settings.md). 
 
 ## <a name="output-usage"></a>Uso dell'output
 In questa sezione viene illustrato come usare l'associazione di output di DocumentDB nel codice di funzione.

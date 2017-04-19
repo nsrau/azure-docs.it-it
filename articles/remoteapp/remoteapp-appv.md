@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8057e9ce27f9df3e9455d48d9c8196033612c8f3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 0e82c639ea7bfceb89f0cf9c59ab657a951f2d5f
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-app-v-apps-in-azure-remoteapp"></a>Uso delle app App-V in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -41,10 +42,5 @@ L'uso dell'infrastruttura App-V esistente con Azure RemoteApp è una procedura s
 | Globale (computer) |Prepubblicazione o destinazione mediante server di pubblicazione |Se si desidera aggiornare l'app (di grandi dimensioni), è necessario aggiornare l'immagine di Azure. Occupa spazio nell'immagine. | |
 
  Dopo aver creato l'immagine personalizzata e la raccolta ibrida, è possibile pubblicare l'applicazione, assegnare gli utenti e usare le applicazioni App-V esistenti ospitate in Azure RemoteApp distribuite a qualsiasi dispositivo e in qualsiasi luogo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

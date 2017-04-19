@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
-ms.openlocfilehash: da7102882b9dcf7db1285c0ec004ce1ad3859853
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0fcfcc53641ebdf8a668b353db8eebb3bc64795d
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +29,7 @@ Usare Microsoft HPC Pack 2012 R2 e Azure per configurare un piccolo cluster HPC 
 
 L'approccio descritto in questa esercitazione, denominato anche "potenziamento nel cloud", consente di usare risorse di calcolo scalabili su richiesta in Azure per eseguire applicazioni a elevato utilizzo di calcolo.
 
-Questa esercitazione non presuppone che si abbia esperienza nell'ambito dei cluster di calcolo o di HPC Pack 2012 R2. Viene fornita solo per aiutare l'utente a distribuire rapidamente un cluster di calcolo ibrido a scopo dimostrativo. Per considerazioni e procedure sulla distribuzione di un cluster HPC Pack ibrido su scala maggiore in un ambiente di produzione o per l'uso di HPC Pack 2016, vedere le [indicazioni dettagliate](http://go.microsoft.com/fwlink/p/?LinkID=200493). Per altri scenari con HPC Pack, inclusa la distribuzione automatica di cluster nelle macchine virtuali di Azure, vedere [Opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Questa esercitazione non presuppone che si abbia esperienza nell'ambito dei cluster di calcolo o di HPC Pack 2012 R2. Viene fornita solo per aiutare l'utente a distribuire rapidamente un cluster di calcolo ibrido a scopo dimostrativo. Per considerazioni e procedure sulla distribuzione di un cluster HPC Pack ibrido su scala maggiore in un ambiente di produzione o per l'uso di HPC Pack 2016, vedere le [indicazioni dettagliate](http://go.microsoft.com/fwlink/p/?LinkID=200493). Per altri scenari con HPC Pack, inclusa la distribuzione automatica di cluster nelle macchine virtuali di Azure, vedere [Opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti.
@@ -269,7 +270,7 @@ Dopo aver provato il cluster, arrestare i nodi di Azure per evitare l'addebito d
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere la documentazione relativa a [HPC Pack](https://technet.microsoft.com/library/cc514029).
 * Per configurare una distribuzione di cluster ibrido HPC Pack su una scala più ampia, vedere [Burst to Azure with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)(Potenziamento della capacità di Azure con Microsoft HPC Pack).
-* Per altri modi per creare un cluster HPC Pack in Azure, inclusi i modelli di Azure Resource Manager, vedere [Opzioni per cluster HPC con Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Per altri modi per creare un cluster HPC Pack in Azure, inclusi i modelli di Azure Resource Manager, vedere [Opzioni per cluster HPC con Microsoft HPC Pack in Azure](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Vedere [Big Compute in Azure: risorse tecniche per Batch e HPC (High Performance Computing)](../batch/big-compute-resources.md) per altre informazioni sulla gamma di soluzioni cloud HPC e Big Compute in Azure.
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -308,9 +309,4 @@ Dopo aver provato il cluster, arrestare i nodi di Azure per evitare l'addebito d
 [stop_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node2.png
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

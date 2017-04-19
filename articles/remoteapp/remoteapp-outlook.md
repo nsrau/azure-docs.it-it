@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 941cc40c3c1979609649eda42e4b39aa383c3fd2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a6d4fbdf0e552f50673092183e893841ec0c5aa4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Uso di Microsoft Outlook in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -36,10 +37,5 @@ Vedere le [istruzioni dettagliate su come abilitare la modalità cache](https://
 
 ## <a name="search"></a>Search
 In Azure RemoteApp, l'uso della ricerca all'interno di Outlook presenta alcune limitazioni. Azure RemoteApp usa macchine virtuali in pool per supportare le sessioni utente. L'indicizzazione della ricerca dipende dall'ID computer, che varia a seconda della macchina virtuale. È possibile che ogni volta che un utente accede ad Azure RemoteApp venga indirizzato a una nuova macchina virtuale. Ciò significa che, se si abilita la ricerca locale, l'indicizzatore viene eseguito ogni volta che l'ID computer cambia (quando l'utente è in una macchina virtuale diversa). A seconda delle dimensioni del file OST, l'esecuzione dell'indicizzatore può richiedere molto tempo e consumare risorse necessarie per altre applicazioni. La ricerca, quindi, può risultare lenta o non dare alcun risultato. L'uso di un profilo utente in modalità online risolverebbe il problema, ma le prestazioni complessive diminuirebbero per la mancanza di una cache locale. Vedere il collegamento precedente per altre informazioni sulle differenze tra modalità online e modalità cache. Purtroppo, in Outlook 2013 non è possibile disabilitare la ricerca locale/indicizzata e abilitare la ricerca online per impostazione predefinita.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

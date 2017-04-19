@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -104,7 +104,7 @@ Per crittografare una macchina virtuale di Azure, seguire questa procedura:
 8. Lo script richiede il valore **resourceGroupName:** immettere il nome del *gruppo di risorse* da usare e quindi premere **INVIO**. Se non è disponibile, immettere un nome da usare per un nuovo gruppo di risorse. Se è già disponibile un *gruppo di risorse* da usare, ad esempio quello in cui si trova la macchina virtuale, immetterne il nome.
 9. Lo script richiede **keyVaultName:** immettere il nome dell' *insieme di credenziali delle chiavi* da usare e quindi premere INVIO. Se non è disponibile, immettere un nome da usare per un nuovo gruppo di risorse. Se è già disponibile un *insieme di credenziali delle chiavi*da usare, immetterne il nome.
 10. Lo script richiede il valore **location:** immettere il percorso in cui si trova la VM da crittografare, quindi premere **INVIO**. Se non si ricorda il percorso, tornare al passaggio 5.
-11. Lo script richiede il valore **aadAppName:** immettere il nome dell'*applicazione Azure Active Directory* da usare, quindi premere **INVIO**. Se non è disponibile, immettere un nome da usare per un nuovo gruppo di risorse. Se è già disponibile un'*applicazione Azure Active Directory* da usare, immetterne il nome**.
+11. Lo script richiede il valore **aadAppName:** immettere il nome dell'*applicazione Azure Active Directory* da usare, quindi premere **INVIO**. Se non è disponibile, immettere un nome da usare per un nuovo gruppo di risorse. Se è già disponibile un'*applicazione Azure Active Directory* da usare, immetterne il nome*applicazione Azure Active Directory*.
 12. Viene visualizzata una finestra di dialogo di accesso. Fornire le credenziali. È necessario accedere nuovamente, anche se è già stato eseguito l'accesso.
 13. Lo script viene eseguito e al termine verrà richiesto di copiare i valori di **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl** e **keyVaultResourceId**. Copiare i singoli valori negli Appunti e incollarli nel Blocco note.
 14. Tornare alla finestra di PowerShell ISE, posizionare il cursore alla fine dell'ultima riga e premere **INVIO**.
@@ -142,10 +142,10 @@ Premere **INVIO**. Viene visualizzato il nome della macchina virtuale da crittog
 
 ![Output di PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-Il comando per la crittografia della macchina virtuale può essere eseguito in due modi. Il primo metodo consiste nel digitare il comando seguente nella console di PowerShell ISE:
+Sono disponibili due metodi per eseguire il comando di crittografia per crittografare tutte le unità nella macchina virtuale. Il primo metodo consiste nel digitare il comando seguente nella console di PowerShell ISE:
 
 ~~~
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId
+Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
 ~~~
 
 Dopo aver digitato il comando, premere **INVIO**.

@@ -12,11 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bd892d5f15a8d95664ef0666cd35e434e773bbce
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 98f9519a66b2be8634d533d4e9bc5e690c006e82
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +37,7 @@ Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di 
 * [Configurare il controllo per il database]
 * [Analizzare i log di controllo e i report]
 
-## <a name="a-idsubheading-1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Nozioni di base sul controllo del database di SQL Data Warehouse
+## <a id="subheading-1"></a>Nozioni di base sul controllo del database di SQL Data Warehouse
 Il controllo del database SQL Data Warehouse consente di:
 
 * **Conservare** un audit trail di eventi selezionati. È possibile definire categorie di azioni di database da controllare.
@@ -62,7 +64,7 @@ Un criterio di controllo può essere definito per un database specifico o come c
 
 Prima di impostare il controllo verificare che si stia utilizzando un ["Client di livello inferiore"](sql-data-warehouse-auditing-downlevel-clients.md).
 
-## <a name="a-idsubheading-2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configurare il controllo per il database
+## <a id="subheading-2"></a>Configurare il controllo per il database
 1. Avviare il <a href="https://portal.azure.com" target="_blank">portale di Azure</a>.
 2. Passare al pannello di configurazione del database SQL Data Warehouse / SQL Server che si vuole controllare. Fare clic sul pulsante **Impostazioni** nella parte superiore e quindi nel pannello Impostazioni e selezionare **Controllo**.
    
@@ -81,7 +83,7 @@ Prima di impostare il controllo verificare che si stia utilizzando un ["Client d
 8. Se si sta configurando il controllo per un database, è necessario modificare la stringa di connessione del client per garantire che il controllo dei dati venga acquisito correttamente. Controllare l’argomento [Modificare il nome di dominio di Server completo nella stringa di connessione](sql-data-warehouse-auditing-downlevel-clients.md) per le connessioni di client di livello inferiore.
 9. Fare clic su **OK**.
 
-## <a name="a-idsubheading-3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">Analizzare i log di controllo e i report</a>
+## <a id="subheading-3">Analizzare i log di controllo e i report</a>
 I log di controllo vengono aggregati in una raccolta di tabelle di archiviazione con il prefisso **SQLDBAuditLogs** nell'account di archiviazione di Azure scelto durante l'installazione. È possibile visualizzare i file di log con uno strumento come <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Esplora archivi di Azure</a>.
 
 È possibile scaricare un modello di report dashboard preconfigurato in formato <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">foglio di calcolo di Excel</a>, che consente di analizzare rapidamente i dati di log. Per usare il modello nei log di controllo sono necessari Excel 2013 o versione successiva e Power Query, disponibile per il download <a href="http://www.microsoft.com/download/details.aspx?id=39379">qui</a>.
@@ -92,10 +94,10 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il document
 
 ![][5]
 
-## <a name="a-idsubheading-4practices-for-usage-in-productiona"></a><a id="subheading-4">Procedure per l'uso in produzione</a>
+## <a id="subheading-4">Procedure per l'uso in produzione</a>
 La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a>.
 
-## <a name="a-idsubheading-5astorage-key-regeneration"></a><a id="subheading-5"></a>Rigenerazione delle chiavi di archiviazione
+## <a id="subheading-5"></a>Rigenerazione delle chiavi di archiviazione
 Durante la produzione è probabile che si aggiornino periodicamente le chiavi di archiviazione. Quando si aggiornano le chiavi, è necessario salvare nuovamente il criterio. Il processo è il seguente:
 
 1. Nel pannello di configurazione del controllo (descritto sopra nella sezione sulla configurazione del controllo) cambiare **Chiave di accesso alle risorse di archiviazione** da *Primaria* a *Secondaria* e fare clic su **SALVA**.
@@ -104,7 +106,7 @@ Durante la produzione è probabile che si aggiornino periodicamente le chiavi di
 3. Tornare al pannello di configurazione del controllo, cambiare **Chiave di accesso alle risorse di archiviazione** da *Secondaria* a *Primaria* e fare clic su **SALVA**.
 4. Tornare all'interfaccia utente di archiviazione e **rigenerare** la *Chiave di accesso secondaria* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
 
-## <a name="a-idsubheading-6aautomation"></a><a id="subheading-6"></a>Automazione
+## <a id="subheading-6"></a>Automazione
 Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per configurare il controllo nel database SQL di Azure. Per accedere ai cmdlet di controllo, è necessario che PowerShell sia in esecuzione in modalità Gestione risorse di Azure.
 
 > [!NOTE]
@@ -129,9 +131,4 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 
 
 <!--Link references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -16,15 +16,15 @@ ms.date: 02/28/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 24c94f80afdb3d3330a835fae2f77ecb213a9ae5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: b9f7c86415a2606cb969427a362b4d2feef183fb
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="how-password-management-works-in-azure-active-directory"></a>Funzionamento della gestione delle password in Azure Active Directory
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
 
 La gestione delle password in Azure Active Directory (Azure AD) è costituita dai componenti logici seguenti:
 
@@ -116,7 +116,7 @@ Per altre informazioni su Azure AD Connect, vedere [Introduzione ad Azure AD Con
 
 Per altre informazioni, vedere la pagina di reimpostazione della password in Azure AD seguente:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** In tal caso, seguire questa procedura per [cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** In tal caso, seguire questa procedura per [cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali.
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione.
 * [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione.

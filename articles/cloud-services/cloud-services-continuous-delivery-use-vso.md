@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 171c3f05b0eacfd8b1ede0b807f284ce6c0555b4
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: d80ce63eb7ddfd7c45726be887a772f9a7594b28
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -39,7 +40,7 @@ Seguire le istruzioni [qui](http://go.microsoft.com/fwlink/?LinkId=512980) per c
 1. In Visual Studio, aprire la soluzione che si desidera distribuire o crearne una nuova.
    È possibile distribuire un’app Web o un servizio cloud (applicazione Azure) seguendo i passaggi di questa procedura dettagliata.
    Se si desidera creare una nuova soluzione, creare un nuovo progetto di servizio cloud di Azure o un nuovo progetto ASP.NET MVC. Assicurarsi che la destinazione del progetto sia .NET Framework 4 o 4.5 e, se si sta creando un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro, quindi scegliere l'applicazione Internet per il ruolo Web. Quando richiesto, scegliere **Applicazione Internet**.
-   Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.NET e quindi scegliere MVC. Vedere [Creare un'app Web ASP.NET in Azure App Service](../app-service-web/web-sites-dotnet-get-started.md).
+   Per creare un’app Web, scegliere il modello di progetto Applicazione Web ASP.NET e quindi scegliere MVC. Vedere [Creare un'app Web ASP.NET in Azure App Service](../app-service-web/app-service-web-get-started-dotnet.md).
    
    > [!NOTE]
    > Al momento, Visual Studio Team Services supporta solo le distribuzioni CI di applicazioni Web di Visual Studio. I progetti di sito Web sono esterni all'ambito.
@@ -289,9 +290,4 @@ Per altre informazioni sull'esecuzione di test delle unità in Visual Studio Tea
 [48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

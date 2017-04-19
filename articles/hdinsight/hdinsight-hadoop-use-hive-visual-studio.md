@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 0627155a86f961531cfb11c0d8dc7a66eafbf0cf
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 125531d8d52d4e27951a9e6cae0c50582c5b110e
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,12 +36,12 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 * Un cluster Azure HDInsight (Hadoop in HDInsight)
 
   > [!IMPORTANT]
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Visual Studio (una delle versioni seguenti):
-  
+
     * Visual Studio 2013 Community/Professional/Premium/Ultimate con [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
-  
+
     * Visual Studio 2015, qualsiasi edizione
 
     * Visual Studio 2017, qualsiasi edizione
@@ -62,16 +62,16 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
    STORED AS TEXTFILE LOCATION '/example/data/';
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
-   
+
     Di seguito sono elencate le istruzioni che eseguono queste azioni:
-   
+
    * `DROP TABLE`: se la tabella esiste, questa istruzione la elimina.
 
    * `CREATE EXTERNAL TABLE`: crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
-     
+
      > [!NOTE]
      > È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
-     > 
+     >
      > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
    * `ROW FORMAT`: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
@@ -95,7 +95,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 6. È anche possibile eseguire query Hive senza creare un progetto. Usando **Esplora server**, espandere **Azure** > **HDInsight**, fare clic con il pulsante destro del mouse sul server HDInsight, quindi scegliere **Scrivi una query Hive**.
 
 7. Nel documento **temp.hql** che viene visualizzato aggiungere le seguenti istruzioni HiveQL:
-   
+
    ```hiveql
    set hive.execution.engine=tez;
    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -103,9 +103,9 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
    ```
 
     Di seguito sono elencate le istruzioni che eseguono queste azioni:
-   
+
    * `CREATE TABLE IF NOT EXISTS`: crea una tabella, se non esiste già. Poiché la parola chiave `EXTERNAL` non viene usata, questa istruzione crea una tabella interna. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono gestite da Hive.
-     
+
      > [!NOTE]
      > A differenza delle tabelle `EXTERNAL`, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
@@ -115,7 +115,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 8. Nella barra degli strumenti selezionare **Invia** per eseguire il processo. Usare **Stato processo** per accertarsi che il processo sia stato completato correttamente.
 
-9. Per verificare che il processo abbia creato una nuova tabella, usare **Esplora server** ed espandere **Azure** > **HDInsight** > il proprio cluster HDInsight > **Hive Databases** > ** (Database Hive) Predefinito**. Vengono elencate la tabella **errorLogs** e la tabella **log4jLogs**.
+9. Per verificare che il processo abbia creato una nuova tabella, usare **Esplora server** ed espandere **Azure** > **HDInsight** > il proprio cluster HDInsight > **Hive Databases** > **(Database Hive) Predefinito**. Vengono elencate la tabella **errorLogs** e la tabella **log4jLogs**.
 
 ## <a id="nextsteps"></a>Passaggi successivi
 

@@ -18,9 +18,9 @@ ms.date: 09/15/2016
 ms.author: negat
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 06e7418111762a0388ce1704ba5abaa9c3a10349
-ms.openlocfilehash: e0853070b5a3f9d44baebecac625a5ad6b9ef755
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 308355e7d66c977f5cbfc8de3b939b76c2f8f83c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -38,7 +38,7 @@ Innanzitutto, passare al [portale di Azure](https://portal.azure.com) in un brow
 È ora possibile usare le impostazioni predefinite e creare rapidamente il set di scalabilità.
 
 * Nel pannello `Basics` immettere un nome per il set di scalabilità. Questo nome diventa la base del nome di dominio completo del bilanciamento del carico rispetto al set di scalabilità, pertanto, assicurarsi che il nome sia univoco in tutte le istanze di Azure.
-* Selezionare il tipo di sistema operativo desiderato, immettere il nome utente desiderato e selezionare il tipo di autenticazione preferito. Se è stata scelta una password, questa deve avere una lunghezza di 12 caratteri e deve soddisfare almeno tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). Se si sceglie `SSH public key`, assicurarsi di incollare solo la chiave pubblica, NON quella privata:
+* Selezionare il tipo di sistema operativo desiderato, immettere il nome utente desiderato e selezionare il tipo di autenticazione preferito. Se è stata scelta una password, questa deve avere una lunghezza di 12 caratteri e deve soddisfare almeno tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). Se si sceglie `SSH public key`, assicurarsi di incollare solo la chiave pubblica, NON quella privata:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 

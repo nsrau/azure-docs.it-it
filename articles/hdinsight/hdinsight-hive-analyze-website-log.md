@@ -17,9 +17,9 @@ ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: c9e3c1d2a1f5b83c59fa2a22f3cb4d89df203384
-ms.openlocfilehash: 503c8a98ea5437d24ff69f3b8f44c4bfb13e391e
-ms.lasthandoff: 01/19/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6febbde0322deba3b3128c2bca4abe8127e40b45
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/19/2017
 Informazioni su come usare HiveQL con HDInsight per analizzare i log di un sito Web. L'analisi dei log dei siti Web può essere usata per segmentare il proprio pubblico in base ad attività simili, classificare i visitatori di un sito in base a dati demografici e scoprire i contenuti che visualizzano, da quali siti Web sono stati indirizzati e così via.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 In questo esempio si userà un cluster HDInsight per analizzare i file di log dei siti Web e ottenere informazioni dettagliate sulla frequenza delle visite da siti Web esterni nell'arco di una giornata. Si genererà inoltre un riepilogo degli errori dei siti Web riscontrati dagli utenti. Si apprenderà come:
 
@@ -39,16 +39,16 @@ In questo esempio si userà un cluster HDInsight per analizzare i file di log de
 ![HDI.Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
 ## <a name="prerequisites"></a>Prerequisiti
-* È necessario avere completato il provisioning di un cluster Hadoop in Azure HDInsight. Per istruzioni, vedere [Provisioning di cluster HDInsight][hdinsight-provision]. 
+* È necessario avere completato il provisioning di un cluster Hadoop in Azure HDInsight. Per istruzioni, vedere [Provisioning di cluster HDInsight][hdinsight-provision].
 * È necessario aver installato Microsoft Excel 2013 o Excel 2010.
 * Per importare i dati da Hive in Excel è necessario aver installato [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886) .
 
 ## <a name="to-run-the-sample"></a>Per eseguire l'esempio
 1. Dal [portale di Azure](https://portal.azure.com/), dalla schermata iniziale (se il cluster è stato aggiunto lì), fare clic sul riquadro del cluster in cui si desidera eseguire l'esempio.
 2. Dal pannello del cluster, in **Collegamenti rapidi**, fare clic su **Dashboard cluster**, quindi dal pannello **Dashboard cluster** fare clic su **Dashboard cluster HDInsight**. In alternativa, è possibile aprire direttamente la dashboard usando l'URL seguente:
-   
+
          https://<clustername>.azurehdinsight.net
-   
+
     Quando richiesto, eseguire l'autenticazione con il nome utente e la password dell'amministratore usati durante il provisioning del cluster.
 3. Nella pagina Web visualizzata fare clic sulla scheda **Getting Started Gallery** (Guida introduttiva) e quindi nella categoria **Solutions with Sample Data** (Soluzioni con dati di esempio) fare clic sull'esempio **Analisi dei log del sito Web**.
 4. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
@@ -60,5 +60,4 @@ Provare l'esempio seguente: [Analizzare i dati dei sensori mediante Hive con HDI
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-
 

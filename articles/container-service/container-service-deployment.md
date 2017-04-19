@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Distribuire una soluzione di hosting di contenitori Docker usando il portale di Azure
@@ -36,7 +36,11 @@ Per le informazioni di base, vedere [Introduzione al servizio contenitore di Azu
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: nel caso in cui non sia disponibile è possibile usare una [versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+* **Sottoscrizione di Azure**: nel caso in cui non sia disponibile è possibile usare una [versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Per cluster di maggiori dimensioni, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto.
+
+    > [!NOTE]
+    > L'uso della sottoscrizione di Azure e delle [quote di risorse](../azure-subscription-service-limits.md), ad esempio le quote di core, possono limitare le dimensioni del cluster che si distribuisce. Per richiedere un aumento della quota, è possibile aprire una [richiesta di assistenza clienti online](../azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito.
+    >
 
 * **Chiave pubblica SSH RSA**: durante la distribuzione tramite il portale o uno dei modelli di avvio rapido di Azure, è necessario fornire la chiave pubblica per l'autenticazione nelle macchine virtuali del servizio contenitore di Azure. Per creare chiavi SSH (Secure Shell) RSA, vedere le informazioni aggiuntive per [OS X e Linux](../virtual-machines/linux/mac-create-ssh-keys.md) e [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
@@ -109,7 +113,7 @@ La distribuzione richiede alcuni minuti. Al termine, il cluster del servizio con
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Creare un cluster usando un modello di avvio rapido
 Sono disponibili modelli di avvio rapido di Azure per distribuire un cluster nel servizio contenitore di Azure. I modelli di avvio rapido forniti possono essere modificati per includere una configurazione di Azure aggiuntiva o avanzata. Per creare un'istanza del servizio contenitore di Azure usando un modello di avvio rapido di Azure è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Seguire questi passaggi per distribuire un cluster usando un modello e l'interfaccia della riga di comando di Azure 2.0. Vedere le [istruzioni di installazione e configurazione](/cli/azure/install-az-cli2.md).
+Seguire questi passaggi per distribuire un cluster usando un modello e l'interfaccia della riga di comando di Azure 2.0. Vedere le [istruzioni di installazione e configurazione](/cli/azure/install-az-cli2).
 
 > [!NOTE] 
 > In un sistema Windows è possibile usare una procedura simile per distribuire un modello tramite Azure PowerShell. Vedere i passaggi più avanti in questa sezione. È anche possibile distribuire un modello con il [portale](../azure-resource-manager/resource-group-template-deploy-portal.md) o altri metodi.

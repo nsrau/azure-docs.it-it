@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/20/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c530f08842efde1ab87cfd111f1957ae685748f3
-ms.openlocfilehash: 77d3cb18c52a10236eb40e6ffde1ed9e2753af3f
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 885180e9759d0702d4e0988a7a1b4eb9097d4433
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -92,7 +93,7 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 È possibile usare Java per [creare un certificato](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### <a name="linux"></a>Linux
-[Questo](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) articolo descrive come creare certificati tramite SSH.
+[Questo](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) articolo descrive come creare certificati tramite SSH.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Caricare il certificato di servizio nel portale di Azure classico](cloud-services-configure-ssl-certificate.md) o nel [portale di Azure](cloud-services-configure-ssl-certificate-portal.md).
@@ -103,10 +104,5 @@ Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md)
 > Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

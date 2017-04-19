@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 02/23/2017
+ms.date: 04/07/2017
 ms.author: bharatn
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a68855e0b6ba436849c4de13f1439f0e70009b6a
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 121bf91a2476a079c0737187aef8791be0b4b250
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -297,7 +297,7 @@ Ottenere prima di tutto il modello per il cluster da distribuire. È possibile u
 > Quando si usano certificati diversi dal certificato del cluster per abilitare il proxy inverso in un cluster esistente, installare il certificato di proxy inverso e aggiornare l'elenco di controllo di accesso sul cluster prima di abilitare il proxy inverso. Completare la distribuzione del [modello di Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) usando le impostazioni indicate in precedenza prima di avviare una distribuzione per abilitare il proxy inverso nei passaggi 1-4.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere un esempio di comunicazione HTTP tra i servizi in un [progetto di esempio in GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+* Vedere un esempio di comunicazione HTTP tra i servizi in un [progetto di esempio in GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Chiamate di procedura remota con i Reliable Services remoti](service-fabric-reliable-services-communication-remoting.md)
 * [Web API che usa OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Comunicazione di WCF tramite Reliable Services](service-fabric-reliable-services-communication-wcf.md)

@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/16/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: a0817ac21afb83745ec2cc213fc6029fa395d479
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 700dffe72af853d0daa9af06c0b316e0363ab30b
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -122,7 +123,7 @@ Vedere la [documentazione di Azure Site Recovery](../site-recovery/site-recovery
    > In questo modo le condivisioni file saranno temporaneamente non disponibili
    >
    >
-2. [Abilitare la protezione delle macchine virtuali](../site-recovery/site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication) della VM del file server dal Portale di Azure Site Recovery.
+2. [Abilitare la protezione delle macchine virtuali](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) della VM del file server dal Portale di Azure Site Recovery.
 3. Quando viene avviata la sincronizzazione iniziale, è possibile riconnettere nuovamente la destinazione. Passare all'iniziatore iSCSI, selezionare un dispositivo StorSimple e fare clic su **Connetti**.
 4. Quando la sincronizzazione è completa e lo stato della VM è **Protetta**, selezionare la VM, selezionare la scheda **Configura** e aggiornare di conseguenza la rete della VM (si tratta della rete di cui faranno parte le VM sottoposte a failover). Se la scheda non viene visualizzata, la sincronizzazione è ancora in corso.
 
@@ -301,9 +302,4 @@ La pianificazione della capacità prevede almeno due processi importanti:
 
 ## <a name="summary"></a>Riepilogo
 Usando Azure Site Recovery è possibile creare un piano di ripristino di emergenza automatizzato completo per una VM del server file con condivisioni file ospitate nell'archiviazione StorSimple. È possibile avviare il failover in pochi secondi da qualsiasi luogo in caso di un'interruzione e fare in modo che l'applicazione sia operativa in pochi minuti.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

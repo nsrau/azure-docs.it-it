@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: bd313ae585667cc80d44ae50f9d97659b8de62eb
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e910c47d88434fae76f9c2d3bcb8a258d7d3fde4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/27/2017
 Esistono molti fattori che influiscono sulle prestazioni di MySQL in Azure, sia nella selezione dell'hardware virtuale sia nella configurazione software. Questo articolo è incentrato sull'ottimizzazione delle prestazioni tramite la configurazione dell'archiviazione, del sistema e del database.
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager](../../../resource-manager-deployment-model.md) e la distribuzione classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sulle ottimizzazioni delle macchine virtuali Linux usando il modello di Resource Manager, vedere [Ottimizzare la VM Linux su Azure](../../virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager](../../../resource-manager-deployment-model.md) e la distribuzione classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sulle ottimizzazioni delle macchine virtuali Linux usando il modello di Resource Manager, vedere [Ottimizzare la VM Linux su Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Usare RAID in una macchina virtuale di Azure
 L'archiviazione è il fattore che influisce maggiormente sulle prestazioni del database negli ambienti cloud. Rispetto a un singolo disco, RAID può fornire un accesso più rapido tramite la concorrenza. Per altre informazioni, vedere la pagina [Livelli RAID standard](http://en.wikipedia.org/wiki/Standard_RAID_levels).   
@@ -71,7 +71,7 @@ Verrà aggiunto un disco vuoto nella macchina virtuale. Ripetere questo passaggi
     sudo grep SCSI /var/log/dmesg
 
 #### <a name="create-raid-with-the-additional-disks"></a>Creare RAID con i dischi aggiuntivi
-I seguenti passaggi illustrano come [configurare RAID software in Linux](../../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+I seguenti passaggi illustrano come [configurare RAID software in Linux](../configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > Se si usa il file system XFS, eseguire la seguente procedura dopo aver creato RAID.

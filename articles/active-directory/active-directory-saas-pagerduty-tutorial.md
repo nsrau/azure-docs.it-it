@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d78e5a50f5c0416aa5f7caa92d51f688abb1efcc
-ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a7fae61f9b2dc400cbbd7054c11ec622f8683ccb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +32,7 @@ Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Pagerduty potr
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
 1. Abilitazione dell'integrazione dell'applicazione per Pagerduty
-2. Configurazione dell'accesso Single Sign-On
+2. Configurazione dell'accesso Single Sign-On (SSO)
 3. Configurazione del provisioning utente
 4. Assegnazione degli utenti
 
@@ -62,11 +63,11 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
    
    ![PagerDuty](./media/active-directory-saas-pagerduty-tutorial/IC778530.png "PagerDuty")
    
-## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Pagerduty tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.  
 
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base&64;.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
 
 Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -95,13 +96,13 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
    
    ![Abilitare l'accesso Single Sign-On](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Abilitare l'accesso Single Sign-On")
    
-   1. Creare un file con **codifica Base&64;** dal certificato scaricato.  
+   1. Creare un file con **codifica Base 64** dal certificato scaricato.  
       
       >[!TIP]
       >Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
       >
 
-  2. Aprire il certificato con codifica Base&64; nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
+  2. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
   3. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Pagerduty** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL** (URL di accesso).
   4. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Pagerduty** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL** (URL di disconnessione).
   5. Selezionare **Attiva Single Sign-on**.
@@ -112,10 +113,11 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Configurare l'accesso Single Sign-On")
    
 
-## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configure-user-provisioning"></a>Configura provisioning utenti
 
 Per consentire agli utenti di Azure AD di accedere a Pagerduty, è necessario eseguirne il provisioning in Pagerduty.  
-Nel caso di Pagerduty, il provisioning è un'attività manuale.
+
+* Nel caso di Pagerduty, il provisioning è un'attività manuale.
 
 **Per effettuare il provisioning di un account utente, seguire questa procedura:**
 
@@ -128,17 +130,17 @@ Nel caso di Pagerduty, il provisioning è un'attività manuale.
    
    ![Invitare il team](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Invitare il team")
    
-   > [!NOTE]
-   > Tutti gli utenti aggiunti riceveranno un invito per creare un account PagerDuty.
+   >[!NOTE]
+   >Tutti gli utenti aggiunti riceveranno un invito per creare un account PagerDuty.
    > 
    > 
 
-> [!NOTE]
-> È possibile utilizzare qualsiasi altro strumento di creazione di account utente di Pagerduty o le API fornite da Pagerduty per eseguire il provisioning degli account utente di AAD.
+>[!NOTE]
+>È possibile utilizzare qualsiasi altro strumento di creazione di account utente di Pagerduty o le API fornite da Pagerduty per eseguire il provisioning degli account utente di AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 **Per assegnare gli utenti a Pagerduty, seguire questa procedura:**
@@ -151,11 +153,10 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    
    ![Sì](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Risorse aggiuntive
 
-
-
-<!--HONumber=Feb17_HO1-->
-
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 

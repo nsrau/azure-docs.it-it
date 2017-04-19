@@ -12,7 +12,7 @@ ACU: 210 - 250
 
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |2 |4.000/32 (12) |3.200/48 |1/moderata |
+| Standard_F1s |1 |2 |4 |2 |4.000/32 (12) |3.200/48 |2/moderata |
 | Standard_F2s |2 |4 |8 |4 |8.000/64 (24) |6.400/96 |2/alta |
 | Standard_F4s |4 |8 |16 |8 |16.000/128 (48) |12.800/192 |4/alta |
 | Standard_F8s |8 |16 |32 |16 |32.000/256 (96) |25.600/384 |8/alta |
@@ -29,7 +29,7 @@ ACU: 210 - 250
 
 | Dimensione         | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Velocità effettiva massima del disco locale: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Larghezza di banda della rete/scheda NIC max |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2/2 x 500                         | 1/moderata                 |
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2/2 x 500                         | 2/moderata                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4/4 x 500                         | 2/alta                     |
 | Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8/8 x 500                         | 4/alta                     |
 | Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16/16 x 500                       | 8/alta                     |

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1729d9ba3f873800127ba3ca77676b843611fded
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a321f9c03f3ec8f898ddf9bdd588c1d79bfd163a
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-remoteapp---testing-your-network-bandwidth-usage-with-some-common-scenarios"></a>Azure RemoteApp - Scenari comuni di test relativi all'utilizzo della larghezza di banda di rete
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -100,10 +101,5 @@ Per valutare la larghezza di banda di rete per utente, creare una combinazione d
 * [Uso previsto della larghezza di banda di rete di Azure RemoteApp](remoteapp-bandwidth.md)
 * [Azure RemoteApp - In che modo la larghezza di banda di rete influisce sulla qualità dell'esperienza?](remoteapp-bandwidthexperience.md)
 * [Larghezza di banda di rete di Azure RemoteApp - Linee guida generali (se non è possibile verificare direttamente)](remoteapp-bandwidthguidelines.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

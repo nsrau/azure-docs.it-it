@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4f4013225e3ea7afb34628bab47ec3b1432bb2b2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 691caf95971ccdd37b12bbc178627f25b228a782
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Come acquisire una macchina virtuale Linux classica come immagine
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come [eseguire questa procedura con il modello di Resource Manager](../../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come [eseguire questa procedura con il modello di Resource Manager](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Questo articolo illustra come acquisire una macchina virtuale di Azure classica che esegue Linux come un'immagine per creare altre macchine virtuali. Tale immagine include il disco del sistema operativo e i dischi dati collegati alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si crea l'altra macchina virtuale dall'immagine.
 
@@ -34,7 +34,7 @@ Azure archivia l'immagine in **Immagini**, insieme a tutte le immagini caricate.
 Questa procedura presuppone che sia stata creata una macchina virtuale di Azure tramite il modello di distribuzione classica e che sia stato configurato il sistema operativo, inclusi gli eventuali dischi dati connessi. Se è necessario creare una macchina virtuale, leggere l'articolo [Come creare una macchina virtuale Linux][How to Create a Linux Virtual Machine].
 
 ## <a name="capture-the-virtual-machine"></a>Acquisizione della macchina virtuale
-1. [Connettersi alla macchina virtuale](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) usando un client SSH di propria scelta.
+1. [Connettersi alla macchina virtuale](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) usando un client SSH di propria scelta.
 2. Nella finestra di SSH digitare il comando seguente. L'output di `waagent` può variare leggermente, in base alla versione dell'utilità:
 
     ```bash
@@ -98,7 +98,7 @@ L'immagine può ora essere usata per creare macchine virtuali. È possibile usar
 
 In alternativa, usare il [portale di Azure classico][Azure classic portal] per creare una macchina virtuale personalizzata tramite il metodo **Da raccolta** e selezionando l'immagine creata. Per altre informazioni, vedere [Come creare una macchina virtuale personalizzata][How to Create a Custom Virtual Machine].
 
-**Vedere anche:** [Manuale dell'utente dell'agente Linux di Azure](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+**Vedere anche:** [Manuale dell'utente dell'agente Linux di Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md

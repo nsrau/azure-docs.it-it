@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 5267ed6a2d9278b79e9fb98c1067eceae819cb6f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 262acf8150b5065c3b7b79494856b2bdadd4e4ba
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -47,8 +47,8 @@ La distribuzione di un modello consente di creare rapidamente e in modo coerente
 
 |Nome|Descrizione|
 |---|---|
-|adminUsername|Nome utente amministratore. Il nome utente deve essere conforme ai [requisiti per il nome utente di Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|adminPassword|Password amministratore. La password deve essere conforme ai [requisiti per la password di Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUsername|Nome utente amministratore. Il nome utente deve essere conforme ai [requisiti per il nome utente di Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|adminPassword|Password amministratore. La password deve essere conforme ai [requisiti per la password di Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|Nome DNS per PublicIPAddressName1. Il nome DNS viene risolto con uno degli indirizzi IP pubblici assegnati alla VM. Il nome deve essere univoco all'interno dell'area di Azure (percorso) in cui è stata creata la VM.|
 |dnsLabelPrefix1|Nome DNS per PublicIPAddressName2. Il nome DNS viene risolto con uno degli indirizzi IP pubblici assegnati alla VM. Il nome deve essere univoco all'interno dell'area di Azure (percorso) in cui è stata creata la VM.|
 |OSVersion|La versione di Windows/Linux per la VM. Il sistema operativo è un'immagine con patch completa della specifica versione di Windows/Linux selezionata.|
@@ -81,7 +81,7 @@ Per distribuire il modello tramite Powershell, completare la procedura seguente:
 
     Indipendentemente dall'opzione scelta per distribuire il modello, è necessario fornire i valori dei parametri elencati nella sezione [parametri](#parameters) di questo articolo. Se si desidera specificare i parametri usando un file dei parametri, copiare il contenuto del [file dei parametri](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) da GitHub in un nuovo file nel computer. Modificare i valori nel file. Usare come valore per il parametro `-TemplateParameterFile` il file che è stato creato.
     
-    Per determinare i valori validi per i parametri di OSVersion, ImagePublisher e imageOffer, completare la procedura riportata nell'articolo [Esplorare e selezionare immagini di macchine virtuali Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Per determinare i valori validi per i parametri di OSVersion, ImagePublisher e imageOffer, completare la procedura riportata nell'articolo [Esplorare e selezionare immagini di macchine virtuali Windows](../virtual-machines/windows/cli-ps-findimage.md).
 
     >[!TIP]
     >Se non si è sicuri di avere un dnslabelprefix disponibile, immettere il comando `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` per verificarlo. Se è disponibile, il comando restituirà `True`.
@@ -96,7 +96,7 @@ Per distribuire il modello usando l'interfaccia della riga di comando di Azure 1
 
     Indipendentemente dall'opzione scelta per distribuire il modello, è necessario fornire i valori dei parametri elencati nella sezione [parametri](#parameters) di questo articolo. Se si desidera specificare i parametri usando un file dei parametri, copiare il contenuto del [file dei parametri](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) da GitHub in un nuovo file nel computer. Modificare i valori nel file. Usare come valore per il parametro `--parameters-file` (-e) il file che è stato creato.
     
-    Per determinare i valori validi per i parametri di OSVersion, ImagePublisher e imageOffer, completare la procedura riportata nell'articolo [Esplorare e selezionare immagini di macchine virtuali Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Per determinare i valori validi per i parametri di OSVersion, ImagePublisher e imageOffer, completare la procedura riportata nell'articolo [Esplorare e selezionare immagini di macchine virtuali Windows](../virtual-machines/windows/cli-ps-findimage.md).
 
 2. Dopo aver distribuito la VM, connettersi alla VM e aggiungere gli indirizzi IP privati al sistema operativo che si è distribuito completando la procedura riportata nella sezione di questo articolo [Add IP addresses to a VM operating system](#os-config) (Aggiungere indirizzi IP al sistema operativo di una VM). Non aggiungere gli indirizzi IP pubblici al sistema operativo.
 

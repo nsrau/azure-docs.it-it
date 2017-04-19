@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: a846d5a70451ed3082b90d87b90bef0eb6da5993
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 511d6dd1933f44cd0cb5ba800972a7c112a24c04
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -37,7 +37,7 @@ Ambari è un'utilità per la gestione e il monitoraggio fornita con i cluster HD
 * Un cluster HDInsight basato su Linux. Per informazioni sulla creazione di un cluster, vedere [Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="open-the-hive-view"></a>Aprire la visualizzazione Hive
 
@@ -68,7 +68,7 @@ Poiché vengono aggiunte tabelle tramite la procedura descritta in questo docume
 Attenersi alla seguente procedura dalla vista di Hive per eseguire una query Hive.
 
 1. Nella sezione **Query Editor** (Editor di query) della pagina incollare l'istruzione HiveQL seguente nel foglio di lavoro:
-   
+
     ```hiveql
     DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -76,12 +76,12 @@ Attenersi alla seguente procedura dalla vista di Hive per eseguire una query Hiv
     STORED AS TEXTFILE LOCATION '/example/data/';
     SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
     ```
-   
+
     Di seguito sono elencate le istruzioni che eseguono queste azioni:
-   
+
    * **DROP TABLE** : elimina la tabella e il file di dati, qualora la tabella esista già.
 
-   * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. 
+   * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive.
    Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso originale.
 
    * **ROW FORMAT** : indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
@@ -89,42 +89,42 @@ Attenersi alla seguente procedura dalla vista di Hive per eseguire una query Hiv
    * **STORED AS TEXTFILE LOCATION** : indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
 
    * **SELECT** : seleziona un numero di tutte le righe in cui la colonna t4 include il valore [ERROR].
-     
+
      > [!NOTE]
      > Usa le tabelle esterne se si prevede che i dati sottostanti verranno aggiornati da un'origine esterna. Ad esempio, un processo di caricamento dati automatizzato o un'altra operazione MapReduce. L'eliminazione di una tabella esterna *non* comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
 2. Usare il pulsante **Execute** (Esegui) nella parte inferiore di Query Editor per avviare la query. Il pulsante diventa arancione e il testo cambia in **Stop execution** (Arresta esecuzione). Sotto Query Editor (Editor di query) verrà visualizzata la sezione **Query Process Results** (Risultati elaborazione query) con le informazioni sul processo.
-   
+
    > [!IMPORTANT]
    > È possibile che alcuni browser non aggiornino correttamente il log o le informazioni sui risultati. Se si esegue un processo che prosegue all'infinito senza aggiornare il log o restituire risultati, provare a usare Mozilla FireFox o Google Chrome.
- 
+
 3. Al termine dell'elaborazione della query, nella sezione **Query Process Results** (Risultati elaborazione query) vengono visualizzati i risultati dell'operazione. Il pulsante **Stop execution** (Arresta esecuzione) verrà sostituito da un pulsante **Execute** (Esegui) verde al completamento della query. La scheda **Results** conterrà le informazioni seguenti:
-   
+
         sev       cnt
         [ERROR]   3
-   
+
     La scheda **Logs** può essere usata per visualizzare le informazioni sulla registrazione create dal processo,
-   
+
    > [!TIP]
    > La finestra di dialogo **Save results** (Salva risultati) nella parte superiore sinistra della sezione **Query Process Results** (Risultati del processo query) consente di scaricare o salvare i risultati.
 
 4. Selezionare le prime quattro righe di questa query, quindi selezionare **Execute** (Esegui). Si noti che, al termine del processo, non viene visualizzato alcun risultato. Se si usa il pulsante **Execute** (Esegui) quando parte della query è selezionata, verranno eseguite solo le istruzioni selezionate. In questo caso, la selezione non include l'istruzione finale che recupera le righe dalla tabella. Se si seleziona solo tale riga e si usa **Execute** (Esegui), verranno visualizzati i risultati previsti.
 
 5. Usare il pulsante **New Worksheet** (Nuovo foglio di lavoro) nella parte inferiore di **Query Editor** per aggiungere un nuovo foglio di lavoro. Nel nuovo foglio di lavoro immettere le istruzioni HiveQL seguenti:
-   
+
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
-   
-    These statements perform the following actions:
-   
+
+  Di seguito sono elencate le istruzioni che eseguono queste azioni:
+
    * **CREATE TABLE IF NOT EXISTS** : crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, viene creata una tabella interna. Una tabella interna verrà archiviata nel data warehouse di Hive e gestita completamente da Hive. A differenza delle tabelle esterne, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
    * **STORED AS ORC** : archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
 
    * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti [ERROR], quindi inserisce i dati nella tabella **errorLogs**.
-     
+
      Usare il pulsante **Execute** (Esegui) per eseguire la query. La scheda **Results** (Risultati) non contiene informazioni quando la query restituisce zero righe. Lo stato visualizzato deve essere **SUCCEEDED** dopo il completamento della query.
 
 ### <a name="hive-settings"></a>Settings di Hive
@@ -174,13 +174,13 @@ Le notifiche sono messaggi generati quando si eseguono query. Ad esempio, si ric
 ## <a name="saved-queries"></a>Query salvate
 
 1. In Query Editor creare un foglio di lavoro e immettere la query seguente:
-   
+
     ```hiveql
     SELECT * from errorLogs;
     ```
-   
+
     Eseguire la query per verificare che funzioni. I risultati sono simili all'esempio seguente:
-   
+
         errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
         2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
         2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
@@ -235,5 +235,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-
 

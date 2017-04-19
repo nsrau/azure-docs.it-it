@@ -6,7 +6,7 @@
 * [Distribuire un'app Web WordPress supportata da cluster di replica MySQL](/documentation/templates/wordpress-mysql-replication/)
 * [Costruire il proprio cluster MySQL master-master con cluster Percona](/documentation/templates/mysql-ha-pxc/) e [ottenere altre informazioni su come gestire il cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [Distribuire WordPress supportato da cluster di replica MySQL con configurazione master-slave](/documentation/templates/mysql-replication/)
-* [Distribuire un'app WordPress supportata da DB SQL Azure gestito da ProjectNami](/marketplace/partners/projectnami/projectnami/)
+* [Distribuire un'app WordPress supportata da DB SQL Azure gestito da ProjectNami](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ProjectNami.ProjectNami?tab=Overview)
 
 ## <a name="troubleshooting-wordpress-application"></a>Risoluzione dei problemi dell'applicazione WordPress
 * [Come risolvere i problemi dell'app WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
@@ -24,9 +24,4 @@
 * [Come usare plug-in Supercache per velocizzare l'app WordPress](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
 * [Come eseguire il caching del server tramite caching di output per IIS](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [Come abilitare il caching del browser per il contenuto statico](http://www.iis.net/configreference/system.webserver/staticcontent)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

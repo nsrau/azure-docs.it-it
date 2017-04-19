@@ -18,7 +18,7 @@ ms.author: syamk
 translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 03/08/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET per MongoDB](documentdb-mongodb-application.md)
-> * [Node.js](documentdb-nodejs-application.md)
+> * [Node.JS](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
 > 
@@ -559,7 +559,7 @@ Se viene restituito il messaggio "Errore durante l'elaborazione della richiesta"
     - Area: selezionare l'area geografica più vicina agli utenti dell'app
     - Server di database: non selezionare database e quindi fare clic su **Crea**. 
 
-4. Nella "schermata todo-net-app *" fare clic su **Convalida connessione**. Dopo aver verificato la connessione, **Pubblica**. 
+4. Nella "schermata todo-net-app * " fare clic su **Convalida connessione**. Dopo aver verificato la connessione, **Pubblica**. 
     
     L'app verrà visualizzata nel browser.
 

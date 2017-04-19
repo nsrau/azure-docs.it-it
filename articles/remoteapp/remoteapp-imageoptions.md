@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 12f27315348040ac897c1ff286b54d38e9950c7d
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: f2decec5385ffab59a441cdc28da80371b579df7
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="create-an-azure-remoteapp-image"></a>Creare un'immagine di Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -36,10 +37,5 @@ Per le immagini sono disponibili le opzioni seguenti:
 * È possibile usare una delle [immagini modello](remoteapp-images.md) incluse nella sottoscrizione di RemoteApp. Queste immagini vengono create e gestite dal team di RemoteApp e contengono alcune applicazioni standard (come le applicazioni Office) che è possibile rendere disponibili agli utenti. Si noti che in un ambiente di produzione è possibile usare solo l'immagine di Office 365 Pro Plus.
 
 Indipendentemente da dove si ottiene l'immagine o da come la si crea, è opportuno verificare di avere compreso i [requisiti per le app](remoteapp-appreqs.md) per garantire il corretto funzionamento dell'app in RemoteApp. Il passaggio successivo consiste nel creare una raccolta [nel cloud](remoteapp-create-cloud-deployment.md) o [ibrida](remoteapp-create-hybrid-deployment.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: 2149407ff4e04f6a52a45c419382617810a63633
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -107,16 +108,11 @@ Per VM di Windows:
 
 Per le macchine virtuali Linux:
 
-* Seguire le istruzioni in [Come aggiornare l'agente Linux di Azure su una macchina virtuale per la versione più recente da GitHub](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Seguire le istruzioni in [Come aggiornare l'agente Linux di Azure su una macchina virtuale per la versione più recente da GitHub](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="validating-vm-agent-installation"></a>Convalida dell'installazione dell'agente di VM
 Come controllare la versione dell'agente di VM nelle macchine virtuali di Windows:
 
 1. Accedere alla macchina virtuale di Azure e passare alla cartella *C:\WindowsAzure\Packages*. che dovrebbe includere il file WaAppAgent.exe.
 2. Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 4533b446f661568d0e70a23bb64880022038bb9a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali
-In questo articolo viene descritto come ridimensionare in verticale i [set di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/) di Azure con o senza un nuovo provisioning. Per il ridimensionamento verticale delle VM non incluse nei set di scalabilità, vedere l'articolo [Ridimensionamento verticale di macchine virtuali di Azure tramite Automazione di Azure](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+In questo articolo viene descritto come ridimensionare in verticale i [set di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/) di Azure con o senza un nuovo provisioning. Per il ridimensionamento verticale delle VM non incluse nei set di scalabilità, vedere l'articolo [Ridimensionamento verticale di macchine virtuali di Azure tramite Automazione di Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Per ridimensionamento verticale, detto anche *aumento delle prestazioni* e *riduzione delle prestazioni*, si intende l'aumento o la riduzione delle dimensioni delle macchine virtuali (VM) in risposta a un carico di lavoro. Confrontare questo concetto con il [ridimensionamento orizzontale](virtual-machine-scale-sets-autoscale-overview.md), detto anche *aumento delle istanze* e *riduzione delle istanze*, in cui il numero di VM viene modificato in base al carico di lavoro.
 
@@ -126,9 +127,4 @@ Questo articolo ha illustrato semplici esempi di ridimensionamento verticale. Co
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

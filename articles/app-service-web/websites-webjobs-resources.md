@@ -3,7 +3,7 @@ title: Risorse di documentazione di Processi Web di Azure
 description: Risorse consigliate per informazioni sull&quot;uso di Processi Web di Azure e Azure WebJobs SDK.
 services: app-service
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: ed005e56-4334-4641-a5e5-15435c2be36b
@@ -26,6 +26,8 @@ ms.lasthandoff: 03/27/2017
 Questo argomento include i collegamenti a risorse della documentazione relative all'uso di Processi Web di Azure e di Azure WebJobs SDK. Processi Web di Azure costituisce una soluzione semplice per eseguire script o programmi come processi in background nel contesto di un'[app Web del servizio app, un'app per le API o un'app per dispositivi mobili](../app-service/app-service-value-prop-what-is.md). È infatti possibile caricare ed eseguire un file eseguibile in formato cmd, bat, exe (.NET), ps1, sh, php, py, js e jar, che verrà eseguito come processo Web in base a una pianificazione (cron) o senza interruzioni.
 
 Lo scopo di [WebJobs SDK](websites-webjobs-resources.md) è semplificare il codice scritto per le attività comuni che possono essere eseguite da un processo Web, ad esempio l'elaborazione di immagini, l'elaborazione della coda, l'aggregazione RSS, la manutenzione di file e l'invio di messaggi di posta elettronica. WebJobs SDK offre funzionalità incorporate per l'uso dell'Archiviazione di Azure e del bus di servizio, per la pianificazione di attività, per la gestione degli errori e per molti altri scenari comuni. È progettato per l'estensibilità e ha a disposizione un [repository open source di estensioni](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). [Funzioni di Azure](../azure-functions/functions-overview.md) (attualmente in anteprima) si basa su una versione di WebJobs SDK che usa script C#, Node.js e in altri linguaggi. 
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 Grazie agli strumenti integrati in Visual Studio, è inoltre semplice creare, distribuire e gestire processi Web. È possibile creare processi Web da modelli, nonché pubblicarli e gestirli (eseguirli/arrestarli/monitorarli/eseguirne il debug). 
 

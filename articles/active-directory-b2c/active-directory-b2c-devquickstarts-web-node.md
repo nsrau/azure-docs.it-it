@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 03/10/2017
-ms.author: brandwe
+ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 443516838190ccad408bc2b3b6b63513b3a3041e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a4d9394983539da52105bda6cf06273205f8b0ad
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -40,9 +40,6 @@ Il codice per questa esercitazione è [disponibile in GitHub](https://github.com
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 Al termine dell'esercitazione, verrà fornita l'applicazione completata.
-
-> [!WARNING]
-Per il momento, è necessario usare lo stesso **ID client**/**ID applicazione** e gli stessi criteri sia per il server delle attività dell'API Web che per il client che si connette al server. Questo vale anche per le esercitazioni su iOS e Android. Se in precedenza è stata creata un'applicazione con una delle guide rapide, usare gli stessi valori senza crearne di nuovi.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Ottenere una directory di Azure AD B2C
 
@@ -272,7 +269,7 @@ app.post('/auth/openid/return',
 
 ## <a name="use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Usare Passport per inviare le richieste di accesso e disconnessione ad Azure AD
 
-L'app ora è configurata correttamente per comunicare con l'endpoint&2;.0 mediante il protocollo di autenticazione OpenID Connect. `passport-azure-ad` ha gestito i dettagli relativi alla creazione dei messaggi di autenticazione, alla convalida dei token da Azure AD e alla gestione della sessione utente. A questo punto, è sufficiente offrire agli utenti un modo per accedere e disconnettersi e per raccogliere informazioni aggiuntive sugli utenti connessi.
+L'app ora è configurata correttamente per comunicare con l'endpoint 2.0 mediante il protocollo di autenticazione OpenID Connect. `passport-azure-ad` ha gestito i dettagli relativi alla creazione dei messaggi di autenticazione, alla convalida dei token da Azure AD e alla gestione della sessione utente. A questo punto, è sufficiente offrire agli utenti un modo per accedere e disconnettersi e per raccogliere informazioni aggiuntive sugli utenti connessi.
 
 Aggiungere prima di tutto i metodi predefinito, di accesso, account e disconnessione al file `app.js`:
 

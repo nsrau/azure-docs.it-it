@@ -4,7 +4,7 @@ description: Questo articolo illustra come usare Automazione di Azure per automa
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
+ms.date: 04/14/2017
 ms.author: tiandert; bwren
 translationtype: Human Translation
-ms.sourcegitcommit: ff1acafaacc40dd8a04b008df7cd479c811a7af0
-ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e0b784006b4933fe986890c09afa965934511784
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
 In questo articolo viene illustrato come sfruttare Automazione di Azure per effettuare il provisioning di una macchina virtuale nella sottoscrizione di Amazon Web Service (AWS) e come assegnare alla VM un nome specifico. Questa operazione è definita in AWS "assegnazione di tag" alla VM.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per le finalità di questo articolo, è necessario avere un account di Automazione di Azure e una sottoscrizione di AWS. Per altre informazioni sulla configurazione di un account di Automazione di Azure e sulla configurazione delle credenziali della sottoscrizione di AWS, vedere l'articolo relativo alla [configurazione dell'autenticazione in Amazon Web Services](automation-sec-configure-aws-account.md).  Questo account deve essere creato o aggiornato con le credenziali della sottoscrizione di AWS prima di continuare, perché nei passaggi seguenti verrà fatto riferimento all'account.
+Per le finalità di questo articolo, è necessario avere un account di Automazione di Azure e una sottoscrizione di AWS. Per altre informazioni sulla configurazione di un account di Automazione di Azure e sulla configurazione delle credenziali della sottoscrizione di AWS, vedere l'articolo relativo alla [configurazione dell'autenticazione in Amazon Web Services](automation-configure-aws-account.md).  Questo account deve essere creato o aggiornato con le credenziali della sottoscrizione di AWS prima di continuare, perché nei passaggi seguenti verrà fatto riferimento all'account.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Distribuire il modulo di PowerShell di Amazon Web Services
 Il runbook di provisioning della macchina virtuale usa il modulo di PowerShell di AWS per l'esecuzione delle operazioni. Seguire questa procedura per aggiungere il modulo all'account di Automazione configurato con le credenziali della sottoscrizione di AWS.  
@@ -113,10 +114,5 @@ Prima di continuare il test del runbook, è necessario verificare alcuni element
 * Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 * Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

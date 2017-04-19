@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: a7e7b2dee8aad6112bf253f0396b174287d2d469
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 951a421a2ea7e8bea4d082f03ad85695d3a8063e
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="free-30-day-trial-of-azure-remoteapp"></a>Versione di valutazione gratuita di 30 giorni di RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -37,10 +38,5 @@ In modalità di valutazione, è possibile creare due raccolte con un limite di 1
 Per ottenere subito altre informazioni, Guardare un video rapido su come [creare una distribuzione cloud](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
 
 Per eventuali commenti, pubblicare le domande nei [forum di discussione](https://feedback.azure.com/forums/247748-azure-remoteapp/). Se si dispone di un [piano di supporto di Azure](https://azure.microsoft.com/support/plans/), è possibile inviare una richiesta di assistenza. Tutti possono inviare i propri commenti nel [forum per commenti e suggerimenti](https://feedback.azure.com/forums/247748-azure-remoteapp/).  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

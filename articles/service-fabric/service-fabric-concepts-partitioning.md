@@ -15,13 +15,14 @@ ms.workload: NA
 ms.date: 02/17/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 41acd377d456fa5e85e3a8ff0b12f7f6eff6cdfe
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 0379cd02fe663fbe9f024bc2f786186b0ea1358b
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partizionare Reliable Services di Service Fabric
-Questo articolo offre un'introduzione ai concetti di base del partizionamento di Reliable Services di Azure Service Fabric. Il codice sorgente usato nell'articolo è disponibile anche in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
+Questo articolo offre un'introduzione ai concetti di base del partizionamento di Reliable Services di Azure Service Fabric. Il codice sorgente usato nell'articolo è disponibile anche in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="partitioning"></a>Partizionamento
 Il partizionamento non è una procedura specifica di Service Fabric, bensì si tratta di un modello di base per la creazione di servizi scalabili. Più in generale, si può pensare al partizionamento come alla divisione dello stato (dati) e del calcolo in unità accessibili più piccole per migliorare la scalabilità e le prestazioni. Una forma molto conosciuta di partizionamento è il [partizionamento dei dati][wikipartition], noto anche come partizionamento orizzontale.
@@ -359,7 +360,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
     
     ![Schermata del browser](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-L'intero codice sorgente dell'esempio è disponibile in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
+L'intero codice sorgente dell'esempio è disponibile in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:
@@ -369,9 +370,4 @@ Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seg
 * [Pianificazione della capacità per le applicazioni Service Fabric](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

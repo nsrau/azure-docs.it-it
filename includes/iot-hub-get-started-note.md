@@ -1,0 +1,2 @@
+> [!NOTE]
+> Prima di iniziare questa esercitazione, assicurarsi di aver completato [Collegare ESP8266 all'hub IoT di Azure](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md). In [Collegare ESP8266 all'hub IoT di Azure](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md), configurare il dispositivo IoT e l'hub IoT e distribuire un'applicazione di esempio per l'esecuzione sul dispositivo. L'applicazione invia i dati del sensore raccolti all'hub IoT.
