@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 7e48069b84c1048617a86fbc334a04462b52deda
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 914084ff790ceb2e11852c5dae757b935f813062
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -80,20 +80,6 @@ Se l'applicazione non riesce a connettersi in maniera costante al database SQL d
 2. Assicurarsi che la porta 1433 sia aperta per le connessioni in uscita in tutti i firewall tra il client e Internet. Vedere [Configure the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx) (Configurare Windows Firewall per consentire l'accesso a SQL Server) e [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) per altre informazioni sulle porte aggiuntive da aprire per l'autenticazione di Azure Active Directory.
 3. Verificare la stringa di connessione e le altre impostazioni di connessione. Vedere la sezione sulla stringa di connessione nell' [argomento relativo ai problemi di connettività](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4. Controllare lo stato del servizio nel dashboard. Se si ritiene che si sia verificata un'interruzione regionale, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md) per i passaggi di ripristino in una nuova area.
-
-## <a name="all-topics-for-azure-sql-database-connection-problems"></a>Tutti gli argomenti relativi ai problemi di connessione del database SQL di Azure
-La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessione che riguardano direttamente il servizio database SQL di Azure.
-
-| &nbsp; | Titolo | Descrizione |
-| ---:|:--- |:--- |
-| 1 |[Risoluzione dei problemi di connessione al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md) |Questa è la pagina di destinazione per la risoluzione dei problemi di connettività del database SQL di Azure. Descrive come identificare e risolvere gli errori temporanei e gli errori permanenti o non temporaneo del database SQL di Azure. |
-| 2 |[Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL](sql-database-connectivity-issues.md) |Informazioni su come risolvere, diagnosticare ed evitare un errore di connessione SQL o errore temporaneo nel database SQL di Azure. |
-| 3 |[Linee guida generali per la gestione degli errori temporanei](../best-practices-retry-general.md) |Fornisce indicazioni generali per la gestione degli errori temporanei durante la connessione al database SQL di Azure. |
-| 4 |[Risolvere i problemi di connettività del database SQL di Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |Questo strumento aiuta a identificare e risolvere gli errori di connettività. |
-| 5 |[Risolvere l'errore "Il database &lt;x&gt; nel server &lt;y&gt; non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento"](sql-database-troubleshoot-connection.md) |Descrive come identificare e risolvere un errore 40613: "Il database &lt;x&gt; sul server &lt;y&gt; non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento. |
-| 6 |[Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md) |Offre informazioni sui codici di errore SQL per le applicazioni client del database SQL, ad esempio errori di connessione comuni del database, problemi di copia del database ed errori generali. |
-| 7 |[Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md) |Fornisce indicazioni per determinare quale livello di servizio è più adatto per l'applicazione. Fornisce inoltre suggerimenti per ottimizzare l'applicazione in modo da sfruttare al meglio il database SQL di Azure. |
-| 8 |[Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md) |Offre collegamenti agli esempi di codice per le varie tecnologie che è possibile usare per connettersi e interagire con il database SQL di Azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Risoluzione dei problemi di prestazioni del database SQL di Azure](sql-database-troubleshoot-performance.md)

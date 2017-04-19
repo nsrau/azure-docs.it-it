@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/26/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: e1863b43706ffc200bb94c4a26ae75080a6dd857
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 37d25c8c7b47bf8ef3b4d5c6d3978b13c52329c3
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -47,7 +48,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    Usare l'URL di connessione indicata nel passaggio precedente. Viene visualizzato un errore in cui si indica che si è verificato un problema con il certificato di sicurezza del sito Web. Fare clic su **Passa a questa pagina Web**.
    
    ![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
-2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata in Passaggio 3: Avviare il dispositivo virtuale nell'articolo relativo all'[esecuzione del provisioning di StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o all'[esecuzione del provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata in Passaggio 3: Avviare il dispositivo virtuale nell'articolo relativo all'[esecuzione del provisioning di StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o all'[esecuzione del provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md). L'utente e la password predefiniti sono rispettivamente *StorSimpleAdmin* e *Password1*.
    
    ![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 3. Si passa così alla pagina **Home** . Questa pagina illustra le varie impostazioni necessarie per configurare e registrare il dispositivo virtuale con il servizio StorSimple Manager. Notare che le **Impostazioni di rete**, le **Impostazioni proxy Web** e le **Impostazioni ora** sono facoltative. Le uniche impostazioni obbligatorie sono le **Impostazioni del dispositivo** e le **Impostazioni cloud**.
@@ -183,10 +184,5 @@ Guardare il video per scoprire in che modo configurare e registrare StorSimple V
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

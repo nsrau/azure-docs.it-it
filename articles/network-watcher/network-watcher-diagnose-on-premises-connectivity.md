@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 02f1e14d771c4f2af5f01f79a9a322a5eada4385
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 2776f640bc192b0775b0ccbaaf62bb719b3bb790
+ms.lasthandoff: 04/18/2017
 
 ---
 
 # <a name="diagnose-on-premise-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite gateway VPN
 
-Il gateway VPN di Azure consente di creare una soluzione ibrida per soddisfare l'esigenza di una connessione sicura tra la rete locale e la rete virtuale di Azure. I requisiti variano a seconda dell'organizzazione, quindi la scelta del dispositivo VPN locale varia di conseguenza. Azure supporta attualmente [diversi dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) costantemente convalidati in collaborazione con i fornitori di dispositivi. Esaminare le impostazioni di configurazione specifiche del dispositivo prima di configurare il dispositivo VPN locale. Analogamente, il gateway VPN di Azure viene configurato con un set di [parametri IPsec supportati](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters) che vengono usati per stabilire le connessioni. Non è attualmente possibile immettere o selezionare una combinazione specifica di parametri IPsec dal gateway VPN di Azure. Per stabilire una connessione tra la rete locale e Azure, le impostazioni del dispositivo VPN locale devono essere conformi ai parametri IPsec prescritti dal gateway VPN di Azure per evitare la perdita della connettività. La risoluzione di questi problemi era sinora complessa ed erano generalmente necessarie ore per identificare e risolvere il problema.
+Il gateway VPN di Azure consente di creare una soluzione ibrida per soddisfare l'esigenza di una connessione sicura tra la rete locale e la rete virtuale di Azure. I requisiti variano a seconda dell'organizzazione, quindi la scelta del dispositivo VPN locale varia di conseguenza. Azure supporta attualmente [diversi dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides) costantemente convalidati in collaborazione con i fornitori di dispositivi. Esaminare le impostazioni di configurazione specifiche del dispositivo prima di configurare il dispositivo VPN locale. Analogamente, il gateway VPN di Azure viene configurato con un set di [parametri IPsec supportati](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters) che vengono usati per stabilire le connessioni. Non è attualmente possibile immettere o selezionare una combinazione specifica di parametri IPsec dal gateway VPN di Azure. Per stabilire una connessione tra la rete locale e Azure, le impostazioni del dispositivo VPN locale devono essere conformi ai parametri IPsec prescritti dal gateway VPN di Azure per evitare la perdita della connettività. La risoluzione di questi problemi era sinora complessa ed erano generalmente necessarie ore per identificare e risolvere il problema.
 
 Con la funzionalità di risoluzione dei problemi di Azure Network Watcher è possibile diagnosticare eventuali problemi con il gateway e le connessioni e ottenere in pochi minuti informazioni sufficienti per prendere una decisione informata per risolvere il problema.
 

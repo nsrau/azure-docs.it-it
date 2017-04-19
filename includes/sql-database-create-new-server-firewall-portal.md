@@ -14,15 +14,15 @@ articles/sql-data-warehouse-get-started-provision.md
 
 1. Nel pannello di SQL Server, in Impostazioni, fare clic su **Firewall** per aprire il pannello del firewall per SQL Server.
 
-    ![Firewall di SQL server](../articles/sql-database/media/sql-database-get-started/sql-server-firewall.png)
-    
+    <!-- ![sql server firewall](../articles/sql-database/media/sql-database-get-started/sql-server-firewall.png) -->
+
 2. Verificare la presenza dell'indirizzo IP del client e che questo sia l'indirizzo IP Internet che usa un browser di propria scelta (chiedere "qual è l'indirizzo IP in uso"). Talvolta non corrispondono per varie ragioni.
 
-    ![Indirizzo IP in uso](../articles/sql-database/media/sql-database-get-started/your-ip-address.png)
+    <!-- ![your IP address](../articles/sql-database/media/sql-database-get-started/your-ip-address.png) -->
 
 3. Supponendo che gli indirizzi IP corrispondano, fare clic su **Aggiungi IP client** sulla barra degli strumenti.
 
-    ![Aggiungi IP client](../articles/sql-database/media/sql-database-get-started/add-client-ip.png)
+    ![Aggiungi IP client](../articles/sql-data-warehouse/media/sql-data-warehouse-get-started-provision/add-client-ip.png)
 
     > [!NOTE]
     > È possibile aprire il firewall del database SQL nel server a un singolo indirizzo IP o a un intero intervallo di indirizzi. L'apertura del firewall consente agli amministratori SQL e agli utenti di accedere a qualsiasi database nel server per cui hanno credenziali valide.
@@ -30,13 +30,8 @@ articles/sql-data-warehouse-get-started-provision.md
 
 4. Fare clic su **Salva** sulla barra degli strumenti per salvare questa regola del firewall a livello di server e quindi fare clic su **OK**.
 
-    ![Aggiungi IP client](../articles/sql-database/media/sql-database-get-started/save-firewall-rule.png)
+    ![Aggiungi IP client](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!Tip]
 > Per un'esercitazione, vedere [Esercitazione sul database SQL: creare un server, una regola del firewall a livello di server, un database di esempio, una regola del firewall a livello di database ed eseguire la connessione ad SQL Server](../articles/sql-database/sql-database-get-started.md).    
 >
-
-
-<!--HONumber=Jan17_HO1-->
-
-

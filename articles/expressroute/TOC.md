@@ -26,7 +26,9 @@
 ## Collegare una rete virtuale a un circuito ExpressRoute
 ### [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-## [Configurare un gateway di rete virtuale per ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## Configurare un gateway di rete virtuale per ExpressRoute
+### [Portale di Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configurare connessioni coesistenti ExpressRoute e da sito a sito](expressroute-howto-coexist-resource-manager.md)
 ## [Spostare un circuito dal modello di distribuzione classica a quello Resource Manager](expressroute-howto-move-arm.md)
 ## [Eseguire la migrazione di reti virtuali associate dal modello classico a Resource Manager](expressroute-migration-classic-resource-manager.md)
