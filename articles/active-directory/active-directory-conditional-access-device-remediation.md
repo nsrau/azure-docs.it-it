@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Risoluzione dei problemi per il messaggio "Non è possibile accedervi da qui" in un dispositivo Windows
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Messaggio "Non è possibile accedervi da qui" in un dispositivo Windows
 
 Durante un tentativo di accedere ad esempio alla Intranet SharePoint Online dell'organizzazione può essere visualizzata una pagina con il messaggio *Non è possibile accedervi da qui*. Questa pagina viene visualizzata perché l'amministratore ha configurato un criterio di accesso condizionale che impedisce l'accesso alle risorse dell'organizzazione in determinate condizioni. Anche se potrebbe essere necessario contattare il supporto tecnico o l'amministratore per risolvere questo problema, è prima possibile effettuare personalmente alcuni tentativi.
 

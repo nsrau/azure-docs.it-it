@@ -1,2 +1,1 @@
-Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Azure Resource Manager e classica. Prima di iniziare la configurazione, verificare di seguire le istruzioni per il modello di distribuzione che si vuole usare. Per altre informazioni, vedere [Informazioni sui modelli di distribuzione](../articles/resource-manager-deployment-model.md).
-
+Azure attualmente funziona con due modelli di distribuzione: Azure Resource Manager e classica. Prima di iniziare la configurazione, verificare di seguire le istruzioni per il modello di distribuzione che si vuole usare. Per altre informazioni, vedere [Informazioni sui modelli di distribuzione](../articles/resource-manager-deployment-model.md).

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 3dd207805c1a8f53c6cc74da08cc9378609581c5
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: d67043f2e0a062796f4d6167b28774ce494027c2
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -59,7 +59,7 @@ Dopo aver creato i criteri, è possibile passare alla compilazione dell'app.
 
 ## <a name="download-the-code"></a>Scaricare il codice
 
-Il codice per questa esercitazione è salvato su [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). È possibile clonare l'esempio eseguendo questo comando:
+Il codice per questa esercitazione è salvato su [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). È possibile clonare l'esempio eseguendo:
 
 ```console
 git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
@@ -76,11 +76,11 @@ L'esempio è configurato per l'uso dei criteri e dell'ID client del tenant di de
     * `ida:ClientId` con l'ID dell'applicazione API Web
     * `ida:SignUpSignInPolicyId` con il nome del criterio "di iscrizione o di accesso"
 
-2. Aprire `web.config` nel progetto `TaskWebApp` e sostituire i valori seguenti:
+2. Aprire `web.config` nel progetto `TaskWebApp` e sostituire i valori di
     * `ida:Tenant` con il nome del tenant
     * `ida:ClientId` con l'ID dell'applicazione di tipo app Web
     * `ida:ClientSecret` con la chiave privata dell'app Web
-    * `ida:SignUpSignInPolicyId` con il nome del criterio "di iscrizione o di accesso"
+    * `ida:SignUpSignInPolicyId` con il nome del criterio "Iscrizione o accesso"
     * `ida:EditProfilePolicyId` con il nome del criterio "Modifica profilo"
     * `ida:ResetPasswordPolicyId` con il nome del criterio "Reimposta password"
 
