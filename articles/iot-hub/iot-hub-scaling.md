@@ -42,7 +42,7 @@ I messaggi da dispositivo a cloud seguono queste linee guida in caso di velocit�
 | --- | --- | --- |
 | S1 |Fino a 1.111 KB al minuto per unità<br/>(1,5 GB al giorno per unità) |Una media di 278 messaggi al minuto per unità<br/>(400.000 messaggi al giorno per unità) |
 | S2 |Fino a 16 MB al minuto per unità<br/>(22,8 GB al giorno per unità) |Una media di 4.167 messaggi al minuto per unità<br/>(6 milioni di messaggi al giorno per unità) |
-| S3 |Fino a 814 MB al minuto per unità<br/>(1144,4 GB al giorno per unità) |Una media di 208,333 messaggi al minuto per unità<br/>(300 milioni di messaggi al giorno per unità) |
+| S3 |Fino a 814 MB al minuto per unità<br/>(1144,4 GB al giorno per unità) |Una media di 208.333 messaggi al minuto per unità<br/>(300 milioni di messaggi al giorno per unità) |
 
 ## <a name="identity-registry-operation-throughput"></a>Velocità effettiva delle operazioni del registro delle identità
 Le operazioni del registro delle identità dell'hub IoT non sono considerate operazioni di runtime perché sono per lo più correlate al provisioning dei dispositivi.
