@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: lampeggiamento led raspberry pi, far lampeggiare il led con raspberry pi
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: f601d1e1-2bc3-4cc5-a6b1-0467e5304dcf
 ms.service: iot-hub
 ms.devlang: c

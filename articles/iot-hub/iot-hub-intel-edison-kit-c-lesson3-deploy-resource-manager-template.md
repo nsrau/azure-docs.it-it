@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: archiviazione di dati nel cloud, dati archiviati nel cloud, servizio cloud iot
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
 ms.assetid: 739b82e9-5d4e-4485-8971-f57cbb682faf
 ms.service: iot-hub
 ms.devlang: c

@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: dati nel cloud, raccolta di dati cloud, servizio cloud IoT, dati IoT
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
 ms.assetid: cad545c3-dd88-486c-a663-d587a924ccd4
 ms.service: iot-hub
 ms.devlang: c
