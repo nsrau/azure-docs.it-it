@@ -3,15 +3,9 @@
 ## [Architettura di OMS](operations-management-suite-architecture.md)
 
 # Introduzione
-## Approfondimenti e analisi
-### [Iscriversi a Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Automazione e controllo
-### [Il primo runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Protezione e ripristino
-### [Introduzione a Backup di Azure](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Sicurezza e conformità
-### [Sicurezza e controllo](oms-security-getting-started.md)
-### [Sicurezza dei dati](oms-security-data-security.md)
+## Procedure dettagliate
+### [Elenco dei servizi](operations-management-suite-walkthrough-servicemap.md)
+
 
 # Procedure
 

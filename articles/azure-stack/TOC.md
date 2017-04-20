@@ -15,7 +15,6 @@
 ### [Aggiungere l'immagine predefinita](azure-stack-add-default-image.md)
 ### [Effettuare il provisioning di una macchina virtuale](azure-stack-provision-vm.md)
 ### [Creare un account di archiviazione](azure-stack-provision-storage-account.md)
-### [Aggiungere un tenant di Azure Stack](azure-stack-add-new-user-aad.md)
 ### [Ridistribuire il modello di verifica di Azure Stack](azure-stack-redeploy.md)
 
 # Gestire
@@ -31,15 +30,17 @@
 ## Procedure
 ### [Gestire gli aggiornamenti](azure-stack-updates.md)
 ### [Monitorare l'integrità e gli avvisi](azure-stack-monitor-health.md)
-### [Gestire le risorse di rete](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Gestire le risorse di rete](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Gestire le risorse di archiviazione](azure-stack-manage-storage-accounts.md)
 ### [Gestire macchine virtuali di Windows Azure Pack](azure-stack-manage-windows-azure-pack.md)
 
 # Sicurezza e conformità
 ## Procedure
 ### [Gestire il controllo degli accessi in base al ruolo](azure-stack-manage-permissions.md)
+### [Aggiungere utenti per Azure AD](azure-stack-add-new-user-aad.md)
 ### [Aggiungere utenti ad AD FS](azure-stack-add-users-adfs.md)
 ### [Creare entità servizio](Azure-stack-create-service-principals.md)
+### [Abilitare il multi-tenancy](azure-stack-enable-multitenancy.md)
 
 # Offrire servizi
 ## Introduzione

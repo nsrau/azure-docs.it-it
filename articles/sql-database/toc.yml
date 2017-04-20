@@ -4,8 +4,6 @@
   items:
   - name: "Informazioni sul database SQL"
     href: sql-database-technical-overview.md
-  - name: "Confrontare database SQL"
-    href: sql-database-features.md
 - name: "Guida introduttiva"
   expanded: true
   items:
@@ -69,8 +67,12 @@
       href: sql-database-benchmark-overview.md
     - name: "Limiti"
       href: sql-database-resource-limits.md
-  - name: "Strumenti"
-    href: sql-database-manage-overview.md
+    - name: "PaaS o IaaS"
+      href: sql-database-paas-vs-sql-server-iaas.md  
+    - name: "Funzionalità"
+      href: sql-database-features.md
+    - name: "Strumenti"
+      href: sql-database-manage-overview.md
   - name: "Dati di partizione"
     items:
     - name: "Database partizionati"
@@ -231,10 +233,6 @@
     items:
     - name: "Autenticazione di Azure AD"
       href: sql-database-aad-authentication-configure.md
-    - name: "Controllo"
-      href: sql-database-auditing-portal.md
-    - name: "Introduzione al rilevamento delle minacce"
-      href: sql-database-threat-detection-portal.md
     - name: "Crittografia: archivio certificati"
       href: sql-database-always-encrypted.md
     - name: "Crittografia: insieme di credenziali delle chiavi"
@@ -388,6 +386,8 @@
   items:
   - name: "domande frequenti"
     href: sql-database-faq.md
+  - name: "Set di dati pubblici"
+    href: sql-database-public-data-sets.md  
   - name: "Risolvere i problemi di connettività"
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: "Prezzi"
@@ -414,3 +414,5 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: "Dashboard personalizzato dei pool elastici"
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+
+

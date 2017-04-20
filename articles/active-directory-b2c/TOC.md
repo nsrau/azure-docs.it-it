@@ -1,7 +1,7 @@
 # Panoramica
 ## [Panoramica](active-directory-b2c-overview.md)
 ## [Tipi di applicazioni](active-directory-b2c-apps.md)
-## [Tenant B2C a livello di produzione e di anteprima](active-directory-b2c-reference-tenant-type.md)
+## [Aree di disponibilità e residenza dei dati](active-directory-b2c-reference-tenant-type.md)
 
 # Attività iniziali
 ## [Creare una directory Azure AD B2C](active-directory-b2c-get-started.md)

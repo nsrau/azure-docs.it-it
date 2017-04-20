@@ -76,6 +76,7 @@
 ## [Eliminare un insieme di credenziali di Backup di Azure](backup-azure-delete-vault.md)
 ## [Configurare il backup offline](backup-azure-backup-import-export.md)
 ## [Sostituire la libreria di nastri](backup-azure-backup-cloud-as-tape.md)
+## [Backup coerenti con l'applicazione di VM Linux](backup-azure-linux-app-consistent.md)
 
 # Riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
