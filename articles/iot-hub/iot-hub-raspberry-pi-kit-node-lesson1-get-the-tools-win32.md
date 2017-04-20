@@ -7,6 +7,8 @@ author: shizn
 manager: timlt
 tags: 
 keywords: sviluppo iot, software iot, software per internet delle cose, installare git in windows, esecuzione di gulp, installare node js in windows, installare npm in windows, installare python in windows
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: b3d88e17-97cc-4f23-85fd-a688fc228eb8
 ms.service: iot-hub
 ms.devlang: node

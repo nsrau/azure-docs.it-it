@@ -1,17 +1,20 @@
 # Panoramica
 ## [Che cos'è Automazione di Azure?](automation-intro.md)
 # Introduzione
+## [Introduzione ad Automazione di Azure](automation-offering-get-started.md)
 ## Esercitazione sui runbook
 ### [Creare un runbook grafico](automation-first-runbook-graphical.md)
 ### [Creare un runbook PowerShell](automation-first-runbook-textual-powershell.md)
 ### [Creare un runbook del flusso di lavoro di PowerShell](automation-first-runbook-textual.md)
 # Procedure
 ## Autenticazione e sicurezza
-### [Autenticazione in Automazione di Azure](automation-security-overview.md)
-### [Configurare un account RunAs di Azure](automation-sec-configure-azure-runas-account.md)
-### [Configurare un account utente Azure AD](automation-sec-configure-aduser-account.md)
-### [Configurare l'autenticazione con AWS](automation-sec-configure-aws-account.md)
+### [Creare un account di Automazione autonomo](automation-create-standalone-account.md)
+### [Creare un account utente di Azure AD](automation-create-aduser-account.md)
+### [Configurare l'autenticazione con AWS](automation-config-aws-account.md)
+### [Creare un account RunAs di Azure con PowerShell](automation-update-account-powershell.md)
+### [Convalidare la configurazione di un account di Automazione](automation-verify-runas-authentication.md)
 ### [Gestire il controllo degli accessi in base al ruolo](automation-role-based-access-control.md)
+### [Gestire l'account di Automazione](automation-manage-account.md)
 ## Creare runbook
 ### [Tipi di runbook](automation-runbook-types.md)
 ### [Creare e importare runbook](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (classico)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (classico)](https://msdn.microsoft.com/library/azure/mt163781)
 # Risorse
 ## [Note sulla versione](https://azure.microsoft.com/updates/?product=automation)

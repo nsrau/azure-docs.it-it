@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: impostazione arduino, connessione di arduino al pc, impostazione di arduino, scheda arduino
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
 ms.assetid: bb8aa45b-d3ff-4438-b9d6-a9725a45ade1
 ms.service: iot-hub
 ms.devlang: c

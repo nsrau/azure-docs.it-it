@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: interfaccia della riga di comando di azure, servizio cloud iot, cloud arduino
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
 ms.assetid: d561680f-69cc-427a-820d-24f710ba05a8
 ms.service: iot-hub
 ms.devlang: c

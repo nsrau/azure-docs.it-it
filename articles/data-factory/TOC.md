@@ -74,6 +74,8 @@
 ### [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 ### [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 ### [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+### [Rielaborare i modelli in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+
 ## Sviluppare
 ### [Modello di Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
 ### [Esempi](data-factory-samples.md)

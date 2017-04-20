@@ -14,12 +14,15 @@
 ## Creare modelli
 ### [Procedure consigliate per i modelli](resource-manager-template-best-practices.md)
 ### [Sezioni di modelli](resource-group-authoring-templates.md)
+### [Eseguire il collegamento ad altri modelli](resource-group-linked-templates.md)
 ### [Definire la dipendenza tra risorse](resource-group-define-dependencies.md)
+### Ciclo di copia per creare più istanze
+#### [Sintassi di base](resource-group-create-multiple.md)
+#### [Ciclo sequenziale](resource-manager-sequential-loop.md)
+#### [Copia di proprietà](resource-manager-property-copy.md)
 ### [Impostare la posizione](resource-manager-template-location.md)
 ### [Assegnare i tag](resource-manager-template-tags.md)
 ### [Impostare il nome e il tipo della risorsa figlio](resource-manager-template-child-resource.md)
-### [Creare più istanze di un tipo di risorsa](resource-group-create-multiple.md)
-### [Eseguire il collegamento ad altri modelli](resource-group-linked-templates.md)
 ### [Condividere lo stato tra modelli collegati](best-practices-resource-manager-state.md)
 ### [Schemi per la progettazione di modelli](best-practices-resource-manager-design-templates.md)
 ## Distribuire

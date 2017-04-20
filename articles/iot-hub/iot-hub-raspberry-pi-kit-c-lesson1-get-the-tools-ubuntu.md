@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: sviluppo iot, software iot, software per internet delle cose, installare git in ubuntu, esecuzione di gulp, installare node js in ubuntu
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: 32cfea00-c254-4cef-8f6f-bbf807eca6b6
 ms.service: iot-hub
 ms.devlang: c

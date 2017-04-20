@@ -7,6 +7,8 @@ author: shizn
 manager: timlt
 tags: 
 keywords: servizio cloud iot, interfaccia della riga di comando di azure
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: acfa13e3-6d2c-4e68-9a77-1cbc2cf3f9c1
 ms.service: iot-hub
 ms.devlang: node
