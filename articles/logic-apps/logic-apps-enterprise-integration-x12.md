@@ -171,7 +171,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 | Proprietà | Descrizione |
 | --- | --- |
-| Converti formato decimale implicito Nn in valore numerico in base 10 |Converte un numero EDI specificato nel formato Nn in un valore numerico in base&10; |
+| Converti formato decimale implicito Nn in valore numerico in base 10 |Converte un numero EDI specificato nel formato Nn in un valore numerico in base 10 |
 | Crea tag XML vuoti se sono consentiti separatori finali |Selezionare questa casella di controllo se si vuole che il mittente dell'interscambio includa tag XML vuoti come separatori finali. |
 | Suddividi interscambio in set di transazioni - Sospendi set di transazioni in caso di errore|Consente di analizzare ogni set di transazioni di un interscambio in un documento XML separato applicando la busta appropriata al set di transazioni. Sospende solo le transazioni la cui convalida non riesce. |
 | Suddividi interscambio in set di transazioni - Sospendi interscambio in caso di errore|Consente di analizzare ogni set di transazioni di un interscambio in un documento XML separato applicando la busta appropriata. Sospende tutto l'interscambio quando la convalida di uno o più set di transazioni dell'interscambio non riesce. | 

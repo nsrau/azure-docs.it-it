@@ -41,7 +41,7 @@ Le metriche presentano le caratteristiche seguenti:
 
 * Tutte le metriche hanno **frequenza di un minuto**. L'utente riceve il valore della metrica generata dalla risorsa ogni minuto, così da ottenere una visibilità quasi in tempo reale sullo stato e sull'integrità della risorsa.
 * Le metriche sono **disponibili immediatamente**. Non è necessario fornire il consenso esplicito o configurare la diagnostica aggiuntiva.
-* Per ogni metrica è possibile accedere alla **cronologia degli ultimi&30; giorni** . È possibile vedere rapidamente le tendenze recenti e mensili riguardo alle prestazioni o all'integrità della risorsa.
+* Per ogni metrica è possibile accedere alla **cronologia degli ultimi 30 giorni** . È possibile vedere rapidamente le tendenze recenti e mensili riguardo alle prestazioni o all'integrità della risorsa.
 
 È anche possibile:
 

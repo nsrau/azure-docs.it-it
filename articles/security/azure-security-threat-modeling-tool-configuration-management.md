@@ -44,7 +44,7 @@ ms.lasthandoff: 03/10/2017
 | Tecnologie applicabili | Generico |
 | Attributi              | N/D  |
 | Riferimenti              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introduzione a Content Security Policy) [Content Security Policy Reference](http://content-security-policy.com/) (Informazioni di riferimento su Content Security Policy), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Funzionalità di sicurezza), [Introduction to content security policy](https://docs.webplatform.org/wiki/tutorials/content-security-policy) (Introduzione a Content Security Policy), [(È possibile usare use CSP?)](http://caniuse.com/#feat=contentsecuritypolicy) |
-| Passi | <p>Content Security Policy (CSP) è un meccanismo di sicurezza avanzato, uno standard W3C, che consente ai proprietari di applicazioni Web di avere il controllo del contenuto incorporato nel sito. CSP viene aggiunto come intestazione della risposta HTTP nel server Web e viene applicato sul lato client dai browser. Si tratta di criteri basati su un elenco elementi consentiti: un sito Web può dichiarare un set di domini attendibili da cui possono essere caricati contenuti attivi, ad esempio JavaScript.</p><p>CSP offre i seguenti vantaggi per la sicurezza:</p><ul><li>**Protezione da XSS:** se una pagina è vulnerabile a XSS, un utente malintenzionato può sfruttarlo in 2 modi:<ul><li>Inserimento di `<script>malicious code</script>`. Questo exploit non funzionerà a causa della restrizione di base&1; di CSP.</li><li>Inserimento di `<script src=”http://attacker.com/maliciousCode.js”/>`. Questo exploit non funzionerà perché il dominio controllato dall'utente malintenzionato non sarà nell'elenco di domini consentiti di CSP.</li></ul></li><li>**Controllo sull'esfiltrazione dei dati:** se un contenuto dannoso in una pagina Web prova a connettersi a un sito Web esterno e a sottrarre dati, la connessione verrà interrotta da CSP. Infatti il dominio di destinazione non sarà nell'elenco elementi consentiti di CSP.</li><li>**Difesa contro il clickjacking:** il clickjacking è una tecnica di attacco con la quale un antagonista può inserire in un frame un sito Web originale e forzare gli utenti a fare clic sugli elementi dell'interfaccia utente. Attualmente la difesa contro il clickjacking si basa sulla configurazione dell'intestazione della risposta X-Frame-Options. Non tutti i browser supportano questa intestazione e, con il passare del tempo, CSP diventerà uno dei modi standard per difendersi dal clickjacking.</li><li>**Creazione di report sugli attacchi in tempo reale:** se si verifica un attacco di tipo injection in un sito Web abilitato per CSP, i browser attiveranno automaticamente una notifica per un endpoint configurato sul server Web. In questo modo, CSP funge da sistema di avviso in tempo reale.</li></ul> |
+| Passi | <p>Content Security Policy (CSP) è un meccanismo di sicurezza avanzato, uno standard W3C, che consente ai proprietari di applicazioni Web di avere il controllo del contenuto incorporato nel sito. CSP viene aggiunto come intestazione della risposta HTTP nel server Web e viene applicato sul lato client dai browser. Si tratta di criteri basati su un elenco elementi consentiti: un sito Web può dichiarare un set di domini attendibili da cui possono essere caricati contenuti attivi, ad esempio JavaScript.</p><p>CSP offre i seguenti vantaggi per la sicurezza:</p><ul><li>**Protezione da XSS:** se una pagina è vulnerabile a XSS, un utente malintenzionato può sfruttarlo in 2 modi:<ul><li>Inserimento di `<script>malicious code</script>`. Questo exploit non funzionerà a causa della restrizione di base 1 di CSP.</li><li>Inserimento di `<script src=”http://attacker.com/maliciousCode.js”/>`. Questo exploit non funzionerà perché il dominio controllato dall'utente malintenzionato non sarà nell'elenco di domini consentiti di CSP.</li></ul></li><li>**Controllo sull'esfiltrazione dei dati:** se un contenuto dannoso in una pagina Web prova a connettersi a un sito Web esterno e a sottrarre dati, la connessione verrà interrotta da CSP. Infatti il dominio di destinazione non sarà nell'elenco elementi consentiti di CSP.</li><li>**Difesa contro il clickjacking:** il clickjacking è una tecnica di attacco con la quale un antagonista può inserire in un frame un sito Web originale e forzare gli utenti a fare clic sugli elementi dell'interfaccia utente. Attualmente la difesa contro il clickjacking si basa sulla configurazione dell'intestazione della risposta X-Frame-Options. Non tutti i browser supportano questa intestazione e, con il passare del tempo, CSP diventerà uno dei modi standard per difendersi dal clickjacking.</li><li>**Creazione di report sugli attacchi in tempo reale:** se si verifica un attacco di tipo injection in un sito Web abilitato per CSP, i browser attiveranno automaticamente una notifica per un endpoint configurato sul server Web. In questo modo, CSP funge da sistema di avviso in tempo reale.</li></ul> |
 
 ### <a name="example"></a>Esempio
 Criteri di esempio: 
@@ -141,7 +141,7 @@ Codice di Web.config per siti che devono essere inseriti in un frame solo dalle 
 | ----------------------- | ------------ |
 | Componente               | Applicazione Web. | 
 | Fase SDL               | Compilare |  
-| Tecnologie applicabili | Web Form, MVC&5; |
+| Tecnologie applicabili | Web Form, MVC 5 |
 | Attributi              | N/D  |
 | Riferimenti              | N/D  |
 | Passi | <p>La sicurezza del browser impedisce a una pagina Web di creare richieste AJAX per un altro dominio. Questa restrizione è nota come criteri di corrispondenza dell'origine e impedisce a un sito dannoso di leggere dati sensibili da un altro sito. In alcuni casi può tuttavia essere necessario esporre in modo sicuro le API che gli altri siti possono utilizzare. Cross Origin Resource Sharing (CORS) è uno standard W3C che consente a un server di ridurre i criteri di corrispondenza dell'origine. Con CORS un server può consentire in modo esplicito alcune richieste multiorigine e rifiutarne altre.</p><p>CORS è più sicuro e flessibile delle tecniche precedenti, ad esempio JSONP. In sostanza, abilitando CORS sarà possibile aggiungere alcune intestazioni della risposta HTTP (Access-Control-*) all'applicazione Web in due modi.</p>|
@@ -172,7 +172,7 @@ Si noti che è fondamentale assicurarsi che l'elenco di origini nell'attributo "
 | ----------------------- | ------------ |
 | Componente               | Applicazione Web. | 
 | Fase SDL               | Compilare |  
-| Tecnologie applicabili | Web Form, MVC&5; |
+| Tecnologie applicabili | Web Form, MVC 5 |
 | Attributi              | N/D  |
 | Riferimenti              | [Request Validation - Preventing Script Attacks](http://www.asp.net/whitepapers/request-validation) (Convalida della richiesta: prevenzione degli attacchi basati su script) |
 | Passi | <p>La convalida della richiesta, una funzionalità di ASP.NET sin dalla versione 1.1, impedisce al server di accettare contenuti che includono HTML non codificato. Questa funzionalità è progettata per impedire alcuni attacchi script injection in cui il codice script client o HTML può essere inconsapevolmente inviato a un server, archiviato e quindi presentato ad altri utenti. È tuttavia vivamente consigliabile convalidare tutti i dati di input e codificarli con HTML, se appropriato.</p><p>La convalida della richiesta viene eseguita confrontando tutti i dati di input con un elenco di valori potenzialmente pericolosi. Se viene rilevata una corrispondenza, ASP.NET genera `HttpRequestValidationException`. Per impostazione predefinita, la funzionalità di convalida della richiesta è abilitata.</p>|
@@ -190,7 +190,7 @@ o a livello di applicazione.
    </system.web>
 </configuration>
 ```
-Si noti che la funzionalità di convalida della richiesta non è supportata e non fa parte della pipeline MVC&6;. 
+Si noti che la funzionalità di convalida della richiesta non è supportata e non fa parte della pipeline MVC 6. 
 
 ## <a id="local-js"></a>Usare le versioni più recenti ospitate in locale delle librerie JavaScript
 
@@ -397,7 +397,7 @@ public class ResourcesController : ApiController
 | Riferimenti              | [Enabling Cross-Origin Requests (CORS) in ASP.NET Core 1.0](https://docs.asp.net/en/latest/security/cors.html) (Abilitazione di richieste multiorigine (CORS) in ASP.NET Core 1.0) |
 | Passi | <p>In ASP.NET Core 1.0 CORS può essere abilitato usando il middleware o MVC. Quando si usa MVC per abilitare CORS, vengono usati gli stessi servizi CORS, ma non il middleware CORS.</p>|
 
-**Approccio&1;** Abilitazione di CORS con il middleware: per abilitare CORS per l'intera applicazione, aggiungere il middleware CORS alla pipeline di richieste usando il metodo di estensione UseCors. Si possono specificare criteri multiorigine quando si aggiunge il middleware CORS usando la classe CorsPolicyBuilder. A questo scopo è possibile procedere in due modi:
+**Approccio 1** Abilitazione di CORS con il middleware: per abilitare CORS per l'intera applicazione, aggiungere il middleware CORS alla pipeline di richieste usando il metodo di estensione UseCors. Si possono specificare criteri multiorigine quando si aggiunge il middleware CORS usando la classe CorsPolicyBuilder. A questo scopo è possibile procedere in due modi:
 
 ### <a name="example"></a>Esempio
 Il primo consiste nel chiamare UseCors con un operatore lambda. L'operatore lambda accetta un oggetto CorsPolicyBuilder: 
@@ -432,7 +432,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-**Approccio&2;** Abilitazione di CORS in MVC: in alternativa gli sviluppatori possono usare MVC per applicare CORS specifici per azione, per controller o a livello globale per tutti i controller.
+**Approccio 2** Abilitazione di CORS in MVC: in alternativa gli sviluppatori possono usare MVC per applicare CORS specifici per azione, per controller o a livello globale per tutti i controller.
 
 ### <a name="example"></a>Esempio
 Per azione: per specificare un criterio CORS per un'azione specifica, aggiungere l'attributo [EnableCors] all'azione. Specificare il nome del criterio. 

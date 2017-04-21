@@ -88,7 +88,7 @@ Questa sezione illustra come configurare il magic Spark installato in precedenza
           }
         }
 
-4. Sostituire **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** con i valori appropriati. È possibile usare diverse utilità del linguaggio di programmazione preferito o uno strumento online per convertire la password corrente in una password con codifica Base&64;. Un semplice frammento di codice Python da eseguire dal prompt dei comandi può essere il seguente:
+4. Sostituire **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** con i valori appropriati. È possibile usare diverse utilità del linguaggio di programmazione preferito o uno strumento online per convertire la password corrente in una password con codifica Base 64. Un semplice frammento di codice Python da eseguire dal prompt dei comandi può essere il seguente:
 
         python -c "import base64; print(base64.b64encode('{YOURPASSWORD}'))"
 
