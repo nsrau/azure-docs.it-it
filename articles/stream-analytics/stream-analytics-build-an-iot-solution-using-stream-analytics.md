@@ -129,7 +129,7 @@ Se non si ha un account Azure, è possibile [richiedere una versione di valutazi
 > 
 > 
 
-Per poter usare al meglio il credito Azure gratuito pari a&200; dollari, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
+Per poter usare al meglio il credito Azure gratuito pari a 200 dollari, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Eseguire il provisioning delle risorse di Azure necessarie per l'esercitazione
 Questa esercitazione richiede due hub eventi per ricevere i flussi di dati *in ingresso* e *in uscita*. Il database SQL di Azure restituisce i risultati dei processi di Analisi di flusso. In Archiviazione di Azure vengono memorizzati i dati di riferimento di registrazione dei veicoli.
@@ -255,7 +255,7 @@ Per informazioni dettagliate sull'implementazione, il codice sorgente dell'appli
 6. L'origine è **hub eventi**.
 7. **Spazio dei nomi del bus di servizio** deve essere quello TollData nell'elenco a discesa.
 8. **Nome hub eventi** deve essere impostato su **entry**.
-9. **Nome criterio hub eventi* è **RootManageSharedAccessKey** (il valore predefinito).
+9. **Nome criterio hub eventi* è**RootManageSharedAccessKey** (il valore predefinito).
 10. Selezionare **JSON** per **FORMATO DI SERIALIZZAZIONE EVENTI** e **UTF8** per **CODIFICA**.
    
     Le impostazioni vengono visualizzate in questo modo:
@@ -331,7 +331,7 @@ Questa cartella contiene i file seguenti:
 ## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Domanda 1: Numero di veicoli che entrano in un casello
 1. Aprire il portale di Azure e passare al processo di Analisi di flusso di Azure creato. Fare clic sulla scheda **QUERY** e incollare la query dalla sezione precedente.
 
-2. Per convalidare la query sui dati di esempio, caricare i dati nell'input EntryStream facendo clic sul simbolo ... e selezionando ** 	Carica dati di esempio da file**.
+2. Per convalidare la query sui dati di esempio, caricare i dati nell'input EntryStream facendo clic sul simbolo ... e selezionando **	Carica dati di esempio da file**.
 
     ![Screenshot del file Entry.json](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)
 3. Nel riquadro visualizzato selezionare il file (Entry.json) nel computer locale e fare clic su **OK**. L'icona di **test** diventerà luminosa e selezionabile.
