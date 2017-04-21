@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
 ms.openlocfilehash: ba27d4adf73b4d5d3747567b54aeb5f0d06f8243
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -48,10 +49,5 @@ I prezzi sono specifici per ogni area. È quindi necessario definire un piano di
 9. Nell'elenco a discesa **Storage account** (Account di archiviazione) selezionare un account di archiviazione in cui archiviare il servizio Web.
 10. Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano nell'area scelta nel passaggio 8.
 11. Fare clic su **Copy**.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
