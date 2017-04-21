@@ -410,7 +410,7 @@ Per importare in un'unica raccolta, immettere il nome della raccolta in cui verr
 2. È possibile usare una sintassi abbreviata: collection[3] restituirà lo stesso set di raccolte citato nel passaggio 1.
 3. È possibile specificare più di una sostituzione. Ad esempio, collection[0-1] [0-9] genererà 20 nomi di raccolte con zeri iniziali (collection01, ..02, ..03).
 
-Dopo aver specificato il nome della raccolta, scegliere la velocità effettiva desiderata della raccolta, da 400 UR a 250.000 UR. Per ottimizzare le prestazioni di importazione, scegliere una velocità effettiva superiore. Per altre informazioni sui livelli di prestazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md). Eventuali importazioni nelle raccolte con una velocità effettiva >&10;.000 UR richiederanno una chiave di partizione. Se si sceglie di avere più di 250.000 UR, sarà necessario inviare una richiesta di nel portale per incrementare l'account.
+Dopo aver specificato il nome della raccolta, scegliere la velocità effettiva desiderata della raccolta, da 400 UR a 250.000 UR. Per ottimizzare le prestazioni di importazione, scegliere una velocità effettiva superiore. Per altre informazioni sui livelli di prestazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md). Eventuali importazioni nelle raccolte con una velocità effettiva > 10.000 UR richiederanno una chiave di partizione. Se si sceglie di avere più di 250.000 UR, sarà necessario inviare una richiesta di nel portale per incrementare l'account.
 
 > [!NOTE]
 > L'impostazione della velocità effettiva si applica solo alla creazione di raccolte. Se la raccolta specificata esiste già, la velocità effettiva non verrà modificata.
