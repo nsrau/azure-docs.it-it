@@ -101,7 +101,7 @@ class Program
 ## <a name="other-methods"></a>Altri metodi
 * [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
   
-    Quando si carica il BLOB, impostare la proprietà *cacheControl* usando l'opzione `-p`.  Questo esempio imposta la durata (TTL) su un'ora, ovvero&3;.600 secondi.
+    Quando si carica il BLOB, impostare la proprietà *cacheControl* usando l'opzione `-p`.  Questo esempio imposta la durata (TTL) su un'ora, ovvero 3.600 secondi.
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt

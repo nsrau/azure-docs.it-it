@@ -29,7 +29,7 @@ Per semplificare l'analisi dell'architettura e la progettazione, sono disponibil
 * Infografici dell'architettura
 * Progetti dell'architettura
 * Set di simboli per Cloud ed Enterprise
-* Modello di progetto Visio&3;D
+* Modello di progetto Visio 3D
 
 ## <a name="architectural-infographics"></a>Infografici dell'architettura
 Microsoft pubblica vari poster/infografici relativi all'architettura, tra cui:
@@ -48,7 +48,7 @@ Ogni progetto include:
 ## <a name="cloud-and-enterprise-symbol-set"></a>Set di simboli per Cloud ed Enterprise
 [Guardare il video di training su simboli e Visio](http://aka.ms/CnESymbolsVideo) e quindi [scaricare il set di simboli per Cloud ed Enterprise](http://aka.ms/CnESymbols) per creare materiali tecnici che illustrano Azure, Windows Server, SQL Server e altro ancora. È possibile usarli in diagrammi di architettura, materiale didattico, presentazioni, fogli dati, infografica, white paper e anche in manuali di terze parti, se sono destinati alla formazione sull'uso di prodotti Microsoft. Tuttavia non possono essere usati nelle interfacce utente.
 
-## <a name="3d-blueprint-visio-template"></a>Modello di progetto Visio&3;D
+## <a name="3d-blueprint-visio-template"></a>Modello di progetto Visio 3D
 Le versioni 3D dei [Progetti di Microsoft Architecture](http://aka.ms/azblueprints) sono stati creati inizialmente in uno strumento non Microsoft. Il modello Visio 2013 (e versioni successive) è arrivato il 5 agosto 2015 come parte di un [Corso di certificazione per Microsoft Architecture](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course)distribuito su EDX.ORG.
 
 Il modello è anche disponibile al di fuori del corso.
