@@ -105,7 +105,7 @@ ISCPTxSpout è l'interfaccia per lo Spout transazionale.
         void Fail(long seqId, Dictionary<string, Object> parms);        
     }
 
-Come avviene per la controparte non transazionale, `NextTx()`, `Ack()` e `Fail()` vengono chiamati in un ciclo ridotto in un singolo thread nel processo C\#. Quando non ci sono dati da emettere, è utile una breve sospensione del metodo `NextTx` (ad esempio&10; millisecondi), in modo da limitare il consumo di CPU.
+Come avviene per la controparte non transazionale, `NextTx()`, `Ack()` e `Fail()` vengono chiamati in un ciclo ridotto in un singolo thread nel processo C\#. Quando non ci sono dati da emettere, è utile una breve sospensione del metodo `NextTx` (ad esempio 10 millisecondi), in modo da limitare il consumo di CPU.
 
 `NextTx()` viene chiamato per avviare una nuova transazione. Il parametro di output `seqId`, usato per identificare la transazione, viene usato anche in `Ack()` e `Fail()`. In `NextTx()`, l'utente può emettere dati verso il lato Java. I dati verranno archiviati in ZooKeeper per supportare la riproduzione. Poiché la capacità di ZooKeeper è molto limitata, nello Spout transazionale l'utente deve emettere solo metadati e non dati in blocco.
 
