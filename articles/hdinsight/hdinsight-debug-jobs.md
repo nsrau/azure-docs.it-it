@@ -38,7 +38,7 @@ Quando si crea un cluster HDInsight, vengono automaticamente create 6 tabelle pe
 * ambariserverlog
 * ambariagentlog
 
-Per i cluster basati su Windows vengono create&3; tabelle:
+Per i cluster basati su Windows vengono create 3 tabelle:
 
 * setuplog: log di eventi/eccezioni rilevati durante il provisioning o la configurazione dei cluster HDInsight.
 * hadoopinstalllog: log di eventi/eccezioni rilevati durante l'installazione di Hadoop nel cluster. Questa tabella può essere utile per i problemi di debug relativi ai cluster creati con parametri personalizzati.
@@ -97,7 +97,7 @@ Ora è possibile usare Excel per filtrare e ordinare in base alle esigenze. Ovvi
 **Per usare Visual Studio**
 
 1. Aprire Visual Studio.
-2. Scegliere **Cloud Explorer** dal menu **Visualizza** oppure fare semplicemente clic su **CTRL+\, **CTRL+X.
+2. Scegliere **Cloud Explorer** dal menu **Visualizza** oppure fare semplicemente clic su **CTRL+\,**CTRL+X.
 3. In **Cloud Explorer** selezionare **Tipi di risorse**.  L'altra opzione disponibile è **Gruppi di risorse**.
 4. Espandere **Account di archiviazione**, l'account di archiviazione predefinito per il cluster e quindi **Tabelle**.
 5. Fare doppio clic su **hadoopservicelog**.
