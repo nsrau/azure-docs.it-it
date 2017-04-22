@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
@@ -39,7 +39,7 @@ In questo articolo, due endpoint di App Web di Azure creati in precedenza vengon
     6. Fare clic su **Crea**.
     7. Una volta completata la distribuzione globale del profilo di Gestione traffico, il profilo sarà elencato nel rispettivo gruppo di risorse come una delle risorse.
 
-![Creare un profilo di Gestione traffico](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
+    ![Creare un profilo di Gestione traffico](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
 
@@ -57,7 +57,7 @@ In questo articolo, due endpoint di App Web di Azure creati in precedenza vengon
 5.    Ripetere i passaggi 3 e 4 per il successivo endpoint di App Web di Azure. Assicurarsi di aggiungerlo con il valore di **Priorità** impostato su **2**.
 6.    Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati nel pannello **Profilo di gestione traffico** insieme al relativo stato di monitoraggio **Online**.
 
-![Aggiungere un endpoint di Gestione traffico](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
+    ![Aggiungere un endpoint di Gestione traffico](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Usare il profilo di Gestione traffico
 1.    Nella barra di ricerca del portale cercare il nome del **Profilo di Gestione traffico** creato nella sezione precedente. Fare clic sul profilo di Gestione traffico nei risultati visualizzati.

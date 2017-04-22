@@ -5,9 +5,3 @@ Nel portale di Azure è possibile visualizzare lo stato della connessione di un 
 3. Fare clic sul nome della connessione da verificare per aprire **Informazioni di base**. In Informazioni di base è possibile visualizzare altre informazioni sulla connessione. Dopo aver stabilito una connessione, lo **stato** visualizzato è "Operazione riuscita" e "Connesso".
    
     ![Verificare la connessione gateway VPN usando il portale di Azure](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-
