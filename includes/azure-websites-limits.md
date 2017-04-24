@@ -38,8 +38,3 @@
 <sup>9</sup>Eseguire gli eseguibili e/o gli script personalizzati su richiesta, in base a una pianificazione o continuamente come attività in background nell'istanza di servizi app. Always On è richiesto per l'esecuzione continua di Processi Web. L'utilità di pianificazione di Azure di livello Free o Standard è richiesta per la funzionalità Processi Web pianificata. Non esiste alcun limite predefinito al numero di processi Web che è possibile eseguire in un'istanza del servizio app, ma vi sono limiti pratici che dipendono dall'operazione che sta tentando di eseguire il codice dell'applicazione.   
 <sup>10</sup>SLA pari al 99,95% fornito per distribuzioni che utilizzano più istanze di gestione traffico di Azure configurato per il failover.  
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-
