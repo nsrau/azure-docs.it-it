@@ -9,8 +9,3 @@
 | Blocca account utente dopo **X** rifiuti consecutivi di autenticazione MFA |Non impostato |99 |
 | Reimposta blocco account dopo **X** minuti |Non impostato |9999 |
 | Sblocca account dopo **X** minuti |Non impostato |9999 |
-
-
-<!--HONumber=Feb17_HO1-->
-
-
