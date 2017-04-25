@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -73,8 +73,7 @@ Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere 
 Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di controllo usando i campi seguenti:
 
 - Intervallo di date
-- Avviato da
-- Categoria
+- Azione avviata da (attore)
 - Categoria
 - Activity resource type (Tipo di risorsa dell'attività)
 - Attività
@@ -311,7 +310,7 @@ Con i report di controllo basati sulle applicazioni, è possibile ottenere rispo
 * I nomi delle applicazioni sono stati modificati?
 * Chi ha dato il consenso a un'applicazione?
 
-Per esaminare semplicemente i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** del pannello **Applicazioni aziendali**. Per questo punto di ingresso, il **Tipo di risorsa attività** preselezionato è **Applicazione**.
+Per esaminare semplicemente i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** del pannello **Applicazioni aziendali**. Per questo punto di ingresso, il **Tipo di risorsa attività** preselezionato è **Applicazioni aziendali**.
 
 ![Log di controllo](./media/active-directory-reporting-activity-audit-logs/134.png "Log di controllo")
 

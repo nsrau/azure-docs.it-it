@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6da8b21014966edd9f4cea0fd27f6973b2b820f0
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
+ms.lasthandoff: 04/17/2017
 
 
 ---
 
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Creare il primo cluster autonomo di Service Fabric
-È possibile creare un cluster autonomo di Service Fabric su qualsiasi macchina virtuale o computer che esegua Windows Server 2012 R2 o Windows Server 2016, locale o nel cloud. Questa guida introduttiva consente di creare un cluster di sviluppo autonomo in pochi minuti.  Al termine si avrà un cluster di tre nodi in esecuzione in un singolo computer nel quale è possibile distribuire app.
+È possibile creare un cluster autonomo di Service Fabric su qualsiasi macchina virtuale o computer che esegua Windows Server 2012 R2 o Windows Server 2016, locale o nel cloud. Questa guida introduttiva consente di creare un cluster di sviluppo autonomo in pochi minuti.  Al termine si ottiene un cluster di tre nodi in esecuzione in un singolo computer nel quale è possibile distribuire app.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric autonomi.  [Scaricare il pacchetto di installazione](http://go.microsoft.com/fwlink/?LinkId=730690).  Decomprimere il pacchetto in una cartella, ad esempio *C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer*, nel computer o macchina virtuale in cui verrà installato il cluster di sviluppo.  Il contenuto del pacchetto di installazione è descritto nei dettagli [qui](service-fabric-cluster-standalone-package-contents.md).
+Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric autonomi.  [Scaricare il pacchetto di installazione](http://go.microsoft.com/fwlink/?LinkId=730690).  Decomprimere il pacchetto di installazione in una cartella nel computer o nella macchina virtuale in cui si configura il cluster di sviluppo.  Il contenuto del pacchetto di installazione è descritto nei dettagli [qui](service-fabric-cluster-standalone-package-contents.md).
 
 L'amministratore del cluster che distribuisce e configura il cluster deve avere privilegi di amministratore nel computer. Non è possibile installare Service Fabric in un controller di dominio.
 
@@ -37,7 +37,9 @@ Lo script *TestConfiguration.ps1* nel pacchetto autonomo viene usato come Best P
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
 ```
 ## <a name="create-the-cluster"></a>Creare il cluster
-Con il pacchetto di installazione vengono installati diversi file di esempio per la configurazione del cluster. *ClusterConfig.Unsecure.DevCluster.json* è la configurazione del cluster più semplice: un cluster non sicuro, con tre nodi in esecuzione in un singolo computer. Non è necessario modificare le impostazioni di configurazione predefinite per questa esercitazione.  Altri file di configurazione descrivono cluster con una o più macchine virtuali protetti con la sicurezza di Windows o certificati X.509.  Vedere [Proteggere un cluster](service-fabric-cluster-security.md) per altre informazioni sulla sicurezza dei cluster di Service Fabric. 
+Con il pacchetto di installazione vengono installati diversi file di esempio per la configurazione del cluster. *ClusterConfig.Unsecure.DevCluster.json* è la configurazione del cluster più semplice: un cluster non sicuro, con tre nodi in esecuzione in un singolo computer.  Altri file di configurazione descrivono cluster con una o più macchine virtuali protetti con la sicurezza di Windows o certificati X.509.  Non è necessario modificare le impostazioni di configurazione predefinite per questa esercitazione, ma è consigliabile esaminare il file di configurazione per acquisire familiarità con le impostazioni.  La sezione **nodes** descrive i tre nodi nel cluster, indicando nome, indirizzo IP, [tipo di nodo, dominio di errore e dominio di aggiornamento](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  La sezione **properties** definisce le impostazioni per [sicurezza, livello di affidabilità, raccolta di dati di diagnostica e tipi di nodi ](service-fabric-cluster-manifest.md#cluster-properties) del cluster.
+
+Questo cluster è senza protezione.  Chiunque si può connettere in modo anonimo ed eseguire operazioni di gestione. È quindi necessario proteggere sempre i cluster di produzione usando certificati X.509 o la sicurezza di Windows.  La sicurezza viene configurata solo in fase di creazione del cluster e non è possibile abilitare la sicurezza dopo la creazione del cluster.  Vedere [Proteggere un cluster](service-fabric-cluster-security.md) per altre informazioni sulla sicurezza dei cluster di Service Fabric.  
 
 Per creare il cluster di sviluppo con tre nodi, eseguire lo script *CreateServiceFabricCluster.ps1* da una sessione amministratore di PowerShell:
 
@@ -88,7 +90,7 @@ Per rimuovere il runtime di Service Fabric dal computer, eseguire lo script di P
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che è stato configurato un cluster di sviluppo autonomo, provare a eseguire queste operazioni:
+Ora che è stato configurato un cluster di sviluppo autonomo, vedere gli articoli seguenti:
 * [Configurare un cluster autonomo con più computer](service-fabric-cluster-creation-for-windows-server.md) e abilitare la sicurezza.
 * [Distribuire le app tramite PowerShell](service-fabric-deploy-remove-applications.md)
 

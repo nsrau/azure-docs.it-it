@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -41,12 +41,13 @@ Ottenere il nome completo del server per il server del database SQL di Azure nel
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
-3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**.
+3. Nella pagina **Panoramica** per il database, verificare il nome completo del server, come mostrato nell'immagine seguente. È possibile passare il puntatore sul nome del server per visualizzare l'opzione **Fare clic per copiare**.
 
    ![informazioni di connessione](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>Connettersi al server e al nuovo database
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Connettersi al database nel server logico di database SQL
 
 Usare SQL Server Management Studio per stabilire una connessione al server del database SQL di Azure. 
 
@@ -65,7 +66,7 @@ Usare SQL Server Management Studio per stabilire una connessione al server del d
 
    ![connetti al server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Fare clic su **Opzioni**. Nella sezione **Connetti al database**, immettere **mySampleDatabase** per connettersi al database creato in precedenza.
+3. Fare clic su **Opzioni** nella finestra di dialogo **Connetti al server**. Nella sezione **Connetti al database** immettere **mySampleDatabase** per connettersi a tale database.
 
    ![connettersi al database nel server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ Usare SQL Server Management Studio per stabilire una connessione al server del d
 
    ![connesso al server](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. In Esplora oggetti espandere **Database** e quindi espandere **mySampleDatabase** per visualizzare gli oggetti disponibili nel database di esempio.
+5. In Esplora oggetti espandere **Database** e quindi espandere **mySampleDatabase** per visualizzare gli oggetti disponibili nel database di esempio.
 
 ## <a name="query-data"></a>Eseguire query sui dati
 
@@ -91,7 +92,7 @@ Usare l'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) di
 
 3. Sulla barra degli strumenti fare clic su **Esegui** per recuperare dati dalle tabelle Product e ProductCategory.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Inserire dati
 
