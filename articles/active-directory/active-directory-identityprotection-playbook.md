@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
 ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -135,10 +136,5 @@ Le vulnerabilità sono punti deboli in un ambiente Azure AD che possono essere s
 
 ## <a name="see-also"></a>Vedere anche
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
