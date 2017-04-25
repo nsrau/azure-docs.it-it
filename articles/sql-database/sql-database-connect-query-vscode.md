@@ -15,12 +15,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -38,7 +38,7 @@ Prima di iniziare, assicurarsi di avere installato la versione più recente di [
 ## <a name="configure-vs-code-mac-os-only"></a>Configurare Visual Studio Code (solo Mac OS)
 
 ### <a name="mac-os"></a>**Mac OS**
-Per macOS è necessario installare OpenSSL. Si tratta di un prerequisito per DotNet Core, che viene usato dall'estensione mssql. Aprire il terminale e immettere i comandi seguenti per installare **brew** e **OpenSSL***. 
+Per macOS è necessario installare OpenSSL. Si tratta di un prerequisito per DotNet Core, che viene usato dall'estensione mssql. Aprire il terminale e immettere i comandi seguenti per installare **brew** e **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -55,9 +55,11 @@ Ottenere il nome completo del server per il server del database SQL di Azure nel
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
-3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database trovare e quindi copiare il **nome server** da usare più avanti in questa guida introduttiva.
+3. Nella pagina **Panoramica** per il database, verificare il nome completo del server, come mostrato nell'immagine seguente. È possibile passare il puntatore sul nome del server per visualizzare l'opzione **Fare clic per copiare**.
 
-    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![informazioni di connessione](./media/sql-database-connect-query-ssms/connection-information.png) 
+
+4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password. 
 
 ## <a name="set-language-mode-to-sql"></a>Impostare la modalità linguaggio SQL
 
@@ -65,17 +67,22 @@ Impostare la modalità linguaggio su **SQL** in Visual Studio Code per abilitare
 
 1. Aprire una nuova finestra di Visual Studio Code. 
 
-2. Premere **⌘+K,M** o **CTRL+K,M** (opzioni per Mac e Windows rispettivamente), digitare **SQL** e premere **INVIO** per impostare la modalità linguaggio su SQL. 
+2. Fare clic su **Testo normale** nell'angolo inferiore destro della barra di stato.
+3. Nel menu a discesa **Seleziona modalità linguaggio** che viene visualizzato, digitare **SQL** e quindi premere **INVIO** per impostare la modalità del linguaggio su SQL. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
+   ![Modalità linguaggio SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-the-server"></a>Connettersi al server
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Connettersi al database nel server logico di database SQL
 
 Usare Visual Studio Code per stabilire una connessione al server del database SQL di Azure.
 
+> [!IMPORTANT]
+> Prima di continuare, assicurarsi di avere a portata di mano le informazioni su server, database e account di accesso. Se si modifica lo stato attivo dopo aver iniziato a immettere le informazioni sul profilo di connessione in Visual Studio Code, sarà necessario riavviare la creazione del profilo di connessione.
+>
+
 1. In Visual Studio Code premere **CTRL+MAIUSC+P** o **F1** per aprire il riquadro comandi.
 
-2. Digitare **sqlcon**, premere **INVIO** e impostare il linguaggio su **SQL**.
+2. Digitare **sqlcon** e premere **INVIO**.
 
 3. Premere **INVIO** per selezionare **Create Connection Profile** (Creare profilo di connessione). Verrà creato un profilo di connessione per l'istanza di SQL Server.
 
@@ -97,7 +104,7 @@ Usare Visual Studio Code per stabilire una connessione al server del database SQ
 
 6. Verificare la connessione nella barra di stato.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
+   ![Stato della connessione](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## <a name="query-data"></a>Eseguire query sui dati
 
@@ -114,7 +121,7 @@ Usare l'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) di
 
 2. Premere **CTRL+MAIUSC+E** per recuperare dati dalle tabelle Product e ProductCategory.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
+    ![Query](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Inserire dati
 
@@ -175,9 +182,9 @@ Usare l'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) di
 
 - Per connettersi ed effettuare una query usando SQL Server Management Studio, vedere [Connettersi ed eseguire una query con SSMS](sql-database-connect-query-ssms.md)
 - Per connettersi ed eseguire una query usando .NET, vedere [Connettersi ed eseguire una query con .NET](sql-database-connect-query-dotnet.md).
-- Per connettersi ed eseguire una query usando PHP, vedere [Connettersi ed eseguire una query con PHP](sql-database-connect-query-php.md).
-- Per connettersi ed eseguire una query usando Node.js, vedere [Connettersi ed eseguire una query con Node.js](sql-database-connect-query-nodejs.md).
-- Per connettersi ed eseguire una query usando Java, vedere [Connettersi ed eseguire una query con Java](sql-database-connect-query-java.md).
-- Per connettersi ed eseguire una query usando Python, vedere [Connettersi ed eseguire una query con Python](sql-database-connect-query-python.md).
-- Per connettersi ed eseguire una query usando Ruby, vedere [Connettersi ed eseguire una query con Ruby](sql-database-connect-query-ruby.md).
+- Per connettersi ed eseguire query usando PHP, vedere [Connettersi ed eseguire query con PHP](sql-database-connect-query-php.md).
+- Per connettersi ed eseguire query usando Node.js, vedere [Connettersi ed eseguire query con Node.js](sql-database-connect-query-nodejs.md).
+- Per connettersi ed eseguire query usando Java, vedere [Connettersi ed eseguire query con Java](sql-database-connect-query-java.md).
+- Per connettersi ed eseguire query usando Python, vedere [Connettersi ed eseguire query con Python](sql-database-connect-query-python.md).
+- Per connettersi ed eseguire query usando Ruby, vedere [Connettersi ed eseguire query con Ruby](sql-database-connect-query-ruby.md).
 

@@ -16,14 +16,14 @@
 | Dimensione massima di una condivisione file |5 TB |
 | Dimensione massima di un file in una condivisione file |1 TB |
 | Numero massimo di file in una condivisione file |L'unico limite è quello relativo alla capacità totale della condivisione file (5 TB) |
-| Max 8 KB IOPS per ogni condivisione |1000 |
+| Numero massimo di operazioni di I/O al secondo per condivisione |1000 |
 | Numero massimo di file in una condivisione file |L'unico limite è quello relativo alla capacità totale della condivisione file (5 TB) |
 | Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione |L'unico limite è quello relativo alla capacità dell'account di archiviazione (500 TB) |
 | Numero massimo di criteri di accesso archiviati per ogni contenitore, condivisione di file, tabella o coda |5 |
 | Frequenza massima di richieste per account di archiviazione |BLOB: 20.000 richieste al secondo per BLOB di qualsiasi dimensione valida (con i soli limiti di ingresso/uscita dell'account) <br />File: 1000 operazioni di I/O al secondo (con dimensione di 8 KB) per condivisione file <br />Code: 20.000 messaggi al secondo (supponendo una dimensione dei messaggi di 1 KB)<br />Tabelle: 20.000 transazioni al secondo (supponendo una dimensione delle entità di 1 KB) |
 | Velocità effettiva da raggiungere per BLOB singolo |Fino a 60 MB al secondo o fino 500 richieste al secondo |
-| Velocità effettiva da raggiungere per coda singola (messaggi di&1; KB) |Fino a 2000 messaggi al secondo |
-| Velocità effettiva da raggiungere per partizione di tabella singola (entità di&1; KB) |Fino a 2000 entità al secondo |
+| Velocità effettiva da raggiungere per coda singola (messaggi di 1 KB) |Fino a 2000 messaggi al secondo |
+| Velocità effettiva da raggiungere per partizione di tabella singola (entità di 1 KB) |Fino a 2000 entità al secondo |
 | Velocità effettiva da raggiungere per singola condivisione di file |Fino a 60 MB al secondo |
 | Numero massimo in entrata <sup>2</sup> per account di archiviazione (aree US) |10 Gbps se GRS/ZRS<sup>3</sup> è abilitato, 20 Gbps per LRS |
 | Numero massimo in uscita <sup>2</sup> per account di archiviazione (aree US) |20 Gbps se RA-GRS/GRS/ZRS<sup>3</sup> è abilitato, 30 Gbps per LRS |

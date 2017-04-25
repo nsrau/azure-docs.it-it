@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -70,16 +70,18 @@ Ottenere la stringa di connessione nel portale di Azure. Usare la stringa di con
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
-3. Nel riquadro **Informazioni di base** del database esaminare il nome completo del server. 
+3. Nella pagina **Panoramica** per il database, verificare il nome completo del server, come mostrato nell'immagine seguente. È possibile passare il puntatore sul nome del server per visualizzare l'opzione **Fare clic per copiare**. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Fare clic su **Mostra stringhe di connessione del database**.
+4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.
 
-5. Esaminare la stringa di connessione completa **ADO.NET**.
+5. Fare clic su **Mostra stringhe di connessione del database**.
 
-    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
-    
+6. Esaminare la stringa di connessione completa **ADO.NET**.
+
+    ![Stringa di connessione ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+  
 ## <a name="add-systemdatasqlclient"></a>Aggiungere System.Data.SqlClient
 Quando si usa .NET Core, aggiungere System.Data.SqlClient al file ***csproj*** del progetto come dipendenza.
 
@@ -94,8 +96,7 @@ Quando si usa .NET Core, aggiungere System.Data.SqlClient al file ***csproj*** d
 1. Nell'ambiente di sviluppo aprire un file di codice vuoto.
 2. Aggiungere ```using System.Data.SqlClient``` al file di codice ([spazio dei nomi System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Usare [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) con un'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) di Transact-SQL per eseguire query sui dati nel database SQL di Azure. Aggiungere i valori appropriati per il server
-
+3. Usare [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) con un'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) di Transact-SQL per eseguire query sui dati nel database SQL di Azure. Aggiungere i valori appropriati per il server.
 ```csharp
 using System;
 using System.Data;

@@ -28,6 +28,8 @@ Il gateway VPN di Azure segnala le route seguenti ai dispositivi BGP locali:
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>È possibile segnalare la route predefinita (0.0.0.0/0) ai gateway VPN di Azure?
 Sì.
 
+Si noti che questo forzerà tutto il traffico in uscita della rete virtuale verso il sito locale e impedirà alle macchine virtuali della rete virtuale di accettare direttamente le comunicazioni pubbliche da Internet, come RDP o SSH da Internet verso le macchine virtuali.
+
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>È possibile segnalare gli stessi prefissi della propria rete virtuale?
 
 No, la segnalazione degli stessi prefissi degli indirizzi della rete virtuale verrà bloccata o filtrata dalla piattaforma Azure. È tuttavia possibile pubblicizzare un prefisso che rappresenta un superset di ciò che si trova all'interno della rete virtuale. 
@@ -65,9 +67,4 @@ Il gateway di rete locale di Azure specifica i prefissi di indirizzo iniziali pe
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Cosa è necessario aggiungere al dispositivo VPN locale per la sessione di peering BGP?
 È necessario aggiungere una route host dell'indirizzo IP del peer BGP di Azure nel dispositivo VPN che punta al tunnel VPN S2S IPsec. Ad esempio, se l'indirizzo IP del peer VPN di Azure è "10.12.255.30", è necessario aggiungere una route host per "10.12.255.30" con un'interfaccia nexthop dell'interfaccia del tunnel IPsec corrispondente nel dispositivo VPN.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

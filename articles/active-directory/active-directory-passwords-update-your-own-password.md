@@ -16,9 +16,9 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9b7735bbe8d3b2ffc78eba8f1489d70a02fe7342
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -31,7 +31,7 @@ Se gli scenari seguenti si applicano al caso specifico, è disponibile una soluz
 * Non si è certi di come accedere all'account e non si riesce a ricordare la password
 * Non è stata assegnata una password e l'amministratore ha indirizzato l'utente a questa pagina
 
-## <a name="unlock-your-account"></a>Sbloccare l'account
+## <a name="unlock-my-account"></a>Sbloccare l'account personale
 
 Se l'obiettivo è sbloccare il proprio account, seguire questa procedura. Quando nel passaggio 6 riportato di seguito viene visualizzata la pagina **scegliere una nuova password**, è possibile sbloccare l'account o cambiare la password e ottenere lo sblocco.
 
@@ -43,6 +43,11 @@ Per accedere nuovamente all'account, seguire questa procedura.
     ![Problemi di accesso all'account?][Login]
 
 2. Immettere l'**ID utente** aziendale o dell'istituto di istruzione, dimostrare di non essere un robot rispondendo al test CAPTCHA e immettendo il testo visualizzato e quindi fare clic su **Avanti**.
+
+   > [!NOTE]
+   > Se l'amministratore non ha abilitato questa funzionalità, a questo punto viene visualizzato un collegamento "Contattare l'amministratore" che consente di ricevere assistenza dall'amministratore per posta elettronica o tramite un portale Web.
+   >
+
 3. A seconda della configurazione definita dall'amministratore, verranno visualizzate una o più delle opzioni seguenti.
     * **Invia messaggio di posta elettronica all'indirizzo di posta elettronica alternativo dell'utente**: invia un messaggio di posta elettronica con un codice di 6 cifre all'indirizzo di posta elettronica alternativo o all'indirizzo di posta elettronica per l'autenticazione, in base all'opzione scelta dall'utente.
     * **Invia SMS sul telefono cellulare**: invia un SMS con un codice di 6 cifre al cellulare dell'utente o al telefono per l'autenticazione, in base all'opzione scelta dall'utente.
@@ -61,10 +66,6 @@ Per accedere nuovamente all'account, seguire questa procedura.
 7. Quando viene visualizzato il messaggio **La password è stata reimpostata**, è possibile accedere con la nuova password.
 
     ![La password è stata reimpostata][Complete]
-
-> [!NOTE]
-> Se l'amministratore non ha abilitato questa funzionalità, viene visualizzato un collegamento "Contatta l'amministratore" che consente di ricevere assistenza dall'amministratore per posta elettronica o tramite un portale Web.
->
 
 Dopo aver usato questo metodo per lo sblocco o la reimpostazione della password, si potrebbe ricevere un messaggio di posta elettronica che conferma il completamento del processo da un account come "Microsoft per conto di Organizzazione". Se si riceve un messaggio di posta elettronica di questo tipo pur non avendo usato la reimpostazione password self-service per riottenere l'accesso al proprio account, contattare l'amministratore.
 

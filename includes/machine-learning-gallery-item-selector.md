@@ -1,7 +1,7 @@
 **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com)** è un sito basato su community per l'individuazione e la condivisione delle soluzioni create con Cortana Intelligence Suite.
-Questo sito contiene diverse risorse che è possibile usare per sviluppare soluzioni di analisi.
+Questo sito include diverse risorse che è possibile usare per sviluppare soluzioni di analisi.
 
-<!-- On the new DOCS platform, this is a dropdown, not tabs, which doesn't work well in this context. So I'm just removing it for now.
+<!-- On the new DOCS platform, this is a drop-down list, not tabs, which doesn't work well in this context. So I'm just removing it for now.
 
 > [!div class="op_single_selector"]
 > * [Overview](../articles/machine-learning/machine-learning-gallery-how-to-use-contribute-publish.md)

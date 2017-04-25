@@ -18,9 +18,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f85f6484db177285e0fd64a15991a7eb227cd29b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: f5c36624360b4a09819ea70f3ac23f943688c120
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -106,6 +106,9 @@ Il contenitore Blob predefinito archivia informazioni specifiche del cluster, co
 Durante la creazione di un cluster HDInsight dal portale, sono disponibili le opzioni per indicare i dettagli dell'account di archiviazione, come mostrato di seguito. È inoltre possibile specificare se si desidera associare un account di archiviazione aggiuntivo al cluster e, in caso, se sceglierlo da Data Lake Store o da un altro BLOB del servizio di archiviazione di Azure.
 
 ![Origine dati della creazione di HDInsight Hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+
+> [!WARNING]
+> L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
 
 #### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -285,6 +288,8 @@ $clusterName = "<HDInsightClusterName>"
 
 Durante la creazione di un cluster HDInsight viene specificato l'account di Archiviazione di Azure da associare al cluster. Oltre a questo account di archiviazione, durante il processo di creazione o dopo la creazione di un cluster è possibile aggiungere altri account di archiviazione della stessa sottoscrizione di Azure o di sottoscrizioni di Azure diverse. Per istruzioni sull'aggiunta di altri account di archiviazione, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
+> [!WARNING]
+> L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
 
 ## <a name="using-azure-data-lake-store-with-hdinsight-clusters"></a>Uso di Azure Data Lake Store con i cluster HDInsight
 

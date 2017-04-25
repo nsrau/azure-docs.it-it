@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8194e669f943a6c47f02ae0d2a55e0e720420489
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Connettere un'app Web a una rete per la distribuzione di contenuti
@@ -28,7 +28,7 @@ Aprire un browser a scelta e passare al [portale](https://portal.azure.com) di A
 
 ## <a name="step-2---create-a-cdn-profile"></a>Passaggio 2: creare un profilo della rete CDN
 
-Nel riquadro di spostamento a sinistra fare clic sul pulsante `+ New` e quindi su **Web e dispositivi mobili**. Nella categoria Web e dispositivi mobili selezionare **Rete CDN**.
+Nel riquadro di spostamento sinistro fare clic sul pulsante **+ Nuovo** e quindi su **Web e dispositivi mobili**. Nella categoria Web e dispositivi mobili selezionare **Rete CDN**.
 
 Specificare valori per **Nome**, **Località**, **Gruppo di risorse** e **Piano tariffario**, quindi fare clic su **Crea**.
 
@@ -38,7 +38,7 @@ Aprire l'hub dei gruppi di risorse dal riquadro di spostamento sinistro e selezi
 
 ## <a name="step-3---create-a-cdn-endpoint"></a>Passaggio 3: creare un endpoint della rete CDN
 
-Fare clic su `+ Endpoint` dai comandi accanto alla casella di ricerca per aprire il pannello di creazione di endpoint.
+Fare clic su **+ Endpoint** nei comandi accanto alla casella di ricerca per aprire il pannello di creazione di endpoint.
 
 Specificare valori per **Nome**, **Tipo di origine**, **Nome host dell'origine**, quindi fare clic su **Aggiungi**.
 
