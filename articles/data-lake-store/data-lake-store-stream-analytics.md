@@ -68,7 +68,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     * Per **Account di archiviazione** selezionare l'account di archiviazione creato come parte dei prerequisiti. 
     * Per **Contenitore** selezionare il contenitore creato nell'account di archiviazione selezionato.
     * In **Formato di serializzazione eventi** scegliere **CSV**.
-    * Per **Delimitatore **selezionare **scheda**.
+    * Per **Delimitatore**selezionare **scheda**.
     * Per **Codifica** selezionare **UTF-8**.
 
     Fare clic su **Crea**. Il portale ora aggiunge l'input e verifica la connessione allo stesso.
@@ -97,7 +97,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     * Per **Formato data**, se nel percorso di prefisso viene usato un token di data, è possibile selezionare il formato della data in cui sono organizzati i file.
     * Per **Formato ora**, se nel percorso di prefisso viene usato un token di ora, specificare il formato dell'ora in cui sono organizzati i file.
     * In **Formato di serializzazione eventi** scegliere **CSV**.
-    * Per **Delimitatore **selezionare **scheda**.
+    * Per **Delimitatore**selezionare **scheda**.
     * Per **Codifica** selezionare **UTF-8**.
     
     Fare clic su **Crea**. Il portale ora aggiunge l'output e verifica la connessione allo stesso.
