@@ -1,6 +1,6 @@
 # Panoramica
 ## [Che cos'è SQL Server in macchine virtuali di Azure?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [Prezzi](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [Domande frequenti](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Attività iniziali
@@ -48,9 +48,4 @@
 ## [Strumenti di SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

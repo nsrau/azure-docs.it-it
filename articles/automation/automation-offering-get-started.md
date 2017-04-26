@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1876b78186da3aa6c0ae9dc7de3b7ab7e46888bb
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -211,7 +211,7 @@ Quando la creazione dell'account di Automazione viene completata, vengono create
 | Runbook AzureClassicAutomationTutorial | Runbook grafico di esempio che ottiene tutte le macchine virtuali create con il modello di distribuzione classica in una sottoscrizione usando l'account RunAs classico (certificato) e quindi scrive il nome e lo stato delle macchine virtuali. |
 | Runbook di script AzureClassicAutomationTutorial | Runbook di PowerShell di esempio che ottiene tutte le macchine virtuali classiche in una sottoscrizione usando l'account RunAs classico (certificato) e quindi scrive il nome e lo stato delle macchine virtuali. |
 | AzureClassicRunAsCertificate | Asset di certificato creato automaticamente e usato per eseguire l'autenticazione con Azure per poter gestire le risorse classiche di Azure con i runbook. La durata di questo certificato è di un anno. |
-| AzureClassicRunAsConnection | Asset di connessione creato automaticamente e usato per eseguire l'autenticazione con Azure per poter gestire le risorse classiche di Azure con i runbook. |Eseguire l'autenticazione con Azure per poter gestire le risorse classiche di Azure con i runbook. |
+| AzureClassicRunAsConnection | Asset di connessione creato automaticamente e usato per eseguire l'autenticazione con Azure per poter gestire le risorse classiche di Azure con i runbook.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per verificare che il nuovo account di Automazione possa eseguire l'autenticazione con le risorse di Azure, vedere [Test Azure Automation Run As account authentication](automation-verify-runas-authentication.md) (Testare l'autenticazione di un account RunAs di Automazione di Azure).

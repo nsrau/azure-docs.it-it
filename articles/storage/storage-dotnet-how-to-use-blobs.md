@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 29d8693dd1d6d1ef26ccb21e3a5b29cf1adbfcc5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e9cfcdd9d6e36c1154b91904da60483825ff8b94
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Introduzione all'archivio BLOB di Azure con .NET
@@ -365,7 +365,7 @@ for (int i = 0; i < numBlocks; i++)
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-Vedere [Informazioni sui BLOB in blocchi, BLOB di pagine e BLOB di accodamento](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) per ulteriori informazioni sulle differenze tra i tre tipi di BLOB.
+Vedere [Informazioni sui BLOB in blocchi, BLOB di pagine e BLOB di accodamento](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) per ulteriori informazioni sulle differenze tra i tre tipi di BLOB.
 
 ## <a name="managing-security-for-blobs"></a>Gestione della sicurezza dei BLOB
 Per impostazione predefinita, Archiviazione di Azure garantisce la sicurezza dei dati limitando l'accesso al proprietario dell'account, che possiede le chiavi di accesso dell'account. Quando è necessario condividere dati BLOB nell'account di archiviazione, è importante farlo senza compromettere la sicurezza delle chiavi di accesso dell'account. È anche possibile crittografare i dati BLOB per assicurarne la sicurezza durante il trasferimento in rete e in Archiviazione di Azure.
@@ -395,7 +395,7 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
 
 ### <a name="blob-storage-reference"></a>Informazioni di riferimento sull'archiviazione BLOB
 * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-* [Informazioni di riferimento sulle API REST](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+* [Informazioni di riferimento sulle API REST](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>Guide concettuali
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)

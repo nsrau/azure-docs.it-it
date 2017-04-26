@@ -67,7 +67,7 @@
 ### [Guida alla progettazione di tabelle](storage-table-design-guide.md)
 ### [Esempi](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Usare i file
-### [Panoramica](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [Panoramica](/rest/api/storageservices/File-Service-Concepts)
 ### [Risolvere i problemi relativi ad Azure AD](storage-troubleshoot-file-connection-problems.md)
 ### [Esempi](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Usare i dischi
@@ -180,7 +180,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [BLOB, code, tabelle e file](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [BLOB, code, tabelle e file](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 ### [Provider di risorse](/rest/api/storagerp)
 ### [Importazione/Esportazione](/rest/api/storageimportexport)
 

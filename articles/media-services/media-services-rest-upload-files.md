@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: c0ea95ed12a704116e8cdff257dacd7768b45708
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 256f8323d199db98a1267a5139a1ab3f14a3441c
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -64,7 +64,7 @@ Una delle proprietà che è possibile specificare quando si crea un asset è **O
 
 * **None** = **0**: non viene applicata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
     Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
-* **StorageEncrypted** = **1**: consente di specificare se si desidera applicare la crittografia AES a&256; bit per il caricamento e l'archiviazione dei file.
+* **StorageEncrypted** = **1**: consente di specificare se si desidera applicare la crittografia AES a 256 bit per il caricamento e l'archiviazione dei file.
   
     Se l'asset è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Procedura: Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 * **CommonEncryptionProtected** = **2**: consente di specificare se si desidera caricare i file protetti con un metodo di crittografia comune (ad esempio PlayReady). 
@@ -310,7 +310,7 @@ Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel
 > 
 > 
 
-Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Aggiornare l'entità AssetFile
 Una volta caricato il file, è possibile aggiornare la dimensione dell'entità FileAsset e altre informazioni. ad esempio:
@@ -414,7 +414,7 @@ Prima di creare l'entità IngestManifestAsset, è necessario creare l'asset che 
     { "Name" : "ExampleManifestREST_Asset", "Options" : 1 }
 
 ### <a name="create-the-ingestmanifestassets"></a>Creare le entità IngestManifestAsset
-Le entità IngestManifestAsset rappresentano gli asset all'interno dell'entità IngestManifest usati durante l'inserimento in blocco. Esse in pratica collegano l'asset al manifesto. Servizi multimediali di Azure controlla internamente il caricamento dei file in base alla raccolta IngestManifestFiles associata all'entità IngestManifestAsset.. Dopo il caricamento dei file, l'asset è completato. È possibile creare una nuova entità IngestManifestAsset mediante una richiesta HTTP POST. Nel corpo della richiesta è necessario includere l'ID dell'entità IngestManifest e l'ID dell'asset da collegare insieme tramite IngestManifestAsset per l'inserimento in blocco.
+Le entità IngestManifestAsset rappresentano gli asset all'interno dell'entità IngestManifest usati durante l'inserimento in blocco. Esse in pratica collegano l'asset al manifesto. Servizi multimediali di Azure controlla internamente il caricamento dei file in base alla raccolta IngestManifestFiles associata all'entità IngestManifestAsset. Dopo il caricamento dei file, l'asset è completato. È possibile creare una nuova entità IngestManifestAsset mediante una richiesta HTTP POST. Nel corpo della richiesta è necessario includere l'ID dell'entità IngestManifest e l'ID dell'asset da collegare insieme tramite IngestManifestAsset per l'inserimento in blocco.
 
 **Risposta HTTP**
 

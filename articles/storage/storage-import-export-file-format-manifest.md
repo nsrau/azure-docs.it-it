@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -123,7 +123,7 @@ Nella tabella seguente vengono specificati gli elementi di dati e gli attributi 
 |`PageRange/@Offset`|Attributo, valore integer|Specifica l'offset nel file di trasferimento e il BLOB in cui inizia l'intervallo di pagine specificato. Questo valore deve essere un multiplo di 512.|  
 |`PageRange/@Length`|Attributo, valore integer|Specifica la lunghezza dell'intervallo di pagine. Questo valore deve essere un multiplo di 512 e non superiore a 4 MB.|  
 |`PageRange/@Hash`|Attributo, stringa|Specifica il valore hash MD5 codificato in base 16 per l'intervallo di date.|  
-|`BlockList`|Elemento XML nidificato|Obbligatorio per un BLOB in blocchi con blocchi denominati.<br /><br /> Per un'operazione di importazione, l'elenco di blocchi specifica un set di blocchi che verranno importati nell'archiviazione di Azure. Per un'operazione di esportazione, l'elenco di blocchi specifica il punto in cui ogni blocco è stato archiviato nel file sul disco di esportazione. Ogni blocco viene descritto da un offset nel file e dalla lunghezza del blocco; ogni blocco viene ulteriormente denominato da un attributo ID del blocco e contiene un hash MD5 per il blocco. Per descrivere un BLOB è possibile usare fino a 50.000 blocchi.  Tutti i blocchi devono essere ordinati in base all'offset e nell'insieme devono coprire l'intervallo completo del file, *ovvero*, tra i blocchi non devono essere presenti spazi vuoti. Se il BLOB è non superiore a 64 MB, gli ID del blocco per ogni blocco devono essere tutti presenti o tutti mancanti. Gli ID del blocco devono essere stringhe con codifica Base64. Per gli altri requisiti sugli ID del blocco, vedere [Put Block](/rest/api/storageservices/fileservices/put-block) (Blocco Put).|  
+|`BlockList`|Elemento XML nidificato|Obbligatorio per un BLOB in blocchi con blocchi denominati.<br /><br /> Per un'operazione di importazione, l'elenco di blocchi specifica un set di blocchi che verranno importati nell'archiviazione di Azure. Per un'operazione di esportazione, l'elenco di blocchi specifica il punto in cui ogni blocco è stato archiviato nel file sul disco di esportazione. Ogni blocco viene descritto da un offset nel file e dalla lunghezza del blocco; ogni blocco viene ulteriormente denominato da un attributo ID del blocco e contiene un hash MD5 per il blocco. Per descrivere un BLOB è possibile usare fino a 50.000 blocchi.  Tutti i blocchi devono essere ordinati in base all'offset e nell'insieme devono coprire l'intervallo completo del file, *ovvero*, tra i blocchi non devono essere presenti spazi vuoti. Se il BLOB è non superiore a 64 MB, gli ID del blocco per ogni blocco devono essere tutti presenti o tutti mancanti. Gli ID del blocco devono essere stringhe con codifica Base64. Per gli altri requisiti sugli ID del blocco, vedere [Put Block](/rest/api/storageservices/put-block) (Blocco Put).|  
 |`Block`|Elemento XML|Rappresenta un blocco.|  
 |`Block/@Offset`|Attributo, valore integer|Specifica l'offset in cui inizia il blocco specificato.|  
 |`Block/@Length`|Attributo, valore integer|Specifica il numero di byte nel blocco; questo valore non deve essere superiore a 4 MB.|  

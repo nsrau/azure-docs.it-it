@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 4e25ec1ece6017dc58c24ce593802293b7fc12b8
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: f15654f621bafb2617bdb456bbda0233db656be5
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -68,7 +68,7 @@ Questi vincoli derivano dagli standard DNS e non sono limitazioni di DNS di Azur
 
 Un set di record NS viene creato automaticamente in corrispondenza del vertice di ogni zona (nome = '@') e viene eliminato automaticamente quando viene eliminata la zona; non può essere eliminato separatamente.  È possibile modificare il valore TTL di questo set di record, ma non i record, che sono preconfigurati in modo da fare riferimento ai server dei nomi DNS di Azure assegnati alla zona.
 
-È possibile creare ed eliminare altri record NS nella zona, ma non nel vertice della zona.  In questo modo, è possibile configurare zone figlio. Vedere [Delegare un dominio al servizio DNS di Azure](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns).
+È possibile creare ed eliminare altri record NS nella zona, ma non nel vertice della zona.  In questo modo, è possibile configurare zone figlio. Vedere [Delegare un dominio al servizio DNS di Azure](dns-domain-delegation.md).
 
 ### <a name="soa-records"></a>Record SOA
 
@@ -78,11 +78,7 @@ Un set di record SOA viene creato automaticamente in corrispondenza del vertice 
 
 ### <a name="spf-records"></a>Record SPF
 
-I record Sender Policy Framework (SPF) vengono usati per specificare i server di posta elettronica permessi per l'invio di posta elettronica per conto di un nome di dominio specifico.  La configurazione corretta dei record SPF è importante per impedire ai destinatari di contrassegnare i messaggi di posta elettronica come posta indesiderata.
-
-I documenti RFC di DNS in origine hanno introdotto un nuovo tipo di record "SPF" per supportare questo scenario. Per supportare server dei nomi meno recenti, hanno anche permesso l'uso del tipo di record TXT per specificare record SPF.  Questa ambiguità ha prodotto una certa confusione, che è stata risolta dal documento [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Questo documento specifica che i record SPF devono essere creati solo usando il tipo di record TXT e che il tipo di record SPF è deprecato.
-
-**I record SPF sono supportati da DNS di Azure e devono essere creati usando il tipo di record TXT.** Il tipo di record SPF obsoleto non è supportato. Quando si [importa un file di zona DNS](dns-import-export.md), qualsiasi record SPF che usa il tipo di record SPF viene convertito in tipo di record TXT.
+[!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
 ### <a name="srv-records"></a>Record SRV
 
@@ -99,7 +95,7 @@ Gli standard DNS consentono a un singolo record TXT di contenere più stringhe, 
 
 Quando si chiama l'API REST del servizio DNS di Azure, è necessario specificare ogni stringa TXT separatamente.  Quando si usano le interfacce del portale di Azure, di PowerShell o l'interfaccia della riga di comando, è consigliabile specificare una sola stringa per record, che viene automaticamente divisa in segmenti di 254 caratteri, se necessario.
 
-Le stringhe multiple in un record DNS non devono essere confuse con i record TXT multipli in un set di record TXT.  Un set di record TXT può contenere più record, *ognuno dei quali* può contenere più stringhe.  Il servizio DNS di Azure supporta una lunghezza massima totale delle stringhe pari a 1024 caratteri in ogni set di record TXT (in tutti i record combinati). 
+Le stringhe multiple in un record DNS non devono essere confuse con i record TXT multipli in un set di record TXT.  Un set di record TXT può contenere più record, *ognuno dei quali* può contenere più stringhe.  Il servizio DNS di Azure supporta una lunghezza massima totale delle stringhe pari a 1024 caratteri in ogni set di record TXT (in tutti i record combinati).
 
 ## <a name="tags-and-metadata"></a>Tag e metadati
 
@@ -141,5 +137,4 @@ Quando si usa DNS di Azure, si applicano i limiti predefiniti seguenti:
 
 * Per iniziare a usare DNS di Azure, è necessario sapere come [creare una zona DNS](dns-getstarted-create-dnszone-portal.md) e come [creare record DNS](dns-getstarted-create-recordset-portal.md).
 * Per eseguire la migrazione di una zona DNS esistente, è necessario saper [importare ed esportare un file di zona DNS](dns-import-export.md).
-
 

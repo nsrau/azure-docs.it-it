@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8dc33077a955052a99b415b1299004cf8a4f217e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: b49e06da0019a50cc8e50c4da47e42c03b44bcc6
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 [Analisi archiviazione di Azure](storage-analytics.md) offre metriche per tutti i servizi di archiviazione e log per BLOB, code e tabelle. È possibile usare il [portale di Azure](https://portal.azure.com) per configurare quali metriche e log verranno registrati per l'account e i grafici che offriranno una rappresentazione visiva dei dati di metrica.
 
 > [!NOTE]
-> All'esame dei dati di monitoraggio nel portale di Azure sono associati costi. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
+> All'esame dei dati di monitoraggio nel portale di Azure sono associati costi. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > L’archiviazione file di Azure attualmente supporta la metrica di analisi di archiviazione, ma non supporta ancora l'accesso.
 >
@@ -153,7 +153,7 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
 
 I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](http://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
 
-Per informazioni sull'accesso al contenitore $logs, vedere [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data) (Abilitazione della registrazione di archiviazione e accesso ai dati dei log).
+Per informazioni sull'accesso al contenitore $logs, vedere [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data) (Abilitazione della registrazione di archiviazione e accesso ai dati dei log).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

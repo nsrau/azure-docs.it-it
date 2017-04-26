@@ -14,6 +14,7 @@
 ## Configurare una connessione da sito a sito
 ### [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Interfaccia della riga di comando di Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portale di Azure (classico)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Portale classico (versione classica)](vpn-gateway-site-to-site-create.md)
 ## Configurare una connessione da punto a sito
@@ -38,7 +39,6 @@
 ## [Configurare le connessioni attivo/attivo a disponibilità elevata](vpn-gateway-activeactive-rm-powershell.md)
 ## [Modificare le impostazioni del gateway di rete locale usando PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Verificare una connessione di Gateway VPN](vpn-gateway-verify-connection-resource-manager.md)
-## [Convalidare la velocità effettiva della VPN verso una rete virtuale](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Reimpostare un gateway VPN](vpn-gateway-resetgw-classic.md)
 ## Eliminare un gateway VPN
 ### [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -46,12 +46,15 @@
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md) (PowerShell (classico))
 ## [Creare certificati radice autofirmati per connessioni da punto a sito](vpn-gateway-certificates-point-to-site.md)
 ## [Configurare un gateway VPN (versione classica)](vpn-gateway-configure-vpn-gateway-mp.md)
+## Risoluzione dei problemi
+### [Convalidare la velocità effettiva della VPN verso una rete virtuale](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
 ## [PowerShell (classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking) (PowerShell (classico))
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (classico)](https://msdn.microsoft.com/library/jj154113)
+## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network)
 
 # Risorse correlate
 ## [Rete virtuale](/azure/virtual-network/)

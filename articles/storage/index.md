@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 8c76eaa6681b10370fd4db3df88e0c50c46df44d
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f1827b183f6f2d878cfdf96eca2d0aea091aa310
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -142,10 +142,10 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">BLOB, code, tabelle e file</a></p>
+                        <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">BLOB, code, tabelle e file</a></p>
                         <p><a href="/rest/api/storagerp">Provider di risorse</a></p>
                         <p><a href="/rest/api/storageimportexport">Importazione/Esportazione</a></p>
-                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">API REST per i dati di archiviazione</a></p>
+                        <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">API REST per i dati di archiviazione</a></p>
                    </div>
                 </div>
             </div>

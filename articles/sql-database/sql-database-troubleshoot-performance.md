@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: v-shysun
 translationtype: Human Translation
-ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
-ms.openlocfilehash: 3bfcaf4ae29d23754a19a61f2775d1b12e3e69ba
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: faf2d9632462c434c38dc9c2d65f7c9e58f801d8
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -39,6 +39,6 @@ ms.lasthandoff: 02/16/2017
 
 ## <a name="steps-to-improve-database-performance-with-more-resources"></a>Passaggi per migliorare le prestazioni del database con più risorse
 1. Per i database autonomi, è possibile [modificare i livelli di servizio](sql-database-service-tiers.md) su richiesta per migliorare le prestazioni del database.
-2. Per più database, è consigliabile usare [pool elastici](sql-database-elastic-pool-guidance.md) per la scalabilità automatica delle risorse.
+2. Per più database, è consigliabile usare [pool elastici](sql-database-elastic-pool.md) per la scalabilità automatica delle risorse.
 
 
