@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: 1765e009438684373c89dc8364efd20dd1b7c84b
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 12f84f7ee418955f34316686c836a8697be94ea2
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -36,7 +37,7 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
    ![Aprire il prompt dei comandi.](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
 2. Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invia**. Ripetere l'operazione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
-3. Nel [portale di Azure](https://portal.azure.com) dovrebbero essere visualizzati tre nuovi database nel server v12:
+3. Il [portale di Azure](https://portal.azure.com) dovrebbe mostrare tre nuovi database:
 
    ![Conferma di Visual Studio](./media/sql-database-elastic-query-getting-started/portal.png)
 
@@ -478,9 +479,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

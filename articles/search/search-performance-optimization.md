@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 04/02/2017
 ms.author: liamca
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9024c47e7d483129d66105012e0d67cfa9700cb9
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 56eeed7634fca840172ab828be5f202d80f3f4fb
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -29,7 +30,7 @@ Tutti conosciamo e usiamo motori di ricerca come Bing e Google e le relative pre
 1. Selezione una latenza di destinazione (o la quantità massima di tempo) che una ricerca tipica richiede per il completamento.
 2. Creare e testare un carico di lavoro reale nel servizio di ricerca con un set di dati reale per misurare i tassi di latenza.
 3. Iniziare con un numero ridotto di query al secondo (QPS) e continuare ad aumentare il numero di query testate fino a quando la latenza delle query diventa inferiore alla latenza di destinazione definita.  Si tratta di un benchmark importante per la pianificazione della scalabilità man mano che aumenta l'uso dell'applicazione.
-4. Se possibile, riusare le connessioni HTTP.  Se si usa .NET SDK di Ricerca di Azure, è necessario riusare un'istanza o un'istanza [SearchIndexClient](https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx). Se si usa l'API REST, è necessario riusare un singolo HttpClient.
+4. Se possibile, riusare le connessioni HTTP.  Se si usa .NET SDK di Ricerca di Azure, è necessario riusare un'istanza o un'istanza [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient). Se si usa l'API REST, è necessario riusare un singolo HttpClient.
 
 Durante la creazione di questi carichi di lavoro di test, è opportuno considerare alcune caratteristiche di Ricerca di Azure:
 
@@ -46,7 +47,7 @@ Durante la creazione di questi carichi di lavoro di test, è opportuno considera
 ## <a name="scaling-azure-search-for-high-query-rates-and-throttled-requests"></a>Ridimensionamento di Ricerca di Azure per tassi elevati di query e richieste limitate
 Quando si ricevono troppe richieste limitate o si superano i tassi di latenza di destinazione da un carico maggiore di query, è possibile considerare di ridurre il tasso di latenza in uno dei due modi seguenti:
 
-1. **Aumentare le repliche:** una replica è una copia dei dati che consente a Ricerca di Azure di bilanciare il carico con le numerose copie.  Il bilanciamento del carico e la replica dei dati tra le repliche vengono gestiti da Ricerca di Azure ed è possibile modificare in qualsiasi momento il numero delle repliche allocate per il servizio.  È possibile allocare fino a 12 repliche in un servizio di ricerca Standard e 3 repliche in un servizio di ricerca Basic.  Le repliche possono essere modificate dal [portale di Azure](search-create-service-portal.md) o tramite l'[API di gestione di Ricerca di Azure](search-get-started-management-api.md).
+1. **Aumentare le repliche:** una replica è una copia dei dati che consente a Ricerca di Azure di bilanciare il carico con le numerose copie.  Il bilanciamento del carico e la replica dei dati tra le repliche vengono gestiti da Ricerca di Azure ed è possibile modificare in qualsiasi momento il numero delle repliche allocate per il servizio.  È possibile allocare fino a 12 repliche in un servizio di ricerca Standard e 3 repliche in un servizio di ricerca Basic. Le repliche possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
 2. **Aumentare il livello di Ricerca:** sono disponibili [diversi livelli](https://azure.microsoft.com/pricing/details/search/) per Ricerca di Azure, ognuno dei quali offre diversi livelli di prestazioni.  In alcuni casi, è possibile che l'utente disponga di un numero talmente elevato di query che il livello a cui appartiene non fornisce tassi di latenza sufficientemente bassi, anche quando si raggiunge il limite massimo delle repliche.  In questo caso, è consigliabile considerare di usare uno dei livelli di Ricerca di Azure più elevati, ad esempio il livello S3, adatto a scenari con un numero elevato di documenti e carichi di lavoro delle query estremamente elevati.
 
 ## <a name="scaling-azure-search-for-slow-individual-queries"></a>Ridimensionamento di Ricerca di Azure per le singole query lente
@@ -54,7 +55,7 @@ Un altro motivo per cui il tasso di latenza può essere lento è una singola que
 
 1. **Aumentare le partizioni**: una partizione è un meccanismo per la suddivisione dei dati tra le risorse aggiuntive.  Per questo motivo, quando si aggiunge una seconda partizione, si ottengono dati divisi in due parti.  Una terza partizione suddivide l'indice in tre parti e così via.  Questo fattore, in alcuni casi, si traduce in un aumento di velocità delle query lente grazie alla parallelizzazione del calcolo.  Sono disponibili alcuni esempi dell'efficienza della parallelizzazione con query che dispongono di query a selettività ridotta.  Si tratta di query che corrispondono a molti documenti o ai casi in cui i facet devono fornire calcoli su un grande numero di documenti.  Poiché sono necessari molti calcoli per valutare la rilevanza dei documenti o per calcolare il numero dei documenti, l'aggiunta di altre partizioni consente di fornire calcoli aggiuntivi.  
    
-   Il servizio di ricerca Standard offe fino a un massimo di 12 partizioni, mentre il servizio Basic offre 1 partizione.  Le partizioni possono essere modificate dal [portale di Azure](search-create-service-portal.md) o tramite l'[API di gestione di Ricerca di Azure](search-get-started-management-api.md).
+   Il servizio di ricerca Standard offe fino a un massimo di 12 partizioni, mentre il servizio Basic offre 1 partizione.  Le partizioni possono essere modificate dal [portale di Azure](search-create-service-portal.md) o da [PowerShell](search-manage-powershell.md).
 2. **Limitare i campi a cardinalità elevata:** un campo a cardinalità elevata è costituito da un facet o da un campo filtrabile che dispone di un numero significativo di valori univoci e, di conseguenza, richiede molte risorse per calcolare i risultati.   Ad esempio, l'impostazione di un campo ID prodotto o la descrizione come facet/filtrabile comporterebbe un'elevata cardinalità perché la maggior parte dei valori dei documenti è univoca. Se possibile, limitare il numero di campi a cardinalità elevata.
 3. **Aumentare il livello di Ricerca:** il passaggio a un livello superiore di Ricerca di Azure può essere un altro modo per migliorare le prestazioni delle query lente.  Ogni livello superiore fornisce CPU più veloce e memoria più ampia, elementi che possono avere un impatto positivo sulle prestazioni delle query.
 
@@ -76,7 +77,7 @@ L'obiettivo di un set di servizi di ricerca distribuito geograficamente consiste
    ![Incrocio dei servizi per area][1]
 
 ### <a name="keeping-data-in-sync-across-multiple-azure-search-services"></a>Mantenere sincronizzati i dati tra più servizi di Ricerca di Azure
-Sono disponibili due opzioni per mantenere sincronizzati i servizi di ricerca distribuiti: l'uso dell'[indicizzatore di Ricerca di Azure](search-indexer-overview.md) o l'API Push, conosciuta anche come [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/dn798935.aspx).  
+Sono disponibili due opzioni per mantenere sincronizzati i servizi di ricerca distribuiti: l'uso dell'[indicizzatore di Ricerca di Azure](search-indexer-overview.md) o l'API Push, conosciuta anche come [API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/).  
 
 ### <a name="azure-search-indexers"></a>Indicizzatori di Ricerca di Azure
 Se si usa l'indicizzatore di Ricerca di Azure, si importano le modifiche ai dati da un archivio dati centrale, ad esempio database SQL di Azure o DocumentDB. Quando si crea un nuovo servizio di Ricerca, è sufficiente creare un nuovo indicizzatore di Ricerca di Azure per il servizio creato, che punta allo stesso archivio dati. In questo modo, ogni volta che le nuove modifiche entrano nell'archivio dati, vengono indicizzate dai diversi indicizzatori.  
@@ -86,7 +87,7 @@ Di seguito è riportato un esempio dell'aspetto dell'architettura.
    ![Singola origine dati con indicizzatore distribuito e combinazioni di servizio][2]
 
 ### <a name="push-api"></a>API Push
-Se si usa l'API Push di Ricerca di Azure per [aggiornare il contenuto dell'indice di Ricerca di Azure](https://msdn.microsoft.com/library/dn798930.aspx), è possibile mantenere sincronizzati i vari servizi di ricerca trasferendo le modifiche apportate a tutti i servizi di ricerca ogni volta che è necessario un aggiornamento.  Quando si esegue questa operazione è importante verificare di gestire i casi in cui si verifica un errore nell'aggiornamento del servizio di ricerca e i casi in cui uno o più aggiornamenti hanno esito positivo.
+Se si usa l'API Push di Ricerca di Azure per [aggiornare il contenuto dell'indice di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/update-index), è possibile mantenere sincronizzati i vari servizi di ricerca trasferendo le modifiche apportate a tutti i servizi di ricerca ogni volta che è necessario un aggiornamento.  Quando si esegue questa operazione è importante verificare di gestire i casi in cui si verifica un errore nell'aggiornamento del servizio di ricerca e i casi in cui uno o più aggiornamenti hanno esito positivo.
 
 ## <a name="leveraging-azure-traffic-manager"></a>Uso di Gestione traffico di Azure
 [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md) consente di indirizzare le richieste su più siti Web geograficamente localizzati e supportati da più servizi di Ricerca di Azure.  Uno dei vantaggi di Gestione traffico è la capacità di esplorare Ricerca di Azure per garantire che sia disponibile e di indirizzare gli utenti a servizi di ricerca alternativi in caso di tempi di inattività.  In aggiunta, se si esegue il routing delle richieste di ricerca tramite siti Web di Azure, Gestione traffico di Azure consente di bilanciare i casi in cui il sito Web è attivo ma Ricerca di Azure non lo è.  Di seguito è riportato un esempio di un'architettura che usa Gestione traffico.
@@ -113,9 +114,4 @@ Per maggiori dettagli sulle prestazioni e per vedere alcune dimostrazioni su com
 [1]: ./media/search-performance-optimization/geo-redundancy.png
 [2]: ./media/search-performance-optimization/scale-indexers.png
 [3]: ./media/search-performance-optimization/geo-search-traffic-mgr.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

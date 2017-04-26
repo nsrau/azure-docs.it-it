@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: e1c4342897fe6cf57e323a82e04e10473b3ece30
-ms.openlocfilehash: 777b84d9aa59f773345c1925c3c6467dc64d2d34
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f703da63c4243c73cf68d3df9953f73d2462ac1c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -402,7 +402,7 @@ AzCopy genera un file di dati JSON nel contenitore BLOB con la convenzione di de
 
 Il file di dati JSON generato segue il formato di payload per i metadati minimi. Per i dettagli su questo formato di payload, vedere [Formato di payload per le operazioni del servizio tabelle](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Si noti che quando si esportano tabelle nei BLOB, AzCopy scarica le entità tabella in file di dati temporanei locali e quindi carica tali entità nel BLOB. Questi file di dati temporanei vengono inseriti nella cartella di file journal con il percorso predefinito "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>". È possibile specificare l'opzione/Z:[journal-file-folder] per modificare il percorso della cartella di file journal e quindi modificare il percorso dei file di dati temporanei. Le dimensioni dei file di dati temporanei vengono stabilite dalle dimensioni delle entità tabella e dalle dimensioni specificate con l'opzione /SplitSize, anche se il file di dati temporanei sul disco locale verrà eliminato immediatamente dopo averlo caricato nel BLOB. Verificare che lo spazio disponibile sul disco locale sia sufficiente per archiviare i file di dati temporanei prima di essere eliminati.
+Si noti che quando si esportano tabelle nei BLOB, AzCopy scarica le entità tabella in file di dati temporanei locali e quindi carica tali entità nel BLOB. Questi file di dati temporanei vengono inseriti nella cartella di file journal con il percorso predefinito "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>". È possibile specificare l'opzione /Z:[journal-file-folder] per modificare il percorso della cartella di file journal e quindi modificare il percorso dei file di dati temporanei. Le dimensioni dei file di dati temporanei vengono stabilite dalle dimensioni delle entità tabella e dalle dimensioni specificate con l'opzione /SplitSize, anche se il file di dati temporanei sul disco locale verrà eliminato immediatamente dopo averlo caricato nel BLOB. Verificare che lo spazio disponibile sul disco locale sia sufficiente per archiviare i file di dati temporanei prima che vengano eliminati.
 
 ## <a name="table-import"></a>Tabella: importare
 ### <a name="import-table"></a>Importare una tabella
@@ -883,7 +883,7 @@ AzCopy per impostazione predefinita utilizza l'implementazione .NET MD5 per calc
       </appSettings>
     </configuration>
 
-Per la proprietà "AzureStorageUseV1MD5" • True: valore predefinito, AzCopy utilizzerà l’implementazione .NET MD5.
+Per la proprietà "AzureStorageUseV1MD5" • True: valore predefinito, AzCopy userà l'implementazione di .NET MD5.
 • False: AzCopy utilizzerà l'algoritmo MD5 conforme a FIPS.
 
 Si noti che gli algoritmi conformi a FIPS sono disabilitati per impostazione predefinita nel computer Windows. Digitare secpol.msc nella finestra Esegui e selezionare questa opzione in Impostazione di sicurezza -> Criteri locali -> Opzioni di sicurezza -> Crittografia di sistema: utilizza algoritmi FIPS compatibili per crittografia, hash e firma.

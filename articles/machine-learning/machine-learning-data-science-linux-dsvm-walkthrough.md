@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;paulsh
 translationtype: Human Translation
-ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
-ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 80e0b0cb5193d5a0c3782e2e6371b91441780347
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ Il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) è u
 >
 >
 
-Se è necessario più spazio di archiviazione, è possibile creare altri dischi e collegarli alla macchina virtuale. Dato che questi dischi usano l'archiviazione di Azure persistente, i relativi dati vengono conservati anche quando il server viene arrestato o sottoposto a un nuovo provisioning in seguito a un ridimensionamento. Per aggiungere un disco e collegarlo alla macchina virtuale, seguire le istruzioni in [Aggiungere un disco a una VM Linux](../virtual-machines/virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questa procedura usa l'interfaccia della riga di comando di Azure, già installata nella DSVM, e può quindi essere eseguita interamente dalla macchina virtuale stessa. Per aumentare lo spazio di archiviazione, è anche possibile usare l'[archiviazione file di Azure](../storage/storage-how-to-use-files-linux.md).
+Se è necessario più spazio di archiviazione, è possibile creare altri dischi e collegarli alla macchina virtuale. Dato che questi dischi usano l'archiviazione di Azure persistente, i relativi dati vengono conservati anche quando il server viene arrestato o sottoposto a un nuovo provisioning in seguito a un ridimensionamento. Per aggiungere un disco e collegarlo alla macchina virtuale, seguire le istruzioni in [Aggiungere un disco a una VM Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questa procedura usa l'interfaccia della riga di comando di Azure, già installata nella DSVM, e può quindi essere eseguita interamente dalla macchina virtuale stessa. Per aumentare lo spazio di archiviazione, è anche possibile usare l'[archiviazione file di Azure](../storage/storage-how-to-use-files-linux.md).
 
 Per scaricare i dati, aprire una finestra del terminale ed eseguire questo comando:
 
@@ -407,7 +407,7 @@ Una delle funzionalità interessanti di Rattle è la possibilità di eseguire di
 Al termine della compilazione dei modelli, selezionare la scheda **Log** per visualizzare il codice R eseguito da Rattle durante la sessione. Per salvarlo, è possibile usare il pulsante **Export** (Esporta).
 
 > [!NOTE]
-> La versione corrente di Rattle contiene un bug. Per modificare lo script o usarlo per ripetere i passaggi in un secondo momento, è necessario inserire un carattere # davanti a *Export this log ... * (Esporta questo log) nel testo del log.
+> La versione corrente di Rattle contiene un bug. Per modificare lo script o usarlo per ripetere i passaggi in un secondo momento, è necessario inserire un carattere # davanti a *Export this log ...* (Esporta questo log) nel testo del log.
 >
 >
 

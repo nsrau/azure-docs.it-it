@@ -1,5 +1,5 @@
 ---
-title: Combinazione di ScaleR e SparkR con Azure HDInsight | Documentazione Microsoft
+title: Usare ScaleR e SparkR con Azure HDInsight | Microsoft Docs
 description: Usare ScaleR e SparkR con R Server e HDInsight
 services: hdinsight
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/04/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5e8fb7642dca815c64b9aed8184672259d3facf8
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: bab5268c4aab2210e8ace2c3a1db23b34887c2ed
+ms.lasthandoff: 04/04/2017
 
 
 ---
 
-# <a name="mixing-use-of-scaler-and-sparkr-in-hdinsight"></a>Uso combinato di ScaleR e SparkR in HDInsight
+# <a name="combining-scaler-and-sparkr-in-hdinsight"></a>Uso combinato di ScaleR e SparkR in HDInsight
 
-Informazioni su come combinare l'uso di SparkR per la manipolazione dei dati in Spark con Microsoft R Server ai fini dell'analisi. Anche se entrambi i pacchetti vengono eseguiti sul motore di esecuzione di Hadoop Spark per sfruttare le funzionalità più recenti di elaborazione distribuita, vengono bloccati dalla condivisione dei dati in memoria che richiede sessioni Spark proprie. Finché questo problema non verrà risolto in una versione futura di R Server, la soluzione alternativa consiste nel mantenere sessioni Spark non sovrapposte e scambiare i dati tramite file intermedi. Come risulterà evidente, è facile rispettare entrambi i requisiti.
+Informazioni su come combinare le capacità di ScaleR per la manipolazione dei dati in Spark con Microsoft R Server ai fini dell'analisi. Anche se entrambi i pacchetti vengono eseguiti sul motore di esecuzione di Hadoop Spark per sfruttare le funzionalità più recenti di elaborazione distribuita, vengono bloccati dalla condivisione dei dati in memoria che richiede sessioni Spark proprie. Finché questo problema non verrà risolto in una versione futura di R Server, la soluzione alternativa consiste nel mantenere sessioni di Spark non sovrapposte e scambiare i dati tramite file intermedi. Come risulterà evidente, è facile rispettare entrambi i requisiti.
 
 A scopo dimostrativo verrà usato un esempio condiviso inizialmente in un discorso tenuto a Strata 2016 da Mario Inchiosa e Roni Burd, disponibile anche nel webinar [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Compilazione di una piattaforma Data Science scalabile con R). L'esempio usa SparkR per eseguire il join del set di dati relativo ai ritardi degli arrivi registrati da compagnie aeree affermate con i dati meteo negli aeroporti di partenza e di arrivo e usa questi dati come input per un modello di regressione logistica ScaleR per la previsione dei ritardi in fase di arrivo dei voli.
 

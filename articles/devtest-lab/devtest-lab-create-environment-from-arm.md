@@ -1,6 +1,6 @@
 ---
-title: "Creare un ambiente con più VM con i modelli di Azure Resource Manager | Documentazione Microsoft"
-description: "Informazioni su come creare ambienti con più VM in Azure DevTest Labs con un modello di Azure Resource Manager"
+title: "Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager | Microsoft Docs"
+description: "Informazioni su come creare ambienti con più macchine virtuali e risorse PaaS in Azure DevTest Labs con un modello di Azure Resource Manager"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c17ea1f078c424d855109da07113a4c2f8f84ab3
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 0fbe1af87594aacd2eee4f706429e3674548d3fd
+ms.lasthandoff: 04/07/2017
 
 
 ---
 
-# <a name="create-multi-vm-environments-with-azure-resource-manager-templates"></a>Creare un ambiente con più VM con i modelli di Azure Resource Manager
+# <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
 Il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) consente di [creare e aggiungere una macchina virtuale a un lab](./devtest-lab-add-vm-with-artifacts.md). Ciò vale per la creazione di una macchina virtuale alla volta. Tuttavia, se l'ambiente contiene più macchine virtuali, ogni macchina deve essere creata individualmente. Per scenari quali app Web multilivello o farm di SharePoint, è necessario un meccanismo che consenta la creazione di più macchine virtuali in un unico passaggio. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di distribuire ripetutamente più macchine virtuali in modo coerente. Ciò offre i vantaggi seguenti:
 

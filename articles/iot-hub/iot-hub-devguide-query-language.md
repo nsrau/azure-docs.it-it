@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1eacd13562adcff96fdd0dd3fd91c78ef6a26dbf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -171,6 +171,11 @@ Si noti come venga creata un'istanza dell'oggetto **query** con dimensioni della
 Si noti che l'oggetto query espone più **Next\***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti dispositivi gemelli, oggetti processo oppure il normale codice JSON quando si ricorre alle proiezioni.
 
 ### <a name="limitations"></a>Limitazioni
+> [!IMPORTANT]
+> I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se si eseguono query su singoli dispositivi gemelli in base all'D, è sempre preferibile usare l'API di recupero di dispositivi gemelli, che contiene i valori più recenti e ha soglie di limitazione più alte.
+>
+>
+
 I confronti sono attualmente supportati solo tra tipi primitivi (non oggetti), ad esempio `... WHERE properties.desired.config = properties.reported.config` è supportato solo se tali proprietà hanno valori primitivi.
 
 ## <a name="get-started-with-jobs-queries"></a>Introduzione alle query dei processi

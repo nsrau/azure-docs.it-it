@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e557ff1d3faad244d660d9d98bc6d889e59f13c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 54346a8e6f42fc81cd727db03c02f0e935db07d3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -25,26 +27,21 @@ Panoramica delle considerazioni, delle procedure consigliate e delle attività p
 
 | Categoria | Attività o considerazione | Descrizione |
 |:--- |:--- |:--- |
-| Rallentamento delle prestazioni |Trovare una query utente con esecuzione prolungata |[Trovare query con esecuzione prolungata][Trovare query con esecuzione prolungata] (Trovare query con esecuzione prolungata) |
-| Concorrenza |Assegnare risorse simultanee a query utente |[Gestione della concorrenza e del carico di lavoro][Gestione della concorrenza e del carico di lavoro] |
+| Rallentamento delle prestazioni |Trovare una query utente con esecuzione prolungata |[Trovare query con esecuzione prolungata][Find long-running queries] |
+| Concorrenza |Assegnare risorse simultanee a query utente |[Gestione della concorrenza e del carico di lavoro][Concurrency and workload management] |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri suggerimenti relativi alla gestione, passare a [Panoramica della gestione][Panoramica della gestione] (Panoramica sulla gestione).
+Per altri suggerimenti relativi alla gestione, andare alla [Panoramica della gestione][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Trovare query con esecuzione prolungata]: sql-data-warehouse-manage-monitor.md
-[Gestione della concorrenza e del carico di lavoro]: sql-data-warehouse-develop-concurrency.md
-[Panoramica della gestione]: sql-data-warehouse-overview-manage.md
+[Find long-running queries]: sql-data-warehouse-manage-monitor.md
+[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
+[Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

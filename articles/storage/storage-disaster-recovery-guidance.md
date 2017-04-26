@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 64650bf7baf46b0f5473deb1a9b4ec329979d153
-ms.openlocfilehash: 0fc78521abb0fce2a38b14d1411dad42b3580df2
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 83ab487f382eb84aa64b927bdf5560eec5cbbd6d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -57,7 +58,7 @@ Quando un'emergenza locale colpisce l'area primaria, per prima cosa si cercherà
 * Prima e durante il failover geografico, in conseguenza dell'emergenza non si avrà accesso in scrittura all'account di archiviazione, ma sarà possibile leggere dall'area secondaria se l'account di archiviazione è stato configurato come RA-GRS.
 * Dopo il completamento del failover geografico e la propagazione delle modifiche DNS, verrà ripristinato l'accesso in lettura e scrittura all'account di archiviazione, che punterà a quello che in precedenza era l'endpoint secondario. 
 * L'accesso in scrittura sarà disponibile se per l'account di archiviazione è configurata l'archiviazione con ridondanza geografica oppure l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). 
-* È possibile effettuare una query dell' [ora dell'ultimo failover geografico dell'account di archiviazione](https://msdn.microsoft.com/library/azure/ee460802.aspx) per ottenere altri dettagli.
+* Per informazioni più dettagliate, è possibile cercare l'[ora dell'ultimo failover replica geografica dell'account di archiviazione](https://msdn.microsoft.com/library/azure/ee460802.aspx).
 * Dopo il failover, l'account di archiviazione sarà completamente funzionante, ma in uno stato "danneggiato", perché in realtà è ospitato in un'area autonoma senza possibilità di replica geografica. Per ridurre questo rischio, verrà ripristinata l'area primaria originale e quindi verrà eseguito un failback geografico per ripristinare lo stato originale. Se l'area primaria originale non è recuperabile, verrà allocata un'altra area secondaria.
   Per altri dettagli sull'infrastruttura della replica geografica di Archiviazione di Azure, vedere l'articolo nel blog del team di archiviazione sulle [opzioni di ridondanza e RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
@@ -70,10 +71,5 @@ Esistono alcuni approcci consigliati per il backup periodico dei dati di archivi
 * File: usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'altra area.
 
 Per informazioni sulla creazione di applicazioni che sfruttano al meglio la funzionalità RA-GRS, vedere l'articolo relativo alla [progettazione di applicazioni a disponibilità elevata con archiviazione RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

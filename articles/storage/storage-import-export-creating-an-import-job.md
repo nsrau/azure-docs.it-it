@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 3a0ac3de9828903b7ca66c15e5422d1228e2a731
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -67,7 +67,7 @@ Prima di creare un processo di importazione, è necessario ottenere il nome e l'
 
  Seguire i passaggi sotto per ottenere la posizione di spedizione:
 
--   Identificare il nome della posizione dell'account di archiviazione. Si può trovare questo valore nel campo **Posizione** nel **dashboard** dell'account di archiviazione del portale di Azure oppure lo si può cercare usando l'operazione dell'API Gestione dei servizi [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) (Ottieni proprietà dell'account di archiviazione ).
+-   Identificare il nome della località dell'account di archiviazione. Si può trovare questo valore nel campo **Posizione** nel **dashboard** dell'account di archiviazione del portale di Azure oppure lo si può cercare usando l'operazione dell'API Gestione dei servizi [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
 -   Recuperare la posizione disponibile per elaborare questo account di archiviazione chiamando l'operazione `Get Location`.
 

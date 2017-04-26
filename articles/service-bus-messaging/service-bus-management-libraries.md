@@ -1,6 +1,6 @@
 ---
-title: Librerie di gestione del bus di servizio di Azure | Documentazione Microsoft
-description: "Gestire entità e spazi dei nomi del bus di servizio da .NET"
+title: Librerie di gestione del bus di servizio di Azure | Microsoft Docs
+description: "Gestire entità di messaggistica e spazi dei nomi del bus di servizio da .NET"
 services: service-bus-messaging
 cloud: na
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 04/03/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: 7b04227327235f788ecf4018b6c159d33113b63d
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: ec9f2fa3d88f59172d320b58287208deb084856f
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -36,17 +37,17 @@ Le librerie di gestione del bus di servizio possono effettuare il provisioning d
 
 Per iniziare a usare le librerie di gestione del bus di servizio, è necessario eseguire l'autenticazione con Azure Active Directory (AAD). AAD richiede l'autenticazione come entità servizio che fornisce l'accesso alle risorse di Azure in uso. Per informazioni su come creare un'entità servizio, vedere uno di questi articoli:  
 
-* [Usare il portale di Azure per creare un'applicazione Active Directory e un'entità servizio che accedono alle risorse](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Usare il portale di Azure per creare un'applicazione Active Directory e un'entità servizio che accedono alle risorse](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-Nel corso di queste esercitazioni verranno forniti un `AppId` (ID client), un `TenantId` e un `ClientSecret` (chiave di autenticazione) che verranno usati per l'autenticazione da parte delle librerie di gestione. È necessario disporre delle autorizzazioni di 'Proprietario' per il gruppo di risorse in cui verranno eseguite le librerie.
+Nel corso di queste esercitazioni vengono forniti un `AppId` (ID client), un `TenantId` e un `ClientSecret` (chiave di autenticazione) che sono usati per l'autenticazione da parte delle librerie di gestione. È necessario disporre delle autorizzazioni di 'Proprietario' per il gruppo di risorse in cui verranno eseguite le librerie.
 
 ## <a name="programming-pattern"></a>Modello di programmazione
 
 Il modello di modifica delle risorse del bus di servizio segue un protocollo comune:
 
-1. Ottenere un token dall'istanza di Azure Active Directory che usa la libreria `Microsoft.IdentityModel.Clients.ActiveDirectory`.
+1. Ottenere un token da Azure Active Directory usando la libreria **Microsoft.IdentityModel.Clients.ActiveDirectory**.
     ```csharp
     var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
 
@@ -65,7 +66,7 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
     };
     ```
 
-1. Impostare i parametri CreateOrUpdate sui valori specificati.
+1. Impostare i parametri `CreateOrUpdate` sui valori specificati.
     ```csharp
     var queueParams = new QueueCreateOrUpdateParameters()
     {
@@ -82,9 +83,4 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esempio di gestione .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Riferimenti per Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

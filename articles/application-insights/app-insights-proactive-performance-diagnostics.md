@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 1c46c40b09ca1923190d3c7109d25bd7525cb577
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 843a3cafd5a00dd4b4de04a43f18d58e60a48b29
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -58,7 +59,7 @@ Non è necessario impostare regole di soglia o configurare regole. Per rilevare 
 
   * Per il momento no. È però possibile:
   * [Impostare avvisi](app-insights-alerts.md) per essere informati quando una determinata metrica supera una soglia.
-  * [Esportare dati di telemetria](app-insights-export-telemetry.md) in un [database](app-insights-code-sample-export-sql-stream-analytics.md), [in PowerBI](app-insights-export-power-bi.md) o in [altri](app-insights-code-sample-export-telemetry-sql-database.md) strumenti, in cui è possibile analizzarli personalmente.
+  * [Esportare dati di telemetria](app-insights-export-telemetry.md) in un [database](app-insights-code-sample-export-sql-stream-analytics.md) o in [PowerBI](app-insights-export-power-bi.md), in cui è possibile analizzarli personalmente.
 * *Con quale frequenza viene eseguita l'analisi?*
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente.
@@ -132,13 +133,8 @@ Gli strumenti di diagnostica seguenti consentono di controllare la telemetria da
 * [Esplora ricerche](app-insights-diagnostic-search.md)
 * [Linguaggio avanzato di query di Analisi](app-insights-analytics-tour.md)
 
-Diagnostica intelligente è completamente automatica, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
+Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
 
 * [Configurare manualmente gli avvisi relativi alle metriche](app-insights-alerts.md)
 * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

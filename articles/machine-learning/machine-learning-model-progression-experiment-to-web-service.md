@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 209d1cbe4f1ad08a98caf0a8d16f5b0ee45468ca
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -66,7 +66,7 @@ Questa conversione viene eseguita automaticamente con i passaggi seguenti:
 In questo processo di conversione l'esperimento di training non viene rimosso. Al termine del processo, Studio includerà due schede: una per l'esperimento di training e una per l'esperimento predittivo. In questo modo, è possibile apportare modifiche all'esperimento di training prima di distribuire il servizio Web e ricompilare l'esperimento predittivo. In alternativa, è possibile salvare una copia dell'esperimento di training per iniziare un'altra linea di sperimentazione.
 
 > [!NOTE]
-> Quando si fa clic su **Predictive Web Service** (Servizio Web predittivo), si avvia un processo automatico di conversione dell'esperimento di training in esperimento predittivo, che nella maggior parte dei casi è un'operazione appropriata. Se però l'esperimento di training è complesso (ad esempio, con più percorsi per il training uniti insieme), è preferibile eseguire questa conversione manualmente. Per altre informazioni, vedere [Convertire un esperimento di training di Machine Learning in un esperimento predittivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Quando si fa clic su **Predictive Web Service** (Servizio Web predittivo), si avvia un processo automatico di conversione dell'esperimento di training in esperimento predittivo, che nella maggior parte dei casi è un'operazione appropriata. Se però l'esperimento di training è complesso (ad esempio, con più percorsi per il training uniti insieme), è preferibile eseguire questa conversione manualmente. Per altre informazioni, vedere l'articolo relativo alla [preparazione del modello per la distribuzione in Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 > 
 > 
 
@@ -111,7 +111,7 @@ Per apportare modifiche all'esperimento predittivo originale, ad esempio selezio
 ## <a name="next-steps"></a>Passaggi successivi
 Per altri dettagli sul processo di sviluppo di un esperimento, vedere gli articoli seguenti:
 
-* Conversione dell'esperimento: [Convertire un esperimento di training di Machine Learning in un esperimento predittivo](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+* Conversione dell'esperimento: vedere l'articolo relativo alla [preparazione del modello per la distribuzione in Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 * Distribuzione del servizio Web: [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 * Ripetizione del training del modello: [Ripetere il training dei modelli di Machine Learning a livello di codice](machine-learning-retrain-models-programmatically.md)
 

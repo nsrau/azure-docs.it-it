@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 04/04/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 37797743df0e2ce029b65f267a7cea5c8d793773
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: dc19bec960edff15feffc41bee1bbc63eeff5c6d
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creare un monitoraggio dei processi di Analisi di flusso a livello di codice
- In questo articolo viene illustrato come abilitare il monitoraggio per un processo di analisi di flusso. Nei processi di Analisi dei flussi creati tramite le API REST, Azure SDK o Powershell il monitoraggio non è abilitato per impostazione predefinita.  È possibile attivare manualmente questa funzione nel portale di Azure passando alla pagina di monitoraggio del processo e facendo clic sul pulsante Attiva oppure è possibile automatizzare questo processo attenendosi alla procedura descritta in questo articolo. I dati di monitoraggio verranno visualizzati nella scheda "Monitoraggio" nel portale di Azure relativa al processo di Analisi dei flussi.
-
-![monitoraggio processi, scheda Processi](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+ In questo articolo viene illustrato come abilitare il monitoraggio per un processo di analisi di flusso. Nei processi di Analisi dei flussi creati tramite le API REST, Azure SDK o Powershell il monitoraggio non è abilitato per impostazione predefinita.  È possibile attivare manualmente questa funzione nel portale di Azure passando alla pagina di monitoraggio del processo e facendo clic sul pulsante Attiva oppure è possibile automatizzare questo processo attenendosi alla procedura descritta in questo articolo. I dati di monitoraggio verranno visualizzati nell'area Metrica del portale di Azure relativa al processo di analisi di flusso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
@@ -34,7 +32,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 * Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Un processo di Analisi dei flussi esistente che richiede l'attivazione del monitoraggio.
 
-## <a name="setup-a-project"></a>Configurare un progetto
+## <a name="create-a-project"></a>Creare un progetto
 1. Creare un'applicazione console .Net di Visual Studio C#.
 2. Nella Console di Gestione pacchetti, eseguire i comandi seguenti per installare i pacchetti NuGet. Il primo è l'SDK per .NET di Analisi di flusso di Azure. Il secondo è l'SDK del Monitoraggio di Azure, che verrà usato per abilitare il monitoraggio. L’ultimo è il client Azure Active Directory che verrà usato per l'autenticazione.
    
@@ -142,7 +140,7 @@ Il codice seguente configurerà le variabili e i client di gestione necessari.
 Il codice seguente consentirà di abilitare il monitoraggio per un processo di Analisi dei flussi **esistente** . La prima parte del codice esegue una richiesta GET al servizio di Analisi dei flussi per recuperare informazioni sul processo di Analisi dei flussi specifico. Viene utilizzata la proprietà "Id" (recuperata dalla richiesta GET) come parametro per il metodo Put nella seconda metà del codice che invia una richiesta PUT al servizio Insights per abilitare il monitoraggio per il processo di Analisi dei flussi.
 
 > [!WARNING]
-> Se è stata precedentemente abilitata per un differente processo di analisi di flusso, tramite il portale di Azure o in modo programmato mediante il seguente codice, **è consigliabile fornire lo stesso nome di account di archiviazione fornito quando è stato precedentemente abilitato il monitoraggio.**
+> Se è stata precedentemente abilitata per un differente processo di analisi di flusso, tramite il portale di Azure o a livello di codice mediante il codice seguente, **è consigliabile specificare lo stesso nome account di archiviazione specificato quando è stato precedentemente abilitato il monitoraggio**.
 > 
 > L'account di archiviazione è collegato all'area in cui è stato creato il processo di analisi di flusso, non specificamente al processo stesso.
 > 

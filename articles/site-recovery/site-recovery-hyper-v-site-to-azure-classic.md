@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2b5e2c2d5cc572ba951a61fd1eb78613c43ec453
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -193,7 +193,7 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 >
 >
 
-1. Nella scheda **Macchine** del gruppo di protezione, fare clic su **Aggiungi macchine virtuali a gruppi di protezione per abilitare la protezione**.
+1. Nella scheda **Computer** del gruppo di protezione dati, fare clic su **Per proteggere le macchine virtuali, aggiungerle ai gruppi di protezione**.
 2. Nella pagina **Abilita protezione macchine virtuali** selezionare le macchine virtuali da proteggere.
 
     ![Abilitare la protezione delle macchine virtuali](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -208,9 +208,9 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
      * **Dimensioni**: le dimensioni della macchina virtuale di destinazione che esegue il failover.
 
        ![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-   * Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione** > *nome_gruppodiprotezione* > **Macchine virtuali***nome_macchina_virtuale* > **Configura**, tra cui:
+   * Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi di protezione** > *nome_gruppodiprotezione* > **Macchine virtuali***nome_macchina_virtuale* > **Configura**, tra cui:
 
-     * **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede di rete supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md) .
+     * **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede di rete supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/linux/sizes.md) .
 
        Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della pagina **Configura** . Il numero di schede di rete delle macchine virtuali di destinazione corrisponde minimo al numero di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata. Questo concetto è illustrato di seguito:
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 04/05/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caa4f001871beeb83cc0406bd2f89c5aa026cd97
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,7 +49,7 @@ Informazioni sul Centro sicurezza di Azure, le funzionalità principali e il fun
 | Risposta | Suggerisce alcune modalità per arrestare l'attacco attuale e prevenire quelli futuri |
 
 ## <a name="introductory-walkthrough"></a>Procedura dettagliata introduttiva
- È possibile accedere al Centro sicurezza tramite il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). [Accedere al portale](https://portal.azure.com), selezionare **Esplora** e scorrere fino all'opzione **Centro sicurezza** oppure selezionare il riquadro **Centro sicurezza** aggiunto in precedenza al dashboard del portale.
+ È possibile accedere al Centro sicurezza tramite il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). [Accedere al portale](https://portal.azure.com). Nel menu principale del portale scorrere fino all'opzione **Centro sicurezza** oppure selezionare il riquadro **Centro sicurezza** aggiunto in precedenza al dashboard del portale.
 
 ![Riquadro Sicurezza nel portale di Azure][1]
 
@@ -83,7 +83,7 @@ Nel pannello **Criteri di sicurezza** selezionare una sottoscrizione per visuali
 >
 >
 
-Selezionare **Criteri di prevenzione** (vedere sopra) per aprire il pannello **Criteri di prevenzione**. **Mostra raccomandazioni per** consente di scegliere i controlli di sicurezza da monitorare e suggerire in base alle esigenze di sicurezza delle risorse all'interno della sottoscrizione.
+Selezionare **Criteri di prevenzione** (vedere sopra) per aprire il pannello **Criteri di prevenzione**. **Mostra raccomandazioni per** consente di scegliere i controlli di sicurezza da monitorare e le raccomandazioni da visualizzare in base alle esigenze di sicurezza delle risorse della sottoscrizione.
 
 Successivamente, selezionare un gruppo di risorse per visualizzare i dettagli dei criteri.
 
@@ -115,7 +115,7 @@ Fare clic sul riquadro **Suggerimenti** per visualizzarne un elenco. Fare clic s
 ### <a name="resource-health"></a>Integrità delle risorse
 Il riquadro **Integrità sicurezza delle risorse** visualizza il comportamento di sicurezza complessivo dell'ambiente per tipo di risorsa, ad esempio VM, applicazioni Web e altre risorse.   
 
-Selezionare un tipo di risorsa nel riquadro **Integrità sicurezza delle risorse** per visualizzare altre informazioni, incluso un elenco delle potenziali vulnerabilità di sicurezza identificate. Nell'esempio seguente è selezionata la risorsa**Macchine virtuali** .
+Selezionare un tipo di risorsa nel riquadro **Integrità sicurezza delle risorse** per visualizzare altre informazioni, incluso un elenco delle potenziali vulnerabilità di sicurezza identificate. Nell'esempio seguente è selezionata la risorsa**Calcolo**.
 
 ![Riquadro Integrità delle risorse][6]
 

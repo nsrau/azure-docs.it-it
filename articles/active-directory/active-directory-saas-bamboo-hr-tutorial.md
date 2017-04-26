@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 308c9f4d59f6c6981af74f4208c9963e3d0102dd
-ms.openlocfilehash: 6644afc1de68230ccca089529b32195c4c8ddfe7
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e190cfdf6d7a9dee86ed7b9072dc51ca8c993d32
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +33,7 @@ Al termine dell'esercitazione, gli utenti di Azure AD assegnati a BambooHR potra
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
 * Abilitazione dell'integrazione dell'applicazione per BambooHR
-* Configurazione dell'accesso Single Sign-On
+* Configurazione dell'accesso Single Sign-On (SSO)
 * Configurazione del provisioning utente
 * Assegnazione degli utenti
 
@@ -68,7 +68,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Bamb
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a BambooHR tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
 
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base&64;. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 **Per configurare l'accesso Single Sign-On, seguire questa procedura:**
 
@@ -95,13 +95,13 @@ Come parte di questa procedura, verrà richiesto di creare un file di certificat
    
    ![Single Sign-On SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Single Sign-On SAML")
    
-   1. Nella finestra di dialogo **Configure single sign-on at BambooHR** (Configura accesso Single Sign-On in BambooHR) del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **SSO Login URL** (URL di accesso SSO).
-   2. Creare un file con **codifica Base&64;** dal certificato scaricato.  
+   1. Nella finestra di dialogo **Configura accesso Single Sign-On in BambooHR** del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **SSO Login URL** (URL di accesso SSO).
+   2. Creare un file con **codifica Base 64** dal certificato scaricato.  
    
       >[!TIP]
       >Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o). 
       > 
-   3. Aprire il certificato con codifica Base&64; nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
+   3. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
    4. Fare clic su **Salva**.
 8. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
@@ -128,7 +128,7 @@ Per consentire agli utenti di Azure AD di accedere a BambooHR, è necessario ese
 >È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da BambooHR per eseguire il provisioning degli account utente di Azure AD. 
 > 
 
-## <a name="assig-users"></a>Assegnare utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 **Per assegnare gli utenti a BambooHR, seguire questa procedura:**
@@ -141,6 +141,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    
    ![Sì](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 

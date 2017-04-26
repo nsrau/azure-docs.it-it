@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: f02e17bb413f250fc4d980c62cfb46bc5359f7fb
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 3d2ba1d63f4bb89ff51275044922fb86b5f70365
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -70,4 +70,6 @@ A volte può succedere di non voler consentire a una macchina virtuale di creare
 ## <a name="limitations"></a>Limitazioni
 
 Sebbene non garantito, il numero massimo di porte SNAT disponibili oggi è 64,511 (65.535-1024 porte con privilegi).  Questa azione non esegue direttamente la conversione al numero di connessioni; vedere le informazioni precedenti per i dettagli su come e quando vengono allocate le porte SNAT e come gestire questa risorsa esauribile.
+
+Se [a un servizio di bilanciamento del carico sono associati più indirizzi IP (pubblici)](load-balancer-multivip-overview.md), uno qualsiasi di questi IP indirizzi pubblici è idoneo per i flussi in uscita.
 

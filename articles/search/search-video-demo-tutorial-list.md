@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/28/2017
+ms.date: 03/31/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 0925318a483d9a5e72015d33ee0868f41ae4bedd
-ms.openlocfilehash: 4d883d96a2a45f27e847c51c973d5ca7d0e267a8
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 70b04cde5fe877355c1dea29c78df3dcb8277973
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -31,13 +31,13 @@ Iniziare da qui se non si ha familiarità con Ricerca di Azure. La revisione di 
 
 | Titolo | Descrizione | Date |
 |-------|-------------|------|
-| [Guardare questo video introduttivo](https://channel9.msdn.com/Events/Connect/2016/138) | Introduzione di&9; min e&38; sec alle funzioni, creazione di un servizio e query. | Novembre 2016 |
+| [Guardare questo video introduttivo](https://channel9.msdn.com/Events/Connect/2016/138) | Introduzione di 9 min e 38 sec alle funzioni, creazione di un servizio e query. | Novembre 2016 |
 | [Creare un servizio](search-get-started-portal.md) | Procedura per configurare la Ricerca di Azure nel portale. | Febbraio 2017 |
 | [Eseguire una query su un indice](search-get-started-portal.md) | Creare ed eseguire query su un indice usando i dati di esempio incorporati. Gli strumenti del portale sono un modo rapido per avere informazioni sui tipi di query e i parametri di ricerca. | Febbraio 2017 |
 | [Passaggio successivo:<br/> codifica in .NET](search-howto-dotnet-sdk.md) | La procedura dettagliata C# illustra come connettersi, indicizzare ed eseguire una query tramite la libreria .NET di Ricerca di Azure. | Novembre 2016 |
 | [Passaggio successivo:<br/> codifica in REST](search-create-index-rest-api.md) | Esaminare le chiamate REST e i payload JSON per creare un indice di Ricerca di Azure su qualsiasi piattaforma e linguaggio di programmazione. | Dicembre 2016 |
 
-## <a name="practice"></a>Procedure consigliate
+## <a name="code-samples"></a>Esempi di codice
 
 Esplorazione basata su codice tramite esempi e procedure dettagliate.
 
@@ -45,10 +45,19 @@ Esplorazione basata su codice tramite esempi e procedure dettagliate.
 |-------|-------------|
 | [Introduzione alla libreria client .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) | Applicazione ASP.NET MVC 5 con la libreria client .NET. |
 | [Introduzione ad API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) | Esempio di codice API REST. |
-| [Demo: Sito Web dei processi NYC](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) | Origine del sito demo live di Ricerca di Azure su dati relativi alle offerte di lavoro di NYC tramite ASP.NET MVC. |
-| [Demo: galleria d'arte Tate](https://github.com/liamca/azure-search-tate-art-gallery/) | Origine del sito demo live di Ricerca di Azure per i dati della galleria d'arte che mostra un tipo di dati delle collezioni e strutture di dati annidati, facet e filtri, nomi di persone e immagini di anteprima.|
+| [Source: NYC Jobs Website Demo](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) (Origine: demo del sito Web per le offerte di lavoro di NYC) | Origine del sito demo live di Ricerca di Azure su dati relativi alle offerte di lavoro di NYC tramite ASP.NET MVC. |
+| [Source: Tate Art Gallery Demo](https://github.com/liamca/azure-search-tate-art-gallery/) (Origine: demo sulla galleria d'arte Tate) | Origine del sito demo live di Ricerca di Azure per i dati della galleria d'arte che mostra un tipo di dati delle collezioni e strutture di dati annidati, facet e filtri, nomi di persone e immagini di anteprima.|
 
 Per vedere altri esempi di codice per combinazioni di funzionalità e scenari specifici: [**Azure Samples (Esempi di Azure) > Ricerca di Azure**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
+
+## <a name="online-demos"></a>Demo online
+Applicazioni Web completamente funzionali che usano Ricerca di Azure per l'esperienza di ricerca. Questi collegamenti offrono un'esperienza pratica del funzionamento di un'app che usa Ricerca di Azure.
+
+| Collegamento | Descrizione |
+|-------|-------------|
+|[Demo del portale delle offerte di lavoro per New York City (NYC) per Ricerca di Azure](http://aka.ms/azjobsdemo) | Un sito Web ASP.NET che illustra le funzionalità di Ricerca di Azure usando i dati di NYC Open Data Initiative. L'app usa la [sintassi di query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx). È possibile modificare il codice per provare la [sintassi Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx). |
+|[Tate Art Gallery Demo](https://rawgit.com/liamca/azure-search-tate-art-gallery/master/Demo/index.html) (Demo sulla galleria d'arte Tate) | Un sito Web ASP.NET ospitato che usa dati di esempio della galleria d'arte Tate. Come primo passaggio, provare a cercare termini come "modern", "photo" e "portrait".
+|[Azure Search Demo Site](https://searchsamples.azurewebsites.net/#/) (Sito demo di Ricerca di Azure) | Una raccolta di app demo per Ricerca di Azure. Prova la ricerca dei file multimediali, la ricerca geografica e le app dell’inventario del prodotto mediante la Ricerca di Azure. |
 
 ## <a name="courseware"></a>Corsi
 
@@ -58,14 +67,6 @@ Demo e laboratori multisessione per la Ricerca di Azure.
 |------|-------------|------|
 [Building Intelligent Cross-Platform Mobile Applications Using Xamarin and Azure Search](https://mva.microsoft.com/en-US/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) (Compilazione di applicazioni per dispositivi mobili multipiattaforma intelligenti tramite Xamarin e Ricerca di Azure) | Completamento automatico, ricerca per testo completo e suddivisione in pagine, applicazione di filtri, ricerca, moreLikeThis, machine learning, punteggio e ottimizzazione, analitica | Dicembre 2016 |
 [Using Windows Azure Search](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) (Uso di Ricerca di Azure di Windows) | Drill-down meno recente, ma ancora rilevante per scalabilità, ricerca geospaziale, analisi linguistica, riconoscimento vocale di Cortana | Maggio 2015 | 
-
-## <a name="online-demos"></a>Demo online
-Applicazioni Web completamente funzionali che usano Ricerca di Azure per l'esperienza di ricerca. 
-
-| Collegamento | Descrizione |
-|-------|-------------|
-|[Demo del portale delle offerte di lavoro per New York City (NYC) per Ricerca di Azure](http://aka.ms/azjobsdemo) | Un sito Web ASP.NET che illustra le funzionalità di Ricerca di Azure usando i dati di NYC Open Data Initiative. L'app usa la [sintassi di query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx). È possibile modificare il codice per provare la [sintassi Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx). |
-|[Azure Search Demo Site](https://searchsamples.azurewebsites.net/#/) (Sito demo di Ricerca di Azure) | Una raccolta di app demo per Ricerca di Azure. Prova la ricerca dei file multimediali, la ricerca geografica e le app dell’inventario del prodotto mediante la Ricerca di Azure. |
 
 ## <a name="video-archive"></a>Archivio video
 
@@ -98,6 +99,5 @@ Applicazioni Web completamente funzionali che usano Ricerca di Azure per l'esper
 | [Come aggiungere suggerimenti alle applicazioni di ricerca](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Informazioni su come implementare i suggerimenti, comunemente denominati completamento automatico. In questa demo vengono illustrati alcuni argomenti compresa la creazione di applicazioni MVC4 che sfruttano i suggerimenti di Ricerca di Azure, l'uso della libreria typeahead.js di Twitter per creare un componente efficace di suggerimenti automatici in JavaScript e l'uso dei suggerimenti fuzzy per consentire di offrire suggerimenti anche se la parola contiene errori di digitazione. |
 | [Laboratorio virtuale TechNet: creazione di un'applicazione di Ricerca di Microsoft Azure](http://go.microsoft.com/?linkid=9874663) |Laboratorio virtuale che fornisce un ambiente di sviluppo, strumenti, documentazione e dati. Per completare il laboratorio è necessario un account Azure, una sottoscrizione di valutazione o una sottoscrizione di Azure personale. |
 | [Sincronizzare i dati di SQL Server con Ricerca di Azure](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Post di blog che spiega come caricare i dati dai database relazionali SQL Server in un indice di Ricerca di Azure. |
-| [Esercitazione dell'API REST di gestione di Ricerca di Azure](search-get-started-management-api.md) |Come utilizzare l'API REST di gestione per eseguire il provisioning del servizio e gestire chiavi API di query o di amministrazione. |
 
 

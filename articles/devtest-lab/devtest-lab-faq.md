@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c427ddbe408fc42403eb6738d1983c220e899a7
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 7a9b8037967f0180d2f7d2a7d100d0cc3ad9e4a2
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -258,7 +258,7 @@ Fare riferimento al post di blog [How to troubleshoot failing Artifacts in Azure
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell"></a>Perché quando si esegue il provisioning di una macchina virtuale da PowerShell viene visualizzato un errore del tipo "Risorsa padre non trovata"?
 Quando una risorsa è l'elemento padre di un'altra risorsa, deve già esistere prima di creare la risorsa figlio. Se non esiste ancora, viene visualizzato l'errore **ParentResourceNotFound**. Se non si specifica una dipendenza dalla risorsa padre, la risorsa figlio può essere distribuita prima dell'elemento padre.
 
-Le macchine virtuali sono risorse figlio di un lab in un gruppo di risorse. Quando si usano modelli di risorse di Azure per eseguire una distribuzione tramite PowerShell, il nome del gruppo di risorse specificato nello script di PowerShell deve coincidere con quello del gruppo di risorse del lab. Per altre informazioni, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Le macchine virtuali sono risorse figlio di un lab in un gruppo di risorse. Quando si usano modelli di Azure Resource Manager per eseguire una distribuzione tramite PowerShell, il nome del gruppo di risorse specificato nello script di PowerShell deve coincidere con quello del gruppo di risorse del lab. Per altre informazioni, vedere [Risolvere errori comuni durante la distribuzione in Azure ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Se la distribuzione di una macchina virtuale ha esito negativo, dove è possibile trovare maggiori informazioni sul tipo di errore?
 Gli errori che si verificano durante la distribuzione di una macchina virtuale vengono acquisiti nei log attività. È possibile trovare i log attività delle macchine virtuali del lab tramite la voce **Log di controllo** o **Diagnostica macchina virtuale** del menu di risorse presente nel pannello della macchina virtuale del lab (il pannello viene visualizzato dopo aver selezionato la macchina virtuale dall'elenco **Macchine virtuali**).

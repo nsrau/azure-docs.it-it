@@ -16,9 +16,9 @@ ms.custom: tables
 ms.date: 07/12/2016
 ms.author: jrj;barbkess;sonyama
 translationtype: Human Translation
-ms.sourcegitcommit: f1a24e4ee10593514f44d83ad5e9a46047dafdee
-ms.openlocfilehash: f132af2966e2ac59e77dc0fa8113eb83089c68dd
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: dff94161c7d6dfedc91cfb36954e847f945985f7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -53,7 +53,6 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 In alcuni scenari l'indice columnstore cluster potrebbe non essere la scelta ideale:
 
-* Le tabelle columnstore non supportano gli indici non cluster secondari.  È consigliabile usare tabelle heap o di indici cluster.
 * Le tabelle columnstore non supportano varchar(max), nvarchar(max) e varbinary(max).  È consigliabile usare tabelle heap o di indici cluster.
 * Le tabelle columnstore potrebbero risultare meno efficiente per i dati temporanei.  È consigliabile usare tabelle heap oppure tabelle temporanee.
 * Tabelle di piccole dimensioni con meno di 100 milioni di righe.  È consigliabile usare tabelle heap.
@@ -168,7 +167,7 @@ Dopo avere eseguito la query, è possibile iniziare a esaminare i dati e analizz
 | [COMPRESSED_rowgroup_rows_AVG] |Se il numero medio di righe è notevolmente inferiore al numero massimo di righe per un gruppo di righe, è consigliabile usare le istruzioni CTAS o ALTER INDEX REBUILD per comprimere nuovamente i dati. |
 | [COMPRESSED_rowgroup_count] |Numero di gruppi di righe nel formato columnstore. Se questo numero è molto elevato in relazione la tabella, è un indicatore che la densità del columnstore è bassa. |
 | [COMPRESSED_rowgroup_rows_DELETED] |Le righe vengono eliminate in modo logico nel formato columnstore. Se il numero è elevato rispetto alle dimensioni della tabella, provare a ricreare la partizione o a ricompilare l'indice, perché in questo modo vengono eliminate fisicamente. |
-| [COMPRESSED_rowgroup_rows_MIN] |Usare questa colonna insieme alle colonne AVG e MAX per comprendere l'intervallo di valori per i gruppi di righe nel columnstore. Un numero basso oltre la soglia di caricamento, ad esempio&102;.400 per ogni distribuzione di partizioni allineate, suggerisce che è possibile ottimizzare il caricamento dei dati. |
+| [COMPRESSED_rowgroup_rows_MIN] |Usare questa colonna insieme alle colonne AVG e MAX per comprendere l'intervallo di valori per i gruppi di righe nel columnstore. Un numero basso oltre la soglia di caricamento, ad esempio 102.400 per ogni distribuzione di partizioni allineate, suggerisce che è possibile ottimizzare il caricamento dei dati. |
 | [COMPRESSED_rowgroup_rows_MAX] |Come sopra. |
 | [OPEN_rowgroup_count] |I gruppi di righe aperti sono normali. È ragionevole prevedere un gruppo di righe aperto (OPEN) per ogni distribuzione di tabella (60). Un numero eccessivo suggerisce il caricamento di dati tra le partizioni. Verificare la strategia di partizionamento per assicurarsi che sia valida. |
 | [OPEN_rowgroup_rows] |Ogni gruppo di righe può contenere al massimo 1.048.576 righe. Usare questo valore per controllare l'attuale livello di riempimento dei gruppi di righe aperti. |
@@ -210,7 +209,7 @@ I caricamenti di piccole dimensioni in SQL Data Warehouse sono anche definiti fl
 In queste situazioni è spesso preferibile inserire prima i dati nell'archivio BLOB di Azure e lasciarli accumulare prima di caricarli. Questa tecnica viene spesso definita come *micro invio in batch*.
 
 ### <a name="too-many-partitions"></a>Troppe partizioni
-Un altro fattore da considerare è l'impatto del partizionamento sulle tabelle columnstore cluster.  Prima di eseguire il partizionamento, SQL Data Warehouse divide già i dati in 60 database.  Il partizionamento, quindi, suddivide ulteriormente i dati.  Se si partizionano i dati, tenere presente che per poter sfruttare i vantaggi di un indice columnstore cluster **ogni** partizione deve contenere almeno 1 milione di righe.  Se una tabella è divisa in 100 partizioni, per poter sfruttare i vantaggi di un indice columnstore cluster deve contenere almeno 6 miliardi di righe, ovvero 60 distribuzioni * ** 100 partizioni * 1 milione di righe. Se la tabella da 100 partizioni non contiene 6 miliardi di righe, occorre ridurre il numero di partizioni o prendere in considerazione l'uso di una tabella heap.
+Un altro fattore da considerare è l'impatto del partizionamento sulle tabelle columnstore cluster.  Prima di eseguire il partizionamento, SQL Data Warehouse divide già i dati in 60 database.  Il partizionamento, quindi, suddivide ulteriormente i dati.  Se si partizionano i dati, tenere presente che per poter sfruttare i vantaggi di un indice columnstore cluster **ogni** partizione deve contenere almeno 1 milione di righe.  Se una tabella è divisa in 100 partizioni, per poter sfruttare i vantaggi di un indice columnstore in cluster, deve contenere almeno 6 miliardi di righe, ovvero 60 distribuzioni * 100 partizioni * 1 milione di righe. Se la tabella da 100 partizioni non contiene 6 miliardi di righe, occorre ridurre il numero di partizioni o prendere in considerazione l'uso di una tabella heap.
 
 Dopo aver caricato alcuni dati nelle tabelle, seguire questa procedura per identificare e ricompilare le tabelle con indici columnstore cluster non ottimali.
 

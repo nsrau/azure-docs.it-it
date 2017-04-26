@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d2d7f5b00039cd1beab009b78b273ec4dffaab47
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,9 +41,9 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 - - -
 ### <a name="append"></a>Append
-**Funzione:**<br>  Append(source, suffix)
+**Funzione:**<br> Append(source, suffix)
 
-**Descrizione:**<br>  Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
+**Descrizione:**<br> Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
 
 **Parametri:**<br> 
 
@@ -53,9 +54,9 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Funzione:**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**Funzione:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Descrizione:**<br>  Accetta una stringa data in un formato e la converte in un formato diverso.
+**Descrizione:**<br> Accetta una stringa data in un formato e la converte in un formato diverso.
 
 **Parametri:**<br> 
 
@@ -67,7 +68,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 - - -
 ### <a name="join"></a>Join
-**Funzione:**<br>  Join(separator, source1, source2, …)
+**Funzione:**<br> Join(separator, source1, source2, …)
 
 **Descrizione:**<br> Join() è simile ad Append(), ma può combinare più valori di stringa **source** in un singola stringa e ogni valore sarà separato da una stringa **separator**.
 
@@ -78,13 +79,13 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 | Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
 | **separator** |Obbligatorio |String |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
-| **source1 … sourceN ** |Obbligatorio per un numero variabile di volte |String |Valori stringa da unire. |
+| **source1 … sourceN** |Obbligatorio per un numero variabile di volte |String |Valori stringa da unire. |
 
 - - -
 ### <a name="mid"></a>Mid
-**Funzione:**<br>  Mid(source, start, length)
+**Funzione:**<br> Mid(source, start, length)
 
-**Descrizione:**<br>  Restituisce una sottostringa del valore source. Una sottostringa è una stringa che contiene solo alcuni caratteri della stringa di origine.
+**Descrizione:**<br> Restituisce una sottostringa del valore source. Una sottostringa è una stringa che contiene solo alcuni caratteri della stringa di origine.
 
 **Parametri:**<br> 
 
@@ -96,7 +97,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 - - -
 ### <a name="not"></a>not
-**Funzione:**<br>  Not(source)
+**Funzione:**<br> Not(source)
 
 **Descrizione:**<br> Inverte il valore booleano di **source**. Se il valore di **source** è "*True*", restituisce "*False*". In caso contrario, restituisce "*True*".
 
@@ -108,10 +109,10 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 - - -
 ### <a name="replace"></a>Replace
-**Funzione:**<br>  ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Funzione:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrizione:**<br>
- Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
+Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
 
 * Se vengono forniti **oldValue** e **replacementValue**:
   
@@ -141,9 +142,9 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Funzione:**<br>  StripSpaces(source)
+**Funzione:**<br> StripSpaces(source)
 
-**Descrizione:**<br>  Rimuove tutti i caratteri di spazio (" ") dalla stringa di origine.
+**Descrizione:**<br> Rimuove tutti i caratteri di spazio (" ") dalla stringa di origine.
 
 **Parametri:**<br> 
 
@@ -153,7 +154,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 - - -
 ### <a name="switch"></a>Switch
-**Funzione:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**.  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri.
 
@@ -169,7 +170,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 ## <a name="examples"></a>esempi
 ### <a name="strip-known-domain-name"></a>Rimuovere un nome di dominio noto
 Occorre rimuovere un nome di dominio noto dall'indirizzo di posta elettronica di un utente per ottenere il nome utente. <br>
- Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
+Ad esempio, se il dominio è "contoso.com", è possibile usare l'espressione seguente:
 
 **Espressione:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -187,7 +188,7 @@ Se si usa un ambiente sandbox Salesforce, potrebbe essere necessario aggiungere 
 
 **Input/output di esempio:** <br>
 
-* **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
+* **INPUT** (userPrincipalName): "John.Doe@contoso.com"
 * **OUTPUT**: "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generare un alias utente concatenando parti del nome e del cognome
@@ -217,7 +218,7 @@ Ad esempio, formattare le date per ServiceNow.
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Sostituire un valore in base a un set di opzioni predefinito
 È necessario definire il fuso orario dell'utente in base al codice di stato archiviato in Azure AD. <br>
- Se il codice di stato non corrisponde ad alcuna opzione predefinita, usare il valore predefinito "Australia/Sydney".
+Se il codice di stato non corrisponde ad alcuna opzione predefinita, usare il valore predefinito "Australia/Sydney".
 
 **Espressione:** <br>
 
@@ -236,10 +237,5 @@ Ad esempio, formattare le date per ServiceNow.
 * [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](active-directory-scim-provisioning.md)
 * [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
 * [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

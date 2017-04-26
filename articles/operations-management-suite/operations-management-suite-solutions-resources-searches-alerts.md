@@ -15,9 +15,9 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 35264f1ec5df5a3e171f7631e0d3b46bf9c0b8e7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -229,7 +229,7 @@ Questa sezione è facoltativa. Includere la sezione se si vuole avviare un runbo
 
 Le azioni webhook avviano un processo chiamando un URL e, facoltativamente, fornendo un payload da inviare. Simili alle azioni correttive, sono destinate a webhook che possono richiamare processi diversi dai runbook di Automazione di Azure. Hanno inoltre l'opzione aggiuntiva di fornire un payload da recapitare al processo remoto.
 
-Se l'avviso chiamerà un webhook, è necessaria una risorsa azione di tipo **Webhook** in aggiunta alla risorsa azione **Alert**.  
+Se l'avviso chiamerà un webhook, sarà necessaria una risorsa azione di tipo **Webhook** in aggiunta alla risorsa azione **Alert**.  
 
     {
         "name": "<name-of-the-action>",
@@ -248,7 +248,7 @@ Se l'avviso chiamerà un webhook, è necessaria una risorsa azione di tipo **Web
         }
     }
 
-Le proprietà delle risorse azione di avviso sono descritte nella tabella seguente.
+Le proprietà delle risorse azione webhook sono descritte nella tabella seguente.
 
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|

@@ -12,23 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 4becdace365fce1fb70e9e870dd4c8b81d1c7496
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: fe47cc1e5489d094f08b771cc8ec89de84509972
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>Distribuzione di tabelle in SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Panoramica][Panoramica]
-> * [Tipi di dati][Tipi di dati]
-> * [Distribuzione][Distribuzione]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistiche][Statistiche]
-> * [Temporanea][Temporanea]
+> * [Panoramica][Overview]
+> * [Tipi di dati][Data Types]
+> * [Distribuzione][Distribute]
+> * [Indice][Index]
+> * [Partizione][Partition]
+> * [Statistiche][Statistics]
+> * [Temporanee][Temporary]
 >
 >
 
@@ -180,7 +182,7 @@ Un modo semplice per identificare una differenza nelle tabelle consiste nell'uso
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata.  Per iniziare, creare la vista [dbo.vTableSizes][dbo.vTableSizes] usando il codice SQL fornito nell'articolo [Panoramica delle tabelle][Panoramica].  Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
+Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata.  Per iniziare, creare la vista [dbo.vTableSizes][dbo.vTableSizes] usando il codice SQL fornito nell'articolo [Panoramica delle tabelle][Overview].  Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
 
 ```sql
 select *
@@ -198,7 +200,7 @@ order by two_part_name, row_count
 ```
 
 ### <a name="resolving-data-skew"></a>Risoluzione delle asimmetrie di distribuzione
-Non tutte le asimmetrie sono sufficienti a giustificare una correzione.  In alcuni casi, le prestazioni di una tabella in alcune query possono compensare il danno causato dalla distribuzione asimmetrica.  Per decidere se sia necessario risolvere la differenza dati di una tabella, è necessario conoscere nel modo più completo possibile i volumi di dati e le query del carico di lavoro.   Per esaminare l'impatto della differenza sulle prestazioni delle query e, in particolare, sul tempo di completamento delle query nelle singole distribuzioni, è possibile seguire la procedura riportata nell'articolo [Monitoraggio delle query][Monitoraggio delle query].
+Non tutte le asimmetrie sono sufficienti a giustificare una correzione.  In alcuni casi, le prestazioni di una tabella in alcune query possono compensare il danno causato dalla distribuzione asimmetrica.  Per decidere se sia necessario risolvere la differenza dati di una tabella, è necessario conoscere nel modo più completo possibile i volumi di dati e le query del carico di lavoro.   Per esaminare l'impatto della differenza sulle prestazioni delle query e in particolare sul tempo di completamento delle query nelle singole distribuzioni, è possibile seguire la procedura riportata nell'articolo [Monitoraggio delle query][Query Monitoring].
 
 La distribuzione è essenzialmente l'individuazione del giusto equilibrio fra la minimizzazione della differenza dati e la minimizzazione dello spostamento dei dati. Questi obiettivi possono essere contrastanti e talvolta può essere necessario tollerare una determinata differenza dati per poter ridurre lo spostamento dei dati. Ad esempio, quando la colonna di distribuzione corrisponde con un'elevata frequenza alla colonna condivisa di join e aggregazioni, si ridurrà al minimo lo spostamento dei dati. Il vantaggio di uno spostamento dei dati minimo potrebbe essere quello di compensare l'impatto negativo della differenza dati.
 
@@ -283,31 +285,26 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relativi a [distribuzione][Distribuzione], [indicizzazione][Index], [partizioni][Partition], [tipi di dati][Tipi di dati], [statistiche][Statistiche] e [tabelle temporanee][Temporanea].
+Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relativi a [distribuzione][Distribute], [indici][Index], [partizioni][Partition], [tipi di dati][Data Types], [statistiche][Statistics] e [tabelle temporanee][Temporary].
 
-Per una panoramica sulle procedure consigliate, vedere l'articolo [Procedure consigliate per SQL Data Warehouse][Procedure consigliate per SQL Data Warehouse].
+Per una panoramica delle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica]: ./sql-data-warehouse-tables-overview.md
-[Tipi di dati]: ./sql-data-warehouse-tables-data-types.md
-[Distribuzione]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistiche]: ./sql-data-warehouse-tables-statistics.md
-[Temporanea]: ./sql-data-warehouse-tables-temporary.md
-[Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
-[Monitoraggio delle query]: ./sql-data-warehouse-manage-monitor.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
 <!--MSDN references-->
 [DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

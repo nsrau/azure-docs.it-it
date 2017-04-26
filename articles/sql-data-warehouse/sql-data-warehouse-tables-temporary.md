@@ -12,23 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83b12c6daf5422039f3dd95eb9b177b972fad840
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 091ad6068c64bfe06c090430874d23f6ca497b34
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelle temporanee in SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Panoramica][Panoramica]
-> * [Tipi di dati][Tipi di dati]
-> * [Distribuire][Distribuzione]
+> * [Panoramica][Overview]
+> * [Tipi di dati][Data Types]
+> * [Distribuzione][Distribute]
 > * [Indice][Index]
 > * [Partizione][Partition]
-> * [Statistiche][Statistiche]
-> * [Temporanee][Temporanea]
+> * [Statistiche][Statistics]
+> * [Temporanee][Temporary]
 > 
 > 
 
@@ -231,26 +233,21 @@ DROP TABLE #stats_ddl;
 SQL Data Warehouse impone un paio di limitazioni quando si implementano tabelle temporanee.  Attualmente sono supportate solo le tabelle temporanee nell'ambito della sessione.  Le tabelle temporanee globali non sono supportate.  Inoltre, non è possibile creare visualizzazioni nelle tabelle temporanee.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedere gli articoli relativi a [panoramica delle tabelle][Panoramica], [tipi di dati delle tabella][Tipi di dati], [distribuzione di una tabella][Distribuzione], [indicizzazione di una tabella][Index], [partizionamento di una tabella][Partition] e [conservazione delle statistiche delle tabelle][Statistiche].  Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][Procedure consigliate per SQL Data Warehouse].
+Per altre informazioni, vedere gli articoli [Panoramica delle tabelle][Overview], [Tipi di dati per le tabelle][Data Types], [Distribuzione di una tabella][Distribute], [Indicizzazione di una tabella][Index], [Partizionamento di una tabella][Partition] [Gestione delle statistiche nelle tabelle][Statistics].  Per altre informazioni sulle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica]: ./sql-data-warehouse-tables-overview.md
-[Tipi di dati]: ./sql-data-warehouse-tables-data-types.md
-[Distribuzione]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistiche]: ./sql-data-warehouse-tables-statistics.md
-[Temporanea]: ./sql-data-warehouse-tables-temporary.md
-[Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

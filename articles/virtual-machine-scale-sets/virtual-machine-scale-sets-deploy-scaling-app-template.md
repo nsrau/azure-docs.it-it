@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: getting-started
-ms.date: 2/14/2017
+ms.date: 4/4/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 9a0e7a9aadf6ca12915635408653a37241dbb321
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 8a903cd870f01f9ca6224efd1386b68c63e3aa98
+ms.lasthandoff: 04/06/2017
 
 
 ---
 
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Distribuire un'app di scalabilità automatica usando un modello
 
-I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa esercitazione spiega come [distribuire un semplice set di scalabilità](virtual-machine-scale-sets-mvss-start.md) e descrive come distribuire una semplice applicazione di scalabilità automatica in un set di scalabilità usando un modello di Azure Resource Manager.
+I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa esercitazione spiega come [distribuire un semplice set di scalabilità](virtual-machine-scale-sets-mvss-start.md) e descrive come distribuire una semplice applicazione di scalabilità automatica in un set di scalabilità usando un modello di Azure Resource Manager.  È anche possibile configurare la scalabilità automatica usando PowerShell, l'interfaccia della riga di comando o il portale. Per altre informazioni, vedere la [panoramica del ridimensionamento automatico](virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="two-quickstart-templates"></a>Due modelli di avvio rapido
 Quando si distribuisce un set di scalabilità, è possibile installare nuovo software in un'immagine della piattaforma usando un'[estensione della macchina virtuale](../virtual-machines/virtual-machines-windows-extensions-features.md). Le estensioni della macchina virtuale sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure, come ad esempio la distribuzione di un'app. Il [repository Azure/azure-quickstart-templates di GitHub](https://github.com/Azure/azure-quickstart-templates) include due diversi modelli di esempio che illustrano come distribuire un'applicazione di scalabilità automatica in un set di scalabilità usando le estensioni della macchina virtuale.

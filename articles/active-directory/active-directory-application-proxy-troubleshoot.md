@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: f02fbbfb0e8704445d9bfdaba634dbf558ceef02
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -30,7 +30,7 @@ Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante
 * Aprire la console dei servizi Windows e verificare che il servizio **Microsoft AAD Application Proxy Connector** sia abilitato e in esecuzione. È anche possibile osservare la pagina delle proprietà del servizio Proxy applicazione, come mostrato nell'immagine seguente:   
   ![Schermata della finestra delle proprietà del connettore Proxy applicazione di Microsoft AAD](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Aprire il Visualizzatore eventi e cercare gli eventi correlati al connettore del proxy di applicazione in **Registri applicazioni e servizi** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
-* Se necessario, sono disponibili log più dettagliati attivando i log di analisi e debug e il log della sessione del connettore proxy di applicazione.
+* Se necessario, [attivando i log di sessione dei connettore proxy di applicazione](application-proxy-understand-connectors.md#under-the-hood) sono disponibili log più dettagliati.
 
 Per altre informazioni sullo strumento di risoluzione dei problemi di Azure AD, vedere [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Strumento di risoluzione dei problemi per convalidare i prerequisiti di rete del connettore).
 

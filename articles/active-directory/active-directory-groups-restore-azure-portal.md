@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: cc177695f73805940f6a0229c94e391bf3899f09
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 325d669f11891bf070d9bbb468af7427adda46d3
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,7 +36,8 @@ Utente | Possono ripristinare qualsiasi gruppo di Office 365 eliminato che era d
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Come visualizzare i gruppi di Office 365 eliminati che è possibile ripristinare
-I cmdlet seguenti consente di visualizzare i gruppi eliminati per verificare che il gruppo o i gruppi a cui l'utente è interessato non siano stati ancora eliminati definitivamente. I cmdlet fanno parte del [Modulo di anteprima di PowerShell di Azure Active Directory versione 2](https://www.powershellgallery.com/packages/AzureADPreview) (collegamento di download). Altre informazioni su questo modulo sono reperibili nell'articolo [PowerShell di Azure Active Directory versione 2](https://docs.microsoft.com/powershell/azuread/).
+I cmdlet seguenti consente di visualizzare i gruppi eliminati per verificare che il gruppo o i gruppi a cui l'utente è interessato non siano stati ancora eliminati definitivamente. I cmdlet fanno parte del [modulo in anteprima Azure Active Directory PowerShell V2](https://www.powershellgallery.com/packages/AzureADPreview). Altre informazioni su questo modulo sono reperibili nell'articolo [PowerShell di Azure Active Directory versione 2](https://docs.microsoft.com/powershell/azuread/).
+Si noti che i cmdlet per la gestione dell'eliminazione temporanea e del recupero dati sono disponibili in anteprima pubblica ed è talvolta necessario apportare modifiche significative ai cmdlet in anteprima. Per questo motivo, l'uso di questi cmdlet in un ambiente di produzione è sconsigliato.
 
 1.    Eseguire il cmdlet seguente per visualizzare tutti i gruppi di Office 365 eliminati nel tenant per cui è ancora possibile il ripristino.
   ```
@@ -80,3 +81,4 @@ Questi articoli contengono informazioni aggiuntive sui gruppi di Azure Active Di
 * [Gestire i membri di un gruppo](active-directory-groups-members-azure-portal.md)
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
+

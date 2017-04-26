@@ -1,6 +1,6 @@
 ---
 title: Usare Azure Toolkit for Eclipse per creare applicazioni Scala per Spark | Documentazione Microsoft
-description: Informazioni su come creare un&quot;applicazione Spark autonoma da eseguire nei cluster HDInsight Spark.
+description: Usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazioni Spark scritte in Scala e inoltrarle a un cluster HDInsight Spark direttamente dall&quot;IDE di Eclipse.
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,15 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: b304f66f71142606391ecbb3f29b917c32ba876a
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6dde4684e4bbb8eb79c69b620c7f52e085cb40c6
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-cluster"></a>Usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazioni Spark per il cluster HDInsight Spark
-Questo articolo contiene istruzioni dettagliate sullo sviluppo di applicazioni Spark scritte in Scala e il relativo invio a un cluster HDInsight Spark usando gli strumenti HDInsight nel Toolkit di Azure per Eclipse. È possibile usare gli strumenti in diversi modi:
+# <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-cluster"></a>Usare Azure Toolkit for Eclipse per creare applicazioni Spark per cluster HDInsight
+
+Usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazioni Spark scritte in Scala e inoltrarle a un cluster HDInsight Spark direttamente dall'IDE di Eclipse. È possibile usare il plug-in degli strumenti HDInsight in diversi modi:
 
 * Per sviluppare e inviare un'applicazione Spark in Scala in un cluster HDInsight Spark
 * Per accedere alle risorse cluster HDInsight Spark di Azure
@@ -110,7 +111,7 @@ Gli strumenti HDInsight per Eclipse sono disponibili come parte del Toolkit di A
    7. L'ambiente JRE appena aggiunto deve essere elencato per **Execution Environment**(Ambiente di esecuzione). Fare clic su **Fine**.
       
             ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-10.png)
-6. Tornando nella scheda **Libraries** (Librerie) fare doppio clic su **Scala Library Container[2.11.8]** (Contenitore della libreria Scala [2.11.8]). Nella finestra di dialogo **Edit Library** (Modifica libreria) selezionare **Fixed Scala Library container:2.10.6** (Contenitore libreria Scala fissa:&2;.10.6). 
+6. Tornando nella scheda **Libraries** (Librerie) fare doppio clic su **Scala Library Container[2.11.8]** (Contenitore della libreria Scala [2.11.8]). Nella finestra di dialogo **Edit Library** (Modifica libreria) selezionare **Fixed Scala Library container:2.10.6** (Contenitore libreria Scala fissa: 2.10.6). 
    
     ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-11.png)
    
@@ -184,7 +185,7 @@ Per impostazione predefinita, gli strumenti HDInsight nel Toolkit di Azure per E
 È possibile usare gli strumenti HDInsight nel Toolkit di Azure per Eclipse per eseguire applicazioni Spark in Scala localmente nella workstation. Tali applicazioni in genere non richiedono l'accesso alle risorse del cluster come il contenitore di archiviazione e possono essere eseguite e testate localmente.
 
 ### <a name="prerequisite"></a>Prerequisito
-Quando si esegue l'applicazione Spark in Scala locale in un computer Windows, è possibile che venga restituita un'eccezione, come spiegato in [SPARK&2356;](https://issues.apache.org/jira/browse/SPARK-2356) , che si verifica a causa di un file **WinUtils.exe** mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\WinUtils\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
+Quando si esegue l'applicazione Spark in Scala locale in un computer Windows, è possibile che venga restituita un'eccezione, come spiegato in [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) , che si verifica a causa di un file **WinUtils.exe** mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\WinUtils\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Eseguire un'applicazione Spark in Scala locale
 1. Avviare Eclipse e creare un nuovo progetto. Nella finestra di dialogo del nuovo progetto selezionare le opzioni seguenti e quindi fare clic su **Next**.

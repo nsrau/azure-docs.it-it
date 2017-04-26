@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: da581b2e22f85152ae7bc5f0d403b2fc0aaf0e54
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -116,7 +116,7 @@ Nell'elenco seguente sono visualizzati i metadati di esempio completi tramite gl
 * LogVersion=1.0
 
 ### <a name="accessing-logging-data"></a>Accesso ai dati di registrazione
-Tutti i dati del contenitore `$logs` sono accessibili tramite le API del servizio BLOB, incluse le API .NET fornite dalla libreria gestita di Azure. L'amministratore dell'account di archiviazione può leggere ed eliminare i log, ma non può crearli o aggiornarli. Quando si esegue una query per un log è possibile utilizzare sia i metadati del log, sia il nome del log. È possibile che i log di una data ora siano visualizzati come fuori servizio, ma i metadati specificano sempre l'intervallo temporale delle voci di un log. Pertanto, nella ricerca di un particolare log, è possibile utilizzare una combinazione di nomi log e metadati.
+Tutti i dati del contenitore `$logs` sono accessibili tramite le API del servizio BLOB, incluse le API .NET fornite dalla libreria gestita di Azure. L'amministratore dell'account di archiviazione può leggere ed eliminare i log, ma non può crearli o aggiornarli. Quando si esegue una query per un log, è possibile usare sia i metadati del log che il nome del log. È possibile che i log di una determinata ora siano visualizzati come fuori servizio, ma i metadati specificano sempre l'intervallo temporale delle voci di un log. Pertanto, nella ricerca di un particolare log, è possibile utilizzare una combinazione di nomi log e metadati.
 
 ## <a name="about-storage-analytics-metrics"></a>Informazioni sulle metriche di Analisi archiviazione
 Analisi archiviazione è in grado di archiviare le metriche che includono le statistiche delle transazioni aggregate e i dati di capacità relativi alle richieste in un servizio di archiviazione. Le transazioni vengono segnalate sia a livello di operazione API, sia a livello di servizio di archiviazione, mentre la capacità viene segnalata a livello di servizio di archiviazione. I dati delle metriche possono essere utilizzati per analizzare l'uso del servizio di archiviazione, diagnosticare i problemi relativi alle richieste effettuate al servizio di archiviazione e per migliorare le prestazioni delle applicazioni che usano un servizio.
@@ -140,9 +140,9 @@ Le metriche delle transazioni vengono registrate sia per le richieste utente, si
 
 I dati relativi alla capacità vengono registrati quotidianamente per il servizio BLOB di un account di archiviazione e vengono scritte due entità di tabella. Un'entità fornisce le statistiche per i dati utente e l'altra le statistiche sul contenitore BLOB `$logs` utilizzato da Analisi archiviazione. Nella tabella `$MetricsCapacityBlob` sono incluse le seguenti statistiche:
 
-* **Capacity**: la quantità di archiviazione utilizzata dal servizio BLOB dell'account di archiviazione, in byte.
-* **ContainerCount**: il numero di contenitori BLOB del servizio BLOB dell'account di archiviazione.
-* **ObjectCount**: il numero di BLOB di pagine o blocchi inviati nel servizio BLOB dell'account di archiviazione.
+* **Capacity**: quantità di memoria usata dal servizio BLOB dell'account di archiviazione, in byte.
+* **ContainerCount**: numero di contenitori BLOB del servizio BLOB dell'account di archiviazione.
+* **ObjectCount**: numero di BLOB di pagine o blocchi inviati nel servizio BLOB dell'account di archiviazione.
 
 Per altre informazioni sulle metriche della capacità, vedere [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx).
 
@@ -151,7 +151,7 @@ Tutti i dati delle metriche per ciascun servizio di archiviazione vengono archiv
 
 | Livello metrica | Nomi tabella | Versioni supportate |
 | --- | --- | --- |
-| Metriche orarie, posizione principale |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Solo le versioni precedenti al 15-08-2013. Sebbene tali nomi siano supportati, è consigliabile passare all'utilizzo delle tabelle elencate di seguito. |
+| Metriche orarie, posizione principale |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Solo le versioni precedenti al 15-08-2013. Anche se tali nomi sono supportati, è consigliabile passare all'uso delle tabelle elencate di seguito. |
 | Metriche orarie, posizione principale |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Tutte le versioni, inclusa quella del 15-08-2013. |
 | Metriche per minuto, posizione principale |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Tutte le versioni, inclusa quella del 15-08-2013. |
 | Metriche orarie, posizione secondaria |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Tutte le versioni, inclusa quella del 15-08-2013. Deve essere abilitata la replica con accesso in lettura con ridondanza geografica. |

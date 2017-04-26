@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6a76c399e626ea85581d5f8fb863da878bdbf50b
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 280737097038ff328d487477279ce4f204b0ac0c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/09/2017
 ## <a name="prerequisites"></a>Prerequisiti
 * Visual Studio 2012 o 2013 o 2015
 * Scaricare e installare [Azure .NET SDK](http://azure.microsoft.com/downloads/).
-* Assegnare un'applicazione client nativa ad Azure Active Directory. Per la procedura di aggiunta dell'applicazione, vedere [Integrazione di applicazioni con Azure Active Directory](../active-directory/active-directory-integrating-applications.md) . Annotare **ID CLIENT** e **URI di reindirizzamento** della pagina **CONFIGURAZIONE**.
+* Assegnare un'applicazione client nativa ad Azure Active Directory. Per la procedura di aggiunta dell'applicazione, vedere [Integrazione di applicazioni con Azure Active Directory](../active-directory/active-directory-integrating-applications.md) . Annotare **ID CLIENT** e **URI di reindirizzamento** della pagina **CONFIGURAZIONE**. Per la procedura dettagliata, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando l'API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 
 * Ottenere l'**ID sottoscrizione** e l'**ID tenant** di Azure. Per le istruzioni, vedere [Ottenere l'ID sottoscrizione e l'ID tenant di Azure](#get-azure-subscription-and-tenant-ids) .
 * Scaricare e installare i pacchetti NuGet per Data factory di Azure. Le istruzioni sono disponibili nella procedura dettagliata.
 
@@ -364,7 +364,7 @@ ms.lasthandoff: 03/09/2017
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. In Esplora soluzioni espandere il progetto (**DataFactoryAPITestApp**), fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**. Selezionare la casella di controllo per l'assembly `System.Configuration` e fare clic su **OK**.
+14. In Esplora soluzioni espandere il progetto **DataFactoryAPITestApp**, fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**. Selezionare la casella di controllo per l'assembly `System.Configuration` e fare clic su **OK**.
 15. Compilare l'applicazione console. Scegliere **Compila** dal menu e fare clic su **Compila soluzione**.
 16. Verificare che esista almeno un file nel contenitore adftutorial nell'archiviazione BLOB di Azure. In caso contrario, creare il file Emp.txt nel Blocco note con il contenuto seguente e caricarlo nel contenitore adftutorial.
 

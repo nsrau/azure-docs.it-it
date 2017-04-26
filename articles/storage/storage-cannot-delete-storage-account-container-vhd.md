@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: d3d59e19ff654a953be43706dce926c4450c6179
-ms.openlocfilehash: 6493230295dbfc939df3daf8504a7d8662083f51
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 64f875581dccd2ad1215a82eba1e2659fe01d191
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/08/2017
 
 Durante il tentativo di eliminazione di account di Archiviazione di Azure, contenitori o VHD nel [Portale di Azure](https://portal.azure.com/) o nel [portale di Azure classico](https://manage.windowsazure.com/) è possibile che vengano visualizzati errori. I problemi possono essere causati dalle circostanze seguenti:
 
-* Quando si elimina una VM, il disco e il VHD non vengono automaticamente eliminati. Questo potrebbe essere il motivo dell'errore di eliminazione dell'account di archiviazione. Il disco non viene eliminato perché sia possibile utilizzarlo per montare un’altra VM.
+* Quando si elimina una VM, il disco e il VHD non vengono automaticamente eliminati. Questo potrebbe essere il motivo dell'errore di eliminazione dell'account di archiviazione. Il disco non viene eliminato perché sia possibile usarlo per montare un'altra VM.
 * Sul disco o sul BLOB associato al disco è ancora attivo un lease.
 * È ancora presente un'immagine di VM che usa un BLOB, un contenitore o un account di archiviazione.
 
@@ -67,9 +67,9 @@ Dopo l'eliminazione di una VM, se si tenta di eliminare i BLOB relativi ai VHD a
 
 *Non è stato possibile eliminare il BLOB ''percorso/XXXXXX-XXXXXX-os-1447379084699.vhd''. Errore: sul BLOB è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.*
 
-Oppure
+Or
 
-I*l BLOB 'BlobName.vhd' è in uso come disco di macchina virtuale 'VirtualMachineDiskName', pertanto non può essere eliminato.*
+*Il BLOB 'BlobName.vhd' è in uso come disco di macchina virtuale 'VirtualMachineDiskName', pertanto non può essere eliminato.*
 
 ## <a name="solution"></a>Soluzione
 Per risolvere i problemi più comuni, provare una delle procedure seguenti:

@@ -1,5 +1,5 @@
 ---
-title: Come eseguire il failback da Azure in Hyper-V | Documentazione Microsoft
+title: Come eseguire il failback da Azure in VMware | Microsoft Docs
 description: "Dopo il failover delle macchine virtuali in Azure, è possibile avviare il failback per riportarle in locale. Informazioni sui passaggi per il failback."
 services: site-recovery
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 28fd433676046ef474ac602c1c9e9829378bfddb
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: b054245de2c5bf6019c2cb29409289f2ac8766ec
+ms.lasthandoff: 03/31/2017
 
 
 ---

@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 04/04/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 4eb138348686e9d7befe4d5433d174374977c2a1
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: cea92fe434288012a398f6821bc9cd7ab85b7d3e
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,11 +44,13 @@ Nel **piano a consumo** le app per le funzioni vengono assegnate a un'istanza di
 
 Nel **piano di servizio app** le app per le funzioni vengono eseguite in macchine virtuali dedicate, analogamente alle app Web per SKU Basic, Standard o Premium. Le macchine virtuali dedicate vengono allocate alle app del servizio app e alle app per le funzioni e sono sempre disponibili, indipendentemente dal fatto che il codice sia in esecuzione. È una buona opzione in caso di VM esistenti sottoutilizzate che eseguono già altro codice o se si prevede di eseguire funzioni in modo continuativo o quasi. Una macchina virtuale separa il costo per tempo di esecuzione e dimensioni della memoria. È quindi possibile limitare il costo di molte funzioni a esecuzione prolungata al costo delle macchine virtuali sulle quali vengono eseguite. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
+Con un piano di servizio App, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di macchine virtuali single core oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service-web/web-sites-scale.md). Se si prevede di eseguire funzioni JavaScript in un piano di servizio App, è necessario scegliere un piano con un minor numero di core. Per altre informazioni, vedere le [informazioni di riferimento su JavaScript per le funzioni](functions-reference-node.md#choose-single-core-app-service-plans).  
+
 ## <a name="how-the-consumption-plan-works"></a>Funzionamento del piano a consumo
 
 Il piano a consumo ridimensiona automaticamente le risorse di CPU e memoria aggiungendo altre istanze di elaborazione in base alle esigenze delle funzioni in esecuzione nell'app per le funzioni. A ogni istanza di elaborazione delle app per le funzioni vengono allocate risorse di memoria fino a un massimo di 1,5 GB.
 
-Quando si esegue un piano a consumo, se un'app per le funzioni è inattiva possono essere necessari fino a 10 minuti al giorno per l'elaborazione di nuovi BLOB. Se l'app per le funzioni è in esecuzione, i BLOB vengono elaborati più rapidamente. Per evitare questo ritardo iniziale, usare un normale piano di servizio app con l'opzione Always On abilitata o usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio in coda che contiene il nome del BLOB. 
+Quando si esegue un piano a consumo, se un'app per le funzioni è inattiva si possono verificare fino a 10 minuti di ritardo per l'elaborazione di nuovi BLOB. Se l'app per le funzioni è in esecuzione, i BLOB vengono elaborati più rapidamente. Per evitare questo ritardo iniziale, usare un normale piano di servizio app con l'opzione Always On abilitata o usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio in coda che contiene il nome del BLOB. 
 
 Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Funzioni di Azure usa internamente Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione, ad esempio gli account di archiviazione solo BLOB (tra cui Archiviazione Premium) e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle. Tali account vengono filtrati dal pannello Account di archiviazione quando si crea un'app per le funzioni.
 

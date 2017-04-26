@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 4676e0da4309b1460e471f94946161fa22d46226
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creare un dashboard Customer Insights in tempo reale con App per la logica di Azure e Funzioni di Azure
@@ -35,17 +35,17 @@ Funzioni consente il calcolo senza server nel cloud.  In questo scenario si user
 
 L'intera soluzione può essere [compilata in Visual Studio](logic-apps-deploy-from-vs.md) e [distribuita come parte di un modello di risorsa](logic-apps-create-deploy-template.md).  [Su Channel 9](http://aka.ms/logicappsdemo) è disponibile anche una procedura dettagliata video dello scenario.
 
-## <a name="building-the-logic-app-to-trigger-on-customer-data"></a>Compilazione dell'app per la logica da attivare con i dati del cliente
+## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Compilare l'app per la logica da attivare sui dati del cliente
 
 Dopo avere [creato un'app per la logica](logic-apps-create-a-logic-app.md) in Visual Studio o nel portale di Azure:
 
 1. Aggiungere un trigger per **On New Tweets** (All'arrivo di nuovi tweet) da Twitter
-1. Configurare il trigger per l'ascolto di tweet correlati a una parola chiave o a un hashtag.
+2. Configurare il trigger per l'ascolto di tweet correlati a una parola chiave o a un hashtag.
 
-> [!NOTE]
-> La proprietà recurrence nel trigger determinerà con quale frequenza l'app per la logica deve verificare la presenza di nuovi elementi nei trigger basati sul polling
+   > [!NOTE]
+   > La proprietà recurrence nel trigger determinerà con quale frequenza l'app per la logica deve verificare la presenza di nuovi elementi nei trigger basati sul polling
 
-![Esempio di trigger di Twitter][1]
+   ![Esempio di trigger di Twitter][1]
 
 Questa app ora verrà attivata all'arrivo di tutti i nuovi tweet.  Sarà quindi possibile esaminare i dati dei tweet per comprendere meglio il sentiment espresso.  A questo scopo vengono usati i [Servizi cognitivi di Azure](https://azure.microsoft.com/services/cognitive-services/) per rilevare il sentiment del testo.
 
@@ -99,7 +99,7 @@ Una distribuzione, dopo essere stata sviluppata, può essere acquisita e distrib
 
 Funzioni di Azure può anche essere incorporato nel modello di distribuzione, in modo che l'intera soluzione con tutte le dipendenze possa essere gestita come un singolo modello.  Per un esempio di modello di distribuzione delle funzioni, vedere il [repository di modelli di guide introduttive di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="whats-next"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Vedere altri esempi e scenari per App per la logica di Azure](logic-apps-examples-and-scenarios.md)
 * [Guardare un video con la procedura dettagliata sulla creazione di questa soluzione end-to-end](http://aka.ms/logicappsdemo)

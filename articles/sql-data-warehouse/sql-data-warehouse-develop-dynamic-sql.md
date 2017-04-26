@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6da1efc35b624e0b06693037b4f91d71f0f40eb4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +35,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Se la stringa è corta, è possibile usare [sp_executesql][sp_executesql] come di consueto.
+Se la stringa è breve, è possibile usare [sp_executesql][sp_executesql] come di consueto.
 
 > [!NOTE]
 > Le istruzioni eseguite come SQL dinamico saranno ancora soggette a tutte le regole di convalida TSQL.
@@ -41,20 +43,15 @@ Se la stringa è corta, è possibile usare [sp_executesql][sp_executesql] come d
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri suggerimenti sullo sviluppo, vedere la [panoramica sullo sviluppo][panoramica sullo sviluppo].
+Per altri suggerimenti sullo sviluppo, vedere la [panoramica dello sviluppo][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

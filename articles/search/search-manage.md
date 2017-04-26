@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/05/2017
+ms.date: 04/05/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e0de3b12b98bf9bf361607dac4b087e4eacabf1e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: ab914153df01c6d8135732bc772b78066e14d1d1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -26,9 +26,8 @@ ms.lasthandoff: 03/06/2017
 > [!div class="op_single_selector"]
 > * [Portale](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](search-get-started-management-api.md)
-> 
-> 
+> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestito usato per offrire un'esperienza di ricerca avanzata nelle app personalizzate. Questo articolo illustra le attività di *amministrazione del servizio* che è possibile eseguire nel [portale di Azure](https://portal.azure.com) per un servizio di ricerca di cui si è già effettuato il provisining. *Service administration* è leggera e limitata alle attività seguenti:
 
@@ -74,7 +73,7 @@ Ricerca di Azure non espone i file di log di un singolo servizio né tramite il 
 In termini di informazioni generali sul servizio, è possibile ottenere informazioni nei modi seguenti:
 
 * Nel portale tramite notifiche, proprietà e messaggi di stato nel dashboard del servizio.
-* Uso di [PowerShell](search-manage-powershell.md) o dell'interfaccia [API REST di gestione](https://msdn.microsoft.com/library/azure/dn832684.aspx) per [ottenere le proprietà del servizio](https://msdn.microsoft.com/library/azure/dn832694.aspx) oppure lo stato nell'uso della risorsa dell'indice.
+* Uso di [PowerShell](search-manage-powershell.md) o dell'interfaccia [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) per [ottenere le proprietà del servizio](https://docs.microsoft.com/rest/api/searchmanagement/services) oppure lo stato nell'uso della risorsa dell'indice.
 * Tramite l' [analisi del traffico di ricerca](search-traffic-analytics.md), come indicato prima.
 
 <a id="manage-keys"></a>
@@ -116,8 +115,8 @@ Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visual
 
 Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per altre informazioni, vedere [Limiti del servizio di ricerca](search-limits-quotas-capacity.md). 
 
-* [Ottenere le statistiche di un indice](http://msdn.microsoft.com/library/dn798942.aspx)
-* [Conteggio documenti](http://msdn.microsoft.com/library/dn798924.aspx)
+* [Ottenere le statistiche di un indice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Conteggio documenti](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 > [!NOTE]
 > Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un conteggio documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite. 
@@ -170,7 +169,7 @@ A differenza della rimozione di repliche, che non richiede operazioni aggiuntive
 
 Non è disponibile un metodo di rilevamento che indichi quante sottopartizioni di indice sono archiviate su una partizione specifica. Ogni partizione fornisce approssimativamente 25 GB di spazio di archiviazione, pertanto sarà necessario ridurre l'archiviazione a una dimensione che possa essere contenuta nel numero disponibile di partizioni. Se si vuole tornare a una partizione, questa dovrà contenere tutte e 12 le sottopartizioni.
 
-Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice](http://msdn.microsoft.com/library/dn798942.aspx)) per verificare quanta archiviazione è stata effettivamente usata. 
+Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) per verificare quanta archiviazione è stata effettivamente usata. 
 
 <a id="advanced-deployment"></a>
 
@@ -187,7 +186,6 @@ Questo video di 30 minuti esamina le procedure consigliate per gli scenari di di
 Dopo avere compreso i tipi di operazioni relative all'amministrazione del servizio, tenere in considerazione i diversi approcci per la gestione dei servizi:
 
 * [PowerShell](search-manage-powershell.md)
-* [API REST di gestione](search-get-started-management-api.md)
 
 Se non è già stato fatto, vedere anche l' [articolo su prestazioni e ottimizzazione](search-performance-optimization.md)e guardare il video citato nella sezione precedente per informazioni più approfondite e dimostrazioni delle tecniche consigliate.
 

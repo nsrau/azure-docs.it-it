@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 94c4929c84a671eca210a0e6b53eda5019cc0951
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: f8d441a4945ff7b33da73d683749a9a581bc80ca
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -91,7 +91,7 @@ Consentono di lavorare con le risorse di Azure, soprattutto Servizi cloud e Macc
 ### <a id="wte"></a>Strumenti per il servizio App di Microsoft per Visual Studio
 Consente di eseguire le attività seguenti con Siti Web di Azure:
 
-* [Pubblicare progetti Web in Siti Web di Azure](app-service-web/web-sites-dotnet-get-started.md).
+* [Pubblicare progetti Web nel servizio app di Azure](app-service-web/app-service-web-get-started-dotnet.md).
 * [Pubblicare progetti di applicazioni console in Azure WebJobs](app-service-web/websites-dotnet-deploy-webjobs.md).
 * [Creare risorse di Siti Web di Azure e di database SQL durante la creazione o la pubblicazione di un nuovo progetto Web](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 * [Creare script di distribuzione di PowerShell durante la creazione di nuovi siti Web](http://msdn.microsoft.com/library/dn642480.aspx).

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: bd503bb141b5686f149c5fb46ba069db070d5fae
-ms.openlocfilehash: 99dbb3deefb066b619b839aa709fe5e9b804eb27
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a6ca819329de130257ec67e63a53f87cbca9f39b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +31,7 @@ Al termine dell'esercitazione, gli utenti di Azure AD assegnati a NetDocuments s
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
 1. Abilitazione dell'integrazione dell'applicazione per NetDocuments
-2. Configurazione dell'accesso Single Sign-On
+2. Configurazione dell'accesso Single Sign-On (SSO)
 3. Configurazione del provisioning utente
 4. Assegnazione degli utenti
 
@@ -61,13 +62,13 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
    
    ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
    
-## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a NetDocuments tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.  
 
-La configurazione dell'accesso Single Sign-On per NetDocuments richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
+Per configurare l'accesso SSO per NetDocuments è necessario recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
 
-**Per configurare l'accesso Single Sign-On, seguire questa procedura:**
+**Per configurare l'accesso SSO, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **NetDocuments** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
@@ -82,10 +83,11 @@ La configurazione dell'accesso Single Sign-On per NetDocuments richiede di recup
    1. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione NetDocuments, ad esempio "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*".
    2. Nella casella di testo **URL di risposta NetDocuments** digitare lo stesso valore immesso nella casella di testo **URL di accesso**.  
       
-      > [!NOTE]
-      > È possibile trovare il valore corretto alla fine della finestra di dialogo **Identità federativa** (vedere la schermata per il passaggio 9).
-      > 
-      
+      >[!NOTE]
+      >È possibile trovare il valore corretto alla fine della finestra di dialogo **Identità federativa** (vedere la schermata per il passaggio 9).
+      >
+      >
+     
    3. Fare clic su **Avanti**.
 4. Nella pagina **Configura accesso Single Sign-On in NetDocuments** fare clic su **Scarica certificato** per scaricare il certificato e salvare il file del certificato localmente nel computer.
    
@@ -109,7 +111,7 @@ La configurazione dell'accesso Single Sign-On per NetDocuments richiede di recup
     
     ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configurare l'accesso Single Sign-On")
     
-## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configure-user-provisioning"></a>Configura provisioning utenti
 
 Per consentire agli utenti di Azure AD di accedere a NetDocuments, è necessario eseguirne il provisioning in NetDocuments. Nel caso di NetDocuments, il provisioning è un’attività manuale.
 
@@ -126,33 +128,32 @@ Per consentire agli utenti di Azure AD di accedere a NetDocuments, è necessario
    
    ![Indirizzo di posta elettronica](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Indirizzo di posta elettronica")
    
-   > [!NOTE]
-   > Il titolare dell'account di Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
+   >[!NOTE]
+   >Il titolare dell'account di Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
    > 
    > 
 
-> [!NOTE]
-> È possibile utilizzare qualsiasi altro strumento di creazione di account utente di NetDocuments o le API fornite da NetDocuments per eseguire il provisioning degli account utente di AAD.
-> 
+>[!NOTE]
+>È possibile utilizzare qualsiasi altro strumento di creazione di account utente di NetDocuments o le API fornite da NetDocuments per eseguire il provisioning degli account utente di AAD.
+>
+>
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 **Per assegnare gli utenti a NetDocuments, seguire questa procedura:**
 
 1. Nel portale di Azure classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **NetDocuments ** fare clic su **Assegna utenti**.
+2. Nella pagina di integrazione dell'applicazione **NetDocuments** fare clic su **Assegna utenti**.
    
    ![Assegnare utenti](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Assegnare utenti")
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
    ![Sì](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Risorse aggiuntive
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
