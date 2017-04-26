@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
-ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -62,7 +63,7 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **rete CDN Standard di A
 | [Eliminazione veloce](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Precaricamento Asset](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Analisi del core](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [Supporto HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** | | |
+| [Supporto HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Report HTTP avanzati](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Statistiche in tempo reale](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Avvisi in tempo reale](cdn-real-time-alerts.md) | | |**&#x2713;** |
@@ -88,10 +89,5 @@ Per informazioni sul funzionamento della rete CDN, guardare il [video della sess
 Informazioni su come automatizzare la rete CDN di Azure con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
 
 Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN)](https://azure.microsoft.com/pricing/details/cdn/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

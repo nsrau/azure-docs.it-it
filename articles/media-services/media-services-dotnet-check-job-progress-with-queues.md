@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0ddac6ef30439e6bea04d63c41662bc49309de2c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: a9bb00c6f0a691ac3a67d19ada4341d8d94876c1
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -36,7 +36,7 @@ Quando si sviluppano applicazioni di Servizi multimediali che usano l'archiviazi
 
 * Il servizio di archiviazione code non garantisce un recapito ordinato dei messaggi di tipo FIFO (First-In-First-Out). Per altre informazioni, vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Archiviazione code non è un servizio di push. È necessario eseguire il polling della coda.
-* È possibile disporre di un qualsiasi numero di code. Per altre informazioni, vedere [API REST del servizio di accodamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
+* È possibile disporre di un qualsiasi numero di code. Per altre informazioni, vedere [API REST del servizio di accodamento](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
 * Archiviazione code presenta alcune limitazioni e specifiche da tenere presenti. Queste sono descritte in [Analogie e differenze tra le code di Azure e le code del bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### <a name="code-example"></a>Esempio di codice

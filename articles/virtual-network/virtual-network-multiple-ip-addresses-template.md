@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 262acf8150b5065c3b7b79494856b2bdadd4e4ba
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -57,7 +57,7 @@ La distribuzione di un modello consente di creare rapidamente e in modo coerente
 
 Tutte le risorse distribuite dal modello sono configurate con diverse impostazioni predefinite. È possibile visualizzare queste impostazioni tramite uno dei metodi seguenti:
 
-- **Visualizzare il modello su GitHub:**. se si ha familiarità con i modelli, è possibile visualizzare le impostazioni all'interno del [modello](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json). 
+- **Visualizzare il modello su GitHub:**. se si ha familiarità con i modelli, è possibile visualizzare le impostazioni all'interno del [modello](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json).
 - **Visualizzare le impostazioni dopo la distribuzione:** se non si ha familiarità con i modelli, è possibile distribuire il modello usando la procedura in una delle sezioni seguenti e quindi visualizzare le impostazioni dopo la distribuzione.
 
 È possibile usare il portale di Azure, PowerShell o l'interfaccia della riga di comando (CLI) di Azure per distribuire il modello. Tutti i metodi producono lo stesso risultato. Per distribuire il modello, completare la procedura in una delle sezioni seguenti:
@@ -77,10 +77,10 @@ Indipendentemente dal metodo scelto, è necessario fornire i valori dei [paramet
 
 Per distribuire il modello tramite Powershell, completare la procedura seguente:
 
-1. Distribuire il modello completando i passaggi indicati nell'articolo [Deploy a template with PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy) (Distribuire un modello con Powershell). L'articolo descrive più opzioni per la distribuzione di un modello. Se si desidera distribuire tramite il `-TemplateUri parameter`, l'URI per questo modello è *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se si desidera distribuire usando il parametro `-TemplateFile`, copiare il contenuto del [file modello](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) da GitHub in un nuovo file nel computer. Modificare il contenuto del modello se necessario. Il modello consente di distribuire le risorse e le impostazioni elencate nella sezione [risorse](#resources) di questo articolo. Per altre informazioni sui modelli e sulle modalità di creazione, leggere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Distribuire il modello completando i passaggi indicati nell'articolo [Deploy a template with PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md) (Distribuire un modello con Powershell). L'articolo descrive più opzioni per la distribuzione di un modello. Se si desidera distribuire tramite il `-TemplateUri parameter`, l'URI per questo modello è *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se si desidera distribuire usando il parametro `-TemplateFile`, copiare il contenuto del [file modello](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) da GitHub in un nuovo file nel computer. Modificare il contenuto del modello se necessario. Il modello consente di distribuire le risorse e le impostazioni elencate nella sezione [risorse](#resources) di questo articolo. Per altre informazioni sui modelli e sulle modalità di creazione, leggere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Indipendentemente dall'opzione scelta per distribuire il modello, è necessario fornire i valori dei parametri elencati nella sezione [parametri](#parameters) di questo articolo. Se si desidera specificare i parametri usando un file dei parametri, copiare il contenuto del [file dei parametri](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) da GitHub in un nuovo file nel computer. Modificare i valori nel file. Usare come valore per il parametro `-TemplateParameterFile` il file che è stato creato.
-    
+
     Per determinare i valori validi per i parametri di OSVersion, ImagePublisher e imageOffer, completare la procedura riportata nell'articolo [Esplorare e selezionare immagini di macchine virtuali Windows](../virtual-machines/windows/cli-ps-findimage.md).
 
     >[!TIP]
@@ -92,10 +92,10 @@ Per distribuire il modello tramite Powershell, completare la procedura seguente:
 
 Per distribuire il modello usando l'interfaccia della riga di comando di Azure 1.0, completare la procedura seguente:
 
-1. Distribuire il modello completando i passaggi indicati nell'articolo [Deploy a template with the Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy) (Distribuire un modello con l'interfaccia della riga di comando di Azure). L'articolo descrive più opzioni per la distribuzione del modello. Se si desidera distribuire usando il `--template-uri` (-f), l'URI per questo modello è *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se si desidera distribuire usando il parametro `--template-file` (-f), copiare il contenuto del [file modello](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) da GitHub in un nuovo file nel computer. Modificare il contenuto del modello se necessario. Il modello consente di distribuire le risorse e le impostazioni elencate nella sezione [risorse](#resources) di questo articolo. Per altre informazioni sui modelli e sulle modalità di creazione, leggere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Distribuire il modello completando i passaggi indicati nell'articolo [Deploy a template with the Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) (Distribuire un modello con l'interfaccia della riga di comando di Azure). L'articolo descrive più opzioni per la distribuzione del modello. Se si desidera distribuire usando il `--template-uri` (-f), l'URI per questo modello è *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se si desidera distribuire usando il parametro `--template-file` (-f), copiare il contenuto del [file modello](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) da GitHub in un nuovo file nel computer. Modificare il contenuto del modello se necessario. Il modello consente di distribuire le risorse e le impostazioni elencate nella sezione [risorse](#resources) di questo articolo. Per altre informazioni sui modelli e sulle modalità di creazione, leggere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Indipendentemente dall'opzione scelta per distribuire il modello, è necessario fornire i valori dei parametri elencati nella sezione [parametri](#parameters) di questo articolo. Se si desidera specificare i parametri usando un file dei parametri, copiare il contenuto del [file dei parametri](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) da GitHub in un nuovo file nel computer. Modificare i valori nel file. Usare come valore per il parametro `--parameters-file` (-e) il file che è stato creato.
-    
+
     Per determinare i valori validi per i parametri di OSVersion, ImagePublisher e imageOffer, completare la procedura riportata nell'articolo [Esplorare e selezionare immagini di macchine virtuali Windows](../virtual-machines/windows/cli-ps-findimage.md).
 
 2. Dopo aver distribuito la VM, connettersi alla VM e aggiungere gli indirizzi IP privati al sistema operativo che si è distribuito completando la procedura riportata nella sezione di questo articolo [Add IP addresses to a VM operating system](#os-config) (Aggiungere indirizzi IP al sistema operativo di una VM). Non aggiungere gli indirizzi IP pubblici al sistema operativo.

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d7a08bb0f4128eb3915658b41843b35613108a98
-ms.openlocfilehash: d544695654ff136ee25856cb4a0309f882057ebb
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 4036c994cb5be68b372a4f244f65a17ce173ecc2
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -214,4 +214,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 * La tabella di capacità per i BLOB contiene due righe aggiunte ogni giorno (se l'utente ha optato per i log): di conseguenza, ogni giorno la dimensione della tabella aumenta di circa 300 byte.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Abilitazione di Registrazione archiviazione e accesso ai dati di log](/rest/api/storageservices/fileservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
+[Abilitazione di Registrazione archiviazione e accesso ai dati di log](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)

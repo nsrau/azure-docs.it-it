@@ -29,7 +29,6 @@
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Log di diagnostica](event-hubs-diagnostic-logs.md)
-### [Autenticazione e autorizzazione](../service-bus-messaging/service-bus-sas.md)
 ### [Guida al protocollo AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
 ### [Librerie di gestione di Hub eventi](event-hubs-management-libraries.md)
