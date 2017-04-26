@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 20f60ccd9108a7473705c2368f28d3152d0dd614
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -88,7 +88,7 @@ Per altre istruzioni sull'installazione di Elasticsearch, vedere la pagina [Inst
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Successivamente è necessario configurare Logstash per la lettura dall'output del file eve.json. Creare un file logstash.conf usando:
+1. Successivamente è necessario configurare Logstash per accedere ai log dei flussi e analizzarli. Creare un file logstash.conf usando:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -156,7 +156,7 @@ Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione u
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Installare il plug-in di input Logstash per l'archiviazione BLOB di Azure
 
-Questo plug-in Logstash consentirà di accedere direttamente ai log dei flussi dall'account di archiviazione designato. Per installare questo plug-in, nella directory di installazione Logstash predefinita (in questo caso /usr/share/logstash/bin) eseguire il comando seguente:
+Questo plug-in Logstash consentirà di accedere direttamente ai log dei flussi dall'account di archiviazione designato. Per installare questo plug-in, nella directory di installazione Logstash predefinita (in questo caso /usr/share/logstash/bin) eseguire il comando:
 
 ```
 logstash-plugin install logstash-input-azureblob
@@ -209,27 +209,27 @@ Il dashboard di esempio offre diverse visualizzazioni dei log dei flussi.
 
 1. Flussi per decisione/direzione nel tempo: grafici di serie temporali che mostrano il numero dei flussi nel periodo di tempo specificato. È possibile modificare l'unità di tempo e l'intervallo di entrambe queste visualizzazioni. Il grafico dei flussi per decisione mostra la proporzione tra le decisioni di consentire e di rifiutare il traffico che sono state prese, mentre quello dei flussi per direzione mostra la proporzione tra traffico in ingresso e in uscita. Questi oggetti visivi consentono di esaminare le tendenze del traffico nel tempo e individuare eventuali picchi o modelli insoliti.
 
-  ![Figura&2;][2]
+  ![Figura 2][2]
 
 1. Flussi per porta di origine/destinazione: grafici a torta che mostrano la suddivisione dei flussi sulle rispettive porte. Questa visualizzazione consente di verificare le porte più usate. Facendo clic su una porta specifica nel grafico a torta, il resto del dashboard viene filtrato in modo da visualizzare i flussi di tale porta.
 
-  ![Figura&3;][3]
+  ![Figura 3][3]
 
 1. Numero di flussi e data e ora del primo log: metriche che mostrano il numero di flussi registrato e la data del primo log acquisito.
 
-  ![Figura&4;][4]
+  ![Figura 4][4]
 
 1. Flussi per gruppo di sicurezza di rete e regola: grafico a barre che mostra la distribuzione dei flussi in ogni gruppo di sicurezza di rete nonché la distribuzione delle regole all'interno di ogni gruppo. Questo grafico consente di determinare il gruppo di sicurezza di rete e le regole che hanno generato la maggiore quantità di traffico.
 
-  ![Figura&5;][5]
+  ![Figura 5][5]
 
 1. 10 principali IP di origine/destinazione: grafici a barre che mostrano i 10 principali indirizzi IP di origine e di destinazione. È possibile modificare i grafici in modo da visualizzare un numero maggiore o minore di indirizzi IP principali. Questi grafici consentono di rilevare gli indirizzi IP più ricorrenti nonché le decisioni di consentire o rifiutare il traffico prese nei confronti di ogni IP.
 
-  ![Figura&6;][6]
+  ![Figura 6][6]
 
 1. Tuple dei flussi: questa tabella mostra le informazioni contenute in ogni tupla dei flussi, nonché il gruppo di sicurezza di rete e la regola corrispondenti.
 
-  ![Figura&7;][7]
+  ![Figura 7][7]
 
 Usando la barra per le query nella parte superiore è possibile filtrare il dashboard in base a qualsiasi parametro dei flussi, come ID sottoscrizione, gruppi di risorse, regola o qualsiasi altra variabile a cui si è interessati. Per altre informazioni su query e filtri di Kibana, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d3f68340592d9032999ecb5cc16ac1fedcce4c33
-ms.openlocfilehash: a483e219c1e730e174baa0ffa8ba471b0724f0da
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9519719a63387cb8c341c72e262c2aeaacc3cd4a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -25,9 +26,9 @@ ms.openlocfilehash: a483e219c1e730e174baa0ffa8ba471b0724f0da
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Gruppi dinamici e Collaborazione B2B di Azure Active Directory
 
 ## <a name="what-are-dynamic-groups"></a>Che cosa sono i gruppi dinamici
-La configurazione dinamica dell'appartenenza a gruppi di sicurezza per Azure Active Directory (Azure AD) è disponibile in anteprima pubblica nel [portale di Azure](https://portal.azure.com). Gli amministratori possono impostare regole per popolare i gruppi creati in Azure Active Directory in base agli attributi utente, ad esempio tipo di utente, reparto o paese. In questo modo i membri possono essere automaticamente aggiunti o rimossi in un gruppo di sicurezza in base alle modifiche apportate agli attributi. Questi gruppi possono essere usati per fornire accesso ad applicazioni o a risorse cloud, come documenti e siti di SharePoint, e per assegnare licenze ai membri. Per altre informazioni sui gruppi dinamici, vedere [Gruppi dedicati in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md).
+La configurazione dinamica dell'appartenenza a gruppi di sicurezza per Azure Active Directory (Azure AD) è disponibile nel [portale di Azure](https://portal.azure.com). Gli amministratori possono impostare regole per popolare i gruppi creati in Azure Active Directory in base agli attributi utente, ad esempio tipo di utente, reparto o paese. In questo modo i membri possono essere automaticamente aggiunti o rimossi in un gruppo di sicurezza in base alle modifiche apportate agli attributi. Questi gruppi possono essere usati per fornire accesso ad applicazioni o a risorse cloud, come documenti e siti di SharePoint, e per assegnare licenze ai membri. Per altre informazioni sui gruppi dinamici, vedere [Gruppi dedicati in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md).
 
-Con una sottoscrizione Premium P1 o P2 di AAD, il portale di Azure ora offre la possibilità di creare regole avanzate per consentire appartenenze dinamiche basate su attributi più complesse per i gruppi in anteprima di Azure Active Directory. Per altre informazioni sulla creazione di regole avanzate, vedere [Uso degli attributi per creare regole avanzate per l'appartenenza al gruppo in anteprima di Azure Active Directory](active-directory-groups-dynamic-membership-azure-portal.md).
+Con una sottoscrizione Premium P1 o P2 di AAD, il portale di Azure offre ora la possibilità di creare regole avanzate per consentire appartenenze dinamiche basate su attributi più complesse per i gruppi di Azure Active Directory. Per altre informazioni sulla creazione di regole avanzate, vedere [Uso degli attributi per creare regole avanzate per l'appartenenza al gruppo in anteprima di Azure Active Directory](active-directory-groups-dynamic-membership-azure-portal.md).
 
 ## <a name="what-are-the-built-in-dynamic-groups"></a>Che cosa sono i gruppi dinamici predefiniti
 Il gruppo dinamico **Tutti gli utenti** consente agli amministratori tenant di creare un gruppo contenente tutti gli utenti nel tenant con un solo clic. Per impostazione predefinita, il gruppo **Tutti gli utenti** include tutti gli utenti della directory, compresi guest e membri.
@@ -54,13 +55,8 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Delegare gli inviti a Collaborazione B2B](active-directory-b2b-delegate-invitations.md)
 * [Codici ed esempi di PowerShell per Collaborazione B2B](active-directory-b2b-code-samples.md)
 * [Configurare app SaaS per Collaborazione B2B](active-directory-b2b-configure-saas-apps.md)
-* [Token utente per Collaborazione B2B](active-directory-b2b-user-token.md)
+* [Token utente in Collaborazione B2B](active-directory-b2b-user-token.md)
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

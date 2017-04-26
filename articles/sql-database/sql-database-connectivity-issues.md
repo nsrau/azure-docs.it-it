@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: a6489fd5ff5e60bc3a1c06485d330556250c21cd
-ms.openlocfilehash: eddbdda847d7d0cc12f3e1c6128ce76d15f6f39f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -167,7 +167,7 @@ La stringa di connessione necessaria per la connessione al database SQL di Azure
 
 Se si dimentica di configurare l'indirizzo IP, il programma restituirà un messaggio di errore che indica l'indirizzo IP necessario.
 
-[!INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+[!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md)
 
@@ -186,7 +186,7 @@ Ad esempio, se il programma client è ospitato in un computer Windows, Windows F
 6. &gt; Azioni
 7. &gt; Nuova regola
 
-Se il programma client è ospitato in una macchina virtuale (VM) di Azure, vedere <br/>[Porte superiori alla 1433 per ADO.NET 4.5 e il database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Se il programma client è ospitato in una macchina virtuale (VM) di Azure, vedere <br/>[Porte superiori a 1433 per ADO.NET 4.5 e il database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 Per informazioni generali sulla configurazione di porte e indirizzi IP, vedere [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
 
@@ -335,7 +335,7 @@ Logica di ripetizione dei tentativi per la gestione degli errori temporanei è u
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Classi di EntLib60 per errori temporanei e ripetizione dei tentativi
 Le classi seguenti di EntLib60 sono particolarmente utili per la logica di ripetizione dei tentativi. Tutte queste classi sono disponibili nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** o nei livelli sottostanti:
 
-*Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**o nei livelli sottostanti:*
+*Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
 
 * **RetryPolicy** 
   

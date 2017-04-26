@@ -12,21 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f0d7faede5df839c699f562b3aa21b8bb9836a3b
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d1c328ec609cc27a42fb6b30897d7f0b466134e7
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Usare Analisi di flusso di Azure con SQL Data Warehouse
-Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per informazioni di base, vedere [Introduzione ad Analisi dei flussi di Azure][Introduzione ad Analisi dei flussi di Azure]. È possibile apprendere come creare una soluzione end-to-end con Analisi di flusso seguendo l'esercitazione [Introduzione all’uso di Analisi di flusso di Azure][Introduzione all’uso di Analisi di flusso di Azure].
+Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per informazioni di base, vedere [Introduzione ad Analisi di flusso di Azure][Introduction to Azure Stream Analytics]. È possibile apprendere come creare una soluzione end-to-end con Analisi di flusso seguendo l'esercitazione [Introduzione all'uso di Analisi di flusso di Azure][Get started using Azure Stream Analytics].
 
 In questo articolo si apprenderà come usare il database di Azure SQL Data Warehouse come un sink di output per i processi di Analisi di flusso.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Innanzitutto, eseguire i passaggi seguenti nell'esercitazione [Introduzione all’uso di Analisi di flusso di Azure][Introduzione all’uso di Analisi di flusso di Azure].  
+Eseguire prima di tutto questa procedura nell'esercitazione [Introduzione all'uso di Analisi di flusso di Azure][Get started using Azure Stream Analytics].  
 
 1. Creare un input dell'hub eventi
 2. Configurare e avviare l'applicazione di generazione di eventi
@@ -70,9 +72,9 @@ Fare clic sul pulsante con il segno di spunta per aggiungere l'output del proces
 Quando la connessione al database riesce, verrà visualizzata una notifica nella parte inferiore del portale. È possibile scegliere Test connessione nella parte inferiore per testare la connessione al database.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQL Data Warehouse][Panoramica dell'integrazione di SQL Data Warehouse].
+Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQL Data Warehouse][SQL Data Warehouse integration overview].
 
-Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse].
+Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
@@ -83,18 +85,13 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Article references-->
 
-[Introduzione ad Analisi dei flussi di Azure]: ../stream-analytics/stream-analytics-introduction.md
-[Introduzione all’uso di Analisi di flusso di Azure]: ../stream-analytics/stream-analytics-get-started.md
-[Panoramica sullo sviluppo per SQL Data Warehouse]:  ./sql-data-warehouse-overview-develop.md
-[Panoramica dell'integrazione di SQL Data Warehouse]:  ./sql-data-warehouse-overview-integrate.md
+[Introduction to Azure Stream Analytics]: ../stream-analytics/stream-analytics-introduction.md
+[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Documentazione di Analisi di flusso di Azure]: http://azure.microsoft.com/documentation/services/stream-analytics/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 

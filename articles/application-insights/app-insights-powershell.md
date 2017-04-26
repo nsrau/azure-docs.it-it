@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 04/02/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0ca485599d159fd4e7e001b68e4d4b41b6b2043f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e1ceaf7baef021f97f70a6b1a5203e178db613db
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -173,6 +173,16 @@ Creare un nuovo file con estensione .json - definirlo `template1.json` in questo
 
 È possibile aggiungere altri parametri le cui descrizioni sono disponibili nella sezione del modello dedicata ai parametri.
 
+## <a name="to-get-the-instrumentation-key"></a>Per impostare la chiave di strumentazione
+Dopo la creazione di una risorsa applicazione, è necessaria la chiave di strumentazione: 
+
+```PS
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>"
+    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $ikey = $details.Properties.InstrumentationKey
+```
+
+
 <a id="price"></a>
 ## <a name="set-the-price-plan"></a>Impostare il piano tariffario
 
@@ -193,17 +203,11 @@ Per creare una risorsa app con il piano tariffario Enterprise, usando il modello
 |2|Enterprise|
 
 * Se si intende usare solo il piano tariffario Basic predefinito, è possibile omettere la risorsa CurrentBillingFeatures dal modello.
+* Se si vuole modificare il piano tariffario dopo la creazione della risorsa dei componenti, è possibile usare un modello non contenente la risorsa "microsoft.insights/components". Omettere anche il nodo `dependsOn` nella risorsa della fatturazione. 
+
+Per verificare il piano tariffario aggiornato, esaminare il pannello "Funzionalità + prezzi" nel browser. **Aggiornare la visualizzazione nel browser** per assicurarsi che venga visualizzato lo stato più recente.
 
 
-## <a name="to-get-the-instrumentation-key"></a>Per impostare la chiave di strumentazione
-Dopo la creazione di una risorsa dell'applicazione, è necessaria la chiave di strumentazione: 
-
-```PS
-
-    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
-
-    $resource.Properties.InstrumentationKey
-```
 
 ## <a name="add-a-metric-alert"></a>Aggiungere un avviso per la metrica
 

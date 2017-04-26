@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
-ms.openlocfilehash: 5c595bd2175f1cbc650bd1a757eeacc80cf39e23
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 407d50afe3470f5a9e84026eaa2dcccea4d06641
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -45,7 +46,7 @@ Per ottenere l'URL clone del repository GitHub e il token di accesso personale, 
 4. Selezionare l'immagine del profilo nell'angolo superiore destro di GitHub e scegliere **Impostazioni**.
 5. Nel menu **Impostazioni personali** a sinistra selezionare **Token di accesso personali**.
 6. Selezionare **Genera nuovo token**.
-7. Nella pagina **Nuovo token di accesso personale** immettere una **Descrizione del token**, accettare le voci predefinite in **Seleziona ambiti** e quindi scegliere **Genera token**.
+7. Nella pagina relativa al **nuovo token di accesso personale** immettere una **descrizione del token**. Se si tratta di un repository pubblico, accettare le voci predefinite in **Selezione ambiti**. In caso contrario, selezionare l'ambito del **repository**. Quindi scegliere **Genera token**. [Altre informazioni sugli ambiti OAuth in GitHub](https://developer.github.com/v3/oauth/#scopes).
 8. Salvare il token generato, poiché sarà necessario successivamente.
 9. A questo punto, è possibile chiudere GitHub.   
 10. Passare alla sezione [Connettere il lab al repository di elementi](#connect-your-lab-to-the-artifact-repository) .
@@ -95,10 +96,5 @@ Per ottenere l'URL clone del repository di Visual Studio Team Services e il toke
 ## <a name="related-blog-posts"></a>Post di blog correlati
 * [How to troubleshoot failing Artifacts in AzureDevTestLabs (Come risolvere gli errori degli elementi in Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
 * [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Aggiungere una macchina virtuale a un dominio di AD esistente usando un modello ARM in Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

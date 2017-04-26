@@ -16,20 +16,21 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: af2dde245fdef2984465f0c8447b558a2c770618
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4c6b70d793a7d734f5a29139e1f0b91f0d41e73a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configurare Intel NUC come gateway IoT di Azure
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ## <a name="what-you-will-do"></a>Contenuto dell'esercitazione
 
 - Configurare Intel NUC come gateway IoT di Azure.
 - Installare il pacchetto Azure IoT Gateway SDK in Intel NUC.
 - Eseguire un'applicazione di esempio "hello_world" in Intel NUC per verificare la funzionalità del gateway.
-    
+
   > In caso di problemi, cercare le soluzioni nella pagina sulla [risoluzione dei problemi](iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Contenuto dell'esercitazione
@@ -97,9 +98,12 @@ Per installare il pacchetto, seguire questa procedura.
 1. Aggiungere il repository cloud IoT eseguendo questi comandi nella finestra del terminale:
 
    ```bash
-   rpm --import http://iotdk.intel.com/misc/iot_pub.key
+   rpm --import https://iotdk.intel.com/misc/iot_pub2.key
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
+   smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
    ```
+
+   > Digitare "y", quando viene richiesto se includere questo canale.
 
    Il comando `rpm` consente di importare la chiave rpm. Il comando `smart channel` consente di aggiungere il canale rpm a Smart Package Manager. Prima dell'esecuzione del comando `smart update`, viene visualizzato un output come quello seguente.
 
@@ -119,14 +123,14 @@ Per installare il pacchetto, seguire questa procedura.
 
    `packagegroup-cloud-azure` è il nome del pacchetto. Il comando `smart install` consente di installare il pacchetto.
 
-
     > Eseguire il comando seguente se viene visualizzato l'errore "public key not available" (chiave pubblica non disponibile)
 
     ```bash
     smart config --set rpm-check-signatures=false
     smart install packagegroup-cloud-azure -y
     ```
-   
+    > Riavviare Intel NUC se viene visualizzato l'errore: "no package provides util-linux-dev" (nessun pacchetto fornisce util-linux-dev)
+
    Dopo l'installazione del pacchetto, Intel NUC è pronto per funzionare come gateway.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Eseguire l'applicazione di esempio "hello_world" di Azure IoT Gateway SDK
@@ -163,5 +167,6 @@ In caso di problemi, cercare le soluzioni nella pagina sulla [risoluzione dei pr
 Congratulazioni. La configurazione di Intel NUC come gateway è completata. È ora possibile passare alla lezione successiva per configurare il computer host, creare un hub IoT di Azure e registrare il dispositivo logico dell'hub IoT di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Preparare il computer host e l'hub IoT di Azure](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+[Use an IoT gateway to connect a device to Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md) (Usare un gateway IoT per connettere un dispositivo all'hub IoT di Azure)
+
 

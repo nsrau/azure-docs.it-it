@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/30/2017
+ms.date: 04/05/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 253c504fa433c7ca37c0065ebf01d13dafc76231
-ms.openlocfilehash: 303d6768611fbe21ecf5a72a9e071436ad8b9cc9
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: dbf4b04ad92d9339b15d7f247b947dd58b17daa5
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Backup automatico v2 per macchine virtuali SQL Server 2016 in Azure (Resource Manager)
 
-Backup automatico v2 configura automaticamente il [backup gestito in Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) per tutti i database nuovi ed esistenti in una macchina virtuale di Azure con SQL Server 2016 Standard, Enterprise o Developer in esecuzione. In questo modo è possibile configurare i backup periodici del database che utilizzano l'archiviazione BLOB di Azure durevole. Il backup automatico v2 dipende dall'[estensione dell'agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+Backup automatico v2 configura automaticamente il [backup gestito in Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) per tutti i database nuovi ed esistenti in una macchina virtuale di Azure con SQL Server 2016 Standard, Enterprise o Developer in esecuzione. In questo modo è possibile configurare i backup periodici del database che utilizzano l'archiviazione BLOB di Azure durevole. Il backup automatico v2 dipende dall'[estensione SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -47,16 +48,16 @@ Per usare il backup automatico v2, esaminare i seguenti prerequisiti:
 **Configurazione del database**:
 
 - I database di destinazione devono usare il modello di recupero con registrazione completa.
-- I database di sistema non devono necessariamente usare un modello di ripristino completo. Tuttavia, se è necessario effettuare il backup dei log per Model o MSDB, deve essere usato il modello di ripristino completo.
+- I database di sistema non devono necessariamente usare un modello di recupero con registrazione completa. Tuttavia, se è necessario effettuare il backup dei log per Model o MSDB, deve essere usato il modello di recupero con registrazione completa.
 
-Per altre informazioni sull'impatto del modello di ripristino completo sui backup, vedere [Backup con il modello di ripristino completo](https://technet.microsoft.com/library/ms190217.aspx).
+Per altre informazioni sull'impatto del modello di recupero con registrazione completa sui backup, vedere [Backup con il modello di recupero con registrazione completa](https://technet.microsoft.com/library/ms190217.aspx).
 
 **Modello di distribuzione di Azure**:
 
 - Gestione risorse
 
 > [!NOTE]
-> Il backup automatico si basa sull'**estensione dell'agente IaaS di SQL Server**. Per impostazione predefinita, le attuali immagini della raccolta di macchine virtuali di SQL aggiungono questa estensione. Per altre informazioni, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+> Il backup automatico si basa sull'**estensione SQL Server IaaS Agent**. Per impostazione predefinita, le attuali immagini della raccolta di macchine virtuali di SQL aggiungono questa estensione. Per altre informazioni, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Impostazioni
 Nella seguente tabella sono descritte le opzioni che possono essere configurate per il backup automatico v2. I passaggi di configurazione effettivi variano a seconda che venga usato il portale di Azure o i comandi di Windows PowerShell di Azure.
@@ -67,7 +68,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 | --- | --- | --- |
 | **Backup automatico** | Enable/Disable (disabilitato) | Abilita o disabilita il backup automatico per una macchina virtuale di Azure in cui viene eseguito SQL Server 2016 Standard o Enterprise. |
 | **Periodo di conservazione** | 1-30 giorni (30 giorni) | Numero di giorni di conservazione dei backup. |
-| **Storage Account** | Account di archiviazione di Azure | Account di archiviazione di Azure da usare per archiviare i file del backup automatico nell'archiviazione BLOB. In questa posizione viene creato un contenitore per archiviare tutti i file di backup. La convenzione di denominazione dei file di backup include la data, l'ora e il nome del computer. |
+| **Storage Account** | Account di archiviazione di Azure | Account di archiviazione di Azure da usare per archiviare i file del backup automatico nell'archiviazione BLOB. In questa posizione viene creato un contenitore per archiviare tutti i file di backup. La convenzione di denominazione dei file di backup include la data, l'ora e il GUID database. |
 | **Crittografia** |Enable/Disable (disabilitato) | Abilita o disabilita la crittografia. Quando è abilitata la crittografia, i certificati usati per ripristinare il backup sono contenuti nell'account di archiviazione specificato, nello stesso contenitore **automaticbackup** con la stessa convenzione di denominazione. Se la password viene modificata, viene generato un nuovo certificato con tale password, ma il certificato precedente viene mantenuto per ripristinare i backup precedenti. |
 | **Password** |Testo della password | Password per le chiavi di crittografia. Questa impostazione è necessaria solo se la crittografia è abilitata. Per ripristinare un backup crittografato, è necessario disporre della password corretta e del certificato correlato usato al momento dell'esecuzione del backup. |
 
@@ -75,12 +76,12 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 | Impostazione | Intervallo (impostazione predefinita) | Descrizione |
 | --- | --- | --- |
-| **Backup del database di sistema** | Enable/Disable (disabilitato) | Quando abilitata, questa funzionalità eseguirà inoltre il backup dei database di sistema: Master, MSDB e Model. Per i database MSDB e Model, verificare che siano in modalità di ripristino completo se si desidera eseguire il backup dei log. Non vengono mai eseguiti backup di log per Master, né backup di alcun tipo per TempDB. |
-| **Pianificazione dei backup** | Manual/Automated (Automated) (Manuale/Automatizzato - Automatizzato) | Per impostazione predefinita, la pianificazione del backup verrà determinata automaticamente in base alla crescita dei log. Una pianificazione manuale del backup consente all'utente di specificare l'intervallo di tempo per i backup. In questo caso, i backup avranno luogo unicamente con la frequenza e nell’intervallo di tempo specificati per la giornata in questione. |
-| **Frequenza di backup completi** | Giornaliera/settimanale | Frequenza dei backup completi. In entrambi i casi, i backup completi inizieranno nell’intervallo di tempo pianificato successivo. Quando si seleziona la frequenza settimanale, i backup potrebbero durare più giorni fino ad aver incluso tutti i database. |
-| **Ora di inizio dei backup completi** | 00:00 – 23:00 (01:00) | Ora di inizio di un determinato giorno in cui possono avere luogo i backup completi. |
-| **Intervallo di tempo del backup completo** | 1-23 ore (1 ora) | Durata dell'intervallo di tempo di un determinato giorno in cui possono avere luogo i backup completi. |
-| **Frequenza di backup dei log** | 5-60 minuti (60 minuti) | Frequenza dei backup dei log. |
+| **Backup dei database di sistema** | Enable/Disable (disabilitato) | Quando abilitata, questa funzionalità eseguirà inoltre il backup dei database di sistema: Master, MSDB e Model. Per i database MSDB e Model, verificare che siano in modalità di ripristino completo se si desidera eseguire il backup dei log. Non vengono mai eseguiti backup di log per Master, né backup di alcun tipo per TempDB. |
+| **Pianificazione backup** | Manual/Automated (Automated) (Manuale/Automatizzato - Automatizzato) | Per impostazione predefinita, la pianificazione del backup verrà determinata automaticamente in base all0aumento delle dimensioni dei log. Una pianificazione manuale del backup consente all'utente di specificare l'intervallo di tempo per i backup. In questo caso, i backup verranno eseguiti unicamente con la frequenza e nell'intervallo di tempo specificati per il giorno in questione. |
+| **Frequenza backup completo** | Giornaliera/settimanale | Frequenza dei backup completi. In entrambi i casi, i backup completi inizieranno nell'intervallo di tempo pianificato successivo. Quando si seleziona la frequenza settimanale, i backup potrebbero durare più giorni fino ad aver incluso tutti i database. |
+| **Ora di inizio backup completo** | 00:00 – 23:00 (01:00) | Ora di inizio di un determinato giorno in cui possono avere luogo i backup completi. |
+| **Intervallo di tempo per il backup completo** | 1-23 ore (1 ora) | Intervallo di tempo di un determinato giorno in cui possono avere luogo i backup completi. |
+| **Frequenza di backup del log** | 5-60 minuti (60 minuti) | Frequenza dei backup dei log. |
 
 ## <a name="understanding-full-backup-frequency"></a>Informazioni sulla frequenza dei backup completi
 È importante comprendere la differenza tra i backup completi giornalieri e settimanali. Per farlo, verranno illustrati due scenari di esempio.
@@ -90,41 +91,41 @@ Si dispone di una macchina virtuale di SQL Server che contiene una serie di data
 
 Il lunedì si abilita Backup automatico v2 con le seguenti impostazioni:
 
-- Pianificazione dei backup: **Manuale**
-- Frequenza di backup completi: **Settimanale**
-- Ora di inizio dei backup completi: **01:00**
+- Pianificazione backup: **Manuale**
+- Frequenza backup completo: **Settimanale**
+- Ora di inizio backup completo: **01:00**
 - Intervallo di tempo dei backup completi: **1 ora**
 
-Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà martedì alle ore 01:00 per 1 ora. In quel momento, Backup automatico inizierà a eseguire il backup dei database, uno alla volta. In questo scenario, data la grandezza dei database, il tempo è sufficiente per eseguire il backup di un paio di essi. Passata l'ora, tuttavia, il backup non è stato eseguito per tutti i database.
+Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà martedì alle ore 01:00 per 1 ora. In quel momento, Backup automatico inizierà a eseguire il backup dei database, uno alla volta. In questo scenario, date le dimensioni dei database, il tempo è sufficiente per eseguire il backup dei primi due. Passata l'ora, tuttavia, il backup non è stato eseguito per tutti i database.
 
-In questo caso, Backup automatico inizierà a eseguire il backup dei database rimanenti il giorno dopo, ovvero mercoledì, sempre alle ore 01:00 per 1 ora. Se anche dopo quell'intervallo di tempo non è stato eseguito il backup di tutti i database, Backup automatico riproverà il giorno successivo, fino a quando non verrà completato per l'appunto i backup di tutti i database.
+In questo caso, Backup automatico inizierà a eseguire il backup dei database rimanenti il giorno dopo, ovvero mercoledì, sempre alle ore 01:00 per 1 ora. Se anche dopo quell'intervallo di tempo non è stato eseguito il backup di tutti i database, Backup automatico riproverà il giorno successivo, fe così via fino a quando non sarà stato eseguito il backup di tutti i database.
 
 Il martedì successivo, Backup automatico comincerà nuovamente il backup di tutti i database.
 
-In questo scenario, Backup automatico opera unicamente nell'intervallo di tempo specificato e viene eseguito il backup di ciascun database una volta alla settimana. Si noti anche come sia possibile distribuire i backup su più giorni nel caso in cui un unico giorno non sia sufficiente per completarli.
+In questo scenario, Backup automatico opera unicamente nell'intervallo di tempo specificato e viene eseguito il backup di ogni database una volta alla settimana. Si noti anche come sia possibile distribuire i backup su più giorni nel caso in cui un unico giorno non sia sufficiente per completarli.
 
 ### <a name="scenario-2-daily-backups"></a>Scenario 2: Backup giornalieri
 Si dispone di una macchina virtuale di SQL Server che contiene una serie di database di dimensioni molto grandi.
 
 Il lunedì si abilita Backup automatico v2 con le seguenti impostazioni:
 
-- Pianificazione dei backup: Manuale
-- Frequenza di backup completi: Giornaliera
-- Ora di inizio dei backup completi: 22:00
+- Pianificazione backup: Manuale
+- Frequenza backup completo: Ogni giorno
+- Ora di inizio backup completo: 22:00
 - Intervallo di tempo dei backup completi: 6 ore
 
 Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà lunedì alle ore 22:00 per 6 ore. In quel momento, Backup automatico inizierà a eseguire il backup dei database, uno alla volta.
 
-Dopodiché, il backup sarà eseguito nuovamente martedì alle 22:00 per 6 ore.
+Il backup sarà quindi eseguito nuovamente martedì alle 22:00 per 6 ore.
 
 > [!IMPORTANT]
-> Quando si pianificano i backup giornalieri, si consiglia di scegliere un intervallo di tempo ampio che sia sufficiente per il backup di tutti i database. Ciò è particolarmente importante nel caso in cui si debba eseguire il backup di una grande quantità di dati.
+> Quando si pianificano i backup giornalieri, si consiglia di scegliere un intervallo di tempo ampio che sia sufficiente per il backup di tutti i database. Questo aspetto è particolarmente importante nel caso in cui si debba eseguire il backup di una grande quantità di dati.
 
 ## <a name="configuration-in-the-portal"></a>Configurazione nel Portale
 È possibile usare il portale di Azure per configurare Backup automatico v2 durante il provisioning o per le macchine virtuali di SQL Server 2016 esistenti. 
 
 ### <a name="new-vms"></a>Nuove VM
-Usare il portale di Azure per configurare Backup automatico v2 quando si crea una nuova macchina virtuale di SQL Server 2016 nel modello di distribuzione di Resource Manager. 
+Usare il portale di Azure per configurare Backup automatico v2 quando si crea una nuova macchina virtuale di SQL Server 2016 nel modello di distribuzione Resource Manager. 
 
 Nel pannello **Impostazioni di SQL Server** selezionare **Backup automatico**. Nella seguente schermata del Portale di Azure viene mostrato il pannello **Backup automatico di SQL** .
 
@@ -149,7 +150,7 @@ Al termine, fare clic sul pulsante **OK** in fondo al pannello **Configurazione 
 Se si intende abilitare il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel portale di Azure potrebbe non essere visualizzata l'informazione relativa alla configurazione del backup automatico. Attendere alcuni minuti per l'installazione e la configurazione dell'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
 
 ## <a name="configuration-with-powershell"></a>Configurazione con PowerShell
-È possibile usare PowerShell per configurare l'applicazione Backup automatico v2. Prima di iniziare, è necessario eseguire queste operazioni:
+È possibile usare PowerShell per configurare Backup automatico v2. Prima di iniziare, è necessario eseguire queste operazioni:
 
 - [Scaricare e installare la versione di Azure PowerShell più recente](http://aka.ms/webpi-azps).
 - Aprire Windows PowerShell e associarlo al proprio account. A tale scopo, seguire la procedura descritta nella sezione per la [configurazione della sottoscrizione](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) dell'argomento sul provisioning.
@@ -166,7 +167,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se l'estensione Agente IaaS di SQL Server è installata, verrà visualizzata come "SqlIaaSAgent" o "SQLIaaSExtension". La proprietà **ProvisioningState** per l'estensione deve inoltre mostrare lo stato "Succeeded". 
 
-Nel caso in cui l'estensione non sia installata o non ne sia stato eseguito li provisioning, è possibile installarla con il comando seguente. Oltre al nome della macchina virtuale e al gruppo di risorse, è necessario anche specificare l'area (**$region**) in cui si trova la macchina virtuale.
+Nel caso in cui l'estensione non sia installata o non ne sia stato eseguito il provisioning, è possibile installarla con il comando seguente. Oltre al nome della macchina virtuale e al gruppo di risorse, è necessario anche specificare l'area (**$region**) in cui si trova la macchina virtuale.
 
 ```powershell
 $region = “EASTUS2”
@@ -199,13 +200,13 @@ FullBackupWindowHours       : 2
 LogBackupFrequency          : 60
 ```
 
-Se l'output indica che **Enable** è impostato su **Falso**, è necessario abilitare il backup automatico. I passaggi per farlo sono identici a quelli per abilitare e configurare Backup automatico. Per altre informazioni, vedere la sezione seguente.
+Se l'output indica che **Enable** è impostato su **False**, è necessario abilitare il backup automatico. I passaggi per farlo sono identici a quelli per abilitare e configurare Backup automatico. Per altre informazioni, vedere la sezione seguente.
 
 > [!NOTE] 
 > Se si verificano le impostazioni subito dopo una modifica, è possibile che vengano visualizzati i valori precedenti. Attendere alcuni minuti e verificare nuovamente le impostazioni per assicurarsi che siano state applicate le modifiche.
 
 ### <a name="configure-automated-backup-v2"></a>Configurare Backup automatico v2
-È possibile usare PowerShell per abilitare Backup automatico e per modificarne configurazione e comportamenti in qualsiasi momento. 
+È possibile usare PowerShell per abilitare Backup automatico e per modificarne configurazione e comportamento in qualsiasi momento. 
 
 In primo luogo, selezionare o creare un account di archiviazione per i file di backup. Lo script seguente consente di selezionare un account di archiviazione o di crearne uno.
 
@@ -221,9 +222,9 @@ If (-Not $storage)
 ```
 
 > [!NOTE]
-> Backup automatico non supporta l'archiviazione di backup nell'archiviazione Premium, ma può ottenere i backup da dischi di macchine virtuale che utilizzano l'archiviazione Premium.
+> Backup automatico non supporta l'archiviazione di backup nell'archiviazione Premium, ma può ottenere i backup da dischi di macchine virtuali che usano l'archiviazione Premium.
 
-A quel punto, eseguire il comando **New-AzureVMSqlServerAutoBackupConfig** per abilitare e configurare le impostazioni di Backup automatico v2 per archiviare i backup nell'account di archiviazione di Azure. In questo esempio, viene impostata su 10 giorni la conservazione dei backup. I backup del database di sistema sono abilitati. I backup completi sono pianificati come settimanali, con un intervallo di tempo di due ore a partire dalle 20:00. I backup del log vengono eseguiti ogni 30 minuti. Il secondo comando, **Set-AzureRmVMSqlServerExtension** aggiorna la macchina virtuale di Azure specificata con queste impostazioni.
+Eseguire quindi il comando **New-AzureVMSqlServerAutoBackupConfig** per abilitare e configurare le impostazioni di Backup automatico v2 per archiviare i backup nell'account di archiviazione di Azure. In questo esempio, viene impostata su 10 giorni la conservazione dei backup. I backup del database di sistema sono abilitati. I backup completi sono pianificati come settimanali, con un intervallo di tempo di due ore a partire dalle 20:00. I backup del log vengono eseguiti ogni 30 minuti. Il secondo comando, **Set-AzureRmVMSqlServerExtension** aggiorna la macchina virtuale di Azure specificata con queste impostazioni.
 
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
@@ -322,10 +323,5 @@ Backup automatico v2 configura backup gestito in Macchine virtuali di Azure. Per
 Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Per altre informazioni sull'esecuzione di SQL Server nelle VM di Azure, vedere [Panoramica di SQL Server nelle macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

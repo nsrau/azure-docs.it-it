@@ -11,33 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 12868706693a076ead3cfc13ce5901bbc56d588b
-ms.openlocfilehash: 961aef8496a7de264c5d57c7a990c69996c1527e
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 66d68ef805a28552c5d161b4761e2aa3052c118c
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Esercitazione: Integrazione di Azure Active Directory con Panorama9
 In questa esercitazione viene illustrata l'integrazione di Azure e Panorama9.  
+
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 * Sottoscrizione di Azure valida
-* Sottoscrizione di Panorama9 abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Panorama9 abilitata per l'accesso Single Sign-On (SSO)
 
 Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Panorama9 saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Panorama9 (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md)
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
 1. Abilitazione dell'integrazione dell'applicazione per Panorama9
-2. Configurazione dell'accesso Single Sign-On
+2. Configurazione dell'accesso Single Sign-On (SSO)
 3. Configurazione del provisioning utente
 4. Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-panorama9-tutorial/IC790016.png "Scenario")
 
-## <a name="enabling-the-application-integration-for-panorama9"></a>Abilitazione dell'integrazione dell'applicazione per Panorama9
+## <a name="enable-the-application-integration-for-panorama9"></a>Abilitare l'integrazione dell'applicazione per Panorama9
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Panorama9.
 
 **Per abilitare l'integrazione dell'applicazione per Panorama9, seguire questa procedura:**
@@ -62,15 +64,15 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
    
    ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
    
-## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Panorama9 tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.  
 
-La configurazione dell'accesso Single Sign-On per Panorama9 richiede di recuperare un valore di identificazione personale da un certificato.  
+Per configurare l'accesso SSO per Panorama9 è necessario recuperare un valore di identificazione personale da un certificato.  
 
 Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
 
-**Per configurare l'accesso Single Sign-On, seguire questa procedura:**
+**Per configurare l'accesso SSO, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Panorama9** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
@@ -107,30 +109,31 @@ Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configurare l'accesso Single Sign-On")
    
-## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configure-user-provisioning"></a>Configura provisioning utenti
 
 Per consentire agli utenti di Azure AD di accedere a Panorama9, è necessario eseguirne il provisioning in Panorama9.  
-Nel caso di Panorama9, il provisioning è un'attività manuale.
+
+* Nel caso di Panorama9, il provisioning è un'attività manuale.
 
 **Per configurare il provisioning utenti, seguire questa procedura:**
 1. Accedere al sito aziendale di **Panorama9** come amministratore.
 2. Nel menu in alto fare clic su **Gestisci**, quindi fare clic su **Utenti**.
    
-   ![Utenti](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Utenti")
+  ![Utenti](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Utenti")
 3. Fare clic su **+**
 4. Nella sezione Dati utente, eseguire la procedura seguente:
    
-   ![Utenti](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Utenti")
-   
-   1. Nella casella di testo **Posta elettronica** digitare l'indirizzo di posta elettronica di un utente valido di Azure Active Directory di cui si desidera eseguire il provisioning.
-   2. Fare clic su **Save**.
+  ![Utenti](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Utenti")
 
-> [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Panorama9 per eseguire il provisioning degli account utente di Azure AD.
-> 
+  1. Nella casella di testo **Posta elettronica** digitare l'indirizzo di posta elettronica di un utente valido di Azure Active Directory di cui si desidera eseguire il provisioning.
+  2. Fare clic su **Save**.
 
+>[!NOTE]
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Panorama9 per eseguire il provisioning degli account utente di Azure AD.
+>
+>
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 **Per assegnare gli utenti a Panorama9, seguire questa procedura:**
@@ -143,11 +146,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    
    ![Sì](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 

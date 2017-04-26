@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8744c5a133738fc60b86e7abd4b0d4b1cb28314c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 532382c7e15ad9b67915e05e7c980a4123036a0f
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-use-azure-remoteapp-with-office-365-user-accounts"></a>Come usare Azure RemoteApp con gli account utente di Office 365
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -44,16 +45,11 @@ La sottoscrizione di Azure verrà modificata dalla directory corrente alla direc
 Seguire le istruzioni descritte in [Modificare il tenant di Azure Active Directory in RemoteApp di Azure](remoteapp-changetenant.md). Prestare particolare attenzione ai seguenti passaggi:
 
 * Passaggio 1: Se è stato distribuito Azure RemoteApp (ARA) nella sottoscrizione, assicurarsi di rimuovere innanzitutto tutti gli account utente di Azure AD da qualsiasi raccolta ARA, prima di qualsiasi altra operazione. In alternativa, è possibile valutare l’eliminazione delle raccolte esistenti.
-* Passaggio 2: Questo è un passaggio critico. È necessario usare un account Microsoft, ad esempio @outlook.com), come amministratore del servizio nella sottoscrizione. Questo avviene perché non è possibile avere account utente dall'Azure AD esistente collegati alla sottoscrizione, altrimenti non sarà possibile procedere allo spostamento in un Azure AD diverso.
+* Passaggio 2: Questo è un passaggio critico. È necessario usare un account Microsoft, ad esempio @outlook.com, come amministratore del servizio nella sottoscrizione. Questo avviene perché non è possibile avere account utente dall'istanza di Azure AD esistente collegati alla sottoscrizione, altrimenti non sarà possibile procedere allo spostamento in un'istanza di Azure AD diversa.
 * Passaggio 4: Quando si aggiunge una directory esistente, il sistema richiederà di accedere con l'account amministratore per tale directory. Assicurarsi di utilizzare l'account amministratore dalla fase 1.
 * Passaggio 5: Modificare la directory padre della sottoscrizione con la directory di Office 365. Il risultato finale deve essere che in Impostazioni -> Sottoscrizioni, nella sottoscrizione è elencata la directory di Office 365. 
   ![Modificare la directory padre della sottoscrizione](./media/remoteapp-o365user/settings.png)
 
 A questo punto la sottoscrizione di Azure RemoteApp è associata a Office 365 Azure AD; è possibile usare gli account utente di Office 365 esistenti con Azure RemoteApp.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

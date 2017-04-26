@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1ac4db6d9404567be0d3d12f91a96fa4e31ef3bf
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 0630f43642a0be98c470032d32b74ca14ee144e5
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -24,37 +26,32 @@ ms.openlocfilehash: 1ac4db6d9404567be0d3d12f91a96fa4e31ef3bf
 I riepiloghi seguenti consentono di capire le differenze tra l'uso di SQL Server e di SQL Data Warehouse per la migrazione di un database.
 
 ## <a name="table-migration"></a>Migrazione di tabelle
-Quando si esegue la migrazione di tabelle, è opportuno acquisire familiarità con le funzionalità delle tabelle di SQL Data Warehouse.  La [panoramica delle tabelle][panoramica delle tabelle] è un ottimo punto di partenza.  In questo articolo vengono presentate le considerazioni più importanti da tenere presenti quando si crea una tabella, ad esempio statistiche, distribuzione, partizionamento e indicizzazione di una tabella.  Inoltre vengono presentate anche alcune [funzionalità non supportate][funzionalità non supportate] e soluzioni alternative.
+Quando si esegue la migrazione di tabelle, è opportuno acquisire familiarità con le funzionalità delle tabelle di SQL Data Warehouse.  La [panoramica delle tabelle][table overview] è un ottimo punto di partenza.  In questo articolo vengono presentate le considerazioni più importanti da tenere presenti quando si crea una tabella, ad esempio statistiche, distribuzione, partizionamento e indicizzazione di una tabella.  Vengono anche presentate alcune [funzionalità non supportate][unsupported table features] e soluzioni alternative.
 
-SQL Data Warehouse supporta i tipi di dati business comuni.  Vedere l'articolo sui [tipi di dati][tipi di dati] per un elenco dei [tipi di dati non supportati][tipi di dati non supportati] e supportati.  Nell'articolo sui [tipi di dati][tipi di dati] è contenuta anche una query per identificare i [tipi di dati non supportati][tipi di dati non supportati].  Quando si convertono i tipi di dati, assicurarsi di esaminare le [procedure consigliate per il tipo di dati][procedure consigliate per il tipo di dati].
+SQL Data Warehouse supporta i tipi di dati business comuni.  Vedere l'articolo sui [tipi di dati][data types] per un elenco dei [tipi di dati non supportati][unsupported data types] e supportati.  Nell'articolo sui [tipi di dati][data types] è contenuta anche una query per identificare i [tipi di dati non supportati][unsupported data types].  Quando si convertono i tipi di dati, assicurarsi di esaminare le [procedure consigliate per il tipo di dati][data type best practices].
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo la migrazione dello schema del database a SQL Data Warehouse, passare a uno degli articoli seguenti:
 
-* [Eseguire la migrazione dei dati][Eseguire la migrazione dei dati]
-* [Eseguire la migrazione del codice][Eseguire la migrazione del codice]
+* [Eseguire la migrazione dei dati][Migrate your data]
+* [Eseguire la migrazione del codice][Migrate your code]
 
-Per altre informazioni, vedere l'articolo con le [procedure consigliate][procedure consigliate] di SQL Data Warehouse.
+Per altre informazioni, vedere l'articolo con le [procedure consigliate][best practices] di SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
-[Eseguire la migrazione del codice]: ./sql-data-warehouse-migrate-code.md
-[Eseguire la migrazione dei dati]: ./sql-data-warehouse-migrate-data.md
-[procedure consigliate]: ./sql-data-warehouse-best-practices.md
-[panoramica delle tabelle]: ./sql-data-warehouse-tables-overview.md
-[funzionalità non supportate]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[tipi di dati]: ./sql-data-warehouse-tables-data-types.md
-[tipi di dati non supportati]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
-[procedure consigliate per il tipo di dati]: ./sql-data-warehouse-tables-data-types.md#data-type-best-practices
+[Migrate your code]: ./sql-data-warehouse-migrate-code.md
+[Migrate your data]: ./sql-data-warehouse-migrate-data.md
+[best practices]: ./sql-data-warehouse-best-practices.md
+[table overview]: ./sql-data-warehouse-tables-overview.md
+[unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[data types]: ./sql-data-warehouse-tables-data-types.md
+[unsupported data types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
+[data type best practices]: ./sql-data-warehouse-tables-data-types.md#data-type-best-practices
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

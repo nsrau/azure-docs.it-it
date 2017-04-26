@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5560b22f3f92a8e0a7cb8b973ef2e4c66bc32c06
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: fd15cbc8f6efa788ddaeaee4ab39ce1410c4be5a
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -31,7 +31,7 @@ Per implementare un criterio è necessario eseguire tre passaggi:
 
 Azure offre alcuni criteri predefiniti che possono ridurre il numero di criteri da definire. Se un criterio predefinito è appropriato per lo scenario, ignorare i primi due passaggi e assegnare il criterio predefinito a un ambito.
 
-Questo argomento illustra i passaggi per creare una definizione di criterio e assegnare tale definizione a un ambito. Non tratta la sintassi per la creazione della definizione di criterio. Per informazioni sulla sintassi dei criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
+Questo articolo illustra i passaggi per creare una definizione di criterio e assegnare tale definizione a un ambito tramite l'API REST, PowerShell o l'interfaccia della riga di comando di Azure. Se si preferisce usare il portale per assegnare i criteri, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse). Questo articolo non tratta la sintassi per la creazione della definizione di un criterio. Per informazioni sulla sintassi dei criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
 ## <a name="rest-api"></a>API REST
 

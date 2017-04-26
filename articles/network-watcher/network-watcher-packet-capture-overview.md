@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 211c33ceb8e3b9adc9ad75cf18aa459ad5523c18
-ms.openlocfilehash: 1478e5bb08b29e083861b63e4ca999a38fab8452
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: dde3d1b1b0708d49ac713e18242c3376d301c675
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -26,14 +26,10 @@ ms.lasthandoff: 02/22/2017
 
 Il servizio di acquisizione di pacchetti di variabili di Network Watcher consente di creare sessioni di acquisizione di pacchetti per registrare il traffico da e verso una macchina virtuale. Il servizio di acquisizione di pacchetti consente di individuare eventuali anomalie di rete in modo proattivo e reattivo. Altri usi comprendono la raccolta di statistiche di rete, informazioni sulle intrusioni nella rete, debug delle comunicazioni client-server e molto altro ancora.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
-L'acquisizione di pacchetti è un'estensione macchina virtuale che viene avviata da remoto tramite Network Watcher. Questa funzionalità evita di dover eseguire manualmente questa operazione sulla macchina virtuale desiderata, consentendo un notevole risparmio di tempo. L'acquisizione di pacchetti può essere attivata tramite il portale, PowerShell, l'interfaccia della riga di comando o l'API REST. Un esempio di modalità di attivazione è rappresentata dagli avvisi della macchina virtuale. Sono disponibili filtri per la sessione di acquisizione per garantire che venga acquisito il traffico che si desidera monitorare. I filtri si basano su informazioni a 5 tuple (protocollo, indirizzo IP locale, indirizzo IP remoto, porta locale e porta remota). I dati acquisiti vengono archiviati nel disco locale o in un BLOB di archiviazione.
-
-![Panoramica dell'acquisizione di pacchetti][1]
+L'acquisizione di pacchetti è un'estensione macchina virtuale che viene avviata da remoto tramite Network Watcher. Questa funzionalità evita di dover eseguire manualmente questa operazione sulla macchina virtuale desiderata, consentendo un notevole risparmio di tempo. L'acquisizione di pacchetti può essere attivata tramite il portale, PowerShell, l'interfaccia della riga di comando o l'API REST. Un esempio di modalità di attivazione è rappresentata dagli avvisi della macchina virtuale. Sono disponibili filtri per la sessione di acquisizione per garantire che venga acquisito il traffico che si desidera monitorare. I filtri si basano su informazioni a 5 tuple (protocollo, indirizzo IP locale, indirizzo IP remoto, porta locale e porta remota). I dati acquisiti vengono archiviati nel disco locale o in un BLOB di archiviazione. È previsto un limite di 10 sessioni di acquisizione dei pacchetti per area per sottoscrizione. Questo limite si applica solo alle sessioni e non si applica ai file di acquisizione di pacchetti salvati in locale nella VM o in un account di archiviazione.
 
 > [!IMPORTANT]
-> L'acquisizione di pacchetti richiede un'estensione macchina virtuale `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
+> L'acquisizione di pacchetti richiede un'estensione macchina virtuale `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md).
 
 Per limitare le informazioni acquisite alle sole informazioni desiderate, sono disponibili le opzioni seguenti per una sessione di acquisizione di pacchetti:
 

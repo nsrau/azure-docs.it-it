@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 42f3f6a24e423f54ad7bb282404ddc6ff2450cb7
-ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: db2d6dbdec80e8c443014c72c80172ad3effb82c
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -25,13 +26,13 @@ ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
 [OLTP in memoria](sql-database-in-memory.md) può essere usato per migliorare le prestazioni di elaborazione delle transazioni, l'inserimento dei dati e gli scenari di dati temporanei, nei database SQL di Azure [Premium](sql-database-service-tiers.md), senza aumentare il piano tariffario. 
 
 > [!NOTE] 
-> Informazioni in [Quorum doubles key database's workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) (Il quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con il database SQL)
+> Informazioni in [Quorum doubles key database's workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) (Il quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con il database SQL)
 
 
 Seguire i passaggi seguenti per adottare OLTP in memoria nel database esistente.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Passaggio 1: assicurarsi di usare un database Premium
-OLTP in memoria è supportato solo nei database Premium, versione 12. La funzionalità in memoria è supportata se il risultato restituito è 1 (non 0):
+OLTP in memoria è supportato solo nei database Premium. La funzionalità in memoria è supportata se il risultato restituito è 1 (non 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -173,10 +174,5 @@ Tenere sotto controllo gli effetti sulle prestazioni delle implementazioni in me
 * [OLTP in memoria (ottimizzazione in memoria)](http://msdn.microsoft.com/library/dn133186.aspx)
 * [Stored procedure compilate in modo nativo](http://msdn.microsoft.com/library/dn133184.aspx)
 * [Ottimizzazione guidata per la memoria](http://msdn.microsoft.com/library/dn284308.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

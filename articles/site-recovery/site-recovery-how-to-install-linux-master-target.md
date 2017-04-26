@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: ef4324ebf3c24cdf2ebed58e4938f401b66b9c95
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c75a3a2477f113f17aab7a3e1969f15a4ec88a02
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -37,6 +37,13 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 * Il server deve trovarsi in una rete in grado di comunicare con il server di elaborazione e il server di configurazione.
 * La versione del server di destinazione master deve essere uguale o precedente a quella del server di elaborazione e del server di configurazione. Ad esempio, se la versione del server di configurazione è 9.4, la versione del server di destinazione master può essere 9.4 o 9.3 ma non 9.5.
 * Il server di destinazione master può essere solo una macchina virtuale VMware e non un server fisico.
+* La destinazione master deve seguire queste linee guida per il ridimensionamento
+    * RAM: almeno 6 GB
+    * Dimensioni disco sistema operativo: almeno 50 GB (per installare CentOS6.6)
+    * Dimensioni disco aggiuntive per l'unità di conservazione: 1 TB
+    * Core CPU: almeno 4 core
+
+
 
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>Passaggi per distribuire il server di destinazione master
@@ -401,5 +408,6 @@ Al termine dell'installazione e della registrazione del server, quest'ultimo vie
 
 * Verificare che Storage vMotion non sia abilitato in alcun componente di gestione, ad esempio il server di destinazione master. Se il server di destinazione master viene spostato dopo una riprotezione con esito positivo, non è possibile scollegare i dischi della macchina virtuale (VMDK) e il failback avrà esito negativo.
 * Il server di destinazione master non deve includere snapshot nella macchina virtuale. Se sono presenti snapshot, il failback avrà esito negativo.
-* Per via delle configurazioni personalizzate della scheda di interfaccia di rete presso alcuni clienti, l'interfaccia di rete viene disabilitata durante l'avvio e non è possibile inizializzare l'agente del server di destinazione master. Verificare che le proprietà seguenti siano impostate correttamente. Verificare le proprietà nei file della scheda Ethernet /etc/sysconfig/network-scripts/ifcfg-eth*.       * BOOTPROTO=dhcp * ONBOOT=yes
+* Per via delle configurazioni personalizzate della scheda di interfaccia di rete presso alcuni clienti, l'interfaccia di rete viene disabilitata durante l'avvio e non è possibile inizializzare l'agente del server di destinazione master. Verificare che le proprietà seguenti siano impostate correttamente. Verificare le proprietà nei file della scheda Ethernet /etc/sysconfig/network-scripts/ifcfg-eth*.
+        * BOOTPROTO=dhcp * ONBOOT=yes
 

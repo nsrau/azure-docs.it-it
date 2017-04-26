@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3c633d54e6b81576a2fbd1adfc69775ca1bdd09d
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
@@ -26,7 +27,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 -   [Risorse di tipo glifo](#glyphs)  
   
-##  <a name="a-namestringsa-string-resources"></a><a name="strings"></a> Risorse di tipo stringa  
+##  <a name="strings"></a> Risorse di tipo stringa  
  Gestione API offre un set completo di risorse di tipo stringa da usare nel portale per sviluppatori. Tali risorse sono localizzate in tutte le lingue supportate da Gestione API. Il set predefinito di modelli usa queste risorse per le intestazioni di pagina, le etichette e per ogni altra stringa costante visualizzata nel portale per sviluppatori. Per usare una risorsa di tipo stringa nei modelli, specificare il prefisso della stringa della risorsa seguito dal nome della stringa, come illustrato nell'esempio seguente.  
   
 ```  
@@ -83,13 +84,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="a-nameapisstringsa-apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
+###  <a name="ApisStrings"></a> ApisStrings  
   
 |Nome|Text|  
 |----------|----------|  
 |PageTitleApis|API|  
   
-###  <a name="a-nameappdetailsstringsa-appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
+###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -98,7 +99,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |WebApplicationsScreenshotAlt|Schermata|  
 |WebApplicationsScreenshotsHeader|Screenshots (Schermate)|  
   
-###  <a name="a-nameapplicationliststringsa-applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
+###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -114,13 +115,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |WebDevelopersSubmitLink|Submit|  
 |WebDevelopersYourApplicationsHeader|Applicazioni|  
   
-###  <a name="a-nameappstringsa-appstrings"></a><a name="AppStrings"></a> AppStrings  
+###  <a name="AppStrings"></a> AppStrings  
   
 |Nome|Text|  
 |----------|----------|  
 |WebApplicationsHeader|Applicazioni|  
   
-###  <a name="a-namecommonresourcesa-commonresources"></a><a name="CommonResources"></a> CommonResources  
+###  <a name="CommonResources"></a> CommonResources  
   
 |Nome|Text|  
 |----------|----------|  
@@ -131,7 +132,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|Http Request Body too large. (Corpo della richiesta HTTP troppo grande.)|  
   
-###  <a name="a-namecommonstringsa-commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
+###  <a name="CommonStrings"></a> CommonStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -155,7 +156,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |TablePlaceholderNothingToDisplay|There is no data for the selected period and scope (Non sono presenti dati per il periodo e l'ambito selezionati)|  
 |ButtonLabelClose|Chiudi|  
   
-###  <a name="a-namedocumentationa-documentation"></a><a name="Documentation"></a> Documentazione  
+###  <a name="Documentation"></a> Documentazione  
   
 |Nome|Text|  
 |----------|----------|  
@@ -285,11 +286,11 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |OAuth2AuthorizationServerCommunicationException|An HTTP connection to authorization server could not be established or it has been unexpectedly closed. (Non è stato possibile stabilire la connessione HTTP al server di autorizzazione oppure è stata chiusa in modo imprevisto.)|  
 |WebDocumentationOAuth2GeneralErrorMessage|Errore imprevisto.|  
 |AuthorizationServerCommunicationException|Authorization server communication exception has happened. (Si è verificata un'eccezione di comunicazione con il server di autorizzazione.) Contattare l'amministratore.|  
-|TextblockSubscriptionKeyHeaderDescription|Subscription key which provides access to this API. (Chiave di sottoscrizione che fornisce l'accesso a questa API.) Found in your `<a href='/developer'\>Profile</a\>`. (Trovato nel `<a href='/developer'\>Profile</a\>`.)|  
+|TextblockSubscriptionKeyHeaderDescription|Subscription key which provides access to this API. (Chiave di sottoscrizione che fornisce l'accesso a questa API.) Si trova in <a href='/developer'\>Profilo</a\>.|  
 |TextblockOAuthHeaderDescription|OAuth 2.0 access token obtained from <i\>{0}</i\>. (Token di accesso OAuth 2.0 ottenuto da <> </> \>{0}\>.) Supported grant types: <i\>{1}</i\>. (Tipi di concessione supportati: <i\>{1}</i\>.)|  
 |TextblockContentTypeHeaderDescription|Media type of the body sent to the API. (Tipo di supporto del corpo inviato all'API.)|  
-|ErrorMessageApiNotAccessible|The API you are trying to call is not accessible at this time. (Si sta tentando di chiamare un'API non accessibile al momento.) Please contact the API publisher `<a href="/issues"\>here</a\>`. (Contattare l'autore dell'API `<a href="/issues"\>here</a\>`.)|  
-|ErrorMessageApiTimedout|The API you are trying to call is taking longer than normal to get response back. (L'API che si sta tentando di chiamare impiega più tempo del previsto per ottenere risposta.) Please contact the API publisher `<a href="/issues"\>here</a\>`. (Contattare l'autore dell'API `<a href="/issues"\>here</a\>`.)|  
+|ErrorMessageApiNotAccessible|The API you are trying to call is not accessible at this time. (Si sta tentando di chiamare un'API non accessibile al momento.) Contattare l'autore dell'API <a href="/issues"\>qui</a\>.|  
+|ErrorMessageApiTimedout|The API you are trying to call is taking longer than normal to get response back. (L'API che si sta tentando di chiamare impiega più tempo del previsto per ottenere risposta.) Contattare l'autore dell'API <a href="/issues"\>qui</a\>.|  
 |BadRequestParameterExpected|"'{0}' parameter is expected" ("È previsto il parametro '{0}'")|  
 |TooltipTextDoubleClickToSelectAll|Double click to select all. (Fare doppio clic per selezionare tutto.)|  
 |TooltipTextHideRevealSecret|Mostra/Nascondi|  
@@ -303,7 +304,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |SectionHeadingCodeSamples|Esempi di codice|  
 |TextblockOpenidConnectHeaderDescription|OpenID Connect id token obtained from <i\>{0}</i\>. (Token ID di OpenID Connect ottenuto da <i\>{0}</i\>.) Supported grant types: <i\>{1}</i\>. (Tipi di concessione supportati: <i\>{1}</i\>.)|  
   
-###  <a name="a-nameerrorpagestringsa-errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
+###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -321,7 +322,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |TitlePotentialCause|Potential cause (Causa potenziale)|  
 |TitlePotentialSolution|It's possibly just a temporary issue, a few things to try (Potrebbe trattarsi di un problema temporaneo, alcune soluzioni da provare)|  
   
-###  <a name="a-nameissuesstringsa-issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
+###  <a name="IssuesStrings"></a> IssuesStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -332,7 +333,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |WebIssuesSignIn|sign in|  
 |WebIssuesStatusReportedBy|Status: {0} &#124; Reported by {1} (Stato: {0} &#124; Segnalato da {1})|  
   
-###  <a name="a-namenotfoundstringsa-notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
+###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -347,7 +348,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |TitlePotentialCause|Potential cause (Causa potenziale)|  
 |TitlePotentialSolution|Potential solution (Potenziale soluzione)|  
   
-###  <a name="a-nameproductdetailsstringsa-productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
+###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -369,13 +370,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |TextblockSubscriptionDescription|A new subscription will be created as follows: (Verrà creata la nuova sottoscrizione indicata di seguito:)|  
 |TextblockSubscriptionLimitReached|Subscriptions limit reached. (È stato raggiunto il limite di sottoscrizioni.)|  
   
-###  <a name="a-nameproductsstringsa-productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
+###  <a name="ProductsStrings"></a> ProductsStrings  
   
 |Nome|Text|  
 |----------|----------|  
 |PageTitleProducts|Prodotti|  
   
-###  <a name="a-nameproviderinfostringsa-providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
+###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -383,7 +384,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |TextboxExternalIdentitiesSigninInvitation|Alternatively, sign in with (In alternativa, accedere con)|  
 |TextboxExternalIdentitiesSigninInvitationPrimary|Sign in with: (Accedere con:)|  
   
-###  <a name="a-namesigninresourcesa-signinresources"></a><a name="SigninResources"></a> SigninResources  
+###  <a name="SigninResources"></a> SigninResources  
   
 |Nome|Text|  
 |----------|----------|  
@@ -479,7 +480,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |DialogHeadingTermsOfUse|Condizioni per l'utilizzo|  
 |ValidationMessageConsentNotAccepted|You must agree to the Terms of Use before you can proceed. (È necessario accettare le Condizioni per l'utilizzo prima di continuare.)|  
   
-###  <a name="a-namesigninstringsa-signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
+###  <a name="SigninStrings"></a> SigninStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -491,7 +492,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |WebAuthenticationSigninTitle|pagina di accesso|  
 |WebAuthenticationSignUpNow|Effettua l'iscrizione ora|  
   
-###  <a name="a-namesignupstringsa-signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
+###  <a name="SignupStrings"></a> SignupStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -501,7 +502,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |WebAuthenticationSigninNow|Sign in now (Accedere ora)|  
 |ButtonLabelSignup|Iscrizione|  
   
-###  <a name="a-namesubscriptionliststringsa-subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
+###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -524,7 +525,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |PageTitleRenameSubscription|Rename subscription (Rinomina sottoscrizione)|  
 |SubscriptionPropertyLabelName|Nome della sottoscrizione|  
   
-###  <a name="a-namesubscriptionstringsa-subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
+###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
 |Nome|Text|  
 |----------|----------|  
@@ -535,14 +536,14 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |InformationMessageKeyWasRegenerated|Are you sure that you want to regenerate this key? (Rigenerare la chiave?)|  
 |ButtonLabelShowKey|Mostra|  
   
-###  <a name="a-nameupdateprofilestringsa-updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
+###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
 |Nome|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Update profile (Aggiorna profilo)|  
 |PageTitleUpdateProfile|Update account information (Aggiorna informazioni sull'account)|  
   
-###  <a name="a-nameuserprofilea-userprofile"></a><a name="UserProfile"></a> UserProfile  
+###  <a name="UserProfile"></a> UserProfile  
   
 |Nome|Text|  
 |----------|----------|  
@@ -566,7 +567,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |ValidationMessageSubscriptionNameRequired|Il nome della sottoscrizione non può essere vuoto.|  
 |ApiManagementUserLimitReached|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) Please upgrade to a higher pricing tier. (Eseguire l'aggiornamento a un piano tariffario superiore.)|  
   
-##  <a name="a-nameglyphsa-glyph-resources"></a><a name="glyphs"></a> Risorse di tipo glifo  
+##  <a name="glyphs"></a> Risorse di tipo glifo  
  Nei modelli del portale per sviluppatori di Gestione API è possibile usare i glifi presenti in [Glyphicons da Bootstrap](http://getbootstrap.com/components/#glyphicons). Si tratta di un set di oltre 250 glifi in formato carattere dal set Halflings di [Glyphicon](http://glyphicons.com/). Per usare uno dei glifi del set, applicare la sintassi seguente.  
   
 ```html  
@@ -576,9 +577,5 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
  Per l'elenco completo dei glifi, vedere [Glyphicons da Bootstrap](http://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
+Per ulteriori informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).
 

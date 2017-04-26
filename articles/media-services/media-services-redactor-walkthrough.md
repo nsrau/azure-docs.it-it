@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 04/03/2017
 ms.author: rli; juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
-ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -90,12 +91,12 @@ Se lo sviluppatore tenta di analizzare i dati delle annotazioni JSON, consultare
 
 ### <a name="set-up-the-tool"></a>Impostare lo strumento
 
-1.  Scaricare e compilare l'intera soluzione. 
+1.    Scaricare e compilare l'intera soluzione. 
 
     ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.  Scaricare FFmpeg da [qui](https://ffmpeg.org/download.html). Questo progetto è stato originariamente sviluppato con la versione be1d324 (04-10-2016) con il collegamento statico. 
-3.  Copiare ffmpeg.exe e ffprobe.exe nella stessa cartella di output di AzureMediaRedactor.exe. 
+2.    Scaricare FFmpeg da [qui](https://ffmpeg.org/download.html). Questo progetto è stato originariamente sviluppato con la versione be1d324 (04-10-2016) con il collegamento statico. 
+3.    Copiare ffmpeg.exe e ffprobe.exe nella stessa cartella di output di AzureMediaRedactor.exe. 
 
     ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -113,9 +114,13 @@ Se lo sviluppatore tenta di analizzare i dati delle annotazioni JSON, consultare
     
     ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  Il campo di testo in basso verrà aggiornato con gli ID dei volti. Creare un file denominato "idlist.txt" contenente questi ID come elenco delimitato da nuova riga. 
-6.  Caricare questo file nell'output di asset del Passaggio 1. In questo asset caricare anche il video originale e impostarlo come asset principale. 
-7.  Eseguire il processo di offuscamento nell'asset con la modalità "Redact" (Offusca) per ottenere il video finale offuscato. 
+5.    Il campo di testo in basso verrà aggiornato con gli ID dei volti. Creare un file denominato "idlist.txt" contenente questi ID come elenco delimitato da nuova riga. 
+
+    >[!NOTE]
+    > Il file idlist.txt deve essere salvato in formato ANSI. È possibile usare il Blocco note per il salvataggio in formato ANSI.
+    
+6.    Caricare questo file nell'output di asset del Passaggio 1. In questo asset caricare anche il video originale e impostarlo come asset principale. 
+7.    Eseguire il processo di offuscamento nell'asset con la modalità "Redact" (Offusca) per ottenere il video finale offuscato. 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
@@ -129,9 +134,5 @@ Se lo sviluppatore tenta di analizzare i dati delle annotazioni JSON, consultare
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+[Presto sarà disponibile l'offuscamento dei volti per Analisi Servizi multimediali di Azure](https://azure.microsoft.com/blog/azure-media-redactor/)
 

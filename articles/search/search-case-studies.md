@@ -16,8 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 197e5eba551d60ec33bcb5705bfa13f145554b74
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -42,8 +43,8 @@ Una start-up con grandi progetti per il proprio sito Web di ricerca in ambito sa
 ## <a name="weichert-realtorshttpscustomersmicrosoftcompagescustomerstoryaspxrecid21252"></a>[Weichert Realtors](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 Weichert Realtors si trasferisce sul cloud e trasforma completamente il modo in cui la società svolge la propria attività. La migrazione a Microsoft Azure ha consentito alla società di ridurre i costi operativi del 60 percento, grazie all'eliminazione di hardware e software locali costosi, di rinnovare completamente la propria soluzione CRM con capacità di ricerca efficaci e rendere disponibili nuovi servizi dati essenziali per il futuro dell'azienda. [Altre informazioni](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 
-## <a name="whattopediacomsearch-dev-case-study-whattopediamd"></a>[Whattopedia.com](search-dev-case-study-whattopedia.md)
-Informazioni sul modo in cui una start-up svedese ha creato un portale di informazioni multimediale per la connessione di rivenditori e acquirenti tramite un'esperienza di ricerca estremamente precisa e dettagliata, simile a quella offerta nei portali di viaggi che associano i turisti a hotel, ristoranti e intrattenimento in territori inesplorati. [Altre informazioni...](search-dev-case-study-whattopedia.md)
+## <a name="whattopediacom"></a>Whattopedia.com
+Informazioni sul modo in cui una start-up svedese ha creato un portale di informazioni multimediale per la connessione di rivenditori e acquirenti tramite un'esperienza di ricerca estremamente precisa e dettagliata, simile a quella offerta nei portali di viaggi che associano i turisti a hotel, ristoranti e intrattenimento in territori inesplorati.
 
 <!--Image References -- here for future reference. Had to -->
 [1]: ./media/search-case-studies/autotrader_m.png
@@ -52,9 +53,4 @@ Informazioni sul modo in cui una start-up svedese ha creato un portale di inform
 [4]: ./media/search-case-studies/medihoo_m.png
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

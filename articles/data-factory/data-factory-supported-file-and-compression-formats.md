@@ -12,17 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 03/29/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: edef5fbc015f6b6ba01aa2bfc3d908e6f11159cc
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 06f7b38f5d08f2182f08d38a11dec526042c1828
+ms.lasthandoff: 03/31/2017
 
 
 ---
 
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Informazioni sui formati di compressione e sui file supportati da Azure Data Factory
+*Questo argomento si applica ai connettori seguenti: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [BLOB di Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [file system](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) e [SFTP](data-factory-sftp-connector.md).*
+
 Azure Data Factory supporta i tipi di formato di file seguenti:
 
 * [Formato testo](#text-format)
@@ -47,7 +49,7 @@ Se si vuole leggere da un file di testo o scrivere in un file di testo, impostar
 | treatEmptyAsNull |Specifica se considerare una stringa vuota o null come valore null durante la lettura di dati da un file di input. |**True (impostazione predefinita)**<br/>False |No |
 
 ### <a name="textformat-example"></a>Esempio di TextFormat
-Nella definizione JSON seguente per un set di dati sono specificate alcune proprietà facoltative. 
+Nella definizione JSON seguente per un set di dati sono specificate alcune proprietà facoltative.
 
 ```json
 "typeProperties":
@@ -80,7 +82,7 @@ Per usare `escapeChar` invece di `quoteChar`, sostituire la riga con `quoteChar`
 * Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non contengono né dati né un'intestazione. Specificare `skipLineCount` per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è anche possibile specificare `firstRowAsHeader`. Se sono specificati sia `skipLineCount` che `firstRowAsHeader`, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input.
 
 ## <a name="json-format"></a>Formato JSON
-Per **importare/esportare un file JSON senza modifiche in/da DocumentDB**, vedere la sezione [Importare/Esportare documenti JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo [Spostare dati da e verso DocumentDB mediante Azure Data Factory](data-factory-azure-documentdb-connector.md). 
+Per **importare/esportare un file JSON senza modifiche in/da DocumentDB**, vedere la sezione [Importare/Esportare documenti JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo [Spostare dati da e verso DocumentDB mediante Azure Data Factory](data-factory-azure-documentdb-connector.md).
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
@@ -452,7 +454,7 @@ Tenere presente quanto segue:
 * Tipi di dati complessi non sono supportati (MAP, LIST)
 * Un file Parquet ha le seguenti opzioni relative alla compressione: NONE, SNAPPY, GZIP e LZO. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per la lettura dei dati usa il codec di compressione nei metadati. Tuttavia, durante la scrittura in un file Parquet, Data Factory sceglie SNAPPY, cioè il valore predefinito per il formato Parquet. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
-## <a name="compression-support"></a>Supporto della compressione 
+## <a name="compression-support"></a>Supporto della compressione
 L'elaborazione di set di dati di grandi dimensioni può causare colli di bottiglia I/O e di rete. Pertanto, i dati compressi negli archivi possono non solo velocizzare il trasferimento dei dati attraverso la rete e risparmiare spazio su disco, ma apportare anche miglioramenti significativi delle prestazioni nell'elaborazione di dati di grandi dimensioni. Attualmente, la compressione è supportata per gli archivi di dati basati su file, ad esempio BLOB di Azure o il file system locale.  
 
 Per specificare la compressione per un set di dati, usare la proprietà **compression** nel set di dati JSON come illustrato di seguito:   
@@ -511,3 +513,4 @@ Per gli archivi dati basati su file supportati da Azure Data Factory, vedere i s
 - [HDFS](data-factory-hdfs-connector.md)
 - [File system](data-factory-onprem-file-system-connector.md)
 - [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+

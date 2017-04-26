@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 71e0d74f0e4787393e3184a3a5b553c4935cf785
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -187,7 +188,7 @@ Il cloud computing pubblico rende possibile distribuire applicazioni distribuite
 
 Ad esempio, se l'utente effettua una richiesta al servizio dall'Unione Europea, la connessione viene indirizzata ai servizi che si trovano in un data center dell'Unione europea. Questa parte bilanciamento del carico globale di Gestione traffico consente di migliorare le prestazioni perché la connessione al data center più vicino è più veloce rispetto alla connessione ai data center più lontani.
 
-Relativamente alla disponibilità, il bilanciamento del carico globale garantisce che il servizio sia disponibile anche se un intero data center dovesse diventare disponibili.
+Relativamente alla disponibilità, il bilanciamento del carico globale garantisce che il servizio sia disponibile anche se un intero data center dovesse diventare non disponibile.
 
 Ad esempio, se un data center di Azure dovesse non essere più disponibile a causa di motivi ambientali o di interruzioni del servizio (ad esempio guasti della rete regionale), le connessioni al servizio verranno reindirizzate al più vicino data center online. Il bilanciamento del carico globale viene effettuato grazie all'uso dei criteri DNS che è possibile creare in Gestione traffico.
 
@@ -235,9 +236,4 @@ Molte organizzazioni IT di classe enterprise mirano a espandersi nel cloud piutt
 Microsoft ha creato il [Diagramma dell'architettura di riferimento delle estensioni del data center](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) e materiale supplementare per comprendere quale aspetto avrebbe un'estensione del data center. In tal modo, si avrà un esempio di implementazione di riferimento da consultare per pianificare e progettare un'estensione del data center aziendale sicura nel cloud. È consigliabile rivedere questo documento per farsi un'idea dei componenti principali di una soluzione sicura.
 
 Per altre informazioni su come estendere in modo sicuro il data center in Azure, guardare il video su come [estendere il data center in Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

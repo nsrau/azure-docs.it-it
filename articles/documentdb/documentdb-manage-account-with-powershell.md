@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 8078f9822b392af09e00e9bf1e448e0a51994e11
-ms.openlocfilehash: 15707a71500424e4776adc80491af95b57bea222
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1d7691fd5248691f42ad31224f2fff9f7f0d4b9e
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -40,7 +40,7 @@ Seguire le istruzioni in [Come installare e configurare Azure PowerShell][powers
 * Per eseguire i comandi seguenti senza richiedere la conferma dell'utente, aggiungere il flag `-Force` al comando.
 * Tutti i comandi seguenti sono sincroni.
 
-## <a name="a-idcreate-documentdb-account-powershella-create-a-documentdb-database-account"></a><a id="create-documentdb-account-powershell"></a> Creare un account di database DocumentDB
+## <a id="create-documentdb-account-powershell"></a> Creare un account di database DocumentDB
 
 Questo comando consente di creare un account di database DocumentDB. Configurare il nuovo account del database come ad area singola o [a più aree][scaling-globally] con un determinato [criterio di coerenza](documentdb-consistency-levels.md).
 
@@ -72,7 +72,7 @@ Esempio:
 * L'esempio precedente crea un account di database con due aree. È anche possibile creare un account di database con un'area (designata come area di scrittura con un valore di priorità di failover pari a 0) o con più di due aree. Per altre informazioni, vedere gli [account di database tra più aree][scaling-globally].
 * Le località devono essere aree in cui DocumentDB è disponibile a livello generale. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
 
-## <a name="a-idupdate-documentdb-account-powershella-update-a-documentdb-database-account"></a><a id="update-documentdb-account-powershell"> </a> Aggiornare un account di database DocumentDB
+## <a id="update-documentdb-account-powershell"> </a> Aggiornare un account di database DocumentDB
 
 Questo comando consente di aggiornare le proprietà di un account di database DocumentDB e include il criterio di coerenza e le località in cui esiste l'account di database.
 
@@ -103,7 +103,7 @@ Esempio:
     $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
-## <a name="a-iddelete-documentdb-account-powershella-delete-a-documentdb-database-account"></a><a id="delete-documentdb-account-powershell"></a> Eliminare un account di database DocumentDB
+## <a id="delete-documentdb-account-powershell"></a> Eliminare un account di database DocumentDB
 
 Questo comando consente di eliminare un account di database DocumentDB esistente.
 
@@ -116,7 +116,7 @@ Esempio:
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a name="a-idget-documentdb-properties-powershella-get-properties-of-a-documentdb-database-account"></a><a id="get-documentdb-properties-powershell"></a> Ottenere le proprietà di un account di database DocumentDB
+## <a id="get-documentdb-properties-powershell"></a> Ottenere le proprietà di un account di database DocumentDB
 
 Questo comando consente di ottenere le proprietà di un account di database DocumentDB esistente.
 
@@ -129,7 +129,7 @@ Esempio:
 
     Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a name="a-idupdate-tags-powershella-update-tags-of-a-documentdb-database-account"></a><a id="update-tags-powershell"> </a> Aggiornare i tag di un account di database DocumentDB
+## <a id="update-tags-powershell"> </a> Aggiornare i tag di un account di database DocumentDB
 
 L'esempio seguente illustra come impostare i [tag delle risorse di Azure][azure-resource-tags] per l'account del database DocumentDB.
 
@@ -141,7 +141,7 @@ Esempio:
     $tags = @{"dept" = "Finance”; environment = “Production”}
     Set-AzureRmResource -ResourceType “Microsoft.DocumentDB/databaseAccounts”  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
-## <a name="a-idlist-account-keys-powershella-list-account-keys"></a><a id="list-account-keys-powershell"></a> Elencare le chiavi dell'account
+## <a id="list-account-keys-powershell"></a> Elencare le chiavi dell'account
 
 Quando si crea un account DocumentDB, il servizio genera due chiavi di accesso principali che possono essere usate per l'autenticazione quando si accede all'account DocumentDB. Fornendo due chiavi di accesso, DocumentDB consente di rigenerare le chiavi senza interruzioni dell'account DocumentDB. Sono disponibili anche chiavi di sola lettura per l'autenticazione delle operazioni di sola lettura. Esistono due chiavi di lettura/scrittura (primaria e secondaria) e due chiavi di sola lettura (primaria e secondaria).
 
@@ -154,7 +154,20 @@ Esempio:
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a name="a-idregenerate-account-key-powershella-regenerate-account-key"></a><a id="regenerate-account-key-powershell"></a> Rigenerare una chiave dell'account
+## <a id="list-connection-strings-powershell"></a> Elencare le stringhe di connessione
+
+Per gli account di MongoDB, è possibile recuperare la stringa di connessione per connettere l'app MongoDB all'account del database usando il comando seguente.
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+
+* `<resource-group-name>` Nome del [gruppo di risorse di Azure][azure-resource-groups] a cui appartiene il nuovo account del database DocumentDB.
+* `<database-account-name>` Nome dell'account del database DocumentDB.
+
+Esempio:
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
+
+## <a id="regenerate-account-key-powershell"></a> Rigenerare una chiave dell'account
 
 È consigliabile modificare periodicamente le chiavi di accesso all'account DocumentDB per mantenere più sicure le connessioni. Vengono assegnate due chiavi di accesso per consentire di mantenere le connessioni all'account DocumentDB con una delle due chiavi mentre si rigenera l'altra.
 
@@ -168,7 +181,7 @@ Esempio:
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"keyKind"="Primary"}
 
-## <a name="a-idmodify-failover-priority-powershella-modify-failover-priority-of-a-documentdb-database-account"></a><a id="modify-failover-priority-powershell"></a> Modificare la priorità di failover di un account di database DocumentDB
+## <a id="modify-failover-priority-powershell"></a> Modificare la priorità di failover di un account di database DocumentDB
 
 Per gli account di database tra più aree, è possibile modificare la priorità di failover delle diverse aree in cui esiste l'account del database DocumentDB. Per altre informazioni sul failover nell'account del database DocumentDB, vedere [Distribuire i dati a livello globale con DocumentDB][distribute-data-globally].
 

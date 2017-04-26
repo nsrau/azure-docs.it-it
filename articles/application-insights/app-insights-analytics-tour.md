@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 132576ca394fe475000449ea58871726c36d078f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: baa8880e47c827e09f6027637d73f2522fec60b9
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -690,8 +690,13 @@ I risultati della dipendenza lato server mostrano sempre `success==False` se l'a
 Contiene i dati di telemetria inviati dall'app tramite TrackTrace() o [altri framework di registrazione](app-insights-asp-net-trace-logs.md).
 
 ## <a name="video"></a>Video 
- 
+
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+Query avanzate:
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591/player]
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni di riferimento sul linguaggio di Analisi](app-insights-analytics-reference.md)

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 065e84e8ddee3466834e04fb5d1929652533265a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: cec1bcceea158a20742c7019a266dcefaac4c9cf
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,7 @@ Per preparare questo modello per la distribuzione, è necessario convertire l'es
 È possibile eseguire questa procedura manualmente, ma i tre passaggi possono essere effettuati facendo clic su **Configura servizio Web** nella parte inferiore dell'area di disegno dell'esperimento e selezionare l'opzione **Predictive Web Service** (Servizio Web predittivo) per eseguire tutti e tre i passaggi.
 
 > [!TIP]
-> Se si vuole visualizzare altri dettagli su cosa accade quando si converte un esperimento di training in un esperimento predittivo, vedere [Convertire un esperimento di training di Machine Learning in un esperimento predittivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Per informazioni dettagliate cosa accade quando si converte un esperimento di training in un esperimento predittivo, vedere l'articolo relativo alla [preparazione del modello per la distribuzione in Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 Quando si fa clic su **Set Up Web Service**(Configura servizio Web), vengono eseguite diverse operazioni:
 

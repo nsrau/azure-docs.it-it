@@ -1,6 +1,6 @@
 ---
 title: Porte superiori a 1433 per il database SQL | Documentazione Microsoft
-description: Le connessioni client da ADO.NET al database SQL V12 di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti.
+description: Le connessioni client da ADO.NET al database SQL di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti.
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
-ms.openlocfilehash: 961b8b4eeeb8543c2adec60ff958a7f420c785b5
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: e47d8f71fbfe95027e1fbfebb0b7e91ffe653c62
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -41,7 +42,7 @@ La sequenza è la seguente:
 2. ADO.NET quindi si connette direttamente al server del database SQL, senza alcun middleware intermedio.
 3. Le query vengono inviate direttamente al database e i risultati vengono restituiti direttamente al client.
 
-Assicurarsi che l'intervallo di porte 11000-11999 e 14000-14999 sul computer client di Azure venga reso disponibile per le interazioni del client ADO.NET 4.5 con il database SQL V12.
+Assicurarsi che l'intervallo di porte 11000-11999 e 14000-14999 nel computer client di Azure venga reso disponibile per le interazioni del client ADO.NET 4.5 con il database SQL.
 
 * In particolare, le porte nell'intervallo devono essere libere da eventuali altri blocchi in uscita.
 * Nella macchina virtuale di Azure, il **Windows Firewall con sicurezza avanzata** controlla le impostazioni della porta.
@@ -64,10 +65,5 @@ In questa sezione vengono spiegati i moniker che fanno riferimento a versioni pr
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
 * [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
 * [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

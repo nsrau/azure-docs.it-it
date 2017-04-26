@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8e1fccf953579beb138d47d1897bf702461fc39a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 203648d999032d86dca10f9b47c40a2208ab79e9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -219,7 +219,7 @@ Una raccolta di DocumentDB viene distribuita usando due dimensioni, all'interno 
 
 Grazie a funzionalità di gestione delle partizioni a velocità di risposta elevata, bilanciamento del carico e governance delle risorse rigida, DocumentDB consente di ridimensionare in modo elastico la velocità effettiva in più aree di Azure per una raccolta di DocumentDB. La modifica della velocità effettiva per una raccolta è un'operazione di runtime in DocumentDB. Come per qualsiasi altra operazione su database, DocumentDB garantisce il limite superiore assoluto della latenza durante l'operazione di modifica della velocità effettiva. Ad esempio, la figura seguente mostra la raccolta di un cliente per la quale il provisioning della velocità effettiva (compreso tra 1 milione e 10 milioni di richieste al secondo in due aree) viene eseguito in modo elastico in base alla domanda.
  
-**Raccolta di un cliente con provisioning elastico della velocità effettiva (compresa tra&1; milione e&10; milioni di richieste al secondo)**
+**Raccolta di un cliente con provisioning elastico della velocità effettiva (compresa tra 1 milione e 10 milioni di richieste al secondo)**
 
 ![Provisioning elastico della velocità effettiva di Azure DocumentDB](./media/documentdb-distribute-data-globally/documentdb-elastic-throughput.png)
 
@@ -259,5 +259,5 @@ DocumentDB espone in modo trasparente le metriche per velocità effettiva, laten
 6. Peter Bailis et al. [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (Decadimento ristretto probabilistico per quorum parziali pratici)
 7. Naor e Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) (Carico, capacità e disponibilità nei sistemi di quorum)
 8. Herlihy e Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) (Linearizzabilità: una condizione di correttezza per gli oggetti simultanei)
-9. Contratto di servizio di Azure DocumentDB (ultimo aggiornamento: dicembre 2016)
+9. [Contratto di servizio di Azure DocumentDB](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/)
 

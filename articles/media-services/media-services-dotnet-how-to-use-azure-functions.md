@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0cde1f36af2d41697fa956c62cc882e5429707e8
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ca7c89dc5f56f1bf4c300874111e65048e88abcf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,11 +36,15 @@ In questo argomento viene illustrato come iniziare a creare le Funzioni di Azure
 - Comprensione della [modalità d'uso delle funzioni di Azure](../azure-functions/functions-overview.md). Inoltre, esaminare:
     - [Associazioni HTTP e webhook in Funzioni di Azure](../azure-functions/functions-triggers-bindings.md)
     - [Come configurare le impostazioni dell'app per le funzioni di Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
+    
+## <a name="considerations"></a>Considerazioni
+
+-  Le funzioni di Azure in esecuzione con piano a consumo hanno un timeout di 5 minuti.
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
 1. Passare al [portale di Azure](http://portal.azure.com) e accedere con il proprio account Azure.
-2. Creare un'app per le funzioni come descritto [qui](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
+2. Creare un'app per le funzioni come descritto [qui](../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]
 > Un account di archiviazione specificato nella variabile di ambiente **StorageConnection** (vedere il passaggio successivo) deve essere nella stessa area dell'app.

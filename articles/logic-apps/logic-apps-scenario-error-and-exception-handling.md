@@ -17,9 +17,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -105,22 +105,22 @@ Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
 
 1. È necessario ottenere un nuovo record di appuntamento da Dynamics CRM Online.
 
-    Il trigger proveniente da CRM fornisce il **PatientID CRM**, il  **tipo di record**, un **valore booleano new o update** che indica un record nuovo o aggiornato e **SalesforceId**. **SalesforceId** può essere Null perché viene usato solo per un aggiornamento.
-    Per ottenere il record CRM si userà il **PatientID** di CRM e il **tipo di record**.
+   Il trigger proveniente da CRM fornisce il **PatientID CRM**, il **tipo di record**, un **valore booleano new o update** che indica un record nuovo o aggiornato e **SalesforceId**. **SalesforceId** può essere Null perché viene usato solo per un aggiornamento.
+   Per ottenere il record CRM si userà il **PatientID** di CRM e il **tipo di record**.
 
-2. È quindi necessario aggiungere l'operazione **InsertLogEntry** dell'app per le API DocumentDB, come illustrato qui.
+2. È quindi necessario aggiungere l'operazione **InsertLogEntry** dell'app per le API DocumentDB, come illustrato qui in Progettazione app per la logica.
 
-### <a name="insert-log-entry-designer-view"></a>Visualizzazione della finestra di progettazione per l'inserimento di voci di log
+   **Inserire una voce di log**
 
-![Inserire una voce di log](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Inserire una voce di log](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
-### <a name="insert-error-entry-designer-view"></a>Visualizzazione della finestra di progettazione per l'inserimento di voci di errore
+   **Inserire una voce di log**
 
-![Inserire una voce di log](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Inserire una voce di log](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-### <a name="check-for-create-record-failure"></a>Verifica della presenza di errori nella creazione di record
+   **Verificare la presenza di errori nella creazione di record**
 
-![Condizione](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Condizione](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Codice sorgente dell'app per la logica
 

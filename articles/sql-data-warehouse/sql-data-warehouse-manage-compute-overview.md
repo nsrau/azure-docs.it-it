@@ -16,9 +16,9 @@ ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: f4a79413bc5e660504b4b6b48fcf496fb0f08ade
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -171,7 +171,7 @@ Il ridimensionamento del database richiede le autorizzazioni descritte in [ALTER
 ## <a name="next-steps"></a>Passaggi successivi
 Per comprendere più facilmente altri concetti importanti sulle prestazioni, vedere gli articoli seguenti:
 
-* [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse][Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse]
+* [Gestione della concorrenza e del carico di lavoro][Workload and concurrency management]
 * [Panoramica delle tabelle][Table design overview]
 * [Distribuzione di tabelle][Table distribution]
 * [Indicizzazione di tabelle][Table indexing]

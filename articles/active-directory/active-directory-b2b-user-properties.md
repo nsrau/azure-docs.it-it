@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: eb0482d0dec3121710cc2ee56ab538cd66cb03c9
-ms.openlocfilehash: eaf7fabc243b3dfa37d974f4315a378bec9356b7
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3d7801d8a53ac048333e43ee64724c11c25bf6a8
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +31,7 @@ In base alle esigenze dell'organizzazione che emette l'invito, un utente di Coll
 
 - Stato 1: incluso in un'istanza esterna di Azure AD e rappresentato come utente guest nell'organizzazione host. In questo caso, l'utente B2B accede con un account Azure AD appartenente alla relativa tenancy home. Se l'organizzazione esterna dell'utente non usa Azure AD al momento dell'invito, l'utente guest viene creato in Azure AD quando l'utente riscatta l'invito, dopo che Azure AD ha verificato il suo indirizzo di posta elettronica. Tale tenancy è anche detta "Just-In-Time" (JIT) o tenancy virale.
 
-- Stato 2: incluso in un account Microsoft e rappresentato come utente guest nell'organizzazione host. In tal caso, l'utente guest accede con un account Microsoft. Nell'aggiornamento dell'anteprima pubblica di Azure AD, l'identità basata su social network (come google.com o simili) dell'utente invitato, che non è un account Microsoft, viene creata come account Microsoft al momento del riscatto dell'offerta.
+- Stato 2: incluso in un account Microsoft e rappresentato come utente guest nell'organizzazione host. In tal caso, l'utente guest accede con un account Microsoft. L'identità basata su social network (come google.com o simili) dell'utente invitato, che non è un account Microsoft, viene creata come account Microsoft al momento del riscatto dell'offerta.
 
 - Stato 3: incluso nell'istanza locale di Active Directory dell'organizzazione host e sincronizzato con l'istanza di Azure AD dell'organizzazione host. In questa versione è necessario usare PowerShell per modificare manualmente l'attributo UserType di tali utenti nel cloud.
 

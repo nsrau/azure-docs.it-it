@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 03/30/2017
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b89a13230439698854656f0bb5367f1ed35ce1c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -52,18 +53,12 @@ Questo documento descrive tutte le opzioni di configurazione e integrazione disp
 [Come usare l'API di assegnazione di tag di Mobile Engagement avanzata nell'app per Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Note sulla versione
-### <a name="423-08102016"></a>4.2.3 (08/10/2016)
-* Rimozione del blocco Wi-Fi.
-* Correzione di un deadlock quando si chiama getDeviceId prima di init (bug introdotto nella versione 4.2.0).
+### <a name="424-03302017"></a>4.2.4 (03/30/2017)
+* Correggere i colori del testo della notifica in-app in Android 7 in modo che corrispondano a quelli di versioni precedenti di Android.
 
 Per tutte le versioni, vedere le [note sulla versione complete](mobile-engagement-android-release-notes.md).
 
 ## <a name="upgrade-procedures"></a>Procedure di aggiornamento
 Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, vedere le [procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

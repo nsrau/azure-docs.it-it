@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c46a85aaf5237a2a7643cc9069255bdad9ab1d69
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
@@ -284,7 +284,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 <set-body>Hello world!</set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-string"></a>Esempio di accesso al corpo come stringa  
+#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Esempio di accesso al corpo come stringa. Si noti che il corpo della richiesta originale viene mantenuto per potervi accedere più avanti nella pipeline.
   
 ```xml  
 <set-body>  
@@ -298,7 +298,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 </set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-jobject"></a>Esempio di accesso al corpo come JObject  
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Esempio di accesso al corpo come JObject. Si noti che il corpo della richiesta originale non viene mantenuto e l'accesso a tale corpo più avanti nella pipeline genererà un'eccezione.  
   
 ```xml  
 <set-body>   
@@ -380,23 +380,45 @@ Il criterio `set-body` può essere configurato per l'uso del linguaggio di model
 
 Per accedere alle informazioni sulla richiesta e la risposta, il modello Liquid può essere associato a un oggetto di contesto con le proprietà seguenti: <br />
 <pre>context.
-Request.
-Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+    Request.
+        Url
+        Method
+        OriginalMethod
+        OriginalUrl
+        IpAddress
+        MatchedParameters
+        HasBody
+        ClientCertificates
+        Headers
 
     Response.
         StatusCode
         Method
         Headers
-URL.
-Scheme Host Port Path Query QueryString ToUri ToString
+Url.
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 
 OriginalUrl.
-Scheme Host Port Path Query QueryString ToUri ToString
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 </pre>
 
 
 
-### <a name="usage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound, back-end  

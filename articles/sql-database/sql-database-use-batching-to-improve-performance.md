@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 62e8e0299aff517f45c89349ed836ec8a6dabd2b
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,7 +45,7 @@ La prima parte del documento esamina le diverse tecniche di invio in batch per l
 ## <a name="batching-strategies"></a>Strategie di invio in batch
 ### <a name="note-about-timing-results-in-this-topic"></a>Nota sui risultati della tempistica in questo argomento
 > [!NOTE]
-> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio](sql-database-service-tiers.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
+> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati tempo fa e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere attualmente. Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
 > 
 > 
 
@@ -585,7 +586,7 @@ In questo esempio, è possibile usare il fatto che la colonna SocialSecurityNumb
       SocialSecurityNumber NVARCHAR(50) );
     GO
 
-Successivamente, creare una stored procedure oppure scrivere codice che usi l'istruzione MERGE per eseguire l'aggiornamento e l'inserimento. L'esempio seguente usa l'istruzione MERGE in un parametro con valori di tabella @employees, di tipo EmployeeTableType. Il contenuto della tabella @employees non è illustrato.
+Successivamente, creare una stored procedure oppure scrivere codice che usi l'istruzione MERGE per eseguire l'aggiornamento e l'inserimento. L'esempio seguente usa l'istruzione MERGE in un parametro con valori di tabella, @employees, di tipo EmployeeTableType. Il contenuto della tabella @employees non è illustrato.
 
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
@@ -623,10 +624,5 @@ L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi per migliorare le prestazioni e la scalabilità, vedere le [indicazioni sulle prestazioni del database SQL di Azure per i database singoli](sql-database-performance-guidance.md) e le [considerazioni su prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

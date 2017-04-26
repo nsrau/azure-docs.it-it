@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/08/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 2541236d84100ed7889d06f9b0580fcbc55ecfdb
-ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: d53d4cfdc7b673d2816fa9372dedbed540380cce
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -30,11 +31,11 @@ Questo articolo contiene un riepilogo di elementi supportati quando si usa Azure
 
 ## <a name="deployment-options"></a>Opzioni di distribuzione
 
-**Distribuzione** | **Server fisico/VMware** | **Hyper-V (senza VMM)** | **Hyper-V (con VMM)**
+**Distribuzione** | **Server fisico/VMware** | **Hyper-V (con/senza SCVMM)
 --- | --- | --- | ---
-**Portale di Azure** | Macchine virtuali VMware locali nel sito VMware secondario.<br/><br/> Scaricare il [manuale dell'utente per InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponibile nel portale di Azure). | Non supportate | VM Hyper-V locali in cloud VMM in un cloud VMM secondario.<br/><br/> Viene usata solo la replica Hyper-V standard. SAN non supportato.
-**Portale classico** | Solo modalità manutenzione. Non è possibile creare nuovi insiemi di credenziali. | Non supportate | Solo modalità di manutenzione.
-**PowerShell** | Non supportate | Non supportate | Supportato
+**Portale di Azure** | Macchine virtuali VMware locali nel sito VMware secondario.<br/><br/> Scaricare il [manuale dell'utente per InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponibile nel portale di Azure). | VM Hyper-V locali in cloud VMM in un cloud VMM secondario.<br></br> Non supportato senza SCVMM  <br/><br/> Viene usata solo la replica Hyper-V standard. SAN non supportato.
+**Portale classico** | Solo modalità manutenzione. Non è possibile creare nuovi insiemi di credenziali. | Solo modalità di manutenzione.<br></br> Non supportato senza SCVMM
+**PowerShell** | Non supportate | Supportato<br></br> Non supportato senza SCVMM
 
 ## <a name="on-premises-servers"></a>Server locali
 
@@ -119,7 +120,7 @@ Disco superiore a 1 TB | No | Sì
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì | Sì
 Spazi di archiviazione | No | Sì
 Aggiunta/rimozione a caldo disco | No | No
-Esclusione disco | No | No
+Esclusione disco | No | Sì
 Percorsi multipli (MPIO) | N/D | Sì
 
 ## <a name="vaults"></a>Insiemi di credenziali
@@ -140,9 +141,4 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sui [Prerequisiti di distribuzione](site-recovery-prereq.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
