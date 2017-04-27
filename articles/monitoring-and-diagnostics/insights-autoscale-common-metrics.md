@@ -171,7 +171,7 @@ Per un account di archiviazione classico, ad esempio, la classe metricTrigger pe
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
- "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+ "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 Per un account di archiviazione non classico, metricTrigger includerà:
@@ -179,7 +179,7 @@ Per un account di archiviazione non classico, metricTrigger includerà:
 ```
 "metricName": "ApproximateMessageCount",
 "metricNamespace": "",
-"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.Storage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Metriche del bus di servizio usate comunemente 
@@ -190,7 +190,7 @@ Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impost
 ```
 "metricName": "MessageCount",
  "metricNamespace": "",
-"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```
 
 > [!NOTE]
