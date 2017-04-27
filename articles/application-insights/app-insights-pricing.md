@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 229dd21f3ab1ae716cd49611e720450ae5939eb8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -123,9 +123,16 @@ Ecco alcune operazioni da eseguire per ridurre il volume di dati:
 * Disattivare i moduli di raccolta non necessari [modificando il file ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ad esempio, è possibile che i contatori delle prestazioni o dati sulle dipendenze siano non essenziali.
 * Suddividere i dati di telemetria per separare le chiavi di strumentazione. 
 * Pre-aggregare metriche. Se sono state inserite chiamate a TrackMetric nell'applicazione, è possibile ridurre il traffico utilizzando l'overload che accetta il calcolo della media e la deviazione standard di un batch di misurazioni. In alternativa è possibile usare un [pacchetto di pre-aggregazione](https://www.myget.org/gallery/applicationinsights-sdk-labs).
-* È possibile infine ridurre il limite di uso del volume giornaliero che avrà effetto sui dati raccolti, ma in tal caso si genererà una perdita di dati per il resto del giorno. Per apportare una modifica, aprire **Funzionalità+prezzi**, **Gestione dati**.
 
-    ![Regolazione del limite di uso del volume di dati di telemetria giornalieri](./media/app-insights-pricing/daily-cap.png) 
+## <a name="managing-the-maximum-daily-data-volume"></a>Gestione del volume di dati massimo giornaliero
+
+È possibile usare il limite di utilizzo di volume giornaliero per limitare i dati raccolti, ma se il limite viene raggiunto, si verificherà una perdita di tutti i dati di telemetria inviati dall'applicazione per il resto del giorno. **Non è consigliabile** che l'applicazione raggiunga il limite giornaliero, in quanto una volta raggiunto non si riuscirà più a rilevare l'integrità e le prestazioni dell'applicazione in uso. 
+
+Usare invece il [campionamento](app-insights-sampling.md) per ottimizzare il volume di dati al livello desiderato e usare il limite giornaliero solo come ultima opzione, nel caso in cui l'applicazione inizia a inviare volumi di dati di telemetria più elevati in modo imprevisto. 
+
+Per modificare il limite giornaliero, aprire **Funzionalità+prezzi**, **Gestione dati**.
+
+![Regolazione del limite di uso del volume di dati di telemetria giornalieri](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>Campionamento
 [Sampling](app-insights-sampling.md) consente di ridurre la frequenza con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi. 

@@ -12,17 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/31/2017
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: 8ea727f7b8d93401b35a7b9dbd2f00a5534c3072
-ms.openlocfilehash: e54c37f688e8d107f5323125ea42d63ec91a4c84
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 965c60ffde55041cc3864d06d81f5590c7ea1c11
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning
 ## <a name="overview"></a>Panoramica
-Net# è un linguaggio sviluppato da Microsoft e usato per definire le architetture di reti neurali. È possibile usare Net# in moduli di reti neurali in Microsoft Azure Machine Learning o nella funzione `rxNeuralNetwork()` in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+Net# è un linguaggio sviluppato da Microsoft e usato per definire le architetture di reti neurali. È possibile usare Net# in moduli di reti neurali in Microsoft Azure Machine Learning.
+
+<!-- This function doesn't currentlyappear in the MicrosoftML documentation. If it is added in a future update, we can uncomment this text.
+
+, or in the `rxNeuralNetwork()` function in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+
+-->
 
 Questo articolo illustra i concetti base necessari per lo sviluppo di una rete neurale personalizzata: 
 
@@ -396,7 +403,7 @@ La definizione della rete seguente è progettata per riconoscere numeri e illust
 * La rete ha un terzo livello nascosto, *Hid3*, che è completamente connesso al secondo livello nascosto, *Conv2*.
 * Il livello di output, *Digit*, è connesso solo al terzo livello nascosto, *Hid3*. La parola chiave **all** indica che il livello di output è completamente connesso a *Hid3*.
 * L'arietà della convoluzione è uguale a tre, ovvero alla lunghezza delle tuple **InputShape**, **KernelShape**, **Stride** e **Sharing**. 
-* Il numero di pesi per kernel è *1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Oppure 26 * 50 = 1300*.
+* Il numero di pesi per kernel è*1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Oppure 26 * 50 = 1300*.
 * È possibile calcolare i nodi in ogni livello nascosto come indicato di seguito:
   * **NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
   * **NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
@@ -408,10 +415,5 @@ La definizione della rete seguente è progettata per riconoscere numeri e illust
 Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene usato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per altre informazioni, vedere [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Reti neurali in Azure ML - Introduzione a Net #)
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

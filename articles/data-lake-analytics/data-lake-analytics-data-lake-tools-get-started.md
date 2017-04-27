@@ -128,7 +128,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
        Per le entità seguenti vengono visualizzati il nome completato in modo automatico e i membri: Rowset, Classes, Databases, Schemas e User Defined Objects (UDO).
 
        IntelliSense per le entità di catalogo (Databases, Schemas, Tables, UDO, e così via) è correlato all'account di calcolo personale. È possibile controllare l'account di calcolo, il database e lo schema attualmente attivi nella barra degli strumenti superiore e sostituirli tramite gli elenchi a discesa.
-   * **Espandere le colonne con il simbolo ***
+   * **Espandere le colonne con il simbolo *** 
 
        Facendo clic a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto *. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia verso il basso.
        ![Espansione di * in Data Lake Tools per Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)

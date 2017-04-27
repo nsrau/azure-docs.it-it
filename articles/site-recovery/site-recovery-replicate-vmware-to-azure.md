@@ -1,5 +1,5 @@
 ---
-title: Replicare applicazioni (da VMware in Azure) | Documentazione Microsoft
+title: Replicare applicazioni (da VMware in Azure) | Microsoft Docs
 description: Questo articolo descrive come configurare la replica di macchine virtuali in esecuzione su VMware in Azure.
 services: site-recovery
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
 translationtype: Human Translation
-ms.sourcegitcommit: 54cf67bf630a9de30d4ccafdb09a3f8986c04145
-ms.openlocfilehash: 4415af41cfaf7230f398016e37b8a8cde453fa54
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 06ac75a40ed1dc97046836388bb7938dabd2b9ac
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -74,6 +74,14 @@ Se si esegue la replica di macchine virtuali VMware, tenere presente quanto segu
 10. In **Proprietà** > **Configura proprietà**selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer. Per impostazione predefinita, vengono replicati tutti i dischi. Fare clic su **Tutti i dischi** e deselezionare i dischi da non replicare. Fare quindi clic su **OK**. È possibile impostare proprietà aggiuntive in un secondo momento.
 
     ![Abilitare la replica](./media/site-recovery-vmware-to-azure/enable-replication6.png)
+
+
+> [!NOTE]
+> Per impostazione predefinita, vengono replicati tutti i dischi in un computer. È possibile [escludere dischi dalla replica](site-recovery-exclude-disk.md). Ad esempio, è possibile evitare di replicare i dischi con dati temporanei o dati che vengono aggiornati ogni volta che un computer o un'applicazione viene riavviata, come pagefile.sys o tempdb di SQL Server.
+>
+
+
+
 11. In **Impostazioni della replica** > **Configura impostazioni di replica** verificare che siano selezionati i criteri di replica corretti. È possibile modificare le impostazioni dei criteri di replica in **Impostazioni** > **Criteri di replica** > nome dei criteri > **Modifica impostazioni**. Le modifiche apportate ai criteri saranno applicate ai computer nuovi e in fase di replica.
 12. Abilitare la **Coerenza tra più VM** per raccogliere le macchine in un gruppo di replica e specificare un nome per il gruppo. Fare quindi clic su **OK**. Si noti che:
 
@@ -94,7 +102,26 @@ Se si esegue la replica di macchine virtuali VMware, tenere presente quanto segu
 1. Fare clic su **Impostazioni** > **Elementi replicati** e selezionare il computer. Il pannello **Informazioni di base** visualizza informazioni sulle impostazioni e sullo stato dei computer.
 2. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
 3. In **Calcolo e rete** > **Proprietà di calcolo** è possibile specificare le dimensioni di destinazione e il nome della VM di Azure. Se necessario, modificare il nome in modo che sia conforme ai requisiti di Azure.
-   È anche possibile visualizzare e aggiungere le informazioni sulla rete di destinazione, la subnet e l'indirizzo IP che verranno assegnati alla macchina virtuale di Azure. Tenere presente quanto segue:
+![Abilitare la replica](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
+
+*Gruppo di risorse*
+   
+  * È possibile selezionare un [gruppo di risorse](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) il cui computer andrà a fare parte del post-failover. Questa impostazione può essere modificata in qualsiasi momento prima del failover. 
+  
+> [!NOTE]
+> Dopo il failover, se si esegue la migrazione del computer a un gruppo di risorse diverso, le impostazioni di protezione di un computer vengono interrotte.
+ 
+*Set di disponibilità*
+
+È possibile selezionare un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se il computer deve essere una parte di un post-failover. Mentre si seleziona il set di disponibilità, tenere presente che:
+
+* Verranno elencati solo i set di disponibilità che appartengono al gruppo di risorse specificato  
+* I computer con reti virtuali diverse non possono fare parte dello stesso set di disponibilità 
+* Solo le macchine virtuali della stessa dimensione possono fare parte della stesso set di disponibilità 
+
+*Proprietà di rete*
+
+È anche possibile visualizzare e aggiungere le informazioni sulla rete di destinazione, la subnet e l'indirizzo IP che verranno assegnati alla macchina virtuale di Azure. Tenere presente quanto segue:
 
    * È possibile impostare l'indirizzo IP di destinazione. Se non si specifica un indirizzo, il computer di cui è stato eseguito il failover usa DHCP. Se si imposta un indirizzo che non è disponibile al momento del failover, il failover non riesce. Se l'indirizzo è disponibile nella rete di failover di test, è possibile usare lo stesso indirizzo IP di destinazione per il failover di test.
    * Il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione, come illustrato di seguito:
@@ -116,5 +143,7 @@ Se si esegue la replica di macchine virtuali VMware, tenere presente quanto segu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Una volta completata la protezione, è possibile provare il test di failover per controllare se l'applicazione viene visualizzata o meno in Azure.
+Una volta completata la protezione, è possibile provare il test di [failover](site-recovery-failover.md) per controllare se l'applicazione viene visualizzata o meno in Azure.
+
+Se si desidera disabilitare la protezione, controllare come [rimuovere la registrazione e le impostazioni di protezione](site-recovery-manage-registration-and-protection.md)
 

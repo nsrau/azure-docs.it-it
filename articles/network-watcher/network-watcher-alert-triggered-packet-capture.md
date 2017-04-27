@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5f31b24a0d46b9d557a55b3c9d0cd7748ecb9c33
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 941a795c4c83e05ec3c5bb55790f8fcc72829a65
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -46,7 +46,7 @@ Questo scenario:
 
 ## <a name="creating-an-azure-function-and-overview"></a>Creazione di una funzione di Azure e panoramica
 
-Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avviso e creare un'acquisizione di pacchetti. 
+Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avviso e creare un'acquisizione di pacchetti.
 
 L'elenco seguente è una panoramica del flusso di lavoro effettivo.
 
@@ -65,7 +65,7 @@ L'elenco seguente è una panoramica del flusso di lavoro effettivo.
 
 ## <a name="adding-modules"></a>Aggiunta di moduli
 
-Per usare i cmdlet PowerShell di Network Watcher, il modulo di PowerShell più recente deve essere caricato nell'app per le funzioni.
+Per usare i cmdlet PowerShell di Network Watcher, è necessario caricare il modulo PowerShell più recente nell'app per le funzioni.
 
 1. Nel computer locale con i moduli di Azure PowerShell più recenti installati, eseguire il seguente comando PowerShell:
 
@@ -73,7 +73,7 @@ Per usare i cmdlet PowerShell di Network Watcher, il modulo di PowerShell più r
     (Get-Module AzureRM.Network).Path
     ```
 
-    Ciò consente di visualizzare il percorso locale dei moduli di Azure PowerShell. Queste cartelle verranno usate in un passaggio successivo. I moduli usati in questo scenario sono:
+    Questo esempio visualizza il percorso locale dei moduli di Azure PowerShell. Queste cartelle verranno usate in un passaggio successivo. I moduli usati in questo scenario sono:
 
     * AzureRM.Network
 
@@ -107,14 +107,14 @@ Per usare i cmdlet PowerShell di Network Watcher, il modulo di PowerShell più r
 
 ## <a name="authentication"></a>Autenticazione
 
-Per usare i cmdlet PowerShell, è necessario eseguire l'autenticazione, che deve essere configurata nell'app per le funzioni. A tale scopo, vengono configurate le variabili di ambiente e un file di chiave crittografata deve essere caricato nell'app per le funzioni.
+Per usare i cmdlet PowerShell, è necessario eseguire l'autenticazione, che deve essere configurata nell'app per le funzioni. Per configurare l'autenticazione, è necessario configurare le variabili di ambiente e caricare un file di chiave crittografata nell'app per le funzioni.
 
-> [!note]
+> [!NOTE]
 > Questo scenario fornisce solo un esempio di come implementare l'autenticazione con Funzioni di Azure; questa operazione può essere eseguita anche in altri modi.
 
 ### <a name="encrypted-credentials"></a>Credenziali crittografate
 
-Il seguente script di PowerShell crea un file di chiave denominato **PassEncryptKey.key** e fornisce una versione crittografata della password fornita.  Questa password è la stessa che viene definita per l'applicazione di Azure AD usata per l'autenticazione.
+Lo script seguente di PowerShell crea un file di chiave denominato **PassEncryptKey.key** e genera una versione crittografata della password fornita.  Questa password è la stessa che viene definita per l'applicazione di Azure AD usata per l'autenticazione.
 
 ```powershell
 #variables
@@ -139,7 +139,7 @@ Nell'editor del servizio app dell'app per le funzioni creare una cartella denomi
 
 ### <a name="retrieving-values-for-environment-variables"></a>Recupero dei valori per le variabili di ambiente
 
-La configurazione finale richiesta consente di configurare le variabili di ambiente necessarie per accedere ai valori per l'autenticazione. Di seguito è riportato un elenco delle variabili di ambiente che vengono create.
+La configurazione finale richiesta consente di configurare le variabili di ambiente necessarie per accedere ai valori per l'autenticazione. Di seguito è riportato un elenco delle variabili di ambiente che vengono create:
 
 * AzureClientID
 
@@ -303,7 +303,7 @@ Passare a una macchina virtuale esistente e aggiungere una regola di avviso. Per
 ![Aggiungere una regola di avviso di macchina virtuale a una macchina virtuale][1]
 
 > [!NOTE]
-> Alcune metriche non sono abilitate per impostazione predefinita. Per altre informazioni su come abilitare metriche aggiuntive, vedere [Abilitare il monitoraggio e la diagnostica](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
+> La metrica di segmenti TCP non è abilitata per impostazione predefinita. Per altre informazioni su come abilitare metriche aggiuntive, vedere [Abilitare il monitoraggio e la diagnostica](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
 
 Incollare infine l'URL del passaggio precedente nella casella di testo del webhook nell'avviso. Fare clic su **OK** per salvare la regola di avviso.
 

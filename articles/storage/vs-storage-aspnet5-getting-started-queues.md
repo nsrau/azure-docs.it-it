@@ -1,6 +1,6 @@
 ---
-title: Introduzione all&quot;archiviazione code e ai servizi connessi di Visual Studio (ASP.NET 5) | Documentazione Microsoft
-description: Informazioni su come iniziare a usare l&quot;archiviazione di accodamento di Azure in un progetto ASP.NET 5 in Visual Studio
+title: Introduzione all&quot;archiviazione code e ai servizi connessi di Visual Studio (ASP.NET Core) | Microsoft Docs
+description: Informazioni su come iniziare a usare l&quot;archiviazione code di Azure in un progetto ASP.NET Core in Visual Studio
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -15,22 +15,23 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b166ced70b845dd297a1eb87aaec5456ec3e0b31
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 4622496544ce6e1057ac68a2e9946917573e997e
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-5"></a>Introduzione all'archiviazione di coda di Azure e ai relativi servizi di Visual Studio (ASP.NET 5)
+# <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione code e ai servizi connessi di Visual Studio (ASP.NET Core)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Panoramica
-In questo articolo viene descritto come iniziare a usare l'archiviazione delle code di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET 5 usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
+In questo articolo viene descritto come iniziare a usare l'archiviazione code di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET Core usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio. L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
 
 Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione.
 
 Per iniziare, è innanzitutto necessario creare una coda di Azure nell'account di archiviazione. Verrà mostrato come creare una coda nel codice. Infine verrà mostrato come eseguire operazioni relative alle code di base, come l'aggiunta, la modifica, la lettura e la rimozione di messaggi delle code. Negli esempi, scritti in codice C\# viene usata la libreria client di Archiviazione di Azure per .NET. Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](http://www.asp.net).
 
-**NOTA:** alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET 5 sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) . Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
+**NOTA:** alcune API che eseguono chiamate ad Archiviazione di Azure in ASP.NET Core sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) . Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
 
 * Per altre informazioni sulla modifica delle code a livello di codice, vedere [Introduzione all'archiviazione code di Azure con .NET](storage-dotnet-how-to-use-queues.md) .
 * Vedere la [documentazione di archiviazione](https://azure.microsoft.com/documentation/services/storage/) per informazioni generali sull'archiviazione di Azure.
@@ -38,7 +39,7 @@ Per iniziare, è innanzitutto necessario creare una coda di Azure nell'account d
 * Vedere [ASP.NET](http://www.asp.net) per ulteriori informazioni sulle applicazioni di programmazione di ASP.NET.
 
 ## <a name="access-queues-in-code"></a>Code di accesso nel codice
-Per accedere alle code nei progetti ASP.NET 5, è necessario includere gli elementi seguenti ai file di origine C# che consentono di accedere all'archiviazione delle code di Azure.
+Per accedere alle code nei progetti ASP.NET Core, è necessario includere gli elementi seguenti ai file di origine C# che consentono di accedere all'archiviazione code di Azure.
 
 1. Assicurarsi che le dichiarazioni dello spazio dei nomi all'inizio del file C# includano queste istruzioni **using** .
    
@@ -153,10 +154,5 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **Eli
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

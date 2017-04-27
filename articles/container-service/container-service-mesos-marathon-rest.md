@@ -1,5 +1,5 @@
 ---
-title: Gestire un cluster DC/OS di Azure con l&quot;API REST Marathon | Documentazione Microsoft
+title: Gestire un cluster DC/OS di Azure con l&quot;API REST Marathon | Microsoft Docs
 description: Distribuire contenitori in un cluster DC/OS del servizio contenitore di Azure usando l&quot;API REST di Marathon.
 services: container-service
 documentationcenter: 
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/04/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: b2b969500d20d0c840f201ed2cf13a6f2ab38ee5
-ms.openlocfilehash: 719f1ea6a6f51d4a787f0465a4bbadb1a6057a8b
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 26ea8dcdeb8be3142d5e8bbd477f6d4ab6c26cdd
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>Gestione dei contenitori DC/OS tramite l'API REST Marathon
-DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavoro cluster con l'astrazione dell'hardware sottostante. In DC/OS è disponibile anche un framework che gestisce la pianificazione e l'esecuzione dei carichi di lavoro di calcolo. Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento illustra come creare e ridimensionare la distribuzione di contenitori con Marathon. 
+DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavoro cluster con l'astrazione dell'hardware sottostante. In DC/OS è disponibile anche un framework che gestisce la pianificazione e l'esecuzione dei carichi di lavoro di calcolo. Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento illustra come iniziare a creare e ridimensionare le distribuzioni di contenitori usando l'API REST di Marathon. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +39,7 @@ Dopo essersi connessi al cluster del servizio contenitore di Azure, è possibile
 Per altre informazioni sulle varie API, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Raccogliere informazioni da DC/OS e Marathon
-Prima di distribuire contenitori nel cluster DC/OS, è necessario raccogliere informazioni relative a tale cluster, ad esempio il nome e lo stato corrente degli agenti di DC/OS. A tale scopo, eseguire una query sull'endpoint `master/slaves` dell'API REST di DC/OS. Se la query riesce, verrà restituito un elenco di agenti di DC/OS e diverse proprietà per ognuno.
+Prima di distribuire contenitori nel cluster DC/OS, è necessario raccogliere informazioni relative a tale cluster, ad esempio il nome e lo stato degli agenti di DC/OS. A tale scopo, eseguire una query sull'endpoint `master/slaves` dell'API REST di DC/OS. Se la query riesce, verrà restituito un elenco di agenti di DC/OS e diverse proprietà per ognuno.
 
 ```bash
 curl http://localhost/mesos/master/slaves
@@ -53,24 +54,21 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Distribuire un contenitore Docker formattato
-I contenitori Docker formattati vengono distribuiti tramite Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente mostra come distribuire il contenitore Nginx associando la porta 80 dell'agente di DC/OS alla porta 80 del contenitore. Si noti anche che la proprietà `acceptedResourceRoles` è impostata su `slave_public`. Il contenitore viene distribuito a un agente nel set di scalabilità dell'agente pubblico.
+I contenitori Docker formattati vengono distribuiti tramite l'API REST di Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente distribuisce un contenitore Nginx a un agente privato del cluster. 
 
 ```json
 {
   "id": "nginx",
   "cpus": 0.1,
-  "mem": 16.0,
+  "mem": 32.0,
   "instances": 1,
-    "acceptedResourceRoles": [
-    "slave_public"
-  ],
   "container": {
     "type": "DOCKER",
     "docker": {
       "image": "nginx",
       "network": "BRIDGE",
       "portMappings": [
-        { "containerPort": 80, "hostPort": 80, "servicePort": 9000, "protocol": "tcp" }
+        { "containerPort": 80, "servicePort": 9000, "protocol": "tcp" }
       ]
     }
   }
@@ -95,7 +93,29 @@ Se ora si esegue una query per cercare applicazioni in Marathon, la nuova applic
 curl localhost/marathon/v2/apps
 ```
 
-È possibile verificare che Nginx sia in esecuzione eseguendo una richiesta HTTP al nome di dominio completo del pool di agenti, in `http://<containerServiceName>agents.<region>.cloudapp.azure.com`.
+## <a name="reach-the-container"></a>Raggiungere il contenitore
+
+È possibile verificare che il Nginx sia in esecuzione in un contenitore su uno degli agenti privati del cluster. Per trovare l'host e la porta in cui è in esecuzione il contenitore, eseguire una query a Marathon per le attività in esecuzione: 
+
+```bash
+curl localhost/marathon/v2/tasks
+```
+
+Trovare il valore di `host` nell'output (un indirizzo IP simile a `10.32.0.x`) e il valore di `ports`.
+
+
+Ora creare una connessione terminal SSH (non una connessione con tunnel) al FQDN di gestione del cluster. Quindi eseguire la richiesta seguente, sostituendo i valori corretti di `host` e `ports`:
+
+```bash
+curl http://host:ports
+```
+
+L'output del server di Nginx è simile al seguente:
+
+![Nginx dal contenitore](./media/container-service-mesos-marathon-rest/nginx.png)
+
+
+
 
 ## <a name="scale-your-containers"></a>Ridimensionare i contenitori
 L'API Marathon può essere usata per aumentare o ridurre il numero di istanze delle distribuzioni di applicazioni. Nell'esempio precedente è stata distribuita un'istanza di un'applicazione. Il numero di istanze dell'applicazione viene ora aumentato a tre. A tale scopo, creare un file JSON usando il testo JSON seguente e archiviarlo in un percorso accessibile.
@@ -104,7 +124,7 @@ L'API Marathon può essere usata per aumentare o ridurre il numero di istanze de
 { "instances": 3 }
 ```
 
-Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
+Dalla connessione con tunnel, eseguire il comando seguente per aumentare il numero di istanze dell'applicazione.
 
 > [!NOTE]
 > L'URI è http://localhost/marathon/v2/apps/ seguito dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/marathon/v2/apps/nginx.
@@ -136,7 +156,7 @@ I contenitori Docker formattati vengono distribuiti tramite Marathon usando un f
 {
   "id": "nginx",
   "cpus": 0.1,
-  "mem": 16.0,
+  "mem": 32.0,
   "instances": 1,
   "container": {
     "type": "DOCKER",
@@ -144,14 +164,14 @@ I contenitori Docker formattati vengono distribuiti tramite Marathon usando un f
       "image": "nginx",
       "network": "BRIDGE",
       "portMappings": [
-        { "containerPort": 80, "hostPort": 80, "servicePort": 9000, "protocol": "tcp" }
+        { "containerPort": 80, "servicePort": 9000, "protocol": "tcp" }
       ]
     }
   }
 }
 ```
 
-Per distribuire un contenitore Docker formattato, archiviare il file JSON in un percorso accessibile. Successivamente, eseguire il comando riportato di seguito per distribuire il contenitore. Specificare il nome del file JSON (`marathon.json` in questo esempio).
+Per distribuire un contenitore Docker formattato, archiviare il file JSON in un percorso accessibile. Successivamente, eseguire il comando riportato di seguito per distribuire il contenitore. Specificare il percorso del file JSON (`marathon.json` in questo esempio).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
@@ -177,10 +197,5 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sugli endpoint HTTP Mesos](http://mesos.apache.org/documentation/latest/endpoints/)
 * [Altre informazioni sull'API REST di Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -1,84 +1,100 @@
 ---
-title: Connettersi a una cartella del file system locale nelle App per la logica di Azure | Documentazione Microsoft
-description: Usare il gateway dati locale per connettersi a un file system locale nel flusso di lavoro delle app per la logica
+title: Connettersi a file system locali dalle app per la logica di Azure | Microsoft Docs
+description: Connettersi a file system locali dal flusso di lavoro dell&quot;app per la logica tramite il gateway dati locale e il connettore File System
+keywords: file system
 services: logic-apps
-documentationcenter: dev-center-name
 author: derek1ee
 manager: anneta
+documentationcenter: 
+ms.assetid: 
 ms.service: logic-apps
-ms.devlang: wdl
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2017
-ms.author: deli
+ms.author: deli; LADocs
 translationtype: Human Translation
-ms.sourcegitcommit: 336e3f2bba2fe3bb7abdd6959354349ff61ed6a8
-ms.openlocfilehash: 3bbcb5e9c7a4731eb8eb410a94fddb93b2ea8416
-
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 9eab48d40c3d9db896724d3bdb574d89fdab2796
+ms.lasthandoff: 04/04/2017
 
 ---
-# <a name="use-the-file-system-connector-with-the-on-premises-data-gateway-in-a-logic-app"></a>Usare il connettore del file system con il gateway dati locale nelle app per la logica
 
-La connettività di cloud ibrido è il fulcro delle app per la logica. Il gateway dati locale consente di gestire i dati e accedere in modo sicuro alle risorse presenti in locale dalle app per la logica. In questo articolo viene descritto come connettersi a un file system locale presentando uno scenario semplice: copiare un file caricato in Dropbox in una condivisione file e successivamente inviare un'e-mail.
+# <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Connettersi a file system locali dalle app per la logica con il connettore File System
+
+La connettività cloud ibrida è basilare per le app per la logica. In questo modo le app per la logica possono gestire i dati e accedere in modo sicuro alla risorse locali usando il gateway dati locale. Questo articolo descrive come connettersi a un file system locale presentando uno scenario semplice: copiare un file caricato in Dropbox in una condivisione file e successivamente inviare un messaggio di posta elettronica.
 
 ## <a name="prerequisites"></a>Prerequisiti
-- Installare e configurare il [gateway dati locale](https://www.microsoft.com/en-us/download/details.aspx?id=53127) più recente.
+
+- Installare e configurare il [gateway dati locale](https://www.microsoft.com/download/details.aspx?id=53127) più recente.
 - Installare il gateway dati locale più recente, versione 1.15.6150.1 o successiva. [Connessione al gateway dati locale](http://aka.ms/logicapps-gateway) elenca i passaggi. Prima di procedere con il resto della procedura, è necessario installare il gateway in un computer locale.
 
-## <a name="use-file-system-connector"></a>Usare il connettore del file system
+## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Aggiungere trigger e azioni per la connessione al file system
 
-1. Creare un trigger "Quando viene creato un file" di Dropbox, per poi dare un'occhiata a tutte le azioni supportate del connettore file con la stessa facilità con cui si digita "File system" nella ricerca.
+1. Creare un'app per la logica e aggiungere il trigger Dropbox: **Quando viene creato un file** 
+2. Nel trigger scegliere **Passaggio successivo** > **Aggiungi un'azione**. 
+3. Nella casella di ricerca, immettere `file system` in modo da visualizzare tutte le azioni supportate per il connettore File System.
 
- ![Cercare il connettore file](media/logic-apps-using-file-connector/search-file-connector.png)
+   ![Cercare il connettore file](media/logic-apps-using-file-connector/search-file-connector.png)
 
-2. Scegliere "Crea file" e creare una connessione per esso.
- - Se non è già disponibile una connessione, verrà richiesto di crearne una.
- - Selezionare l'opzione Connetti tramite gateway dati locale. Vengono visualizzate ulteriori proprietà.
- - Selezionare la cartella radice. La cartella radice può essere una cartella locale del computer in cui è installato il gateway dati locale o una condivisione di rete a cui il computer ha accesso.
- - Immettere il nome utente e la password nel gateway.
- - Selezionare il gateway installato nel passaggio precedente.
-    
- > [!NOTE]
- > La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file.
+2. Scegliere l'azione **Crea file** e creare una connessione al file system.
 
- ![Configurare la connessione](media/logic-apps-using-file-connector/create-file.png)
+   Se non è già disponibile una connessione, verrà richiesto di crearne una.
 
-3. Dopo avere fornito tutti i dettagli, fare clic su "Crea". Le app per la logica configurano e testano la connessione per verificare che funzioni correttamente. Se tutto viene verificato, si visualizzeranno le opzioni per la scheda selezionata in precedenza. Il connettore del file system sarà pronto all'uso.
+   1. Selezionare **Connect via on-premises data gateway** (Connetti tramite gateway dati locale). Vengono visualizzare altre proprietà.
+   2. Selezionare la cartella radice per il file system.
+      
+       > [!NOTE]
+       > La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. È possibile specificare una cartella locale del computer in cui è installato il gateway dati locale oppure la cartella può essere una condivisione di rete a cui il computer ha accesso.
 
-4. Prendere il file caricato su Dropbox e copiarlo nella cartella radice della condivisione file in locale.
+   3. Immettere il nome utente e la password del gateway.
+   4. Selezionare il gateway installato in precedenza.
 
- ![Azione Crea file](media/logic-apps-using-file-connector/create-file-filled.png)
+       ![Configurare la connessione](media/logic-apps-using-file-connector/create-file.png)
 
-5. Dopo aver copiato il file, inviare un'e-mail di notifica agli utenti pertinenti. Come per gli altri connettori, l'output delle azioni precedenti sarà disponibile nel selettore "contenuto dinamico".
- - Immettere i destinatari, il titolo e il corpo del messaggio di posta elettronica. Usare il selettore "contenuto dinamico" per selezionare l'output dal connettore file per rendere il messaggio di posta elettronica più completo.
+3. Dopo aver specificato tutti i dettagli, scegliere **Crea**. 
 
- ![Azione Invia e-mail](media/logic-apps-using-file-connector/send-email.png)
+   Le app per la logica configurano ed eseguono il test della connessione, assicurandosi che funzioni correttamente. 
+   Se la connessione è configurata correttamente, vengono visualizzate le opzioni per l'azione selezionata in precedenza. 
+   Il connettore del file system sarà pronto all'uso.
 
-6. Salvare l'app per la logica e testarla caricando un file su Dropbox. Il file copiato dovrebbe apparire nella condivisione di file locale e si dovrebbe ricevere l'e-mail di notifica corrispondente.
+4. Specificare che si desidera copiare i file da Dropbox nella cartella radice per la condivisione di file locale.
 
-    > [!TIP] 
-    > Scoprire come [monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+   ![Azione Crea file](media/logic-apps-using-file-connector/create-file-filled.png)
 
-7. Al termine della procedura, si dispone finalmente di un app per la logica funzionante che usa il connettore file system. È possibile iniziare a conoscere le altre funzionalità che offre:
+5. Dopo che l'app per la logica ha copiato il file, aggiungere un'azione di Outlook che invia un messaggio di posta elettronica che informa gli utenti del nuovo file. Immettere i destinatari, il titolo e il corpo del messaggio di posta elettronica. 
 
-    - Crea file
-    - Elenca i file nella cartella
-    - Aggiungi file
-    - Elimina file
-    - Recupera contenuto di file
-    - Recupera contenuto di file tramite percorso
-    - Recupera metadati di file
-    - Recupera metadati di file tramite percorso
-    - Elenca i file nella cartella radice
-    - Aggiorna file
+   Nel selettore di contenuto dinamico, è possibile scegliere output di dati dal connettore di file per aggiungere altri dettagli al messaggio di posta elettronica.
+
+   ![Azione Invia e-mail](media/logic-apps-using-file-connector/send-email.png)
+
+6. Salvare l'app per la logica. Eseguire il test dell'app caricando un file in Dropbox. Il file dovrebbe essere copiato nella condivisione di file locale e si dovrebbe ricevere il relativo messaggio di posta elettronica di notifica.
+
+   > [!TIP] 
+   > Informazioni su come [monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+
+A questo punto, si disporrà di un'app per la logica funzionante che può connettersi al file system locale. Provare a esplorare altre funzionalità del connettore, ad esempio:
+
+- Crea file
+- Elenca i file nella cartella
+- Aggiungi file
+- Elimina file
+- Recupera contenuto di file
+- Recupera contenuto di file tramite percorso
+- Recupera metadati di file
+- Recupera metadati di file tramite percorso
+- Elenca i file nella cartella radice
+- Aggiorna file
+
+## <a name="get-help"></a>Ottenere aiuto
+
+Per porre domande, fornire risposte e ottenere informazioni sulle attività degli altri utenti di App per la logica di Azure, vedere il [forum su App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Per contribuire al miglioramento delle App per la logica di Azure e dei connettori, votare o inviare idee al [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
-- Creare una [connessione locale](../logic-apps/logic-apps-gateway-connection.md) alle app per la logica.
 
-
-
-<!--HONumber=Jan17_HO5-->
-
+- [Connettersi ai dati locali](../logic-apps/logic-apps-gateway-connection.md) dalle app per la logica
+- Informazioni su [Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

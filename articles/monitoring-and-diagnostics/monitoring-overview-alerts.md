@@ -16,9 +16,9 @@ ms.date: 03/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c9065c3346c924ea21060c9e7e5b297a3cb26941
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -44,9 +44,9 @@ Nel diagramma seguente sono riepilogati gli avvisi e le operazioni che è possib
 È possibile ricevere gli avvisi basati su:
 
 * **Valori della metrica**: l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta. Per un elenco in continua crescita delle metriche disponibili supportate dal monitoraggio di Azure, vedere [l'elenco delle metriche supportate in Monitoraggio di Azure](monitoring-supported-metrics.md).
-* **Eventi del log attività**: è possibile attivare questo avviso per ogni evento o solo quando si verifica un determinato numero di eventi.
+* **Eventi del log attività**: questo avviso viene attivato quando si verifica un determinato evento in una risorsa o quando viene pubblicata una notifica del servizio nella sottoscrizione.
 
-## <a name="what-can-alerts-do"></a>Quali operazioni si possono eseguire con gli avvisi?
+## <a name="what-can-metric-alerts-do"></a>Funzione degli avvisi di metrica
 È possibile configurare un avviso per eseguire le azioni seguenti:
 
 * Inviare notifiche tramite posta elettronica all'amministratore del servizio, ai co-amministratori e/o ad altri indirizzi di posta elettronica specificati.
@@ -56,12 +56,27 @@ Nel diagramma seguente sono riepilogati gli avvisi e le operazioni che è possib
     - App per la logica di Azure
     - un servizio di terze parti
 
+## <a name="what-can-activity-log-alerts-do"></a>Funzione degli avvisi del log attività
+È possibile configurare un avviso per eseguire le azioni seguenti:
+* Attivare l'avviso ogni volta che un evento specifico si verifica in una delle risorse nella sottoscrizione
+* Attivare l'avviso ogni volta che viene registrata una notifica del servizio nella sottoscrizione
+* Avvisare i membri di un gruppo di azione tramite
+    * sms
+    * Email
+    * webhook
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione usando:
 
-* [Portale di Azure](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
-* [Interfaccia della riga di comando (CLI)](insights-alerts-command-line-interface.md)
-* [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Altre informazioni sulle [metriche](monitoring-overview-metrics.md)
+* Configurare gli [avvisi sulle metriche tramite il portale di Azure](insights-alerts-portal.md)
+* Configurare gli [avvisi sulle metriche con PowerShell](insights-alerts-powershell.md)
+* Configurare gli [avvisi sulle metriche tramite l'interfaccia della riga di comando](insights-alerts-command-line-interface.md)
+* Configurare gli [avvisi sulle metriche tramite l'API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Altre informazioni sul [log attività](monitoring-overview-activity-logs.md)
+* Configurare [gli avvisi del log attività tramite il portale di Azure](monitoring-activity-log-alerts.md)
+* Configurare [gli avvisi del log attività tramite Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Esaminare lo [schema webhook degli avvisi del log attività](monitoring-activity-log-alerts-webhook.md)
+* Altre informazioni sulle [notifiche del servizio](monitoring-service-notifications.md)
+* Altre informazioni sui [gruppi di azione](monitoring-action-groups.md)
 
