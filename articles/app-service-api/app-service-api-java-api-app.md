@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: rachelap;robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -314,9 +315,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [select-git-repo]: ./media/app-service-api-java-api-app/select-git-repo.png
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

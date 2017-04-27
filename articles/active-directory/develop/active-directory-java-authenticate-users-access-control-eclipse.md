@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
 ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -236,7 +237,7 @@ Dopo la distribuzione dell'applicazione Web, chiudere le sessioni del browser ap
 
 Al termine dell'utilizzo dell'applicazione ACS Hello World, ricordare di eliminare la distribuzione (per ulteriori informazioni sull'eliminazione di una distribuzione, vedere l'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) ).
 
-## <a name="a-namenextstepsanext-steps"></a><a name="next_steps"></a>Passaggi successivi
+## <a name="next_steps"></a>Passaggi successivi
 Per un esame del linguaggio Security Assertion Markup Language (SAML) restituito da ACS all'applicazione, vedere [Come visualizzare il codice SAML restituito dal Servizio di controllo di accesso di Azure][How to view SAML returned by the Azure Access Control Service]. Per continuare a esplorare le funzionalità di ACS ed esercitarsi con scenari più complessi, vedere [Servizio di controllo di accesso 2.0][Access Control Service 2.0].
 
 In questo esempio è stata usata l'opzione **Embed the certificate in the WAR file** . Questa opzione semplifica la distribuzione del certificato. Se invece si desidera mantenere il certificato di firma separato dal file WAR, è possibile applicare la tecnica seguente:
@@ -296,10 +297,5 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
