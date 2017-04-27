@@ -1,11 +1,12 @@
 ---
-title: Aggiungere il connettore Dynamics 365 (online) alle app per la logica di Azure | Microsoft Docs
-description: "Creare app per la logica con Servizio app di Azure. Il provider di connessioni di Dynamics 365 (online) offre un&quot;API per usare le entità in Dynamics 365 (online)."
+title: Connettersi a Dynamics 365 (online) dalle app per la logica di Azure | Microsoft Docs
+description: "Creare flussi di lavoro di app per la logica che gestiscono le entità di Dynamics 365 (online) tramite l&quot;API inclusa nel connettore di Dynamics 365"
 services: logic-apps
 cloud: Azure Stack
-documentationcenter: 
 author: Mattp123
 manager: anneta
+documentationcenter: 
+tags: connectors
 ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
 ms.service: logic-apps
 ms.workload: integration
@@ -13,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
-ms.author: matp
+ms.author: matp; LADocs
 translationtype: Human Translation
-ms.sourcegitcommit: fa426f474f4efd4023da5dfd9954dacf96f635ab
-ms.openlocfilehash: 99d5379ad1e6965dd9ed88de456cc850d7e40d5a
-
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: f09dd58f17b228d6381af95c40c5391886bbb8f1
+ms.lasthandoff: 04/05/2017
 
 ---
-# <a name="create-a-logic-app-with-the-dynamics-365-connector"></a>Creare un'app per la logica con il connettore Dynamics 365
 
-App per la logica consente di connettersi a Dynamics 365 (online) e creare utili flussi aziendali per creare nuovi record, aggiornare elementi o restituire un elenco di record. Con il connettore Dynamics 365, è possibile:
+# <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Connettersi a Dynamics 365 da flussi di lavoro di app per la logica
+
+Con il servizio App per la logica è possibile connettersi a Dynamics 365 (online) e creare flussi aziendali utili che restituiscono record, aggiornano elementi o restituiscono un elenco di record. Con il connettore Dynamics 365, è possibile:
 
 * Creare un flusso aziendale in base ai dati ottenuti da Dynamics 365 (online).
 * Usare azioni che ottengono una risposta e quindi rendono disponibile l'output per altre azioni. Ad esempio, quando viene aggiornato un elemento in Dynamics 365 (online), è possibile inviare un messaggio di posta elettronica con Office 365.
@@ -33,118 +35,135 @@ Questo argomento illustra come creare un'app per la logica che crea un'attività
 * Un account Azure.
 * Un account Dynamics 365 (online).
 
-## <a name="walkthrough-create-a-task-whenever-a-new-lead-is-created-in-dynamics-365"></a>Procedura dettagliata: Creare un'attività ogni volta che viene creato un nuovo lead in Dynamics 365
+## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Creare un'attività quando viene creato un nuovo lead in Dynamics 365
+
 1.    [Accedere ad Azure](https://portal.azure.com).
-2.    Digitare *App per la logica* nella **casella di ricerca** e quindi premere INVIO.
-3.    Nell'area del servizio App per la logica fare clic su **Aggiungi**.
 
-  ![Aggiungere un'app per la logica](./media/connectors-create-api-crmonline/add-logic-app.png)
+2.    Nella casella di ricerca di Azure digitare `Logic apps` e premere INVIO.
 
-4.    Completare i campi **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località** per creare l'oggetto app per la logica e quindi fare clic su **Crea**.
+      ![Trovare App per la logica](./media/connectors-create-api-crmonline/find-logic-apps.png)
+
+3.    In **App per la logica** fare clic su **Aggiungi**.
+
+      ![Aggiungere un'app per la logica](./media/connectors-create-api-crmonline/add-logic-app.png)
+
+4.    Per creare l'app per la logica, completare i campi **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Percorso** e quindi fare clic su **Crea**.
 
 5.    Selezionare la nuova app per la logica. Quando viene visualizzata la notifica **La distribuzione è riuscita** fare clic su **Aggiorna**.
 
-6.    In Strumenti di sviluppo fare clic su **Progettazione app per la logica** e quindi nell'elenco dei modelli disponibili fare clic su **LogicApp vuoto**.
+6.    In **Strumenti di sviluppo** fare clic su **Progettazione app per la logica**. Nell'elenco dei modelli fare clic su **App per la logica vuota**.
 
-7.    Digitare *Dynamics 365*. Vengono elencati diversi trigger per Dynamics 365. Fare clic su **Dynamics 365 - Quando un record viene creato**.
+7.    Nella casella di ricerca digitare `Dynamics 365`. Nell'elenco dei trigger di Dynamics 365 selezionare **Dynamics 365 - Quando un record viene creato**.
 
-8.    Se viene richiesto di accedere a Dynamics 365, eseguire l'accesso.
+8.    Se viene richiesto di accedere a Dynamics 365, eseguire l'operazione.
 
-9.    Nei dettagli del trigger immettere le informazioni seguenti.
+9.    Nei dettagli del trigger immettere le informazioni seguenti:
 
   * **Nome organizzazione**. Selezionare l'istanza di Dynamics 365 di cui l'app per la logica dovrà essere in ascolto.
 
-  * **Nome entità**. Selezionare l'entità di cui essere in ascolto, che fungerà da trigger per avviare l'app per la logica. In questa procedura guidata si seleziona **Lead**.
+  * **Nome entità**. Selezionare l'entità che si vuole ascoltare. Questo evento funge da trigger per avviare l'app per la logica. 
+  In questa procedura guidata si seleziona **Lead**.
 
   * **Specificare la frequenza in base a cui verificare gli elementi**. Questi valori impostano la frequenza con cui l'app per la logica verificherà la presenza di aggiornamenti correlati al trigger. L'impostazione predefinita prevede la verifica della presenza di aggiornamenti ogni tre minuti.
 
     * **Frequenza**. Selezionare secondi, minuti, ore o giorni.
 
-    * **Intervallo**. Immettere un numero che indica il numero di secondi, minuti, ore o giorni che deve trascorrere prima della verifica successiva.
+    * **Intervallo**. Immettere il numero di secondi, minuti, ore o giorni che deve trascorrere prima della verifica successiva.
 
-    ![Dettagli del trigger dell'app per la logica](./media/connectors-create-api-crmonline/trigger-details.png)
+      ![Dettagli del trigger dell'app per la logica](./media/connectors-create-api-crmonline/trigger-details.png)
 
-10.    Fare clic su **Nuovo passaggio** e quindi su **Aggiungi un'azione**.
+10. Fare clic su **Nuovo passaggio** e quindi su **Aggiungi un'azione**.
 
-11.    Digitare *Dynamics 365* e quindi nell'elenco fare clic su **Dynamics 365 - Crea un nuovo record**.
+11. Nella casella di ricerca digitare `Dynamics 365`. Nell'elenco di azioni selezionare **Dynamics 365 - Crea un nuovo record**.
 
-12.    Immettere le seguenti informazioni.
-  * **Nome organizzazione**. Selezionare l'istanza di Dynamics 365 in cui si vuole che il flusso crei il record. Si noti che non deve necessariamente essere la stessa istanza da cui viene attivato l'evento.
-  * **Nome entità**. Selezionare l'entità in cui si vuole che venga creato un record quando viene attivato l'evento. In questa procedura guidata si seleziona **Attività**.
+12. Immettere le seguenti informazioni:
 
-13.    Viene visualizzata una casella Oggetto. Facendo clic sulla casella, viene visualizzato un riquadro di contenuto dinamico in cui è possibile selezionare uno dei campi seguenti.
-  * **Cognome**. Selezionando questo campo, alla creazione del record attività verrà inserito il cognome del lead nel campo Oggetto dell'attività.
-  * **Argomento**. Selezionando questo campo, alla creazione del record attività verrà inserito il campo Argomento del lead nel campo Oggetto dell'attività.
-Fare clic su **Argomento** per aggiungere questo campo alla casella **Oggetto**.
+    * **Nome organizzazione**. Selezionare l'istanza di Dynamics 365 in cui si vuole che il flusso crei il record. 
+    Si noti che questa istanza non deve essere necessariamente la stessa da cui viene attivato l'evento.
 
-  ![Dettagli per la creazione di un nuovo record nell'app per la logica](./media/connectors-create-api-crmonline/create-record-details.png)
+    * **Nome entità**. Selezionare l'entità in cui si vuole che venga creato un record quando viene attivato l'evento. 
+    In questa procedura guidata si seleziona **Attività**.
 
-14.    Fare clic su **Salva** sulla barra degli strumenti di Progettazione app per la logica.
+13. Fare clic nella casella **Oggetto** visualizzata. Nell'elenco del contenuto dinamico visualizzato è possibile selezionare uno di questi campi:
 
-  ![Salva nella barra degli strumenti di Progettazione app per la logica](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+    * **Cognome**. La selezione di questo campo inserisce il cognome del lead nel campo Oggetto dell'attività, quando viene creato il record dell'attività.
+    * **Argomento**. La selezione di questo campo inserisce il campo dell'argomento per il lead nel campo Oggetto dell'attività, quando viene creato il record dell'attività. 
+    Fare clic su **Argomento** per aggiungere questo campo alla casella **Oggetto**.
 
-15.    Per avviare l'app per la logica, fare clic su **Esegui**.
+      ![Dettagli per la creazione di un nuovo record nell'app per la logica](./media/connectors-create-api-crmonline/create-record-details.png)
 
-  ![Salva nella barra degli strumenti di Progettazione app per la logica](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+14. Fare clic su **Salva** nella barra degli strumenti di Progettazione app per la logica.
+
+    ![Salva nella barra degli strumenti di Progettazione app per la logica](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+
+15. Per avviare l'app per la logica, fare clic su **Esegui**.
+
+    ![Salva nella barra degli strumenti di Progettazione app per la logica](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
 16. Creare ora un record lead in Dynamics 365 for Sales e verificare il funzionamento del flusso.
 
-## <a name="using-advanced-options"></a>Uso di opzioni avanzate
-Quando si aggiunge un passaggio a un'app per la logica, facendo clic su **Mostra le opzioni avanzate** è possibile controllare come verranno filtrati i dati nel passaggio aggiungendo una query di filtro o di ordinamento.
+## <a name="set-advanced-options-for-a-logic-app-step"></a>Impostare le opzioni avanzate per un passaggio dell'app per la logica
 
-Ad esempio, è possibile usare una query di filtro per recuperare solo gli account attivi ed eseguire l'ordinamento in base al nome dell'account. A tale scopo, immettere la query di filtro OData **statuscode eq 1** e selezionare **Nome account** nel riquadro di contenuto dinamico. Per altre informazioni, vedere [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) e [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+Per specificare come filtrare i dati in un passaggio dell'app per la logica, fare clic su **Visualizza opzioni avanzate** in tale passaggio, quindi aggiungere un filtro o eseguire un ordinamento tramite una query.
 
-  ![Opzioni avanzate per le app per la logica](./media/connectors-create-api-crmonline/advanced-options.png)
+Ad esempio, è possibile usare una query di filtro per recuperare solo gli account attivi ed eseguire l'ordinamento in base al nome dell'account. A tale scopo, immettere la query di filtro OData `statuscode eq 1` e selezionare **Nome account** nel riquadro di contenuto dinamico. Per altre informazioni, vedere [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) e [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+
+![Opzioni avanzate delle app per la logica](./media/connectors-create-api-crmonline/advanced-options.png)
 
 ### <a name="best-practices-when-using-advanced-options"></a>Procedure consigliate per l'uso delle opzioni avanzate
-Quando si aggiunge un valore a un campo, è necessario che corrisponda al tipo di campo, indipendentemente dal fatto che il valore venga digitato o selezionato nel contenuto dinamico visualizzato.
+
+Quando si aggiunge un valore a un campo, il tipo di campo deve corrispondere, indipendentemente dal fatto che il valore venga digitato o selezionato nell'elenco del contenuto dinamico.
 
 Tipo di campo  |Utilizzo  |Posizione  |Nome  |Tipo di dati  
 ---------|---------|---------|---------|---------
-Campi di testo|I campi di testo richiedono una singola riga di testo oppure contenuto dinamico costituito da un campo di tipo testo. Ad esempio, i campi Categoria e Sottocategoria.|Impostazioni > Personalizzazioni > Personalizza il sistema > Entità > Attività > Campi |category |Singola riga di testo       
+Campi di testo|I campi di testo richiedono una singola riga di testo oppure contenuto dinamico costituito da un campo di tipo testo. Ad esempio, i campi Categoria e Sottocategoria.|Impostazioni > Personalizzazioni > Personalizza il sistema > Entità > Attività > Campi |category |Riga di testo singola        
 Campi di tipo Integer | Alcuni campi richiedono Integer oppure contenuto dinamico costituito da un campo di tipo Integer. Ad esempio, Percentuale completamento e Durata. |Impostazioni > Personalizzazioni > Personalizza il sistema > Entità > Attività > Campi |percentcomplete |Numero intero         
-Campi di data | Alcuni campi richiedono una data immessa nel formato mm/gg/aaaa oppure contenuto dinamico costituito da un campo di tipo data. Ad esempio, Data creazione, Data di inizio, Inizio effettivo, Ultimo periodo sospensione, Fine effettiva e Scadenza. | Impostazioni > Personalizzazioni > Personalizza il sistema > Entità > Attività > Campi |createdon |Data e ora         
-Campi che richiedono sia ID record che tipo di ricerca |Alcuni campi che fanno riferimento a un altro record di entità richiedono sia l'ID record che il tipo di ricerca. |Impostazioni > Personalizzazioni > Personalizza il sistema > Entità > Account > Campi  | accountid   | Chiave primaria
+Campi di data | Alcuni campi richiedono una data immessa nel formato mm/gg/aaaa oppure contenuto dinamico costituito da un campo di tipo data. Ad esempio, Data creazione, Data di inizio, Inizio effettivo, Ultimo periodo sospensione, Fine effettiva e Scadenza. | Impostazioni > Personalizzazioni > Personalizza il sistema > Entità > Attività > Campi |createdon |Data e ora
+Campi che richiedono sia ID record che tipo di ricerca |Alcuni campi che fanno riferimento a un altro record di entità richiedono sia l'ID record che il tipo di ricerca. |Impostazioni > Personalizzazioni > Personalizza il sistema > Entità > Account > Campi  | accountid  | Chiave primaria
 
 ### <a name="more-examples-of-fields-that-require-both-a-record-id-and-lookup-type"></a>Alcuni esempi di campi che richiedono sia ID record che tipo di ricerca
 A integrazione della tabella precedente, di seguito sono riportati alcuni esempi di campi a cui non sono applicabili valori selezionati dall'elenco di contenuto dinamico. È invece necessario immettere sia un ID record che un tipo di ricerca nei campi in PowerApps.  
-*  Proprietario e Tipo di proprietario. Il campo Proprietario deve contenere un ID record utente o team valido. Tipo di proprietario deve contenere **systemusers** o **teams**.
+* Proprietario e Tipo di proprietario. Il campo Proprietario deve contenere un ID record utente o team valido. Tipo di proprietario deve contenere **systemusers** o **teams**.
 * Cliente e Tipo di cliente. Il campo Cliente deve contenere un ID record account o contatto valido. Tipo di proprietario deve contenere **accounts** o **contacts**.
 * Tema e Tipo relativo. Il campo Tema deve contenere un ID record valido, ad esempio un ID record account o contatto. Tipo relativo deve contenere il tipo di ricerca per il record, ad esempio **accounts** o **contacts**.
 
 L'esempio seguente di azione di creazione di un'attività aggiunge un record account corrispondente all'ID record aggiungendolo al campo Tema dell'attività.
 
-  ![ID record e tipo account nel flusso](./media/connectors-create-api-crmonline/recordid-type-account.png)
+![ID record e tipo account nel flusso](./media/connectors-create-api-crmonline/recordid-type-account.png)
 
 Questo esempio assegna anche l'attività a un utente specifico in base all'ID record dell'utente.
-  ![ID record e tipo account nel flusso](./media/connectors-create-api-crmonline/recordid-type-user.png)
 
-Per trovare l'ID di un record, vedere la sezione *Trovare l'ID record* riportata di seguito.
+![ID record e tipo account nel flusso](./media/connectors-create-api-crmonline/recordid-type-user.png)
+
+Per trovare l'ID di un record, vedere la sezione *Trovare l'ID record*
 
 ## <a name="find-the-record-id"></a>Trovare l'ID record
+
 1. Aprire un record, ad esempio un record account.
 
 2. Sulla barra degli strumenti Azioni fare clic su **Apri nuova finestra** ![Apertura di una nuova finestra nel record](./media/connectors-create-api-crmonline/popout-record.png).
-In alternativa, sulla barra degli strumenti Azioni fare clic su **Invia link tramite messaggio e-mail** per copiare l'URL completo nel programma di posta elettronica predefinito.
+In alternativa, sulla barra degli strumenti delle azioni fare clic su **Invia link tramite messaggio e-mail** per copiare l'URL completo nel programma di posta elettronica predefinito.
 
-3. L'ID record viene visualizzato tra i caratteri di codifica %7b e %7d dell'URL.
+   L'ID record viene visualizzato tra i caratteri di codifica %7b e %7d dell'URL.
 
-  ![ID record e tipo account nel flusso](./media/connectors-create-api-crmonline/recordid.png)
+   ![ID record e tipo account nel flusso](./media/connectors-create-api-crmonline/recordid.png)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 Per risolvere i problemi relativi a un passaggio non riuscito in un'app per la logica, visualizzare i dettagli dello stato dell'evento.
 
-1. Nell'area App per la logica fare clic sull'app per la logica e quindi su **Panoramica**. Verrà visualizzata l'area Riepilogo, in cui è riportato lo stato delle esecuzioni dell'app per la logica. Se sono presenti esecuzioni non riuscite, fare clic sull'evento non riuscito di cui si vogliono visualizzare altre informazioni.
+1. In **App per la logica**, selezionare l'app per la logica e quindi fare clic su **Panoramica**. 
 
-  ![Risoluzione dei problemi delle app per la logica - Passaggio 1](./media/connectors-create-api-crmonline/tshoot1.png)
+   Verrà visualizzata l'area Riepilogo, in cui è riportato lo stato di esecuzione dell'app per la logica. 
 
-2. Fare clic sul passaggio non riuscito per espanderlo.
+   ![Stato di esecuzione dell'app per la logica](./media/connectors-create-api-crmonline/tshoot1.png)
 
-  ![Risoluzione dei problemi delle app per la logica - Passaggio 2](./media/connectors-create-api-crmonline/tshoot2.png)
+2. Per altre informazioni su esecuzioni non riuscite, fare clic sull'evento con esito negativo. Per espandere un passaggio non riuscito, fare clic su tale passaggio.
 
-3. Verranno visualizzati i dettagli del passaggio, che consentono di risolvere la causa dell'errore.
+   ![Espandere un passaggio non riuscito](./media/connectors-create-api-crmonline/tshoot2.png)
 
-    ![Risoluzione dei problemi delle app per la logica - Passaggio 2](./media/connectors-create-api-crmonline/tshoot3.png)
+   Vengono visualizzati i dettagli del passaggio, che consentono di risolvere la causa dell'errore.
+
+   ![Dettagli del passaggio non riuscito](./media/connectors-create-api-crmonline/tshoot3.png)
 
 Per altre informazioni sulla risoluzione dei problemi delle app per la logica, vedere [Diagnosi degli errori delle app per la logica](../logic-apps/logic-apps-diagnosing-failures.md).
 
@@ -309,9 +328,4 @@ Le azioni e i trigger possono restituire uno o più dei codici di stato HTTP seg
 
 ## <a name="next-steps"></a>Passaggi successivi
 Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
