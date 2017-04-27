@@ -33,18 +33,19 @@
       href: sql-database-connect-query-python.md
     - name: "Ruby"
       href: sql-database-connect-query-ruby.md
+- name: "Esercitazioni"
+  items:
+  - name: "1 - Creare/progettare un nuovo database SQL"
+    href: sql-database-design-first-database.md
+  - name: "2 - Eseguire la migrazione di un database SQL Server esistente"
+    href: sql-database-migrate-your-sql-server-database.md 
 - name: "Esempi"
   items:
   - name: "Interfaccia della riga di comando di Azure"
     href: sql-database-cli-samples.md
   - name: "PowerShell"
     href: sql-database-powershell-samples.md
-- name: "Esercitazioni"
-  items:
-  - name: "Progettare un database"
-    href: sql-database-design-first-database.md
-  - name: "Eseguire la migrazione di un database"
-    href: sql-database-migrate-your-sql-server-database.md  
+ 
 - name: "Concetti"
   items:
   - name: "Database e server"
@@ -55,8 +56,6 @@
       href: sql-database-server-overview.md
     - name: "Pool elastici"
       href: sql-database-elastic-pool.md
-    - name: "Usare un pool elastico"
-      href: sql-database-elastic-pool-guidance.md
   - name: "Risorse"
     items:
     - name: "Livelli di servizio"

@@ -13,18 +13,24 @@
     href: quick-create-powershell.md
   - name: "Creare una VM: interfaccia della riga di comando di Azure"
     href: quick-create-cli.md
+- name: "Esercitazioni"
+  items:
+  - name: "1 - Creare/gestire una macchina virtuale"
+    href: tutorial-manage-vm.md
+  - name: "2 - Creare/gestire dischi"
+    href: tutorial-manage-data-disk.md
+  - name: "3 - Automatizzare la configurazione"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 - Bilanciare il carico delle VM"
+    href: tutorial-load-balancer.md
+  - name: "5 - Gestire la rete"
+    href: tutorial-virtual-network.md
 - name: "Esempi"
   items:
   - name: "PowerShell"
     href: powershell-samples.md
   - name: "Interfaccia della riga di comando di Azure"
     href: cli-samples.md
-- name: "Esercitazioni"
-  items:
-  - name: "Creare e gestire una VM"
-    href: ../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: "Bilanciare il carico di VM a disponibilità elevata"
-    href: load-balanced-iis-tutorial.md
 - name: "Concetti"
   items:
   - name: "Aree e disponibilità"
@@ -261,7 +267,7 @@
     - name: "Gestire l&quot;accesso"
       href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: "Crittografare un disco"
-      href: ../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: encrypt-disks.md
     - name: "Applicare i criteri alle macchine virtuali"
       href: policy.md
     - name: "Configurare l&quot;insieme di credenziali delle chiavi"
