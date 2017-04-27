@@ -1,22 +1,22 @@
 ---
-title: API di Application Insights per metriche ed eventi personalizzati | Documentazione Microsoft
+title: API di Application Insights per metriche ed eventi personalizzati | Microsoft Docs
 description: Inserire alcune righe di codice nell&quot;app desktop o per dispositivi, nella pagina Web o nel servizio per tenere traccia dell&quot;utilizzo e diagnosticare i problemi.
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/31/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 1330d8be444f596b0d1ed2038eaeb1200e8b9285
-ms.openlocfilehash: 6951a50050c5b0c8edb2deb1eb64aef44e94ff96
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 64632e58330b8212be24b98f861a3a4f358e72df
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,12 +31,12 @@ L'API è uniforme in tutte le piattaforme, a parte alcune variazioni di lieve en
 | Metodo | Usato per |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Pagine, schermate, pannelli o form. |
-| [`TrackEvent`](#track-event) |Azioni dell'utente e altri eventi. Usato per tenere traccia del comportamento dell'utente o per monitorare le prestazioni. |
-| [`TrackMetric`](#track-metric) |Misurazioni delle prestazioni, ad esempio la lunghezza della coda, non correlate a eventi specifici. |
-| [`TrackException`](#track-exception) |Registrare le eccezioni per la diagnosi. Tenere traccia del punto in cui si verificano in relazione ad altri eventi ed esaminare le analisi dello stack. |
-| [`TrackRequest`](#track-request) |Registrare la frequenza e la durata delle richieste del server per l'analisi delle prestazioni. |
-| [`TrackTrace`](#track-trace) |Messaggi nei log di diagnostica. È anche possibile acquisire log di terze parti. |
-| [`TrackDependency`](#track-dependency) |Registrare la durata e la frequenza delle chiamate ai componenti esterni da cui dipende l'app. |
+| [`TrackEvent`](#trackevent) |Azioni dell'utente e altri eventi. Usato per tenere traccia del comportamento dell'utente o per monitorare le prestazioni. |
+| [`TrackMetric`](#send-metrics) |Misurazioni delle prestazioni, ad esempio la lunghezza della coda, non correlate a eventi specifici. |
+| [`TrackException`](#trackexception) |Registrare le eccezioni per la diagnosi. Tenere traccia del punto in cui si verificano in relazione ad altri eventi ed esaminare le analisi dello stack. |
+| [`TrackRequest`](#trackrequest) |Registrare la frequenza e la durata delle richieste del server per l'analisi delle prestazioni. |
+| [`TrackTrace`](#tracktrace) |Messaggi nei log di diagnostica. È anche possibile acquisire log di terze parti. |
+| [`TrackDependency`](#trackdependency) |Registrare la durata e la frequenza delle chiamate ai componenti esterni da cui dipende l'app. |
 
 È possibile [associare proprietà e metriche](#properties) alla maggior parte di queste chiamate di telemetria.
 
@@ -45,9 +45,9 @@ Se queste operazioni non sono state ancora eseguite, completarle:
 
 * Aggiungere Application Insights SDK al progetto:
 
-  * [Progetto ASP.NET][greenbrown]
-  * [Progetto Java][java]
-  * [JavaScript in ogni pagina Web][client]   
+  * [Progetto ASP.NET](app-insights-asp-net.md)
+  * [Progetto Java](app-insights-java-get-started.md)
+  * [JavaScript in ogni pagina Web](app-insights-javascript.md) 
 * Nel dispositivo o nel codice del server Web includere:
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -76,7 +76,7 @@ TelemetryClient è thread-safe.
 È consigliabile usare un'istanza di TelemetryClient per ogni modulo dell'app. Ad esempio è possibile che il servizio Web includa un'istanza di TelemetryClient per segnalare le richieste HTTP in entrata e un altro oggetto in una classe middleware per segnalare gli eventi di logica di business. È possibile impostare proprietà quali `TelemetryClient.Context.User.Id` per tenere traccia degli utenti e delle sessioni o `TelemetryClient.Context.Device.Id` per identificare il computer. Queste informazioni sono associate a tutti gli eventi inviati dall'istanza.
 
 ## <a name="trackevent"></a>TrackEvent
-In Application Insights un *evento personalizzato* è un punto dati che è possibile visualizzare in [Esplora metriche][metrics] come conteggio aggregato e in [Ricerca diagnostica][diagnostic] come singole occorrenze. Non è correlato a MVC o ad altri "eventi" del framework.
+In Application Insights un *evento personalizzato* è un punto dati che è possibile visualizzare in [Esplora metriche](app-insights-metrics-explorer.md) come conteggio aggregato e in [Ricerca diagnostica](app-insights-diagnostic-search.md) come singole occorrenze. Non è correlato a MVC o ad altri "eventi" del framework.
 
 Inserire chiamate TrackEvent nel codice per contare la frequenza d'uso di una particolare funzionalità, la frequenza di raggiungimento di obiettivi specifici o la frequenza di particolari tipi di errore.
 
@@ -116,45 +116,128 @@ Per concentrarsi sugli eventi specifici in Ricerca o in Esplora metriche, impost
 
 ![Aprire i filtri, espandere il nome dell’evento e selezionare uno o più valori](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
-## <a name="trackmetric"></a>TrackMetric
-Usare TrackMetric per inviare le metriche che non sono associate a determinati eventi. Ad esempio è possibile monitorare la lunghezza di una coda a intervalli regolari.
 
-Le metriche sono visualizzate come grafici statistici in Esplora metriche. Ma a differenza degli eventi è possibile cercare singole occorrenze in Ricerca diagnostica.
+## <a name="send-metrics"></a>Inviare metriche
 
-Affinché i valori metrici siano visualizzati correttamente, devono essere maggiori o uguali a 0.
+Application Insights è in grado di creare grafici in base a metriche non sono associate a determinati eventi. Ad esempio, è possibile monitorare la lunghezza di una coda a intervalli regolari. Grazie alle metriche, le singole misurazioni sono meno interessanti rispetto alle variazioni e alle tendenze, i grafici statistici risultano pertanto utili.
+
+Per inviare le metriche è possibile procedere in due modi:
+
+* **MetricManager** è consigliato come un modo pratico per inviare le metriche riducendo al contempo la larghezza di banda. Aggrega le metriche nell'app, inviando le statistiche aggregate al portale in base a intervalli di un minuto. MetricManager è disponibile nella versione 2.4 di Application Insights SDK per ASP.NET.
+* **TrackMetric** invia statistiche delle metriche al portale. È possibile inviare valori di metrica singoli o eseguire un'aggregazione personalizzata e usare TrackMetric per inviare le statistiche.
+
+### <a name="metricmanager"></a>MetricManager
+
+(Application Insights per ASP.NET v2.4.0+)
+
+Creare un'istanza di MetricManager e quindi usarla come una factory per le metriche:
+
+*C#*
+```C#
+    // Initially:
+    var manager = new Microsoft.ApplicationInsights.Extensibility.MetricManager(telemetryClient);
+
+    // For each metric that you want to use:
+    var metric1 = mgr.CreateMetric("m1", dimensions);
+
+    // Each time you want to record a measurement:
+    metric1.Track(value);
+
+```
+
+`dimensions` è un dizionario di stringhe facoltativo. Usarlo se si desidera associare [proprietà](#properties) alla metrica in modo da poter eseguire la segmentazione in base a valori di proprietà diversi. 
+
+### <a name="trackmetric"></a>TrackMetric
+
+TrackMetric è il metodo di base per l'invio delle metriche aggregate. 
+
+Per inviare un singolo valore di metrica:
 
 *JavaScript*
 
-    appInsights.trackMetric("Queue", queue.Length);
+ ```Javascript
+     appInsights.trackMetric("queueLength", 42.0);
+ ```
+
+*C#, Java*
+
+```C#
+    var sample = new MetricTelemetry();
+    sample.Name = "metric name";
+    sample.Value = 42.3;
+    telemetryClient.TrackMetric(sample);
+```
+
+È tuttavia consigliabile per aggregare le metriche prima di inviarle dall'app, al fine di ridurre la larghezza di banda.
+Se si usa l'ultima versione dell'SDK per ASP.NET, è possibile usare [`MetricManager`](#metricmanager) per eseguire questa operazione. In alternativa, di seguito è riportato un esempio di codice di aggregazione:
 
 *C#*
 
-    telemetry.TrackMetric("Queue", queue.Length);
-
-*Visual Basic*
-
-    telemetry.TrackMetric("Queue", queue.Length)
-
-*Java*
-
-    telemetry.trackMetric("Queue", queue.Length);
-
-Infatti, è possibile eseguire questa operazione in un thread in background:
-
-*C#*
-
-    private void Run() {
-     var appInsights = new TelemetryClient();
-     while (true) {
-      Thread.Sleep(60000);
-      appInsights.TrackMetric("Queue", queue.Length);
-     }
+```C#
+    /// Accepts metric values and sends the aggregated values at 1-minute intervals.
+    class MetricAggregator
+    {
+        private List<double> measurements = new List<double>();
+        private string name;
+        private TelemetryClient telemetryClient;
+        private BackgroundWorker thread;
+        private Boolean stop = false;
+        public void TrackMetric (double value)
+        {
+            lock (this)
+            {
+                measurements.Add(value);
+            }
+        }
+        public MetricTelemetry Aggregate()
+        {
+            lock (this)
+            {
+                var sample = new MetricTelemetry();
+                sample.Name = "metric name";
+                sample.Count = measurements.Count;
+                sample.Max = measurements.Max();
+                sample.Min = measurements.Min();
+                sample.Sum = measurements.Sum();
+                var mean = sample.Sum / measurements.Count;
+                sample.StandardDeviation = Math.Sqrt(measurements.Sum(v => { var diff = v - mean; return diff * diff; }) / measurements.Count);
+                sample.Timestamp = DateTime.Now;
+                measurements.Clear();
+                return sample;
+            }
+        }
+        public MetricAggregator(string Name)
+        {
+            name = Name;
+            thread = new BackgroundWorker();
+            thread.DoWork += async (o, e) => {
+                while (!stop)
+                {
+                    await Task.Delay(60000);
+                    telemetryClient.TrackMetric(this.Aggregate());
+                }
+            };
+            thread.RunWorkerAsync();
+        }
     }
+```
+### <a name="custom-metrics-in-metrics-explorer"></a>Metriche personalizzate in Esplora metriche
 
+Per visualizzare i risultati, aprire Esplora metriche e aggiungere un nuovo grafico. Modificare il grafico per visualizzare la metrica.
 
-Per visualizzare i risultati, aprire Esplora metriche e aggiungere un nuovo grafico. Impostarlo in modo che visualizzi le metriche.
+> [!NOTE]
+> Potrebbero essere necessari alcuni minuti per visualizzare la metrica personalizzata nell'elenco delle metriche disponibili.
+>
 
 ![Aggiungere un nuovo grafico o selezionare un grafico e selezionare le metriche in Personalizzato](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+
+### <a name="custom-metrics-in-analytics"></a>Metriche personalizzate in Analytics
+
+I dati di telemetria sono disponibili nella tabella customMetrics. Ogni riga rappresenta una chiamata a trackMetric() nell'app in uso. Se pertanto si è usato MetricManager o il proprio codice di aggregazione, ogni riga non rappresenterà una singola misurazione. 
+
+* `valueSum`: somma delle misurazioni. Per ottenere il valore medio, dividere per `valueCount`.
+* `valueCount`: numero delle misurazioni aggregate nella chiamata a trackMetric.
+
 
 
 ## <a name="page-views"></a>Visualizzazioni pagina
@@ -209,30 +292,16 @@ Il server SDK usa TrackRequest per registrare le richieste HTTP.
 
 È anche possibile chiamarlo manualmente se si vogliono simulare le richieste in un contesto in cui il modulo del servizio Web non è in esecuzione.
 
-*C#*
-
-    // At start of processing this request:
-
-    // Operation Id and Name are attached to all telemetry and help you identify
-    // telemetry associated with one request:
-    telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
-    telemetry.Context.Operation.Name = requestName;
-
-    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-    // ... process the request ...
-
-    stopwatch.Stop();
-    telemetry.TrackRequest(requestName, DateTime.Now,
-       stopwatch.Elapsed,
-       "200", true);  // Response code, success
-
-
+Il modo consigliato per inviare dati di telemetria della richiesta è quello in cui la richiesta agisce come un <a href="#operation-context">contesto dell'operazione</a>.
 
 ## <a name="operation-context"></a>Contesto dell'operazione
 È possibile associare gli elementi di telemetria tra loro mediante il collegamento di un ID operazione comune. Il modulo di rilevamento delle richieste standard esegue questa operazione per le eccezioni e gli altri eventi inviati durante l'elaborazione di una richiesta HTTP. In [Ricerca](app-insights-diagnostic-search.md) e [Analisi](app-insights-analytics.md) è possibile usare l'ID per trovare facilmente gli eventi associati alla richiesta.
 
 Il modo più semplice per impostare l'ID è selezionare un contesto dell'operazione mediante questo modello:
+
+*C#*
+
+```C#
 
     // Establish an operation context and associated telemetry item:
     using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
@@ -248,6 +317,7 @@ Il modo più semplice per impostare l'ID è selezionare un contesto dell'operazi
         telemetry.StopOperation(operation);
 
     } // When operation is disposed, telemetry item is sent.
+```
 
 Oltre a impostare un contesto operativo, `StartOperation` crea un elemento di telemetria del tipo specificato. Invia l'elemento di telemetria quando si elimina l'operazione o si chiama esplicitamente `StopOperation`. Se si usa `RequestTelemetry` come tipo di telemetria, la sua durata viene impostata sull'intervallo di tempo compreso tra l'avvio e l'arresto.
 
@@ -260,8 +330,8 @@ In Ricerca il contesto dell'operazione viene usato per creare l'elenco di **elem
 ## <a name="trackexception"></a>TrackException
 Inviare le eccezioni ad Application Insights:
 
-* Per [contarle][metrics], come indicazione della frequenza di un problema.
-* Per [esaminare le singole occorrenze][diagnostic].
+* Per [contarle](app-insights-metrics-explorer.md), come indicazione della frequenza di un problema.
+* Per [esaminare le singole occorrenze](app-insights-diagnostic-search.md).
 
 I report includono le analisi dello stack.
 
@@ -301,9 +371,9 @@ Gli SDK rilevano molte eccezioni automaticamente, quindi non è sempre necessari
     ```
 
 ## <a name="tracktrace"></a>TrackTrace
-Usare TrackTrace per diagnosticare i problemi mediante l'invio di una traccia di navigazione ad Application Insights. È possibile inviare blocchi di dati di diagnostica e controllarli in [Ricerca diagnostica][diagnostic].
+Usare TrackTrace per diagnosticare i problemi mediante l'invio di una traccia di navigazione ad Application Insights. È possibile inviare blocchi di dati di diagnostica e controllarli in [Ricerca diagnostica](app-insights-diagnostic-search.md).
 
-Gli [adattatori di log][trace] usano questa API per inviare i log di terze parti al portale.
+Gli [adattatori di log](app-insights-asp-net-trace-logs.md) usano questa API per inviare i log di terze parti al portale.
 
 *C#*
 
@@ -322,7 +392,7 @@ Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lungh
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-In [Ricerca][diagnostic] sarà possibile filtrare facilmente tutti i messaggi di un determinato livello di gravità relativi a un database specifico.
+In [Ricerca](app-insights-diagnostic-search.md) sarà possibile filtrare facilmente tutti i messaggi di un determinato livello di gravità relativi a un database specifico.
 
 ## <a name="trackdependency"></a>TrackDependency
 Usare la chiamata di TrackDependency per rilevare i tempi di risposta e le percentuali di successo delle chiamate a un frammento di codice esterno. I risultati vengono visualizzati nei grafici dipendenze nel portale.
@@ -398,7 +468,7 @@ Se l'app raggruppa gli utenti in account, è anche possibile passare un identifi
 
 In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico che conta i valori **Utenti, Autenticati** e **Account utente**.
 
-È anche possibile [cercare][diagnostic] i punti dati del client con account e nomi utente specifici.
+È anche possibile [cercare](app-insights-diagnostic-search.md) i punti dati del client con account e nomi utente specifici.
 
 ## <a name="properties"></a>Filtro, ricerca e segmentazione dei dati mediante le proprietà
 È possibile associare proprietà e misure agli eventi e anche a metriche, visualizzazioni pagine, eccezioni e altri dati di telemetria.
@@ -496,7 +566,7 @@ Usare il campo **Ricerca** per visualizzare le occorrenze di eventi con un valor
 
 ![Digitare un termine in Ricerca](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
-[Altre informazioni sulle espressioni di ricerca][diagnostic].
+[Altre informazioni sulle espressioni di ricerca](app-insights-diagnostic-search.md).
 
 ### <a name="alternative-way-to-set-properties-and-metrics"></a>Metodo alternativo per impostare proprietà e metriche
 Se si preferisce, è possibile raccogliere i parametri di un evento in un oggetto separato:
@@ -603,7 +673,7 @@ Per *avviare e arrestare in modo dinamico* la raccolta e la trasmissione di dati
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-Per *disabilitare gli agenti di raccolta standard selezionati*, ad esempio i contatori delle prestazioni, delle richieste HTTP o delle dipendenze, eliminare o impostare come commento le righe pertinenti in [Applicationinsights.config][config]. Ad esempio è possibile eseguire questa operazione se si desidera inviare i propri dati TrackRequest.
+Per *disabilitare gli agenti di raccolta standard selezionati*, ad esempio contatori delle prestazioni, richieste HTTP o dipendenze, eliminare o impostare come commento le righe pertinenti in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ad esempio è possibile eseguire questa operazione se si desidera inviare i propri dati TrackRequest.
 
 ## <a name="debug"></a>Modalità di sviluppo
 Durante il debug, è utile accelerare i dati di telemetria venga nella pipeline in modo da visualizzare immediatamente i risultati. È possibile che vengano visualizzati anche altri messaggi che consentono di tracciare eventuali problemi con i dati di telemetria. Disattivare questa modalità in fase di produzione poiché potrebbe rallentare l'app.
@@ -626,7 +696,7 @@ Durante il debug, è utile accelerare i dati di telemetria venga nella pipeline 
 
 
 ## <a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
-Per evitare di combinare i dati di telemetria di ambienti di sviluppo, test e produzione, è possibile [creare risorse distinte di Application Insights][create] e modificare le relative chiavi a seconda dell'ambiente.
+Per evitare di combinare i dati di telemetria di ambienti di sviluppo, test e produzione, è possibile [creare risorse distinte di Application Insights](app-insights-create-new-resource.md) e modificare le relative chiavi a seconda dell'ambiente.
 
 Invece di ottenere la chiave di strumentazione dal file di configurazione, è possibile impostarla nel codice. Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
 
@@ -666,7 +736,7 @@ TelemetryClient dispone di una proprietà Context contenente valori che vengono 
 
     telemetry.Context.Operation.Name = "MyOperationName";
 
-Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pertinente da [ApplicationInsights.config][config], in modo che i valori personali e quelli standard non si confondano.
+Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pertinente da [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), in modo che i valori personali e quelli standard non si confondano.
 
 * **Componente**: l'app e la relativa versione.
 * **Dispositivo**: dati relativi al dispositivo in cui l'applicazione è in esecuzione. Nelle App Web questo è il server o dispositivo client da cui sono inviati i dati di telemetria.
@@ -685,7 +755,7 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 
 Per evitare di raggiungere il limite di velocità dei dati usare il [campionamento](app-insights-sampling.md).
 
-Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conservazione e archiviazione di dati in Application Insights][data].
+Per determinare quanto tempo vengono conservati i dati, vedere [Raccolta, conservazione e archiviazione di dati in Application Insights](app-insights-data-retention-privacy.md).
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 * [Riferimento ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
@@ -711,23 +781,10 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](app-insights-export-power-bi.md) e l'[esportazione continua](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Passaggi successivi
-* [Cercare eventi e log][diagnostic]
+* [Ricerca di eventi e log](app-insights-diagnostic-search.md)
 
-* [Esempi e procedure dettagliate](app-insights-code-samples.md)
+* [Risoluzione dei problemi](app-insights-troubleshoot-faq.md)
 
-* [Risoluzione dei problemi][qna]
 
-<!--Link references-->
 
-[client]: app-insights-javascript.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[create]: app-insights-create-new-resource.md
-[data]: app-insights-data-retention-privacy.md
-[diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-asp-net.md
-[java]: app-insights-java-get-started.md
-[metrics]: app-insights-metrics-explorer.md
-[qna]: app-insights-troubleshoot-faq.md
-[trace]: app-insights-search-diagnostic-logs.md
 

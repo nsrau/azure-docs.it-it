@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
-ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -89,7 +89,19 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Dispositivi**: stampanti condivise a cui è stata eseguita la connessione |X |X |Altre |
 | **Browser Edge**: Elenco di lettura |sync |sync |Interne |
 | **Browser Edge**: Preferiti |sync |sync |Interne |
-| **Browser Edge**: tutte le altre impostazioni di Edge |X |X | |
+| **Browser Edge**: siti principali <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: URL digitati <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: impostazioni barra Preferiti <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: mostra pulsante Home <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: blocca popup <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: richiedi l'operazione da eseguire con ogni download <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: offri la possibilità di salvare le password <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: invia richieste Do Not Track <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: salva i dati immessi nei moduli <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: mostra suggerimenti per la ricerca e i siti durante la digitazione <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: preferenze cookie <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: consenti ai siti di archiviare le licenze per i contenuti multimediali protetti nel dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
+| **Browser Edge**: impostazione utilità per la lettura dello schermo <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Contrasto elevato**: abilitazione/disabilitazione |sync |X |Accessibilità |
 | **Contrasto elevato**: impostazioni del tema |sync |X |Accessibilità |
 | **Internet Explorer**: schede aperte (URL e titolo) |sync |sync |Internet Explorer |
@@ -158,6 +170,9 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Digitazione**: Riproduci suoni tasti durante la digitazione |sync |backup |Lingua |
 | **Digitazione**: dati di personalizzazione per la tastiera virtuale |sync |backup |Lingua |
 | **Wi-Fi**: profili Wi-Fi (solo WPA) |sync |sync |Password |
+
+###### <a name="footnote-1"></a>Nota 1
+Versione minima sistema operativo supportata di Windows Creators Update (Build 15063). 
 
 ## <a name="related-topics"></a>Argomenti correlati
 * [Panoramica di Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

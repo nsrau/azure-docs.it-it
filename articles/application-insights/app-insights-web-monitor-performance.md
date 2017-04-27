@@ -14,21 +14,22 @@ ms.topic: article
 ms.date: 11/25/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 7dd1289453fe146b446322570fcb1c0df74b4db2
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cbdef43381deac957c0e48b7043273c43b032935
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorare le prestazioni di applicazioni Web
 
 
-Questo prodotto consente di accertarsi che le prestazioni della propria applicazione siano ottimali e di scoprire rapidamente eventuali errori. [Application Insights][start] rileverà qualsiasi problema ed eccezione relativi alle prestazioni e aiuterà a individuare e diagnosticare le cause principali.
+Questo prodotto consente di accertarsi che le prestazioni della propria applicazione siano ottimali e di scoprire rapidamente eventuali errori. [Application Insights][start] rileverà eventuali eccezioni e problemi relativi alle prestazioni e aiuterà a individuare e diagnosticare le cause principali.
 
 Application Insights può monitorare sia le applicazioni web Java e ASP.NET che i servizi, i servizi WCF. Possono essere ospitati in locale, su macchine virtuali o come siti Web di Microsoft Azure. 
 
 Sul lato client, Application Insights può richiedere dati di telemetria di pagine web e un'ampia gamma di dispositivi, tra l’app Store iOS, Android e Windows.
 
-## <a name="a-namesetupaset-up-performance-monitoring"></a><a name="setup"></a>Configurare il monitoraggio delle prestazioni
+## <a name="setup"></a>Configurare il monitoraggio delle prestazioni
 Se Application Insights non è stato ancora aggiunto al progetto (vale a dire, se ApplicationInsights.config non è presente), scegliere uno dei modi seguenti per iniziare:
 
 * [App Web ASP.NET](app-insights-asp-net.md)
@@ -37,7 +38,7 @@ Se Application Insights non è stato ancora aggiunto al progetto (vale a dire, s
 * [App web J2EE](app-insights-java-get-started.md)
   * [Aggiungere il monitoraggio delle dipendenze](app-insights-java-agent.md)
 
-## <a name="a-nameviewaexploring-performance-metrics"></a><a name="view"></a>Esplorare le metriche delle prestazioni
+## <a name="view"></a>Esplorare le metriche delle prestazioni
 Nel [portale di Azure](https://portal.azure.com), passare alla risorsa di Application Insights impostata per la propria applicazione. Il pannello della panoramica mostra i dati delle prestazioni di base:
 
 Fare clic su un riquadro qualsiasi per visualizzare altri dettagli e per vedere i risultati relativi a un periodo più lungo. Ad esempio, fare clic sul riquadro delle richieste e quindi selezionare un intervallo di tempo:
@@ -53,7 +54,7 @@ Fare clic su un grafico per scegliere quali metriche visualizzare oppure aggiung
 > 
 > 
 
-## <a name="a-namemetricsawhat-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>Interpretazione dei dati riquadri e report sulle prestazioni
+## <a name="metrics"></a>Interpretazione dei dati riquadri e report sulle prestazioni
 È disponibile una vasta gamma di metriche sulle prestazioni. Vengono analizzate innanzitutto quelle visualizzate per impostazione predefinita nel pannello dell'applicazione.
 
 ### <a name="requests"></a>Richieste
@@ -104,16 +105,16 @@ Impostare la risorsa prima delle altre proprietà. Non scegliere le risorse webt
 
 Prendere nota delle unità in cui viene chiesto di immettere il valore soglia.
 
-*Il pulsante Aggiungi avviso non è visibile.*  Si tratta di un account di gruppo al quale è possibile accedere in sola lettura? Rivolgersi all'amministratore dell'account.
+*Il pulsante Aggiungi avviso non è visibile.* Si tratta di un account di gruppo al quale è possibile accedere in sola lettura? Rivolgersi all'amministratore dell'account.
 
-## <a name="a-namediagnosisadiagnosing-issues"></a><a name="diagnosis"></a>Diagnosi dei problemi
+## <a name="diagnosis"></a>Diagnosi dei problemi
 Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare i problemi di prestazioni:
 
 * Configurare i [test Web][availability] in modo da ricevere un avviso se il sito Web non risponde o risponde in maniera non corretta o lentamente. 
 * Confrontare il conteggio delle richieste con altre metriche per verificare se gli errori o la risposta lenta sono collegati al carico.
 * [Inserire e cercare istruzioni di traccia][diagnostic] nel codice per individuare i problemi.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Passaggi successivi
+## <a name="next"></a>Passaggi successivi
 [Test Web][availability]: possibilità di inviare richieste Web all'applicazione a intervalli regolari da tutto il mondo.
 
 [Acquisire e cercare tracce diagnostiche][diagnostic]: possibilità di inserire chiamate di traccia ed esaminare i risultati per individuare i problemi.
@@ -122,8 +123,6 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 
 [Domande e risposte e risoluzione dei problemi][qna]
 
-## <a name="video"></a>Video
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
 
 
 <!--Link references-->
@@ -136,10 +135,5 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

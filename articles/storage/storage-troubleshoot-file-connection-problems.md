@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c62f8d077906ce8ad1b5501864a21ee369b2314a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -44,7 +44,7 @@ Questo articolo elenca i problemi comuni correlati all'archiviazione file di Mic
 
 **Problemi relativi a client Linux**
 
-* [Errore di I/O intermittente: "Host is down (Error 112)" (Host inattivo - Errore 112) su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio](#errorhold)
+* [Errore di I/O intermittente: "Host is down (Error 112)" (Host inattivo - Errore 112) su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio](#error112)
 * [Errore di montaggio 115 quando si tenta di montare File di Azure sulla macchina virtuale Linux](#error15)
 * [Nella condivisione file di Azure montata nella macchina virtuale Linux viene riscontrato un rallentamento delle prestazioni](#delayproblem)
 * [Errore di montaggio (11): risorsa temporaneamente non disponibile quando si esegue il montaggio sul kernel di Ubuntu 4.8 o versione successiva](#ubuntumounterror)
@@ -116,13 +116,13 @@ Non creare né aprire mai un file per l'I/O nella cache, che richiede l'accesso 
 Questo problema può essere causato dalle circostanze seguenti:
 
 ### <a name="cause-1"></a>Causa 1
-"Errore di sistema 53. Accesso negato". Per motivi di sicurezza, le connessioni alle condivisioni file di Azure vengono bloccate se il canale di comunicazione non è crittografato e il tentativo di connessione non viene effettuato dallo stesso data center in cui si trovano tali condivisioni. La crittografia del canale di comunicazione non è disponibile se il sistema operativo del client dell'utente non supporta la crittografia SMB. Questa condizione è indicata dal messaggio "Errore di sistema 53. Accesso negato", visualizzato quando un utente tenta di montare una condivisione file da un data center locale o diverso. Windows 8, Windows Server 2012 e le versioni successive di ciascuno dei due sistemi operativi negoziano una richiesta comprendente SMB 3.0, che supporta la crittografia.
+"Errore di sistema 53. Accesso negato". Per motivi di sicurezza, le connessioni alle condivisioni file di Azure vengono bloccate se il canale di comunicazione non è crittografato e il tentativo di connessione non viene effettuato dalla stessa area di Azure in cui si trovano tali condivisioni. La crittografia del canale di comunicazione non è disponibile se il sistema operativo del client dell'utente non supporta la crittografia SMB. Questa condizione è indicata dal messaggio "Errore di sistema 53. Accesso negato", visualizzato quando un utente tenta di montare una condivisione file da un data center locale o diverso. Windows 8, Windows Server 2012 e le versioni successive di ciascuno dei due sistemi operativi negoziano una richiesta comprendente SMB 3.0, che supporta la crittografia.
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
-Effettuare la connessione da un client che soddisfa i requisiti di Windows 8, Windows Server 2012 o versioni successive o che si connette da una macchina virtuale presente nello stesso data center dell'account di archiviazione di Azure usato per la condivisione file di Azure.
+Effettuare la connessione da un client che soddisfa i requisiti di Windows 8, Windows Server 2012 o versioni successive o che si connette da una macchina virtuale presente nella stessa area di Azure dell'account di archiviazione di Azure usato per la condivisione file di Azure.
 
 ### <a name="cause-2"></a>Causa 2
-Durante il montaggio di una condivisione file di Azure può verificarsi un errore di sistema 53 o 67 se la comunicazione in uscita dalla porta 445 verso il data center di File di Azure è bloccata. Fare clic [qui](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) per visualizzare un riepilogo degli ISP in grado di consentire o proibire l'accesso dalla porta 445.
+Durante il montaggio di una condivisione file di Azure può verificarsi un errore di sistema 53 o 67 se la comunicazione in uscita dalla porta 445 verso l'area di Azure di File di Azure è bloccata. Fare clic [qui](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) per visualizzare un riepilogo degli ISP in grado di consentire o proibire l'accesso dalla porta 445.
 
 Comcast e alcune organizzazioni IT bloccano la porta. Per comprendere se l'errore di sistema 53 viene visualizzato per questo motivo, è possibile eseguire una query sull'endpoint TCP:445 mediante Portqry. Se l'endpoint TCP:445 risulta filtrato, la porta TCP è bloccata. Di seguito è fornito un esempio di query:
 
@@ -213,13 +213,13 @@ Per copiare un file nell'archiviazione file, è necessario prima decrittografarl
 
 Si noti, tuttavia, che l'impostazione della chiave del Registro di sistema influisce su tutte le operazioni di copia nelle condivisioni di rete.
 
-<a id="errorhold"></a>
+<a id="error112"></a>
 
 ## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>"Host is down (Error 112)" (Host inattivo - Errore 112) su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio
 ### <a name="cause"></a>Causa
 Questo errore si verifica quando il client Linux rimane inattivo per un periodo di tempo prolungato. Quando rimane a lungo inattivo, il client si disconnette provocando il timeout della connessione. 
 
-La connessione può rimanere inattiva per vari motivi. Ad esempio, possono verificarsi errori di comunicazione che impediscono di ristabilire una connessione TCP al server quando viene usata l'opzione di montaggio "soft", ossia l'impostazione predefinita.
+La connessione può rimanere inattiva per vari motivi. È possibile ad esempio che si verifichino errori di comunicazione che impediscono di ristabilire una connessione TCP al server quando viene usata l'opzione di montaggio "soft", ossia l'impostazione predefinita.
 
 Il problema può anche essere dovuto ad alcune correzioni per la riconnessione che non sono presenti nei kernel precedenti.
 
@@ -251,7 +251,7 @@ Se non è possibile passare a tali versioni, una soluzione alternativa a questo 
 Le distribuzioni di Linux non supportano ancora la funzionalità di crittografia disponibile in SMB 3.0. Mancando questa funzionalità, è possibile che in alcune distribuzioni venga visualizzato un messaggio di errore 115 se si verifica il tentativo di montare File di Azure tramite SMB 3.0.
 
 ### <a name="solution"></a>Soluzione
-Se il client SMB Linux usato non supporta la crittografia, procedere al montaggio di File di Azure tramite SMB 2.1 da una macchina virtuale Linux presente nello stesso data center dell'account di archiviazione file.
+Se il client SMB Linux usato non supporta la crittografia, procedere al montaggio di File di Azure tramite SMB 2.1 da una macchina virtuale Linux presente nella stessa area di Azure dell'account di archiviazione file.
 
 <a id="delayproblem"></a>
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: c853d61257493d73cd0f8a51a15f0389e1e83cf4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c3c0079ef9ef7b3be7c8df9280e6ebfb34902801
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +27,7 @@ Questa esercitazione descrive l'integrazione di Deputy con Azure Active Director
 L'integrazione di Deputy con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Deputy
-* È possibile abilitare gli utenti per l'accesso automatico a Deputy (Single Sign-On) con i propri account Azure AD
+* È possibile abilitare gli utenti per l'accesso automatico a Deputy (SSO) con i propri account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -37,23 +38,23 @@ Per configurare l'integrazione di Azure AD con Deputy, sono necessari gli elemen
 * Sottoscrizione di Azure AD.
 * Sottoscrizione di Deputy abilitata per l'accesso Single Sign-On (SSO)
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 > 
 > 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.
+L'obiettivo di questa esercitazione è quello di testare l'accesso Single Sign-On (SSO) di Azure AD in un ambiente di test.
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Deputy dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
 
 ## <a name="adding-deputy-from-the-gallery"></a>Aggiunta di Deputy dalla raccolta
 Per configurare l'integrazione di Deputy in Azure AD, è necessario aggiungere Deputy dalla raccolta al proprio elenco di app SaaS gestite.
@@ -80,7 +81,7 @@ Per configurare l'integrazione di Deputy in Azure AD, è necessario aggiungere D
    
     ![Selezione dell'app nella raccolta](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_0001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Deputy in base a un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Deputy che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Deputy.
@@ -89,14 +90,14 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Deputy, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Deputy](#creating-a-deputy-test-user)** : per avere una controparte di Britta Simon in Deputy collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione Deputy.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale classico e viene configurato l'accesso SSO nell'applicazione Deputy.
 
 **Per configurare Single Sign-On di Azure AD con Deputy, seguire questa procedura:**
 
@@ -118,14 +119,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    1. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<your-subdomain>.<region>.deputy.com`.
    2. Fare clic su **Avanti**.
    
-   > [!NOTE]
-   > Il suffissi della dell'area di Deputy è facoltativo oppure usare uno dei seguenti: au | na | eu |as |la |af |an |ent-au |ent-na |ent-eu |ent-as | ent-la | ent-af | ent-an
-   > 
-   > 
+     >[!NOTE]
+     > Il suffissi della dell'area di Deputy è facoltativo oppure usare uno dei seguenti: au | na | eu |as |la |af |an |ent-au |ent-na |ent-eu |ent-as | ent-la | ent-af | ent-an
+     > 
+
 5. Nella pagina **Configura accesso Single Sign-On in Deputy** seguire questa procedura e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_06.png)
-   1. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
+   *  Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
 6. Accedere all'URL seguente: https://(your-subdomain).deputy.com/exec/config/system_config. Passare a **Security Settings**(Impostazioni di sicurezza) e fare clic su **Modifica**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)
@@ -147,7 +148,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
 ![Creare un utente di Azure AD][20]
@@ -159,8 +160,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_09.png)
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png)
+       ![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png)
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_04.png)
@@ -170,8 +170,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
    1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
    2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   3. Fare clic su **Avanti**.
-6. Nella pagina **Profilo utente** seguire questa procedura:
+   3. Fare clic su **Avanti**.6. Nella pagina **Profilo utente** seguire questa procedura:
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_06.png)
    
@@ -191,7 +190,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
    1. Prendere nota del valore visualizzato in **Nuova password**.
    2. Fare clic su **Completa**.   
 
-### <a name="creating-a-deputy-test-user"></a>Creazione di un utente test di Deputy
+### <a name="create-a-deputy-test-user"></a>Creare un utente test di Deputy
 Per consentire agli utenti di Azure AD di accedere a Deputy, è necessario eseguirne il provisioning in Deputy. Nel caso di Deputy, il provisioning è un'attività manuale.
 
 #### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
@@ -210,14 +209,11 @@ Per consentire agli utenti di Azure AD di accedere a Deputy, è necessario esegu
   2. Nella casella di testo **Email** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica dell'account Azure AD di cui si vuole eseguire il provisioning.
   3. Nella casella di testo **Works at** (Lavora presso) digitare il nome dell'azienda.
   4. Fare clic sul pulsante **Save & Invite** (Salva e invita).
-   
-   > [!NOTE]
-   > Il titolare dell'account Azure AD riceverà un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Deputy per eseguire il provisioning degli account utente di AAD.
-   > 
-   > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
-L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Deputy.
+5. Il titolare dell'account Azure AD riceverà un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Deputy per eseguire il provisioning degli account utente di AAD.
+    
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+Questa sezione descrive come abilitare Britta Simon a usare l'accesso Single Sign-On di Azure concedendole l'accesso a Deputy.
 
 ![Assegna utente][200]
 
@@ -237,7 +233,7 @@ L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Deputy nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Deputy.
@@ -263,9 +259,4 @@ Quando si fa clic sul riquadro Deputy nel pannello di accesso, si dovrebbe acced
 [203]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

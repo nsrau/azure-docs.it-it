@@ -1,5 +1,5 @@
 ---
-title: Integrazione degli avvisi del Centro sicurezza di Azure con l&quot;integrazione dei log di Azure | Documentazione Microsoft
+title: Integrazione degli avvisi del Centro sicurezza di Azure con l&quot;integrazione dei log di Azure | Microsoft Docs
 description: Questo articolo consente di iniziare a usare gli avvisi del Centro sicurezza con l&quot;integrazione dei log di Azure.
 services: security-center
 documentationcenter: na
@@ -15,22 +15,22 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: fcd14b6b0afe08db82f2b8050beaf03ece7fd212
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integrazione degli avvisi del Centro sicurezza di Azure con l'integrazione dei log di Azure
-Molti team dedicati alle operazioni di sicurezza e alla risposta ai problemi fanno affidamento su una soluzione SIEM (Security Information and Event Management) come punto di partenza per la valutazione e l'analisi degli avvisi di sicurezza. Con l'integrazione dei log di Azure, i clienti possono sincronizzare gli avvisi del Centro sicurezza e gli eventi di sicurezza delle macchine virtuali, raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log quasi in tempo reale.
+Molti team dedicati alle operazioni di sicurezza e alla risposta ai problemi fanno affidamento su una soluzione SIEM (Security Information and Event Management) come punto di partenza per la valutazione e l'analisi degli avvisi di sicurezza. Con l'integrazione dei log di Azure è possibile integrare gli avvisi del Centro sicurezza di Azure con la soluzione SIEM in uso.
 
-L'integrazione dei log di Azure è compatibile con HP ArcSight, Splunk, IBM QRadar e altre soluzioni.
+L'integrazione dei log di Azure supporta attualmente HP ArcSight, Splunk e IBM QRadar.
 
 ## <a name="what-logs-can-i-integrate"></a>Quali log è possibile integrare?
 Azure produce registrazioni complete per ogni servizio. I log sono classificati nel modo seguente:
 
-* **Log di gestione/controllo**, che offrono visibilità sulle operazioni CREATE, UPDATE e DELETE di Azure Resource Manager.
-* **Log del piano dati**, che offrono visibilità sugli eventi generati durante l'uso di una risorsa di Azure. Un esempio è rappresentato dal registro eventi di Windows: log eventi dell'applicazione e di sicurezza in una macchina virtuale.
+* **Log di gestione/controllo**, che offrono visibilità sulle operazioni CREATE, UPDATE e DELETE di Azure Resource Manager. Questi eventi del piano di controllo vengono rilevati nei log attività di Azure
+* **Log del piano dati**, che offrono visibilità sugli eventi generati durante l'uso di una risorsa di Azure. Un esempio è il registro eventi di Windows, che visualizza informazioni sugli eventi di sicurezza dal canale di sicurezza del Visualizzatore eventi. Gli eventi del piano dati (che vengono generati da una macchina virtuale o un servizio di Azure) vengono replicati dal log di diagnostica di Azure.
 
 L'integrazione dei log di Azure attualmente supporta l'integrazione di:
 
@@ -78,15 +78,12 @@ Il servizio di integrazione dei log di Azure raccoglie i dati di telemetria dal 
 
    * **c:\Users\azlog\ AzureSecurityCenterJson**
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
-6. Puntare il connettore del server di inoltro del file SIEM standard alla cartella appropriata per reindirizzare i dati all'istanza di SIEM. Per informazioni sulla configurazione SIEM, vedere la pagina relativa alle [configurazioni SIEM](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm).
-
-In caso di domande sull'integrazione dei log di Azure, inviare un messaggio di posta elettronica all'indirizzo [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com).
+6. Configurare il connettore del server d'inoltro file SIEM nella cartella appropriata. La procedura varia in base alla soluzione SIEM in uso.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sui log di controllo di Azure e le definizioni delle proprietà, vedere:
+Per altre informazioni sui log attività di Azure e sulle definizioni delle proprietà, vedere:
 
 * [Operazioni di controllo con Gestione risorse](../azure-resource-manager/resource-group-audit.md)
-* [Elencare gli eventi di gestione in una sottoscrizione](https://msdn.microsoft.com/library/azure/dn931934.aspx) : per il recupero degli eventi del log di controllo.
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 

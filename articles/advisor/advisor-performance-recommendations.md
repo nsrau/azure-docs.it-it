@@ -15,59 +15,67 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
-ms.openlocfilehash: d04c209894ab8ee35b92381f9679f68addd64f00
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5fb86c60b2d1f258dde5636ff8854b6f30f7f1c8
+ms.lasthandoff: 03/31/2017
 
 ---
 
 # <a name="advisor-performance-recommendations"></a>Consigli di Advisor sulle prestazioni
 
-Grazie ai consigli di Advisor sulle prestazioni, è possibile migliorare e aumentare la velocità e la reattività delle applicazioni aziendali critiche. È possibile ottenere consigli sulle prestazioni tramite Advisor dalla scheda **Prestazioni** del dashboard di Advisor.
+Grazie ai consigli di Azure Advisor sulle prestazioni, è possibile migliorare e aumentare la velocità e la reattività delle applicazioni aziendali critiche. È possibile ottenere da Advisor consigli sulle prestazioni nella scheda **Prestazioni** scheda del dashboard di Advisor.
 
 ![Scheda Prestazioni di Advisor](./media/advisor-performance-recommendations/advisor-performance-tab.png)
 
-## <a name="sql-database-recommendations"></a>Consigli sul database SQL
+## <a name="improve-database-performance-with-sql-db-advisor"></a>Migliorare le prestazioni del database con Advisor per database SQL
 
-Advisor fornisce una visualizzazione coerente e consolidata dei consigli per tutte le risorse di Azure. Si integra con Advisor per database SQL per offrire consigli su come migliorare le prestazioni del database SQL di Azure. Advisor per database SQL consente di valutare le prestazioni dei database SQL di Azure analizzando la cronologia relativa all'uso. Offre, quindi, i consigli più indicati per l'esecuzione del carico di lavoro tipico del database. 
+Advisor fornisce una visualizzazione coerente e consolidata dei consigli per tutte le risorse di Azure. Si integra con Advisor per database SQL per offrire consigli su come migliorare le prestazioni del database SQL di Azure. Advisor per database SQL consente di valutare le prestazioni dei database SQL di Azure analizzando la cronologia relativa all'uso. Offre quindi consigli ideali per l'esecuzione del carico di lavoro tipico del database. 
 
 > [!NOTE]
-> Per ottenere consigli è necessario che il database sia stato usato per circa una settimana e che in tale settimana si siano svolte attività costanti. Advisor per database SQL può ottimizzare più facilmente modelli di query coerenti anziché picchi irregolari e casuali di attività.
+> Per ottenere consigli, è necessario che un database sia stato in uso per circa una settimana, nel corso della quale deve essersi verificata attività coerente. Advisor per database SQL può essere più facilmente ottimizzato per modelli di query coerenti anziché picchi irregolari casuali di attività.
 
 Per altre informazioni su Advisor per database SQL, vedere [Advisor per database SQL](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
 
 ![Consigli sul database SQL](./media/advisor-performance-recommendations/advisor-performance-sql.png)
 
-## <a name="redis-cache-recommendations"></a>Consigli su Cache Redis
+## <a name="improve-redis-cache-performance-and-reliability"></a>Migliorare affidabilità e prestazioni di Cache Redis
 
-Azure Advisor identifica le istanze di Cache Redis in cui le prestazioni potrebbero aver subito effetti negativi a causa di uso di memoria, carico del sever, larghezza di banda di rete e connessioni client elevati. Fornisce inoltre consigli sulle procedure consigliate per evitare potenziali problemi. Per altre informazioni relative ai consigli su Cache Redis, vedere [Redis Cache Advisor](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
+Advisor identifica le istanze di Cache Redis in cui le prestazioni potrebbero aver subito effetti negativi a causa di uso di memoria, carico del server, larghezza di banda di rete e numero di connessioni client elevati. Advisor fornisce inoltre consigli sulle procedure consigliate che consentono di evitare potenziali problemi. Per altre informazioni relative ai consigli su Cache Redis, vedere [Redis Cache Advisor](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
-## <a name="app-services-recommendations"></a>Consigli per Servizi app
+## <a name="improve-app-service-performance-and-reliability"></a>Migliorare affidabilità e prestazioni di Servizi app
 
 Azure Advisor integra consigli sulle procedure consigliate per migliorare l'esperienza di Servizi app e scoprire le funzionalità della piattaforma pertinente. Esempi di consigli per Servizi app sono:
-- rilevamento delle istanze in cui le risorse di CPU o memoria vengono esaurite dai runtime delle app con opzioni di migrazione
-- rilevamento delle istanze in cui la collocazione delle risorse come App Web e database possono aumentare le prestazioni e ridurre il costo. 
+* Rilevamento delle istanze in cui le risorse di CPU o memoria vengono esaurite dai runtime delle app con opzioni di migrazione.
+* Rilevamento delle istanze in cui la collocazione delle risorse come App Web e database può aumentare le prestazioni e ridurre il costo. 
 
 Per altre informazioni sui consigli per Servizi app, vedere [Procedure consigliate per Servizio app di Azure](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
 ![Consigli per Servizi app](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Come accedere ai consigli sulle prestazioni in Advisor
 
-1. Accedere al [Portale di Azure](https://portal.azure.com).
-2. Nel riquadro di navigazione sinistro fare clic su **More services** (Altri servizi), nel riquadro con il menu dei servizi scorrere verso il basso fino a **Monitoring and Management** (Monitoraggio e gestione), quindi fare clic su **Azure Advisor**. Viene avviato il dashboard di Advisor. 
-3. Nel dashboard di Advisor fare clic sulla scheda **Prestazioni** e selezionare la sottoscrizione per cui si desidera ricevere consigli.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+
+2. Nel riquadro sinistro selezionare **Altri servizi**.
+
+3. Nel riquadro del menu del servizio in **Monitoraggio e gestione** fare clic su **Azure Advisor**.  
+ Verrà visualizzato il dashboard di Advisor.
+
+4. Nel dashboard di Advisor fare clic sulla scheda **Prestazioni**.
+
+5. Selezionare la sottoscrizione per cui si desidera ricevere consigli e quindi fare clic su **Ottieni raccomandazioni**.
 
 > [!NOTE]
-> Per accedere alle raccomandazioni di Advisor, è innanzitutto necessario **registrare** la sottoscrizione con Advisor. Una sottoscrizione viene registrata quando il **proprietario della sottoscrizione** avvia il dashboard di Advisor e fa clic sul pulsante **Get recommendations** (Ottieni consigli). Si tratta di un'**operazione una tantum**. Dopo aver registrato una sottoscrizione, è possibile accedere alle raccomandazioni di Advisor come **Proprietario**, **Collaboratore** o **Lettore** di una sottoscrizione, di un gruppo di risorse o di una risorsa specifica.
+> Per accedere ai consigli di Advisor, è innanzitutto necessario *registrare la sottoscrizione* con Advisor. Una sottoscrizione viene registrata quando il *proprietario della sottoscrizione* avvia il dashboard di Advisor e fa clic sul pulsante **Ottieni raccomandazioni**. Si tratta di un'*operazione una tantum*. Dopo aver registrato una sottoscrizione, è possibile accedere ai consigli di Advisor come *Proprietario*, *Collaboratore* o *Lettore* di una sottoscrizione, di un gruppo di risorse o di una risorsa specifica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui consigli di Advisor, vedere le risorse seguenti:
+Per altre informazioni sui consigli di Advisor, vedere:
 
--  [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
--  [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
--  [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
--  [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
--  [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
+* [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
+* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
+* [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
+* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
+* [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
+
 

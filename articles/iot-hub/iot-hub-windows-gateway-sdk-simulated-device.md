@@ -1,5 +1,5 @@
 ---
-title: Simulare un dispositivo con Azure IoT Gateway SDK (Windows) | Documentazione Microsoft
+title: Simulare un dispositivo con Azure IoT Gateway SDK (Windows) | Microsoft Docs
 description: Come usare Azure IoT Gateway SDK in Windows per creare un dispositivo simulato che invia dati di telemetria attraverso un gateway a un hub IoT.
 services: iot-hub
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 03/29/2017
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 5edf2f4c7d9d2e8e8ceb2e8de9ae7cef4c9fd02e
-ms.openlocfilehash: 446e7361b5817ce888105fbb78f329affa7de6e6
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 458984f75eed3a7a3102c288798b55664afaa37d
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +28,12 @@ ms.lasthandoff: 02/06/2017
 Prima di iniziare:
 
 * [Configurare l'ambiente di sviluppo][lnk-setupdevbox] per l'uso dell'SDK in Windows.
-* [Creare un hub IoT][lnk-create-hub] nella sottoscrizione di Azure. Il nome dell'hub sarà necessario per completare questa procedura. Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
+* [Creare un hub IoT][lnk-create-hub] nella sottoscrizione di Azure. Per completare questa procedura, è necessario disporre del nome dell'hub. Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
 * Aggiungere due dispositivi all'hub IoT e annotare i relativi ID e le chiavi di dispositivo. È possibile usare lo strumento [Esplora dispositivi][lnk-device-explorer] o [iothub-explorer][lnk-iothub-explorer] per aggiungere i dispositivi all'hub IoT creato nel passaggio precedente e recuperarne le chiavi.
 
 Per compilare l'esempio:
 
-1. Aprire un **prompt dei comandi per gli sviluppatori per VS2015** .
+1. Aprire un **prompt dei comandi per gli sviluppatori per VS 2015** o un **prompt dei comandi per gli sviluppatori per VS 2017**.
 2. Accedere alla directory principale nella copia locale del repository **azure-iot-gateway-sdk** .
 3. Eseguire lo script **tools\\build.cmd**. Questo script crea un file di soluzione Visual Studio e compila la soluzione. È possibile trovare la soluzione di Visual Studio nella cartella **build** nella copia locale del repository **azure-iot-gateway-sdk**. Si possono specificare nello script parametri aggiuntivi per compilare ed eseguire unit test e test end-to-end. Questi parametri sono rispettivamente **--run-unittests** e **--run-e2e-tests**.
 
@@ -41,11 +41,11 @@ Per eseguire l'esempio:
 
 In un editor di testo aprire il file **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** nella copia locale del repository **azure-iot-gateway-sdk**. Questo file consente di configurare i moduli nel gateway di esempio:
 
-* Il modulo **IoTHub** si connette all'hub IoT. È necessario configurarlo per l'invio di dati all'hub IoT. In particolare, impostare il valore di **IoTHubName** sul nome dell'hub IoT e impostare il valore di **IoTHubSuffix** su **azure-devices.net**. Impostare il valore **Trasporto** su "HTTP", "AMQP" o "MQTT". Notare che attualmente, solo "HTTP" consente di condividere una connessione TCP per tutti i messaggi del dispositivo. Se si imposta il valore "AMQP" o "MQTT", il gateway manterrà una connessione TCP separata all'hub IoT per ciascun dispositivo.
+* Il modulo **IoTHub** si connette all'hub IoT. È necessario configurarlo per l'invio di dati all'hub IoT. In particolare, impostare il valore di **IoTHubName** sul nome dell'hub IoT e impostare il valore di **IoTHubSuffix** su **azure-devices.net**. Impostare il valore **Trasporto** su "HTTP", "AMQP" o "MQTT". Attualmente, solo "HTTP" condivide una connessione TCP per tutti i messaggi del dispositivo. Se si imposta il valore "AMQP" o "MQTT", il gateway mantiene una connessione TCP separata all'hub IoT per ciascun dispositivo.
 * Il modulo **mapping** esegue il mapping degli indirizzi MAC dei dispositivi simulati sugli ID dispositivo dell'hub IoT. Assicurarsi che i valori di **deviceId** corrispondano agli ID dei due dispositivi aggiunti all'hub IoT e che i valori di **deviceKey** contengano le chiavi dei due dispositivi.
-* I moduli **BLE1** e **BLE2** sono i dispositivi simulati. Si noti come gli indirizzi MAC corrispondono a quelli nel modulo **mapping** .
+* I moduli **BLE1** e **BLE2** sono i dispositivi simulati. Si noti come gli indirizzi del modulo MAC corrispondono a quelli nel modulo **mapping**.
 * Il modulo **Logger** registra l'attività del gateway in un file.
-* I valori di **module path** illustrati di seguito presuppongono che sia stato clonato il repository SDK per gateway IoT nella directory principale dell'unità **C:**. Se il repository è stato scaricato in un altro percorso, è necessario rettificare di conseguenza i valori di **module path** .
+* I valori di **module path** illustrati nel seguente esempio presuppongono che sia stato clonato il repository SDK per gateway IoT nella directory principale dell'unità **C:**. Se il repository è stato scaricato in un altro percorso, è necessario rettificare di conseguenza i valori di **module path** .
 * La matrice **links** nella parte inferiore del file JSON connette i moduli **BLE1** e **BLE2** al modulo **mapping** e il modulo **mapping** al modulo **IoTHub**. Inoltre, la matrice garantisce la registrazione di tutti i messaggi da parte del modulo **Logger** .
 
 ```

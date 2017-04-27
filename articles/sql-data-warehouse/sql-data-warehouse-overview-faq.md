@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: overview
 ms.date: 3/1/2017
 ms.author: elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 7a752bfb349d2730537538f6856fe431204d3329
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 49cbfca4f733356548b6c8f491fead9e2d7fdf5c
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +34,7 @@ R. SQL DW offre diverse soluzioni per la protezione dei dati, ad esempio TDE e i
 D: Dove è possibile trovare gli standard legali o aziendali a cui SQL DW è conforme?
 
 R. Visitare la pagina [Conformità di Microsoft] per le diverse offerte di conformità per prodotto, ad esempio SOC e ISO. Scegliere prima in base al titolo di conformità, quindi espandere Azure nella sezione servizi cloud nell'ambito di Microsoft sul lato destro della pagina per visualizzare i servizi conformi ai servizi di Azure.
- 
+
 D: È possibile connettersi a PowerBI?
 
 R. È possibile usarlo. Anche se PowerBI supporta la query diretta con SQL DW, non è pensato per un numero elevato di utenti o di dati in tempo reale. Per l'uso della produzione di PowerBI, è consigliabile usare PowerBI su Azure Analysis Services o IaaS di Analysis Service. 
@@ -41,6 +42,10 @@ R. È possibile usarlo. Anche se PowerBI supporta la query diretta con SQL DW, n
 D: Quali sono i limiti di capacità di SQL Data Warehouse?
 
 R. Vedere la pagina relativa ai [limiti di capacità] correnti. 
+
+D: Perché le operazioni di ridimensionamento, sospensione o ripresa richiedono così tanto tempo?
+
+R. Le operazioni di gestione di calcolo possono essere influenzate da una serie di fattori. Un caso che si verifica spesso nelle operazioni a esecuzione prolungata è il rollback transazionali. Quando viene avviata un'operazione di sospensione o di ridimensionamento, vengono bloccate tutte le sessioni in ingresso e le query vengono svuotate. Per lasciare il sistema in uno stato stabile, è necessario eseguire il rollback delle transazioni prima di procedere con un'operazione. Maggiore è il numero di transazioni e maggiori sono le dimensioni del log delle transazioni, più duraturo sarà lo stallo dell'operazione durante il ripristino del sistema a uno stato stabile.
 
 ## <a name="user-support"></a>Supporto per l'utente
 
@@ -113,7 +118,7 @@ Per altre informazioni su SQL Data Warehouse nel complesso, vedere la pagina [Pa
 [limiti di capacità]: ./sql-data-warehouse-service-capacity-limits.md
 [tipi di dati]: ./sql-data-warehouse-tables-data-types.md
 [Funzionalità non supportate delle tabelle]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md 
+[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [BLOB del servizio di archiviazione di Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [richiesta di funzionalità per progetti di Database]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx

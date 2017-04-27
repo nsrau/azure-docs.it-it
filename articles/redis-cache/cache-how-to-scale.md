@@ -1,5 +1,5 @@
 ---
-title: Come ridimensionare Cache Redis di Azure | Documentazione Microsoft
+title: Come ridimensionare Cache Redis di Azure | Microsoft Docs
 description: Informazioni su come ridimensionare le istanze di Cache Redis di Azure
 services: redis-cache
 documentationcenter: 
@@ -12,24 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/11/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 022916bacd93d283a6495a60ca1afa0c27e34e0c
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 91b3580491a1e3504a3891b66606a9bd18c0638f
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Come ridimensionare Cache Redis di Azure
-> [!NOTE]
-> Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima. 
-> 
-> 
-
-Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile scalare le dimensioni della cache utilizzando il pannello **Modifica livello di prezzo** nel [portale di Azure](https://portal.azure.com).
+Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache nel portale di Azure e usando strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
 
 ## <a name="when-to-scale"></a>Quando è necessario ridimensionare la cache
-È possibile usare le funzionalità di [monitoraggio](cache-how-to-monitor.md) di Cache Redis di Azure per monitorare l'integrità e le prestazioni delle applicazioni nella cache e per determinare se è necessario ridimensionare la cache. 
+È possibile usare le funzionalità di [monitoraggio](cache-how-to-monitor.md) di Cache Redis di Azure per monitorare l'integrità e le prestazioni della cache e per determinare quando è necessario ridimensionarla. 
 
 Per determinare se è necessario un ridimensionamento è possibile monitorare le metriche seguenti.
 
@@ -38,31 +34,27 @@ Per determinare se è necessario un ridimensionamento è possibile monitorare le
 * Larghezza di banda della rete
 * Utilizzo di CPU
 
-Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è possibile passare a un piano tariffario della cache superiore o inferiore che sia adatto all'applicazione. Per altre informazioni su come determinare il tipo di piano tariffario della cache appropriato, vedere l'articolo relativo all' [offerta e alle dimensioni di Cache Redis da usare](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è possibile ridimensionare la cache in base a un piano tariffario superiore o inferiore che sia adatto all'applicazione. Per altre informazioni su come determinare il tipo di piano tariffario della cache appropriato, vedere l'articolo relativo all' [offerta e alle dimensioni di Cache Redis da usare](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## <a name="scale-a-cache"></a>Ridimensionare una cache
-Per ridimensionare la cache, [passare alla cache](cache-configure.md#configure-redis-cache-settings) nel [portale di Azure](https://portal.azure.com) e fare clic su **Impostazioni**, **Piano tariffario**.
+Per ridimensionare la cache, [accedere alla cache](cache-configure.md#configure-redis-cache-settings) nel [portale di Azure](https://portal.azure.com) e fare clic su **Ridimensionare** nel **menu Risorsa**.
 
-È anche possibile fare clic su **Piano tariffario** nel pannello **Cache Redis**.
+![Scalabilità](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-![Pricing tier][redis-cache-pricing-tier-part]
-
-Selezionare il piano tariffario desiderato nel pannello **Piano tariffario** e fare clic su **Seleziona**.
+Selezionare il piano tariffario desiderato nel pannello **Seleziona piano tariffario** e fare clic su **Seleziona**.
 
 ![Pricing tier][redis-cache-pricing-tier-blade]
 
-> [!NOTE]
-> Il passaggio a un piano tariffario diverso è soggetto alle restrizioni seguenti.
-> 
-> * Non è possibile passare da un piano tariffario superiore a uno inferiore.
-> * Non è possibile passare da una cache **Premium** a una cache **Standard** o **Basic**.
-> * Non è possibile passare da una cache **Standard** a una cache **Basic**.
-> * È possibile passare da una cache **Basic** a una cache **Standard**, ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
-> * Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
-> * Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)** .
-> 
-> 
 
+Il passaggio a un piano tariffario diverso è soggetto alle restrizioni seguenti:
+
+* Non è possibile passare da un piano tariffario superiore a uno inferiore.
+  * Non è possibile passare da una cache **Premium** a una cache **Standard** o **Basic**.
+  * Non è possibile passare da una cache **Standard** a una cache **Basic**.
+* È possibile passare da una cache **Basic** a una cache **Standard**, ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
+* Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
+* Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)** .
+ 
 Mentre è in corso il ridimensionamento della cache in base al nuovo piano tariffario, nel pannello **Cache Redis** viene visualizzato lo stato **Ridimensionamento**.
 
 ![Ridimensionamento][redis-cache-scaling]
@@ -70,7 +62,7 @@ Mentre è in corso il ridimensionamento della cache in base al nuovo piano tarif
 Al termine dell'operazione, lo stato passa da **Ridimensionamento** a **In esecuzione**.
 
 ## <a name="how-to-automate-a-scaling-operation"></a>Come automatizzare un'operazione di ridimensionamento
-Oltre a usare il portale di Azure, per ridimensionare le istanze di Cache Redis di Azure è possibile eseguire i cmdlet di PowerShell per Cache Redis di Azure, l'interfaccia della riga di comando di Azure e le librerie di gestione di Microsoft Azure. 
+Oltre a usare il portale di Azure, per ridimensionare le istanze di Cache Redis di Azure è possibile usare i cmdlet di PowerShell, l'interfaccia della riga di comando di Azure e le librerie di gestione di Microsoft Azure. 
 
 * [Ridimensionare la cache tramite PowerShell](#scale-using-powershell)
 * [Ridimensionare la cache tramite l'interfaccia della riga di comando di Azure](#scale-using-azure-cli)
@@ -123,13 +115,12 @@ Nell'elenco seguente sono riportate le risposte alle domande poste comunemente s
 * [Operazioni non supportate](#operations-that-are-not-supported)
 * [Quanto tempo richiede il ridimensionamento?](#how-long-does-scaling-take)
 * [Come è possibile stabilire quando il ridimensionamento è completato?](#how-can-i-tell-when-scaling-is-complete)
-* [Perché questa funzionalità è in anteprima?](#why-is-this-feature-in-preview)
 
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>È possibile eseguire un ridimensionamento verso, da o in una cache Premium?
 * Non è possibile passare da una cache **Premium** a un piano tariffario **Basic** o **Standard**.
 * È possibile scalare dal piano tariffario di una cache **Premium** a un altro.
 * Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario prima passare da **Basic** a **Standard** con un'operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
-* Se è stato abilitato il clustering durante la creazione della cache **Premium** , è possibile [modificare la dimensione della cache](cache-how-to-premium-clustering.md#cluster-size). Attualmente non è possibile abilitare il clustering in una cache esistente che è stata creata senza clustering.
+* Se è stato abilitato il clustering durante la creazione della cache **Premium** , è possibile [modificare la dimensione della cache](cache-how-to-premium-clustering.md#cluster-size). Se la cache è stata creata senza clustering abilitato, non è possibile configurare il clustering in un secondo momento.
   
   Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 
@@ -166,7 +157,7 @@ Si noti che mentre le cache Standard e Premium dispongono di un contratto di ser
   * Non è possibile passare da una cache **Premium** a una cache **Standard** o **Basic**.
   * Non è possibile passare da una cache **Standard** a una cache **Basic**.
 * È possibile passare da una cache **Basic** a una cache **Standard**, ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
-* Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
+* Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario prima passare da **Basic** a **Standard** con un'operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
 * Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)** .
 
 Se l'operazione di ridimensionamento non riesce, il servizio tenta di annullare l'operazione e la dimensione originale della cache viene ripristinata.
@@ -177,21 +168,12 @@ Il ridimensionamento richiede circa 20 minuti, a seconda della quantità di dati
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Come è possibile stabilire quando il ridimensionamento è completato?
 Nel portale di Azure è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completo, lo stato della cache passa a **In esecuzione**.
 
-### <a name="why-is-this-feature-in-preview"></a>Perché questa funzionalità è in anteprima?
-Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerimenti. In base ai commenti, questa funzionalità sarà rilasciata a breve per la disponibilità generale.
-
 <!-- IMAGES -->
-[redis-cache-pricing-tier-part]: ./media/cache-how-to-scale/redis-cache-pricing-tier-part.png
 
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

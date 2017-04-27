@@ -1,5 +1,5 @@
 ---
-title: Passaggi successivi per la creazione del progetto di Service Fabric | Documentazione Microsoft
+title: Passaggi successivi per la creazione del progetto di Service Fabric | Microsoft Docs
 description: "In questo articolo vengono forniti collegamenti a un set di attività di sviluppo principali per Infrastruttura di servizi"
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/01/2016
+ms.date: 03/28/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4b2424e5efe3392b08e58ceb05ec63f15c7ad32
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 8208a1a41388a8cc36f3702bd0cad2bb82e16403
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -49,15 +50,17 @@ Il progetto attore fornisce metodi per l'impostazione e il recupero del valore d
 ### <a name="stateless-web-api"></a>API Web senza stato
 Il progetto API Web senza stato fornisce un servizio Web di base che è possibile usare per aprire l'applicazione ai client esterni. Per altre informazioni su come è strutturato il progetto, vedere [Introduzione ai servizi API Web di Service Fabric con self-hosting OWIN](service-fabric-reliable-services-communication-webapi.md).
 
+
 ### <a name="aspnet-core"></a>ASP.NET Core
-Service Fabric SDK offre lo stesso set di modelli ASP.NET Core disponibile per progetti ASP.NET Core autonomi: modello vuoto, [API Web][aspnet-webapi] e [applicazione Web][aspnet-webapp].
+Service Fabric SDK offre lo stesso set di modelli ASP.NET Core disponibile per i progetti ASP.NET Core autonomi: modello vuoto, [API Web][aspnet-webapi] e [applicazione Web][aspnet-webapp].
+
+### <a name="guest-executables-and-guest-containers"></a>Eseguibili guest e contenitori guest
+
+Un "guest" di Service Fabric è un servizio che non è creato con i modelli di programmazione della piattaforma. È possibile comprimere i file binari per un guest [direttamente nel pacchetto dell'applicazione](service-fabric-deploy-existing-app.md) o [tramite un'immagine del contenitore](service-fabric-deploy-container.md). Visual Studio crea in entrambi i casi gli elementi necessari nella cartella **ApplicationPackageRoot** del progetto dell'applicazione. Visual Studio non creerà un nuovo progetto di servizio perché il codice esiste già in una qualche posizione. Se si desidera gestire i progetti guest insieme al progetto dell'applicazione di Service Fabric, è possibile aggiungerli alla soluzione di Visual Studio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 ### <a name="create-an-azure-cluster"></a>Creare un cluster di Azure
-LSDK di Infrastruttura di servizi fornisce un cluster locale per lo sviluppo e il test. Per creare un cluster in Azure, vedere [Setting up a Service Fabric cluster from the Azure portal][create-cluster-in-portal] (Configurare un cluster di Service Fabric dal portale di Azure).
-
-### <a name="try-deploying-to-azure-for-free-with-party-clusters"></a>Provare a distribuire in Azure gratuitamente i cluster di terze parti
-Se si vuole provare a distribuire e gestire applicazioni in Azure senza configurare i propri cluster, è possibile usare il [servizio gratuito per l'uso di cluster di terze parti](http://aka.ms/tryservicefabric).
+LSDK di Infrastruttura di servizi fornisce un cluster locale per lo sviluppo e il test. Per creare un cluster in Azure, vedere [Creare un cluster di Service Fabric in Azure tramite il portale di Azure][create-cluster-in-portal].
 
 ### <a name="publish-your-application-to-azure"></a>Pubblicazione dell'applicazione in Azure
 È possibile pubblicare l'applicazione direttamente da Visual Studio in un cluster di Azure. Per informazioni, vedere [Publishing your application to Azure][publish-app-to-azure] (Pubblicare l'applicazione in Azure).
@@ -66,10 +69,10 @@ Se si vuole provare a distribuire e gestire applicazioni in Azure senza configur
 Service Fabric Explorer offre un modo semplice per la visualizzazione del cluster, tra cui le applicazioni distribuite e il layout fisico. Per altre informazioni, vedere [Visualizzare il cluster con Service Fabric Explorer][visualize-with-sfx].
 
 ### <a name="version-and-upgrade-your-services"></a>Effettuare il versioning e aggiornare i servizi
-Service Fabric consente il controllo indipendente delle versioni e l'aggiornamento di servizi indipendenti in un'applicazione. Per altre informazioni, vedere [Versioning and upgrading your services][app-upgrade-tutorial] (Esecuzione del versioning e dell'aggiornamento dei servizi).
+Service Fabric consente il controllo indipendente delle versioni e l'aggiornamento di servizi indipendenti in un'applicazione. Per altre informazioni, vedere [Versioning and upgrading your services][app-upgrade-tutorial] (Controllo delle versione e aggiornamento dei servizi).
 
 ### <a name="configure-continuous-integration-with-visual-studio-team-services"></a>Configurare l'integrazione continua con Visual Studio Team Services
-Per informazioni su come impostare un processo di integrazione continua per l'applicazione di Service Fabric, vedere [Configurare l'integrazione continua per un'applicazione Service Fabric con Visual Studio Team Services][ci-with-vso].
+Per informazioni su come impostare un processo di integrazione continua per l'applicazione di Service Fabric, vedere [Configurare l'integrazione e la distribuzione continue di Service Fabric con Visual Studio Team Services][ci-with-vso].
 
 <!-- Links -->
 [add-web-frontend]: service-fabric-add-a-web-frontend.md
@@ -81,9 +84,4 @@ Per informazioni su come impostare un processo di integrazione continua per l'ap
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

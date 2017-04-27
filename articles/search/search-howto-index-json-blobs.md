@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 04/10/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: de7af5419aa423734ad06b236e0edf61fbb0cad1
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -44,26 +45,47 @@ In alternativa, quando i BLOB contengono una **matrice di oggetti JSON**, è con
         { "id" : "3", "text" : "example 3" }
     ]
 
-è possibile popolare l'indice di Ricerca di Azure con 3 documenti separati, ognuno con i campi "id" e "text".
+È possibile popolare l'indice di Ricerca di Azure con 3 documenti separati, ognuno con i campi "id" e "text".
 
 > [!IMPORTANT]
-> Questa funzionalità è attualmente disponibile in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
+> La funzionalità di analisi delle matrici JSON è attualmente disponibile in anteprima. È disponibile solo nell'API REST con la versione **2015-02-28-Preview**. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 >
 >
 
 ## <a name="setting-up-json-indexing"></a>Configurazione dell'indicizzazione JSON
-Per indicizzare i BLOB di tipo JSON, impostare il parametro di configurazione `parsingMode` su `json`, se si vuole indicizzare ogni BLOB come singolo documento, oppure su `jsonArray`, se il BLOB contiene una matrice JSON:
+L'indicizzazione dei BLOB JSON è simile all'estrazione normale dei documenti. Creare prima di tutto l'origine dati esattamente come si fa normalmente: 
+
+    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+        "name" : "my-blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
+        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
+    }   
+
+Creare quindi un indice di ricerca di destinazione, se non ne è già disponibile uno. 
+
+Creare infine un indicizzatore e impostare il parametro `parsingMode` su `json` (per indicizzare ogni BLOB come un singolo documento) o su `jsonArray` (se il BLOB contiene matrici JSON e occorre trattare ogni elemento della matrice come un documento separato):
+
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
 
     {
       "name" : "my-json-indexer",
-      ... other indexer properties
-      "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-Se necessario, usare i **mapping dei campi** per recuperare le proprietà del documento JSON di origine usato per popolare l'indice di ricerca di destinazione.  Questa procedura verrà descritta in dettaglio più avanti.
+Se necessario, usare i **mapping dei campi** per recuperare le proprietà del documento JSON di origine usato per popolare l'indice di ricerca di destinazione, come mostrato nella sezione seguente.
 
 > [!IMPORTANT]
-> Quando si usa la modalità di analisi su `json` o `jsonArray`, Ricerca di Azure presuppone che tutti i BLOB nell'origine dati siano di tipo JSON. Se è necessario supportare una combinazione di BLOB di tipo JSON e non JSON nella stessa origine dati, comunicare questa esigenza sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Quando si usa la modalità di analisi `json` o `jsonArray`, Ricerca di Azure presuppone che tutti i BLOB nell'origine dati siano di tipo JSON. Se è necessario supportare una combinazione di BLOB di tipo JSON e non JSON nella stessa origine dati, comunicare questa esigenza sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 >
 >
 
@@ -80,7 +102,7 @@ Tornando all'esempio di documento JSON:
         }
     }
 
-Si supponga che sia disponibile un indice di ricerca con i campi seguenti: `text` di tipo Edm.String, `date` di tipo Edm.DateTimeOffset e `tags` di tipo Collection(Edm.String). Per eseguire il mapping del file JSON per ottenere la forma desiderata, usare i mapping dei campi seguenti:
+Si supponga di disporre di un indice di ricerca con i seguenti campi: `text` di tipo `Edm.String`, `date` di tipo `Edm.DateTimeOffset` e `tags` di tipo `Collection(Edm.String)`. Per eseguire il mapping del file JSON per ottenere la forma desiderata, usare i mapping dei campi seguenti:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -99,7 +121,7 @@ I nomi dei campi di origine nei mapping vengono specificati mediante la notazion
 >
 >
 
-Se i documenti JSON contengono solo semplici proprietà di livello superiore, è possibile che i mapping dei campi non siano necessari. Ad esempio, se il file JSON ha un aspetto analogo al seguente, le proprietà "text", "datePublished" e "tags" di livello superiore verranno associate direttamente ai campi corrispondenti nell'indice di ricerca:
+Se i documenti JSON contengono solo semplici proprietà di livello superiore, è possibile che i mapping dei campi non siano necessari. Se ad esempio il file JSON ha un aspetto analogo al seguente, le proprietà "text", "datePublished" e "tags" di livello superiore vengono associate direttamente ai campi corrispondenti nell'indice di ricerca:
 
     {
        "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -107,47 +129,9 @@ Se i documenti JSON contengono solo semplici proprietà di livello superiore, è
        "tags" : [ "search", "storage", "howto" ]    
      }
 
-## <a name="indexing-nested-json-arrays"></a>Indicizzazione delle matrici JSON annidate
-Se si vuole indicizzare una matrice di oggetti JSON, ma questa matrice è annidata in un punto qualsiasi all'interno del documento? È possibile scegliere la proprietà che contiene la matrice usando la proprietà di configurazione `documentRoot` . Ad esempio, se i BLOB sono simili a questo:
+Ecco un payload di indicizzatore completo con mapping dei campi:
 
-    {
-        "level1" : {
-            "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" },
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
-            ]
-        }
-    }
-
-Usare questa configurazione per indicizzare la matrice contenuta nella proprietà "level2":
-
-    {
-        "name" : "my-json-array-indexer",
-        ... other indexer properties
-        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
-    }
-
-
-## <a name="request-examples"></a>Esempi di richiesta
-Per concludere, ecco gli esempi completi dei payload.
-
-Origine dati:
-
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-        "name" : "my-blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
-        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
-    }   
-
-Indicizzatore:
-
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -164,11 +148,27 @@ Indicizzatore:
         ]
     }
 
+## <a name="indexing-nested-json-arrays"></a>Indicizzazione delle matrici JSON annidate
+Se si vuole indicizzare una matrice di oggetti JSON, ma questa matrice è annidata in un punto qualsiasi all'interno del documento? È possibile scegliere la proprietà che contiene la matrice usando la proprietà di configurazione `documentRoot` . Ad esempio, se i BLOB sono simili a questo:
+
+    {
+        "level1" : {
+            "level2" : [
+                { "id" : "1", "text" : "Use the documentRoot property" },
+                { "id" : "2", "text" : "to pluck the array you want to index" },
+                { "id" : "3", "text" : "even if it's nested inside the document" }  
+            ]
+        }
+    }
+
+Usare questa configurazione per indicizzare la matrice contenuta nella proprietà `level2`:
+
+    {
+        "name" : "my-json-array-indexer",
+        ... other indexer properties
+        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+    }
+
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

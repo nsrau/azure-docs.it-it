@@ -12,36 +12,47 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 04/10/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 66e6fec16aab7764b05b616efc0fccbfb2d0595e
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 9b45ab6b86ab0a336b2a4b90e702fa4ff098d41c
+ms.lasthandoff: 04/10/2017
 
 ---
 
 # <a name="indexing-azure-table-storage-with-azure-search"></a>Indicizzazione in Archiviazione tabelle di Azure con Ricerca di Azure
-In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare i dati archiviati in Archiviazione tabelle di Azure. Con il nuovo indicizzatore di tabelle di Ricerca di Azure, questo processo diventa rapido e facile.
+In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare i dati archiviati in Archiviazione tabelle di Azure.
 
 ## <a name="setting-up-azure-table-indexing"></a>Configurazione dell'indicizzazione delle tabelle di Azure
-Per installare e configurare un indicizzatore di tabelle di Azure, è possibile usare l'API REST di Ricerca di Azure per creare e gestire **indicizzatori** e **origini dati** come descritto in [Indexer operations](https://msdn.microsoft.com/library/azure/dn946891.aspx) (Operazioni dell'indicizzatore). È possibile anche usare la [versione 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) di .NET SDK. In futuro, il supporto per l'indicizzazione di tabelle sarà aggiunto al portale di Azure.
 
-Un'origine dati specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono a Ricerca di Azure di identificare in modo efficace le modifiche apportate ai dati (righe nuove, modificate o eliminate).
+Per installare un indicizzatore di tabelle di Azure, è possibile usare:
 
-Un indicizzatore legge i dati da un'origine dati e li carica in un indice di ricerca di destinazione.
+* [Portale di Azure](https://ms.portal.azure.com)
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) Ricerca di Azure
+* [.NET SDK](https://aka.ms/search-sdk) Ricerca di Azure
 
-Per configurare l'indicizzazione delle tabelle:
+In questo caso viene illustrato il flusso tramite l'API REST. 
 
-1. Creare un'origine dati
-   * Impostare il parametro `type` su `azuretable`
-   * Passare la stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`. Per informazioni dettagliate, vedere [Come specificare le credenziali](#Credentials) più avanti.
-   * Specificare il nome della tabella usando il parametro `container.name`
-   * Specificare facoltativamente una query usando il parametro `container.query`. Se possibile, usare un filtro sul parametro PartitionKey per ottimizzare le prestazioni. Qualsiasi altra query comporterà un'analisi completa della tabella e il conseguente peggioramento delle prestazioni per tabelle di grandi dimensioni.
-2. Creare un indice di ricerca con lo schema corrispondente alle colonne della tabella che si desidera indicizzare.
-3. Creare l'indicizzatore connettendo l'origine dati all'indice di ricerca.
+### <a name="step-1-create-a-data-source"></a>Passaggio 1: Creare un'origine dati
 
-### <a name="create-data-source"></a>Creare un'origine dati
+Un'origine dati specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono a Ricerca di Azure di identificare in modo efficace le modifiche apportate ai dati.
+
+Per l'indicizzazione delle tabelle, l'origine dati deve possedere le proprietà seguenti:
+
+- **name** è il nome univoco dell'origine dati all'interno del servizio di ricerca.
+- **type** deve essere `azuretable`.
+- Il parametro **credentials** contiene la stringa di connessione all'account di archiviazione. Per altre informazioni, vedere [Come specificare le credenziali](#Credentials).
+- Il parametro **container** imposta il nome della tabella e una query facoltativa
+    - Specificare il nome della tabella usando il parametro `name`
+    - Specificare facoltativamente una query usando il parametro `query`. 
+
+> [!IMPORTANT] 
+> Se possibile, usare un filtro sul parametro PartitionKey per ottimizzare le prestazioni. Qualsiasi altra query comporterà un'analisi completa delle tabelle e un conseguente peggioramento delle prestazioni in caso di tabelle di grandi dimensioni. Vedere la sezione [Considerazioni sulle prestazioni](#Performance).
+
+
+Per creare un'origine dati:
+
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
@@ -53,7 +64,7 @@ Per configurare l'indicizzazione delle tabelle:
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
-Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare un'origine dati](https://msdn.microsoft.com/library/azure/dn946876.aspx).
+Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare un'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="how-to-specify-credentials"></a>Come specificare le credenziali ####
@@ -67,9 +78,13 @@ Per specificare le credenziali per la tabella, sono disponibili questi modi:
 Per altre informazioni sulle firme di accesso condiviso per l'archiviazione, vedere [Uso delle firme di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Se si usano le credenziali di firma di accesso condiviso, sarà necessario aggiornare periodicamente le credenziali dell'origine dati con firme rinnovate per impedire che scadano. Se le credenziali di firma di accesso condiviso scadono, l'indicizzatore avrà esito negativo e restituirà un messaggio di errore simile al seguente: `Credentials provided in the connection string are invalid or have expired.`.  
+> Se si usano le credenziali di firma di accesso condiviso, sarà necessario aggiornare periodicamente le credenziali dell'origine dati con firme rinnovate per impedire che scadano. Se le credenziali di firma di accesso condiviso scadono, l'indicizzatore ha esito negativo e restituisce un messaggio di errore simile al seguente: `Credentials provided in the connection string are invalid or have expired.`.  
 
-### <a name="create-index"></a>Creare un indice
+### <a name="step-2-create-an-index"></a>Passaggio 2: Creare un indice
+L'indice consente di specificare i campi in un documento, gli attributi e altri costrutti che danno forma all'esperienza della ricerca.
+
+Di seguito viene illustrato come creare un indice:
+
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
@@ -82,10 +97,12 @@ Per altre informazioni sulle firme di accesso condiviso per l'archiviazione, ved
           ]
     }
 
-Per altre informazioni sull'API di creazione di un indice, vedere [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
+Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="create-indexer"></a>Creare un indicizzatore
-Infine creare l'indicizzatore che fa riferimento all'origine dati e all'indice di destinazione. Ad esempio:
+### <a name="step-3-create-an-indexer"></a>Passaggio 3: Creare un indicizzatore
+Un indicizzatore si connette a un'origine dati con un indice di ricerca di destinazione e consente di pianificare l'automatizzazione dell'aggiornamento dei dati. 
+
+Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -98,17 +115,17 @@ Infine creare l'indicizzatore che fa riferimento all'origine dati e all'indice d
       "schedule" : { "interval" : "PT2H" }
     }
 
-Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+L'indicizzatore verrà eseguito ogni due ore (l'intervallo di pianificazione è impostato su "PT2H"). Per eseguire un indicizzatore ogni 30 minuti, impostare l'intervallo su "PT30M". L'intervallo minimo supportato è di 5 minuti. La pianificazione è facoltativa: se omessa, l'indicizzatore viene eseguito una sola volta al momento della creazione. Tuttavia, è possibile eseguire un indicizzatore su richiesta in qualsiasi momento.   
 
-Questo è tutto il necessario per un'indicizzazione perfetta.
+Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## <a name="dealing-with-different-field-names"></a>Gestione di nomi campo diversi
-I nomi campo nell'indice esistente saranno spesso diversi dai nomi proprietà nella tabella. È possibile usare i **mapping dei campi** per eseguire il mapping dei nomi di proprietà forniti dalla tabella ai nomi di campo nell'indice di ricerca. Per altre informazioni sui mapping dei campi, vedere [I mapping dei campi dell'indicizzatore di Ricerca di Azure colmano le differenze tra le origini dati e gli indici di ricerca](search-indexer-field-mappings.md).
+I nomi campo nell'indice esistente sono talvolta diversi dai nomi proprietà nella tabella. È possibile usare i **mapping dei campi** per eseguire il mapping dei nomi di proprietà forniti dalla tabella ai nomi di campo nell'indice di ricerca. Per altre informazioni sui mapping dei campi, vedere [I mapping dei campi dell'indicizzatore di Ricerca di Azure colmano le differenze tra le origini dati e gli indici di ricerca](search-indexer-field-mappings.md).
 
 ## <a name="handling-document-keys"></a>Gestione delle chiavi del documento
 In Ricerca di Azure la chiave del documento identifica un documento in modo univoco. Ogni indice di ricerca deve avere esclusivamente un campo chiave di tipo `Edm.String`. Il campo chiave è necessario per ogni documento da aggiungere all'indice ed è l'unico campo obbligatorio.
 
-La chiave delle righe è composta. Ricerca di Azure genera pertanto un campo sintetico denominato `Key`, vale a dire una concatenazione di valori di chiave di partizione e chiave di riga. Ad esempio, se il parametro PartitionKey di una riga è `PK1` e il parametro RowKey è `RK1`, il valore del campo `Key` sarà `PK1RK1`.
+La chiave delle righe è composta. Ricerca di Azure genera pertanto un campo sintetico denominato `Key`, vale a dire una concatenazione di valori di chiave di partizione e chiave di riga. Se ad esempio il parametro PartitionKey di una riga è `PK1` e il parametro RowKey è `RK1`, il valore del campo `Key` è `PK1RK1`.
 
 > [!NOTE]
 > Il valore `Key` può contenere caratteri non validi nelle chiavi del documento, ad esempio i trattini. È possibile risolvere i problemi legati ai caratteri non validi usando la `base64Encode` [funzione di mapping dei campi](search-indexer-field-mappings.md#base64EncodeFunction). In questo caso, ricordarsi di usare la codifica Base64 sicura per gli URL quando si passano le chiavi dei documenti nelle chiamate API, ad esempio in una ricerca.
@@ -118,7 +135,7 @@ La chiave delle righe è composta. Ricerca di Azure genera pertanto un campo sin
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indicizzazione incrementale e rilevamento delle eliminazioni
 Quando un indicizzatore di tabelle viene configurato per l'esecuzione in base a una pianificazione, vengono indicizzate nuovamente solo le righe nuove o aggiornate, come definito dal valore `Timestamp` di una riga. Non è necessario specificare un criterio di rilevamento delle modifiche perché l'indicizzazione incrementale viene abilitata automaticamente.
 
-Per indicare che alcuni documenti devono essere rimossi dall'indice, è consigliabile usare una strategia di eliminazione temporanea, anziché eliminare una riga, quindi aggiungere una proprietà per indicare che sono stati eliminati e configurare un criterio di rilevamento dell'eliminazione temporanea nell'origine dati. Il criterio illustrato sotto, ad esempio, indica che una riga sarà eliminata se contiene una proprietà `IsDeleted` con il valore `"true"`:
+Per indicare che alcuni documenti specifici devono essere rimossi dall'indice, è possibile usare una strategia di eliminazione temporanea. Invece di eliminare una riga, aggiungere una proprietà che ne indica l'eliminazione e impostare criteri di rilevamento dell'eliminazione temporanea nell'origine dati. Il tipo di criteri seguente, ad esempio, indica che una riga viene eliminata se la proprietà `IsDeleted` della riga è impostata sul valore `"true"`:
 
     PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -128,9 +145,27 @@ Per indicare che alcuni documenti devono essere rimossi dall'indice, è consigli
         "name" : "my-table-datasource",
         "type" : "azuretable",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "table name", "query" : "query" },
+        "container" : { "name" : "table name", "query" : "<query>" },
         "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
     }   
+
+<a name="Performance"></a>
+## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
+
+Ricerca di Azure usa per impostazione predefinita il filtro di query seguente: `Timestamp >= HighWaterMarkValue`. Poiché le tabelle di Azure non dispongono di un indice secondario nel campo `Timestamp`, questo tipo di query richiede un'analisi completa delle tabelle e risulta pertanto lenta nell'analisi delle tabelle di grandi dimensioni.
+
+
+Ecco due possibili approcci per migliorare le prestazioni dell'indicizzazione delle tabelle. Entrambi gli approcci si basano sull'utilizzo delle partizioni delle tabelle: 
+
+- Se i dati possono essere partizionati naturalmente in diversi intervalli della partizione, creare un'origine dati e un indicizzatore corrispondente per ogni intervallo della partizione. Ogni indicizzatore deve a questo punto elaborare un solo intervallo specifico della partizione e ciò va a vantaggio delle prestazioni della query. Se i dati da indicizzare hanno un numero ridotto di partizioni fisse, è ancora meglio perché ogni indicizzatore analizza solo una partizione. Per creare ad esempio un'origine dati per l'elaborazione di un intervallo della partizione con le chiavi da `000` a `100`, usare una query simile alla seguente: 
+    ```
+    "container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
+    ```
+
+- Se i dati sono partizionati in base all'ora (ad esempio, si crea una nuova partizione ogni giorno o ogni settimana), considerare l'approccio seguente: 
+    - Usare una query nel formato: `(PartitionKey ge <TimeStamp>) and (other filters)` 
+    - Monitorare lo stato dell'indicizzatore usando l'[API Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) (Ottenere lo stato dell'indicizzatore) e aggiornare periodicamente la condizione `<TimeStamp>` della query in base al valore limite massimo corretto più recente. 
+    - Con questo approccio, se è necessario attivare una reindicizzazione completa, occorre reimpostare la query dell'origine dati oltre a reimpostare l'indicizzatore. 
 
 
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure

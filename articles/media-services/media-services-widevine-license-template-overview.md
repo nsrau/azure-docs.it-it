@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/29/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a90e56bb2b7db0bb964684f9cac04096a6577adc
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5ef6e368a170816b7000c23cdf686644690fca45
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -26,7 +27,8 @@ Servizi multimediali di Azure consente ora di configurare e richiedere licenze W
 
 La richiesta per la licenza Widevine è formattata come messaggio JSON.  
 
-È possibile scegliere di creare un messaggio vuoto senza valori, contenente solo "{}", e verrà creato un modello di licenza con tutti i valori predefiniti.  
+>[!NOTE]
+> È possibile scegliere di creare un messaggio vuoto senza valori, contenente solo "{}", e verrà creato un modello di licenza con tutti i valori predefiniti. Il valore predefinito funziona nella maggior parte dei casi. Ad esempio, per scenari di distribuzione licenze basati su MS che devono essere sempre predefiniti. Se è necessario impostare i valori di "content_id" e "provider", un provider deve corrispondere alle credenziali di Google Widevine.
 
     {  
        “payload”:“<license challenge>”,
@@ -62,7 +64,7 @@ La richiesta per la licenza Widevine è formattata come messaggio JSON.
 | --- | --- | --- |
 | payload |Stringa con codifica Base64 |Richiesta di licenza inviata da un client. |
 | content_id |Stringa con codifica Base64 |Identificatore usato per derivare KeyId(s) e Content Key(s) per ogni content_key_specs.track_type. |
-| provider |string |Consente di cercare criteri e chiavi simmetriche. Obbligatorio. |
+| provider |string |Consente di cercare criteri e chiavi simmetriche. Se viene usata la distribuzione delle chiavi MS per la distribuzione di licenze Widevine, questo parametro viene ignorato. |
 | policy_name |string |Nome di un criterio precedentemente registrato. Facoltativo |
 | allowed_track_types |enum |SD_ONLY o SD_HD. Consente di specificare le chiavi simmetriche da includere in una licenza |
 | content_key_specs |Matrice di strutture JSON. Vedere la sezione **Specifiche della chiave simmetrica** riportata di seguito |Controllo più granulare dei contenuti da restituire. Per informazioni, vedere la sezione Specifiche della chiave simmetrica riportata di seguito.  È possibile specificare solo uno dei valori allowed_track_types e content_key_specs. |
@@ -79,7 +81,7 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | Nome | Valore | Description |
 | --- | --- | --- |
 | content_key_specs track_type |string |Nome di un tipo di traccia. Se nella richiesta di licenza è specificato un valore content_key_specs, assicurarsi di specificare esplicitamente tutti i tipi di traccia. In caso contrario, non potranno essere riprodotti gli ultimi 10 secondi. |
-| content_key_specs  <br/> security_level |Valore UInt32 |Definisce i requisiti di affidabilità client per la riproduzione. <br/>  1 - È richiesta una soluzione di crittografia white box basata su software. <br/>  2 - È necessaria una soluzione di crittografia software e un decodificatore offuscato. <br/>  3 - Il materiale della chiave e le operazioni di crittografia devono essere eseguiti all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/>  4 - Le operazioni di crittografia e decodifica devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.  <br/>  5 - Le operazioni di crittografia e decodifica e l'intera gestione dei contenuti multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware. |
+| content_key_specs  <br/> security_level |Valore UInt32 |Definisce i requisiti di affidabilità client per la riproduzione. <br/> 1 - È richiesta una soluzione di crittografia white box basata su software. <br/> 2 - È necessaria una soluzione di crittografia software e un decodificatore offuscato. <br/> 3 - Il materiale della chiave e le operazioni di crittografia devono essere eseguiti all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/> 4 - Le operazioni di crittografia e decodifica devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.  <br/> 5 - Le operazioni di crittografia e decodifica e l'intera gestione dei contenuti multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware. |
 | content_key_specs <br/> required_output_protection.hdc |Stringa - uno di: HDCP_NONE, HDCP_V1, HDCP_V2 |Indica se è necessario il protocollo HDCP |
 | content_key_specs <br/>key |Stringa con  <br/>codifica Base64 |Chiave simmetrica da usare per la traccia. Se specificato, è necessario immettere il valore track_type o key_id  Questa opzione consente al provider di contenuti di inserire manualmente la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave. |
 | content_key_specs.key_id |Stringa binaria con codifica Base64, 16 byte |Identificatore univoco della chiave. |
@@ -197,10 +199,5 @@ L'esempio seguente mostra come usare le API .NET per configurare una licenza Wid
 
 ## <a name="see-also"></a>Vedere anche
 [Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

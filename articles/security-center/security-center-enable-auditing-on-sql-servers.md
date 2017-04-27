@@ -1,6 +1,6 @@
 ---
-title: Abilitare il controllo sui server SQL nel Centro sicurezza di Azure | Microsoft Docs
-description: "In questo documento è illustrato come implementare la raccomandazione **Abilitare il controllo dei server SQL** del Centro sicurezza di Azure."
+title: Abilitare il controllo e il rilevamento delle minacce sui server SQL nel Centro sicurezza di Azure | Microsoft Docs
+description: Questo documento descrive come implementare la raccomandazione **Abilitare il controllo e il rilevamento delle minacce sui server SQL** del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/30/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 10206327b628358151ad4585b1d962538ea17bcd
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 660b537aef8d175a478ff93d60b8391d55fc92ad
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="enable-auditing-on-sql-servers-in-azure-security-center"></a>Abilitare il controllo dei server SQL nel Centro sicurezza di Azure
-Il Centro sicurezza di Azure consiglia di attivare il controllo per tutti i database nei server SQL di Azure, se non è già abilitato. Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
+# <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Abilitare il controllo e il rilevamento delle minacce sui server SQL nel Centro sicurezza di Azure
+Il Centro sicurezza di Azure consiglia di attivare il controllo e il rilevamento delle minacce per tutti i database nei server SQL di Azure, se queste funzionalità non sono già abilitate. Il controllo e il rilevamento delle minacce possono agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
 
 Dopo aver attivato il controllo è possibile configurare le impostazioni di rilevamento delle minacce e gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. La funzionalità di rilevamento delle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. Essa consente di rilevare e rispondere a potenziali rischi appena si verificano.
 
@@ -34,20 +34,19 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
 >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
-1. Nel pannello **Raccomandazioni** selezionare **Abilita il controllo sui server SQL**.  Verrà visualizzato il pannello **Abilita il controllo sui server SQL** .
+1. Nel pannello **Raccomandazioni** selezionare **Enable Auditing & Threat detection on SQL servers** (Abilita il controllo e il rilevamento delle minacce sui server SQL).  Verrà visualizzato il pannello **Enable Auditing & Threat detection on SQL servers** (Abilita il controllo e il rilevamento delle minacce sui server SQL).
 
    ![Abilitare il controllo sui server SQL][1]
-2. Selezionare un server SQL su cui abilitare il controllo. Verrà visualizzato il pannello **Impostazioni del servizio di controllo** .
+2. Selezionare il server SQL su cui abilitare il controllo e il rilevamento delle minacce. Verrà visualizzato il pannello **Controllo e rilevamento minacce**.
 
-   ![Impostazioni del servizio di controllo][2]
-3. Nel pannello **Impostazioni del servizio di controllo** selezionare **ON** in **Controllo**.
+3. Nel pannello **Controllo e rilevamento minacce** selezionare **ON** in **Controllo**.
 
-   ![Attivare le impostazioni del servizio di controllo][3]
+   ![Attivare le impostazioni del servizio di controllo][2]
 4. Seguire la procedura in [SQL database auditing in the Azure portal](../sql-database/sql-database-auditing-portal.md) (Controllo del database SQL nel portale di Azure) per configurare l'archiviazione in cui verranno archiviati i log di controllo. L'account di archiviazione della sottoscrizione per la raccolta dei dati è l'account di archiviazione predefinito.
 5. Seguire i passaggi in [Introduzione individuazione Database SQL](../sql-database/sql-database-threat-detection.md) per attivare e configurare il rilevamento di minacce e per configurare l'elenco dei messaggi di posta elettronica che riceveranno gli avvisi di sicurezza al rilevamento di anomalie dell'attività.
 
 ## <a name="see-also"></a>Vedere anche
-Questo documento illustra come implementare la raccomandazione "Abilita il controllo sui server SQL" del Centro sicurezza. Per altre informazioni su come proteggere il database SQL, vedere gli argomenti seguenti:
+Questo articolo illustra come implementare la raccomandazione "Abilitare il controllo e il rilevamento delle minacce sui server SQL" del Centro sicurezza. Per altre informazioni su come proteggere il database SQL, vedere gli argomenti seguenti:
 
 * [Protezione del Database SQL](../sql-database/sql-database-security-overview.md)
 
@@ -63,6 +62,5 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
-[2]:./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
-[3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
+[2]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
 

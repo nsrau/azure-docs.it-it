@@ -1,5 +1,5 @@
 ---
-title: Creare avvisi per i servizi di Azure - Interfaccia della riga di comando multipiattaforma | Documentazione Microsoft
+title: Creare avvisi per i servizi di Azure - Interfaccia della riga di comando multipiattaforma | Microsoft Docs
 description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l&quot;automazione quando vengono soddisfatte le condizioni specificate.
 author: rboucher
 manager: carmonm
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 073075d4c789438cc6dd6aa14027cbe50d6efa11
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="create-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creare avvisi in Monitoraggio di Azure per i servizi di Azure - Interfaccia della riga di comando multipiattaforma
+# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creare avvisi sulle metriche in Monitoraggio di Azure per i servizi di Azure - Interfaccia della riga di comando multipiattaforma
 > [!div class="op_single_selector"]
 > * [Portale](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,7 +30,7 @@ ms.openlocfilehash: 073075d4c789438cc6dd6aa14027cbe50d6efa11
 >
 
 ## <a name="overview"></a>Panoramica
-Questo articolo descrive come impostare gli avvisi di Azure tramite l'interfaccia della riga di comando multipiattaforma.
+Questo articolo descrive come impostare gli avvisi sulle metriche di Azure tramite l'interfaccia della riga di comando multipiattaforma.
 
 > [!NOTE]
 > Dal 25 settembre 2016 Monitoraggio di Azure è il nuovo nome di "Azure Insights". Tuttavia, gli spazi dei nomi e quindi i comandi seguenti contengono ancora il termine "insights".
@@ -39,16 +40,16 @@ Questo articolo descrive come impostare gli avvisi di Azure tramite l'interfacci
 È possibile ricevere avvisi basati su metriche di monitoraggio o eventi nei servizi Azure.
 
 * **Valori metrici** : l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta.    
-* **Eventi del log attività** : è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato numero di eventi.
+* **Eventi del log attività**: è possibile attivare un avviso per *ogni* evento o solo quando si verifica un determinato evento. Per altre informazioni sugli avvisi di log attività [fare clic qui](monitoring-activity-log-alerts.md)
 
-È possibile configurare un avviso affinché esegua le operazioni seguenti al momento dell'attivazione:
+È possibile configurare un avviso di metrica affinché esegua le operazioni seguenti al momento dell'attivazione:
 
 * inviare un messaggio di posta elettronica all'amministratore e ai coamministratori del servizio
 * inviare un messaggio di posta elettronica ad altri indirizzi specificati
 * chiamare un webhook
 * avviare l'esecuzione di un runbook di Azure; attualmente è possibile solo dal portale di Azure
 
-È possibile configurare e ottenere informazioni sulle regole degli avvisi tramite
+È possibile configurare e ottenere informazioni sulle regole degli avvisi sulle metriche tramite
 
 * [Portale di Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -72,16 +73,15 @@ Questo articolo descrive come impostare gli avvisi di Azure tramite l'interfacci
 
     ```
 
-1. Per elencare le regole esistenti in un gruppo di risorse, usare il seguente formato **azure insights alerts rule list*** [opzioni] &lt;resourceGroup&gt;*
+2. Per elencare le regole esistenti in un gruppo di risorse, usare il seguente formato **azure insights alerts rule list** *[opzioni] &lt;resourceGroup&gt;*
 
    ```console
    azure insights alerts rule list myresourcegroupname
 
    ```
-2. Per creare una regola, per prima cosa è necessario disporre di alcune informazioni importanti.
-
-   * L' **ID risorsa** della risorsa per la quale si intende impostare un avviso
-   * Le **definizioni delle metriche** disponibili per tale risorsa
+3. Per creare una regola, per prima cosa è necessario disporre di alcune informazioni importanti.
+  * L' **ID risorsa** della risorsa per la quale si intende impostare un avviso
+  * Le **definizioni delle metriche** disponibili per tale risorsa
 
      È possibile ottenere l'ID della risorsa tramite il portale di Azure. Se la risorsa è già stata creata, selezionarla nel portale. Nel pannello successivo, nella sezione *Impostazioni*, selezionare *Proprietà*. *ID RISORSA* è un campo nel pannello successivo. È anche possibile usare [Esplora risorse di Azure](https://resources.azure.com/).
 
@@ -97,8 +97,8 @@ Questo articolo descrive come impostare gli avvisi di Azure tramite l'interfacci
      azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M
      ```
 
-     *PT1M* indica la granularità della misurazione disponibile, con intervalli di&1; minuto. L'uso di granularità diverse offre opzioni di metrica diverse.
-3. Per creare una regola di avviso basata sulla metrica, usare un comando nel formato seguente:
+     *PT1M* indica la granularità della misurazione disponibile, con intervalli di 1 minuto. L'uso di granularità diverse offre opzioni di metrica diverse.
+4. Per creare una regola di avviso basata sulla metrica, usare un comando nel formato seguente:
 
     **azure insights alerts rule metric set** *[opzioni] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 
@@ -108,7 +108,7 @@ Questo articolo descrive come impostare gli avvisi di Azure tramite l'interfacci
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-4. Per creare il webhook o inviare un messaggio di posta elettronica all'attivazione di un avviso, creare prima il messaggio di posta elettronica e/o i webhook. Creare la regola immediatamente dopo. Non è possibile associare il webhook o messaggi di posta elettronica a regole già create tramite l'interfaccia della riga di comando.
+5. Per creare il webhook o inviare un messaggio di posta elettronica all'attivazione di un avviso di metrica, creare prima il messaggio di posta elettronica e/o i webhook. Creare la regola immediatamente dopo. Non è possibile associare il webhook o messaggi di posta elettronica a regole già create tramite l'interfaccia della riga di comando.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com
@@ -117,19 +117,7 @@ Questo articolo descrive come impostare gli avvisi di Azure tramite l'interfacci
 
     azure insights alerts rule metric set myrulewithwebhookandemail eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
     ```
-5. Per creare un avviso che viene attivato al verificarsi di una condizione specifica nel log attività, usare il formato:
 
-    **insights alerts rule log set** *[opzioni] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;operationName&gt;*
-
-    Ad esempio
-
-    ```console
-    azure insights alerts rule log set myActivityLogRule eastus myresourceGroupName Microsoft.Storage/storageAccounts/listKeys/action
-    ```
-
-    operationName corrisponde a un tipo di evento per una voce nel log attività. Alcuni esempi sono *Microsoft.Compute/virtualMachines/delete* e *microsoft.insights/diagnosticSettings/write*.
-
-    È possibile usare il comando PowerShell [Get-AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) per ottenere un elenco di possibili operationNames. In alternativa, è possibile usare il portale di Azure per eseguire una query sul log attività e individuare operazioni passate specifiche per le quali creare un avviso. Le operazioni vengono mostrate nella visualizzazione del log di grafica dei nomi descrittivi. Individuare la voce nel codice JSON ed estrarre il valore di OperationName.   
 6. È possibile verificare che gli avvisi siano stati creati correttamente esaminando una singola regola.
 
     ```console
@@ -150,12 +138,8 @@ Questo articolo descrive come impostare gli avvisi di Azure tramite l'interfacci
 ## <a name="next-steps"></a>Passaggi successivi
 * [Leggere una panoramica del monitoraggio di Azure](monitoring-overview.md) che include anche i tipi di informazioni che è possibile raccogliere e monitorare.
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](insights-webhooks-alerts.md).
+* Altre informazioni sulla [configurazione di avvisi sugli eventi del log attività](monitoring-activity-log-alerts.md).
 * Altre informazioni sui [runbook di automazione di Azure](../automation/automation-starting-a-runbook.md).
 * Leggere una [panoramica della raccolta dei log di diagnostica](monitoring-overview-of-diagnostic-logs.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * Leggere una [panoramica della raccolta di metriche](insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
