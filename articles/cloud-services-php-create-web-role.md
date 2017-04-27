@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
 ms.openlocfilehash: b6b802092165926cdfeab67849df26167ad96ebf
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -213,9 +214,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [programma di installazione sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

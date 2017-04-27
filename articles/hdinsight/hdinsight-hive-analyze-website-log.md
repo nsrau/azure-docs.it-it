@@ -56,7 +56,7 @@ In questo esempio si userà un cluster HDInsight per analizzare i file di log de
 ## <a name="next-steps"></a>Passaggi successivi
 Provare l'esempio seguente: [Analizzare i dati dei sensori mediante Hive con HDInsight](hdinsight-hive-analyze-sensor-data.md).
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png

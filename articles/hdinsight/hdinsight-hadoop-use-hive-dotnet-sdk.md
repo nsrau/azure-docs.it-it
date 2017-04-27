@@ -149,7 +149,7 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 * [Usare Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop-mac-linux.md)
 * [Creare applicazioni .NET HDInsight di autenticazione non interattive](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 
