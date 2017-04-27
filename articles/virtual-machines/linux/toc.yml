@@ -13,20 +13,30 @@
     href: quick-create-portal.md
   - name: "Creare una VM: PowerShell"
     href: quick-create-powershell.md
+- name: "Esercitazioni"
+  items:
+  - name: "1 - Creare/gestire macchine virtuali"
+    href: tutorial-manage-vm.md
+  - name: "2 - Creare/gestire dischi"
+    href: tutorial-manage-disks.md
+  - name: "3 - Automatizzare la configurazione"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 - Creare immagini di VM"
+    href: tutorial-custom-images.md
+  - name: "5 - VM a disponibilità elevata"
+    href: tutorial-availability-sets.md
+  - name: "6 - Creare un set di scalabilità di macchine virtuali"
+    href: tutorial-create-vmss.md
+  - name: "7 - Bilanciare il carico delle VM"
+    href: tutorial-load-balancer.md
+  - name: "8 - Gestire la rete"
+    href: tutorial-virtual-network.md
 - name: "Esempi"
   items:
   - name: "Interfaccia della riga di comando di Azure"
     href: cli-samples.md
   - name: "PowerShell"
     href: powershell-samples.md
-- name: "Esercitazioni"
-  items:
-  - name: "Creare e gestire una VM"
-    href: tutorial-manage-vm.md
-  - name: "Bilanciare il carico di VM a disponibilità elevata"
-    href: tutorial-load-balance-nodejs.md
-  - name: "Creare un set di scalabilità di macchine virtuali"
-    href: tutorial-create-vmss.md
 - name: "Concetti"
   items:
   - name: "Distribuzioni approvate per Azure"

@@ -1,7 +1,6 @@
 # Panoramica
-## [Che cosa sono i lab di sviluppo/test?](devtest-lab-overview.md)
-## [Perché Lab di sviluppo e test?](devtest-lab-why.md)
-## [Concetti di Lab di sviluppo e test](devtest-lab-concepts.md)
+## [Informazioni su Azure DevTest Labs](devtest-lab-overview.md)
+## [Concetti](devtest-lab-concepts.md)
 
 # Attività iniziali
 ## [Creare un lab](devtest-lab-create-lab.md)
