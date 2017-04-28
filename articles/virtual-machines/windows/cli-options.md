@@ -16,38 +16,38 @@ ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5554097904598a7bdb7bb0148f3a00923da2cfa7
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: be02ad0d7752cb08f092deeb5a86dcd126403237
+ms.lasthandoff: 04/18/2017
 
 ---
 
 # <a name="using-the-azure-cli-on-windows"></a>Uso dell'interfaccia della riga di comando di Azure su Windows
 
-L'interfaccia della riga di comando di Azure (CLI) fornisce una riga di comando e l'ambiente di scripting per la creazione e la gestione delle risorse di Azure. L'interfaccia della riga di comando di Azure è disponibile per i sistemi operativi Mac OS X, Linux e Windows. In questi sistemi operativi i comandi dell'interfaccia della riga di comando sono identici. Tuttavia, la sintassi di scripting specifica del sistema operativo può differire.
+L'interfaccia della riga di comando di Azure (CLI) fornisce una riga di comando e l'ambiente di scripting per la creazione e la gestione delle risorse di Azure. L'interfaccia della riga di comando di Azure è disponibile per i sistemi operativi macOS, Linux e Windows. In questi sistemi operativi i comandi dell'interfaccia della riga di comando sono identici. Tuttavia, la sintassi di scripting specifica del sistema operativo può differire.
 
 Questo documento descrive le modalità di installazione ed esecuzione dell'interfaccia della riga di comando di Azure in Windows, nonché le considerazioni sulla sintassi specifica del sistema operativo. Per la documentazione dettagliata sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure]( https://docs.microsoft.com/en-us/cli/azure/overview).
 
 ## <a name="windows-subsystem-for-linux"></a>Sottosistema di Windows per Linux
 
-Il Sottosistema Windows per Linux (WSL) fornisce un ambiente Ubuntu Linux in versione anniversario di Windows 10. Quando abilitato, WSL offre un'esperienza Bash nativa, che può essere usata per la creazione e l'esecuzione di script dell'interfaccia della riga di comando di Azure. Dal momento che WSL fornisce un'esperienza Bash nativa, gli script dell'interfaccia della riga di comando di Azure possono essere condivisi tra Mac OS X, Linux e Windows senza alcuna modifica.
+Il Sottosistema Windows per Linux (WSL) fornisce un ambiente Ubuntu Linux nell'edizione anniversario di Windows 10 e versioni successive. Quando abilitato, WSL offre un'esperienza Bash nativa, che può essere usata per la creazione e l'esecuzione di script dell'interfaccia della riga di comando di Azure. Dal momento che WSL fornisce un'esperienza Bash nativa, gli script dell'interfaccia della riga di comando di Azure possono essere condivisi tra macOS, Linux e Windows senza alcuna modifica.
 
 Per usare l'interfaccia della riga di comando di Azure in WSL, completare le operazioni seguenti.
 
 |Attività | Istruzioni |
 |---|---|
 | Abilitare WLS | [Documentazione sull'installazione di WSL](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
-| Installare l'interfaccia della riga di comando di Azure |[Install the CLI on WSL / Ubuntu 14.04](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#ubuntu) (Installare l'interfaccia della riga di comando su WSL/Ubuntu 14.04)|
+| Installare l'interfaccia della riga di comando di Azure |[Installare l'interfaccia della riga di comando su WSL/Ubuntu 14.04](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#ubuntu)|
 
 ## <a name="powershell"></a>PowerShell
 
-L'interfaccia della riga di comando di Azure può essere eseguita in modo nativo in Windows. In questa configurazione, il pacchetto dell'interfaccia della riga di comando di Azure è installato nel sistema operativo Windows e i comandi possono essere eseguiti da PowerShell. In questa configurazione, gli script e i comandi dell'interfaccia della riga di comando di Azure sono eseguibili in qualsiasi versione di Windows supportata. È tuttavia necessaria la sintassi di scripting specifica della piattaforma. Per questo motivo, gli script non devono necessariamente essere condivisi tra Mac OS X, Linux e Windows senza modifiche.
+L'interfaccia della riga di comando di Azure può essere eseguita in modo nativo in Windows. In questa configurazione, il pacchetto dell'interfaccia della riga di comando di Azure è installato nel sistema operativo Windows e i comandi possono essere eseguiti da PowerShell. In questa configurazione, gli script e i comandi dell'interfaccia della riga di comando di Azure sono eseguibili in qualsiasi versione di Windows supportata. È tuttavia necessaria la sintassi di scripting specifica della piattaforma. Per questo motivo, gli script non devono necessariamente essere condivisi tra macOS, Linux e Windows senza modifiche.
 
 Per usare l'interfaccia della riga di comando di Azure in Windows, installare il pacchetto tramite le istruzioni contenute in [Install the CLI on Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#windows) (Installare l'interfaccia della riga di comando su Windows).
 
 ## <a name="docker-image"></a>Immagine Docker
 
-Quando si usa Docker per Windows, è possibile avviare un'immagine Docker che include l'interfaccia della riga di comando di Azure. Questa immagine si basa su Linux e include un'esperienza Bash nativa.  Quando si usa Docker per Windows e per l'immagine dell'interfaccia della riga di comando di Azure, gli script devono essere condivisi tra Mac OS X, Linux e Windows. 
+Quando si usa Docker per Windows, è possibile avviare un'immagine Docker che include l'interfaccia della riga di comando di Azure. Questa immagine si basa su Linux e include un'esperienza Bash nativa.  Quando si usa Docker per Windows e per l'immagine dell'interfaccia della riga di comando di Azure, gli script devono essere condivisi tra macOS, Linux e Windows. 
 
 Per usare l'interfaccia della riga di comando di Azure in Docker per Windows, verificare che Docker per Windows sia in esecuzione ed esegua il comando seguente.
 

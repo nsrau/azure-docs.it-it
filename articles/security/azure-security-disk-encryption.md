@@ -12,58 +12,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 04/07/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f52b9064d4771c714b829a409037ef6f03c54161
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: d2887e255e59c164bb6d733988053f514a118c7b
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux
-Microsoft Azure si impegna per assicurare la privacy e la sovranità dei dati dell'utente. È possibile controllare i dati ospitati da Azure tramite diverse tecnologie avanzate per crittografare, controllare e gestire le chiavi di crittografia e controllare l'accesso ai dati. Questo controllo offre la flessibilità necessaria per scegliere la soluzione ottimale per le esigenze aziendali specifiche.
-
-Questo articolo presenta Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux, una nuova soluzione tecnologica che consente di proteggere e salvaguardare i dati, progettata per il rispetto degli impegni a livello di sicurezza e conformità dell'organizzazione. L'articolo include informazioni dettagliate sull'uso delle funzionalità Crittografia dischi di Azure, compresi gli scenari supportati e le esperienze utente.
+Microsoft Azure è caratterizzato dal massimo impegno volto ad assicurare la privacy e la sovranità dei dati e a consentire il controllo dei dati ospitati in Azure con una gamma di tecnologie avanzate per crittografare, controllare e gestire le chiavi di crittografia e controllare e verificare l'accesso ai dati. I clienti di Azure hanno quindi la possibilità di scegliere la soluzione che meglio soddisfa le proprie esigenze aziendali. In questo documento viene introdotta una nuova soluzione tecnologica, "Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux", che facilita la protezione e la salvaguardia dei dati per rispettare gli impegni in termini di sicurezza e conformità dell'organizzazione. Il documento include informazioni dettagliate sull'uso delle funzionalità di crittografia del disco di Azure, compresi gli scenari supportati e le esperienze utente.
 
 > [!NOTE]
 > Alcune indicazioni possono comportare un maggior utilizzo delle risorse di calcolo, rete o dati con un conseguente aumento dei costi di licenza o sottoscrizione.
 
 ## <a name="overview"></a>Panoramica
-Crittografia dischi di Azure è una nuova funzionalità che consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Applica la funzionalità standard di settore [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Windows e la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per i dischi dati e del sistema operativo. La soluzione è integrata con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) per consentire di controllare e gestire le chiavi di crittografia dei dischi e i segreti nella sottoscrizione di Key Vault. Questa soluzione assicura anche che tutti i dati nei dischi delle macchine virtuali vengano crittografati quando inattivi in Archiviazione di Azure.
+Crittografia dischi di Azure è una nuova funzionalità che consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Crittografia dischi di Azure si basa sulla funzionalità [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) standard di settore disponibile in Windows e sulla funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per offrire la crittografia del volume per i dischi dei dati e del sistema operativo. La soluzione è integrata con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) per consentire di controllare e gestire le chiavi di crittografia dei dischi e i segreti nella sottoscrizione di Key Vault. Questa soluzione assicura anche che tutti i dati nei dischi delle macchine virtuali vengano crittografati quando inattivi in Archiviazione di Azure.
 
-Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux è ora disponibile a livello generale in tutte le aree pubbliche di Azure per le macchine virtuali con account di archiviazione Standard e Premium.
+Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux ha ora **disponibilità generale** in tutte le aree pubbliche e AzureGov di Azure per macchine virtuali standard e macchine virtuali con archiviazione Premium.
 
 ### <a name="encryption-scenarios"></a>Scenari di crittografia
 La soluzione Crittografia dischi di Azure supporta i tre scenari dei clienti descritti di seguito:
 
-* Abilitazione della crittografia in nuove macchine virtuali IaaS create da dischi rigidi virtuali pre-crittografati e chiavi di crittografia
-* Abilitazione della crittografia in nuove macchine virtuali IaaS create da immagini di Azure Marketplace
-* Abilitazione della crittografia nelle macchine virtuali IaaS esistenti in esecuzione in Azure
-* Disabilitazione della crittografia nelle macchine virtuali IaaS Windows
-* Disabilitazione della crittografia nelle unità dati per le macchine virtuali IaaS Linux
+* Abilitare la crittografia nelle nuove VM IaaS create da chiavi di crittografia e VHD pre-crittografati
+* Abilitare la crittografia in nuove VM IaaS create da immagini della Raccolta di Azure
+* Abilitare la crittografia in VM IaaS esistenti in esecuzione in Azure
+* Disabilitare la crittografia nelle VM IaaS Windows
+* Disabilitare la crittografia nelle unità dati per le VM IaaS Linux
+* Abilitare la crittografia delle macchine virtuali con disco gestito
+* Aggiornare le impostazioni di crittografia di una macchina virtuale non dotata di archiviazione Premium crittografata esistente
+* Backup e ripristino di macchine virtuali crittografate con chiave di crittografia della chiave
 
 La soluzione supporta gli scenari seguenti per le macchine virtuali IaaS, se abilitati in Microsoft Azure:
 
 * Integrazione dell'insieme di credenziali delle chiavi di Azure.
-* Macchine virtuali di livello Standard: [serie A, D, DS, G, GS e così via per VM IaaS](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Abilitazione della crittografia nelle macchine virtuali IaaS Windows e Linux
-* Disabilitazione della crittografia nel sistema operativo e nelle unità dati per le VM IaaS Windows
-* Disabilitazione della crittografia nelle unità dati per le macchine virtuali IaaS Linux
-* Abilitazione della crittografia in macchine virtuali IaaS in esecuzione nel sistema operativo client Windows
-* Abilitazione della crittografia su volumi con percorsi di montaggio
-* Abilitazione della crittografia nelle macchine virtuali Linux configurate con striping del disco (RAID) tramite mdadm
-* Abilitazione della crittografia nelle macchine virtuali Linux usando LVM per i dischi dati
-* Abilitazione della crittografia nelle macchine virtuali Windows configurate usando spazi di archiviazione
-* Sono supportate tutte le aree geografiche pubbliche di Azure
+* Macchine virtuali di livello Standard: [serie A, D, DS, G, GS, F e così via per VM IaaS](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Abilitare la crittografia nelle macchine virtuali IaaS Windows e Linux e nelle macchine virtuali con disco gestito
+* Disabilitare la crittografia nel sistema operativo e nelle unità dati per le macchine virtuali IaaS Windows e per le macchine virtuali con disco gestito
+* Disabilitare la crittografia nelle unità dati per le macchine virtuali IaaS Linux e per le macchine virtuali con disco gestito
+* Abilitare la crittografia in VM IaaS eseguite nel sistema operativo client Windows
+* Abilitare la crittografia su volumi con percorsi di montaggio
+* Abilitare la crittografia nelle macchine virtuali Linux configurate con striping del disco (RAID) tramite mdadm
+* Abilitare la crittografia nelle macchine virtuali Linux usando LVM per i dischi dati
+* Abilitare la crittografia nelle VM Windows configurate con spazi di archiviazione
+* Aggiornare le impostazioni di crittografia di una macchina virtuale non dotata di archiviazione Premium crittografata esistente
+* Sono supportate tutte le aree di Azure pubbliche e AzureGov
 
-La soluzione non supporta gli scenari, le funzionalità e la tecnologia seguenti in questa versione:
+La soluzione non supporta gli scenari, le funzionalità e la tecnologia seguenti:
 
 * VM IaaS del piano Basic
 * Disabilitazione della crittografia in un'unità del sistema operativo per le VM IaaS Linux
 * Macchine virtuali IaaS create usando il metodo di creazione classico per le macchine virtuali
 * Integrazione con il servizio di gestione delle chiavi locale.
 * File di Azure (file system condiviso), file system di rete (NFS, Network File System), volumi dinamici e macchine virtuali Windows configurate con sistemi RAID basati su software
+* Backup e ripristino di macchine virtuali crittografate senza chiave di crittografia della chiave.
+* Aggiornare le impostazioni di crittografia di una macchina virtuale con archiviazione Premium crittografata esistente.
+
+> [!NOTE]
+> Il backup e il ripristino delle macchine virtuali crittografate sono supportati solo per le VM crittografate con la configurazione della chiave di crittografia della chiave. Non sono supportati nelle macchine virtuali crittografate senza chiave di crittografia della chiave. La chiave di crittografia della chiave è un parametro facoltativo che abilita la crittografia delle VM. Questo supporto sarà presto disponibile.
+> L'aggiornamento delle impostazioni di crittografia di una macchina virtuale con archiviazione Premium crittografata esistente non è supportato. Questo supporto sarà presto disponibile.
 
 ### <a name="encryption-features"></a>Funzionalità di crittografia
 Quando si abilita e si distribuisce la Crittografia dischi di Azure per le VM IaaS di Azure, sono abilitate le funzionalità seguenti, a seconda della configurazione fornita:
@@ -124,7 +132,9 @@ Per disabilitare la crittografia dei dischi per le macchine virtuali IaaS, segui
  Questo passaggio agisce sul volume dati o sul volume del sistema operativo o entrambi nella VM IaaS Windows in esecuzione. Come indicato nella sezione precedente, tuttavia, la disabilitazione della crittografia del disco del sistema operativo per Linux non è supportata. Il passaggio di decrittografia è consentito solo per le unità dati nelle macchine virtuali Linux.
 2. Azure aggiorna il modello di servizi della macchina virtuale e la VM IaaS viene contrassegnata come decrittografata. Il contenuto inattivo della VM non viene più crittografato.
 
- L'operazione di disabilitazione della crittografia non elimina l'insieme di credenziali delle chiavi e il materiale della chiave di crittografia, ovvero le chiavi di crittografia BitLocker per sistemi Windows o Passphrase per Linux.
+> [!NOTE]
+> L'operazione di disabilitazione della crittografia non elimina l'insieme di credenziali delle chiavi e il materiale della chiave di crittografia, ovvero le chiavi di crittografia BitLocker per sistemi Windows o Passphrase per Linux.
+ > La disabilitazione della crittografica del disco del sistema operativo per Linux non è supportata. Il passaggio di decrittografia è consentito solo per le unità dati nelle macchine virtuali Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di Azure per gli scenari supportati illustrati nella sezione "Panoramica", vedere i prerequisiti seguenti:
@@ -135,23 +145,45 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 
 > [!NOTE]
 > Per Windows Server 2008 R2 è necessario che .NET Framework 4.5 sia installato prima dell'abilitazione della crittografia in Azure. È possibile installarlo da Windows Update tramite l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per i sistemi Windows Server 2008 R2 basati su x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).
->
-> Crittografia dischi di Azure è supportato nelle versioni dei server Linux seguenti: Ubuntu, CentOS, SUSE e SUSE Linux Enterprise Server (SLES) e Red Hat Enterprise Linux.
+
+* Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del server Linux seguenti:
+
+| Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
+| --- | --- |--- |
+| Ubuntu | 16.04-DAILY-LTS | Disco del sistema operativo e dati |
+| Ubuntu | 14.04.5-DAILY-LTS | Disco del sistema operativo e dati |
+| Ubuntu | 12.10 | Disco dati |
+| Ubuntu | 12.04 | Disco dati |
+| RHEL | 7.3 | Disco del sistema operativo e dati |
+| RHEL | 7,2 | Disco del sistema operativo e dati |
+| RHEL | 6.8 | Disco del sistema operativo e dati |
+| RHEL | 6.7 | Disco dati |
+| CentOS | 7.3 | Disco del sistema operativo e dati |
+| CentOS | 7.2n | Disco del sistema operativo e dati |
+| CentOS | 6.8 | Disco del sistema operativo e dati |
+| CentOS | 7.1 | Disco dati |
+| CentOS | 7.0 | Disco dati |
+| CentOS | 6.7 | Disco dati |
+| CentOS | 6.6 | Disco dati |
+| CentOS | 6,5 | Disco dati |
+| openSUSE | 13.2 | Disco dati |
+| SLES | 12 SP1 | Disco dati |
+| SLES | 12-SP1 (Premium) | Disco dati |
+| SLES | HPC 12 | Disco dati |
+| SLES | 11-SP4 (Premium) | Disco dati |
+| SLES | 11 SP4 | Disco dati |
+
+* Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area e sottoscrizione di Azure.
 
 > [!NOTE]
-> La crittografia del disco del sistema operativo Linux è attualmente supportata nelle distribuzioni Linux seguenti: RHEL 7.2, RHEL 7.3, CentOS 7.2n, e Ubuntu 16.04.
->
-> Tutte le risorse, ad esempio l'insieme di credenziali delle chiavi, l'account di archiviazione e la macchina virtuale, devono appartenere alla stessa area e alla stessa sottoscrizione di Azure.
+> La configurazione delle risorse in aree separate causa un errore nell'attivazione della funzionalità Crittografia dischi di Azure.
 
-> [!NOTE]
-> Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area di Azure. Configurarli in un'area separata provoca un errore nell'attivazione ella funzionalità Crittografia dischi di Azure.
-
-* Per installare e configurare l'insieme di credenziali delle chiavi per Crittografia dischi di Azure, vedere "Installare e configurare l'insieme di credenziali delle chiavi per Crittografia dischi di Azure" nell'Appendice.
-* Per installare e configurare l'applicazione Azure AD in Azure Active Directory per Crittografia dischi di Azure, vedere "Configurare l'applicazione Azure AD in Azure Active Directory" nella sezione "Prerequisiti".
-* Per impostare e configurare i criteri di accesso per l'insieme di credenziali delle chiavi per l'applicazione Azure AD, vedere "Configurare i criteri di accesso per l'insieme di credenziali delle chiavi per l'applicazione Azure AD" nella sezione "Prerequisiti".
-* Per preparare un disco rigido virtuale Windows pre-crittografato, vedere "Preparare un disco rigido virtuale Windows pre-crittografato" nell'Appendice.
-* Per preparare un disco rigido virtuale Linux pre-crittografato, vedere "Preparare un disco rigido virtuale Linux pre-crittografato" nell'Appendice.
-* La piattaforma Azure deve avere accesso alle chiavi di crittografia o ai segreti nell'insieme di credenziali delle chiavi per renderli disponibili alla macchina virtuale in fase di avvio e di decrittografia del volume del sistema operativo della macchina virtuale. Per concedere autorizzazioni alla piattaforma Azure, impostare la proprietà **EnabledForDiskEncryption** nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere "Installare e configurare l'insieme di credenziali delle chiavi per Crittografia dischi di Azure" nell'Appendice.
+* Per installare e configurare l'insieme di credenziali delle chiavi per Crittografia dischi di Azure, vedere la sezione **Installare e configurare l'insieme di credenziali delle chiavi per Crittografia dischi di Azure** nella sezione *Prerequisiti* di questo articolo.
+* Per impostare e configurare l'applicazione Azure AD in Azure Active Directory per Crittografia dischi di Azure, vedere la sezione **Installare l'applicazione Azure AD in Azure Active Directory** nella sezione *Prerequisiti* di questo articolo.
+* Per impostare e configurare i criteri di accesso dell'insieme di credenziali delle chiavi per l'applicazione Azure AD, vedere la sezione **Configurare i criteri di accesso per l'insieme di credenziali delle chiavi per l'applicazione Azure AD** nella sezione *Prerequisiti* di questo articolo.
+* Per preparare un disco rigido virtuale Windows pre-crittografato, vedere la sezione **Preparare un disco rigido virtuale Windows pre-crittografato** nell'*Appendice*.
+* Per preparare un disco rigido virtuale Linux pre-crittografato, vedere la sezione **Preparare un disco rigido virtuale Linux pre-crittografato** nell'*Appendice*.
+* La piattaforma Azure deve avere accesso alle chiavi di crittografia o ai segreti nell'insieme di credenziali delle chiavi per renderli disponibili alla macchina virtuale in fase di avvio e di decrittografia del volume del sistema operativo della macchina virtuale. Per concedere autorizzazioni alla piattaforma Azure, impostare la proprietà **EnabledForDiskEncryption** nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere **Installare e configurare l'insieme di credenziali delle chiavi per Crittografia dischi di Azure** nell'Appendice.
 * È necessario applicare il controllo delle versioni agli URL del segreto dell'insieme di credenziali delle chiavi e della chiave di crittografia della chiave. Azure applica questa restrizione relativa al controllo delle versioni. Per informazioni sugli URL del segreto e della chiave di crittografia della chiave validi, vedere gli esempi seguenti:
 
   * Esempio di URL segreto valido:   *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
@@ -163,7 +195,6 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
   * URL dell'insieme di credenziali delle chiavi accettabile:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Per abilitare la funzionalità Crittografia dischi di Azure, le VM IaaS devono soddisfare i requisiti di configurazione degli endpoint di rete seguenti:
-
   * Per ottenere un token per la connessione all'insieme di credenziali delle chiavi, è necessario che la macchina virtuale IaaS possa connettersi a un endpoint di Azure Active Directory, \[Login.windows.net\].
   * Per scrivere le chiavi di crittografia nell'insieme di credenziali delle chiavi, è necessario che la macchina virtuale IaaS possa connettersi all'endpoint dell'insieme di credenziali delle chiavi.
   * La VM IaaS deve potersi connettere a un endpoint di archiviazione di Azure che ospita il repository delle estensioni di Azure e a un account di archiviazione di Azure che ospita i file del disco rigido virtuale.
@@ -171,7 +202,9 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
   > [!NOTE]
   > Se i criteri di sicurezza limitano l'accesso dalle macchine virtuali di Azure a Internet, è possibile risolvere l'URI precedente e configurare una regola specifica per consentire la connettività in uscita agli indirizzi IP.
   >
-  > Per configurare Crittografia dischi di Azure, scaricare la versione più recente di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+  >Per configurare e accedere ad Azure Key Vault dietro un firewall (https://docs.microsoft.com/en-us/azure/key-vault/key-vault-access-behind-firewall)
+
+* Usare la versione più recente della versione di Azure PowerShell SDK per configurare Crittografia dischi di Azure. Scaricare la versione più recente di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 
  > [!NOTE]
   > Crittografia dischi di Azure non è supportata in [Azure PowerShell SDK versione 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se viene visualizzato un errore relativo all'uso di Azure PowerShell 1.1.0, vedere [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Errore di Crittografia dischi di Azure correlato ad Azure PowerShell 1.1.0).
@@ -179,10 +212,18 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 * Per eseguire uno dei comandi dell'interfaccia della riga di comando di Azure e associarla alla sottoscrizione di Azure, è necessario installare prima di tutto l'interfaccia della riga di comando di Azure:
   * Per installare l'interfaccia della riga di comando di Azure e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
   * Per usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager, vedere [Comandi dell'interfaccia della riga di comando Azure in modalità Resource Manager](../virtual-machines/azure-cli-arm-commands.md).
-* La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Se le VM sono aggiunte a un dominio, non effettuare il push dei criteri di gruppo che applicano protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](https://technet.microsoft.com/library/ee706521) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
+
+* È necessario usare il parametro -skipVmBackup quando si usa il cmdlet PS di Crittografia dischi di Azure Set-AzureRmVMDiskEncryptionExtension o il comando CLI per abilitare la crittografia sulla macchina virtuale con disco gestito Azure Managed Disk VM.
+> [!NOTE]
+ > Se non si specifica il parametro -skipVmBackup, il passaggio di abilitazione della crittografia avrà esito negativo.
+
+* La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Per le macchine virtuali sono aggiunte a un dominio, NON eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](https://technet.microsoft.com/library/ee706521) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
 * Per creare un'applicazione Azure AD, creare un insieme di credenziali delle chiavi o configurare un insieme di credenziali delle chiavi esistente e abilitare la crittografia, vedere lo [script di PowerShell prerequisito per Crittografia dischi di Azure](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * Per configurare i prerequisiti della crittografia dei dischi usando l'interfaccia della riga di comando, vedere [questo script Bash](https://github.com/ejarvi/ade-cli-getting-started).
-* Per usare il servizio Backup di Azure per eseguire il backup e ripristinare le macchine virtuali crittografate, quando la crittografia è abilitata con Crittografia dischi di Azure, crittografare le VM usando la configurazione delle chiavi di Crittografia dischi di Azure. Il servizio Backup supporta le macchine virtuali crittografate usando solo la configurazione della chiave di crittografia della chiave. Il servizio supporta solo le macchine virtuali crittografate con la chiave di crittografia della chiave. Per abilitare la crittografia delle macchine virtuali usando l'opzione relativa alla chiave di crittografia della chiave, vedere gli scenari seguenti per la distribuzione della crittografia dei dischi.
+* Per usare il servizio Backup di Azure per eseguire il backup e ripristinare le macchine virtuali crittografate, quando la crittografia è abilitata con Crittografia dischi di Azure, crittografare le VM usando la configurazione delle chiavi di Crittografia dischi di Azure. Il servizio Backup supporta le macchine virtuali crittografate usando solo la configurazione della chiave di crittografia della chiave. Vedere [Come eseguire il backup e il ripristino delle macchine virtuali crittografate con il Backup di Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+
+> [!NOTE]
+> Il backup e il ripristino delle macchine virtuali crittografate sono supportati solo per le VM crittografate con la configurazione della chiave di crittografia della chiave. Non sono supportati nelle macchine virtuali crittografate senza chiave di crittografia della chiave. La chiave di crittografia della chiave è un parametro facoltativo che abilita la macchina virtuale.
 
 #### <a name="set-up-the-azure-ad-application-in-azure-active-directory"></a>Configurare l'applicazione Azure AD in Azure Active Directory
 Quando è necessario abilitare la crittografia in una macchina virtuale in esecuzione in Azure, Crittografia dischi di Azure genera e scrive le chiavi di crittografia nell'insieme di credenziali delle chiavi. La gestione delle chiavi di crittografia nell'insieme di credenziali delle chiavi richiede l'autenticazione di Azure AD.
@@ -334,7 +375,7 @@ Per informazioni su alcuni dei termini comuni usati da questa tecnologia, vedere
 | Terminologia | Definizione |
 | --- | --- |
 | Azure AD | Azure AD è l'abbreviazione di [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Un account Azure AD è un prerequisito per le operazioni di autenticazione, archiviazione e recupero dei segreti da un insieme di credenziali delle chiavi. |
-| Insieme di credenziali chiave Azure | Key Vault è un servizio di crittografia e gestione delle chiavi basato su moduli di sicurezza hardware convalidati dagli standard FIPS (Federal Information Processing Standards), che consentono di proteggere le chiavi crittografiche e i segreti sensibili. Per altre informazioni, vedere la documentazione di [Key Vault](https://azure.microsoft.com/services/key-vault/). |
+| Azure Key Vault | Key Vault è un servizio di crittografia e gestione delle chiavi basato su moduli di sicurezza hardware convalidati dagli standard FIPS (Federal Information Processing Standards), che consentono di proteggere le chiavi crittografiche e i segreti sensibili. Per altre informazioni, vedere la documentazione di [Key Vault](https://azure.microsoft.com/services/key-vault/). |
 | ARM | Gestione risorse di Azure |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) è una tecnologia di crittografia del volume di Windows riconosciuta nel settore, usata per abilitare la crittografia dei dischi nelle macchine virtuali IaaS di Windows. |
 | BEK | Le chiavi di crittografia BitLocker vengono usate per crittografare il volume di avvio del sistema operativo e i volumi dati. Le chiavi BitLocker sono protette nell'insieme di credenziali delle chiavi come segreti. |
@@ -352,11 +393,12 @@ Per creare un insieme di credenziali delle chiavi, usare una delle opzioni segue
 * [Modello di Resource Manager "101-Key-Vault-Create"](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Azure PowerShell key vault cmdlets](https://msdn.microsoft.com/library/dn868052.aspx) (Cmdlet dell'insieme di credenziali delle chiavi di Azure PowerShell)
 * Gestione risorse di Azure
+* Come [proteggere l'insieme di credenziali delle chiavi](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
 
 > [!NOTE]
 > Se è già stato configurato un insieme di credenziali delle chiavi per la sottoscrizione, passare alla sezione successiva.
 
-![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
+![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
 
 #### <a name="set-up-a-key-encryption-key-optional"></a>Configurare una chiave di crittografia della chiave (facoltativo)
 Se si vuole usare una chiave di crittografia della chiave per un livello aggiuntivo di sicurezza per le chiavi di crittografia BitLocker aggiungere una chiave di crittografia della chiave all'insieme di credenziali delle chiavi. Usare il cmdlet [`Add-AzureKeyVaultKey`](https://msdn.microsoft.com/library/dn868048.aspx) per creare una chiave di crittografia della chiave nell'insieme di credenziali delle chiavi. È anche possibile importare una chiave di crittografia della chiave dal modulo di protezione hardware di gestione delle chiavi locale. Per altre informazioni, vedere la [Documentazione su Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
@@ -365,7 +407,7 @@ Se si vuole usare una chiave di crittografia della chiave per un livello aggiunt
 
 È possibile aggiungere la chiave di crittografia della chiave passando ad Azure Resource Manager o usando l'interfaccia di Key Vault.
 
-![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig2.png)
+![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig2.png)
 
 #### <a name="set-key-vault-permissions"></a>Configurare le autorizzazioni dell'insieme di credenziali delle chiavi
 La piattaforma Azure deve avere accesso alle chiavi di crittografia o i segreti nell'insieme di credenziali delle chiavi per renderli disponibili alla macchina virtuale per l'avvio e la decrittografia dei volumi. Per concedere autorizzazioni alla piattaforma Azure, configurare la proprietà **EnabledForDiskEncryption** nell'insieme di credenziali delle chiavi usando il cmdlet di PowerShell relativo all'insieme di credenziali delle chiavi:
@@ -378,9 +420,9 @@ Come indicato in precedenza, è necessario configurare la proprietà **EnabledFo
 
 È possibile configurare i criteri di accesso per l'applicazione Azure AD dall'interfaccia di Key Vault:
 
-![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
+![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
-![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
+![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 Nella scheda **Criteri di accesso avanzati** assicurarsi che l'insieme di credenziali delle chiavi sia abilitato per Crittografia dischi di Azure:
 
@@ -597,7 +639,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 
 2. Nella pagina superiore della pagina **Macchine virtuali** fare clic su **Colonne**.
 
-3. Nel pannello **Scegli colonna** selezionare **Crittografia del disco**, quindi fare clic su **Aggiorna**. Verrà visualizzata la colonna relativa alla crittografia dei dischi, che mostra lo stato della crittografia, ovvero _Abilitato_ o _Non abilitato_, per ogni macchina virtuale, come illustrato nella figura seguente:
+3. Nel pannello  **Scegli colonna** selezionare **Crittografia del disco**, quindi fare clic su **Aggiorna**. Verrà visualizzata la colonna relativa alla crittografia dei dischi, che mostra lo stato della crittografia, ovvero _Abilitato_ o _Non abilitato_, per ogni macchina virtuale, come illustrato nella figura seguente:
 
  ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.png)
 
@@ -678,9 +720,29 @@ Nelle VM Linux viene usata l'estensione AzureDiskEncryptionForLinux.
 > [!NOTE]
 > Questo cmdlet riavvia la macchina virtuale.
 
+### <a name="enable-encryption-on-pre-encrypted-iaas-vm-with-azure-managed-disk"></a>Abilitare la crittografia su macchina virtuale IaaS pre-crittografata con disco gestito Azure
+Per creare una macchina virtuale crittografata da un disco rigido virtuale pre-crittografato usare il modello ARM di disco gestito Azure, disponibile in   
+[Create a new encrypted managed disk from a pre-encrypted VHD/storage blob] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+
+### <a name="enable-encryption-on-a-new-linux-iaas-vm-with-azure-managed-disk"></a>Abilitare la crittografia su una nuova macchina virtuale IaaS Linux con disco gestito Azure
+Per creare una nuova macchina virtuale IaaS Linux crittografata usare il modello ARM di disco gestito Azure, disponibile in   
+[Deployment of RHEL 7.2 with full disk encryption] (https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
+
+### <a name="enable-encryption-on-a-new-windows-iaas-vm-with-azure-managed-disk"></a>Abilitare la crittografia su una nuova macchina virtuale IaaS Windows con disco gestito Azure
+ Per creare una nuova macchina virtuale IaaS Linux crittografata usare il modello ARM di disco gestito Azure, disponibile in   
+ [Create a new encrypted Windows IaaS Managed Disk VM from gallery image] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
+
+  > [!NOTE]
+  >È necessario usare il parametro -skipVmBackup quando si usa il cmdlet PS di Crittografia dischi di Azure Set-AzureRmVMDiskEncryptionExtension o il comando CLI per abilitare la crittografia sulla macchina virtuale con disco gestito Azure Managed Disk VM.
+  >
+  >È consigliabile eseguire il backup dell'istanza di macchina virtuale in esecuzione prima di abilitare la crittografia usando il cmdlet PS Set-AzureRmVMDiskEncryptionExtension sulla macchina virtuale con disco gestito Linux.
+
+### <a name="update-encryption-settings-of-an-existing-encrypted-non-premium-vm"></a>Aggiornare le impostazioni di crittografia di una macchina virtuale non Premium crittografata esistente
+  Usare le interfacce supportate di Crittografia dischi di Azure esistenti per le macchine virtuali in esecuzione [cmdlet PS, CLI o modelli ARM] per aggiornare impostazioni di crittografia quali ID/segreto del client AAD, chiave di crittografia della chiave [KEK], chiave di crittografia BitLocker per macchina virtuale Windows o Passphrase per macchina virtuale Linux e così via. L'impostazione della crittografia di aggiornamento è supportata solo per le macchine virtuali non dotate di archiviazione Premium. NON è supportata per le macchine virtuali dotate di archiviazione Premium.
+
 ## <a name="appendix"></a>Appendice
 ### <a name="connect-to-your-subscription"></a>Eseguire la connessione alla sottoscrizione
-Prima di continuare, vedere la sezione "Prerequisiti" di questo articolo. Dopo essersi assicurati che siano stati rispettati tutti i prerequisiti, connettersi alla sottoscrizione seguendo questa procedura:
+Prima di continuare, vedere la sezione *Prerequisiti* di questo articolo. Dopo essersi assicurati che siano stati rispettati tutti i prerequisiti, connettersi alla sottoscrizione seguendo questa procedura:
 
 1. Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:
 
@@ -1087,7 +1149,7 @@ Il segreto di crittografia del disco ottenuto in precedenza deve essere caricato
 
 
 #### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Segreto di crittografia del disco non crittografato con una chiave di crittografia della chiave
-Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx). Se si ha una macchina virtuale Windows, il file con estensione bek viene codificato come stringa base64, quindi viene caricato nell'insieme di credenziali delle chiavi usando il cmdlet `Set-AzureKeyVaultSecret`. Per Linux la passphrase viene codificata come stringa Base&64; e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
+Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx). Se si ha una macchina virtuale Windows, il file con estensione bek viene codificato come stringa base64, quindi viene caricato nell'insieme di credenziali delle chiavi usando il cmdlet `Set-AzureKeyVaultSecret`. Per Linux la passphrase viene codificata come stringa Base 64 e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
@@ -1103,7 +1165,7 @@ Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [Set-
 Usare `$secretUrl` nel passaggio successivo per [collegare il disco del sistema operativo senza usare una chiave di crittografia della chiave](#without-using-a-kek).
 
 #### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segreto di crittografia del disco crittografato con una chiave di crittografia della chiave
-Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](https://msdn.microsoft.com/library/azure/dn878066.aspx) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione WRAP si basa su una stringa con codifica Base&64; dell'URL che può essere quindi caricata come segreto con il cmdlet [`Set-AzureKeyVaultSecret`](https://msdn.microsoft.com/library/dn868050.aspx).
+Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](https://msdn.microsoft.com/library/azure/dn878066.aspx) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione WRAP si basa su una stringa con codifica Base 64 dell'URL che può essere quindi caricata come segreto con il cmdlet [`Set-AzureKeyVaultSecret`](https://msdn.microsoft.com/library/dn868050.aspx).
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"

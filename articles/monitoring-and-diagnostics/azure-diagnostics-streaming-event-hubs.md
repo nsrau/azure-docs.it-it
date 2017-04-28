@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/28/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7e6053c8a737674f0e8d9816d3ee228c118a722e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 97ed0ae7cf9f741155c57053bc8b34a0246d0586
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -62,7 +62,7 @@ Per impostazione predefinita, Diagnostica di Azure invia sempre log e metriche a
 
 In questo esempio l'URL dell'Hub eventi è impostato sullo spazio dei nomi completo dell'Hub eventi: spazio dei nomi di Hub eventi + "/" + nome Hub eventi.  
 
-L'URL dell'Hub eventi viene visualizzato nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkID=213885) sul dashboard di Hub eventi.  
+L'URL dell'Hub eventi viene visualizzato nel [Portale di Azure](http://go.microsoft.com/fwlink/?LinkID=213885) sul dashboard di Hub eventi.  
 
 Il nome del **Sink** può essere impostato su qualsiasi stringa valida, purché lo stesso valore venga usato in modo coerente in tutto il file di configurazione.
 
@@ -218,7 +218,7 @@ namespace EventHubListener
         static void Main(string[] args)
         {
             string eventHubConnectionString = "Endpoint= <your connection string>”
-            string eventHubName = "<Event Hub name>";
+            string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
             string storageAccountKey = "<Storage account key>”;
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
@@ -323,7 +323,7 @@ Il file *ServiceConfiguration.Cloud.cscfg* complementare per questo esempio si p
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](../event-hubs/event-hubs-create.md) (Creare un Hub eventi)
+* [Creare un hub eventi](../event-hubs/event-hubs-create.md)
 * [Domande frequenti su Hub eventi](../event-hubs/event-hubs-faq.md)
 
 <!-- Images. -->
