@@ -42,7 +42,7 @@ Offre:
 
 Casi in cui è comunque possibile usare l'installazione rapida:
 
-- Se non si desidera sincronizzare tutte le unità organizzative, è comunque possibile usare l'installazione rapida, deselezionando **Avviare il processo di sincronizzazione... *** nell'ultima pagina. Eseguire quindi di nuovo l'Installazione guidata, modificare le unità organizzative nelle [opzioni di configurazione](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e abilitare la sincronizzazione pianificata.
+- Se non si desidera sincronizzare tutte le unità organizzative, è comunque possibile usare l'installazione rapida, deselezionando **Avviare il processo di sincronizzazione...*** nell'ultima pagina. Eseguire quindi di nuovo l'Installazione guidata, modificare le unità organizzative nelle [opzioni di configurazione](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e abilitare la sincronizzazione pianificata.
 - Si desidera abilitare una delle funzionalità in Azure AD Premium, ad esempio il writeback delle password. Completare innanzitutto l'intera procedura di installazione rapida iniziale. Eseguire quindi di nuovo l'Installazione guidata e modificare le [opzioni di configurazione](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizzate
