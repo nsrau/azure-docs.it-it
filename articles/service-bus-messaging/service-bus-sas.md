@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 09577d3160137b7879a5c128552d8dcbef89bb0d
 ms.openlocfilehash: c025629c7700c0ee7b6495a922b9bf6823769cfa
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -84,7 +85,7 @@ Il criterio non è il token di accesso del bus di servizio. È l'oggetto da cui 
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-Dove `signature-string` è l'hash SHA-256 dell'ambito del token (**ambito`00:00:00 UTC` come descritto nella sezione precedente) con un CRLF accodato e una scadenza (in secondi dal periodo: ** l'1 gennaio 1970). 
+Dove `signature-string` è l'hash SHA-256 dell'ambito del token (**ambito** come descritto nella sezione precedente) con un CRLF accodato e una scadenza (in secondi dal periodo: `00:00:00 UTC` l'1 gennaio 1970). 
 
 > [!NOTE]
 > Per evitare che i token scadano rapidamente è consigliabile codificare il valore della scadenza come almeno un numero intero senza segno a 32 bit o preferibilmente un numero intero lungo a 64 bit.  
@@ -368,8 +369,3 @@ Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argom
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Azure portal]: https://portal.azure.com
-
-
-<!--HONumber=Feb17_HO3-->
-
-

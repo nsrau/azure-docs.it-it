@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 04/26/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -48,9 +49,4 @@ Può trascorrere fino a un'ora prima che qualsiasi modifica apportata per la per
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso](active-directory-branding-custom-signon-azure-portal.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
