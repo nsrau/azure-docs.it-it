@@ -132,7 +132,7 @@ Fare clic su **Route** per gestire la modalità di invio dei messaggi da disposi
 
 ![][14]
 
-È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route***, inserendo le informazioni necessarie e facendo clic su **OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Abilito** su **Off**. Fare clic su **OK** nella parte inferiore del pannello per salvare le modifiche.
+È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route***, inserendo le informazioni necessarie e facendo clic su**OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Abilito**su**Off**. Fare clic su **OK** nella parte inferiore del pannello per salvare le modifiche.
 
 ![][15]
 

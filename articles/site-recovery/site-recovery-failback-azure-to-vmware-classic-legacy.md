@@ -118,7 +118,7 @@ Per ottenere l'ID SCSI per ogni disco rigido SCSI in una macchina virtuale Linux
 
 1. Arrestare la macchina virtuale.
 2. Fare clic con il pulsante destro del mouse sulla voce della VM nel pannello sinistro, quindi selezionare > **Modifica impostazioni**.
-3. Scegliere la scheda **Options (Opzioni)** . Selezionare **Avanzate\>Generale ** > **Parametri di configurazione**. L'opzione **Configuration Parameters** è disponibile solo quando il computer viene arrestato.
+3. Scegliere la scheda **Options (Opzioni)** . Selezionare **Avanzate\>Generale** > **Parametri di configurazione**. L'opzione **Configuration Parameters** è disponibile solo quando il computer viene arrestato.
 
     ![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 4. Controllare se esiste una riga con il valore **disk.EnableUUID** . Se esiste ed è impostata su **False**, impostarla su **True** (senza distinzione maiuscole/minuscole). Se il valore esiste ed è impostato su True, fare clic su **Cancel** e testare il comando SCSI nel sistema operativo guest dopo l'avvio. Se non esiste, fare clic su **Add Row**(Aggiungi riga).
