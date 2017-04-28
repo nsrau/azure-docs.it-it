@@ -76,7 +76,7 @@ Quando si configura un progetto per la distribuzione di funzioni in un'app per l
 > 
 > 
 
-## <a name="a-idfileupdatea-how-to-update-function-app-files"></a><a id="fileupdate"></a> Come aggiornare i file delle app per le funzioni
+## <a id="fileupdate"></a> Come aggiornare i file delle app per le funzioni
 L'editor funzioni incorporato nel portale di Azure consente di aggiornare il file *function.json* e il file di codice di una funzione. Per caricare o aggiornare altri file, ad esempio *package.json* o *project.json* o le relative dipendenze, è necessario usare altri metodi di distribuzione.
 
 Le app per le funzioni sono basate sul servizio app, quindi tutte le [opzioni di distribuzione disponibili per le app Web standard](../app-service-web/web-sites-deploy.md) sono disponibili anche per le app per le funzioni. Ecco alcuni metodi per caricare o aggiornare file delle app per le funzioni. 
@@ -93,7 +93,7 @@ Le app per le funzioni sono basate sul servizio app, quindi tutte le [opzioni di
 #### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>Per usare l'endpoint SCM (Kudu) dell'app per le funzioni
 1. Accedere a `https://<function_app_name>.scm.azurewebsites.net`.
 2. Fare clic su **Debug Console (Console di debug) > CMD**.
-3. Passare a `D:\home\site\wwwroot\` per aggiornare *host.json`D:\home\site\wwwroot\<function_name>` o a * per aggiornare i file di una funzione.
+3. Passare a `D:\home\site\wwwroot\` per aggiornare *host.json* o a `D:\home\site\wwwroot\<function_name>` per aggiornare i file di una funzione.
 4. Selezionare e trascinare un file da caricare nella cartella appropriata della griglia di file. Nella griglia di file è possibile rilasciare un file in due aree. Per i file *ZIP* viene visualizzata una casella con l'etichetta "Drag here to upload and unzip" (Trascinare qui per caricare e decomprimere). Gli altri tipi di file devono essere rilasciati nella griglia di file ma all'esterno della casella per la decompressione.
 
 #### <a name="to-use-ftp"></a>Per usare il protocollo FTP

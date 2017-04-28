@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 04/26/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
 ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -86,9 +87,4 @@ Se un utente viene eliminato nella home directory o se viene annullato il relati
 * [Amministrazione di Azure AD](active-directory-administer.md)
 * [Gestire password in Azure AD](active-directory-manage-passwords.md)
 * [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

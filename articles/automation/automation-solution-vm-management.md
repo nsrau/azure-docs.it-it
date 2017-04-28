@@ -54,7 +54,7 @@ StopByResourceGroup-MS-Mgmt-VM | Questo runbook arresta le macchine virtuali, si
 Variabile | Descrizione|
 ---------|------------|
 Runbook **SendMailO365-MS-Mgmt** ||
-SendMailO365-IsSendEmail-MS-Mgmt | Specifica se i runbook StartByResourceGroup-MS-Mgmt-VM e StopByResourceGroup-MS-Mgmt-VM possono inviare notifiche tramite posta elettronica al termine dell'operazione.  Scegliere **True **per abilitare e **False** per disabilitare gli avvisi tramite posta elettronica. Il valore predefinito è **False**.| 
+SendMailO365-IsSendEmail-MS-Mgmt | Specifica se i runbook StartByResourceGroup-MS-Mgmt-VM e StopByResourceGroup-MS-Mgmt-VM possono inviare notifiche tramite posta elettronica al termine dell'operazione.  Scegliere **True**per abilitare e **False** per disabilitare gli avvisi tramite posta elettronica. Il valore predefinito è **False**.| 
 Runbook **StartByResourceGroup-MS-Mgmt-VM** ||
 StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;). I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco.|
 StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Testo che è possibile aggiungere all'inizio del corpo del messaggio di posta elettronica.|
