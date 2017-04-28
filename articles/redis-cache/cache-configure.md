@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/27/2017
+ms.date: 04/11/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fb9d9d06eb746e720a17d87d7ab45c29c6543e8f
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 031fa71b8f5aac558569eea7001e16df4cae917c
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -47,7 +47,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Chiavi di accesso](#access-keys)
     * [Impostazioni avanzate](#advanced-settings)
     * [Redis Cache Advisor](#redis-cache-advisor)
-    * [Piano tariffario](#pricing-tier)
+    * [Ridimensionare](#scale)
     * [Dimensione del cluster Redis](#cluster-size)
     * [Persistenza dei dati Redis:](#redis-data-persistence)
     * [Pianificare gli aggiornamenti](#schedule-updates)
@@ -100,7 +100,7 @@ La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per 
 * [Chiavi di accesso](#access-keys)
 * [Impostazioni avanzate](#advanced-settings)
 * [Redis Cache Advisor](#redis-cache-advisor)
-* [Piano tariffario](#pricing-tier)
+* [Ridimensionare](#scale)
 * [Dimensione del cluster Redis](#cluster-size)
 * [Persistenza dei dati Redis:](#redis-data-persistence)
 * [Pianificare gli aggiornamenti](#schedule-updates)
@@ -190,11 +190,11 @@ Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e l
 | Carico del server |[Grafici di utilizzo - Carico server Redis](cache-how-to-monitor.md#usage-charts) |
 | Utilizzo della memoria |[Prestazioni della cache - Dimensioni](cache-faq.md#cache-performance) |
 
-Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il [piano tariffario](#pricing-tier) e ridimensionare la cache. Per altre informazioni su come scegliere un piano tariffario, vedere [Quali offerte e dimensioni della Cache Redis è consigliabile usare?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il piano tariffario e [ridimensionare](#scale) la cache. Per altre informazioni su come scegliere un piano tariffario, vedere [Quali offerte e dimensioni della Cache Redis è consigliabile usare?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 
-### <a name="pricing-tier"></a>Pricing tier
-Fare clic su **Livello di prezzo** per visualizzare o modificare il livello di prezzo della cache. Per altre informazioni sulla scalabilità, vedere [Come monitorare Cache Redis di Azure](cache-how-to-scale.md).
+### <a name="scale"></a>Scalabilità
+Fare clic su **Scalabilità** per visualizzare o modificare il piano tariffario della cache. Per altre informazioni sulla scalabilità, vedere [Come monitorare Cache Redis di Azure](cache-how-to-scale.md).
 
 ![Livello di prezzo di Cache Redis](./media/cache-configure/pricing-tier.png)
 
@@ -452,6 +452,13 @@ Per altre informazioni sui database SQL di Azure, vedere [What are Redis databas
   * P2 (13 GB - 130 GB) - fino a 15.000 connessioni
   * P3 (26 GB - 260 GB) - fino a 30.000 connessioni
   * P4 (53 GB - 530 GB) - fino a 40.000 connessioni
+
+> [!NOTE]
+> Mentre ogni dimensione della cache consente *fino a* un determinato numero di connessioni, ogni connessione a Redis dispone di un sovraccarico associato. Un esempio di questo sovraccarico potrebbe essere l'utilizzo della CPU e della memoria a causa della crittografia TLS/SSL. Il limite massimo di connessioni per una dimensione della cache specificata presuppone una cache leggermente caricata. Se il carico del sovraccarico della connessione *sommato* al carico delle operazioni client supera la capacità del sistema, la cache può riscontrare problemi di capacità anche se il limite della connessione non è stato superato in base alla dimensione della cache corrente.
+> 
+> 
+
+
 
 ## <a name="redis-commands-not-supported-in-azure-redis-cache"></a>Comandi di Redis non supportati in Cache Redis di Azure
 > [!IMPORTANT]

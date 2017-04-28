@@ -4,7 +4,7 @@ description: La creazione grafica consente di creare Runbook per Automazione di 
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/03/2016
+ms.date: 04/14/2017
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8d408f6ac49ea376508e025c53b09434c2ea164a
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1e61e3717a9006f67c0b57c33573c2d0f5fbfa05
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -198,7 +199,7 @@ Per un collegamento di tipo pipeline, si specifica una condizione per un singolo
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 Per un collegamento di tipo sequenza, la condizione viene valutata solo dopo la restituzione di una singola matrice contenente tutti gli oggetti restituiti dall'attività di origine.  Per questo motivo, un collegamento di tipo sequenza non può essere usato per il filtro come un collegamento di tipo pipeline, ma determina semplicemente se l'attività successiva viene o non viene eseguita. Si consideri ad esempio il seguente set di attività nel runbook Start VM.<br> ![Collegamento condizionale con sequenze](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
- Esistono tre collegamenti di tipo sequenza diversi che verificano i valori specificati su due parametri di input runbook che rappresentano il nome della macchina virtuale e il nome del gruppo di risorse per determinare l'azione appropriata da eseguire: avviare una singola macchina virtuale, avviare tutte le macchine virtuali nel gruppo di risorse o avviare tutte le macchine virtuali in una sottoscrizione.  Per il collegamento di tipo sequenza tra Connect to Azure e Get single VM, questa è la logica della condizione:
+Esistono tre collegamenti di tipo sequenza diversi che verificano i valori specificati su due parametri di input runbook che rappresentano il nome della macchina virtuale e il nome del gruppo di risorse per determinare l'azione appropriata da eseguire: avviare una singola macchina virtuale, avviare tutte le macchine virtuali nel gruppo di risorse o avviare tutte le macchine virtuali in una sottoscrizione.  Per il collegamento di tipo sequenza tra Connect to Azure e Get single VM, questa è la logica della condizione:
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 
@@ -253,13 +254,13 @@ I dati vengono scritti nel bus di dati secondo il tipo di collegamento dell'atti
 I checkpoint sono abilitati solo nei runbook grafici del flusso di lavoro PowerShell e non sono disponibili nei runbook grafici.  Se il runbook usa i cmdlet di Azure, è consigliabile eseguire qualsiasi attività con checkpoint con un Add-AzureRMAccount, nel caso in cui il runbook venga sospeso e riavviato da questo checkpoint in un ruolo di lavoro diverso. 
 
 ## <a name="authenticating-to-azure-resources"></a>Autenticazione per le risorse di Azure
-La maggior parte dei runbook di Automazione di Azure che gestisce risorse di Azure richiede l'autenticazione ad Azure.  La nuova funzionalità di [account RunAs](automation-sec-configure-azure-runas-account.md) , anche detta entità servizio, costituisce il metodo predefinito per accedere alle risorse di Azure Resource Manager nella sottoscrizione con i runbook di Automazione.  È possibile aggiungere questa funzionalità a un runbook grafico tramite l'aggiunta dell'asset di connessione **AzureRunAsConnection**, ovvero usando il cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) di PowerShell e il cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) nel canvas. Questo è illustrato nell'esempio seguente.<br>![Attività di autenticazione RunAs](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+La maggior parte dei runbook di Automazione di Azure che gestisce risorse di Azure richiede l'autenticazione ad Azure.  La nuova funzionalità [account RunAs](automation-offering-get-started.md#automation-account), anche detta entità servizio, costituisce il metodo predefinito per accedere alle risorse di Azure Resource Manager nella sottoscrizione con i runbook di Automazione.  È possibile aggiungere questa funzionalità a un runbook grafico tramite l'aggiunta dell'asset di connessione **AzureRunAsConnection**, ovvero usando il cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) di PowerShell e il cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) nel canvas. Questo è illustrato nell'esempio seguente.<br>![Attività di autenticazione RunAs](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 L'attività Get Run As Connection, ad esempio Get-AutomationConnection, viene configurata con un'origine dati a valore costante denominata AzureRunAsConnection.<br>![Configurazione della connessione RunAs](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 L'attività successiva, Add-AzureRmAccount, aggiunge l'account RunAs autenticato per l'uso con il runbook.<br>
 ![Set di parametri Add-AzureRmAccount ](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 Per i parametri **APPLICATIONID**, **CERTIFICATETHUMBPRINT** e **TENANTID** è necessario specificare il nome della proprietà per il percorso del campo perché l'attività restituisca un oggetto con più proprietà.  In caso contrario, quando si esegue il runbook, il tentativo di autenticazione avrà esito negativo.  Questi sono i requisiti minimi necessari per l'autenticazione del runbook con l'account RunAs.
 
-Per mantenere la compatibilità con le versioni precedenti per i sottoscrittori che hanno creato un account di Automazione tramite un [account utente di Azure AD](automation-sec-configure-aduser-account.md) per la gestione delle risorse di Azure Service Management (ASM) o Azure Resource Manager, il metodo per l'autenticazione è il cmdlet Add-AzureAccount con un [asset credenziali](http://msdn.microsoft.com/library/dn940015.aspx) che rappresenta un utente di Active Directory con accesso all'account Azure.
+Per mantenere la compatibilità con le versioni precedenti per i sottoscrittori che hanno creato un account di Automazione tramite un [account utente di Azure AD](automation-create-aduser-account.md) per la gestione della distribuzione classica di Azure o per le risorse di Azure Resource Manager, il metodo per l'autenticazione è il cmdlet Add-AzureAccount con un [asset credenziali](automation-credentials.md) che rappresenta un utente di Active Directory con accesso all'account Azure.
 
 È possibile aggiungere questa funzionalità a un Runbook grafico mediante l'aggiunta di un asset credenziali nel canvas seguito da un'attività Add-AzureAccount.  Add-AzureAccount usa l'attività credenziali come input.  Questo è illustrato nell'esempio seguente.
 
@@ -381,10 +382,5 @@ Nell'esempio seguente viene utilizzato l'output di un'attività denominata *Get 
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 * Per informazioni su come eseguire l'autenticazione usando l'account RunAs di Automazione, vedere l'articolo relativo alla [configurazione di un account RunAs da Azure](automation-sec-configure-azure-runas-account.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

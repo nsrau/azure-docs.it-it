@@ -1,9 +1,9 @@
 ---
-title: 'Backup di Azure: backup coerente delle applicazioni di VM Linux di Azure | Documentazione Microsoft'
-description: Backup coerente delle applicazioni di VM Linux di Azure
+title: 'Backup di Azure: backup coerente delle applicazioni di VM Linux | Microsoft Docs'
+description: Usare gli script per garantire backup coerenti con l&quot;applicazione in Azure, per le macchine virtuali Linux. Gli script si applicano solo alle VM Linux in una distribuzione di Resource Manager, non si applicano alle VM di Windows o alle distribuzioni di Service Manager. In questo articolo vengono illustrati i passaggi per configurare gli script, inclusa la risoluzione dei problemi.
 services: backup
 documentationcenter: dev-center-name
-author: anuragm
+author: anuragmehrotra
 manager: shivamg
 keywords: backup coerente delle app; backup coerente delle applicazioni di VM di Azure; backup di VM Linux; Backup di Azure
 ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/20/2017
+ms.date: 4/12/2017
 ms.author: anuragm;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 044b5d3834518b44209485d1c1a68f2ac0f8a455
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0f4ca1924531df890433ec092790e6bec7c41df0
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Backup coerente delle applicazioni di VM Linux di Azure (Anteprima)
 
-Questo articolo illustra il framework degli script di pre e post-backup di Linux e come può essere usato per eseguire backup coerenti delle applicazioni di VM Linux di Azure.
+Questo articolo illustra il framework degli script di pre e post-backup di Linux e il relativo uso per eseguire backup coerenti delle applicazioni di VM Linux di Azure.
 
 > [!Note]
-> Il framework degli script di pre e post-backup è supportato solo per le macchine virtuali Linux distribuite con Resource Manager e non è supportato per le macchine virtuali classiche o le macchine virtuali Windows.
+> Il framework degli script di pre e post-backup è supportato solo per le macchine virtuali Linux distribuite di Resource Manager. Gli script per la coerenza con l'applicazione non sono supportati per le macchine virtuali distribuite di Service Manager o le macchine virtuali di Windows.
 >
 
 ## <a name="how-the-framework-works"></a>Come funziona il framework
@@ -37,7 +37,7 @@ Uno scenario importante per questo framework è assicurare backup coerenti delle
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Passaggi per configurare gli script di pre e post-backup
 
-1. Eseguire l'accesso alla VM Linux di cui eseguire il backup come utente root.
+1. Accedere alla VM Linux per eseguire il backup come utente root.
 
 2. Scaricare VMSnapshotPluginConfig.json da [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e copiarlo nella cartella /etc/azure in tutte le VM di cui eseguire il backup. Creare la directory /etc/azure se non esiste già.
 
@@ -48,12 +48,12 @@ Uno scenario importante per questo framework è assicurare backup coerenti delle
    - VMSnapshotPluginConfig.json: autorizzazione "600" ovvero solo l'utente "root" deve avere le autorizzazioni di "lettura" e "scrittura" per questo file, nessun utente deve avere autorizzazioni di "esecuzione".
    - File di script di pre-backup: autorizzazione "700" ovvero solo l'utente "root" deve avere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" per questo file.
    - Script di post-backup: autorizzazione "700" ovvero solo l'utente "root" deve avere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" per questo file.
-   
+
    > [!Note]
    > Il framework offre notevoli potenzialità agli utenti, perciò è molto importante che sia completamente sicuro e solo l'utente "root" deve avere accesso ai file json e di script critici.
    > Se i requisiti indicati non sono soddisfatti, lo script non verrà eseguito e si otterrà un backup coerente con l'arresto anomalo del sistema/file system.
    >
-   
+
 5. Configurare VMSnapshotPluginConfig.json come indicato di seguito
     - **pluginName**: lasciare invariato il campo, altrimenti gli script potrebbero non funzionare come previsto.
     - **preScriptLocation**: fornire il percorso completo dello script di pre-backup nella VM di cui eseguire il backup.
@@ -65,7 +65,7 @@ Uno scenario importante per questo framework è assicurare backup coerenti delle
     - **timeoutInSeconds**: timeout individuali per lo script di pre-backup e lo script di post-backup.
     - **continueBackupOnFailure**: impostare questo valore su true se si desidera che Backup di Azure esegua il fallback a un backup coerente con l'arresto anomalo del sistema/file system in caso di errore dello script di pre-backup o post-backup. Impostando questo valore su false il backup viene interrotto in caso di errore dello script (tranne nel caso di VM con un solo disco, situazione in cui eseguirà il fallback su un backup coerente con l'arresto anomalo del sistema indipendentemente da questa impostazione).
     - **fsFreezeEnabled**: specifica se il comando fsfreeze di Linux deve essere chiamato durante la creazione dello snapshot della VM per garantire la coerenza del file system. Si consiglia di mantenere l'impostazione true, a meno che l'applicazione abbia legami di dipendenza con la disattivazione di fsfreeze.
-    
+
 6. Il framework di script è ora configurato, se il backup della VM è già configurato, il backup successivo chiamerà gli script e attiverà backup coerenti delle applicazioni. Se il backup della VM non è configurato, configurarlo facendo riferimento a [Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
