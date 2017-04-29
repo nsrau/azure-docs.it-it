@@ -14,8 +14,3 @@ In questo scenario si creerà un NSG per ogni subnet nella rete virtuale **TestV
 
 La combinazione di queste regole crea uno scenario simile alla rete perimetrale, dove la subnet di back-end può solo ricevere traffico in ingresso per SQL dalla subnet front-end e non dispone dell'accesso a Internet, mentre la subnet front-end può comunicare con Internet e ricevere solo le richieste HTTP in ingresso.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

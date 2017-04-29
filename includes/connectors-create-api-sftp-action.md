@@ -27,8 +27,3 @@ Iniziamo aggiungendo l'azione per estrarre i file se la condizione definita in p
    ![Immagine di condizione dell'azione SFTP 13](./media/connectors-create-api-sftp/condition-13.png)   
 9. Salvare le modifiche al flusso di lavoro  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

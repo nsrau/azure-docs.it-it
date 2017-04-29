@@ -11,15 +11,10 @@
    2. Selezionare il tipo di backup come snapshot locale o snapshot del cloud.
    3. Specificare la frequenza, la memorizzazione e l'ora di inizio della pianificazione del backup.
    4. Abilitare o disabilitare la pianificazione.
-   5. Fare clic sull'icona di segno di spunta  ![icona del segno di spunta](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png)  per salvare le modifiche apportate alla pianificazione.
+   5. Fare clic sull'icona di segno di spunta  ![icona del segno di spunta](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) per salvare le modifiche apportate alla pianificazione.
 5. Nella sezione **Volumi** , aggiungere o rimuovere i volumi per questo criterio.
 6. Salvare le modifiche apportate a questo criterio.
 7. Verrà richiesto di confermare. Fare clic su **OK** per salvare il criterio.
 
 La pagina **Criteri di backup** verrà aggiornata per salvare le modifiche apportate al criterio.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

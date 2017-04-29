@@ -75,8 +75,3 @@ Le regole di sicurezza predefinite hanno le stesse proprietà disponibili nelle 
 * Altre informazioni sui [gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md).
 * Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) per i gruppi di sicurezza di rete.
 * Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) per le regole di sicurezza.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

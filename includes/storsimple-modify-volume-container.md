@@ -17,8 +17,3 @@
        ![Modificare il contenitore di volumi con il modello di larghezza di banda 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
    3. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) per salvare le impostazioni aggiornate. La pagina **Contenitori di volumi** verrà aggiornata per includere le modifiche apportate.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

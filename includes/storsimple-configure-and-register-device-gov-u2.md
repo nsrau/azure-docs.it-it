@@ -122,8 +122,3 @@
        
         Verificare che la porta 9354 sia aperta per le comunicazioni in uscita, perché viene usata dal bus di servizio per le comunicazioni da servizio a dispositivo di StorSimple Manager.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

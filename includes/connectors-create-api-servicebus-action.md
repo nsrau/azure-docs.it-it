@@ -15,8 +15,3 @@ Attenersi alla seguente procedura per creare l'azione Invio messaggio:
 8. Salvare le modifiche al flusso di lavoro.   
    ![Immagine di azione del bus di servizio 4](./media/connectors-create-api-servicebus/action-4.png)     
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

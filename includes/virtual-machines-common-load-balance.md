@@ -64,8 +64,3 @@ Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Conf
 
 Per altre informazioni sul bilanciamento del carico, vedere [Bilanciamento del carico interno](../articles/load-balancer/load-balancer-internal-overview.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

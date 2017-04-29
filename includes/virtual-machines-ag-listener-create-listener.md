@@ -20,8 +20,3 @@ In questo passaggio si creerà manualmente il listener del gruppo di disponibili
    > 
 9. Nella stessa finestra delle proprietà dell'**indirizzo IP** modificare il valore di **Nome indirizzo IP**. Verrà utilizzato questo nome di indirizzo IP nella variabile **$IPResourceName** dello script di PowerShell. Ripetere questo passaggio per ogni risorsa IP se la soluzione si estende su più reti virtuali di Azure.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

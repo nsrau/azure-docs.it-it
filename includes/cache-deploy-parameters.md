@@ -55,8 +55,3 @@ Dimensioni dell'istanza della nuova Cache Redis di Azure.
 
 Il modello definisce i valori consentiti per questo parametro (0, 1, 2, 3, 4, 5 o 6) e assegna un valore predefinito (1) se non viene specificato alcun valore. Questi numeri corrispondono alle dimensioni della cache seguenti: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

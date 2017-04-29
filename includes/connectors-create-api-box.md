@@ -16,8 +16,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Bo
 5. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Passaggio di creazione della connessione a Box](./media/connectors-create-api-box/box-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -80,8 +80,3 @@ Esempio di Gestione traffico in formato Json:
 ## <a name="additional-resources"></a>Risorse aggiuntive
 Per ulteriori informazioni, leggere la [documentazione dell'API REST per Gestione traffico](https://msdn.microsoft.com/library/azure/mt163664.aspx) .
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

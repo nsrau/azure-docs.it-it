@@ -32,8 +32,3 @@ Come si può notare da quanto sopra, il modello dell'estensione contiene due par
 ## <a name="identifying-the-publisher-type-and-typehandlerversion-for-any-extension"></a>Identificazione dell'editore, del tipo e del valore typeHandlerVersion per le estensioni.
 Le estensioni della macchina virtuale di Azure vengono pubblicate da Microsoft ed editori di terze parti attendibili e ogni estensione è identificata in modo univoco dall'editore, dal tipo e dal valore typeHandlerVersion. Questi possono essere determinati come segue:  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

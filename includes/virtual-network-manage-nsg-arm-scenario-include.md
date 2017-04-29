@@ -16,8 +16,3 @@ La combinazione di queste regole crea uno scenario simile alla rete perimetrale,
 
 Per distribuire lo scenario illustrato in precedenza, selezionare [questo collegamento](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), fare clic su **Distribuisci in Azure**, sostituire i valori del parametro predefinito se necessario e seguire le istruzioni nel portale. Nelle istruzioni di esempio seguenti il modello è stato usato per distribuire un gruppo di risorse con nome **RG-NSG**. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

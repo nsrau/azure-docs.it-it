@@ -58,8 +58,3 @@ Se la macchina virtuale si trova in una rete virtuale di Azure, è consigliabile
 
 Le regole sono valutate nell'ordine, dalla prima fino all'ultima. Questo significa che le regole devono essere ordinate dalla meno restrittiva alla più restrittiva. Per alcuni esempi e altre informazioni, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](../articles/virtual-network/virtual-networks-acl.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

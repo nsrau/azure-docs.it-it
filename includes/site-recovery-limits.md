@@ -31,8 +31,3 @@ Le seguenti limitazioni si applicano a Azure Site Recovery:
 | Numero di server per il piano di ripristino |50 |
 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

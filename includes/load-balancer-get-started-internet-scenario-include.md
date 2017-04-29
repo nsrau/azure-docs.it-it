@@ -5,8 +5,3 @@ In questo scenario verranno eseguite le seguenti attività:
 * Creare probe di integrità
 
 ![Scenario del bilanciamento del carico](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-
-
-<!--HONumber=Nov16_HO2-->
-
-

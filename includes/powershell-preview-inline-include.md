@@ -4,8 +4,3 @@ I cmdlet 1.0 seguono il criterio di denominazione {verb}-AzureRm{noun}, mentre i
 
 Verranno aggiunte nuove funzionalità solo nella versione 1.0. Per informazioni sulla versione 1.0 e su come installarla e disinstallarla, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -18,8 +18,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Go
 6. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Passaggio di creazione della connessione a GoogleDrive](./media/connectors-create-api-googledrive/googledrive-6.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

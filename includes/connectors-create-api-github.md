@@ -16,8 +16,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Gi
 5. Si noti che la connessione è stata creata nel portale. È ora possibile procedere alla creazione dell'app per la logica e all'uso di GitHub al suo interno:   
    ![](./media/connectors-create-api-github/github-5.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

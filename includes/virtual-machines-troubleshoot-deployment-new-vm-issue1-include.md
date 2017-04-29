@@ -3,8 +3,3 @@ Gli errori di provisioning si verificano se si carica o acquisisce un'immagine d
 
 La tabella seguente include l'elenco delle possibili combinazioni di immagini generalizzate e specializzate, il tipo di errore visualizzato e cosa è necessario fare per correggere gli errori.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

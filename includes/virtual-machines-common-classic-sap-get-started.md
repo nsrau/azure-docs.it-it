@@ -35,8 +35,3 @@ Ultimo aggiornamento: settembre 2015
 
 [Scaricare la guida](http://go.microsoft.com/fwlink/?LinkID=521971)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

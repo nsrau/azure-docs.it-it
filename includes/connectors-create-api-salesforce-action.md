@@ -40,8 +40,3 @@ Dopo aver aggiunto un'azione per ottenere un lead, è possibile effettuare opera
 Ora è possibile testare l'app per la logica: in Salesforce, creare un nuovo lead che soddisfi la condizione creata.  Se ci si è attenuti pienamente a questa procedura dettagliata, è sufficiente creare un lead con un indirizzo di posta elettronica che contenga la dicitura *amazon.com* . L'app per la logica dovrebbe attivarsi in pochi secondi e il risultato dovrebbe essere simile a:   
 ![Immagine di azione Salesforce 9](./media/connectors-create-api-salesforce/action-9.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

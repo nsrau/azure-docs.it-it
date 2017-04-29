@@ -115,8 +115,3 @@ Dovrebbe essere visualizzato un messaggio simile al seguente, che conferma il co
     data:    Tags:
     data:
     info:    group create command OK
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -8,8 +8,3 @@ L'articolo è dedicato ai Servizi app di Azure (App Web, App per le API, App per
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

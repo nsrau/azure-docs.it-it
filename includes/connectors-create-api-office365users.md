@@ -14,8 +14,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Of
 4. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Passaggio di creazione della connessione a Office 365 Users](./media/connectors-create-api-office365users/office365users-4.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

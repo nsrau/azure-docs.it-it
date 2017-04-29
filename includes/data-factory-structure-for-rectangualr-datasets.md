@@ -49,8 +49,3 @@ Data factory supporta i valori di tipo basati su .NET conformi a CLS per specifi
 
 Per Datetime e Datetimeoffset è anche possibile specificare la stringa "culture" e "format" per facilitare l'analisi della stringa Datetime personalizzata. Vedere l'esempio seguente di conversione del tipo.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

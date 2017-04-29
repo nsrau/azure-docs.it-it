@@ -61,8 +61,3 @@ Se è stata creata l'app console per l’invio di notifiche quando è stata comp
 [Aggiungere notifiche push alle app per dispositivi mobili]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [Come usare Hub di notifica da Java/PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [pacchetto NuGet Microsoft.Azure.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
-
-
-<!--HONumber=Nov16_HO3-->
-
-

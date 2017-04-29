@@ -11,8 +11,3 @@ Si userà un esempio comune di traffico Web sulla porta 80. Dopo aver ottenuto u
 
 È possibile creare configurazioni di rete complesse per proteggere l'ambiente usando i gruppi di sicurezza di rete e le regole. L'esempio usa solo una o due regole che consentono il traffico HTTP o la gestione remota. Per altre informazioni, vedere la sezione ["Altre informazioni"](#more-information-on-network-security-groups) seguente o [Informazioni sui gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

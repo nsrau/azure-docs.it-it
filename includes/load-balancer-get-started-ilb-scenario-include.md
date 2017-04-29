@@ -9,8 +9,3 @@ Un servizio di bilanciamento del carico interno viene configurato in una rete vi
 * 2 macchine virtuali denominate DB1 e DB2
 * Endpoint
 * Servizio di bilanciamento del carico interno
-
-
-<!--HONumber=Nov16_HO2-->
-
-

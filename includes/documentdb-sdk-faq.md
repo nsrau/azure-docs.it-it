@@ -22,8 +22,3 @@ Le nuove funzioni e funzionalità verranno aggiunte solo alle nuove versioni. Se
 
 Si consiglia di effettuare l'aggiornamento alla versione di SDK più recente quanto prima. Una volta che un SDK è stato contrassegnato per il ritiro, l'utente ha a disposizione 12 mesi per aggiornare l'applicazione. Se, per qualunque motivo, non è possibile completare l'aggiornamento dell'applicazione entro questo periodo di tempo, contattare il [team di DocumentDB](mailto:askdocdb@microsoft.com) e richiedere assistenza fornita prima della data prevista per il ritiro.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

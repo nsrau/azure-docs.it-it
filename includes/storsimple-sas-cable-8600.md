@@ -41,8 +41,3 @@
       | 5, 6 |Porte SAS sull'enclosure principale (contrassegnate con la dicitura EBOD) |
       | 7, 8 |Porte SAS sull'enclosure EBOD (Porta A) |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

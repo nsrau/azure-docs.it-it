@@ -42,8 +42,3 @@ Il nuovo tag verrà visualizzato nell'elenco dei tag per la risorsa.
 
 ![Nuovo Tag salvato nel portale di Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
