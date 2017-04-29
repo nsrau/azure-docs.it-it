@@ -53,7 +53,3 @@
 9. Al termine dell'installazione degli aggiornamenti viene visualizzato un messaggio nel pannello **Aggiornamenti del dispositivo**. La versione del software diventerà **10.0.10289.0**.
 
     ![aggiornamento dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate17m1.png)
-
-<!--HONumber=Feb17_HO1-->
-
-

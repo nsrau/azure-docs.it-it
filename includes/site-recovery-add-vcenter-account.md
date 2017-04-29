@@ -8,8 +8,3 @@
 
     > [!Note]
   > Possono trascorrere 15 minuti o più prima che il nome dell'account venga visualizzato nel portale. Per aggiornarlo immediatamente, fare clic su **Server di configurazione** > ***nome del server*** > **Aggiorna server**.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

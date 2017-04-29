@@ -7,8 +7,3 @@ Questo articolo presuppone quanto segue:
 
 > [!TIP]
 > Assicurarsi che sia possibile connettere la porta 443 del server di configurazione, in esecuzione in locale, dalla rete virtuale di Azure in cui è stato eseguito il failover delle macchine virtuali.
-
-
-<!--HONumber=Feb17_HO1-->
-
-
