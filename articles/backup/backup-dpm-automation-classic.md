@@ -124,7 +124,7 @@ Per poter eseguire la registrazione con il servizio Backup di Azure, è necessar
 * Avere una sottoscrizione di Azure valida
 * Ottieni un archivio di backup
 
-Per scaricare le credenziali dell'archivio, eseguire il commandlet **Get AzureBackupVaultCredentials** in una console Azure PowerShell e archiviarlo in una posizione comoda come * C:\Downloads\*.
+Per scaricare le credenziali dell'archivio, eseguire il commandlet **Get AzureBackupVaultCredentials** in una console Azure PowerShell e archiviarlo in una posizione comoda come *C:\Downloads\*.
 
 ```
 PS C:\> $credspath = "C:\"
