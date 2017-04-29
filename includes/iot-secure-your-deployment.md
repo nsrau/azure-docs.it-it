@@ -107,8 +107,3 @@ Questo articolo fornisce una panoramica a livello di implementazione per progett
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/
 [lnk-logicapps]: https://azure.microsoft.com/services/app-service/logic/
 [lnk-blob]: https://azure.microsoft.com/services/storage/
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -26,7 +26,3 @@ Questa esercitazione illustra come:
 
 [Inviare messaggi da cloud a dispositivo con l'hub IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
 [Introduzione all'hub IoT]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
-
-<!--HONumber=Dec16_HO1-->
-
-

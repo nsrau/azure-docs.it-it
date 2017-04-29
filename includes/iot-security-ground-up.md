@@ -78,8 +78,3 @@ Ogni soluzione preconfigurata Azure IoT Suite crea istanze di servizi di Azure, 
 * [**App per la logica**](https://azure.microsoft.com/services/app-service/logic/): la funzionalità App per la logica del Servizio app di Azure consente di integrare la soluzione IoT con i sistemi line-of-business esistenti e di automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
 * [**Archiviazione BLOB di Azure**](https://azure.microsoft.com/services/storage/): risorsa di archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-
