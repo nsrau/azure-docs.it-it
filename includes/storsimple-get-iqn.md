@@ -7,8 +7,3 @@
     ![Proprietà dell'iniziatore iSCSI](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 3. Salvare la stringa.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

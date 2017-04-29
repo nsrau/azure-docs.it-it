@@ -4,8 +4,3 @@ Il modo più semplice per creare il primo account di archiviazione di Azure cons
 È anche possibile creare un account di archiviazione di Azure usando [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), l'[interfaccia della riga di comando di Azure](../articles/storage/storage-azure-cli.md) o la [libreria client del provider di risorse di archiviazione per .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
 
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

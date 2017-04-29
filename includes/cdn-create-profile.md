@@ -14,8 +14,3 @@
 6. Selezionare la **Sottoscrizione** per questo profilo di rete CDN.
 7. Per creare il nuovo profilo, fare clic sul pulsante **Crea** . 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

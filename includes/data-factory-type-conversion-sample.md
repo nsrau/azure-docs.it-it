@@ -75,8 +75,3 @@ Quindi si definirà il set di dati di SQL Azure come indicato di seguito.
 
 In questo caso Data Factory eseguirà automaticamente la conversione del tipo incluso il campo Datetime con il formato data personalizzato fr-fr quando si spostano dati da Blob a SQL Azure.
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

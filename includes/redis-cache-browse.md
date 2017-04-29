@@ -12,8 +12,3 @@ Selezionare la cache desiderata per visualizzare e configurare le impostazioni p
 
 ![Tutte le impostazioni di Cache Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

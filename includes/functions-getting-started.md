@@ -2,8 +2,3 @@ Funzioni di Azure offre un'esperienza di calcolo on demand guidata dagli eventi 
 
 Questo video introduttivo illustra come creare un'app per le funzioni, modificare il codice e interagire con i trigger e i binding.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

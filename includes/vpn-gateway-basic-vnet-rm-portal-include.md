@@ -27,8 +27,3 @@ Per creare una rete virtuale nel modello di distribuzione Resource Manager usand
     
     ![Pannello Creazione della rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Creating virtual network tile")
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -5,8 +5,3 @@ In questo scenario si creerà un peering tra due reti virtuali denominate **VNet
 
 Il peering reti virtuali consente la connettività completa tra l'intero spazio indirizzi delle reti virtuali di cui è stato eseguito il peering.    
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

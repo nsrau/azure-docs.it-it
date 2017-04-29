@@ -27,8 +27,3 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
    
     ![connessione a ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -48,8 +48,3 @@ In questo esempio {Slice} viene sostituito con il valore della variabile di sist
 ],
 ```
 In questo esempio l'anno, il mese, il giorno e l'ora di SliceStart vengono estratti in variabili separate che vengono usate dalle proprietà folderPath e fileName.
-
-
-<!--HONumber=Jan17_HO3-->
-
-

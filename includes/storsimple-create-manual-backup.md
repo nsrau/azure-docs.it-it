@@ -18,8 +18,3 @@
    
    Il backup dovrebbe comparire nell'elenco dei set di backup che viene visualizzato nel catalogo.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

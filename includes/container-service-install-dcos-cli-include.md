@@ -51,8 +51,3 @@ Questo passaggio non sarà necessario quando si avviano nuove shell.
 ```bash
 dcos --help
 ```
-
-
-<!--HONumber=Nov16_HO2-->
-
-

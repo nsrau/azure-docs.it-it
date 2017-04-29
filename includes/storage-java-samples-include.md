@@ -8,7 +8,3 @@ Di seguito è riportato un elenco di tutti i repository di codice di esempio per
 * [Getting Started with Azure Queue Service in Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/) (Introduzione al servizio di accodamento di Azure in Java)
 * [Getting Started with Azure Table Service in Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/) (Introduzione al servizio tabelle di Azure in Java)
 * [Esempi di libreria client di archiviazione Java](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
-
-<!--HONumber=Feb17_HO3-->
-
-

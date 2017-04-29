@@ -92,8 +92,3 @@ Per le app reali, è possibile usare un'icona adatta alle notifiche in base alle
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

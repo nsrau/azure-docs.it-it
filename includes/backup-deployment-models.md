@@ -10,8 +10,3 @@ Il servizio Backup di Azure presenta insiemi di credenziali di due tipi: l'insie
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

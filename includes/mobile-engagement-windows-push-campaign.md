@@ -23,8 +23,3 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

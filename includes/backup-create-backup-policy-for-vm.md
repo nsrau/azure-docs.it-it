@@ -26,8 +26,3 @@ Per creare un criterio:
    
     Il nuovo criterio verrà immediatamente applicato all'insieme di credenziali.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

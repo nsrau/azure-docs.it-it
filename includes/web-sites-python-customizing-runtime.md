@@ -15,8 +15,3 @@ sono:
 
 L'eventuale microversione (terza cifra) specificata verrà ignorata.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

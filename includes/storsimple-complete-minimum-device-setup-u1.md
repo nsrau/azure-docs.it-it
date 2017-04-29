@@ -12,7 +12,7 @@
       
       ![Impostazioni di base della configurazione minima del dispositivo StorSimple](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupBasicSettings1-include.png)
 3. Fare clic sull’icona di freccia. ![Icona di freccia di StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
-4. Nella finestra di dialogo **Interfacce di rete** , fornire gli indirizzi IP fissi per Controller 0 e Controller 1. **Gli indirizzi IP fissi del controller devono essere IP disponibili all’interno della subnet accessibile mediante l’indirizzo IP del dispositivo.**  Se l’interfaccia DATA 0 è stata configurata per IPv4, gli indirizzi IP fissi devono essere forniti nel formato IPv4. Se è stato fornito un prefisso per la configurazione IPv6, gli indirizzi IP fissi verranno popolati automaticamente in questi campi.
+4. Nella finestra di dialogo **Interfacce di rete** , fornire gli indirizzi IP fissi per Controller 0 e Controller 1. **Gli indirizzi IP fissi del controller devono essere IP disponibili all’interno della subnet accessibile mediante l’indirizzo IP del dispositivo.** Se l’interfaccia DATA 0 è stata configurata per IPv4, gli indirizzi IP fissi devono essere forniti nel formato IPv4. Se è stato fornito un prefisso per la configurazione IPv6, gli indirizzi IP fissi verranno popolati automaticamente in questi campi.
 
     ![Interfacce di rete della configurazione minima del dispositivo StorSimple](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
@@ -30,7 +30,3 @@
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
-
-<!--HONumber=Nov16_HO2-->
-
-

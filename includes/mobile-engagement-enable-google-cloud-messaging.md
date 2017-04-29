@@ -12,8 +12,3 @@
 5. Fare clic sulla scheda **Cloud Messaging** in alto. 
 6. Prendere nota dei valori di **Server Key** (Chiave server) e **Sender ID** (ID mittente), che verranno usati più avanti nel *file manifesto Android*.  
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

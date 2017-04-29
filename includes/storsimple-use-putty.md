@@ -26,8 +26,3 @@
      > 
 7. Fare clic su **Apri** per avviare una sessione seriale.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
