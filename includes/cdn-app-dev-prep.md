@@ -51,8 +51,3 @@ Se, invece di un'entità servizio, si preferisce l'autenticazione interattiva de
 4. Invece di assegnare un'entità servizio al ruolo di **collaboratore profilo di rete CDN** , verranno assegnati singoli utenti o gruppi.  In questo esempio si può notare che è stato assegnato l'utente *CDN Demo User* al ruolo **CDN Profile Contributor**.  
 
     ![Accesso del singolo utente](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

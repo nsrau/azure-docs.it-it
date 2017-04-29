@@ -12,8 +12,3 @@ Nella tabella seguente sono elencate le quote e i limiti specifici di Hub eventi
 | Periodo di conservazione massimo dei dati dell'evento |Entità |Static |- |1-7 giorni |
 | Numero massimo di unità di velocità effettiva |Spazio dei nomi |Static |Il superamento del limite di unità di velocità effettiva provocherà la limitazione dei dati e la generazione di un'eccezione **ServerBusyException**. È possibile richiedere un numero maggiore di unità elaborate per un livello Standard compilando una segnalazione. Le unità elaborate aggiuntive sono disponibili in blocchi da 20 in base a un acquisto con impegno. |20 |
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

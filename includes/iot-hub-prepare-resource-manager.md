@@ -42,8 +42,3 @@ A questo punto è terminata la creazione dell'applicazione Azure AD che consenti
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: /powershell/azureps-cmdlets-docs
-
-
-<!--HONumber=Dec16_HO1-->
-
-

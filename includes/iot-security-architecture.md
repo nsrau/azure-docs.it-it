@@ -227,8 +227,3 @@ Per altre informazioni, vedere gli articoli seguenti:
 * [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx) (Strumento per la modellazione di minacce SDL)
 * [Architettura di riferimento di Microsoft Azure IoT](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
