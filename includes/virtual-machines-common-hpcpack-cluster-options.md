@@ -2,8 +2,3 @@ Creare e gestire un cluster HPC (High Performance Computing) basato su cloud sfr
 
 Per altre opzioni relative all'esecuzione di carichi di lavoro, in batch, paralleli e su larga scala in Azure, vedere [Risorse tecniche per batch e HPC (High Performance Computing)](../articles/batch/big-compute-resources.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

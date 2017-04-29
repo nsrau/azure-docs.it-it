@@ -21,8 +21,3 @@
 | Canada centrale |Canada orientale |
 | Stati Uniti occidentali 2 |Stati Uniti centro-occidentali |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

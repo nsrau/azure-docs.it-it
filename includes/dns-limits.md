@@ -6,8 +6,3 @@
 | Record per ogni set di record |20 |
 
 <sup>1</sup> Contattare il supporto tecnico Azure nel caso in cui sia necessario aumentare questi limiti.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

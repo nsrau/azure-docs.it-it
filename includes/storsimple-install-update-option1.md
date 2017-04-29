@@ -148,8 +148,3 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
    `Exit-HcsMaintenanceMode`
 5. I controller si riavviano quando si esce dalla modalità di manutenzione. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure classico. Sul portale potrebbe non essere visualizzata l’installazione degli aggiornamenti di modalità manutenzione per 24 ore.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

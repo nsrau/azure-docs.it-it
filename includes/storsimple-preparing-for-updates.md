@@ -30,8 +30,3 @@
 
 Dopo aver completato correttamente i controlli preliminari manuali, è possibile procedere all'analisi e installazione degli aggiornamenti.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -19,8 +19,3 @@ Spesso la maggior parte degli errori di autenticazione sono causati da impostazi
 * Per un'app per le API .NET, avviare una [sessione di debug remoto](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) ed esaminare i valori delle variabili che vengono passati al codice che usa ADAL per acquisire un token di connessione o al codice che verifica le attestazioni rispetto all'ID entità servizio previsto. Si noti che il codice può ottenere i valori di configurazione da più origini diverse, quindi è possibile che questo metodo restituisca risultati non previsti. Se, ad esempio, si inserisce per errore `ida:ClientId` invece di `ida:ClientID` quando si configurano le impostazioni dell'ambiente del servizio app di Azure, è possibile che il codice ottenga il valore `ida:ClientId` che sta cercando dal file Web.config, ignorando l'impostazione del servizio app di Azure. 
 * Se ciò non funziona in una normale finestra di Internet Explorer, gli accessi esistenti potrebbero interferire. Provare quindi la modalità InPrivate e Firefox o Chrome.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

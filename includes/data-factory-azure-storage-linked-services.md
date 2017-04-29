@@ -53,8 +53,3 @@ Quando si crea un **URI della firma di accesso condiviso**considerare quanto seg
 * **scadenza** in modo appropriato. L'accesso agli oggetti di Archiviazione di Azure non deve scadere nel periodo attivo della pipeline.
 * L'URI deve essere creato al giusto livello di contenitore/BLOB o tabella in base alla necessità. Un URI di firma di accesso condiviso per un BLOB di Azure consente al servizio Data factory di accedere a quel particolare BLOB. Un URI di firma di accesso condiviso per un contenitore BLOB di Azure consente al servizio Data factory di eseguire l'iterazione tra i BLOB in quel contenitore. Se si deve consentire l'accesso a più o meno oggetti in un secondo momento o aggiornare l'URI di firma di accesso condiviso, ricordarsi di aggiornare il servizio collegato con il nuovo URI.   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -10,8 +10,3 @@
 6. Selezionare **Scegli un valore** a destra e immettere *ExtractMeFirst*. In questo esempio, ExtractMeFirst è un valore previsto all'interno di un file da chi ha accesso alla cartella SFTP per indicare che si tratta di un file di archivio da estrarre.  
    ![Immagine di condizione SFTP 5](./media/connectors-create-api-sftp/condition-5.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

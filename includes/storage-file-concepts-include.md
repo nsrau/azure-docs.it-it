@@ -30,8 +30,3 @@ L'archiviazione file contiene i seguenti componenti:
   `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 Per dettagli su come denominare condivisioni, directory e file, vedere [Denominazione e riferimento a condivisioni, directory, file e metadati](http://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

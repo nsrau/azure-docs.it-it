@@ -8,8 +8,3 @@
 
 La pagina **Criteri di backup** verrà aggiornata in modo da includere il nuovo elenco di criteri.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

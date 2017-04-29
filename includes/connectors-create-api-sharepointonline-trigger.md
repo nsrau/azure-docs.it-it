@@ -16,8 +16,3 @@ In questo esempio, viene illustrato come utilizzare il trigger **SharePoint Onli
 
 A questo punto, l'app per la logica è stata configurata con un trigger che avvierà l'esecuzione di altri trigger e altre azioni nel flusso di lavoro. Ciò avrà luogo ogni volta che viene creato un nuovo elemento nell'elenco di SharePoint Online selezionato.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

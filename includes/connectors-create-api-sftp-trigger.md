@@ -16,8 +16,3 @@ A questo punto, l'app per la logica è stata configurata con un trigger che avvi
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

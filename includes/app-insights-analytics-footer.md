@@ -15,8 +15,3 @@
   * Riferimento di una pagina.
 * [Risoluzione dei problemi](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

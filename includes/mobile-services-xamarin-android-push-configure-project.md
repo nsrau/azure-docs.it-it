@@ -39,8 +39,3 @@
 
 La classe **ToDoActivity** è ora pronta per l'aggiunta di notifiche push.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

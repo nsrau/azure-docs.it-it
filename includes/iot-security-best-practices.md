@@ -45,8 +45,3 @@ Le capacità dei vari dispositivi IoT variano. Alcuni dispositivi potrebbero ess
 
 Alcuni dispositivi legacy e limitati potrebbero non essere stati progettati in modo specifico per la distribuzione IoT. Questi dispositivi potrebbero non essere in grado di crittografare i dati, stabilire connessioni a Internet, o fornire un controllo avanzato. In questi casi, l'uso di un gateway moderno e sicuro sul campo può aggregare i dati dai dispositivi legacy al fine di garantire la protezione necessaria per la connessione di questi dispositivi a Internet. I gateway sul campo offrono l'autenticazione protetta, la negoziazione per le sessioni crittografate, la ricezione di comandi dal cloud e molte altre funzionalità di sicurezza.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

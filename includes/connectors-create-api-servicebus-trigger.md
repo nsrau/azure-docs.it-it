@@ -14,8 +14,3 @@ Ecco come usare il trigger **Bus di servizio - Quando un messaggio viene ricevut
 
 A questo punto l'app per la logica è stata configurata con un trigger. Quando viene ricevuto un nuovo elemento nella coda selezionata, il trigger avvierà un'esecuzione degli altri trigger e delle altre azioni nel flusso di lavoro.    
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

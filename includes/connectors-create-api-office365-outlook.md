@@ -17,8 +17,3 @@ Attenersi alla seguente procedura per autorizzare l'app per la logica a connette
 4. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica:   
     ![Passaggio di creazione della connessione a Office 365](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

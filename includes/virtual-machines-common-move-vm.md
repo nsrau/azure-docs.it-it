@@ -27,8 +27,3 @@
    
     ![Schermata del pannello Sposta risorse.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

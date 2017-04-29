@@ -11,7 +11,3 @@ Nome dell'app per la logica da creare.
     "logicAppName": {
         "type": "string"
     }
-
-<!--HONumber=Nov16_HO3-->
-
-

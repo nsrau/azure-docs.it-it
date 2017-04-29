@@ -14,8 +14,3 @@
         ![Aggiungere l’account di archiviazione](./media/storsimple-ova-configure-new-storage-account/addnewstorageaccount-include.png)
 4. L'account di archiviazione appena creato verrà visualizzato nella pagina **Configura** in **Account di archiviazione**. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

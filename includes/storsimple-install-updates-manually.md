@@ -8,8 +8,3 @@
    
     Una volta completata l'installazione dell'aggiornamento, l'utente riceve una notifica.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

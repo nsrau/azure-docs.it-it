@@ -5,8 +5,3 @@
   * Queste VPN possono essere usate solo per connessioni S2S ed esclusivamente per determinate configurazioni. La maggior parte delle configurazioni di gateway VPN richiede una VPN RouteBased.
 * **RouteBased**: nel modello di distribuzione classica le VPN di questo tipo erano definite gateway con routing dinamico. Le VPN RouteBased usano "route" nella tabella di routing o di inoltro IP per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o il selettore di traffico per le VPN RouteBased vengono configurati come any-to-any (o caratteri jolly). Il valore per un tipo di VPN RouteBased è *RouteBased*.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -40,8 +40,3 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
     
     ![Configurare il Backup di Azure](./media/backup-install-agent/configure.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

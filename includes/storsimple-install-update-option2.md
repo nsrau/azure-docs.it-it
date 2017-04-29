@@ -7,8 +7,3 @@
 4. Disabilitare l'interfaccia di rete con un gateway assegnato e salvare la configurazione modificata. Si noti che vengono mantenute le impostazioni dell'interfaccia di rete e pertanto quando si riattiva questa interfaccia di rete in un secondo momento, il portale consentirà di ripristinare le impostazioni originali.
 5. A questo punto è possibile [utilizzare il portale di Azure classico per installare l'aggiornamento 1.2](#install-update-12-via-the-azure-classic-portal). Seguire le istruzioni a partire dal passaggio 3 di questa procedura. Dopo aver installato tutti gli aggiornamenti, è possibile riabilitare l'interfaccia di rete che è stata disabilitata.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
