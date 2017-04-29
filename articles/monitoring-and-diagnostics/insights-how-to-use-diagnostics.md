@@ -17,6 +17,7 @@ ms.author: robb
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c30ffa9e392bb6411312b0789ae6e8218f770bc1
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -31,7 +32,7 @@ La maggior parte dei servizi consente di abilitare la diagnostica quando li si c
 1. Andare a **Nuovo** e scegliere la risorsa a cui si è interessati.
 2. Selezionare **Configurazione facoltativa**.
     ![Pannello Diagnostica](./media/insights-how-to-use-diagnostics/Insights_CreateTime.png)
-3. Selezionare **Diagnostica** e fare clic sull'opzione di** **attivazione. Occorre scegliere l'account di archiviazione in cui salvare la diagnostica. Per l'invio della diagnostica a un account di archiviazione, verranno addebitate le normali tariffe dati per l'archiviazione e le transazioni.
+3. Selezionare **Diagnostica** e fare clic sull'opzione di **attivazione**. Occorre scegliere l'account di archiviazione in cui salvare la diagnostica. Per l'invio della diagnostica a un account di archiviazione, verranno addebitate le normali tariffe dati per l'archiviazione e le transazioni.
 4. Fare clic su **OK** e creare la risorsa.
 
 ## <a name="change-settings-for-an-existing-resource"></a>Modificare le impostazioni per una risorsa esistente
@@ -65,10 +66,5 @@ Tenere presente che in questo momento non sono supportate alcune distribuzioni d
 * [Monitorare le prestazioni dell'applicazione](../application-insights/app-insights-azure-web-apps.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
 * [Visualizzare eventi e registri attività](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
 * [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
