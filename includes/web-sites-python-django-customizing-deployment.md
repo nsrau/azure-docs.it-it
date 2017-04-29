@@ -32,8 +32,3 @@ Per creare i file, è possibile usare l'[interfaccia della riga di comando di Az
 Se questi file non esistono, Azure creerà uno script di distribuzione temporaneo e lo eseguirà.  Tale file è identico a quello creato con il comando precedente.
 
 [interfaccia della riga di comando di Azure]: http://azure.microsoft.com/downloads/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

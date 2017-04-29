@@ -11,7 +11,7 @@
       
         ![Aggiungi volume](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
       
-      1. Fare clic sull’icona a forma di freccia  ![icona a forma di freccia](./media/storsimple-create-volume/HCS_ArrowIcon-include.png)  per passare alla pagina successiva.
+      1. Fare clic sull’icona a forma di freccia  ![icona a forma di freccia](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) per passare alla pagina successiva.
 3. Nella finestra di dialogo **Impostazioni aggiuntive** , aggiungere un nuovo record di controllo di accesso (ACR):
    
    1. Fornire un **Nome** per l'ACR.
@@ -29,9 +29,4 @@
 ![Video disponibile](./media/storsimple-create-volume/Video_icon.png) **Video disponibile**
 
 Per guardare un video che illustra come creare un nuovo volume StorSimple Manager, fare clic [qui](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

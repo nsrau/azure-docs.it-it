@@ -34,8 +34,3 @@ Anche i problemi di connettività di rete possono causare errori di connessione 
 
 Per dettagli e altre informazioni sui problemi di connettività, vedere [Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL](../articles/sql-database/sql-database-connectivity-issues.md).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

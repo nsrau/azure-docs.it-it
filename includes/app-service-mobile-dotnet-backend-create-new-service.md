@@ -7,8 +7,3 @@
 
 <!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

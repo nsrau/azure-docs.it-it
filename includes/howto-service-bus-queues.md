@@ -12,8 +12,3 @@ Le code del bus di servizio sono una tecnologia di carattere generale che può e
 L'uso delle code consente la scalabilità delle applicazioni e garantisce maggiore resilienza all'architettura.
 
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

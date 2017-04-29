@@ -31,8 +31,3 @@ Prima di tutto è necessario registrare l'applicazione nel tenant di Azure Activ
   * Per le applicazioni native fornire un **URI di reindirizzamento**, che Azure AD userà per restituire le risposte dei token. Immettere un valore specifico per l'applicazione in uso, ad esempio `http://MyFirstAADApp`
 * Dopo avere completato la registrazione, Azure AD assegnerà all'applicazione un identificatore client univoco, l'ID applicazione. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla pagina dell'applicazione.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

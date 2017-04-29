@@ -24,8 +24,3 @@
    
    * Abilitare **Notifiche push** in Destinazioni > Nome destinazione > Funzionalità.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

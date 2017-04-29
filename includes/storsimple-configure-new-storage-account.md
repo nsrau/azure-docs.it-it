@@ -14,8 +14,3 @@
       ![Aggiungere l’account di archiviazione](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. L'account di archiviazione appena creato verrà visualizzato nella pagina **Configura** in **Account di archiviazione**. Fare clic su **Salva** per salvare l’account di archiviazione appena creato. Fare clic su **OK** quando viene richiesto di confermare.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

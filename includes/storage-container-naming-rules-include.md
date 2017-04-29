@@ -15,8 +15,3 @@ Il nome di un contenitore deve essere un nome DNS valido, in conformità con le 
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

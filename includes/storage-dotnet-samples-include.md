@@ -14,7 +14,3 @@ Di seguito è riportato un elenco di tutti i repository di codice di esempio per
 * [Import Export Job Management through REST API](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/) (Gestione dei processi di importazione/esportazione tramite l'API REST)
 * [MyDriving - An Azure IOT and Mobile Sample Application](https://azure.microsoft.com/resources/samples/mydriving/) (MyDriving - Applicazione di esempio di Azure IOT e per dispositivi mobili)
 * [Esempi di libreria client di archiviazione .NET](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
-
-<!--HONumber=Feb17_HO3-->
-
-

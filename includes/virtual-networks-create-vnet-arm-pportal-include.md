@@ -26,8 +26,3 @@ Per creare una rete virtuale in base allo scenario precedente tramite il portale
     
     ![Elenco delle subnet nella rete virtuale](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

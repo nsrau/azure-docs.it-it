@@ -1,6 +1,6 @@
 Sono disponibili due tipi di account di archiviazione:
 
-### <a name="generalpurpose-storage-accounts"></a>Account di archiviazione di uso generico
+### <a name="general-purpose-storage-accounts"></a>Account di archiviazione di uso generico
 Un account di archiviazione di uso generico permette di accedere ai servizi di Archiviazione di Azure come tabelle, code, file, BLOB e dischi di macchina virtuale di Azure con un unico account. Questo tipo di account di archiviazione offre due livelli di prestazioni:
 
 * Un livello di prestazioni di archiviazione Standard che consente di archiviare tabelle, code, file, BLOB e dischi di macchina virtuale di Azure.
@@ -26,9 +26,4 @@ Per informazioni dettagliate sugli account di archiviazione BLOB, vedere [Archiv
 Prima di creare un account di archiviazione, è necessario effettuare una sottoscrizione di Azure, ovvero a un piano per accedere ai diversi servizi di Azure. Per iniziare a usare Azure, è possibile usare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/). Se si decide di acquistare un piano di sottoscrizione, è possibile scegliere una delle numerose [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/). Gli utenti [iscritti a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)ricevono crediti mensili gratuiti che possono essere usati con i servizi di Azure, incluso il servizio Archiviazione di Azure. Per informazioni sui prezzi in base al volume, vedere la pagina relativa ai [prezzi di Archiviazione di Azure ](https://azure.microsoft.com/pricing/details/storage/) .
 
 Per informazioni su come creare un account di archiviazione, vedere [Creare un account di archiviazione](../articles/storage/storage-create-storage-account.md#create-a-storage-account) . È possibile creare un massimo di 100 account di archiviazione con denominazione univoca con una singola sottoscrizione. Per informazioni dettagliate sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md) .
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
