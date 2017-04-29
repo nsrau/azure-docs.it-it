@@ -1,5 +1,5 @@
 ---
-title: Azioni consentite e non consentite per i ruoli nel controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
+title: Azioni consentite e non consentite per i ruoli nel controllo degli accessi in base al ruolo di Azure | Microsoft Docs
 description: Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: 
@@ -16,9 +16,9 @@ ms.date: 02/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: 404c4c4012eb5b6f8e7acdd7f985009b9f13b9f3
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: bb8d390a6ab045dc418bf80ec4fc218e0a35282b
+ms.lasthandoff: 04/11/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
@@ -48,6 +48,8 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore zona DNS](#dns-zone-contributor) |È in grado di gestire zone e record DNS |
 | [Collaboratore account DocumentDB](#documentdb-account-contributor) |Può gestire gli account DocumentDB |
 | [Collaboratore account Intelligent Systems](#intelligent-systems-account-contributor) |È in grado di gestire account Intelligent Systems |
+| [Lettore di monitoraggio](#monitoring-reader) |Può leggere tutti i dati del monitoraggio |
+| [Collaboratore al monitoraggio](#monitoring-contributor) |Può leggere i dati del monitoraggio e modificare le impostazioni di monitoraggio |
 | [Collaboratore di rete](#network-contributor) |È in grado di gestire tutte le risorse di rete |
 | [Collaboratore account New Relic APM](#new-relic-apm-account-contributor) |Può gestire account e applicazioni di New Relic Application Performance Management |
 | [Proprietario](#owner) |È in grado di gestire tutti gli elementi, compresi gli accessi |
@@ -336,6 +338,36 @@ Può gestire gli account DocumentDB
 | Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="monitoring-reader"></a>Lettore di monitoraggio
+Può leggere tutti i dati del monitoraggio (metriche, log e così via). Vedere anche [Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Actions** |  |
+| --- | --- |
+| */lettura |Legge risorse di tutti i tipi, eccetto i segreti. |
+| Microsoft.OperationalInsights/workspaces/search/action |Ricerca di dati in Log Analytics |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="monitoring-contributor"></a>Collaboratore al monitoraggio
+Può leggere tutti i dati del monitoraggio e modificare le impostazioni di monitoraggio. Vedere anche [Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Actions** |  |
+| --- | --- |
+| */lettura |Legge risorse di tutti i tipi, eccetto i segreti. |
+| Microsoft.Insights/AlertRules/* |Regole di avviso di lettura, scrittura ed eliminazione. |
+| Microsoft.Insights/components/* |Leggere, scrivere ed eliminare componenti di Application Insights. |
+| Microsoft.Insights/DiagnosticSettings/* |Impostazioni di diagnostica di lettura, scrittura ed eliminazione. |
+| Microsoft.Insights/eventtypes/* |Elenco degli eventi dei registri attività (eventi di gestione) in una sottoscrizione. Questa autorizzazione è applicabile sia all'accesso programmatico che all'accesso al portale per il registro attività. |
+| Microsoft.Insights/LogDefinitions/* |Questa autorizzazione è necessaria per gli utenti che hanno bisogno dell'accesso ai registri attività tramite il portale. Elencare categorie di log nel log attività. |
+| Microsoft.Insights/MetricDefinitions/* |Definizioni delle metriche (elenco dei tipi di metriche disponibili per una risorsa). |
+| Microsoft.Insights/Metrics/* |Metriche per una risorsa. |
+| Microsoft.Insights/Register/Action |Registra il provider Microsoft.Insights. |
+| Microsoft.Insights/webtests/* |Leggere, scrivere ed eliminare test Web di Application Insights. |
+| Microsoft.OperationalInsights/workspaces/intelligencepacks/* |Leggere, scrivere ed eliminare pacchetti di soluzioni Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/savedSearches/* |Leggere, scrivere ed eliminare ricerche salvate di Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/search/action |Cercare aree di lavoro di Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/sharedKeys/action |Elencare chiavi per un'area di lavoro di Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* |Leggere, scrivere ed eliminare configurazione di dati di archiviazione di Log Analytics. |
 
 ### <a name="network-contributor"></a>Collaboratore di rete
 È in grado di gestire tutte le risorse di rete
