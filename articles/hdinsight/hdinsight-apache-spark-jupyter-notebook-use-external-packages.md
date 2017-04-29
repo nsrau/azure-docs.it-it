@@ -1,5 +1,5 @@
 ---
-title: Usare pacchetti Maven personalizzati con notebook di Jupyter in Spark in Azure | Documentazione Microsoft
+title: Usare pacchetti Maven personalizzati con notebook di Jupyter in Spark in Azure | Microsoft Docs
 description: Istruzioni dettagliate su come configurare notebook Jupyter disponibili con cluster HDInsight Spark per l&quot;uso di pacchetti Spark esterni.
 services: hdinsight
 documentationcenter: 
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 2dd0d456d0c6b1c83a409fead63dacff26c03198
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: db2e8391bcae98b2ef0fb93fb4e4e98a287b4846
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -78,7 +78,7 @@ In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search
    
     a. Individuare un pacchetto nel repository Maven. In questa esercitazione si userà [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
-    b. Recuperare dal repository i valori per **GroupId**, **ArtifactId** e **Version**.
+    b. Recuperare dal repository i valori per **GroupId**, **ArtifactId** e **Version**. Assicurarsi che i valori che si raccolgono corrispondano al cluster. Si usano, in questo caso, un pacchetto Scala 2.10 e un pacchetto Spark 1.4.0, ma potrebbe essere necessario selezionare versioni diverse per la versione di Scala o di Spark appropriata al cluster. È possibile trovare la versione di Scala nel cluster eseguendo `scala.util.Properties.versionString` nel kernel Jupyter Spark o nell'invio di Spark. È possibile trovare la versione di Spark nel cluster eseguendo `sc.version` nei notebook Jupyter.
    
     ![Usare pacchetti esterni con notebook di Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Usare pacchetti esterni con notebook di Jupyter")
    
