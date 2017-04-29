@@ -10,7 +10,3 @@ La guida introduttiva mostra un'esecuzione semplice di una funzione di base atti
   Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
 * [Che cos'è Servizio app di Azure?](../articles/app-service/app-service-value-prop-what-is.md)  
   Funzioni di Azure sfrutta la piattaforma del servizio app di Azure per le funzionalità di base, ad esempio distribuzioni, variabili di ambiente e diagnostica. 
-
-<!--HONumber=Feb17_HO1-->
-
-

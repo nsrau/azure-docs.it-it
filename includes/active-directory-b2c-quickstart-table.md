@@ -6,8 +6,3 @@
 | [Chiamare un'API Web da un'app Web .NET](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md) | [Aggiungere iscrizione e accesso a una SPA Javascript (NodeJS)](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)| |
 | [Aggiungere iscrizione e accesso a un'app ASP.NET Core](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | | |
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
