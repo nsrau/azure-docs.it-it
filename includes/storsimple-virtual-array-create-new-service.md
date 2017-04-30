@@ -33,8 +33,3 @@
 Si viene indirizzati alla pagina di destinazione **Servizio**. La creazione del servizio richiede alcuni minuti. Dopo che il servizio è stato creato, l'utente verrà informato in modo appropriato e lo stato del servizio verrà modificato in **Attivo**.
 
 
-
-
-<!--HONumber=Nov16_HO5-->
-
-

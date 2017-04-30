@@ -38,8 +38,3 @@ L'esempio seguente mostra come usare Esplora archivi di Microsoft Azure per gene
 
 Come si può osservare, quando si usa una firma di accesso condiviso, non si espone la chiave dell'account nell'applicazione. Per altre informazioni sulla firma di accesso condiviso e sulle procedure consigliate per il relativo uso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-

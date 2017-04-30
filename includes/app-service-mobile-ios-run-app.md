@@ -6,8 +6,3 @@
    ![Guida introduttiva all'app che esegue iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
 [portale di Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Nov16_HO3-->
-
-
