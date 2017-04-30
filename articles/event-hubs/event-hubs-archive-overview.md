@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 95a927d8c2fbfbcb6aa663985d078d5146c489aa
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: f86336de4e1d5bda1eba12f0f95079b950963bde
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="azure-event-hubs-archive"></a>Archivio di Hub eventi di Azure
-L'archivio di Hub eventi di Azure consente di distribuire automaticamente i dati in streaming di Hub eventi in un account di archiviazione BLOB di Azure scelto con l'aggiunta della flessibilità necessaria per specificare l'intervallo di tempo o di dimensioni preferito. La configurazione dell'archivio è rapida, non sono previsti costi amministrativi per l'esecuzione e viene eseguito il ridimensionamento automatico con le [unità elaborate](event-hubs-what-is-event-hubs.md#capacity)in Hub eventi. L'archivio di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
+L'archivio di Hub eventi di Azure consente di recapitare automaticamente i dati in streaming di Hub eventi nell'account di archiviazione BLOB di Azure scelto, con l'aggiunta della flessibilità data dalla possibilità di specificare l'intervallo di tempo o di dimensioni preferito. La configurazione dell'archivio è rapida, non sono previsti costi amministrativi per l'esecuzione e l'archivio viene ridimensionato automaticamente con le [unità elaborate](event-hubs-what-is-event-hubs.md#capacity) in Hub eventi. L'archivio di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
 
 L'archivio di Hub eventi consente di elaborare pipeline in tempo reale e basate su batch nello stesso flusso. In questo modo è possibile compilare soluzioni che si adattano alle esigenze nel corso del tempo. Sia che si debbano compilare oggi sistemi basati su batch con lo sguardo rivolto alla futura elaborazione in tempo reale o che si voglia aggiungere un percorso a freddo efficiente a una soluzione in tempo reale esistente, l'archivio di Hub eventi semplifica l'uso dei dati in streaming.
 
 ## <a name="how-event-hubs-archive-works"></a>Come funziona l'archivio di Hub eventi
-Hub eventi è un buffer permanente di conservazione nel tempo per l'ingresso della telemetria, simile a un log distribuito. La chiave per ridurre il numero di istanze di Hub eventi è il [modello di consumer partizionato](event-hubs-what-is-event-hubs.md#partitions). Ogni partizione è un segmento di dati indipendente e viene utilizzata in modo indipendente. Nel corso del tempo questi dati diventano obsoleti, a seconda del periodo di conservazione configurabile. Un determinato hub eventi quindi non sarà mai "troppo pieno".
+Hub eventi è un buffer permanente di conservazione nel tempo per l'ingresso della telemetria, simile a un log distribuito. La chiave per ridurre il numero di istanze di Hub eventi è il [modello di consumer partizionato](event-hubs-what-is-event-hubs.md#partitions). Ogni partizione è un segmento di dati indipendente e viene utilizzata in modo indipendente. Nel corso del tempo questi dati diventano obsoleti, a seconda del periodo di conservazione configurabile. Di conseguenza, un determinato hub eventi non sarà mai "troppo pieno".
 
-L'archivio di Hub eventi consente di specificare l'account di archiviazione BLOB di Azure e il contenitore che verranno usati per salvare i dati archiviati. Questo account può trovarsi nella stessa area dell'hub eventi o in un'altra area, aumentando così la flessibilità della funzionalità dell'archivio di Hub eventi.
+L'archivio di Hub eventi consente di specificare l'account di archiviazione BLOB di Azure e il contenitore che verranno usati per salvare i dati archiviati. Questo account può trovarsi nella stessa area dell'hub eventi o in un'altra, aumentando così la flessibilità della funzionalità dell'archivio di Hub eventi.
 
 I dati archiviati vengono scritti in formato [Apache Avro][Apache Avro] , un formato compatto, rapido, binario che offre strutture di dati avanzate con lo schema inline. Questo formato è largamente usato nell'ecosistema Hadoop, oltre che dall'analisi di flusso e da Azure Data Factory. Altre informazioni sull'uso di Avro sono disponibili più avanti in questo articolo.
 
@@ -53,7 +53,7 @@ L'intervallo di tempo predefinito è di 5 minuti. Il valore minimo è 1, quello 
 ![][1]
 
 ## <a name="adding-archive-to-an-existing-event-hub"></a>Aggiunta dell'archivio a un hub eventi esistente
-Un archivio può essere configurato negli hub eventi esistenti nello spazio dei nomi di Hub eventi. La funzionalità non è disponibile negli spazi dei nomi di tipo **Messaggistica** o **Misto** meno recenti. Per abilitare l'archivio in un hub eventi esistente o per modificare le impostazioni dell'archivio, fare clic sullo spazio dei nomi per caricare il pannello **Informazioni di base** , quindi fare clic sull'hub eventi per cui si vuole abilitare o modificare l'impostazione dell'archivio. Infine fare clic sulla sezione **Proprietà** del pannello aperto, come illustrato nella figura seguente.
+È possibile configurare un archivio in hub eventi esistenti nello spazio dei nomi di Hub eventi. La funzionalità non è disponibile negli spazi dei nomi di tipo **Messaggistica** o **Misto** meno recenti. Per abilitare l'archivio in un hub eventi esistente o per modificarne le impostazioni, fare clic sullo spazio dei nomi per caricare il pannello **Informazioni di base**, quindi fare clic sull'hub eventi per cui si vuole abilitare o modificare l'impostazione dell'archivio. Infine fare clic sulla sezione **Proprietà** del pannello aperto, come illustrato nella figura seguente.
 
 ![][2]
 

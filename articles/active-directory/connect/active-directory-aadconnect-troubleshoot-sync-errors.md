@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a1190f0ab4caf749cce0b5c9ba45e55f7e6ca8ec
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -180,9 +180,9 @@ a. Assicurarsi che l'attributo userPrincipalName contenga caratteri supportati e
 #### <a name="related-articles"></a>Articoli correlati
 * [Preparazione per il provisioning degli utenti tramite la sincronizzazione delle directory a Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
-### <a name="datavalidationfailed"></a>DataValidationFailed
+### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Descrizione
-Questo è un caso specifico che restituisce un errore di sincronizzazione **"DataValidationFailed"** quando il suffisso dell'attributo UserPrincipalName di un utente viene modificato da un dominio federato a un altro dominio federato.
+Questo è un caso specifico che restituisce un errore di sincronizzazione **"FederatedDomainChangeError"** quando il suffisso dell'attributo UserPrincipalName di un utente viene modificato da un dominio federato a un altro dominio federato.
 
 #### <a name="scenarios"></a>Scenari
 Per un utente sincronizzato, il suffisso dell'attributo UserPrincipalName è stato modificato da un dominio federato a un altro dominio federato locale. Ad esempio, *UserPrincipalName = bob@contoso.com* è stato modificato in *UserPrincipalName = bob@fabrikam.com*.
@@ -191,7 +191,7 @@ Per un utente sincronizzato, il suffisso dell'attributo UserPrincipalName è sta
 1. Bob Smith, un account di Contoso.com, viene aggiunto come nuovo utente in Active Directory con l'attributo UserPrincipalName bob@contoso.com
 2. Bob passa a un'altra divisione di Contoso.com denominata Fabrikam.com e il suo attributo UserPrincipalName diventa bob@fabrikam.com
 3. Entrambi i domini di contoso.com e fabrikam.com sono domini federati con Azure Active Directory.
-4. L'attributo UserPrincipalName di Bob non viene aggiornato e si verifica l'errore di sincronizzazione "DataValidationFailed".
+4. L'attributo userPrincipalName di Bob non viene aggiornato e si verifica l'errore di sincronizzazione "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Modalità di correzione
 Se il suffisso dell'attributo UserPrincipalName dell'utente è stato aggiornato da bob@**contoso.com** a bob@**fabrikam.com**, dove entrambi i domini **contoso.com** e **fabrikam.com** sono **domini federati**, seguire questa procedura per correggere l'errore di sincronizzazione.
@@ -215,7 +215,7 @@ Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di
 1. L'attributo userCertificate di Bob contiene troppi certificati assegnati a Bob, tra i quali possono esserci certificati scaduti o meno recenti. Il limite rigido consente 15 certificati.
 2. L'attributo userSMIMECertificate di Bob contiene troppi certificati assegnati a Bob, tra i quali possono esserci certificati scaduti o meno recenti. Il limite rigido consente 15 certificati.
 3. L'attributo thumbnailPhoto di Bob impostato in Active Directory è troppo grande per essere sincronizzato in Azure AD.
-4. Durante il popolamento automatico dell'attributo ProxyAddresses in Active Directory un oggetto è stato assegnato a più di&500; attributi ProxyAddresses.
+4. Durante il popolamento automatico dell'attributo ProxyAddresses in Active Directory un oggetto è stato assegnato a più di 500 attributi ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Modalità di correzione
 1. Verificare che l'attributo che ha causato l'errore non superi il limite consentito.

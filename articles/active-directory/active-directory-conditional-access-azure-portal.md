@@ -16,9 +16,9 @@ ms.workload: identity
 ms.date: 03/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 62804019a8c2c5e719c36021ee04cbd20e03dd05
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: db219c8bd8d9bf1ba343fe363047a23eabad823c
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -84,7 +84,7 @@ Se in un criterio di accesso condizionale è selezionato più di un requisito, �
 ![Controllo](./media/active-directory-conditional-access-azure-portal/06.png)
 
 ### <a name="session-controls"></a>Controlli di sessione
-I controlli di sessione consentono di limitare esperienza in un'app cloud. Questi controlli sono imposti dalle app cloud e si basano sulle informazioni aggiuntive relative alla sessione fornite da Azure AD all'app.
+I controlli di sessione consentono di limitare l'esperienza in un'app cloud. Questi controlli sono imposti dalle app cloud e si basano sulle informazioni aggiuntive relative alla sessione fornite da Azure AD all'app.
 
 ![Controllo](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
 

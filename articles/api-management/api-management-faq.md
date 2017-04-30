@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
-ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 7d58748c4b0195246fffafe2e5544678b83dfd60
+ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
@@ -44,6 +44,8 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 * [È possibile usare un certificato SSL autofirmato per un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 * [Perché si ottiene un errore di autenticazione quando si cerca di clonare un repository GIT?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Gestione API funziona con ExpressRoute?](#does-api-management-work-with-azure-expressroute)
+* [Perché è necessaria una subnet dedicata nelle reti virtuali di Resource Manager quando Gestione API viene distribuita in tali reti?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
+* [Qual è la dimensione minima necessaria della subnet quando si distribuisce Gestione API in una rete virtuale?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
 * [È possibile spostare un servizio Gestione API da una sottoscrizione a un'altra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Esistono restrizioni o problemi noti relativi all'importazione di questa API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
@@ -51,7 +53,7 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 È possibile contattare Microsoft in uno dei modi seguenti:
 
 * Pubblicare le domande sul [forum MSDN di Gestione API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Inviare un messaggio di posta elettronica a <mailto:apimgmt@microsoft.com>.
+* Inviare un messaggio di posta elettronica all'indirizzo <mailto:apimgmt@microsoft.com>.
 * Inviare una richiesta di funzionalità nel [forum dei commenti e suggerimenti su Azure](https://feedback.azure.com/forums/248703-api-management).
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Che cosa significa se una funzionalità è in anteprima?
@@ -114,8 +116,8 @@ Ora è disponibile il supporto per il [pass-through SOAP](http://blogs.msdn.micr
 Con i piani Standard e Premium, l'indirizzo IP (indirizzo VIP) pubblico del tenant di Gestione API è statico per la durata del tenant, con alcune eccezioni. L'indirizzo IP viene modificato in queste circostanze:
 
 * Il servizio viene eliminato e quindi ricreato.
-* La sottoscrizione al servizio viene sospesa, ad esempio per mancato pagamento, e quindi ripristinata.
-* Si aggiunge o si rimuove la rete virtuale di Azure. È possibile usare la rete virtuale solo con il piano Premium.
+* La sottoscrizione al servizio viene [sospesa](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) o [avvisata](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states), ad esempio per mancato pagamento, e quindi ripristinata.
+* Si aggiunge o si rimuove la rete virtuale di Azure. È possibile usare la rete virtuale solo nel piano Premium o Developer.
 
 Per le distribuzioni in più aree, l'indirizzo dell'area viene modificato se l'area viene liberata e quindi reintegrata. È possibile usare la distribuzione in più aree solo con il piano Premium.
 
@@ -144,6 +146,13 @@ Se si usa Git Credential Manager o se si vuole clonare un repository Git usando 
 
 ### <a name="does-api-management-work-with-azure-expressroute"></a>Gestione API funziona con ExpressRoute?
 Sì. Gestione API funziona con ExpressRoute.
+
+### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>Perché è necessaria una subnet dedicata nelle reti virtuali di Resource Manager quando Gestione API viene distribuita in tali reti?
+Il requisito di una subnet dedicata per Gestione API deriva dal fatto che è costruita su un modello di distribuzione classico (livello PAAS V1). Anche se è possibile eseguire la distribuzione in una rete virtuale (livello V2) di Resource Manager, è necessario considerare le conseguenze. Il modello di distribuzione classica in Azure non è strettamente associato con il modello di Resource Manager e quindi se si crea una risorsa nel livello V2, il livello V1 non è a conoscenza del livello V2 e questo può causare problemi, ad esempio la Gestione API prova a usare un indirizzo IP già assegnato a una scheda di rete (nel livello V2).
+Per altre informazioni sulla differenza tra modelli classici e quelli di Resource Manager in Azure, vedere la [differenza nei modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md).
+
+### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>Qual è la dimensione minima necessaria della subnet quando si distribuisce Gestione API in una rete virtuale?
+La dimensione minima della subnet necessaria per distribuire Gestione API è [/29](../virtual-network/virtual-networks-faq.md#configuration), ovvero la dimensione minima della subnet supportata da Azure.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>È possibile spostare un servizio Gestione API da una sottoscrizione a un'altra?
 Sì. Per informazioni, vedere [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) (Spostare le risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione).
