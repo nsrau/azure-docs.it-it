@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5a39d4ec9bbf1c7672267c7e89c957ebc49f1f3a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -124,6 +125,14 @@ Separare le direttive con un valore NewLine.
 * Aprire un terminale e avviare collectd in modalità dettagliata, per visualizzare eventuali problemi segnalati:
   * `sudo collectd -f`
 
+## <a name="known-issue"></a>Problema noto
+
+Il plug-in di scrittura di Application Insights non è compatibile con alcuni plug-in di lettura. Alcuni plug-in a volte inviano un errore "non un numero" quando il plug-in di Application Insights prevede un numero a virgola mobile.
+
+Sintomo: Il log di collectd visualizza errori che includono "AI:... SyntaxError: N token non previsto".
+
+Soluzione alternativa: escludere i dati raccolti dal plug-in di scrittura che causa il problema. 
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -134,12 +143,6 @@ Separare le direttive con un valore NewLine.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

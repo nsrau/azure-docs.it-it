@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: dca6f5189693fc98cec4f92eac81b6985e691889
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: a07051ea0be58cafcf1a7d7ae800b44e7abd05cd
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>Altre informazioni sulla gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -105,7 +105,7 @@ Quando un utente federato e con sincronizzazione di hash della password reimpost
 6. Dopo che il messaggio avrà raggiunto il bus di servizio, l'endpoint di reimpostazione della password si attiva automaticamente e rileva la richiesta di reimpostazione in sospeso.
 7. Il servizio cerca quindi l'utente in questione usando l'attributo di ancoraggio cloud.  Perché la ricerca abbia esito positivo, l'oggetto utente deve esistere nello spazio connettore AD ed essere collegato all'oggetto MV corrispondente e all'oggetto connettore AAD corrispondente. Infine, la sincronizzazione individuerà l'account utente solo se il collegamento dell'oggetto connettore AD all'oggetto MV include la regola di sincronizzazione `Microsoft.InfromADUserAccountEnabled.xxx` .  Questo è necessario perché, alla ricezione della chiamata dal cloud, il motore di sincronizzazione usa l'attributo cloudAnchor per cercare l'oggetto spazio connettore AAD, quindi segue a ritroso il collegamento all'oggetto MV e quindi all'oggetto AD. Poiché è possibile che siano presenti più oggetti AD (più foreste) per lo stesso utente, il motore di sincronizzazione si basa sul collegamento `Microsoft.InfromADUserAccountEnabled.xxx` per scegliere quello corretto. Ne deriva che per far funzionare il writeback delle password è necessario connettere Azure AD Connect al controller di dominio primario.  Se necessario, è possibile configurare Azure AD Connect per l'uso di un emulatore PDC facendo clic con il pulsante destro del mouse sulle **proprietà** del connettore di sincronizzazione di Active Directory e quindi scegliendo **configure directory partitions** (configura partizioni di directory). Cercare quindi la sezione **domain controller connection settings** (impostazioni di connessione controller di dominio) e selezionare la casella **only use preferred domain controllers** (usa solo controller di dominio preferiti). Nota: se il controller di dominio preferito non è un emulatore PDC, Azure AD Connect continuerà a rivolgersi al controller di dominio primario per il writeback delle password.
 8. Dopo aver trovato l'account utente, viene tentata la reimpostazione della password direttamente nella foresta Active Directory appropriata.
-9. Se l'operazione di impostazione della password riesce, l'utente viene informato che la password è stata modificata e che può proseguire.
+9. Se l'operazione di impostazione della password riesce, l'utente viene informato che la password è stata modificata e che può proseguire. Se la password dell'utente viene sincronizzata con Azure AD usando la sincronizzazione password, è probabile che i criteri locali della password siano più deboli rispetto ai criteri della password cloud. In questo caso, vengono imposti i criteri locali qualsiasi essi siano, consentendo così alla sincronizzazione hash password di sincronizzarsi con l'hash di tale password. Si garantisce in questo modo che i criteri locali siano imposti nel cloud, indipendentemente dal fatto che si usi la sincronizzazione password o la federazione per il Single Sign-On.
 10. Se l'operazione di impostazione della password non riesce, l'errore viene restituito all'utente, consentendogli di riprovare.  L'operazione potrebbe non riuscire perché il servizio è inattivo, la password selezionata non soddisfa i criteri dell'organizzazione, l'utente non viene trovato in Active Directory locale o per altri motivi.  È disponibile un messaggio specifico per molti di questi casi e all'utente viene indicato cosa può fare per risolvere il problema.
 
 ## <a name="scenarios-supported-for-password-writeback"></a>Scenari supportati per il writeback delle password
@@ -629,7 +629,7 @@ Per testare queste opzioni, passare a http://passwordreset.microsoftonline.com c
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione

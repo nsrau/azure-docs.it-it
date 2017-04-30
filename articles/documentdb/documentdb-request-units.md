@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/17/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b098e3087cb08528c5fbdc2d0d768ce40e7ffe0d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6185c703e9148c71d9995b92540b8ea72fba5cc0
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -132,37 +132,37 @@ La tabella riportata di seguito mostra il numero di unità richiesta di cui effe
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1) + (100* 5) = 1.000 UR/sec</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1.000 UR/sec</p></td>
         </tr>
         <tr>
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *5) + (100* 5) = 3.000 UR/sec</p></td>
+            <td valign="top"><p>(500 * 1) + (500 * 5) = 3.000 UR/sec</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1,3) + (100* 7) = 1.350 UR/sec</p></td>
+            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1.350 UR/sec</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *1,3) + (500* 7) = 4.150 UR/sec</p></td>
+            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4.150 UR/sec</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *10) + (100* 48) = 9.800 UR/sec</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9.800 UR/sec</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *10) + (500* 48) = 29.000 UR/sec</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29.000 UR/sec</p></td>
         </tr>
     </tbody>
 </table>
@@ -336,7 +336,7 @@ Con queste informazioni è possibile stimare i requisiti relativi alle unità ri
 | Leggere un documento |100 |100 |
 | Selezionare alimenti in base al produttore |25 |175 |
 | Selezionare per gruppo di alimenti |10 |700 |
-| Selezionare i primi 10 |15 |Totale&150; |
+| Selezionare i primi 10 |15 |Totale 150 |
 
 In questo caso, è previsto un requisito di velocità effettiva medio di 1.275 unità richiesta/secondo.  Arrotondando alle 100 più vicine, si dovrà effettuare il provisioning di 1.300 unità richiesta/secondo per la raccolta dell'applicazione.
 
