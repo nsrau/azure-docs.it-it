@@ -121,7 +121,7 @@ Usare una delle sezioni seguenti per eseguire la migrazione del sito.
 2. Creare un'app Web seguendo la procedura riportata nella sezione [Creare un sito WordPress](#Create-a-new-WordPress-site).
 3. Accedere al sito WordPress nel [portale di Azure][mgmtportal] e fare clic su **Plug-in** > **Aggiungi nuovo**. Cercare e installare il plug-in **WordPress Importer**.
 4. Dopo l'installazione del plug-in, fare clic su **Strumenti** > **Importa** e quindi selezionare **WordPress** per usare il plug-in WordPress Importer.
-5. Nella pagina ****per importare WordPress fare clic sull'opzione ****per scegliere il file. Passare al file WXR esportato dal sito WordPress esistente e quindi scegliere l'opzione per **caricare il file e importare**.
+5. Nella pagina per **importare WordPress** fare clic sull'opzione per **scegliere il file**. Passare al file WXR esportato dal sito WordPress esistente e quindi scegliere l'opzione per **caricare il file e importare**.
 6. Fare clic su **Submit**. Viene visualizzata la conferma della corretta esecuzione dell'importazione.
 7. Dopo aver completato tutti questi passaggi, riavviare il sito dal relativo pannello dei **Servizi app** nel [portale di Azure][mgmtportal].
 
