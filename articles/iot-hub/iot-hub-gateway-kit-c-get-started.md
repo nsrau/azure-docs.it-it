@@ -34,11 +34,11 @@ ms.lasthandoff: 01/25/2017
 Questa esercitazione illustra le nozioni di base sull'uso dello [starter kit del gateway IoT](https://aka.ms/gateway-kit). Si userà un dispositivo Intel NUC che esegue Wind River Linux e il [SensorTag di TI](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html#main) e si apprenderà come connettere con facilità i dispositivi al cloud usando l'hub IoT di Azure.
 
 ***
-**Non si dispone ancora di un kit? ** Fare clic [qui](https://aka.ms/gateway-kit). **Non si dispone di un SensorTag?** [Iniziare con un dispositivo simulato](iot-hub-gateway-kit-c-sim-get-started.md) o [acquistare un SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/?INTC=SensorTag&HQS=sensortag)
+**Non si dispone ancora di un kit?** Fare clic [qui](https://aka.ms/gateway-kit). **Non si dispone di un SensorTag?** [Iniziare con un dispositivo simulato](iot-hub-gateway-kit-c-sim-get-started.md) o [acquistare un SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/?INTC=SensorTag&HQS=sensortag)
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Lezione 1. Configurare il dispositivo NUC
-![Diagramma di flusso della lezione&1;](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
+![Diagramma di flusso della lezione 1](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
 
 Questa lezione illustra come configurare il dispositivo Intel NUC (Next Unit of Computing) nel kit come un gateway IoT di Azure, installare il pacchetto SDK del gateway IoT di Azure sul dispositivo NUC ed eseguire un'app di esempio per verificare la funzionalità del gateway.
 
@@ -47,7 +47,7 @@ Questa lezione illustra come configurare il dispositivo Intel NUC (Next Unit of 
 Passare a [Configurare il dispositivo Intel NUC come un gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Lezione 2. Creare l'hub IoT
-![Diagramma di flusso della lezione&2;](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
+![Diagramma di flusso della lezione 2](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
 
 Questa lezione illustra come installare gli strumenti e il software nel computer host. Verrà quindi indicato come creare l'account Azure gratuito, effettuare il provisioning dell'hub IoT di Azure e creare il primo dispositivo nell'hub IoT.
 
