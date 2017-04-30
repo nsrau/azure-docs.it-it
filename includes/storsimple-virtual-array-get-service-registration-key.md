@@ -5,7 +5,3 @@
 2.  Nel pannello aperto fare clic su **Gestisci &gt;** **chiavi**.
 
 3.  Fare clic sull'icona di copia per copiare la chiave di registrazione del servizio e salvarla per un utilizzo successivo.
-
-<!--HONumber=Nov16_HO4-->
-
-
