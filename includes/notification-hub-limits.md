@@ -7,8 +7,3 @@
 
 Per altre informazioni su questi limiti e per informazioni sui prezzi, vedere [Prezzi di Hub di notifica](https://azure.microsoft.com/pricing/details/notification-hubs/). 
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

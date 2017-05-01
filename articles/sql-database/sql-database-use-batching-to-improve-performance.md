@@ -16,18 +16,14 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 62e8e0299aff517f45c89349ed836ec8a6dabd2b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: b62097f945bc5c595c0893d16bb2c1d9bbfd7a07
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 Le operazioni di invio in batch al database SQL di Azure migliorano in modo significativo le prestazioni e la scalabilità delle applicazioni. Per comprendere i vantaggi, la prima parte di questo articolo descrive alcuni risultati dei test di esempio che confrontano le richieste sequenziali e in batch inviate a un database SQL. Il resto dell'articolo illustra le tecniche, gli scenari e le considerazioni che facilitano l'uso corretto dell'invio in batch nelle applicazioni Azure.
-
-**Autori**: Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
-
-**Revisori**: Conor Cunningham, Michael Thomassy
 
 ## <a name="why-is-batching-important-for-sql-database"></a>Perché l'invio in batch è importante per il database SQL?
 L'invio in batch di chiamate a un servizio remoto è una strategia nota per migliorare le prestazioni e la scalabilità. Ogni interazione con un servizio remoto, ad esempio la serializzazione, il trasferimento in rete e la deserializzazione, comporta costi fissi di elaborazione. Il raggruppamento di più transazioni distinte in un singolo batch consente di ridurre al minimo questi costi.
@@ -623,6 +619,6 @@ L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in 
 * Considerare il buffering in base a dimensioni e tempo come modalità di implementazione dell'invio in batch per più scenari.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi per migliorare le prestazioni e la scalabilità, vedere le [indicazioni sulle prestazioni del database SQL di Azure per i database singoli](sql-database-performance-guidance.md) e le [considerazioni su prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md).
+Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi per migliorare le prestazioni e la scalabilità, vedere le [indicazioni sulle prestazioni del database SQL di Azure per i database singoli](sql-database-performance-guidance.md) e le [considerazioni su prezzo e prestazioni per un pool elastico](sql-database-elastic-pool.md).
 
 

@@ -28,8 +28,3 @@ I limiti seguenti si applicano a ogni area di lavoro di Log Analytics:
 | API dell'Agente di raccolta dati | La dimensione massima per un singolo post è di 30 MB<br>La dimensione massima per i valori dei campi è di 32 KB | Dividere i volumi più grandi in più post<br>I campi con una lunghezza superiore a 32 KB vengono troncati. |
 | API di ricerca | 5000 record restituiti per i dati non aggregati<br>500000 record per i dati aggregati | I dati aggregati sono una ricerca che include il comando `measure`
  
-
-
-<!--HONumber=Feb17_HO3-->
-
-
