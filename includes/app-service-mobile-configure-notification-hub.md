@@ -9,8 +9,3 @@ A questo punto un hub di notifica è stato connesso al progetto di back-end dell
 
 [Portale di Azure]: https://portal.azure.com/
 [Hub di notifica di Azure]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
-
-
-<!--HONumber=Dec16_HO2-->
-
-

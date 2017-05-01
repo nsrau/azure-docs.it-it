@@ -12,8 +12,3 @@ Innanzitutto, √® necessario registrare l'app nel sito di un provider di identit√
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO2-->
-
-

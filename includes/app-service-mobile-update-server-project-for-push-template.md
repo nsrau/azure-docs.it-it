@@ -2,7 +2,7 @@ In questa sezione viene aggiornato il codice nel progetto di back-end dell'app p
 
 Scegliere una delle seguenti procedure che corrisponde al tipo di progetto di back-end&mdash;, che sia [ back-end .NET](#dotnet) o [back-end Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-back-end-project"></a><a name="dotnet"></a>Progetto di back-end .NET
+### <a name="dotnet"></a>Progetto di back-end .NET
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto server, quindi scegliere **Gestisci pacchetti NuGet**. Cercare `Microsoft.Azure.NotificationHubs`, quindi fare clic su **Installa**. Consente di installare la libreria di Hub di notifica per l'invio di notifiche dal back-end.
 2. Nel progetto server aprire **Controller** > **TodoItemController.cs** e quindi aggiungere le istruzioni using seguenti:
 
@@ -48,7 +48,7 @@ Scegliere una delle seguenti procedure che corrisponde al tipo di progetto di ba
     Ogni volta che viene inserito un nuovo elemento, viene inviata una notifica modello contenente l'elemento item.text.
 4. Pubblicare di nuovo il progetto server.
 
-### <a name="a-namenodejsanodejs-back-end-project"></a><a name="nodejs"></a>Progetto di back-end Node.js
+### <a name="nodejs"></a>Progetto di back-end Node.js
 1. Se ancora non è stato fatto, [scaricare il progetto di back-end di avvio rapido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) oppure usare l'[editor online del Portale di Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Sostituire il codice esistente nel file todoitem.js con il codice seguente:
 
@@ -93,8 +93,3 @@ Scegliere una delle seguenti procedure che corrisponde al tipo di progetto di ba
 
     Ogni volta che viene inserito un nuovo elemento, viene inviata una notifica modello contenente l'elemento item.text.
 3. Quando si modifica il file nel computer locale, ripubblicare il progetto server.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

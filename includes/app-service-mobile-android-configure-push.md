@@ -7,8 +7,3 @@ Il servizio è ora configurato per l'uso di Firebase Cloud Messaging.
 <!-- URLs. -->
 
 <!-- images -->
-
-
-<!--HONumber=Dec16_HO2-->
-
-
