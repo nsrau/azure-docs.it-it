@@ -35,7 +35,7 @@ Aprire altre porte per altri componenti in base alle esigenze. Per ulteriori inf
 3. Nel riquadro console fare clic su **Protocolli per MSSQLSERVER** (nome predefinito dell'istanza). Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **TCP** e quindi scegliere **Abilita** se l'opzione non è già abilitata.
    
     ![Abilitazione del protocollo TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. Nel riquadro console fare clic su **Servizi di SQL Server**. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **SQL Server (*nome istanza*)** (l'istanza predefinita è **SQL Server (MSSQLSERVER)**) e quindi scegliere **Riavvia** per arrestare e riavviare l'istanza di SQL Server.
+4. Nel riquadro console fare clic su **Servizi di SQL Server**. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **SQL Server (*nome istanza*) **(l'istanza predefinita è** SQL Server (MSSQLSERVER)**) e quindi scegliere** Riavvia** per arrestare e riavviare l'istanza di SQL Server.
    
     ![Riavvio del motore di database](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 5. Chiudere Gestione configurazione SQL Server.
@@ -93,9 +93,4 @@ Per connettersi al motore di database da un altro computer, configurare almeno u
 9. Fare clic su OK.
 
 Per ulteriori informazioni sugli account di accesso di SQL Server, vedere [Creazione di un account di accesso](http://msdn.microsoft.com/library/aa337562.aspx).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
