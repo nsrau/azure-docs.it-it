@@ -45,7 +45,7 @@ Per un confronto tra i servizi dell'hub IoT e di Hub eventi, vedere [Confronto t
 ## <a name="device-to-cloud-messages"></a>Messaggi da dispositivo a cloud
 I messaggi da dispositivo a cloud vengono inviati tramite un endpoint per il dispositivo (**/devices/{deviceId}/messages/events**). A quel punto le regole di routing reindirizzano i messaggi a uno degli endpoint di servizio nell'hub IoT. Le regole di routing usano le proprietà dei messaggi da dispositivo a cloud che passano nell'hub per determinare dove reindirizzarli. Per impostazione predefinita, i messaggi vengono reindirizzati all'endpoint per servizio predefinito (messages/events) compatibile con [Hub eventi][lnk-event-hubs]. È quindi possibile usare l'[integrazione standard di Hub eventi e gli SDK][lnk-compatible-endpoint] per ricevere i messaggi da dispositivo a cloud.
 
-L'hub IoT implementa la messaggistica da dispositivo a cloud usando un modello di messaggistica di flusso. I messaggi da dispositivo a cloud dell'hub IoT somigliano più a eventi di [Hub eventi][lnk-event-hubs]** che non a messaggi del [bus di servizio][lnk-servicebus]**, poiché è presente un volume elevato di eventi che passa nel servizio ed è leggibile da più lettori.
+L'hub IoT implementa la messaggistica da dispositivo a cloud usando un modello di messaggistica di flusso. I messaggi da dispositivo a cloud dell'hub IoT somigliano più a *eventi* di [Hub eventi][lnk-event-hubs] che non a *messaggi* del [bus di servizio][lnk-servicebus], poiché è presente un volume elevato di eventi che passa nel servizio ed è leggibile da più lettori.
 
 Questa implementazione presenta le implicazioni seguenti:
 
