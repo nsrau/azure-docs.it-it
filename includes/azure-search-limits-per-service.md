@@ -16,8 +16,3 @@ L'archiviazione è vincolata dallo spazio su disco o da un limite rigido al *num
 <sup>1</sup> Gli SKU gratuiti e in anteprima non includono Contratti di servizio. I contratti di servizio vengono applicati quando uno SKU è disponibile a livello generale.
 
 <sup>2</sup> Per S3 HD è previsto un limite rigido di 3 partizioni, inferiore al limite di partizioni per S3. Il limite minore di partizioni viene imposto perché il numero di indici per S3 HD è significativamente superiore. Dato che sono presenti limiti del servizio per entrambe le risorse di calcolo (archiviazione ed elaborazione) e per il contenuto (indici e documenti), il limite relativo al contenuto viene raggiunto per primo.
-
-
-<!--HONumber=Feb17_HO2-->
-
-
