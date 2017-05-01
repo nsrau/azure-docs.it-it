@@ -2,8 +2,3 @@
 
 Prima di implementare gli IP pubblici statici nelle VM, è necessario capire quando e come si possono usare gli IP pubblici statici. Leggere la [panoramica sugli indirizzi IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) per altre informazioni sull'indirizzamento IP in Azure.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

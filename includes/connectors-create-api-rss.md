@@ -12,8 +12,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account RS
 3. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Passaggio di creazione della connessione a RSS](./media/connectors-create-api-rss/rss-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

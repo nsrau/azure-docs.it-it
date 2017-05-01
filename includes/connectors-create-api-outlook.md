@@ -15,8 +15,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Ou
 4. Fornire le credenziali per Outlook ed eseguire l'accesso: ![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
    È tutto. A questo punto è stata creata una connessione a Outlook. Questa connessione potrà essere usata in qualsiasi altra app per la logica creata.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

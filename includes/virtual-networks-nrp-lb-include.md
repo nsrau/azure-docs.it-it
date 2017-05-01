@@ -189,8 +189,3 @@ Esempio di modello di bilanciamento del carico in formato Json:
 ### <a name="additional-resources"></a>Risorse aggiuntive
 Leggere [API REST di bilanciamento del carico](https://msdn.microsoft.com/library/azure/mt163651.aspx) per altre informazioni.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

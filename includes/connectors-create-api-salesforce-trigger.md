@@ -16,8 +16,3 @@ Questa procedura dettagliata descrive come utilizzare il trigger **Salesforce - 
 
 A questo punto, l'app per la logica è stata configurata con un trigger che avvierà l'esecuzione di altri trigger e altre azioni nel flusso di lavoro quando un nuovo elemento viene creato in Salesforce.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

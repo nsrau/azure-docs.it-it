@@ -24,7 +24,3 @@ Esistono diversi [SKU del gateway](../articles/expressroute/expressroute-about-v
 Usare il comando seguente per rimuovere un gateway
 
     Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
-
-<!--HONumber=Nov16_HO3-->
-
-

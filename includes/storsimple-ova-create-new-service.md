@@ -22,8 +22,3 @@
    
    Lo stato del servizio verrà modificato in **Attivo**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

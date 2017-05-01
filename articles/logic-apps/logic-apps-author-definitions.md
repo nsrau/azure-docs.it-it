@@ -295,7 +295,7 @@ Si vuole anche ottenere una sottostringa del nome dell'ordine, perché i primi c
       "defaultValue": {
         "quantity": 10,
         "id": "myorder1",
-        "orderer": "NAME=St�ph�n__�?�i?ian�"
+        "orderer": "NAME=Contoso"
       },
       "type": "Object"
     }

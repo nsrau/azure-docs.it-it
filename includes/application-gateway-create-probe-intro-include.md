@@ -2,8 +2,3 @@ I probe personalizzati consentono di disporre di un controllo più granulare sul
 
 Questo articolo illustrerà la creazione di un gateway applicazione con un probe personalizzato o l'aggiunta di un probe personalizzato a un gateway applicazione esistente. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

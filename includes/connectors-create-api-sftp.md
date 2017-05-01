@@ -12,8 +12,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account SF
 3. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Immagine di connessione online a SFTP 3](./media/connectors-create-api-sftp/sftp-3.png) 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
