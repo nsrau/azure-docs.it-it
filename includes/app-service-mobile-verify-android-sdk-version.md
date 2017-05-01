@@ -15,8 +15,3 @@ Se si manifesta uno di questi sintomi, la versione di Android SDK installata in 
 3. In Esplora progetti di Android Studio fare clic con il pulsante destro del mouse sul nodo del progetto, scegliere **Proprietà** e fare clic su **Android** nella colonna a sinistra. Assicurarsi che il valore di **Project Build Target** (Destinazione build progetto) sia impostato sulla stessa versione dell'SDK di **targetSdkVersion**.
 
 A differenza di quanto avviene in Eclipse, in Android Studio il file manifesto non consente di specificare l'SDK di destinazione e la versione minima dell'SDK.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

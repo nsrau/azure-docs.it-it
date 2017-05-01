@@ -94,8 +94,3 @@
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
     L'app è ora aggiornata per il supporto delle notifiche push.
-
-
-<!--HONumber=Dec16_HO2-->
-
-
