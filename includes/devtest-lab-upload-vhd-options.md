@@ -4,8 +4,3 @@ Per completare questa esercitazione è necessario un file VHD caricato nell'acco
 - [Caricare con l'utilità della riga di comando AzCopy](../articles/devtest-lab/devtest-lab-upload-vhd-using-azcopy.md)
 - [Caricare con Microsoft Azure Storage Explorer](../articles/devtest-lab/devtest-lab-upload-vhd-using-storage-explorer.md)
 - [Caricare con la console di PowerShell](../articles/devtest-lab/devtest-lab-upload-vhd-using-powershell.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
-

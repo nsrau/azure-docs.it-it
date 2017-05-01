@@ -17,8 +17,3 @@ Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere
 7. Nel campo **Porta privata** specificare la porta in ascolto di SQL Server che per impostazione predefinita è **1433**.
 8. Fare clic su **OK** per creare l'endpoint.
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-
