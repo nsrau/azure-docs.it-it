@@ -1,5 +1,5 @@
 ---
-title: Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni preintegrate in Azure Active Directory | Documentazione Microsoft
+title: Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni preintegrate in Azure Active Directory | Microsoft Docs
 description: Informazioni su come personalizzare le attestazioni rilasciate nel token SAML per le app preintegrate in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -15,23 +15,24 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: e9ab491639485950b17de4be190b6797c1660530
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d3952e65aaf3ca89f83e99409e196840dd692a01
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni preintegrate in Azure Active Directory
 Oggi Azure Active Directory supporta migliaia di applicazioni preintegrate nella raccolta della applicazioni di Azure AD, tra cui oltre 150 che supportano l’accesso single sign-on tramite il protocollo SAML 2.0. Quando un utente effettua l’autenticazione in un'applicazione tramite Azure AD utilizzando SAML, Azure AD invia un token all'applicazione (tramite un reindirizzamento HTTP 302) che l'applicazione convalida e utilizza per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente note come "attestazioni".
 
-Per quanto riguarda le identità, un’"attestazione" è un’insieme di informazioni relative ad un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. In un [token SAML](http://en.wikipedia.org/wiki/SAML_2.0), questi dati in genere sono contenuti nell'istruzione degli attributi del SAML e l'ID univoco dell'utente viene generalmente rappresentato nel soggetto del SAML.
+Per quanto riguarda le identità, un 'attestazione' è un insieme di informazioni relative a un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. In un [token SAML](http://en.wikipedia.org/wiki/SAML_2.0) questi dati in genere sono contenuti nell'istruzione di attributi SAML e l'ID univoco dell'utente viene in genere rappresentato nel soggetto SAML.
 
-Per impostazione predefinita, Azure AD emette per l’applicazione un token SAML che contiene un'attestazione NameIdentifier, con un valore nome utente dell'utente in Azure AD (questo valore identifica in modo univoco l'utente). Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell’utente.
+Per impostazione predefinita, Azure AD emette per l'applicazione un token SAML che contiene un'attestazione NameIdentifier, con un valore nome utente dell'utente in Azure AD (questo valore identifica in modo univoco l'utente). Il token SAML contiene inoltre altre attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
 
 Per visualizzare o modificare le attestazioni rilasciate nel token SAML per l'applicazione, aprire il record dell'applicazione nel portale di gestione di Azure e selezionare la scheda **Attributi** sotto l'applicazione.
 
 ![][1]
 
-Esistono due possibili motivi per i quali potrebbe essere necessario modificare le attestazioni rilasciate nel token SAML: •L’applicazione è stata scritta in modo da richiedere un diverso set di URI dell’attestazione o valori dell’attestazione •L’applicazione è stata distribuita in modo da richiedere un’attestazione NameIdentifier diversa dal nome utente (nome principale utente AKA) archiviato in Azure Active Directory. 
+Esistono due possibili motivi per i quali potrebbe essere necessario modificare le attestazioni rilasciate nel token SAML: 'L'applicazione è stata scritta in modo da richiedere un diverso set di URI dell'attestazione o valori dell'attestazione 'L'applicazione è stata distribuita in modo da richiedere un'attestazione NameIdentifier diversa dal nome utente (nome dell'entità utente) archiviato in Azure Active Directory. 
 
 È possibile modificare qualsiasi valore predefinito dell’attestazione selezionando l'icona a forma di matita visualizzata a destra, ogni volta che si sposta il mouse su una delle righe della tabella degli attributi token SAML. È possibile anche rimuovere attestazioni (ad eccezione di NameIdentifier) usando l'icona **X** e aggiungere nuove attestazioni tramite il pulsante **Aggiungi attributo utente**.
 
@@ -40,9 +41,9 @@ Per risolvere il problema relativo alla distribuzione dell'applicazione con un n
 
 ![][2]
 
-Nel menu **Valore attributo** selezionare **user.mail** per impostare l'attestazione NameIdentifier in modo che corrisponda all'indirizzo di posta elettronica dell'utente nella directory o selezionare **user.onpremisessamaccountname** per impostare il nome utente dell'account SAM che è stato sincronizzato da Azure AD in locale. 
+Nel menu **Valore attributo** selezionare **user.mail** per impostare l'attestazione NameIdentifier in modo che corrisponda all'indirizzo di posta elettronica dell'utente nella directory o selezionare **user.onpremisessamaccountname** per impostare il nome account SAM dell'utente che è stato sincronizzato da Azure AD in locale. 
 
-Inoltre, è possibile utilizzare la funzione specifica ExtractMailPrefix() per rimuovere il suffisso del dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente in modo che venga passata solo la prima parte del nome utente (ad esempio, "joesmith" invece di joesmith@contoso.com).
+Inoltre, è possibile usare la funzione speciale ExtractMailPrefix() per rimuovere il suffisso del dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente in modo che venga passata solo la prima parte del nome utente (ad esempio, 'joesmith' invece di joesmith@contoso.com).
 
 ![][3]
 
@@ -63,13 +64,7 @@ Se per un determinato utente non è stato archiviato alcun valore per un attribu
 * [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
-[2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png
-[3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
-[4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+[1]: ../media/active-directory-saml-claims-customization/claimscustomization1.png
+[2]: ../media/active-directory-saml-claims-customization/claimscustomization2.png
+[3]: ../media/active-directory-saml-claims-customization/claimscustomization3.png
+[4]: ../media/active-directory-saml-claims-customization/claimscustomization4.png
