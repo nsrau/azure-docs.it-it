@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/10/2017
 ms.author: haining;garye
 translationtype: Human Translation
-ms.sourcegitcommit: de2c4d3d354ef3665134302655f602b043aa8ab0
-ms.openlocfilehash: 106efcd5580f91d6d1ed926b19c142d8ea0b0c7c
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4ed387d9ef595312d4fcde78b2fdc3644e96ee27
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -58,7 +58,7 @@ No. Sono invitati a partecipare gli appassionati di analisi scientifica dei dati
 
 * **Sviluppatori di dati**, **data scientist** e **professionisti di analisi** e **business intelligence**: sono responsabili della produzione di dati e contenuti di analisi utilizzati da altri utenti
 * **Amministratori dei dati**: hanno informazioni relative ai dati, al significato dei dati, al metodo d'uso e allo scopo
-* **Studenti** e **ricercatori**: studiano e acquisiscono competenze relative ai dati attraverso programmi universitari oppure partecipano a corsi aperti online su larga scala (MOOC)
+* **Studenti**  &  **ricercatori**: studiano e acquisiscono competenze relative ai dati attraverso programmi universitari oppure partecipano a corsi aperti online su larga scala (MOOC)
 
 **È possibile iscriversi con i colleghi come team?**
 
