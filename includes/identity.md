@@ -11,7 +11,7 @@ In questo articolo vengono descritte queste tre opzioni.
 * [Uso di Azure Active Directory](#ad)
 * [Uso di Controllo di accesso di Azure Active Directory](#ac)
 
-## <a name="a-nameadinvmarunning-windows-server-active-directory-in-virtual-machines"></a><a name="adinvm"></a>Esecuzione di Windows Server Active Directory nelle macchine virtuali
+## <a name="adinvm"></a>Esecuzione di Windows Server Active Directory nelle macchine virtuali
 L'esecuzione di Windows Server AD nelle macchine virtuali di Azure è molto simile all'esecuzione in locale. [figura 1](#fig1) è mostrato un esempio tipico.
 
 ![Azure Active Directory in macchina virtuale](./media/identity/identity_01_ADinVM.png)
@@ -36,7 +36,7 @@ L'esecuzione di Windows Server AD nelle macchine virtuali di Azure può risultar
 
 Sono inoltre disponibili altre possibilità. Non è ad esempio necessario connettere Windows Server AD nel cloud a un data center locale. Per eseguire una farm SharePoint per servire un determinato set di utenti che possono eseguire l'accesso esclusivamente con identità basate sul cloud, sarebbe necessario creare una foresta autonoma in Azure. Il modo in cui si utilizza questa tecnologia dipende dagli obiettivi. Per informazioni dettagliate sull'utilizzo di Windows Server AD con Azure, [vedere qui](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
-## <a name="a-nameadausing-azure-active-directory"></a><a name="ad"></a>Uso di Azure Active Directory
+## <a name="ad"></a>Uso di Azure Active Directory
 L'aumento della diffusione delle applicazioni SaaS fa sorgere una domanda ovvia relativa al tipo di servizio directory che deve essere usato da queste applicazioni basate sul cloud. La risposta di Microsoft a questa domanda è Azure Active Directory.
 
 Sono disponibili due opzioni principali per l'utilizzo di questo servizio directory nel cloud:
@@ -73,7 +73,7 @@ Per utilizzare Azure AD, l'utente esegue innanzitutto l'accesso al proprio domin
 
 Attualmente, Azure AD non rappresenta un'alternativa completa rispetto a Windows Server AD locale. Come indicato in precedenza, la directory cloud presenta uno schema molto più semplice da cui mancano diversi elementi, ad esempio Criteri di gruppo, la possibilità di archiviare informazioni relative ai computer e il supporto per LDAP. Di fatto, non è possibile configurare un computer Windows per consentire agli utenti di eseguirvi l'accesso utilizzando solo Azure AD, in quanto non è uno scenario supportato. Tra gli obiettivi iniziali di Azure AD è inclusa la possibilità di consentire agli utenti aziendali di accedere alle applicazioni nel cloud senza mantenere un accesso separato in modo da evitare agli amministratori della directory locale di eseguire la sincronizzazione manuale della directory locale con ogni applicazione SaaS utilizzata dall'organizzazione. Nel tempo, è tuttavia previsto che il servizio directory cloud copra una più vasta gamma di scenari.
 
-## <a name="a-nameacausing-azure-active-directory-access-control"></a><a name="ac"></a>Uso di Controllo di accesso di Azure Active Directory
+## <a name="ac"></a>Uso di Controllo di accesso di Azure Active Directory
 Le tecnologie per la gestione delle identità basate sul cloud possono essere usate per risolvere diversi problemi. Azure Active Directory consente ad esempio di fornire agli utenti di un'organizzazione l'accesso Single Sign-On a più applicazioni SaaS. Le tecnologie di gestione dell'identità nel cloud possono inoltre essere utilizzate in altri modi.
 
 Si supponga ad esempio che un'applicazione desideri consentire agli utenti di accedere mediante token emessi da più *provider di identità*. Sono disponibili numerosi provider di identità, inclusi Facebook, Google, Microsoft e altri, e spesso le applicazioni consentono agli utenti di eseguire l'accesso mediante una di queste identità. Per quale motivo un'applicazione dovrebbe preoccuparsi di mantenere un proprio elenco di utenti e password quando può avvalersi di identità già esistenti? L'accettazione di identità esistenti semplifica le operazioni sia agli utenti che avranno così un nome utente e una password in meno da ricordare, sia a coloro che creano l'applicazione, in quanto non è più necessario mantenere un proprio elenco di nomi utente e password.
@@ -101,9 +101,4 @@ L'utilizzo delle identità è importante per la maggior parte delle applicazioni
 
 ## <a name="about-the-author"></a>Informazioni sull'autore
 David Chappell è il titolare della società Chappell & Associates ([www.davidchappell.com](http://www.davidchappell.com)) di San Francisco, California.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

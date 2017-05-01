@@ -32,8 +32,3 @@ No. Azure supporta un singolo record DNS inverso per ogni servizio cloud di Azur
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>È possibile inviare messaggi di posta elettronica a domini esterni dai servizi di calcolo di Azure?
 
 No. [servizi di calcolo di Azure non supportano l'invio di messaggi di posta elettronica a domini esterni](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

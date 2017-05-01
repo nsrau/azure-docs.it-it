@@ -9,8 +9,3 @@ La tabella seguente elenca i requisiti per i gateway VPN PolicyBased e RouteBase
 | **Numero massimo di connessioni Point-to-Site** |Non supportate |128 |128 |128 |
 | **Supporto routing attivo (BGP)** |Non supportate |Non supportate |Supportato |Supportato |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

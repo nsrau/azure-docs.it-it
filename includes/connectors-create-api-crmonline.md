@@ -16,8 +16,3 @@ Attenersi alla seguente procedura per autorizzare l'app per la logica a connette
 4. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica:  
    ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

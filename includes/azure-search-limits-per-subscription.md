@@ -15,8 +15,3 @@
 
 <sup>4</sup> Il livello Basic ha una partizione fissa. A questo livello vengono usate SU aggiuntive per l'allocazione di più repliche in caso di aumento dei carichi di lavoro di query.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

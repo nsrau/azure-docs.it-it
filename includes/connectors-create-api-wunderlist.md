@@ -16,8 +16,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Wu
 5. Selezionare infine il pulsante **Authorize** (Autorizza).  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

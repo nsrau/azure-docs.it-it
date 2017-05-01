@@ -66,8 +66,3 @@ Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispo
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Specificare la chiave DEK ottenuta nel [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio](#to-initiate-the-service-data-encryption-key-change).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

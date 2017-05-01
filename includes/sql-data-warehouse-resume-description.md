@@ -17,8 +17,3 @@ Quando si riattiva un database:
 * I dati saranno disponibili.
 * Sarà necessario riavviare le query del carico di lavoro.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

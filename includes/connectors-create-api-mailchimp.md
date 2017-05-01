@@ -14,8 +14,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Ma
 4. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Passaggio 4 MailChimp](./media/connectors-create-api-mailchimp/mailchimp-4.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

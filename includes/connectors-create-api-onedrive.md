@@ -19,8 +19,3 @@ Attenersi alla seguente procedura per autorizzare l'app per la logica a connette
 5. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica:  
    ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

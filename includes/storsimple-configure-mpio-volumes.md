@@ -6,8 +6,3 @@
     ![Proprietà MPIO Individua percorsi multipli](./media/storsimple-configure-mpio-volumes/IC741003.png)
 4. Riavviare il server quando richiesto.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

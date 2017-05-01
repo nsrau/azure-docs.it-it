@@ -75,8 +75,3 @@ Indirizzo IP pubblico di esempio in formato JSON:
 ### <a name="additional-resources"></a>Risorse aggiuntive
 * Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163579.aspx) per schede di interfaccia di rete.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
