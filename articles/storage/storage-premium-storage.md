@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: ramankum
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 25dc9c5778c8259b8e59a9695239d167ccb9582a
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1040027de1df88544bd7a0c4ba6565d5599a54ab
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -69,7 +69,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 * **Account di archiviazione Premium**
 
     Per iniziare a usare Archiviazione Premium, creare un account di archiviazione Premium per dischi non gestiti. Nel [portale di Azure](https://portal.azure.com), per creare un account di Archiviazione Premium, scegliere il livello di prestazioni **Premium**. Selezionare l'opzione di replica **Archiviazione con ridondanza locale**. È anche possibile creare un account di Archiviazione Premium impostando il tipo su **Premium_LRS** in uno dei seguenti percorsi:
-    * [API REST di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) (versione 2014-02-14 o versione successiva)
+    * [API REST di archiviazione](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (versione 2014-02-14 o versione successiva)
     * [API REST di gestione servizi](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versione 2014-10-01 o una versione successiva; per le distribuzioni di Azure classiche)
     * [API REST del provider delle risorse di archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp) (per le distribuzioni di Azure Resource Manager)
     * [Azure PowerShell](../powershell-install-configure.md) (versione 0.8.10 o successiva)
@@ -223,7 +223,7 @@ Per il servizio Archiviazione, il file VHD è un BLOB di pagine. È possibile cr
 
 Creare [snapshot incrementali](storage-incremental-snapshots.md) dei dischi Premium non gestiti nello stesso modo in cui si usano gli snapshot con Archiviazione Standard. Archiviazione Premium supporta solo l'archiviazione con ridondanza locale come opzione di replica. È consigliabile creare gli snapshot e quindi copiarli in un account di archiviazione Standard con ridondanza geografica. Per altre informazioni, vedere [Opzioni di ridondanza di Archiviazione di Azure](storage-redundancy.md).
 
-Se un disco è collegato a una VM, alcune operazioni API sul disco non sono consentite. Ad esempio, non è possibile eseguire un'operazione [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) sul BLOB finché il disco è collegato a una VM. Creare invece prima di tutto uno snapshot di quel BLOB usando l'API REST [BLOB di snapshot](/rest/api/storageservices/fileservices/Snapshot-Blob). Eseguire quindi [Copy BLOB](/rest/api/storageservices/fileservices/Copy-Blob) sullo snapshot per copiare il disco collegato. In alternativa è possibile scollegare il disco e quindi eseguire le operazioni necessarie.
+Se un disco è collegato a una VM, alcune operazioni API sul disco non sono consentite. Ad esempio, non è possibile eseguire un'operazione [Copy Blob](/rest/api/storageservices/Copy-Blob) sul BLOB finché il disco è collegato a una VM. Creare invece prima di tutto uno snapshot di quel BLOB usando l'API REST [BLOB di snapshot](/rest/api/storageservices/Snapshot-Blob). Eseguire quindi [Copy BLOB](/rest/api/storageservices/Copy-Blob) sullo snapshot per copiare il disco collegato. In alternativa è possibile scollegare il disco e quindi eseguire le operazioni necessarie.
 
 I limiti seguenti si applicano agli snapshot di BLOB di Archiviazione Premium:
 
@@ -233,7 +233,7 @@ I limiti seguenti si applicano agli snapshot di BLOB di Archiviazione Premium:
 | Capacità dell'account di archiviazione per gli snapshot<br>(Include i dati solo degli snapshot; non include i dati del BLOB di base.) | 10 TB |
 | Minimo tempo tra snapshot consecutivi | 10 minuti |
 
-Per conservare copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione Premium a un account di archiviazione Standard con ridondanza geografica mediante AzCopy o Copy Blob. Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob).
+Per conservare copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione Premium a un account di archiviazione Standard con ridondanza geografica mediante AzCopy o Copy Blob. Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
 Per informazioni dettagliate sull'esecuzione di operazioni REST sui BLOB di pagine negli account di archiviazione Premium, vedere [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969) (Uso delle operazioni del servizio BLOB con Archiviazione Premium di Azure).
 
@@ -294,7 +294,7 @@ Quando si usa Archiviazione Premium, tenere conto delle considerazioni seguenti 
 
 * **Snapshot dei dischi non gestiti Premium**
 
-    Gli snapshot sui dischi non gestiti Premium sono fatturati in base alla capacità aggiuntiva utilizzata dagli snapshot stessi. Per altre informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/fileservices/Snapshot-Blob).
+    Gli snapshot sui dischi non gestiti Premium sono fatturati in base alla capacità aggiuntiva utilizzata dagli snapshot stessi. Per altre informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/Snapshot-Blob).
 
 * **Snapshot dei dischi gestiti Premium**
 

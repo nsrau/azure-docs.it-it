@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3f473836959fbc5d336038a62a95df8db6b7eb7d
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 587a8e225b18ae2a07d766f1a0d75623e44aec9f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -91,7 +91,7 @@ SAP non esprime preferenze tra l'esecuzione del backup di HANA e lo snapshot di 
 
 In Azure, tenere in considerazione il fatto che la funzionalità dello snapshot del BLOB di Azure non garantisce coerenza dei file system. Vedere [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)(Uso degli snapshot BLOB con PowerShell). Nella sezione successiva, _Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione_, vengono presentate alcune considerazioni su questa funzionalità.
 
-È anche necessario comprendere le implicazioni di fatturazione quando si lavora spesso con gli snapshot del BLOB, come descritto in questo articolo: [Informazioni sull'incremento dei costi dovuto agli snapshot](/rest/api/storageservices/fileservices/understanding-how-snapshots-accrue-charges). Non è scontato come per l'uso dei dischi virtuali di Azure.
+È anche necessario comprendere le implicazioni di fatturazione quando si lavora spesso con gli snapshot del BLOB, come descritto in questo articolo: [Informazioni sull'incremento dei costi dovuto agli snapshot](/rest/api/storageservices/understanding-how-snapshots-accrue-charges). Non è scontato come per l'uso dei dischi virtuali di Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione
 
