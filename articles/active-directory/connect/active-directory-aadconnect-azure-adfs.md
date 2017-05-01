@@ -152,7 +152,7 @@ Al termine della distribuzione, il riquadro relativo alle macchine virtuali avrÃ
 Per distribuire un servizio di bilanciamento del carico interno, selezionare Servizi di bilanciamento del carico nel portale di Azure e fare clic su Aggiungi (+).
 
 > [!NOTE]
-> Se nel menu non viene visualizzato **Servizi di bilanciamento del carico** fare clic su **Esplora** in basso a sinistra nel portale e scorrere fino a visualizzare l'opzione****.  Fare quindi clic sulla stella gialla per aggiungere la voce al menu. Selezionare l'icona di nuovo servizio di bilanciamento del carico per aprire il pannello e iniziare la relativa configurazione.
+> Se nel menu non viene visualizzato **Servizi di bilanciamento del carico** fare clic su **Esplora** in basso a sinistra nel portale e scorrere fino a visualizzare **l'opzione**.  Fare quindi clic sulla stella gialla per aggiungere la voce al menu. Selezionare l'icona di nuovo servizio di bilanciamento del carico per aprire il pannello e iniziare la relativa configurazione.
 > 
 > 
 
