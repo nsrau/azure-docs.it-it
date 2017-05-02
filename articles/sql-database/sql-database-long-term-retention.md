@@ -17,9 +17,9 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 768a630e1652a48fa4478ec2c25173d536ea6c09
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 043a1779ac694b0b3cbb5f1fd00117f716583669
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -33,7 +33,10 @@ Molte applicazioni sono vincolate da ragioni normative, di conformità o altri s
 > [!NOTE]
 > È possibile abilitare fino a 200 database per ogni insieme di credenziali in un periodo di 24 ore. È pertanto consigliabile usare insiemi di credenziali separati per ogni server al fine di ridurre al minimo l'impatto di questo limite. 
 > 
-> 
+
+
+
+ 
 ## <a name="how-does-sql-database-long-term-backup-retention-work"></a>Funzionamento della conservazione a lungo termine dei backup del database SQL
 
 La conservazione a lungo termine dei backup consente di associare un server del database SQL di Azure a un insieme di credenziali di Servizi di ripristino di Azure. 
@@ -43,7 +46,7 @@ La conservazione a lungo termine dei backup consente di associare un server del 
 * Sarà quindi possibile ripristinare una copia di questi backup in un nuovo database in qualsiasi server nella sottoscrizione. La copia viene eseguita dal servizio di archiviazione di Azure partendo da backup esistenti e non ha alcun impatto sulle prestazioni del database esistente.
 
 > [!TIP]
-> Per un'esercitazione, vedere [Introduzione a Backup e ripristino per la protezione dei dati e il ripristino tramite il portale di Azure](sql-database-get-started-backup-recovery-portal.md) o [Introduzione a Backup e ripristino per la protezione dei dati e il ripristino con PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+> Per informazioni di guida, vedere [Configurare e ripristinare dalla conservazione dei backup a lungo termine del database SQL di Azure](sql-database-long-term-backup-retention-configure.md)
 
 ## <a name="how-do-i-enable-long-term-backup-retention"></a>Attivazione della conservazione dei backup a lungo termine
 
@@ -54,7 +57,13 @@ Per configurare la conservazione a lungo termine dei backup per un database:
 3. Creare un criterio di protezione per i servizi di ripristino di Azure
 4. Applicare il criterio di protezione ai database che richiedono la conservazione dei backup a lungo termine
 
-Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, vedere [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md) (Gestire la conservazione a lungo termine dei backup tramite il portale di Azure). Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite Powershell, vedere [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md) (Gestire la conservazione a lungo termine dei backup tramite PowerShell).
+### <a name="azure-portal"></a>Portale di Azure
+
+Per la configurazione, la gestione e il ripristino dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, fare clic su **Conservazione del backup a lungo termine**, selezionare un database e quindi fare clic su **Configura**. 
+
+   ![selezione del database per la conservazione backup a lungo termine](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
+
+Per la configurazione, la gestione e il ripristino dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite Powershell, vedere [Configurare e ripristinare dalla conservazione dei backup a lungo termine del database SQL di Azure](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="how-do-i-restore-a-database-stored-with-the-long-term-backup-retention-feature"></a>Come ripristinare un database archiviato con la funzionalità di conservazione dei backup a lungo termine
 
@@ -66,7 +75,7 @@ Per ripristinare un database da un backup di conservazione a lungo termine:
 4. Elencare i punti di ripristino disponibili per il ripristino
 5. Eseguire il ripristino dal punto di ripristino verso il server di destinazione all'interno della sottoscrizione
 
-Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, vedere [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md) (Gestire la conservazione a lungo termine dei backup tramite il portale di Azure). Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite Powershell, vedere [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md) (Gestire la conservazione a lungo termine dei backup tramite PowerShell).
+Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, vedere [Manage long-term backup retention usihg the Azure portal](sql-database-long-term-backup-retention-configure.md) (Gestire la conservazione a lungo termine dei backup tramite il portale di Azure). Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite Powershell, vedere [Manage long-term backup retention usihg PowerShell](sql-database-long-term-backup-retention-configure.md) (Gestire la conservazione a lungo termine dei backup tramite PowerShell).
 
 ## <a name="how-much-does-long-term-backup-retention-cost"></a>Costi della conservazione dei backup a lungo termine
 
@@ -76,7 +85,7 @@ Dopo che il server del database SQL di Azure viene registrato nell'insieme di cr
 
 ## <a name="view-available-backups-stored-in-long-term-backup-retention"></a>Visualizzare i backup disponibili archiviati nella conservazione dei backup a lungo termine
 
-Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, vedere [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md) (Gestire la conservazione a lungo termine dei backup tramite il portale di Azure). Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite Powershell, vedere [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md) (Gestire la conservazione a lungo termine dei backup tramite PowerShell).
+Per la configurazione, la gestione e il ripristino dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, vedere [Manage long-term backup retention usihg the Azure portal](sql-database-long-term-backup-retention-configure.md) (Gestire la conservazione a lungo termine dei backup tramite il portale di Azure). Per la configurazione, la gestione e il ripristino dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite Powershell, vedere [Manage long-term backup retention usihg PowerShell](sql-database-long-term-backup-retention-configure.md) (Gestire la conservazione a lungo termine dei backup tramite PowerShell).
 
 ## <a name="disabling-long-term-retention"></a>Disattivazione della conservazione a lungo termine
 
@@ -91,16 +100,15 @@ Il servizio di ripristino gestisce in automatico l'eliminazione dei backup in ba
 > [!NOTE]
 > I backup che si trovano già nell'insieme di credenziali non subiscono variazioni. I backup vengono automaticamente eliminati dal servizio di ripristino alla scadenza del periodo di conservazione.
 
-
 ## <a name="removing-long-term-backup-retention-backups-from-the-azure-recovery-services-vault"></a>Eliminazione dei backup con conservazione a lungo termine dall'insieme di credenziali di Servizi di ripristino di Azure
 
-Per rimuovere i backup con conservazione a lungo termine dall'insieme di credenziali, vedere [Delete long-term backup retention backups](sql-database-manage-long-term-backup-retention-powershell.md) (Eliminare i backup con conservazione a lungo termine)
+Per rimuovere i backup con conservazione a lungo termine dall'insieme di credenziali, vedere [Delete long-term backup retention backups](sql-database-long-term-backup-retention-configure.md) (Eliminare i backup con conservazione a lungo termine)
 
 ## <a name="long-term-backup-retention-faq"></a>Domande frequenti sulla conservazione del backup a lungo termine:
 
 1. D: È possibile eliminare manualmente backup specifici nell'insieme di credenziali?
 
-    R: Non in questo momento, ma l'insieme di credenziali pulisce automaticamente i backup quando il periodo di conservazione è scaduto.
+    R: No, per il momento. L'insieme di credenziali pulisce automaticamente i backup quando il periodo di conservazione è scaduto.
 2. D: È possibile registrare un server per archiviare backup di più di un insieme di credenziali?
 
     R: No, oggi è possibile archiviare solo i backup di un insieme di credenziali per volta.
@@ -136,11 +144,11 @@ Per rimuovere i backup con conservazione a lungo termine dall'insieme di credenz
     R: No, non attualmente.
 13. D: È possibile disporre di più pianificazioni (giornaliera, settimanale, mensile, annuale) in un criterio di conservazione SQL?
 
-    R: No, attualmente questa funzione è disponibile solo per il backup di macchine virtuali.
+    R: No, attualmente questa funzione è disponibile solo per i backup di macchine virtuali.
 14. D: Cosa accade se si imposta la conservazione dei backup a lungo termine in un database che è una replica geografica attiva secondaria?
 
     R: Attualmente non vengono eseguiti backup sulle repliche, e pertanto, non è possibile la conservazione dei backup a lungo termine nelle repliche secondarie. Tuttavia, è importante per un cliente impostare la conservazione dei backup a lungo termine in una replica geografica attiva secondaria per questi motivi:
-    - Quando si verifica un failover e il database diventa un database primario, viene eseguito un backup completo, il quale verrà caricato per l'insieme di credenziali.
+    - Quando si verifica un failover e il database diventa un database primario, viene eseguito un backup completo, che verrà caricato per l'insieme di credenziali.
     - L'impostazione della conservazione dei backup a lungo termine in un database secondario non prevede alcun costo aggiuntivo per il cliente.
 
 

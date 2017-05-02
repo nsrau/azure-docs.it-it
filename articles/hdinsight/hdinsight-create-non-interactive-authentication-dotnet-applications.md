@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a423975e8a091183154217678706817694f3e346
-ms.openlocfilehash: d5256250d6d3a6d7df3a90ae4a0801af131b830e
-ms.lasthandoff: 12/21/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 2b8638ffc3287346a71f591370367655c450e376
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -29,25 +29,25 @@ ms.lasthandoff: 12/21/2016
 Dall'applicazione .NET non interattiva, è necessario disporre degli elementi seguenti:
 
 * ID tenant della sottoscrizione di Azure, ovvero l'ID di directory. Vedere [Ottenere l'ID tenant](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* ID client dell'applicazione della directory di Azure. Vedere [Creare un'applicazione Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-active-directory-application) e [Ottenere un ID applicazione](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
-* Chiave privata dell'applicazione della directory di Azure. Vedere [Ottenere la chiave di autenticazione dell'applicazione](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* ID client dell'applicazione di Azure Active Directory. Vedere [Creare un'applicazione Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) e [Ottenere un ID applicazione](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* Chiave privata dell'applicazione di Azure Active Directory. Vedere [Ottenere la chiave di autenticazione dell'applicazione](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Cluster HDInsight. Vedere [Esercitazione introduttiva](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 
 
-## <a name="assign-ad-application-to-role"></a>Assegnare l'applicazione AD a un ruolo
+## <a name="assign-azure-ad-application-to-role"></a>Assegnare l'applicazione Azure AD a un ruolo
 È necessario assegnare l'applicazione a un [ruolo](../active-directory/role-based-access-built-in-roles.md) per concederle autorizzazioni per l'esecuzione di azioni. È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Se ad esempio si aggiunge un'applicazione al ruolo Lettore per un gruppo di risorse, l'applicazione è in grado di leggere il gruppo di risorse e le risorse in esso contenute. In questa esercitazione verrà impostato l'ambito a livello di gruppo di risorse. Per altre informazioni, vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md)
 
-**Per aggiungere il ruolo Proprietario all'applicazione AD**
+**Per aggiungere il ruolo Proprietario all'applicazione Azure AD**
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Gruppo di risorse** nel pannello di sinistra.
 3. Fare clic sul gruppo di risorse contenente il cluster HDInsight in cui verrà eseguita la query Hive più avanti in questa esercitazione. Se è presente un numero eccessivo di gruppi di risorse, è possibile usare il filtro.
 4. Scegliere **Controllo di accesso (IAM)** dal menu del gruppo di risorse.
 5. Fare clic su **Aggiungi** nel pannello **Utenti**.
-6. Seguire le istruzioni per aggiungere il ruolo **Proprietario** all'applicazione AD creata nella procedura precedente. Al termine, l'applicazione verrà visualizzata nel pannello Utenti con il ruolo Proprietario.
+6. Seguire le istruzioni per aggiungere il ruolo **Proprietario** all'applicazione Azure AD creata nella procedura precedente. Al termine, l'applicazione verrà visualizzata nel pannello Utenti con il ruolo Proprietario.
 
 ## <a name="develop-hdinsight-client-application"></a>Sviluppare l'applicazione client HDInsight
 
@@ -125,7 +125,7 @@ Dall'applicazione .NET non interattiva, è necessario disporre degli elementi se
         }
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [Creare un'applicazione e un'entità servizio di Azure Active Directory tramite il portale](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Autenticazione di un'entità servizio con Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
 

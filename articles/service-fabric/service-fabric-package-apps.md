@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 45bf19b4c8406cfc09624bef2b9c0f1c443d8fd6
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: bc87185c56b2dc45f041136474b9fb1bf6afebc3
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
-In questo articolo viene descritto come inserire un'applicazione Service Fabric in un pacchetto e prepararla per la distribuzione.
+L'articolo descrive come inserire un'applicazione di Service Fabric in un pacchetto e prepararla per la distribuzione.
 
 ## <a name="package-layout"></a>Layout del pacchetto
 Il manifesto dell'applicazione, i manifesti dei servizi e gli altri file del pacchetto necessari devono essere organizzati in un layout specifico per la distribuzione in un cluster di Service Fabric. I manifesti di esempio di questo articolo dovrebbero essere organizzati nella struttura di directory seguente:
@@ -64,7 +64,7 @@ Per creare un pacchetto, fare clic con il pulsante destro sul progetto dell'appl
 
 ![Inserire un'applicazione in un pacchetto con Visual Studio][vs-package-command]
 
-Dopo aver completato la creazione del pacchetto, ne verrà indicata la posizione nella finestra **Output** . Si noti che il passaggio di creazione del pacchetto viene eseguito automaticamente con la distribuzione o il debug di un'applicazione in Visual Studio.
+Dopo avere completato la creazione del pacchetto, è possibile vedere la posizione del pacchetto nella finestra **Output** . Il passaggio di creazione del pacchetto viene eseguito automaticamente con la distribuzione o il debug di un'applicazione in Visual Studio.
 
 ### <a name="build-a-package-by-command-line"></a>Creare un pacchetto dalla riga di comando
 È anche possibile creare un pacchetto dell'applicazione a livello di codice usando `msbuild.exe`. Si tratta dell'operazione eseguita da Visual Studio, pertanto l'output è lo stesso.
@@ -169,8 +169,9 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 ```
 
 Internamente, Service Fabric calcola i checksum per la convalida dei pacchetti dell'applicazione. Quando si usa la compressione, i checksum vengono calcolati nelle versioni compresse di ciascun pacchetto.
-Se è stata copiata una versione non compressa del pacchetto dell'applicazione e si desidera usare la compressione per il medesimo pacchetto, è necessario modificare la versione del manifesto dell'applicazione per evitare la mancata corrispondenza del checksum.
-Analogamente, se è stata caricata una versione compressa del pacchetto, è necessario aggiornare la versione del manifesto dell'applicazione per usare un pacchetto non compresso.
+Se è stata copiata una versione non compressa del pacchetto dell'applicazione e si desidera usare la compressione per il medesimo pacchetto, è necessario modificare la versione dei pacchetti `code`, `config` e `data` per evitare la mancata corrispondenza del checksum. Se i pacchetti rimangono invariati, anziché cambiare la versione, è possibile usare [diff provisioning](service-fabric-application-upgrade-advanced.md). Con questa opzione non si include il pacchetto invariato ma si fa solo riferimento a esso dal manifesto del servizio.
+
+Analogamente, se è stata caricata una versione compressa del pacchetto e si vuole usare un pacchetto non compresso, è necessario aggiornare la versione per evitare la mancata corrispondenza del checksum.
 
 Il pacchetto è ora corretto, convalidato e compresso (se necessario). Pertanto, è pronto per la [distribuzione](service-fabric-deploy-remove-applications.md) in uno o più cluster di Service Fabric.
 

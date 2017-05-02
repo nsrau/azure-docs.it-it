@@ -1,6 +1,6 @@
 ---
 title: Modificare le impostazioni di FabricTransport nei microservizi di Azure | Documentazione Microsoft
-description: Informazioni sulla configurazione delle impostazioni di comunicazione di Azure Service Fabric Actors.
+description: Informazioni sulla configurazione delle impostazioni di comunicazione degli attori di Service Fabric di Azure.
 services: Service-Fabric
 documentationcenter: .net
 author: suchiagicha
@@ -15,41 +15,48 @@ ms.workload: NA
 ms.date: 11/22/2016
 ms.author: suchia
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 6041541903d4d90710817149be50e05e31fd88f1
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 4cbca6e496135a312bf4704dd0989f45dcccfc00
+ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="configuring-fabrictransport-settings-for-reliable-actors"></a>Configurazione delle impostazioni di FabricTransport per Reliable Actors
+# <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurare le impostazioni di FabricTransport per Reliable Actors
 
-Di seguito sono elencate le impostazioni configurabili dall'utente in [FabrictTansportSettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)
+Ecco le impostazioni che possono essere configurate:
+
+- C#: [FabricTansportSettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)
+- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 È possibile modificare la configurazione predefinita di FabricTransport nei modi seguenti.
 
-1.  Uso dell'attributo dell'assembly [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute).
+## <a name="assembly-attribute"></a>Attributo assembly
 
-  Questo attributo deve essere applicato nel client Actor e nell'assembly del servizio Actor.
-  L'esempio seguente illustra come modificare il valore delle impostazioni OperationTimeout di FabricTransport.
+L'attributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) deve essere applicato negli assembly del client attore e del servizio attore.
+
+L'esempio seguente illustra come modificare il valore predefinito delle impostazioni OperationTimeout di FabricTransport:
 
   ```csharp
-     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
+    using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-   Il secondo esempio modifica i valori di MaxMessageSize e OperationTimeoutInSeconds di FabricTransport.
+L'esempio seguente illustra come modificare i valori predefiniti delle impostazioni MaxMessageSize e OperationTimeoutInSeconds di FabricTransport:
 
-    ```csharp
+  ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
-    ```
+   ```
 
-2. Uso di un [pacchetto di configurazione](service-fabric-application-model.md):
+## <a name="config-package"></a>Pacchetto di configurazione
 
-  * Configurazione delle impostazioni di FabricTransport per il servizio Actor
+È possibile usare un [pacchetto di configurazione](service-fabric-application-model.md) per modificare la configurazione predefinita.
 
-    Aggiungere una sezione TransportSettings nel file settings.xml.
+### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Configurare le impostazioni di FabricTransport per il servizio attore
 
-    * Nome sezione: per impostazione predefinita, il codice Actor cerca il nome sezione "&lt;NomeActor&gt;TransportSettings". Se non viene trovato, cerca il nome sezione "TransportSettings".
+Aggiungere una sezione TransportSettings nel file settings.xml.
+
+Per impostazione predefinita, il codice attore cerca il nome sezione "&lt;ActorName&gt;TransportSettings". Se non viene trovato, cerca il SectionName "TransportSettings".
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -65,9 +72,9 @@ Di seguito sono elencate le impostazioni configurabili dall'utente in [FabrictTa
    </Section>
   ```
 
-  * Configurazione delle impostazioni di FabricTransport per l'assembly del client Actor
+### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Configurare le impostazioni di FabricTransport per l'assembly del client attore
 
-    Se il client non è in esecuzione come parte di un servizio, è possibile creare un file XML "&lt;Nome EXE client&gt;.settings.xml" nello stesso percorso in cui si trova il file EXE client. Aggiungere quindi una sezione TransportSettings in tale file. Il nome sezione deve essere "TransportSettings".
+Se il client non è in esecuzione come parte di un servizio, è possibile creare un file XML "&lt;Nome EXE client&gt;.settings.xml" nello stesso percorso in cui si trova il file client .exe. Aggiungere quindi una sezione TransportSettings in tale file. SectionName deve essere "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -85,9 +92,4 @@ Di seguito sono elencate le impostazioni configurabili dall'utente in [FabrictTa
     </Section>
   </Settings>
    ```
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

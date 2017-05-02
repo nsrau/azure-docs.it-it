@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ffcf0f0aa80f0a6b65cbef65e361e4830fcca3ff
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 7ab1d760d26aac7fc185b0e9f5e4a7a47cc2eee5
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -29,7 +29,7 @@ Questo argomento illustra come creare e gestire [pool elastici](sql-database-ela
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## <a name="create-an-elastic-pool"></a>Creare un pool elastico
-Il cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) crea un pool elastico. I valori per eDTU per pool, DTU min e max sono vincolati dal valore del livello di servizio (Basic, Standard o Premium). Vedere [Limiti di archiviazione e di eDTU per pool elastici e database in pool](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+Il cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) crea un pool elastico. I valori per eDTU per pool, DTU min e max sono vincolati dal valore del livello di servizio (Basic, Standard, Premium o Premium RS). Vedere [Limiti di archiviazione e di eDTU per pool elastici e database in pool](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
@@ -111,7 +111,7 @@ Per recuperare le metriche:
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")  
 
 ## <a name="get-resource-usage-data-for-a-database-in-an-elastic-pool"></a>Ottenere i dati di utilizzo delle risorse per un database in un pool elastico
-Queste API sono le stesse API correnti (V12) usate per monitorare l'utilizzo delle risorse di un database singolo, tranne per la differenza semantica seguente: le metriche recuperate sono espresse in percentuale del numero massimo di eDTU per database (o di un limite equivalente per la metrica sottostante, ad esempio CPU o I/O) impostato per il pool. Ad esempio, l'utilizzo del 50% di una di queste metriche indica che il consumo di risorse specifico si trova al 50% del limite di utilizzo per database per quella risorsa nel pool padre.
+Queste API sono le stesse API usate per monitorare l'utilizzo delle risorse di un database singolo, tranne per la differenza semantica seguente: le metriche recuperate sono espresse in percentuale del numero massimo di eDTU per database (o di un limite equivalente per la metrica sottostante, ad esempio CPU o I/O) impostato per il pool. Ad esempio, l'utilizzo del 50% di una di queste metriche indica che il consumo di risorse specifico si trova al 50% del limite di utilizzo per database per quella risorsa nel pool padre.
 
 Per recuperare le metriche:
 

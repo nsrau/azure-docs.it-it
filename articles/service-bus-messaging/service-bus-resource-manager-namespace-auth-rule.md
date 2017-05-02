@@ -1,5 +1,5 @@
 ---
-title: Creare una regola di autorizzazione del bus di servizio tramite un modello | Documentazione Microsoft
+title: Creare una regola di autorizzazione del bus di servizio usando un modello di Azure Resource Manager | Documentazione Microsoft
 description: Creare una regola di autorizzazione del bus di servizio per spazio dei nomi e coda usando un modello di Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 04/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 65693a99ee3458deb15d0e41187ef3babd76e5c1
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: e62ff884e5e48f8cc542cd85a750fc857302c6b4
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creare una regola di autorizzazione del bus di servizio per spazio dei nomi e coda usando un modello di Azure Resource Manager.
+
 Questo articolo illustra come usare un modello di Azure Resource Manager per creare una [regola di autorizzazione](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) per uno spazio dei nomi e una coda del bus di servizio. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
 Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
@@ -42,13 +44,14 @@ Per il modello completo, vedere il [modello della regola di autorizzazione del b
 ## <a name="what-will-you-deploy"></a>Distribuzione
 Questo modello consente di distribuire una regola di autorizzazione del bus di servizio per uno spazio dei nomi e un'identità di messaggistica (in questo caso, una coda).
 
-Questo modello usa la [firma di accesso condiviso (SAS, Shared Access Signature)](service-bus-sas-overview.md) per l'autenticazione. La firma di accesso condiviso consente alle applicazione di eseguire l'autenticazione al bus di servizio usando una chiave di accesso configurata nello spazio dei nomi o nell'entità di messaggistica, ad esempio coda o argomento, a cui sono associati diritti specifici. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso di cui possono avvalersi i client per eseguire l'autenticazione al bus di servizio.
+Questo modello usa la [firma di accesso condiviso (SAS, Shared Access Signature)](service-bus-sas.md) per l'autenticazione. La firma di accesso condiviso consente alle applicazione di eseguire l'autenticazione al bus di servizio usando una chiave di accesso configurata nello spazio dei nomi o nell'entità di messaggistica, ad esempio coda o argomento, a cui sono associati diritti specifici. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso di cui possono avvalersi i client per eseguire l'autenticazione al bus di servizio.
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 [![Distribuzione in Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
+
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
 Il modello definisce i parametri seguenti.
@@ -170,9 +173,4 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Service Bus auth rule template]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

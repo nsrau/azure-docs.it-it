@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: f08fc1df10506dead5d049fb2c6cdc29c8f89d90
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: c0eda3f6648c085a7328c6271ed36eafde5ff142
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/17/2016
 Gli argomenti di tutti i metodi, i tipi di risultati delle attività restituiti da ogni metodo in un'interfaccia attore e gli oggetti archiviati nel gestore di stato di un attore devono essere [serializzabili in base al contratto dati](https://msdn.microsoft.com/library/ms731923.aspx). Questo vale anche per gli argomenti dei metodi definiti nelle [interfacce degli eventi dell'attore](service-fabric-reliable-actors-events.md). I metodi di interfaccia degli eventi dell'attore restituiscono sempre un valore void.
 
 ## <a name="custom-data-types"></a>Tipi di dati personalizzati
-In questo esempio l'interfaccia attore seguente definisce un metodo che restituisce un tipo di dati personalizzato denominato `VoicemailBox`.
+In questo esempio l'interfaccia attore seguente definisce un metodo che restituisce un tipo di dati personalizzato denominato `VoicemailBox`:
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -41,7 +41,7 @@ public interface VoiceMailBoxActor extends Actor
 }
 ```
 
-L'interfaccia è implementata da un attore, che usa il gestore di stato per archiviare un oggetto `VoicemailBox` :
+L'interfaccia è implementata da un attore, che usa il gestore di stato per archiviare un oggetto `VoicemailBox`:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -82,7 +82,7 @@ In questo esempio l'oggetto `VoicemailBox` viene serializzato quando:
 * L'oggetto viene trasmesso tra un'istanza di un attore e un chiamante.
 * L'oggetto viene salvato nel gestore di stato in cui viene reso persistente sul disco e replicato in altri nodi.
 
-Il framework Reliable Actors usa la serializzazione di DataContract. Gli oggetti dati personalizzati e i relativi membri devono quindi essere annotati con gli attributi **DataContract** e **DataMember** rispettivamente
+Il framework Reliable Actors usa la serializzazione di DataContract. Gli oggetti dati personalizzati e i relativi membri devono quindi essere annotati con gli attributi **DataContract** e **DataMember** rispettivamente.
 
 ```csharp
 [DataContract]

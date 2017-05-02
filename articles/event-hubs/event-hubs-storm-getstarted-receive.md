@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: 8db864801042170fcad947d5b40220eea9c1c307
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 35bf064fdf2a766b8f699bed5c32d30c6c4dcd3c
+ms.lasthandoff: 04/18/2017
 
 ---
 
-## <a name="receive-events-from-azure-event-hubs-using-apache-storm"></a>Ricevere eventi da Hub eventi di Azure usando Apache Storm
+# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ricevere eventi da Hub eventi di Azure usando Apache Storm
 [Apache Storm](https://storm.incubator.apache.org) è un sistema distribuito di calcolo in tempo reale che semplifica l'elaborazione affidabile di flussi di dati non associati. Questa sezione illustra come usare uno Storm Spout di Hub eventi per ricevere eventi da Hub eventi stesso. Usando Apache Storm, è possibile dividere gli eventi tra più processi ospitati in nodi diversi. L'integrazione di Hub eventi con Storm semplifica l'uso degli eventi eseguendo il checkpoint trasparente dello stato di avanzamento grazie all'installazione di Zookeeper di Storm e alla gestione dei checkpoint persistenti e delle ricezioni parallele dagli hub eventi.
 
 Per altre informazioni sui modelli di ricezione di Hub eventi, vedere [Panoramica di Hub eventi][Event Hubs overview].
@@ -236,7 +237,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm] 
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
+* [Creare un hub eventi](event-hubs-create.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 <!-- Links -->
@@ -247,8 +248,4 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 <!-- Images -->
 
 [12]: ./media/event-hubs-get-started-receive-storm/create-storm1.png
-
-
-<!--HONumber=Feb17_HO1-->
-
 

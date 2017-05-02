@@ -1,6 +1,6 @@
 ---
-title: Creare un Hub eventi di Azure | Microsoft Docs
-description: Creare uno spazio dei nomi di Hub eventi di Azure e un Hub eventi usando il Portale di Azure
+title: Creare un hub eventi di Azure | Documentazione Microsoft
+description: Creare uno spazio dei nomi di Hub eventi di Azure e un hub eventi usando il Portale di Azure
 services: event-hubs
 documentationcenter: na
 author: jtaubensee
@@ -15,12 +15,13 @@ ms.workload: na
 ms.date: 01/25/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 23df3a3a11d8f065d6ce2a4f14ba175d6c781ee9
+ms.lasthandoff: 04/18/2017
 
 ---
 
-# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Creare uno spazio dei nomi di Hub eventi e un Hub eventi usando il Portale di Azure
+# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure
 
 ## <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
 1. Accedere al [portale di Azure][Azure portal] e fare clic su **Nuovo** nella parte superiore sinistra della schermata.
@@ -49,13 +50,13 @@ ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
     ![](./media/event-hubs-create/create-event-hub5.png)
 1. Nell'elenco degli hub eventi fare clic sul nome dell'hub eventi appena creato. 
     
-     ![](./media/event-hubs-create/create-event-hub6.png)
+    ![](./media/event-hubs-create/create-event-hub6.png)
 1. Nel pannello dello spazio dei nomi (non in quello dello specifico hub eventi) fare clic su **Criteri di accesso condivisi** e quindi su **RootManageSharedAccessKey**.
     
-     ![](./media/event-hubs-create/create-event-hub7.png)
+    ![](./media/event-hubs-create/create-event-hub7.png)
 1. Fare clic sul pulsante di copia per copiare la stringa di connessione **RootManageSharedAccessKey** negli Appunti. Salvare questa stringa di connessione per usarla più avanti nell'esercitazione.
     
-     ![](./media/event-hubs-create/create-event-hub8.png)
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 L'hub eventi è stato creato e sono disponibili le stringhe di connessione necessarie per inviare e ricevere eventi.
 
@@ -66,8 +67,3 @@ Per altre informazioni sugli Hub eventi, visitare i collegamenti seguenti:
 * [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.com/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 164f3affdf0622653a0a7dcc2a5e886ab855ced1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: dab476db32b2274049140144847fba24b55856b0
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -63,16 +63,11 @@ Per ripristinare la disponibilità dei database è necessario avviare il failove
 Per eseguire il failover in un database secondario con replica geografica, seguire una di queste procedure:
 
 * [Failover in un database secondario con replica geografica tramite il portale di Azure](sql-database-geo-replication-portal.md)
-* [Failover in un database secondario con replica geografica tramite PowerShell](sql-database-geo-replication-powershell.md)
+* [Failover in un database secondario con replica geografica tramite PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 * [Failover in un database secondario con replica geografica tramite T-SQL](sql-database-geo-replication-transact-sql.md)
 
 ## <a name="recover-using-geo-restore"></a>Ripristino tramite il ripristino geografico
-Se i tempi di inattività dell'applicazione non comportano una responsabilità aziendale è possibile usare il ripristino geografico come metodo per il ripristino dei database dell'applicazione. Questo metodo crea una copia del database dal backup con ridondanza geografica più recente.
-
-Per eseguire il ripristino geografico un database in una nuova area, seguire una di queste procedure:
-
-* [Ripristino geografico di un database in una nuova area tramite il portale di Azure](sql-database-geo-restore-portal.md)
-* [Ripristino geografico di un database in una nuova area tramite PowerShell](sql-database-geo-restore-powershell.md)
+Se i tempi di inattività dell'applicazione non comportano una responsabilità aziendale è possibile usare il [ripristino geografico](sql-database-recovery-using-backups.md) come metodo per il ripristino dei database dell'applicazione. Questo metodo crea una copia del database dal backup con ridondanza geografica più recente.
 
 ## <a name="configure-your-database-after-recovery"></a>Configurare il database dopo il ripristino
 Se si esegue il ripristino da un'interruzione del servizio usando il failover con replica geografica o il ripristino geografico, è necessario assicurarsi che la connettività ai nuovi database sia configurata correttamente per poter riprendere il normale funzionamento dell'applicazione. Di seguito è riportato un elenco di controllo di attività per fare in modo che il database ripristinato sia pronto per la produzione.

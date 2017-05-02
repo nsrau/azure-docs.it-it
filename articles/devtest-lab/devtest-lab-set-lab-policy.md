@@ -16,9 +16,9 @@ ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 799bacdac6ff49cb6fa38cd208318673629d4035
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: e8452e272916222679dd5e411b5f8732d3e8059b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -99,6 +99,9 @@ I criteri di avvio automatico consentono di specificare l'ora in cui devono esse
 4. Selezionare **Salva**.
 
     Dopo l'abilitazione, questi criteri non vengono applicati automaticamente alle VM del lab corrente. Per applicare questa impostazione a una VM specifica, aprire il pannello della VM e modificare l'impostazione **Avvio automatico** . 
+
+## <a name="set-expiration-date"></a>Impostare la data di scadenza
+È possibile impostare una data di scadenza quando si [crea la macchina virtuale](devtest-lab-add-vm.md). In **Impostazioni avanzate** scegliere l'icona del calendario per specificare una data in cui la macchina virtuale verrà eliminata automaticamente.  Per impostazione predefinita, la macchina virtuale non scadrà.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

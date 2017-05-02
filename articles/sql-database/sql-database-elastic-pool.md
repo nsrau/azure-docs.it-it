@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 06a67e4d2134baf54e88708d64981b897ecb74a0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 7490fe7261c760f2945d67a7f819091fd69b04f8
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -55,13 +55,13 @@ A ogni pool viene assegnato un determinato numero di eDTU a un prezzo specifico.
 ## <a name="which-databases-go-in-a-pool"></a>Scelta dei database da inserire in un pool
 ![Database SQL che condividono eDTU in un pool elastico.][1]
 
-I database che sono ottimi candidati per i pool elastici sono in genere caratterizzati da periodi di attività e da periodi di inattività. Nell'esempio sopra riportato è possibile visualizzare l'attività di un database singolo, di 4 database e infine di un pool elastico con 20 database. I database con livelli di attività variabili nel corso del tempo sono ottimi candidati per i pool elastici in quanto non sono tutti attivi nello stesso momento e possono condividere gli eDTU. Non tutti i database seguono questo modello. I database che hanno una richiesta di risorse più costante sono più indicati per i livelli di servizio Basic, Standard e Premium, nei quali le risorse vengono assegnate singolarmente.
+I database che sono ottimi candidati per i pool elastici sono in genere caratterizzati da periodi di attività e da periodi di inattività. Nell'esempio sopra riportato è possibile visualizzare l'attività di un database singolo, di 4 database e infine di un pool elastico con 20 database. I database con livelli di attività variabili nel corso del tempo sono ottimi candidati per i pool elastici in quanto non sono tutti attivi nello stesso momento e possono condividere gli eDTU. Non tutti i database seguono questo modello. I database che hanno una richiesta di risorse più costante sono più indicati per i livelli di servizio Basic, Standard, Premium e Premium RS, nei quali le risorse vengono assegnate singolarmente.
 
 [Considerazioni di prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md).
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools"></a>Limiti di archiviazione e di eDTU per i pool elastici
 
-La tabella seguente descrive le caratteristiche dei pool elastici Basic, Standard e Premium.
+La tabella seguente descrive le caratteristiche dei pool elastici Basic, Standard, Premium e Premium RS.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -74,7 +74,7 @@ Le tabelle seguenti descrivono i limiti per i pool elastici e i database in pool
 ### <a name="limits-for-elastic-pools"></a>Limiti per i pool elastici
 | Proprietà | Descrizione |
 |:--- |:--- |
-| Livello di servizio |Basic, Standard o Premium. Il livello di servizio determina l'intervallo relativo ai limiti di archiviazione e di prestazioni configurabili nonché le opzioni di continuità aziendale. Ogni database all'interno di un pool ha lo stesso livello di servizio del pool. Il "livello di servizio" è detto anche "edizione". |
+| Livello di servizio |Basic, Standard, Premium o Premium RS. Il livello di servizio determina l'intervallo relativo ai limiti di archiviazione e di prestazioni configurabili nonché le opzioni di continuità aziendale. Ogni database all'interno di un pool ha lo stesso livello di servizio del pool. Il "livello di servizio" è detto anche "edizione". |
 | eDTU per pool |Numero massimo di eDTU condivisibile dai database nel pool. In numero totale di eDTU usate dai database nel pool nello stesso momento non può superare questo limite. |
 | Spazio di archiviazione massimo per pool (GB) |Quantità massima di spazio di archiviazione in GB condivisibile dai database nel pool. La quantità totale di spazio di archiviazione usato da tutti i database nel pool non può superare questo limite, che è determinato dal numero di eDTU per pool. Se il limite viene superato, tutti i database diventano di sola lettura. Lo spazio di archiviazione massimo per pool indica lo spazio di archiviazione massimo per i file di dati nel pool e non include lo spazio usato dai file di log. |
 | Numero massimo di database per pool |Il numero massimo di database consentiti per pool. |
@@ -106,7 +106,7 @@ Il ripristino temporizzato usa i backup automatici del database per ripristinare
 Il ripristino geografico fornisce un'opzione predefinita di ripristino quando un database non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md)
 
 ### <a name="active-geo-replication"></a>Replica geografica attiva
-Per le applicazioni che hanno requisiti di ripristino più rigorosi rispetto alle possibilità del ripristino geografico, configurare la replica geografica attiva usando il [portale di Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) o [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+Per le applicazioni che hanno requisiti di ripristino più elevati di quelli supportati dal ripristino geografico, configurare la [replica geografica attiva](sql-database-geo-replication-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

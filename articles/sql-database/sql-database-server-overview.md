@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: servers
+ms.custom: DBs and servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
-ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 430af168e1bd19c15170996247bc7c7a62fe52d4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -41,8 +42,8 @@ Un server logico del database di Azure:
 - Fornisce accesso ai metadati riguardanti le risorse contenute tramite DMV, connettendosi a un database master. 
 - Fornisce l'ambito per i criteri di gestione che si applicano ai database: account di accesso, firewall, controllo, rilevamento minacce e così via. 
 - È limitato da una quota nella sottoscrizione padre: sei server per sottoscrizione. Vedere i limiti relativi alle sottoscrizioni [qui](../azure-subscription-service-limits.md).
-- Fornisce l'ambito di una quota del database e DTU per le risorse in che esso contenute, ad esempio 45000 DTU nella versione 12.
-- Rappresenta l'ambito di controllo delle versioni per le funzionalità abilitate sulle risorse contenute: la versione più recente è la versione&12;.
+- Fornisce l'ambito per la quota database e la quota DTU per le risorse contenute in esso, ad esempio 45000 DTU
+- Rappresenta l'ambito di controllo delle versioni per le funzionalità abilitate sulle risorse contenute 
 - Gli account di accesso all'entità a livello di server possono gestire tutti i database in un server
 - Può contenere account di accesso simili a quelli delle istanze di SQL Server in locale che dispongono dell'accesso a uno o più database nel server ed è possibile concedere diritti amministrativi limitati. Per altre informazioni, vedere [Autenticazione e autorizzazione per database SQL: concessione dell'accesso](sql-database-manage-logins.md).
 
@@ -55,7 +56,7 @@ Un server logico del database di Azure:
 
 ## <a name="what-collations-are-supported"></a>Regole di confronto supportate
 
-La regola di confronto del database predefinito usato dal database SQL di Microsoft Azure (che comprende il database master) è **SQL_LATIN1_GENERAL_CP1_CI_AS**, in cui **LATIN1_GENERAL** indica la lingua inglese (Stati Uniti), **CP1** la pagina del codice 1252, **CI** l'assenza di distinzione tra maiuscole e minuscole e **AS** l'assenza di distinzione tra caratteri accentati e non accentati. È sconsigliabile modificare le regole di confronto per i database versione&12; dopo la creazione. Per altre informazioni sulle regole di confronto, vedere [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+La regola di confronto del database predefinito usato dal database SQL di Microsoft Azure (che comprende il database master) è **SQL_LATIN1_GENERAL_CP1_CI_AS**, in cui **LATIN1_GENERAL** indica la lingua inglese (Stati Uniti), **CP1** la pagina del codice 1252, **CI** l'assenza di distinzione tra maiuscole e minuscole e **AS** l'assenza di distinzione tra caratteri accentati e non accentati. È sconsigliabile modificare le regole di confronto per i database dopo la creazione dei database stessi. Per altre informazioni sulle regole di confronto, vedere [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>Requisiti di denominazione per oggetti del database
 
@@ -68,8 +69,8 @@ Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database feat
 ## <a name="how-do-i-manage-a-logical-server"></a>Gestione di un server logico
 
 È possibile gestire i server logici del database SQL di Azure in diversi modi:
-- [Portale di Azure](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
+- [Portale di Azure](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
 - [REST](/rest/api/sql/)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -81,10 +82,5 @@ Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database feat
 - Informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**. Per una panoramica dei livelli di servizio, vedere [Livelli di servizio del Database SQL](sql-database-service-tiers.md).
 - Per una panoramica della sicurezza, vedere [Azure SQL Database Security Overview](sql-database-security-overview.md) (Panoramica della sicurezza del database SQL di Azure).
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

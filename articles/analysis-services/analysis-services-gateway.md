@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 90584f60864589744888817ea71d0eb0d4d170ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: c7127f4bd89bf00a4ef72e54dc7694a1766e5762
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -129,6 +129,25 @@ Dietro le quinte, il gateway di dati locale usato per la connessione alle origin
 Se si verificano problemi durante l'installazione e la configurazione di un gateway, vedere [Troubleshooting the Power BI Gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/) (Risoluzione dei problemi del gateway Power BI). In caso di problemi con il firewall, vedere le sezioni relative al firewall o al proxy.
 
 Se si verificano problemi di proxy con il gateway, vedere [Configuring proxy settings for the Power BI Gateways](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md) (Configurazione delle impostazioni del proxy per i gateway Power BI).
+
+### <a name="telemetry"></a>Telemetria
+La telemetria può essere usata per il monitoraggio e la risoluzione dei problemi. 
+
+**Per attivare la telemetria**
+
+1.    Verificare la directory del client gateway dati locale nel computer. In genere è %systemdrive%\Programmi\gateway dati locale. Oppure è possibile aprire una console dei servizi e verificare il percorso al file eseguibile, una proprietà del servizio gateway dati locale.
+2.    Nel file Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config nella directory del client modificare l'impostazione SendTelemetry su true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.    Salvare le modifiche e riavviare il servizio Windows gateway dati locale.
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire Analysis Services](analysis-services-manage.md)

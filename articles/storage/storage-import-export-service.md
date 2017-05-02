@@ -12,17 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 04/17/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: fd2338b73bd82121ed36e286446b07ccd4a8a219
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a0a974982f80bc2137e73a84681a9401e8a02e39
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB
-
 Il servizio Importazione/Esportazione di Azure consente di trasferire in modo sicuro grandi quantità di dati nell'archiviazione BLOB di Azure tramite la spedizione delle unità disco rigido a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati dall'archivio BLOB di Azure a unità disco rigido per la spedizione al sito locale. Questo servizio è adatto in situazioni in cui si desidera trasferire diversi terabyte (TB) di dati da o verso Azure, ma non è possibile eseguire l'upload o il download sulla rete a causa della larghezza di banda limitata o degli elevati costi della rete.
 
 Il servizio richiede che le unità disco rigido siano crittografate con crittografia bitlocker per la protezione dei dati. Il servizio supporta gli account di archiviazione classici e Azure Resource Manager (livelli standard e accesso sporadico) presenti in tutte le aree di Azure pubblico. È necessario spedire l'unità disco rigido a una delle località supportate specificate più avanti in questo articolo.
@@ -104,9 +103,11 @@ Località di spedizione supportate:
 * Stati Uniti Orientali
 * Stati Uniti occidentali
 * Stati Uniti orientali 2
+* Stati Uniti occidentali 2
 * Stati Uniti centrali
 * Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
+* Stati Uniti centro-occidentali
 * Europa settentrionale
 * Europa occidentale
 * Asia orientale
@@ -116,9 +117,17 @@ Località di spedizione supportate:
 * Giappone occidentale
 * Giappone orientale
 * India centrale
-* Canada
-* US Gov
-* Cina
+* India meridionale
+* Canada centrale
+* Canada orientale
+* Brasile meridionale
+* Corea centrale
+* US Gov Virginia
+* Governo degli Stati Uniti - Iowa
+* Dipartimento della difesa Stati Uniti orientali
+* Dipartimento della difesa Stati Uniti centrali
+* Cina orientale
+* Cina settentrionale
 
 ### <a name="shipping"></a>Spedizione
 **Spedizione di unità al data center:**

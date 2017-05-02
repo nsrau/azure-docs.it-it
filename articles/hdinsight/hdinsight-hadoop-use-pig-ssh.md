@@ -14,118 +14,106 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 22862d87562e9d9ec9d509eab2f65c850f4aa6d6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: edda959693061850248ba97795c2390a592cbb21
+ms.lasthandoff: 04/17/2017
 
 
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Eseguire processi Pig in un cluster basato su Linux con il comando Pig (SSH)
+
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-Questo documento illustra in dettaglio il processo di connessione a un cluster HDInsight di Azure basato su Linux usando Secure Shell (SSH), quindi usando il comando Pig per eseguire istruzioni Pig Latin in modo interattivo o come processo batch.
+Informazioni su come eseguire in modo interattivo i processi Pig da una connessione SSH al cluster HDInsight. Il linguaggio di programmazione Pig Latin consente di descrivere le trasformazioni applicate ai dati di input per produrre l'output desiderato.
 
-Il linguaggio di programmazione Pig Latin consente di descrivere le trasformazioni applicate ai dati di input per produrre l'output desiderato.
-
-> [!NOTE]
-> Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
-
-
-## <a id="prereq"></a>Prerequisiti
-Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
-
-* Un cluster HDInsight basato su Linux (Hadoop su HDInsight).
-
-  > [!IMPORTANT]
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
-
-* Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+> [!IMPORTANT]
+> I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a id="ssh"></a>Connettersi con SSH
-Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il comando SSH. L'FQDN è costituito dal nome assegnato al cluster, seguito da **.azurehdinsight.net**. Ad esempio, il seguente comando stabilirà la connessione a un cluster denominato **myhdinsight**.
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net
+Connettersi al cluster HDInsight usando SSH. L'esempio seguente si connette a un cluster denominato **myhdinsight** come account denominato **sshuser**:
+
+    ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 **Se è stata fornita una chiave del certificato per l'autenticazione SSH** durante la creazione del cluster HDInsight, potrebbe essere necessario specificare il percorso della chiave privata nel sistema client.
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+    ssh sshuser@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
 
-**Se è stata specificata una password per l'autenticazione SSH** durante la creazione del cluster HDInsight, sarà necessario fornire la password quando richiesto.
+**Se è stata specificata una password per l'autenticazione SSH** durante la creazione del cluster HDInsight, fornire la password quando richiesto.
 
 Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="pig"></a>Usare il comando Pig
-1. Una volta connessi, avviare l'interfaccia della riga di comando di Pig (CLI) mediante il comando seguente.
+
+1. Una volta connessi, avviare l'interfaccia della riga di comando di Pig (CLI) tramite il comando seguente:
 
         pig
 
     Dopo qualche istante verrà visualizzato un prompt dei comandi `grunt>` .
-2. Immettere la seguente istruzione.
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+2. Immettere la seguente istruzione:
 
-    Questo comando carica i contenuti del file sample. log in LOGS. È possibile visualizzare i contenuti del file usando il seguente comando.
+        LOGS = LOAD '/example/data/sample.log';
+
+    Questo comando carica i contenuti del file sample. log in LOGS. È possibile visualizzare i contenuti del file usando l'istruzione seguente:
 
         DUMP LOGS;
-3. Successivamente, trasformare i dati applicando un'espressione regolare per estrarre solo il livello di registrazione da ogni record usando il comando seguente.
+
+3. Successivamente, trasformare i dati applicando un'espressione regolare per estrarre solo il livello di registrazione da ogni record usando l'istruzione seguente:
 
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
     È possibile usare **DUMP** per visualizzare i dati dopo la trasformazione. In questo caso, usare `DUMP LEVELS;`.
-4. Continuare ad applicare le trasformazioni usando le seguenti istruzioni. Usare `DUMP` per visualizzare il risultato della trasformazione dopo ogni passaggio.
 
-    <table>
-    <tr>
-    <th>Istruzione</th><th>Risultato</th>
-    </tr>
-    <tr>
-    <td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Rimuove le righe che contengono un valore null per il livello di registrazione e memorizza i risultati in FILTEREDLEVELS.</td>
-    </tr>
-    <tr>
-    <td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Raggruppa le righe in base al livello di registrazione e memorizza i risultati in GROUPEDLEVELS.</td>
-    </tr>
-    <tr>
-    <td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crea un nuovo set di dati che contiene ciascun valore univoco del livello di registrazione e il numero di occorrenze. Viene archiviato in FREQUENCIES.</td>
-    </tr>
-    <tr>
-    <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordina i livelli di registrazione per conteggio (decrescente) e archivia li archivia in RESULT.</td>
-    </tr>
-    </table>
-5. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE` . Ad esempio, la seguente istruzione salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster.
+4. Continuare ad applicare le trasformazioni usando le istruzioni presenti nella tabella seguente:
 
-        STORE RESULT into 'wasbs:///example/data/pigout';
+    | Istruzione Pig Latin | Funzionamento dell'istruzione |
+    | ---- | ---- |
+    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | Rimuove le righe che contengono un valore null per il livello di registrazione e memorizza i risultati in `FILTEREDLEVELS`. |
+    | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | Raggruppa le righe in base al livello di registrazione e memorizza i risultati in `GROUPEDLEVELS`. |
+    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Crea un set di dati che contiene ciascun valore univoco del livello di registrazione e il numero di occorrenze. Il set di dati viene archiviato in `FREQUENCIES`. |
+    | `RESULT = order FREQUENCIES by COUNT desc;` | Ordina i livelli di registrazione in base al numero (decrescente) e memorizza i risultati in `RESULT`. |
+
+    > [!TIP]
+    > Usare `DUMP` per visualizzare il risultato della trasformazione dopo ogni passaggio.
+
+5. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE` . Ad esempio, la seguente istruzione salva l'`RESULT` nella directory `/example/data/pigout` nella risorsa di archiviazione predefinita per il cluster:
+
+        STORE RESULT into '/example/data/pigout';
 
    > [!NOTE]
-   > I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un errore.
-   >
-   >
-6. Per uscire dal prompt grunt, immettere la seguente istruzione.
+   > I dati vengono memorizzati nella directory specificata nei file denominati `part-nnnnn`. Se la directory esiste già, si riceve un errore.
+
+6. Per uscire dal prompt grunt, immettere la seguente istruzione:
 
         QUIT;
 
 ### <a name="pig-latin-batch-files"></a>File batch di Pig Latin
+
 È inoltre possibile usare il comando Pig per eseguire processi Pig Latin contenuti in un file.
 
-1. Dopo aver chiuso il prompt grunt, usare il seguente comando per indirizzare STDIN in un file denominato **pigbatch.pig**. Questo file verrà creato nella directory principale dell'account al quale è stata eseguita la registrazione per la sessione SSH.
+1. Dopo aver chiuso il prompt grunt, usare il seguente comando per indirizzare STDIN in un file denominato `pigbatch.pig`. Questo file viene creato nella home directory per l'account utente SSH.
 
         cat > ~/pigbatch.pig
+
 2. Digitare o incollare le righe seguenti e quindi premere CTRL+D al termine.
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD '/example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
         GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
         FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
-3. Usare quanto segue per eseguire il file **pigbatch.pig** mediante il comando Pig.
+
+3. Usare l'istruzione seguente per eseguire il file `pigbatch.pig` tramite il comando Pig.
 
         pig ~/pigbatch.pig
 
-    Al termine del processo batch, si otterrà il seguente output, corrispondente a quello ottenuto quando è stato usato `DUMP RESULT;` nei passaggi precedenti.
+    Al termine dell'esecuzione del processo batch, verrà visualizzato il seguente output:
 
         (TRACE,816)
         (DEBUG,434)
@@ -134,15 +122,14 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare S
         (ERROR,6)
         (FATAL,2)
 
-## <a id="summary"></a>Riepilogo
-Come si può notare, il comando Pig consente di eseguire operazioni MapReduce in modo interattivo con Pig Latin, nonché di eseguire istruzioni archiviate in un file batch.
 
 ## <a id="nextsteps"></a>Passaggi successivi
-Per informazioni generali su Pig in HDInsight.
+
+Per informazioni generali su sull'uso di Pig con HDInsight, vedere il documento seguente:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
+Per altre informazioni su come usare Hadoop con HDInsight, vedere i documenti seguenti:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)

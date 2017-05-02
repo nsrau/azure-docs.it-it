@@ -16,9 +16,9 @@ ms.date: 02/23/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0bd6fce848c6d174eb519f8ef8a14f9ead5fa5ce
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -52,7 +52,7 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 * Arresta e riavvia i servizi Oozie, YARN, MapReduce2 e HDFS, in modo che possano rilevare le informazioni sul nuovo account di archiviazione.
 
 > [!WARNING]
-> Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che le prestazioni non siano ottimali. L'accesso ai dati in un'area diversa comporta l'invio di traffico di rete all'esterno del data center di Azure di un'area specifica e la trasmissione tramite Internet pubblico e ciò può introdurre latenza. L'invio di dati all'esterno di un data center di un'area specifica può anche comportare costi aggiuntivi, perché viene applicato un addebito di uscita quando i dati escono da un data center.
+> L'uso di un account di archiviazione in una località diversa rispetto al cluster HDInsight non è supportato.
 
 ## <a name="the-script"></a>Lo script
 

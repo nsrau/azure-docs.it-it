@@ -15,30 +15,30 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 25dd25d8f8f0388ed7ef11bb26344ad7199fde2e
-ms.openlocfilehash: 3f0487fba592426c835d81a46a752697ecf34d8b
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5e37870f932ce775293b913504f2530d1d8935e1
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="event-hubs-archive-walkthrough-python"></a>Procedura dettagliata sull'archivio di Hub eventi: Python
-L'archivio è una nuova funzionalità di Hub eventi che consente di distribuire automaticamente i dati di streaming dell'Hub eventi a un account di archiviazione BLOB di Azure di propria scelta. Questa funzionalità rende più semplice eseguire l'elaborazione di batch su dati di streaming in tempo reale. In questo articolo viene descritto come usare l'archivio di Hub eventi con Python. Per altre informazioni sull'archivio di Hub eventi, vedere l' [articolo con la panoramica](event-hubs-archive-overview.md).
+Archivia è una nuova funzionalità di Hub eventi che consente di distribuire automaticamente i dati di streaming dell'hub eventi a un account di archiviazione BLOB di Azure di propria scelta. Questa funzionalità rende più semplice eseguire l'elaborazione di batch su dati di streaming in tempo reale. In questo articolo viene descritto come usare l'archivio di Hub eventi con Python. Per altre informazioni sull'archivio di Hub eventi, vedere l' [articolo con la panoramica](event-hubs-archive-overview.md).
 
-Questo esempio usa [Azure Python SDK](https://azure.microsoft.com/develop/python/) per illustrare la funzionalità di archiviazione. Il programma sender.py invia una simulazione di telemetria ambientale a Hub eventi in formato JSON. L'Hub eventi è configurato per usare la funzione di archiviazione per scrivere i dati nell'archiviazione BLOB in batch. L'app archivereader.py legge quindi questi BLOB, crea un file aggiuntivo per dispositivo, quindi scrive i dati in file con estensione csv.
+Questo esempio usa [Azure Python SDK](https://azure.microsoft.com/develop/python/) per illustrare la funzionalità di archiviazione. Il programma sender.py invia una simulazione di telemetria ambientale a Hub eventi in formato JSON. L'hub eventi è configurato per usare la funzione Archivia per scrivere i dati nell'archiviazione BLOB in batch. L'app archivereader.py legge quindi questi BLOB, crea un file aggiuntivo per dispositivo, quindi scrive i dati in file con estensione csv.
 
 Contenuto dell'esercitazione
 
 1. Creazione di un account di archiviazione BLOB di Azure e di un contenitore BLOB all'interno nel portale di Azure.
 2. Creazione di uno spazio dei nomi di Hub eventi nel portale di Azure.
-3. Creazione di un Hub eventi con la funzione di archivio abilitata nel portale di Azure.
-4. Invio dei dati all'Hub eventi con uno script Python.
+3. Creazione di un hub eventi con la funzione Archivia abilitata nel portale di Azure.
+4. Invio dei dati all'hub eventi con uno script Python.
 5. Lettura dei file dall'archivio ed elaborazione con un altro script Python.
 
 Prerequisiti
 
 - Python 2.7.x
 - Una sottoscrizione di Azure.
-- Uno [spazio dei nomi Hub eventi attivo e Hub eventi.](event-hubs-create.md)
+- Uno [spazio dei nomi di Hub eventi attivo e hub eventi.](event-hubs-create.md)
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -51,9 +51,9 @@ Prerequisiti
 4. Dopo aver visualizzato il messaggio **Deployments Succeeded** (Le distribuzioni sono riuscite), fare clic sul nome del nuovo account di archiviazione e nel pannello **Informazioni di base** fare clic su **BLOB**. Quando si apre il pannello **Servizio BLOB**, fare clic su **+ Contenitore** in alto. Assegnare al contenitore il nome **archivio**, quindi chiudere il pannello **Servizio BLOB**.
 5. Fare clic su **Chiavi di accesso** nel pannello sinistro e copiare il nome dell'account di archiviazione e il valore **key1**. Salvare questi valori nel Blocco note o in un'altra posizione temporanea.
 
-## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Creazione di uno script Python per inviare gli eventi all'Hub eventi
+## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Creazione di uno script Python per inviare gli eventi all'hub eventi
 1. Aprire l'editor preferito di Python, ad esempio[Visual Studio Code][Visual Studio Code].
-2. Creare uno script chiamato **sender.py**. Questo script invierà 200 eventi all'Hub eventi. Si tratta di semplici letture ambientali inviate in JSON.
+2. Creare uno script chiamato **sender.py**. Questo script invierà 200 eventi all'hub eventi. Si tratta di semplici letture ambientali inviate in JSON.
 3. Incollare il seguente codice in sender.py:
    
    ```python

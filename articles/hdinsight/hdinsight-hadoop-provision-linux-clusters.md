@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 1b7772fbf719013d82e5baed1bbbf229d6f2946c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -41,7 +41,7 @@ Azure HDInsight offre attualmente cinque tipi diversi di cluster, ognuno con un 
 | [Storm](hdinsight-storm-overview.md) |Elaborazione di eventi in tempo reale |
 | [Spark](hdinsight-apache-spark-overview.md) |Elaborazione in memoria, query interattive, elaborazione di flussi di micro batch |
 | [Interactive Hive (anteprima)](hdinsight-hadoop-use-interactive-hive.md) |Caching in memoria per query Hive interattive e più rapide |
-| [R Server in Spark (anteprima)](hdinsight-hadoop-r-server-overview.md) |Ampia gamma di statistiche di Big Data, modellazione predittiva e funzionalità di Machine Learning |
+| [R Server in Spark](hdinsight-hadoop-r-server-overview.md) |Ampia gamma di statistiche di Big Data, modellazione predittiva e funzionalità di Machine Learning |
 | [Kafka (anteprima)](hdinsight-apache-kafka-introduction.md) | Piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. |
 
 Ogni tipo di cluster usa il proprio numero di nodi del cluster, una terminologia specifica per i nodi del cluster e dimensioni predefinite per le VM per ogni tipo di nodo. Nella tabella seguente, il numero di nodi per ogni tipo di nodo è indicato tra parentesi.
@@ -237,7 +237,7 @@ Nel modello di distribuzione classica, alcune dimensioni delle macchine virtuali
 | Standard_D13_v2 |8 |56 GB |8 |Temporaneo (SSD) = 400 GB |16 |16x500 |
 | Standard_D14_v2 |16 |112 GB |8 |Temporaneo (SSD) = 800 GB |32 |32x500 |
 
-Per considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
+Per considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
 > [!IMPORTANT]
 > Se si prevedono più di 32 nodi del ruolo di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
@@ -252,6 +252,9 @@ In alcuni casi è possibile aggiungere altre risorse al cluster, ad esempio se s
 Quando si crea un cluster HDInsight o dopo aver creato un cluster, è possibile aggiungere account di archiviazione.  Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Per altre informazioni sull'account di Archiviazione di Azure secondario, vedere [Uso di Archiviazione di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Per altre informazioni sull'uso degli archivi Data Lake secondari, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+> [!WARNING]
+> L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
 
 ## <a name="use-hiveoozie-metastore"></a>Usare metastore Hive/Oozie
 È consigliabile usare un metastore personalizzato per conservare le tabelle Hive dopo aver eliminato il cluster HDInsight. Sarà possibile associare il metastore a un altro cluster HDInsight.

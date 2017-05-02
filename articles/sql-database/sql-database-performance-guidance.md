@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 03d38dbce86711395a967cf8bad440fd50a38631
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a8a9d6efb299d0958d4024e62b2b24a76d768ddf
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -145,7 +145,7 @@ In base ai dati, per il livello di prestazioni P2 il carico massimo della CPU di
 
 Altri tipi di applicazioni possono interpretare in modo diverso lo stesso grafico. Se ad esempio un'applicazione prova a elaborare i dati del libro paga ogni giorno e usa lo stesso grafico, questo tipo di modello di processo batch potrebbe essere eseguito correttamente con un livello di prestazioni P1. Il valore di DTU del livello di prestazioni P1 è pari a 100, mentre quello del livello P2 è pari a 200. Il livello di prestazioni fornito dal livello di servizio P2 è doppio rispetto a quello fornito dal livello P1. Il 50% dell'uso della CPU nel livello P2 equivale quindi al 100% dell'uso della CPU in P1. Se l'applicazione non presenta timeout, è possibile che non sia rilevante se il completamento di un processo richiede 2 ore o 2,5 ore, se viene completato in giornata. Per un'applicazione che rientra in questa categoria è probabilmente sufficiente usare il livello di prestazioni P1. Si può sfruttare la presenza di periodi di tempo durante il giorno in cui l'uso delle risorse è inferiore, in modo da spalmare un picco massimo in altri momenti nel corso della giornata. Il livello di prestazioni P1 può essere ottimale per questo tipo di applicazione e può consentire di limitare i costi, purché i processi vengano completati in orario ogni giorno.
 
-Il database SQL di Azure espone le informazioni sulla risorsa usata per ogni database attivo nella vista **sys.resource_stats** del database **master** in ogni server. I dati nella tabella vengono aggregati per intervalli di 5 minuti. Con i livelli di servizio Basic, Standard e Premium, è possibile che la visualizzazione dei dati nella tabella richieda più di 5 minuti, quindi i dati risultano più utili per le analisi cronologiche, invece che per le analisi in tempo quasi reale. Eseguire una query nella vista **sys.resource_stats** per visualizzare la cronologia recente di un database e per verificare se la prenotazione scelta ha offerto le prestazioni desiderate quando necessario.
+Il database SQL di Azure espone le informazioni sulla risorsa usata per ogni database attivo nella vista **sys.resource_stats** del database **master** in ogni server. I dati nella tabella vengono aggregati per intervalli di 5 minuti. Con i livelli di servizio Basic, Standard, Premium e Premium RS, è possibile che la visualizzazione dei dati nella tabella richieda più di 5 minuti, quindi i dati risultano più utili per le analisi cronologiche anziché per le analisi in tempo quasi reale. Eseguire una query nella vista **sys.resource_stats** per visualizzare la cronologia recente di un database e per verificare se la prenotazione scelta ha offerto le prestazioni desiderate quando necessario.
 
 > [!NOTE]
 > È necessario essere connessi al database **master** del server logico del database SQL per eseguire la query **sys.resource_stats** negli esempi seguenti.

@@ -1,5 +1,5 @@
 ---
-title: Creare una sottoscrizione e un argomento dello spazio dei nomi del bus di servizio di Azure tramite un modello | Documentazione Microsoft
+title: Creare una sottoscrizione e un argomento dello spazio dei nomi del bus di servizio di Azure tramite un modello di Azure Resource Manager | Documentazione Microsoft
 description: Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione usando un modello di Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,16 +12,18 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 04/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 27ad541fc51c497528355cd1091cc48ae8fe1ee8
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: f14e847b702b92a58fd257512a557b9af3f07238
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione usando un modello di Azure Resource Manager
-Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio con un argomento e una sottoscrizione. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
+
+Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio nonché un argomento e una sottoscrizione in quello spazio dei nomi. Verrà illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per la distribuzione o personalizzarlo in base alle esigenze.
 
 Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -40,6 +42,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi con argomento 
 > 
 
 ## <a name="what-will-you-deploy"></a>Distribuzione
+
 Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con un argomento e una sottoscrizione.
 
 Gli [argomenti e le sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) offrono una forma di comunicazione uno-a-molti, in un schema di *pubblicazione/sottoscrizione*.
@@ -49,6 +52,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 [![Distribuzione in Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
+
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
 Il modello definisce i parametri seguenti.
@@ -143,7 +147,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibile imparare a gestire queste risorse. Leggere gli articoli seguenti:
 
-* [Gestire Bus di servizio con PowerShell](service-bus-powershell-how-to-provision.md)
+* [Gestire Bus di servizio con PowerShell](service-bus-manage-with-ps.md)
 * [Gestire le risorse del bus di servizio con Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
@@ -152,9 +156,4 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Service Bus namespace with topic and subscription]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

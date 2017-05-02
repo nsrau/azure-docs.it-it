@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
-ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bf864e0d9922e8e842945db9964899d602fd7eed
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -33,7 +33,7 @@ Azure fornisce un set di soluzioni di archiviazione dei dati e data warehouse di
 L'articolo illustra:
 
 * [I numeri di riferimento sulle prestazioni](#performance-reference) per gli archivi dati di origine e sink supportati per aiutare a pianificare il progetto;
-* Funzionalità in grado di incrementare la velocità effettiva di copia in diversi scenari, tra cui [copia parallela](#parallel-copy), [unità di spostamento dei dati cloud](#cloud-data-movement-units) e [copia di staging](#staged-copy);
+* Funzionalità in grado di incrementare la velocità effettiva di copia in diversi scenari, tra cui [unità di spostamento dei dati cloud](#cloud-data-movement-units), [copia parallela](#parallel-copy) e [copia di staging](#staged-copy);
 * [Indicazioni per l'ottimizzazione delle prestazioni](#performance-tuning-steps) che illustrano come ottimizzare le prestazioni e i fattori chiave che possono influire sulle prestazioni di copia.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ L'articolo illustra:
 ![Matrice delle prestazioni](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
 > [!NOTE]
-> È possibile raggiungere una velocità effettiva più elevata sfruttando un numero maggiore di unità di spostamento dati di quello massimo predefinito, pari a 8 per l'esecuzione di un'attività di copia da cloud a cloud. Ad esempio, con 100 unità di spostamento dati è possibile copiare i dati dal BLOB di Azure in Azure Data Lake Store a **1,0 GB al secondo**. Vedere la sezione [Unità di spostamento dati cloud](#cloud-data-movement-units) per informazioni dettagliate su questa funzionalità e sullo scenario supportato. Contattare il [Supporto tecnico di Azure](https://azure.microsoft.com/support/) per richiedere altre unità di spostamento dati.
+> È possibile raggiungere una velocità effettiva più elevata sfruttando un numero maggiore di unità di spostamento dati di quello massimo predefinito, pari a 32 per l'esecuzione di un'attività di copia da cloud a cloud. Ad esempio, con 100 unità di spostamento dati è possibile copiare i dati dal BLOB di Azure in Azure Data Lake Store a **1,0 GB al secondo**. Vedere la sezione [Unità di spostamento dati cloud](#cloud-data-movement-units) per informazioni dettagliate su questa funzionalità e sullo scenario supportato. Contattare il [Supporto tecnico di Azure](https://azure.microsoft.com/support/) per richiedere altre unità di spostamento dati.
 >
 >
 
@@ -84,6 +84,38 @@ Verrà ora esaminato uno scenario di esempio. Nell'esempio seguente è necessari
 e così via.
 
 In questo esempio quando il valore **concurrency** è impostato su 2, l'**esecuzione attività 1** e l'**esecuzione attività 2** copiano i dati da due finestre attività **simultaneamente** per migliorare le prestazioni dello spostamento dati. Tuttavia, se all'esecuzione attività 1 sono associati più file, il servizio di spostamento dati copia un file alla volta dall'origine alla destinazione.
+
+### <a name="cloud-data-movement-units"></a>Unità di spostamento dati cloud
+L' **unità di spostamento dati cloud** è una misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità in Data Factory. Una unità di spostamento dati può essere usata in un'operazione di copia da cloud a cloud, ma non in una copia ibrida.
+
+Per impostazione predefinita, Data Factory usa una singola unità di spostamento dati cloud per una singola esecuzione dell'attività di copia. Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **cloudDataMovementUnits** procedendo come segue. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
+
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "cloudDataMovementUnits": 32
+        }
+    }
+]
+```
+I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono 1 (valore predefinito), 2, 4, 8, 16, 32. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati.
+
+> [!NOTE]
+> Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la **copia di più file da Archiviazione BLOB/Data Lake Store/Amazon S3/FTP cloud in Archiviazione BLOB/Data Lake Store/database SQL di Azure**.
+>
+>
 
 ### <a name="parallelcopies"></a>parallelCopies
 È possibile usare la proprietà **parallelCopies** per indicare il parallelismo che l'attività di copia deve usare. Questa proprietà può essere considerata come il numero massimo di thread all'interno dell'attività di copia che possono leggere dall'origine o scrivere negli archivi dati sink in parallelo.
@@ -126,38 +158,6 @@ Punti da notare:
 
 > [!NOTE]
 > Per poter usare la funzionalità **parallelCopies** durante una copia ibrida, è necessario usare Gateway di gestione dati 1.11 o versione successiva.
->
->
-
-### <a name="cloud-data-movement-units"></a>Unità di spostamento dati cloud
-L' **unità di spostamento dati cloud** è una misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità in Data Factory. Una unità di spostamento dati può essere usata in un'operazione di copia da cloud a cloud, ma non in una copia ibrida.
-
-Per impostazione predefinita, Data Factory usa una singola unità di spostamento dati cloud per una singola esecuzione dell'attività di copia. Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **cloudDataMovementUnits** procedendo come segue. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
-
-```json
-"activities":[  
-    {
-        "name": "Sample copy activity",
-        "description": "",
-        "type": "Copy",
-        "inputs": [{ "name": "InputDataset" }],
-        "outputs": [{ "name": "OutputDataset" }],
-        "typeProperties": {
-            "source": {
-                "type": "BlobSource",
-            },
-            "sink": {
-                "type": "AzureDataLakeStoreSink"
-            },
-            "cloudDataMovementUnits": 4
-        }
-    }
-]
-```
-I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono: 1 (valore predefinito), 2, 4 e 8. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati.
-
-> [!NOTE]
-> Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la **copia di più file da un'archiviazione BLOB/Data Lake Store/Amazon S3/FTP cloud a un'archiviazione BLOB/Data Lake Store/database SQL di Azure** con dimensioni dei singoli file maggiori e o uguali a 16 MB.
 >
 >
 
