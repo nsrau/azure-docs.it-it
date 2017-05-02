@@ -2,9 +2,4 @@
 | Risorsa | Limite |
 | --- | --- |
 | Impostazioni di scalabilità automatica |100 per area per sottoscrizione |
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+| Avvisi delle metriche |100 regole di avviso attive per ogni sottoscrizione |

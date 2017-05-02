@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6e71fd9eda822478fa0555aa44908a4094fe8de2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,83 +31,53 @@ Applicando un criterio di tag a un gruppo di risorse o a una sottoscrizione con 
 
 Un requisito comune è che tutte le risorse di un gruppo di risorse abbiano un determinato tag e valore. Questo requisito è spesso necessario per tenere traccia dei costi per reparto. Le condizioni seguenti devono essere soddisfatte:
 
-* Il tag e il valore richiesti vengono accodati alle risorse nuove e aggiornate che non hanno tag esistenti.
-* Il tag e il valore richiesti vengono accodati alle risorse nuove e aggiornate che hanno altri tag, ma non il tag e il valore richiesti.
-* Non è possibile rimuovere il tag e il valore richiesti da eventuali risorse esistenti.
+* Il tag richiesto e il relativo valore vengono accodati alle risorse nuove e aggiornate che non hanno il tag.
+* Non è possibile rimuovere il tag richiesto e il relativo valore da eventuali risorse esistenti.
 
-Si soddisfa questo requisito applicando a un gruppo di risorse i tre criteri seguenti:
+È possibile soddisfare questo requisito applicando due criteri predefiniti a un gruppo di risorse.
 
-* [Accodare un tag](#append-tag) 
-* [Accodare un tag con altri tag](#append-tag-with-other-tags)
-* [Richiedere il tag e il valore](#require-tag-and-value)
+| ID | Descrizione |
+| ---- | ---- |
+| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Applica un tag obbligatorio e il relativo valore predefinito quando non viene specificato dall'utente. |
+| 1e30110a-5ceb-460c-a204-c1c3969c6d62 | Applica un tag obbligatorio e il relativo valore. |
 
-### <a name="append-tag"></a>Accodare un tag
+### <a name="powershell"></a>PowerShell
 
-La regola di criterio seguente accoda il tag costCenter con un valore predefinito se non sono presenti tag:
+Lo script di PowerShell seguente assegna le due definizioni di criteri predefiniti a un gruppo di risorse. Prima di eseguire lo script, assegnare tutti i tag richiesti al gruppo di risorse. Ogni tag nel gruppo di risorse è richiesto per le risorse nel gruppo. Per eseguire l'assegnazione a tutti i gruppi di risorse nella sottoscrizione, non fornire il parametro `-Name` quando si recuperano i gruppi di risorse.
 
-```json
+```powershell
+$appendpolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '2a0e14a6-b0a6-4fab-991a-187a4f81c498'}
+$denypolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '1e30110a-5ceb-460c-a204-c1c3969c6d62'}
+
+$rgs = Get-AzureRMResourceGroup -Name ExampleGroup
+
+foreach($rg in $rgs)
 {
-  "if": {
-    "field": "tags",
-    "exists": "false"
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags",
-        "value": {"costCenter":"myDepartment" }
-      }
-    ]
-  }
-}
-```
-
-### <a name="append-tag-with-other-tags"></a>Accodare un tag con altri tag
-
-La regola di criterio seguente accoda il tag costCenter con un valore predefinito quando sono presenti tag ma il tag costCenter non è definito:
-
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "tags",
-        "exists": "true"
-      },
-      {
-        "field": "tags.costCenter",
-        "exists": "false"
-      }
-    ]
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags.costCenter",
-        "value": "myDepartment"
-      }
-    ]
-  }
-}
-```
-
-### <a name="require-tag-and-value"></a>Richiedere il tag e il valore
-
-La regola di criterio seguente nega l'aggiornamento o la creazione di risorse che non hanno il tag costCenter assegnato con il valore predefinito.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "tags.costCenter",
-      "equals": "myDepartment"
+    $tags = $rg.Tags
+    foreach($key in $tags.Keys){
+        $key 
+        $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("append"+$key+"tag") -PolicyDefinition $appendpolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("denywithout"+$key+"tag") -PolicyDefinition $denypolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
     }
-  },
-  "then": {
-    "effect": "deny"
-  }
+}
+```
+
+Dopo aver assegnato i criteri, è possibile attivare l'aggiornamento di tutte le risorse esistenti per applicare i criteri dei tag aggiunti. Lo script seguente consente di mantenere gli altri tag presenti nelle risorse:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
 }
 ```
 
@@ -150,26 +120,6 @@ Il criterio seguente nega le richieste senza un tag con la chiave "costCenter" (
   "then" : {
     "effect" : "deny"
   }
-}
-```
-
-## <a name="trigger-updates-to-existing-resources"></a>Attivare aggiornamenti delle risorse esistenti
-
-Il seguente script PowerShell avvia l'aggiornamento delle risorse esistenti per applicare i criteri di tag che sono stati aggiunti.
-
-```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
-
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
-
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($_.Tags -eq $NULL) { @{}} else {$_.Tags}) -Force -UsePatchSemantics
-    }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
-    }
 }
 ```
 

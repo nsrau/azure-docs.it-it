@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: c75a3a2477f113f17aab7a3e1969f15a4ec88a02
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 22a86001fe93dcb11e180dbdd75045b49b85b58f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -37,13 +37,14 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 * Il server deve trovarsi in una rete in grado di comunicare con il server di elaborazione e il server di configurazione.
 * La versione del server di destinazione master deve essere uguale o precedente a quella del server di elaborazione e del server di configurazione. Ad esempio, se la versione del server di configurazione è 9.4, la versione del server di destinazione master può essere 9.4 o 9.3 ma non 9.5.
 * Il server di destinazione master può essere solo una macchina virtuale VMware e non un server fisico.
-* La destinazione master deve seguire queste linee guida per il ridimensionamento
+
+## <a name="master-target-sizing-guideline"></a>Linee guida sul ridimensionamento della destinazione master
+
+La destinazione master deve essere creata seguendo queste linee guida sul ridimensionamento
     * RAM: almeno 6 GB
-    * Dimensioni disco sistema operativo: almeno 50 GB (per installare CentOS6.6)
+    * Dimensioni del disco del sistema operativo: almeno 100 GB (per installare CentOS6.6)
     * Dimensioni disco aggiuntive per l'unità di conservazione: 1 TB
     * Core CPU: almeno 4 core
-
-
 
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>Passaggi per distribuire il server di destinazione master

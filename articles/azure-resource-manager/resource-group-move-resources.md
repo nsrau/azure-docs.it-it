@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ Non è possibile modificare il percorso della risorsa. Lo spostamento di una ris
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
 Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
 
-1. Le sottoscrizioni di origine e di destinazione devono trovarsi all'interno dello stesso [tenant di Active Directory](../active-directory/active-directory-howto-tenant.md). Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
+1. Le sottoscrizioni di origine e di destinazione devono trovarsi nello stesso [tenant di Azure Active Directory](../active-directory/active-directory-howto-tenant.md). Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
   Per Azure PowerShell usare:
 
@@ -50,7 +50,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, è possibile tentare di modificare la directory della sottoscrizione. Tuttavia, questa opzione è disponibile solo per gli amministratori del servizio sono registrati con un account Microsoft (non un account aziendale). Per tentare di modificare la directory, accedere al [portale classico](https://manage.windowsazure.com/), selezionare **Impostazioni**, quindi la sottoscrizione. Se l'icona **Modifica directory** è disponibile, selezionarla per modificare l'Active Directory associato. 
+  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, è possibile tentare di modificare la directory della sottoscrizione. Tuttavia, questa opzione è disponibile solo per gli amministratori del servizio sono registrati con un account Microsoft (non un account aziendale). Per tentare di modificare la directory, accedere al [portale classico](https://manage.windowsazure.com/), selezionare **Impostazioni**, quindi la sottoscrizione. Se l'icona **Modifica directory** è disponibile, selezionarla per modificare l'istanza di Azure Active Directory associata. 
 
   ![modifica directory](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -67,7 +67,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
 
 Chiamare il supporto quando è necessario:
 
-* Spostare le risorse in un nuovo account Azure (e tenant di Active Directory).
+* Spostare le risorse in un nuovo account di Azure (e tenant di Azure Active Directory).
 * Spostare le risorse classiche ma si verificano problemi relativi alle limitazioni.
 
 ## <a name="services-that-enable-move"></a>Servizi che abilitano lo spostamento

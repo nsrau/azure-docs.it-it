@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: b054245de2c5bf6019c2cb29409289f2ac8766ec
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 6629666eaa913321db3855438bb66d349d5c52bf
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -93,6 +93,12 @@ Non è possibile eseguire il failback di una macchina virtuale finché non ha al
 
 Se si seleziona il punto di recupero coerente con l'applicazione, un singolo failback della macchina virtuale ripristinerà l'ultimo punto di recupero coerente con l'applicazione più recente disponibile. In caso di piano di ripristino con un gruppo di replica, ogni gruppo di replica ripristinerà il punto di recupero disponibile comune.
 Si noti che i punti di recupero coerenti con l'applicazione possono essere indietro nel tempo e potrebbero verificarsi perdite di dati.
+
+### <a name="what-happens-to-vmware-tools-post-failback"></a>Che cosa succede agli strumenti VMware dopo il failback?
+
+Durante il failover in Azure, gli strumenti VMware non possono essere eseguiti nella macchina virtuale di Azure. Nel caso di una macchina virtuale Windows, Azure Site Recovery disabilita gli strumenti VMware durante il failover. Nel caso di una macchina virtuale Linux, Azure Site Recovery disinstalla gli strumenti VMware durante il failover. 
+
+Durante il failback della macchina virtuale Windows, gli strumenti VMware vengono riabilitati al failback. Analogamente, per una macchina virtuale Linux, gli strumenti VMware vengono reinstallati nella macchina durante il failback.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
