@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 3e47a7e0382009a07b885a28c6e8d90f9bff9cfb
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 18dcb3a319f78639b27f9e70a2177423192e5958
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -28,7 +28,10 @@ Microsoft R Server in HDInsight ha accesso sia all'archivio BLOB di Azure sia ad
 Quando si crea un cluster Hadoop in HDInsight, si specifica un account di Archiviazione di Azure o un archivio Data Lake. Un contenitore di archiviazione specifico dell'account include il file system del cluster creato, ad esempio Hadoop Distributed File System. Per motivi di prestazioni, il cluster HDInsight viene creato nello stesso data center dell'account di archiviazione primario specificato. Per altre informazioni, vedere [Usare l'archivio BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md "Usare l'archivio BLOB di Azure con HDInsight").   
 
 ## <a name="use-multiple-azure-blob-storage-accounts"></a>Usare più account di archiviazione BLOB di Azure
-Se necessario, è possibile accedere a più account di archiviazione o contenitori di Azure con il cluster HDI. A tale scopo è necessario specificare gli account di archiviazione aggiuntivi nell'interfaccia utente al momento della creazione del cluster e quindi seguire questa procedura per usarli in R.  
+Se necessario, è possibile accedere a più account di archiviazione o contenitori di Azure con il cluster HDI. A tale scopo è necessario specificare gli account di archiviazione aggiuntivi nell'interfaccia utente al momento della creazione del cluster e quindi seguire questa procedura per usarli in R.
+
+> [!WARNING]
+> L'uso di un account di archiviazione in una località diversa rispetto al cluster HDInsight non è supportato.
 
 1. Creare un cluster HDInsight con un nome di account di archiviazione **storage1** e un contenitore predefinito denominato **container1**.
 2. Si specifica anche un account di archiviazione aggiuntivo denominato **storage2**.  
@@ -128,7 +131,7 @@ Dopo aver assegnato un nome all'entità servizio, creare una password per tale e
 
 È anche possibile aggiungere l'accesso per il cluster a uno o più archivi Data Lake dopo la creazione del cluster. Aprire la voce del portale di Azure per un archivio Data Lake e passare a **Esplora dati > Accesso > Aggiungi**. 
 
-Per altri dettagli sull'aggiunta dell'accesso ad archivi Data Lake per cluster HDI, vedere l'articolo [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
+Per altri dettagli sull'aggiunta dell'accesso ad archivi Data Lake per cluster HDI, vedere l'articolo [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
 
 ## <a name="use-the-data-lake-store-with-r-server"></a>Usare un Archivio Azure Data Lake con R Server
 Una volta che è stato concesso l'accesso a un Archivio Data Lake, è possibile usarlo in R Server in HDInsight come con un account di archiviazione di Azure secondario. L'unica differenza è che il prefisso **wasb://** cambia in **adl://** come indicato di seguito:

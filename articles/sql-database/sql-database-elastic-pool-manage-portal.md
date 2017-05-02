@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 878bb6e792cff555747912a57c1a15632f06b2f7
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: d5be10b4898002a693f617043b2e2b8a890035ca
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -53,7 +53,7 @@ La creazione di un pool elastico da un pannello **server** esistente nel portale
 
     **-OPPURE-**
 
-    Potrebbe essere visualizzato un messaggio che informa che sono disponibili pool elastici consigliati per il server (solo V12). Fare clic sul messaggio per visualizzare i pool consigliati in base ai dati di telemetria cronologici relativi all'utilizzo del database e quindi fare clic sul livello per visualizzare altri dettagli e personalizzare il pool. Per informazioni su come vengono create le raccomandazioni, vedere [Informazioni sulle raccomandazioni per i pool](#understand-pool-recommendations) più avanti in questo argomento.
+    Potrebbe essere visualizzato un messaggio che informa che sono disponibili pool elastici consigliati per il server. Fare clic sul messaggio per visualizzare i pool consigliati in base ai dati di telemetria cronologici relativi all'utilizzo del database e quindi fare clic sul livello per visualizzare altri dettagli e personalizzare il pool. Per informazioni su come vengono create le raccomandazioni, vedere [Informazioni sulle raccomandazioni per i pool](#understand-pool-recommendations) più avanti in questo argomento.
 
     ![pool consigliato](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
@@ -104,7 +104,7 @@ Il servizio di database SQL valuta la cronologia di utilizzo e suggerisce uno o 
 
 La raccomandazione per il pool include:
 
-- Piano tariffario per il pool (Basic, Standard o Premium).
+- Piano tariffario per il pool (Basic, Standard, Premium o Premium RS)
 - **eDTU POOL** appropriato, detto anche eDTU max per pool.
 - **MAX eDTU** e **Min eDTU** per ogni database.
 - Elenco di database consigliati per il pool.

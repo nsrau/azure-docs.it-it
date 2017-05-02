@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 04/12/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 57c0228c398ba4ba3fd18a1088472749bed3ac69
-ms.openlocfilehash: 9ebbed56bdbc8385bb651c7aa1e77f369da1d727
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: b942f934ecb25083d779096dc628e342870edc26
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Abilitare la raccolta dati nel Centro sicurezza di Azure
-Per consentire ai clienti a impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati sulle macchine virtuali di Azure, incluse le informazioni di configurazione, i metadati, i registri eventi e altro. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente disattivandola nei criteri del Centro sicurezza. Vedere [Disabilitazione della raccolta dati](#disabling-data-collection). Se si disattiva la raccolta dati, il Centro sicurezza consiglierà di attivarla nei criteri di sicurezza per la sottoscrizione in questione.
+Per aiutare i clienti a impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati sulle macchine virtuali di Azure, incluse le informazioni di configurazione, i metadati e i registri eventi. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente disattivandola nei criteri del Centro sicurezza. Vedere [Disabilitazione della raccolta dati](#disabling-data-collection). Se si disattiva la raccolta dati, il Centro sicurezza consiglierà di attivarla nei criteri di sicurezza per la sottoscrizione in questione.
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
@@ -85,9 +86,4 @@ Questo documento illustra come implementare la raccomandazione "Abilita raccolta
 [4]: ./media/security-center-enable-data-collection/storage-account.png
 [5]: ./media/security-center-enable-data-collection/policy.png
 [6]: ./media/security-center-enable-data-collection/disable-data-collection.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

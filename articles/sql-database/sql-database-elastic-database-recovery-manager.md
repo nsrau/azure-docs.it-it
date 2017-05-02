@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 15b4e8d2de44b71ec0fd65a9c78879b5613bb748
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 2f034718730f112ba85865ae032fb7bd07045b16
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -37,7 +37,7 @@ In un ambiente di database partizionato c'è un unico tenant per database e ci s
 
 La mappa globale e locale delle partizioni potrebbero perdere la sincronizzazione per i motivi seguenti:
 
-1. L'eliminazione di una partizione con un intervallo che si ritiene non più usato o la ridenominazione della partizione. Eliminazione dei risultati di una partizione in un **mapping di partizione orfana**. Analogamente, anche un database rinominato può causare un mapping di partizione orfana. A seconda della finalità della modifica, potrebbe essere necessario rimuovere la partizione o aggiornarne il percorso. Per ripristinare un database eliminato, vedere [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-restore-deleted-database-portal.md).
+1. L'eliminazione di una partizione con un intervallo che si ritiene non più usato o la ridenominazione della partizione. Eliminazione dei risultati di una partizione in un **mapping di partizione orfana**. Analogamente, anche un database rinominato può causare un mapping di partizione orfana. A seconda della finalità della modifica, potrebbe essere necessario rimuovere la partizione o aggiornarne il percorso. Per ripristinare un database eliminato, vedere [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-recovery-using-backups.md).
 2. Si verifica un evento di failover geografico. Per continuare, è necessario aggiornare il nome del server e il nome del database dello strumento di gestione della mappa partizioni all'interno dell'applicazione e quindi aggiornare i dettagli del mapping di partizione per tutte le partizioni nella mappa partizioni. In caso di failover geografico, è necessario che la logica di ripristino sia automatizzata nel flusso di lavoro di failover. L'automazione delle azioni di ripristino rende possibile la gestibilità senza problemi dei database abilitati per la replica geografica, evitando interventi manuali. Per informazioni sulle opzioni per ripristinare un database in caso di interruzione del data center, vedere [Continuità aziendale](sql-database-business-continuity.md) e [Ripristino di emergenza](sql-database-disaster-recovery.md).
 3. Una partizione o un database ShardMapManager viene ripristinato a una condizione precedente. Per informazioni sul recupero temporizzato tramite i backup, vedere l'articolo sul [ripristino mediante backup](sql-database-recovery-using-backups.md).
 
@@ -77,7 +77,7 @@ Questo esempio rimuove le partizioni dalla mappa partizioni.
    rm.DetachShard(s.Location, customerMap);
    ``` 
 
-Quindi esegue il mapping del percorso della partizione nella mappa globale partizioni precedente all'eliminazione della partizione. Poiché la partizione è stata eliminata, si presuppone che questa operazione sia stata intenzionale che l'intervallo di chiavi di partizionamento orizzontale non venga più usato. Se non è questo il caso, è possibile eseguire un ripristino temporizzato. Per ripristinare le partizioni da un punto nel tempo precedente. In questo caso, vedere la sezione seguente per rilevare le incoerenze della partizione. Per eseguire il ripristino, vedere [Recupero temporizzato](sql-database-point-in-time-restore-portal.md).
+La mappa partizioni riflette il percorso della partizione nella mappa globale delle partizioni precedente l'eliminazione della partizione. Poiché la partizione è stata eliminata, si presuppone che questa operazione sia stata intenzionale che l'intervallo di chiavi di partizionamento orizzontale non venga più usato. Se non è questo il caso, è possibile eseguire un ripristino temporizzato. Per ripristinare le partizioni da un punto nel tempo precedente. In questo caso, vedere la sezione seguente per rilevare le incoerenze della partizione. Per eseguire il ripristino, vedere [Recupero temporizzato](sql-database-recovery-using-backups.md).
 
 Presupponendo che l'eliminazione del database sia stata intenzionale, l'azione di pulizia amministrativa finale consiste nell'eliminare la voce relativa alla partizione nel gestore delle mappe partizioni. In questo modo si impedisce all'applicazione di scrivere inavvertitamente informazioni in un intervallo non previsto.
 

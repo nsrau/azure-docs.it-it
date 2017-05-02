@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 61eac09668b14a98a42b1907a54577d80eb933a6
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a2177926e76b25ceb5ecb4fd9471f961d3fa989f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/29/2017
 Il database SQL di Azure gestisce le risorse disponibili per un database usando due meccanismi diversi: la **governance delle risorse** e l'**imposizione di limiti**. Questo argomento illustra queste due aree principali relative alla gestione delle risorse.
 
 ## <a name="resource-governance"></a>Governance delle risorse
-Uno degli obiettivi di progettazione dei piani tariffari Basic, Standard e Premium prevede che il database SQL di Azure si comporti come se il database fosse in esecuzione in un computer dedicato, indipendente dagli altri database. La governance delle risorse emula questo comportamento. Se l'utilizzo delle risorse aggregato raggiunge il numero massimo di risorse disponibili di CPU, memoria, I/O di log e I/O di dati assegnate al database, la governance delle risorse inserisce nella coda le query in esecuzione e assegna le risorse alle query accodate man mano che si liberano.
+Uno degli obiettivi di progettazione dei piani tariffari Basic, Standard, Premium e Premium RS prevede che il database SQL di Azure si comporti come se il database fosse in esecuzione in un computer dedicato, indipendente dagli altri database. La governance delle risorse emula questo comportamento. Se l'utilizzo delle risorse aggregato raggiunge il numero massimo di risorse disponibili di CPU, memoria, I/O di log e I/O di dati assegnate al database, la governance delle risorse inserisce nella coda le query in esecuzione e assegna le risorse alle query accodate man mano che si liberano.
 
 Come in un computer dedicato, l'utilizzo di tutte le risorse disponibili determina un allungamento dei tempi per le query attualmente in esecuzione che può comportare timeout dei comandi nel client. Nelle applicazioni con una logica di ripetizione dei tentativi aggressiva e nelle applicazioni che eseguono query sul database con frequenza elevata possono essere restituiti messaggi di errore durante il tentativo di eseguire nuove query quando è stato raggiunto il limite di richieste simultanee.
 
@@ -47,7 +47,7 @@ Ad esempio, il numero di connessioni a un database SQL e il numero di richieste 
 Sono disponibili livelli di servizio e livelli di prestazioni sia per i database singoli che per i pool elastici.
 
 ### <a name="single-databases"></a>Database singoli
-Per un singolo database, i limiti di un database sono definiti dal livello del servizio del database e dal livello delle prestazioni. La tabella seguente descrive le caratteristiche dei database Basic, Standard e Premium a diversi livelli di prestazioni.
+Per un singolo database, i limiti di un database sono definiti dal livello del servizio del database e dal livello delle prestazioni. La tabella seguente descrive le caratteristiche dei database Basic, Standard, Premium e Premium RS a diversi livelli di prestazioni.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
@@ -56,7 +56,7 @@ Per un singolo database, i limiti di un database sono definiti dal livello del s
 >
 
 ### <a name="elastic-pools"></a>Pool elastici
-[Pool elastici](sql-database-elastic-pool.md) condividono le risorse tra i database del pool. La tabella seguente descrive le caratteristiche dei pool elastici Basic, Standard e Premium.
+[Pool elastici](sql-database-elastic-pool.md) condividono le risorse tra i database del pool. La tabella seguente descrive le caratteristiche dei pool elastici Basic, Standard, Premium e Premium RS.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -66,8 +66,8 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 | Area | Limite | Descrizione |
 | --- | --- | --- |
 | Database che usano l'esportazione automatizzata per ogni sottoscrizione |10 |L’esportazione automatizzata consente di creare una pianificazione personalizzata per il backup dei database SQL. L'anteprima di questa funzionalità terminerà il 1° marzo 2017.  |
-| Database per server |Fino a 5000 |Nei server V12 sono permessi fino a 5000 database per server. |
-| DTU per server |45000 |In ogni server V12 sono consentite 45000 DTU per il provisioning di database autonomi e pool elastici. Il numero totale di database autonomi e pool consentito per ogni server è limitato solo dal numero di DTU del server.  
+| Database per server |Fino a 5000 |Nei server sono permessi fino a 5000 database per server. |
+| DTU per server |45000 |In ogni server sono consentite 45000 DTU per il provisioning di database autonomi e pool elastici. Il numero totale di database autonomi e pool consentito per ogni server è limitato solo dal numero di DTU del server.  
 
 > [!IMPORTANT]
 > La funzionalità di esportazione automatizzata di database SQL di Azure, ora disponibile in anteprima, verrà ritirata il 1° marzo 2017. A partire dal 1° dicembre 2016 non è più possibile configurare l'esportazione automatizzata per i database SQL. Tutti i processi di esportazione automatizzata esistenti continueranno a funzionare fino al 1° marzo 2017. Dal 1° dicembre 2016, è possibile usare la [conservazione dei backup a lungo termine](sql-database-long-term-retention.md) o [Automazione di Azure](../automation/automation-intro.md) per archiviare periodicamente i database SQL con PowerShell in base alla pianificazione desiderata. È possibile scaricare uno [script di esempio da GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).

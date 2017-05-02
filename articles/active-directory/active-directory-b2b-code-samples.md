@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/11/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 51c0f98e3d3ad09e3e6675b2692bc2a8888db9a7
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: 008227496dc7d685b1ce7d178a87640037a23500
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -26,108 +26,184 @@ ms.lasthandoff: 03/17/2017
 
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 
+## <a name="powershell-example"></a>Esempio di PowerShell
+È possibile invitare in blocco utenti esterni a un'organizzazione da indirizzi di posta elettronica archiviati un file CSV.
+
+1. Preparare il file CSV. Creare un nuovo file CSV e denominarlo invitations.csv. In questo esempio il file viene salvato in C:\Dati e contiene le informazioni seguenti:
+  
+  Nome                  |  InvitedUserEmailAddress
+  --------------------- | --------------------------
+  Invitato B2B di Gmail     | b2binvitee@gmail.com
+  Invitato B2B di Outlook   | b2binvitee@outlook.com
+
+
+2. Ottenere la versione più recente di Azure AD PowerShell. Per usare i nuovi cmdlet, è necessario installare il modulo di Azure AD PowerShell aggiornato, che è possibile scaricare dalla [pagina della versione del modulo di Powershell](https://www.powershellgallery.com/packages/AzureADPreview)
+
+3. Accedere alla tenancy
+
+    ```
+    $cred = Get-Credential
+    Connect-MsolService -Credential $cred
+    ```
+
+4. Eseguire il cmdlet PowerShell
+
+  ```
+  $invitations = import-csv C:\data\invitations.csv
+  $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
+  $messageInfo.customizedMessageBody = “Hey there! Check this out. I created an invitation through PowerShell”
+  foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
+  ```
+
+Tale cmdlet invia un invito a indirizzi di posta elettronica presenti nel file in invitations.csv. Funzionalità aggiuntive di questo cmdlet includono:
+- Testo personalizzato nel messaggio di posta elettronica
+- Inclusione di un nome visualizzato per l'utente invitato
+- Invio di messaggi ai destinatari di copia per conoscenza o eliminazione completa dei messaggi di posta elettronica
+
 ## <a name="code-sample"></a>Esempio di codice
 Questo esempio illustra come chiamare l'API di invito, in modalità "solo app", per ottenere l'URL di riscatto per la risorsa a cui si vuole invitare l'utente B2B. L'obiettivo consiste nell'inviare un messaggio di posta elettronica di invito personalizzato. Il messaggio di posta può essere composto con un client HTTP ed è quindi possibile personalizzarne l'aspetto e inviarlo tramite l'API Graph.
 
 ```
 namespace SampleInviteApp
 {
-    using System.Globalization;
     using System;
-    using System.Net;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Net.Http;
     using System.Net.Http.Headers;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Microsoft.Graph;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Newtonsoft.Json;
     class Program
     {
         /// <summary>
+        /// Microsoft graph resource.
+        /// </summary>
+        static readonly string GraphResource = "https://graph.microsoft.com";
+ 
+        /// <summary>
+        /// Microsoft graph invite endpoint.
+        /// </summary>
+        static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
+ 
+        /// <summary>
         ///  Authentication endpoint to get token.
         /// </summary>
         static readonly string EstsLoginEndpoint = "https://login.microsoftonline.com";
+ 
         /// <summary>
-        /// Initialize this to Tenant you want to invite users to.
+        /// This is the tenantid of the tenant you want to invite users to.
         /// </summary>
         private static readonly string TenantID = "";
+ 
         /// <summary>
-        /// Client id of the app.
+        /// This is the application id of the application that is registered in the above tenant.
+        /// The required scopes are available in the below link.
+        /// https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/invitation_post
         /// </summary>
         private static readonly string TestAppClientId = "";
+ 
         /// <summary>
-        /// Client secret of the app.
+        /// Client secret of the application.
         /// </summary>
-        private static readonly string TestAppClientSecret = @"";
+        private static readonly string TestAppClientSecret = @"
+ 
         /// <summary>
-        /// Admin user principal name
+        /// This is the email address of the user you want to invite.
         /// </summary>
-        private static readonly string InviterUserPrincipalName = "";
+        private static readonly string InvitedUserEmailAddress = @"";
+ 
+        /// <summary>
+        /// This is the display name of the user you want to invite.
+        /// </summary>
+        private static readonly string InvitedUserDisplayName = @"";
+ 
+        /// <summary>
+        /// Main method.
+        /// </summary>
+        /// <param name="args">Optional arguments</param>
         static void Main(string[] args)
         {
-            CreateInvitation();
+            Invitation invitation = CreateInvitation();
+            SendInvitation(invitation);
         }
-        private static void CreateInvitation()
+ 
+        /// <summary>
+        /// Create the invitation object.
+        /// </summary>
+        /// <returns>Returns the invitation object.</returns>
+        private static Invitation CreateInvitation()
         {
-            string accessToken = null;
-            string GraphResource = string.Format("", "graph.microsoft.com");
-            // Get the token for our app to talk to graph.
-            try
-            {
-                AuthenticationContext testAuthContext = new AuthenticationContext(string.Format("{0}/{1}", EstsLoginEndpoint, TenantID));
-                AuthenticationResult testAuthResult = testAuthContext.AcquireToken(
-                    GraphResource,
-                    new ClientCredential(TestAppClientId, TestAppClientSecret));;
-                accessToken = testAuthResult.AccessToken;
-            }
-            catch (AdalException ex)
-            {
-                Console.WriteLine("An exception was thrown: {0}.", ex);
-                throw;
-            }
+            // Set the invitation object.
+            Invitation invitation = new Invitation();
+            invitation.InvitedUserDisplayName = InvitedUserDisplayName;
+            invitation.InvitedUserEmailAddress = InvitedUserEmailAddress;
+            invitation.InviteRedirectUrl = "https://www.microsoft.com";
+            invitation.SendInvitationMessage = true;
+            return invitation;
+        }
+ 
+        /// <summary>
+        /// Send the guest user invite request.
+        /// </summary>
+        /// <param name="invitation">Invitation object.</param>
+        private static void SendInvitation(Invitation invitation)
+        {
+            string accessToken = GetAccessToken();
+ 
+            HttpClient httpClient = GetHttpClient(accessToken);
+ 
+            // Make the invite call. 
+            HttpContent content = new StringContent(JsonConvert.SerializeObject(invitation));
+            content.Headers.Add("ContentType", "application/json");
+            var postResponse = httpClient.PostAsync(InviteEndPoint, content).Result;
+            string serverResponse = postResponse.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(serverResponse);
+        }
+ 
+        /// <summary>
+        /// Get the HTTP client.
+        /// </summary>
+        /// <param name="accessToken">Access token</param>
+        /// <returns>Returns the Http Client.</returns>
+        private static HttpClient GetHttpClient(string accessToken)
+        {
             // setup http client.
             HttpClient httpClient = new HttpClient();
             httpClient.Timeout = TimeSpan.FromSeconds(300);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             httpClient.DefaultRequestHeaders.Add("client-request-id", Guid.NewGuid().ToString());
-            Console.WriteLine("CorrelationID for the request: {0}", httpClient.DefaultRequestHeaders.GetValues("client-request-id").Single());
-            var inviteEndPoint = string.Format("https://graph.microsoft.com/beta/invitations");
-            // Set the invitation object.
-            Invitation invitation = new Invitation();
-            invitation.InvitedUserDisplayName = "displayName";
-            invitation.InvitedUserEmailAddress = "Give the invitee email";
-            invitation.InviteRedirectUrl = "https://www.microsoft.com";
-            invitation.SendInvitationMessage = false;
-            // Make the invite call. Your app needs to have User.ReadWrite.All or Directory.ReadWrite.All scope to invite
-            HttpContent content = new StringContent(JsonConvert.SerializeObject(invitation));
-            content.Headers.Add("ContentType", "application/json");
-            var postResponse = httpClient.PostAsync(inviteEndPoint, content).Result;
-            string serverResponse = postResponse.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(serverResponse);
-            // Build the mail message. Here we are including the server response from inviation request, but you can customize it.
-            // To send the email you need Mail.Send scope.
-            var emailEndPoint = string.Format("https://graph.microsoft.com/beta/users/{0}/sendMail", InviterUserPrincipalName);
-            Email mail = new Email();
-            mail.message = new Message();
-            mail.message.Subject = "Inviation Email";
-            mail.message.Body = new ItemBody();
-            mail.message.Body.Content = serverResponse;
-            Recipient recipient = new Recipient();
-            recipient.EmailAddress = new EmailAddress();
-            recipient.EmailAddress.Address = invitation.InvitedUserEmailAddress;
-            mail.recipients = new List<Recipient>();
-            mail.recipients.Add(recipient);
-            // Make the call to send email.
-            content = new StringContent(JsonConvert.SerializeObject(mail));
-            Console.WriteLine(content);
-            content.Headers.Add("ContentType", "application/json");
-            postResponse = httpClient.PostAsync(emailEndPoint, content).Result;
-            serverResponse = postResponse.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(serverResponse);
+            Console.WriteLine(
+                "CorrelationID for the request: {0}",
+                httpClient.DefaultRequestHeaders.GetValues("client-request-id").Single());
+            return httpClient;
         }
+ 
+        /// <summary>
+        /// Get the access token for our application to talk to microsoft graph.
+        /// </summary>
+        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
+        private static string GetAccessToken()
+        {
+            string accessToken = null;
+ 
+            // Get the access token for our application to talk to microsoft graph.
+            try
+            {
+                AuthenticationContext testAuthContext =
+                    new AuthenticationContext(string.Format("{0}/{1}", EstsLoginEndpoint, TenantID));
+                AuthenticationResult testAuthResult = testAuthContext.AcquireTokenAsync(
+                    GraphResource,
+                    new ClientCredential(TestAppClientId, TestAppClientSecret)).Result;
+                accessToken = testAuthResult.AccessToken;
+            }
+            catch (AdalException ex)
+            {
+                Console.WriteLine("An exception was thrown while fetching the token: {0}.", ex);
+                throw;
+            }
+ 
+            return accessToken;
+        }
+ 
         /// <summary>
         /// Invitation class.
         /// </summary>
@@ -137,63 +213,26 @@ namespace SampleInviteApp
             /// Gets or sets display name.
             /// </summary>
             public string InvitedUserDisplayName { get; set; }
+ 
             /// <summary>
             /// Gets or sets display name.
             /// </summary>
             public string InvitedUserEmailAddress { get; set; }
+ 
             /// <summary>
             /// Gets or sets a value indicating whether Invitation Manager should send the email to InvitedUser.
             /// </summary>
             public bool SendInvitationMessage { get; set; }
+ 
             /// <summary>
             /// Gets or sets invitation redirect URL
             /// </summary>
             public string InviteRedirectUrl { get; set; }
         }
-        /// <summary>
-        /// The email message.
-        /// </summary>
-        public class Email
-        {
-            public Message message;
-            public List<Recipient> recipients;
-        }
     }
 }
 ```
 
-## <a name="powershell-example"></a>Esempio di PowerShell
-È possibile invitare in blocco utenti esterni a un'organizzazione da indirizzi di posta elettronica archiviati un file CSV.
-
-1. Preparare il file CSV. Creare un nuovo file CSV e denominarlo invitations.csv. In questo esempio il file viene salvato in C:\data. Il file CSV può essere analogo al seguente:
-
-  ```
-    InvitedUserEmailAddress
-    user1@contoso.com
-    user2@outlook.com
-    user3@gmail.com
-    user4@yahoo.com
-    ```
-
-2. Ottenere la versione più recente di Azure AD PowerShell. Per usare i nuovi cmdlet, è necessario installare il modulo di Azure AD PowerShell aggiornato, che è possibile scaricare dalla [pagina della versione del modulo di Powershell](https://www.powershellgallery.com/packages/AzureADPreview).
-
-3. Accedere alla tenancy
-
-    ```
-    Connect-AzureAd and login
-    ```
-
-4. Eseguire il cmdlet PowerShell
-
-    ```
-    $Invitations = import-csv C:\data\invitations.csv
-    foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://microsoft.com -SendInvitationMessage $true}
-  ```
-
-Tale cmdlet invia un invito a indirizzi di posta elettronica presenti nel file in invitations.csv. Funzionalità aggiuntive di questo cmdlet includono:
-- Testo personalizzato nel messaggio di posta elettronica
-- Inclusione di un nome visualizzato per l'utente invitato
-- Invio di messaggi ai destinatari di copia per conoscenza o eliminazione completa dei messaggi di posta elettronica
 
 ## <a name="next-steps"></a>Passaggi successivi
 

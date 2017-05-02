@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 338fa476377e9ff04c9a1f4e585f790b92a59f87
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure.
 
 > [!TIP]
-> Per un'esercitazione che illustra come creare un server, creare un firewall basato su server, visualizzare le proprietà del server, connettersi usando SQL Server Management Studio, eseguire query nel database master, creare un database di esempio e un database vuoto, eseguire query relative alle proprietà del database, connettersi usando SQL Server Management Studio ed eseguire query nel database di esempio, vedere l'[Esercitazione introduttiva](sql-database-get-started.md).
+> Per un'esercitazione che illustra come creare un server, creare un firewall basato su server, visualizzare le proprietà del server, connettersi usando SQL Server Management Studio, eseguire query nel database master, creare un database di esempio e un database vuoto, eseguire query relative alle proprietà del database, connettersi usando SQL Server Management Studio ed eseguire query nel database di esempio, vedere l'[Esercitazione introduttiva](sql-database-get-started-portal.md).
 >
 
 ## <a name="language-and-platform"></a>Linguaggio e piattaforma
@@ -64,8 +65,8 @@ Quando si verifica un errore temporaneo durante la connessione al database SQL, 
 
 ## <a name="network-considerations"></a>Considerazioni sulla rete
 * Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433.  Altre informazioni: [Configurazione del firewall di un database SQL di Azure](sql-database-configure-firewall-settings.md)
-* Se il programma client si connette al database SQL versione&12; mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL versione 12](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Le connessioni client al database SQL V12 di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL versione 12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Se il programma client si connette al database SQL mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Le connessioni client al database SQL di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## <a name="data-sharding-with-elastic-scale"></a>Condivisione dei dati con la scalabilità elastica
 La scalabilità elastica semplifica il processo di ridimensionamento. 
@@ -76,9 +77,4 @@ La scalabilità elastica semplifica il processo di ridimensionamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Esplorare tutte le [funzionalità del database SQL](sql-database-technical-overview.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

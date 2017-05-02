@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 3539da8afe5781d74cbf723090050b767373f268
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 2760705d189a1b557625bcb4868ba2a429026bb5
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -53,16 +53,14 @@ I modelli dati distribuiti ai server in Azure supportano la connessione alle ori
 
 Poiché il server è nel cloud, la connessione alle origini dati cloud è semplice. Quando ci si connette alle origini dati locali, il [gateway dati locale](analysis-services-gateway.md) garantisce connessioni veloci e sicure con il server Analysis Services nel cloud.  
 
- \* Alcune origini dati non sono ancora supportate nella versione di anteprima. Per altre informazioni, vedere la sezione [Aspettative anteprima](#preview-expectations) più avanti in questo articolo.
 
 ## <a name="explore-your-data-from-anywhere"></a>Esplorare i dati da qualsiasi luogo
-Connettersi e [ottenere dati](analysis-services-connect.md) dai server da qualsiasi piattaforma. Azure Analysis Services supporta la connessione da Power BI Desktop, Excel, app personalizzate e strumenti basati su browser.
+È possibile connettersi e ottenere dati dai server da qualsiasi piattaforma. Azure Analysis Services supporta la connessione da Power BI Desktop, Excel, app personalizzate e strumenti basati su browser.
 
 ![Visualizzazioni di dati](./media/analysis-services-overview/aas-overview-visualization.png)
 
- \* Power BI Embedded non è ancora supportato nella versione di anteprima.
 
-## <a name="secure"></a>Garantire la sicurezza
+## <a name="secure"></a>Proteggere
 #### <a name="user-authentication"></a>Autenticazione utente
 L'autenticazione utente per Azure Analysis Services viene gestita da [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Quando si tenta di accedere a un database di Azure Analysis Services, gli utenti usano un'identità dell'account dell'organizzazione con accesso al database a cui si sta tentando di accedere. Queste identità utente devono essere membri dell'istanza predefinita di Azure Active Directory per la sottoscrizione in cui risiede il server Azure Analysis Services. [Integrazione di directory](https://technet.microsoft.com/library/jj573653.aspx) tra AAD e Active Directory locale è un ottimo modo per concedere agli utenti locali l'accesso a un database di Azure Analysis Services, ma non è obbligatorio per tutti gli scenari.
 
@@ -115,7 +113,7 @@ I modelli dati in Azure Analysis Services possono richiedere diversi provider di
 
 ### <a name="client-connections"></a>Connessioni client
 
-Le applicazioni client richiedono ai [provider di dati](analysis-services-data-providers.md) client più recenti di connettersi ad Azure Analysis Services.
+Per le applicazioni client sono necessarie le [librerie client](analysis-services-data-providers.md) più recenti per connettersi ad Azure Analysis Services.
 
 Le cartelle di lavoro di Excel con connessioni attive a un server Azure Analysis Services e salvate in OneDrive o SharePoint Online non sono supportate.
 

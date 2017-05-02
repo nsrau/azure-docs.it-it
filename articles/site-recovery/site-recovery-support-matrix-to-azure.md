@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: da63e54b3f4e27ed3c4a1fd909c6c28295c6730d
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 711fb0715b7f12e12a742136f75af8069cbc83d8
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -33,11 +33,11 @@ In questo articolo vengono riepilogati le configurazioni e i componenti supporta
 
 ## <a name="support-for-deployment-options"></a>Supporto per opzioni di distribuzione
 
-**Distribuzione** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-**Portale di Azure** | Macchine virtuali VMware locali in Archiviazione di Azure, con Azure Resource Manager o archiviazione e reti classiche.<br/><br/> Failover in VM classiche o basate su Resource Manager. | Macchine virtuali locali Hyper-V (non in cloud Virtual Machine Manager) in Archiviazione di Azure, con Resource Manager o archiviazione e reti classiche.<br/><br/> Failover in VM classiche o basate su Resource Manager. | Macchine virtuali locali Hyper-V (in cloud Virtual Machine Manager) in Archiviazione di Azure, con Resource Manager o archiviazione e reti classiche.<br/><br/> Failover in VM classiche o basate su Resource Manager.
-**Portale classico** | Solo modalità manutenzione. Non è possibile creare nuovi insiemi di credenziali. | Solo modalità manutenzione. | Solo modalità manutenzione.
-**PowerShell** | Attualmente non è supportata. | Supportato | Supportato
+**Distribuzione** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)** |
+--- | --- | ---
+**Portale di Azure** | Macchine virtuali VMware locali in Archiviazione di Azure, con Azure Resource Manager o archiviazione e reti classiche.<br/><br/> Failover in VM classiche o basate su Resource Manager. | VM Hyper-V locali in Archiviazione di Azure, con Resource Manager o archiviazione e reti classiche.<br/><br/> Failover in VM classiche o basate su Resource Manager.
+**Portale classico** | Solo modalità manutenzione. Non è possibile creare nuovi insiemi di credenziali. | Solo modalità manutenzione.
+**PowerShell** | Attualmente non è supportata. | Supportato
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Supporto per server di gestione dei data center
@@ -50,15 +50,15 @@ In questo articolo vengono riepilogati le configurazioni e i componenti supporta
 **Hyper-V (con Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 e System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > Un cloud System Center Virtual Machine Manager 2016 con una combinazione di host Windows Server 2016 e 2012 R2 non è attualmente supportato. 
+  > Un cloud System Center Virtual Machine Manager 2016 con una combinazione di host Windows Server 2016 e 2012 R2 non è attualmente supportato.
 
 ### <a name="host-servers"></a>Server host
 
 **Distribuzione** | **Supporto**
 --- | ---
 **Server fisico/VM VMware** | vCenter 5.5 o 6.0 (supporto per le sole funzionalità 5.5) 
-**Hyper-V (senza Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 con gli aggiornamenti più recenti
-**Hyper-V (con Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 con gli aggiornamenti più recenti.<br/><br/> Gli host Windows Server 2016 devono essere gestiti da System Center Virtual Machine Manager 2016.
+**Hyper-V (con/senza Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 con gli aggiornamenti più recenti.<br></br>Se si usa SCVMM, gli host Windows Server 2016 dovranno essere gestiti da SCVMM 2016.
+
 
   >[!Note]
   >Un sito di Hyper-V con una combinazione di host che eseguono Windows Server 2016 e 2012 R2 non è attualmente supportato. Il ripristino in un percorso alternativo per le VM in un host Windows Server 2016 non è attualmente supportato.
@@ -68,50 +68,67 @@ In questo articolo vengono riepilogati le configurazioni e i componenti supporta
 In caso di replica in Azure, le macchine virtuali protette devono soddisfare i [requisiti di Azure](#failed-over-azure-vm-requirements).
 La tabella seguente offre un riepilogo dei sistemi operativi replicati supportati nei vari scenari di distribuzione quando si usa Azure Site Recovery. Il supporto è applicabile per qualsiasi carico di lavoro in esecuzione nel sistema operativo indicato.
 
- **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | ---
-Le VM Windows Server 2012 R2 a 64 bit, Windows Server 2012, Windows Server 2008 R2 con SP1 o successivo<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Qualsiasi sistema operativo guest [supportato da Azure](https://technet.microsoft.com/library/cc794868.aspx) | Qualsiasi sistema operativo guest [supportato da Azure](https://technet.microsoft.com/library/cc794868.aspx)
+ **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)** |
+--- | --- |
+Le VM Windows Server 2012 R2 a 64 bit, Windows Server 2012, Windows Server 2008 R2 con SP1 o successivo<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.) | Qualsiasi sistema operativo guest [supportato da Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
+
+>[!IMPORTANT]
+>(Applicabile ai server VMware/fisici replicati in Azure)
+>
+> Sui server Red Hat Enterprise Linux Server 7+ e CentOS 7+, la versione del kernel 3.10.0-514 è supportata a partire dalla versione 9.8 del servizio di mobilità Azure Site Recovery.<br/><br/>
+> I clienti sul kernel di 3.10.0-514 con una versione del servizio di mobilità inferiore alla 9.8 devono disabilitare la replica, aggiornare il servizio di mobilità alla versione 9.8 e quindi abilitare nuovamente la replica.  
+
+## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>File system e configurazioni di archiviazione guest supportate in Linux (server VMware/fisici)
+
+I file system e i software di configurazione dell'archiviazione seguenti sono supportati nei server Linux eseguiti in server fisici o VMware:
+* File system: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS (solo fino alla v4)
+* Gestore volumi: LVM2
+* Software con percorsi multipli: mapper dispositivi
+
+I server fisici con il controller di archiviazione HP CCISS non sono supportati.
 
 >[!Note]
->Supporto dell'archiviazione per versioni di Linux: file system EXT3, ETX4, ReiserFS e XFS, software per percorsi multipli Device Mapper, gestore dei volumi LVM2 e server fisici con archiviazione del controller HP CCISS *non* sono supportati.
->Il file system ReiserFS è supportato solo su SUSE Linux Enterprise Server 11 SP3.
+> Sui server Linux le seguenti directory (se impostate come partizioni o file system separati) devono essere tutte nello stesso disco (il disco del sistema operativo) nel server di origine: / (root), /boot, /usr, /usr/local, /var, ecc.<br/><br/>
+> Le funzionalità XFS v5, ad esempio i checksum di metadati, non sono attualmente supportate da ASR nei file System XFS. Assicurarsi che i file System XFS non usino alcuna funzionalità v5. È possibile usare l'utilità xfs_info per controllare il superblocco XFS per la partizione. Se ftype è impostato su 1, le funzionalità XFSv5 sono in uso. 
+>
+
 
 ## <a name="support-for-network-configuration"></a>Supporto per la configurazione di rete
 Le tabelle seguenti offrono un riepilogo delle configurazioni di rete supportate nei vari scenari di distribuzione che usano Azure Site Recovery per la replica in Azure.
 
 ### <a name="host-network-configuration"></a>Configurazione di rete per host
 
-**Configurazione** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-Gruppo NIC | Sì<br/><br/>Non supportato in computer fisici| Sì | Sì
-VLAN | Sì | Sì | Sì
-IPv4 | Sì | Sì | Sì
-IPv6 | No | No | No
+**Configurazione** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
+--- | --- | ---
+Gruppo NIC | Sì<br/><br/>Non supportato in computer fisici| Sì
+VLAN | Sì | Sì
+IPv4 | Sì | Sì
+IPv6 | No | No
 
 ### <a name="guest-vm-network-configuration"></a>Configurazione di rete per VM guest
 
-**Configurazione** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-Gruppo NIC | No | No | No
-IPv4 | Sì | Sì | Sì
-IPv6 | No | No | No
-IP statico (Windows) | Sì | Sì | Sì
-IP statico (Linux) | No | No | No
-Più NIC | Sì | Sì | Sì
+**Configurazione** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
+--- | --- | ---
+Gruppo NIC | No | No
+IPv4 | Sì | Sì
+IPv6 | No | No
+IP statico (Windows) | Sì | Sì
+IP statico (Linux) | No | No
+Più NIC | Sì | Sì
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configurazione di rete per VM di Azure sottoposte a failover
 
-**Rete di Azure** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-Express Route | Sì | Sì | Sì
-ILB | Sì | Sì | Sì
-ELB | Sì | Sì | Sì
-Gestione traffico | Sì | Sì | Sì
-Più NIC | Sì | Sì | Sì
-IP riservato | Sì | Sì | Sì
-IPv4 | Sì | Sì | Sì
-Conservazione IP origine | Sì | Sì | Sì
+**Rete di Azure** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
+--- | --- | ---
+Express Route | Sì | Sì
+ILB | Sì | Sì
+ELB | Sì | Sì
+Gestione traffico | Sì | Sì
+Più NIC | Sì | Sì
+IP riservato | Sì | Sì
+IPv4 | Sì | Sì
+Conservazione IP origine | Sì | Sì
 
 
 ## <a name="support-for-storage"></a>Supporto per archiviazione
@@ -119,50 +136,51 @@ Le tabelle seguenti offrono un riepilogo delle configurazioni di archiviazione s
 
 ### <a name="host-storage-configuration"></a>Configurazione di archiviazione per host
 
-**Configurazione** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
+**Configurazione** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
 --- | --- | --- | ---
-NFS | Sì per VMware<br/><br/> No per server fisici | N/D | N/D
-SMB 3.0 | N/D | Sì | Sì
-SAN (iSCSI) | Sì | Sì | Sì
-Percorsi multipli (MPIO)<br></br>Testata con: DSM Microsoft, EMC PowerPath 5.7 SP4, DSM EMC PowerPath per CLARiiON | Sì | Sì | Sì
+NFS | Sì per VMware<br/><br/> No per server fisici | N/D
+SMB 3.0 | N/D | Sì
+SAN (iSCSI) | Sì | Sì
+Percorsi multipli (MPIO)<br></br>Testata con: DSM Microsoft, EMC PowerPath 5.7 SP4, DSM EMC PowerPath per CLARiiON | Sì | Sì
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>Configurazione di archiviazione per server fisici o guest
 
-**Configurazione** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-VMDK | Sì | N/D | N/D
-VHD/VHDX | N/D | Sì | Sì
-VM di seconda generazione | N/D | Sì | Sì
-EFI/UEFI| No | Sì | Sì
-Disco cluster condiviso | Sì per VMware<br/><br/> N/D per server fisici | No | No
-Disco crittografato | No | No | No
-NFS | No | N/D | N/D
-SMB 3.0 | No | No | No
-RDM | Sì<br/><br/> N/D per server fisici | N/D | N/D
-Disco superiore a 1 TB | No | No | No
-Volume con disco con striping superiore a 1 TB<br/><br/> Gestione volumi logici (LVM) | Sì | Sì | Sì
-Spazi di archiviazione | No | Sì | Sì
-Aggiunta/rimozione a caldo disco | No | No | No
-Esclusione disco | Sì | Sì | Sì
-Percorsi multipli (MPIO) | N/D | Sì | Sì
+**Configurazione** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
+--- | --- | ---
+VMDK | Sì | N/D
+VHD/VHDX | N/D | Sì
+VM di seconda generazione | N/D | Sì
+EFI/UEFI| No | Sì
+Disco cluster condiviso | Sì per VMware<br/><br/> N/D per server fisici | No
+Disco crittografato | No | No
+NFS | No | N/D
+SMB 3.0 | No | No
+RDM | Sì<br/><br/> N/D per server fisici | N/D
+Disco superiore a 1 TB | No | No
+Volume con disco con striping superiore a 1 TB<br/><br/> Gestione volumi logici (LVM) | Sì | Sì
+Spazi di archiviazione | No | Sì
+Aggiunta/rimozione a caldo disco | No | No
+Esclusione disco | Sì | Sì
+Percorsi multipli (MPIO) | N/D | Sì
 
-**Archiviazione di Azure** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-Archiviazione con ridondanza locale | Sì | Sì | Sì
-Archiviazione con ridondanza geografica | Sì | Sì | Sì
-Archiviazione ad accesso sporadico | No | No | No
-Archiviazione ad accesso frequente| No | No | No
-Crittografia dei dati inattivi (SSE)| Sì | Sì | Sì
-Archiviazione Premium | Sì | No | No
-Servizio di importazione/esportazione | No | No | No
+**Archiviazione di Azure** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
+--- | --- | ---
+Archiviazione con ridondanza locale | Sì | Sì
+Archiviazione con ridondanza geografica | Sì | Sì
+RA-GRS | Sì | Sì
+Archiviazione ad accesso sporadico | No | No
+Archiviazione ad accesso frequente| No | No
+Crittografia dei dati inattivi (SSE)| Sì | Sì
+Archiviazione Premium | Sì | Sì
+Servizio di importazione/esportazione | No | No
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Supporto per configurazione di calcolo di Azure
 
-**Funzionalità di calcolo** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
+**Funzionalità di calcolo** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
 --- | --- | --- | ---
-Set di disponibilità | No | No | No
-HUB | Sì | Sì | Sì
+Set di disponibilità | Sì | Sì
+HUB | Sì | Sì  
 
 ## <a name="failed-over-azure-vm-requirements"></a>Requisiti per VM di Azure sottoposte a failover
 
@@ -207,5 +225,5 @@ Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risors
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Controllare i prerequisiti](site-recovery-prereq.md)
+[Verifica dei prerequisiti](site-recovery-prereq.md)
 

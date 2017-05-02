@@ -1,6 +1,6 @@
 ---
 title: "Creare un&quot;identità per un&quot;app Azure nel portale | Documentazione Microsoft"
-description: "Descrive come creare una nuova applicazione ed entità servizio di Active Directory da usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l&quot;accesso alle risorse."
+description: "Descrive come creare una nuova applicazione ed entità servizio di Azure Active Directory da usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l&quot;accesso alle risorse."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,12 +15,13 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 0b1d7bb2cbbeed2b41c22f19c1db49e81dadd4d7
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="use-portal-to-create-active-directory-application-and-service-principal-that-can-access-resources"></a>Usare il portale per creare un'applicazione Active Directory e un'entità servizio che accedono alle risorse
+# <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse
 > [!div class="op_single_selector"]
 > * [PowerShell](resource-group-authenticate-service-principal.md)
 > * [Interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md)
@@ -28,7 +29,7 @@ ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 >
 >
 
-Quando un'applicazione deve accedere alle risorse o modificarle, è necessario configurare un'applicazione Active Directory (AD) a cui assegnare le autorizzazioni richieste. Questo approccio è preferibile all'esecuzione dell'app con le credenziali dell'utente per i motivi seguenti:
+Quando un'applicazione deve accedere alle risorse o modificarle, è necessario configurare un'applicazione Azure Active Directory (AD) a cui assegnare le autorizzazioni richieste. Questo approccio è preferibile all'esecuzione dell'app con le credenziali dell'utente per i motivi seguenti:
 
 * È possibile assegnare all'identità dell'app autorizzazioni diverse rispetto a quelle dell'utente. Tali autorizzazioni sono in genere limitate alle specifiche operazioni che devono essere eseguite dall'app.
 * Non è necessario modificare le credenziali dell'app in caso di cambiamento delle responsabilità dell'utente. 
@@ -37,20 +38,20 @@ Quando un'applicazione deve accedere alle risorse o modificarle, è necessario c
 Questo argomento illustra come eseguire questa procedura tramite il portale. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
  
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
-Per completare questo argomento è necessario disporre di autorizzazioni sufficienti per registrare un'applicazione con Active Directory e assegnare l'applicazione a un ruolo nella sottoscrizione di Azure. Assicurarsi di avere le autorizzazioni appropriate per eseguire questi passaggi.
+Per completare questo argomento è necessario disporre di autorizzazioni sufficienti per registrare un'applicazione con il tenant di Azure AD e assegnare l'applicazione a un ruolo nella sottoscrizione di Azure. Assicurarsi di avere le autorizzazioni appropriate per eseguire questi passaggi.
 
-### <a name="check-active-directory-permissions"></a>Controllare le autorizzazioni di Active Directory
+### <a name="check-azure-active-directory-permissions"></a>Controllare le autorizzazioni di Azure Active Directory
 1. Accedere all'account di Azure tramite il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory**.
 
      ![Selezionare Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
-3. In Active Directory selezionare **Impostazioni utente**.
+3. In Azure Active Directory selezionare **Impostazioni utente**.
 
      ![Selezionare Impostazioni utente](./media/resource-group-create-service-principal-portal/select-user-settings.png)
-4. Controllare l'impostazione **Registrazioni per l'app**. Se il valore è **Sì**, gli utenti non amministratori possono registrare app di Active Directory. Questa impostazione indica che qualsiasi utente in Active Directory può registrare un'app. È possibile passare a [Controllare le autorizzazioni di sottoscrizione di Azure](#check-azure-subscription-permissions).
+4. Controllare l'impostazione **Registrazioni per l'app**. Se il valore è **Sì**, gli utenti non amministratori possono registrare app di Active Directory. Questa impostazione indica che qualsiasi utente in Azure AD può registrare un'app. È possibile passare a [Controllare le autorizzazioni di sottoscrizione di Azure](#check-azure-subscription-permissions).
 
      ![Visualizzare le registrazioni dell'app](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
-5. Se Registrazioni per l'app è impostata su **No**, solo gli utenti amministratori possono registrare app. È necessario controllare se l'account è un amministratore per Active Directory. Selezionare **Panoramica** e **Trova un utente** da Attività rapide.
+5. Se Registrazioni per l'app è impostata su **No**, solo gli utenti amministratori possono registrare app. È necessario controllare se l'account è un amministratore per il tenant di Azure AD. Selezionare **Panoramica** e **Trova un utente** da Attività rapide.
 
      ![Trova un utente](./media/resource-group-create-service-principal-portal/find-user.png)
 6. Cercare il proprio account e selezionarlo.
@@ -59,7 +60,7 @@ Per completare questo argomento è necessario disporre di autorizzazioni suffici
 7. Per il proprio account selezionare **Ruolo della directory**. 
 
      ![Ruolo della directory](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-8. Visualizzare il ruolo assegnato per Active Directory. Se l'account è assegnato al ruolo Utente, ma l'impostazione Registrazioni per l'app (dei passaggi precedenti) è limitata agli utenti amministratori, chiedere all'amministratore di essere assegnati a un ruolo amministrativo o di consentire agli utenti di registrare le app.
+8. Visualizzare il proprio ruolo della directory assegnato in Azure AD. Se l'account è assegnato al ruolo Utente, ma l'impostazione Registrazioni per l'app (dei passaggi precedenti) è limitata agli utenti amministratori, chiedere all'amministratore di essere assegnati a un ruolo amministrativo o di consentire agli utenti di registrare le app.
 
      ![Visualizzare il ruolo](./media/resource-group-create-service-principal-portal/view-role.png)
 
@@ -68,9 +69,9 @@ Nella sottoscrizione di Azure è necessario che l'account disponga dell'accesso 
 
 Per controllare le proprie autorizzazioni di sottoscrizione:
 
-1. Se non è già visualizzato il proprio account Active Directory in seguito ai passaggi precedenti, selezionare **Azure Active Directory** nel pannello a sinistra.
+1. Se non è già visualizzato il proprio account Azure AD in seguito ai passaggi precedenti, selezionare **Azure Active Directory** nel pannello a sinistra.
 
-2. Individuare il proprio account Active Directory. Selezionare **Panoramica** e **Trova un utente** da Attività rapide.
+2. Trovare il proprio account Azure AD. Selezionare **Panoramica** e **Trova un utente** da Attività rapide.
 
      ![Trova un utente](./media/resource-group-create-service-principal-portal/find-user.png)
 2. Cercare il proprio account e selezionarlo.
@@ -84,7 +85,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
      ![Visualizzare le autorizzazioni](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
-## <a name="create-an-active-directory-application"></a>Creare un'applicazione di Active Directory
+## <a name="create-an-azure-active-directory-application"></a>Creare un'applicazione Azure Active Directory
 1. Accedere all'account di Azure tramite il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory**.
 
@@ -106,7 +107,7 @@ L'applicazione è stata creata.
 ## <a name="get-application-id-and-authentication-key"></a>Ottenere l'ID applicazione e la chiave di autenticazione
 Quando si esegue l'accesso a livello di codice sono necessari l'ID dell'applicazione e una chiave di autenticazione. Per ottenere questi valori eseguire la procedura seguente:
 
-1. Da **Registrazioni dell'app** in Active Directory selezionare l'applicazione.
+1. Da **Registrazioni dell'app** in Azure Active Directory selezionare l'applicazione.
 
      ![Selezionare l'applicazione](./media/resource-group-create-service-principal-portal/select-app.png)
 2. Copiare l'**ID applicazione** e archiviarlo nel codice dell'applicazione. Le applicazioni nella sezione delle [applicazioni di esempio](#sample-applications) indicano questo valore come ID client.
@@ -126,9 +127,9 @@ Quando si esegue l'accesso a livello di codice sono necessari l'ID dell'applicaz
 ## <a name="get-tenant-id"></a>Ottenere l'ID tenant
 Quando si esegue l'accesso a livello di codice è necessario specificare l'ID tenant con la richiesta di autenticazione. 
 
-1. Per ottenere l'ID tenant selezionare **Proprietà** per Active Directory. 
+1. Per ottenere l'ID tenant selezionare **Proprietà** per il tenanto di Azure AD. 
 
-     ![Selezionare Poprietà di Active Directory](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
+     ![selezionare le proprietà di Azure AD](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
 2. Copiare l'**ID directory**. Questo valore è l'ID tenant.
 
@@ -165,7 +166,7 @@ Per accedere alle risorse della propria sottoscrizione è necessario assegnare l
 
 ## <a name="log-in-as-the-application"></a>Eseguire l'accesso come applicazione
 
-L'applicazione è ora configurata in Active Directory. Si dispone di un ID e una chiave da usare per eseguire l'accesso come applicazione. L'applicazione viene assegnata a un ruolo che le consente di eseguire alcune azioni. 
+L'applicazione è ora configurata in Azure Active Directory. Si dispone di un ID e una chiave da usare per eseguire l'accesso come applicazione. L'applicazione viene assegnata a un ruolo che le consente di eseguire alcune azioni. 
 
 Per eseguire l'accesso con PowerShell, vedere [Fornire le credenziali tramite PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
 
@@ -206,10 +207,5 @@ Le seguenti applicazioni di esempio illustrano come eseguire l'accesso come appl
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare un'applicazione multi-tenant, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
 * Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

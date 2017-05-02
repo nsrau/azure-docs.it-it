@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: f62c0ca57bfd15a9ad1f767fa8fd59cc73b71c43
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: f029b2dfaff372b3a8282d056ca52bd5d0893e64
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -28,7 +28,7 @@ Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di acce
 
 Per altre informazioni, vedere [Panoramica di Hub eventi][Event Hubs overview].
 
-In questa esercitazione si apprenderà come inviare eventi a un Hub eventi usando un'applicazione console in C. Per ricevere gli eventi, fare clic sulla lingua di destinazione appropriata nel sommario a sinistra.
+In questa esercitazione si apprenderà come inviare eventi a un hub eventi usando un'applicazione console in C. Per ricevere gli eventi, fare clic sulla lingua di destinazione appropriata nel sommario a sinistra.
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -155,7 +155,7 @@ In questa sezione si scriverà un'app C per inviare eventi all'hub eventi. Si us
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
+* [Creare un hub eventi](event-hubs-create.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 <!-- Images. -->

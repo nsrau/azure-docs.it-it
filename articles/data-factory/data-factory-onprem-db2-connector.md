@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 59a83a62ddee89c44533060b811bc8fc2f144bee
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 6d54203797ad970d590b853b171b383708dbcb5d
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,9 @@ Questo articolo illustra come usare l'attività di copia in una data factory di 
 Data Factory supporta attualmente solo lo spostamento dei dati da un database DB2 agli [archivi dati sink supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats)e non supporta lo spostamento dei dati da altri archivi dati in un database DB2.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Perché il servizio Azure Data Factory possa connettersi al database DB2 locale, è necessario installare un gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Il gateway di gestione dati è un componente che connette le origini dati locali ai servizi cloud in modo sicuro e gestito. Leggere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per i dettagli sul Gateway di gestione dati. Per istruzioni passo per passo su come configurare il gateway di una pipeline di dati per spostare i dati, vedere [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md).
+Data Factory supporta la connessione a database DB2 locali tramite il Gateway di gestione dati. Vedere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per informazioni sul Gateway di gestione dati e l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) per istruzioni dettagliate su come configurare un gateway e una pipeline di dati per spostare i dati.
 
-È necessario usare il gateway per connettersi a un database DB2 anche se il database è ospitato nel cloud, ad esempio, in una VM IaaS di Azure. È possibile avere il gateway nella stessa VM che ospita il database o in una VM diversa, purché il gateway possa connettersi al database.  
+Il gateway è necessario anche se il DB2 è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM IaaS dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
 
 Il Gateway di gestione dati offre un driver DB2 integrato, perciò non è necessario installare manualmente eventuali driver quando si copiano dati da DB2.
 
@@ -46,6 +46,9 @@ Il connettore DB2 supporta le piattaforme e le versioni di IBM DB2 seguenti con 
 * IBM DB2 per LUW 11
 * IBM DB2 per LUW 10.5
 * IBM DB2 per LUW 10.1
+
+> [!TIP]
+> Se viene visualizzato l'errore "Non è stato trovato il pacchetto corrispondente a una richiesta di esecuzione dell'istruzione SQL. SQLSTATE = 51002 SQLCODE =-805", l'utente beneficia di un account con privilegi elevati (utente avanzato o amministratore) per eseguire una sola volta l'attività di copia, quindi il pacchetto necessario verrà creato automaticamente durante la copia. In seguito è possibile tornare a essere un utente normale per le successive esecuzioni delle operazioni di copia.
 
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un archio dati DB2 usando diversi strumenti/API. 
