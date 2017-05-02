@@ -102,7 +102,7 @@ Questa sezione descrive come creare un criterio di autorizzazione per una chiave
 
 Per configurare l'opzione di restrizione Token, è necessario usare un file XML per descrivere i requisiti di autorizzazione del token. Il file XML di configurazione della restrizione Token deve essere conforme al seguente schema XML.
 
-#### <a name="a-idschemaatoken-restriction-schema"></a><a id="schema"></a>Schema di restrizione Token
+#### <a id="schema"></a>Schema di restrizione Token
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -150,7 +150,7 @@ Per configurare l'opzione di restrizione Token, è necessario usare un file XML 
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Quando si configurano i criteri di restrizione **token**, è necessario specificare i parametri primary** verification key**, **issuer** e **audience**. Il parametro **primary verification key** include la chiave usata per firmare il token. Il parametro **issuer** è il servizio token di sicurezza che emette il token. Il parametro **audience** (talvolta denominato **scope**) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello. 
+Quando si configurano i criteri di restrizione **token**, è necessario specificare i parametri primary**verification key**, **issuer** e **audience**. Il parametro **primary verification key** include la chiave usata per firmare il token. Il parametro **issuer** è il servizio token di sicurezza che emette il token. Il parametro **audience** (talvolta denominato **scope**) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello. 
 
 Se si usa **Media Services SDK per .NET**, è possibile usare la classe **TokenRestrictionTemplate** per generare il token della restrizione.
 Il seguente esempio crea un criterio di autorizzazione con una restrizione Token. In questo esempio il client deve presentare un token contenente i seguenti dati: chiave di firma (VerificationKey), autorità emittente del token e attestazioni richieste.
@@ -209,7 +209,7 @@ Il seguente esempio crea un criterio di autorizzazione con una restrizione Token
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 
-#### <a name="a-idtestatest-token"></a><a id="test"></a>Token di test
+#### <a id="test"></a>Token di test
 Per ottenere un token di test basato sulla restrizione Token usata per i criteri di autorizzazione della chiave, seguire questa procedura.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -390,8 +390,8 @@ Per configurare l'opzione di restrizione Token, è necessario usare un file XML 
 
 Per ottenere un token di test basato sulla restrizione Token usata per i criteri di autorizzazione della chiave, vedere [questa](#test) sezione. 
 
-## <a name="a-idtypesatypes-used-when-defining-contentkeyauthorizationpolicy"></a><a id="types"></a>Tipi usati durante la definizione di ContentKeyAuthorizationPolicy
-### <a name="a-idcontentkeyrestrictiontypeacontentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a id="types"></a>Tipi usati durante la definizione di ContentKeyAuthorizationPolicy
+### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -399,7 +399,7 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
         IPRestricted = 2,
     }
 
-### <a name="a-idcontentkeydeliverytypeacontentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -408,7 +408,7 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
       Widevine = 3
     }
 
-### <a name="a-idtokentypeatokentype"></a><a id="TokenType"></a>TokenType
+### <a id="TokenType"></a>TokenType
     public enum TokenType
     {
         Undefined = 0,

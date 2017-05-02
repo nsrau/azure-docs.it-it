@@ -232,7 +232,7 @@ Nel pannello Informazioni di base è necessario fornire i dettagli di base per i
 #### <a name="2-cluster-configuration"></a>2. Configurazione del cluster
 ![Creare un tipo di nodo][CreateNodeType]
 
-Configurare i nodi del cluster. poiché definiscono le dimensioni delle VM, il numero di VM e le relative proprietà. Il cluster può avere più di un tipo di nodo, ma il tipo di nodo primario, ovvero il primo che si definisce nel portale, deve essere costituito da almeno cinque macchine virtuali, poiché in questo tipo di nodo si trovano i servizi di sistema di Service Fabric. Non è necessario configurare le proprietà relative alla posizione **** , perché una proprietà relativa alla posizione predefinita "NodeTypeName" viene aggiunta automaticamente.
+Configurare i nodi del cluster. poiché definiscono le dimensioni delle VM, il numero di VM e le relative proprietà. Il cluster può avere più di un tipo di nodo, ma il tipo di nodo primario, ovvero il primo che si definisce nel portale, deve essere costituito da almeno cinque macchine virtuali, poiché in questo tipo di nodo si trovano i servizi di sistema di Service Fabric. Non è necessario configurare le **proprietà relative alla posizione**, perché una proprietà relativa alla posizione predefinita "NodeTypeName" viene aggiunta automaticamente.
 
 > [!NOTE]
 > Uno scenario comune per diversi tipi di nodi è costituito da un'applicazione contenente un servizio front-end e un servizio back-end. Si vuole inserire il servizio front-end in macchine virtuali più piccole, ad esempio con dimensioni D2, con porte aperte a Internet e il servizio back-end in macchine virtuali più grandi, ad esempio con dimensioni D4, D6, D15 e così via, senza porte con connessione Internet aperte.
@@ -278,7 +278,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 Per completare la creazione del cluster, fare clic su **Riepilogo** per visualizzare le configurazioni specificate oppure scaricare il modello di Azure Resource Manager usato per distribuire il cluster. Dopo che sono state specificate le impostazioni obbligatorie, il pulsante **OK** diventa di colore verde ed è possibile avviare il processo di creazione del cluster facendo clic su di esso.
 
-È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: fare clic sull'icona a forma di campana accanto alla barra di stato nell'angolo superiore destro della schermata. Se durante la creazione del cluster si è fatto clic su **Aggiungi alla Schermata iniziale**, la **distribuzione del cluster di Service Fabric ** verrà indicata nella **schermata iniziale**.
+È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: fare clic sull'icona a forma di campana accanto alla barra di stato nell'angolo superiore destro della schermata. Se durante la creazione del cluster si è fatto clic su **Aggiungi alla Schermata iniziale**, la **distribuzione del cluster di Service Fabric** verrà indicata nella **schermata iniziale**.
 
 ### <a name="view-your-cluster-status"></a>Visualizzare lo stato del cluster
 ![Schermata dei dettagli del cluster nel dashboard.][ClusterDashboard]
