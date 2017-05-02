@@ -136,7 +136,7 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 |"@@"|Viene restituita una stringa da 1 carattere che contiene '@'.|  
 |" @"|Viene restituita una stringa da 2 caratteri che contiene ' @'.|  
   
-Con l'*interpolazione della stringa* è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`
+Con l'*interpolazione della stringa* è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 Il risultato è sempre una stringa. Questa funzionalità è quindi simile alla funzione `concat`. Si supponga di avere definito `myNumber` come `42` e `myString` come `sampleString`:  
   
