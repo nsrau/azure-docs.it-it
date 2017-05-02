@@ -6,16 +6,8 @@ Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VP
 - Per informazioni sui parametri IPsec/IKE, vedere [Parametri](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
 - Prima di configurare il dispositivo VPN, verificare eventuali [Problemi noti di compatibilità del dispositivo](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) per il dispositivo VPN da usare.
 
-Durante la configurazione del dispositivo VPN, sono necessari gli elementi seguenti:
+Durante la configurazione del dispositivo VPN, è necessario quanto segue:
 
-- Indirizzo IP pubblico del gateway di rete virtuale.
+- Chiave condivisa. Si tratta della stessa chiave condivisa che viene specificata durante la creazione della connessione VPN da sito a sito. In questi esempi viene usata una chiave condivisa semplice. È consigliabile generare una chiave più complessa per l'uso effettivo.
 
-    -  Per trovare l'indirizzo IP pubblico usando il portale di Azure, passare a **Gateway di rete virtuale**, quindi fare clic sul nome del gateway. 
-    - Per trovare l'indirizzo IP pubblico del gateway di rete virtuale tramite PowerShell, usare l'esempio seguente, sostituendo i valori con quelli personalizzati.
-
-            Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
-- Chiave condivisa. Si tratta della stessa chiave condivisa che viene specificata durante la creazione della connessione VPN da sito a sito. In questi esempi viene usata una chiave condivisa molto semplice. È necessario generare una chiave più complessa per l'uso effettivo.
-
-
-
-
+- Indirizzo IP pubblico del gateway di rete virtuale. È possibile visualizzare l'indirizzo IP pubblico usando il portale di Azure, PowerShell o l'interfaccia della riga di comando.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 04/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 650ff05715c8c0d915c82f9de49756530b8f3138
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: de04bf367f9f9f92756202cf6c1571f811a0f1f7
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -55,7 +55,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
 
 1. Tramite l'applicazione, reindirizzare l'utente all'URL seguente:
    
-        https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+        https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
    
    > [!NOTE]
    > \<REDIRECT-URI> deve essere codificato per essere usato in un URL. Per https://localhost, usare quindi `https%3A%2F%2Flocalhost`
@@ -71,7 +71,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
         -F redirect_uri=<REDIRECT-URI> \
         -F grant_type=authorization_code \
         -F resource=https://management.core.windows.net/ \
-        -F client_id=<CLIENT-ID> \
+        -F client_id=<APPLICATION-ID> \
         -F code=<AUTHORIZATION-CODE>
    
    > [!NOTE]
@@ -86,7 +86,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
              -F grant_type=refresh_token \
              -F resource=https://management.core.windows.net/ \
-             -F client_id=<CLIENT-ID> \
+             -F client_id=<APPLICATION-ID> \
              -F refresh_token=<REFRESH-TOKEN>
 
 Per altre informazioni sull'autenticazione utente interattiva, vedere [Flusso di concessione del codice di autorizzazione](https://msdn.microsoft.com/library/azure/dn645542.aspx).
@@ -128,7 +128,7 @@ Questa operazione si basa sulla chiamata API REST WebHDFS definita [qui](http://
 
 Usare il comando cURL seguente. Sostituire **\<yourstorename>** con il nome di Data Lake Store.
 
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS'
 
 Nel comando sopra sostituire \<`REDACTED`\> con il token di autorizzazione recuperato in precedenza. Questo comando crea una directory denominata **mytempdir** nella cartella radice del proprio account Data Lake Store.
 
@@ -141,7 +141,7 @@ Questa operazione si basa sulla chiamata API REST WebHDFS definita [qui](http://
 
 Usare il comando cURL seguente. Sostituire **\<yourstorename>** con il nome di Data Lake Store.
 
-    curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS
+    curl -i -X GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS'
 
 Nel comando sopra sostituire \<`REDACTED`\> con il token di autorizzazione recuperato in precedenza.
 
@@ -167,33 +167,24 @@ Se l'operazione viene completata correttamente, verrà visualizzata una risposta
 ## <a name="upload-data-into-a-data-lake-store-account"></a>Caricare dati in un account Archivio Data Lake
 Questa operazione si basa sulla chiamata API REST WebHDFS definita [qui](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
-Il caricamento di dati tramite API REST WebHDFS è un processo in due fasi, come illustrato di seguito.
+Usare il comando cURL seguente. Sostituire **\<yourstorename>** con il nome di Data Lake Store.
 
-1. Inviare una richiesta HTTP PUT senza inviare i dati dei file da caricare. Nel comando seguente sostituire **\<yourstorename>** con il nome del Data Lake Store.
+    curl -i -X PUT -L -T 'C:\temp\list.txt' -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE'
+
+Nella sintassi precedente il parametro **-T** indica la posizione del file da caricare.
+
+L'output è simile al seguente:
    
-        curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=CREATE
-   
-    L'output del comando conterrà un URL di reindirizzamento temporaneo, come quello riportato di seguito.
-   
-        HTTP/1.1 100 Continue
-   
-        HTTP/1.1 307 Temporary Redirect
-        ...
-        ...
-        Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=CREATE&write=true
-        ...
-        ...
-2. A questo punto è necessario inviare un'altra richiesta HTTP PUT all'URL elencato per la proprietà **Location** nella risposta. Sostituire **\<yourstorename>** con il nome di Data Lake Store.
-   
-        curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
-   
-    L'output sarà simile al seguente:
-   
-        HTTP/1.1 100 Continue
-   
-        HTTP/1.1 201 Created
-        ...
-        ...
+    HTTP/1.1 307 Temporary Redirect
+    ...
+    Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE&write=true
+    ...
+    Content-Length: 0
+
+    HTTP/1.1 100 Continue
+
+    HTTP/1.1 201 Created
+    ...
 
 ## <a name="read-data-from-a-data-lake-store-account"></a>Leggere i dati da un account Archivio Data Lake
 Questa operazione si basa sulla chiamata API REST WebHDFS definita [qui](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
@@ -205,7 +196,7 @@ La lettura dei dati da un account Archivio Data Lake è un processo in due fasi.
 
 Tuttavia, dal momento che non esiste alcuna differenza nei parametri di input tra il primo e il secondo passaggio, è possibile usare il parametro `-L` per inviare la prima richiesta. `-L` combina essenzialmente due richieste in una e fa ripetere a cURL la richiesta nel nuovo percorso. Infine, viene visualizzato l'output di tutte le chiamate di richiesta, come illustrato di seguito. Sostituire **\<yourstorename>** con il nome di Data Lake Store.
 
-    curl -i -L GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN
+    curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
 L'output dovrebbe essere simile al seguente:
 
@@ -224,7 +215,7 @@ Questa operazione si basa sulla chiamata API REST WebHDFS definita [qui](http://
 
 Per rinominare un file, usare il comando cURL seguente: Sostituire **\<yourstorename>** con il nome di Data Lake Store.
 
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt'
 
 L'output dovrebbe essere simile al seguente:
 
@@ -238,7 +229,7 @@ Questa operazione si basa sulla chiamata API REST WebHDFS definita [qui](http://
 
 Utilizzare il comando cURL seguente per eliminare un file. Sostituire **\<yourstorename>** con il nome di Data Lake Store.
 
-    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE
+    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE'
 
 Verrà visualizzato un output simile al seguente:
 

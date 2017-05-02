@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 01/13/2017
+ms.date: 04/21/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 52dcb10495c564c5d8058b9c786b4cd331b6ae18
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -34,7 +35,10 @@ Questo articolo illustra il processo di creazione di un [indice](https://docs.mi
 
 Prima di seguire le indicazioni di questa guida e creare un indice, è necessario [creare un servizio Ricerca di Azure](search-create-service-portal.md).
 
-Si noti che tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile su [GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> Tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile su [GitHub](http://aka.ms/search-dotnet-howto). Per una descrizione più dettagliata del codice di esempio, vedere le informazioni relative a [Azure Search .NET SDK](search-howto-dotnet-sdk.md).
+>
+>
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificare la chiave API amministratore del servizio Ricerca di Azure
 Dopo avere effettuato il provisioning di un servizio di Ricerca di Azure, è possibile inviare richieste rispetto all'endpoint di servizio usando .NET SDK. Innanzitutto, è necessario ottenere una delle chiavi API amministratore generate per il servizio di ricerca di cui è stato effettuato il provisioning. .NET SDK invierà questa chiave API a ogni richiesta del servizio. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
@@ -89,6 +93,9 @@ Quando si progetta l'indice è importante tenere in considerazione l'esperienza 
 All'indice di esempio è stato assegnato il nome "hotels" e i campi sono stati definiti usando una classe modello. Ogni proprietà della classe modello contiene attributi che determinano i comportamenti correlati alla ricerca del campo di indice corrispondente. La classe modello viene definita come segue:
 
 ```csharp
+// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
+// It ensures that Pascal-case property names in the model class are mapped to camel-case
+// field names in the index.
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
@@ -130,8 +137,6 @@ public partial class Hotel
 
     [IsFilterable, IsSortable]
     public GeographyPoint Location { get; set; }
-
-    // ToString() method omitted for brevity...
 }
 ```
 
@@ -178,10 +183,5 @@ serviceClient.Indexes.Delete("hotels");
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere creato un indice di Ricerca di Azure, sarà possibile [caricare il contenuto nell'indice](search-what-is-data-import.md) , in modo che si possa iniziare a eseguire ricerche nei dati.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 03/06/2017
+wms.date: 04/14/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 85b7336958c90b477eea8ea185a69bab2bd87a79
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 884cd19bdfb1bf53d75cb27e840c448eff8bc991
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
 
-Il [database SQL di Azure](sql-database-technical-overview.md) offre quattro livelli di servizio: **Basic**, **Standard**, **Premium** e **Premium RS**. Ognuno offre diversi livelli di prestazioni per la gestione di carichi di lavoro differenti. Livelli di prestazioni più elevati offrono risorse aggiuntive progettate per garantire un aumento della velocità effettiva. È possibile cambiare i livelli di servizio e di prestazioni in modo dinamico senza tempi di inattività. I livelli di servizio Basic, Standard, Premium e Premium RS garantiscono un tempo di attività previsto dal contratto di servizio del 99,99% e opzioni di continuità aziendale flessibili, funzionalità di sicurezza e fatturazione su base oraria. Il livello di servizio Premium RS offre gli stessi livelli di prestazioni e le stesse funzionalità di sicurezza e di continuità aziendale del livello Premium, anche se con un contratto di servizio ridotto.
+Il [database SQL di Azure](sql-database-technical-overview.md) offre quattro livelli di servizio: **Basic**, **Standard**, **Premium** e **Premium RS**. Ognuno offre diversi livelli di prestazioni per la gestione di carichi di lavoro differenti. Livelli di prestazioni più elevati offrono risorse aggiuntive progettate per garantire un aumento della velocità effettiva. È possibile cambiare i livelli di servizio e di prestazioni in modo dinamico senza tempi di inattività. I livelli di servizio Basic, Standard e Premium garantiscono un tempo di attività previsto dal contratto di servizio del 99,99% e opzioni di continuità aziendale flessibili, funzionalità di sicurezza e fatturazione su base oraria. Il livello di servizio Premium RS offre gli stessi livelli di prestazioni e le stesse funzionalità di sicurezza e di continuità aziendale del livello Premium, anche se con un contratto di servizio ridotto.
 
 > [!IMPORTANT]
 > I database Premium RS vengono eseguiti con un numero inferiore di copie ridondanti rispetto ai database Premium o Standard. In caso di errore del servizio, quindi, potrebbe essere necessario recuperare il database da un backup con un ritardo massimo di 5 minuti.
@@ -44,18 +44,18 @@ Nella tabella seguente sono riportati esempi dei livelli ottimali adatti ai cari
 | **Premium RS** | Progettato per carichi di lavoro con un numero elevato di operazioni di I/O che non richiedono una garanzia di disponibilità massima. Gli esempi includono test di carichi di lavoro ad alte prestazioni e carichi di lavoro di analisi in cui il database non è il sistema di registrazione. |
 |||
 
-Prima di tutto è necessario decidere se eseguire un database singolo con una quantità specifica di risorse dedicate o condividere un pool di risorse in un gruppo di database. Fare riferimento alle [considerazioni sul pool elastico](sql-database-elastic-pool-guidance.md). Per decidere il livello di servizio da usare, stabilire innanzitutto le funzionalità minime necessarie del database:
+Prima di tutto è necessario decidere se eseguire un database singolo con una quantità specifica di risorse dedicate o condividere un pool di risorse in un gruppo di database. Fare riferimento alle [considerazioni sul pool elastico](sql-database-elastic-pool.md). Per decidere il livello di servizio da usare, stabilire innanzitutto le funzionalità minime necessarie del database:
 
 | **Funzionalità del livello di servizio** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Dimensioni massime del singolo database | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Spazio di archiviazione totale massimo in un pool elastico | 117 GB | 1200 GB | 750 GB | 750 GB |
-| Numero massimo di database per pool | 400  | 400 | 50 | 50 |
+| Dimensioni massime del database singolo | 2 GB | 250 GB | 4 TB*  | 500 GB  |
+| Dimensioni massime dei database in un pool elastico | 156 GB | 2,9 TB | 500 GB | 500 GB |
+| Numero massimo di database per pool | 500  | 500 | 100 | 100 |
 | Periodo di conservazione dei backup dei database | 7 giorni | 35 giorni | 35 giorni | 35 giorni |
 ||||||
 
 > [!IMPORTANT]
-> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Per altre informazioni, vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize).
+> Singoli database fino a 4 TB sono disponibili in anteprima pubblica senza alcun costo aggiuntivo per i clienti che usano i livelli di prestazioni P11 e P15. Sono anche attualmente disponibili pool Premium con oltre 750 GB di archiviazione. Queste opzioni di archiviazione aggiuntive sono attualmente disponibili nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Dopo aver determinato il livello di servizio minimo, è possibile determinare il livello di prestazioni del database, ovvero il numero di DTU. I livelli di prestazioni Standard S2 e S3 sono in molti casi un valido punto di inizio. Per i database con requisiti elevati di CPU o I/O, i livelli di prestazioni Premium sono il punto di partenza ottimale. Premium offre più CPU e inizia a 10 volte più I/O rispetto al livello di prestazioni Standard massimo.
@@ -90,7 +90,7 @@ La durata dell'intero processo di scalabilità verticale dipende dalla dimension
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Livelli di servizio e di prestazioni per pool elastici in eDTU
 
-I pool consentono ai database di condividere e usare risorse DTU senza dover assegnare un livello di prestazioni specifico a ogni database nel pool. Ad esempio, un database singolo in un pool Standard può passare dall'uso di 0 eDTU al valore eDTU massimo per il database impostato quando si configura il pool. I pool consentono a più database con carichi di lavoro diversi di usare in modo efficiente le risorse eDTU disponibili per l'intero pool. Per altre informazioni relative alle considerazioni su prezzi e prestazioni per un pool di database elastici, vedere [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md) .
+I pool consentono ai database di condividere e usare risorse DTU senza dover assegnare un livello di prestazioni specifico a ogni database nel pool. Ad esempio, un database singolo in un pool Standard può passare dall'uso di 0 eDTU al valore eDTU massimo per il database impostato quando si configura il pool. I pool consentono a più database con carichi di lavoro diversi di usare in modo efficiente le risorse eDTU disponibili per l'intero pool. Per altre informazioni relative alle considerazioni su prezzi e prestazioni per un pool di database elastici, vedere [Quando usare un pool di database elastici](sql-database-elastic-pool.md) .
 
 La tabella seguente descrive le caratteristiche dei livelli di servizio del pool.
 
@@ -144,7 +144,7 @@ La creazione o l'aggiornamento di un database P11/P15 in un'area non supportata 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni dettagliate sui [pool elastici](sql-database-elastic-pool-guidance.md) e [considerazioni su prezzi e prestazioni dei pool elastici](sql-database-elastic-pool-guidance.md).
+* Informazioni dettagliate sui [pool elastici](sql-database-elastic-pool.md) e [considerazioni su prezzi e prestazioni dei pool elastici](sql-database-elastic-pool.md).
 * Informazioni su come [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md) e [Monitorare le prestazioni del database nel database SQL di Azure](sql-database-single-database-monitor.md).
 * Dopo aver acquisito familiarità con i livelli del database SQL, provare con un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) per scoprire come [creare il primo database SQL](sql-database-get-started-portal.md).
 * Per gli scenari di migrazione usare lo strumento per il [calcolo di DTU](http://dtucalculator.azurewebsites.net/) per simulare il numero di DTU necessario. 

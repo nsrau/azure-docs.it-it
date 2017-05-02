@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3602a1a5f281bec79937dc20e44f447527be8377
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 8ef393e414559ed6c7a2a3b41a0c8cf060f8d4da
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -44,7 +44,7 @@ Quando è necessario importare un database da un archivio o eseguire la migrazio
 
 Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per creare un database SQL di Azure a partire da un file BACPAC archiviato nell'archiviazione BLOB di Azure. L'importazione tramite il portale di Azure supporta solo l'importazione di un file BACPAC dall'archiviazione BLOB di Azure.
 
-Per importare un database tramite il portale di Azure, aprire la pagina per il database e fare clic su **Importa** sulla barra degli strumenti. Specificare il nome del file con estensione bacpac, specificare l'account di archiviazione di Azure e un contenitore per il file bacpac e specificare le credenziali per connettersi al database di origine.  
+Per importare un database tramite il portale di Azure, aprire la pagina per il database e fare clic su **Importa** sulla barra degli strumenti. Specificare l'account di archiviazione e il contenitore e quindi selezionare il file *.bacpac che si vuole importare. Selezionare la dimensione del nuovo database (in genere lo stesso dell'origine) e specificare le credenziali di SQL Server di destinazione.  
 
    ![Importazione di database](./media/sql-database-import/import.png)
 

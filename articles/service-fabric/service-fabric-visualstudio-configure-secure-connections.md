@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 10/08/2015
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a7f5a4afa8b00801f58776e2cf9d7bff9748925
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -41,7 +42,7 @@ La finestra di dialogo **Selezionare Cluster di Infrastruttura di servizi** cons
 1. Assicurarsi che sia possibile accedere a uno dei certificati client attendibili per il cluster di destinazione. Il certificato viene condiviso in genere come un file di scambio di informazioni personali (.pfx). Vedere [Configurazione di cluster di infrastruttura di servizi dal portale di Azure](service-fabric-cluster-creation-via-portal.md) per informazioni su come configurare il server e garantire l'accesso a un client.
 2. Installare il certificato attendibile. A tale scopo, fare doppio clic sul file .pfx, o usare lo script di PowerShell Import-PfxCertificate per importare i certificati. Installare il certificato in **Cert:\LocalMachine\My**. È anche possibile accettare tutte le impostazioni predefinite durante l'importazione del certificato.
 3. Scegliere il comando **Pubblica...** nel menu di scelta rapida del progetto per aprire la finestra di dialogo **Pubblica applicazione Azure** e quindi selezionare il cluster di destinazione. Lo strumento automaticamente risolve la connessione e salva i parametri di connessione protetta nel profilo di pubblicazione.
-4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
+4. Facoltativo: è possibile modificare il profilo di pubblicazione in modo da specificare una connessione sicura al cluster.
    
    Poiché si sta modificando manualmente il file XML del profilo di pubblicazione per specificare le informazioni del certificato, assicurarsi di prendere nota del nome di archivio del certificati, la posizione dell’archivio e l’identificazione personale del certificato. È necessario fornire questi valori per il nome dell'archivio del certificato e il percorso dell'archivio. Per altre informazioni, vedere [Procedura: recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx).
    
@@ -71,9 +72,4 @@ Per ulteriori informazioni sull'accesso ai cluster di Infrastruttura di servizi,
 <!--Image references-->
 [publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

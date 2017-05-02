@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/09/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: cbbef00cb4c54f4df2634fbe7b3dacbd34a175bd
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 2c9b6676c1a4cfe008235da6746d403555e1bf08
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -76,7 +76,7 @@ Per impostazione predefinita, per qualsiasi servizio cloud, Microsoft imposta un
 
 Anche se Microsoft si riserva il diritto di disabilitare l'account di un cliente che abbia superato le quote di utilizzo previste in un determinato mese, invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi di contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili per gli addebiti delle eccedenze.
 
-Come gli altri servizi in Azure, il bus di servizio applica un set specifico di quote per garantire un utilizzo corretto delle risorse. Le quote di utilizzo applicate dal servizio sono le seguenti:
+Come gli altri servizi in Azure, il bus di servizio applica un set specifico di quote per garantire un utilizzo corretto delle risorse. Per altre informazioni su queste quote, vedere la [panoramica sulle quote del bus di servizio][Quotas overview].
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quali sono alcune delle eccezioni generate dalle API del bus di servizio di Azure e le azioni consigliate?

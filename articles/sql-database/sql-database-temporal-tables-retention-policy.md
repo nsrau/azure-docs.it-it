@@ -16,9 +16,9 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8687603e7dbb91d60520be8952a78128595d9f46
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 3870a6ddb8c40a619e3aa6ed1a040f2070e2598c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -118,7 +118,7 @@ L'attività di pulizia per columnstore in cluster rimuove interi [gruppi di righ
 Un'ottima compressione dei dati e un'efficace pulizia per la conservazione fanno dell'indice columnstore in cluster la scelta ideale per gli scenari in cui il carico di lavoro genera rapidamente elevate quantità di dati cronologici. Tale modello è tipico per un l'[elaborazione transazionale intensiva dei carichi di lavoro che usano tabelle temporali](https://msdn.microsoft.com/library/mt631669.aspx) per il rilevamento delle modifiche e il controllo, l'analisi delle tendenze o l'inserimento dei dati IoT.
 
 ## <a name="index-considerations"></a>Considerazioni sull'indice
-L'attività di pulizia per le tabelle con indice rowstore in cluster richiede che l'indice inizi con la colonna che corrisponde alla fine del periodo SYSTEM_TIME. Se tale indice non esiste, non è possibile configurare un periodo di conservazione definito:
+L'attività di pulizia per le tabelle con indice rowstore in cluster richiede che l'indice inizi con la colonna che corrisponde alla fine del periodo SYSTEM_TIME. Se questa colonna non esiste, non è possibile configurare un periodo di conservazione finito:
 
 *Msg 13765, Level 16, State 1 <br></br> L'impostazione del periodo di conservazione definito ha avuto esito negativo nella tabella temporale con controllo delle versioni del sistema 'temporalstagetestdb.dbo.WebsiteUserInfo' perché la tabella di cronologia 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' non contiene l'indice in cluster richiesto. È consigliabile creare un columnstore cluster o indice B-tree a partire dalla colonna che corrisponde alla fine del periodo SYSTEM_TIME nella tabella di cronologia.*
 
