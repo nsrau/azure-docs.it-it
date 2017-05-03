@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Analisi di Servizi multimediali di Azure | Microsoft Docs
-description: "Servizi multimediali di Azure offre un&quot;anteprima pubblica di Analisi Servizi multimediali, una serie di servizi di riconoscimento vocale e visione artificiale per scalabilità, conformità, sicurezza e portata globale per le aziende. I servizi di Analisi Servizi multimediali di Azure sono stati creati usando i componenti principali della piattaforma Servizi multimediali di Azure e quindi sono subito pronti per l&quot;elaborazione di file multimediali su larga scala. "
+title: Analisi Servizi multimediali nella piattaforma Servizi multimediali | Microsoft Docs
+description: "Una panoramica dell&quot;anteprima pubblica di Analisi Servizi multimediali, una serie di servizi di riconoscimento vocale e visione artificiale per scalabilità, conformità, sicurezza e copertura globale per le aziende"
 services: media-services
 documentationcenter: 
 author: juliako
@@ -15,44 +15,52 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: milanga;juliako;johndeu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 63dd4299f5d4bcd98f87fa78c2d7da080a105696
+ms.lasthandoff: 04/15/2017
 
 
 ---
-# <a name="azure-media-services-analytics-overview"></a>Panoramica di Analisi elementi multimediali di Servizi multimediali di Azure
+# <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali
 ## <a name="overview"></a>Panoramica
-Sempre più organizzazioni e aziende adottano i video come mezzo per formare i dipendenti, coinvolgere i clienti e documentare le funzioni aziendali. Il cloud computing agevola l'archiviazione, il flusso e l'accesso a questi file multimediali di grandi dimensioni. Tuttavia, man mano che la raccolta di contenuti video cresce, le aziende devono poter usufruire di mezzi altrettanto efficienti per estrarre dal video le nuove informazioni dettagliate al fine di creare interazioni più consistenti e personalizzate con i destinatari e portare l'azienda a un livello superiore.
+Sempre più organizzazioni adottano i video come mezzo per formare i dipendenti, coinvolgere i clienti e documentare le funzioni aziendali. Il cloud computing consente di archiviare e riprodurre in streaming questi file multimediali di grandi dimensioni, nonché di accedervi. Tuttavia, man mano che la libreria aziendale di contenuti video aumenta, è necessario un mezzo altrettanto efficace per estrarre informazioni dal contenuto. 
 
-Per soddisfare questa esigenza in crescita sul marketplace, Servizi multimediali di Azure offre Analisi Servizi multimediali, una serie di componenti di riconoscimento vocale e visione artificiale per scalabilità, conformità, sicurezza e portata globale per le aziende, che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai propri file video. I servizi di Analisi Servizi multimediali di Azure sono stati creati usando i componenti principali della piattaforma Servizi multimediali di Azure e quindi sono subito pronti per l'elaborazione di file multimediali su larga scala.
+Per soddisfare questa esigenza in crescita, i Servizi multimediali di Azure offrono Analisi Servizi multimediali. Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai loro file video. Analisi Servizi multimediali, una soluzione creata usando i componenti principali della piattaforma Servizi multimediali, può iniziare fin da subito a elaborare i file multimediali su larga scala.
 
-Analisi Servizi multimediali consente agli sviluppatori di introdurre rapidamente le capacità di visione per i video su scala limitata e implementare queste funzionalità avanzate nelle applicazioni. Analisi Servizi multimediali di Azure è ideato per l'uso negli ambienti aziendali con scalabilità, conformità, sicurezza e portata globale complete necessarie per organizzazioni di grandi dimensioni.
+Con Analisi Servizi multimediali, gli sviluppatori possono introdurre rapidamente funzionalità video avanzate nelle applicazioni. Questa soluzione offre agli ambienti aziendali scalabilità, conformità, sicurezza e copertura globale complete necessarie per organizzazioni di grandi dimensioni.
 
-Il diagramma seguente mostra **Analisi Servizi multimediali** e altre parti importanti della piattaforma di Analisi Servizi multimediali. 
+Il diagramma seguente mostra Analisi Servizi multimediali e altre parti importanti della piattaforma Servizi multimediali. 
 
 ![Flusso di lavoro VoD](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
-I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file dall'archiviazione BLOB di Azure. 
+I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file dall'Archiviazione BLOB di Azure. 
 
-## <a name="azure-media-analytics-services"></a>Servizi di Analisi Servizi multimediali di Azure
-* **Indexer** : Azure Media Indexer consente di rendere i contenuti disponibili per la ricerca, oltre a generare tracce per i sottotitoli codificati. Servizi multimediali di Azure ha lanciato **Azure Media Indexer 2 Preview** con supporto più ampio e veloce per indicizzazione e linguaggio. Le lingue supportate includono l'inglese, lo spagnolo, il francese, il tedesco, l'italiano, il cinese, il portoghese e l'arabo. Per informazioni dettagliate ed esempi, vedere [Process videos with Azure Media Indexer 2 (Elaborare video con Azure Media Indexer 2)](media-services-process-content-with-indexer2.md)
-* **Hyperlapse** : Microsoft Hyperlapse è il risultato di oltre 20 anni di ricerca sulla visione artificiale condotta presso Microsoft Research (MSR), combinando stabilizzazione video e intervalli per creare video rapidi, fruibili e accattivanti, partendo da contenuti più lunghi. Oltre alla creazione di intervalli, è anche possibile usare Hyperlapse per creare video stabili da video traballanti acquisiti con telefoni cellulari e videocamere. Per informazioni dettagliate ed esempi, vedere [File multimediali di Hyperlapse con Azure Media Hyperlapse](media-services-hyperlapse-content.md)
-* **Rilevamento movimento** : è possibile usare questo servizio per rilevare i movimenti in un video con sfondi fissi. Questa funzione è ideale per i clienti che desiderano controllare la presenza di falsi positivi nei movimenti rilevati da videocamere di sorveglianza all'interno dei feed del video di sorveglianza. Per informazioni dettagliate ed esempi, vedere [Motion Detection for Azure Media Analytics (Rilevamento del movimento per Analisi Servizi multimediali di Azure)](media-services-motion-detection.md).
-* **Rilevamento viso ed emozioni viso** : usando questo servizio, è possibile rilevare i volti delle persone e le relativi emozioni, tra cui felicità, tristezza, sorpresa, rabbia, disprezzo, paura, disgusto e indifferenza/neutralità. Questa funzionalità vanta numerose applicazioni utili nel settore, descritte di seguito, tra cui l'aggregazione e l'analisi delle reazioni delle persone che partecipano a un evento. Per informazioni dettagliate ed esempi, vedere [Face and Emotion Detection for Azure Media Analytics (Rilevamento del viso e delle emozioni per Analisi Servizi multimediali di Azure)](media-services-face-and-emotion-detection.md).
-* **Riepilogo video** : il riepilogo del video consente di creare un riepilogo per video lunghi selezionando in modo automatico frammenti interessanti del video di origine. Questa funzione risulta particolarmente utile quando si intende creare una panoramica rapida dei contenuti offerti nella versione più lunga del video. Per informazioni dettagliate ed esempi, vedere [Uso delle anteprime video multimediali di Azure per creare un riepilogo video](media-services-video-summarization.md)
-* **Riconoscimento ottico dei caratteri** : il riconoscimento ottico dei caratteri (OCR) di Analisi servizi multimediali di Azure consente di convertire il contenuto di testo dei file video in testo digitale modificabile e sui cui è possibile eseguire ricerche. Ciò consente di automatizzare l'estrazione di metadati importanti dal segnale video del contenuto multimediale.
-* **Offuscamento dei volti scalabile**:  - **Azure Media Redactor** è un processore di contenuti multimediali di Analisi Servizi multimediali di Azure che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere [questo articolo](media-services-face-redaction.md).
+## <a name="media-analytics-services"></a>Servizi di Analisi Servizi multimediali
+
+### <a name="indexer"></a>Indexer
+Azure Media Indexer consente di rendere disponibili per la ricerca i contenuti, oltre a generare tracce per i sottotitoli codificati. Rispetto alla versione precedente, Azure Media Indexer 2 Preview offre prestazioni di indicizzazione superiori e un più ampio supporto di lingue. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese, portoghese e arabo. Per informazioni dettagliate ed esempi, vedere [Elaborare video con Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+### <a name="hyperlapse"></a>Hyperlapse
+Microsoft Hyperlapse combina la stabilizzazione video e la funzionalità di time-lapse per creare brevi video visualizzabili partendo da contenuti in formato esteso. Oltre alla creazione di video time-lapse, è anche possibile usare Hyperlapse per creare video stabili da video traballanti girati con telefoni cellulari e videocamere. Per informazioni dettagliate ed esempi, vedere [File multimediali di Hyperlapse con Azure Media Hyperlapse](media-services-hyperlapse-content.md).
+### <a name="motion-detector"></a>Motion Detector
+È possibile usare Motion Detector per rilevare i movimenti in un video con sfondi fissi. Questo rende possibile per verificare la presenza di falsi positivi in eventi di movimento rilevati da videocamere di sorveglianza. Per informazioni dettagliate ed esempi, vedere [Rilevamento dei movimenti per Analisi Servizi multimediali di Azure](media-services-motion-detection.md).
+### <a name="face-detector"></a>Face Detector
+Grazie all'uso di Face Detector, è possibile individuare i volti delle persone e le relative emozioni, ad esempio felicità, tristezza e sorpresa. Questa funzionalità vanta numerose applicazioni utili nel settore, descritte di seguito, tra cui l'aggregazione e l'analisi delle reazioni delle persone che partecipano a un evento. Per informazioni dettagliate ed esempi, vedere [Rilevamento di volti ed emozioni per Analisi Servizi multimediali di Azure](media-services-face-and-emotion-detection.md).
+### <a name="video-summarization"></a>Riepilogo video
+Il riepilogo video consente di creare un riepilogo per video lunghi selezionando in modo automatico frammenti interessanti del video di origine. Questa funzione risulta particolarmente utile quando si intende creare una panoramica rapida dei contenuti offerti nella versione più lunga del video. Per informazioni dettagliate ed esempi, vedere [Uso di Azure Media Video Thumbnails per creare un riepilogo video](media-services-video-summarization.md).
+### <a name="optical-character-recognition"></a>Riconoscimento ottico dei caratteri
+Il riconoscimento ottico dei caratteri (OCR) di Analisi Servizi multimediali di Azure consente di convertire il contenuto di testo dei file video in testo digitale modificabile e sui cui è possibile eseguire ricerche. È possibile automatizzare così l'estrazione di metadati importanti dal segnale video del contenuto multimediale.
+### <a name="scalable-face-redaction"></a>Offuscamento dei volti scalabile
+Azure Media Redactor è un processore di contenuti multimediali di Analisi Servizi multimediali di Azure che offre funzionalità scalabili di offuscamento dei volti nel cloud. Usando l'offuscamento dei volti è possibile modificare un video per sfocare i volti di persone selezionate. Si potrebbe scegliere di usare tale servizio in scenari di notizie giornalistiche o pubblica sicurezza. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio l'offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere l'articolo [Offuscare i volti con Analisi Servizi multimediali di Azure](media-services-face-redaction.md).
 
 ## <a name="common-scenarios"></a>Scenari comuni
-Di seguito vengono presentati un paio di scenari in cui Analisi Servizi multimediali di Azure può aiutare le organizzazioni e le aziende di vari settori a raccogliere nuove informazioni dai video per aumentare la personalizzazione del coinvolgimento di destinatari e dipendenti, nonché per gestire più efficacemente un volume elevato di contenuti video:
+Analisi Servii multimediali può aiutare le organizzazioni e le aziende a scoprire nuovi orizzonti nel mondo dei video e gestire più efficacemente grandi volumi di contenuti video. Di seguito sono descritti diversi scenari:
 
-* **Call center** : anche con l'avvento dei social media, i call center dedicati ai clienti continuano a costituire un'alta percentuale delle transazioni del servizio clienti. Questi dati audio contengono una grande quantità di informazioni sui clienti che possono essere analizzate per migliorare la roadmap e formare i dipendenti dei call center al fine di accrescere la soddisfazione dei clienti. Con Azure Media Indexer, i clienti possono estrarre testo e creare un indice e dashboard di ricerca per estrarre informazioni sui reclami più comuni, sui motivi dei reclami e altri dati rilevanti.
-* **Moderazione dei contenuti generati dall'utente** : dalle notizie giornalistiche ai reparti di polizia, molte organizzazioni dispongono di portali pubblici in cui vengono accettati file multimediali UGC, ad esempio immagini e video. A causa di eventi imprevisti, il volume dei contenuti potrebbe raggiungere il limite. In questi scenari è quasi impossibile eseguire un efficace controllo manuale sull'adeguatezza dei contenuti. I clienti possono fare affidamento sul servizio di moderazione dei contenuti per concentrare l'attenzione sui contenuti appropriati.
-* **Sorveglianza**: con l'aumento delle videocamere IP, si assiste a un'ampia diffusione di video di sorveglianza. Il controllo manuale dei video di sorveglianza richiede molto tempo ed è soggetto a errori umani. Analisi Servizi multimediali di Azure offre diversi componenti, ad esempio il rilevamento del movimento, il rilevamento viso e Hyperlapse per agevolare il processo di controllo, gestione e creazione dei derivati.
+* **Call center**. Anche con l'avvento dei social media, i call center dedicati ai clienti continuano a ospitare un'alta percentuale delle transazioni del servizio clienti. In questi dati audio sono codificate numerose informazioni sui clienti che possono essere analizzate per ottenere una maggiore soddisfazione del cliente. Con Media Indexer, le organizzazioni possono estrarre il testo e creare indici di ricerca e dashboard. Possono quindi estrarre informazioni su reclami comuni, origini dei reclami e altri dati rilevanti.
+* **Moderazione dei contenuti generati dall'utente**. Molte organizzazioni, dalle agenzie di stampa ai dipartimenti di polizia, dispongono di portali pubblici che accettano file multimediali generati dagli utenti, ad esempio immagini e video. A causa di eventi imprevisti, il volume dei contenuti potrebbe raggiungere il limite. In questi scenari è difficile eseguire un efficace controllo manuale sull'adeguatezza dei contenuti. I clienti possono fare affidamento sul servizio di moderazione dei contenuti per concentrare l'attenzione sui contenuti appropriati.
+* **Sorveglianza**. L'incremento nell'uso di telecamere IP comporta un aumento nell'inventario dei video di sorveglianza. Il controllo manuale dei video di sorveglianza richiede molto tempo ed è soggetto a errori umani. Analisi Servizi multimediali offre servizi come il rilevamento dei movimenti, il rilevamento viso e Hyperlapse per agevolare il processo di controllo, gestione e creazione dei derivati.
 
-## <a name="media-services-analytics-media-processors"></a>Processori di contenuti multimediali di Analisi servizi multimediali
-Questa sezione elenca tutti i processori di contenuti multimediali (MP) di Analisi servizi multimediali e illustra come usare .NET o REST per ottenere un oggetto MP.
+## <a name="media-analytics-media-processors"></a>Processori di contenuti multimediali di Analisi Servizi multimediali
+Questa sezione elenca tutti i processori di contenuti multimediali di Analisi Servizi multimediali e illustra come usare .NET o REST per ottenere un oggetto dei processori di contenuti multimediali.
 
 ### <a name="mp-names"></a>Nomi dei processori di contenuti multimediali
 * Azure Media Indexer 2 Preview
@@ -64,7 +72,7 @@ Questa sezione elenca tutti i processori di contenuti multimediali (MP) di Anali
 * Riconoscimento ottico dei caratteri multimediale di Azure
 
 ### <a name="net"></a>.NET
-La funzione seguente acquisisce uno dei nomi MP specificati e restituisce un oggetto MP.
+La funzione seguente acquisisce uno dei nomi di processori di contenuti multimediali specificati e restituisce un oggetto.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -82,7 +90,7 @@ La funzione seguente acquisisce uno dei nomi MP specificati e restituisce un ogg
     }
 
 
-## <a name="rest"></a>REST
+### <a name="rest"></a>REST
 Richiesta:
 
     GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
@@ -114,7 +122,7 @@ Risposta:
     }
 
 ## <a name="demos"></a>Demo
-[Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+Vedere le [demo di Analisi Servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Analizzare i percorsi di apprendimento di Servizi multimediali.
@@ -125,7 +133,7 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Articoli correlati
-[Annuncio di Analisi di Servizi multimediali](https://azure.microsoft.com/blog/introducing-azure-media-analytics/)
+Vedere l'[annuncio di Analisi Servizi multimediali di Azure](https://azure.microsoft.com/blog/introducing-azure-media-analytics/).
 
 <!-- Images -->
 

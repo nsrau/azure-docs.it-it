@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: af4aa0c69587b6a0448c470892e566b7efec4858
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a26b1f6c13b11d0fb6b47599fee43f955cbf7b7a
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -64,7 +64,7 @@ Eseguire questo passaggio per aggiungere la soluzione Capacity and Performance a
 
 Se il gruppo di gestione SCOM è connesso all'area di lavoro di OMS, i Management Pack seguenti verranno installati in SCOM quando si aggiunge questa soluzione. Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.
 
-- Microsoft.IntelligencePacks.CapacityPerformance (Microsoft.IntelligencePacks.UpdateAssessment)
+- Microsoft.IntelligencePacks.CapacityPerformance
 
 L'evento 1201 è simile al seguente:
 

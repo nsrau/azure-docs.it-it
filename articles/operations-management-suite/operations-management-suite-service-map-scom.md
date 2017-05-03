@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 389c01234acff068dc90f3cdfdc4916a9d76d244
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 1937462eef4647b273dfa029c8f18c80d3443ae8
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -50,7 +50,7 @@ L'integrazione tra SCOM ed Elenco dei servizi viene abilitata importando il bund
 
     ![Configurazione guidata SCOM](media/oms-service-map/scom-configuration.png)
 
-3. Il primo passaggio della procedura guidata è la configurazione della connessione in cui si inseriscono le informazioni per l'entità servizio di Azure. Immettere l'ID o in nome tenant, l'ID applicazione (oppure il nome utente o ClientID) e la password dell'entità servizio.  [Approfondimenti sulla creazione di un'entità servizio](#creating-a-service-principal).
+3. Il primo passaggio della procedura guidata è la configurazione della connessione in cui si inseriscono le informazioni per l'entità servizio di Azure. Immettere l'ID o il nome del tenant, l'ID applicazione (noto anche come nome utente o ClientID) e la password dell'entità servizio.  [Approfondimenti sulla creazione di un'entità servizio](#creating-a-service-principal).
 
     ![SPN di configurazione SCOM](media/oms-service-map/scom-config-spn.png)
 
@@ -77,8 +77,8 @@ Dopo che l'area di lavoro OMS è stata connessa, nel riquadro Monitoraggio della
 ![Monitoraggio SCOM](media/oms-service-map/scom-monitoring.png)
 
 La cartella Elenco dei servizi ha tre nodi:
-### <a name="all-alerts"></a>Tutti gli avvisi:
-Visualizza tutti gli avvisi sulla comunicazione tra SCOM e la soluzione Elenco dei servizi in OMS.
+### <a name="active-alerts"></a>Avvisi attivi:
+Mostra tutti gli avvisi attivi sulla comunicazione tra SCOM e la soluzione Elenco dei servizi in OMS.
 
 **Nota:** non si tratta di avvisi OMS presentati in SCOM.
 ### <a name="servers"></a>Server:
@@ -108,7 +108,7 @@ Riquadro Creazione e modifica --> Regole --> Microsoft.SystemCenter.ServiceMapIm
 
 ## <a name="known-issueslimitations"></a>Problemi e limitazioni noti
 Nella progettazione corrente:
-1. Anche se gli utenti possono aggiungere server a "Service Map Servers Group" (Gruppo di server di Elenco dei servizi) manualmente tramite il riquadro di creazione e modifica, le mappe di tali server verranno sincronizzate da Elenco dei servizi solo durante il ciclo di sincronizzazione successivo. L'impostazione predefinita è di&60; minuti. Gli utenti possono eseguire l'override dell'ora di sincronizzazione. 
+1. Anche se gli utenti possono aggiungere server a "Service Map Servers Group" (Gruppo di server di Elenco dei servizi) manualmente tramite il riquadro di creazione e modifica, le mappe di tali server verranno sincronizzate da Elenco dei servizi solo durante il ciclo di sincronizzazione successivo. L'impostazione predefinita è di 60 minuti. Gli utenti possono eseguire l'override dell'ora di sincronizzazione. 
 2. Gli utenti possono connettersi a una singola area di lavoro OMS.
 
 ## <a name="creating-a-service-principal"></a>Creazione di un'entità servizio

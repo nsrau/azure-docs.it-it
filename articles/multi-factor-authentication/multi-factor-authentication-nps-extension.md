@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 34919221a82a024bd3a1d09c1def6040ff6c55e1
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 3dba9ebc8eb23be00f9b52907ba4bc565eeb5688
+ms.lasthandoff: 04/15/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication - Anteprima pubblica
@@ -36,6 +36,14 @@ Il diagramma seguente illustra questo flusso di richiesta di autenticazione ad a
 
 ![Diagramma del flusso di autenticazione](./media/multi-factor-authentication-nps-extension/auth-flow.png)
 
+## <a name="plan-your-deployment"></a>Pianificare la distribuzione
+
+L'estensione di Server dei criteri di rete gestisce automaticamente la ridondanza, pertanto non è necessaria una configurazione speciale. 
+
+È possibile creare il tutti i Server dei criteri di rete necessari abilitati per Azure Multi-Factor Authentication. Se si installano più server, è consigliabile usare un certificato client di differenza per ciascuno. La creazione di un certificato per ogni server significa che è possibile aggiornare singolarmente ogni certificato senza doversi preoccupare dei tempi di inattività in tutti i server. 
+
+I server VPN indirizzano le richieste di autenticazione, quindi è necessario essere a conoscenza dei nuovi Server dei criteri di rete abilitati per Azure MFA. 
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 L'estensione di Server dei criteri di rete è progettata per funzionare con l'infrastruttura esistente. Prima di iniziare, verificare che i prerequisiti seguenti siano disponibili.
@@ -46,10 +54,11 @@ L'estensione di Server dei criteri di rete per Azure MFA è disponibile per i cl
 
 ### <a name="software"></a>Software
 
-Windows Server 2008 R2 SP1 o versione successiva con il componente Server dei criteri di rete abilitato.
+Windows Server 2008 R2 SP1 o versione successiva.
 
 ### <a name="libraries"></a>Librerie
 
+Queste librerie vengono installate automaticamente con l'estensione. 
 -    [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
 -    [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
@@ -57,22 +66,62 @@ Windows Server 2008 R2 SP1 o versione successiva con il componente Server dei cr
 
 Per gli utenti che usano l'estensione di Server dei criteri di rete è necessaria la sincronizzazione con Azure Active Directory grazie ad Azure AD Connect e l'abilitazione per MFA.
 
-Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [Portale di Azure](https://portal.azure.com). Accedere come amministratore, selezionare l'icona di **Azure Active Directory** sulla sinistra, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare.
+Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [Portale di Azure](https://portal.azure.com). Accedere come amministratore, selezionare l'icona di **Azure Active Directory** sulla sinistra, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare. Questo GUID verrà usato come ID tenant quando si installa l'estensione di Server dei criteri di rete.
 
 ![L'ID directory si trova nelle proprietà di Azure Active Directory](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
+
+## <a name="prepare-your-environment"></a>Preparare l'ambiente
+
+Prima di installare l'estensione di Server dei criteri di rete, è necessario preparare l'ambiente per gestire il traffico di autenticazione. 
+
+### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>Abilitare il ruolo del Server dei criteri di rete in un server appartenente a un dominio
+
+Il Server dei criteri di rete si connette ad Azure Active Directory e autentica le richieste di MFA. Scegliere un server per questo ruolo. Si consiglia di scegliere un server che non gestisce le richieste provenienti da altri servizi, poiché l'estensione di Server dei criteri di rete genera errori per qualsiasi richiesta non RADIUS.
+
+1. Sul server avviare l'**aggiunta guidata ruoli e funzionalità** dal menu Avvio rapido di Server Manager.
+2. Come tipo di installazione scegliere **Installazione basata su ruoli o basata su funzionalità**.
+3. Selezionare il ruolo del server **Servizi di accesso e criteri di rete**. Potrebbe essere visualizzata una finestra per informare l'utente riguardo alle funzionalità necessarie per eseguire questo ruolo.
+4. Continuare la procedura guidata fino alla pagina di conferma. Selezionare **Installa**. 
+
+Ora che si dispone di un server designato come Server dei criteri di rete, è inoltre necessario configurarlo per gestire le richieste RADIUS in ingresso dalla soluzione VPN. 
+
+### <a name="configure-your-vpn-solution-to-communicate-with-the-nps-server"></a>Configurare la soluzione VPN in modo che comunichi con il Server dei criteri di rete
+
+La procedura per configurare i criteri di autenticazione RADIUS può variare a seconda della soluzione VPN in uso. Configurare i criteri in modo che la soluzione punti al Server dei criteri di rete RADIUS. 
+
+### <a name="sync-domain-users-to-the-cloud"></a>Sincronizzare gli utenti del dominio con il cloud
+
+Questo passaggio potrebbe essere già completato nel tenant, tuttavia è consigliabile verificare che Azure AD Connect abbia sincronizzato i database di recente. 
+
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
+2. Selezionare **Azure Active Directory** > **Azure AD Connect**
+3. Verificare che lo stato della sincronizzazione sia **Abilitata** e che l'ultima sincronizzazione sia stata eseguita da meno di un'ora.
+
+Se si desidera avviare un nuovo ciclo di sincronizzazione, usare istruzioni presenti in [Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione](../active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
+
+### <a name="enable-users-for-mfa"></a>Abilitare gli utenti per l'MFA
+
+Prima di distribuire l'estensione completa di Server dei criteri di rete, è necessario abilitare l'MFA per gli utenti su cui si desidera eseguire la verifica in due passaggi. Per testare l'estensione in modo più immediato mentre viene distribuita, è necessario almeno un account di test completamente registrato per l'MFA. 
+
+Seguire questa procedura per avviare un account di test:
+1. [Abilitare un account per l'MFA](multi-factor-authentication-get-started-user-states.md).
+2. Accedere a qualsiasi sito Web in cui venga avviata l'autenticazione di Azure AD, ad esempio https://portal.azure.com.
+3. [Registrarsi alla verifica in due passaggi](./end-user/multi-factor-authentication-end-user-first-time.md).
 
 ## <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 
 > [!IMPORTANT]
 > Installare l'estensione di Server dei criteri di rete in un server diverso rispetto al punto di accesso della VPN. 
 
-Per installare l'estensione di Server dei criteri di rete per Azure MFA:
+### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Scaricare e installare l'estensione di Server dei criteri di rete per Azure MFA 
 
-1.    [Scaricare l'estensione di Server dei criteri di rete](https://aka.ms/npsmfa) dall'Area download Microsoft
-2.    Copiare il file binario nel Server dei criteri di rete da configurare
-3.    Eseguire *setup.exe* e seguire le istruzioni di installazione
+1.    [Scaricare l'estensione di Server dei criteri di rete](https://aka.ms/npsmfa) dall'Area download di Microsoft.
+2.    Copiare il file binario nel Server dei criteri di rete da configurare.
+3.    Eseguire *setup.exe* e seguire le istruzioni di installazione. Se si verificano errori, controllare che le due librerie indicate nella sezione sui prerequisiti siano state installate correttamente.
 
-Dopo aver completato l'installazione, il programma di installazione crea uno script di PowerShell in questa posizione: `C:\Program Files\Microsoft\AzureMfa\Config` (dove C:\ è l'unità di installazione). Lo script di PowerShell esegue le azioni seguenti:
+### <a name="run-the-powershell-script"></a>Eseguire lo script di PowerShell
+
+Il programma di installazione crea uno script di PowerShell in questa posizione: `C:\Program Files\Microsoft\AzureMfa\Config` (dove C:\ è l'unità di installazione). Lo script di PowerShell esegue le azioni seguenti:
 
 -    Creare un certificato autofirmato.
 -    Associare la chiave pubblica del certificato all'entità servizio su Azure AD.
@@ -80,7 +129,20 @@ Dopo aver completato l'installazione, il programma di installazione crea uno scr
 -    Concedere l'accesso alla chiave privata del certificato all'utente di rete.
 -    Riavviare il Server dei criteri di rete.
 
-A meno che non si desideri utilizzare i propri certificati (invece dei certificati autofirmati generati dallo script di PowerShell), eseguire lo script di PowerShell per completare l'installazione. Se si installa l'estensione su più server, ciascuno di essi deve avere il proprio certificato in modo che non ci siano tempi di inattività al momento del rinnovo dei certificati. 
+A meno che non si desideri utilizzare i propri certificati (invece dei certificati autofirmati generati dallo script di PowerShell), eseguire lo script di PowerShell per completare l'installazione. Se si installa l'estensione su più server, ciascun server dovrebbe avere il proprio certificato.
+
+1. Eseguire Windows PowerShell come amministratore.
+2. Cambiare le directory.
+
+   `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
+
+3. Eseguire lo script di PowerShell creato dal programma di installazione.
+
+   `.\AzureMfaNpsExtnConfigSetup.ps1`
+
+4. Prompt di PowerShell per l'ID tenant. Usare il GUID dell'ID directory copiato dal portale di Azure nella sezione relativa ai prerequisiti. 
+5. Accedere ad Azure AD come amministratore.
+6. Al termine dello script, PowerShell mostra un messaggio di conferma.  
 
 ## <a name="configure-your-nps-extension"></a>Configurare l'estensione di Server dei criteri di rete
 
@@ -88,8 +150,7 @@ In questa sezione sono disponibili considerazioni e suggerimenti sulla progettaz
 
 ### <a name="configurations-limitations"></a>Limitazioni delle configurazioni
 
-- L'estensione di Server dei criteri di rete è pensata per le nuove distribuzioni e non per la distribuzione esistente. Per questo motivo, l'estensione di Server dei criteri di rete per Azure MFA non include strumenti per la migrazione degli utenti e impostazioni dal Server MFA al cloud.
-
+- L'estensione di Server dei criteri di rete per Azure MFA non include strumenti per la migrazione degli utenti e impostazioni dal Server MFA al cloud. Per questo motivo, è consigliabile usare l'estensione per le distribuzioni nuove piuttosto che per quelle esistenti. Se si usano le estensioni in una distribuzione esistente, gli utenti dovranno eseguire di nuovo la prova per popolare i dettagli della propria MFA nel cloud.  
 - L'estensione di Server dei criteri di rete usa UPN dell'Active Directory locale per identificare l'utente in Azure MFA che deve eseguire l'autenticazione secondaria. L'estensione non può essere configurata per usare un identificatore come ID di accesso alternativo o campo AD personalizzato diverso dall'UPN.  
 
 ### <a name="control-radius-clients-that-require-mfa"></a>Client RADIUS di controllo che richiedono MFA
@@ -106,13 +167,13 @@ Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire 
 
 Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è registrato per MFA. Quando la chiave non esiste, non è impostata o è impostata su VERO e l'utente non è registrato, allora l'estensione non esegue correttamente la richiesta di verifica MFA. Quando la chiave è impostata su FALSO e l'utente non è registrato, l'autenticazione procede senza eseguire MFA.
 
-È possibile scegliere di creare questa chiave e impostarla su FALSO durante il caricamento dell'utente. Poiché l'impostazione della chiave consente agli utenti che non sono registrati per MFA di accedere senza una richiesta di verifica, è necessario rimuovere la chiave prima di passare all'ambiente di produzione.
+È possibile scegliere di creare questa chiave e impostarla su FALSO durante il caricamento dell'utente. Poiché l'impostazione della chiave consente agli utenti che non sono registrati all'MFA di accedere, è necessario rimuovere la chiave prima di passare all'ambiente di produzione.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Come verificare che il certificato client sia installato come previsto?
 
-Cercare il certificato autofirmato creato dal programma di installazione nell'archivio dei certificati e verificare che la chiave privata disponga delle autorizzazioni concesse all'utente **Servizio di rete**. Il certificato avrà un nome oggetto **CN \<tenantid\>, OU = Estensione di Server dei criteri di rete Microsoft**
+Cercare il certificato autofirmato creato dal programma di installazione nell'archivio dei certificati e verificare che la chiave privata disponga delle autorizzazioni concesse all'utente **Servizio di rete**. Il certificato ha come nome oggetto **CN \<tenantid\>, OU = Estensione di Server dei criteri di rete Microsoft**
 
 -------------------------------------------------------------
 
@@ -121,9 +182,9 @@ Cercare il certificato autofirmato creato dal programma di installazione nell'ar
 Aprire il prompt dei comandi di PowerShell ed eseguire i comandi seguenti:
 
 ```
-> import-module MSOnline
-> Connect-MsolService
-> Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
 ```
 
 Questi comandi consentono di stampare tutti i certificati associando il tenant con l'istanza dell'estensione di Server dei criteri di rete nella sessione di PowerShell. Cercare il certificato esportando il certificato client come file "Codificato Base 64 X.509 (.CER)" senza la chiave privata e confrontarlo con l'elenco di PowerShell.

@@ -1,5 +1,5 @@
 ---
-title: Automatizzare il ripristino di emergenza per le condivisioni di file StorSimple con Azure Site Recovery | Documentazione Microsoft
+title: Automatizzare il ripristino di emergenza per le condivisioni di file StorSimple con Azure Site Recovery | Microsoft Docs
 description: Descrive i passaggi e le procedure consigliate per la creazione di una soluzione di ripristino di emergenza per le condivisioni file ospitate nell&quot;archiviazione Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/16/2016
+ms.date: 04/13/2017
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 700dffe72af853d0daa9af06c0b316e0363ab30b
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 3c7c972cdc395e2e20e7f6a296a2ffab6efad66d
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -77,7 +77,7 @@ Questo passaggio richiede la preparazione dell'ambiente di file server locale, l
    3. Trascinare la barra in basso verso **Non notificare mai**.
    4. Fare clic su **OK**, quindi selezionare **Sì** quando richiesto.
 
-      ![](./media/storsimple-dr-using-asr/image1.png)
+      ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image1.png)
 2. Installare l'agente VM su ciascuna delle VM del file server. Questa operazione è necessaria per poter eseguire gli script di automazione di Azure sulle VM sottoposte a failover.
 
    1. [Scaricare l'agente](http://aka.ms/vmagentwin) in `C:\\Users\\<username>\\Downloads`.
@@ -97,12 +97,12 @@ Questo passaggio richiede la preparazione dell'ambiente di file server locale, l
    1. Nelle macchine virtuali locali premere il tasto Windows + Q e cercare **iSCSI**.
    2. Selezionare **Iniziatore iSCSI**.
    3. Selezionare la scheda **Configurazione** e copiare il nome dell'iniziatore.
-   4. Accedere al [portale di Azure classico](https://manage.windowsazure.com/).
+   4. Accedere al [Portale di Azure](https://portal.azure.com/).
    5. Selezionare la scheda **StorSimple** e quindi selezionare il servizio StorSimple Manager che contiene il dispositivo fisico.
    6. Creare i contenitori di volumi e quindi creare i volumi (questi volumi sono destinati alle condivisione file nella macchine virtuali del file server). Copiare il nome dell'iniziatore e assegnare un nome appropriato per i record di controllo di accesso quando si creano i volumi.
    7. Selezionare la scheda **Configura** e prendere nota dell'indirizzo IP del dispositivo.
    8. Nelle macchine virtuali locali tornare a **Iniziatore iSCSI** e immettere l'indirizzo IP nella sezione connessione rapida. Fare clic su **Connessione rapida** (il dispositivo ora deve essere connesso).
-   9. Aprire il portale di gestione di Azure e selezionare la scheda **Volumi e dispositivi** . Fare clic su **Configura automaticamente**. Viene visualizzato il volume appena creato.
+   9. Aprire il portale di Azure e selezionare la scheda **Volumi e dispositivi**. Fare clic su **Configura automaticamente**. Viene visualizzato il volume appena creato.
    10. Nel portale selezionare la scheda **Dispositivi** e quindi selezionare **Create a New Virtual Device** (Crea un nuovo dispositivo virtuale) (il dispositivo virtuale verrà usato se si verifica un failover). Il nuovo dispositivo virtuale può essere mantenuto in uno stato offline per evitare costi aggiuntivi. Per portare offline il dispositivo virtuale, passare alla sezione **Macchine virtuali** nel portale e arrestarlo.
    11. Tornare alle macchine virtuali locali e aprire Gestione disco (premere il tasto Windows + X, quindi selezionare **Gestione disco**).
    12. Si noteranno alcuni dischi aggiuntivi (a seconda del numero di volumi creati). Fare clic con il pulsante destro del mouse sul primo disco e scegliere **Inizializza disco**, quindi fare clic su **OK**. Fare doppio clic sulla sezione **Non allocato**, selezionare **Nuovo volume semplice**, assegnare una lettera di unità al volume e completare la procedura guidata.
@@ -120,7 +120,7 @@ Vedere la [documentazione di Azure Site Recovery](../site-recovery/site-recovery
    3. Disconnettere il dispositivo StorSimple connesso in precedenza. In alternativa, è possibile disattivare il file server per alcuni minuti quando si abilita la protezione.
 
    > [!NOTE]
-   > In questo modo le condivisioni file saranno temporaneamente non disponibili
+   > In questo modo, le condivisioni file saranno temporaneamente non disponibili.
    >
    >
 2. [Abilitare la protezione delle macchine virtuali](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) della VM del file server dal Portale di Azure Site Recovery.
@@ -133,128 +133,135 @@ Se non è stata selezionata l'opzione **Abilita un criterio di backup predefinit
 ### <a name="configure-the-network"></a>Configurare la rete
 Per la VM del file server configurare le impostazioni di rete in Azure Site Recovery in modo che le reti di VM siano collegate alla rete di ripristino di emergenza corretta dopo il failover.
 
-È possibile selezionare la VM in **VMM Cloud** (Cloud VMM) o in **Gruppo di protezione** per configurare le impostazioni di rete, come mostrato nell'illustrazione seguente.
+È possibile selezionare la VM nella scheda **Elementi replicati** per configurare le impostazioni di rete, come mostrato nell'illustrazione seguente.
 
-![](./media/storsimple-dr-using-asr/image2.png)
+![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
 
 ## <a name="create-a-recovery-plan"></a>Creare un piano di ripristino
 È possibile creare un piano di ripristino in ASR per automatizzare il processo di failover delle condivisioni file. Se si verifica un'interruzione, è possibile visualizzare le condivisioni file in pochi minuti con un semplice clic. Per abilitare l'automazione, è necessario un account di Automazione di Azure.
 
 #### <a name="to-create-the-account"></a>Per creare l'account
-1. Accedere al portale di Azure classico e passare alla sezione **Automazione** .
+1. Passare al portale di Azure &gt; sezione **Automazione**.
 2. Creare un nuovo account di automazione. Usare la stessa area geografica/area in cui sono stati creati gli account dell'appliance cloud StorSimple e di archiviazione.
-3. Fare clic su **Nuovo** &gt; **Servizi app** &gt; **Automazione** &gt; **Runbook** &gt; **From Gallery** (Da raccolta) per importare tutti i runbook obbligatori nell'account di automazione.
+3. Passare all'account di automazione, fare clic su **Runbook** &gt; **Sfoglia raccolta** per importare tutti i runbook richiesti nell'account di automazione.
+4. Aggiungere i runbook seguenti individuando il tag **Ripristino di emergenza** nella raccolta:
 
-   ![](./media/storsimple-dr-using-asr/image3.png)
-4. Aggiungere i runbook seguenti dal riquadro **Ripristino di emergenza** nella raccolta:
-
-   * Eseguire il failover dei contenitori dei volumi StorSimple
    * Eliminare i volumi StorSimple dopo il failover di test
+   * Eseguire il failover dei contenitori dei volumi StorSimple
    * Montare i volumi nel dispositivo StorSimple dopo il failover
-   * Avviare l'appliance virtuale StorSimple
    * Disinstallare l'estensione script personalizzata in una VM di Azure
+   * Avviare l'appliance virtuale StorSimple
 
-     ![](./media/storsimple-dr-using-asr/image4.png)
-5. Pubblicare tutti gli script selezionando il runbook nell'account di automazione e passando alla scheda **Autore** . Dopo questo passaggio, la scheda **Runbook** verrà visualizzata come segue:
+     ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
+5. Pubblicare tutti gli script selezionando il runbook nell'account di automazione e fare clic su **Modifica** &gt; **Pubblica** e quindi **Sì** al messaggio di verifica. Dopo questo passaggio, la scheda **Runbook** verrà visualizzata come segue:
 
-    ![](./media/storsimple-dr-using-asr/image5.png)
-6. Nell'account di automazione andare nella scheda **Asset**, fare clic su **Aggiungi impostazione** &gt; **Aggiungi credenziali** e aggiungere le credenziali di Azure (denominare l'asset AzureCredential).
+    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
+6. Nell'account di automazione andare alla scheda **Asset** &gt; fare clic su **Credenziali** &gt; **+ Aggiungi credenziali** e aggiungere le credenziali di Azure. Assegnare all'asset il nome AzureCredential.
 
    Usare le credenziali di Windows PowerShell. Queste credenziali devono contenere un nome utente ID organizzazione e una password con accesso alla sottoscrizione di Azure e Multi-Factor Authentication disabilitata. Si tratta di un passaggio necessario per eseguire l'autenticazione per conto dell'utente durante i failover e per visualizzare i volumi del file server nel sito di ripristino di emergenza.
-7. Nell'account di automazione selezionare la scheda **Asset**, quindi fare clic su **Aggiungi impostazione** &gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
+7. Nell'account di automazione selezionare la scheda **Asset** &gt; fare clic su **Variabili** &gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
 
    * *RecoveryPlanName***-StorSimRegKey**: la chiave di registrazione per il servizio StorSimple Manager.
    * *RecoveryPlanName***-AzureSubscriptionName**: il nome della sottoscrizione Azure.
    * *RecoveryPlanName***-ResourceName**: il nome della risorsa StorSimple con il dispositivo StorSimple.
    * *RecoveryPlanName***-DeviceName**: il dispositivo che deve essere sottoposto a failover.
-   * *RecoveryPlanName***-TargetDeviceName**: l'appliance cloud di StorSimple in cui eseguire il failover dei contenitori.
    * *RecoveryPlanName***-VolumeContainers**: una stringa con valori delimitati da virgole dei contenitori di volumi presenti sul dispositivo che devono essere sottoposti a failover, ad esempio, volcon1, volcon2, volcon3.
-   * RecoveryPlanName**-TargetDeviceDnsName**: il nome del servizio del dispositivo di destinazione (disponibile nella sezione **Macchina virtuale**: il nome del servizio è uguale al nome DNS).
+   * *RecoveryPlanName***-TargetDeviceName**: l'appliance cloud di StorSimple in cui eseguire il failover dei contenitori.
+   * *RecoveryPlanName***-TargetDeviceDnsName**: il nome del servizio del dispositivo di destinazione (disponibile nella sezione **Macchina virtuale**. Il nome del servizio è uguale al nome DNS).
    * *RecoveryPlanName***-StorageAccountName**: il nome dell'account di archiviazione in cui verrà archiviato lo script (che deve essere eseguito nella VM sottoposta a failover). Può trattarsi di qualsiasi account di archiviazione in cui sia disponibile spazio per l'archiviazione temporanea dello script.
    * *RecoveryPlanName***-StorageAccountKey**: la chiave di accesso per l'account di archiviazione indicato in precedenza.
    * *RecoveryPlanName***-ScriptContainer**: il nome del contenitore in cui lo script verrà archiviato nel cloud. Se il contenitore non esiste, verrà creato.
-   * *RecoveryPlanName***-VMGUIDS**: al momento di proteggere una VM, Azure Site Recovery assegna a ogni VM virtuale un ID univoco che fornisce i dettagli della VM sottoposta a failover. Per ottenere il VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** &gt; **Gruppi di protezione** &gt; **Macchine** &gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
+   * *RecoveryPlanName***-VMGUIDS**: al momento di proteggere una VM, Azure Site Recovery assegna a ogni VM virtuale un ID univoco che fornisce i dettagli della VM sottoposta a failover. Per ottenere VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** &gt; **Gruppi di protezione** &gt; **Macchine** &gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
    * *RecoveryPlanName***-AutomationAccountName**: il nome dell'account di automazione in cui sono stati aggiunti i runbook e gli asset.
 
-   Ad esempio, se il nome del piano di ripristino è fileServerpredayRP, la scheda **Asset** dovrebbe essere visualizzata come segue dopo aver aggiunto tutti gli asset.
+  Ad esempio, se il nome del piano di ripristino è fileServerpredayRP, le schede **Credenziali**  &  **Variabili** dovrebbero essere visualizzate come segue dopo aver aggiunto tutti gli asset.
 
-   ![](./media/storsimple-dr-using-asr/image6.png)
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
+
 8. Passare alla sezione **Servizi di ripristino** e selezionare l'insieme di credenziali di Azure Site Recovery creato in precedenza.
-9. Selezionare la scheda **Piani di ripristino** e creare un nuovo piano di ripristino come segue:
+9. Selezionare l'opzione **Piani di ripristino (Site Recovery)** dal gruppo **Gestisci** e creare un nuovo piano di ripristino come segue:
 
-   a.  Specificare un nome e selezionare un **Gruppo di protezione**appropriato.
+   a.  Fare clic sul pulsante **+ Piano di ripristino**. Verrà visualizzato il pannello seguente.
 
-   b.  Selezionare le VM dal gruppo di protezione che si vuole includere nel piano di ripristino.
+      ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
 
-   c.  Dopo la creazione del piano di ripristino selezionarlo per aprire la visualizzazione di personalizzazione del piano di ripristino.
+   b.  Immettere un nome del piano di ripristino e scegliere i valori di Origine, Destinazione e Modello di distribuzione.
 
-   d.  Selezionare **Arresto di tutti i gruppi**, fare clic su **Script** e scegliere **Add a primary side script before all Group shutdown** (Aggiungi script lato primario prima dell'operazione di arresto di tutti i gruppi).
+   c.  Selezionare le VM dal gruppo protezione dati che si vuole includere nel piano di ripristino e fare clic su **OK**.
 
-   e.  Selezionare l'account di automazione (in cui sono stati aggiunti i runbook) e quindi selezionare il runbook **Fail over-StorSimple-Volume-Containers** .
+   d.  Selezionare il piano di ripristino creato in precedenza, fare clic sul pulsante **Personalizza** per aprire la visualizzazione di personalizzazione del piano di ripristino.
 
-   f.  Fare clic su **Gruppo 1: avvio**, scegliere **Macchine virtuali** e aggiungere le VM che devono essere protette nel piano di ripristino.
+   e.  Fare clic con il pulsante destro su **Spegnimento di tutti i gruppi** e fare clic su **Aggiungi pre-azione**.
 
-   g.  Fare clic su **Gruppo 1: avvio**, scegliere **Script** e aggiungere tutti gli script seguenti nell'ordine come passaggi di **Dopo il gruppo 1**.
+   f.  Nel pannello di inserimento azione immettere un nome, selezionare l'opzione **Lato primario** in Posizione di esecuzione, selezionare l'account di automazione (in cui sono stati aggiunti i runbook) e quindi selezionare il runbook **Container Failover-StorSimple-Volume**.
+
+   g.  Fare clic con il pulsante destro del mouse su **Gruppo 1: avvio**, fare clic sull'opzione **Aggiungi elementi protetti**, selezionare le macchine virtuali che devono essere protette nel piano di ripristino e quindi fare clic su **OK**. Facoltativo se le VM sono già selezionate.
+
+   h.  Fare clic con il pulsante destro del mouse su **Gruppo 1: avvio**, fare clic sull'opzione **Registra azione** e quindi aggiungere tutti gli script seguenti:
 
    * Runbook Start-StorSimple-Virtual-Appliance
    * Runbook Fail over-StorSimple-volume-containers
    * Runbook Mount-volumes-after-failover
    * Runbook Uninstall-custom-script-extension
-10. Aggiungere un'azione manuale dopo i quattro script precedenti nella stessa sezione **Gruppo 1: passaggi successivi** . Questa azione corrisponde al punto in cui è possibile verificare il corretto funzionamento. Questa azione deve essere aggiunta solo come parte del failover di test (selezionare, quindi, solo la casella di controllo **Failover di test** ).
-11. Dopo l'azione manuale, aggiungere lo script di pulizia con la stessa procedura usata per gli altri runbook. Salvare il piano di ripristino.
+
+   i.  Aggiungere un'azione manuale dopo i quattro script precedenti nella stessa sezione **Gruppo 1: passaggi successivi** . Questa azione corrisponde al punto in cui è possibile verificare il corretto funzionamento. Questa azione deve essere aggiunta solo come parte del failover di test (selezionare quindi solo la casella di controllo **Failover di test**).
+
+   j.  Dopo l'azione manuale, aggiungere lo script di **pulizia** con la stessa procedura usata per gli altri runbook. **Salvare** il piano di ripristino.
 
     > [!NOTE]
     > Quando si esegue un failover di test, è necessario verificare tutti gli aspetti del passaggio relativo all'azione manuale perché i volumi StorSimple clonati sul dispositivo di destinazione verranno eliminati come parte della pulizia dopo il completamento dell'azione manuale.
     >
-    >
 
-    ![](./media/storsimple-dr-using-asr/image7.png)
+    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
 
 ## <a name="perform-a-test-failover"></a>Eseguire un failover di test
 Consultare la guida complementare relativa alla [soluzione di ripristino di emergenza di Active Directory](../site-recovery/site-recovery-active-directory.md) per considerazioni specifiche relative a Active Directory durante il failover di test. L'installazione locale non viene disturbata in alcun modo quando si verifica il failover di test. I volumi StorSimple che erano collegati alla VM locale vengono clonati nell'appliance cloud StorSimple in Azure. A scopo di test, in Azure viene visualizzata una VM alla quale vengono collegati i volumi clonati.
 
 #### <a name="to-perform-the-test-failover"></a>Per eseguire il failover di test
-1. Nel portale di Azure classico selezionare il proprio insieme di credenziali di ripristino del sito.
+1. Nel portale di Azure selezionare il proprio insieme di credenziali di Site Recovery.
 2. Fare clic sul piano di ripristino creato per la VM del file server.
 3. Fare clic su **Failover di test**.
-4. Selezionare la rete virtuale per avviare il processo di failover di test.
+4. Selezionare la rete virtuale di Azure a cui dovranno connettersi le VM di Azure dopo il failover.
 
-   ![](./media/storsimple-dr-using-asr/image8.png)
-5. Quando l'ambiente secondario è disponibile, è possibile eseguire le convalide.
-6. Al termine delle convalide, fare clic su **Convalide complete**. L'ambiente di failover di test verrà eliminato e sarà possibile completare l'operazione di failover di test.
-
-## <a name="perform-an-unplanned-failover"></a>Eseguire un failover non pianificato
-Durante un failover non pianificato, i volumi StorSimple vengono sottoposti a failover nel dispositivo virtuale, una VM viene visualizzata in Azure e i volumi vengono collegati alla VM.
-
-#### <a name="to-perform-an-unplanned-failover"></a>Per eseguire un failover non pianificato
-1. Nel portale di Azure classico selezionare il proprio insieme di credenziali di ripristino del sito.
-2. Fare clic sul piano di ripristino creato per la VM del file server.
-3. Fare clic su **Failover** e quindi selezionare **Failover non pianificato**.
-
-   ![](./media/storsimple-dr-using-asr/image9.png)
-4. Selezionare la rete di destinazione e quindi fare clic sull'icona del segno di spunta per avviare il processo di failover.
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image8.png)
+5. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali &gt; **Processi** &gt; **Processi di Site Recovery**.
+6. Al termine del failover dovrebbe essere possibile visualizzare nel portale di Azure &gt; **Macchine virtuali** anche la macchina virtuale di Azure di replica. È possibile eseguire le operazioni di convalida.
+7. Al termine delle convalide, fare clic su **Convalide complete**. Verrà eseguita la pulizia dei volumi di StorSimple e verrà arrestata l'appliance cloud StorSimple.
+8. Al termine, fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. Usare le Note per registrare e salvare eventuali osservazioni associate al failover di test. Verranno eliminate le macchine virtuali create durante il failover di test.
 
 ## <a name="perform-a-planned-failover"></a>Eseguire un failover pianificato
-Durante un failover pianificato la VM del file server locale viene arrestata correttamente e viene eseguita una snapshot di un backup su cloud dei volumi nel dispositivo StorSimple. I volumi StorSimple vengono sottoposti a failover nel dispositivo virtuale, una VM di replica viene visualizzata in Azure e i volumi vengono collegati alla VM.
+   Durante un failover pianificato la VM del file server locale viene arrestata correttamente e viene eseguita una snapshot di un backup su cloud dei volumi nel dispositivo StorSimple. I volumi StorSimple vengono sottoposti a failover nel dispositivo virtuale, una VM di replica viene visualizzata in Azure e i volumi vengono collegati alla VM.
 
 #### <a name="to-perform-a-planned-failover"></a>Per eseguire un failover pianificato
-1. Nel portale di Azure classico selezionare il proprio insieme di credenziali di ripristino del sito.
-2. Fare clic sul piano di ripristino creato per la VM del file server.
-3. Fare clic su **Failover** e quindi selezionare **Failover pianificato**.
-4. Selezionare la rete di destinazione e quindi fare clic sull'icona del segno di spunta per avviare il processo di failover.
+1. Nel portale di Azure selezionare l'insieme di credenziali **Servizi di ripristino** &gt; **Piani di ripristino (Site Recovery)** &gt; **pianodiripristino_nome** creato per la VM del file server.
+2. Nel pannello del piano di ripristino fare clic su **Altro** &gt;  **Failover pianificato**.
+
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+3. Nel pannello **Conferma failover pianificato** scegliere le posizioni di origine e destinazione, selezionare la rete di destinazione e fare clic sull'icona del segno di spunta ✓ per avviare il processo di failover.
+4. Dopo la replica le macchine virtuali create sono in uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover.
+5. Dopo il completamento della replica, le macchine virtuali vengono avviate nella località secondaria.
+
+## <a name="perform-a-failover"></a>Eseguire un failover
+Durante un failover non pianificato, i volumi StorSimple vengono sottoposti a failover nel dispositivo virtuale, una VM viene visualizzata in Azure e i volumi vengono collegati alla VM.
+
+#### <a name="to-perform-a-failover"></a>Per eseguire un failover
+1. Nel portale di Azure selezionare l'insieme di credenziali **Servizi di ripristino** &gt; **Piani di ripristino (Site Recovery)** &gt; **pianodiripristino_nome** creato per la VM del file server.
+2. Nel pannello del piano di ripristino fare clic su **Altro** &gt;  **Failover**.
+3. Nel pannello **Conferma failover** selezionare i percorsi di origine e di destinazione.
+4. Selezionare **Arresta le macchine virtuali e sincronizza i dati più recenti** per specificare che Site Recovery deve tentare di arrestare la macchina virtuale protetta e sincronizzare i dati in modo che venga eseguito il failover dei dati più recenti.
+5. Dopo il failover le macchine virtuali sono uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover.
+
 
 ## <a name="perform-a-failback"></a>Eseguire il failback
 Durante il failback, i contenitori di volumi StorSimple vengono sottoposti a failover nel dispositivo fisico dopo un backup.
 
 #### <a name="to-perform-a-failback"></a>Per eseguire un failback
-1. Nel portale di Azure classico selezionare il proprio insieme di credenziali di ripristino del sito.
-2. Fare clic sul piano di ripristino creato per la VM del file server.
-3. Fare clic su **Failover** e selezionare **Failover pianificato** o **Failover non pianificato**.
-4. Fare clic su **Cambia direzione**.
-5. Selezionare le opzioni di sincronizzazione dei dati e di creazione di VM appropriate.
-6. Fare clic sull'icona del segno di spunta per avviare il processo di failback.
+1. Nel portale di Azure selezionare l'insieme di credenziali **Servizi di ripristino** &gt; **Piani di ripristino (Site Recovery)** &gt; **pianodiripristino_nome** creato per la VM del file server.
+2. Nel pannello del piano di ripristino fare clic su **Altro** &gt;  **Failover pianificato**.
+3. Scegliere le posizioni di origine e destinazione e selezionare le opzioni di sincronizzazione dati e creazione di macchine virtuali appropriate.
+4. Fare clic su **OK** per avviare il processo di failback.
 
-   ![](./media/storsimple-dr-using-asr/image10.png)
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
 ## <a name="best-practices"></a>Procedure consigliate
 ### <a name="capacity-planning-and-readiness-assessment"></a>Pianificazione della capacità e valutazione della conformità
@@ -284,21 +291,18 @@ La pianificazione della capacità prevede almeno due processi importanti:
 
   > [!IMPORTANT]
   > Eseguire il backup manualmente dal portale di Azure e quindi eseguire nuovamente il piano di ripristino.
-  >
-  >
+  
 * Timeout del processo di clonazione: si verifica il timeout dello script StorSimple se la clonazione dei volumi impiega più tempo rispetto al limite di Azure Site Recovery per ogni script (attualmente è di 120 minuti).
 * Errore di sincronizzazione dell'ora: si verifica un errore dello script StorSimple che informa dell'esito negativo dei backup anche in caso di esito positivo del backup nel portale. Una possibile causa dell'errore potrebbe essere la mancata sincronizzazione dell'ora dell'appliance StorSimple con l'ora corrente del fuso orario.
 
   > [!IMPORTANT]
   > Sincronizzare l'ora dell'appliance con l'ora corrente nel fuso orario.
-  >
-  >
+
 * Errore di failover dell'appliance: lo script di StorSimple potrebbe non riuscire se si verifica un failover dell'appliance durante l'esecuzione del piano di ripristino.
 
   > [!IMPORTANT]
   > Rieseguire il piano di ripristino al termine del failover dell'appliance.
-  >
-  >
+
 
 ## <a name="summary"></a>Riepilogo
 Usando Azure Site Recovery è possibile creare un piano di ripristino di emergenza automatizzato completo per una VM del server file con condivisioni file ospitate nell'archiviazione StorSimple. È possibile avviare il failover in pochi secondi da qualsiasi luogo in caso di un'interruzione e fare in modo che l'applicazione sia operativa in pochi minuti.
