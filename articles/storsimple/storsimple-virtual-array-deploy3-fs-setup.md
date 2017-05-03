@@ -16,9 +16,9 @@ ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: a6b04a5c3146131b27a4a6d77874e07d33c45eb8
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: ca5b67043843185ac40d02030f26fab8639a1f9f
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
@@ -134,7 +134,7 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
     
     3. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia. Specificare una chiave di 32 caratteri e quindi immetterla nuovamente per confermarla. Registrare la chiave in un'app di gestione delle chiavi per riferimento futuro.
     
-    4. Fare clic su **Configura le impostazioni necessarie** per specificare le credenziali dell'account di archiviazione da usare con il dispositivo. Se non è configurata alcuna credenziale, fare clic su **Aggiungi nuova**. **Verificare che l'account di archiviazione in uso supporti i BLOB in blocchi. I BLOB di pagine non sono supportati.** Altre informazioni sui [BLOB in blocchi e i BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs).
+    4. Fare clic su **Configura le impostazioni necessarie** per specificare le credenziali dell'account di archiviazione da usare con il dispositivo. Se non è configurata alcuna credenziale, fare clic su **Aggiungi nuova**. **Verificare che l'account di archiviazione in uso supporti i BLOB in blocchi. I BLOB di pagine non sono supportati.** Altre informazioni sui [BLOB in blocchi e i BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
     ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Nel pannello **Aggiungi credenziali dell'account di archiviazione** eseguire le operazioni seguenti: 
