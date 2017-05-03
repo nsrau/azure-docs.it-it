@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 9bd5c3030163202f3c8e4fff24e8ee932adff3b9
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: e286693b585a5991dbecd537fe5cd6621dd27e01
+ms.lasthandoff: 04/26/2017
 
 ---
 
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Guida introduttiva alla ricezione di messaggi con Event Processor Host in .NET Standard
 
 > [!NOTE]
-> Questo esempio è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
+> Questo esempio è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-In questa esercitazione viene illustrata la procedura per scrivere un'applicazione console .NET Core per ricevere messaggi da un hub eventi usando **EventProcessorHost**. È possibile eseguire la soluzione [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) così com'è, sostituendo le stringhe con i valori dell'hub eventi e dell'account di archiviazione. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
+In questa esercitazione viene illustrata la procedura per scrivere un'applicazione console .NET Core per ricevere messaggi da un hub eventi usando **EventProcessorHost**. È possibile eseguire la soluzione [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) così com'è, sostituendo le stringhe con i valori dell'hub eventi e dell'account di archiviazione. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

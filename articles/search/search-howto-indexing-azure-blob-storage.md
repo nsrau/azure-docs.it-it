@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c74c8fb892103a00b0bdfcfeaa2ecd6c3188251e
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e14da5fa10533d922a6263e8f52a53c0eaa23393
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -342,7 +342,7 @@ L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di
 
 I documenti possono avere metadati associati, ad esempio il reparto che ha creato il documento, che vengono archiviati come dati strutturati in una delle posizioni seguenti.
 -   In un archivio dati separato, ad esempio il database SQL o DocumentDB.
--   Associati direttamente a ogni documento nell'Archiviazione BLOB di Azure come metadati personalizzati. Per altre informazioni, vedere [Impostazione e recupero di proprietà e metadati per le risorse BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).
+-   Associati direttamente a ogni documento nell'Archiviazione BLOB di Azure come metadati personalizzati. Per altre informazioni, vedere [Impostazione e recupero di proprietà e metadati per le risorse BLOB](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).
 
 È possibile indicizzare i documenti e i relativi metadati assegnando lo stesso valore chiave univoco a ogni documento e ai relativi metadati e specificando l'azione `mergeOrUpload` per ogni indicizzatore. Per una descrizione dettagliata di questa soluzione, vedere l'articolo esterno: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinare documenti con altri dati in Ricerca di Azure).
 

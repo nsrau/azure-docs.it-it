@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 51402899c337994ee51dd77159ffe514aec06523
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 12d4282082b3318bd14535a49e25c8d606d1bd7f
+ms.lasthandoff: 04/26/2017
 
 ---
 
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Guida introduttiva all'invio di messaggi a Hub eventi di Azure in .NET Standard
 
 > [!NOTE]
-> Questo esempio è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender).
+> Questo esempio è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
 
-Questa esercitazione illustra come scrivere un'applicazione console .NET Core che invii un set di messaggi a un hub eventi. È possibile eseguire la soluzione [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) così com'è, sostituendo le stringhe `EhConnectionString` e `EhEntityPath` con i valori dell'hub eventi. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
+Questa esercitazione illustra come scrivere un'applicazione console .NET Core che invii un set di messaggi a un hub eventi. È possibile eseguire la soluzione [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) così com'è, sostituendo le stringhe `EhConnectionString` e `EhEntityPath` con i valori dell'hub eventi. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

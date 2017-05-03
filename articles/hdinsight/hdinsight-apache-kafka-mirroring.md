@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 4aef51551857fb21ea86397f36b0e92894db2eaf
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c7517f61944b9fdb02a3589d7c9cd83355dae6d8
+ms.lasthandoff: 04/20/2017
 
 ---
 # <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>Usare MirrorMaker per creare una replica di un cluster Kafka in HDInsight (anteprima)
@@ -262,5 +262,5 @@ In questo documento è stato descritto come usare MirrorMaker per creare la repl
 * [Introduzione ad Apache Kafka (anteprima) in HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md) (Usare Apache Spark con Kafka in HDInsight)
 * [Usare Apache Storm (anteprima) con Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
-
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md) (Connettersi a Kafka tramite una rete virtuale di Azure)
 

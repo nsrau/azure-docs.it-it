@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 610fd07388839ee3673e963f2289cbe0639ad650
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 0b53eb34293078ad2ce334583fee88a8c5ac5ccf
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -83,7 +83,7 @@ La funzionalità di controllo è integrata nel servizio del database SQL, senza 
 Sono disponibili alcuni strumenti. 
 
 * Per i database locali, utilizzare la [gestione del ridimensionamento delle DTU](http://dtucalculator.azurewebsites.net/), che consiglia i database e le DTU necessarie e valuta più database per i pool elastici.
-* Se un database singolo potrebbe trarre vantaggio dal far parte di un pool, il motore intelligente di Azure consiglia un pool elastico se rileva un modello di utilizzo cronologico che garantisca tale vantaggio. Vedere [Monitorare e gestire un pool elastico con il portale di Azure](sql-database-elastic-pool-manage-portal.md). Per informazioni dettagliate su come eseguire i calcoli di persona, vedere [Considerazioni sul prezzo e sulle prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md).
+* Se un database singolo potrebbe trarre vantaggio dal far parte di un pool, il motore intelligente di Azure consiglia un pool elastico se rileva un modello di utilizzo cronologico che garantisca tale vantaggio. Vedere [Monitorare e gestire un pool elastico con il portale di Azure](sql-database-elastic-pool-manage-portal.md). Per informazioni dettagliate su come eseguire i calcoli di persona, vedere [Considerazioni sul prezzo e sulle prestazioni per un pool elastico](sql-database-elastic-pool.md).
 * Per vedere se è necessario aumentare o diminuire il livello di un database singolo, vedere [Indicazioni sulle prestazioni per database singoli](sql-database-performance-guidance.md).
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>Con quale frequenza è possibile modificare il livello di servizio o di prestazioni di un database singolo?
@@ -96,7 +96,7 @@ Numero di volte desiderato.
 La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, la modifica del livello di servizio può richiedere un periodo di tempo che va da pochi minuti ad alcune ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei database singoli vedere [Modificare il livello di servizio di un database](sql-database-service-tiers.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Quando è meglio usare un database singolo e quando invece è meglio usare database elastici?
-In generale, i pool elastici sono progettati per un [modello di applicazione tipico di software-as-a-service (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), in cui è presente un solo database per client o tenant. L'acquisto di database singoli e l'overprovisioning al fine di soddisfare una domanda variabile e i picchi di domanda per ogni database non sono spesso metodi convenienti. Per i pool, è possibile gestire le prestazioni collettive del pool e i database aumentano e diminuiscono automaticamente. Il motore intelligente di Azure consiglia un pool per i database se garantito da un modello di utilizzo. Per informazioni, vedere le [linee guida sui pool elastici](sql-database-elastic-pool-guidance.md).
+In generale, i pool elastici sono progettati per un [modello di applicazione tipico di software-as-a-service (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), in cui è presente un solo database per client o tenant. L'acquisto di database singoli e l'overprovisioning al fine di soddisfare una domanda variabile e i picchi di domanda per ogni database non sono spesso metodi convenienti. Per i pool, è possibile gestire le prestazioni collettive del pool e i database aumentano e diminuiscono automaticamente. Il motore intelligente di Azure consiglia un pool per i database se garantito da un modello di utilizzo. Per informazioni, vedere le [linee guida sui pool elastici](sql-database-elastic-pool.md).
 
 ## <a name="what-does-it-mean-to-have-up-to-200-of-your-maximum-provisioned-database-storage-for-backup-storage"></a>Che cosa significa avere fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per l'archiviazione di backup?
 L'archiviazione dei backup è l'archiviazione associata ai backup dei database automatizzati che vengono usati per il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) e il [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore). Il database SQL di Microsoft Azure offre fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per la risorsa di archiviazione di backup senza costi aggiuntivi. Ad esempio, se si usa un'istanza di database Standard con una dimensione di database con provisioning pari a 250 GB, sono disponibili 500 GB di archiviazione di backup senza costi aggiuntivi. Se il database supera lo spazio di archiviazione di backup fornito, è possibile scegliere di ridurre il periodo di conservazione contattando il supporto tecnico di Azure oppure di pagare lo spazio di archiviazione di backup aggiuntivo, che viene addebitato in base alla tariffa standard per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS, Read-Access Geographically Redundant Storage). Per altre informazioni sui costi per il servizio RA-GRS, vedere Dettagli prezzi di archiviazione.
