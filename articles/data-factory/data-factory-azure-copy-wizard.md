@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/02/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
 ms.openlocfilehash: def038842dc3c1037d5dd11ffef6a9e2de3cf09f
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -88,9 +89,4 @@ Un'operazione di copia eseguita una sola volta permette di spostare dati da un'o
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per una procedura dettagliata sull'uso di Copia guidata di Data Factory per creare una pipeline con l'attività di copia, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
