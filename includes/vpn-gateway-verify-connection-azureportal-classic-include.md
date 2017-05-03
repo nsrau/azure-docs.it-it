@@ -11,7 +11,3 @@ Nel portale di Azure è possibile visualizzare lo stato della connessione di un 
 5. Per visualizzare altre informazioni sulla connessione, fare clic sul nome della connessione per aprire il pannello **Connessione VPN da sito a sito**.
 
     ![Altre informazioni sullo stato della connessione](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Altre informazioni sullo stato della connessione")
-
-<!--HONumber=Jan17_HO5-->
-
-
