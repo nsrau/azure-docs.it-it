@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: a0a974982f80bc2137e73a84681a9401e8a02e39
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: b83d44399960137c07494e8fe97ec96fa74df3fb
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -72,6 +72,7 @@ Scaricare la versione più recente dello [strumento WAImportExport](http://downl
 
 >[!NOTE]
 >**Versione precedente:** è possibile [scaricare la versione WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) dello strumento e fare riferimento alla [guida all'uso di WAImportExport V1](storage-import-export-tool-how-to-v1.md). La versione WAImportExport V1 dello strumento offre supporto per la **preparazione di dischi quando i dati sono già scritti in precedenza sul disco**. Sarà inoltre necessario usare lo strumento WaImportExport V1 se è disponibile solo una chiave SAS.
+
 >
 
 ### <a name="hard-disk-drives"></a>Unità disco rigido
@@ -128,6 +129,7 @@ Località di spedizione supportate:
 * Dipartimento della difesa Stati Uniti centrali
 * Cina orientale
 * Cina settentrionale
+* Regno Unito meridionale
 
 ### <a name="shipping"></a>Spedizione
 **Spedizione di unità al data center:**

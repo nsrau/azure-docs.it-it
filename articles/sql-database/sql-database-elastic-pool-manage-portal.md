@@ -11,15 +11,15 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 11/17/2016
+ms.date: 04/18/2016
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d5be10b4898002a693f617043b2e2b8a890035ca
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 66f7cc63d311b6b5cd223fe0d8a9bf9f636abef1
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -88,13 +88,12 @@ Dopo avere impostato il piano tariffario, fare clic su Configura pool dove è po
 
     Se i dati di telemetria cronologici relativi all'utilizzo disponibili per i database correnti sono sufficienti, il grafico **Utilizzo di eDTU e GB** e il grafico a barre **Utilizzo di eDTU effettivo** vengono aggiornati per semplificare le decisioni relative alla configurazione. Il servizio potrebbe anche visualizzare un messaggio di raccomandazione per facilitare la scelta delle dimensioni corrette per il pool. Vedere la sezione [Indicazioni dinamiche](#dynamic-recommendations).
 
-3. Usare i controlli nella pagina **Configura pool** per esaminare le impostazioni e configurare il pool. Vedere la sezione relativa ai [limiti dei pool elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) per altri dettagli sui limiti per ogni livello di servizio e le [considerazioni su prezzi e prestazioni per i pool elastici](sql-database-elastic-pool-guidance.md) per istruzioni dettagliate sul corretto ridimensionamento di un pool elastico. Per altre informazioni sulle impostazioni del pool, vedere [Proprietà del pool elastico](sql-database-elastic-pool.md#elastic-pool-properties).
+3. Usare i controlli nella pagina **Configura pool** per esaminare le impostazioni e configurare il pool. Vedere la sezione relativa ai [limiti dei pool elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) per altri dettagli sui limiti per ogni livello di servizio e le [considerazioni su prezzi e prestazioni per i pool elastici](sql-database-elastic-pool.md) per istruzioni dettagliate sul corretto ridimensionamento di un pool elastico. Per altre informazioni sulle impostazioni del pool, vedere [Proprietà del pool elastico](sql-database-elastic-pool.md#database-properties-for-pooled-databases).
 
     ![Configurare un pool elastico](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
 4. Fare clic su **Seleziona** in the **Configure Pool** .
 5. Fare clic su **OK** per creare il pool.
-
 
 ## <a name="understand-elastic-pool-recommendations"></a>Informazioni sulle indicazioni per i pool elastici
 
@@ -109,7 +108,8 @@ La raccomandazione per il pool include:
 - **MAX eDTU** e **Min eDTU** per ogni database.
 - Elenco di database consigliati per il pool.
 
-> ![IMPORTANTE] Il servizio prende in considerazione la telemetria degli ultimi 30 giorni per consigliare i pool. Per far sì che un database possa essere considerato un candidato per un pool elastico, deve esistere da almeno 7 giorni. I database che si trovano già in pool elastici non vengono considerati come possibili candidati, in linea con i consigli relativi ai pool elastici.
+> [!IMPORTANT]
+> Il servizio prende in considerazione la telemetria degli ultimi 30 giorni per la raccomandazione dei pool. Per far sì che un database possa essere considerato un candidato per un pool elastico, deve esistere da almeno 7 giorni. I database che si trovano già in pool elastici non vengono considerati come possibili candidati, in linea con i consigli relativi ai pool elastici.
 >
 
 Il servizio valuta le risorse necessarie e la convenienza dello spostamento di singoli database in ogni livello di servizio nei pool dello stesso livello. Ad esempio, vengono valutati tutti i database Standard in un server per l’utilizzo in un pool elastico Standard. Ciò significa che il servizio non effettua consigli relativi a livelli diversi, ad esempio lo spostamento di un database Standard in un pool Premium.
@@ -260,7 +260,7 @@ Nell'elenco dei database del pannello **Utilizzo risorse database** è possibile
 
 ## <a name="change-performance-settings-of-an-elastic-pool"></a>Modificare le impostazioni delle prestazioni di un pool elastico
 
-Durante il monitoraggio dell'utilizzo delle risorse di un pool elastico possono rendersi necessarie alcune modifiche, ad esempio dei limiti di archiviazione o di prestazioni. Si potrebbe voler modificare le impostazioni del database nel pool. È possibile modificare la configurazione del pool in qualsiasi momento per ottenere il miglior compromesso tra prestazioni e costi. Per altre informazioni, vedere [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md).
+Durante il monitoraggio dell'utilizzo delle risorse di un pool elastico possono rendersi necessarie alcune modifiche, ad esempio dei limiti di archiviazione o di prestazioni. Si potrebbe voler modificare le impostazioni del database nel pool. È possibile modificare la configurazione del pool in qualsiasi momento per ottenere il miglior compromesso tra prestazioni e costi. Per altre informazioni, vedere [Quando usare un pool elastico](sql-database-elastic-pool.md).
 
 Per modificare i limiti di archiviazione o eDTU per il pool e il numero di eDTU per il database:
 
@@ -281,7 +281,7 @@ Per modificare i limiti di archiviazione o eDTU per il pool e il numero di eDTU 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sui pool elastici, vedere [Pool elastico del database SQL](sql-database-elastic-pool.md).
-- Per indicazioni sull'uso dei pool elastici, vedere le [considerazioni su prezzo e prestazioni per i pool elastici](sql-database-elastic-pool-guidance.md).
+- Per indicazioni sull'uso dei pool elastici, vedere le [considerazioni su prezzo e prestazioni per i pool elastici](sql-database-elastic-pool.md).
 - Per usare i processi elastici per eseguire script Transact-SQL su qualsiasi numero di database nel pool, vedere la [panoramica dei processi elastici](sql-database-elastic-jobs-overview.md).
 - Per eseguire query su un numero qualsiasi di database nel pool, vedere la [panoramica delle query elastiche](sql-database-elastic-query-overview.md).
 - Per eseguire transazioni su un numero qualsiasi di database nel pool, vedere [Transazioni elastiche](sql-database-elastic-transactions-overview.md).
