@@ -27,12 +27,12 @@ Per ottenere la certificazione AppSource per Azure AD, l'applicazione deve imple
 Se non si ha familiarità con lo sviluppo di applicazioni multi-tenant o di accesso Azure AD:
 
 1. Iniziare leggendo le informazioni sugli scenari [Da Web browser ad applicazione Web in Scenari di autenticazione per Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp].  
-2. Vedere quindi le [guide introduttive per le applicazioni Web][AAD-QuickStart-Web-Apps] di Azure AD, che illustrano come implementare l'accesso e includono esempi di codice complementari. 
-   
+2. Vedere quindi le [guide introduttive per le applicazioni Web][AAD-QuickStart-Web-Apps] di Azure AD, che illustrano come implementare l'accesso e includono esempi di codice complementari.
+
    > [!TIP]
    > Si consiglia di provare l'anteprima del nuovo [portale per sviluppatori](https://identity.microsoft.com/Docs/Web) che consentirà di imparare a usare Azure Active Directory in pochi minuti.  Il portale per sviluppatori guida l'utente nel processo di registrazione di un'app e di integrazione di Azure AD nel codice.  Al termine si otterrà una semplice applicazione in grado di autenticare gli utenti nel tenant e un back-end che può accettare i token ed eseguire la convalida.
-   > 
-   > 
+   >
+   >
 3. Per informazioni su come implementare il modello di accesso multi-tenant con Azure AD, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant][AAD-Howto-Multitenant-Overview]
 
 ## <a name="related-content"></a>Contenuti correlati
@@ -45,18 +45,8 @@ La sezione dei commenti Disqus riportata di seguito consente di fornire commenti
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#web-application-quick-start-guides
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#guides
 
 
 <!--Image references-->
-
-
-
-
-
-
-
-
-
-
 

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
 ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -362,10 +363,5 @@ In questa esercitazione sono state analizzate le funzionalità di base di Azure 
 * [How to document data assets (Come documentare gli asset di dati)](data-catalog-how-to-documentation.md)
 * [How to connect to data assets (Come connettersi agli asset di dati)](data-catalog-how-to-connect.md)
 * [Come gestire gli asset di dati](data-catalog-how-to-manage.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
