@@ -4,8 +4,3 @@
 2. Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
 3. Fare clic su **Elimina** e scegliere di eliminare tutti i dischi di macchina virtuale.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

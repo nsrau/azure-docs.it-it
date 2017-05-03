@@ -8,8 +8,3 @@ Si pagano due cose: i costi di calcolo orari per il gateway di rete virtuale e i
 * Se si invia il traffico tra reti virtuali in aree diverse, i prezzi dipendono dall'area.
 * Se si invia il traffico solo tra reti virtuali nella stessa area, non sono previsti costi per i dati. Il traffico tra reti virtuali nella stessa area è gratuito.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

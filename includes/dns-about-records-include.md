@@ -22,7 +22,3 @@ DNS di Azure gestisce tutti i record DNS usando *set di record*. Un set di recor
 Si supponga, ad esempio, di aver già creato un record "www" nella zona "contoso.com", che punta all'indirizzo IP "134.170.185.46" (primo record sopra).  Per creare il secondo record, è necessario aggiungere il record al set di record esistente invece di creare un altro set di record.
 
 I tipi di record SOA e CNAME sono eccezioni. Gli standard DNS non permettono più record con lo stesso nome per questi tipi, quindi questi set di record possono contenere un solo record.
-
-<!--HONumber=Jan17_HO1-->
-
-

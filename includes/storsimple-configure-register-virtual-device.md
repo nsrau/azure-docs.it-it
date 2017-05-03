@@ -17,8 +17,3 @@ Dopo aver completato la configurazione e la registrazione, il dispositivo viene 
 
 ![Fase online dispositivo virtuale StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
