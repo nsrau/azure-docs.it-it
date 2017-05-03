@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 12e8ff02c72d90513868d43bc34c564f1da1ae43
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 93b36891c960582563a4ff9c622cd5ac3198dfeb
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -43,7 +43,7 @@ Questo articolo presuppone che SharePoint 2013 o versione successiva sia già in
 
 I clienti vogliono disporre di un semplice accesso SSO alle applicazioni back-end, in questo caso al server SharePoint. In questo scenario comune di Azure AD, l'utente viene autenticato una sola volta poiché l'autenticazione non verrà richiesta nuovamente.
 
-Per le applicazioni locali che richiedono o usano l'autenticazione di Windows è possibile ottenere l'accesso SSO usando il protocollo di autenticazione Kerberos e una funzionalità denominata delega vincolata Kerberos (KCD). Se configurata, questa funzionalità consente al connettore del proxy di applicazione di ottenere un ticket/token di Windows per un utente, anche se questi non ha eseguito l'accesso direttamente in Windows. Per altre informazioni sulla delega vincolata Kerberos, vedere [Panoramica della delega vincolata Kerberos](https://technet.microsoft.com/en-us/library/jj553400.aspx).
+Per le applicazioni locali che richiedono o usano l'autenticazione di Windows è possibile ottenere l'accesso SSO usando il protocollo di autenticazione Kerberos e una funzionalità denominata delega vincolata Kerberos (KCD). Se configurata, questa funzionalità consente al connettore del proxy di applicazione di ottenere un ticket/token di Windows per un utente, anche se questi non ha eseguito l'accesso direttamente in Windows. Per altre informazioni sulla delega vincolata Kerberos, vedere [Panoramica della delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx).
 
 Per configurare la delega vincolata Kerberos per un server SharePoint, usare le procedure descritte nelle sezioni seguenti.
 
@@ -63,7 +63,7 @@ Per garantire che i siti siano in esecuzione in un account di servizio definito,
 5. Selezionare **Registra nuovo account gestito**. Dopo aver creato l'account, prima di poterlo usare è necessario impostare l'opzione **Pool di applicazioni Web**.
 
 > [!NOTE]
-È necessario avere un account di Azure AD creato in precedenza per il servizio. Si consiglia di consentire la modifica automatica della password. Per altre informazioni sull'insieme completo di passaggi e sulla risoluzione di problemi, vedere [Configurare la modifica automatica della password in SharePoint 2013](https://technet.microsoft.com/EN-US/library/ff724280.aspx).
+È necessario avere un account di Azure AD creato in precedenza per il servizio. Si consiglia di consentire la modifica automatica della password. Per altre informazioni sull'insieme completo di passaggi e sulla risoluzione di problemi, vedere [Configurare la modifica automatica della password in SharePoint 2013](https://technet.microsoft.com/library/ff724280.aspx).
 
 ### <a name="configure-sharepoint-for-kerberos"></a>Configurare SharePoint per Kerberos
 
@@ -87,7 +87,7 @@ Per configurare il sito di SharePoint per l'autenticazione Kerberos:
 
 ### <a name="set-a-service-principal-name-for-the-sharepoint-service-account"></a>Impostare un nome dell'entità servizio per l'account del servizio SharePoint
 
-Prima di configurare la delega vincolata Kerberos è necessario identificare il servizio SharePoint in esecuzione come account del servizio configurato in precedenza. A questo scopo è necessario impostare un nome di entità servizio (SPN). Per altre informazioni vedere [Service Principal Names](https://technet.microsoft.com/en-us/library/cc961723.aspx) (Nomi di entità servizio).
+Prima di configurare la delega vincolata Kerberos è necessario identificare il servizio SharePoint in esecuzione come account del servizio configurato in precedenza. A questo scopo è necessario impostare un nome di entità servizio (SPN). Per altre informazioni vedere [Service Principal Names](https://technet.microsoft.com/library/cc961723.aspx) (Nomi di entità servizio).
 
 Il formato del nome SPN è:
 
@@ -115,7 +115,7 @@ Il nome SPN sarà:
 HTTP/ sharepoint.demo.o365identity.us demo
 ```
 
-Potrebbe essere necessario anche impostare nomi SPN per siti specifici sul server. Per altre informazioni, vedere [Configurare l'autenticazione Kerberos](https://technet.microsoft.com/en-us/library/cc263449(v=office.12).aspx). Leggere con attenzione la sezione "Creare nomi delle entità servizio per applicazioni Web mediante l'autenticazione Kerberos".
+Potrebbe essere necessario anche impostare nomi SPN per siti specifici sul server. Per altre informazioni, vedere [Configurare l'autenticazione Kerberos](https://technet.microsoft.com/library/cc263449(v=office.12).aspx). Leggere con attenzione la sezione "Creare nomi delle entità servizio per applicazioni Web mediante l'autenticazione Kerberos".
 
 Il modo più semplice per impostare nomi SPN è quello di seguire i formati dei nomi SPN già presenti per altri siti. Copiare i nomi SPN per la registrazione con l'account del servizio. A tale scopo, seguire questa procedura:
 
@@ -140,7 +140,7 @@ Klist restituisce quindi il set di nomi SPN di destinazione. In questo esempio i
 
  Sostituire _http/sharepoint.demo.o365identity.us_ con il nome SPN per il server e _demo\sp_svc_ con l'account del servizio nel proprio ambiente. Il comando Setspn cercherà il nome SPN prima di aggiungerlo. In questo caso è possibile che venga restituito un errore di **valore SPN duplicato**. Se viene visualizzato questo errore, assicurarsi che il valore sia associato con l'account del servizio.
 
-È possibile verificare che il nome SPN sia stato aggiunto tramite il comando Setspn con l'opzione -l. Per altre informazioni su questo comando, vedere [Setspn](https://technet.microsoft.com/en-us/library/cc731241.aspx).
+È possibile verificare che il nome SPN sia stato aggiunto tramite il comando Setspn con l'opzione -l. Per altre informazioni su questo comando, vedere [Setspn](https://technet.microsoft.com/library/cc731241.aspx).
 
 ### <a name="ensure-that-the-connector-is-set-as-a-trusted-delegate-to-sharepoint"></a>Verificare che il connettore sia impostato come delegato attendibile a SharePoint
 
@@ -220,7 +220,7 @@ L'ultimo passaggio consiste nell'accertarsi che SharePoint possa trovare il sito
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Come fornire l'accesso remoto sicuro alle applicazioni locali](active-directory-application-proxy-get-started.md)<br>
-[Comprendere i connettori del proxy applicazione Azure AD](application-proxy-understand-connectors.md)<br>
-[Pubblicazione di SharePoint 2016 e Office Online Server con il proxy applicazione Azure AD](https://blogs.technet.microsoft.com/dawiese/2016/06/09/publishing-sharepoint-2016-and-office-online-server-with-azure-ad-application-proxy/)
+- [Come fornire l'accesso remoto sicuro alle applicazioni locali](active-directory-application-proxy-get-started.md)
+- [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-understand-connectors.md)
+- [Publishing SharePoint 2016 and Office Online Server with Azure AD Application Proxy](https://blogs.technet.microsoft.com/dawiese/2016/06/09/publishing-sharepoint-2016-and-office-online-server-with-azure-ad-application-proxy/) (Pubblicazione su SharePoint 2016 e Office Online Server con il proxy di applicazione Azure AD)
 

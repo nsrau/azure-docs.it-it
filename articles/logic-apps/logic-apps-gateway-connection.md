@@ -15,26 +15,28 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: ef7df25d8080cae41235dffb287906508d4a652d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 3e9b95e6e9e84f8c2b615f43783d9fec5a2c09b6
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="connect-to-on-premises-data-from-logic-apps"></a>Connettersi ai dati locali dalle app per la logica
 
-Per accedere ai dati locali è possibile configurare una connessione a un gateway dati locale per i connettori di App per la logica di Azure supportati. La procedura seguente illustra come installare e configurare il gateway dati locale per affinché si integri con le app per la logica.
-Il gateway dati locale supporta le connessioni all'origine dati seguenti:
+Per accedere ai dati locali è possibile configurare una connessione a un gateway dati locale per i connettori di App per la logica di Azure supportati. La procedura seguente illustra come installare e configurare il gateway dati locale per affinché si integri con le app per la logica. Il gateway dati locale supporta le connessioni seguenti:
 
 *   BizTalk Server
-*    DB2  
+*   DB2  
 *   File system
 *   Informix
 *   MQ
-*    Oracle Database 
+*   MySQL
+*   Oracle Database 
 *   Server applicazioni SAP 
 *   Server messaggi SAP
-*    SQL Server
+*   SharePoint solo per HTTP, non per HTTPS
+*   SQL Server
+*   Teradata
 
 Per altre informazioni su queste connessioni, vedere [Connettori per App per la logica di Azure](https://docs.microsoft.com/azure/connectors/apis-list).
 
@@ -42,7 +44,7 @@ Per altre informazioni su queste connessioni, vedere [Connettori per App per la 
 
 * È necessario un indirizzo di posta elettronica aziendale o dell'istituto di istruzione in Azure per associare il gateway dati locale con l'account (account basato su Azure Active Directory).
 
-* Se si usa un account Microsoft, ad esempio @outlook.com, è possibile usare l'account di Azure per [creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+* Se si usa un account Microsoft, ad esempio @outlook.com, è possibile usare l'account di Azure per [creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
 * [Il gateway dati locale deve essere già installato in un computer locale](logic-apps-gateway-install.md).
 
@@ -59,7 +61,7 @@ Se l'utente non lo hai già fatto, seguire questa procedura per [installare il g
 Dopo l'installazione del gateway, è necessario associare la sottoscrizione di Azure al gateway.
 
 > [!IMPORTANT] 
-> Assicurarsi che la risorsa gateway venga creata nella stessa area di Azure in cui si trova l'app per la logica. Se non si esegue la distribuzione nella stessa area, non sarà accessibile nella app per la logica. 
+> Assicurarsi che la risorsa gateway venga creata nella stessa area di Azure in cui si trova l'app per la logica. Se la risorsa per il gateway non viene distribuita nella stessa area, l'app per la logica non può accedere al gateway. 
 > 
 
 1. Accedere ad Azure con lo stesso indirizzo di posta elettronica aziendale o dell'istituto di istruzione usato durante l'installazione del gateway.
@@ -85,10 +87,13 @@ Ora che la sottoscrizione di Azure è associata a un'istanza del gateway dati lo
 
 La connessione è ora configurata per l'app per la logica da usare.
 
-## <a name="data-gateway-connection-modifications"></a>Modifiche della connessione al gateway dati
-Dopo avere aggiunto all'app per la logica la connessione al gateway dati, potrebbe essere necessario modificarla per eseguire impostazioni specifiche per questa connessione. La connessione è disponibile in una delle due posizioni:
-* Nel pannello principale dell'app per la logica verrà visualizzato un riquadro per le connessioni API nella sezione Strumenti di sviluppo. Scegliere di visualizzare tutte le connessioni API associate all'app per la logica, una delle quali sarà la connessione al gateway dati. Con questa selezione è possibile quindi visualizzare e modificare le impostazioni associate alla connessione.
-* Selezionando il pannello principale delle connessioni API verranno mostrate tutte le connessioni API nella sottoscrizione. Questo elenco includerà la connessione al gateway dati. Con questa selezione è possibile visualizzare e modificare le impostazioni associate alla connessione.
+## <a name="edit-your-data-gateway-connection-settings"></a>Modificare le impostazioni di connessione del gateway dati
+
+Dopo avere aggiunto la connessione al gateway dati all'app per la logica, potrebbero richiedersi delle modifiche in modo da poter regolare le impostazioni specifiche per questa connessione. La connessione è disponibile in una delle due posizioni:
+
+* Nel pannello dell'app per la logica, sotto **Strumenti di sviluppo**, selezionare **Connessioni API**. Questo elenco mostra tutte le connessioni API associate alla propria app per la logica, inclusa la connessione del gateway dati. Per visualizzare e modificare le impostazioni della connessione, selezionare la connessione.
+
+* Nel pannello principale di Connessioni API sono presenti tutte le connessioni API associate alla sottoscrizione di Azure, inclusa la connessione del gateway dati. Per visualizzare e modificare le impostazioni di connessione, selezionare la connessione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

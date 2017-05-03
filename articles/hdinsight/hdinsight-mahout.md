@@ -14,46 +14,40 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4ee75cac7fb4c8e6903b73150ec7b1acfc9cb9f9
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 7d8f200799163a86f20efa100257d2ec006dd785
+ms.lasthandoff: 04/17/2017
 
 
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Generare raccomandazioni di film mediante Apache Mahout con Hadoop in HDInsight (PowerShell)
+
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
-Informazioni su come usare la libreria di Machine Learning [Apache Mahout](http://mahout.apache.org) con Azure HDInsight per generare raccomandazioni di film. In questo documento viene illustrato come eseguire Mahout in remoto tramite Azure PowerShell.
-
-Mahout è una libreria di [apprendimento automatico][ml] per Apache Hadoop. Mahout contiene gli algoritmi per l'elaborazione dei dati, ad esempio applicazione di filtri, classificazione e clustering. In questo articolo si userà un motore di raccomandazione per generare consigli cinematografici in base ai film visti dai propri amici.
+Informazioni su come usare la libreria di Machine Learning [Apache Mahout](http://mahout.apache.org) con Azure HDInsight per generare raccomandazioni di film. L'esempio riportato in questo documento usa Azure PowerShell per eseguire i processi Mahout.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster HDInsight basato su Linux. Per informazioni su come crearne uno, vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight][getstarted].
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere l'articolo sul [controllo delle versioni del componente di HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-* **Workstation con Azure PowerShell**.
-
-    > [!IMPORTANT]
-    > Il supporto di Azure PowerShell per la gestione delle risorse HDInsight tramite Azure Service Manager è **deprecato** e verrà rimosso dal 1° gennaio 2017. La procedura descritta in questo documento usa i nuovi cmdlet HDInsight, compatibili con Azure Resource Manager.
-    >
-    > Per installare la versione più recente, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Se sono presenti script che devono essere modificati per l'uso dei nuovi cmdlet compatibili con Azure Resource Manager, per altre informazioni vedere [Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) .
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 ## <a name="recommendations"></a>Generare raccomandazioni con Azure PowerShell
 
-> [!NOTE]
-> Anche se il processo usato in questa sezione funziona con Azure PowerShell, molte delle classi fornite con Mahout al momento non funzionano con Azure PowerShell e devono essere eseguite mediante la riga di comando di Hadoop. Per l'elenco delle classi che non funzionano con Azure PowerShell, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
+> [!WARNING]
+> Il processo in questa sezione funziona con Azure PowerShell. Molte delle classi offerte da Mahout attualmente non funzionano con Azure PowerShell. Per l'elenco delle classi che non funzionano con Azure PowerShell, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
 >
 > Per un esempio su come usare SSH per connettersi a HDInsight ed eseguire esempi Mahout direttamente nel cluster, vedere [Generare raccomandazioni mediante Mahout e HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
 
-Una delle funzioni fornite da Mahout è un motore di raccomandazione. Questo motore accetta i dati nei formati `userID`, `itemId` e `prefValue` (la preferenza degli utenti per l'elemento). Mahout può quindi eseguire l'analisi delle co-occorrenze per determinare che gli *utenti con una preferenza per un elemento hanno anche una preferenza per altri elementi*. Mahout determina quindi gli utenti con preferenze di elementi simili, che possono essere usate per le raccomandazioni.
+Una delle funzioni fornite da Mahout è un motore di raccomandazione. Questo motore accetta i dati nei formati `userID`, `itemId` e `prefValue` (la preferenza degli utenti per l'elemento). Mahout usa i dati per determinare gli utenti con preferenze di elementi simili, che possono essere usate per le raccomandazioni.
 
-Di seguito è riportato un esempio molto semplice relativo ai film:
+Nell'esempio seguente viene illustrata una procedura dettagliata semplificata del funzionamento del processo di raccomandazione:
 
 * **Co-occorrenza**: a Joe, Alice e Bob piacciono *Guerre stellari*, *L'Impero colpisce ancora* e *Il ritorno dello Jedi*. Mahout determina che agli utenti a cui piace uno di questi film piacciono anche gli altri due.
 
@@ -63,9 +57,9 @@ Di seguito è riportato un esempio molto semplice relativo ai film:
 
 ### <a name="understanding-the-data"></a>Informazioni sui dati
 
-[GroupLens Research][movielens] fornisce i dati di classificazione dei film in un formato compatibile con Mahout. Questi dati sono disponibili nello spazio di archiviazione predefinito del cluster in `/HdiSamples//HdiSamples/MahoutMovieData`.
+[GroupLens Research][movielens] offre i dati di classificazione dei film in un formato compatibile con Mahout. Questi dati sono disponibili nello spazio di archiviazione predefinito del cluster in `/HdiSamples//HdiSamples/MahoutMovieData`.
 
-Sono disponibili due file, `moviedb.txt` (informazioni sui film) e `user-ratings.txt`. Il file user-ratings.txt viene usato durante l'analisi, mentre moviedb.txt viene usato per offrire informazioni di testo descrittivo quando si visualizzano i risultati dell'analisi.
+Sono disponibili due file, `moviedb.txt` (informazioni sui film) e `user-ratings.txt`. Il file `user-ratings.txt` viene usato durante l'analisi. Il file `moviedb.txt` viene usato per generare testo descrittivo quando si visualizzano i risultati dell'analisi.
 
 I dati contenuti in user-ratings.txt presentano una struttura `userID`, `movieID`, `userRating` e `timestamp` che indica come ogni utente ha classificato un film. Di seguito è riportato un esempio dei dati:
 
@@ -93,7 +87,7 @@ if(-not($sub))
 
 # Get cluster info
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-$creds=Get-Credential -Message "Enter the login for the cluster (the default name is usually 'admin')"
+$creds=Get-Credential -UserName "admin" -Message "Enter the login for the cluster"
 
 #Get the cluster info so we can get the resource group, storage, etc.
 $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
@@ -114,7 +108,7 @@ $context = New-AzureStorageContext `
 $queryString = "!ls /usr/hdp/current/mahout-client"
 $hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 $hiveJob=Start-AzureRmHDInsightJob -ClusterName $clusterName -JobDefinition $hiveJobDefinition -HttpCredential $creds
-$dummy = wait-azurermhdinsightjob -ClusterName $clusterName -JobId $hiveJob.JobId -HttpCredential $creds
+wait-azurermhdinsightjob -ClusterName $clusterName -JobId $hiveJob.JobId -HttpCredential $creds > $null
 #Get the files returned from Hive
 $files=get-azurermhdinsightjoboutput -clustername $clusterName -JobId $hiveJob.JobId -DefaultContainer $container -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -HttpCredential $creds
 #Find the file that starts with mahout-examples and ends in job.jar
@@ -180,7 +174,7 @@ Get-AzureStorageBlobContent -blob "HdiSamples/HdiSamples/MahoutMovieData/user-ra
 
 Il processo Mahout non restituisce l'output in STDOUT, ma lo archivia nella directory di output specificata come **part-r-00000**. Lo script scaricherà questo file in **output.txt** nella directory corrente nella workstation.
 
-Di seguito è riportato un esempio del contenuto di questo file:
+Il testo seguente riporta un esempio del contenuto di questo file:
 
     1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
     2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
@@ -279,11 +273,13 @@ $recommendationFormat = @{Expression={$_.Name};Label="Movie";Width=40}, `
 $recommendations | format-table $recommendationFormat
 ```
 
-Di seguito è riportato un esempio di esecuzione dello script:
+Usare il comando seguente per visualizzare le indicazioni in un formato semplice: 
 
-    PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\user-ratings.txt -movieFile .\moviedb.txt -recommendationFile .\output.txt
+```powershell
+.\show-recommendation.ps1 -userId 4 -userDataFile .\user-ratings.txt -movieFile .\moviedb.txt -recommendationFile .\output.txt
+```
 
-L'output sarà simile al seguente:
+L'output è simile al testo seguente:
 
     Reading movies descriptions
     Reading rated movies
@@ -320,7 +316,7 @@ L'output sarà simile al seguente:
 
 I processi Mahout non eliminano i file temporanei creati durante l'elaborazione. Inoltre, i processi non sovrascrivono un file di output esistente.
 
-Per evitare errori durante l'esecuzione dei processi Mahout, eliminare i file temporanei e di output da un'esecuzione all'altra o usare nomi univoci per le directory temporanee e di output. Utilizzare il seguente script PowerShell per rimuovere i file creati dagli script precedenti in questo documento:
+Per evitare errori durante l'esecuzione dei processi Mahout, eliminare i file temporanei e di output da un'esecuzione all'altra. Utilizzare il seguente script PowerShell per rimuovere i file creati dagli script precedenti in questo documento:
 
 ```powershell
 # Login to your Azure subscription
@@ -367,7 +363,7 @@ foreach($blob in $blobs)
 
 ### <a name="nopowershell"></a>Classi che non funzionano con Azure PowerShell
 
-I processi Mahout che usano le classi seguenti restituiscono una serie di messaggi di errore se usati da Windows PowerShell:
+I processi Mahout che usano le classi seguenti restituiscono una serie di messaggi di errore quando vengono usati da Windows PowerShell:
 
 * org.apache.mahout.utils.clustering.ClusterDumper
 * org.apache.mahout.utils.SequenceFileDumper

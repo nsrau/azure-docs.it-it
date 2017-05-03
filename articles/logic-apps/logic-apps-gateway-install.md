@@ -15,25 +15,28 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 23b806556667539156ee399e90c7bd4af808804f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b9971117d5f61669a5161a28c96b11b2fd600b61
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="install-an-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
-Il gateway dati locale supporta le connessioni all'origine dati seguenti:
+Il gateway dati locale supporta le connessioni seguenti:
 
 *   BizTalk Server
-*    DB2  
+*   DB2  
 *   File system
 *   Informix
 *   MQ
-*    Oracle Database 
+*   MySQL
+*   Oracle Database 
 *   Server applicazioni SAP 
 *   Server messaggi SAP
-*    SQL Server
+*   SharePoint solo per HTTP, non per HTTPS
+*   SQL Server
+*   Teradata
 
 Per altre informazioni su queste connessioni, vedere [Connettori per App per la logica di Azure](https://docs.microsoft.com/azure/connectors/apis-list).
 
@@ -61,7 +64,7 @@ Non è possibile installare il gateway in un controller di dominio.
 
 * È possibile usare solo un indirizzo di posta elettronica aziendale o dell'istituto di istruzione in Azure per associare il gateway dati locale con l'account basato su Azure Active Directory.
 
-    Se si usa un account Microsoft, ad esempio @outlook.com, è possibile usare l'account di Azure per   [creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+    Se si usa un account Microsoft, ad esempio @outlook.com, è possibile usare l'account di Azure per   [creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
 ### <a name="install-the-gateway"></a>Installare il gateway
 

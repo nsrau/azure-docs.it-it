@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 3a240ff317e1b3ea450703965629c08053668856
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 3f050e2722091aa8b58591cc0c894a6ecb82c3fa
+ms.lasthandoff: 04/14/2017
 
 ---
 
@@ -453,7 +453,7 @@ L'azione seguente, ad esempio, prova a recuperare di nuovo le ultime novità per
     "type": "http",
     "inputs": {
         "method": "GET",
-        "uri": "uri": "https://mynews.example.com/latest",
+        "uri": "https://mynews.example.com/latest",
         "retryPolicy" : {
             "type": "fixed",
             "interval": "PT30S",
@@ -658,6 +658,28 @@ L'output dell'azione `query` è una matrice con elementi della matrice di input 
 |from|Sì|Array|Matrice di origine.|
 |dove|Sì|String|Condizione da applicare a ogni elemento della matrice di origine.|
 
+## <a name="select-action"></a>Seleziona azione
+
+L'azione `select` consente di proiettare ogni elemento dell'array in un nuovo valore.
+Ad esempio, per convertire un array di numeri in un array di oggetti è possibile usare:
+
+```json
+"SelectNumbers" : {
+    "type": "select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+L'output dell'azione `select` è un array con la stessa cardinalità dell'array di input, con ogni elemento trasformato secondo quanto definito dalla proprietà `select`. Se l'input è un array vuoto, lo sarà anche l'output.
+
+|Nome|Obbligatoria|Tipo|Descrizione|
+|--------|------------|--------|---------------|
+|from|Sì|Array|Matrice di origine.|
+|seleziona|Sì|Qualsiasi|La proiezione da applicare a ogni elemento dell'array di origine.|
+
 ## <a name="terminate-action"></a>Azione terminate
 
 L'azione terminate arresta l'esecuzione del flusso di lavoro, interrompendo eventuali azioni in elaborazione e ignorando le azioni rimanenti. Per terminare un'esecuzione con stato **Failed**, ad esempio, è possibile usare il frammento seguente:
@@ -703,6 +725,71 @@ L'azione compose consente di costruire un oggetto arbitrario. L'output dell'azio
 
 > [!NOTE]
 > L'azione **Compose** può essere usata per costruire qualsiasi output, inclusi oggetti, matrici e altri tipi supportati a livello nativo dalle app per la logica, ad esempio file XML e binari.
+
+## <a name="table-action"></a>azione Tabella
+
+`table` consente di convertire un array di elementi in una tabella in formato **CVS** o **HTML**.
+
+Presumere che @triggerBody() sia
+
+```json
+[{
+  "id": 0,
+  "name": "apples"
+},{
+  "id": 1, 
+  "name": "oranges"
+}]
+```
+
+Lasciare che l'azione venga definita come
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html"
+    }
+}
+```
+
+L'elemento sopra darebbe
+
+<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>mele</td></tr><tr><td>1</td><td>arance</td></tr></tbody></table>"
+
+Per personalizzare la tabella, è possibile specificare le colonne in modo esplicito. Ad esempio:
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html",
+        "columns": [{
+          "header": "produce id",
+          "value": "@item().id"
+        },{
+          "header": "description",
+          "value": "@concat('fresh ', item().name)"
+        }]
+    }
+}
+```
+
+L'elemento sopra darebbe
+
+<table><thead><tr><th>ottenere ID</th><th>Descrizione</th></tr></thead><tbody><tr><td>0</td><td>mele fresche</td></tr><tr><td>1</td><td>arance fresche</td></tr></tbody></table>"
+
+Se il valore della proprietà `from` è un array vuoto, l'output sarà una tabella vuota.
+
+|Nome|Obbligatoria|Tipo|Descrizione|
+|--------|------------|--------|---------------|
+|from|Sì|Array|Matrice di origine.|
+|format|Sì|String|Il formato, **CVS** o **HTML**.|
+|columns|No|Array|Le colonne. Consente di sostituire la forma predefinita della tabella.|
+|intestazione di colonna|No|String|L'intestazione della colonna.|
+|valore colonna|Sì|String|Il valore della colonna.|
 
 ## <a name="workflow-action"></a>Azione workflow   
 
@@ -897,3 +984,4 @@ Se una condizione restituisce un valore corretto, viene contrassegnata come `Suc
 ## <a name="next-steps"></a>Passaggi successivi
 
 [API REST del servizio flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows)
+
