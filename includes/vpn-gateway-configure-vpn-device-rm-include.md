@@ -9,5 +9,4 @@ Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VP
 Durante la configurazione del dispositivo VPN, è necessario quanto segue:
 
 - Chiave condivisa. Si tratta della stessa chiave condivisa che viene specificata durante la creazione della connessione VPN da sito a sito. In questi esempi viene usata una chiave condivisa semplice. È consigliabile generare una chiave più complessa per l'uso effettivo.
-
 - Indirizzo IP pubblico del gateway di rete virtuale. È possibile visualizzare l'indirizzo IP pubblico usando il portale di Azure, PowerShell o l'interfaccia della riga di comando.

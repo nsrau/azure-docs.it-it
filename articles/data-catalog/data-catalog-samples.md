@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2e84eb020b46fe89426e547b389715d6190fc03c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -35,10 +36,5 @@ Di seguito vi sono gli esempi presenti in GitHub:
 * [Strumento di importazione/esportazione](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
   
   Un esempio che illustra come usare l'API REST del catalogo dati per recuperare asset da Catalogo dati di Azure e serializzarli in un file. Mostra anche come prelevare un set di asset serializzato come JSON ed eseguirne il push nel catalogo. Supporta l'esportazione di un subset del catalogo usando una query di ricerca.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

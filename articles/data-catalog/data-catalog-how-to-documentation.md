@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: a869c52c3e3574e4ffc958a82daaa12b2f6cb6c1
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -51,9 +52,4 @@ Il livello di documentazione va dalla descrizione delle caratteristiche e del va
 
 ## <a name="summary"></a>Riepilogo
 La documentazione delle origini dati con **Azure Data Catalog** permette di creare un resoconto sugli asset di dati con un livello di dettaglio basato sulle esigenze.  È possibile creare collegamenti a contenuti archiviati in un repository esistente che riunisce i documenti e gli asset di dati esistenti. Dopo aver trovato gli asset di dati appropriati, gli utenti hanno a disposizione un set di documentazione completo.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
