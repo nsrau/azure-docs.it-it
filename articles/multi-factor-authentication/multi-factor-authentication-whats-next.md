@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: df4340ce5185405334f08f6098590f84b067dafd
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 2e7c1ddedaa11fb614f2e8cf6d1644ae2a2beae3
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -86,7 +86,7 @@ Gli avvisi di illecito possono essere segnalati in due modi:  mediante l'app per
 3. Terminare la chiamata.
 
 ### <a name="view-fraud-reports"></a>Visualizzare le segnalazioni di illeciti
-1. Accedere al [portale di Azure classico](https://portal.azure.com/).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. A sinistra selezionare Active Directory.
 3. Nella parte superiore selezionare **Provider di Multi-Factor Authentication**. Viene visualizzato un elenco dei provider di Multi-Factor Authentication.
 4. Selezionare il provider di Multi-Factor Authentication e fare clic su **Gestisci** nella parte inferiore della pagina. Verrà visualizzato il portale di gestione di Azure Multi-Factor Authentication.
@@ -98,7 +98,7 @@ Gli avvisi di illecito possono essere segnalati in due modi:  mediante l'app per
 Un bypass monouso consente all'utente di eseguire l'autenticazione una sola volta senza eseguire la verifica in due passaggi. Il bypass è temporaneo e scade dopo un numero di secondi specificato. In situazioni in cui l'app per dispositivi mobili o il telefono non riceve una notifica o una chiamata telefonica, è possibile abilitare un bypass monouso in modo che l'utente possa accedere alla risorsa.
 
 ### <a name="create-a-one-time-bypass"></a>Creare un bypass monouso
-1. Accedere al [portale di Azure classico](https://portal.azure.com/).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare al portale di gestione di MFA seguendo le istruzioni riportate nella parte superiore di questa pagina.
 3. Se nel portale di gestione di Azure Multi-Factor Authentication viene visualizzato il nome del tenant o del provider di Azure MFA a sinistra con accanto un segno **+**, fare clic sul segno **+** per vedere i diversi gruppi di replica del server MFA e il gruppo predefinito di Azure. Selezionare il gruppo appropriato.
 4. In Amministrazione utenti selezionare **Bypass monouso**.
@@ -110,7 +110,7 @@ Un bypass monouso consente all'utente di eseguire l'autenticazione una sola volt
 7. Il limite di tempo diventa effettivo immediatamente, quindi l'utente deve eseguire l'accesso prima della scadenza del bypass monouso. 
 
 ### <a name="view-the-one-time-bypass-report"></a>Visualizzare il report del bypass monouso
-1. Accedere al [portale di Azure classico](https://portal.azure.com/).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. A sinistra selezionare Active Directory.
 3. Nella parte superiore selezionare **Provider di Multi-Factor Authentication**. Viene visualizzato un elenco dei provider di Multi-Factor Authentication.
 4. Selezionare il provider di Multi-Factor Authentication e fare clic su **Gestisci** nella parte inferiore della pagina. Verrà visualizzato il portale di gestione di Azure Multi-Factor Authentication.
@@ -134,7 +134,7 @@ La creazione di un messaggio personalizzato è divisa in due fasi. Prima di tutt
 Per caricare il messaggio personalizzato:
 
 1. Creare un messaggio vocale personalizzato usando uno dei formati di file supportati.
-2. Accedere al [portale di Azure classico](https://portal.azure.com/).
+2. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 3. Passare al portale di gestione di MFA seguendo le istruzioni riportate nella parte superiore di questa pagina.
 4. Nel portale di gestione di Azure Multi-Factor Authentication fare clic su **Messaggi vocali** nella sezione Configura.
 5. Nella pagina Configura: Messaggi vocali fare clic su **Nuovo messaggio vocale**.
@@ -164,7 +164,7 @@ La memorizzazione nella cache consente di impostare un periodo di tempo specific
 La memorizzazione nella cache non può essere usata per gli accessi ad Azure AD.
 
 ### <a name="set-up-caching"></a>Configurare la memorizzazione nella cache 
-1. Accedere al [portale di Azure classico](https://portal.azure.com/).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare al portale di gestione di MFA seguendo le istruzioni riportate nella parte superiore di questa pagina.
 3. Nel portale di gestione di Azure Multi-Factor Authentication fare clic su **Memorizzazione nella cache** nella sezione Configura.
 4. Nella pagina di configurazione della memorizzazione nella cache fare clic su **New Cache** (Nuova cache).
@@ -193,7 +193,7 @@ Quando la funzionalità Indirizzi IP attendibili è abilitata, *non* è necessar
 Sia che la funzionalità Indirizzi IP attendibili sia abilitata o meno, è necessario usare la verifica in due passaggi per i flussi del browser e le password dell'app per le applicazioni rich client meno recenti. 
 
 ### <a name="to-enable-trusted-ips"></a>Per abilitare gli indirizzi IP attendibili
-1. Accedere al [portale di Azure classico](https://portal.azure.com/).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare alla pagina Impostazioni servizio di MFA come indicato all'inizio di questo articolo.
 3. Nella pagina Impostazioni servizio in Indirizzi IP attendibili sono disponibili due opzioni:
    
@@ -255,7 +255,7 @@ Azure AD supporta la federazione (Single Sign-On) con Active Directory Domain Se
 ### <a name="allow-app-password-creation"></a>Consentire la creazione di password dell'app
 Per impostazione predefinita, gli utenti non possono creare password dell'app. Questa funzionalità deve essere abilitata. Per consentire agli utenti di creare password dell'app, seguire questa procedura:
 
-1. Accedere al [portale di Azure classico](https://portal.azure.com/).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare alla pagina Impostazioni servizio di MFA come indicato all'inizio di questo articolo.
 3. Selezionare il pulsante di opzione **Consenti agli utenti di creare password dell'app per accedere alle app non basate su browser**.
 
@@ -283,7 +283,7 @@ Pertanto si tenga presente che MFA sui dispositivi attendibili riduce il numero 
 >Questa funzionalità non è compatibile con la funzionalità "Mantieni l'accesso" di ADFS quando gli utenti eseguono la verifica in due passaggi per ADFS tramite il Azure MFA Server o una soluzione MFA di terze parti. Se gli utenti selezionano "Mantieni l'accesso" su AD FS e inoltre contrassegnano il dispositivo come attendibile per l'autenticazione a più fattori, non saranno in grado di eseguire la verifica dopo che è passato il numero di giorni "Memorizzazione di MFA". Azure AD richiede una nuova verifica in due passaggi, ma AD FS restituisce un token con l'attestazione MFA e la data originali invece di eseguire di nuovo la verifica in due passaggi. Ciò attiva un ciclo di verifica tra Azure AD e AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Abilitare la funzionalità Memorizza Multi-Factor Authentication
-1. Accedere al [portale di Azure classico](https://portal.azure.com/).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare alla pagina Impostazioni servizio di MFA come indicato all'inizio di questo articolo.
 3. Nella pagina Impostazioni servizio nelle impostazioni di gestione dei dispositivi utente selezionare la casella **Consenti agli utenti di memorizzare l'autenticazione a più fattori nei dispositivi attendibili**.
    ![Memorizzare dispositivi](./media/multi-factor-authentication-whats-next/remember.png)
@@ -310,7 +310,7 @@ Quando gli utenti registrano i propri account per l'autenticazione MFA, scelgono
 | Codice di verifica dall'app per dispositivi mobili |L'app Microsoft Authenticator genera un nuovo codice di verifica OATH ogni 30 secondi. L'utente immette il codice di verifica nell'interfaccia di accesso.<br>L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Come abilitare o disabilitare i metodi di autenticazione
-1. Accedere al [portale di Azure classico](https://portal.azure.com/).
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare alla pagina Impostazioni servizio di MFA come indicato all'inizio di questo articolo.
 3. Nella pagina Impostazioni servizio, nelle opzioni di verifica, selezionare o deselezionare le opzioni da usare.
    ![Opzioni di verifica](./media/multi-factor-authentication-whats-next/authmethods.png)

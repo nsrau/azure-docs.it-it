@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cc61146e0353455c5c763297a002afb86b76887a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2bf6bd76b653e30f38595631eff576d8eeb8efda
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -88,7 +88,7 @@ La tabella seguente elenca le azioni disponibili per ogni entità:
 | Nodo | Disattivare (riavviare) | Spostare tutti i servizi in memoria all'esterno di un nodo e chiudere i servizi permanenti in modo sicuro. Questa azione viene in genere usata quando i processi host o i computer devono essere riavviati. | |
 | Nodo | Disattivare (rimuovere i dati) | Chiudere in modo sicuro tutti i servizi in esecuzione sul nodo dopo la creazione di un numero sufficiente di repliche riserva. Questa azione viene in genere usata quando un nodo (o almeno lo spazio di archiviazione correlato) viene reso improduttivo in modo permanente. | |
 | Nodo | Rimuovere lo stato del nodo | Rimuovere le repliche di un nodo dal cluster. Questa azione viene in genere usata quando un nodo che ha già avuto esito negativo viene ritenuto non recuperabile. | |
-| Nodo | Riavvia | Riavviare il nodo per simularne un errore. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) | |
+| Nodo | Riavvia | Riavviare il nodo per simularne un errore. Altre informazioni sono disponibili [qui](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
 
 Poiché molte azioni sono distruttive, viene richiesto di confermare la finalità prima del completamento dell'azione.
 

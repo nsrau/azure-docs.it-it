@@ -28,7 +28,7 @@
 ### [Creare e gestire con l'interfaccia della riga di comando 2.0](key-vault-manage-with-cli2.md)
 
 # Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Interfaccia della riga di comando di Azure 2.0](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)

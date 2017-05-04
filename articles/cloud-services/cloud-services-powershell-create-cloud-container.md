@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 89e517a17417475f975dbaa0cee8517145a7c6c3
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c024d8d47ab9b78399d8eb8b4df1f764f2877339
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ Questo articolo illustra come creare velocemente un contenitore di Servizi cloud
 3. Usare [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) per accedere.
 
    > [!NOTE]
-   > Per altre istruzioni sull'installazione del cmdlet di Azure PowerShell e sulla connessione alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+   > Per altre istruzioni sull'installazione del cmdlet di Azure PowerShell e sulla connessione alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
    >
    >
 4. Usare il cmdlet **New-AzureService** per creare un contenitore del servizio cloud vuoto.
@@ -52,9 +53,4 @@ Get-help New-AzureService
 ### <a name="next-steps"></a>Passaggi successivi
 * Per gestire la distribuzione del servizio cloud, vedere i comandi [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx) e [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx). Per altre informazioni, è anche possibile vedere [Come configurare i servizi cloud](cloud-services-how-to-configure.md) .
 * Per pubblicare il progetto servizio cloud in Azure, vedere l'esempio di codice **PublishCloudService.ps1** riportato nell'articolo [Recapito continuo per Servizi cloud in Azure](cloud-services-dotnet-continuous-delivery.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

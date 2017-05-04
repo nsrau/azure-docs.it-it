@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: e1f7b85308d7482e0066809737749e73029cd758
-ms.openlocfilehash: eed133ba2f0a5e1665afd39b2122d3aacd3cc40a
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 58ee6e9cc14b01f10e20dfc3f289bfc6cc386e2a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -72,7 +73,7 @@ Sì. Azure riserva alcuni indirizzi IP all'interno di ogni subnet. Il primo e l�
 La subnet più piccola supportata è /29 e la più grande è /8 (usando le definizioni di subnet CIDR).
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>È possibile trasferire le reti VLAN in Azure usando reti virtuali?
-No. Le reti virtuali sono sovrapposizioni di livello&3;. Azure non supporta alcuna semantica di livello&2;.
+No. Le reti virtuali sono sovrapposizioni di livello 3. Azure non supporta alcuna semantica di livello 2.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>È possibile specificare criteri di routing personalizzati nelle reti virtuali e nelle subnet?
 Sì. È possibile usare User Defined Routing (UDR). Per altre informazioni su UDR, vedere [Route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
@@ -213,11 +214,6 @@ Sì. È possibile usare le API REST per le reti virtuali nei modelli di distribu
 ### <a name="is-there-tooling-support-for-vnets"></a>È disponibile il supporto degli strumenti per le reti virtuali?
 Sì. Altre informazioni:
 - Uso del portale di Azure per distribuire reti virtuali con i modelli di distribuzione [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) e [classica](virtual-networks-create-vnet-classic-pportal.md).
-- Uso di PowerShell per gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) e [classica](/powershell/servicemanagement/azure.networking/v3.1.0/azure.networking).
+- Uso di PowerShell per gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) e [classica](/powershell/module/azure/?view=azuresmps-3.7.0).
 - Uso dell'[Interfaccia della riga di comando di Azure](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) per gestire reti virtuali distribuite con entrambi i modelli di distribuzione.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

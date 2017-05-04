@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e773fd4917c7a96201d94d31b2098a3486d27900
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -119,7 +119,7 @@ Il [portale di Azure](https://portal.azure.com) offre ai clienti un'interfaccia 
 In alternativa, è possibile usare Azure PowerShell per creare e gestire le condivisioni file.
 
 ### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Installare i cmdlet di PowerShell per l'archiviazione di Azure
-Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure PowerShell. Vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per le istruzioni relative al punto di installazione e all’installazione.
+Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure PowerShell. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per le istruzioni relative al punto di installazione e all’installazione.
 
 > [!NOTE]
 > Si consiglia di scaricare e installare oppure aggiornare il modulo alla versione di Azure PowerShell più recente.

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 6489f013f72a8d283ad5c0723d0a46ea4e66a2d9
-ms.openlocfilehash: f4fa7b12afe0002d5b7e5267c8f670cae8d253da
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,7 +29,7 @@ Se sono già stati installati i **processi di database elastici** tramite il por
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell. Installare la versione più recente tramite l’ [installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell. Installare la versione più recente tramite l’ [installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * [Utilità della riga di comando NuGet](https://nuget.org/nuget.exe) viene utilizzata per installare il pacchetto dei processi di database elastici. Per altre informazioni, vedere http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Scaricare e importare il pacchetto di PowerShell dei processi di database elastici

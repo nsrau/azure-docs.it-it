@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 3807e51d47927ce94a62b943b85be67a247420b8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 63f2cf1617bf9c265273c6a8e91703542b9eb8d4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -171,7 +171,7 @@ Azure è progettato nell'ottica della resilienza. Site Recovery è già progetta
 È possibile attivare un failover non pianificato dal sito secondario. Per eseguire il failover, in Site Recovery non è necessaria la connettività dal sito primario.
 
 ### <a name="is-failover-automatic"></a>Il failover è automatico?
-Il failover non è automatico. Le operazioni di failover si avviano con un singolo clic nel portale oppure mediante [PowerShell per Site Recovery](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery) . Il failback è una semplice operazione nel portale di Site Recovery.
+Il failover non è automatico. Le operazioni di failover si avviano con un singolo clic nel portale oppure mediante [PowerShell per Site Recovery](/powershell/module/azurerm.siterecovery) . Il failback è una semplice operazione nel portale di Site Recovery.
 
 Per avviarlo in automatico, è possibile usare Orchestrator o Operations Manager locale per rilevare un errore della macchina virtuale e quindi attivare il failover tramite l'SDK.
 

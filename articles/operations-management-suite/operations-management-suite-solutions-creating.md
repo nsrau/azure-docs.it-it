@@ -16,9 +16,9 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e1e915e07591ed104a30e9194ec6228b04519b8c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e391dc0f88bd7e065f968a490b3c1ddb1fa75978
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Le [ricerche nei log](../log-analytics/log-analytics-log-searches.md) vengono us
 ### <a name="alerts"></a>Avvisi
 [Gli avvisi in Log Analytics](../log-analytics/log-analytics-alerts.md) identificano i problemi tramite le [ricerche nei log](#log-searches) a fronte dei dati nel repository.  Inviano una notifica all'utente o eseguono automaticamente un'azione in risposta. Occorre identificare le diverse condizioni di avviso per l'applicazione e includere le regole di avviso corrispondenti nel file della soluzione.
 
-Se il problema può essere risolto potenzialmente con un processo automatizzato, si creerà in genere un runbook in Automazione di Azure per eseguire la correzione.  La maggior parte dei servizi di Azure può essere gestita con [cmdlet](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) che il runbook sfrutta per eseguire queste funzionalità.
+Se il problema può essere risolto potenzialmente con un processo automatizzato, si creerà in genere un runbook in Automazione di Azure per eseguire la correzione.  La maggior parte dei servizi di Azure può essere gestita con [cmdlet](/powershell/azure/overview) che il runbook sfrutta per eseguire queste funzionalità.
 
 Se la soluzione richiede funzionalità esterne in risposta a un avviso, è possibile usare una [risposta di webhook](../log-analytics/log-analytics-alerts-actions.md).  Ciò consente di chiamare un servizio Web esterno che invia informazioni dall'avviso.
 

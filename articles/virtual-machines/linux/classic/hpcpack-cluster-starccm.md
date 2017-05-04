@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: c83d39c87f789397116601e3e775a4f0ed3eac72
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9a2796c66fa49c543e52b654e583ade7625a7f31
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Microsoft HPC Pack fornisce le funzionalità necessarie per eseguire svariate ap
 ## <a name="set-up-an-hpc-pack-cluster"></a>Configurare un cluster HPC Pack
 Scaricare gli script di distribuzione IaaS per HPC Pack dall'[Area download](https://www.microsoft.com/en-us/download/details.aspx?id=44949) ed estrarli localmente.
 
-Azure PowerShell è un prerequisito. Se non è configurato nel computer locale, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Azure PowerShell è un prerequisito. Se non è configurato nel computer locale, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 Al momento della stesura di questo documento, le immagini Linux da Azure Marketplace, che include i driver InfiniBand per Azure, sono specifiche per SLES 12, CentOS 6.5 e CentOS 7.1. Questo articolo è basato sull'uso di SLES 12. Per recuperare il nome di tutte le immagini Linux che supportano HPC nel Marketplace, è possibile eseguire il comando di PowerShell seguente:
 

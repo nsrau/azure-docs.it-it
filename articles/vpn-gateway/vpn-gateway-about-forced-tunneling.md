@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 326d09de70e00463df554f27d754ef6999da21d1
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 568d8a31306b7065765ea73e831697c9de7e60e6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -61,7 +61,7 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 * Una rete virtuale configurata. 
-* La versione più recente dei cmdlets di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+* La versione più recente dei cmdlets di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 
 ## <a name="configure-forced-tunneling"></a>È possibile configurare il tunneling forzato?
 La procedura seguente consentirà di specificare il tunneling forzato per una rete virtuale. I passaggi di configurazione corrispondono al file di configurazione della rete virtuale.

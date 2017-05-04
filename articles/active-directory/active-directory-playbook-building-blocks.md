@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 4/12/2017
 ms.author: dstefan
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 03b7e184d26ceccd12f40b4935d7c451b7eee01e
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b6f26a338450619cef012467bf78b9469622ba08
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -159,7 +159,7 @@ Tempo previsto per il completamento: 60 minuti
 | Attendere alcuni minuti il completamento del provisioning.  Nel frattempo, è possibile verificare i report di provisioning |  |
 | Accedere a https://myapps.microsoft.com/ come utente test con accesso | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
 | Fare clic sul riquadro per l'applicazione appena creata. Confermare l'accesso |  |
-| Facoltativamente, è possibile controllare i report sull'utilizzo dell'applicazione. Si noti che esiste una certa latenza, quindi è necessario attendere un certo tempo per vedere il traffico nei report. | [Report delle attività di accesso nel portale di Azure Active Directory: utilizzo di applicazioni gestite](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md) |
+| Facoltativamente, è possibile controllare i report sull'utilizzo dell'applicazione. Si noti che esiste una certa latenza, quindi è necessario attendere un certo tempo per vedere il traffico nei report. | [Report delle attività di accesso nel portale di Azure Active Directory: Utilizzo di applicazioni gestite](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md) |
 
 ### <a name="considerations"></a>Considerazioni
 
@@ -395,7 +395,7 @@ Tempo previsto per il completamento: 15 minuti
 | Specificare i dati di reimpostazione self-service delle password come indicato per il passaggio 2 | http://aka.ms/ssprsetup |
 | Chiudere il browser |  |
 | Ripetere la procedura di accesso come l'Information Worker usato nel passaggio 4 |  |
-| Reimpostare la password | [Aggiornare la password: Reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password) |
+| Reimpostare la password | [Aggiornare la password: Reimpostare la password](active-directory-passwords-update-your-own-password.md) |
 | Provare ad accedere con la nuova password ad Azure AD e anche alle risorse locali |  |
 
 ### <a name="considerations"></a>Considerazioni

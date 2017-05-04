@@ -15,9 +15,9 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 20f9e9b31498f20c2a27f0d82d434abad73d2454
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7970fb624fcf76d9cba6e60c9766e39b63f175ba
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ Questa operazione è ora possibile in Azure RemoteApp, attualmente disponibile c
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Come ottenere i cmdlet di PowerShell di Azure RemoteApp
 Per provare la nuova funzionalità in anteprima, è necessario usare i cmdlet di Azure PowerShell. Non è attualmente possibile usare il portale di gestione di Azure per abilitare la nuova modalità di pubblicazione delle applicazioni.
 
-Assicurarsi prima di tutto che il [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs) sia installato.
+Assicurarsi prima di tutto che il [modulo Azure PowerShell](/powershell/azure/overview) sia installato.
 
 Avviare quindi la console di PowerShell in modalità amministratore ed eseguire il cmdlet seguente:
 

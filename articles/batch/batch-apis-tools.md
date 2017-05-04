@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9ed3e60679a0c637c99f8019119289c71be81f83
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9d523044f5107eea9dfbba17564cc15ec05076c5
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -55,7 +55,7 @@ Le applicazioni e i servizi possono rilasciare chiamate API REST dirette o usare
 
 La funzionalità fornita dalle API di sviluppo è disponibile anche con gli strumenti da riga di comando: 
 
-* [Cmdlet di PowerShell per Batch][batch_ps]: i cmdlet di Azure Batch nel modulo di [Azure PowerShell](/powershell/azureps-cmdlets-docs) consentono di gestire le risorse Batch con PowerShell.
+* [Cmdlet di PowerShell per Batch][batch_ps]: i cmdlet di Azure Batch nel modulo di [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse Batch con PowerShell.
 * [Interfaccia della riga di comando di Azure](/cli/azure/overview): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che offre comandi della shell per l'interazione con molti servizi di Azure, incluso Batch.
 
 ## <a name="batch-resource-management"></a>Gestione delle risorse di Batch

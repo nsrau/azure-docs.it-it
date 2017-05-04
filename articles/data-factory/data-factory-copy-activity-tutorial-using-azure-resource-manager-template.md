@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f45c21e682f93de4dbe34b4ce07745225d548cb0
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d14b4a638868f0206542825f05dd9473fd5e6c95
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ Questa esercitazione illustra come creare e monitorare una data factory di Azure
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Vedere [Panoramica e prerequisiti dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ed eseguire i passaggi relativi ai **prerequisiti**.
-* Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per installare la versione più recente di Azure PowerShell nel computer. In questa esercitazione si usa PowerShell per distribuire le entità di Data Factory. 
+* Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per installare la versione più recente di Azure PowerShell nel computer. In questa esercitazione si usa PowerShell per distribuire le entità di Data Factory. 
 * (facoltativo) Per informazioni sulla creazione di modelli di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ## <a name="in-this-tutorial"></a>Contenuto dell'esercitazione:
@@ -592,3 +592,4 @@ Si noti che il primo comando usa il file dei parametri per l'ambiente di svilupp
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e le attività in Azure Data Factory. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
+

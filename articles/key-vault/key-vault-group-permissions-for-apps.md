@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: f1a03a0553bc1acd013918f527458603d08cb0f7
-ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1549eb40b0ca79522cc5475057c3af7ff4c7fd1c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ I criteri di controllo di accesso a Key Vault supportano solo 16 voci. È tuttav
 
 Di seguito vengono indicati i prerequisiti:
 * [Installare il modulo di Azure Active Directory V2 per PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-* [Installare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Installare Azure PowerShell](/powershell/azure/overview).
 * Per eseguire questi comandi, sono necessarie le autorizzazioni per creare o modificare gruppi nel tenant di Azure Active Directory. Se non si dispone delle autorizzazioni, può essere necessario contattare l'amministratore di Azure Active Directory.
 
 Eseguire questi comandi in PowerShell.
@@ -57,9 +58,4 @@ Se è necessario concedere un diverso set di autorizzazioni a un gruppo di appli
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su come [proteggere Key Vault](key-vault-secure-your-key-vault.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

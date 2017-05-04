@@ -44,7 +44,7 @@
 ### [Domande frequenti sui set di scalabilità](virtual-machine-scale-sets-faq.md)
 
 # Riferimento
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

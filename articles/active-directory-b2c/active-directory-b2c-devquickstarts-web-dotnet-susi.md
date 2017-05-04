@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 4d7476156b51ca82b1f119becb1576a97d2bd457
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 87b8b91fc5970bd127dfdc47e24d99a19471aa8c
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -54,10 +54,10 @@ Dopo aver creato i criteri è possibile passare alla compilazione dell'app.
 
 ## <a name="download-the-code"></a>Scaricare il codice
 
-Il codice per questa esercitazione è salvato su [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). È possibile clonare l'esempio eseguendo:
+Il codice per questa esercitazione è salvato su [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). È possibile clonare l'esempio eseguendo:
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 Dopo aver scaricato il codice di esempio, aprire il file SLN di Visual Studio per iniziare. Il file della soluzione contiene due progetti: `TaskWebApp` e `TaskService`. `TaskWebApp` è l'applicazione Web MVC con cui l'utente interagisce. `TaskService` è l'API Web back-end dell'app in cui viene archiviato l'elenco attività di ogni utente. Questo articolo illustra solo l'applicazione `TaskWebApp`. Per informazioni su come compilare `TaskService` usando Azure AD B2C, vedere l'[esercitazione sulle API Web .NET](active-directory-b2c-devquickstarts-api-dotnet.md).

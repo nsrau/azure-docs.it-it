@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 04/06/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: b4acb01f4939b55317ac0c78eb467159d872f47a
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Gestire le risorse del bus di servizio di Azure con PowerShell
 
-Microsoft Azure PowerShell è un ambiente di scripting che può essere usato per controllare e automatizzare la distribuzione e la gestione dei servizi di Azure. L'articolo descrive come usare il [modulo PowerShell di Resource Manager del bus di servizio](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) per effettuare il provisioning e gestire le entità del bus di servizio (spazi dei nomi, code, argomenti e sottoscrizioni) tramite una console o uno script locale di Azure PowerShell.
+Microsoft Azure PowerShell è un ambiente di scripting che può essere usato per controllare e automatizzare la distribuzione e la gestione dei servizi di Azure. L'articolo descrive come usare il [modulo PowerShell di Resource Manager del bus di servizio](/powershell/module/azurerm.servicebus) per effettuare il provisioning e gestire le entità del bus di servizio (spazi dei nomi, code, argomenti e sottoscrizioni) tramite una console o uno script locale di Azure PowerShell.
 
 È possibile gestire le risorse del bus di servizio anche usando i modelli di Azure Resource Manager. Per altre informazioni, vedere l'articolo [Creare risorse del bus di servizio usando i modelli di Azure Resource Manager](service-bus-resource-manager-overview.md).
 
@@ -158,11 +158,11 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## <a name="provisioning-other-service-bus-entities"></a>Provisioning di altre entità del bus di servizio
 
-È possibile usare il [modulo PowerShell del bus di servizio](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) per effettuare il provisioning di altre entità, ad esempio argomenti e sottoscrizioni. Questi cmdlet sono sintatticamente simili a quelli per la creazione della coda illustrati nella sezione precedente.
+È possibile usare il [modulo PowerShell del bus di servizio](/powershell/module/azurerm.servicebus) per effettuare il provisioning di altre entità, ad esempio argomenti e sottoscrizioni. Questi cmdlet sono sintatticamente simili a quelli per la creazione della coda illustrati nella sezione precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere la documentazione completa del modulo PowerShell di Resource Manager del bus di servizio [qui](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus). Questa pagina elenca tutti i cmdlet disponibili.
+- Vedere la documentazione completa del modulo PowerShell di Resource Manager del bus di servizio [qui](/powershell/module/azurerm.servicebus). Questa pagina elenca tutti i cmdlet disponibili.
 - Per informazioni sull'uso dei modelli di Azure Resource Manager, vedere l'articolo [Creare risorse del bus di servizio usando i modelli di Azure Resource Manager](service-bus-resource-manager-overview.md).
 - Informazioni sulle [librerie di gestione .NET del bus di servizio](service-bus-management-libraries.md).
 

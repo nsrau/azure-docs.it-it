@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0ccde30b93214b161558daf8e2b4e37e58711da
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d340210d799f995cb10a20cf48a9245bbd3bc8d3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -68,7 +68,7 @@ Per questa configurazione si useranno i valori seguenti. Le variabili sono state
 
 ## <a name="before-beginning"></a>Prima di iniziare
 * Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial).
-* Installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). 
 
 ## <a name="declare"></a>Parte 1: Accedere e impostare le variabili
 In questa sezione si accede e si dichiarano i valori usati per la configurazione. I valori dichiarati saranno usati negli script di esempio. È possibile modificare i valori in base all'ambiente personalizzato. In alternativa, è possibile usare i valori dichiarati e seguire la procedura come un esercizio.
@@ -284,7 +284,7 @@ In caso di problemi di connessione, effettuare i controlli seguenti:
 
 ## <a name="connectVM"></a>Connettersi a una macchina virtuale
 
-1. Dopo la connessione alla rete virtuale, è possibile connettersi a una VM tramite la connessione P2S. Per connettersi alla VM, è necessario l'indirizzo IP privato della macchina virtuale. L'esempio seguente consente di ottenere l'indirizzo IP privato con [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). I risultati restituiscono un elenco di VM e i corrispondenti indirizzi IP privati in tutti i gruppi di risorse. 
+1. Dopo la connessione alla rete virtuale, è possibile connettersi a una VM tramite la connessione P2S. Per connettersi alla VM, è necessario l'indirizzo IP privato della macchina virtuale. L'esempio seguente consente di ottenere l'indirizzo IP privato con [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). I risultati restituiscono un elenco di VM e i corrispondenti indirizzi IP privati in tutti i gruppi di risorse. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -424,3 +424,4 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Per altre informazioni sulla rete e sulle macchine virtuali, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/linux/azure-vm-network-overview.md).
+

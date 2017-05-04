@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: "Confrontare le opzioni di hosting"
     href: choose-web-site-cloud-service-vm.md
-- name: "Guida introduttiva"
+- name: "Guide introduttive"
   expanded: true
   items:
   - name: "Creare un&quot;app .NET"

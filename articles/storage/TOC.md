@@ -4,7 +4,6 @@
 
 # Attività iniziali
 
-## [Guida introduttiva](storage-getting-started-guide.md)
 ## [Creare un account di archiviazione](storage-create-storage-account.md)
 
 ## Archiviazione BLOB
@@ -166,7 +165,7 @@
 #### [Backup dei manifesti delle unità](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostica e ripristino dagli errori per i processi di Importazione/Esportazione](storage-import-export-diagnostics-and-error-recovery.md)
 # Riferimento
-## [PowerShell](/powershell/storage)
+## [PowerShell](/powershell/module/azure.storage)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/storage)
 ## .NET
 ### [Gestione risorse](/dotnet/api/microsoft.azure.management.storage)
@@ -180,7 +179,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [BLOB, code, tabelle e file](/rest/api/storageservices/azure-storage-services-rest-api-reference)
+### [BLOB, code, tabelle e file](/rest/api/storageservices)
 ### [Provider di risorse](/rest/api/storagerp)
 ### [Importazione/Esportazione](/rest/api/storageimportexport)
 

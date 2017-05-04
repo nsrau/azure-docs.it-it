@@ -16,9 +16,9 @@ ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 46e248112985b2e8f58f90e15cf885839d3cfcc8
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 516240ccc82a522a414d837ec334712196edf7dd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -70,7 +70,7 @@ Per creare le macchine virtuali tramite Windows PowerShell anziché tramite l'in
    |  **Configurazione macchina virtuale** |<p>Selezionare <b>Installa l'agente di macchine virtuali</b> ed eventuali altre estensioni necessarie.</p> |
 2. Collegare un disco a ogni macchina virtuale che eseguirà il ruolo del server di controller di dominio. Il disco aggiuntivo necessario per archiviare il database di Active Directory, log e SYSVOL. Specificare le dimensioni per il disco (ad esempio 10 GB) e lasciare l'opzione **Preferenze cache dell'host** impostata su **Nessuna**. Per la procedura, vedere [Come collegare un disco dati a una macchina virtuale Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Dopo avere effettuato la prima connessione alla VM, aprire **Server Manager** > **Servizi file e archiviazione** per creare un volume in questo disco usando NTFS.
-4. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](/powershell/azureps-cmdlets-docs) , quindi eseguire il cmdlet Set-AzureStaticVNetIP. Ad esempio:
+4. Riservare un indirizzo IP statico per le macchine virtuali che eseguiranno il ruolo di controller di dominio. Per riservare un indirizzo IP statico, scaricare l'Installazione guidata piattaforma Web Microsoft e [installare Azure PowerShell](/powershell/azure/overview) , quindi eseguire il cmdlet Set-AzureStaticVNetIP. Ad esempio:
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -83,7 +83,7 @@ Al termine dell'installazione del controller di dominio, connettersi nuovamente 
 
 ## <a name="reset-the-dns-server-for-the-azure-virtual-network"></a>Reimpostare il server DNS per la rete virtuale di Azure
 1. Reimpostare le impostazioni del server di inoltro DNS nel nuovo controller di dominio o nel server DNS.
-   1. In Server Manager fare clic su **Strumenti** > **DNS**.
+   1. In Server Manager fare clic su **Strumenti**  > **DNS**.
    2. In **Gestore DNS** fare clic con il pulsante destro del mouse sul nome del server DNS e scegliere **Proprietà**.
    3. Nella scheda **Server di inoltro** fare clic sull'indirizzo IP del server di inoltro, quindi scegliere **Modifica**.  Selezionare l'indirizzo IP e fare clic su **Elimina**.
    4. Fare clic su **OK** per chiudere l'editor, quindi nuovamente su **OK** per chiudere le proprietà del server DNS.
@@ -104,7 +104,7 @@ Al termine dell'installazione del controller di dominio, connettersi nuovamente 
 
 Per creare le macchine virtuali tramite Windows PowerShell anziché tramite l'interfaccia utente, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a utilizzare i cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) e [Informazioni di riferimento sui cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
+Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a utilizzare i cmdlet di Azure](/powershell/azure/overview) e [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="see-also"></a>Vedere anche
 * [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
@@ -114,9 +114,9 @@ Per altre informazioni su come usare Windows PowerShell, vedere [Iniziare a util
 * [Microsoft Azure IaaS per professionisti IT: (01) Dati fondamentali delle macchine virtuali](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS per professionisti IT: (05) Creazione di reti virtuali e connettività cross-premise](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 * [Panoramica di Rete virtuale.](../virtual-network/virtual-networks-overview.md)
-* [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Informazioni di riferimento sui cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps)
 * [Impostare un indirizzo IP statico per una macchina virtuale di Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 * [Come assegnare un IP statico a una macchina virtuale di Azure](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
 * [Installare una nuova foresta Active Directory](https://technet.microsoft.com/library/jj574166.aspx)

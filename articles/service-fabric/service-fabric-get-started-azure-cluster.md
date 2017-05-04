@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 813217567c7e1fa5fc9ac11492933ad0c34553d1
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: cf652f1ba6b7d3aa0717a2e3a54000a4aebccc78
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -79,12 +79,12 @@ Il dashboard del cluster offre una panoramica del cluster, incluso un riepilogo 
 ![Service Fabric Explorer][service-fabric-explorer]
 
 ## <a name="connect-to-the-cluster-using-powershell"></a>Connessione al cluster mediante PowerShell
-Verificare che il cluster sia in esecuzione connettendosi tramite PowerShell.  Il modulo ServiceFabric di PowerShell viene installato con [Service Fabric SDK](service-fabric-get-started.md).  Il cmdlet [Connect-ServiceFabricCluster](/powershell/module/ServiceFabric/Connect-ServiceFabricCluster) stabilisce una connessione al cluster.   
+Verificare che il cluster sia in esecuzione connettendosi tramite PowerShell.  Il modulo ServiceFabric di PowerShell viene installato con [Service Fabric SDK](service-fabric-get-started.md).  Il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) stabilisce una connessione al cluster.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
 ```
-Per altri esempi di connessione a un cluster, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md). Dopo la connessione al cluster, usare il cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) per visualizzare un elenco dei nodi presenti nel cluster e informazioni di stato per ogni nodo. **HealthState** deve essere *OK* per ogni nodo.
+Per altri esempi di connessione a un cluster, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md). Dopo la connessione al cluster, usare il cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per visualizzare un elenco dei nodi presenti nel cluster e informazioni di stato per ogni nodo. **HealthState** deve essere *OK* per ogni nodo.
 
 ```powershell
 PS C:\> Get-ServiceFabricNode |Format-Table
@@ -119,3 +119,4 @@ Ora che è stato configurato un cluster di sviluppo autonomo, provare a eseguire
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
+

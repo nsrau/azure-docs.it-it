@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 17b4dc2223d30ef13877efc650b56268b707c4bd
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6a62f7f70982a07646248188da8293c88fbe1b52
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,14 +28,14 @@ Un asset credenziali di Automazione contiene un oggetto [PSCredential](http://ms
 > Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata usando il certificato master e viene quindi usata per crittografare l'asset.  
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlet di Windows PowerShell
-I cmdlet della tabella seguente vengono usati per creare e gestire asset credenziali di automazione con Windows PowerShell.  Sono inclusi nel [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs) , disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
+I cmdlet della tabella seguente vengono usati per creare e gestire asset credenziali di automazione con Windows PowerShell.  Sono inclusi nel [modulo Azure PowerShell](/powershell/azure/overview) , disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
 
 | Cmdlet | Descrizione |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](http://msdn.microsoft.com/library/dn913781.aspx) |Recupera informazioni riguardo un asset credenziali. Dall'attività **Get-AutomationPSCredential** è possibile recuperare soltanto le credenziali stesse. |
-| [New-AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx) |Crea nuove credenziali di Automazione. |
-| [Remove- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx) |Rimuove le credenziali di Automazione. |
-| [Set- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx) |Imposta le proprietà per le credenziali di Automazione esistenti. |
+| [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Recupera informazioni riguardo un asset credenziali. Dall'attività **Get-AutomationPSCredential** è possibile recuperare soltanto le credenziali stesse. |
+| [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Crea nuove credenziali di Automazione. |
+| [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Rimuove le credenziali di Automazione. |
+| [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Imposta le proprietà per le credenziali di Automazione esistenti. |
 
 ## <a name="runbook-activities"></a>Attività del Runbook
 Le attività incluse nella tabella seguente vengono usate per accedere alle credenziali in un Runbook o nelle configurazioni DSC.

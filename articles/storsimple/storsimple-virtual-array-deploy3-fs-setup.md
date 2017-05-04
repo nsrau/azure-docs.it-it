@@ -16,9 +16,9 @@ ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: ca5b67043843185ac40d02030f26fab8639a1f9f
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
@@ -102,7 +102,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     4. Fare clic su **Apply**. Le impostazioni ora configurate vengono così convalidate e applicate.
 11. Configurare le impostazioni del cloud per il dispositivo. In questo passaggio viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio Gestione dispositivi StorSimple.
     
-    1. Immettere la **Chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
+    1. Immettere la **Chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
     2. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave di crittografia dati del servizio**. Copiare questo codice e salvarlo in un luogo sicuro. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio Gestione dispositivi StorSimple. 
        
        Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la chiave di crittografia dati del servizio. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.

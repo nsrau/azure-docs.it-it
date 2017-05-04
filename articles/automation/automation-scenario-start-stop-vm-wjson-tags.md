@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
-ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: af0bc6b24a403bd09092ac0a099c500d651d15b7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -103,7 +104,7 @@ Ecco alcune informazioni dettagliate su questa struttura:
 
    ![GetSystemTimeZones in PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-   * I giorni della settimana sono rappresentati da un valore numerico da&0; a&6;. Il valore zero corrisponde a domenica.
+   * I giorni della settimana sono rappresentati da un valore numerico da 0 a 6. Il valore zero corrisponde a domenica.
    * L'ora di inizio è rappresentata dall'attributo **S** e dal relativo valore nel formato di 24 ore.
    * L'ora di fine o di arresto è rappresentata dall'attributo **E** e dal relativo valore nel formato di 24 ore.
 
@@ -145,7 +146,7 @@ Seguire questa procedura per aggiungere un tag a una macchina virtuale o a un gr
 ### <a name="tag-from-powershell"></a>Aggiungere tag da PowerShell
 Tutti i runbook importati contengono informazioni della Guida all'inizio dello script che descrivono come eseguirli direttamente da PowerShell. È possibile chiamare i runbook Add-ScheduleResource e Update-ScheduleResource da PowerShell. A questo scopo, passare i parametri necessari che consentono di creare o aggiornare il tag Schedule in un macchina virtuale o un gruppo di risorse all'esterno del portale.
 
-Per creare, aggiungere ed eliminare i tag tramite PowerShell, è prima necessario [configurare l'ambiente PowerShell per Azure](/powershell/azureps-cmdlets-docs). Al termine della configurazione, è possibile procedere con i passaggi seguenti.
+Per creare, aggiungere ed eliminare i tag tramite PowerShell, è prima necessario [configurare l'ambiente PowerShell per Azure](/powershell/azure/overview). Al termine della configurazione, è possibile procedere con i passaggi seguenti.
 
 ### <a name="create-a-schedule-tag-with-powershell"></a>Creare un tag di pianificazione con PowerShell
 1. Aprire una sessione di PowerShell. Usare quindi l'esempio seguente per autenticarsi con l'account RunAs e specificare una sottoscrizione:
@@ -241,9 +242,4 @@ Il **Riepilogo processi** include i messaggi dai flussi di output, di avviso e d
 * Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)(Supporto di script PowerShell nativi in Automazione di Azure).
 * Per altre informazioni sulla registrazione e sull'output dei runbook, vedere [Output di runbook e messaggi in Automazione di Azure](automation-runbook-output-and-messages.md).
 * Per altre informazioni sull'account RunAs di Azure e su come usarlo per eseguire l'autenticazione dei runbook, vedere [Autenticare runbook con account RunAs di Azure](automation-sec-configure-azure-runas-account.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

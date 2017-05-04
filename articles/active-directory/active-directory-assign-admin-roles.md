@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 04/27/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9f513cfb976848960c2164165994dd5b9fcc4fc1
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: fdb4ed95b25519fb7ff319fe20a0dc5c54506506
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -40,17 +40,17 @@ Sono disponibili i ruoli di amministratore seguenti:
   >
   >
 
-* **Amministratore di conformità**: gli utenti con questo ruolo hanno autorizzazioni di gestione nel Centro sicurezza e conformità di Office 365 e nell'interfaccia di amministrazione di Exchange e accesso in lettura ai log di controllo nell'interfaccia di amministrazione di Office 365. Per altre informazioni vedere "[Informazioni sui ruoli di amministratore di Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)".
+* **Amministratore di conformità**: gli utenti con questo ruolo hanno autorizzazioni di gestione nel Centro sicurezza e conformità di Office 365 e nell'interfaccia di amministrazione di Exchange e accesso in lettura ai log di controllo nell'interfaccia di amministrazione di Office 365. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Amministratore del servizio CRM**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft CRM Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US)".
-* **Responsabile approvazione per l'accesso a Customer Lockbox**: quando il servizio LockBox è abilitato, gli utenti con questo ruolo possono approvare le richieste per i tecnici Microsoft per l'accesso alle informazioni aziendali. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US)".
-* **Amministratori di dispositivi**: gli utenti con questo ruolo diventano amministratori su tutti i dispositivi Windows 10 che fanno parte di Azure Active Directory".
+* **Amministratore del servizio CRM**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft CRM Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Responsabile approvazione per l'accesso a Customer Lockbox**: quando il servizio LockBox è abilitato, gli utenti con questo ruolo possono approvare le richieste per i tecnici Microsoft per l'accesso alle informazioni aziendali. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Amministratori di dispositivi**: gli utenti con questo ruolo diventano amministratori su tutti i dispositivi Windows 10 che fanno parte di Azure Active Directory.
 * **Ruoli con autorizzazioni di lettura nella directory**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](active-directory-integrating-applications.md). Non deve essere assegnato agli utenti.
 * **Account di sincronizzazione della directory**: non usare. Questo ruolo viene assegnato automaticamente al servizio Azure AD Connect e non è progettato o supportato per altri usi.
 * **Ruoli con autorizzazioni di scrittura nella directory**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](active-directory-integrating-applications.md). Non deve essere assegnato agli utenti.
-* **Amministratore del servizio Exchange**: gli utenti con questo ruolo dispongono delle autorizzazioni globali all'interno di Microsoft Exchange Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US)".
-* **Amministratore del servizio Intune**: gli utenti con questo ruolo dispongono delle autorizzazioni globali all'interno di Microsoft Intune Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Amministratore di Skype for Business**: gli utenti con questo ruolo dispongono delle autorizzazioni globali all'interno di Microsoft Skype for Business, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). Questo ruolo era indicato in precedenza come ruolo di **amministratore del servizio Lync** .
+* **Amministratore del servizio Exchange**: gli utenti con questo ruolo dispongono delle autorizzazioni globali all'interno di Microsoft Exchange Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)".
+* **Amministratore del servizio Intune**: gli utenti con questo ruolo dispongono delle autorizzazioni globali all'interno di Microsoft Intune Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Amministratore di Skype for Business**: gli utenti con questo ruolo dispongono delle autorizzazioni globali all'interno di Microsoft Skype for Business, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). Questo ruolo era indicato in precedenza come ruolo di **amministratore del servizio Lync** .
 * **Mittente dell'invito guest**: gli utenti con questo ruolo possono gestire gli inviti guest. Il ruolo non include altre autorizzazioni.
 * **Amministratore della cassetta postale**: questo ruolo viene usato solo per la posta elettronica di Exchange Online per dispositivi RIM Blackberry. Se l'organizzazione non usa la posta elettronica di Exchange Online in dispositivi RIM Blackberry, non usare questo ruolo.
 * **Partner Tier 1 Support** (Supporto di livello 1 partner): non usare. Questo ruolo è deprecato e verrà rimosso da Azure AD in futuro. Il ruolo è riservato a pochi partner Microsoft per la rivendita e non è disponibile per un uso generale.
@@ -64,7 +64,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **Amministratore del servizio Power BI**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Power BI, quando il servizio è presente. Per altre informazioni, vedere [Making It Easier To Administer Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/) (Agevolare la gestione di Power BI).
 * **Amministratore del ruolo con privilegi**: gli utenti con questo ruolo possono gestire [Privileged Identity Management](active-directory-privileged-identity-management-configure.md) di Azure AD e aggiornare le assegnazioni di ruolo ad altri utenti.
-* **Amministratore di SharePoint Services**: gli utenti con questo ruolo dispongono delle autorizzazioni globali all'interno di Microsoft SharePoint Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **Amministratore di SharePoint Services**: gli utenti con questo ruolo dispongono delle autorizzazioni globali all'interno di Microsoft SharePoint Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 * **Amministratore del servizio**: gestisce le richieste di servizio e monitora l'integrità del servizio.
 
   > [!NOTE]

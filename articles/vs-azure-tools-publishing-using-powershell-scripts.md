@@ -15,9 +15,9 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 6041c627d87f0223b9c718f3883a709ff81c28e1
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d5e9a300dcea137bf0d3db2da2dfb5c2e6a152af
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ Utilizzando questi script, è possibile eseguire il provisioning (noto anche com
 
 Non è necessario Azure SDK per generare script per i progetti web. Questa funzionalità è per i progetti web, non per i ruoli web nei servizi cloud.
 
-* Azure PowerShell 0.7.4 o versione successiva Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+* Azure PowerShell 0.7.4 o versione successiva Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 * [Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) o versione successiva.
 
 ## <a name="additional-tools"></a>Strumenti aggiuntivi
@@ -47,7 +47,7 @@ Visual Studio genera una cartella a livello di soluzione denominata **PublishScr
 Lo script di pubblicazione contiene specifici passaggi di pubblicazione per la distribuzione in una macchina virtuale o in un sito Web. Visual Studio fornisce la colorazione della sintassi per lo sviluppo di Windows PowerShell . La Guida per le funzioni è disponibile, ed è possibile modificare liberamente le funzioni nello script per adattarle ai propri requisiti.
 
 ### <a name="windows-powershell-module"></a>Modulo di Windows PowerShell
-Il modulo Windows PowerShell generato da Visual Studio contiene funzioni che utilizzano lo script di pubblicazione. Queste sono le funzioni di Azure PowerShell e non possono essere modificate. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+Il modulo Windows PowerShell generato da Visual Studio contiene funzioni che utilizzano lo script di pubblicazione. Queste sono le funzioni di Azure PowerShell e non possono essere modificate. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 
 ### <a name="json-configuration-file"></a>File di configurazione JSON.
 Il file JSON viene creato nella cartella **Configurazioni** e contiene dati di configurazione che consentono di specificare esattamente quali risorse distribuire in Azure. Il nome del file generato da Visual Studio è project-name-WAWS-dev. json se è stato creato un sito Web, o project name-VM-dev.json se è stata creata una macchina virtuale. Di seguito è riportato un esempio di un file di configurazione JSON generato quando si crea un sito Web. La maggior parte dei valori è facilmente comprensibile. Il nome del sito Web viene generato da Azure, pertanto potrebbe non corrispondere al nome del progetto.
@@ -168,7 +168,7 @@ Per ulteriori informazioni, vedere [Procedura: Creare un pacchetto di distribuzi
 
     Quando richiesto, fornire nome utente e password.
 
-    Si noti che quando si automatizza lo script, questo metodo per fornire credenziali di Azure non funzionerà. Al contrario, utilizzare il file. publishsettings per fornire le credenziali. Una sola volta, si usa il comando **Get-AzurePublishSettingsFile** per scaricare il file da Azure e quindi **Import-AzurePublishSettingsFile** per importare il file. Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+    Si noti che quando si automatizza lo script, questo metodo per fornire credenziali di Azure non funzionerà. Al contrario, utilizzare il file. publishsettings per fornire le credenziali. Una sola volta, si usa il comando **Get-AzurePublishSettingsFile** per scaricare il file da Azure e quindi **Import-AzurePublishSettingsFile** per importare il file. Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 4. (Facoltativo) Se si vuole creare risorse con Azure, ad esempio la macchina virtuale, il database e il sito Web senza pubblicare l'applicazione Web, usare il comando **Publish-WebApplication.ps1** con l'argomento **-Configuration** impostato sul file di configurazione JSON. Questa riga di comando utilizza il file di configurazione JSON per determinare le risorse da creare. Poiché utilizza le impostazioni predefinite per gli altri argomenti della riga di comando, crea le risorse, ma non pubblica l'applicazione web. L’opzione Verbose  fornisce ulteriori informazioni sulle attività in corso.
 
@@ -317,7 +317,7 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 | Trovare-AzureVM |Ottiene la macchina virtuale di Azure specificata. |
 | Formato DevTestMessageWithTime |Antepone la data e l’ora a un messaggio. Questa funzione è progettata per i messaggi scritti ai flussi di errore e dettagliati. |
 | Get-AzureSQLDatabaseConnectionString |Assembla una stringa di connessione per connettersi a un database SQL Azure. |
-| Get-AzureVMStorage |Restituisce il nome del primo account di archiviazione con il modello di nome "devtest*", senza distinzione maiuscole/minuscole, nel percorso o nel gruppo di affinità specificato.**Se l'account di archiviazione "devtest*" non corrisponde alla posizione o al gruppo di affinità, la funzione lo ignora. È necessario specificare un percorso o un gruppo di affinità. |
+| Get-AzureVMStorage |Restituisce il nome del primo account di archiviazione con il modello di nome "devtest*", senza distinzione maiuscole/minuscole, nel percorso o nel gruppo di affinità specificato.** Se l'account di archiviazione "devtest*" non corrisponde alla posizione o al gruppo di affinità, la funzione lo ignora. È necessario specificare un percorso o un gruppo di affinità. |
 | Get-MSDeployCmd |Restituisce un comando per eseguire lo strumento MsDeploy.exe. |
 | Nuovo AzureVMEnvironment |Trova o crea una macchina virtuale nella sottoscrizione che corrisponde ai valori nel file di configurazione JSON. |
 | Pubblicare-WebPackage |Utilizza MsDeploy.exe e un file Zip del pacchetto di pubblicazione web per distribuire le risorse a un sito Web. Questa funzione non genera alcun output. Se la chiamata a MSDeploy.exe non riesce, la funzione genera un'eccezione. Per ottenere un output più dettagliato, utilizzare l’opzione **-Verbose** . |

@@ -16,9 +16,9 @@ ms.custom: manage
 ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: adbd994022f7585676bcbd0c4e4b040e9160c679
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3107e918a12ba17e72dbbe3660d42527e9e9f051
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Questo argomento elenca alcune delle domande più comuni per la risoluzione dei 
 | Messaggio 40847: Non è stato possibile eseguire l'operazione perché il server avrebbe superato la quota di DTU consentita di 45000. |Ridurre il [DWU][DWU] del database che si sta tentando di creare oppure [richiedere un aumento della quota][request a quota increase]. |
 | Analisi dell'uso dello spazio |Per comprendere l'uso dello spazio nel sistema, vedere [Dimensioni delle tabelle][Table sizes] . |
 | Aiuto nella gestione delle tabelle |Per informazioni su come gestire le tabelle, vedere [Panoramica delle tabelle][Overview].  Questo articolo contiene anche collegamenti ad articoli più dettagliati, ad esempio relativi a [tipi di dati delle tabelle][Data types], [distribuzione di una tabella][Distribute], [indicizzazione di una tabella][Index],  [partizionamento di una tabella][Partition], [gestione delle statistiche delle tabelle][Statistics] e [tabelle temporanee][Temporary]. |
-|L'indicatore di stato TDE (Transparent Data Encryption) non viene aggiornato nel portale di Azure|È possibile visualizzare lo stato di TDE tramite [powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption?view=azurermps-3.7.0).|
+|L'indicatore di stato TDE (Transparent Data Encryption) non viene aggiornato nel portale di Azure|È possibile visualizzare lo stato di TDE tramite [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## <a name="polybase"></a>PolyBase
 | Problema | Risoluzione |

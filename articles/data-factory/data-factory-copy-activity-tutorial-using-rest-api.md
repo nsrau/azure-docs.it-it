@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f4d2535e929996101f6e22ffbd0b2105e8fbf2a8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ Questa esercitazione mostra come creare e monitorare una data factory di Azure c
   2. Ottenere i valori per l'**ID client** e la **chiave privata**. 
   3. Ottenere l' **ID tenant**. 
   4. Assegnare l'applicazione **ADFCopyTutorialApp** al ruolo **Collaboratore Data Factory**.  
-* Installare [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Installare [Azure PowerShell](/powershell/azure/overview).  
 * Avviare **PowerShell** e seguire questa procedura. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
   
   1. Eseguire questo comando e immettere il nome utente e la password usati per accedere al portale di Azure:

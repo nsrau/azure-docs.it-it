@@ -17,9 +17,9 @@ ms.date: 09/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5edba79e5c65f0e9411a418ac1a121fd938feff2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 16ea28d13ccbe559d7988032e162581cde363157
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -61,7 +61,7 @@ L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 Le modifiche apportate a queste limitazioni verranno annunciate nella pagina relativa agli [aggiornamenti sulla rete virtuale di Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
 ## <a name="create-a-windows-vm-with-accelerated-networking"></a>Creare una macchina virtuale Windows con Rete accelerata
-1. Aprire un prompt dei comandi di PowerShell e completare i passaggi rimanenti in questa sezione in una singola sessione di PowerShell. Se PowerShell non è già installato e configurato, completare la procedura disponibile nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Aprire un prompt dei comandi di PowerShell e completare i passaggi rimanenti in questa sezione in una singola sessione di PowerShell. Se PowerShell non è già installato e configurato, completare la procedura disponibile nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 2. Per registrarsi all'anteprima, inviare un messaggio di posta elettronica a [Sottoscrizioni di Rete accelerata](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto. Non completare i passaggi rimanenti finché non si riceve un messaggio di posta elettronica che comunica che si è stati accettati nell'anteprima.
 3. Registrare la funzionalità nella sottoscrizione immettendo i comandi seguenti:
    

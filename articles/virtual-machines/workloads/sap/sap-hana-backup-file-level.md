@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f2449ffda80ec7cb7a73a6eac229d09c3a4a96cc
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 047d9191e2c844a591c35279ff7b143906087f56
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -105,7 +105,7 @@ A differenza del backup manuale sul disco di dati della macchina virtuale, in qu
 
 ![Sono stati copiati tutti i dischi rigidi virtuali coinvolti usando il comando PowerShell **start-azurestorageblobcopy**](media/sap-hana-backup-file-level/image031.png)
 
-Dopo aver completato il backup per il RAID software locale, tutti i dischi rigidi virtuali coinvolti sono stati copiati tramite il comando di PowerShell **start-azurestorageblobcopy** (vedere [Start-AzureStorageBlobCopy](/powershell/storage/azure.storage/v2.1.0/start-azurestorageblobcopy)). Poiché la conservazione dei file di backup influisce solo sul file system dedicato, non ci sono dubbi sulla coerenza dei file di dati e log SAP HANA sul disco. Un vantaggio di questo comando consiste nel fatto che funziona anche mentre la macchina virtuale è online. Per essere certi che nessun processo scriva al set di striping di backup, assicurarsi di disinstallarlo prima della copia di BLOB e di installarlo nuovamente in un secondo momento. In alternativa, è possibile usare un modo appropriato per &quot;bloccare&quot; il file system. Ad esempio, tramite xfs\_freeze per il file system XFS.
+Dopo aver completato il backup per il RAID software locale, tutti i dischi rigidi virtuali coinvolti sono stati copiati tramite il comando di PowerShell **start-azurestorageblobcopy** (vedere [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy)). Poiché la conservazione dei file di backup influisce solo sul file system dedicato, non ci sono dubbi sulla coerenza dei file di dati e log SAP HANA sul disco. Un vantaggio di questo comando consiste nel fatto che funziona anche mentre la macchina virtuale è online. Per essere certi che nessun processo scriva al set di striping di backup, assicurarsi di disinstallarlo prima della copia di BLOB e di installarlo nuovamente in un secondo momento. In alternativa, è possibile usare un modo appropriato per &quot;bloccare&quot; il file system. Ad esempio, tramite xfs\_freeze per il file system XFS.
 
 ![La schermata mostra l'elenco di BLOB nel contenitore di dischi rigidi virtuali nel portale di Azure](media/sap-hana-backup-file-level/image032.png)
 

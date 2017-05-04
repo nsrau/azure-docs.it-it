@@ -18,9 +18,9 @@ ms.date: 02/06/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e1933c5bf65f3e28d952213317413d0f65309c5b
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: caf50732ce19ded5016c6d5368f8b53b6ca3646f
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Aumentare la disponibilità per una macchina virtuale tramite la creazione di un set di disponibilità di Azure 
@@ -71,7 +71,7 @@ Prima di iniziare, verificare di avere la versione più recente del modulo di Po
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/powershell/azure/overview).
 
 
 Se si usano dischi gestiti per le macchine virtuali, digitare:
@@ -88,7 +88,7 @@ Se si usa il proprio account di archiviazione per le macchine virtuali, digitare
     -Name "myAvailabilitySet" -Location "West US" 
 ```
 
-Per ulteriori informazioni, vedere [New AzureRmAvailabilitySet](/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermavailabilityset).
+Per ulteriori informazioni, vedere [New AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Quando si crea una VM, se il set di disponibilità desiderato non si trova nell'elenco a discesa nel portale, potrebbe essere stato creato in un altro gruppo di risorse. Se non si conosce il gruppo di risorse del set di disponibilità, accedere al menu dell'hub e fare clic su Sfoglia > Gruppi di disponibilità per visualizzare un elenco dei set di disponibilità e dei gruppi di risorse appartenenti a ciascuno.

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: e8a092bc398e314a111973b6978012909aedc16e
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -77,13 +78,8 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 **Azure AD è distribuito nei data center di tutto il mondo ed è gestito e monitorato 24 ore al giorno.**  Azure AD è il sistema di gestione delle identità per Microsoft Azure e Office 365 ed è distribuito in 28 data center nel mondo.  I dati della directory vengono replicati in almeno tre data center.  I servizi di bilanciamento del carico globali garantiscono che l'utente acceda alla copia di Azure AD che contiene i dati dell'utente più vicina e reindirizza automaticamente le richieste ad altri data center nel caso in cui vengono rilevati problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Introduzione alla scrittura di codice](active-directory-developers-guide.md#getting-started).
+[Introduzione alla scrittura di codice](active-directory-developers-guide.md#get-started).
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazion
 * Come vengono resi durevoli i dati di Archiviazione di Azure grazie a ridondanza e replica
 * Come procedere per creare la prima applicazione di Archiviazione di Azure
 
-Per usare ed eseguire rapidamente Archiviazione di Azure, vedere l'articolo di [introduzione ad Archiviazione di Azure in cinque minuti](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Per informazioni dettagliate su strumenti, librerie e altre risorse per l'utilizzo di Archiviazione di Azure, vedere la sezione [Passaggi successivi](#next-steps) di seguito.
 
@@ -185,12 +187,12 @@ Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in
 * [Libreria client di archiviazione per PHP](https://azure.microsoft.com/develop/php/)
 * [Libreria client di archiviazione per Ruby](https://azure.microsoft.com/develop/ruby/)
 * [Libreria client di archiviazione per Python](https://azure.microsoft.com/develop/python/)
-* [Cmdlet di archiviazione per PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Cmdlet di archiviazione per PowerShell 1.0](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Servizi di gestione di Archiviazione di Azure
 * [Informazioni di riferimento sulle API REST del provider di risorse di archiviazione](/rest/api/storagerp/)
 * [Libreria client del provider di risorse di archiviazione per .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Cmdlet del provider di risorse di archiviazione per PowerShell 1.0](/powershell/storage/)
+* [Cmdlet del provider di risorse di archiviazione per PowerShell 1.0](/powershell/module/azure.storage)
 * [API REST di gestione del servizio di archiviazione (classico)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Servizi di spostamento dei dati di Archiviazione di Azure
@@ -202,7 +204,7 @@ Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in
 * [Strumento client di Archiviazione di Azure](storage-explorers.md)
 * [Azure SDK e strumenti](https://azure.microsoft.com/tools/)
 * [Emulatore di archiviazione di Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Utilità da riga di comando di AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -211,7 +213,11 @@ Per altre informazioni su Archiviazione di Azure, vedere le risorse seguenti:
 ### <a name="documentation"></a>Documentazione
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Creare un account di archiviazione](storage-create-storage-account.md)
-* [Introduzione a Azure Storage in cinque minuti](storage-getting-started-guide.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>Per amministratori
 * [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md)

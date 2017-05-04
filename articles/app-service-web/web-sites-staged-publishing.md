@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8ec4e8699eb2f2e060db264634b04abfacf40e34
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a51be4038ef6f9890645a71cd10cc86cb58929f3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -187,7 +187,7 @@ Nel pannello di uno slot di distribuzione aprire il pannello dello slot di distr
 ## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Cmdlet Azure PowerShell per gli slot di distribuzione
 Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Windows PowerShell, tra cui il supporto per la gestione degli slot di distribuzione in Servizio app di Azure.
 
-* Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Creare un'app Web

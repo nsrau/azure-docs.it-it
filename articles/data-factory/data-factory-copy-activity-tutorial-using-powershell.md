@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 09d8634d8d1b16edb058d0bb259b089a54748279
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8b5cb66ea958cf6643fa34abb8d484b97b212373
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ In questa esercitazione viene creata e monitorata una istanza di Azure Data Fact
 L'attività di copia esegue lo spostamento dei dati in Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md).   
 
 > [!NOTE]
-> Questo articolo non illustra tutti i cmdlet di Data factory. Per la documentazione completa su questi cmdlet, vedere [Data Factory Cmdlet Reference](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) (Informazioni di riferimento sui cmdlet di Data Factory).
+> Questo articolo non illustra tutti i cmdlet di Data factory. Per la documentazione completa su questi cmdlet, vedere [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) (Informazioni di riferimento sui cmdlet di Data Factory).
 >
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Non trasforma i dati di input per produrre dati di output. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
@@ -482,7 +482,7 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 ## <a name="see-also"></a>Vedere anche
 | Argomento | Descrizione |
 |:--- |:--- |
-| [Informazioni di riferimento sui cmdlet di Data factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) | Questa sezione fornisce informazioni su tutti i cmdlet di Data Factory |
+| [Informazioni di riferimento sui cmdlet di Data factory](/powershell/module/azurerm.datafactories) | Questa sezione fornisce informazioni su tutti i cmdlet di Data Factory |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e le attività in Azure Data Factory. |
 | [datasets](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo Azure Data Factory. |

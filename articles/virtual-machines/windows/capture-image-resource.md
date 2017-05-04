@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f5ddfdb01e6bc50c1d0799ec1119c8a696ced251
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c3f5a66605b1a7059a7820ddda9463cb4277f055
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -63,7 +63,7 @@ Prima di iniziare, verificare di avere la versione più recente del modulo di Po
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Per altre informazioni, vedere [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Controllo delle versioni di Azure PowerShell).
+Per altre informazioni, vedere [Azure PowerShell Versioning](/powershell/azure/overview) (Controllo delle versioni di Azure PowerShell).
 
 
 1. Creare alcune variabili. 

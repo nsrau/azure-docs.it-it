@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
-ms.openlocfilehash: d5fed9feb2292002a06c426cdd9e4e18f67bd3ec
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 51065a48c2f797b0ab764bf1b57425bd0696e2bd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,9 +77,9 @@ Per distribuire il mapping di rete sarà necessario quanto segue:
 * Una rete di Azure a cui le macchine virtuali replicate possono connettersi dopo il failover. Questa rete viene selezionata al momento del failover. La rete deve trovarsi nella stessa area della sottoscrizione di Azure Site Recovery.
 
 ### <a name="powershell-prerequisites"></a>Prerequisiti di PowerShell
-Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](https://msdn.microsoft.com/library/dn850420.aspx).
+Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](/powershell/azure/overview).
 
-Per i suggerimenti che facilitano l’utilizzo dei cmdlet, ad esempio come i valori dei parametri, gli input e gli output vengono in genere gestiti in Azure PowerShell, vedere [Introduzione ai cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Per i suggerimenti che facilitano l’utilizzo dei cmdlet, ad esempio come i valori dei parametri, gli input e gli output vengono in genere gestiti in Azure PowerShell, vedere [Introduzione ai cmdlet di Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="step-1-set-the-subscription"></a>Passaggio 1: impostare la sottoscrizione
 In PowerShell, eseguire questi cmdlet:
@@ -383,7 +383,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
         $jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
 
 
-## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> Monitorare l'attività
+## <a name=monitor></a> Monitorare l'attività
 Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessario attendere l’esecuzione dei processi per il completamento dell'elaborazione.
 
     Do
@@ -404,5 +404,5 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni](https://msdn.microsoft.com/library/dn850420.aspx) sui cmdlet PowerShell per Azure Site Recovery. </a>.
+[Altre informazioni](/powershell/azure/overview) sui cmdlet PowerShell per Azure Site Recovery. </a>.
 

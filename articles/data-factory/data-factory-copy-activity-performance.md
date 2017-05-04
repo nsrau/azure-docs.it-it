@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf864e0d9922e8e842945db9964899d602fd7eed
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 0637fb4d7c6cb8c3cfd4aab5d06571bd83f59683
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -234,7 +234,7 @@ I costi addebitati si basano su due passaggi: durata della copia e tipo di copia
 ## <a name="performance-tuning-steps"></a>Procedura di ottimizzazione delle prestazioni
 Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copia, è consigliabile seguire questa procedura:
 
-1. **Stabilire una baseline**. Durante la fase di sviluppo, testare la pipeline usando l'attività di copia su un campione di dati rappresentativo. È possibile usare il [modello di sezionamento](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) di Data Factory per limitare la quantità di dati utilizzati.
+1. **Stabilire una baseline**. Durante la fase di sviluppo, testare la pipeline usando l'attività di copia su un campione di dati rappresentativo. È possibile usare il [modello di sezionamento](data-factory-scheduling-and-execution.md) di Data Factory per limitare la quantità di dati utilizzati.
 
    Per raccogliere le caratteristiche relative a prestazioni e tempo di esecuzione è possibile usare l' **app di monitoraggio e gestione**. Scegliere **Monitoraggio e gestione** nella home page di Data Factory. Nella visualizzazione albero scegliere il **set di dati di output**. Nell'elenco **Activity Windows** (Finestre attività) scegliere l'esecuzione dell'attività di copia. **Activity Windows** (Finestre attività) riporta la durata dell'attività di copia e le dimensioni dei dati copiati. La velocità effettiva è elencata in **Activity Window Explorer**(Esplora finestre attività). Per altre informazioni sull'app, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: d68c2f496cfdfa52c33243542ee141c44639e5c0
-ms.openlocfilehash: 7b4fda3ffb269c6a9de407bbd9af32d90768504f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 86eec91025ae8ae553fa1f76a687e440784e7855
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/16/2017
 
 Per creare un peering reti virtuali con i modelli di Resource Manager, seguire questa procedura:
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
    > [!NOTE]
    > Il cmdlet di PowerShell per la gestione di un peering reti virtuali viene fornito con [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)

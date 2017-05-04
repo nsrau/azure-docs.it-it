@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 62586434f233b1d40b8a9efd539d1fcdca3bdec7
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -60,7 +60,15 @@ Per un'introduzione e una procedura dettagliata, vedere [Spostare dati tra origi
 È anche possibile spostare dati da/da archivi dati supportati ospitati su macchine virtuali IaaS di Azure tramite il Gateway di gestione dati. In questo caso, è possibile installare il Gateway di gestione dati sulla stessa macchina virtuale dell'archivio dati o su una macchina virtuale separata con accesso all'archivio dati.
 
 ## <a name="supported-data-stores-and-formats"></a>Archivi dati e formati supportati
+L'attività di copia in Data Factory esegue la copia dei dati da un archivio dati di origine a un archivio dati sink. Data Factory supporta gli archivi dati seguenti. I dati da qualsiasi origine possono essere scritti in qualsiasi sink. Fare clic su un archivio dati per informazioni su come copiare dati da e verso tale archivio.
+
+> [!NOTE] 
+> Per spostare dati da e verso un archivio dati che non è supportato dall'attività di copia, usare l' **attività personalizzata** in Data Factory con la logica personalizzata per copiare o spostare i dati. Per i dettagli sulla creazione e l'uso di un'attività personalizzata, vedere l'articolo [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md).
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+> [!NOTE]
+> Gli archivi dati contrassegnati da un asterisco (*) possono essere locali o in IaaS di Azure e richiederanno l'installazione del [Gateway di gestione dati](data-factory-data-management-gateway.md) in un computer IaaS locale o in Azure.
 
 ### <a name="supported-file-formats"></a>Formati di file supportati
 È possibile usare l'attività di copia per **copiare i file così come sono** tra due archivi di dati basati su file ed è possibile saltare la [sezione formato](data-factory-create-datasets.md) sia nella definizione del set di dati di input che in quello di output. I dati vengono copiati in modo efficiente senza serializzazione/deserializzazione.
@@ -180,7 +188,7 @@ La pianificazione definita nel set di dati di output determina quando viene eseg
 Vedere l'articolo [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md), che descrive i fattori chiave che influiscono sulle prestazioni di spostamento dei dati (attività di copia) in Data Factory di Azure. Vengono anche elencate le prestazioni osservate durante il test interni e vengono descritti i modi per ottimizzare le prestazioni dell'attività di copia.
 
 ## <a name="scheduling-and-sequential-copy"></a>Pianificazione e copia sequenziale
-Vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md) per informazioni dettagliate sul funzionamento della pianificazione e dell'esecuzione in Data Factory. È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Vedere la sezione [Copiare in sequenza](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence).
+Vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md) per informazioni dettagliate sul funzionamento della pianificazione e dell'esecuzione in Data Factory. È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Vedere la sezione [Copiare in sequenza](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="type-conversions"></a>Conversioni di tipi
 Gli archivi dati provengono tutti da uno specifico sistema di tipi nativo. L'attività di copia esegue automaticamente la conversione dai tipi di origine ai tipi sink con il metodo seguente in due passaggi:

@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 34b449b251672619aec6e86b9343343a9404126a
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a0eecbb50b001325c91d1d721bf8de7244f04674
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Ecco altri dettagli importanti da considerare durante la pianificazione della mi
 
 * **Costi per la larghezza di banda**. Vengono applicati [costi per la larghezza di banda](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) perché i dati vengono trasferiti all'esterno di un'area di Azure.
 
-* **Elenchi di controllo di accesso applicati ai dati**. Proteggere i dati nella nuova area applicando elenchi di controllo di accesso ai file e alle cartelle. Per altre informazioni, vedere [Protezione dei dati archiviati in Azure Data Lake Store](data-lake-store-secure-data.md). È consigliabile approfittare della migrazione per aggiornare e modificare gli elenchi di controllo di accesso. Se si vogliono usare impostazioni simili a quelle correnti, è possibile vedere gli elenchi di controllo di accesso applicati a qualsiasi file usando il portale di Azure, i [cmdlet di PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/get-azurermdatalakestoreitempermission) o gli SDK.  
+* **Elenchi di controllo di accesso applicati ai dati**. Proteggere i dati nella nuova area applicando elenchi di controllo di accesso ai file e alle cartelle. Per altre informazioni, vedere [Protezione dei dati archiviati in Azure Data Lake Store](data-lake-store-secure-data.md). È consigliabile approfittare della migrazione per aggiornare e modificare gli elenchi di controllo di accesso. Se si vogliono usare impostazioni simili a quelle correnti, è possibile vedere gli elenchi di controllo di accesso applicati a qualsiasi file usando il portale di Azure, i [cmdlet di PowerShell](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission) o gli SDK.  
 
 * **Posizione dei servizi di analisi**. Per prestazioni ottimali, i servizi di analisi, come Azure Data Lake Analytics o HDInsight, devono trovarsi nella stessa area dei dati.  
 

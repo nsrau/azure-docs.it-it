@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 325d669f11891bf070d9bbb468af7427adda46d3
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +36,7 @@ Utente | Possono ripristinare qualsiasi gruppo di Office 365 eliminato che era d
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Come visualizzare i gruppi di Office 365 eliminati che è possibile ripristinare
-I cmdlet seguenti consente di visualizzare i gruppi eliminati per verificare che il gruppo o i gruppi a cui l'utente è interessato non siano stati ancora eliminati definitivamente. I cmdlet fanno parte del [modulo in anteprima Azure Active Directory PowerShell V2](https://www.powershellgallery.com/packages/AzureADPreview). Altre informazioni su questo modulo sono reperibili nell'articolo [PowerShell di Azure Active Directory versione 2](https://docs.microsoft.com/powershell/azuread/).
+I cmdlet seguenti consente di visualizzare i gruppi eliminati per verificare che il gruppo o i gruppi a cui l'utente è interessato non siano stati ancora eliminati definitivamente. I cmdlet fanno parte del [modulo in anteprima Azure Active Directory PowerShell V2](https://www.powershellgallery.com/packages/AzureADPreview). Altre informazioni su questo modulo sono reperibili nell'articolo [PowerShell di Azure Active Directory versione 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 Si noti che i cmdlet per la gestione dell'eliminazione temporanea e del recupero dati sono disponibili in anteprima pubblica ed è talvolta necessario apportare modifiche significative ai cmdlet in anteprima. Per questo motivo, l'uso di questi cmdlet in un ambiente di produzione è sconsigliato.
 
 1.    Eseguire il cmdlet seguente per visualizzare tutti i gruppi di Office 365 eliminati nel tenant per cui è ancora possibile il ripristino.

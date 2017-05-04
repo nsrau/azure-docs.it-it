@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 61d0532a5750b3ef71ca557eec0ab705e370473b
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 12df0d2afeb4abef4d22f7341c9b25ce504121c0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ La procedura di configurazione seguente configurerà i parametri BGP nel gateway
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 * Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
-* È necessario installare i cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+* È necessario installare i cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Passaggio 1: Creare e configurare VNet1
 #### <a name="1-declare-your-variables"></a>1. Dichiarare le variabili

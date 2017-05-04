@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: a8334d146877ccc3988784c7a74a1c887dba68ab
-ms.openlocfilehash: 57027b97cebf8accccd91f135a13825047fd211e
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: e917385cb9afc13ba459aed48e5f06cc156efac5
+ms.lasthandoff: 05/01/2017
 
 ---
 
@@ -140,7 +140,7 @@ FROM
 ```
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
