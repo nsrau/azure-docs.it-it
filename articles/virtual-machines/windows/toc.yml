@@ -4,7 +4,7 @@
   items:
   - name: "Informazioni sulle macchine virtuali"
     href: overview.md
-- name: "Guida introduttiva"
+- name: "Guide introduttive"
   expanded: true
   items:
   - name: "Creare una VM: portale"
@@ -21,10 +21,19 @@
     href: tutorial-manage-data-disk.md
   - name: "3 - Automatizzare la configurazione"
     href: tutorial-automate-vm-deployment.md
-  - name: "4 - Bilanciare il carico delle VM"
+  - name: "4 - Creare immagini di VM"
+    href: tutorial-custom-images.md
+  - name: "5 - VM a disponibilità elevata"
+    href: tutorial-availability-sets.md
+  - name: "6 - Creare un set di scalabilità di macchine virtuali"
+    href: tutorial-create-vmss.md
+  - name: "7 - Bilanciare il carico delle VM"
     href: tutorial-load-balancer.md
-  - name: "5 - Gestire la rete"
+  - name: "8 - Gestire la rete"
     href: tutorial-virtual-network.md
+  - name: "9 - Gestire la sicurezza delle VM"
+    href: tutorial-azure-security.md
+
 - name: "Esempi"
   items:
   - name: "PowerShell"

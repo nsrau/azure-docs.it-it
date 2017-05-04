@@ -4,7 +4,7 @@
   items:
   - name: "Informazioni sulle macchine virtuali"
     href: overview.md
-- name: "Guida introduttiva"
+- name: "Guide introduttive"
   expanded: true
   items:
   - name: "Creare una VM: interfaccia della riga di comando di Azure"
@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8 - Gestire la rete"
     href: tutorial-virtual-network.md
+  - name: "9 - Gestire la sicurezza delle VM"
+    href: tutorial-azure-security.md
 - name: "Esempi"
   items:
   - name: "Interfaccia della riga di comando di Azure"

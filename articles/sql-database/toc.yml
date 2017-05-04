@@ -4,7 +4,7 @@
   items:
   - name: "Informazioni sul database SQL"
     href: sql-database-technical-overview.md
-- name: "Guida introduttiva"
+- name: "Guide introduttive"
   expanded: true
   items:
   - name: "Creare un database: portale"
@@ -38,7 +38,9 @@
   - name: "1 - Creare/progettare un nuovo database SQL"
     href: sql-database-design-first-database.md
   - name: "2 - Eseguire la migrazione di un database SQL Server esistente"
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: "3 - Proteggere il database SQL"
+    href: sql-database-security-tutorial.md 
 - name: "Esempi"
   items:
   - name: "Interfaccia della riga di comando di Azure"
