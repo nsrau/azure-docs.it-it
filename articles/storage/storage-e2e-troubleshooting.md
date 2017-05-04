@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: acf807538c8c9efdadb95c4b66db9a9d5d1f7a6d
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d1709c2c28505e66a88cfbbcf4dc88c8ccca841f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -103,9 +103,9 @@ Per configurare la registrazione e le metriche dell'account di archiviazione tra
 
 **Tramite PowerShell**
 
-Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-1. Usare il cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) per aggiungere l'account utente di Azure alla finestra di PowerShell:
+1. Usare il cmdlet [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) per aggiungere l'account utente di Azure alla finestra di PowerShell:
    
     ```powershell
     Add-AzureAccount
@@ -374,3 +374,4 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
+

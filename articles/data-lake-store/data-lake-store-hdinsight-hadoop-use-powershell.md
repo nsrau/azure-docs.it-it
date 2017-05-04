@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 230cbb12830793ca4e6b9679c5c37c4733c00f02
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: eb92706201760c2682d7b45a51a518c40aba3bd4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -53,7 +53,7 @@ La configurazione di HDInsight perché funzioni con Archivio Data Lake tramite P
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 o versioni successive**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **Azure PowerShell 1.0 o versioni successive**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * **Windows SDK**. Per installarlo, fare clic [qui](https://dev.windows.com/en-us/downloads). Usarlo per creare un certificato di sicurezza.
 * **Entità servizio di Azure Active Directory**. Questa esercitazione fornisce tutte le istruzioni utili su come creare un'entità servizio in Azure AD. Tuttavia, è necessario essere un amministratore di Azure AD per creare un'entità servizio. Se si è un amministratore di Azure AD, è possibile ignorare questo prerequisito e procedere con l'esercitazione.
 

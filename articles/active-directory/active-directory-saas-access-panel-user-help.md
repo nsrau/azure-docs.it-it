@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: ff38f1536bf92911c18e0766ee655583c4d913d6
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 53ec54def52a6d0659dc12286148213d88e9ae24
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 
 Questa pagina è stata visualizzata perché si è verificato un problema durante l'uso del portale App personali. Vi sono casi in cui viene è necessario contattare il supporto tecnico o l'amministratore per la risoluzione di un problema. In questo argomento sono presenti passaggi relativi alle domande più comuni che è possibile provare prima autonomamente.
 
-Per informazioni sulla gestione delle password, provare [questo](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Per informazioni sulla gestione delle password, provare [questo](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="what-is-the-myapps-portal"></a>Che cos'è il portale App personali?
@@ -49,7 +49,7 @@ Per informazioni sulla gestione delle password, provare [questo](active-director
 3.    Digitare la vecchia password, quindi digitare una nuova password e confermarla.
 4.    Fare clic su **Submit**.
 
-Per maggiori informazioni, vedere [Come aggiornare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Per maggiori informazioni, vedere [Come aggiornare la password](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>Come si configura la reimpostazione della password?
@@ -58,7 +58,7 @@ Per maggiori informazioni, vedere [Come aggiornare la password](active-directory
 2.    In **Gestisci account** fare clic su **Configura la reimpostazione della password self-service**.
 3.    Seguire la procedura indicata nella finestra di dialogo e inviare.
 
-Per maggiori informazioni, vedere [Come reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Per maggiori informazioni, vedere [Come reimpostare la password](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>Come è possibile aggiungere una nuova app?

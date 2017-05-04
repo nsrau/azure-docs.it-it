@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b36fb2b94dcee94eb299221bbb5c82080d23bfb1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,7 +41,7 @@ Questo argomento descrive come trovare editori, offerte, SKU e versioni di immag
 
 ## <a name="find-azure-images-with-powershell"></a>Trovare immagini di Azure con PowerShell
 > [!NOTE]
-> Installare e configurare la [versione più recente di Azure PowerShell](/powershell/azureps-cmdlets-docs). Se si usano moduli di Azure PowerShell con versione inferiore a 1.0, si continueranno a usare i comandi seguenti, ma è innanzitutto necessario `Switch-AzureMode AzureResourceManager`. 
+> Installare e configurare la [versione più recente di Azure PowerShell](/powershell/azure/overview). Se si usano moduli di Azure PowerShell con versione inferiore a 1.0, si continueranno a usare i comandi seguenti, ma è innanzitutto necessario `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 
@@ -134,3 +134,4 @@ In questo elenco, copiare il nome della SKU scelta per disporre di tutte le info
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto è possibile scegliere con precisione l'immagine da usare. Per creare rapidamente una macchina virtuale mediante le informazioni di immagine trovate o per usare un modello con tali informazioni di immagine, vedere [Creare una VM Windows con Gestione risorse e PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+

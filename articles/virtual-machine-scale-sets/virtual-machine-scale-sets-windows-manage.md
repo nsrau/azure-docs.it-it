@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +27,7 @@ Usare le attività descritte in questo articolo per gestire le macchine virtuali
 
 La maggior parte delle attività che implicano la gestione di una macchina virtuale in un set di scalabilità richiede di conoscere l'ID dell'istanza della macchina virtuale che si vuole gestire. È possibile usare [Esplora risorse di Azure](https://resources.azure.com) per trovare l'ID dell'istanza di una macchina virtuale in un set di scalabilità. È anche possibile usare Esplora risorse per verificare lo stato delle attività da completare.
 
-Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="display-information-about-a-scale-set"></a>Visualizzare informazioni relative a un set di scalabilità
 È possibile ottenere informazioni generali su un set di scalabilità, ovvero una visualizzazione delle istanze. In alternativa, è possibile ottenere informazioni più specifiche, ad esempio informazioni sulle risorse nel set di scalabilità.
@@ -212,10 +213,5 @@ Per rimuovere il set di scalabilità di macchine virtuali tutto in una volta, no
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 Se si rimuovono le macchine virtuali dal set di scalabilità, per prime verranno rimosse le macchine virtuali con gli ID più elevati.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

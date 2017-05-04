@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 0bcde69385b74fa62a629159abfff4bb16d9da89
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e76a20c7c7eef9a51c6c0373785fd810c09e34a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -394,7 +394,7 @@ Per motivi di prestazioni e tolleranza di errore, la soluzione ottimale consiste
 
 Le VM registrano il relativo nome DNS automaticamente all'avvio o in caso di modifica di un nome.
 
-Per altre informazioni su questo esempio e su un altro che illustra il provisioning della prima VM e l'installazione in quest'ultima di Servizi di dominio Active Directory, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per altre informazioni sull'uso di Windows PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlet di gestione di Azure](https://msdn.microsoft.com/library/azure/jj152841).
+Per altre informazioni su questo esempio e su un altro che illustra il provisioning della prima VM e l'installazione in quest'ultima di Servizi di dominio Active Directory, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per altre informazioni sull'uso di Windows PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlet di gestione di Azure](/powershell/module/azurerm.compute/#virtual_machines).
 
 ### <a name="BKMK_DistributedDCs"></a>Controller di dominio con distribuzione geografica
 Azure offre vantaggi quando si ospitano più controller di dominio in reti virtuali diverse:

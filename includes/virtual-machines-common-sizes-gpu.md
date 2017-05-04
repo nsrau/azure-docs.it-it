@@ -15,10 +15,6 @@ Le istanze NC sono basate sulla scheda NVIDIA Tesla K80. Gli utenti possono ora 
 
 1 GPU = Pari a metà scheda M60.
 
-**Sistemi operativi supportati**
-
-* Windows Server 2016, Windows Server 2012 R2. Vedere [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Configurazione dei driver serie N per Windows)
-
 ## <a name="nc-instances"></a>Istanze NC
 
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | GPU |
@@ -32,10 +28,4 @@ Le istanze NC sono basate sulla scheda NVIDIA Tesla K80. Gli utenti possono ora 
 
 *Con supporto di RDMA
 
-**Sistemi operativi supportati**
-
-* Windows Server 2016, Windows Server 2012 R2. Vedere [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Configurazione dei driver serie N per Windows)
-* Ubuntu 16.04 LTS. Vedere [N-series driver setup for Linux](../articles/virtual-machines/linux/n-series-driver-setup.md) (Configurazione dei driver serie N per Linux)
-
-<br>
 

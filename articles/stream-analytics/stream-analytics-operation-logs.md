@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e694eb8f4d658ff9410ae7be2bd4b69500ecbf20
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 7ac1a7f8e2f4f67aeb674f0720bc7108d44dad42
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -81,10 +81,10 @@ Nel portale di Azure è possibile filtrare per livello di messaggio per visualiz
 
   ![Dettagli operazione](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)  
 
-Nel caso in cui sia necessario contattare il [Supporto](https://azure.microsoft.com/support/options/) o fornire informazioni al team tramite il [forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), tenere presenti i dettagli dell'operazione, in particolare l’**ID di correlazione**. 
+Nel caso in cui sia necessario contattare il [Supporto](https://azure.microsoft.com/support/options/) o fornire informazioni al team tramite il [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics), tenere presenti i dettagli dell'operazione, in particolare l’**ID di correlazione**. 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

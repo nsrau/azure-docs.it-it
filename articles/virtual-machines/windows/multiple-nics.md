@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0095c9aeea3ab118fc212ee1ccbb71dcd84aae29
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f04ac382521c7268d0eb03d1b3bfc78ee0b07d40
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/31/2017
 È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end, oppure disporre di una rete dedicata a una soluzione di monitoraggio o di backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Per informazioni dettagliate, incluse quelle sulla creazione di più schede di rete all'interno degli script di PowerShell, consultare la sezione dedicata alla [distribuzione di macchine virtuali con più schede di rete](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Le differenti [dimensioni della macchina virtuale](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
 
 ## <a name="create-core-resources"></a>Creare le risorse principali
-Verificare di aver prima [installato e configurato la versione più recente di Azure PowerShell](/powershell/azureps-cmdlets-docs). Accedere all'account di Azure:
+Verificare di aver prima [installato e configurato la versione più recente di Azure PowerShell](/powershell/azure/overview). Accedere all'account di Azure:
 
 ```powershell
 Login-AzureRmAccount

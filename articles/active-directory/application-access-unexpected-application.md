@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 569a8db4266182122e9da175840484473e9106e5
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d244905089605bb8608085d3e0132590c927ef6f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ A tale scopo, è necessario usare il controllo **Filtro** per visualizzare **Tut
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
 
@@ -67,7 +67,7 @@ Quando si imposta il filtro su **Tutte le applicazioni**, l'**elenco** di **tutt
 
 6.  Quando si aggiunge un'applicazione sviluppata con i [metodi di autenticazione ASP.net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) o con i [Servizi connessi](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) di Visual Studio .
 
-7.  Quando si crea un oggetto entità servizio usando il [modulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azuread/v2/azureactivedirectory).
+7.  Quando si crea un oggetto entità servizio usando il [modulo Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 8.  Quando si [concede a un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) come amministratore di usare i dati nel tenant.
 
@@ -85,15 +85,15 @@ Per rimuovere un'assegnazione di un utente o di un gruppo da un'applicazione, se
 
 Per disabilitare tutti gli accessi utente a un'applicazione, seguire i passaggi elencati nell'articolo [Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Voglio eliminare completamente un'applicazione
+## <a name="i-want-to-delete-an-application-entirely"></a>Si desidera eliminare completamente un'applicazione
 
-Per **eliminare un'applicazione**, seguire le istruzioni seguenti:
+Per **eliminare un'applicazione**, seguire queste istruzioni:
 
-1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **coamministratore.**
+1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
 
@@ -101,21 +101,21 @@ Per **eliminare un'applicazione**, seguire le istruzioni seguenti:
 
   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione che si vuole eliminare.
+6.  Selezionare l'applicazione che si desidera eliminare.
 
 7.  Dopo il caricamento dell'applicazione, fare clic sull'icona **Elimina** che si trova nella parte superiore del pannello **Panoramica** dell'applicazione.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Voglio disabilitare tutte le operazioni future di consenso da parte dell'utente a tutte le applicazioni
 
-La disabilitazione di consenso da parte dell'utente per l'intera directory impedisce agli utenti finali di consentire l'accesso a qualsiasi applicazione. Gli amministratori possono sempre dare consenso per conto degli utenti. Per informazioni sul consenso alle applicazioni e sui motivi per cui si vuole dare o meno consenso, leggere [Informazioni sul consenso dell'utente e dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+La disabilitazione di consenso da parte dell'utente per l'intera directory impedisce agli utenti finali di consentire l'accesso a qualsiasi applicazione. Gli amministratori possono sempre dare consenso per conto degli utenti. Per informazioni sul consenso alle applicazioni e sui motivi per cui si desideri dare o meno consenso, leggere [Informazioni sul consenso dell'utente e dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-Per **disabilitare tutte le operazioni future di consenso degli utenti alla directory intera**, seguire le istruzioni seguenti:
+Per **disabilitare tutte le operazioni future di consenso degli utenti nella directory intera**, seguire queste istruzioni:
 
-1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale**.
+1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 

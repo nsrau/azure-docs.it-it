@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: efdec32e565bf1d11b562d283e56bd8ed5d292b9
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a0ce5cf6a48d3dfd68e1696d93aac7c55a442900
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -45,7 +45,7 @@ Questo articolo illustra i passaggi per creare un circuito di Azure ExpressRoute
 Prima di procedere con la configurazione, assicurarsi di avere verificato i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).  
 
 ### <a name="step-2-install-the-latest-versions-of-the-azure-service-management-sm-powershell-modules"></a>Passaggio 2. Installare le versioni più recenti dei moduli di PowerShell per Gestione dei servizi di Azure.
-Per istruzioni dettagliate sulla configurazione del computer per l'uso con i moduli di Azure PowerShell, vedere [Getting started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Introduzione ai cmdlet di Azure PowerShell).
+Per istruzioni dettagliate sulla configurazione del computer per l'uso con i moduli di Azure PowerShell, vedere [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) (Introduzione ai cmdlet di Azure PowerShell).
 
 ### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>Passaggio 3. Accedere all'account Azure e selezionare una sottoscrizione
 1. Aprire la console di PowerShell con diritti elevati e connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:

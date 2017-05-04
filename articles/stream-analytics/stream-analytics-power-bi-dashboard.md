@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 3dbc49d35def6d7b12ade529d1dd1156dee9d75b
-ms.openlocfilehash: 09c54f8cce119c1cbe6a08e969236612447d9e17
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 278f73d9ee3f64727b34b3674cd38eaf5301e675
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -142,7 +142,7 @@ A causa di queste limitazioni, Power BI è più adatto ai casi in cui Analisi di
 
 Per calcolare il valore e visualizzare la finestra in secondi, è possibile usare questa equazione:
 
-![Equazione&1;](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+![Equazione 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
 Ad esempio:
 - Sono presenti 1.000 dispositivi che inviano dati a intervalli di un secondo.
@@ -151,7 +151,7 @@ Ad esempio:
 
 L'equazione diventa quindi la seguente:
 
-![Equazione&2;](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+![Equazione 2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
 
 Ciò significa che è possibile modificare la query originale come segue:
 
@@ -177,7 +177,7 @@ Analogamente, se si tenta di avviare un processo dopo che il token è scaduto, s
 Dopo aver aggiornato l'autorizzazione con Power BI, viene visualizzato un avviso verde nell'area di autorizzazione che indica che il problema è stato risolto.
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

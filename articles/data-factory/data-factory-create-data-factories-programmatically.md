@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 280737097038ff328d487477279ce4f204b0ac0c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8fcd609da46e88f7db90692c7e67011df64c9b4e
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -99,7 +99,7 @@ ms.lasthandoff: 04/12/2017
     ```
 
    > [!NOTE]
-   > Sostituire **resourcegroupname** con il nome del gruppo di risorse di Azure. Per creare un gruppo di risorse, usare il cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) .
+   > Sostituire **resourcegroupname** con il nome del gruppo di risorse di Azure. Per creare un gruppo di risorse, usare il cmdlet [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
 7. Aggiungere al metodo **Main** il codice seguente che crea una **data factory**.
 
     ```csharp
@@ -445,7 +445,7 @@ Ecco come è possibile creare l'applicazione Active Directory, l'entità servizi
 Annotare l'ID dell'applicazione e la password (segreto client) e usarli nella procedura dettagliata.
 
 ## <a name="get-azure-subscription-and-tenant-ids"></a>Ottenere l'ID sottoscrizione e l'ID tenant di Azure
-Per installare la versione più recente di Azure PowerShell nel computer, seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+Per installare la versione più recente di Azure PowerShell nel computer, seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 
 1. Aprire Azure PowerShell ed eseguire il comando seguente
 2. Eseguire il comando seguente e immettere il nome utente e la password usati per accedere al portale di Azure.

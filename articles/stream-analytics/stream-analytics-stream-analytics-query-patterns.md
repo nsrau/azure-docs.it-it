@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 4c3f32cd6159052f17557c51e08e7e3f611aa338
-ms.openlocfilehash: 7a1e705e40cd8f7b260c38f41e81e2f199555059
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 976e765a906896c236497d074ca2a8c5fb1f1c53
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -500,10 +500,10 @@ Ad esempio, generare un evento ogni 5 secondi che segnalerà il punto di dati pi
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Spiegazione**: questa query genera eventi ogni cinque secondi e restituisce l'ultimo evento ricevuto prima. La durata della [finestra di salto](https://msdn.microsoft.com/library/dn835041.aspx "Hopping Window - Azure Stream Analytics") determina fino a quando risale la query per cercare l'evento più recente. In questo esempio,&300; secondi.
+**Spiegazione**: questa query genera eventi ogni cinque secondi e restituisce l'ultimo evento ricevuto prima. La durata della [finestra di salto](https://msdn.microsoft.com/library/dn835041.aspx "Hopping Window - Azure Stream Analytics") determina fino a quando risale la query per cercare l'evento più recente. In questo esempio, 300 secondi.
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

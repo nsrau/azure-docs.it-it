@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: dd53cbc0ec10700ebcd47f9d2f9d6cc358f68569
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -30,10 +31,10 @@ Usare questa esercitazione per imparare a eseguire facilmente le attività inizi
 
 > [!NOTE]
 > Questa esercitazione non include le istruzioni per scrivere l'applicazione Azure usata nel passaggio che spiega come autorizzare un'applicazione a usare una chiave o un segreto nell'insieme di credenziali delle chiavi.
-> 
-> Questa esercitazione usa Azure PowerShell. Per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli.md).
-> 
-> 
+>
+> Questa esercitazione usa Azure PowerShell. Per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli2.md).
+>
+>
 
 Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
 
@@ -41,7 +42,7 @@ Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell **versione minima 1.1.0**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`. Se sono installate le versioni di Azure PowerShell dalla 0.9.1 alla 0.9.8, è comunque possibile svolgere questa esercitazione, con alcune piccole modifiche. Ad esempio, sarà necessario usare il comando `Switch-AzureMode AzureResourceManager` e alcuni comandi per l'insieme di credenziali delle chiavi di Azure sono cambiati. Per un elenco dei cmdlet per l'insieme di credenziali delle chiavi di Azure per le versioni dalla 0.9.1 alla 0.9.8, vedere [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx) (Cmdlet per l'insieme di credenziali delle chiavi di Azure). 
+* Azure PowerShell **versione minima 1.1.0**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`. Se sono installate le versioni di Azure PowerShell dalla 0.9.1 alla 0.9.8, è comunque possibile svolgere questa esercitazione, con alcune piccole modifiche. Ad esempio, sarà necessario usare il comando `Switch-AzureMode AzureResourceManager` e alcuni comandi per l'insieme di credenziali delle chiavi di Azure sono cambiati. Per un elenco dei cmdlet per l'insieme di credenziali delle chiavi di Azure per le versioni dalla 0.9.1 alla 0.9.8, vedere [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault) (Cmdlet per l'insieme di credenziali delle chiavi di Azure).
 * Un'applicazione che verrà configurata per usare la chiave o la password creata in questa esercitazione. Un'applicazione di esempio è disponibile nell'[Area download Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Per istruzioni, vedere il file Readme associato.
 
 Questa esercitazione è stata ideata per gli utenti di Azure PowerShell non esperti, ma presuppone che si conoscano i concetti di base, quali moduli, cmdlet e sessioni. Per altre informazioni, vedere [Introduzione a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -56,13 +57,13 @@ Ad esempio, per informazioni della Guida per il cmdlet **Login-AzureRmAccount** 
 
 Si possono anche leggere le esercitazioni seguenti per acquisire familiarità con Gestione risorse di Azure in Azure PowerShell:
 
-* [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
 * [Utilizzo di Azure PowerShell con Gestione risorse](../powershell-azure-resource-manager.md)
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Connettersi alle sottoscrizioni
+## <a id="connect"></a>Connettersi alle sottoscrizioni
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:  
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 Si noti che se si usa un'istanza specifica di Azure, ad esempio Azure per enti pubblici, si dovrà usare il parametro -Environment con questo comando. Ad esempio: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
@@ -76,16 +77,16 @@ Quindi, per specificare la sottoscrizione da usare, digitare:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Creare un nuovo gruppo di risorse
+## <a id="resource"></a>Creare un nuovo gruppo di risorse
 Quando si usa Gestione risorse di Azure, tutte le risorse correlate vengono create in un gruppo di risorse. Per questa esercitazione verrà creato un nuovo gruppo di risorse denominato **ContosoResourceGroup** :
 
     New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
-## <a name="a-idvaultacreate-a-key-vault"></a><a id="vault"></a>Creare un insieme di credenziali chiave
-Usare il cmdlet [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx) per creare un insieme di credenziali delle chiavi. Questo cmdlet ha tre parametri obbligatori: un **nome di gruppo di risorse**, un **nome di insieme di credenziali delle chiavi** e la **località geografica**.
+## <a id="vault"></a>Creare un insieme di credenziali chiave
+Usare il cmdlet [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) per creare un insieme di credenziali delle chiavi. Questo cmdlet ha tre parametri obbligatori: un **nome di gruppo di risorse**, un **nome di insieme di credenziali delle chiavi** e la **località geografica**.
 
 Ad esempio, se si usa il nome di insieme di credenziali **ContosoKeyVault**, il nome di gruppo di risorse **ContosoResourceGroup** e la località **East Asia**, digitare:
 
@@ -99,12 +100,12 @@ L'output di questo cmdlet mostra le proprietà dell'insieme di credenziali delle
 L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo insieme di credenziali delle chiavi. Nessun altro lo è ancora.
 
 > [!NOTE]
-> Se viene visualizzato il messaggio di errore **La sottoscrizione non è registrata per l'uso dello spazio dei nomi 'Microsoft.KeyVault'** quando si prova a creare il nuovo insieme di credenziali delle chiavi, eseguire `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` e quindi eseguire nuovamente il comando New-AzureRmKeyVault. Per altre informazioni, vedere [Register-AzureRmResourceProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.300\).aspx).
-> 
-> 
+> Se viene visualizzato il messaggio di errore **La sottoscrizione non è registrata per l'uso dello spazio dei nomi 'Microsoft.KeyVault'** quando si prova a creare il nuovo insieme di credenziali delle chiavi, eseguire `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` e quindi eseguire nuovamente il comando New-AzureRmKeyVault. Per altre informazioni, vedere [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
+>
+>
 
-## <a name="a-idaddaadd-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>Aggiungere una chiave o un segreto all'insieme di credenziali chiave
-Per usare l'insieme di credenziali delle chiavi di Azure per creare automaticamente una chiave protetta tramite software, eseguire il cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) digitando quanto segue:
+## <a id="add"></a>Aggiungere una chiave o un segreto all'insieme di credenziali chiave
+Per usare l'insieme di credenziali delle chiavi di Azure per creare automaticamente una chiave protetta tramite software, eseguire il cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) digitando quanto segue:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -144,13 +145,13 @@ Ora si può visualizzare la chiave o il segreto appena creato:
 
 Ora l'insieme di credenziali delle chiavi e la chiave o il segreto sono pronti per essere usati dalle applicazioni. È necessario autorizzare le applicazioni a usarli.  
 
-## <a name="a-idregisteraregister-an-application-with-azure-active-directory"></a><a id="register"></a>Registrare un'applicazione con Azure Active Directory
+## <a id="register"></a>Registrare un'applicazione con Azure Active Directory
 Questo passaggio di solito viene eseguito da uno sviluppatore, su un computer separato. Anche se non è specifico dell'insieme di credenziali delle chiavi di Azure, viene incluso qui per completezza.
 
 > [!IMPORTANT]
 > Per completare l'esercitazione, l'account, l'insieme di credenziali e l'applicazione in cui si registrerà questo passaggio devono essere tutti nella stessa directory di Azure.
-> 
-> 
+>
+>
 
 Le applicazioni che usano un insieme di credenziali delle chiavi devono eseguire l'autenticazione con un token di Azure Active Directory. A tale scopo, il proprietario dell'applicazione deve innanzitutto registrare l'applicazione in Azure Active Directory. Al termine della registrazione, il proprietario dell'applicazione ottiene i valori seguenti:
 
@@ -169,8 +170,8 @@ Per registrare l'applicazione in Azure Active Directory:
 9. Scorrere fino alla sezione **chiavi**, selezionare la durata e quindi fare clic su **SALVA**. La pagina viene aggiornata e mostra un valore chiave. È necessario configurare l'applicazione con questo valore chiave e con il valore **ID CLIENT** . Le istruzioni per questa configurazione sono specifiche dell'applicazione.
 10. Copiare da questa pagina il valore dell'ID client che si userà nel passaggio successivo per impostare le autorizzazioni per l'insieme di credenziali.
 
-## <a name="a-idauthorizeaauthorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>Autorizzare l'applicazione a usare la chiave o il segreto
-Per autorizzare l'applicazione ad accedere alla chiave o al segreto nell'insieme di credenziali, usare il cmdlet  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx).
+## <a id="authorize"></a>Autorizzare l'applicazione a usare la chiave o il segreto
+Per autorizzare l'applicazione ad accedere alla chiave o al segreto nell'insieme di credenziali, usare il cmdlet  [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Ad esempio, se il nome dell'insieme di credenziali è **ContosoKeyVault** e l'applicazione da autorizzare ha un ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed e si vuole autorizzare l'applicazione a decrittografare e firmare con le chiavi dell'insieme di credenziali, digitare il comando seguente:
 
@@ -180,7 +181,7 @@ Se si desidera autorizzare la stessa applicazione per la lettura di tutti i segr
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
-## <a name="a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm"></a><a id="HSM"></a>Per usare un modulo di protezione hardware
+## <a id="HSM"></a>Per usare un modulo di protezione hardware
 Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati](#delete).
 
 Per creare queste chiavi protette dal modulo di protezione hardware, è necessario usare il [livello di servizio Premium dell'insieme di credenziali delle chiavi di Azure che supporta le chiavi protette dal modulo di protezione hardware](https://azure.microsoft.com/pricing/free-trial/). Si noti anche che questa funzionalità non è disponibile nella versione Azure per la Cina.
@@ -206,8 +207,8 @@ Il comando successivo importa un pacchetto "bring your own key" (BYOK). Questo s
 
 Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure](key-vault-hsm-protected-keys.md).
 
-## <a name="a-iddeleteadelete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati
-Se l'insieme di credenziali delle chiavi e la chiave o il segreto associato non sono più necessari, è possibile eliminare l'insieme di credenziali delle chiavi usando il cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx):
+## <a id="delete"></a>Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati
+Se l'insieme di credenziali delle chiavi e la chiave o il segreto associato non sono più necessari, è possibile eliminare l'insieme di credenziali delle chiavi usando il cmdlet [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault):
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -216,7 +217,7 @@ In alternativa, è possibile eliminare l'intero gruppo di risorse di Azure, che 
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
-## <a name="a-idotheraother-azure-powershell-cmdlets"></a><a id="other"></a>Altri cmdlet di Azure PowerShell
+## <a id="other"></a>Altri cmdlet di Azure PowerShell
 Altri comandi che potrebbero essere utili per la gestione dell'insieme di credenziali delle chiavi di Azure:
 
 * `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: questo comando ottiene una visualizzazione tabulare di tutte le chiavi e le proprietà selezionate.
@@ -225,18 +226,12 @@ Altri comandi che potrebbero essere utili per la gestione dell'insieme di creden
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: esempio di come rimuovere una chiave specifica.
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: esempio di come rimuovere un segreto specifico.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Passaggi successivi
+## <a id="next"></a>Passaggi successivi
 Per un'esercitazione successiva sull'uso dell'insieme di credenziali delle chiavi di Azure in un'applicazione Web, vedere [Usare l'insieme di credenziali delle chiavi di Azure da un'applicazione Web](key-vault-use-from-web-application.md).
 
 Per informazioni sull'uso dell'insieme di credenziali delle chiavi, vedere [Registrazione dell'insieme di credenziali delle chiavi di Azure](key-vault-logging.md).
 
-Per un elenco dei cmdlet di Azure PowerShell più recenti per l'insieme di credenziali delle chiavi di Azure, vedere [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.300\).aspx) (Cmdlet per l'insieme di credenziali delle chiavi di Azure). 
+Per un elenco dei cmdlet di Azure PowerShell più recenti per l'insieme di credenziali delle chiavi di Azure, vedere [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault) (Cmdlet per l'insieme di credenziali delle chiavi di Azure).
 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 18156086ca3eaf3ee99dfeb61096bc1eee49458b
-ms.openlocfilehash: 3d32518bed64ebe3dd1790bb511949624b5dcac1
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: deb528faa29a1e547286b0560d0f2b8decf3f90a
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -222,7 +222,7 @@ Usare uno strumento come [Esplora archivi di Microsoft Azure](http://storageexpl
 ![Rilevamento di illeciti: eventi illeciti visualizzati in tempo reale](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## <a name="get-support"></a>Supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

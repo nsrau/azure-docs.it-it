@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: f1827b183f6f2d878cfdf96eca2d0aea091aa310
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: b1be3955ac05028f3435cfe191857f81ddd2d4d7
+ms.lasthandoff: 04/29/2017
 
 ---
 
@@ -54,24 +54,6 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                     </div>
                     <div class="cardText">
                         <h3>Catalogo video di Archiviazione di Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/storage/storage-getting-started-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Informazioni di base sull'Archiviazione</h3>
                     </div>
                 </div>
             </div>
@@ -145,7 +127,7 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                         <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">BLOB, code, tabelle e file</a></p>
                         <p><a href="/rest/api/storagerp">Provider di risorse</a></p>
                         <p><a href="/rest/api/storageimportexport">Importazione/Esportazione</a></p>
-                        <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">API REST per i dati di archiviazione</a></p>
+                        <p><a href="/rest/api/storageservices">API REST per i dati di archiviazione</a></p>
                    </div>
                 </div>
             </div>

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 4c0c4f8c0d6c7cdc98406559f1cd36c87d33bf47
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 28896becae631eb316775e0904930f750bafa607
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,14 +33,14 @@ Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le con
 
 Le variabili di automazione vengono salvate in maniera permanente in modo da continuare a essere disponibili anche in caso di errore del runbook o della configurazione DSC.  In tal modo, è anche possibile impostare in un runbook un valore che verrà quindi usato da un altro runbook oppure dallo stesso runbook o configurazione DSC alla successiva esecuzione.     
 
-Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata.  Se una variabile viene crittografata, viene archiviata in modo sicuro in Automazione di Azure e non è possibile recuperarne il valore con il cmdlet [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) incluso nel modulo Azure PowerShell.  L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC.
+Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata.  Se una variabile viene crittografata, viene archiviata in modo sicuro in Automazione di Azure e non è possibile recuperarne il valore con il cmdlet [Get-AzureRmAutomationVariable](/powershell/module/azurerm.automation/get-azurermautomationvariable) incluso nel modulo Azure PowerShell.  L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC.
 
 > [!NOTE]
 > Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata mediante il certificato master e viene quindi usata per crittografare l'asset.
 
 ## <a name="variable-types"></a>Tipi di variabile
 
-Quando si crea una variabile con il portale di Azure, è necessario selezionare un tipo di dati nell'elenco a discesa, in modo che nel portale possa essere visualizzato il controllo appropriato per immettere il valore della variabile. La variabile non è limitata a questo tipo di dati, ma è necessario impostarla usando Windows PowerShell se si intende specificare un valore di tipo diverso. Se si specifica **Non definito**, il valore della variabile verrà impostato su **$null** e sarà necessario impostare il valore con il cmdlet [Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) o l'attività **Set-AutomationVariable**.  Non è possibile creare o modificare il valore per un tipo di variabile complesso nel portale, ma è possibile indicare un valore di qualsiasi tipo usando Windows PowerShell. I tipi complessi verranno restituiti come [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
+Quando si crea una variabile con il portale di Azure, è necessario selezionare un tipo di dati nell'elenco a discesa, in modo che nel portale possa essere visualizzato il controllo appropriato per immettere il valore della variabile. La variabile non è limitata a questo tipo di dati, ma è necessario impostarla usando Windows PowerShell se si intende specificare un valore di tipo diverso. Se si specifica **Non definito**, il valore della variabile verrà impostato su **$null** e sarà necessario impostare il valore con il cmdlet [Set-AzureAutomationVariable](/powershell/module/azurerm.automation/set-azurermautomationvariable) o l'attività **Set-AutomationVariable**.  Non è possibile creare o modificare il valore per un tipo di variabile complesso nel portale, ma è possibile indicare un valore di qualsiasi tipo usando Windows PowerShell. I tipi complessi verranno restituiti come [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
 
 È possibile archiviare più valori in una singola variabile creando una matrice o una tabella hash e salvandola nella variabile.
 
@@ -57,14 +57,14 @@ Di seguito è riportato un elenco dei tipi di variabile disponibili in Automazio
 
 ## <a name="cmdlets-and-workflow-activities"></a>Cmdlet e attività flusso di lavoro
 
-I cmdlet della tabella seguente vengono usati per creare e gestire variabili di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs), disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
+I cmdlet della tabella seguente vengono usati per creare e gestire variabili di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](/powershell/azure/overview), disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
 
 |Cmdlet|Descrizione|
 |:---|:---|
-|[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Recupera il valore di una variabile esistente.|
-|[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Crea una nuova variabile e ne imposta il valore.|
-|[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Rimuove una variabile esistente.|
-|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Imposta il valore di una variabile esistente.|
+|[Get-AzureRmAutomationVariable](/powershell/module/azurerm.automation/get-azurermautomationvariable)|Recupera il valore di una variabile esistente.|
+|[New-AzureRmAutomationVariable](/powershell/module/azurerm.automation/new-azurermautomationvariable)|Crea una nuova variabile e ne imposta il valore.|
+|[Remove-AzureRmAutomationVariable](/powershell/module/azurerm.automation/remove-azurermautomationvariable)|Rimuove una variabile esistente.|
+|[Set-AzureRmAutomationVariable](/powershell/module/azurerm.automation/set-azurermautomationvariable)|Imposta il valore di una variabile esistente.|
 
 Le attività flusso di lavoro incluse nella tabella seguente vengono usate per accedere alle variabili di automazione in un runbook. Sono disponibili per l'uso solo in un runbook o configurazione DSC e non vengono fornite come parte del modulo Azure PowerShell.
 
@@ -88,7 +88,7 @@ Le attività flusso di lavoro incluse nella tabella seguente vengono usate per a
 
 ### <a name="to-create-a-variable-with-windows-powershell"></a>Per creare una variabile con Windows PowerShell
 
-Il cmdlet [New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) crea una variabile e ne imposta il valore iniziale. È possibile recuperare il valore usando [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Se il valore è di tipo semplice, verrà restituito lo stesso tipo. Se è di tipo complesso, verrà restituito un **PSCustomObject** .
+Il cmdlet [New-AzureRmAutomationVariable](/powershell/module/azurerm.automation/new-azurermautomationvariable) crea una variabile e ne imposta il valore iniziale. È possibile recuperare il valore usando [Get-AzureRmAutomationVariable](/powershell/module/azurerm.automation/get-azurermautomationvariable). Se il valore è di tipo semplice, verrà restituito lo stesso tipo. Se è di tipo complesso, verrà restituito un **PSCustomObject** .
 
 I comandi di esempio seguenti mostrano come creare una variabile di tipo stringa e restituirne il valore.
 
@@ -111,7 +111,7 @@ I comandi di esempio seguenti mostrano come creare una variabile di tipo comples
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>Uso di una variabile in un Runbook o in una configurazione DSC
 
-Usare l'attività **Set-AutomationVariable** per impostare il valore di una variabile di automazione in un runbook o una configurazione DSC e **Get-AutomationVariable** per recuperarlo.  Non è consigliabile usare i cmdlet **Set-AzureAutomationVariable** o **Get-AzureAutomationVariable** in un runbook o una configurazione DSC perché sono meno efficienti rispetto alle attività flusso di lavoro.  Non è inoltre possibile recuperare il valore delle variabili sicure con **Get-AzureAutomationVariable**.  L'unico modo per creare una variabile dall'interno di un runbook o di una configurazione DSC consiste nell'usare il cmdlet [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
+Usare l'attività **Set-AutomationVariable** per impostare il valore di una variabile di automazione in un runbook o una configurazione DSC e **Get-AutomationVariable** per recuperarlo.  Non è consigliabile usare i cmdlet **Set-AzureAutomationVariable** o **Get-AzureAutomationVariable** in un runbook o una configurazione DSC perché sono meno efficienti rispetto alle attività flusso di lavoro.  Non è inoltre possibile recuperare il valore delle variabili sicure con **Get-AzureAutomationVariable**.  L'unico modo per creare una variabile dall'interno di un runbook o di una configurazione DSC consiste nell'usare il cmdlet [New-AzureAutomationVariable](/powershell/module/azure/new-azureautomationvariable?view=azuresmps-3.7.0).
 
 
 ### <a name="textual-runbook-samples"></a>Esempi di runbook testuali

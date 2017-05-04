@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bc60fde6c299bc98aa4ee3a207cd57b6b050765f
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Per questa esercitazione occorrono:
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versione 13.0.700.242 o successive.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o versioni successive (nel computer client).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs) versione 1.0 o successiva. Digitare **(Get-Module azure -ListAvailable).Version** per verificare quale versione di PowerShell è in esecuzione.
+* [Azure PowerShell](/powershell/azure/overview) versione 1.0 o successiva. Digitare **(Get-Module azure -ListAvailable).Version** per verificare quale versione di PowerShell è in esecuzione.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Abilitare l'applicazione client per accedere al servizio di database SQL
 È necessario abilitare l'applicazione client per accedere al servizio del database SQL tramite la configurazione dell'autenticazione richiesta e l'acquisizione di *ClientId* e *Secret*, necessari per autenticare l'applicazione nel codice seguente.

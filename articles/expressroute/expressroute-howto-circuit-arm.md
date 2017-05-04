@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 15c08c950bc1dcd620f2943885e427991585d817
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7254217bc6a7b782eb19c8f062c46923dc5e7506
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/13/2017
 Questo articolo illustra i passaggi per creare un circuito ExpressRoute di Azure tramite i cmdlet di PowerShell e il modello di distribuzione Azure Resource Manager. L'articolo descrive anche le procedure di controllo di stato, aggiornamento, eliminazione e deprovisioning del circuito.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni, vedere la [panoramica di Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni, vedere la [panoramica di Azure PowerShell](/powershell/azure/overview).
 * Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
 
 

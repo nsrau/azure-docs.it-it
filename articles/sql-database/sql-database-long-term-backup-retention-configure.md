@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 5dee922184f0160d21da58b4aac321011df76ee9
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5fea9dfcd323ecf497742173a66119be4f734909
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -154,7 +154,7 @@ Nelle sezioni seguenti viene illustrato come usare PowerShell per configurare l'
 
 ### <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
-Usare [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault?view=azurermps-3.7.0) per creare un nuovo insieme di credenziali dei servizi di ripristino.
+Usare [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) per creare un nuovo insieme di credenziali dei servizi di ripristino.
 
 > [!IMPORTANT]
 > L'insieme di credenziali deve trovarsi nella stessa area del server logico di Azure SQL e deve usare lo stesso gruppo di risorse del server logico.
@@ -173,7 +173,7 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 
 ### <a name="set-your-server-to-use-the-recovery-vault-for-its-long-term-retention-backups"></a>Impostare il server per usare l'insieme di credenziali di ripristino per i backup con conservazione a lungo termine
 
-Usare il cmdlet [Set-AzureRmSqlServerBackupLongTermRetentionVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverbackuplongtermretentionvault) per associare un insieme di credenziali dei servizi di ripristino creato in precedenza a un server di Azure SQL specifico.
+Usare il cmdlet [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) per associare un insieme di credenziali dei servizi di ripristino creato in precedenza a un server di Azure SQL specifico.
 
 ```PowerShell
 # Set your server to use the vault to for long-term backup retention 
@@ -183,10 +183,10 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 ### <a name="create-a-retention-policy"></a>Creare un criterio di conservazione
 
-Un criterio di conservazione consente di impostare per quanto tempo mantenere il backup di un database. Usare il cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) per ottenere il criterio di conservazione predefinito usato come modello per la creazione di criteri. In questo modello il periodo di conservazione è di 2 anni. Eseguire quindi [New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/new-azurermrecoveryservicesbackupprotectionpolicy) per creare i criteri. 
+Un criterio di conservazione consente di impostare per quanto tempo mantenere il backup di un database. Usare il cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) per ottenere il criterio di conservazione predefinito usato come modello per la creazione di criteri. In questo modello il periodo di conservazione è di 2 anni. Eseguire quindi [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) per creare i criteri. 
 
 > [!NOTE]
-> Per alcuni cmdlet è necessario impostare il contesto dell'insieme di credenziali prima dell'esecuzione ([Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesvaultcontext)), pertanto questo cmdlet è presente in alcuni frammenti correlati. Il contesto viene impostato perché i criteri fanno parte dell'insieme di credenziali. È possibile creare più criteri di conservazione per ogni insieme di credenziali e quindi applicare il criterio desiderato a database specifici. 
+> Per alcuni cmdlet è necessario impostare il contesto dell'insieme di credenziali prima dell'esecuzione ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)), pertanto questo cmdlet è presente in alcuni frammenti correlati. Il contesto viene impostato perché i criteri fanno parte dell'insieme di credenziali. È possibile creare più criteri di conservazione per ogni insieme di credenziali e quindi applicare il criterio desiderato a database specifici. 
 
 
 ```PowerShell
@@ -208,7 +208,7 @@ $policy
 
 ### <a name="configure-a-database-to-use-the-previously-defined-retention-policy"></a>Configurare un database per usare il criterio di conservazione definito prima
 
-Usare il cmdlet [Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqldatabasebackuplongtermretentionpolicy) per applicare i nuovi criteri a un database specifico.
+Usare il cmdlet [Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasebackuplongtermretentionpolicy) per applicare i nuovi criteri a un database specifico.
 
 ```PowerShell
 # Enable long-term retention for a specific SQL database
@@ -225,9 +225,9 @@ Visualizzare informazioni sui backup del database nella [conservazione backup a 
 
 Usare i cmdlet seguenti per visualizzare le informazioni di backup:
 
-- [Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupcontainer)
-- [Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupitem)
-- [Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackuprecoverypoint)
+- [Get-AzureRmRecoveryServicesBackupContainer](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)
+- [Get-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)
+- [Get-AzureRmRecoveryServicesBackupRecoveryPoint](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)
 
 ```PowerShell
 #$resourceGroupName = "{resource-group-name}"
@@ -252,7 +252,7 @@ $availableBackups
 
 ### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Ripristinare un database da un backup nella conservazione dei backup a lungo termine
 
-Il ripristino dalla conservazione backup a lungo termine usa il cmdlet [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/restore-azurermsqldatabase).
+Il ripristino dalla conservazione backup a lungo termine usa il cmdlet [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 ```PowerShell
 # Restore the most recent backup: $availableBackups[0]

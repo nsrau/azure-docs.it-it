@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d12b1522e1935e4e9ebefd1a49fdfda8b339286c
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 823d1155bc011466d0f3bd0ccd8650be161fd28b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,26 +30,26 @@ Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specific
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlet di Windows PowerShell
-I cmdlet della tabella seguente vengono usati per creare e gestire pianificazioni con Windows PowerShell in Automazione di Azure. Vengono forniti nel [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs).
+I cmdlet della tabella seguente vengono usati per creare e gestire pianificazioni con Windows PowerShell in Automazione di Azure. Vengono forniti nel [modulo Azure PowerShell](/powershell/azure/overview).
 
 | Cmdlet | Descrizione |
 |:--- |:--- |
 | **Cmdlet di Azure Resource Manager** | |
-| [Get-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603733.aspx) |Recupera una pianificazione. |
-| [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) |Crea una nuova pianificazione. |
-| [Remove-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603691.aspx) |Rimuove una pianificazione. |
-| [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) |Imposta le proprietà di una pianificazione esistente. |
-| [Get-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt619406.aspx) |Recupera i runbook pianificati. |
-| [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) |Associa un runbook a una pianificazione. |
-| [Unregister-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603844.aspx) |Annulla l'associazione di un runbook a una pianificazione. |
+| [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Recupera una pianificazione. |
+| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Crea una nuova pianificazione. |
+| [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Rimuove una pianificazione. |
+| [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Imposta le proprietà di una pianificazione esistente. |
+| [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/set-azurermautomationscheduledrunbook) |Recupera i runbook pianificati. |
+| [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Associa un runbook a una pianificazione. |
+| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Annulla l'associazione di un runbook a una pianificazione. |
 | **Cmdlet di gestione dei servizi di Azure** | |
-| [Get-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690274.aspx) |Recupera una pianificazione. |
-| [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx) |Crea una nuova pianificazione. |
-| [Remove-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690279.aspx) |Rimuove una pianificazione. |
-| [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690270.aspx) |Imposta le proprietà di una pianificazione esistente. |
-| [Get-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn913778.aspx) |Recupera i runbook pianificati. |
-| [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn690265.aspx) |Associa un runbook a una pianificazione. |
-| [Unregister-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn690273.aspx) |Annulla l'associazione di un runbook a una pianificazione. |
+| [Get-AzureAutomationSchedule](/powershell/module/azure/get-azureautomationschedule?view=azuresmps-3.7.0) |Recupera una pianificazione. |
+| [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) |Crea una nuova pianificazione. |
+| [Remove-AzureAutomationSchedule](/powershell/module/azure/remove-azureautomationschedule?view=azuresmps-3.7.0) |Rimuove una pianificazione. |
+| [Set-AzureAutomationSchedule](/powershell/module/azure/set-azureautomationschedule?view=azuresmps-3.7.0) |Imposta le proprietà di una pianificazione esistente. |
+| [Get-AzureAutomationScheduledRunbook](/powershell/module/azure/get-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Recupera i runbook pianificati. |
+| [Register-AzureAutomationScheduledRunbook](/powershell/module/azure/register-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Associa un runbook a una pianificazione. |
+| [Unregister-AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Annulla l'associazione di un runbook a una pianificazione. |
 
 ## <a name="creating-a-schedule"></a>Creazione di una pianificazione
 È possibile creare una nuova pianificazione per i runbook nel portale di Azure, nel portale classico o con Windows PowerShell. È anche possibile creare una nuova pianificazione quando si collega un runbook a una pianificazione usando il portale di Azure classico o il portale di Azure.
@@ -74,7 +75,7 @@ I cmdlet della tabella seguente vengono usati per creare e gestire pianificazion
 6. Specificare un valore per il campo **Ora inizio** e altre opzioni a seconda del tipo di pianificazione selezionato.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Per creare una nuova pianificazione con Windows PowerShell
-È possibile usare il cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx) per creare una nuova pianificazione in Automazione di Azure per i runbook classici oppure il cmdlet [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) per i runbook nel portale di Azure. È necessario specificare l'ora di inizio per la pianificazione e la frequenza di esecuzione.
+È possibile usare il cmdlet [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) per creare una nuova pianificazione in Automazione di Azure per i runbook classici oppure il cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) per i runbook nel portale di Azure. È necessario specificare l'ora di inizio per la pianificazione e la frequenza di esecuzione.
 
 I comandi di esempio seguenti illustrano come creare una pianificazione per i giorni 15 e 30 di ogni mese usando un cmdlet di Azure Resource Manager.
 
@@ -109,7 +110,7 @@ Un runbook può essere collegato a più pianificazioni e a una pianificazione po
 6. Se il runbook include parametri, verrà chiesto di inserire i relativi valori.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Per collegare una pianificazione a un runbook con Windows PowerShell
-È possibile usare il cmdlet [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) per collegare una pianificazione a un runbook classico o il cmdlet [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) per i runbook nel portale di Azure.  È possibile specificare i valori per i parametri del runbook con il parametro Parameters. Per altre informazioni su come specificare i valori dei parametri, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) .
+È possibile usare il cmdlet [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) per collegare una pianificazione a un runbook classico o il cmdlet [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) per i runbook nel portale di Azure.  È possibile specificare i valori per i parametri del runbook con il parametro Parameters. Per altre informazioni su come specificare i valori dei parametri, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) .
 
 I comandi di esempio seguenti mostrano come collegare una pianificazione a un runbook usando un cmdlet di Azure Resource Manager con parametri.
 
@@ -147,7 +148,7 @@ Quando si disabilita una pianificazione, i runbook a essa collegati non vengono 
 4. Impostare **Abilitata** su **No**.
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>Per disabilitare una pianificazione con Windows PowerShell
-È possibile usare il cmdlet [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) per modificare le proprietà di una pianificazione esistente per un runbook classico o il cmdlet [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) per i runbook nel portale di Azure. Per disabilitare la pianificazione, specificare **false** per il parametro **IsEnabled**.
+È possibile usare il cmdlet [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) per modificare le proprietà di una pianificazione esistente per un runbook classico o il cmdlet [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) per i runbook nel portale di Azure. Per disabilitare la pianificazione, specificare **false** per il parametro **IsEnabled**.
 
 I comandi di esempio seguenti mostrano come disabilitare una pianificazione per un runbook usando un cmdlet di Azure Resource Manager.
 
@@ -165,10 +166,5 @@ I comandi di esempio seguenti mostrano come disabilitare una pianificazione usan
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per iniziare a usare i runbook in Automazione di Azure, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

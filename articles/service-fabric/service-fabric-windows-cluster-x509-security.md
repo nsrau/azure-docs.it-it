@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 2bca90f45e994752ddc3569635ea053f9ef1adaf
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 51ed17ab8f036f00b285232500dc9f606f2a7e2f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -271,7 +271,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-È quindi possibile eseguire altri comandi di PowerShell per usare questo cluster. È possibile, ad esempio, usare il comando [Get-ServiceFabricNode](/powershell/servicefabric/vlatest/get-servicefabricnode.md) per visualizzare un elenco di nodi nel cluster protetto.
+È quindi possibile eseguire altri comandi di PowerShell per usare questo cluster. È possibile, ad esempio, usare il comando [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps) per visualizzare un elenco di nodi nel cluster protetto.
 
 
 Per rimuovere il cluster, connettersi al nodo del cluster in cui è stato scaricato il pacchetto di Service Fabric, aprire una riga di comando e passare alla cartella del pacchetto. Eseguire ora il comando seguente:

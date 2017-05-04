@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 316a4b185f63cae15f50c89b17fb9850e3db0651
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19a95e0299f49d908fa666f23637f5a4cc1d9c96
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +37,7 @@ Se si usa PowerShell, verificare di avere la versione più recente del modulo di
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/powershell/azure/overview).
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Aggiungere un disco dati vuoto a una macchina virtuale

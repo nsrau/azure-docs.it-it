@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 393bc1ad782b072f3b27eeeb3e4149ec8ab64252
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 74301d651ae96588e5fd076900aada198c76deb0
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -91,7 +91,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
     John, Doe
     Jane, Doe
     ```
-2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
+2. Usare strumenti come [Azure Storage Explorer](http://storageexplorer.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
     ![Azure Storage Explorer Copiare dati da un archivio BLOB al database SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.  
@@ -112,6 +112,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 
     Se il client non è autorizzato ad accedere al server di Azure SQL, è necessario configurare il firewall per il server di Azure SQL in modo da consentire l'accesso dal computer (indirizzo IP). Per informazioni sulla procedura per configurare il firewall per il server Azure SQL, vedere [questo articolo](../sql-database/sql-database-configure-firewall-settings.md) .
 
+## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 I passaggi relativi ai prerequisiti sono stati completati. È possibile creare un data factory usando uno dei seguenti metodi. Per eseguire l'esercitazione, fare clic su una delle opzioni nell'elenco a discesa in alto oppure sui collegamenti indicati qui di seguito.     
 
 * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
@@ -126,3 +127,4 @@ I passaggi relativi ai prerequisiti sono stati completati. È possibile creare u
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Non trasforma i dati di input per produrre dati di output. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare la prima pipeline per elaborare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
 > 
 > È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
+

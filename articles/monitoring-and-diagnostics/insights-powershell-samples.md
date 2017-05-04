@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 66848eee215732803a1070e13d56f35b17e54975
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8165147d9ff811b26f7fe2626c892f2aba5bb4f8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -30,7 +30,7 @@ Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamen
 > 
 
 ## <a name="set-up-powershell"></a>Configurare PowerShell
-Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per altre informazioni, vedere [Come installare e configurare PowerShell](/powershell/azureps-cmdlets-docs) .
+Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per altre informazioni, vedere [Come installare e configurare PowerShell](/powershell/azure/overview) .
 
 ## <a name="examples-in-this-article"></a>Esempi in questo articolo
 Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure. È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).

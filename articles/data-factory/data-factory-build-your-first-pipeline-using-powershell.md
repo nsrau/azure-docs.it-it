@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c7062721017176b4caacbd48a513c2610058b835
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,8 +41,8 @@ In questo articolo viene usato Azure PowerShell per creare la prima data factory
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi relativi ai **prerequisiti** .
-* Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per installare la versione più recente di Azure PowerShell nel computer.
-* (facoltativo) Questo articolo non illustra tutti i cmdlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) per la documentazione completa sui cmdlet di Data factory.
+* Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per installare la versione più recente di Azure PowerShell nel computer.
+* (facoltativo) Questo articolo non illustra tutti i cmdlet di Data factory. Vedere [Riferimento ai cmdlet di Data factory](/powershell/module/azurerm.datafactories) per la documentazione completa sui cmdlet di Data factory.
 
 ## <a name="create-data-factory"></a>Creare un'istanza di Data Factory
 In questo passaggio è possibile usare Azure PowerShell per creare una data factory di Azure denominata **FirstDataFactoryPSH**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input. In questo passaggio iniziale viene creata la data factory.
@@ -409,7 +409,7 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 ## <a name="see-also"></a>Vedere anche
 | Argomento | Descrizione |
 |:--- |:--- |
-| [Informazioni di riferimento sui cmdlet di Data factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) |Vedere la documentazione completa sui cmdlet di Data factory |
+| [Informazioni di riferimento sui cmdlet di Data factory](/powershell/module/azurerm.datafactories) |Vedere la documentazione completa sui cmdlet di Data factory |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |

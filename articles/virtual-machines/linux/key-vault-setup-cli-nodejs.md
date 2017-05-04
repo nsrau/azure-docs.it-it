@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b55ad97235a05bd579177c7ef944bca801a6aaae
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -32,7 +32,7 @@ In Azure Resource Manager gli stack, i segreti e i certificati vengono modellati
 - [Interfaccia della riga di comando di Azure 2.0](../windows/key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 ## <a name="use-cli-10-to-set-up-key-vault"></a>Usare l'interfaccia della riga di comando 1.0 per impostare l'insieme di credenziali delle chiavi
-Per creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando (CLI), vedere l'articolo su come [gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+Per creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando (CLI), vedere l'articolo su come [gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
 Per l'interfaccia della riga di comando 1.0, prima di assegnare il criterio di distribuzione è necessario creare l'insieme di credenziali delle chiavi. È quindi possibile assegnare il criterio usando il comando seguente:
 
@@ -54,5 +54,4 @@ Se si usa un modello, è necessario impostare la proprietà `enabledForDeploymen
     }
 
 Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi utilizzando i modelli, vedere l'articolo su come [creare un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-
 

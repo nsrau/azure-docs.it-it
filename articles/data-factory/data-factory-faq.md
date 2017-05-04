@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 14b7900a8b4fbf86e8a814def6fa8c7915832376
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6af34cf24a8fb7d2dd8f4c44392e0e6c3ed46b1a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -95,7 +95,12 @@ L'impostazione di configurazione **availability** della tabella dati di output d
 Le pipeline sono state progettate per aggregare attività correlate. Se i set di dati che si interconnettono non vengono usati da altre attività esterne alla pipeline, è possibile mantenere le attività in un'unica pipeline. In questo modo non sarà necessario concatenare periodi attivi della pipeline per allinearli reciprocamente. Ciò consentirà anche di mantenere meglio l'integrità dei dati delle tabelle interne alla pipeline durante l'aggiornamento di quest'ultima. Essenzialmente, l'aggiornamento arresta tutte le attività nella pipeline, le rimuove e le crea di nuovo. Dal punto di vista della creazione, potrebbe anche risultare più semplice visualizzare il flusso di dati entro le attività correlate in un file JSON per la pipeline.
 
 ### <a name="what-are-the-supported-data-stores"></a>Quali sono gli archivi dati supportati?
+L'attività di copia in Data Factory esegue la copia dei dati da un archivio dati di origine a un archivio dati sink. Data Factory supporta gli archivi dati seguenti. I dati da qualsiasi origine possono essere scritti in qualsiasi sink. Fare clic su un archivio dati per informazioni su come copiare dati da e verso tale archivio.
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+> [!NOTE]
+> Gli archivi dati contrassegnati da un asterisco (*) possono essere locali o in IaaS di Azure e richiederanno l'installazione del [Gateway di gestione dati](data-factory-data-management-gateway.md) in un computer IaaS locale o in Azure.
 
 ### <a name="what-are-the-supported-file-formats"></a>Quali sono i formati di file supportati?
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
@@ -151,7 +156,7 @@ Pipeline 1: dataset4->activity4->dataset5
 Se la proprietà esterna è impostata correttamente, verificare che i dati di input siano presenti nel percorso specificato nella definizione del set di dati di input.
 
 ### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>In che modo è possibile eseguire una sezione in un momento diverso dalla mezzanotte quando tale sezione viene prodotta ogni giorno?
-Usare la proprietà **offset** per specificare l'ora di produzione della sezione. Per altre informazioni su questa proprietà, vedere [Disponibilità dei set di dati](data-factory-create-datasets.md#Availability) . Di seguito è riportato un rapido esempio:
+Usare la proprietà **offset** per specificare l'ora di produzione della sezione. Per altre informazioni su questa proprietà, vedere [Disponibilità dei set di dati](data-factory-create-datasets.md#dataset-availability) . Di seguito è riportato un rapido esempio:
 
 ```json
 "availability":
@@ -188,7 +193,7 @@ Per conoscere la durata dell'elaborazione di una sezione di dati, usare Activity
 6. Nel campo **DURATA** dovrebbe essere visualizzato un valore, ovvero il tempo impiegato per elaborare la sezione.   
 
 ### <a name="how-to-stop-a-running-slice"></a>In che modo è possibile interrompere una sezione in esecuzione?
-Se è necessario interrompere l'esecuzione della pipeline, è possibile usare il cmdlet [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) . La sospensione della pipeline attualmente non interrompe le esecuzioni di sezioni in corso. Al termine delle esecuzioni in corso non verranno eseguite altre sezioni.
+Se è necessario interrompere l'esecuzione della pipeline, è possibile usare il cmdlet [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) . La sospensione della pipeline attualmente non interrompe le esecuzioni di sezioni in corso. Al termine delle esecuzioni in corso non verranno eseguite altre sezioni.
 
 L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste nell'eliminare la pipeline e crearla di nuovo. Se si sceglie di eliminare la pipeline, NON sarà necessario eliminare le tabelle e i servizi collegati usati da essa.
 

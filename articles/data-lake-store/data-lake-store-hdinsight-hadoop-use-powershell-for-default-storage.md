@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: fe8a84d7e6d88f11498c288e0424ba204d7f06fd
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0053f93218e9fec4d72fb229bfb2c6159d8b5bc7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,7 +44,7 @@ Per configurare HDInsight per il funzionamento con Data Lake Store usando PowerS
 Prima di iniziare l'esercitazione, verificare di soddisfare i requisiti seguenti:
 
 * **Sottoscrizione di Azure**: passare a [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 o versione successiva**: vedere l'articolo su [come installare e configurare PowerShell](/powershell/azureps-cmdlets-docs).
+* **Azure PowerShell 1.0 o versione successiva**: vedere l'articolo su [come installare e configurare PowerShell](/powershell/azure/overview).
 * **Windows Software Development Kit (SDK)**: per installare Windows SDK, passare a [Download e strumenti per Windows 10](https://dev.windows.com/en-us/downloads). Windows SDK è necessario per creare un certificato di sicurezza.
 * **Entità servizio Azure Active Directory**: questa esercitazione descrive come creare un'entità servizio in Azure Active Directory (Azure AD). Tuttavia, per creare un'entità servizio è necessario essere un amministratore di Azure AD. Se si è un amministratore, è possibile ignorare questo prerequisito e procedere con l'esercitazione.
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8560f91ed42855b4bfe935e858a6ff932a6f6274
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ea5546a636bd567853438ae2620ae24ce2d7da23
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -54,7 +54,7 @@ Le altre proprietà corrispondono a quelle dei gateway non active-active.
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 * Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
-* È necessario installare i cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione di cmdlet PowerShell, vedere [Overview of Azure PowerShell](/powershell/azureps-cmdlets-docs) (Panoramica di Azure PowerShell).
+* È necessario installare i cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione di cmdlet PowerShell, vedere [Overview of Azure PowerShell](/powershell/azure/overview) (Panoramica di Azure PowerShell).
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Passaggio 1: Creare e configurare VNet1
 #### <a name="1-declare-your-variables"></a>1. Dichiarare le variabili

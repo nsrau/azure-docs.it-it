@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2e26bd81c59fd53a0e8fc693dde30cb403995896
-ms.openlocfilehash: 38d37e45c34c8c0a3bd2ed94f72944208292f466
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ce6d8301c9c9fc0b9ac6bc2e31023ebbbba8a67c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -292,7 +292,7 @@ Il valore restituito è simile a uno degli esempi seguenti:
     Il valore restituito è simile a `/clusters/CLUSTERNAME/`. Questo valore è un percorso all'interno dell'account Data Lake Store. Questo percorso è la radice del file system compatibile con HDFS per il cluster. 
 
 > [!NOTE]
-> Il cmdlet `Get-AzureRmHDInsightCluster` messo a disposizione da [Azure PowerShell](https://docs.microsoft.com/powershell/) restituisce anche le informazioni di archiviazione per il cluster.
+> Il cmdlet `Get-AzureRmHDInsightCluster` messo a disposizione da [Azure PowerShell](/powershell/azure/overview) restituisce anche le informazioni di archiviazione per il cluster.
 
 
 ## <a name="example-get-configuration"></a>Esempio: ottenere una configurazione

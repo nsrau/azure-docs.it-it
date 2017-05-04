@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 408dfd655db7a4a5fa33920e0c8bc8b7a065e886
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: d47a28b31569d26a7752fc830989e8050153be46
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +47,7 @@ Sono disponibili _SDK per servizi_ per più linguaggi che consentono di creare [
 Il [portale di Microsoft Azure](https://portal.azure.com) è una posizione centrale in cui è possibile effettuare il provisioning e gestire le risorse di Azure. Organizza il contenuto usando i _pannelli_. In alcune esercitazioni su Hub IoT è possibile che venga chiesto di usare il [portale di Azure classico](https://manage.windowsazure.com).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs) è una raccolta di cmdlet che è possibile usare per gestire Azure con Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure.
+[Azure PowerShell](/powershell/azure/overview) è una raccolta di cmdlet che è possibile usare per gestire Azure con Windows PowerShell. È possibile utilizzare i cmdlet per creare, testare, distribuire e gestire soluzioni e servizi offerti tramite la piattaforma Azure.
 
 ## <a name="azure-resource-manager"></a>Gestione risorse di Azure
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare le risorse della soluzione con un'unica operazione coordinata.
@@ -257,3 +257,4 @@ I dispositivi raccolgono dati di telemetria, ad esempio la velocità del vento o
 
 ## <a name="x509-client-certificate"></a>Certificato client X.509
 Un dispositivo può usare un certificato X.509 per autenticarsi con [Hub IoT](#iot-hub). Usare un certificato X.509 è un'alternativa all'uso di un [token di firma di accesso condiviso](#shared-access-signature).
+

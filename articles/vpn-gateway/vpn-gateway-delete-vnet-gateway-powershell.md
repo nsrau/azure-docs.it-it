@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d2bb2422a8458f1577c14bad8d24d8c9cb3ead1b
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f3b464350f027bb1966638542fcc64d6fdc00a71
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ Esistono due diversi approcci quando si desidera eliminare un gateway di rete vi
 ## <a name="before-beginning"></a>Prima di iniziare
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Scaricare i più recenti cmdlet PowerShell di Azure Resource Manager.
-Scaricare e installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni su come scaricare e installare i cmdlet PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Scaricare e installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni su come scaricare e installare i cmdlet PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Connettersi all'account di Azure. 
 Aprire la console di PowerShell e connettersi al proprio account. Per eseguire la connessione, usare gli esempi che seguono:
@@ -325,3 +325,4 @@ Il risultato restituito mostra "Operazione riuscita".
     ResourceGroupName : RG1
     Location          : eastus
     ProvisioningState : Succeeded
+

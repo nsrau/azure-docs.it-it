@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,11 +35,11 @@ Dopo aver creato una o più credenziali delle chiavi, può essere utile monitora
 Usare questa esercitazione per un'introduzione all'uso della registrazione dell'insieme di credenziali delle chiavi di Azure, per creare l'account di archiviazione, abilitare la registrazione e interpretare le informazioni di registrazione raccolte.  
 
 > [!NOTE]
-> Questa esercitazione non include istruzioni per la creazione di insiemi di credenziali delle chiavi, chiavi o segreti. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). In alternativa, per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli.md).
-> 
+> Questa esercitazione non include istruzioni per la creazione di insiemi di credenziali delle chiavi, chiavi o segreti. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). In alternativa, per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli2.md).
+>
 > Attualmente non è possibile configurare l'insieme di credenziali delle chiavi di Azure nel portale di Azure. Usare invece queste istruzioni per Azure PowerShell.
-> 
-> 
+>
+>
 
 Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
 
@@ -47,7 +47,7 @@ Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Insieme di credenziali delle chiavi esistente e già in uso.  
-* Azure PowerShell **versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell **versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.  
 * Spazio di archiviazione sufficiente in Azure per i log dell'insieme di credenziali delle chiavi.
 
 ## <a id="connect"></a>Connettersi alle sottoscrizioni
@@ -66,11 +66,11 @@ Per specificare quindi la sottoscrizione associata all'insieme di credenziali de
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
 > [!NOTE]
-> Si tratta di un passaggio importante e risulta particolarmente utile se si hanno più sottoscrizioni associate all'account. Se questo passaggio viene ignorato potrebbe essere visualizzato un messaggio di errore che chiede di eseguire la registrazione di Microsoft.Insights. 
+> Si tratta di un passaggio importante e risulta particolarmente utile se si hanno più sottoscrizioni associate all'account. Se questo passaggio viene ignorato potrebbe essere visualizzato un messaggio di errore che chiede di eseguire la registrazione di Microsoft.Insights.
 >   
 >
 
-Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="storage"></a>Creare un nuovo account di archiviazione per i log
 Anche se è possibile usare un account di archiviazione esistente per i log, si creerà un nuovo account di archiviazione dedicato ai log dell'insieme di credenziali delle chiavi. Per praticità, si archivieranno i dettagli in una variabile denominata **sa**, in modo che siano disponibili quando sarà necessario specificarli in seguito.
@@ -82,8 +82,8 @@ Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di 
 
 > [!NOTE]
 > Se si sceglie di usare un account di archiviazione esistente, questo dovrà usare la stessa sottoscrizione dell'insieme di credenziali delle chiavi e il modello di distribuzione Resource Manager, anziché il modello di distribuzione classica.
-> 
-> 
+>
+>
 
 ## <a id="identify"></a>Identificare l'insieme di credenziali delle chiavi per i log
 Nell'esercitazione introduttiva, il nome dell'insieme di credenziali delle chiavi è **ContosoKeyVault**, quindi si continuerà a usarlo e si archivieranno i dettagli in una variabile denominata **kv**:
@@ -168,13 +168,13 @@ Quando si esegue questo secondo comando, il delimitatore **/** nei nomi dei BLOB
 Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio:
 
 * Se sono disponibili più insiemi di credenziali delle chiavi e si vogliono scaricare i log per un solo insieme di credenziali delle chiavi denominato CONTOSOKEYVAULT3, usare:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 * Se sono disponibili più gruppi di risorse e si vogliono scaricare i log per un solo gruppo di risorse, usare `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 * Per scaricare tutti i log per il mese di gennaio 2016, usare `-Blob '*/year=2016/m=01/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
 A questo punto si può iniziare a osservare il contenuto dei log. Prima di continuare, ci sono altri due parametri di Get-AzureRmDiagnosticSetting che può essere necessario conoscere:
@@ -272,8 +272,7 @@ Per un'esercitazione sull'uso dell'insieme di credenziali delle chiavi di Azure 
 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
-Per un elenco di cmdlet di Azure PowerShell 1.0 per l'insieme di credenziali delle chiavi di Azure, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
+Per un elenco di cmdlet di Azure PowerShell 1.0 per l'insieme di credenziali delle chiavi di Azure, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](/powershell/module/azurerm.keyvault/#key_vault).
 
 Per un'esercitazione sulla rotazione delle chiavi e il controllo dei log con l'insieme di credenziali delle chiavi di Azure, vedere [Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](key-vault-key-rotation-log-monitoring.md).
-
 

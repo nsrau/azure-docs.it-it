@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: e2d70bbb2af4231a9ba7e4d9a843593ff5d9f7d3
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ec3c593c0fb6a92b65284285b330e20f788b84c5
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +42,7 @@ Questo articolo è applicabile alle VM e alle interfacce di rete create con il m
 
 Le sezioni rimanenti di questo articolo illustrano come completare tutte le attività correlate alle interfacce di rete. Ogni sezione elenca:
 - La procedura per completare l'attività nel portale di Azure. Per completare la procedura è necessario accedere al [portale di Azure](http://portal.azure.com). È possibile iscriversi per [ottenere un account di valutazione gratuito](https://azure.microsoft.com/free), se non se ne ha già uno.
-- Comandi per completare l'attività usando Azure PowerShell con collegamenti al riferimento per il comando. Installare e configurare Azure PowerShell eseguendo i passaggi descritti nell'articolo sull'[installazione e la configurazione di Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Per informazioni ed esempi relativi ai comandi di PowerShell, digitare `get-help <command> -full`.
+- Comandi per completare l'attività usando Azure PowerShell con collegamenti al riferimento per il comando. Installare e configurare Azure PowerShell eseguendo i passaggi descritti nell'articolo sull'[installazione e la configurazione di Azure PowerShell](/powershell/azure/overview). Per informazioni ed esempi relativi ai comandi di PowerShell, digitare `get-help <command> -full`.
 - Comandi per completare l'attività usando l'interfaccia della riga di comando di Azure con collegamenti al riferimento per il comando. Per installare l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo sull'[installazione e la configurazione dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Per informazioni sui comandi dell'interfaccia della riga di comando, digitare `az <command> -h`.
 
 ## <a name="nics"></a>Interfacce di rete
@@ -78,7 +78,7 @@ Il portale di Azure crea una configurazione IP primaria denominata **ipconfig1**
 |**Strumento**|**Comando**|
 |:---|:---|
 |**CLI**|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[New-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermnetworkinterface/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|**PowerShell**|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/nic)|
 
 ### <a name="view-nics"></a>Visualizzare e modificare le interfacce e le impostazioni di rete
 
@@ -100,7 +100,7 @@ Per visualizzare e modificare le interfacce e le impostazioni di rete, seguire q
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az network nic list](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) per visualizzare le interfacce di rete nella sottoscrizione; [az network nic show](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) per visualizzare le impostazioni di un'interfaccia di rete|
-|**PowerShell**|[Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) per visualizzare le interfacce di rete nella sottoscrizione o le impostazioni di un'interfaccia di rete|
+|**PowerShell**|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) per visualizzare le interfacce di rete nella sottoscrizione o le impostazioni di un'interfaccia di rete|
 
 ### <a name="dns"></a>Modificare le impostazioni DNS per un'interfaccia di rete
 
@@ -116,7 +116,7 @@ Per modificare le impostazioni DNS di un'interfaccia di rete seguire questa proc
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ### <a name="ip-forwarding"></a>Modificare l'inoltro IP per un'interfaccia di rete
 
@@ -136,7 +136,7 @@ Per modificare le impostazioni di inoltro IP di un'interfaccia di rete seguire q
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ### <a name="subnet"></a>Modificare la subnet a cui è connessa un'interfaccia di rete
 
@@ -153,7 +153,7 @@ Per modificare le impostazioni di inoltro IP di un'interfaccia di rete seguire q
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 
 ### <a name="delete-nic"></a>Eliminare un'interfaccia di rete
@@ -169,7 +169,7 @@ Quando si elimina un'interfaccia di rete vengono rilasciati tutti gli indirizzi 
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|**PowerShell**|[Remove-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.1.0/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## <a name="ip-configs"></a>Configurazioni IP
 Ogni interfaccia di rete ha almeno una configurazione IP, denominata configurazione **primaria**. Un'interfaccia di rete può anche avere una o più configurazioni IP *secondarie* associate. È previsto un limite al numero di indirizzi IP che possono essere assegnati a un'interfaccia di rete. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Ogni configurazione IP:
@@ -205,7 +205,7 @@ L'assegnazione di più indirizzi IP a un'interfaccia di rete è utile per gli sc
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
 
 ### <a name="change-ip-config"></a>Modificare una configurazione IP
 
@@ -225,7 +225,7 @@ Per modificare le impostazioni degli indirizzi IP privati e pubblici per qualsia
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ### <a name="delete-ip-config"></a>Eliminare una configurazione IP secondaria da un'interfaccia di rete
 
@@ -239,7 +239,7 @@ Seguire questa procedura per eliminare una configurazione IP secondaria da un'in
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|**PowerShell**|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
 
 
 ## <a name="nsgs"></a>Gruppi di sicurezza di rete
@@ -259,7 +259,7 @@ Per associare un gruppo di sicurezza di rete a un'interfaccia di rete oppure dis
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="vms"></a>Collegare e scollegare interfacce di rete da una macchina virtuale
 
@@ -286,7 +286,7 @@ Per associare un gruppo di sicurezza di rete a un'interfaccia di rete oppure dis
 Non è possibile collegare interfacce di rete esistenti a una nuova VM oppure creare una VM con più interfacce di rete tramite il portale di Azure. È possibile usare i seguenti comandi dell'interfaccia della riga di comando di Azure o di PowerShell per collegare una o più interfacce di rete durante la creazione di una VM:
 
 - **Interfaccia della riga di comando:** [az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)
-- **PowerShell:** [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- **PowerShell:** [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)
 
 ### <a name="vm-view-nic"></a> Visualizzare le interfacce di rete collegate a una macchina virtuale
 
@@ -298,21 +298,21 @@ Non è possibile collegare interfacce di rete esistenti a una nuova VM oppure cr
 |**Strumento**|**Comando**|
 |---|---|
 |**CLI**|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|**PowerShell**|[Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v1.3.4/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm)|
 
 ### <a name="vm-attach-nic"></a>Collegare un'interfaccia di rete a una macchina virtuale esistente
 
 La VM alla quale collegare un'interfaccia di rete deve supportare più interfacce di rete ed essere arrestata (deallocata). Non è possibile collegare interfacce di rete a una VM esistente tramite il portale di Azure. È possibile usare i seguenti comandi dell'interfaccia della riga di comando di Azure o di PowerShell per collegare interfacce di rete alle VM:
 
 - **Interfaccia della riga di comando:** [az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add)
-- **PowerShell:** [Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- **PowerShell:** [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface)
 
 ### <a name="vm-detach-nic"></a>Scollegare un'interfaccia di rete da una macchina virtuale esistente
 
 La VM dalla quale si vuole scollegare un'interfaccia di rete deve essere arrestata (deallocata) e avere attualmente almeno due interfacce di rete collegate. È possibile scollegare qualsiasi interfaccia di rete, ma la VM deve essere sempre almeno un'interfaccia di rete collegata. Se si scollega un'interfaccia di rete primaria, Azure assegnerà l'attributo di interfaccia primaria a all'interfaccia di rete rimanente che è collegata alla VM da più tempo. È anche possibile designare autonomamente l'interfaccia di rete primaria. Non è possibile scollegare interfacce di rete da una VM o impostare l'attributo di interfaccia primaria per un'interfaccia di rete tramite il portale di Azure, ma è possibile eseguire entrambe le operazioni usando l'interfaccia della riga di comando o PowerShell. È possibile usare i seguenti comandi dell'interfaccia della riga di comando di Azure o di PowerShell per scollegare interfacce di rete dalle VM:
 
 - **Interfaccia della riga di comando:** [az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)
-- **PowerShell:** [Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- **PowerShell:** [Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per creare una VM con più interfacce di rete o configurazioni IP usando gli script, vedere gli articoli seguenti:

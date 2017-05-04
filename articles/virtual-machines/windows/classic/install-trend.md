@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4387dc52b756e919c482deacf826ebafd3709126
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e2ccb78da419b12a9845d720efb5b0229d4f455b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -59,7 +59,7 @@ Quando si raggiunge il pannello **Impostazioni** della procedura guidata, seguir
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Installare Deep Security Agent in una VM esistente
 Per installare l'agente in una VM esistente, è necessario quanto segue:
 
-* Il modulo Azure PowerShell 0.8.2 o versioni successive installato nel computer locale. È possibile controllare la versione di Azure PowerShell installata con il comando **Get-Module azure | format-table version** . Per istruzioni e un collegamento alla versione più recente, vedere l'argomento relativo alla [modalità di installazione e configurazione di Azure PowerShell](/powershell/azureps-cmdlets-docs). Effettuare l'accesso alla sottoscrizione di Azure usando `Add-AzureAccount`.
+* Il modulo Azure PowerShell 0.8.2 o versioni successive installato nel computer locale. È possibile controllare la versione di Azure PowerShell installata con il comando **Get-Module azure | format-table version** . Per istruzioni e un collegamento alla versione più recente, vedere l'argomento relativo alla [modalità di installazione e configurazione di Azure PowerShell](/powershell/azure/overview). Effettuare l'accesso alla sottoscrizione di Azure usando `Add-AzureAccount`.
 * L'agente di macchine virtuali installato nella macchina virtuale di destinazione.
 
 Verificare innanzitutto che l'agente di macchine virtuali sia già installato. Specificare il nome del servizio cloud e il nome della macchina virtuale, quindi eseguire i comandi seguenti a un prompt dei comandi di Azure PowerShell di livello amministratore. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >.

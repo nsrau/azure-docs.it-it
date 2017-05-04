@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 4036c994cb5be68b372a4f244f65a17ce173ecc2
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 78bb4826a8c487576a06b3fd3c9fab333be72ace
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -62,7 +62,7 @@ Il seguente comando recupera il livello delle metriche orarie corrente e i giorn
 Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
-Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere: [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere: [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>Come abilitare Metriche di archiviazione a livello di codice
 Il frammento C# seguente illustra come abilitare le metriche e la registrazione per il servizio BLOB con la libreria del client di archiviazione per .NET:
@@ -215,3 +215,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Abilitazione di Registrazione archiviazione e accesso ai dati di log](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
+

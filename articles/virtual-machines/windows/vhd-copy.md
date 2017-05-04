@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1e897d98f561b24eafb95dfb620c3b5c7622ba0a
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1b2b013fb29c66817aab2ea5e63917b59726b4e8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,14 +31,14 @@ Questo articolo illustra come usare lo strumento AZCopy per creare una copia del
 ## <a name="before-you-begin"></a>Prima di iniziare
 Verificare quanto segue:
 
-* Disporre delle informazioni sugli **account di archiviazione di origine e destinazione**. Per la VM di origine è necessario disporre dei nomi degli account di archiviazione e dei contenitori. In genere il nome del contenitore sarà **vhds**. È inoltre necessario disporre di un account di archiviazione di destinazione. Se non si dispone già di un account di archiviazione, è possibile crearne uno usando il portale (**Servizi** > Account di archiviazione > Aggiungi) oppure mediante il cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx). 
-* Avere installato Azure [PowerShell 1.0](/powershell/azureps-cmdlets-docs) (o versione successiva).
+* Disporre delle informazioni sugli **account di archiviazione di origine e destinazione**. Per la VM di origine è necessario disporre dei nomi degli account di archiviazione e dei contenitori. In genere il nome del contenitore sarà **vhds**. È inoltre necessario disporre di un account di archiviazione di destinazione. Se non si dispone già di un account di archiviazione, è possibile crearne uno usando il portale (**Servizi** > Account di archiviazione > Aggiungi) oppure mediante il cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
+* Avere installato Azure [PowerShell 1.0](/powershell/azure/overview) (o versione successiva).
 * Avere scaricato e installato lo [strumento AzCopy](../../storage/storage-use-azcopy.md). 
 
 ## <a name="deallocate-the-vm"></a>Deallocare la VM
 Deallocare la VM, operazione che consente di liberare il disco rigido virtuale da copiare. 
 
-* **Portale**: fare clic su **Macchine virtuali** > **myVM** > Stop (Termina)
+* **Portale**: fare clic su  **Macchine virtuali** > **myVM** > Stop (Termina)
 * **PowerShell**: `Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM` dealloca la VM denominata **myVM** nel gruppo di risorse **myResourceGroup**.
 
 Nel portale di Azure lo **Stato** della VM passa da **Interrotto** a **Arrestato (deallocato)**.

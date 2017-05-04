@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: monicar
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1842d55e2275560581cf2766cdf74e0939e68c98
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1cf6be168c3e87bfd567c216679f608593673340
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,8 +47,8 @@ Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usa
 [Interfaccia della riga di comando](cli-install-nodejs.md) che può essere usata per la gestione dei servizi di Azure da PC Windows, OSX e Linux.
 
 ### <a name="powershell"></a>Azure PowerShell
-[Interfaccia della riga di comando](/powershell/azureps-cmdlets-docs) per la gestione dei servizi di Azure tramite la riga di comando da PC Windows. Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa.   
-Vedere anche [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
+[Interfaccia della riga di comando](/powershell/azure/overview) per la gestione dei servizi di Azure tramite la riga di comando da PC Windows. Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa.   
+Vedere anche [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
 
 ### <a name="arm-model"></a>modello di distribuzione Azure Resource Manager
 Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usati per la distribuzione delle risorse in Microsoft Azure. L'altro è il modello di distribuzione classica. Alcune risorse di Azure possono essere distribuite con uno dei due modelli, mentre altre possono essere distribuite con entrambi i modelli. Il materiale sussidiario delle singole risorse di Azure offre informazioni dettagliate sul modello o sui modelli con cui è possibile distribuire una risorsa.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 9134b5893413abbc49e2332651fb4a8b549ce559
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8bea98274f94853cb52fe8b51fdaa4f224c649e4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,11 +33,11 @@ ms.lasthandoff: 03/31/2017
 - - -
 Prima di tutto scaricare i cmdlet di Azure PowerShell [qui](http://go.microsoft.com/?linkid=9811175). I cmdlet di RemoteApp sono inclusi. 
 
-Vedere la [guida dei cmdlet di Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
+Vedere la [guida dei cmdlet di Azure RemoteApp](/powershell/module/azure?view=azuresmps-3.7.0).
 
 ## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>Configurare i cmdlet di Azure per usare la sottoscrizione
 - - -
-Seguire [questa guida](/powershell/azureps-cmdlets-docs) per poter usare i cmdlet con la sottoscrizione di Azure.
+Seguire [questa guida](/powershell/azure/overview) per poter usare i cmdlet con la sottoscrizione di Azure.
 
 Per iniziare rapidamente è possibile eseguire questi passaggi:
 

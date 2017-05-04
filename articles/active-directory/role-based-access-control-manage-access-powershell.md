@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32c6224b36c73394c6bbd2aa5f6439f54f39f306
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,8 +31,8 @@ ms.lasthandoff: 03/04/2017
 
 Prima di usare PowerShell per gestire il controllo degli accessi in base al ruolo, è necessario avere i prerequisiti seguenti:
 
-* Azure PowerShell 0.8.8 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Cmdlet di Azure Resource Manager Installare i [cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
+* Azure PowerShell 0.8.8 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+* Cmdlet di Azure Resource Manager Installare i [cmdlet di Azure Resource Manager](/powershell/azure/overview) in PowerShell.
 
 ## <a name="list-roles"></a>Elenco dei ruoli
 ### <a name="list-all-available-roles"></a>Elencare tutti i ruoli disponibili
@@ -87,7 +87,7 @@ Per elencare le assegnazioni dell'accesso per l'amministratore e i coamministrat
 ### <a name="search-for-object-ids"></a>Cercare gli ID oggetto
 Per assegnare un ruolo, è necessario identificare l'oggetto (utente, gruppo o applicazione) e l'ambito.
 
-Se non si conosce l'ID sottoscrizione, è possibile reperire tale informazione nel pannello **Sottoscrizioni** nel portale di Azure. Per informazioni su come eseguire una query per l'ID della sottoscrizione,vedere [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) (Get-AzureSubscription) in MSDN.
+Se non si conosce l'ID sottoscrizione, è possibile reperire tale informazione nel pannello **Sottoscrizioni** nel portale di Azure. Per informazioni su come eseguire una query per l'ID della sottoscrizione,vedere [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) (Get-AzureSubscription) in MSDN.
 
 Per ottenere l'ID oggetto per un gruppo di Azure AD, usare:
 

@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 05/01/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: c75c6ed40754aee964e2b68f4f569dc1422507f2
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Configurare Multipath I/O in host Windows Server per l'array virtuale StorSimple
@@ -45,7 +46,7 @@ Questa sezione illustra nel dettaglio i prerequisiti di configurazione dell'host
 ### <a name="on-storsimple-virtual-array"></a>Dall'array virtuale StorSimple
 * L'array virtuale deve essere configurato come un server iSCSI. Per maggiori informazioni, vedere [Configurare l'array virtuale come server iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md). Sull'array devono essere configurate una o più interfacce di rete.   
 * Le interfacce di rete dell'array virtuale devono essere raggiungibili da un host Windows Server.
-* È necessario creare uno o più volumi sull'array virtuale StorSimple. Per altre informazioni, vedere l'[aggiunta di un volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume) nell'array virtuale StorSimple. In questa procedura sono stati creati 3 volumi (1 aggiunto localmente e 2 a più livelli come illustrato di seguito) sull'array virtuale.
+* È necessario creare uno o più volumi sull'array virtuale StorSimple. Per altre informazioni, vedere l'[aggiunta di un volume](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume) nell'array virtuale StorSimple. In questa procedura sono stati creati 3 volumi (1 aggiunto localmente e 2 a più livelli come illustrato di seguito) sull'array virtuale.
   
     ![mpio0](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio0.png)
 
@@ -156,10 +157,5 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nell'array Sto
    
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sull'[uso del servizio Gestione dispositivi StorSimple per amministrare l'array virtuale StorSimple](storsimple-virtual-array-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

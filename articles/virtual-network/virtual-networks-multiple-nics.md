@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5e91f640ab72fd3a5fffcb0f9d7bac1e9e031249
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5b26aecc7b9797d7bf604ea5e3d8bdece5bea17b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,7 +77,7 @@ Per tentare di eseguire i comandi PowerShell riportati nell’esempio sono neces
 
 * Una sottoscrizione di Azure.
 * Una rete virtuale configurata. Per altre informazioni sulle reti virtuali, vedere [Panoramica di Rete virtuale](virtual-networks-overview.md) .
-* La versione più recente di Azure PowerShell scaricata e installata. Vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* La versione più recente di Azure PowerShell scaricata e installata. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 Per creare una VM con più schede di interfaccia di rete, completare i passaggi seguenti immettendo ogni comando in una singola sessione di PowerShell:
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: ericor
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: dcf897cfb03316312613a641f1758cd4636d06b7
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b93861bc6277aaca5954bf9f4c338fed22a0c3fc
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -30,7 +30,7 @@ Dopo aver creato o aggiornato con le modifiche l'immagine modello personalizzata
 
 ## <a name="before-you-start"></a>Prima di iniziare
 1. Verificare che l'immagine personalizzata soddisfi i [requisiti dell'immagine](remoteapp-imagereqs.md) e i [requisiti dell'applicazione](remoteapp-appreqs.md).
-2. Installare il [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs).
+2. Installare il [modulo Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-by-step-on-how-to-upload-custom-image"></a>Istruzioni dettagliate su come caricare un'immagine personalizzata
 1. Aprire il portale di gestione di Azure e passare alla pagina RemoteApp.

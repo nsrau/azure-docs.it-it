@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/16/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 41d9476d4ce6b7afc2ba9c757e96db7e8e72d5ae
-ms.openlocfilehash: a77354d0719240e5916b5ec945dad75e534802d3
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3b3162c335be43c9bf2a3d1c14b86cdd9b5d46b9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ Nelle sezioni seguenti viene illustrato come eseguire questa procedura con [Powe
 
 ## <a name="powershell"></a>PowerShell
 
-1. Per installare Azure PowerShell vedere [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Guida introduttiva ai cmdlet di Azure PowerShell).
+1. Per installare Azure PowerShell vedere [Get started with Azure PowerShell cmdlets](/powershell/azure/overview) (Guida introduttiva ai cmdlet di Azure PowerShell).
 
 2. Per iniziare a usare rapidamente la distribuzione, usare i cmdlets seguenti:
 

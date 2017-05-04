@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: f3b16dcb6f48a2c9f9784f677ca2133837a56ca6
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5489762a7a392e4e4098d85cba22d560e9858267
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: f3b16dcb6f48a2c9f9784f677ca2133837a56ca6
 
 Prima di iniziare è necessario notare quanto segue:
 
-1. Questa esercitazione usa PowerShell ed è quindi necessario assicurarsi che Azure PowerShell sia installato e pronto per l'uso. Per ottenere informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Questa esercitazione usa PowerShell ed è quindi necessario assicurarsi che Azure PowerShell sia installato e pronto per l'uso. Per ottenere informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 2. Il controller di dominio di AD e le istanze dei ruoli Web/di lavoro devono essere presenti nella VNet.
 
 Seguire questa guida dettagliata e in caso di problemi inserire commenti alla fine dell'articolo. I commenti verranno letti e verrà fornita assistenza.
@@ -155,9 +156,4 @@ I servizi cloud dovrebbero essere stati aggiunti al controller di dominio person
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

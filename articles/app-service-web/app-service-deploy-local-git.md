@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 657554ee3929572632dc007d1a6500e59e2a6b97
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6e476e1dc550f246027c015dee75850236baa9a9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -160,7 +160,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 * [Documentazione su Git](http://git-scm.com/documentation)
 * [Documentazione del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Distribuzione continua nel servizio app di Azure](app-service-continuous-deployment.md)
-* [Come usare PowerShell per Azure](/powershell/azureps-cmdlets-docs)
+* [Come usare PowerShell per Azure](/powershell/azure/overview)
 * [Come usare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 
 [servizio app di Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/

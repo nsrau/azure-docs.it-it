@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 562e20d274079d221360d45302ff288190c1cd6e
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f9e97bb2352231b46bdf66b1165bf22ec639fddf
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Dopo aver letto l'articolo, l'utente sarà in grado di:
 
 > [!NOTE]
 > * I cmdlet di Windows PowerShell per StorSimple consentono di gestire il dispositivo StorSimple da una console seriale o in remoto tramite la comunicazione remota di Windows PowerShell. Per ulteriori informazioni su ciascuno dei singoli cmdlet che può essere utilizzato in questa interfaccia andare alla [documentazione di riferimento dei cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet che consentono di automatizzare le attività StorSimple a livello di servizio e di migrazione dalla riga di comando. Per ulteriori informazioni sui cmdlet di Azure PowerShell per StorSimple, andare alla [documentazione di riferimento dei cmdlet di Azure StorSimple](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
+> * I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet che consentono di automatizzare le attività StorSimple a livello di servizio e di migrazione dalla riga di comando. Per ulteriori informazioni sui cmdlet di Azure PowerShell per StorSimple, andare alla [documentazione di riferimento dei cmdlet di Azure StorSimple](/powershell/module/azure/?view=azuresmps-3.7.0).
 > 
 > 
 
@@ -138,11 +139,11 @@ La tabella seguente illustra un riepilogo di tutte le attività di gestione comu
 | Se si desidera eseguire questa operazione... | Usare questa procedura. |
 | --- | --- |
 | Registrazione del dispositivo |[Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
-| Configurare il proxy web </br> Visualizzare le impostazioni del proxy web |[Configurare il proxy web per il dispositivo StorSimple](storsimple-configure-web-proxy.md) |
+| Configurare il proxy web </br>Visualizzare le impostazioni del proxy web |[Configurare il proxy web per il dispositivo StorSimple](storsimple-configure-web-proxy.md) |
 | Modifica delle impostazioni dell'interfaccia di rete DATA 0 sul dispositivo |[Modificare le impostazioni dell'interfaccia di rete DATA 0 per il dispositivo StorSimple](storsimple-modify-data-0.md) |
 | Arrestare un controller  </br> Riavviare o arrestare un controller </br> Arrestare un dispositivo</br>Ripristinare le impostazioni predefinite di fabbrica del dispositivo |[Gestire i controller dei dispositivi](storsimple-manage-device-controller.md) |
 | Installazione degli aggiornamenti in modalità di manutenzione e rapidi |[Aggiornare il dispositivo](storsimple-update-device.md) |
-| Inserire la modalità di manutenzione  </br> Uscire dalla modalità di manutenzione |[Modalità del dispositivo StorSimple](storsimple-device-modes.md) |
+| Inserire la modalità di manutenzione  </br>Uscire dalla modalità di manutenzione |[Modalità del dispositivo StorSimple](storsimple-device-modes.md) |
 | Creare un pacchetto di supporto</br>Decrittografare e modificare un pacchetto di supporto |[Creare e gestire un pacchetto di supporto](storsimple-create-manage-support-package.md) |
 | Avviare una sessione di supporto </br> |[Avviare una sessione di supporto in Windows PowerShell per StorSimple](storsimple-create-manage-support-package.md#manually-create-a-support-package) |
 
@@ -174,10 +175,5 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si riscontrano problemi relativi al dispositivo StorSimple durante l'esecuzione di uno dei flussi di lavoro riportati in precedenza, fare riferimento a [Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

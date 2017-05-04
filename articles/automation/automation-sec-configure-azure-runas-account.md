@@ -19,9 +19,9 @@ ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -245,7 +245,7 @@ Per risolvere rapidamente questi problemi relativi all'account RunAs, è possibi
 Di seguito sono riportati i prerequisiti dello script:
 
 * Lo script può essere eseguito solo in Windows 10 e Windows Server 2016 con i moduli di Azure Resource Manager 2.01 e versioni successive. Non sono supportate le versioni precedenti di Windows.
-* Azure PowerShell 1.0 e versioni successive. Per informazioni su PowerShell 1.0, vedere [come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 e versioni successive. Per informazioni su PowerShell 1.0, vedere [come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * Un account di automazione, a cui viene fatto riferimento come valore per i parametri *-AutomationAccountName* e *-ApplicationDisplayName* nello script di PowerShell seguente.
 
 Per ottenere i valori per i parametri *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, obbligatori per gli script, seguire questa procedura:
@@ -515,7 +515,7 @@ Al termine dell'esecuzione dello script, tenere presente quanto segue:
          }
     }
 
-Per poter lavorare facilmente in più sottoscrizioni, lo script include due righe di codice aggiuntive che supportano il riferimento al contesto di una sottoscrizione. Un asset della variabile denominato *SubscriptionId* contiene l'ID della sottoscrizione. Dopo l'istruzione del cmdlet `Add-AzureRmAccount`, il cmdlet [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) viene dichiarato con il set di parametri *-SubscriptionId*. Se il nome della variabile è troppo generico, è possibile modificarlo includendo un prefisso o usando un'altra convenzione di denominazione per identificarla più facilmente. In alternativa, è possibile usare il set di parametri *-SubscriptionName* anziché *-SubscriptionId* con un asset della variabile corrispondente.
+Per poter lavorare facilmente in più sottoscrizioni, lo script include due righe di codice aggiuntive che supportano il riferimento al contesto di una sottoscrizione. Un asset della variabile denominato *SubscriptionId* contiene l'ID della sottoscrizione. Dopo l'istruzione del cmdlet `Add-AzureRmAccount`, il cmdlet [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) viene dichiarato con il set di parametri *-SubscriptionId*. Se il nome della variabile è troppo generico, è possibile modificarlo includendo un prefisso o usando un'altra convenzione di denominazione per identificarla più facilmente. In alternativa, è possibile usare il set di parametri *-SubscriptionName* anziché *-SubscriptionId* con un asset della variabile corrispondente.
 
 Il cmdlet `Add-AzureRmAccount` usato per l'autenticazione nel runbook usa il set di parametri *ServicePrincipalCertificate* ed esegue l'autenticazione usando il certificato dell'entità servizio, anziché le credenziali utente.
 

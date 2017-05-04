@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d2887e255e59c164bb6d733988053f514a118c7b
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 35a86a91ee60a81b5c743067fcd97da0f2dcc8f1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -359,7 +359,7 @@ Al termine del caricamento del file PFX, distribuire un certificato disponibile 
  ```
 
 #### <a name="set-up-the-key-vault-access-policy-for-the-azure-ad-application"></a>Configurare i criteri di accesso per l'insieme di credenziali delle chiavi per l'applicazione Azure AD
-L'applicazione Azure AD deve avere i diritti di accesso alle chiavi o ai segreti nell'insieme di credenziali. Usare il cmdlet [`Set-AzureKeyVaultAccessPolicy`](https://msdn.microsoft.com/library/azure/dn903607.aspx) per concedere le autorizzazioni all'applicazione con l'ID client, generato al momento della registrazione dell'applicazione, come valore del parametro _–ServicePrincipalName_. Per altre informazioni, vedere il post di blog [Azure Key Vault - Step by Step](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) (Procedura dettagliata per Azure Key Vault). Ecco un esempio dell'esecuzione di questa attività tramite PowerShell:
+L'applicazione Azure AD deve avere i diritti di accesso alle chiavi o ai segreti nell'insieme di credenziali. Usare il cmdlet [`Set-AzureKeyVaultAccessPolicy`](/powershell/module/azure/set-azurekeyvaultaccesspolicy?view=azuresmps-3.7.0) per concedere le autorizzazioni all'applicazione con l'ID client, generato al momento della registrazione dell'applicazione, come valore del parametro _–ServicePrincipalName_. Per altre informazioni, vedere il post di blog [Azure Key Vault - Step by Step](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) (Procedura dettagliata per Azure Key Vault). Ecco un esempio dell'esecuzione di questa attività tramite PowerShell:
 
     $keyVaultName = '<yourKeyVaultName>'
     $aadClientID = '<yourAadAppClientID>'
@@ -382,7 +382,7 @@ Per informazioni su alcuni dei termini comuni usati da questa tecnologia, vedere
 | CLI | Vedere [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) è il sottosistema di crittografia del disco trasparente basato su Linux usato per abilitare la crittografia del disco nelle macchine virtuali IaaS Linux. |
 | KEK | La chiave di crittografia della chiave (KEK, Key Encryption Key) è la chiave asimmetrica (RSA 2048) che è possibile usare per proteggere o per eseguire il wrapping del segreto. È possibile fornire una chiave protetta tramite modulo di protezione hardware o una chiave protetta tramite software. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
-| Cmdlet PS | Vedere [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Cmdlet di Azure PowerShell). |
+| Cmdlet PS | Vedere [Azure PowerShell cmdlets](/powershell/azure/overview) (Cmdlet di Azure PowerShell). |
 
 ### <a name="set-up-and-configure-your-key-vault-for-azure-disk-encryption"></a>Installare e configurare l'insieme di credenziali delle chiavi per Crittografia dischi di Azure
 Crittografia dischi di Azure consente di proteggere le chiavi di crittografia e i segreti dei dischi nell'insieme di credenziali delle chiavi. Per configurare l'insieme di credenziali delle chiavi per Crittografia dischi di Azure, completare i passaggi in ogni sezione seguente.
@@ -391,7 +391,7 @@ Crittografia dischi di Azure consente di proteggere le chiavi di crittografia e 
 Per creare un insieme di credenziali delle chiavi, usare una delle opzioni seguenti:
 
 * [Modello di Resource Manager "101-Key-Vault-Create"](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-* [Azure PowerShell key vault cmdlets](https://msdn.microsoft.com/library/dn868052.aspx) (Cmdlet dell'insieme di credenziali delle chiavi di Azure PowerShell)
+* [Azure PowerShell key vault cmdlets](/powershell/module/azurerm.keyvault/#key_vault) (Cmdlet dell'insieme di credenziali delle chiavi di Azure PowerShell)
 * Gestione risorse di Azure
 * Come [proteggere l'insieme di credenziali delle chiavi](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
 
@@ -401,7 +401,7 @@ Per creare un insieme di credenziali delle chiavi, usare una delle opzioni segue
 ![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
 
 #### <a name="set-up-a-key-encryption-key-optional"></a>Configurare una chiave di crittografia della chiave (facoltativo)
-Se si vuole usare una chiave di crittografia della chiave per un livello aggiuntivo di sicurezza per le chiavi di crittografia BitLocker aggiungere una chiave di crittografia della chiave all'insieme di credenziali delle chiavi. Usare il cmdlet [`Add-AzureKeyVaultKey`](https://msdn.microsoft.com/library/dn868048.aspx) per creare una chiave di crittografia della chiave nell'insieme di credenziali delle chiavi. È anche possibile importare una chiave di crittografia della chiave dal modulo di protezione hardware di gestione delle chiavi locale. Per altre informazioni, vedere la [Documentazione su Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
+Se si vuole usare una chiave di crittografia della chiave per un livello aggiuntivo di sicurezza per le chiavi di crittografia BitLocker aggiungere una chiave di crittografia della chiave all'insieme di credenziali delle chiavi. Usare il cmdlet [`Add-AzureKeyVaultKey`](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) per creare una chiave di crittografia della chiave nell'insieme di credenziali delle chiavi. È anche possibile importare una chiave di crittografia della chiave dal modulo di protezione hardware di gestione delle chiavi locale. Per altre informazioni, vedere la [Documentazione su Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
 
     Add-AzureKeyVaultKey [-VaultName] <string> [-Name] <string> -Destination <string> {HSM | Software}
 
@@ -494,7 +494,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per il di
 | vmName | Nome della VM IaaS. |
 
 #### <a name="using-powershell-cmdlets"></a>Usare i cmdlet PowerShell
-È possibile abilitare la crittografia dei dischi nel disco rigido virtuale crittografato usando il cmdlet [`Set-AzureRmVMOSDisk`](https://msdn.microsoft.com/library/azure/mt603746.aspx) di PowerShell.  
+È possibile abilitare la crittografia dei dischi nel disco rigido virtuale crittografato usando il cmdlet [`Set-AzureRmVMOSDisk`](/powershell/module/azurerm.compute/set-azurermvmosdisk) di PowerShell.  
 
 #### <a name="using-cli-commands"></a>Uso dei comandi dell'interfaccia della riga di comando
 Eseguire queste operazioni per abilitare la crittografia dei dischi per questo scenario con i comandi dell'interfaccia della riga di comando:
@@ -630,7 +630,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>Ottenere lo stato della crittografia di una VM IaaS crittografata
-È possibile ottenere lo stato della crittografia usando Azure Resource Manager, i [cmdlet di PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) o i comandi dell'interfaccia della riga di comando. Le sezioni seguenti illustrano come usare il portale di Azure classico e i comandi dell'interfaccia della riga di comando per ottenere lo stato della crittografia.
+È possibile ottenere lo stato della crittografia usando Azure Resource Manager, i [cmdlet di PowerShell](/powershell/azure/overview) o i comandi dell'interfaccia della riga di comando. Le sezioni seguenti illustrano come usare il portale di Azure classico e i comandi dell'interfaccia della riga di comando per ottenere lo stato della crittografia.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Ottenere lo stato della crittografia di una VM Windows crittografata usando Azure Resource Manager
 È possibile ottenere lo stato di crittografia della macchina virtuale IaaS da Azure Resource Manager seguendo questa procedura:
@@ -713,7 +713,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per la di
 | sequenceVersion | Versione della sequenza dell'operazione BitLocker. Incrementare questo numero di versione ogni volta che viene eseguita un'operazione di decrittografia dei dischi nella stessa VM. |
 
 ##### <a name="disable-encryption-on-an-existing-or-running-iaas-vm"></a>Disabilitare la crittografia in una macchina virtuale IaaS esistente o in esecuzione
-Per disabilitare la crittografia in una VM IaaS esistente o in esecuzione usando il cmdlet di PowerShell, vedere [`Disable-AzureRmVMDiskEncryption`](https://msdn.microsoft.com/library/azure/mt715776.aspx). Questo cmdlet supporta sia le VM Windows che le VM Linux. Per disabilitare la crittografia, installa un'estensione nella macchina virtuale. Se il parametro _Name_ non viene specificato, viene creata un'estensione con nome predefinito _AzureDiskEncryption for Windows VMs_.
+Per disabilitare la crittografia in una VM IaaS esistente o in esecuzione usando il cmdlet di PowerShell, vedere [`Disable-AzureRmVMDiskEncryption`](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). Questo cmdlet supporta sia le VM Windows che le VM Linux. Per disabilitare la crittografia, installa un'estensione nella macchina virtuale. Se il parametro _Name_ non viene specificato, viene creata un'estensione con nome predefinito _AzureDiskEncryption for Windows VMs_.
 
 Nelle VM Linux viene usata l'estensione AzureDiskEncryptionForLinux.
 
@@ -1149,7 +1149,7 @@ Il segreto di crittografia del disco ottenuto in precedenza deve essere caricato
 
 
 #### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Segreto di crittografia del disco non crittografato con una chiave di crittografia della chiave
-Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx). Se si ha una macchina virtuale Windows, il file con estensione bek viene codificato come stringa base64, quindi viene caricato nell'insieme di credenziali delle chiavi usando il cmdlet `Set-AzureKeyVaultSecret`. Per Linux la passphrase viene codificata come stringa Base 64 e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
+Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret). Se si ha una macchina virtuale Windows, il file con estensione bek viene codificato come stringa base64, quindi viene caricato nell'insieme di credenziali delle chiavi usando il cmdlet `Set-AzureKeyVaultSecret`. Per Linux la passphrase viene codificata come stringa Base 64 e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
@@ -1165,7 +1165,7 @@ Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [Set-
 Usare `$secretUrl` nel passaggio successivo per [collegare il disco del sistema operativo senza usare una chiave di crittografia della chiave](#without-using-a-kek).
 
 #### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segreto di crittografia del disco crittografato con una chiave di crittografia della chiave
-Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](https://msdn.microsoft.com/library/azure/dn878066.aspx) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione WRAP si basa su una stringa con codifica Base 64 dell'URL che può essere quindi caricata come segreto con il cmdlet [`Set-AzureKeyVaultSecret`](https://msdn.microsoft.com/library/dn868050.aspx).
+Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](https://msdn.microsoft.com/library/azure/dn878066.aspx) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione WRAP si basa su una stringa con codifica Base 64 dell'URL che può essere quindi caricata come segreto con il cmdlet [`Set-AzureKeyVaultSecret`](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret).
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"

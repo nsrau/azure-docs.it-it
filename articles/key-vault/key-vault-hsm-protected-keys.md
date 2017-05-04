@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 593fdde402845fa062dbceafa533a1efc1f7af9c
-ms.openlocfilehash: b189106be19b95366ba0e6d248c69b34b219b8a1
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7b499b46d4edbe4e33c568b7c50e0a44dd75a00f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,13 +78,13 @@ Per questo primo passaggio è necessario eseguire le procedure seguenti nella wo
 ### <a name="step-11-install-azure-powershell"></a>Passaggio 1.1: Installare Azure PowerShell
 Dalla workstation connessa a Internet scaricare e installare il modulo di Azure PowerShell che include i cmdlet per la gestione dell'insieme di credenziali delle chiavi di Azure. È necessaria la versione minima 0.8.13.
 
-Per le istruzioni di installazione, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per le istruzioni di installazione, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Passaggio 1.2: Ottenere l'ID sottoscrizione di Azure
 Avviare una sessione di Azure PowerShell e accedere al proprio account Azure con il comando seguente:
 
         Add-AzureAccount
-Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Usare quindi il comando [Get-AzureSubscription](https://msdn.microsoft.com/library/azure/dn790366.aspx) :
+Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Usare quindi il comando [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) :
 
         Get-AzureSubscription
 Nell'output individuare l'ID della sottoscrizione che si userà per l'insieme di credenziali delle chiavi di Azure. Questo ID sottoscrizione verrà usato in seguito.
@@ -399,7 +400,7 @@ Se l'operazione ha esito positivo, viene visualizzato il messaggio **Result: SUC
 Usare un'unità USB o un altro dispositivo di archiviazione portatile per copiare il file di output creato nel passaggio precedente (KeyTransferPackage-ContosoFirstHSMkey.byok) nella workstation connessa a Internet.
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Passaggio 5: Trasferire la chiave all'insieme di credenziali delle chiavi di Azure
-Per questo passaggio finale, nella workstation connessa a Internet usare il cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx), per caricare il pacchetto di trasferimento della chiave copiato dalla workstation disconnessa al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure:
+Per questo passaggio finale, nella workstation connessa a Internet usare il cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey), per caricare il pacchetto di trasferimento della chiave copiato dalla workstation disconnessa al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure:
 
     Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -407,10 +408,5 @@ Se il pacchetto viene caricato correttamente, verranno visualizzate le propriet�
 
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM)** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md) .
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

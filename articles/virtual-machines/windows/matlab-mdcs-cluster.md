@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3b946c9c482015483c929127ff3b42b6059f5e52
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b86f13f49c6390a90609bba9141564d2ac69246d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ Con le macchine virtuali di Azure, è possibile creare cluster MATLAB Distribute
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Computer client** : è necessario un computer client basato su Windows per comunicare con Azure e il cluster MATLAB Distributed Computing Server dopo la distribuzione.
-* **Azure PowerShell** : per l'installazione nel computer client, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+* **Azure PowerShell** : per l'installazione nel computer client, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 * **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti. Per cluster di maggiori dimensioni, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto.
 * **Quota di core** : potrebbe essere necessario aumentare la quota di core per distribuire un cluster di grandi dimensioni o più cluster MATLAB Distributed Computing Server. Per aumentare una quota, è possibile [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) senza alcun addebito.
 * **Licenze per MATLAB, Parallel Computing Toolbox e MATLAB Distributed Computing Server** : negli script si presuppone che [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) venga usato per tutte le licenze.  

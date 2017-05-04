@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 4c29a3d17161a38f9aee9337e27feb36306cf329
-ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
 
 Per impostare il servizio di bilanciamento del carico tramite powershell, seguire questa procedura:
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Dopo avere creato una macchina virtuale, è possibile usare i cmdlet di PowerShell per aggiungere un servizio di bilanciamento del carico a una macchina virtuale all'interno dello stesso servizio cloud.
 
 Nell'esempio seguente si aggiungerà un set di bilanciamento del carico set denominato "webfarm" al servizio cloud "mytestcloud" (o myctestcloud.cloudapp.net), aggiungendo gli endpoint per il bilanciamento del carico alle macchine virtuali denominate "web1" e "web2". Il servizio di bilanciamento del carico riceve il traffico di rete sulla porta 80 e bilancia il carico tra le macchine virtuali definite dall’endpoint locale (in questo caso la porta 80) mediante TCP.
@@ -73,9 +74,4 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 È anche possibile [iniziare a creare un bilanciamento del carico interno](load-balancer-get-started-ilb-classic-ps.md) e configurare il tipo di [modalità di distribuzione](load-balancer-distribution-mode.md) per il comportamento del traffico di rete per un servizio di bilanciamento del carico specifico.
 
 Se l'applicazione deve mantenere attive le connessioni per i server dietro il servizio di bilanciamento del carico, è possibile ottenere altre informazioni sulle [impostazioni di timeout delle connessioni TCP inattive per un bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Ciò consente di ottenere informazioni sul comportamento delle connessioni inattive quando si usa il servizio di bilanciamento del carico di Azure.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

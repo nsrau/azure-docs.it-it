@@ -1,5 +1,5 @@
 ---
-title: "Attività comuni di gestione di servizi cloud (versione classica)| Documentazione Microsoft"
+title: "Attività comuni di gestione di servizi cloud (versione classica)| Microsoft Docs"
 description: Informazioni su come gestire i servizi cloud nel portale di Azure classico.
 services: cloud-services
 documentationcenter: 
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
-ms.openlocfilehash: 17270815b6278ec6b36a134c313cd543622dd9f4
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 76f59384db37967a9210ba5efa49b25788d21cdc
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -75,9 +76,9 @@ Utilizzare **Swap** per convertire una distribuzione di gestione temporanea di u
 
 Esistono due prerequisiti chiave per lo scambio corretto di distribuzioni:
 
-- Se si desidera usare un indirizzo IP statico per lo slot di produzione, è necessario riservarne uno anche per lo slot di staging. In caso contrario, lo scambio avrà esito negativo.
+- Se si desidera usare un indirizzo IP statico per lo slot di produzione, è necessario riservarne uno anche per lo slot di gestione temporanea. In caso contrario, lo scambio avrà esito negativo.
 
-- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel portale di Azure classico o usando il [comando Get-AzureRole in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel portale di Azure classico o usando il [comando Get-AzureRole in Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
 
 Si noti che anche gli aggiornamenti del sistema operativo guest e le operazioni di correzione del servizio possono ostacolare il corretto scambio delle distribuzioni. Per altre informazioni, vedere [Risolvere eventuali problemi di distribuzione dei servizi cloud](cloud-services-troubleshoot-deployment-problems.md).
 
@@ -153,9 +154,4 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy.md).
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
