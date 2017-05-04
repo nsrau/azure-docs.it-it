@@ -9,14 +9,14 @@
 ## Guide introduttive
 ### [Creare un'app per iOS](active-directory-b2c-devquickstarts-ios.md)
 ### [Creare un'app per Android](active-directory-b2c-devquickstarts-android.md)
-### [Creare un'API Web Node.js](active-directory-b2c-devquickstarts-api-node.md)
-### [Creare un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Iscriversi e accedere a un'app Web ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### Creare un'app Web .NET
+#### [Iscriversi e accedere a un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [Chiamare un'API Web da un'app Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ### [Creare un'API Web .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Creare un'app desktop di Windows](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Chiamare un'API Web da un'app Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Creare un'app Web Node.Js](active-directory-b2c-devquickstarts-web-node.md)
+### [Creare un'API Web Node.js](active-directory-b2c-devquickstarts-api-node.md)
+### [Creare un'app desktop .NET](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Usare l'API Graph di Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Aggiungere l'accesso a un'app Web Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## [Domande frequenti](active-directory-b2c-faqs.md)
 
 # Procedure
@@ -53,7 +53,7 @@
 
 # Risorse
 ## [Prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Forum di commenti e suggerimenti su Azure](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Forum di commenti e suggerimenti su Azure AD B2C](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Supporto](active-directory-b2c-support.md)

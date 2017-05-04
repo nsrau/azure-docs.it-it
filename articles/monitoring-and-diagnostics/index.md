@@ -1,5 +1,5 @@
 ---
-title: Documentazione di Diagnostica e Monitoraggio di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
+title: Documentazione di Monitoraggio di Azure - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
 description: Informazioni su come usare i servizi di monitoraggio e diagnostica per monitorare le prestazioni, gestire la sicurezza e individuare le tendenze. Informazioni di riferimento sulle API, procedure consigliate e altro ancora.
 services: monitoring-and-diagnostics
 author: carolz
@@ -13,12 +13,12 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d57ccb26a3dde16c50d2e837d392ab8e6fea979
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 475353f5a5abca1e9d6b5fdf4980d0cf33acc744
+ms.lasthandoff: 05/03/2017
 
 ---
-# <a name="monitoring-and-diagnostics-documentation"></a>Documentazione di Monitoraggio e diagnostica
+# <a name="azure-monitor-documentation"></a>Documentazione di Monitoraggio di Azure
 
 Informazioni su come usare i servizi di monitoraggio e diagnostica di Azure per monitorare le prestazioni, gestire la sicurezza e individuare le tendenze. Esercitazioni, informazioni di riferimento sulle API, procedure consigliate e altri documenti in cui vengono illustrati gli usi di monitoraggio e diagnostica e come pianificare e distribuire soluzioni scalabili e affidabili.
 

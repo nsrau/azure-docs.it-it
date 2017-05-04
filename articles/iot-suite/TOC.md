@@ -11,12 +11,22 @@
 ## [Panoramica della soluzione di connected factory](iot-suite-connected-factory-overview.md)
 ## [Procedura dettagliata per la soluzione di monitoraggio remoto](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Procedura dettagliata per la soluzione di manutenzione predittiva](iot-suite-predictive-walkthrough.md)
+## [Connettere Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
+### Usare C
+#### [Dati simulati](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Usare sensori reali](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Implementare l'aggiornamento del firmware](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Usare Node.js
+#### [Dati simulati](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Usare sensori reali](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Implementare l'aggiornamento del firmware](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
 
 # Procedure
-## [Connettere il dispositivo alla soluzione di monitoraggio remoto (Windows)](iot-suite-connecting-devices.md)
-## [Connettere il dispositivo alla soluzione di monitoraggio remoto (Linux)](iot-suite-connecting-devices-linux.md)
-## [Connettere il dispositivo alla soluzione di monitoraggio remoto (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Connettere il dispositivo alla soluzione di monitoraggio remoto (Node)](iot-suite-connecting-devices-node.md)
+## Connettere un dispositivo simulato
+### [C su Windows](iot-suite-connecting-devices.md)
+### [C su Linux](iot-suite-connecting-devices-linux.md)
+### [Node.JS](iot-suite-connecting-devices-node.md)
+## [Connettere il dispositivo mbed](iot-suite-connecting-devices-mbed.md)
 ## [Connettere un'app per la logica alla soluzione di monitoraggio remoto](iot-suite-logic-apps-tutorial.md)
 ## [Personalizzare una soluzione preconfigurata](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Usare la telemetria dinamica con la soluzione di monitoraggio remoto](iot-suite-dynamic-telemetry.md)

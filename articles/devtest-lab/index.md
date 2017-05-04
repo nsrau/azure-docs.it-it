@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 78ae030b07f8f96ab3e4e0cb506fa8495d16543c
-ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 3c54e0f89529fb159c3940f5792c4c0e095ee3fb
+ms.lasthandoff: 05/03/2017
 
 ---
 #<a name="devtest-labs-documentation"></a>Documentazione di DevTest Labs
@@ -114,10 +115,46 @@ Informazioni su come creare DevTest Labs per creare rapidamente ambienti di test
     </li>
 </ul>
 
+---
 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+<h2>Riferimento</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Riga di comando</h3>
+                        <p><a href="/cli/azure/lab">Interfaccia della riga di comando 2.0</a></p>
+                        <p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">PowerShell</a></p>
+                        <p><a href="/azure/devtest-lab/devtest-lab-use-arm-and-powershell-for-lab-resources">PowerShell: Creare o modificare automaticamente i lab</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/dtl/">API REST</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Altri</h3>
+                        <p><a href="https://github.com/Azure/azure-devtestlab/tree/master/Samples">Modelli di Resource Manager</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
