@@ -44,7 +44,7 @@ Quando si crea un servizio cloud in Azure, i record A DNS corrispondenti vengono
 ## <a name="why-would-i-request-an-ilpip"></a>Perché è necessario richiedere un ILPIP?
 Se si desidera connettersi all'istanza della VM o del ruolo tramite un indirizzo IP assegnato direttamente all'istanza, anziché usare il servizio cloud VIP:&lt;numero porta&gt;, richiedere un ILPIP per l'istanza della VM o del ruolo.
 
-* **FTP attivo**: assegnando un ILPIP a una macchina virtuale è possibile che questa riceva il traffico su qualsiasi porta. Gli endpoint non sono necessari per la macchina virtuale affinché questa riceva il traffico.  Per informazioni dettagliate sul protocollo FTP, vedere la (panoramica del protocollo FTP)[https://it.wikipedia.org/wiki/File_Transfer_Protocol].
+* **FTP attivo**: assegnando un ILPIP a una macchina virtuale è possibile che questa riceva il traffico su qualsiasi porta. Gli endpoint non sono necessari per la macchina virtuale affinché questa riceva il traffico.  Per informazioni dettagliate sul protocollo FTP, vedere la (https://it.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[panoramica del protocollo FTP].
 * **IP in uscita**: viene eseguito il mapping del traffico in uscita proveniente dalla macchina virtuale all'ILPIP come origine e l'ILPIP identifica in modo univoco la macchina virtuale sulle entità esterne.
 
 > [!NOTE]

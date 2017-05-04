@@ -12,11 +12,12 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/03/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
 ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
 ms.openlocfilehash: 852a0fab2fa7a50eb315e7107749e391031b463e
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -221,16 +222,6 @@ Per diversi tipi di ambienti di compilazione, è possibile ottenere in modo espl
 > 
 > 
 
-<!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
-[Azure Storage account]: ../storage/storage-create-storage-account.md
-[Azure classic portal]: http://manage.windowsazure.com
-[Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
-
-<!-- Images -->
-[11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
-
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
@@ -239,9 +230,12 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Azure classic portal]: http://manage.windowsazure.com
+[Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
-
-<!--HONumber=Feb17_HO1-->
-
+<!-- Images -->
+[11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
+[12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
