@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 0d909f6272cc9dcfd13bd9c18affa8d1e249efe4
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/17/2017
 
 Questo articolo illustra come abilitare HTTP per un'app Web, un back-end dell'app per dispositivi mobili o un'app per le API che usa un nome di dominio personalizzato nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md) . Viene illustrata l'autenticazione solo server. Per l'autenticazione reciproca, inclusa l'autenticazione del client, vedere [Come configurare l'autenticazione reciproca TLS per il servizio app](app-service-web-configure-tls-mutual-auth.md).
 
-Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly **\*.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;nomeapp>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio**contoso.com**, **www.contoso.com**e**\*.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.   
+Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly **\*.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;nomeapp>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio **contoso.com**, **www.contoso.com** e **\*.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.   
 
 > [!NOTE]
 > È possibile ottenere assistenza dagli esperti di Azure in qualsiasi momento nei [forum di Azure](https://azure.microsoft.com/support/forums/). Per un supporto più personalizzato, passare a [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
@@ -44,7 +44,7 @@ Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è ne
 Per proteggere il nome di dominio personalizzato tramite HTTPS, è necessario associare un certificato SSL personalizzato al dominio personalizzato in Azure. Prima di associare un certificato personalizzato, è necessario eseguire queste operazioni:
 
 * **Configurare il dominio personalizzato** : il servizio app consente solo di aggiungere un certificato per un nome di dominio già configurato nell'app. Per le istruzioni, vedere [Eseguire il mapping di un nome di dominio personalizzato a un'app Azure](web-sites-custom-domain-name.md). 
-* **Passare al piano Basic o a un piano superiore** : i piani di servizio app delle fasce più basse non supportano i certificati SSL personalizzati. Per le istruzioni, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md). 
+* **Passare al piano Basic o a un piano superiore** - I piani di servizio app delle fasce più basse non supportano i certificati SSL personalizzati. Per le istruzioni, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md). 
 * **Ottenere un certificato SSL** : se non si ha un certificato, è necessario ottenerne uno da un' [autorità di certificazione](http://en.wikipedia.org/wiki/Certificate_authority) (CA) attendibile. Il certificato deve soddisfare tutti i requisiti seguenti:
   
   * È firmato da un'autorità di certificazione attendibile e non da server di autorità di certificazione privati.

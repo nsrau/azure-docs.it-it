@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 8ded51e2e34aa1583b249af11a260eaa4304f79f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -83,6 +83,9 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 Usare il cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
 
 ## <a name="restore"></a>Ripristino
+Durante il ripristino, il file di backup deve essere nell'account di archiviazione configurato per il server. Se è necessario spostare un file di backup da un percorso locale all'account di archiviazione, usare [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o l'utilità della riga di comando [AzCopy](../storage/storage-use-azcopy.md). 
+
+Se si sta ripristinando un database di modello tabulare con livello di compatibilità 1200 da un server SQL Server Analysis Services locale, è innanzitutto necessario rimuovere tutti gli utenti di dominio dai ruoli del modello e aggiungerli nuovamente ai ruoli come utenti di Azure Active Directory. I ruoli saranno gli stessi.
 
 ### <a name="to-restore-by-using-ssms"></a>Per eseguire il ripristino usando SSMS
 
@@ -103,5 +106,8 @@ Usare il cmdlet [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-ser
 
 
 ## <a name="related-information"></a>Informazioni correlate
-[Account di archiviazione di Azure](../storage/storage-create-storage-account.md)   
+
+[Account di archiviazione di Azure](../storage/storage-create-storage-account.md)  
+[Disponibilità elevata](analysis-services-bcdr.md)     
 [Gestire Azure Analysis Services](analysis-services-manage.md)
+

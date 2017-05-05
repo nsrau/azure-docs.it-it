@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: lbosq
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 7365945818c56279bd5945fee8d0048ef425bfc7
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ Questa guida introduttiva usa come punto di partenza le risorse create in una de
 - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
 
 ## <a name="install-nodejs"></a>Installare Node.js 
+
+Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo tramite Node.js ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con Node.js, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server), selezionare **Node.js** e quindi il sistema operativo in uso.
 
 ### <a name="mac-os"></a>**Mac OS**
 Immettere i comandi seguenti per installare **brew**, una gestione pacchetti facile da usare per Mac OS X e **Node.js**.
@@ -63,7 +65,7 @@ npm install tedious
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 
-Ottenere la stringa di connessione nel portale di Azure. Usare la stringa di connessione per connettersi al database SQL di Azure.
+Ottenere le informazioni di connessione necessarie per connettersi al database SQL di Azure. Nelle procedure successive saranno necessari il nome completo del server, il nome del database e le informazioni di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
@@ -75,7 +77,7 @@ Ottenere la stringa di connessione nel portale di Azure. Usare la stringa di con
     
 ## <a name="select-data"></a>Selezionare i dati
 
-Usare il codice seguente per eseguire query sul database SQL di Azure. In primo luogo, importare le classi di connessione e di richiesta del driver dalla libreria del driver tedious. Successivamente, creare l'oggetto di configurazione e sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. Creare un oggetto `Connection` tramite l'oggetto `config` specificato. Successivamente, definire la callback per l'evento `connect` dell'oggetto `connection` per eseguire la funzione `queryDatabase()`.
+Usare il codice seguente per eseguire query sul database SQL di Azure per individuare i primi 20 prodotti per categoria. In primo luogo, importare le classi di connessione e di richiesta del driver dalla libreria del driver tedious. Successivamente, creare l'oggetto di configurazione e sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. Creare un oggetto `Connection` tramite l'oggetto `config` specificato. Successivamente, definire la callback per l'evento `connect` dell'oggetto `connection` per eseguire la funzione `queryDatabase()`.
 
 ```js
 var Connection = require('tedious').Connection;
@@ -125,7 +127,7 @@ function queryDatabase(){
 ```
 
 ## <a name="insert-data-into-the-database"></a>Inserire i dati nel database
-Usare il codice seguente per inserire un nuovo prodotto nella tabella SalesLT.Product. Sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. Questa volta, usare un'**istruzione INSERT** nella funzione `insertIntoDatabase()`.
+Usare il codice seguente per inserire un nuovo prodotto nella tabella SalesLT.Product tramite la funzione `insertIntoDatabase()` e l'istruzione Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. 
 
 ```js
 var Connection = require('tedious').Connection;
@@ -167,7 +169,7 @@ function insertIntoDatabase(){
 ```
 
 ## <a name="update-data-in-the-database"></a>Aggiornare i dati nel database
-Per aggiornare dati nel database, usare il codice seguente. Sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. Questa volta, usare un'**istruzione UPDATE** nella funzione `updateInDatabase()`. Questo esempio usa il nome del Prodotto inserito nell'esempio precedente.
+Usare il codice seguente per eliminare il nuovo prodotto aggiunto in precedenza tramite la funzione `updateInDatabase()` e l'istruzione Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. Questo esempio usa il nome del Prodotto inserito nell'esempio precedente.
 
 ```js
 var Connection = require('tedious').Connection;

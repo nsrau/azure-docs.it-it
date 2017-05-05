@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: a740813b013e75a098836290ad8e9ebe76d33b37
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: bf4e400e30cc93ca8fa0cc727ada0f1b224b05cb
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -125,7 +125,7 @@ Servizi cloud (classico) può essere usato con altre risorse classiche. Le risor
 | Bus di servizio |Sì |[REST del bus di servizio](/rest/api/servicebus) |[Risorse del bus di servizio](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Gestione dell'identità e dell'accesso
-Azure Active Directory funziona con Gestione risorse per l'abilitazione del controllo di accesso basato sul ruolo per la sottoscrizione. Per informazioni sull'uso del controllo degli accessi in base al ruolo e su Active Directory vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
+Azure Active Directory funziona con Gestione risorse per l'abilitazione del controllo di accesso basato sul ruolo per la sottoscrizione. Per informazioni sull'uso del controllo di accesso in base al ruolo e su Azure Active Directory, vedere [Controllo di accesso in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="developer-services"></a>Servizi per gli sviluppatori
 | Servizio | Gestione risorse abilitato | API REST | Formato del modello |
