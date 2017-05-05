@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 04/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 52038c02901d49f787226ce629a1ca5942414e4a
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a3052e53c642ef3e6d9bb0489476274987707f91
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +38,7 @@ Informazioni su come usare le reti virtuali di Azure con HDInsight per abilitare
 
 * Interfaccia della riga di comando di Azure 2.0: per altre informazioni, vedere [Installare e configurare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
-* Azure PowerShell: per altre informazioni, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Azure PowerShell: per altre informazioni, vedere [Installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
 > Per eseguire la procedura descritta in questo documento, è necessaria la versione più recente dell'interfaccia della riga di comando di Azure e di Azure PowerShell. Se si usa una versione precedente, i comandi possono essere diversi. Per ottenere risultati ottimali, usare i collegamenti precedenti per installare le versioni più recenti.

@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: fe53a68e2858df87c4b93348dfc426f9cd346121
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 84cdc5eec5567c9c6905eee285afd2426607ff08
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -65,7 +65,7 @@ La crittografia del disco non è attualmente supportata negli scenari seguenti:
 * Integrazione con il Servizio di gestione delle chiavi locale.
 
 ## <a name="create-azure-key-vault-and-keys"></a>Creare le chiavi e l'insieme di credenziali delle chiavi di Azure
-Prima di iniziare verificare che sia installata la versione più recente del modulo Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Negli esempi di comandi sostituire tutti i parametri di esempio con i propri valori di nome, percorso e chiave. Negli esempi viene usata una convenzione di `myResourceGroup`, `myKeyVault`, `myVM` e così via.
+Prima di iniziare verificare che sia installata la versione più recente del modulo Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Negli esempi di comandi sostituire tutti i parametri di esempio con i propri valori di nome, percorso e chiave. Negli esempi viene usata una convenzione di `myResourceGroup`, `myKeyVault`, `myVM` e così via.
 
 Il primo passaggio consiste nel creare un insieme di credenziali delle chiavi di Azure in cui archiviare le chiavi di crittografia. L'insieme di credenziali delle chiavi di Azure consente di archiviare chiavi, chiavi private o password da implementare in tutta sicurezza in applicazioni e servizi. Per la crittografia del disco virtuale, creare il Key Vault per archiviare una chiave di crittografia usata per crittografare o decrittografare i dischi virtuali. 
 
@@ -190,3 +190,4 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulla gestione di Azure Key Vault, vedere [Configurare il Key Vault per le macchine virtuali](key-vault-setup.md).
 * Per altre informazioni sulla crittografia del disco, tra cui come preparare una VM personalizzata con crittografia da caricare in Azure, vedere [Crittografia dischi di Azure](../../security/azure-security-disk-encryption.md).
+
