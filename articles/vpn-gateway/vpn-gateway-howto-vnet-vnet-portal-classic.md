@@ -13,25 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4448b7209fc777c2aeebe696b7bed87537a4585b
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: de39e768697425b98fb615697e57918c8c5d3853
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurare una connessione da rete virtuale a rete virtuale (versione classica)
 
-La connessione di una rete virtuale a un'altra rete virtuale (da rete virtuale a rete virtuale) è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni di connessioni multisito. Questo permette di definire topologie di rete che consentono di combinare la connettività cross-premise con la connettività tra reti virtuali.
-
-
-![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
-
-Questo articolo illustra la procedura per creare e connettere reti virtuali mediante il modello di distribuzione classica. Nella procedura seguente viene usato il portale di Azure per creare gateway e reti virtuali, mentre PowerShell viene usato per configurare la connessione da rete virtuale a rete virtuale. Non è possibile configurare una connessione nel portale.
-
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] Se si desidera creare una connessione tra reti virtuali usando un modello o uno strumento di distribuzione diverso o tra modelli di distribuzione diversi, è possibile selezionare un articolo dall'elenco a discesa seguente:
+Questo articolo descrive come creare una connessione gateway VPN tra reti virtuali. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. I passaggi di questo articolo sono applicabili al modello di distribuzione classico e al portale di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi, selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -40,18 +33,20 @@ Questo articolo illustra la procedura per creare e connettere reti virtuali medi
 > * [Connettersi tra modelli di distribuzione diversi - Portale di Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connettersi tra modelli di distribuzione diversi - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
-
-[!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
+>
 
 ![Diagramma di connettività tra reti virtuali](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
-
 ## <a name="about-vnet-to-vnet-connections"></a>Informazioni sulla connessione da rete virtuale a rete virtuale
+
 La connessione di una rete virtuale a un'altra rete virtuale nel modello di distribuzione classico che usa un gateway VPN è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE. 
 
 Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche diverse. È possibile combinare una comunicazione da rete virtuale a rete virtuale con configurazioni multisito. Questo permette di definire topologie di rete che consentono di combinare la connettività cross-premise con la connettività tra reti virtuali.
 
+![Connessioni da rete virtuale a rete virtuale](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
+
 ### <a name="why-connect-virtual-networks"></a>Perché connettere reti virtuali?
+
 È possibile connettere reti virtuali per i seguenti motivi:
 
 * **Presenza e ridondanza in più aree geografiche**
@@ -68,7 +63,12 @@ Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche d
 
 Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Considerazioni sulle connessioni da rete virtuale a rete virtuale](#faq) alla fine di questo articolo.
 
+### <a name="before-you-begin"></a>Prima di iniziare
+
+Prima di iniziare questo esercizio, scaricare e installare la versione più recente dei cmdlet di PowerShell per gestione del servizio (SM, Service Management) di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Il portale viene utilizzato per la maggior parte dei passaggi, ma per creare connessioni tra VNet, occorre utilizzare PoweShell. Non è possibile creare connessioni dal portale di Azure.
+
 ## <a name="step1"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
+
 È importante stabilire gli intervalli che verranno usati per configurare le reti virtuali. Per questa configurazione, controllare che nessun intervallo di rete virtuale si sovrapponga a un altro o a una delle reti locali alle quali si connette.
 
 La tabella seguente mostra un esempio di come definire le reti virtuali. Usare gli intervalli solo come linee guida. Annotare gli intervalli per le reti virtuali. Queste informazioni sono necessarie per i passaggi successivi.
@@ -81,6 +81,7 @@ La tabella seguente mostra un esempio di come definire le reti virtuali. Usare g
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Stati Uniti occidentali |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 ## <a name="vnetvalues"></a>Passaggio 2: Creare le reti virtuali
+
 Creare due reti virtuali nel [portale di Azure](https://portal.azure.com). Per altre informazioni sulla procedura per creare reti virtuali classiche, vedere [Creare una rete virtuale classica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Quando si segue questo articolo come esercizio, è possibile usare i valori di esempio seguenti:
 
 **Valori per TestVNet1**
@@ -116,7 +117,6 @@ GatewaySubnet: 10.41.1.0/27
 * **Subnet** : per questa configurazione non sono necessarie altre subnet, ma è possibile collocare le macchine virtuali in una subnet separata dalle istanze del ruolo.
 
 * **Server DNS**: per immettere il nome del server DNS e l'indirizzo IP. Questa impostazione non comporta la creazione di un server DNS. Consente di specificare i server DNS da usare per la risoluzione dei nomi per la rete virtuale.
-
 
 In questa sezione, configurare il tipo di connessione, il sito locale e creare il gateway. 
 
@@ -174,7 +174,7 @@ Dopo aver creato il gateway di rete virtuale per entrambe le reti virtuali, è n
 1. Posizionare la rete virtuale nel portale di Azure.
 2. Fare clic per aprire il pannello **Panoramica** della rete virtuale. Nel pannello, in **Connessioni VPN**, è possibile visualizzare l'indirizzo IP per il gateway di rete virtuale.
 
-    ![IP pubblico](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
+  ![IP pubblico](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
 3. Copiare l'indirizzo IP, sarà necessario nella sezione successiva.
 4. Ripetere questi passaggi per TestVNet4
 
@@ -183,19 +183,18 @@ Dopo aver creato il gateway di rete virtuale per entrambe le reti virtuali, è n
 1. Posizionare la rete virtuale nel portale di Azure.
 2. Nella pannello **Panoramica** della rete vituale fare clic sul sito locale.
 
-    ![Sito locale creato](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
+  ![Sito locale creato](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
 3. Nel pannello **Connessioni VPN da sito a sito** fare clic sul nome del sito locale che si desidera modificare.
 
-    ![Aprire il sito locale](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
+  ![Aprire il sito locale](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
 4. Fare clic sul **sito locale** che si desidera modificare.
 
-    ![modifica del sito](./media/vpn-gateway-howto-vnet-vnet-portal-classic/connections.png)
+  ![modifica del sito](./media/vpn-gateway-howto-vnet-vnet-portal-classic/connections.png)
 5. Aggiornare **Indirizzo IP del gateway VPN** e fare clic su **OK** per salvare le impostazioni.
 
-    ![IP del gateway](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
+  ![IP del gateway](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
 6. Chiudere gli altri pannelli.
 7. Ripetere questi passaggi per TestVNet4.
-
 
 ## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a>Passaggio 7: recuperare i valori del file di configurazione di rete
 
@@ -203,27 +202,36 @@ Quando si creano reti virtuali classiche nel portale di Azure, il nome da visual
 
 Nelle procedure seguenti, ci si connetterà al proprio account Azure per scaricare e visualizzare il file di configurazione di rete per ottenere i valori necessari alle connessioni.
 
-1. Scaricare e installare la versione più recente dei cmdlet di PowerShell per Gestione del servizio di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Scaricare e installare la versione più recente dei cmdlet di PowerShell per Gestione del servizio di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 2. Aprire la console di PowerShell con diritti elevati e connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
 
-        Login-AzureRmAccount
+  ```powershell
+  Login-AzureRmAccount
+  ```
 
-    Controllare le sottoscrizioni per l'account.
+  Controllare le sottoscrizioni per l'account.
 
-        Get-AzureRmSubscription
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 
-    Se sono disponibili più sottoscrizioni, selezionare la sottoscrizione da usare.
+  Se sono disponibili più sottoscrizioni, selezionare la sottoscrizione da usare.
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
-    Successivamente, utilizzare il cmdlet seguente per aggiungere la sottoscrizione di Azure a PowerShell per il modello di distribuzione classico.
+  Successivamente, utilizzare il cmdlet seguente per aggiungere la sottoscrizione di Azure a PowerShell per il modello di distribuzione classico.
 
-        Add-AzureAccount
-
+  ```powershell
+  Add-AzureAccount
+  ```
 3. Esportare e visualizzare il file di configurazione di rete. Creare una directory nel computer ed esportarvi il file di configurazione di rete. In questo esempio il file di configurazione di rete viene esportato in **C:\AzureNet**.
 
-         Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```powershell
+  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```
 4. Aprire il file con un editor di testo e visualizzare il nome delle reti virtuali e dei siti. Questo sarà il nome da usare nella creazione delle le connessioni.<br>I nomi delle reti virtuali sono elencati come **Nome VirtualNetworkSite =**<br>I nomi dei siti sono elencati come **Nome LocalNetworkSiteRef =**
 
 ## <a name="step-8---create-the-vpn-gateway-connections"></a>Passaggio 8: creare le connessioni al gateway VPN
@@ -234,23 +242,26 @@ Negli esempi notare che la chiave condivisa è esattamente la stessa. La chiave 
 
 1. Creare la connessione da TestVNet1 a TestVNet4.
 
-        Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
-        -LocalNetworkSiteName '17BE5E2C_VNet4Local' -SharedKey A1b2C3D4
-
+  ```powershell
+  Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
+  -LocalNetworkSiteName '17BE5E2C_VNet4Local' -SharedKey A1b2C3D4
+  ```
 2. Creare la connessione da TestVNet4 a TestVNet1.
 
-        Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet4' `
-        -LocalNetworkSiteName 'F7F7BFC7_VNet1Local' -SharedKey A1b2C3D4
-
+  ```powershell
+  Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet4' `
+  -LocalNetworkSiteName 'F7F7BFC7_VNet1Local' -SharedKey A1b2C3D4
+  ```
 3. Attendere l'inizializzazione delle connessioni. Dopo l'inizializzazione del gateway, lo stato è "Riuscito".
 
-
-        Error          :
-        HttpStatusCode : OK
-        Id             : 
-        Status         : Successful
-        RequestId      : 
-        StatusCode     : OK
+  ```
+  Error          :
+  HttpStatusCode : OK
+  Id             : 
+  Status         : Successful
+  RequestId      : 
+  StatusCode     : OK
+  ```
 
 ## <a name="faq"></a>Considerazioni sulle connessioni tra reti virtuali per le reti virtuali classiche
 * Le reti virtuali possono trovarsi in sottoscrizioni uguali o diverse.
@@ -265,10 +276,6 @@ Negli esempi notare che la chiave condivisa è esattamente la stessa. La chiave 
 * Tutti i tunnel VPN della rete virtuale, tra cui reti VPN da punto a sito, condividono la larghezza di banda disponibile sul gateway VPN e il contratto di servizio relativo al tempo di inattività del gateway VPN in Azure.
 * Il traffico da rete virtuale a rete virtuale scorre attraverso il backbone di Azure.
 
-
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 Verificare le connessioni. Vedere [Verificare una connessione di Gateway VPN](vpn-gateway-verify-connection-resource-manager.md).
-
 

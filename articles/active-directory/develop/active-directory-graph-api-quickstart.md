@@ -16,9 +16,9 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: patricka
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9a3fca0c81f44b456b8d0201201ffb73b904a0a5
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 45e899364f467404c9a817825e157ba12494a2fa
+ms.lasthandoff: 04/20/2017
 
 
 ---

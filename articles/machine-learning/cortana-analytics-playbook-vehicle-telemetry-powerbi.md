@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: b7332aa2b2518bd926ee2221fd0129adcc25415b
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f880aceb1657ffdfe909b73f175b9673d9ab02cd
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Questo **menu** contiene i collegamenti alle sezioni dello studio.
 La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le concessionarie d'auto, i produttori di automobili e le compagnie di assicurazione possano sfruttare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida in modo da apportare miglioramenti nelle aree dell'esperienza cliente, di ricerca e sviluppo e delle campagne di marketing. Questo documento contiene istruzioni dettagliate su come configurare i report e il dashboard di Power BI dopo la distribuzione della soluzione nella sottoscrizione. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Distribuire la soluzione per l'analisi dei dati di telemetria del veicolo passando a [https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9](https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9)  
+1. Distribuire la soluzione per l'[analisi dei dati di telemetria](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90)  
 2. [Installare Microsoft Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331)
 3. Una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/). Se non si dispone di una sottoscrizione Azure, iniziare con una sottoscrizione gratuita di Azure.
 4. Account di Microsoft Power BI

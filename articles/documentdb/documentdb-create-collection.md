@@ -12,19 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 04/18/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 8ee846e659d0a47a5fb39d6baa3235f59e19d653
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 97b634b10f75dd10c9cf4b61a5b9674f7ee73e00
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-collection-and-database-using-the-azure-portal"></a>Come creare una raccolta e un database DocumentDB usando il portale di Azure
 Per utilizzare Microsoft Azure DocumentDB, è necessario disporre di un [account DocumentDB](documentdb-create-account.md), un database, una raccolta e documenti. Questo articolo descrive come creare una raccolta DocumentDB nel portale di Azure.
 
-Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-is-a-documentdb-collection)
+Per informazioni sulle raccolte, vedere [Informazioni sulle raccolte di DocumentDB](#what-is-a-documentdb-collection).
+
+Esistono due modi per creare una raccolta nel portale, usando il pulsante Aggiungi raccolta oppure usando [Esplora dati (anteprima)](#data-explorer).
+
+## <a name="create-a-colletion-using-add-collection-button"></a>Creare una raccolta usando il pulsante Aggiungi raccolta
 
 1. Nell'indice del [portale di Azure](https://portal.azure.com/) fare clic su **DocumentDB (NoSQL)** e quindi selezionare l'account in cui aggiungere una raccolta nel pannello **DocumentDB (NoSQL)**. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
 
@@ -54,6 +58,14 @@ Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-i
 10. **Facoltativo:** per modificare la velocità effettiva della raccolta nel portale fare clic su **Proporzioni** nel menu Risorsa.
 
     ![Screenshot del menu Risorsa con Proporzioni selezionato](./media/documentdb-create-collection/docdb-collection-creation-scale.png)
+
+<a id="data-explorer"></a>
+## <a name="create-a-collection-by-using-data-explorer-preview"></a>Creare una raccolta usando Esplora dati (anteprima)
+
+L'altro metodo per creare una raccolta nel portale consiste nell'usare Esplora dati. Per aprire Esplora dati, fare clic su **Esplora dati (anteprima)** nella barra di spostamento del portale, quindi fare clic sul pulsante **Nuova raccolta**, come illustrato nella schermata seguente.
+
+ ![Schermata che mostra il pulsante Nuova raccolta nel portale](./media/documentdb-create-collection/azure-documentdb-data-explorer.png)
+
 
 ## <a name="what-is-a-documentdb-collection"></a>Informazioni sulle raccolte di DocumentDB.
 Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Una raccolta è un'entità fatturabile in cui il [costo](documentdb-performance-levels.md) è determinato dalla velocità effettiva con provisioning della raccolta. Le raccolte possono estendersi su più partizioni o server e possono essere ridimensionate per gestire volumi praticamente illimitati di archiviazione o di velocità effettiva.

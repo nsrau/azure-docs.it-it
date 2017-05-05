@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 566a8d7fc595975e065c5a8a42c7f7c94997821b
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d7006a50d35412021f7e475df526661854b23dc8
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ Prima di eseguire questo esempio, [scaricare e installare la versione gratuita d
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---download-the-sample"></a>Passaggio 1: scaricare l'esempio
+## <a name="download-the-sample"></a>Scaricare l'esempio
 In questo passaggio viene scaricata un'applicazione ASP.NET di esempio.
 
 ### <a name="get-the-sample-project"></a>Ottenere il progetto di esempio
@@ -65,7 +65,7 @@ Nella home page viene visualizzato un elenco attività semplice. Provare ad aggi
 
 Il contesto di database usa una stringa di connessione denominata `MyDbConnection`. La definizione della stringa di connessione si trova in `Web.config` e il riferimento in `Models\MyDatabaseContext.cs`. In seguito, al momento della connessione dell'app Web di Azure al database SQL di Azure sarà necessario specificare solo il nome della stringa di connessione. 
 
-## <a name="step-2---publish-to-azure-with-sql-database"></a>Passaggio 2: pubblicare in Azure con il database SQL
+## <a name="publish-to-azure-with-sql-database"></a>Pubblicare in Azure con il database SQL
 
 In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **DotNetAppSqlDb** e selezionare **Pubblica**.
 
@@ -168,7 +168,7 @@ Provare ad aggiungere alcune attività all'elenco vuoto.
 
 Congratulazioni. L'applicazione ASP.NET basata sui dati è in esecuzione nel Servizio app di Azure.
 
-## <a name="step-3---access-the-sql-database-locally"></a>Passaggio 3: accedere al database SQL locale
+## <a name="access-the-sql-database-locally"></a>Accedere al database SQL locale
 
 Visual Studio consente di esplorare e gestire il nuovo database SQL in modo semplice in **Esplora oggetti di SQL Server**.
 
@@ -204,7 +204,7 @@ In questa posizione è possibile eseguire le operazioni di database più comuni,
 
 ![Esplorare gli oggetti del database SQL](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
-## <a name="step-4---update-app-with-code-first-migrations"></a>Passaggio 4: aggiornare l'app con Migrazioni Code First
+## <a name="update-app-with-code-first-migrations"></a>Aggiornare l'app con Migrazioni Code First
 
 In questo passaggio viene usato Migrazioni Code First in Entity Framework per apportare una modifica allo schema del database e pubblicarlo in Azure.
 
@@ -329,7 +329,7 @@ Provare di nuovo a creare nuove attività e selezionare **Fine**. Le attività v
 >
 >
 
-## <a name="step-6---stream-application-logs"></a>Passaggio 6: eseguire lo streaming dei log delle applicazioni
+## <a name="stream-application-logs"></a>Eseguire lo streaming dei log delle applicazioni
 
 È possibile eseguire lo streaming dei messaggi di traccia direttamente dall'app Web di Azure in Visual Studio.
 
@@ -389,7 +389,7 @@ Per arrestare il servizio di streaming dei log, fare clic sul pulsante **Interro
 
 ![Arrestare lo streaming dei log](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="step-7---manage-your-azure-web-app"></a>Passaggio 7: gestire l'app Web di Azure
+## <a name="manage-your-azure-web-app"></a>Gestire l'app Web di Azure
 
 Passare al portale di Azure per visualizzare l'app Web creata. 
 

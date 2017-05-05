@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 04/25/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 3b2a18232a9ab8c1b587cfa4fa14ced0c3b515ba
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: cb9753500dc9ed13ef10a757b247b703bc7f1644
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -34,8 +34,8 @@ Attualmente sono disponibili quattro applicazioni pubblicate:
 * **DATAIKU DDS on HDInsight**: Dataiku DSS (Data Science Studio) è un software che consente ai professionisti che lavorano con i dati (data scientist, business analyst, sviluppatori e così via) di creare prototipi, compilare e distribuire servizi altamente specifici che trasformano i dati non elaborati in stime aziendali di grande impatto.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) offre agli analisti un modo interattivo per rilevare, analizzare e visualizzare i risultati nei Big Data. Consente di effettuare il pull di altre origini dati con facilità per individuare nuove relazioni e ottenere rapidamente le risposte necessarie.
 * **Streamsets Data Collector for HDnsight** offre un ambiente di sviluppo integrato (IDE) completo che consente di progettare, testare, distribuire e gestire pipeline di inserimento any-to-any che uniscono dati batch e del flusso e includono varie trasformazioni all'interno del flusso, senza dover scrivere codice personalizzato. 
-* **Cask CDAP 3.5 for HDInsight** offre la prima piattaforma di integrazione unificata per big data che consente di ridurre dell'80% i tempi di inattività nell'ambiente di produzione per applicazioni dati e Data Lake. Questa applicazione supporta solo i cluster Standard HBase 3.4.
-
+* **Cask CDAP 3.5/4.0/4.1 per HDInsight** offre la prima piattaforma di integrazione unificata per big data che consente di ridurre dell'80% i tempi di inattività nell'ambiente di produzione per applicazioni dati e Data Lake. Questa applicazione supporta solo i cluster Standard HBase 3.4.
+* **H2O Artificial Intelligence per HDInsight (Beta)** H2O Sparkling Water supporta gli algoritmi distribuiti seguenti: GLM, Naïve Bayes, fDistributed Random Forest, Gradient Boosting Machine, Deep Neural Networks , Deep learning, K-means , PCA, Generalized Low Rank Models, Anomaly Detection e Autoencoders.
 
 Nelle istruzioni illustrate in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resource Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando di Azure e Azure PowerShell per distribuire il modello.  Vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 

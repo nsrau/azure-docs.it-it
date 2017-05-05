@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: ef3fc25ed06eb498600df4fc8fcad37f0f0dc676
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 8dcb006a8cf167cdbfb67de5a11dabf0edbbe41c
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ Prima di eseguire l'esempio, installare in locale questi prerequisiti:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---test-local-mongodb-database"></a>Passaggio 1: Testare il database MongoDB locale
+## <a name="test-local-mongodb-database"></a>Testare il database MongoDB locale
 In questo passaggio ci si assicura che il database MongoDB locale sia in esecuzione.
 
 Aprire la finestra del terminale e usare il comando `CD` per passare alla directory `bin` dell'installazione di MongoDB. 
@@ -54,7 +54,7 @@ Dopo avere testato il database MongoDB, digitare `Ctrl`+`C` nel terminale.
 
 <a name="step2"></a>
 
-## <a name="step-2---create-local-nodejs-application"></a>Passaggio 2: Creare l'applicazione Node.js locale
+## <a name="create-local-nodejs-application"></a>Creare l'applicazione Node.js locale
 In questo passaggio si imposta il progetto Node.js locale.
 
 ### <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
@@ -103,7 +103,7 @@ Fare clic su **Admin** > **Manage Articles** (Admin > Gestione articoli) per agg
 
 Per arrestare Node.js in qualsiasi momento, digitare `Ctrl`+`C` nel terminale. 
 
-## <a name="step-3---create-a-production-mongodb-database"></a>Passaggio 3: Creare un database MongoDB di produzione
+## <a name="create-a-production-mongodb-database"></a>Creare un database MongoDB di produzione
 
 In questo passaggio si crea un database MongoDB in Azure. Quando viene distribuita in Azure, l'app usa questo database per il carico di lavoro di produzione.
 
@@ -163,7 +163,7 @@ DB/databaseAccounts/<documentdb_name>",
 } 
 ```
 
-## <a name="step-4---connect-your-nodejs-application-to-the-database"></a>Passaggio 4: Connettere l'applicazione Node.js al database
+## <a name="connect-your-nodejs-application-to-the-database"></a>Connettere l'applicazione Node.js al database
 
 In questo passaggio si usa una stringa di connessione MongoDB per connettere l'applicazione di esempio MEAN.js al database DocumentDB appena creato. 
 
@@ -242,7 +242,7 @@ MEAN.JS version: 0.5.0
 
 Andare a `http://localhost:8443` in un browser. Fare clic su **Sign Up** (Registrati) nel menu in alto e provare a creare un utente fittizio come in precedenza. Se la creazione dell'utente ha esito positivo, l'app scrive i dati nel database DocumentDB in Azure. 
 
-## <a name="step-5---deploy-the-nodejs-application-to-azure"></a>Passaggio 5: Distribuire l'applicazione Node.js in Azure
+## <a name="deploy-the-nodejs-application-to-azure"></a>Distribuire l'applicazione Node.js in Azure
 In questo passaggio si distribuisce l'applicazione Node.js connessa a MongoDB nel Servizio app di Azure.
 
 ### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
@@ -435,7 +435,7 @@ Fare clic su **Admin** > **Manage Articles** (Admin > Gestione articoli) per agg
 
 **Congratulazioni.** L'app Node.js basata su dati è in esecuzione nel Servizio app di Azure.
 
-## <a name="step-6---update-data-model-and-redeploy"></a>Passaggio 6: Aggiornare il modello di dati e ridistribuire
+## <a name="update-data-model-and-redeploy"></a>Aggiornare il modello di dati e ridistribuire
 
 In questo passaggio si apportano alcune modifiche al modello di dati `article` e le si pubblica in Azure.
 
@@ -569,7 +569,7 @@ Dopo che il comando `git push` è stato completato, passare all'app Web di Azure
 >
 >
 
-## <a name="step-7---stream-diagnostic-logs"></a>Passaggio 7: Eseguire lo streaming dei log di diagnostica 
+## <a name="stream-diagnostic-logs"></a>Eseguire lo streaming dei log di diagnostica 
 
 Mentre l'applicazione Node.js è in esecuzione nel Servizio app di Azure, è possibile fare in modo che i log di console siano inviati tramite pipe direttamente al terminale. Ciò consente di ottenere gli stessi messaggi di diagnostica per il debug degli errori dell'applicazione.
 
@@ -583,7 +583,7 @@ Dopo avere avviato lo streaming del log, aggiornare l'app Web di Azure nel brows
 
 Per interrompere lo streaming dei log in qualsiasi momento, digitare `Ctrl`+`C`. 
 
-## <a name="step-8---manage-your-azure-web-app"></a>Passaggio 8: Gestire l'app Web di Azure
+## <a name="manage-your-azure-web-app"></a>Gestire l'app Web di Azure
 
 Accedere al portale di Azure per visualizzare l'app Web creata.
 

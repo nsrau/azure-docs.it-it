@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 56a460fa8132d310352fbb7e085091c3ee7fa848
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,7 +34,7 @@ Questa esercitazione mostra come creare un set di scalabilità di macchine virtu
 
 Se si usa l'interfaccia della riga di comando di Azure 2.0 o Azure PowerShell per creare un set di scalabilità, per prima cosa è necessario accedere alla propria sottoscrizione.
 
-Per altre informazioni su come installare, configurare e accedere ad Azure con l'interfaccia della riga di comando di Azure o con PowerShell, vedere [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) (Introduzione all'interfaccia della riga di comando di Azure 2.0) o [Get started with Azure PowerShell cmdlets](/powershell/resourcemanager/) (Introduzione ai cmdlet di Azure PowerShell).
+Per altre informazioni su come installare, configurare e accedere ad Azure con l'interfaccia della riga di comando di Azure o con PowerShell, vedere [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) (Introduzione all'interfaccia della riga di comando di Azure 2.0) o [Get started with Azure PowerShell cmdlets](/powershell/azure/overview) (Introduzione ai cmdlet di Azure PowerShell).
 
 ```azurecli
 az login
@@ -184,3 +184,4 @@ Il portale di Azure costituisce un modo semplice per creare rapidamente un set d
 Altre informazioni su [dischi dati](virtual-machine-scale-sets-attached-disks.md).
 
 Informazioni su come [gestire le app](virtual-machine-scale-sets-deploy-app.md).
+

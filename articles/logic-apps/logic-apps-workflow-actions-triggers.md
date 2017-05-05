@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 3f050e2722091aa8b58591cc0c894a6ecb82c3fa
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -406,6 +406,8 @@ Esistono molti tipi di azioni, ognuna con un comportamento univoco. Le azioni di
 -   **Wait** \- Questa semplice azione attende per un intervallo di tempo fisso o fino a un'ora specifica.  
   
 -   **Workflow** \- Questa azione rappresenta un flusso di lavoro annidato.  
+
+-   **Function** \- Questa azione rappresenta una funzione di Azure.
 
 ### <a name="collection-actions"></a>Azioni di raccolta
 
@@ -828,6 +830,47 @@ Se il valore della proprietà `from` è un array vuoto, l'output sarà una tabel
 Poiché viene eseguito un controllo dell'accesso sul flusso di lavoro \(più in particolare, sul trigger\), è necessario l'accesso al flusso di lavoro.  
   
 Gli output dell'azione `workflow` si basano su quanto definito nell'azione `response` nel flusso di lavoro figlio. Se non sono state definite azioni `response`, gli output sono vuoti.  
+
+## <a name="function-action"></a>Azione delle funzioni   
+
+|Nome|Obbligatoria|Tipo|Descrizione|  
+|--------|------------|--------|---------------|  
+|function id|Sì|String|ID risorsa della funzione che si vuole richiamare.|  
+|statico|No|String|Il metodo HTTP utilizzato per richiamare la funzione. Per impostazione predefinita, è `POST` quando non è specificato.|  
+|query|No|Oggetto|Rappresenta i parametri di query da aggiungere all'URL. `"queries" : { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL.|  
+|headers|No|Oggetto|Rappresenta ogni intestazione inviata alla richiesta. Ad esempio, per impostare il linguaggio e il tipo in una richiesta: `"headers" : { "Accept-Language": "en-us" }`.|  
+|body|No|Oggetto|Rappresenta il payload inviato all'endpoint.|  
+
+```json
+"myfunc" : {
+    "type" : "Function",
+    "inputs" : {
+        "function" : {
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Web/sites/myfuncapp/functions/myfunc"
+        },
+        "queries" : {
+            "extrafield" : "specialValue"
+        },  
+        "headers" : {
+            "x-ms-date" : "@utcnow()"
+        },
+        "method" : "POST",
+    "body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+Quando si salva l'app per la logica, vengono eseguiti alcuni controlli sulla funzione a cui si fa riferimento:
+-   È necessario disporre dell'accesso alla funzione.
+-   È consentito solo il trigger HTTP standard o il trigger webhook JSON generico.
+-   Non deve essere presente alcuna route definita.
+-   Sono consentiti solo i livelli di autorizzazione "funzione" e "anonimo".
+
+L'URL del trigger viene recuperato, memorizzato nella cache e usato durante il runtime. Pertanto, se qualsiasi operazione invalida l'URL memorizzato nella cache, l'azione non riesce durante il runtime. Per risolvere il problema, salvare di nuovo l'app per la logica. In questo modo, l'app per la logica verrà recuperata e l'URL del trigger verrà memorizzato nuovamente nella cache.
 
 ## <a name="collection-actions-scopes-and-loops"></a>Azioni di raccolta (ambiti e cicli)
 

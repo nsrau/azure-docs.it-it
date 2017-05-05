@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/19/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e0cd1eb986e137e1e8877286b2efe9a6924da931
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d5e13e6a96828e7c303e4d870ee170b90a0c4308
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -30,7 +30,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 > La copia dei dati dagli archivi dati IaaS di Azure/locali in Azure DocumentDB e viceversa è supportata con Gateway di gestione dati 2.1 e versioni successive.
 
 ## <a name="supported-versions"></a>Versioni supportate
-Questo connettore DocumentDB supporta la copia dei dati da e verso raccolte DocumentDB a singola partizione e raccolte partizionate. [DocDB per MongoDB](../documentdb/documentdb-protocol-mongodb.md) non è supportata.
+Questo connettore DocumentDB supporta la copia dei dati da e verso raccolte DocumentDB a singola partizione e raccolte partizionate. [DocDB per MongoDB](../documentdb/documentdb-protocol-mongodb.md) non è supportata. Per copiare i dati così come sono da e verso i file JSON o un'altra raccolta di DocumentDB, vedere [Importare/esportare documenti JSON](#importexport-json-documents).
 
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso Azure DocumentDB usando diversi strumenti/API.
@@ -115,6 +115,17 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 | nestingSeparator |È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Per l'esempio sopra: `Name.First` nella tabella di output produce la struttura JSON seguente nel documento di DocumentDB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carattere utilizzato per separare i livelli di nidificazione.<br/><br/>Il valore predefinito è `.` (punto). |Carattere utilizzato per separare i livelli di nidificazione. <br/><br/>Il valore predefinito è `.` (punto). |
 | writeBatchSize |Numero di richieste in parallelo per il servizio DocumentDB per creare documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso DocumentDB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a DocumentDB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore: "La frequenza delle richieste è troppo elevata".<br/><br/>La limitazione è dovuta a diversi fattori, inclusi la dimensione dei documenti, il numero di termini nei documenti, i criteri di indicizzazione della raccolta di destinazione, ecc. Per le operazioni di copia, è possibile usare una raccolta migliore, ad esempio S3, per disporre della massima velocità effettiva disponibile, ovvero 2500 unità di richiesta al secondo. |Integer |No (valore predefinito: 5) |
 | writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
+
+## <a name="importexport-json-documents"></a>Importare/esportare documenti JSON
+Usando questo connettore DocumentDB, è possibile:
+
+* Importare i documenti JSON da diverse origini in DocumentDB, tra cui BLOB di Azure, Azure Data Lake, file system locale o altri archivi di file supportati da Azure Data Factory.
+* Esportare i documenti JSON da raccolte DocumentDB in diversi archivi basati su file.
+* Eseguire la migrazione dei dati tra due raccolte DocumentDB così come sono.
+
+Per ottenere la copia senza schema, 
+* Quando si usa la copia guidata, controllare l'opzione **"Export as-is to JSON files or DocumentDB collection"** (Esportare così come sono nel file JSON o in una raccolta di DocumentDB).
+* Quando si usa la modifica JSON, non specificare la sezione "struttura" nel set di dati di DocumentDB o né la proprietà "nestingSeparator" nell'origine/sink di DocumentDB nell'attività di copia. Per importare/esportare verso i file JSON, nel set di dati dell'archivio file specificare il tipo di formato come "JsonFormat", la configurazione come "filePattern" e ignorare le altre impostazioni del formato, vedere la sezione [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format) per informazioni dettagliate.
 
 ## <a name="json-examples"></a>Esempi JSON
 Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati da e verso Azure DocumentDB e Archiviazione BLOB di Azure. I dati possono anche essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
@@ -450,15 +461,6 @@ Quindi l'output JSON in DocumentDB sarà come:
 }
 ```
 DocumentDB è un archivio NoSQL per i documenti JSON, dove sono consentite strutture nidificate. Azure Data Factory consente di indicare una gerarchia tramite **nestingSeparator**, ovvero "." in questo esempio. Con il separatore, l'attività copia genererà l'oggetto "Name" con tre elementi figlio First, Middle e Last, in base a "Name.First", "Name.Middle" e "Name.Last" nella definizione della tabella.
-
-## <a name="importexport-json-documents"></a>Importare/esportare documenti JSON
-Usando questo connettore DocumentDB, è possibile:
-
-* Importare i documenti JSON da diverse origini in DocumentDB, tra cui BLOB di Azure, Azure Data Lake, file system locale o altri archivi di file supportati da Azure Data Factory.
-* Esportare i documenti JSON da raccolte DocumentDB in diversi archivi basati su file.
-* Eseguire la migrazione dei dati tra due raccolte DocumentDB così come sono.
-
-Per ottenere questa copia senza schema, non specificare la sezione "structure" nel set di dati di input o nella proprietà "nestingSeparator" nell'origine/sink di DocumentDB in attività di copia. Vedere la sezione "Specifica formato" nell'argomento relativo al connettore basato su file all'interno dei dettagli sulla configurazione del formato JSON.
 
 ## <a name="appendix"></a>Appendice
 1. **Domanda:**

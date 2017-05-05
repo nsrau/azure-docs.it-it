@@ -4,7 +4,7 @@ description: Informazioni sulla migrazione di un database SQL Server a un databa
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/04/2017
+ms.date: 04/20/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 842ca29e46aefbd58638ac642f000ef39c1202d1
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: c6d965351f6f131ee342cea672fc4fa8771f8ede
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -40,7 +40,7 @@ Per completare questa esercitazione, accertarsi di avere:
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
 - Un database da migrare. Questa esercitazione usa il [database OLTP SQL Server 2008R2 AdventureWorks](https://msftdbprodsamples.codeplex.com/releases/view/59211) in un'istanza di SQL Server 2008 R2 o versione più recenti, ma è possibile usare qualsiasi database di propria scelta. 
 
-## <a name="step-1---prepare-for-migration"></a>Passaggio 1: Preparare la migrazione
+## <a name="prepare-for-migration"></a>Preparare la migrazione
 
 Tutto è pronto per preparare la migrazione. Seguire questi passaggi per usare **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** per valutare l'idoneità del database alla migrazione nel database SQL Azure.
 
@@ -85,9 +85,9 @@ Tutto è pronto per preparare la migrazione. Seguire questi passaggi per usare *
 10. Facoltativamente fare clic su **Esporta report** per salvare il report come file JSON.
 11. Chiudere Data Migration Assistant.
 
-## <a name="step-2---export-to-bacpac-file"></a>Passaggio 2: Eseguire l'esportazione in un file BACPAC 
+## <a name="export-to-bacpac-file"></a>Esportare in un file BACPAC 
 
-Un file BACPAC è un file ZIP con l'estensione BACPAC contenente i metadati e i dati provenienti da un database SQL Server. Un file BACPAC può essere archiviato nell'archiviazione BLOB di Azure o nell'archiviazione locale a scopo di semplice archiviazione o migrazione, ad esempio da SQL Server al database SQL Azure. Perché un'esportazione sia coerente dal punto di vista delle transazioni, è necessario assicurarsi che non venga eseguita alcuna attività di scrittura durante l'esportazione.
+Un file BACPAC è un file ZIP con un'estensione bacpac contenente i metadati e dati da un database di SQL Server. Un file BACPAC può essere archiviato nell'archiviazione BLOB di Azure o nell'archiviazione locale a scopo di semplice archiviazione o migrazione, ad esempio da SQL Server al database SQL Azure. Perché un'esportazione sia coerente dal punto di vista delle transazioni, è necessario assicurarsi che non venga eseguita alcuna attività di scrittura durante l'esportazione.
 
 Seguire questi passaggi per usare l'utilità della riga di comando SQLPackage per esportare il database AdventureWorks2008R2 nella risorsa di archiviazione locale.
 
@@ -103,11 +103,11 @@ Seguire questi passaggi per usare l'utilità della riga di comando SQLPackage pe
 
 Una volta completata l'esecuzione, il file BCPAC generato viene archiviato nella directory in cui si trova l'eseguibile sqlpackage. In questo esempio C:\Programmi (x86)\Microsoft SQL Server\130\DAC\bin. 
 
-## <a name="step-3-log-in-to-the-azure-portal"></a>Passaggio 3: Accedere al portale di Azure
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
 
 Accedere al [Portale di Azure](https://portal.azure.com/). L'accesso dal computer da cui si esegue l'utilità della riga di comando SQLPackage semplifica la creazione della regola del firewall al passaggio 5.
 
-## <a name="step-4-create-a-sql-database-logical-server"></a>Passaggio 4: Creare un server logico per il database SQL
+## <a name="create-a-sql-database-logical-server"></a>Creare un server logico per il database SQL
 
 Un [server logico per il database SQL di Azure](sql-database-features.md) funge da punto di gestione centrale per più database. Seguire questi passaggi per creare un server logico di database SQL per contenere il database OLTP Adventure Works di SQL Server. 
 
@@ -133,7 +133,7 @@ Un [server logico per il database SQL di Azure](sql-database-features.md) funge 
 
 5. Fare clic su **Crea** per effettuare il provisioning del server logico. Il provisioning richiede alcuni minuti. 
 
-## <a name="step-5-create-a-server-level-firewall-rule"></a>Passaggio 5: Creare una regola del firewall a livello di server
+## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
 
 Il servizio di database SQL crea un [firewall a livello di server](sql-database-firewall-configure.md) che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o ai database sul server, a meno che non venga creata una regola del firewall per aprire il firewall per indirizzi IP specifici. Seguire questi passaggi per creare una regola del firewall a livello di server del database SQL per l'indirizzo IP del computer da cui si esegue l'utilità della riga di comando SQLPackage. In questo modo SQLPackage può connettersi al server logico del database SQL attraverso il firewall del database SQL di Azure. 
 
@@ -155,7 +155,7 @@ Il servizio di database SQL crea un [firewall a livello di server](sql-database-
 > Il database SQL comunica attraverso la porta 1433. Se si sta tentando di connettersi da una rete aziendale, il traffico in uscita attraverso la porta 1433 potrebbe non essere autorizzato dal firewall della rete. In questo caso, non sarà possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
 >
 
-## <a name="step-6---import-bacpac-file-to-azure-sql-database"></a>Passaggio 6: Importare un file BACPAC in un database SQL di Azure 
+## <a name="import-bacpac-file-to-azure-sql-database"></a>Importare un file BACPAC in un database SQL di Azure 
 
 Le versioni più recenti dell'utilità della riga di comando SQLPackage supportano la creazione di un database SQL di Azure per uno specifico [livello di servizio e livello di prestazioni](sql-database-service-tiers.md). Per prestazioni ottimali durante l'importazione, selezionare un livello di prestazioni e un livello di servizio elevati e quindi ridurli immediatamente dopo l'importazione se il livello di prestazioni e il livello di servizio sono superiori al necessario.
 
@@ -173,7 +173,7 @@ Seguire questi passaggi per usare l'utilità della riga di comando SQLPackage pe
 > Il server logico del database SQL di Azure è in ascolto sulla porta 1433. Se si sta tentando di connettersi a un server logico del database SQL di Azure dall'interno di un firewall aziendale, questa porta deve essere aperta.
 >
 
-## <a name="step-7---connect-using-sql-server-management-studio-ssms"></a>Passaggio 7: Eseguire la connessione usando SQL Server Management Studio (SSMS)
+## <a name="connect-using-sql-server-management-studio-ssms"></a>Eseguire la connessione usando SQL Server Management Studio (SSMS)
 
 Usare SQL Server Management Studio per stabilire una connessione al server del database SQL di Azure e del nuovo database migrato. Se si esegue SQL Server Management Studio in un computer diverso da quello in cui è stato eseguito SQLPackage, creare una regola del firewall per questo computer con i passaggi della procedura precedente.
 
@@ -192,7 +192,7 @@ Usare SQL Server Management Studio per stabilire una connessione al server del d
 
 4. In Esplora oggetti espandere **Database** e quindi espandere **myMigratedDatabase** per visualizzare gli oggetti disponibili nel database di esempio.
 
-## <a name="step-8---change-database-properties"></a>Passaggio 8: Cambiare le proprietà del database
+## <a name="change-database-properties"></a>Cambiare le proprietà del database
 
 Con SQL Server Management Studio è possibile cambiare il livello di servizio, il livello di prestazioni e il livello di compatibilità.
 

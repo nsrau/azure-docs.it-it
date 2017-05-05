@@ -1,5 +1,5 @@
 ---
-title: Usare l&quot;acquisizione di pacchetti per eseguire il monitoraggio proattivo della rete con Funzioni di Azure | Microsoft Docs
+title: Utilizzare l&quot;acquisizione di pacchetti per eseguire il monitoraggio proattivo della rete con Avvisi e Funzioni di Azure | Microsoft Docs
 description: Questo articolo descrive come creare un&quot;acquisizione di pacchetti attivata da un avviso con Azure Network Watcher
 services: network-watcher
 documentationcenter: na
@@ -15,55 +15,90 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 941a795c4c83e05ec3c5bb55790f8fcc72829a65
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5fd017b6f7645220ee7572e50c02265de41e938c
+ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="use-packet-capture-to-do-proactive-network-monitoring-with-azure-functions"></a>Usare l'acquisizione di pacchetti per eseguire il monitoraggio proattivo della rete con Funzioni di Azure
+# <a name="use-packet-capture-to-do-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utilizzare l'acquisizione di pacchetti per eseguire il monitoraggio proattivo della rete con Avvisi e Funzioni di Azure
 
-Il servizio di acquisizione di pacchetti di Network Watcher crea sessioni di acquisizione per registrare il traffico da e verso una macchina virtuale. Il file di acquisizione può avere un filtro che viene definito per tenere traccia solo del traffico che si vuole monitorare. Questi dati vengono quindi archiviati in un BLOB di archiviazione o in locale nel computer guest. Questa funzionalità può essere avviata in remoto da altri scenari di automazione, ad esempio Funzioni di Azure. L'acquisizione di pacchetti consente di eseguire acquisizioni proattive in base alle anomalie di rete definite. Altri utilizzi comprendono la raccolta di statistiche di rete, informazioni sulle intrusioni nella rete, debug delle comunicazioni client-server e molto altro ancora.
+Il servizio di acquisizione di pacchetti di Network Watcher crea sessioni di acquisizione per registrare il traffico da e verso una macchina virtuale. Il file di acquisizione può avere un filtro che viene definito per tenere traccia solo del traffico che si vuole monitorare. Questi dati vengono quindi archiviati in un BLOB di archiviazione o in locale nel computer guest.
+
+Questa funzionalità può essere avviata in remoto da altri scenari di automazione, ad esempio Funzioni di Azure. L'acquisizione di pacchetti consente di eseguire acquisizioni proattive in base alle anomalie di rete definite. Altri utilizzi comprendono la raccolta di statistiche di rete, informazioni sulle intrusioni nella rete, debug delle comunicazioni client-server e molto altro ancora.
 
 Le risorse distribuite in Azure sono in esecuzione 24 ore su 24, 7 giorni su 7. Nessuno può monitorare attivamente lo stato di tutte le risorse 24 ore su 24, 7 giorni su 7. Si pensi a che cosa può accadere se si verifica un problema alle 2 di mattina.
 
 Usando Network Watcher, Creazione di avvisi e Funzioni dall'ecosistema di Azure, è possibile rispondere in modo proattivo alle problematiche della rete con i dati e gli strumenti per risolvere il problema.
 
-## <a name="before-you-begin"></a>Prima di iniziare
+![scenario][scenario]
 
-In questo esempio la VM invia più segmenti TCP del solito ed è possibile essere avvisati. Come esempio vengono usati i segmenti TCP, ma è possibile usare qualsiasi condizione di avviso. Quando si viene avvisati, è opportuno avere i dati a livello di pacchetto per sapere perché la comunicazione è aumentata e poter eseguire le procedure che consentono di ripristinare la normale comunicazione del computer.
-Questo scenario presuppone che esista già un'istanza di Network Watcher e un gruppo di risorse con una macchina virtuale valida da usare.
+## <a name="prerequisites"></a>Prerequisiti
+
+* Installare la versione più recente di [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+* Avere un’istanza preesistente di Network Watcher o [creare un’istanza di Network Watcher](network-watcher-create.md)
+* Avere una macchina virtuale preesistente nella stessa regione del precedente Network Watcher con [estensione Windows](../virtual-machines/windows/extensions-nwa.md) o [estensione della macchina virtuale Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="scenario"></a>Scenario
 
-Per automatizzare questo processo, nella VM vengono creati e connessi un avviso da attivare quando si verifica l'evento imprevisto e una funzione di Azure per chiamare Network Watcher.
+In questo esempio la VM invia più segmenti TCP del solito ed è possibile essere avvisati. Come esempio qui vengono usati i segmenti TCP, ma è possibile usare qualsiasi condizione di avviso.
 
-Questo scenario:
+Una volta ricevuto l’avviso, sono necessari i dati a livello di pacchetto per comprendere il motivo per cui la comunicazione è aumentata. In questo modo, è possibile intervenire per riportare la macchina in condizioni di normale comunicazione.
 
-* Crea una funzione di Azure che avvia un'acquisizione di pacchetti.
-* Crea una regola di avviso in una macchina virtuale.
-* Configura la regola di avviso per chiamare la funzione di Azure.
+Questo scenario presuppone che esista già un'istanza di Network Watcher e un gruppo di risorse con una macchina virtuale valida da utilizzare.
 
-## <a name="creating-an-azure-function-and-overview"></a>Creazione di una funzione di Azure e panoramica
+In questo esempio la VM invia più segmenti TCP del solito ed è possibile essere avvisati. Come esempio vengono usati i segmenti TCP, ma è possibile usare qualsiasi condizione di avviso. Quando si viene avvisati, è opportuno avere i dati a livello di pacchetto per sapere perché la comunicazione è aumentata e poter eseguire le procedure che consentono di ripristinare la normale comunicazione del computer.
 
-Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avviso e creare un'acquisizione di pacchetti.
-
-L'elenco seguente è una panoramica del flusso di lavoro effettivo.
+L'elenco seguente è una panoramica del flusso di lavoro effettivo:
 
 1. Nella macchina virtuale viene attivato un avviso.
 1. L'avviso chiama la funzione di Azure tramite un webhook.
 1. La funzione di Azure elabora l'avviso e avvia una sessione di acquisizione di pacchetti di Network Watcher.
-1. L'acquisizione di pacchetti viene eseguita nella macchina virtuale e raccoglie il traffico. 
-1. Il file di acquisizione viene caricato in un account di archiviazione per la revisione e diagnosi. 
+1. L'acquisizione di pacchetti viene eseguita nella macchina virtuale e raccoglie il traffico.
+1. Il file di acquisizione pacchetto viene caricato in un account di archiviazione per revisione e diagnosi.
 
-È possibile creare una funzione di Azure nel portale seguendo le istruzioni contenute in [Creare la prima funzione di Azure](../azure-functions/functions-create-first-azure-function.md). Per questo esempio, viene scelta una funzione di tipo HttpTrigger-PowerShell. Per questo esempio sono richieste alcune personalizzazioni illustrate nei passaggi seguenti:
+Per automatizzare questo processo, nella VM vengono creati e connessi un avviso da attivare quando si verifica l'evento imprevisto e una funzione per chiamare Network Watcher.
+
+Questo scenario prevede le seguenti operazioni:
+
+* Crea una funzione di Azure che avvia un'acquisizione di pacchetti.
+* Crea una regola di avviso su una macchina virtuale e configura la regola di avviso in modo da chiamare la funzione di Azure.
+
+## <a name="creating-an-azure-function"></a>Creazione di una funzione di Azure
+
+Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avviso e creare un'acquisizione di pacchetti.
+
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Calcolo** > **App per le funzioni**
+
+    ![creazione di un’app per le funzioni][1-1]
+
+2. In **App per le funzioni**, inserire i seguenti valori e fare clic su **OK** per creare l’app per le funzioni:
+
+    |**Impostazione** | **Valore** | **Dettagli** |
+    |---|---|---|
+    |**Nome app**|PacketCaptureExample|Nome dell’app per le funzioni|
+    |**Sottoscrizione**|[Sottoscrizione]|Selezionare una sottoscrizione in cui creare l’app per le funzioni.||
+    |**Gruppo di risorse**|PacketCaptureRG|Nome del gruppo di risorse che contiene l’app per le funzioni.|
+    |**Piano di hosting**|Piano a consumo| Il tipo di piano che l’app per le funzioni utilizzerà. Le opzioni sono A consumo e Piano di servizio app. |
+    |**Posizione**|Stati Uniti centrali| La regione dove creare l’app per le funzioni.|
+    |**Storage Account**|{generato automaticamente}| Si tratta dell'account di archiviazione richiesto dalle funzioni di Azure per l'archiviazione generica.|
+
+3. Nel pannello delle app per le funzioni **PacketCaptureExample**, fare clic su **+** in **Funzioni** > **Personalizza funzione**. Selezionare **HttpTrigger-Powershell**, quindi inserire le informazioni rimanenti e fare clic su **Crea** per creare la funzione.
+
+    |**Impostazione** | **Valore** | **Dettagli** |
+    |---|---|---|
+    |**Scenario**|Sperimentale|Tipo di scenario|
+    |**Dare un nome alla funzione**|AlertPacketCapturePowerShell|Nome della funzione|
+    |**Livello di autorizzazione**|Funzione|Livello di autorizzazione per la funzione.|
 
 ![esempio di funzioni][functions1]
 
 > [!NOTE]
 > Il modello di PowerShell è sperimentale e non dispone del supporto completo.
 
-## <a name="adding-modules"></a>Aggiunta di moduli
+Per questo esempio sono richieste alcune personalizzazioni illustrate nei passaggi seguenti:
+
+### <a name="adding-modules"></a>Aggiunta di moduli
 
 Per usare i cmdlet PowerShell di Network Watcher, è necessario caricare il modulo PowerShell più recente nell'app per le funzioni.
 
@@ -105,14 +140,14 @@ Per usare i cmdlet PowerShell di Network Watcher, è necessario caricare il modu
 
     ![file di PowerShell][functions7]
 
-## <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Autenticazione
 
 Per usare i cmdlet PowerShell, è necessario eseguire l'autenticazione, che deve essere configurata nell'app per le funzioni. Per configurare l'autenticazione, è necessario configurare le variabili di ambiente e caricare un file di chiave crittografata nell'app per le funzioni.
 
 > [!NOTE]
 > Questo scenario fornisce solo un esempio di come implementare l'autenticazione con Funzioni di Azure; questa operazione può essere eseguita anche in altri modi.
 
-### <a name="encrypted-credentials"></a>Credenziali crittografate
+#### <a name="encrypted-credentials"></a>Credenziali crittografate
 
 Lo script seguente di PowerShell crea un file di chiave denominato **PassEncryptKey.key** e genera una versione crittografata della password fornita.  Questa password è la stessa che viene definita per l'applicazione di Azure AD usata per l'autenticazione.
 
@@ -137,7 +172,7 @@ Nell'editor del servizio app dell'app per le funzioni creare una cartella denomi
 
 ![chiavi delle funzioni][functions8]
 
-### <a name="retrieving-values-for-environment-variables"></a>Recupero dei valori per le variabili di ambiente
+### <a name="retrieve-values-for-environment-variables"></a>Recupero dei valori per le variabili di ambiente
 
 La configurazione finale richiesta consente di configurare le variabili di ambiente necessarie per accedere ai valori per l'autenticazione. Di seguito è riportato un elenco delle variabili di ambiente che vengono create:
 
@@ -201,7 +236,7 @@ $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-### <a name="storing-the-environment-variables"></a>Archiviazione delle variabili di ambiente
+### <a name="store-the-environment-variables"></a>Archiviazione delle variabili di ambiente
 
 1. Passare all'app per le funzioni, fare clic su **Impostazioni dell'app per le funzioni** > **Configura le impostazioni dell'app**.
 
@@ -211,7 +246,7 @@ $Encryptedpassword
 
     ![app settings][functions12]
 
-## <a name="processing-the-alert-and-starting-a-packet-capture-session"></a>Elaborazione dell'avviso e avvio di una sessione di acquisizione di pacchetti
+### <a name="add-powershell-to-the-function"></a>Aggiunta di PowerShell alla funzione
 
 A questo punto è necessario chiamare Network Watcher dalla funzione di Azure. L'implementazione di questa funzione è diversa a seconda dei requisiti. Il flusso generale del codice è tuttavia il seguente:
 
@@ -282,7 +317,7 @@ if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
 } 
 ``` 
 
-Dopo avere creato la funzione, è necessario configurare l'avviso per chiamare l'URL associato alla funzione. Per ottenere questo valore, fare clic su **</> Get function URL** (Ottenere l'URL della funzione). 
+Dopo avere creato la funzione, è necessario configurare l'avviso per chiamare l'URL associato alla funzione. Per ottenere questo valore, copiare l'URL della funzione dall'app per le funzioni.
 
 ![ricerca dell'URL della funzione 1][functions13]
 
@@ -294,37 +329,46 @@ Se sono necessarie proprietà personalizzate nel payload della richiesta POST de
 
 ## <a name="configure-an-alert-on-a-vm"></a>Configurare un avviso in una VM
 
-Si possono configurare avvisi per notificare alle singole persone quando una metrica specifica supera una soglia assegnata. In questo esempio l'avviso è sui segmenti TCP inviati, ma può essere attivato per molte altre metriche. In questo esempio viene configurato un avviso per chiamare un webhook per chiamare la funzione.
+Si possono configurare avvisi per notificare alle singole persone quando una metrica specifica supera una soglia assegnata. In questo esempio, l'avviso è sui segmenti TCP inviati, ma può essere attivato per molte altre metriche. In questo esempio viene configurato un avviso per chiamare un webhook per chiamare la funzione.
 
 ### <a name="create-the-alert-rule"></a>Creare la regola di avviso
 
-Passare a una macchina virtuale esistente e aggiungere una regola di avviso. Per informazioni più dettagliate sulla configurazione di avvisi, vedere [Usare il portale di Azure per creare avvisi per i servizi di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). 
+Passare a una macchina virtuale esistente, quindi aggiungere una regola di avviso. Per informazioni più dettagliate sulla configurazione di avvisi, vedere [Creazione di avvisi in Monitoraggio di Azure per i servizi Azure - Portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Immettere i valori seguenti nel pannello e fare clic su **OK**
 
-![Aggiungere una regola di avviso di macchina virtuale a una macchina virtuale][1]
+  |**Impostazione** | **Valore** | **Dettagli** |
+  |---|---|---|
+  |**Nome**|TCP_Segments_Sent_Exceeded|Nome della regola di avviso.|
+  |**Descrizione**|Soglia superata segmenti TCP inviati|Descrizione della regola di avviso.||
+  |**Metrica**|Segmenti TCP inviati| La metrica da utilizzare per attivare l'avviso. |
+  |**Condition**|Maggiore di| La condizione da utilizzare per valutare la metrica.|
+  |**Soglia**|100| Il valore della metrica che attiva l'avviso. Questo valore deve essere impostato con un valore valido per l'ambiente in uso.|
+  |**Periodo**|Negli ultimi 5 minuti| Determina il periodo in cui cercare la soglia per la metrica.|
+  |**Webhook**|[url webhook dall’app per le funzioni]| Si tratta dell'url webhook dall’app per le funzioni creato nei passaggi precedenti.|
 
 > [!NOTE]
 > La metrica di segmenti TCP non è abilitata per impostazione predefinita. Per altre informazioni su come abilitare metriche aggiuntive, vedere [Abilitare il monitoraggio e la diagnostica](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
 
-Incollare infine l'URL del passaggio precedente nella casella di testo del webhook nell'avviso. Fare clic su **OK** per salvare la regola di avviso.
+## <a name="review-the-results"></a>Esaminare i risultati
 
-![Incollare l'URL nella regola di avviso][3]
+Dopo i criteri di attivazione dell’avviso, viene creata l’acquisizione del pacchetto. Passare a Network Watcher e fare clic su **Acquisizione pacchetti**. In questa pagina è possibile fare clic sul collegamento del file di acquisizione pacchetti per scaricare l'acquisizione dei pacchetti
 
-## <a name="downloading-and-viewing-the-capture-file"></a>Downloading e visualizzazione del file di acquisizione
+![visualizzazione di un'acquisizione di pacchetti][functions14]
 
-Se si salva l'acquisizione in un account di archiviazione, il file di acquisizione può essere scaricato tramite il portale o a livello di codice. Se il file di acquisizione è archiviato in locale, viene recuperato accedendo alla macchina virtuale. 
+Se il file di acquisizione è archiviato in locale, viene recuperato accedendo alla macchina virtuale.
 
-Per istruzioni sul download di file dall'account di archiviazione di Azure, consultare [Introduzione all'archivio BLOB di Azure con .NET](../storage/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](http://storageexplorer.com/).
+Per istruzioni relative al download di file dagli account di archiviazione di Azure, consultare [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/storage-dotnet-how-to-use-blobs.md). Un altro strumento è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](http://storageexplorer.com/).
 
-Dopo il download dell'acquisizione, è possibile visualizzarla usando qualsiasi strumento per la lettura di un file **CAP**. I seguenti sono collegamenti a due di questi strumenti:
+Dopo il download dell'acquisizione, è possibile visualizzarla con qualsiasi strumento per la lettura di un file **.cap**. Di seguito i collegamenti a due di questi strumenti:
 
-[Microsoft Message Analyzer](https://technet.microsoft.com/en-us/library/jj649776.aspx)  
-[WireShark](https://www.wireshark.org/)  
+- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+- [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come visualizzare le acquisizioni di pacchetti, vedere [Packet capture analysis with Wireshark](network-watcher-alert-triggered-packet-capture.md) (Analisi delle acquisizioni di pacchetti con Wireshark)
+Per informazioni su come visualizzare le acquisizioni di pacchetti, vedere [Analisi delle acquisizioni di pacchetti con Wireshark](network-watcher-alert-triggered-packet-capture.md).
 
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png
+[1-1]: ./media/network-watcher-alert-triggered-packet-capture/figure1-1.png
 [2]: ./media/network-watcher-alert-triggered-packet-capture/figure2.png
 [3]: ./media/network-watcher-alert-triggered-packet-capture/figure3.png
 [functions1]:./media/network-watcher-alert-triggered-packet-capture/functions1.png
@@ -340,3 +384,6 @@ Per informazioni su come visualizzare le acquisizioni di pacchetti, vedere [Pack
 [functions11]:./media/network-watcher-alert-triggered-packet-capture/functions11.png
 [functions12]:./media/network-watcher-alert-triggered-packet-capture/functions12.png
 [functions13]:./media/network-watcher-alert-triggered-packet-capture/functions13.png
+[functions14]:./media/network-watcher-alert-triggered-packet-capture/functions14.png
+[scenario]:./media/network-watcher-alert-triggered-packet-capture/scenario.png
+

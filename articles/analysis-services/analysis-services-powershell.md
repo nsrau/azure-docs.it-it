@@ -12,12 +12,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 04/18/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: c0dd85570f052c4a9651faecbaeb3eaa181f9017
-ms.openlocfilehash: b00b2cf1d3a54bba716d7470643aa1a5e6a58633
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 478703542edeee1b40fb5714c91dd6a75bb17513
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -47,19 +47,21 @@ I cmdlet di Azure Analysis Services sono inclusi nel modulo del componente [Azur
 |[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/test-azurermanalysisservicesserver)|Testa l'esistenza di un'istanza del server.| 
 
 ## <a name="database-operations"></a>Operazioni del database
-Le operazioni del database Azure Analysis Services usano lo stesso modulo [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) di SQL Server Analysis Services. Non tutti i cmdlet tuttavia sono supportati per l'anteprima di Azure Analysis Services. 
+Le operazioni del database Azure Analysis Services usano lo stesso modulo [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) di SQL Server Analysis Services. Non tutti i cmdlet tuttavia sono supportati in Azure Analysis Services. 
 
-Il modulo SQLASCMDLETS fornisce cmdlet di gestione database specifici dell'attività, oltre al cmdlet Invoke-ASCmd per utilizzo generico che accetta una query o uno script TMSL (Tabular Model Scripting Language). I cmdlet seguenti nel modulo SQLASCMDLETS sono supportati per l'anteprima di Azure Analysis Services.
+Il modulo SQLASCMDLETS fornisce cmdlet di gestione database specifici dell'attività, oltre al cmdlet Invoke-ASCmd per utilizzo generico che accetta una query o uno script TMSL (Tabular Model Scripting Language). I cmdlet seguenti nel modulo SQLASCMDLETS sono supportati in Azure Analysis Services.
   
 |Cmdlet|Descrizione|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Aggiunge un membro a un ruolo del database.| 
+|[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Esegue il backup di un database di Analysis Services.|  
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Rimuove un membro da un ruolo del database.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Esegue uno script TMSL.|
 |[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Elabora un database.|  
 |[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Elabora una partizione.| 
 |[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Elabora una tabella.|  
 |[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Unisce una partizione.|  
+|[Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Ripristina un database di Analysis Services.| 
   
 
 ## <a name="related-information"></a>Informazioni correlate

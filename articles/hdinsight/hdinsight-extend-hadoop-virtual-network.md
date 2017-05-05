@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/13/2017
+ms.date: 04/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 938f6e4bf7d9d6418c9b10531725807a0a9dbce4
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 52038c02901d49f787226ce629a1ca5942414e4a
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -116,6 +116,8 @@ Gli indirizzi IP che dovrebbero essere concessi sono specifici all'area in cui r
 | Brasile | Brasile meridionale | 191.235.84.104</br>191.235.87.113 | 443 |
 | Canada | Canada orientale | 52.229.127.96</br>52.229.123.172 | 443 |
 | &nbsp; | Canada centrale | 52.228.37.66</br>52.228.45.222 | 443 |
+| Germania | Germania centrale | 51.4.146.68</br>51.4.146.80 | 443 |
+| &nbsp; | Germania nord-orientale | 51.5.150.132</br>51.5.144.101 | 443 |
 | India | India centrale | 52.172.153.209</br>52.172.152.49 | 443 |
 | Regno Unito | Regno Unito occidentale | 51.141.13.110</br>51.141.7.20 | 443 |
 | &nbsp; | Regno Unito meridionale | 51.140.47.39</br>51.140.52.16 | 443 |
