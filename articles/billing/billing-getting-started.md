@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: jlian
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c69334279e79352e3f7ad58d356f6891dd060b0a
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -44,7 +44,7 @@ Per altre informazioni, vedere le [domande frequenti sui prezzi](https://azure.m
 
 ### <a name="check-your-subscription-and-access"></a>Controllare la sottoscrizione e l'accesso
 
-Per visualizzare i costi è necessario l'[accesso a livello di sottoscrizione](../active-directory/role-based-access-control-configure.md), ma solo l'amministratore dell'account può accedere al [Centro account](https://account.windowsazure.com/Home/Index), modificare le informazioni di fatturazione e gestire le sottoscrizioni. L'amministratore dell'account è la persona che ha completato il processo di iscrizione. Per altre informazioni, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](billing-add-change-azure-subscription-administrator.md).
+Per visualizzare i costi è necessario l'[accesso alle informazioni di fatturazione a livello di sottoscrizione](billing-manage-access.md), ma solo l'amministratore dell'account può accedere al [Centro account](https://account.windowsazure.com/Home/Index), modificare le informazioni di fatturazione e gestire le sottoscrizioni. L'amministratore dell'account è la persona che ha completato il processo di iscrizione. Per altre informazioni, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](billing-add-change-azure-subscription-administrator.md).
 
 Per verificare se si è l'amministratore dell'account, passare al [pannello Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ed esaminare l'elenco delle sottoscrizioni a cui si ha accesso. Se in **Ruolo personale** è riportato *Amministratore dell'account*, non sussistono problemi. Se il ruolo indicato è diverso, ad esempio *Proprietario*, non si hanno privilegi completi.
 

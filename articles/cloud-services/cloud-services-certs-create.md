@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 885180e9759d0702d4e0988a7a1b4eb9097d4433
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 7e68a738feff2eb2330b74d942b0a7f42d07df78
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -58,8 +58,10 @@ Prima di aggiungere più di 100 certificati, verificare se è possibile riutiliz
 * Un certificato X.509.
 * Contiene una chiave privata.
 * Viene creato per lo scambio di chiave (file PFX).
-* Il nome del soggetto deve corrispondere al dominio usato per accedere al servizio cloud. 
+* Il nome del soggetto deve corrispondere al dominio usato per accedere al servizio cloud.
+
     > Non è possibile ottenere un certificato SSL per il dominio cloudapp.net o per domini di Azure. Il nome del soggetto del certificato deve pertanto corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio **contoso.net**, non **contoso.cloudapp.net**.
+
 * Crittografia minima a 2048 bit.
 * **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *Personale* .
 
@@ -77,8 +79,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 > [!NOTE]
 > Se si vuole usare il certificato con un indirizzo IP anziché un dominio, usare l'indirizzo IP nel parametro -DnsName.
-> 
-> 
+
 
 Se si desidera usare questo [certificato con il portale di gestione](../azure-api-management-certs.md), esportarlo in un file con estensione **cer** :
 
@@ -98,11 +99,6 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 ## <a name="next-steps"></a>Passaggi successivi
 [Caricare il certificato di servizio nel portale di Azure classico](cloud-services-configure-ssl-certificate.md) o nel [portale di Azure](cloud-services-configure-ssl-certificate-portal.md).
 
-Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure classico.
-
-> [!NOTE]
-> Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
-> 
-> 
+Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure classico. Il portale di Azure non usa i certificati di gestione per l'autenticazione.
 
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/18/2017
+ms.date: 04/24/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
-ms.openlocfilehash: 5de5d42037aee5b0ef7745ea5d0cc748a7b5a60e
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: da6c497e10d31dbc98703090a8f7699d0841faa8
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -82,8 +82,13 @@ Per impostare l'obiettivo del backup, definire i criteri, configurare gli elemen
 ### <a name="triggering-backup-job"></a>Attivazione del processo di backup
 Per attivare il processo di backup, usare la procedura illustrata nell'articolo [Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](backup-azure-arm-vms.md).
 
+### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>Continuare i backup delle macchine virtuali per cui l'operazione è già stata eseguita con la crittografia abilitata  
+Se si dispone di macchine virtuali per cui il backup è già stato eseguito nell'insieme di credenziali dei servizi di ripristino e se tali macchine sono state abilitate per la crittografia in un secondo momento, affinché le operazioni di backup continuino è necessario concedere autorizzazioni ai servizi di backup per accedere a un Key Vault. È possibile concedere queste autorizzazioni in PowerShell tramite i passaggi indicati nella sezione per **abilitare il backup** nella [documentazione di PowerShell](backup-azure-vms-automation.md#backup-azure-vms). 
+
 ## <a name="restore-encrypted-vm"></a>Ripristinare una macchina virtuale crittografata
-Per ripristinare la macchina virtuale crittografata, ripristinare prima di tutto i dischi seguendo la procedura illustrata nella sezione **Ripristino dei dischi sottoposti a backup** in [Scelta di una configurazione di ripristino per la macchina virtuale](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Seguire quindi la procedura di PowerShell illustrata in [Creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) per creare una macchina virtuale completa dai dischi ripristinati.
+Per ripristinare la macchina virtuale crittografata, ripristinare prima di tutto i dischi seguendo la procedura illustrata nella sezione **Ripristino dei dischi sottoposti a backup** in [Scelta di una configurazione di ripristino per la macchina virtuale](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). È possibile quindi usare una delle opzioni seguenti:
+* Seguire la procedura di PowerShell illustrata in [Creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) per creare una macchina virtuale completa dai dischi ripristinati. 
+* OPPURE [usare un modello generato come parte dei dischi di ripristino](backup-azure-arm-restore-vms.md#use-templates-to-customize-restore-vm) per creare macchine virtuali da dischi ripristinati. I modelli possono essere usati solo per i punti di recupero creati dopo il 26 aprile 2017.
 
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 | Operazione | Dettagli errore | Risoluzione |

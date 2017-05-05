@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: cd734c64ba6d1394cb261bace92dee9dd579dd08
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ Per i ruoli di Azure sono disponibili le pagine delle proprietà seguenti.
 * [Proprietà di memorizzazione nella cache](#caching_properties)
 * [Proprietà dei certificati](#certificates_properties)
 * [Proprietà dei componenti](#components_properties)
-* [Proprietà di debug](#debugging_properties)
+<!-- * [Debugging properties](#debugging_properties) -->
 * [Proprietà di endpoint](#endpoints_properties)
 * [Proprietà di variabili di ambiente](#environment_variables_properties)
 * [Proprietà di bilanciamento del carico/affinità di sessione (dette anche "sessioni permanenti")](#session_affinity_properties)
@@ -174,14 +175,14 @@ I componenti vengono elaborati nell'ordine elencato. Usare i pulsanti **Move Up*
 > 
 > 
 
-<a name="debugging_properties"></a> 
+<!-- <a name="debugging_properties"></a> -->
 
-### <a name="debugging-properties"></a>Proprietà di debug
-Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer (Esplora progetti) di Eclipse, scegliere **Azure** e quindi fare clic su **Debugging** (Debug). In questa finestra di dialogo è possibile abilitare o disabilitare il debug remoto e creare configurazioni di debug, come illustrato nell'immagine seguente.
+<!-- ### Debugging properties -->
+<!-- Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image. -->
 
-![][ic719504]
+<!-- ![][ic719504] -->
 
-Per informazioni correlate, vedere [Debug delle applicazioni Azure in Eclipse][Debugging Azure Applications in Eclipse].
+<!-- For related information about debugging, see [Debugging Azure Applications in Eclipse][Debugging Azure Applications in Eclipse]. -->
 
 <a name="endpoints_properties"></a> 
 
@@ -206,13 +207,13 @@ Se si vuole usare un singolo numero di porta anziché un intervallo, lasciare vu
 
 Per le porte impostate su automatico, se è necessario determinare quale porta viene effettivamente usata in fase di esecuzione, l'applicazione può usare l'API di runtime del servizio Azure, documentata nel [riepilogo del pacchetto com.microsoft.windowsazure.serviceruntime][com.microsoft.windowsazure.serviceruntime package summary].
 
-Per informazioni su come usare gli endpoint di input dell'istanza per facilitare il debug di una distribuzione a istanze multiple, vedere [Debug di un'istanza del ruolo specifica in una distribuzione con istanze multiple][Debugging a specific role instance in a multi-instance deployment].
+<!-- To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment]. -->
 
 Per modificare un endpoint, selezionarlo e fare clic sul pulsante **Edit** (Modifica) nella pagina delle proprietà **Endpoints** (Endpoint). Verrà aperta una finestra di dialogo in cui è possibile modificare il nome dell'endpoint, il tipo e le porte pubblica e privata. Fare clic su **OK** per salvare i valori dell'endpoint modificati.
 
 Per eliminare un endpoint, selezionarlo e fare clic sul pulsante **Remove** (Rimuovi) nella pagina delle proprietà **Endpoints** (Endpoint) e quindi su **Yes** (Sì) per confermare l'eliminazione.
 
-Per configurare correttamente alcune funzionalità, ad esempio, Caching, Remote Debugging, Session Affinity o SSL offloading, abilitate dall'utente in un ruolo, il toolkit è in grado di configurare automaticamente endpoint speciali che verranno elencati insieme a quelli definiti dall'utente. Il toolkit impedisce all'utente di modificare o eliminare gli endpoint generati automaticamente finché è abilitata la funzionalità associata.
+Per configurare correttamente alcune funzionalità, ad esempio memorizzazione nella cache, affinità di sessione o ripartizione del carico SSL, abilitate dall'utente in un ruolo, il toolkit è in grado di configurare automaticamente endpoint speciali che verranno elencati insieme a quelli definiti dall'utente. Il toolkit impedisce all'utente di modificare o eliminare gli endpoint generati automaticamente finché è abilitata la funzionalità associata.
 
 <a name="environment_variables_properties"></a> 
 
@@ -457,9 +458,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
