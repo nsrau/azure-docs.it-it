@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 4/25/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2eb88bd81a46dbff9842887976c59d150ae4dad6
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 045dfff9a439674c220a962907d2fe91f2fe0b35
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -83,7 +83,7 @@ Quando si decide quale opzione usare, i compromessi sono compresi tra facilità 
 | Opzione | Vantaggi | Svantaggi: |
 | --- | --- | --- |
 | Aggiungere gli intervalli IP all'elenco elementi consentiti  |Senza costi aggiuntivi.<br><br>Per aprire l'accesso in un gruppo di sicurezza di rete, usare il cmdlet <i>Set-AzureNetworkSecurityRule</i>. |Complessità di gestione perché gli intervalli IP interessati variano nel tempo.<br><br>Offre l'accesso a tutto l'ambiente di Azure, non solo al servizio di Archiviazione. |
-| Proxy HTTP |È consentito il controllo granulare nel proxy sugli URL di archiviazione.<br>Singolo punto di accesso Internet alle macchine virtuali.<br>Non è soggetto alle modifiche degli indirizzi IP di Azure. |Costi aggiuntivi per l'esecuzione di una VM con il software proxy. |
+| Proxy HTTP |È consentito il controllo granulare nel proxy sugli URL di archiviazione. Per impostare il controllo granulare nel proxy, vedere il sito Web all'indirizzo https://\*.blob.core.windows.net/\* I modelli di URL devono essere aggiunti all'elenco elementi consentiti. Per aggiungere all'elenco elementi consentiti solo l'account di archiviazione usato dalla macchina virtuale, vedere il sito Web all'indirizzo https://\<storageAccount\>.blob.core.windows.net/\* I modelli di URL devono essere aggiunti all'elenco elementi consentiti. <br>Singolo punto di accesso Internet alle macchine virtuali.<br>Non è soggetto alle modifiche degli indirizzi IP di Azure. |Costi aggiuntivi per l'esecuzione di una VM con il software proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Microsoft Azure Datacenter IP Ranges 
 Per aggiungere gli intervalli IP dei data center di Azure all'elenco degli elementi consentiti, vedere il [sito Web di Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) per informazioni dettagliate sugli intervalli IP e per istruzioni.

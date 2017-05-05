@@ -4,13 +4,9 @@ Dopo aver applicato i tag, è possibile recuperare tutte le risorse nella sottos
 
 Ai tag si applicano le limitazioni seguenti:
 
-* Ciascuna risorsa o gruppo di risorse può avere un massimo di 15 tag. 
+* Ogni risorsa o gruppo di risorse può avere un massimo di 15 coppie chiave-valore di tag. Questa limitazione si applica solo ai tag applicati direttamente al gruppo di risorse o alla risorsa. Un gruppo di risorse può contenere più risorse ognuna con 15 coppie chiave-valore di tag. 
 * Il nome del tag non può superare i 512 caratteri.
 * Il valore del tag non può superare i 256 caratteri. 
 * I tag applicati al gruppo di risorse non vengono ereditati dalle risorse in tale gruppo di risorse. 
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+Se si devono associare più di 15 valori a una risorsa, usare una stringa JSON come valore di tag. La stringa JSON può contenere diversi valori applicati a una singola chiave di tag. In questo articolo è illustrato un esempio di assegnazione di una stringa JSON alla chiave del tag.

@@ -1,5 +1,5 @@
 ---
-title: "Novità di Azure Toolkit for IntelliJ | Documentazione Microsoft"
+title: "Novità di Azure Toolkit for IntelliJ | Microsoft Docs"
 description: "Sono disponibili informazioni sulle funzionalità più recenti del Toolkit di Azure per IntelliJ."
 services: 
 documentationcenter: java
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm;asirveda;martinsawicki
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: a2006dbcf0d63ef38651a0859dc654d531fd875a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 23714856f0f778be04cf321e0726b53ade430f57
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -28,6 +29,15 @@ Questo articolo include informazioni sulle diverse versioni e sugli aggiornament
 > Esiste anche un Toolkit di Azure per l’IDE di Eclipse. Per ulteriori informazioni, vedere [Toolkit di Azure per Eclipse].
 > 
 > 
+
+### <a name="april-14-2017"></a>14 aprile 2017
+La versione del Toolkit di Azure per IntelliJ rilasciata ad aprile 2017 include i miglioramenti seguenti.
+
+* **Accesso ad Azure migliorato**: il Toolkit di Azure per IntelliJ supporta ora due metodi di accesso all'account Azure, ovvero *Interattivo* e *Automatico*. Per altre informazioni, vedere [Istruzioni di accesso ad Azure per il Toolkit di Azure per IntelliJ].
+* **Pubblicazione con i contenitori Docker**: è ora possibile pubblicare le applicazioni Web come contenitori Docker usando il Toolkit di Azure per IntelliJ. Per altre informazioni, vedere [Come pubblicare un'app Web come contenitore Docker usando il Toolkit di Azure per IntelliJ]
+* **Gestione degli account di archiviazione**: il Toolkit di Azure per IntelliJ supporta ora la gestione degli account di archiviazione dalla visualizzazione Azure Explorer. Per altre informazioni, vedere [Gestione degli account di archiviazione con Azure Explorer per IntelliJ].
+* **Gestione delle macchine virtuali**: il Toolkit di Azure per IntelliJ supporta ora la gestione delle macchine virtuali nella finestra degli strumenti di Azure Explorer. Per altre informazioni, vedere [Gestione delle macchine virtuali con Azure Explorer per IntelliJ].
+* **Rimozione del supporto del debug remoto**. Il debug remoto di app Web Java nel Servizio app di Azure è stato rimosso dal Toolkit di Azure per IntelliJ a causa di problemi riscontrati dai clienti quando usavano il toolkit.
 
 ### <a name="august-26-2016"></a>26 agosto 2016
 La versione del Toolkit di Azure per IntelliJ rilasciata ad agosto 2016 include i miglioramenti seguenti:
@@ -61,13 +71,15 @@ La versione del Toolkit di Azure per IntelliJ rilasciata ad aprile 2016 include 
 Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
 * [Toolkit di Azure per Eclipse]
+  * [Novità di Azure Toolkit per Eclipse]
   * [Installare il Toolkit di Azure per Eclipse.]
   * [Creare un'app Web Hello World per Azure in Eclipse]
-  * [Novità di Azure Toolkit per Eclipse]
+  * [Istruzioni di accesso ad Azure per il Toolkit di Azure per Eclipse]
 * [Toolkit di Azure per IntelliJ]
-  * [Installazione del Toolkit di Azure per IntelliJ]
-  * [Creare un'App Web Hello World per Azure in IntelliJ]
   * *Novità del Toolkit di Azure per IntelliJ (questo articolo)*
+  * [Installazione del Toolkit di Azure per IntelliJ]
+  * [Istruzioni di accesso ad Azure per il Toolkit di Azure per IntelliJ]
+  * [Creare un'App Web Hello World per Azure in IntelliJ]
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
@@ -79,15 +91,17 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installare il Toolkit di Azure per Eclipse.]: ./azure-toolkit-for-eclipse-installation.md
 [Installazione del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Istruzioni di accesso ad Azure per il Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Istruzioni di accesso ad Azure per il Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Novità di Azure Toolkit per Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Istruzioni di accesso ad Azure per il Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Come pubblicare un'app Web come contenitore Docker usando il Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
+[Gestione degli account di archiviazione con Azure Explorer per IntelliJ]: ./azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
+[Gestione delle macchine virtuali con Azure Explorer per IntelliJ]: ./azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [plug-in degli strumenti HDInsight per IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

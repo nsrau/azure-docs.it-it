@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 7a9b8037967f0180d2f7d2a7d100d0cc3ad9e4a2
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 519f035b411f254e8412ba9a8868b226c63cccb6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -228,7 +228,7 @@ I gruppi di risorse vengono creati in questo modo per consentire ad Azure DevTes
 Non esiste un limite specifico al numero di lab che possono essere creati per ogni sottoscrizione. Tuttavia, le risorse usate sono limitate per ogni sottoscrizione. Sono disponibili informazioni sui [limiti e sulle quote imposte alle sottoscrizioni](../azure-subscription-service-limits.md) di Azure e su [come aumentare questi limiti](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>Quante VM è possibile creare per ogni lab?
-Non esiste un limite specifico al numero di VM che possono essere create per ogni lab. Tuttavia, attualmente il lab supporta solo circa 40 VM in esecuzione contemporaneamente nell'archiviazione Standard e 25 VM in esecuzione simultaneamente nell'archiviazione Premium. Microsoft sta lavorando all'aumento di questi limiti.
+Non esiste un limite specifico al numero di VM che possono essere create per ogni lab. Tuttavia, le risorse usate sono limitate per ogni sottoscrizione, ad esempio, core della macchina virtuale, indirizzi IP pubblici e così via. Sono disponibili informazioni sui [limiti e sulle quote imposte alle sottoscrizioni](../azure-subscription-service-limits.md) di Azure e su [come aumentare questi limiti](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Come è possibile condividere un collegamento diretto al mio lab?
 Per condividere un collegamento diretto con gli utenti del lab, è possibile seguire questa procedura:

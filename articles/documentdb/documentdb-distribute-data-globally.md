@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 203648d999032d86dca10f9b47c40a2208ab79e9
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 746fefab12aae11774a7d582e39ac2bc7eb9c88b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -58,7 +58,7 @@ DocumentDB è progettato per l'uso di funzionalità di geofencing basate su crit
 DocumentDB consente di aggiungere (associare) o rimuovere (dissociare) aree nell'account del database in qualsiasi momento (vedere la [figura precedente](#UnlimitedRegionsPerAccount)). Grazie alla replica dei dati in parallelo tra le partizioni, DocumentDB garantisce che quando viene aggiunta una nuova area in Azure, DocumentDB sia disponibile in qualsiasi parte del mondo per un massimo di 100 TB entro 30 minuti. 
 
 ### <a id="FailoverPriorities"></a>Priorità di failover
-Per controllare la sequenza esatta dei failover a livello di area quando si verifica un'interruzione di servizio in più aree, DocumentDB consente di impostare una priorità per le varie aree associate all'account del database, come illustrato nella figura seguente. DocumentDB garantisce che la sequenza di failover automatico venga eseguita in base all'ordine di priorità specificato.
+Per controllare la sequenza esatta dei failover a livello di area quando si verifica un'interruzione di servizio in più aree, DocumentDB consente di impostare una priorità per le varie aree associate all'account del database, come illustrato nella figura seguente. DocumentDB garantisce che la sequenza di failover automatico venga eseguita in base all'ordine di priorità specificato. Per altre informazioni su failover regionali, vedere [Failover regionali automatici per la continuità aziendale in DocumentDB](documentdb-regional-failovers.md).
 
 **Un tenant di DocumentDB può configurare l'ordine di priorità di failover (riquadro a destra) per le aree associate a un account del database**
 

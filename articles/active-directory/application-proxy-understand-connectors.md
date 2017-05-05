@@ -1,5 +1,5 @@
 ---
-title: Comprendere i connettori del proxy applicazione Azure AD | Documentazione Microsoft
+title: Comprendere i connettori del proxy applicazione Azure AD | Microsoft Docs
 description: Tratta i fondamenti dei connettori del proxy applicazione Azure AD.
 services: active-directory
 documentationcenter: 
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
+ms.date: 04/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 5780c56a05ce1c40500927dec9df7906b02a1d13
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 16a000074ae742cc6bc1b25bf359990fe73608f7
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -29,9 +29,8 @@ I connettori sono ciò che rende possibile il proxy di applicazione di Azure AD.
 
 Il proxy applicazione funziona dopo che è stato installato il servizio Windows Server, chiamato connettore, nella rete. È possibile installare più connettori in base alla esigenze di disponibilità elevata e scalabilità. Iniziare con uno e aggiungerne altri in base alle esigenze. Ogni volta che viene installato un connettore, questo viene aggiunto al pool di connettori che serve il tenant.
 
-È consigliabile non installare i connettori negli stessi server che ospitano le applicazioni.
+È consigliabile non installare i connettori negli stessi server che ospitano le applicazioni. È necessario tuttavia essere in grado di accedere all'applicazione dal server in cui si installa il connettore.
 
-Non è necessario eliminare manualmente i connettori che non vengono usati. Quando un connettore è in esecuzione, rimane attivo quando si connette al servizio. I connettori inutilizzati vengono contrassegnati come _inattivi_ e vengono rimossi dopo 10 giorni di inattività. 
 
 ## <a name="connector-maintenance"></a>Manutenzione dei connettori
 I connettori e il servizio si occupano di tutte le attività che richiedono disponibilità elevata. Possono essere aggiunti o rimossi in modo dinamico. Ogni volta che arriva una nuova richiesta, questa viene indirizzata a uno dei connettori attualmente disponibili. Se un connettore non è temporaneamente disponibile, non risponderà a questo traffico.
@@ -43,8 +42,22 @@ Eseguono inoltre il polling del server per verificare se è disponibile una vers
 
  ![Connettori del proxy applicazione AzureAD](./media/application-proxy-understand-connectors/app-proxy-connectors.png)
 
+Non è necessario eliminare manualmente i connettori che non vengono usati. Quando un connettore è in esecuzione, rimane attivo quando si connette al servizio. I connettori inutilizzati vengono contrassegnati come _inattivi_ e vengono rimossi dopo 10 giorni di inattività. 
+
+## <a name="automatic-updates-to-the-connector"></a>Aggiornamenti automatici del connettore
+
+Con il servizio di aggiornamento del connettore offriamo un metodo di aggiornamento automatizzato. In questo modo si ottiene il vantaggio continuo di tutte le nuove funzionalità oltre a miglioramenti alla sicurezza e le prestazioni.
+
+Azure AD supporta gli aggiornamenti automatici per tutti i connettori da distribuire. Fino a quando il servizio di aggiornamento del connettore proxy di applicazione è in esecuzione, i connettori vengono aggiornati automaticamente. Se non viene visualizzato il servizio di aggiornamento del connettore nel server, è necessario [reinstallare il connettore](active-directory-application-proxy-enable.md) per ottenere gli aggiornamenti.
+
+Potrebbero verificarsi tempi di inattività quando viene aggiornato il connettore se:
+
+- Si ha un solo connettore. Per evitare questo periodo di inattività e migliorare la disponibilità elevata, è consigliabile installare un altro connettore e [creare un gruppo di connettori](active-directory-application-proxy-connectors-azure-portal.md).
+
+- Un connettore si trovava nel mezzo di una transazione quando è iniziato l'aggiornamento. Il browser dovrebbe ripetere automaticamente l'operazione. In caso contrario, è possibile aggiornare la pagina. Quando la richiesta viene inviata di nuovo, il traffico viene indirizzato a un connettore di backup.
+
 ## <a name="all-networking-is-outbound"></a>Tutta l'attività di rete è in uscita
-I connettori inviano solo richieste in uscita, pertanto la connessione viene sempre avviata dai connettori. Non è necessario aprire porte in ingresso perché il traffico scorre in entrambe le direzioni, dopo aver stabilito una sessione.
+I connettori inviano solo richieste in uscita, pertanto la connessione viene sempre avviata dal connettore. Non è necessario aprire porte in ingresso perché il traffico scorre in entrambe le direzioni, dopo aver stabilito una sessione.
 
 Il traffico in uscita viene inviato al servizio proxy applicazione e alle applicazioni pubblicate. Il traffico verso il servizio viene inviato ai data center di Azure su diversi numeri di porta. Per altre informazioni sulle porte usate, vedere [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md) (Abilitare il proxy di applicazione nel Portale di Azure).
 
@@ -56,7 +69,7 @@ Usare lo [strumento per il test delle porte del connettore Proxy di applicazione
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste sia al servizio che alle applicazioni back-end. Funzionano correttamente se si installano all'interno di una rete aziendale, con rete perimetrale, o anche in una macchina virtuale. È importante che il computer che esegue il connettore abbia anche accesso alle app.
+I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste sia al servizio proxy dell'applicazione che alle applicazioni back-end. Funzionano correttamente se si installano all'interno di una rete aziendale, con rete perimetrale, o anche in una macchina virtuale in esecuzione nel cloud. È importante che il computer che esegue il connettore abbia anche accesso alle app.
 
 Le distribuzioni su reti perimetrali sono più complesse. Uno dei motivi per i quali è consigliabile distribuire i connettori in una rete perimetrale consiste nell'usare un'altra infrastruttura, ad esempio i servizi di bilanciamento del carico dell'applicazione back-end o sistemi di rilevamento delle intrusioni.
 
@@ -71,7 +84,7 @@ I connettori possono anche essere aggiunti a domini o foreste con attendibilità
 Nella maggior parte dei casi la distribuzione dei connettori è molto semplice e non richiede una configurazione speciale. Esistono tuttavia alcune condizioni specifiche che devono essere considerate:
 
 * Le organizzazioni che limitano il traffico in uscita devono [aprire le porte necessarie](active-directory-application-proxy-enable.md#open-your-ports).
-* Per i computer conformi FIPS potrebbe essere necessario modificare la configurazione per consentire al servizio connettore, al servizio di aggiornamento del connettore e al programma di installazione di generare e archiviare un certificato nel computer.
+* Per i computer conformi FIPS potrebbe essere necessario modificare la configurazione per consentire al servizio connettore, al servizio di aggiornamento del connettore e al programma di installazione di generare e archiviare un certificato.
 * Le organizzazioni, che bloccano il proprio ambiente in base ai processi che inviano le richieste di rete, devono assicurarsi che siano abilitati entrambi i servizi connettore per accedere a tutte le porte e agli indirizzi IP necessari.
 * In alcuni casi il proxy di inoltro in uscita può interrompere l'autenticazione bidirezionale con certificato e non consentire la comunicazione.
 
@@ -101,18 +114,6 @@ Un altro fattore che influenza le prestazioni è la qualità della connessione d
 * **Servizio online:** le connessioni lente o a latenza elevata influenzano il servizio del connettore. È preferibile che l'organizzazione sia connessa ad Azure tramite Express Route. In caso contrario, assicurarsi che il team di rete garantisca una gestione efficiente delle connessioni ad Azure.  
 * **Applicazioni back-end:** in alcuni casi ci sono altri proxy tra il connettore e le applicazioni back-end. Per risolvere questo problema, aprire un browser dal computer di connessione e accedere a queste applicazioni. Se si eseguono i connettori in Azure e le applicazioni sono locali, l'esperienza potrebbe essere diversa da quella prevista.
 * **I controller di dominio:** se i connettori eseguono l'accesso SSO mediante la delega vincolata Kerberos (KCD), essi contattano i controller di dominio prima di inviare la richiesta al back-end. I connettori hanno una cache dei ticket Kerberos, ma in ambienti affollati la velocità di risposta dei controller di dominio può influenzare l'esperienza. Questa situazione è più comune per i connettori eseguiti in Azure, se i controller di dominio sono locali.
-
-## <a name="automatic-updates-to-the-connector"></a>Aggiornamenti automatici del connettore
-
-Con il servizio di aggiornamento del connettore offriamo un metodo di aggiornamento automatizzato. In questo modo si ottiene il vantaggio continuo di tutte le nuove funzionalità oltre a miglioramenti alla sicurezza e le prestazioni.
-
-Azure AD supporta gli aggiornamenti automatici per tutti i connettori da distribuire. Fino a quando il servizio di aggiornamento del connettore proxy di applicazione è in esecuzione, i connettori vengono aggiornati automaticamente. Se non viene visualizzato il servizio di aggiornamento del connettore nel server, è necessario [reinstallare il connettore](active-directory-application-proxy-enable.md) per ottenere gli aggiornamenti.
-
-Potrebbero verificarsi tempi di inattività quando viene aggiornato il connettore se:
-
-- Si ha un solo connettore. Poiché non esiste un altro connettore a cui reindirizzare il traffico, il servizio non sarà disponibile durante l'aggiornamento. Per evitare questo periodo di inattività e migliorare la disponibilità elevata, è consigliabile installare un altro connettore e [creare un gruppo di connettori](active-directory-application-proxy-connectors-azure-portal.md).
-
-- Un connettore si trovava nel mezzo di una transazione quando è iniziato l'aggiornamento. Il browser dovrebbe ripetere automaticamente l'operazione. In caso contrario, è possibile aggiornare la pagina. Quando la richiesta viene inviata di nuovo, il traffico viene indirizzato a un connettore di backup.
 
 ## <a name="under-the-hood"></a>Dietro le quinte
 

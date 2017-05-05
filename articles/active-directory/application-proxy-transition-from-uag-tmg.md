@@ -1,5 +1,5 @@
 ---
-title: Eseguire la transizione ai proxy dell&quot;applicazione Azure AD da Microsoft Forefront | Documentazione Microsoft
+title: Eseguire la transizione ai proxy dell&quot;applicazione Azure AD da Microsoft Forefront | Microsoft Docs
 description: Vengono illustrate le nozioni di base sulla transizione dalle soluzioni Microsoft Forefront TMG e Microsoft Forefront UAG ai proxy di applicazione di Azure Active Directory.
 services: active-directory
 documentationcenter: 
@@ -11,24 +11,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 04/17/2017
 ms.author: kgremban
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: c887adaae811972efd7fcea86eaa67a899f3f4c2
-ms.openlocfilehash: 542dd7df7e0b887298522f29cb597f1df73709cb
-ms.lasthandoff: 02/27/2017
-
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 6e95e9abac988ae54a401927a92bdb397dd63eed
+ms.lasthandoff: 04/21/2017
 
 ---
 # <a name="transition-to-azure-ad-application-proxies-from-microsoft-forefront"></a>Eseguire la transizione ai proxy dell'applicazione Azure AD da Microsoft Forefront
 
-Questo articolo descrive come passare da soluzioni Microsoft Forefront Threat Management Gateway (TMG) e United Access Gateway (UAG) a questi proxy di applicazione di Azure Active Directory (Azure AD): Proxy applicazione Web e Proxy di applicazione di Azure Active Directory.
+Questo articolo descrive come spostarsi da soluzioni TMG (Microsoft Forefront Threat Management Gateway) e UAG (Unified Access Gateway) a un proxy di applicazione di Azure AD.
 
-> [!NOTE]
-> Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento alla Premium Edition o alla Basic Edition di Azure AD. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
-
-
-Per informazioni dettagliate sulla transizione da Forefront TMG e Forefront UAG ai nuovi proxy di applicazione, è possibile [scaricare un white paper correlato di Microsoft](http://download.microsoft.com/download/3/E/3/3E335D93-6DB8-4834-90A8-B86105419F05/Microsoft%20TMG%20and%20UAG%20EOL%20and%20transitioning%20to%20WAP%20and%20AADAP.docx).
+Per informazioni dettagliate sulla transizione da Forefront TMG e UAG al proxy di applicazione, è possibile [leggere un white paper di Microsoft correlato](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).
 
 ## <a name="functionality-details-for-the-conversion"></a>Dettagli sulle funzionalità per la conversione
 
