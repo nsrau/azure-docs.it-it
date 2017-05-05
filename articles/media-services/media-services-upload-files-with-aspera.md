@@ -25,7 +25,7 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="overview"></a>Panoramica
 
-**Aspera** è un software di trasferimento di file ad alta velocità. **Aspera Server On Demand** for Azure enables high-speed upload and download of large files directly into Azure Blob object storage. Per informazioni su **Aspera On Demand**, vedere il sito [Aspera Cloud](http://cloud.asperasoft.com/). 
+**Aspera** è un software di trasferimento di file ad alta velocità. **Aspera Server On Demand** per Azure consente il caricamento ad alta velocità e il download di file di grandi dimensioni direttamente nell'archivio di oggetti BLOB di Azure. Per informazioni su **Aspera On Demand**, vedere il sito [Aspera Cloud](http://cloud.asperasoft.com/). 
   
 **Aspera Server On Demand** per Azure è acquistabile in [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/). Per completare un acquisto di **Aspera Server On Demand** per Azure, accedere ad Azure Marketplace con il Windows Live ID.
 
