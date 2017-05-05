@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 569809fdb4c94f13549359ca2eacfbd469ce61c8
-ms.lasthandoff: 04/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: af953e16103951fe2fd283898b3c466a1ebe91fd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Per copiare un database tramite il portale di Azure, aprire la pagina per il dat
 
 ## <a name="copy-a-database-by-using-powershell"></a>Copiare un database tramite PowerShell
 
-Per copiare un database tramite PowerShell, usare il cmdlet di [`New-AzureRmSqlDatabaseCopy`](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasecopy). 
+Per copiare un database tramite PowerShell, usare il cmdlet di [`New-AzureRmSqlDatabaseCopy`](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy). 
 
 ```PowerShell
 New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -89,9 +89,9 @@ Questo comando copia Database1 sul server1 in un nuovo database denominato Datab
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 
-Monitorare il processo di copia eseguendo una query sulle visualizzazioni sys.databases e sys.dm_database_copies. Durante il processo di copia, la colonna **state_desc** della visualizzazione sys.databases per il nuovo database viene impostata su **COPYING**.Se il processo di copia non viene completato, la colonna **state_desc** della visualizzazione sys.databases per il nuovo database viene impostata su **SUSPECT**.
+Monitorare il processo di copia eseguendo una query sulle visualizzazioni sys.databases e sys.dm_database_copies. Durante il processo di copia, la colonna **state_desc** della visualizzazione sys.databases per il nuovo database viene impostata su **COPYING**.
 
-* If the copying fails, the **state_desc** column of the sys.databases view for the new database is set to **SUSPECT**. Eseguire l'istruzione DROP sul nuovo database e riprovare in un secondo momento.
+* Se il processo di copia non viene completato, la colonna **state_desc** della visualizzazione sys.databases per il nuovo database viene impostata su **SUSPECT**. Eseguire l'istruzione DROP sul nuovo database e riprovare in un secondo momento.
 * Se il processo di copia viene completato, la colonna **state_desc** della visualizzazione sys.databases per il nuovo database viene impostata su **ONLINE**. La copia è stata completata e il nuovo database è un database standard, che può essere modificato indipendentemente dal database di origine.
 
 > [!NOTE]
