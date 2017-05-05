@@ -5,8 +5,3 @@
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [la pagina del TechCenter per le notifiche sulla sicurezza tecnica per Microsoft](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

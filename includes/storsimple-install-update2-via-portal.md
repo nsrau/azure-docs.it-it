@@ -34,8 +34,3 @@
 9. Per completare l'aggiornamento possono essere necessarie alcune ore. Selezionare il processo di aggiornamento e fare clic su **Dettagli** per visualizzare i dettagli del processo in qualsiasi momento.
 10. Una volta completato l'aggiornamento, andare alla pagina **Manutenzione** e scorrere verso il basso fino ad **Aggiornamenti software**.
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-
