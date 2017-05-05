@@ -138,9 +138,9 @@ L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporal
 | Tspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di TSpike. |
 | Zspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di ZSpike. |
 | rpscore |Numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello bidirezionale. |
-| rpalert |Valore&1;/0 che indica la presenza di un'anomalia nella modifica di livello bidirezionale, in base alla sensibilità di input. |
+| rpalert |Valore 1/0 che indica la presenza di un'anomalia nella modifica di livello bidirezionale, in base alla sensibilità di input. |
 | tscore |Numero mobile che rappresenta il punteggio dell'anomalia nella tendenza positiva. |
-| talert |Valore&1;/0 che indica la presenza di un'anomalia nella tendenza positiva, in base alla sensibilità di input. |
+| talert |Valore 1/0 che indica la presenza di un'anomalia nella tendenza positiva, in base alla sensibilità di input. |
 
 ## <a name="scorewithseasonality-api"></a>API ScoreWithSeasonality
 L'API ScoreWithSeasonality viene usata per eseguire il rilevamento di anomalie in serie temporali che includono modelli stagionali. Questa API è utile per rilevare le deviazioni nei modelli stagionali.  
@@ -167,7 +167,7 @@ Informazioni più dettagliate su questi parametri di input sono elencate nella t
 | tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | seasonality.enable |Se è necessario eseguire analisi di stagionalità. |true |boolean |true, false |In base alle serie temporali. |
-| seasonality.numSeasonality |Numero massimo di cicli periodici da rilevare. |1 |integer |1, 2 |Da&1; a&2; |
+| seasonality.numSeasonality |Numero massimo di cicli periodici da rilevare. |1 |integer |1, 2 |Da 1 a 2 |
 | seasonality.transform |Se i componenti stagionali (e) di tendenza devono essere rimossi prima di applicare il rilevamento delle anomalie. |deseason |enumerato |none, deseason, deseasontrend |N/D |
 | postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |integer |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
 
@@ -182,11 +182,11 @@ L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporal
 | Tspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di TSpike. |
 | Zspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di ZSpike. |
 | BiLevelChangeScore |Numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello |
-| BiLevelChangeAlert |Valore&1;/0 che indica la presenza di un'anomalia nella modifica di livello in base alla sensibilità di input |
+| BiLevelChangeAlert |Valore 1/0 che indica la presenza di un'anomalia nella modifica di livello in base alla sensibilità di input |
 | PosTrendScore |Numero mobile che rappresenta il punteggio dell'anomalia nella tendenza positiva. |
-| PosTrendAlert |Valore&1;/0 che indica la presenza di un'anomalia nella tendenza positiva, in base alla sensibilità di input. |
+| PosTrendAlert |Valore 1/0 che indica la presenza di un'anomalia nella tendenza positiva, in base alla sensibilità di input. |
 | NegTrendScore |Numero mobile che rappresenta il punteggio dell'anomalia nella tendenza negativa |
-| NegTrendAlert |Valore&1;/0 che indica la presenza di un'anomalia nella tendenza negativa, in base alla sensibilità di input |
+| NegTrendAlert |Valore 1/0 che indica la presenza di un'anomalia nella tendenza negativa, in base alla sensibilità di input |
 
 [1]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-seasonal.png
