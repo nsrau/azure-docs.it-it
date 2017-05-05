@@ -1,4 +1,4 @@
-## <a name="a-nameos-configaadd-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Add IP addresses to a VM operating system (Aggiungere indirizzi IP a un sistema operativo VM)
+## <a name="os-config"></a>Add IP addresses to a VM operating system (Aggiungere indirizzi IP a un sistema operativo VM)
 
 Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessario aggiungere manualmente tutti gli indirizzi IP privati aggiunti alla VM, incluso l'indirizzo primario. Completare i passaggi seguenti per il sistema operativo VM:
 
@@ -176,8 +176,3 @@ ip route add default via 10.0.0.1 dev eth2 table custom
     - **10.0.0.5** con l'indirizzo IP privato a cui è associato un indirizzo IP pubblico
     - **10.0.0.1** con il gateway predefinito
     - **eth2** con il nome della scheda di interfaccia di rete secondaria
-
-
-<!--HONumber=Feb17_HO2-->
-
-
