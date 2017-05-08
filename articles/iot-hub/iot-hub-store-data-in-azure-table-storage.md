@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: bed8e0c2b5d4d42fb0510f6b55cfab7404c01b11
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Salvare i messaggi dell'hub IoT che contengono informazioni come i dati di sensori nell'archiviazione tabelle di Azure
+
+![Diagramma end-to-end](media/iot-hub-get-started-e2e-diagram/3.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,7 +40,7 @@ Si apprenderà come creare un account di archiviazione di Azure e un'app per le 
 
 ## <a name="what-you-will-need"></a>Prerequisiti
 
-- Completare l'esercitazione [Connettere ESP8266 all'hub IoT di Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) che prevede i requisiti seguenti:
+- Completare l'esercitazione [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che prevede i requisiti seguenti:
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
   - Un'applicazione in esecuzione che invia messaggi all'hub IoT di Azure.

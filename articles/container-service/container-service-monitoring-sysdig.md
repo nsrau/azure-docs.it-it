@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 08/08/2016
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 5da28eecf2df764f71906897450ebe67b3048b3f
-ms.openlocfilehash: d57212a8c858c4fb53cc619a578b59da92176bb2
+ms.sourcegitcommit: 3f6bc85230b57d7b9523a87f90783c27039ef820
+ms.openlocfilehash: cee1bac89c30cae65790bd86498f0adec30da87d
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -55,9 +56,4 @@ Impostare ora le istanze su 10000000 in modo che, quando viene aggiunto un nuovo
 Una volta installato il pacchetto, tornare all'interfaccia utente di Sysdig per esplorare le diverse metriche di utilizzo per i contenitori nel cluster. 
 
 È anche possibile installare i dashboard specifici di Mesos e Marathon tramite la [creazione guidata nuovo dashboard](https://app.sysdigcloud.com/#/dashboards/new).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

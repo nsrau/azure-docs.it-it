@@ -13,27 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 5e63eb6bbbcd130d5ccd87f3155aba8cac518392
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 72fc6eb93c77dd5a0a7ce55897f4c06fb98c0721
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="create-a-self-signed-root-certificate-for-point-to-site-connections-using-powershell"></a>Creare un certificato radice autofirmato per connessioni da punto a sito con PowerShell
 
-Le connessioni da punto a sito usano certificati per l'autenticazione. Quando si configura una connessione da punto a sito è necessario caricare la chiave pubblica (file con estensione .cer) di un certificato radice in Azure. Questo articolo spiega come creare un certificato radice autofirmato, esportare la chiave pubblica e generare e installare i certificati client.
+Le connessioni da punto a sito usano certificati per l'autenticazione. Quando si configura una connessione da punto a sito è necessario caricare la chiave pubblica (file con estensione .cer) di un certificato radice in Azure. I certificati client sono generati dal certificato radice e installati in ogni computer client che si connette alla VNet. Il certificato client permette al client di autenticarsi. Questo articolo mostra come creare un certificato radice autofirmato, esportare la chiave pubblica e generare i certificati client. Il presente articolo non contiene le istruzioni di configurazione da punto a sito o le domande frequenti relative alla configurazione da punto a sito. Tali informazioni sono reperibili selezionando uno dei seguenti articoli dall’elenco:
 
-> [!NOTE]
-> In precedenza makecert era il metodo consigliato per creare certificati radice autofirmati e generare i certificati client per le connessioni da punto a sito. Ora è possibile usare PowerShell per creare questi certificati. Un vantaggio dell'uso di PowerShell è costituito dalla possibilità di creare certificati SHA-2. 
->
->
+> [!div class="op_single_selector"]
+> * [Creazione di certificati autofirmati](vpn-gateway-certificates-point-to-site.md)
+> * [Configurazione da punto a sito - Gestione risorse - Portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Configurazione da punto a sito - Gestione risorse - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Configurazione da punto a sito - Classica - Portale di Azure](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> 
+> 
 
 ## <a name="rootcert"></a>Creare un certificato radice autofirmato
 
-La seguente procedura spiega come creare un certificato radice autofirmato tramite PowerShell. Per completare la procedura è necessario Windows 10. I cmdlet e i parametri utilizzati in questi passaggi fanno parte del sistema operativo Windows 10 e non di una versione di PowerShell.
+La seguente procedura spiega come creare un certificato radice autofirmato tramite PowerShell su Windows 10. I cmdlet e i parametri utilizzati in questi passaggi fanno parte del sistema operativo Windows 10 e non di una versione di PowerShell. Questo non significa che i certificati creati possono essere installati solo su Windows 10. Per informazioni sui client supportati, vedere le [Domande frequenti sulla configurazione da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 1. Da un computer che esegue Windows 10 aprire una console di Windows PowerShell con privilegi elevati.
 2. Usare l'esempio seguente per creare il certificato radice autofirmato. L'esempio seguente crea un certificato radice autofirmato denominato "P2SRootCert" che viene installato automaticamente in "Certificati-Utente corrente\Personale\Certificati". È possibile visualizzare il certificato aprendo *certmgr.msc*.
@@ -45,10 +48,9 @@ La seguente procedura spiega come creare un certificato radice autofirmato trami
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-
 ### <a name="cer"></a>Per ottenere la chiave pubblica
 
-Le connessioni da punto a sito richiedono il caricamento della chiave pubblica (file con estensione .cer) in Azure. La procedura seguente consente di esportare il file con estensione .cer per il certificato radice autofirmato.
+Le connessioni da punto a sito richiedono il caricamento della chiave pubblica (file con estensione .cer) in Azure. La procedura seguente consente di esportare il file con estensione .cer per il certificato radice autofirmato:
 
 1. Per ottenere un file con estensione cer dal certificato, aprire **Gestire i certificati utente**. Individuare il certificato radice autofirmato, in genere in "Certificati - Utente corrente\Personale\Certificati" e fare clic con il pulsante destro del mouse. Fare clic su **Tutte le attività** e quindi su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**.
 2. Nella procedura guidata fare clic su **Avanti**. Selezionare **No, non esportare la chiave privata** e quindi fare clic su **Avanti**.
@@ -57,9 +59,8 @@ Le connessioni da punto a sito richiedono il caricamento della chiave pubblica (
 5. Fare clic su **Fine** per esportare il certificato. Verrà visualizzato il messaggio **Esportazione completata**. Fare clic su **OK** per chiudere la procedura guidata.
 
 ### <a name="to-export-a-self-signed-root-certificate-optional"></a>Per esportare un certificato radice autofirmato (opzionale)
-Si consiglia di esportare il certificato radice autofirmato e archiviarlo in un percorso sicuro. Se necessario, in seguito è possibile installarlo su un altro computer e generare altri certificati client oppure esportare un altro file.cer.
 
-Per esportare il certificato radice autofirmato come file .pfx, selezionare il certificato radice ed eseguire la stessa procedura che si usa per [esportare un certificato client](#clientexport).
+Si consiglia di esportare il certificato radice autofirmato e archiviarlo in un percorso sicuro. Se necessario, in seguito è possibile installarlo su un altro computer e generare altri certificati client oppure esportare un altro file.cer. Per esportare il certificato radice autofirmato come file .pfx, selezionare il certificato radice ed eseguire la stessa procedura descritta in [Esportazione di un certificato client](#clientexport).
 
 ## <a name="clientcert"></a>Generazione di un certificato client
 
@@ -67,11 +68,11 @@ Ogni computer client che si connette a una rete virtuale usando la soluzione Da 
 
 I passaggi seguenti illustrano come generare un certificato client da un certificato radice autofirmato. È possibile generare più certificati client dallo stesso certificato radice. Quando si generano certificati client con la procedura seguente, il certificato client viene installato automaticamente nel computer che è stato usato per generare il certificato. Se si vuole installare un certificato client in un altro computer client, è possibile esportare il certificato.
 
-Per completare la procedura è necessario Windows 10. I cmdlet e i parametri utilizzati in questi passaggi fanno parte del sistema operativo Windows 10 e non di una versione di PowerShell.
+Per generare certificati client tramite la seguente procedura con PowerShell, è richiesto Windows 10. I cmdlet e i parametri utilizzati in questi passaggi fanno parte del sistema operativo Windows 10 e non di una versione di PowerShell. Questo non significa che i certificati creati possono essere installati solo su Windows 10. Per informazioni sui client supportati, vedere le [Domande frequenti sulla configurazione da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 ### <a name="example-1"></a>Esempio 1
 
-Questo esempio usa la variabile dichiarata "$cert" della sezione precedente. Se è stata chiusa la console di PowerShell dopo aver creato il certificato radice autofirmato o si stanno creando i certificati client aggiuntivi in una nuova sessione della console di PowerShell, attenersi alla procedura nell'esempio 2.
+Questo esempio usa la variabile dichiarata "$cert" della sezione precedente. Se è stata chiusa la console di PowerShell dopo aver creato il certificato radice autofirmato o si stanno creando i certificati client aggiuntivi in una nuova sessione della console di PowerShell, attenersi alla procedura nell'[esempio 2](#ex2).
 
 Modificare ed eseguire l'esempio per generare un certificato client. Se si esegue l'esempio seguente senza modificarlo, il risultato è un certificato client denominato "P2SChildCert".  Se si desidera assegnare un nome diverso al certificato figlio, modificare il valore CN. Non modificare il TextExtension quando si esegue questo esempio. Il certificato client generato viene installato automaticamente in "Certificati-Utente corrente\Personale\Certificati" nel computer in uso.
 
@@ -83,7 +84,7 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="example-2"></a>Esempio 2
+### <a name="ex2"></a>Esempio 2
 
 Se si creano certificati client aggiuntivi o non si usa la stessa sessione di PowerShell utilizzata per creare il certificato radice autofirmato, usare la procedura seguente:
 
@@ -126,7 +127,7 @@ Se si creano certificati client aggiuntivi o non si usa la stessa sessione di Po
 
 Quando viene generato un certificato client, viene automaticamente installato nel computer che è stato usato per generarlo. Se si vuole installare un certificato client in un altro computer client, è necessario esportare il certificato client generato.                              
 
-1. Per esportare un certificato client, aprire **Gestire i certificati utente**. Per impostazione predefinita, i certificati client generati si trovano in "Certificati-Utente corrente\Personale\Certificati". Fare clic con il pulsante destro del mouse sul certificato client da esportare, scegliere **Tutte le attività** e quindi fare clic su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**.
+1. Per esportare un certificato client, aprire **Gestire i certificati utente**. Per impostazione predefinita, i certificati client generati si trovano in "Certificati-Utente corrente\Personale\Certificati". Fare clic con il pulsante destro del mouse sul certificato client da esportare, scegliere **Tutte le attività**, quindi fare clic su **Esporta** per aprire **Esportazione guidata certificati**.
 2. Nella procedura guidata, fare clic su **Avanti**, selezionare **Sì, esporta la chiave privata** e quindi fare clic su **Avanti**.
 3. Nella pagina **Formato file di esportazione** lasciare selezionate le impostazioni predefinite. Verificare che l'opzione **Se possibile, includi tutti i certificati nel percorso certificazione** sia selezionata. Selezionando questa opzione si esportano anche le informazioni del certificato radice che sono necessarie per la corretta autenticazione. Quindi fare clic su **Next**.
 4. Nella pagina **Sicurezza** è necessario proteggere la chiave privata. Se si sceglie di usare una password, assicurarsi di registrare o ricordare quella impostata per questo certificato. Quindi fare clic su **Next**.
@@ -144,6 +145,7 @@ Se si vuole creare una connessione da punto a sito da un computer client diverso
 5. Fare clic su **Fine**. In **Avviso di sicurezza** per l'installazione del certificato fare clic su **Sì**. È possibile fare clic su "Sì" perché il certificato è stato generato. Il certificato è stato importato correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Continuare con la configurazione da punto a sito. 
 
 * Per i passaggi del modello di distribuzione di **Resource Manager**, vedere l'articolo relativo a come [configurare una connessione da punto a sito a una rete VNet](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 

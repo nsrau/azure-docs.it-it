@@ -1,6 +1,6 @@
 ---
 title: Guida per gli sviluppatori dell&quot;insieme di credenziali delle chiavi | Documentazione Microsoft
-description: 'Gli sviluppatori possono utilizzare l&quot;insieme di credenziali chiave di Azure per gestire le chiavi di crittografia all&quot;interno dell&quot;ambiente Microsoft Azure. '
+description: Gli sviluppatori possono utilizzare l&quot;insieme di credenziali chiave di Azure per gestire le chiavi di crittografia all&quot;interno dell&quot;ambiente Microsoft Azure.
 services: key-vault
 documentationcenter: 
 author: BrucePerlerMS
@@ -12,25 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/17/2017
+ms.date: 04/18/2017
 ms.author: bruceper
 translationtype: Human Translation
-ms.sourcegitcommit: 74de2165ea3a66cd0babc9f6d6d451522988bbe6
-ms.openlocfilehash: b3fc845812e8a4a2729f026baa82b58319d5c5f3
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6ae0909faf0711b1ad25df48f626630644c5df7
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
+
 Con l'insieme di credenziali delle chiavi è possibile accedere in modo sicuro ai dati sensibili all'interno delle applicazioni in modo che:
 
 * Le chiavi e i segreti vengano protetti senza dover scrivere manualmente il codice e possano essere usati dalle applicazioni.
 * I clienti possano avere e gestire autonomamente le rispettive chiavi in modo che lo sviluppatore possa concentrarsi su altre attività, ad esempio fornire le principali funzionalità del software. In questo modo le applicazioni non saranno responsabili dei segreti e delle chiavi tenant dei clienti.
-* L'applicazione possa usare le chiavi per la firma e la crittografia, ma tenga la gestione della chiave esterna all'applicazione in modo che la soluzione sia adatta a un'applicazione geograficamente distribuita.
+* L'applicazione possa usare le chiavi per la firma e la crittografia, ma tenga la gestione della chiave esterna all'applicazione in modo che la soluzione sia adatta a essere un'app geograficamente distribuita.
 * Con la versione di settembre 2016 dell'insieme di credenziali delle chiavi, le applicazioni ora possono usare i certificati dell'applicazione. Per altre informazioni, vedere l'articolo **About keys, secrets, and certificates** (Informazioni su chiavi, segreti e certificati) nelle [informazioni di riferimento su REST](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
 Per altre informazioni generali sull'insieme di credenziali delle chiavi di Azure, vedere l'articolo [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
 
 ## <a name="videos"></a>Video
+
 Questo video mostra come creare il proprio insieme di credenziali delle chiavi e come usarlo dall'applicazione di esempio 'Hello Key Vault'.
 
 
@@ -45,6 +48,7 @@ Collegamenti alle risorse citate nel video:
 Per altre informazioni, è possibile seguire il [blog relativo all'insieme di credenziali delle chiavi](http://aka.ms/kvblog) e partecipare al [forum relativo all'insieme di credenziali delle chiavi](http://aka.ms/kvforum).
 
 ## <a name="creating-and-managing-key-vaults"></a>Creazione e gestione di insiemi di credenziali delle chiavi
+
 Prima di usare l'insieme di credenziali delle chiavi di Azure nel codice, è possibile creare e gestire insiemi di credenziali tramite REST, modelli di Resource Manager, PowerShell o l'interfaccia della riga di comando, come descritto negli articoli seguenti:
 
 * [Creare e gestire insiemi di credenziali chiave con REST](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -54,13 +58,12 @@ Prima di usare l'insieme di credenziali delle chiavi di Azure nel codice, è pos
 
 > [!NOTE]
 > Le operazioni sugli insiemi di credenziali delle chiavi vengono autenticate tramite AAD e autorizzate tramite i criteri di accesso dell'insieme di credenziali delle chiavi, definiti per ogni insieme di credenziali.
->
->
 
 ## <a name="coding-with-key-vault"></a>Codifica con l'insieme di credenziali delle chiavi
+
 Il sistema di gestione dell'insieme di credenziali delle chiavi per i programmatori è costituito da diverse interfacce che hanno come base REST; vedere [Riferimento all'API REST dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/dn903609.aspx).
 
-Gli utenti per i quali l'autorizzazione ha esito positivo possono eseguire le operazioni seguenti:
+Gli utenti per i quali l'autorizzazione ha esito positivo possono eseguire le operazioni seguenti.
 
 * Gestire le chiavi di crittografia usando [Create](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Import](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Update](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Delete](https://msdn.microsoft.com/library/azure/dn903611.aspx) e altre operazioni
 * Gestire i segreti con [Get](https://msdn.microsoft.com/library/azure/dn903633.aspx), [Update](https://msdn.microsoft.com/library/azure/dn986818.aspx), [Delete](https://msdn.microsoft.com/library/azure/dn903613.aspx) e altre operazioni
@@ -76,12 +79,14 @@ Per l'uso con l'insieme di credenziali delle chiavi sono disponibili gli SDK seg
 Per altre informazioni sulla versione 2.x di .NET SDK, vedere le [note sulla versione](key-vault-dotnet2api-release-notes.md).
 
 ## <a name="example-code"></a>Codice di esempio
+
 Per esempi completi che usano l'insieme di credenziali delle chiavi con le applicazioni, vedere:
 
 * L'applicazione .NET di esempio *HelloKeyVault* e un esempio di servizio Web di Azure. [Esempi di codice di insieme di credenziali chiave di Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 * L'esercitazione relativa all'uso dell'insieme di credenziali delle chiavi di Azure da un'applicazione Web in Azure. [Usare l'insieme di credenziali chiave di Azure da un'applicazione Web](key-vault-use-from-web-application.md)
 
 ## <a name="how-tos"></a>Procedure
+
 Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare l'insieme di credenziali delle chiavi di Azure:
 
 * [Modificare l'ID tenant dell'insieme di credenziali delle chiavi dopo lo spostamento della sottoscrizione](key-vault-subscription-move-fix.md): quando si sposta la sottoscrizione di Azure dal tenant A al tenant B, gli insiemi di credenziali delle chiavi esistenti non sono accessibili dalle entità (utenti e applicazioni) nel tenant B. Per risolvere questo problema, seguire questa guida.
@@ -97,7 +102,8 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare
 Per indicazioni specifiche sulle attività relative all'integrazione e all'uso dell'insieme di credenziali delle chiavi con Azure, vedere gli [esempi di modelli di Azure Resource Manager di Ryan Jones per l'insieme di credenziali delle chiavi](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
 ## <a name="integrated-with-key-vault"></a>Integrazione con l'insieme di credenziali delle chiavi
-Questi articoli illustrano altri scenari e servizi che usano o integrano l'insieme di credenziali delle chiavi.
+
+Questi articoli illustrano altri scenari e servizi che usano o si integrano con Key Vault.
 
 * [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md) sfrutta la funzionalità standard di settore [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Windows e la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per i dischi dati e il sistema operativo. La soluzione è integrata con l'insieme di credenziali delle chiavi di Azure per facilitare il controllo e la gestione dei segreti e delle chiavi di crittografa del disco nella sottoscrizione dell'insieme di credenziali delle chiavi, assicurando allo stesso tempo che tutti i dati inattivi sui dischi delle macchine virtuali siano crittografati nell'archiviazione di Azure.
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) offre la possibilità di crittografare i dati archiviati nell'account. In merito alla gestione delle chiavi, Data Lake Store offre due modalità per la gestione delle chiavi di crittografia master (MEK) necessarie per decrittografare i dati archiviati in Data Lake Store. È possibile affidare la gestione delle chiavi MEK a Data Lake Store oppure mantenere la proprietà delle chiavi MEK usando il proprio account dell'insieme di credenziali delle chiavi di Azure. La modalità di gestione delle chiavi viene specificata durante la creazione dell'account di Data Lake Store. 
@@ -105,15 +111,12 @@ Questi articoli illustrano altri scenari e servizi che usano o integrano l'insie
 
 
 ## <a name="supporting-libraries"></a>Supporto di librerie
-* [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) include le interfacce `IKey` e `IKeyResolver` per individuare le chiavi dagli identificatori ed eseguire operazioni con le chiavi.
+
+* [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) include le interfacce **IKey** e **IKeyResolver** per individuare le chiavi dagli identificatori ed eseguire operazioni con le chiavi.
 * [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornisce funzionalità estese per Insieme di credenziali delle chiavi di Azure.
 
 ## <a name="other-key-vault-resources"></a>Altre risorse per l'insieme di credenziali delle chiavi
+
 * [Blog sull'insieme di credenziali delle chiavi](http://aka.ms/kvblog)
 * [Forum sull'insieme di credenziali delle chiavi](http://aka.ms/kvforum)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

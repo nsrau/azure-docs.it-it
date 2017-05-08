@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: f819992125f77897545ce3194870b1eadf400852
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fc6e4eaa34694e2b20cb53b3e457803c59bf76b9
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -609,6 +609,85 @@ Esempio:
     Type=Event | Dedup EventID | sort TimeGenerated DESC
 
 Questo esempio restituisce un evento (l'ultimo) per ogni EventID.
+
+### <a name="join"></a>Join
+Unisce i risultati di due query in modo da formare un unico set di risultati.  Supporta più tipi di join descritti nella tabella seguente.
+  
+| Tipo di join | Descrizione |
+|:--|:--|
+| interno | Consente di restituire solo i record con un valore corrispondente in entrambe le query. |
+| esterno | Consente di restituire tutti i record da entrambe le query.  |
+| sinistro  | Consente di restituire tutti i record da query a sinistra e i record corrispondenti da query a destra. |
+
+
+- I join attualmente non supportano le query che includono la parola chiave **IN** o il comando **Measure**.
+- Attualmente, è possibile includere solo un singolo campo in un join.
+- Una singola ricerca non può includere più di un join.
+
+**Sintassi**
+
+```
+<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
+```
+
+**esempi**
+
+Per illustrare i tipi di join diversi, prendere in considerazione l'aggiunta di un tipo di dati raccolti da un log personalizzato denominato MyBackup_CL con heartbeat per ciascun computer.  Questi tipi di dati sono caratterizzati dai dati seguenti.
+
+`Type = MyBackup_CL`
+
+| TimeGenerated | Computer | LastBackupStatus |
+|:---|:---|:---|
+| 4/20/2017 01:26:32.137 AM | srv01.contoso.com | Success |
+| 4/20/2017 02:13:12.381 AM | srv02.contoso.com | Success |
+| 4/20/2017 02:13:12.381 AM | srv03.contoso.com | Esito negativo |
+
+`Type = Hearbeat` (solo un sottoinsieme dei campi visualizzati)
+
+| TimeGenerated | Computer | ComputerIP |
+|:---|:---|:---|
+| 4/21/2017 12:01:34.482 PM | srv01.contoso.com | 10.10.100.1 |
+| 4/21/2017 12:02:21.916 PM | srv02.contoso.com | 10.10.100.2 |
+| 4/21/2017 12:01:47.373 PM | srv04.contoso.com | 10.10.100.4 |
+
+#### <a name="inner-join"></a>join interno
+
+`Type=MyBackup_CL | join inner Computer (Type=Heartbeat) Computer`
+
+Restituisce i record seguenti in cui il campo informatico corrisponde per entrambi i tipi di dati.
+
+| Computer| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Success | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Heartbeat |
+| srv02.contoso.com | 4/20/2017 02:13:12.381 AM | Success | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Heartbeat |
+
+
+#### <a name="outer-join"></a>join esterno
+
+`Type=MyBackup_CL | join outer Computer (Type=Heartbeat) Computer`
+
+Restituisce i record seguenti per entrambi i tipi di dati.
+
+| Computer| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Success  | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Heartbeat |
+| srv02.contoso.com | 4/20/2017 02:14:12.381 AM | Success  | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Heartbeat |
+| srv03.contoso.com | 4/20/2017 01:33:35.974 AM | Esito negativo  | 4/21/2017 12:01:47.373 PM | | |
+| srv04.contoso.com |                           |          | 4/21/2017 12:01:47.373 PM | 10.10.100.2 | Heartbeat |
+
+
+
+#### <a name="left-join"></a>join sinistro
+
+`Type=MyBackup_CL | join left Computer (Type=Heartbeat) Computer`
+
+Restituisce i seguenti record da MyBackup_CL con tutti i campi corrispondenti dall'Heartbeat.
+
+| Computer| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Success | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Heartbeat |
+| srv02.contoso.com | 4/20/2017 02:13:12.381 AM | Success | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Heartbeat |
+| srv03.contoso.com | 4/20/2017 02:13:12.381 AM | Esito negativo | | | |
 
 
 ### <a name="extend"></a>Extend

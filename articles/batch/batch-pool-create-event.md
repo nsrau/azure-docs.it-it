@@ -1,28 +1,26 @@
 ---
-title: Evento di creazione di pool - Azure | Microsoft Docs
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8473bab4-6c16-4ee2-8d78-22fa3ca87487
-caps.latest.revision: 4
+title: Evento di creazione pool di Azure Batch | Microsoft Docs
+description: "Riferimento per l’evento di creazione del pool di batch."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: b66319c384ba1fe80489246e9816b8fc7cc3727d
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-create-event"></a>Evento di creazione di pool
-Corpo del registro eventi della creazione di pool
 
-## <a name="remarks"></a>Osservazioni
+# <a name="pool-create-event"></a>Evento di creazione di pool
+
  Questo evento viene generato dopo aver creato un pool. Il contenuto del registro espone informazioni generali sul pool. Si noti che se le dimensioni del pool di destinazione sono maggiori di 0 nodi di calcolo, l'evento viene seguito immediatamente da un evento di avvio ridimensionamento pool.
 
  Nell'esempio seguente viene illustrato il corpo di un evento di creazione di pool per un pool creato usando la proprietà CloudServiceConfiguration.

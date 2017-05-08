@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 0f4ca1924531df890433ec092790e6bec7c41df0
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 4529037cb610e31028a35cf4643a2a99e90b2b8f
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -39,13 +39,13 @@ Uno scenario importante per questo framework è assicurare backup coerenti delle
 
 1. Accedere alla VM Linux per eseguire il backup come utente root.
 
-2. Scaricare VMSnapshotPluginConfig.json da [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e copiarlo nella cartella /etc/azure in tutte le VM di cui eseguire il backup. Creare la directory /etc/azure se non esiste già.
+2. Scaricare VMSnapshotScriptPluginConfig.json da [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e copiarlo nella cartella /etc/azure in tutte le VM per le quali eseguire il backup. Creare la directory /etc/azure se non esiste già.
 
-3. Copiare lo script di pre-backup e lo script di post-backup per l'applicazione su tutte le VM di cui eseguire il backup. È possibile copiare gli script in qualsiasi posizione nella VM, è necessario aggiornare il percorso completo dei file di script nel file VMSnapshotPluginConfig.json
+3. Copiare lo script di pre-backup e lo script di post-backup per l'applicazione su tutte le VM di cui eseguire il backup. È possibile copiare gli script in qualsiasi posizione nella VM; è necessario aggiornare il percorso completo dei file di script nel file VMSnapshotScriptPluginConfig.json
 
 4. Assicurarsi che siano disponibili le autorizzazioni seguenti per i file:
 
-   - VMSnapshotPluginConfig.json: autorizzazione "600" ovvero solo l'utente "root" deve avere le autorizzazioni di "lettura" e "scrittura" per questo file, nessun utente deve avere autorizzazioni di "esecuzione".
+   - VMSnapshotScriptPluginConfig.json: autorizzazione "600" ovvero solo l'utente "root" deve avere le autorizzazioni di "lettura" e "scrittura" per questo file, nessun utente deve avere autorizzazioni di "esecuzione".
    - File di script di pre-backup: autorizzazione "700" ovvero solo l'utente "root" deve avere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" per questo file.
    - Script di post-backup: autorizzazione "700" ovvero solo l'utente "root" deve avere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" per questo file.
 
@@ -54,7 +54,7 @@ Uno scenario importante per questo framework è assicurare backup coerenti delle
    > Se i requisiti indicati non sono soddisfatti, lo script non verrà eseguito e si otterrà un backup coerente con l'arresto anomalo del sistema/file system.
    >
 
-5. Configurare VMSnapshotPluginConfig.json come indicato di seguito
+5. Configurare VMSnapshotScriptPluginConfig.json come indicato di seguito
     - **pluginName**: lasciare invariato il campo, altrimenti gli script potrebbero non funzionare come previsto.
     - **preScriptLocation**: fornire il percorso completo dello script di pre-backup nella VM di cui eseguire il backup.
     - **postScriptLocation**: fornire il percorso completo dello script di post-backup nella VM di cui eseguire il backup.
@@ -76,14 +76,14 @@ Accertarsi di aggiungere le funzioni di log appropriate negli script di pre e po
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Lo script di pre-backup ha restituito un errore perciò il backup delle applicazioni potrebbe non essere coerente.    | Controllare i log di errore dello script per risolvere il problema.|  
 |    Post-ScriptExecutionFailed |    Lo script di post-backup ha restituito un errore che potrebbe compromettere lo stato dell'applicazione. |    Controllare i log di errore dello script per risolvere il problema e controllare lo stato dell'applicazione. |
-| Pre-ScriptNotFound |    Lo script di pre-backup non è stato trovato nel percorso specificato nel file di configurazione VMSnapshotPluginConfig.json. |    Assicurarsi che lo script di pre-backup sia presente nel percorso specificato nel file di configurazione per garantire un backup delle applicazioni coerente.|
-| Post-ScriptNotFound |    Lo script di post-backup non è stato trovato nel percorso specificato nel file di configurazione VMSnapshotPluginConfig.json |    Assicurarsi che lo script di post-backup sia presente nel percorso specificato nel file di configurazione per garantire un backup delle applicazioni coerente.|
+| Pre-ScriptNotFound |    Lo script di pre-backup non è stato trovato nel percorso specificato nel file di configurazione VMSnapshotScriptPluginConfig.json. |    Assicurarsi che lo script di pre-backup sia presente nel percorso specificato nel file di configurazione per garantire un backup delle applicazioni coerente.|
+| Post-ScriptNotFound |    Lo script di post-backup non è stato trovato nel percorso specificato nel file di configurazione VMSnapshotScriptPluginConfig.json |    Assicurarsi che lo script di post-backup sia presente nel percorso specificato nel file di configurazione per garantire un backup delle applicazioni coerente.|
 | IncorrectPluginhostFile |    Il file Pluginhost incluso con l'estensione VmSnapshotLinux è danneggiato perciò non è possibile eseguire lo script di pre-backup e quello di post-backup e il backup delle applicazioni non sarà coerente.    | Disinstallare l'estensione VmSnapshotLinux che sarà automaticamente reinstallata con il backup successivo per risolvere il problema. |
-| IncorrectJSONConfigFile | Il file VMSnapshotPluginConfig.json non è corretto, perciò non è possibile eseguire lo script di pre-backup e quello di post-backup e il backup delle applicazioni non sarà coerente | Scaricare la copia da [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) ed eseguire di nuovo la configurazione |
+| IncorrectJSONConfigFile | Il file VMSnapshotScriptPluginConfig.json non è corretto, perciò non è possibile eseguire lo script di pre-backup e quello di post-backup e il backup delle applicazioni non sarà coerente | Scaricare la copia da [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) ed eseguire di nuovo la configurazione |
 | InsufficientPermissionforPre-Script | Per eseguire gli script, l'utente root deve essere il proprietario del file e il file deve avere le autorizzazioni "700", ovvero solo il proprietario deve possedere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" | Assicurarsi che l'utente "root" sia il "proprietario" del file di script e che solo il proprietario abbia le autorizzazioni di "lettura", "scrittura" ed "esecuzione". |
 | InsufficientPermissionforPost-Script | Per eseguire gli script, l'utente root deve essere il proprietario del file e il file deve avere le autorizzazioni "700", ovvero solo il proprietario deve possedere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" | Assicurarsi che l'utente "root" sia il "proprietario" del file di script e che solo il proprietario abbia le autorizzazioni di "lettura", "scrittura" ed "esecuzione". |
-| Pre-ScriptTimeout | Si è verificato il time-out dell'esecuzione dello script di pre-backup per un backup coerente della applicazioni. | Controllare lo script e aumentare il timeout nel file VMSnapshotPluginConfig.json disponibile all'indirizzo /etc/azure. |
-| Post-ScriptTimeout | Si è verificato il time-out dell'esecuzione dello script di post-backup per un backup coerente della applicazioni. | Controllare lo script e aumentare il timeout nel file VMSnapshotPluginConfig.json disponibile all'indirizzo /etc/azure. |
+| Pre-ScriptTimeout | Si è verificato il time-out dell'esecuzione dello script di pre-backup per un backup coerente della applicazioni. | Controllare lo script e aumentare il timeout nel file VMSnapshotScriptPluginConfig.json disponibile all'indirizzo /etc/azure. |
+| Post-ScriptTimeout | Si è verificato il time-out dell'esecuzione dello script di post-backup per un backup coerente della applicazioni. | Controllare lo script e aumentare il timeout nel file VMSnapshotScriptPluginConfig.json disponibile all'indirizzo /etc/azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurare il backup di una VM in un insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

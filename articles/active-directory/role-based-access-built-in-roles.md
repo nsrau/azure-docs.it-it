@@ -16,9 +16,9 @@ ms.date: 02/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bb8d390a6ab045dc418bf80ec4fc218e0a35282b
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
@@ -40,6 +40,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore di backup](#backup-contributor) | Consente di gestire il backup nell'insieme di credenziali dei Servizi di ripristino |
 | [Operatore di backup](#backup-operator) | Consente di gestire il backup, ad eccezione della rimozione del backup, nell'insieme di credenziali dei Servizi di ripristino |
 | [Lettore di backup](#backup-reader) | Consente di visualizzare tutti i servizi di gestione di backup  |
+| [Lettore per la fatturazione](#billing-reader) | Consente di visualizzare tutte le informazioni di fatturazione  |
 | [Collaboratore BizTalk](#biztalk-contributor) |È in grado di gestire i servizi BizTalk |
 | [Collaboratore database ClearDB MySQL](#cleardb-mysql-db-contributor) |È in grado di gestire i database ClearDB MySQL |
 | [Collaboratore](#contributor) |È in grado di gestire tutto ad eccezione degli accessi. |
@@ -215,6 +216,15 @@ Consente di monitorare la gestione di backup nell'insieme di credenziali dei Ser
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Consente di leggere i risultati dell'operazione eseguita sugli elementi registrati dell'insieme di credenziali |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Consente di leggere gli elementi registrati dell'insieme di credenziali |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Consente di leggere l'uso dell'insieme di credenziali dei Servizi di ripristino |
+
+## <a name="billing-reader"></a>Lettore per la fatturazione
+Consente di visualizzare tutte le informazioni di fatturazione
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Leggere i ruoli e le assegnazioni di ruoli |
+| Microsoft.Billing/*/read |Lettura delle informazioni di fatturazione |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
 
 ### <a name="biztalk-contributor"></a>Collaboratore BizTalk
 È in grado di gestire i servizi BizTalk

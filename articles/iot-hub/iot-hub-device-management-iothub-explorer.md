@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 04/10/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 530d4549e204a194462fa9fd592fca23060aa27c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 480f0544f155365d94b325bbf799bb999268dc31
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Usare iothub-explorer per la gestione di dispositivi hub IoT di Azure
+
+![Diagramma end-to-end](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -52,7 +54,7 @@ Eseguire iothub-explorer con diverse opzioni di gestione.
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-- Completare l'esercitazione [Collegare ESP8266 all'hub IoT di Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) che prevede i requisiti seguenti:
+- Completare l'esercitazione [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che prevede i requisiti seguenti:
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
   - Un'applicazione client che invia messaggi ad Azure IoT hub.

@@ -1,6 +1,6 @@
 ---
 title: "Creare un&quot;identità per un&quot;app Azure con l&quot;interfaccia della riga di comando di Azure | Microsoft Docs"
-description: "Descrive come usare l&quot;interfaccia della riga di comando di Azure per creare un&quot;applicazione Active Directory e un&quot;entità servizio e concedere l&quot;accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l&quot;applicazione con una password o un certificato."
+description: "Descrive come utilizzare l&quot;interfaccia della riga di comando di Azure per creare un&quot;applicazione Azure Active Directory e un&quot;entità servizio e concedere l&quot;accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l&quot;applicazione con una password o un certificato."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4ea75e08a630ad777444ea3a3cb85f4bb0efe01f
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c8a883dedee31d9efab6e2eb4c0ac67b467afe34
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -37,7 +37,7 @@ Quando si ha un'app o uno script che deve accedere alle risorse, è possibile co
 Questo argomento illustra come usare l'[interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) per configurare un'applicazione per l'esecuzione con credenziali e identità proprie. Installare la versione più recente dell'[interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) per assicurarsi che l'ambiente corrisponda agli esempi presentati nell'articolo.
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
-Per completare questo argomento è necessario avere autorizzazioni sufficienti sia nell'istanza di Azure Active Directory che nella sottoscrizione di Azure. In particolare, è necessario poter creare un'app in Active Directory e assegnare l'entità servizio a un ruolo. 
+Per completare questo argomento è necessario avere autorizzazioni sufficienti sia nell'istanza di Azure Active Directory che nella sottoscrizione di Azure. In particolare, è necessario poter creare un'app in Azure Active Directory e assegnare l'entità servizio a un ruolo. 
 
 Il modo più semplice per verificare se l'account dispone delle autorizzazioni appropriate è tramite il portale. Vedere l'articolo su come [controllare le autorizzazioni necessarie nel portale](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -72,7 +72,7 @@ In questa sezione si eseguono i passaggi per creare l'applicazione AD protetta d
      info:    ad sp create command OK
    ```
 
-3. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo Lettore, concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il parametro Objectid, specificare il valore di ObjectId usato durante la creazione dell'applicazione. Prima di eseguire questo comando, è necessario lasciare che la nuova entità servizio si propaghi in Active Directory. Quando si eseguono questi comandi manualmente, in genere trascorre tempo sufficiente tra le attività. In uno script, è necessario aggiungere un passaggio di sospensione tra i comandi (ad esempio `sleep 15`). Se viene visualizzato un errore indicante che l'entità non esiste nella directory, eseguire nuovamente il comando.
+3. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo Lettore, concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il parametro Objectid, specificare il valore di ObjectId usato durante la creazione dell'applicazione. Prima di eseguire questo comando, è necessario lasciare che la nuova entità servizio si propaghi in Azure Active Directory. Quando si eseguono questi comandi manualmente, in genere trascorre tempo sufficiente tra le attività. In uno script, è necessario aggiungere un passaggio di sospensione tra i comandi (ad esempio `sleep 15`). Se viene visualizzato un errore indicante che l'entità non esiste nella directory, eseguire nuovamente il comando.
    
    ```azurecli
    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
@@ -83,7 +83,7 @@ L'operazione è terminata. L'applicazione AD e l''entità servizio sono così co
 ### <a name="provide-credentials-through-azure-cli"></a>Fornire le credenziali tramite l'interfaccia della riga di comando di Azure
 A questo punto è necessario accedere come applicazione per eseguire operazioni.
 
-1. Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Active Directory. Per recuperare l'ID tenant per la sottoscrizione attualmente autenticata, usare il comando seguente:
+1. Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Azure Active Directory. Per recuperare l'ID tenant per la sottoscrizione attualmente autenticata, usare il comando seguente:
    
    ```azurecli
    azure account show
@@ -192,7 +192,7 @@ Per completare i passaggi è necessario aver installato [OpenSSL](http://www.ope
      data:                      https://www.contoso.org/example
      info:    ad sp create command OK
    ```
-6. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo Lettore, concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il parametro Objectid, specificare il valore di ObjectId usato durante la creazione dell'applicazione. Prima di eseguire questo comando, è necessario lasciare che la nuova entità servizio si propaghi in Active Directory. Quando si eseguono questi comandi manualmente, in genere trascorre tempo sufficiente tra le attività. In uno script, è necessario aggiungere un passaggio di sospensione tra i comandi (ad esempio `sleep 15`). Se viene visualizzato un errore indicante che l'entità non esiste nella directory, eseguire nuovamente il comando.
+6. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo Lettore, concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md). Per il parametro Objectid, specificare il valore di ObjectId usato durante la creazione dell'applicazione. Prima di eseguire questo comando, è necessario lasciare che la nuova entità servizio si propaghi in Azure Active Directory. Quando si eseguono questi comandi manualmente, in genere trascorre tempo sufficiente tra le attività. In uno script, è necessario aggiungere un passaggio di sospensione tra i comandi (ad esempio `sleep 15`). Se viene visualizzato un errore indicante che l'entità non esiste nella directory, eseguire nuovamente il comando.
    
    ```azurecli
    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
@@ -201,7 +201,7 @@ Per completare i passaggi è necessario aver installato [OpenSSL](http://www.ope
 ### <a name="provide-certificate-through-automated-azure-cli-script"></a>Fornire il certificato tramite uno script dell'interfaccia della riga di comando di Azure automatizzato
 A questo punto è necessario accedere come applicazione per eseguire operazioni.
 
-1. Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Active Directory. Per recuperare l'ID tenant per la sottoscrizione attualmente autenticata, usare il comando seguente:
+1. Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Azure Active Directory. Per recuperare l'ID tenant per la sottoscrizione attualmente autenticata, usare il comando seguente:
    
    ```azurecli
    azure account show
@@ -263,7 +263,7 @@ A questo punto è necessario accedere come applicazione per eseguire operazioni.
    azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
    ```
 
-A questo punto è stata eseguita l'autenticazione come entità servizio per l'applicazione di Active Directory creata.
+A questo punto, è stata eseguita l'autenticazione come entità servizio per l'applicazione di Azure Active Directory creata.
 
 ## <a name="change-credentials"></a>Modificare le credenziali
 
@@ -285,7 +285,7 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 
 Durante la creazione di un'entità servizio, è possibile riscontrare gli errori seguenti:
 
-* **"Authentication_Unauthorized"** o **"Nessuna sottoscrizione trovata nel contesto".** - Questo errore viene visualizzato quando l'account non dispone delle [autorizzazioni necessarie](#required-permissions) in Active Directory per registrare un'app. L'errore viene visualizzato in genere quando solo gli utenti amministratori di Active Directory possono registrare le app e l'account in uso non è un amministratore. Chiedere all'amministratore di essere assegnati a un ruolo di amministratore oppure di consentire agli utenti di registrare le app.
+* **"Authentication_Unauthorized"** o **"Nessuna sottoscrizione trovata nel contesto".** - Questo errore viene visualizzato quando l'account non ha le [autorizzazioni necessarie](#required-permissions) in Azure Active Directory per registrare un'app. In genere, l'errore si verifica quando solo gli utenti amministratori di Azure Active Directory possono registrare le app e l'account in uso non è un account di amministratore. Chiedere all'amministratore di essere assegnati a un ruolo di amministratore oppure di consentire agli utenti di registrare le app.
 
 * L'account **"non è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' nell'ambito '/subscriptions/{guid}'."** - Questo errore viene visualizzato quando l'account non dispone di autorizzazioni sufficienti per assegnare un ruolo a un'identità. Chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente.
 

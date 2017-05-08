@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: 866d2b54b0b517cb9984fd5e98840fe3a6c69965
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -59,10 +60,5 @@ Per usare un account Microsoft come provider di identità in Azure Active Direct
 5. Fare clic su **Tipo di provider di identità**, selezionare **Account Microsoft** e fare clic su **OK**.
 6. Fare clic su **Set up this identity provider** (Configura il provider di identità) e immettere l'ID applicazione e la password dell'applicazione dell'account Microsoft creato in precedenza.
 7. Fare clic su **OK** e quindi su **Crea** per salvare la configurazione dell'account Microsoft.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

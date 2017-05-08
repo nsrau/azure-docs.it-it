@@ -1,28 +1,26 @@
 ---
-title: Evento di avvio ridimensionamento pool - Azure | Microsoft Docs
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8bd33e8b-6390-4a34-95dc-2e63d8bce941
-caps.latest.revision: 6
+title: Evento di avvio ridimensionamento pool di Azure Batch | Microsoft Docs
+description: "Riferimento per l’evento di avvio ridimensionamento del pool di batch."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5064d86063251aeed22688d8fac133c4be1a88f8
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 826cd984d26b923ba38562e05a2e75c399be9121
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-resize-start-event"></a>Evento di avvio ridimensionamento pool
-Corpo del log di un evento di avvio ridimensionamento pool
 
-## <a name="remarks"></a>Osservazioni
+# <a name="pool-resize-start-event"></a>Evento di avvio ridimensionamento pool
+
  Questo evento viene generato quando un ridimensionamento pool è stato avviato. Poiché il ridimensionamento pool è un evento asincrono, è possibile prevedere l'emissione di un evento di completamento ridimensionamento pool una volta completata l'operazione di ridimensionamento.
 
  L'esempio seguente mostra il corpo di un evento di avvio ridimensionamento pool per un pool che ridimensiona da 0 a 2 nodi con un ridimensionamento manuale.

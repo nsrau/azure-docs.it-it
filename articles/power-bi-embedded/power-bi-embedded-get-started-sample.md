@@ -16,9 +16,9 @@ ms.workload: powerbi
 ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: beadcbfa4907d68a687ec5144136132d8b0439e1
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c3cb1763f807220a4a829f410d7eb77974b25776
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -44,16 +44,17 @@ La procedura dettagliata seguente illustra la configurazione dell'ambiente di sv
 2. Aprire il file **PowerBI embedded.sln** in Visual Studio. Potrebbe essere necessario eseguire il comando **Update-Package** nella Console di gestione pacchetti NuGET per aggiornare i pacchetti utilizzati in questa soluzione.
 3. Compilare la soluzione.
 4. Eseguire l'applicazione console **ProvisionSample** . Nell'applicazione console di esempio, effettuare il provisioning di un'area di lavoro e importare un file PBIX.
-5. Per eseguire il provisioning di una nuova **area di lavoro**, selezionare l'opzione 2, **Report management**, e quindi selezionare l'opzione 3, **Import PBIX Desktop file into a workspace**.
+5. Per effettuare il provisioning di una nuova **area di lavoro**, selezionare l'opzione 1 **Collection management** (Gestione raccolte) e quindi selezionare l'opzione 6 **Provision a new Workspace** (Effettua il provisioning di una nuova area di lavoro).
+6. Per importare un nuovo **report**, selezionare l'opzione 2 **Report management** (Gestione report) e quindi selezionare l'opzione 3 **Import PBIX Desktop file into a workspace** (Importa file di PBIX Desktop in un'area di lavoro).
 
-6. Immettere il **nome della raccolta di aree di lavoro** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **Chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) nell'introduzione a Microsoft Power BI Embedded.
+7. Immettere il **nome della raccolta di aree di lavoro** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **Chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) nell'introduzione a Microsoft Power BI Embedded.
 
     ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
-7. Copiare e salvare l' **ID area di lavoro** appena creato per poterlo usare successivamente. Dopo aver creato l'**ID area di lavoro**, è possibile trovarlo nel **portale di Azure**.
+8. Copiare e salvare l' **ID area di lavoro** appena creato per poterlo usare successivamente. Dopo aver creato l'**ID area di lavoro**, è possibile trovarlo nel **portale di Azure**.
 
     ![](media/powerbi-embedded-get-started-sample/workspace-id.png)
-8. Per importare un file PBIX nell'**area di lavoro**, selezionare l'opzione **6. Import PBIX Desktop file into an existing workspace**. In mancanza di un file PBIX adatto, è possibile scaricare l'esempio [Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
-9. Se richiesto, immettere un nome descrittivo per il **set di dati**.
+9. Per importare un file PBIX nell'**area di lavoro**, selezionare l'opzione **6. Import PBIX Desktop file into an existing workspace**. In mancanza di un file PBIX adatto, è possibile scaricare l'esempio [Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+10. Se richiesto, immettere un nome descrittivo per il **set di dati**.
 
 Verrà visualizzata una risposta simile alla seguente:
 

@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ Nella figura seguente viene illustrato un esempio di route definite dall'utente 
 ![Route di sistema in Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Le route definite dall'utente vengono applicate solo al traffico da una subnet. non è possibile creare una route per specificare come il traffico entra in una subnet da Internet, ad esempio. Inoltre, il dispositivo in cui si vuole inoltrare il traffico non può essere nella stessa subnet da cui ha origine il traffico. Creare sempre una subnet separata per i dispositivi. 
+> Le route definite dall'utente vengono applicate al traffico che lascia una subnet da qualsiasi risorsa (ad esempio le interfacce di rete collegate alle VM) della subnet. Non è possibile creare una route per specificare come il traffico entra in una subnet da Internet, ad esempio. Il dispositivo in cui si vuole inoltrare il traffico non può essere nella stessa subnet da cui ha origine il traffico. Creare sempre una subnet separata per i dispositivi. 
 > 
 > 
 
@@ -56,7 +56,7 @@ I pacchetti vengono inoltrati attraverso una rete TCP/IP basata su una tabella d
 | Proprietà | Descrizione | Vincoli | Considerazioni |
 | --- | --- | --- | --- |
 | Prefisso indirizzo |CIDR di destinazione a cui viene applicata la route, ad esempio 10.1.0.0/16. |Deve essere un intervallo CIDR valido che rappresenta gli indirizzi sulla rete Internet pubblica, la rete virtuale di Azure o un data center locale. |Assicurarsi che **Prefisso indirizzo** non contenga il valore di **Indirizzo hop successivo**, in caso contrario i pacchetti entreranno in un ciclo tra l'origine e l'hop successivo, senza mai raggiungere la destinazione. |
-| Tipo hop successivo |Il tipo di hop Azure il pacchetto deve essere inviato. |Deve essere uno dei valori seguenti:  <br/> **Rete virtuale**. Rappresenta la rete virtuale locale. Se ad esempio sono presenti due subnet, 10.1.0.0/16 e 10.2.0.0/16 nella stessa rete virtuale, la route per ogni subnet nella tabella route avrà un valore di hop successivo di *Rete virtuale*. <br/> **Gateway di rete virtuale**. Rappresenta un Gateway VPN S2S Azure. <br/> **Internet**. Rappresenta il gateway Internet predefinito fornito dall'infrastruttura di Azure. <br/> **Dispositivo virtuale**. Rappresenta un dispositivo virtuale che aggiunto alla rete virtuale Azure. <br/> **Nessuno**. Rappresenta un black hole. I pacchetti inoltrati a un black hole non verranno inoltrati affatto. |Si consiglia di usare **appliance virtuale** per indirizzare il traffico a una macchina virtuale o a un indirizzo IP interno di Azure Load Balancer.  Questo tipo consente di specificare un indirizzo IP come descritto di seguito. È consigliabile usare un tipo **Nessuno** per arrestare il flusso dei pacchetti verso una data destinazione. |
+| Tipo hop successivo |Il tipo di hop Azure il pacchetto deve essere inviato. |Deve essere uno dei valori seguenti:  <br/> **Rete virtuale**. Rappresenta la rete virtuale locale. Se ad esempio sono presenti due subnet, 10.1.0.0/16 e 10.2.0.0/16 nella stessa rete virtuale, la route per ogni subnet nella tabella route avrà un valore di hop successivo di *Rete virtuale*. <br/> **Gateway di rete virtuale**. Rappresenta un Gateway VPN S2S Azure. <br/> **Internet**. Rappresenta il gateway Internet predefinito fornito dall'infrastruttura di Azure. <br/> **Dispositivo virtuale**. Rappresenta un dispositivo virtuale che aggiunto alla rete virtuale Azure. <br/> **Nessuno**. Rappresenta un black hole. I pacchetti inoltrati a un black hole non verranno inoltrati affatto. |Si consiglia di usare **appliance virtuale**  per indirizzare il traffico a una macchina virtuale o a un indirizzo IP interno di Azure Load Balancer.  Questo tipo consente di specificare un indirizzo IP come descritto di seguito. È consigliabile usare un tipo **Nessuno** per arrestare il flusso dei pacchetti verso una data destinazione. |
 | Indirizzo hop successivo |L'indirizzo hop successivo contiene l'indirizzo IP per inoltrare i pacchetti. I valori di hop successivo sono consentiti solo nelle route dove il tipo di hop successivo è *dispositivo virtuale*. |Deve essere un indirizzo IP raggiungibile nella rete virtuale in cui viene applicata la route definita dall'utente, senza passare per un **gateway di rete virtuale**. L'indirizzo IP deve trovarsi nella stessa rete virtuale in cui viene applicato o in una rete virtuale con peering. |Se l'indirizzo IP rappresenta una macchina virtuale, assicurarsi di abilitare [Inoltro IP](#IP-forwarding) in Azure per la macchina virtuale. Se l'indirizzo IP rappresenta l'indirizzo IP interno di Azure Load Balancer, assicurarsi che ci sia una regola di bilanciamento del carico corrispondente per ogni porta per cui si desidera bilanciare il carico.|
 
 In Azure PowerShell, alcuni dei valori di "NextHopType" hanno nomi diversi:

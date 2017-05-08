@@ -17,16 +17,18 @@ ms.workload: na
 ms.date: 04/01/2017
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6644f6b879e48787249111c5e02b75b963f1e1cd
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1afc4d0c04929fdf55cc9f336e50d90ff7c66172
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Associazioni del bus di servizio di Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e operare con il codice per associazioni del bus di servizio di Azure in Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per le code e gli argomenti del bus di servizio.
+Questo articolo illustra come configurare e operare con il codice per associazioni del bus di servizio di Azure in Funzioni di Azure. 
+
+Funzioni di Azure supporta il trigger e le associazioni di output per le code e gli argomenti del bus di servizio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -66,14 +68,14 @@ I trigger della coda e dell'argomento del bus di servizio sono definiti dagli og
 
 Tenere presente quanto segue:
 
-* Per `connection`, [creare un'impostazione nell'app per le funzioni](functions-how-to-use-azure-function-app-settings.md) che contenga la stringa di connessione allo spazio dei nomi dell'Hub di servizio, quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` del trigger. Ottenere la stringa di connessione seguendo i passaggi illustrati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Per `connection`, [creare un'impostazione nell'app per le funzioni](functions-how-to-use-azure-function-app-settings.md) che contenga la stringa di connessione allo spazio dei nomi del bus di servizio, quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` del trigger. Ottenere la stringa di connessione seguendo i passaggi illustrati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico.
   Se si lascia `connection` vuoto, il trigger presuppone che una stringa di connessione del bus di servizio predefinito sia specificata nell'impostazione dell'app denominata `AzureWebJobsServiceBus`.
 * Per `accessRights`, i valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci**. Se si usa una stringa di connessione che non dispone dell'autorizzazione **Gestisci**, impostare `accessRights` su `listen`. In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione.
 
 ## <a name="trigger-behavior"></a>Comportamento di trigger
 * **Single threading**: per impostazione predefinita il runtime di Funzioni elabora più messaggi contemporaneamente. Per impostare il runtime in modo che elabori un solo messaggio della coda o dell'argomento alla volta, impostare `serviceBus.maxConcurrentCalls` su 1 in *host.json*. 
-  Per informazioni su *host.json*, vedere [Struttura delle cartelle](functions-reference.md#folder-structure) e [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+  Per informazioni su *host.json*, vedere la [Struttura di cartelle](functions-reference.md#folder-structure) e [host.json](https://git .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Gestione dei messaggi non elaborabili**: il bus di servizio esegue la gestione dei messaggi non elaborabili in modo autonomo, non controllabile o modificabile nella configurazione o nel codice di Funzioni di Azure. 
 * **Comportamento di PeekLock**: il runtime di Funzioni riceve un messaggio in modalità [`PeekLock` ](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) e chiama `Complete` sul messaggio se la funzione viene completata correttamente oppure `Abandon` se la funzione ha esito negativo. 
   Se il tempo di esecuzione della funzione supera il timeout di `PeekLock` , il blocco viene rinnovato automaticamente.
@@ -81,7 +83,7 @@ Tenere presente quanto segue:
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Uso dei trigger
-Questa sezione illustra come usare il trigger di bus di servizio nel codice di funzione. 
+Questa sezione illustra come usare il trigger del bus di servizio nel codice di funzione. 
 
 In C# ed F# il messaggio di trigger di bus di servizio può essere deserializzato in uno qualsiasi dei seguenti tipi:
 
@@ -183,7 +185,7 @@ Gli output della coda e dell'argomento del bus di servizio per una funzione usa 
 
 Tenere presente quanto segue:
 
-* Per `connection`, [creare un'impostazione nell'app per le funzioni](functions-how-to-use-azure-function-app-settings.md) che contenga la stringa di connessione allo spazio dei nomi dell'Hub di servizio, quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di output. Ottenere la stringa di connessione seguendo i passaggi illustrati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Per `connection`, [creare un'impostazione nell'app per le funzioni](functions-how-to-use-azure-function-app-settings.md) che contenga la stringa di connessione allo spazio dei nomi del bus di servizio, quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di output. Ottenere la stringa di connessione seguendo i passaggi illustrati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico.
   Se si lascia `connection` vuoto, l'associazione di output presuppone che una stringa di connessione del bus di servizio predefinito sia specificata nell'impostazione dell'app denominata `AzureWebJobsServiceBus`.
 * Per `accessRights`, i valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci**. Se si usa una stringa di connessione che non dispone dell'autorizzazione **Gestisci**, impostare `accessRights` su `listen`. In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione.

@@ -169,7 +169,7 @@ Le classi seguenti sono state rinominate. I nuovi nomi sono i nomi originali del
     var pipelines = new List<Pipeline>(response.Pipelines);
 
     string nextLink = response.NextLink;
-    while (string.IsNullOrEmpty(response.NextLink))
+    while (!string.IsNullOrEmpty(nextLink))
     {
         PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
         pipelines.AddRange(nextResponse.Pipelines);
