@@ -12,12 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 04/24/2017
 ms.author: trinadhk;markgal;jpallavi;
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 61f62d606b44b3390e6500ea2b30b20d7d2929ff
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 024b0019150c4d9117151d8faedb08ea3181d8c4
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -51,6 +51,7 @@ ms.lasthandoff: 04/06/2017
 " (Generatore certificati CRP Microsoft Azure).<ul><li>[Aprire la console certificati (computer locale)](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Eliminare il certificato (in Personale -> Certificati) con il campo "Rilasciato a" = "Windows Azure Service Management for Extensions" (Microsoft Azure Service Management per le estensioni) o "Windows Azure CRP Certificate Generator
 " (Generatore certificati CRP Microsoft Azure).</ul><li>Attivare il backup della VM. </ol>|
 | Convalida non riuscita perché la macchina virtuale è crittografata con il solo BEK. I backup possono essere abilitati solo per le macchine virtuali crittografate con BEK e KEK. |La macchina virtuale deve essere crittografata mediante la chiave di crittografia BitLocker e la chiave di crittografia delle chiavi. In seguito, il backup deve essere abilitato. |
+| Il servizio backup di Azure non possiede autorizzazioni sufficienti nel Key Vault per il backup di macchine virtuali crittografate. |Il servizio di backup deve ricevere queste autorizzazioni in PowerShell tramite la procedura indicata nella sezione **Abilitazione del backup** della [Documentazione di PowerShell](backup-azure-vms-automation.md#backup-azure-vms). |
 |L'installazione dell'estensione dello snapshot non è riuscita con un errore che indica che il servizio COM+ non può comunicare con Microsoft Distributed Transaction Coordinator | Provare ad avviare il servizio di Windows "Applicazione di sistema COM+" (da un prompt dei comandi con privilegi elevati - _net start COMSysApp_). <br>In caso di errore durante l'avvio, seguire questa procedura:<ol><li> Verificare che l'account di accesso del servizio "Distributed Transaction Coordinator" sia "Servizio di rete". In caso contrario, modificarlo in "Servizio di rete", riavviare il servizio e quindi provare ad avviare il servizio "Applicazione di sistema COM+".<li>Se il problema persiste, disinstallare/installare il servizio "Distributed Transaction Coordinator" seguendo questa procedura:<br> - Arrestare il servizio MSDTC<br> - Aprire un prompt dei comandi (cmd) <br> - Eseguire il comando "msdtc -uninstall" <br> - Eseguire il comando "msdtc -install" <br> - Avviare il servizio MSDTC<li>Avviare il servizio di Windows "Applicazione di sistema COM+" e quindi attivare il backup dal portale.</ol> |
 | Impossibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con il file system | <ol><li>Controllare lo stato del file system di tutti i dispositivi montati tramite il comando _'tune2fs'_.<br> Ad esempio: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>Smontare i dispositivi il cui stato del file system non è pulito tramite il comando _'umount'_. <li> Eseguire il controllo FileSystemConsistency su tali dispositivi tramite il comando _'fsck'_. <li> Montare di nuovo i dispositivi e provare a eseguire il backup.</ol> |
 | L'operazione di snapshot non è riuscita a causa di un errore durante la creazione del canale di comunicazione di rete protetta | <ol><Li> Aprire l'editor del Registro di sistema eseguendo regedit.exe con privilegi elevati. <li> Identificare tutte le versioni di .NetFramework presenti nel sistema, disponibili nella gerarchia della chiave del Registro di sistema "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> Per ogni versione di .NetFramework presente nella chiave del Registro di sistema, aggiungere la seguente chiave: <br> "SchUseStrongCrypto"=dword:00000001 </ol>| 

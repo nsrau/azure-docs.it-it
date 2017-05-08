@@ -16,9 +16,9 @@ ms.date: 03/16/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 0f10ad4904b10a9554e949e77f0192edcb8f624f
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c6d3d9d8f399816928e794e8956bc35825462fb9
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -50,6 +50,7 @@ Gli amministratori possono richiedere all'utente di confermare i metodi di auten
 * [Come modificare la password usando la reimpostazione password self-service](active-directory-passwords-update-your-own-password.md)
 * [Pagina di registrazione per la reimpostazione della password](http://aka.ms/ssprsetup)
 * [Portale di reimpostazione della password](https://passwordreset.microsoftonline.com/)
+* [Non è possibile accedere all'account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Pagina di registrazione per la reimpostazione della password con metodi registrati e pulsante Fine"
 

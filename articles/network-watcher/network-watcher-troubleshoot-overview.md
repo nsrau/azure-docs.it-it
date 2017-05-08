@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: dcf8a88ebd66f5e4a5a06538532fbfbae7ce852e
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 9c7ce71674a851d598ef48eb430127c9a6bddb84
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -57,7 +57,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | PlatformInActive | Si è verificato un errore con la piattaforma. | No|
 | ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No|
 | NoConnectionsFoundForGateway | Non esistono connessioni sul gateway. Questo è solo un avviso.| No|
-| ConnectionsNotConnected | Nessuna connessione è connessa. Questo è solo un avviso.| Sì|
+| ConnectionsNotConnected | Le connessioni non sono connesse. Questo è solo un avviso.| Sì|
 | GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
 
 ### <a name="connection"></a>Connessione

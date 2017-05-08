@@ -13,8 +13,3 @@
 >
 > Dopo aver distribuito il ruolo aggiornato, è possibile abilitare nuovamente le estensioni tramite il portale di Azure o PowerShell.
 >
-
-
-<!--HONumber=Jan17_HO3-->
-
-

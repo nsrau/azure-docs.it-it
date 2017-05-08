@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 24ddf0d81e52960bd582861d324585b8ba0ca357
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -132,7 +132,7 @@ La prima app Web ASP.NET è ora in esecuzione nel servizio app di Azure.
 
 ## <a name="update-the-app-and-redeploy"></a>Aggiornare e ridistribuire l'app
 
-È molto semplice ridistribuire un aggiornamento in Azure. Verrà ora eseguito un aggiornamento della home page.
+È molto semplice eseguire l'aggiornamento e la ridistribuzione in Azure. Verrà ora eseguito un aggiornamento della home page.
 
 Da **Esplora soluzioni** aprire **Views\Home\Index.cshtml**.
 
