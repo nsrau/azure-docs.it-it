@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
 ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
+ms.contentlocale: it-it
 ms.lasthandoff: 04/21/2017
 
 

@@ -8,9 +8,10 @@ ms.date: 04/03/2017
 ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 7ba3737566401152a3171e8926beca188045230c
+ms.contentlocale: it-it
 ms.lasthandoff: 04/22/2017
 
 ---

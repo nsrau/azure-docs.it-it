@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/20/2017
 ms.author: omravi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: cc35c00bec18ee1d9ed52b29b68ddacc1136dc70
+ms.contentlocale: it-it
 ms.lasthandoff: 04/26/2017
 
 ---

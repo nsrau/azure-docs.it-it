@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: cbd764b3c6ce912c825aa2756ac6f35c23d047bf
+ms.contentlocale: it-it
 ms.lasthandoff: 04/26/2017
 
 
