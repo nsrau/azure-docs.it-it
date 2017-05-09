@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: 4e620f3d76caa25ac0e5afb134f37ffe263935f0
+ms.contentlocale: it-it
 ms.lasthandoff: 04/13/2017
 
 
@@ -52,7 +53,7 @@ Un utente guest B2B è un utente invitato da un'organizzazione partner che colla
 1. Se un host invita un dipendente usando un indirizzo cliente
   1. Questo approccio non è conforme ai criteri di licenza Microsoft e non è attualmente consigliato.
 
-2.    Se un'organizzazione host aggiunge un utente da un'altra organizzazione conglomerata
+2. Se un'organizzazione host aggiunge un utente da un'altra organizzazione conglomerata
   1. Questo è il caso in cui l'utente viene invitato usando le API di B2B, ma non si tratta in genere di B2B. In teoria, queste organizzazioni dovrebbero invitare gli utenti di altre organizzazioni come membri (l'API lo consente). In questo caso, è necessario assegnare le licenze a questi membri perché possano accedere alle risorse dell'organizzazione che li invita.
 
   2. È possibile che alcune organizzazioni vogliano aggiungere gli utenti di altre organizzazioni come "Guest" come criterio. Di seguito sono spiegati due casi:
