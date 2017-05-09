@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2017
 ms.author: arramac
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
 ms.openlocfilehash: 87486f94bee474b13680e9a90716f09399a95e16
+ms.contentlocale: it-it
 ms.lasthandoff: 04/23/2017
 
 

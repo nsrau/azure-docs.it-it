@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 0635120c4e16f3b8531039eee4c6651e7cdeca40
+ms.contentlocale: it-it
 ms.lasthandoff: 04/22/2017
 
 

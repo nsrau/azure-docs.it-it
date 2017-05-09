@@ -14,9 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 7679aa86aa24396d9cd7cf84a8cafe7950ad6d62
+ms.contentlocale: it-it
 ms.lasthandoff: 04/20/2017
 
 ---

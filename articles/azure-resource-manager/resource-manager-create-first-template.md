@@ -14,9 +14,10 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
+ms.contentlocale: it-it
 ms.lasthandoff: 04/20/2017
 
 ---

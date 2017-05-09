@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 33ddab887ade0d788129367eec4db7e70f35e0b9
+ms.contentlocale: it-it
 ms.lasthandoff: 04/25/2017
 
 

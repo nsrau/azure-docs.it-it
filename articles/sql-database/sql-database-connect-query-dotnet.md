@@ -15,9 +15,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
+ms.contentlocale: it-it
 ms.lasthandoff: 04/21/2017
 
 

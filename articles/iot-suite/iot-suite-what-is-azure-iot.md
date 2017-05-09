@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 1c8703d64ff45e589a7ce93f1f2176681e1bf331
+ms.contentlocale: it-it
 ms.lasthandoff: 04/25/2017
 
 
