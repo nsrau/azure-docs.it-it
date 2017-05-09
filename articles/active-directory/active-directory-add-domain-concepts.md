@@ -3,7 +3,7 @@ title: Panoramica concettuale dei nomi di dominio personalizzati in Azure Active
 description: Illustra il framework concettuale per l&quot;uso di nomi di dominio personalizzati in Azure Active Directory, compresa la federazione per Single Sign-On
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2faa2c270b192a9b3476fa911333f6abfabb1ee9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 028c1cab4f0229a06d37d2f325b384ee78a2b8f9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -55,16 +57,11 @@ Un nome di dominio deve essere verificato in Azure AD prima che possa essere usa
 Un'app Web di Azure usa un proprio meccanismo per verificare la proprietà di un dominio. Un dominio deve essere verificato per l'uso con Azure AD anche se è stato già verificato per l'uso con un'app Web di Azure in una sottoscrizione che si basa su Azure AD. Un'app Web di Azure può usare un nome di dominio verificato in una directory diversa da quella che protegge l'app Web.
 
 ## <a name="managing-domain-names"></a>Gestione dei nomi di dominio
-Le attività di gestione del dominio possono essere completate dal portale di Azure classico e da PowerShell. Molte attività possono essere completate tramite l'API Graph di Azure AD (in anteprima pubblica).
+Le attività di gestione del dominio possono essere completate dal portale di Azure classico e da PowerShell. Molte attività possono essere completate tramite l'API Graph di Azure AD.
 
 * [Aggiunta e verifica di un nome di dominio personalizzato](active-directory-add-domain.md)
 * [Gestione di domini nel portale di Azure classico](active-directory-add-manage-domain-names.md)
 * [Uso di PowerShell per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Uso dell'API Graph di Azure AD per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
