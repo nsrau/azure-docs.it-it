@@ -15,10 +15,11 @@ ms.workload: multiple
 ms.date: 04/03/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 0563f6c3aa4508ef2acac6b17dc85ecbf11bb154
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f1156572dece1dd59d5a258b670c8fb4f3e3d0e6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -34,8 +35,8 @@ Questo articolo illustra le diverse entità che costituiranno le formule di scal
 
 > [!IMPORTANT]
 > Ogni account Azure Batch è limitato a un numero massimo di core, e quindi di nodi di calcolo, che può essere usato per l'elaborazione. Il servizio Batch crea nuovi nodi solo fino al raggiungimento del limite di core e può non raggiungere il numero di nodi di calcolo specificato da una formula di scalabilità automatica. Per informazioni su come visualizzare e aumentare le quote dell'account, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md) .
-> 
-> 
+>
+>
 
 ## <a name="automatic-scaling-formulas"></a>Formule di ridimensionamento automatico
 Una formula di scalabilità automatica è un valore stringa definito che contiene una o più istruzioni. La formula di scalabilità automatica viene assegnata all'elemento [autoScaleFormula][rest_autoscaleformula] di un pool (Batch REST) o alla proprietà [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). Il servizio Batch usa la formula per determinare il numero di nodi di calcolo di destinazione del pool per l'intervallo di elaborazione successivo. La stringa della formula, le cui dimensioni non possono superare 8 KB, può includere fino a 100 istruzioni separate da punti e virgola, nonché interruzioni di riga e commenti.
@@ -110,8 +111,8 @@ Le tabelle seguenti includono variabili di lettura/scrittura e di sola lettura d
 
 > [!TIP]
 > Le variabili di sola lettura definite dal servizio illustrate sopra sono *oggetti* che offrono vari metodi per accedere ai dati associati a ognuno. Per altre informazioni, vedere [Ottenere dati di esempio](#getsampledata) di seguito.
-> 
-> 
+>
+>
 
 ## <a name="types"></a>Types
 Questi sono i **tipi** supportati in una formula:
@@ -121,7 +122,7 @@ Questi sono i **tipi** supportati in una formula:
 * doubleVecList
 * string
 * timestamp, è una struttura composta che contiene i membri seguenti:
-  
+
   * year
   * month (1-12)
   * day (1-31)
@@ -130,7 +131,7 @@ Questi sono i **tipi** supportati in una formula:
   * minute (00-59)
   * second (00-59)
 * timeInterval
-  
+
   * TimeInterval_Zero
   * TimeInterval_100ns
   * TimeInterval_Microsecond
@@ -253,8 +254,8 @@ Poiché si può verificare un ritardo nella disponibilità dei campioni, è impo
 
 > [!IMPORTANT]
 > È **consigliabile** **evitare di basarsi *solo* su `GetSample(1)` nelle formule di scalabilità automatica**. `GetSample(1)` indica infatti essenzialmente al servizio Batch di restituire l'ultimo campione disponibile, indipendentemente da quanto tempo prima è stato recuperato. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
-> 
-> 
+>
+>
 
 ## <a name="metrics"></a>Metrica
 Quando si definisce una formula, è possibile usare metriche di **risorse** e di **attività**. Adeguare il numero di destinazione di nodi dedicati nel pool in base ai dati di metrica ottenuti e valutati. Per altre informazioni su ogni metrica, vedere la sezione [Variabili](#variables) precedente.
@@ -367,12 +368,12 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-Oltre alle API REST di Batch e l'SDK .NET, è possibile usare qualsiasi altro [SDK Batch](batch-apis-tools.md#batch-development-apis), [cmdlet PowerShell di Batch](batch-powershell-cmdlets-get-started.md) e [interfaccia della riga di comando di Batch](batch-cli-get-started.md) da usare per la scalabilità automatica.
+Oltre alle API REST di Batch e l'SDK .NET, è possibile usare qualsiasi altro [SDK Batch](batch-apis-tools.md#azure-accounts-for-batch-development), [cmdlet PowerShell di Batch](batch-powershell-cmdlets-get-started.md) e [interfaccia della riga di comando di Batch](batch-cli-get-started.md) da usare per la scalabilità automatica.
 
 > [!IMPORTANT]
 > Quando si crea un pool abilitato per la scalabilità automatica, **non** specificare il parametro `targetDedicated`. Si noti anche che per ridimensionare manualmente un pool abilitato per la scalabilità automatica, ad esempio con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool], è necessario **disabilitare** prima la scalabilità automatica nel pool e quindi ridimensionarlo.
-> 
-> 
+>
+>
 
 ### <a name="automatic-scaling-interval"></a>Intervallo di ridimensionamento automatico
 Per impostazione predefinita, il servizio Batch adegua le dimensioni di un pool in base alla relativa formula di ridimensionamento automatico ogni **15 minuti**. Questo intervallo è tuttavia configurabile usando le proprietà del pool seguenti:
@@ -384,8 +385,8 @@ L'intervallo minimo è di 5 minuti e il massimo di 168 ore. Se viene specificato
 
 > [!NOTE]
 > La funzionalità di ridimensionamento automatico non è attualmente concepita come risposta alle modifiche in meno di un minuto, ma piuttosto per l'adeguamento graduale delle dimensioni del pool durante l'esecuzione di un carico di lavoro.
-> 
-> 
+>
+>
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Abilitare la scalabilità automatica in un pool esistente
 Se è già stato creato un pool con un numero di set di nodi di calcolo usando il parametro *targetDedicated*, è comunque possibile attivare la scalabilità del pool. Ogni SDK di Batch fornisce un'operazione di abilitazione della scalabilità automatica, ad esempio:
@@ -397,14 +398,14 @@ Quando si abilita la scalabilità automatica in un pool esistente, si applica qu
 
 * Se la scalabilità automatica è attualmente **disabilitata** nel pool quando si esegue la richiesta per l'abilitazione, è *necessario* specificare una formula di scalabilità automatica valida quando si esegue la richiesta. *Facoltativamente*, è possibile specificare un intervallo di valutazione della scalabilità automatica. Se non si specifica un intervallo, viene applicato il valore predefinito, pari a 15 minuti.
 * Se la scalabilità automatica è attualmente **abilitata** nel pool, è possibile specificare una formula di scalabilità automatica, un intervallo di valutazione o entrambi. Non è possibile omettere entrambe le proprietà.
-  
+
   * Se si specifica un nuovo intervallo per la valutazione della scalabilità automatica, la pianificazione esistente per la valutazione viene arrestata e viene avviata una nuova pianificazione. L'ora di inizio della nuova pianificazione corrisponde al momento in cui è stata inviata la richiesta di abilitazione della scalabilità automatica.
   * Se si omette la formula di scalabilità automatica o l'intervallo di valutazione, il servizio Batch continuerà a usare il valore corrente.
 
 > [!NOTE]
 > Se è stato specificato un valore per il parametro *targetDedicated* durante la creazione del pool, questo verrà ignorato quando viene valutata la formula di ridimensionamento automatico.
-> 
-> 
+>
+>
 
 Questo frammento di codice C# usa la libreria [Batch .NET][net_api] per abilitare la scalabilità automatica in un pool esistente:
 
@@ -443,10 +444,10 @@ myBatchClient.PoolOperations.EnableAutoScale(
 Per valutare una formula di scalabilità automatica, è necessario avere abilitato prima la **scalabilità automatica** del pool con una **formula valida**. Se si desidera testare una formula in un pool che non dispone ancora di scalabilità automatica abilitata, è possibile usare la formula `$TargetDedicated = 0` a una riga quando si abilita per la prima volta la scalabilità automatica. Usare quindi uno dei metodi seguenti per valutare la formula da testare:
 
 * [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) o [EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)
-  
+
     Questi metodi .NET Batch richiedono l'ID di un pool esistente e una stringa contenente la formula di scalabilità automatica da valutare. I risultati della valutazione sono contenuti nell'istanza [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) restituita.
 * [Valutare la formula di scalabilità automatica](https://msdn.microsoft.com/library/azure/dn820183.aspx)
-  
+
     In questa richiesta di API REST specificare l'ID del pool nell'URI e la formula di scalabilità automatica nell'elemento *autoScaleFormula* del corpo della richiesta. La risposta dell'operazione contiene eventuali informazioni sugli errori che potrebbero essere correlate alla formula.
 
 Questo frammento di codice [Batch .NET][net_api] valuta una formula prima che sia applicata a [CloudPool][net_cloudpool]. Se il pool non dispone di scalabilità automatica abilitata, è necessario abilitarla prima.
