@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
 ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
+ms.contentlocale: it-it
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -36,7 +38,6 @@ Accedere con un account Microsoft personale, aziendale o dell'istituto di istruz
 Dopo aver completato l'operazione, è possibile esaminare l'elenco delle app Microsoft, che probabilmente sarà vuoto.  A tale scopo, seguire questa procedura.
 
 Fare clic sul pulsante per **aggiungere un'app**e attribuirle un nome.  Il portale assegnerà all'app un ID applicazione univoco globale che verrà usato successivamente nel codice.  Se l’app include un componente sul lato server che necessità di token di accesso per chiamare le API (ad esempio, Office, Azure o un’API Web), è opportuno creare anche un **segreto dell’applicazione** .
-<!-- TODO: Link for app secrets -->
 
 Successivamente, aggiungere le piattaforme usate dall'app.
 
@@ -54,10 +55,5 @@ Facoltativamente, è possibile personalizzare l'aspetto della pagina di accesso 
 Dopo aver creato un'app Microsoft, è possibile completare una delle esercitazioni rapide v2.0.  Di seguito sono elencati alcuni suggerimenti:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

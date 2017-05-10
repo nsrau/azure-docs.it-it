@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: ashwink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
 
 
@@ -35,7 +36,7 @@ I webhook consentono di instradare le notifiche di avviso di Azure ad altri sist
 
 * Scegliere la metrica **Ridimensiona di** .
 
-![Ridimensiona di](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![Ridimensiona di](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
 Per le macchine virtuali più recenti create con Resource Manager (set di scalabilità di macchine virtuali), è possibile configurare questa opzione tramite l'API REST, i modelli di Resource Manager, PowerShell e l'interfaccia della riga di comando. Un'interfaccia del portale non è ancora disponibile.
@@ -126,5 +127,4 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 | oldCapacity |sì |Conteggio delle istanze corrente (precedente) quando la scalabilità automatica ha eseguito un'azione di scalabilità |
 | newCapacity |sì |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa |
 | properties |No |Facoltativo. Set di coppie <chiave, valore> (ad esempio Dizionario <Stringa, Stringa>). Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query) |
-
 

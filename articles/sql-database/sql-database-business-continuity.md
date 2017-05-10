@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/07/2017
 ms.author: sashan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: 2ddbe1766a978f9849c310a72086f95cbb68cd83
+ms.contentlocale: it-it
 ms.lasthandoff: 04/14/2017
 
 
@@ -68,8 +69,7 @@ Se il database primario viene portato offline in modo imprevisto o è necessario
 
 > [!IMPORTANT]
 > Per usare la replica geografica attiva e i gruppi di failover automatico, è necessario essere il proprietario della sottoscrizione o disporre delle autorizzazioni di amministrazione in SQL Server. È possibile configurare ed eseguire il failover tramite il portale di Azure, PowerShell o l'API REST tramite le autorizzazioni della sottoscrizione o tramite Transact-SQL usando le autorizzazioni all'interno di SQL Server.
->
->
+> 
 
 Usare la replica geografica attiva se l'applicazione soddisfa i criteri seguenti:
 
@@ -131,8 +131,8 @@ Se non si pianifica e ci si prepara adeguatamente al ripristino, riportare onlin
 Se si usa la replica geografica attiva e i gruppi con failover automatico come meccanismo di ripristino, è possibile configurare i criteri di failover automatico o usare il [failover manuale](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Una volta avviato, il failover fa sì che il database secondario venga promosso come nuovo database primario e sia pronto per registrare nuove transazioni e rispondere a tutte le query, con una perdita di dati minima per i dati che non erano ancora stati replicati. Per informazioni su come progettare il processo di failover, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
-> Quando il data center ritorna in linea, i colori primari precedenti si ricollegano automaticamente al nuovo database primario e diventano database secondari. Se si desidera spostare di nuovo il database primario nell'area originale è possibile avviare manualmente un failover pianificato (failback).
->
+> Quando il data center ritorna in linea, i colori primari precedenti si ricollegano automaticamente al nuovo database primario e diventano database secondari. Se si desidera spostare di nuovo il database primario nell'area originale è possibile avviare manualmente un failover pianificato (failback). 
+> 
 
 ### <a name="perform-a-geo-restore"></a>Eseguire un ripristino geografico
 Se si usano backup automatici con la replica dell'archiviazione con ridondanza geografica come meccanismo di ripristino, [avviare il ripristino del database tramite ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore). In genere il ripristino avviene entro 12 ore, con perdita di dati fino a 1 ora dall'ultima acquisizione e replica del backup differenziale orario. Fino a quando non viene completato il ripristino, il database non è in grado di registrare tutte le transazioni o rispondere a tutte le query.
