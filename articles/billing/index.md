@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 4a6b1a9e581904f7f7de2a6592dfb163ab2ec45e
-ms.openlocfilehash: 2284db5eaeba0bad709f7e2181ec357f58201d1e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 53894809b679baef74c0d58f487afce676ba5bdd
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 ---
 # <a name="azure-billing-documentation"></a>Documentazione della fatturazione di Azure
@@ -101,6 +103,7 @@ Informazioni sulla fatturazione di Azure e su come monitorare usi e costi. Eserc
                     <div class="cardText">
                         <h3>Altri</h3>
                         <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-overview">Panoramica API</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing/billing-enterprise-api">Panoramica dell'API Enterprise Reporting</a></p>
                         <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudcruiser">Soluzione di un partner: Cloud Cruiser</a></p>
                         <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudyn">Soluzione di un partner: Cloudyn</a></p>
                     </div>
@@ -110,10 +113,5 @@ Informazioni sulla fatturazione di Azure e su come monitorare usi e costi. Eserc
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
