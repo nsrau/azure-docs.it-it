@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: trinadhk;markgal;jpallavi;
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 024b0019150c4d9117151d8faedb08ea3181d8c4
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: f89375510cdcb89d800edc2513f34e601f52efe9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -51,10 +52,10 @@ ms.lasthandoff: 04/26/2017
 " (Generatore certificati CRP Microsoft Azure).<ul><li>[Aprire la console certificati (computer locale)](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Eliminare il certificato (in Personale -> Certificati) con il campo "Rilasciato a" = "Windows Azure Service Management for Extensions" (Microsoft Azure Service Management per le estensioni) o "Windows Azure CRP Certificate Generator
 " (Generatore certificati CRP Microsoft Azure).</ul><li>Attivare il backup della VM. </ol>|
 | Convalida non riuscita perché la macchina virtuale è crittografata con il solo BEK. I backup possono essere abilitati solo per le macchine virtuali crittografate con BEK e KEK. |La macchina virtuale deve essere crittografata mediante la chiave di crittografia BitLocker e la chiave di crittografia delle chiavi. In seguito, il backup deve essere abilitato. |
-| Il servizio backup di Azure non possiede autorizzazioni sufficienti nel Key Vault per il backup di macchine virtuali crittografate. |Il servizio di backup deve ricevere queste autorizzazioni in PowerShell tramite la procedura indicata nella sezione **Abilitazione del backup** della [Documentazione di PowerShell](backup-azure-vms-automation.md#backup-azure-vms). |
+| Il servizio backup di Azure non possiede autorizzazioni sufficienti nel Key Vault per il backup di macchine virtuali crittografate. |Il servizio di backup deve ricevere queste autorizzazioni in PowerShell tramite la procedura indicata nella sezione **Abilitazione del backup** della [Documentazione di PowerShell](backup-azure-vms-automation.md). |
 |L'installazione dell'estensione dello snapshot non è riuscita con un errore che indica che il servizio COM+ non può comunicare con Microsoft Distributed Transaction Coordinator | Provare ad avviare il servizio di Windows "Applicazione di sistema COM+" (da un prompt dei comandi con privilegi elevati - _net start COMSysApp_). <br>In caso di errore durante l'avvio, seguire questa procedura:<ol><li> Verificare che l'account di accesso del servizio "Distributed Transaction Coordinator" sia "Servizio di rete". In caso contrario, modificarlo in "Servizio di rete", riavviare il servizio e quindi provare ad avviare il servizio "Applicazione di sistema COM+".<li>Se il problema persiste, disinstallare/installare il servizio "Distributed Transaction Coordinator" seguendo questa procedura:<br> - Arrestare il servizio MSDTC<br> - Aprire un prompt dei comandi (cmd) <br> - Eseguire il comando "msdtc -uninstall" <br> - Eseguire il comando "msdtc -install" <br> - Avviare il servizio MSDTC<li>Avviare il servizio di Windows "Applicazione di sistema COM+" e quindi attivare il backup dal portale.</ol> |
 | Impossibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con il file system | <ol><li>Controllare lo stato del file system di tutti i dispositivi montati tramite il comando _'tune2fs'_.<br> Ad esempio: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>Smontare i dispositivi il cui stato del file system non è pulito tramite il comando _'umount'_. <li> Eseguire il controllo FileSystemConsistency su tali dispositivi tramite il comando _'fsck'_. <li> Montare di nuovo i dispositivi e provare a eseguire il backup.</ol> |
-| L'operazione di snapshot non è riuscita a causa di un errore durante la creazione del canale di comunicazione di rete protetta | <ol><Li> Aprire l'editor del Registro di sistema eseguendo regedit.exe con privilegi elevati. <li> Identificare tutte le versioni di .NetFramework presenti nel sistema, disponibili nella gerarchia della chiave del Registro di sistema "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> Per ogni versione di .NetFramework presente nella chiave del Registro di sistema, aggiungere la seguente chiave: <br> "SchUseStrongCrypto"=dword:00000001 </ol>| 
+| L'operazione di snapshot non è riuscita a causa di un errore durante la creazione del canale di comunicazione di rete protetta | <ol><Li> Aprire l'editor del Registro di sistema eseguendo regedit.exe con privilegi elevati. <li> Identificare tutte le versioni di .NetFramework presenti nel sistema, disponibili nella gerarchia della chiave del Registro di sistema "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> Per ogni versione di .NetFramework presente nella chiave del Registro di sistema, aggiungere la seguente chiave: <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
 | L'operazione di snapshot non è riuscita a causa di un errore durante l'installazione di Visual C++ Redistributable per Visual Studio 2012 | Andare a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e installare vcredist2012_x64. Assicurarsi che il valore della chiave del Registro di sistema per consentire l'installazione del servizio sia impostato correttamente: il valore della chiave del Registro di sistema _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ deve essere impostato su 3, non su 4. Se i problemi di installazione persistono, riavviare il servizio di installazione eseguendo _MSIEXEC /UNREGISTER_ e quindi _MSIEXEC /REGISTER_ da un prompt dei comandi con privilegi elevati.  |
 
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 04/26/2017
 | Il servizio Backup non ha l'autorizzazione per accedere alle risorse nella sottoscrizione. |Per risolvere questo problema, ripristinare prima di tutto i dischi seguendo la procedura illustrata nella sezione **Ripristino dei dischi sottoposti a backup** in [Scelta di una configurazione di ripristino per la macchina virtuale](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Seguire quindi la procedura di PowerShell illustrata in [Creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) per creare una macchina virtuale completa dai dischi ripristinati. |
 
 ## <a name="backup-or-restore-taking-time"></a>Il backup o il ripristino richiede del tempo
-Se l'operazione di backup (>12 ore) o ripristino (>6 ore) richiede tempi lunghi, assicurarsi di seguire le [Procedure consigliate per il backup](backup-azure-vms-introduction.md#best-practices). Verificare inoltre che le applicazioni usino [Archiviazione di Azure in modo ottimale](backup-azure-vms-introduction.md#total-vm-backup-time) per il backup. 
+Se l'operazione di backup (>12 ore) o ripristino (>6 ore) richiede tempi lunghi, assicurarsi di seguire le [Procedure consigliate per il backup](backup-azure-vms-introduction.md#best-practices). Verificare inoltre che le applicazioni usino [Archiviazione di Azure in modo ottimale](backup-azure-vms-introduction.md#total-vm-backup-time) per il backup.
 
 ## <a name="vm-agent"></a>Agente di macchine virtuali
 ### <a name="setting-up-the-vm-agent"></a>Configurazione dell'agente di VM
