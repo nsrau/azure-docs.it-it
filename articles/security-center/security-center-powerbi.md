@@ -4,7 +4,7 @@ description: "Il pacchetto di contenuto di Power BI nel Centro sicurezza di Azur
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
@@ -32,7 +32,7 @@ Il [dashboard di Power BI](http://aka.ms/azure-security-center-power-bi) nel Cen
 
 1. Nel dashboard del **Centro sicurezza di Azure** fare clic sul pulsante **Power BI**.
 
-    ![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-newUI-2017.png)
+    ![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
 2. Sul lato destro verrà visualizzato il pannello **Power BI**, come illustrato nella schermata seguente:
 
     ![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
