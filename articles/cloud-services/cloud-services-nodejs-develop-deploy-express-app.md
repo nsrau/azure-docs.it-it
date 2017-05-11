@@ -14,9 +14,10 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 331d82a987aebe422ca2f560d856dad9f1b733f3
+ms.contentlocale: it-it
 ms.lasthandoff: 01/05/2017
 
 
@@ -44,7 +45,7 @@ Eseguire la procedura seguente per creare un nuovo progetto di servizio cloud de
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
     > [!NOTE]
-    > Per impostazione predefinita, in **Add-AzureNodeWebRole** viene usata una versione precedente di Node.js. La precedente istruzione **Set-AzureServiceProjectRole** indica ad Azure di usare la versione&0;.10.21 di Node.  Si noti che i parametri fanno distinzione tra maiuscole e minuscole.  È possibile verificare di aver selezionato la versione corretta di Node.js controllando la proprietà **engines** in **WebRole1\package.json**.
+    > Per impostazione predefinita, in **Add-AzureNodeWebRole** viene usata una versione precedente di Node.js. La precedente istruzione **Set-AzureServiceProjectRole** indica ad Azure di usare la versione 0.10.21 di Node.  Si noti che i parametri fanno distinzione tra maiuscole e minuscole.  È possibile verificare di aver selezionato la versione corretta di Node.js controllando la proprietà **engines** in **WebRole1\package.json**.
     > 
     > 
 
