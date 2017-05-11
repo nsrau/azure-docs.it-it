@@ -210,8 +210,12 @@ Gli elementi seguenti sono preceduti dall'indicazione [A] - applicabile a tutti 
     sudo blkid  </code></pre>
         * Creare voci fstab per i tre volumi logici  <pre><code>
     sudo vi /etc/fstab  </code></pre>
-    Inserire questa riga in /etc/fstab  <pre><code>
-    /dev/disk/by-uuid/<b>&lt;UUID di /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2 /dev/disk/by-uuid/<b>&lt;UUID di /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2 /dev/disk/by-uuid/<b>&lt;UUID di /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2  </code></pre>
+    Inserire questa riga in /etc/fstab  
+    <pre><code>
+    /dev/disk/by-uuid/<b>&lt;UUID di /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2 
+    /dev/disk/by-uuid/<b>&lt;UUID di /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2 
+    /dev/disk/by-uuid/<b>&lt;UUID di /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2  
+    </code></pre>
         * Montare i nuovi volumi  <pre><code>
     sudo mount -a  </code></pre>
     1. Dischi normali  
