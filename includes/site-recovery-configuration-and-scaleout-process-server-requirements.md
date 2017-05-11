@@ -8,7 +8,7 @@
 | **Software** | |
 | Versione del sistema operativo | Windows Server 2012 R2 |
 | Impostazioni locali del sistema operativo | Inglese (en-us)|
-| Versione di VMware vSphere PowerCLI | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
+| Versione di VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Ruoli di Windows Server | Non abilitare i ruoli seguenti: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 | **Rete** | |
 | Tipo di scheda di interfaccia di rete | VMXNET3 |
