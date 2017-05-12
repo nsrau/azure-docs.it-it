@@ -14,9 +14,10 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: bf8cd0d645d8a5992864c8a3820ac2049a3ff630
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 
@@ -92,7 +93,7 @@ Per autenticare richieste API, è necessario aggiungere un'intestazione di autor
 #### <a name="steps-to-get-a-valid-token"></a>Procedura per ottenere un token valido
 1. Chiamare l'API con i parametri seguenti e assicurarsi di sostituire TENANT\_ID, CLIENT\_ID e CLIENT\_SECRET:
    
-   * **URL richiesta** come *https://login.microsoftonline.com/ {TENANT\_ID} / oauth2/token*
+   * **URL richiesta** come *https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
    * **Intestazione Content-Type HTTP** come *application/x-www-form-urlencoded*
    * **Corpo richiesta HTTP** come *grant\_type=client\_credentials&client_id={CLIENT\_ID}&client_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
      
