@@ -3,8 +3,8 @@ title: Monitoraggio, diagnosi e risoluzione dei problemi di archiviazione | Micr
 description: "Informazioni su come usare funzionalità quali l&quot;analisi dell&quot;archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati al servizio di archiviazione di Azure."
 services: storage
 documentationcenter: 
-author: jasonnewyork
-manager: tadb
+author: fhryo-msft
+manager: jahogg
 editor: tysonn
 ms.assetid: da57e844-705d-449d-8ed5-5607d2a6170b
 ms.service: storage
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: jahogg
-translationtype: Human Translation
+ms.author: fhryo-msft
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 84ecd480b57a8ef12440f5e5cd98a78c4bf09059
+ms.contentlocale: it-it
 ms.lasthandoff: 04/06/2017
 
 
