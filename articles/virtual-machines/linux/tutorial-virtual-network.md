@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: c1494009c126c4715caf7972a0f59cffdaba3a7f
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 1ac628b606a198bb437c02d00467d48462c34334
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -32,13 +33,13 @@ Le procedure descritte in questa esercitazione possono essere completate usando 
 
 Una rete virtuale (VNet) di Azure è una rappresentazione della rete personalizzata nel cloud. È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. All'interno di una rete virtuale si trovano subnet, regole per la connettività a tali subnet e connessioni dalle VM alle subnet. L'interfaccia della riga di comando di Azure semplifica la creazione di tutte le risorse correlate alla rete necessarie per accedere alle macchine virtuali. 
 
-Per poter creare qualsiasi altra risorsa di Azure, è prima di tutto necessario creare un gruppo di risorse con az group create. Nell'esempio seguente viene creato un gruppo di risorse denominato `myRGNetwork` nella località `westus`:
+Per poter creare qualsiasi altra risorsa di Azure, è prima di tutto necessario creare un gruppo di risorse con az group create. Nell'esempio seguente viene creato un gruppo di risorse denominato *myRGNetwork* nella posizione *westus*:
 
 ```azurecli
 az group create --name myRGNetwork --location westus
 ```
 
-Quando si crea una macchina virtuale usando l'interfaccia della riga di comando di Azure, le risorse di rete necessarie vengono create automaticamente nello stesso momento. Creare `myFrontendVM` e le rispettive risorse di rete di supporto con [az vm create](https://docs.microsoft.com/cli/azure/vm#create):
+Quando si crea una macchina virtuale usando l'interfaccia della riga di comando di Azure, le risorse di rete necessarie vengono create automaticamente nello stesso momento. Creare *myFrontendVM* e le risorse di rete di supporto relative con [az vm create](https://docs.microsoft.com/cli/azure/vm#create):
 
 ```azurecli
 az vm create \
@@ -65,14 +66,14 @@ Dopo la creazione della VM, annotare l'indirizzo IP pubblico. Questo indirizzo v
 
 Sono state create queste risorse di rete:
 
-- **myFrontendVMNSG**: gruppo di sicurezza di rete che protegge il traffico in ingresso in `myFrontendVM`.
-- **myVMPublicIP**: indirizzo IP pubblico che abilita l'accesso a Internet per `myFrontendVM`.
-- **myVMVMNic**: interfaccia di rete virtuale che fornisce la connettività di rete per `myFrontendVM`.
-- **myVMVNET**: rete virtuale a cui è connesso `myFrontendVM`.
+- **myFrontendVMNSG**: gruppo di sicurezza di rete che protegge il traffico in ingresso in *myFrontendVM*.
+- **myVMPublicIP**: indirizzo IP pubblico che abilita l'accesso a Internet per *myFrontendVM*.
+- **myVMVMNic**: interfaccia di rete virtuale che mette a disposizione la connettività di rete per *myFrontendVM*.
+- **myVMVNET**: rete virtuale a cui è connessa *myFrontendVM*.
 
 ## <a name="install-web-server"></a>Installare il server Web
 
-Creare una connessione SSH con `myFrontendVM`. Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico della macchina virtuale:
+Creare una connessione SSH con *myFrontendVM*. Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico della macchina virtuale:
 
 ```bash
 ssh 40.68.254.142
@@ -92,12 +93,12 @@ exit
 
 ## <a name="manage-internet-traffic"></a>Gestire il traffico Internet
 
-Un gruppo di sicurezza di rete (NSG) contiene un elenco di regole di sicurezza che consentono o rifiutano il traffico di rete verso le risorse connesse a una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole interfacce di rete collegate a VM. Per aprire o chiudere l'accesso alle VM tramite le porte vengono usate le regole dei gruppi di sicurezza di rete. Alla creazione di `myFrontendVM`, la porta in ingresso 22 è stata aperta automaticamente per la connettività SSH.
+Un gruppo di sicurezza di rete (NSG) contiene un elenco di regole di sicurezza che consentono o rifiutano il traffico di rete verso le risorse connesse a una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole interfacce di rete collegate a VM. Per aprire o chiudere l'accesso alle VM tramite le porte vengono usate le regole dei gruppi di sicurezza di rete. Alla creazione di *myFrontendVM*, la porta in ingresso 22 è stata aperta automaticamente per la connettività SSH.
 
-Aprire la porta 80 su `myFrontendVM` con [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port):
+Aprire la porta 80 su *myFrontendVM* con [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 80 --resource-group myRGNetwork --name myFrontendVM
+az vm open-port --resource-group myRGNetwork --name myFrontendVM --port 80
 ```
 
 È ora possibile passare all'indirizzo IP pubblico della VM e visualizzare il sito NGINX.
@@ -106,9 +107,9 @@ az vm open-port --port 80 --resource-group myRGNetwork --name myFrontendVM
 
 ## <a name="manage-internal-traffic"></a>Gestire il traffico interno
 
-La comunicazione interna delle VM può essere configurata anche usando un gruppo di sicurezza di rete. Questa sezione illustra come creare una subnet aggiuntiva nella rete e assegnare un gruppo di sicurezza di rete a tale subnet per consentire una connessione da `myFrontendVM` a `myBackendVM` sulla porta 3306. La subnet viene quindi assegnata alla VM al momento della creazione.
+La comunicazione interna delle VM può essere configurata anche usando un gruppo di sicurezza di rete. Questa sezione illustra come creare una subnet aggiuntiva nella rete e assegnare un gruppo di sicurezza di rete a tale subnet per consentire una connessione da *myFrontendVM* a *myBackendVM* sulla porta 3306. La subnet viene quindi assegnata alla VM al momento della creazione.
 
-Aggiungere un nuovo gruppo di sicurezza di rete denominato `myBackendNSG` con [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). 
+Aggiungere un gruppo di sicurezza di rete denominato *myBackendNSG* con [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). 
 
 ```azurecli
 az network nsg create \
@@ -116,7 +117,7 @@ az network nsg create \
  --name myBackendNSG
 ```
 
-Configurare una porta per consentire a `myFrontendVM` e `myBackendVM` di comunicare tra loro nella rete virtuale. Aggiungere una regola del gruppo di sicurezza di rete per consentire il traffico verso `myBackendSubnet` solo da `myVMSubnet` con `az network rule create`:
+Configurare una porta per consentire a *myFrontendVM* e a *myBackendVM* di comunicare tra loro nella rete virtuale. Aggiungere una regola NSG che consenta il traffico in *myBackendSubnet* solo da *myVMSubnet* con [az network rule create](/cli/azure/network/rule#create):
 
 ```azurecli
 az network nsg rule create \
@@ -137,7 +138,7 @@ az network nsg rule create \
 
 Una subnet è una risorsa figlio di una rete virtuale e consente di definire i segmenti degli spazi di indirizzi all'interno di un blocco CIDR, usando i prefissi degli indirizzi IP. Le NIC possono essere aggiunte alle subnet e connesse alle macchine virtuali, fornendo connettività per diversi carichi di lavoro.
 
-Aggiungere `myBackEndSubnet` a `myFrontendVMVNet` con [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#create):
+Aggiungere *myBackEndSubnet* a *myFrontendVMVNet* con [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#create):
 
 ```azurecli
 az network vnet subnet create \
@@ -150,7 +151,7 @@ az network vnet subnet create \
 
 ## <a name="create-back-end-vm"></a>Creare la VM back-end
 
-Creare `myBackendVM` tramite `myBackendSubnet` con `az vm create`:
+Creare *myBackendVM* usando *myBackendSubnet* con [az vm create](/cli/azure/vm#create):
 
 ```azurecli
 az vm create \
@@ -166,23 +167,23 @@ az vm create \
 
 ## <a name="install-database"></a>Installare il database
 
-Per questa esercitazione è necessario copiare la chiave privata dalla VM di sviluppo in `myFrontendVM`. In un ambiente di produzione è consigliabile creare chiavi specifiche per l'uso nelle VM, invece di usare chiavi SSH di tipo --generate quando si creano le macchine virtuali. 
+Per questa esercitazione è necessario copiare la chiave privata dalla VM di sviluppo in *myFrontendVM*. In un ambiente di produzione è consigliabile creare chiavi specifiche da usare nelle VM, invece di usare --generate-ssh-keys quando si creano le VM. 
 
-La VM back-end non è destinata ad essere accessibile pubblicamente. In questa sezione viene illustrato come usare SSH per accedere a `myFrontendVM` e quindi usare SSH per accedere a `myBackendVM` da `myFrontendVM`.
+La VM back-end non è destinata ad essere accessibile pubblicamente. In questa sezione viene illustrato come usare SSH per accedere a *myFrontendVM* e quindi usare SSH per accedere a *myBackendVM* da *myFrontendVM*.
 
-Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico di `myFrontendVM`:
+Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico di *myFrontendVM*:
 
 ```bash
 scp ~/.ssh/id_rsa 40.68.254.142:~/.ssh/id_rsa
 ```
 
-Creare una connessione SSH con `myFrontendVM`. Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico di `myFrontendVM`:
+Creare una connessione SSH con *myFrontendVM*. Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico di *myFrontendVM*:
 
 ```bash
 ssh 40.68.254.142
 ```
 
-Da `myFrontendVM` connettersi a `myBackendVM`:
+Da *myFrontendVM*, connettersi a *myBackendVM*:
 
 ```bash
 ssh myBackendVM
@@ -202,4 +203,10 @@ Chiudere le sessioni SSH:
 exit
 ```
 
-MySQL viene installato per illustrare la modalità di installazione di un'applicazione in `myBackendVM`, ma non viene effettivamente usato in questa esercitazione.
+MySQL viene installato per illustrare la modalità di installazione di un'applicazione in *myBackendVM*, ma non viene usato in questa esercitazione.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa esercitazione è stato illustrato come creare e proteggere le reti di Azure in relazione alle macchine virtuali. Passare all'esercitazione successiva per informazioni sul monitoraggio della sicurezza delle VM con Centro sicurezza di Azure.
+
+[Gestire la sicurezza delle macchine virtuali](./tutorial-azure-security.md)
