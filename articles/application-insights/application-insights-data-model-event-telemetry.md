@@ -4,30 +4,31 @@ description: Modello di dati di Application Insights per la telemetria degli eve
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 5b8b803f26dca82b5112568f486e5c347602a409
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1cad3594be32e59ea6bd3d3ba2289d391bd92c0b
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Telemetria degli eventi: modello di dati di Application Insights
 
-Un evento rappresenta un'azione in un punto nel tempo che si è verificata nell'applicazione. Si tratta in genere di un'interazione dell'utente, ad esempio il clic su un pulsante o l'estrazione di un ordine. Può inoltre essere un evento del ciclo di vita dell'applicazione come l'inizializzazione o l'aggiornamento della configurazione. Il nome dell'evento è in genere una breve stringa di cardinalità bassa. 
+È possibile creare elementi di telemetria degli eventi (in [Application Insights](app-insights-overview.md)) per rappresentare un evento che si è verificato nell'applicazione. Si tratta in genere di un'interazione dell'utente, ad esempio il clic su un pulsante o il completamento della transazione di un ordine. Può inoltre essere un evento del ciclo di vita dell'applicazione come l'inizializzazione o l'aggiornamento della configurazione. 
 
-A livello semantico gli eventi possono ora essere correlati o meno a richieste. Se usata correttamente, la telemetria degli eventi è tuttavia più importante delle richieste o delle tracce. Gli eventi rappresentano dati di telemetria business e devono essere oggetto di campionamento separato, meno rigido.
+A livello semantico gli eventi possono essere correlati o meno a richieste. Se usata correttamente, la telemetria degli eventi è tuttavia più importante delle richieste o delle tracce. Gli eventi rappresentano dati di telemetria business e devono essere oggetto di [campionamento](app-insights-api-filtering-sampling.md) separato, meno rigido.
 
 ## <a name="name"></a>Nome
 
-Nome evento. Usare la cardinalità bassa per consentire un raggruppamento adeguato e metriche utili.
+Nome evento. Per consentire un raggruppamento adeguato e metriche utili, limitare l'applicazione in modo che generi un numero ridotto di nomi di eventi distinti. Ad esempio, non usare un nome distinto per ogni istanza generata di un evento.
 
 Lunghezza massima: 512 caratteri
 
@@ -41,7 +42,7 @@ Lunghezza massima: 512 caratteri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](/application-insights-data-model.md).
-- Informazioni su come usare l'[API di Application Insights per metriche ed eventi personalizzati](/app-insights-asp-net-dependencies.md).
-- Verificare quali [piattaforme](/app-insights-platforms.md) supportano Application Insights.
+- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
+- [Scrivere dati di telemetria di eventi personalizzati](app-insights-api-custom-events-metrics.md#trackevent)
+- Verificare quali [piattaforme](app-insights-platforms.md) supportano Application Insights.
 

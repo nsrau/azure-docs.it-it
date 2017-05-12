@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/30/2016
+ms.date: 05/01/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 84a04f71ffde07e9caa439c03b55920d0bb0ef16
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: af45d745bccb02ce9fd45320e83284a8b33d99bd
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -51,6 +52,14 @@ ms.lasthandoff: 04/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
+* Aggiunta un'opzione che consente di disabilitare la verifica SSL durante l'esecuzione nell'emulatore DocumentDB.
+* Rimossa la restrizione per cui il modulo delle richieste dipendenti deve essere esattamente 2.10.0.
+* Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
+* Aggiunta del supporto per l'abilitazione della registrazione degli script durante l'esecuzione di stored procedure.
+* Versione API REST incrementata a "2017-01-19" con questo rilascio.
+
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
 * Modifiche editoriali ai commenti alla documentazione.
 
@@ -114,6 +123,7 @@ Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata da
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |01 maggio 2017 |--- |
 | [2.0.1](#2.0.1) |30 ottobre 2016 |--- |
 | [2.0.0](#2.0.0) |29 settembre 2016 |--- |
 | [1.9.0](#1.9.0) |07 luglio 2016 |--- |

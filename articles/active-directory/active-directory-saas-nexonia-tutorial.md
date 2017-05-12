@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/1/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: a6241afa7398684d9315ab401ecdb5b2abd824c5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 1370fa64c2ddc25d3121c567ceea4828b1e50921
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -98,7 +99,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Nexonia, è n
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Nexonia.
 
 >[!Note]
->In caso di problemi di integrazione, fare riferimento a questo [collegamento](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting) per una guida alla risoluzione dei problemi. Se non è possibile individuare una soluzione, creare una richiesta di supporto nel portale di Azure.
+>In caso di problemi di integrazione, fare riferimento a questo [collegamento](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting) per una guida alla risoluzione dei problemi. Se non è stata trovata una soluzione, creare una richiesta di supporto dal portale di Azure.
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Nexonia, seguire questa procedura:**
 
@@ -117,7 +118,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere tale valore, contattare il team di supporto di [Nexonia](http://www.nexonia.com/contact-us/). 
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere tale valore, contattare il team di supporto di [Nexonia](https://nexonia.zendesk.com/hc/requests/new). 
 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
@@ -132,7 +133,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
 
-7. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il [team di supporto di Nexonia](http://www.nexonia.com/contact-us/) e fornire i seguenti elementi:
+7. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il [team di supporto di Nexonia](https://nexonia.zendesk.com/hc/requests/new) e fornire i seguenti elementi:
 
     • **Certificato**
 
@@ -180,7 +181,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-nexonia-test-user"></a>Creazione di un utente test di Nexonia
 
-In questa sezione viene creato un utente di nome Britta Simon in Nexonia. Collaborare con il [team di supporto di Nexonia](http://www.nexonia.com/contact-us/) per aggiungere gli utenti alla piattaforma Nexonia. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Nexonia. Collaborare con il [team di supporto di Nexonia](https://nexonia.zendesk.com/hc/requests/new) per aggiungere gli utenti alla piattaforma Nexonia. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD

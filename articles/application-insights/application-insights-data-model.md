@@ -4,32 +4,45 @@ description: Panoramica sul modello di dati di Application Insights
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 52f700bd18da87a9a38e0a791d0ec3496f201e0a
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7dd240c4e1a6fcc9c89bf4418e635e7ef8ef0617
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modello di dati di Application Insights Telemetry
 
-Application Insights definisce il modello di dati di telemetria per Application Performance Management (APM). Questo modello standardizza la raccolta di dati e consente la creazione di scenari di monitoraggio indipendenti dal linguaggio e dalla piattaforma. I dati raccolti da Application Insights creano il tipico modelli di esecuzione dell'applicazione:
+[Azure Application Insights](app-insights-overview.md) invia dati di telemetria dall'applicazione Web al portale di Azure, in modo da poter analizzare le prestazioni e l'uso dell'applicazione. Il modello di dati di telemetria è standardizzato e di conseguenza è possibile creare scenari di monitoraggio indipendenti dalla piattaforma e dal linguaggio. 
+
+I dati raccolti da Application Insights creano questo tipico modello di esecuzione dell'applicazione:
 
 ![Modello di applicazione di Application Insights](./media/application-insights-data-model/application-insights-data-model.png)
 
-Esistono due tipi di applicazioni, le applicazioni con un endpoint che ricevono ***richieste*** esterne, ad esempio applicazioni Web, e le applicazioni che periodicamente "si riattivano" per elaborare dati archiviati in una posizione, ad esempio Processi Web e Funzioni. In entrambi i casi, si chiama ***operazione*** un'esecuzione univoca. L'operazione ha esito positivo o negativo tramite ***eccezione*** o può dipendere da altri servizi o risorse di archiviazione per eseguire la logica di business. Per riflettere questi concetti, il modello di dati di Application Insights definisce tre tipi di telemetria: [delle richieste](./application-insights-data-model-request-telemetry.md), [delle eccezioni](/application-insights-data-model-exception-telemetry.md) e [delle dipendenze](/application-insights-data-model-dependency-telemetry.md).
+Per monitorare l'esecuzione dell'applicazione si usano i tipi di dati di telemetria che seguono. I tre tipi seguenti vengono raccolti automaticamente da Application Insights SDK dal framework dell'applicazione Web:
 
-Questi tipi sono in genere definiti dal framework dell'applicazione e vengono raccolti automaticamente dall'SDK. `ASP.NET MVC` definisce la nozione di esecuzione di una richiesta nell'impianto modello-visualizzazione-controller. Contrassegna l'inizio e la fine di una richiesta. Le chiamate di dipendenza a SQL sono definite da `System.Data`. Le chiamate agli endpoint HTTP sono definite da `System.Net`. È possibile estendere i tipi di telemetria raccolti da una piattaforma e un framework specifici usando misure e proprietà personalizzate. Vi sono tuttavia casi in cui si vuole segnalare dati di telemetria personalizzati. Si può implementare il log di diagnostica usando un framework di strumentazione con cui si ha familiarità, ad esempio `Log4Net` o `System.Diagnostics`. Potrebbe in alternativa essere necessario acquisire l'interazione dell'utente con il servizio per analizzare i modelli di utilizzo. Application Insights riconosce tre tipi di dati aggiuntivi: [traccia](/application-insights-data-model-trace-telemetry.md), [evento](/application-insights-data-model-event-telemetry.md), e [metrica](/application-insights-data-model-metric-telemetry.md) per questi scenari del modello.
+* [**Richiesta**](application-insights-data-model-request-telemetry.md): tipo generato per registrare una richiesta ricevuta dall'applicazione. Ad esempio, la versione Web di Application Insights SDK genera automaticamente un elemento di telemetria di tipo richiesta per ogni richiesta HTTP ricevuta dall'app Web. 
 
-Il modello di dati di Application Insights Telemetry definisce la modalità di [correlazione](/correlation.md) dei dati di telemetria all'operazione di cui fanno parte. Una richiesta può ad esempio di effettuare chiamate a un database SQL e registrare informazioni di diagnostica. È possibile impostare il contesto di correlazione per gli elementi di telemetria che lo lega alla telemetria delle richieste.
+    Un'**operazione** è il thread di esecuzione che elabora una richiesta. È anche possibile [scrivere codice](app-insights-api-custom-events-metrics.md#trackrequest) per monitorare altri tipi di operazioni, ad esempio la "riattivazione" di un processo Web o di una funzione che periodicamente elabora i dati.  Ogni operazione presenta un ID che può essere usato per raggruppare altri dati di telemetria generati durante l'elaborazione della richiesta da parte dell'applicazione. Ogni operazione ha un esito positivo o negativo e una certa durata.
+* [**Eccezione**](application-insights-data-model-exception-telemetry.md): rappresenta in genere un'eccezione che causa l'esito negativo dell'operazione.
+* [**Dipendenza**](application-insights-data-model-dependency-telemetry.md): rappresenta una chiamata dall'applicazione a un servizio esterno o a una risorsa di archiviazione, ad esempio a un'API REST o a SQL. In ASP.NET le chiamate di dipendenza a SQL sono definite da `System.Data`. Le chiamate agli endpoint HTTP sono definite da `System.Net`. 
+
+Application Insights offre altri tre tipi di dati per la telemetria personalizzata:
+
+* [Traccia](application-insights-data-model-trace-telemetry.md): tipo usato direttamente o tramite un adapter per implementare la registrazione diagnostica con un framework di strumentazione con cui si ha familiarità, ad esempio `Log4Net` o `System.Diagnostics`.
+* [Evento](application-insights-data-model-event-telemetry.md): tipo usato in genere per acquisire l'interazione dell'utente con il servizio per analizzare i modelli di utilizzo.
+* [Metrica](application-insights-data-model-metric-telemetry.md): tipo usato per indicare le misurazioni scalari periodiche.
+
+Il modello di dati di Application Insights Telemetry definisce una modalità di [correlazione](application-insights-correlation.md) dei dati di telemetria all'operazione di cui fanno parte. Una richiesta può ad esempio di effettuare chiamate a un database SQL e registrare informazioni di diagnostica. È possibile impostare il contesto di correlazione per gli elementi di telemetria che lo legheranno di nuovo alla telemetria delle richieste.
 
 ## <a name="schema-improvements"></a>Miglioramenti allo schema
 
@@ -39,7 +52,8 @@ Per segnalare problemi e suggerimenti relativi al modello di dati e allo schema,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Verificare quali [piattaforme](/app-insights-platforms.md) supportano Application Insights.
-- Informazioni su come [estendere e filtrare i dati di telemetria](/app-insights-api-filtering-sampling.md).
-- Usare il [campionamento](/app-insights-sampling.md) per ridurre al minimo la quantità di dati di telemetria in base al modello di dati.
+- [Scrivere dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md)
+- Informazioni su come [estendere e filtrare i dati di telemetria](app-insights-api-filtering-sampling.md).
+- Usare il [campionamento](app-insights-sampling.md) per ridurre al minimo la quantità di dati di telemetria in base al modello di dati.
+- Verificare quali [piattaforme](app-insights-platforms.md) supportano Application Insights.
 

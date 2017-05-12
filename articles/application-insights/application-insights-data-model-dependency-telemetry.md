@@ -4,7 +4,7 @@ description: Modello di dati di Application Insights per la telemetria delle dip
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: b86b1e1ff7c0370918b2509f98ad65265eb4186e
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e71730ffe7e42ce5658189baca92ced3a54d269d
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria delle dipendenze: modello di dati di Application Insights
 
-La telemetria delle dipendenze rappresenta un'interazione del componente monitorato con un componente remoto come SQL o un endpoint HTTP.
+In [Application Insights](app-insights-overview.md), la telemetria delle dipendenze rappresenta un'interazione del componente monitorato con un componente remoto, ad esempio SQL o un endpoint HTTP.
 
 ## <a name="name"></a>Nome
 
@@ -29,7 +30,7 @@ Nome del comando avviato con questa chiamata delle dipendenze. Valore di cardina
 
 ## <a name="id"></a>ID
 
-Identificatore dell'istanza di una chiamata delle dipendenze. Usato per la correlazione con l'elemento di telemetria delle richieste corrispondente a questa chiamata delle dipendenze. Per altre informazioni vedere la pagina relativa alla [correlazione](/correlation.md).
+Identificatore dell'istanza di una chiamata delle dipendenze. Usato per la correlazione con l'elemento di telemetria delle richieste corrispondente a questa chiamata delle dipendenze. Per altre informazioni vedere la pagina relativa alla [correlazione](application-insights-correlation.md).
 
 ## <a name="data"></a>Dati
 
@@ -41,7 +42,7 @@ Nome del tipo di dipendenza. Valore di cardinalità basso per un raggruppamento 
 
 ## <a name="target"></a>Destinazione
 
-Sito di destinazione di una chiamata delle dipendenze. Esempi sono nome del server, indirizzo host. Per altre informazioni vedere la pagina relativa alla [correlazione](/correlation.md).
+Sito di destinazione di una chiamata delle dipendenze. Esempi sono nome del server, indirizzo host. Per altre informazioni vedere la pagina relativa alla [correlazione](application-insights-correlation.md).
 
 ## <a name="duration"></a>Durata
 
@@ -66,8 +67,9 @@ Indicazione di chiamata con esito positivo o con esito negativo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](/application-insights-data-model.md).
-- Impostare il rilevamento delle dipendenze per [.NET](/app-insights-asp-net-dependencies.md).
-- Impostare il rilevamento delle dipendenze per [Java](/app-insights-java-agent.md).
-- Verificare quali [piattaforme](/app-insights-platforms.md) supportano Application Insights.
+- Impostare il rilevamento delle dipendenze per [.NET](app-insights-asp-net-dependencies.md).
+- Impostare il rilevamento delle dipendenze per [Java](app-insights-java-agent.md).
+- [Scrivere dati di telemetria delle dipendenze personalizzate](app-insights-api-custom-events-metrics.md#trackdependency)
+- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
+- Verificare quali [piattaforme](app-insights-platforms.md) supportano Application Insights.
 

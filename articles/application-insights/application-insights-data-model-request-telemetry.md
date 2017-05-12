@@ -10,18 +10,19 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f22b6dbdcc02b1182163f140d9ff13d2876dc0d8
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5036ce23e602c7723f5fafef60ab45d533c1fe7d
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria delle richieste: modello di dati di Application Insights
 
-La telemetria delle richieste rappresenta l'esecuzione di codice avviata esternamente e che incapsula l'esecuzione di codice logico. Ogni esecuzione di richiesta è identificato da un `ID` univoco e un `url` contenente tutti i parametri di esecuzione. È possibile raggruppare le richieste in base al `name` logico e definire il `source` della richiesta. L'esecuzione del codice può comportare un `success` o un fallimento e ha una `duration` specificata. Entrambe le esecuzioni con esito positivo o con esito negativo possono essere ulteriormente raggruppate in base al `resultCode`. L'ora di inizio della telemetria delle richieste è definita a livello di busta.
+In [Application Insights](app-insights-overview.md), un elemento di telemetria delle richieste rappresenta la sequenza logica di esecuzione attivata da una richiesta esterna all'applicazione. Ogni esecuzione di richiesta è identificato da un `ID` univoco e un `url` contenente tutti i parametri di esecuzione. È possibile raggruppare le richieste in base al `name` logico e definire il `source` della richiesta. L'esecuzione del codice può restituire un campo `success` o `fail` e ha un campo `duration` specificato. Le esecuzioni con esito positivo e negativo possono essere ulteriormente raggruppate in base a `resultCode`. L'ora di inizio della telemetria delle richieste è definita a livello di busta.
 
 La telemetria delle richieste supporta il modello di estendibilità standard usando `properties` e `measurements` personalizzate.
 
@@ -35,7 +36,7 @@ Lunghezza massima: 1024 caratteri
 
 ## <a name="id"></a>ID
 
-Identificatore dell'istanza di una chiamata di richiesta. Usato per la correlazione tra richiesta e altri elementi di telemetria. L'ID deve essere globalmente univoco. Per altre informazioni vedere la pagina relativa alla [correlazione](/correlation).
+Identificatore dell'istanza di una chiamata di richiesta. Usato per la correlazione tra richiesta e altri elementi di telemetria. L'ID deve essere globalmente univoco. Per altre informazioni vedere la pagina relativa alla [correlazione](application-insights-correlation.md).
 
 Lunghezza massima: 128 caratteri
 
@@ -47,7 +48,7 @@ Lunghezza massima: 2048 caratteri
 
 ## <a name="source"></a>Sorgente
 
-Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](/correlation.md).
+Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](application-insights-correlation.md).
 
 Lunghezza massima: 1024 caratteri
 
@@ -81,7 +82,8 @@ Altre informazioni sui codici di stato e dei risultati della richiesta sono disp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](/application-insights-data-model.md).
-- Informazioni su come [configurare un'applicazione ASP.NET Core](/app-insights-asp-net-core.md) con Application Insights.
-- Verificare quali [piattaforme](/app-insights-platforms.md) supportano Application Insights.
+- [Scrivere dati di telemetria della richiesta personalizzata](app-insights-api-custom-events-metrics.md#trackrequest)
+- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
+- Informazioni su come [configurare un'applicazione ASP.NET Core](app-insights-asp-net.md) con Application Insights.
+- Verificare quali [piattaforme](app-insights-platforms.md) supportano Application Insights.
 
