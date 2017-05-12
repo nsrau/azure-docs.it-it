@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: e45d704e68c17d36fd5b195179730b80d0f53e0c
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 9724ad2e460837157c7677d2c91493cebc8f7012
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -59,14 +60,14 @@ Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure A
 ### <a name="publish-the-rd-host-endpoint"></a>Pubblicare l'endpoint host di Desktop remoto
 
 1. [Pubblicare un nuovo proxy applicazione](application-proxy-publish-azure-portal.md) con i valori seguenti:
-   - URL interno: https://<rdhost>.com/, dove <rdhost> è la radice comune condivisa da Web Desktop Remoto e Gateway Desktop remoto. 
+   - URL interno: https://\<rdhost\>.com, dove \<rdhost\> è la radice comune condivisa da Web Desktop remoto e Gateway Desktop remoto. 
    - URL esterno: questo campo viene popolato automaticamente in base al nome dell'applicazione, ma è possibile modificarlo. Gli utenti passeranno a questo URL quando accedono a Servizi Desktop remoto. 
    - Metodo di autenticazione preliminare: Azure Active Directory
    - Tradurre le intestazioni degli URL: No
 2. Assegnare utenti all'applicazione di Desktop remoto pubblicata. Assicurarsi che tutti gli utenti abbiano accesso anche a Servizi Desktop remoto.
 3. Lasciare il metodo Single Sign-On per l'applicazione come **Single Sign-On di Azure AD disabilitato**. Agli utenti viene richiesto di eseguire l'autenticazione una volta in Azure AD e una volta in Web Desktop remoto, ma dispongono dell'accesso Single Sign-On a Gateway Desktop remoto. 
 4. Andare a **Azure Active Directory** > **Registrazioni per l'app** > *Applicazione* > **Impostazioni**. 
-5. Selezionare **Proprietà** e aggiornare il campo **URL della pagina iniziale** in modo che punti all'endpoint di Web Desktop remoto, ad esempio https://<rdhost>.com/RDWeb.
+5. Selezionare **Proprietà** e aggiornare il campo **URL della pagina iniziale** in modo che punti all'endpoint di Web Desktop remoto, ad esempio https://\<rdhost\>.com/RDWeb.
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigere il traffico di Servizi Desktop remoto verso il proxy applicazione
 
@@ -82,7 +83,7 @@ Connettersi alla distribuzione di Servizi Desktop remoto come amministratore e m
 
   ![Schermata Proprietà di distribuzione in Servizi Desktop remoto](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Per ogni raccolta, eseguire il comando seguente. Sostituire *<yourcollectionname>* e *<proxyfrontendurl>* con le informazioni desiderate. Questo comando abilita l'accesso Single Sign-On tra Web Desktop remoto e Gateway Desktop remoto e ottimizza le prestazioni:
+8. Per ogni raccolta, eseguire il comando seguente. Sostituire *\<yourcollectionname\>* e *\<proxyfrontendurl\>* con le proprie informazioni. Questo comando abilita l'accesso Single Sign-On tra Web Desktop remoto e Gateway Desktop remoto e ottimizza le prestazioni:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <proxyfrontendurl> `n require pre-authentication:i:1"
@@ -103,3 +104,4 @@ Testare lo scenario con Internet Explorer su un computer Windows 7 o 10.
 
 [Abilitare l'accesso remoto a SharePoint con il proxy applicazione di Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD](application-proxy-security-considerations.md)
+

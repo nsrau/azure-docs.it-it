@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5c7c6c8568115093f3a7568b6d318f985705691c
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 6f91f732b7579c9f14458dab9be49c027debfac1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ Per informazioni su come ottenere il provider di identità di terze parti elenca
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
 * [Sign&go 5.3](#signgo-53) 
-* [SoftBank](#softbank)
-* [VMware Identity Manager](#vmware-identity-manager)
+* [Online Service Gate di SoftBank Technology](#softbank)
+* [VMware Workspace One](#vmware-workspace-one)
 * [VMware Workspace Portal versione 2.1](#vmware--workspace-portal-version-21) 
 
 
@@ -340,7 +341,7 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 Sign&go 5.3 supporta l'autenticazione Kerberos tramite la configurazione di un contratto Kerberos.  Per ottenere assistenza su questa configurazione, contattare Ilex o consultare la guida all'installazione disponibile [qui](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
-## <a name="softbank"></a>SoftBank
+## <a name="softbank-technology-online-service-gate"></a>Online Service Gate di SoftBank Technology
 
 Di seguito è riportata la matrice di supporto dello scenario per questa esperienza di accesso Single Sign-On:
 
@@ -348,11 +349,11 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 | --- | --- | --- |
 | Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online |Supportato |L'autenticazione integrata di Windows non è supportata |
 | Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM |Supportato |L'autenticazione integrata di Windows non è supportata |
-| Client di posta elettronica, ad esempio Outlook e ActiveSync |Supportato |None |
+| Client di posta elettronica, ad esempio Outlook e ActiveSync |Supportato |Nessuna |
 
-Per altre informazioni su BitGlass, vedere [qui](https://www.softbanktech.jp/service/list/osg-pro-ent/).
+Per altre informazioni su Online Service Gate di SoftBank Technology, vedere [qui.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
 
-## <a name="vmware-identity-manager"></a>VMware Identity Manager
+## <a name="vmware-workspace-one"></a>VMware Workspace One
 
 Di seguito è riportata la matrice di supporto dello scenario per questa esperienza di accesso Single Sign-On:
 

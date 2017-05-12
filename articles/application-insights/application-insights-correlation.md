@@ -4,45 +4,46 @@ description: Correlazione di dati di Application Insights Telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 279b673930a2011fef4d36e83a771b9ab654c663
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c48dc5cb5dd6dfa09ff9718e78f8d560886851be
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
-Nel mondo dei microservizi, ogni operazione logica richiede un lavoro sui vari componenti del servizio. Il componente interfaccia utente comunica con il componente provider di autenticazione per convalidare le credenziali dell'utente e con il componente API per ottenere dati per la visualizzazione. Il componente API può a sua volta eseguire query sui dati di altri servizi, usare componenti del provider di cache e notificare questa richiesta al componente fatturazione. Application Insights supporta la correlazione di dati di telemetria distribuita. Consente di individuare quale componente è responsabile della riduzione delle prestazioni o di un errore dell'interfaccia utente.
+Nel mondo dei microservizi, ogni operazione logica richiede un lavoro sui vari componenti del servizio. Ognuno di questi componenti può essere monitorato separatamente tramite [Application Insights](app-insights-overview.md). Il componente app Web comunica con il componente provider di autenticazione per convalidare le credenziali dell'utente e con il componente API per ottenere dati per la visualizzazione. Il componente API può a sua volta eseguire query sui dati di altri servizi, usare componenti del provider di cache e notificare questa richiesta al componente fatturazione. Application Insights supporta la correlazione di dati di telemetria distribuita. Consente di individuare quale componente è responsabile di errori o della riduzione delle prestazioni.
 
-L'articolo descrive il modello di dati usato da Application Insights. Illustra le tecniche di propagazione del contesto e i protocolli. Descrive inoltre l'implementazione dei concetti di correlazione in linguaggi e piattaforme diversi.
+Questo articolo illustra il modello di dati usato da Application Insights per correlare i dati di telemetria inviati da più componenti. Illustra le tecniche di propagazione del contesto e i protocolli. Descrive inoltre l'implementazione dei concetti di correlazione in linguaggi e piattaforme diversi.
 
 ## <a name="telemetry-correlation-data-model"></a>Modello di dati per la correlazione di dati di telemetria
 
-Application Insights definisce il [modello di dati](/application-insights-data-model.md) per distribuire la correlazione di dati di telemetria. Per associare i dati di telemetria all'operazione logica, ogni elemento di telemetria dispone di un campo di contesto denominato `operation_Id`. Questo identificatore viene condiviso da ogni elemento di telemetria nella traccia distribuita. Se quindi si verifica una perdita di dati di telemetria da un singolo livello, è comunque possibile associare i dati di telemetria segnalati da altri componenti.
+Application Insights definisce un [modello di dati](application-insights-data-model.md) per la correlazione di dati di telemetria distribuita. Per associare i dati di telemetria all'operazione logica, ogni elemento di telemetria dispone di un campo di contesto denominato `operation_Id`. Questo identificatore viene condiviso da ogni elemento di telemetria nella traccia distribuita. Se quindi si verifica una perdita di dati di telemetria da un singolo livello, è comunque possibile associare i dati di telemetria segnalati da altri componenti.
 
-Un'operazione logica distribuita consiste in genere in un set di operazioni più piccole, vale a dire richieste elaborate da uno dei componenti. Tali operazioni sono definite dalla [telemetria delle richieste](/application-insights-data-model-request-telemetry.md). Ogni telemetria delle richieste è dotata di un proprio `id` che la identifica in modo univoco a livello globale. Tutti i dati di telemetria, ad esempio tracce, eccezioni e così via, associati alla richiesta devono impostare `operation_parentId` sul valore di `id` della richiesta.
+Un'operazione logica distribuita consiste in genere in un set di operazioni più piccole, vale a dire richieste elaborate da uno dei componenti. Tali operazioni sono definite dalla [telemetria delle richieste](application-insights-data-model-request-telemetry.md). Ogni telemetria delle richieste è dotata di un proprio `id` che la identifica in modo univoco a livello globale. Tutti i dati di telemetria, ad esempio tracce, eccezioni e così via, associati alla richiesta devono impostare `operation_parentId` sul valore di `id` della richiesta.
 
-Ogni operazione in uscita come richiesta HTTP a un altro componente è rappresentata dalla [telemetria delle dipendenze](/application-insights-data-model-dependency-telemetry.md). Anche la telemetria delle dipendenze dispone di un proprio `id` globalmente univoco. La telemetria delle richieste, avviata dalla chiamata di dipendenza, lo usa come `operation_parentId`.
+Ogni operazione in uscita come richiesta HTTP a un altro componente è rappresentata dalla [telemetria delle dipendenze](application-insights-data-model-dependency-telemetry.md). Anche la telemetria delle dipendenze dispone di un proprio `id` globalmente univoco. La telemetria delle richieste, avviata dalla chiamata di dipendenza, lo usa come `operation_parentId`.
 
 È possibile creare la visualizzazione dell'operazione logica distribuita usando `operation_Id`, `operation_parentId` e `request.id` con `dependency.id`. Tali campi definiscono anche l'ordine della causalità delle chiamate di telemetria.
 
 in un ambiente di microservizi, le tracce dai componenti possono finire in risorse di archiviazione diverse. Ogni componente può avere la propria chiave di strumentazione in Application Insights. Per ottenere i dati di telemetria per l'operazione logica, è necessario eseguire query sui dati da ogni risorsa di archiviazione. Quando il numero di risorse di archiviazione è enorme, è necessario avere un suggerimento sulla successiva posizione in cui cercare.
 
-Per risolvere questo problema, nel modello di dati di Application Insights sono definiti due campi, `request.source` e `dependency.target`. Il primo campo definisce il componente che ha avviato la richiesta e il secondo definisce quale componente ha restituito la risposta alla chiamata di dipendenza.
+Per risolvere questo problema, nel modello di dati di Application Insights sono definiti due campi: `request.source` e `dependency.target`. Il primo campo definisce il componente che ha avviato la richiesta di dipendenza, mentre il secondo identifica quale componente ha restituito la risposta alla chiamata di dipendenza.
 
 
 ## <a name="example"></a>Esempio
 
-Un'applicazione STOCK PRICES mostra il prezzo di mercato di un'azione usando l'API esterna denominata STOCKS API. L'applicazione STOCK PRICES dispone di una pagina `Stock page` che effettua una chiamata ajax `GET /Home/Stock` al server che elabora la chiamata AJAX. Per restituire i risultati, l'applicazione esegue una query a STOCK API mediante una chiamata http `GET /api/stock/value`.
+Un'applicazione STOCK PRICES mostra il prezzo di mercato di un'azione usando l'API esterna denominata STOCKS API. L'applicazione STOCK PRICE dispone di una pagina `Stock page` aperta dal Web browser client tramite `GET /Home/Stock`. L'applicazione esegue una query a STOCK API mediante una chiamata HTTP `GET /api/stock/value`.
 
 È possibile analizzare i dati di telemetria risultanti eseguendo una query:
 
@@ -84,7 +85,7 @@ Ecco come si presentano i modelli di dati di [OpenTracing](http://opentracing.io
 - `operation_Id` esegue il mapping a **TraceId**
 - `operation_ParentId` esegue il mapping a **Reference** di tipo `ChileOf`
 
-Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](/application-insights-data-model.md).
+Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
 
 Per le definizioni di OpenTracing, vedere a [specifica](https://github.com/opentracing/specification/blob/master/specification.md) e le [convenzioni semantiche](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
 
@@ -107,7 +108,8 @@ La versione iniziale di Application Insights SDK `2.4.0-beta1` usa DiagnosticsSo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Caricare tutti i componenti del microservizio in Application Insights. Controllare le [piattaforme supportate](/app-insights-platforms.md).
-- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](/application-insights-data-model.md).
-- Informazioni su come [estendere e filtrare i dati di telemetria](/app-insights-api-filtering-sampling.md).
+- [Scrivere dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md)
+- Caricare tutti i componenti del microservizio in Application Insights. Controllare le [piattaforme supportate](app-insights-platforms.md).
+- Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
+- Informazioni su come [estendere e filtrare i dati di telemetria](app-insights-api-filtering-sampling.md).
 

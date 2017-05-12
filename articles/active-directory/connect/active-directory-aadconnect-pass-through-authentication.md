@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 0f54fb7d2d8cf010baf79409bc6a528d34982500
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: d3c3f6ba0da73a8297f437a56f190f90274957ab
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,6 +35,7 @@ L'autenticazione pass-through di Azure AD rappresenta una soluzione semplice per
 - È facile da usare
   - La convalida della password viene eseguita senza la necessità di distribuzioni locali o configurazione di rete complesse.
   - Usa solo un connettore leggero in locale che resta in ascolto e risponde alle richieste di convalida delle password.
+  - Il connettore locale è dotato di funzionalità di aggiornamento automatico e quindi può ricevere automaticamente i nuovi miglioramenti e le ultime correzioni di bug.
   - Può essere configurato insieme ad [Azure AD Connect](active-directory-aadconnect.md). Il connettore locale leggero viene installato nello stesso server di Azure AD Connect.
 - Proteggere
   - Le password locali non vengono mai archiviate nel cloud in alcuna forma.
@@ -63,7 +65,7 @@ Gli scenari seguenti NON sono supportati in fase di anteprima:
 - Aggiunta ad Azure AD per dispositivi Windows 10.
 
 >[!IMPORTANT]
->Come soluzione alternativa per gli scenari che l'autenticazione pass-through attualmente non supporta (applicazioni client legacy di Office, Exchange ActiveSync e aggiunta ad Azure AD per dispositivi Window 10), la sincronizzazione delle password è abilitata per impostazione predefinita quando si abilita l'autenticazione pass-through. La sincronizzazione delle password funziona come fallback solo in questi scenari specifici. Se non è necessaria, è possibile disattivare la sincronizzazione delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) di Azure AD Connect.
+>Come soluzione alternativa per gli scenari che la funzionalità di autenticazione pass-through attualmente non supporta (applicazioni client legacy di Office, Exchange ActiveSync e aggiunta ad Azure AD per dispositivi Windows 10), la sincronizzazione delle password è abilitata per impostazione predefinita quando si abilita l'autenticazione pass-through. La sincronizzazione delle password funziona come fallback solo in questi scenari specifici. Se non è necessaria, è possibile disattivare la sincronizzazione delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect.
 
 ## <a name="how-to-enable-azure-ad-pass-through-authentication"></a>Come abilitare l'autenticazione pass-through di Azure AD?
 
@@ -74,25 +76,27 @@ Prima di poter abilitare l'autenticazione pass-through di Azure AD, è necessari
 - Un tenant di Azure AD di cui l'utente è un amministratore globale.
 
 >[!NOTE]
->È consigliabile usare un account amministratore di tipo solo cloud, in modo da poter gestire la configurazione del tenant in caso di errore o mancata disponibilità dei servizi locali. È possibile aggiungere un account di amministratore globale solo cloud, come illustrato [qui](../active-directory-users-create-azure-portal.md).
+>È consigliabile usare un account amministratore globale solo cloud, in modo da poter gestire la configurazione del tenant in caso di errore o mancata disponibilità dei servizi locali. È possibile aggiungere un account di amministratore globale solo cloud, come illustrato [qui](../active-directory-users-create-azure-portal.md).
 
-- Azure AD Connect versione 1.1.484.0 o versione successiva. È consigliabile usare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+- Azure AD Connect versione 1.1.486.0 o successiva. È consigliabile usare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 - Un server che esegue Windows Server 2012 R2 o versione successiva in cui eseguire Azure AD Connect.
   - Questo server deve appartenere alla stessa foresta Active Directory degli utenti le cui password devono essere convalidate.
-  - Si noti che un connettore è installato nello stesso server di Azure AD Connect.
+  - Si noti che un connettore di autenticazione pass-through è installato nello stesso server di Azure AD Connect. Verificare che la versione del connettore sia 1.5.58.0 o successiva.
 
 >[!NOTE]
 >Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste AD e se il routing dei suffisso nome è configurato correttamente.
 
-- Se si desidera disponibilità elevata, saranno necessari ulteriori server che eseguono Windows Server 2012 R2 o versione successiva per installare i connettori autonomi.
+- Se si desidera disponibilità elevata, saranno necessari ulteriori server che eseguono Windows Server 2012 R2 o versione successiva per installare i connettori autonomi (versione 1.5.58.0 o successiva).
 - Se è presente un firewall tra uno dei connettori e Azure AD, assicurarsi che:
     - Se il filtro degli URL è abilitato, verificare che i connettori possano comunicare con i seguenti URL:
         -  \*.msappproxy.net
         -  \*.servicebus.windows.net
     - I connettori eseguono anche connessioni IP dirette agli [intervalli IP del data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
     - Assicurarsi che il firewall non esegua l'ispezione SSL poiché i connettori usano certificati client per comunicare con Azure AD.
-    - Verificare che i connettori possano inviare richieste HTTPS (TCP) ad Azure AD sulle porte 80 e 443.
+    - Verificare che i connettori possano inviare richieste ad Azure AD sulle porte 80 e 443.
       - Se il firewall impone le regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete.
+      - I connettori eseguono le richieste HTTP sulla porta 80 per il download degli elenchi di revoche di certificati SSL. Questo serve anche per il funzionamento corretto dell'aggiornamento automatico del connettore.
+      - I connettori eseguono le richieste HTTPS sulla porta 443 per tutte le altre operazioni quali l'abilitazione e disabilitazione della funzionalità, la registrazione di connettori, il download degli aggiornamenti del connettore e la gestione di tutte le richieste di accesso degli utenti.
 
 >[!NOTE]
 >Di recente sono stati apportati miglioramenti al fine di ridurre il numero di porte richieste dai connettori per comunicare con il servizio. Se si eseguono versioni precedenti dei connettori di Azure AD Connect e/o connettori autonomi, è necessario continuare a mantenere aperte queste porte aggiuntive (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120).
@@ -122,7 +126,7 @@ Per distribuire un connettore autonomo, seguire le istruzioni seguenti:
 
 In questo passaggio scaricare e installare il software del connettore sul server.
 
-1.    [Scaricare](https://go.microsoft.com/fwlink/?linkid=837580) il connettore più recente.
+1.    [Scaricare](https://go.microsoft.com/fwlink/?linkid=837580) il connettore più recente. Verificare che la versione del connettore sia 1.5.58.0 o successiva.
 2.    Aprire un prompt dei comandi come amministratore.
 3.    Eseguire il comando riportato di seguito (il parametro /q significa installazione non interattiva, ovvero durante l'installazione non viene richiesto di accettare il contratto di licenza con l'utente finale):
 
@@ -173,7 +177,7 @@ Un connettore di autenticazione pass-through non può essere installato nello st
 
 #### <a name="an-unexpected-error-occured"></a>Si è verificato un errore imprevisto
 
-[Raccogliere i log connettore](#how-to-collect-pass-through-authentication-connector-logs?) dal server e contattare il supporto Microsoft per risolvere il problema.
+[Raccogliere i log connettore](#collecting-pass-through-authentication-connector-logs) dal server e contattare il supporto Microsoft per risolvere il problema.
 
 ### <a name="issues-during-registration-of-connectors"></a>Problemi durante la registrazione dei connettori
 
@@ -181,9 +185,13 @@ Un connettore di autenticazione pass-through non può essere installato nello st
 
 Verificare che il server in cui è installato il connettore possa comunicare con gli URL del nostro servizio e le porte elencate [qui](#pre-requisites).
 
+#### <a name="registration-of-the-connector-failed-due-to-token-or-account-authorization-errors"></a>La registrazione del connettore non è riuscita a causa di errori di autorizzazione dell'account o del token
+
+Assicurarsi di usare un account di amministratore globale solo cloud per tutte le operazioni di installazione e registrazione del connettore autonomo o di Azure AD Connect. Esiste un problema noto con gli account amministratore globale con autenticazione MFA abilitata: disattivare l'autenticazione MFA temporaneamente (solo per completare le operazioni) come soluzione alternativa.
+
 #### <a name="an-unexpected-error-occurred"></a>Si è verificato un errore imprevisto
 
-[Raccogliere i log connettore](#how-to-collect-pass-through-authentication-connector-logs?) dal server e contattare il supporto Microsoft per risolvere il problema.
+[Raccogliere i log connettore](#collecting-pass-through-authentication-connector-logs) dal server e contattare il supporto Microsoft per risolvere il problema.
 
 ### <a name="issues-during-un-installation-of-connectors"></a>Problemi durante la disinstallazione dei connettori
 
@@ -197,11 +205,15 @@ Se l'autenticazione pass-through è abilitata nel tenant e si tenta di disinstal
 
 #### <a name="the-enabling-of-the-feature-failed-because-there-were-no-connectors-available"></a>L'abilitazione della funzionalità non è riuscita perché non c'erano connettori disponibili
 
-È necessario disporre di almeno un server del connettore attivo per poter abilitare l'autenticazione pass-through nel tenant. È possibile installare un connettore installando Azure AD Connect o installando un connettore autonomo.
+È necessario disporre di almeno un connettore attivo per poter abilitare l'autenticazione pass-through nel tenant. È possibile installare un connettore installando Azure AD Connect o un connettore autonomo.
 
 #### <a name="the-enabling-of-the-feature-failed-due-to-blocked-ports"></a>L'abilitazione della funzionalità non è riuscita a causa di porte bloccate
 
 Assicurasi che il server in cui è installato Azure AD Connect possa comunicare con gli URL del nostro servizio e le porte elencate [qui](#pre-requisites).
+
+#### <a name="the-enabling-of-the-feature-failed-due-to-token-or-account-authorization-errors"></a>L'abilitazione della funzionalità non è riuscita a causa di errori di autorizzazione dell'account o del token
+
+Assicurarsi di usare un account amministratore globale solo cloud quando si abilita la funzionalità. Esiste un problema noto con gli account amministratore globale con autenticazione MFA abilitata: disattivare l'autenticazione MFA temporaneamente (solo per completare le operazioni) come soluzione alternativa.
 
 ### <a name="issues-while-operating-the-pass-through-authentication-feature"></a>Problemi con l'utilizzo della funzionalità di autenticazione pass-through
 
@@ -217,7 +229,7 @@ La funzionalità segnala gli errori seguenti esposti all'utente nella schermata 
 |AADSTS80005|La convalida ha rilevato un errore WebException imprevedibile|Si tratta probabilmente di un errore temporaneo. ripetere la richiesta. Se il problema persiste, contattare il supporto Microsoft.
 |AADSTS80007|Errore durante la comunicazione con Active Directory|Controllare i log del connettore per ulteriori informazioni e verificare che Active Directory funzioni come previsto.
 
-### <a name="how-to-collect-pass-through-authentication-connector-logs"></a>Come si raccolgono i log connettore dell'autenticazione pass-through?
+### <a name="collecting-pass-through-authentication-connector-logs"></a>Raccolta dei log connettore dell'autenticazione pass-through
 
 A seconda del tipo di problema, i log connettore dell'autenticazione pass-through vanno cercati in posizioni diverse.
 
