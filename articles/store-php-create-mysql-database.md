@@ -15,10 +15,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: e3d44bc4ff6ce7ebfcd510ef8b40fd0c614bc31e
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 66f4b7a5f8eb3f6f125c9420b40caffca3d43dd6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -120,7 +121,6 @@ Si supponga che sia stata completata l'esercitazione [Creare, configurare e dist
         azure site appsetting add DB_USERNAME=<USERNAME_from_properties_blade>
         azure site appsetting add DB_PASSWORD=<PASSWORD_from_properties_blade>
 
-    Per informazioni sul funzionamento, vedere [Configure the Azure web app](app-service-web/app-service-web-get-started-php.md#configure-to-use-php)(Configurare l'app Web di Azure).
 6. Successivamente, eseguire il commit e il push in Azure delle modifiche locali apportate in precedenza durante l'esecuzione di `php artisan make:auth`.
 
         git add .
