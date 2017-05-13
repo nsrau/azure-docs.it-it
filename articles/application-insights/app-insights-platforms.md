@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c0ae2357d670a43547a9eb257c634b073cb5d325
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b78c574e9edf6ce28e8deb80d264858d480f5861
 ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -42,6 +42,7 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 * [App Web di Azure](app-insights-azure-web-apps.md)
 * [Servizi cloud di Azure](app-insights-cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
+* [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
