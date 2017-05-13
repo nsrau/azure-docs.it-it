@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 59e12d70d46d45fb7dc4244ac2968838cb29dbec
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9d10ebf9d7bd07bd126302a6ecf442d809e00196
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -366,17 +367,6 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 **Altre informazioni:**
 
 * [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-
-## <a name="azure-ad-preview-features"></a>Funzionalità in anteprima di Azure AD
-Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Basic e Premium (P1 e P2), Azure AD offre anche una raccolta di funzionalità in anteprima. È possibile usare le funzionalità in anteprima per scoprire le prossime novità e determinare se queste funzionalità possono essere utili per migliorare il proprio ambiente.
-
-**Funzionalità in anteprima disponibili:**
-
-* [Collaborazione B2B](active-directory-b2b-collaboration-overview.md)
-* [Unità amministrative](active-directory-administrative-units-management.md)
-* [Integrazione delle applicazioni HR](active-directory-saas-workday-inbound-tutorial.md)
-* [Autenticazione basata su certificati in iOS](active-directory-certificate-based-authentication-ios.md)
-* [Autenticazione basata su certificati in Android](active-directory-certificate-based-authentication-android.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
