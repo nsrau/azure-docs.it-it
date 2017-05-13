@@ -191,6 +191,9 @@
   - name: "Network Watcher"
     tocHref: /azure/network-watcher/
     topicHref: /azure/network-watcher/
+  - name: "Rete"
+    tocHref: /azure/networking/
+    topicHref: /azure/networking/networking-overview
   - name: "Hub di notifica"
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/

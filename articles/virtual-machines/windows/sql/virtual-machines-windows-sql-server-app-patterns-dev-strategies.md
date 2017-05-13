@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: lvargas
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1bbcc8517b0e7bf3836e79a3861f83e181eb67e7
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c5d0b7b466c65fb218acd010c13bde061a3abfbf
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -171,7 +172,7 @@ La maggior parte dei clienti che esegue codice di produzione su Azure mantiene r
 Per informazioni approfondite ed esercitazioni sulle tecniche di disponibilità elevata e di ripristino di emergenza, vedere [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>2 e 3 livelli con Macchine virtuali di Azure e Servizi cloud
-In questo modello di applicazione, un'applicazione a 2 o a 3 livelli viene distribuita in Azure usando sia i [Servizi cloud di Azure](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (ruoli Web e di lavoro - Platform as a Service (PaaS)) sia [Macchine virtuali di Azure](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Infrastructure as a Service (IaaS)). L'uso dei [Servizi cloud di Azure](https://azure.microsoft.com/documentation/services/cloud-services/) per il livello presentazione o business e di SQL Server in [Macchine virtuali di Azure](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per il livello dati è vantaggioso per gran parte delle applicazioni in esecuzione su Azure. Il motivo è che l'esecuzione di un'istanza di calcolo su Servizi cloud consente di eseguire facilmente la gestione, la distribuzione, il monitoraggio e la scalabilità orizzontale.
+In questo modello di applicazione, un'applicazione a 2 o a 3 livelli viene distribuita in Azure usando sia i [Servizi cloud di Azure](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (ruoli Web e di lavoro - Platform as a Service (PaaS)) sia [Macchine virtuali di Azure](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Infrastructure as a Service (IaaS)). L'uso dei [Servizi cloud di Azure](https://azure.microsoft.com/documentation/services/cloud-services/) per il livello presentazione o business e di SQL Server in [Macchine virtuali di Azure](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per il livello dati è vantaggioso per gran parte delle applicazioni in esecuzione su Azure. Il motivo è che l'esecuzione di un'istanza di calcolo su Servizi cloud consente di eseguire facilmente la gestione, la distribuzione, il monitoraggio e la scalabilità orizzontale.
 
 Grazie a Servizi cloud, Azure gestisce automaticamente l'infrastruttura, esegue la manutenzione di routine, applica patch ai sistemi operativi e tenta di correggere gli errori hardware e del servizio. Quando è necessario scalare orizzontalmente l'applicazione, sono disponibili opzioni di scalabilità orizzontale manuali e automatiche per il progetto di servizio cloud semplicemente aumentando o riducendo il numero di istanze o di macchine virtuali in uso da parte dell'applicazione. È anche possibile usare Visual Studio localmente per distribuire l'applicazione a un progetto di servizio cloud in Azure.
 
