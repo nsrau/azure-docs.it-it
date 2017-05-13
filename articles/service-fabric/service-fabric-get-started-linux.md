@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
+ms.date: 05/04/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,6 +75,13 @@ Dopo aver aggiornato le origini, è possibile installare l'SDK.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    Per automatizzare l'installazione è possibile ignorare la richiesta del contratto di licenza impostando le selezioni di debconf per i pacchetti di Service Fabric. È possibile eseguire i due comandi seguenti
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Eseguire lo script di configurazione dell'SDK.
 
     ```bash
@@ -203,6 +211,11 @@ Per aggiornare l'SDK e il runtime alla versione più recente, seguire questa pro
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> L'aggiornamento dei pacchetti precedenti potrebbe provocare l'arresto del cluster di sviluppo locale. Riavviare il cluster locale dopo un aggiornamento seguendo le istruzioni disponibili in questa pagina
+>
+>
 
 Per aggiornare l'interfaccia della riga di comando, passare alla directory in cui è stata clonata l'interfaccia della riga di comando ed eseguire `git pull` per l'aggiornamento.  Eventuali passaggi aggiuntivi necessari per l'aggiornamento saranno specificati nelle note sulla versione. 
 

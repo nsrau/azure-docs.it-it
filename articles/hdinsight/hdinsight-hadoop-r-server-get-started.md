@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,10 +36,6 @@ HDInsight include un'opzione R Server da integrare nel cluster HDInsight. In que
 > [!NOTE]
 > I passaggi in questo documento presuppongono che si stia usando una password.
 
-
-### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="automated-cluster-creation"></a>Creazione automatizzata di cluster
 
@@ -629,6 +626,10 @@ Una volta configurati tutti i nodi del ruolo di lavoro per i quali è stata rimo
 * Individuare la sezione dell'URI e aggiungere i dettagli relativi alla porta e all'IP del nodo del ruolo di lavoro.
 
 ![Rimozione delle autorizzazioni dei nodi del ruolo di lavoro con la riga di comando](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Risoluzione dei problemi
+
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

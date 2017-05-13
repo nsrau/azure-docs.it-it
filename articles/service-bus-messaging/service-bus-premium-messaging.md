@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei livelli di prezzo di messaggistica Standard e Premium del bus di servizio | Documentazione Microsoft
+title: Panoramica dei piani tariffari di messaggistica Standard e Premium del bus di servizio di Azure | Microsoft Docs
 description: Livelli di messaggistica Standard e Premium del bus di servizio
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/19/2017
+ms.date: 04/28/2017
 ms.author: darosa;sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 606838dbeec5e9762f67159ece1bbc8a78769420
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 72e4c59e1282d97cfc5aa5f55861c6f70d419ce8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +48,7 @@ Le sezioni seguenti illustrano alcune differenze tra i livelli di messaggistica 
 
 ### <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
 
-Le code e gli argomenti partizionati sono supportati nella messaggistica Premium, ma non funzionano esattamente come nei livelli di messaggistica Standard e Basic del bus di servizio. La messaggistica Premium non usa SQL come archivio dati e non comporta più la possibile competizione tra risorse associata a una piattaforma condivisa. Di conseguenza, il partizionamento non è necessario per le prestazioni. Il numero delle partizioni è stato inoltre modificato da 16 partizioni nella messaggistica Standard a 2 partizioni in quella Premium. La presenza di due partizioni garantisce la disponibilità ed è un numero più appropriato per l'ambiente di runtime Premium. Per altre informazioni sul partizionamento, vedere [Code e argomenti partizionati](service-bus-partitioning.md).
+Le code e gli argomenti partizionati sono supportati nella messaggistica Premium. Queste entità sono in effetti sempre partizionate e non possono essere disabilitate. Le code e gli argomenti partizionati Premium, tuttavia, non funzionano in modo analogo agli elementi corrispondenti nei piani tariffari Standard e Basic della messaggistica del bus di servizio. La messaggistica Premium non usa SQL come archivio dati e non ha più la competizione possibile tra le risorse associata a una piattaforma condivisa. Di conseguenza, il partizionamento non è necessario per migliorare le prestazioni. Il numero delle partizioni è stato inoltre modificato da 16 partizioni nella messaggistica Standard a 2 partizioni in quella Premium. La presenza di due partizioni garantisce la disponibilità ed è un numero più appropriato per l'ambiente di runtime Premium. Per altre informazioni sul partizionamento, vedere [Code e argomenti partizionati](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entità Express
 

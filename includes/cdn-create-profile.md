@@ -1,6 +1,6 @@
 **Per creare un nuovo profilo di rete CDN**
 
-1. Nel [portale di Azure](https://portal.azure.com)fare clic su **Nuovo**in alto a sinistra.  Nel pannello **Nuovo** selezionare **Contenuti multimediali e rete CDN**, quindi **Rete CDN**.
+1. Nel [portale di Azure](https://portal.azure.com)fare clic su **Nuovo**in alto a sinistra.  Nel pannello **Nuovo** selezionare **Web e dispositivi mobili** e quindi **Rete CDN**.
    
     Viene visualizzato il pannello del nuovo profilo di rete CDN.
    

@@ -1,9 +1,8 @@
-Per modificare l'indirizzo IP del gateway, usare il cmdlet 'New-AzureRmVirtualNetworkGatewayConnection'. Il cmdlet 'Set' non supporta al momento la modifica dell'indirizzo IP del gateway.
+### <a name="gwipnoconnection"></a> Per modificare il gateway di rete locale 'GatewayIpAddress' senza connessione gateway
 
-### <a name="gwipnoconnection"></a>Modificare l'indirizzo IP del gateway senza connessione gateway
-Per modificare l'indirizzo IP del gateway per il gateway di rete locale che non ha ancora una connessione, usare l'esempio seguente. È anche possibile modificare contemporaneamente i prefissi di indirizzo. Assicurarsi di usare il nome del gateway di rete locale esistente per sovrascrivere le impostazioni correnti. In caso contrario si creerà un nuovo gateway di rete locale, invece di sovrascrivere quello esistente.
+Se l'indirizzo IP pubblico del dispositivo VPN a cui ci si vuole connettere è stato modificato, è necessario modificare il gateway di rete locale per riflettere tale modifica. Usare l'esempio per modificare un gateway di rete locale privo di connessione gateway.
 
-Usare l'esempio seguente, sostituendo i valori con i propri:
+Quando si modifica questo valore, è anche possibile modificare contemporaneamente i prefissi degli indirizzi. Assicurarsi di usare il nome del gateway di rete locale esistente per sovrascrivere le impostazioni correnti. Se si usa un nome diverso, creare un nuovo gateway di rete locale, invece di sovrascrivere il valore esistente.
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
@@ -11,13 +10,10 @@ New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 ```
 
-### <a name="gwipwithconnection"></a>Modificare l'indirizzo IP del gateway con una connessione gateway esistente
-Se esiste già una connessione gateway è prima necessario rimuoverla. Dopo aver rimosso la connessione sarà possibile modificare l'indirizzo IP del gateway e ricreare una nuova connessione. È anche possibile modificare contemporaneamente i prefissi di indirizzo. Questo comporterà periodi di inattività per la connessione VPN.
+### <a name="gwipwithconnection"></a> Per modificare il gateway di rete locale 'GatewayIpAddress' con una connessione gateway esistente
 
-> [!IMPORTANT]
-> Non eliminare il gateway VPN, altrimenti sarà necessario ripercorrere i passaggi necessari per ricrearlo. È anche necessario aggiornare il dispositivo VPN locale con il nuovo indirizzo IP del gateway VPN.
-> 
-> 
+Se l'indirizzo IP pubblico del dispositivo VPN a cui ci si vuole connettere è stato modificato, è necessario modificare il gateway di rete locale per riflettere tale modifica. Se esiste già una connessione gateway è prima necessario rimuoverla. Dopo aver rimosso la connessione sarà possibile modificare l'indirizzo IP del gateway e ricreare una nuova connessione. È anche possibile modificare contemporaneamente i prefissi di indirizzo. Questo comporterà periodi di inattività per la connessione VPN. Quando si modifica l'indirizzo IP del gateway, non è necessario eliminare il gateway VPN. Occorre rimuovere solo la connessione.
+ 
 
 1. Rimuovere la connessione. Il nome della connessione può essere trovato usando il cmdlet 'Get-AzureRmVirtualNetworkGatewayConnection'.
 

@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0624bde9ab53231768beb0c832a4a49b21a8975
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -87,9 +88,14 @@ Dopo aver abilitato questa soluzione, qualsiasi computer Windows direttamente co
 È tuttavia possibile aggiungere i computer Windows a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook.  Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.  
 
 ## <a name="configuration"></a>Configurazione
-Eseguire questa procedura per aggiungere la soluzione Gestione aggiornamenti nell'area di lavoro di OMS e verificare che gli agenti inviino report. Gli agenti Windows vengono aggiunti automaticamente senza alcuna configurazione aggiuntiva. 
+Eseguire questa procedura per aggiungere la soluzione Gestione aggiornamenti nell'area di lavoro di OMS e verificare che gli agenti inviino report. Gli agenti Windows già connessi all'area di lavoro vengono aggiunti automaticamente senza alcuna configurazione aggiuntiva. 
 
-Questa soluzione può essere aggiunta in tre modi diversi: da Azure Marketplace nel portale di Azure selezionando l'offerta Automation & Control o la soluzione Update Management, oppure dalla raccolta di soluzioni OMS nell'area di lavoro OMS.  Se un account di Automazione e un'area di lavoro OMS sono già collegati tra loro nello stesso gruppo di risorse e nella stessa area, Automation & Control, se selezionato, verificherà la configurazione e si limiterà a installare e configurare la soluzione in entrambi i servizi.  Selezionando la soluzione Update Management da Azure Marketplace si avrà lo stesso comportamento.  Se questi servizi non sono distribuiti nella sottoscrizione, seguire la procedura nel pannello **Crea nuova soluzione** e confermare che si vogliono installare le altre soluzioni preselezionate consigliate.  È possibile aggiungere la soluzione Update Management all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni OMS](../log-analytics/log-analytics-add-solutions.md) nella raccolta soluzioni.  
+Per distribuire la soluzione è possibile usare i metodi seguenti:
+
+* Da Azure Marketplace nel portale di Azure, selezionando l'offerta Automation & Control o la soluzione Gestione aggiornamenti
+* Dalla Raccolta soluzioni di OMS nell'area di lavoro di OMS
+
+Se un account di Automazione e un'area di lavoro OMS sono già collegati tra loro nello stesso gruppo di risorse e nella stessa area, Automation & Control, se selezionato, verificherà la configurazione e si limiterà a installare e configurare la soluzione in entrambi i servizi.  Selezionando la soluzione Update Management da Azure Marketplace si avrà lo stesso comportamento.  Se questi servizi non sono distribuiti nella sottoscrizione, seguire la procedura nel pannello **Crea nuova soluzione** e confermare che si vogliono installare le altre soluzioni preselezionate consigliate.  È possibile aggiungere la soluzione Update Management all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni OMS](../log-analytics/log-analytics-add-solutions.md) nella raccolta soluzioni.  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Verificare gli agenti OMS e il gruppo di gestione di Operations Manager connesso a OMS
 
@@ -144,7 +150,7 @@ Dopo aver valutato gli aggiornamenti per tutti i computer Linux e Windows nell'a
 > [!NOTE]
 > Per impostazione predefinita, le VM di Windows distribuite da Azure Marketplace ricevono aggiornamenti automatici dal servizio Windows Update.  Questo comportamento rimane invariato dopo l'aggiunta di questa soluzione o delle VM di Windows all'area di lavoro.  Se gli aggiornamenti non vengono gestiti attivamente con questa soluzione, sarà applicabile il comportamento predefinito, ovvero gli aggiornamenti verranno applicati automaticamente.  
 
-Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux (RHEL) su richiesta disponibili in Azure Marketplace vengono registrate per accedere al servizio [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) distribuito in Azure.  Altre distribuzioni di Linux devono essere aggiornate dal repository di file online per le distribuzioni seguendo i metodi supportati.  
+Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux (RHEL) su richiesta disponibili in Azure Marketplace vengono registrate per accedere al servizio [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) distribuito in Azure.  Altre distribuzioni di Linux devono essere aggiornate dal repository di file online per le distribuzioni seguendo i metodi supportati.  
 
 ### <a name="viewing-update-deployments"></a>Visualizzazione delle distribuzioni degli aggiornamenti
 Fare clic sul riquadro **Distribuzione aggiornamento** per visualizzare l'elenco delle distribuzioni degli aggiornamenti esistenti.  Le distribuzioni sono raggruppate per stato, ovvero **Pianificato**, **In esecuzione** e **Completato**.<br><br> ![Pagina di pianificazione delle distribuzioni degli aggiornamenti](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
