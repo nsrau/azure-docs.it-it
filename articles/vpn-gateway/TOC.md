@@ -1,7 +1,7 @@
 # Panoramica
 ## [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md)
 ## [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md)
-## [Subscription and service limits](../azure-subscription-service-limits.md) (Sottoscrizione e limiti del servizio)
+## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json) (Sottoscrizione e limiti del servizio)
 
 # Attività iniziali
 ## [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md)

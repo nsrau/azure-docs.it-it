@@ -24,7 +24,6 @@
 
 ## Automazione
 ### [Automazione di Azure](automation-manage-key-vault.md)
-### [Creare e gestire con l'interfaccia della riga di comando](key-vault-manage-with-cli.md)
 ### [Creare e gestire con l'interfaccia della riga di comando 2.0](key-vault-manage-with-cli2.md)
 
 # Riferimento
