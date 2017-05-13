@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
-ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: b76020e3e5855a63c416851d9b9adefdbdc5874a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 02/22/2017
 
 
 
-Kubernetes richiede un'[entità servizio di Azure Active Directory](../active-directory/active-directory-application-objects.md) nel servizio contenitore di Azure come account del servizio per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le route definite dall'utente e Azure Load Balancer di livello 4.
+Kubernetes richiede un'[entità servizio di Azure Active Directory](../active-directory/active-directory-application-objects.md) nel servizio contenitore di Azure come account del servizio per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) e [Azure Load Balancer di livello 4](../load-balancer/load-balancer-overview.md).
 
 Questo articolo illustra le diverse opzioni disponibili per specificare un'entità servizio per il cluster Kubernetes. Se, ad esempio, l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) è già stata installata e configurata, è possibile eseguire il comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) per creare il cluster Kubernetes e l'entità servizio contemporaneamente.
 

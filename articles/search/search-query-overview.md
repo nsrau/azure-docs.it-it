@@ -11,11 +11,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
 > 
 > 
 
-Quando si inviano richieste di ricerca in Ricerca di Azure, è possibile specificare una serie di parametri insieme alle parole effettive digitate nella casella di ricerca dell'applicazione. Questi parametri di query consentono di ottenere un controllo più approfondito dell'esperienza di ricerca full-text.
+Quando si inviano richieste di ricerca in Ricerca di Azure, è possibile specificare una serie di parametri insieme alle parole effettive digitate nella casella di ricerca dell'applicazione. Questi parametri di query consentono di ottenere un controllo più approfondito dell'[esperienza di ricerca full-text](search-lucene-query-architecture.md).
 
 Di seguito è riportato un elenco che illustra brevemente gli usi più comuni dei parametri di query in Ricerca di Azure. Per la copertura completa dei parametri di query e il relativo comportamento, vedere le pagine dettagliate per l'[API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) e [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
 
@@ -59,10 +61,5 @@ Altre informazioni sul paging dei risultati della ricerca sono disponibili nell'
 
 ## <a name="hit-highlighting"></a>Evidenziazione dei risultati
 In Ricerca di Azure è semplice mettere in evidenza la parte esatta dei risultati della ricerca che corrispondono alla query di ricerca usando i parametri `highlight`, `highlightPreTag` e `highlightPostTag`. È possibile specificare quali campi *ricercabili* devono avere il testo corrispondente evidenziato e specificare anche i tag della stringa esatta da aggiungere all'inizio e alla fine del testo corrispondente restituito da Ricerca di Azure.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

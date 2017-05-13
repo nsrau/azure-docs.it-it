@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: df6f1b86b706d58a5c07a4f3de43a1872da61511
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -36,7 +37,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 2. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 
-3. Selezionare **Calcolo** nel pannello **Nuovo**, selezionare **Windows Server 2016 Datacenter** nel pannello **Calcolo** e poi fare clic sul pulsante **Crea**.
+3. Selezionare **Calcolo** nel pannello **Nuovo**, selezionare *Windows Server 2016 Datacenter* nel pannello **Calcolo** e poi fare clic sul pulsante **Crea**.
 
 4. Compilare il modulo **Generale** della macchina virtuale. Il nome utente e la password immessi in questo modulo verranno usati per accedere alla macchina virtuale. Per **Gruppo di risorse** creare un nuovo gruppo. Un gruppo di risorse è un contenitore logico in cui vengono create e gestite collettivamente le risorse di Azure. Al termine fare clic su **OK**.
 
@@ -46,21 +47,21 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
     ![Screenshot che mostra le dimensioni delle VM](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. Nel pannello delle impostazioni selezionare **Sì** in **Usa dischi gestiti**, mantenere i valori predefiniti per le altre impostazioni e fare clic su **OK**.
+6. Nel pannello delle impostazioni selezionare *Sì* in **Usa dischi gestiti**, mantenere i valori predefiniti per le altre impostazioni e fare clic su **OK**.
 
 7. Nella pagina del riepilogo fare clic su **OK** per avviare la distribuzione della macchina virtuale.
 
-8. Per monitorare lo stato di distribuzione fare clic sulla macchina virtuale. La VM è disponibile nel dashboard del portale di Azure o selezionando **Macchine virtuali** nel menu a sinistra. Dopo che la VM è stata creata, lo stato cambia da **Distribuzione in corso** a **In esecuzione**.
+8. Per monitorare lo stato di distribuzione fare clic sulla macchina virtuale. La VM è disponibile nel dashboard del portale di Azure o selezionando **Macchine virtuali** nel menu a sinistra. Dopo che la VM è stata creata, lo stato cambia da *Distribuzione in corso* a *In esecuzione*.
 
 ## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web 
 
 Per consentire il traffico per IIS, è necessario aprire la porta 80 al traffico Web. Questo passaggio illustra come creare una regola del gruppo di sicurezza di rete per consentire le connessioni in ingresso sulla porta 80.
 
 1. Nella sezione **Informazioni di base** del pannello della macchina virtuale fare clic sul nome del **Gruppo di risorse**.
-2. Nel pannello del gruppo di risorse fare clic su **Gruppo di sicurezza di rete** nell'elenco di risorse. Il gruppo di sicurezza di rete deve avere lo stesso nome della macchina virtuale, con -nsg aggiunto alla fine.
+2. Nel pannello del gruppo di risorse fare clic su **Gruppo di sicurezza di rete** nell'elenco di risorse. Il gruppo di sicurezza di rete deve avere lo stesso nome della macchina virtuale, con *-nsg* aggiunto alla fine.
 3. Fare clic sull'intestazione **Regola di sicurezza in ingresso** per aprire l'elenco di regole in ingresso. Nell'elenco dovrebbe già essere presente una regola per RDP.
 4. Fare clic su **+ Aggiungi** per aprire il pannello **Aggiungi regola di sicurezza in ingresso**.
-5. In **Nome** digitare **IIS**. Assicurarsi che l'opzione **Intervallo di porte** sia impostata su 80 e l'opzione **Azione** sia impostata su **Consenti**. Fare clic su **OK**.
+5. In **Nome** digitare *IIS*. Assicurarsi che l'opzione **Intervallo di porte** sia impostata su *80* e l'opzione **Azione** sia impostata su *Consenti*. Fare clic su **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
@@ -88,7 +89,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Visualizzare la pagina iniziale di IIS
 
-Dopo l'installazione di IIS e l'apertura della porta 80 nella macchina virtuale da Internet, è possibile usare il Web browser preferito per visualizzare la pagina iniziale predefinita di IIS. Ottenere l'**indirizzo IP pubblico** dal pannello della macchina virtuale e usarlo per aprire la pagina Web predefinita. 
+Dopo l'installazione di IIS e l'apertura della porta 80 nella macchina virtuale da Internet, è possibile usare il Web browser preferito per visualizzare la pagina iniziale predefinita di IIS. Ottenere l'*indirizzo IP pubblico* dal pannello della macchina virtuale e usarlo per aprire la pagina Web predefinita. 
 
 ![Sito IIS predefinito](./media/quick-create-powershell/default-iis-website.png) 
 

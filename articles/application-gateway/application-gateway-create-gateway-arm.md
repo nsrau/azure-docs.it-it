@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -107,9 +108,9 @@ Nell'esempio precedente è stato creato un gruppo di risorse denominato **appgw-
 > [!NOTE]
 > Se è necessario configurare un probe personalizzato per il gateway applicazione, visitare: [Creare un probe personalizzato per il gateway applicazione con PowerShell](application-gateway-create-probe-ps.md). Per altre informazioni, vedere l'articolo relativo a [probe personalizzati e monitoraggio dell'integrità](application-gateway-probe-overview.md) .
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Creare una rete virtuale e una subnet per il gateway applicazione
+## <a name="create-a-virtual-network-and-a-subnet"></a>Creare una rete virtuale e una subnet
 
-L'esempio seguente illustra come creare una rete virtuale usando Gestione risorse. Questo esempio crea una rete virtuale per il Gateway applicazione. Il gateway applicazione richiede la propria subnet, per questo motivo la subnet creata per il gateway applicazione è più piccola dello spazio degli indirizzi della rete virtuale. L'uso di una subnet più piccola consente la presenza di altre risorse inclusi, ma non in via esclusiva, i server Web da configurare nella stessa rete virtuale.
+L'esempio seguente illustra come creare una rete virtuale usando Gestione risorse. Questo esempio crea una rete virtuale per il gateway applicazione. Il gateway applicazione richiede la propria subnet, per questo motivo la subnet creata per il gateway applicazione è più piccola dello spazio degli indirizzi della rete virtuale. L'uso di una subnet più piccola consente la presenza di altre risorse inclusi, ma non in via esclusiva, i server Web da configurare nella stessa rete virtuale.
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -135,7 +136,7 @@ Assegnare la variabile di subnet per i passaggi successivi, questa variabile vie
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creare un indirizzo IP pubblico per la configurazione front-end
+## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
 
 Creare una risorsa IP pubblica denominata **publicIP01** nel gruppo di risorse **appgw-rg** per l'area Stati Uniti occidentali. Il gateway applicazione può usare un indirizzo IP pubblico, un interno indirizzo IP o entrambi per ricevere le richieste di bilanciamento del carico.  Per questo esempio è stato usato solo un indirizzo IP pubblico. Nell'esempio seguente, nessun nome DNS è configurato per la creazione dell'indirizzo IP pubblico.  Il gateway applicazione non supporta i nomi DNS personalizzati negli indirizzi IP pubblici.  Se per l'endpoint pubblico è necessario un nome personalizzato, è necessario creare un record CNAME per fare riferimento al nome DNS generato automaticamente per l'indirizzo IP pubblico.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > Il valore predefinito per **InstanceCount** è 2, con un valore massimo di 10. Il valore predefinito per **GatewaySize** è Medium. È possibile scegliere tra **Standard_Small**, **Standard_Medium** e **Standard_Large**.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Creare un gateway applicazione usando New-AzureRmApplicationGateway
+## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
 Creare un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. In questo esempio il gateway applicazione è denominato **appgwtest**.
 
@@ -233,7 +234,7 @@ Recuperare i dettagli relativi a DNS e indirizzo VIP del gateway applicazione da
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Eliminare un gateway applicazione
+## <a name="delete-the-application-gateway"></a>Eliminare il gateway applicazione
 
 Per eliminare un gateway applicazione, seguire questa procedura:
 
@@ -298,9 +299,17 @@ DnsSettings              : {
                             }
 ```
 
+## <a name="delete-all-resources"></a>Eliminare tutte le risorse
+
+Per eliminare tutte le risorse create nell'esecuzione dell'esercizio, seguire questa procedura:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare l'offload SSL, visitare: [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
+Per configurare l'offload SSL, visitare [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
 Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, visitare [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 

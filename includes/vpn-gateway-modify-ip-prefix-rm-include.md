@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Modificare i prefissi senza connessione gateway
+### <a name="noconnection"></a>Per modificare i prefissi degli indirizzi IP del gateway di rete locale senza connessione gateway
 
 - Per aggiungere altri prefissi degli indirizzi:
 
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- Per rimuovere un prefisso dell'indirizzo:<br>
+- Per rimuovere prefissi degli indirizzi:<br>
   Escludere i prefissi non più necessari. In questo esempio non è più necessario il prefisso 20.0.0.0/24 usato nell'esempio precedente. Il gateway di rete locale verrà quindi aggiornato escludendo tale prefisso.
 
   ```powershell
@@ -17,13 +17,10 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>Modificare i prefissi con una connessione gateway esistente
-Se è disponibile una connessione gateway e si vogliono aggiungere o rimuovere i prefissi di indirizzo IP inclusi nel gateway di rete locale, è necessario seguire questa procedura nell'ordine indicato. Questo comporterà periodi di inattività per la connessione VPN.
+### <a name="withconnection"></a>Per modificare i prefissi degli indirizzi IP del gateway di rete locale con connessione gateway esistente
 
-> [!IMPORTANT]
-> Non eliminare il gateway VPN. altrimenti sarà necessario ripercorrere i passaggi necessari per ricrearlo. È anche necessario aggiornare il dispositivo VPN locale con il nuovo indirizzo IP del gateway VPN.
-> 
-> 
+Se è disponibile una connessione gateway e si vogliono aggiungere o rimuovere i prefissi di indirizzo IP inclusi nel gateway di rete locale, è necessario seguire questa procedura nell'ordine indicato. Questo comporterà periodi di inattività per la connessione VPN. Quando si modificano i prefissi degli indirizzi IP, non è necessario eliminare il gateway VPN. Occorre rimuovere solo la connessione.
+
 
 1. Rimuovere la connessione.
 

@@ -12,6 +12,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Le misure personalizzate sono associate all'elemento di telemetria a cui appartengono e sono soggette al campionamento con l'elemento di telemetria contenente tali misurazioni. Usare [dati di telemetria relativi alla metrica](#metric-telemetry) per tener traccia della misura avente un valore indipendente da un altro tipo di telemetria. 
+ > Le misure personalizzate sono associate all'elemento di telemetria a cui appartengono e sono soggette al campionamento con l'elemento di telemetria contenente tali misurazioni. Per rilevare una misura che ha un valore indipendente da altri tipi di telemetria, usare [Dati di telemetria relativi alle metriche](../articles/application-insights/app-insights-api-custom-events-metrics.md#send-metrics).
 
 Lunghezza massima della chiave: 150

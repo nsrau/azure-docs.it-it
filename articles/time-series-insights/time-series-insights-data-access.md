@@ -5,7 +5,7 @@ keywords:
 services: time-series-insights
 documentationcenter: 
 author: op-ravi
-manager: santoshb
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 
 ms.service: time-series-insights
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: omravi
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5e9ee102c0375c8c1ac0e0ff6bc93989115b7cfa
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -29,16 +30,17 @@ Gli ambienti Time Series Insights hanno due tipologie indipendenti di criteri di
 * Criteri di accesso di gestione
 * Criteri di accesso ai dati
 
-Entrambe le tipologie di criteri concedono alle entità di sicurezza di Azure Active Directory (utenti e app) varie autorizzazioni per un determinato ambiente. Le entità di sicurezza (utenti e app) devono appartenere all'istanza di Active Directory ("tenant di Azure") associata alla sottoscrizione contenente l'ambiente.
+Entrambi criteri concedono alle entità di sicurezza di Azure Active Directory (utenti e app) varie autorizzazioni per un determinato ambiente. Le entità di sicurezza (utenti e app) devono appartenere all'istanza di Active Directory ("tenant di Azure") associata alla sottoscrizione contenente l'ambiente.
 
 I criteri di accesso di gestione concedono le autorizzazioni relative alla configurazione dell'ambiente, che includono:
 *    Creazione ed eliminazione dell'ambiente, delle origini evento e dei set di dati di riferimento
-*    Gestione dei criteri di accesso ai dati
+*    Gestione dei criteri di accesso ai dati.
 
 I criteri di accesso ai dati concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e salvare le prospettive e le query condivise associate all'ambiente.
 
 Le due tipologie di criteri consentono una netta separazione tra l'accesso alla gestione dell'ambiente e l'accesso ai dati all'interno di esso. È ad esempio possibile configurare un ambiente in modo che il relativo proprietario/creatore sia rimosso dall'accesso ai dati. Analogamente, a utenti e servizi a cui è consentita la lettura dei dati dell'ambiente può non essere concesso l'accesso alla configurazione dell'ambiente.
 
+## <a name="grant-data-access"></a>Concedere l'accesso ai dati
 La procedura seguente illustra come concedere l'accesso ai dati per un'entità utente:
 
 1.    Accedere al [portale di Azure](https://portal.azure.com).
