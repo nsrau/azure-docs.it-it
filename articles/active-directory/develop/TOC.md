@@ -67,6 +67,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Chiamate da servizio a servizio](active-directory-protocols-oauth-service-to-service.md)
+### [Flusso on-behalf-of](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Token e tipi di attestazioni supportati](active-directory-token-and-claims.md)
 ### [Rollover della chiave di firma](active-directory-signing-key-rollover.md)
 ### [Metadati della federazione](active-directory-federation-metadata.md)
@@ -104,4 +105,5 @@
 #### [OpenID connect](active-directory-v2-protocols-oidc.md)
 #### [Flusso implicito](active-directory-v2-protocols-implicit.md)
 #### [Credenziali del client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Flusso on-behalf-of di OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 ### [Ambiti](active-directory-v2-scopes.md)

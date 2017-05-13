@@ -1,6 +1,6 @@
 ---
 title: Integrazione di Elenco dei servizi con System Center Operations Manager | Microsoft Docs
-description: "L&quot;elenco dei servizi è una soluzione di Operations Management Suite (OMS) che individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione fra i servizi.  Questo articolo fornisce informazioni dettagliate sull&quot;uso di Elenco dei servizi per creare automaticamente diagrammi applicazioni distribuite in SCOM."
+description: "Elenco dei servizi è una soluzione di Operations Management Suite che individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione fra i servizi. Questo articolo illustra l&quot;uso di Elenco dei servizi per creare automaticamente diagrammi applicazioni distribuite in Operations Manager."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,109 +14,121 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 1937462eef4647b273dfa029c8f18c80d3443ae8
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 0b710c338be3a2c2fde6bba43173f7c5f480e357
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
 
-# <a name="service-map-integration-with-system-center-operations-manager-integration"></a>Integrazione di Elenco dei servizi con System Center Operations Manager
+# <a name="service-map-integration-with-system-center-operations-manager"></a>Integrazione di Elenco dei servizi con System Center Operations Manager
   > [!NOTE]
-  > Questa funzionalità è disponibile in anteprima privata, pertanto non deve essere usata nei sistemi di produzione.
+  > Poiché è disponibile in anteprima privata, questa funzionalità non deve essere usata nei sistemi di produzione.
   > 
   
-Elenco dei servizi di Operations Management Suite (OMS) individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. L'elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.  Per altre informazioni, vedere la [documentazione su Elenco dei servizi](operations-management-suite-service-map.md).
+Elenco dei servizi di Operations Management Suite individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping della comunicazione fra i servizi. Elenco dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza bisogno di alcuna configurazione a parte l'installazione di un agente. Per altre informazioni, vedere la [documentazione su Elenco dei servizi](operations-management-suite-service-map.md).
 
-Con questa integrazione tra Elenco dei servizi e System Center Operations Manager (SCOM), è possibile creare automaticamente diagrammi applicazioni distribuite in SCOM basati sulle mappe delle dipendenze dinamiche in Elenco dei servizi.
+Con questa integrazione tra Elenco dei servizi e System Center Operations Manager è possibile creare automaticamente diagrammi applicazioni distribuite in Operations Manager basati sulle mappe delle dipendenze dinamiche in Elenco dei servizi.
 
 ## <a name="prerequisites"></a>Prerequisiti
-1.    Un gruppo di gestione SCOM che gestisce un set di server.
-2.    Un'area di lavoro di OMS con la soluzione Elenco dei servizi abilitata.
-3.    Un set di server (almeno uno) che vengono gestiti da SCOM e inviano dati all'elenco dei servizi.  Sono supportati server Windows e Linux.
-4.    Un'entità servizio con accesso alla sottoscrizione di Azure associata all'area di lavoro di OMS.  [Approfondimenti sulla creazione di un'entità servizio](#creating-a-service-principal).
+* Gruppo di gestione di Operations Manager che gestisce un set di server.
+* Area di lavoro di Operations Manager con la soluzione Elenco dei servizi abilitata.
+* Set di server (almeno uno) che vengono gestiti da Operations Manager e inviano dati a Elenco dei servizi. Sono supportati server Windows e Linux.
+* Un'entità servizio con accesso alla sottoscrizione di Azure associata all'area di lavoro di Operations Management Suite. Per altre informazioni, vedere [Creare un'entità servizio](#creating-a-service-principal).
 
-## <a name="installing-service-map-management-pack"></a>Installazione del Service Pack di Elenco dei servizi
-L'integrazione tra SCOM ed Elenco dei servizi viene abilitata importando il bundle di Management Pack Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb).  Il bundle contiene i Management Pack seguenti:
-* Microsoft ServiceMap Application Views
-* Microsoft System Center ServiceMap Internal
-* Microsoft System Center ServiceMap Overrides
-* Microsoft System Center ServiceMap
+## <a name="install-the-service-map-management-pack"></a>Installare il management pack di Elenco dei servizi
+L'integrazione tra Operations Manager ed Elenco dei servizi viene abilitata importando il bundle di management pack Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Il bundle contiene i management pack seguenti:
+* Microsoft Service Map Application Views
+* Microsoft System Center Service Map Internal
+* Microsoft System Center Service Map Overrides
+* Microsoft System Center Service Map
 
-## <a name="configuring-the-service-map-integration"></a>Configurazione dell'integrazione di Elenco dei servizi
-1. Dopo l'installazione del Management Pack ServiceMap, nel riquadro Amministrazione di Operations Management Suite sarà presente il nuovo nodo Elenco dei servizi.
-2. Fare clic su "Add workspace" (Aggiungi area di lavoro) nel riquadro Service Map Overview (Panoramica di Elenco dei servizi) per aprire la configurazione guidata.
+## <a name="configure-the-service-map-integration"></a>Configurare l'integrazione di Elenco dei servizi
+Dopo avere installato il management pack di Elenco dei servizi, nel riquadro **Amministrazione** di **Operations Management Suite** sarà presente il nuovo nodo **Elenco dei servizi**. 
 
-    ![Configurazione guidata SCOM](media/oms-service-map/scom-configuration.png)
+Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seguenti:
 
-3. Il primo passaggio della procedura guidata è la configurazione della connessione in cui si inseriscono le informazioni per l'entità servizio di Azure. Immettere l'ID o il nome del tenant, l'ID applicazione (noto anche come nome utente o ClientID) e la password dell'entità servizio.  [Approfondimenti sulla creazione di un'entità servizio](#creating-a-service-principal).
+1. Per aprire la configurazione guidata, fare clic su **Add workspace** (Aggiungi area di lavoro) nel riquadro **Service Map Overview** (Panoramica di Elenco dei servizi) .  
 
-    ![SPN di configurazione SCOM](media/oms-service-map/scom-config-spn.png)
+    ![Riquadro Service Map Overview (Panoramica di Elenco dei servizi)](media/oms-service-map/scom-configuration.png)
 
-4. Nel passaggio successivo si selezionano la sottoscrizione di Azure, il gruppo di risorse di Azure (quello contenente l'area di lavoro di OMS) e l'area di lavoro di OMS.
+2. Nella finestra **Configurazione di connessione** immettere l'ID o il nome del tenant, l'ID applicazione (noto anche come nome utente o ClientID) e la password dell'entità servizio, quindi fare clic su **Avanti**. Per altre informazioni, vedere [Creare un'entità servizio](#creating-a-service-principal).
 
-    ![Area di lavoro di configurazione SCOM](media/oms-service-map/scom-config-workspace.png)
+    ![Finestra di configurazione della connessione](media/oms-service-map/scom-config-spn.png)
 
-5. Nel passaggio successivo si configura il gruppo di server di Elenco dei servizi con i server che si vuole sincronizzare tra SCOM ed Elenco dei servizi.  Fare clic sul pulsante Add/Remove Servers (Aggiungi/Rimuovi server) . Tenere presente che per consentire all'integrazione di creare un diagramma applicazioni distribuite per un server, il server deve: 1) essere gestito da SCOM, 2) essere gestito da Elenco dei servizi ed 3) essere elencato nel gruppo di server di Elenco dei servizi.
+3. Nella finestra **Subscription Selection** (Selezione della sottoscrizione), selezionare la sottoscrizione di Azure, il gruppo di risorse di Azure contenente l'area di lavoro di Operations Management Suite e infine l'area di lavoro stessa, quindi fare clic su **Avanti**.
 
-    ![Gruppo di configurazione SCOM](media/oms-service-map/scom-config-group.png)
+    ![Area di lavoro di configurazione di Operations Manager](media/oms-service-map/scom-config-workspace.png)
 
-6. Facoltativo: selezionare il pool di risorse server di gestione per comunicare con OMS e fare clic su "Add Workspace" (Aggiungi area di lavoro).
+4. Nella finestra **Selezione server** è possibile configurare il gruppo di server di Elenco dei servizi con i server che si desidera sincronizzare tra Operations Manager ed Elenco dei servizi. Fare clic su **Aggiungi/Rimuovi server**.   
+    
+    Perché l'integrazione crei un diagramma applicazioni distribuite per un server, quest'ultimo deve essere:
 
-    ![Pool di risorse di configurazione SCOM](media/oms-service-map/scom-config-pool.png)
+    * Gestito da Operations Manager.
+    * Gestito da Elenco dei servizi.
+    * Elencato nel gruppo di server di Elenco dei servizi.
 
-7. Si noti che la configurazione e la registrazione dell'area di lavoro OMS richiederanno un minuto. Dopo la configurazione, SCOM avvierà la prima sincronizzazione di Elenco dei servizi da OMS.
+    ![Gruppo di configurazione di Operations Manager](media/oms-service-map/scom-config-group.png)
 
-    ![Pool di risorse di configurazione SCOM](media/oms-service-map/scom-config-success.png)
+5. Facoltativo: selezionare il pool di risorse server di gestione per comunicare con Operations Management Suite, quindi fare clic su **Aggiungi area di lavoro**.
 
-**Nota:** l'intervallo di sincronizzazione predefinito è impostato su 60 minuti. Gli utenti possono configurare gli override per modificare l'intervallo di sincronizzazione. Gli utenti possono anche aggiungere server al gruppo di server di Elenco dei servizi manualmente tramite il riquadro Creazione e modifica: riquadro Creazione e modifica --> Gruppi, quindi cercare "Service Map Servers Group" (Gruppo di server di Elenco dei servizi). Le mappe di tali server verranno sincronizzate con la sincronizzazione successiva (in base all'intervallo di sincronizzazione configurato).
+    ![Pool di risorse di configurazione di Operations Manager](media/oms-service-map/scom-config-pool.png)
 
-## <a name="monitoring-service-map"></a>Monitoraggio di Elenco dei servizi
-Dopo che l'area di lavoro OMS è stata connessa, nel riquadro Monitoraggio della console SCOM verrà visualizzata una nuova cartella Elenco dei servizi.
-![Monitoraggio SCOM](media/oms-service-map/scom-monitoring.png)
+    Per configurare e registrare l'area di lavoro di Operations Management Suite potrebbero essere necessari alcuni minuti. Dopo averlo configurato, Operations Manager avvia la prima sincronizzazione di Elenco dei servizi da Operations Management Suite.
+
+    ![Pool di risorse di configurazione di Operations Manager](media/oms-service-map/scom-config-success.png)
+
+    >[!NOTE]
+    >L'intervallo di sincronizzazione predefinito è impostato su 60 minuti. È possibile configurare gli override per modificare l'intervallo di sincronizzazione. È anche possibile aggiungere manualmente server al gruppo di server di Elenco dei servizi tramite il riquadro **Tecnologie**. A tale scopo, selezionare **Gruppi**, quindi cercare **Service Map Servers Group** (Gruppo di server di Elenco dei servizi). Le mappe di tali server verranno sincronizzate con la sincronizzazione successiva, in base all'intervallo di sincronizzazione configurato.
+
+## <a name="monitor-service-map"></a>Monitorare le metriche del servizio
+Dopo aver connesso l'area di lavoro di Operations Management Suite, nel riquadro **Monitoraggio** della console di Operations Manager comparirà una nuova cartella denominata Elenco dei servizi.
+
+![Riquadro Monitoraggio di Operations Manager](media/oms-service-map/scom-monitoring.png)
 
 La cartella Elenco dei servizi ha tre nodi:
-### <a name="active-alerts"></a>Avvisi attivi:
-Mostra tutti gli avvisi attivi sulla comunicazione tra SCOM e la soluzione Elenco dei servizi in OMS.
+* **Avvisi attivi**: elenca tutti gli avvisi attivi per le comunicazioni tra Operations Manager e la soluzione Elenco dei servizi in Operations Management Suite.
 
-**Nota:** non si tratta di avvisi OMS presentati in SCOM.
-### <a name="servers"></a>Server:
-Contiene l'elenco dei server monitorati configurati per la sincronizzazione da Elenco dei servizi.
+    >[!NOTE]
+    >Tali avvisi non corrispondono agli avvisi di Operations Management Suite rilevati in Operations Manager.
 
-![Monitoraggio dei server in SCOM](media/oms-service-map/scom-monitoring-servers.png)
+* **Server**: contiene l'elenco dei server monitorati configurati per la sincronizzazione da Elenco dei servizi.
 
-### <a name="server-dependency-views"></a>Server Dependency Views (Visualizzazioni dipendenze server):
-Questa visualizzazione includerà l'elenco di tutti i server sincronizzati da Elenco dei servizi. Gli utenti possono fare clic su un server per visualizzarne il diagramma applicazioni distribuite.
+    ![Riquadro Monitoraggio server di Operations Manager](media/oms-service-map/scom-monitoring-servers.png)
 
-![Diagramma applicazioni distribuite SCOM](media/oms-service-map/scom-dad.png)
+* **Server Dependency Views** (Visualizzazioni dipendenze server): elenca tutti i server sincronizzati da Elenco dei servizi. È possibile fare clic su un server per visualizzarne il diagramma applicazioni distribuite.
 
-## <a name="editdelete-workspace"></a>Modificare/Eliminare l'area di lavoro
-Gli utenti possono modificare o eliminare l'area di lavoro configurata tramite il riquadro Service Map Overview (Panoramica di Elenco dei servizi): riquadro Amministrazione --> Operations Management Suite --> Elenco dei servizi.  Tenere presente che per il momento è possibile configurare una sola area di lavoro OMS.
+    ![Diagramma applicazioni distribuite di Operations Manager](media/oms-service-map/scom-dad.png)
 
-![Modificare l'area di lavoro in SCOM](media/oms-service-map/scom-edit-workspace.png)
+## <a name="edit-or-delete-the-workspace"></a>Modificare o eliminare l'area di lavoro
+È possibile modificare o eliminare l'area di lavoro configurata tramite il riquadro **Service Map Overview** (Panoramica di Elenco dei servizi): riquadro **Amministrazione** --> **Operations Management Suite** > **Elenco dei servizi**. Attualmente è possibile configurare una sola area di lavoro di Operations Management Suite.
 
-## <a name="configuring-rules-and-overrides"></a>Configurazione di regole e override
-Viene creata una regola **_Microsoft.SystemCenter.ServiceMapImport.Rule**_ per recuperare periodicamente le informazioni da Elenco dei servizi.  Gli utenti possono configurare override di questa regola per modificare le ore di sincronizzazione.
-Riquadro Creazione e modifica --> Regole --> Microsoft.SystemCenter.ServiceMapImport.Rule
+![Riquadro Modifica area di lavoro di Operations Manager](media/oms-service-map/scom-edit-workspace.png)
 
-![Override SCOM](media/oms-service-map/scom-overrides.png)
-* **Enabled**: abilita/disabilita gli aggiornamenti automatici 
-* **IntervalSeconds**: intervallo tra gli aggiornamenti.  Il valore predefinito è 1 ora. Gli utenti possono modificare il valore se vogliono sincronizzare le mappe server con maggiore frequenza.
-* **TimeoutSeconds**: indica quanto tempo prima si verifica il timeout della richiesta 
-* **TimeWindowMinutes**: ampiezza della query dei dati.  Il valore predefinito è una finestra temporale di 60 minuti. Il valore massimo consentito da Elenco dei servizi è di 1 ora.
+## <a name="configure-rules-and-overrides"></a>Configurare regole e override
+Viene creata una regola _Microsoft.SystemCenter.ServiceMapImport.Rule_ per recuperare periodicamente le informazioni da Elenco dei servizi. Per modificare gli intervalli di sincronizzazione è possibile configurare gli override della regola (riquadro **Tecnologie** > **Regole** > **Microsoft.SystemCenter.ServiceMapImport.Rule**).
 
-## <a name="known-issueslimitations"></a>Problemi e limitazioni noti
-Nella progettazione corrente:
-1. Anche se gli utenti possono aggiungere server a "Service Map Servers Group" (Gruppo di server di Elenco dei servizi) manualmente tramite il riquadro di creazione e modifica, le mappe di tali server verranno sincronizzate da Elenco dei servizi solo durante il ciclo di sincronizzazione successivo. L'impostazione predefinita è di 60 minuti. Gli utenti possono eseguire l'override dell'ora di sincronizzazione. 
-2. Gli utenti possono connettersi a una singola area di lavoro OMS.
+![Finestra delle proprietà di override di Operations Manager](media/oms-service-map/scom-overrides.png)
 
-## <a name="creating-a-service-principal"></a>Creazione di un'entità servizio
-I collegamenti seguenti aprono le pagine della documentazione ufficiale di Azure su tre diversi modi di creare un'entità servizio.
-* [Creare un'entità servizio con PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Creare un'entità servizio con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Creare un'entità servizio con il portale di Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* **Enabled**: abilita/disabilita gli aggiornamenti automatici. 
+* **IntervalMinutes**: reimposta l'intervallo tra gli aggiornamenti. L'intervallo predefinito è un'ora. Se si desidera sincronizzare le mappe dei server più di frequente, è possibile modificare il valore.
+* **TimeoutSeconds**: reimposta l'intervallo di tempo prima che la richiesta raggiunga il timeout. 
+* **TimeWindowMinutes**: reimposta l'intervallo di tempo per eseguire query sui dati. Il valore predefinito è una finestra temporale di 60 minuti. Il valore massimo consentito da Elenco dei servizi è 60 minuti.
+
+## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
+
+La progettazione attuale presenta i problemi e le limitazioni seguenti:
+* Anche se è possibile aggiungere manualmente server al gruppo di server di Elenco dei servizi tramite il riquadro **Tecnologie**, le mappe di tali server verranno sincronizzate da Elenco dei servizi solo durante il ciclo di sincronizzazione successivo. L'impostazione predefinita è 60 minuti, ma è possibile modificare l'intervallo di tempo. 
+* È possibile connettersi a una sola area di lavoro Operations Management Suite.
+
+## <a name="create-a-service-principal"></a>Creare un’entità servizio
+Per la documentazione ufficiale di Azure sulla creazione di un'entità servizio, vedere:
+* [Create a service principal by using PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) (Creare un'entità servizio usando PowerShell)
+* [Create a service principal by using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli) (Creare un'entità servizio usando Azure CLI)
+* [Create a service principal by using the Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Creare un'entità servizio usando il portale di Azure)
 
 ### <a name="feedback"></a>Commenti e suggerimenti
-Per inviare commenti sull'elenco dei servizi e sulla relativa documentazione,  visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
+Per inviare commenti sull'elenco dei servizi e sulla relativa documentazione, Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
 

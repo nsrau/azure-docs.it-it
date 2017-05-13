@@ -44,6 +44,7 @@
 ## [Framework di criteri estendibile](active-directory-b2c-reference-policies.md)
 ## [Protocolli di autenticazione](active-directory-b2c-reference-protocols.md)
 ## [Token](active-directory-b2c-reference-tokens.md)
+## [Personalizzazione della lingua](active-directory-b2c-reference-language-customization.md)
 
 ## [Gestione delle minacce](active-directory-b2c-reference-threat-management.md)
 
