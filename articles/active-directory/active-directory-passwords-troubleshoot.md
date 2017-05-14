@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 90846b3bd83b65a3fdfef2a1c8183b7143b5b247
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 4dae8b87904fff2f2f8665d235bf790fb1e073d0
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -33,7 +33,7 @@ Se si verificano problemi di reimpostazione della password self-service, gli ele
 | --- | --- |
 | Non viene visualizzata la sezione **Reimpostazione della password** in Azure AD nel portale di Azure | Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza Azure AD Premium o Basic. <br> Può essere risolto assegnando una licenza all'account amministratore in questione usando l'articolo [Assegnare, verificare e risolvere i problemi di licenze](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Non è possibile visualizzare un'opzione di configurazione specifica | Molti elementi dell'interfaccia utente rimangono nascosti finché non sono necessari. Provare ad abilitare tutte le opzioni che si desidera visualizzare. |
-| Non possibile visualizzare la scheda **Integrazione locale** | Questa opzione è visibile solo se è stato scaricato Azure AD Connect ed è stata eseguita la configurazione del writeback delle password. Per altre informazioni su questo argomento, vedere l'articolo [Introduzione alle impostazioni rapide per Azure AD Connect](/connect/active-directory-aadconnect-get-started-express.md). |
+| Non possibile visualizzare la scheda **Integrazione locale** | Questa opzione è visibile solo se è stato scaricato Azure AD Connect ed è stata eseguita la configurazione del writeback delle password. Per altre informazioni su questo argomento, vedere l'articolo [Introduzione alle impostazioni rapide per Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md). |
 
 ## <a name="troubleshoot-password-reset-reporting"></a>Risolvere i problemi di segnalazione relativi alla reimpostazione della password
 
@@ -228,14 +228,14 @@ Per garantire un supporto adeguato, verranno richiesti il maggior numero di dett
 
 I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
 
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md): iniziare a usare la gestione self-service delle password di Azure AD 
+* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
 * [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
 * [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
 * [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
-* [**Personalizzazione**](active-directory-passwords-customize.md): personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
+* [**Personalizzazione**](active-directory-passwords-customize.md) - personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
 * [**Criteri**](active-directory-passwords-policy.md): comprendere e impostare i criteri password di Azure AD
 * [**Writeback delle password**](active-directory-passwords-writeback.md): funzionamento del writeback delle password con la directory locale
-* [**Reporting** ](active-directory-passwords-reporting.md): verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
+* [**Creazione di report**](active-directory-passwords-reporting.md) - verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
 * [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
-* [**Domande frequenti**](active-directory-passwords-faq.md): come? Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
+* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
 
