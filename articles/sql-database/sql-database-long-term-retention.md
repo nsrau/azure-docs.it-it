@@ -16,10 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 043a1779ac694b0b3cbb5f1fd00117f716583669
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: e47c10c2c979622fba254757d3f7b9f19d3240f8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -99,10 +100,6 @@ Il servizio di ripristino gestisce in automatico l'eliminazione dei backup in ba
 
 > [!NOTE]
 > I backup che si trovano già nell'insieme di credenziali non subiscono variazioni. I backup vengono automaticamente eliminati dal servizio di ripristino alla scadenza del periodo di conservazione.
-
-## <a name="removing-long-term-backup-retention-backups-from-the-azure-recovery-services-vault"></a>Eliminazione dei backup con conservazione a lungo termine dall'insieme di credenziali di Servizi di ripristino di Azure
-
-Per rimuovere i backup con conservazione a lungo termine dall'insieme di credenziali, vedere [Delete long-term backup retention backups](sql-database-long-term-backup-retention-configure.md) (Eliminare i backup con conservazione a lungo termine)
 
 ## <a name="long-term-backup-retention-faq"></a>Domande frequenti sulla conservazione del backup a lungo termine:
 
