@@ -3,8 +3,8 @@ title: Monitorare, diagnosticare e risolvere i problemi correlati ad Archiviazio
 description: "Usare funzionalità quali l&quot;analisi dell&quot;archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Azure."
 services: storage
 documentationcenter: 
-author: jasonnewyork
-manager: tadb
+author: fhryo-msft
+manager: jahogg
 editor: tysonn
 ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
 ms.service: storage
@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
-ms.author: jahogg
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 8d2aa0c8ff9e39faf47c6c3339cd8da2610d2324
-ms.lasthandoff: 04/06/2017
+ms.date: 05/11/2017
+ms.author: fhryo-msft
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 8598e18aeb0552455a6e5344f10eb48382e8c2f4
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -328,19 +329,19 @@ Il problema riguarda la disponibilità di uno dei servizi di archiviazione?
 * [Il client sta ricevendo messaggi HTTP 409 (Conflitto)]
 
 ---
-[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
+[Le metriche indicano un valore PercentSuccess basso o le voci del log di analisi contengono operazioni con stato della transazione ClientOtherErrors]
 
 ---
 [Le metriche della capacità indicano un aumento imprevisto dell'uso della capacità di archiviazione]
 
 ---
-[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
+[Si stanno verificando riavvii imprevisti delle macchine virtuali con un numero elevato di VHD allegati]
 
 ---
 [Il problema è dovuto all'uso dell'emulatore di archiviazione per attività di sviluppo o test]
 
 ---
-[You are encountering problems installing the Azure SDK for .NET]
+[Si stanno verificando problemi di installazione di Azure SDK per .NET]
 
 ---
 [Si è verificato un problema diverso con un servizio di archiviazione]

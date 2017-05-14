@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: fc411d7605c9ef3cbd46e7522a6b565dd59f8b46
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 54adfd4cfaec086cec43ca851af9496bfb1049b2
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -27,8 +28,8 @@ ms.lasthandoff: 03/31/2017
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni dettagliate sulle tecnologie illustrate qui, oltre a guide introduttive sull'uso dei gruppi di sicurezza di rete, vedere gli argomenti seguenti:
 
-* [Quick-start - Create a Network Security Group and ACL rules using the Azure CLI](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)  
-* [Quick-start - Create a Network Security Group and ACL rules using the Azure CLI](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)  
+* [Quick-start - Create a Network Security Group and ACL rules using the Azure CLI](nsg-quickstart-portal.md)  
+* [Quick-start - Create a Network Security Group and ACL rules using the Azure CLI](nsg-quickstart-powershell.md)  
 * [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)  
 * [Che cos'è un gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md)  
 * [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../../load-balancer/load-balancer-arm.md) 

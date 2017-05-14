@@ -9,7 +9,7 @@
 
 # Attività iniziali
 ## [Replicare VM VMware in Azure](site-recovery-vmware-to-azure.md)
-## [Replicare i server fisici in Azure](site-recovery-physical-servers-to-azure.md) 
+## [Replicare i server fisici in Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicare VM Hyper-V in Azure con VMM](site-recovery-vmm-to-azure.md)
 ## [Replicare VM Hyper-V in Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replicare le VM Hyper-V in un sito secondario con VMM](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Pianificare la capacità e ridimensionare la replica VMware in Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner per la replica VMware in Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner per la replica Hyper-V](site-recovery-capacity-planner.md)
+### [Controllo degli accessi in base al ruolo](site-recovery-role-based-linked-access-control.md)
 
 ## Configurare
 ### [Configurare l'ambiente di origine](site-recovery-set-up-vmware-to-azure.md)
