@@ -1,5 +1,5 @@
 ---
-title: Usare argomenti e sottoscrizioni del bus di servizio di Azure con Node.js | Documentazione Microsoft
+title: Usare argomenti e sottoscrizioni del bus di servizio di Azure con Node.js | Microsoft Docs
 description: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un&quot;app Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 24375a7c56cdad59363803ef3aae724977961b44
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 4e145740f8485e4a02c70f2c9d3a9fa6057da635
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -65,7 +66,7 @@ Il modulo di Azure legge le variabili di ambiente AZURE\_SERVICEBUS\_NAMESPACE a
 
 Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Node.js Cloud Service with Storage].
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][Azure classic portal], vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Node.js Web Application with Storage].
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][portale di Azure classico] per un sito Web di Azure, vedere [Node.js Web Application with Storage][Node.js Web Application with Storage] (Applicazione Web Node.js con Archiviazione di Azure).
 
 ## <a name="create-a-topic"></a>Creare un argomento
 L'oggetto **ServiceBusService** consente di usare gli argomenti. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo azure:
@@ -261,7 +262,7 @@ Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambit
 Se il parametro **isPeekLock** è impostato su **true**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione.
 Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo **deleteMessage** e specificando il messaggio da eliminare come parametro. Il metodo **deleteMessage** contrassegna il messaggio come usato e lo rimuove dalla sottoscrizione.
 
-L'esempio seguente illustra come ricevere ed elaborare messaggi usando **receiveSubscriptionMessage**. L'esempio prima riceve ed elimina un messaggio dalla sottoscrizione "LowMessages" e poo riceve un messaggio dalla sottoscrizione "HighMessages" con **isPeekLock** impostato su true. Il messaggio viene quindi eliminato usando il metodo **deleteMessage**:
+L'esempio seguente illustra come ricevere ed elaborare messaggi usando **receiveSubscriptionMessage**. L'esempio prima riceve ed elimina un messaggio dalla sottoscrizione "LowMessages" e può riceve un messaggio dalla sottoscrizione "HighMessages" con **isPeekLock** impostato su true. Il messaggio viene quindi eliminato usando il metodo **deleteMessage**:
 
 ```javascript
 serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
@@ -289,10 +290,10 @@ Il bus di servizio fornisce funzionalità per il ripristino gestito automaticame
 
 Al messaggio bloccato nella sottoscrizione è anche associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, ma prima della chiamata del metodo **deleteMessage**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio, ma prima della chiamata del metodo **deleteMessage**, il messaggio verrà nuovamente recapitato all'applicazione al riavvio. Questo processo di elaborazione viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
-Gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito tramite il [portale di Azure classico][Azure classic portal] oppure a livello di codice.
+Gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito nel [portale di Azure][Azure portal] oppure a livello di codice.
 L'esempio seguente illustra come eliminare l'argomento denominato `MyTopic`:
 
 ```javascript
@@ -321,10 +322,10 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 * Visitare il repository [Azure SDK per Node][Azure SDK for Node] su GitHub.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-[Azure classic portal]: https://manage.windowsazure.com
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Azure portal]: https://portal.azure.com
+[SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Creare un'app Web Node.js nel servizio app di Azure]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md

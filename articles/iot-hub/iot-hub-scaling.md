@@ -1,5 +1,5 @@
 ---
-title: Ridimensionamento dell&quot;hub IoT di Azure | Documentazione Microsoft
+title: Ridimensionamento dell&quot;hub IoT di Azure | Microsoft Docs
 description: "Come ridimensionare l&quot;hub IoT per supportare la velocità effettiva dei messaggi prevista. Include un riepilogo della velocità effettiva supportata per ogni livello e le opzioni per il partizionamento orizzontale."
 services: iot-hub
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: cbff931e7acc88b29ed6f51a16156b44c1596d3f
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4a860f5aaa03ccfa73f1508548ca8b1344679c38
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ I messaggi da dispositivo a cloud seguono queste linee guida in caso di velocit�
 | --- | --- | --- |
 | S1 |Fino a 1.111 KB al minuto per unità<br/>(1,5 GB al giorno per unità) |Una media di 278 messaggi al minuto per unità<br/>(400.000 messaggi al giorno per unità) |
 | S2 |Fino a 16 MB al minuto per unità<br/>(22,8 GB al giorno per unità) |Una media di 4.167 messaggi al minuto per unità<br/>(6 milioni di messaggi al giorno per unità) |
-| S3 |Fino a 814 MB al minuto per unità<br/>(1144,4 GB al giorno per unità) |Una media di 208.333 messaggi al minuto per unità<br/>(300 milioni di messaggi al giorno per unità) |
+| S3 |Fino a 814 MB al minuto per unità<br/>(1144,4 GB al giorno per unità) |Una media di 208,333 messaggi al minuto per unità<br/>(300 milioni di messaggi al giorno per unità) |
 
 ## <a name="identity-registry-operation-throughput"></a>Velocità effettiva delle operazioni del registro delle identità
 Le operazioni del registro delle identità dell'hub IoT non sono considerate operazioni di runtime perché sono per lo più correlate al provisioning dei dispositivi.

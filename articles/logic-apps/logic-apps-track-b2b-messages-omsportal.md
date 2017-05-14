@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 2aa32d692da81dc34fafbc9cb6ea72a806f31e5c
-ms.openlocfilehash: a4068c70a01f80086ff3fb55f8e101c7dce95dea
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 4d68fde29e85fcf9aa623b4d798262bcd486a8bb
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -80,7 +81,7 @@ La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicaz
 | Mittente | Il partner guest configurato nelle impostazioni di ricezione o il partner host configurato nelle impostazioni di invio di un contratto AS2. |
 | Ricevitore | Il partner host configurato nelle impostazioni di ricezione o il partner guest configurato nelle impostazioni di invio di un contratto AS2. |
 | App per la logica | App per la logica in cui sono configurate le azioni AS2. |
-| Stato | Stato dei messaggi AS2 <br>Operazione riuscita = ricevuto o inviato un messaggio AS2 corretto, nessun MDN configurato <br>Operazione riuscita = ricevuto o inviato un messaggio AS2 corretto, MDN configurato e ricevuto o MDN inviato <br>Operazione non riuscita = ricevuto un messaggio AS2 non corretto, nessun MDN configurato <br>In sospeso = ricevuto o inviato un messaggio AS2 corretto, MDN configurato e ACK funzionale previsto |
+| Stato | Stato dei messaggi AS2 <br>Operazione riuscita = ricevuto o inviato un messaggio AS2 corretto, nessun MDN configurato <br>Operazione riuscita = ricevuto o inviato un messaggio AS2 corretto, MDN configurato e ricevuto o MDN inviato <br>Operazione non riuscita = ricevuto un messaggio AS2 non corretto, nessun MDN configurato <br>In sospeso = ricevuto o inviato un messaggio AS2 corretto, MDN configurato e previsto |
 | Ack | Lo stato dei messaggi MDN <br>Accettato = ricevuto o inviato un messaggio MDN positivo <br>In sospeso = in attesa di ricevere o inviare un messaggio MDN <br>Rifiutato = ricevuto o inviato un messaggio MDN negativo <br>Non richiesto = MDN non configurato nel contratto |
 | Direzione | Direzione dei messaggi AS2. |
 | ID correlazione | ID per correlare tutti i trigger e le azioni all'interno di un'app per la logica. |

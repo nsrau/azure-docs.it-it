@@ -1,5 +1,5 @@
 ---
-title: Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure | Documentazione Microsoft
+title: Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure | Microsoft Docs
 description: Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Hadoop.
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 316a3b6bd0ff32213df4baa9f722ff36ecc41d22
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: c9c45305d75be59f7840941b1e626e62e93f1758
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -56,12 +57,12 @@ Per eseguire le procedure descritte nell'articolo è necessario:
      ![Pulsante Sfoglia del portale di Azure](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ## <a name="create-clusters"></a>Creare i cluster
-Per le istruzioni di creazione con il Portale, vedere [Creare cluster HDInsight](hdinsight-provision-clusters.md).
+Per le istruzioni di creazione con il Portale, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco dei componenti verificati e supportati, vedere [Versione di Hadoop inclusa in Azure HDInsight](hdinsight-component-versioning.md). Per personalizzare HDInsight, è possibile usare una delle opzioni seguenti:
 
 * Usare azioni script per eseguire script personalizzati in grado di personalizzare un cluster per modificare la configurazione del cluster o installare componenti personalizzati, ad esempio Giraph o Solr. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md).
-* Usare i parametri di personalizzazione del cluster in HDInsight .NET SDK o di Azure PowerShell durante la creazione del cluster. Le modifiche alla configurazione vengono quindi mantenute per tutta la durata del cluster e non vengono interessate dalla ricreazione delle immagini dei nodi del cluster che la piattaforma Azure esegue periodicamente per la manutenzione. Per altre informazioni sull'uso dei parametri di personalizzazione dei cluster, vedere [Creare cluster HDInsight](hdinsight-provision-clusters.md).
+* Usare i parametri di personalizzazione del cluster in HDInsight .NET SDK o di Azure PowerShell durante la creazione del cluster. Le modifiche alla configurazione vengono quindi mantenute per tutta la durata del cluster e non vengono interessate dalla ricreazione delle immagini dei nodi del cluster che la piattaforma Azure esegue periodicamente per la manutenzione. Per altre informazioni sull'uso dei parametri di personalizzazione dei cluster, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Nel cluster è possibile eseguire alcuni componenti Java nativi, come Mahout e Cascading, sotto forma di file JAR. Tali file JAR possono essere distribuiti nell'archivio BLOB di Azure e inviati ai cluster HDInsight usando i meccanismi di invio dei processi Hadoop. Per altre informazioni, vedere [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
@@ -88,14 +89,14 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
    * **Dashboard**, **Dashboard cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web. -**Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
    * **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
    * **Elimina**: elimina il cluster.
-   * **Avvio rapido (![icona nuvola e lampo = avvio rapido](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
-   * **Utenti (![icona utenti](./media/hdinsight-administer-use-portal-linux/users.png))**: consente di impostare le autorizzazioni per la *gestione del portale* di questo cluster per altri utenti nella sottoscrizione di Azure.
+   * **Avvio rapido**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
+   * **Utenti: consente di impostare le autorizzazioni per la *gestione del portale* di questo cluster per altri utenti nella sottoscrizione Azure.
 
      > [!IMPORTANT]
      > Questo influisce *solo* sull'accesso e sulle autorizzazioni per tale cluster nel portale di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
      >
      >
-   * **Tag (![icona tag](./media/hdinsight-administer-use-portal-linux/tags.png))**: consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata **progetto**e usare un valore comune per tutti i servizi associati a un progetto specifico.
+   * **Tag**: consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata **progetto**e usare un valore comune per tutti i servizi associati a un progetto specifico.
    * **Visualizzazioni di Ambari**: collegamenti ad Ambari Web.
 
      > [!IMPORTANT]
@@ -320,7 +321,7 @@ Per monitorare il cluster, esplorare il file system e controllare i log, fare cl
 Per usare l'interfaccia utente di Yarn, fare clic su **Interfaccia utente di Yarn** nella console query HDInsight. Vedere [Aprire la console query HDInsight](#open-hdinsight-query-console).
 
 ## <a name="connect-to-clusters-using-rdp"></a>Connettersi a cluster con RDP
-Le credenziali del cluster fornite durante la creazione consentono di accedere ai servizi nel cluster, ma non al cluster stesso tramite Desktop remoto. È possibile attivare l'accesso Desktop remoto durante o dopo il provisioning di un cluster. Per istruzioni sull'abilitazione di Desktop remoto al momento della creazione, vedere [Creazione del cluster HDInsight](hdinsight-provision-clusters.md).
+Le credenziali del cluster fornite durante la creazione consentono di accedere ai servizi nel cluster, ma non al cluster stesso tramite Desktop remoto. È possibile attivare l'accesso Desktop remoto durante o dopo il provisioning di un cluster. Per istruzioni sull'abilitazione di Desktop remoto al momento della creazione, vedere [Creazione del cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 **Per abilitare Desktop remoto**
 
@@ -370,8 +371,8 @@ Nella schermata precedente il numero di versione di Hadoop è incorporato nel no
 In questo articolo è stato illustrato come creare un cluster HDInsight tramite il portale, e come aprire lo strumento da riga di comando di Hadoop. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Amministrare HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Amministrare HDInsight tramite l’interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)
-* [Creare cluster HDInsight](hdinsight-provision-clusters.md)
+* [Amministrare HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)
+* [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Introduzione ad Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Versione di Hadoop inclusa in Azure HDInsight](hdinsight-component-versioning.md)

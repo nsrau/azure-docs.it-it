@@ -1,5 +1,5 @@
 ---
-title: Gestire l&quot;accesso in lettura anonimo a contenitori e BLOB | Microsoft Docs
+title: Abilitare l&quot;accesso in lettura pubblico per contenitori e BLOB in Archiviazione BLOB di Azure | Microsoft Docs
 description: Informazioni su come rendere disponibili per l&quot;accesso anonimo contenitori e BLOB e su come accedervi a livello di programmazione.
 services: storage
 documentationcenter: 
@@ -12,47 +12,50 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 4fe41c3aabf5e6d9ae899cea0b9f9b6c9c305cf0
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c7b83667b58649c156a62fa68cebd854c13e2cba
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 ---
-# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestire l'accesso in lettura anonimo a contenitori e BLOB
-## <a name="overview"></a>Panoramica
-Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere alle risorse relative all’account. Solo per l'archiviazione BLOB, è possibile impostare le autorizzazioni di un contenitore per consentire l'accesso in lettura anonimo al contenitore e ai relativi BLOB, in modo che sia possibile concedere l'accesso a tali risorse senza condividere la chiave dell'account.
 
-L'accesso anonimo è ideale per scenari in cui si desidera che alcuni BLOB siano sempre disponibili per l'accesso in lettura anonimo. Per un controllo più capillare, è possibile creare una firma di accesso condiviso, che consente l'accesso delegato limitato con autorizzazioni diverse e per un intervallo di tempo specificato. Per altre informazioni sulla creazione di firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestire l'accesso in lettura anonimo a contenitori e BLOB
+È possibile abilitare l'accesso in lettura pubblico anonimo a un contenitore e ai relativi BLOB in Archiviazione BLOB di Azure. Ciò permette di concedere l'accesso in sola lettura a queste risorse senza condividere la chiave dell'account e senza richiedere una firma di accesso condiviso (SAS).
+
+L'accesso in lettura pubblico è ideale per scenari in cui si vuole che BLOB specifici siano sempre disponibili per l'accesso in lettura anonimo. Per un controllo più accurato, è possibile creare una firma di accesso condiviso. Le firme di accesso condiviso consentono di fornire accesso limitato usando autorizzazioni diverse, per un periodo di tempo specifico. Per altre informazioni sulla creazione di firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB
 Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere a un contenitore e ai BLOB in esso contenuti. Se si desidera assegnare a utenti anonimi autorizzazioni di lettura per un contenitore e i relativi BLOB, è possibile impostare le autorizzazioni del contenitore per consentire l'accesso pubblico. Gli utenti anonimi possono leggere i BLOB presenti in un contenitore accessibile pubblicamente senza effettuare l'autenticazione della richiesta.
 
-I contenitori forniscono le seguenti opzioni per la gestione dell'accesso al contenitore:
+È possibile configurare un contenitore con le autorizzazioni seguenti:
 
-* **Accesso in lettura pubblico completo:** I dati BLOB e del contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
-* **Accesso in lettura pubblico solo per i BLOB:** I dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
-* **Nessun accesso in lettura pubblico:** I dati BLOB e del contenitore possono essere letti solo dal proprietario dell'account.
+* **Nessun accesso in lettura pubblico:** solo il proprietario dell'account di archiviazione può accedere al contenitore e ai relativi BLOB. Questa è l'impostazione predefinita per tutti i nuovi contenitori.
+* **Accesso in lettura pubblico solo per i BLOB:** i dati del BLOB all'interno del contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client anonimi non possono enumerare i BLOB all'interno del contenitore.
+* **Accesso in lettura pubblico completo:** i dati del BLOB e del contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
 
-È possibile impostare le autorizzazioni per il contenitore nei modi seguenti:
+È possibile impostare le autorizzazioni per il contenitore usando gli strumenti seguenti:
 
-* Nel [portale di Azure](https://portal.azure.com).
-* A livello di programmazione, tramite la libreria client di archiviazione o l'API REST.
-* Con PowerShell. Per informazioni su come impostare le autorizzazioni per il contenitore da Azure PowerShell, vedere [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
+* [Portale di Azure](https://portal.azure.com)
+* [Azure PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
+* [Interfaccia della riga di comando di Azure 2.0](storage-azure-cli.md#create-and-manage-blobs)
+* A livello di programmazione, usando una delle librerie client di archiviazione o l'API REST.
 
-### <a name="setting-container-permissions-from-the-azure-portal"></a>Impostazione delle autorizzazioni per il contenitore dal portale di Azure
-Per impostare le autorizzazioni per il contenitore dal [portale di Azure](https://portal.azure.com), seguire questa procedura:
+### <a name="set-container-permissions-in-the-azure-portal"></a>Impostare le autorizzazioni per in contenitore nel portale di Azure
+Per impostare le autorizzazioni per il contenitore nel [portale di Azure](https://portal.azure.com), seguire questa procedura:
 
-1. Passare al dashboard per l'account di archiviazione.
-2. Selezionare il nome del contenitore nell'elenco. Facendo clic sul nome, i BLOB vengono esposti nel contenitore selezionato.
-3. Selezionare **Criteri di accesso** nella barra degli strumenti.
-4. Nel campo **Tipo di accesso** selezionare il livello di autorizzazioni desiderato come illustrato nello screenshot di seguito.
+1. Selezionare il pannello **Account di archiviazione** nel portale di Azure. È possibile trovare l'account di archiviazione selezionando **Account di archiviazione** nel pannello del menu principale del portale.
+1. Nel pannello del menu, in **SERVIZIO BLOB** selezionare **Contenitori**.
+1. Fare clic con il pulsante destro del mouse sulla riga del contenitore o selezionare i puntini di sospensione per aprire il **menu di scelta rapida** del contenitore.
+1. In questo menu selezionare **Criteri di accesso**.
+1. Nel menu a discesa selezionare un **Tipo di accesso**.
 
     ![Finestra di dialogo Modifica metadati contenitore](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
-### <a name="setting-container-permissions-programmatically-using-net"></a>Impostazione delle autorizzazioni per il contenitore a livello di programmazione con .NET
-Per impostare le autorizzazioni per un contenitore con la libreria client .NET, recuperare innanzitutto le autorizzazioni esistenti per il contenitore chiamando il metodo **GetPermissions** . Impostare quindi la proprietà **PublicAccess** per l'oggetto **BlobContainerPermissions** restituito dal metodo **GetPermissions**. Infine, chiamare il metodo **SetPermissions** con le autorizzazioni aggiornate.
+### <a name="set-container-permissions-with-net"></a>Impostare le autorizzazioni per il contenitore con .NET
+Per impostare le autorizzazioni per un contenitore con C# e la libreria client di archiviazione per .NET, recuperare prima di tutto le autorizzazioni esistenti per il contenitore eseguendo una chiamata al metodo **GetPermissions**. Impostare quindi la proprietà **PublicAccess** per l'oggetto **BlobContainerPermissions** restituito dal metodo **GetPermissions**. Infine, chiamare il metodo **SetPermissions** con le autorizzazioni aggiornate.
 
 L'esempio seguente imposta le autorizzazioni per il contenitore per l'accesso in lettura pubblico completo. Per impostare le autorizzazioni per l'accesso in lettura pubblico solo per i BLOB, impostare la proprietà **PublicAccess** su **BlobContainerPublicAccessType.Blob**. Per rimuovere tutte le autorizzazioni per gli utenti anonimi, impostare la proprietà su **BlobContainerPublicAccessType.Off**.
 
@@ -104,7 +107,6 @@ public static void ListBlobsAnonymously()
 }
 ```
 
-
 ### <a name="reference-a-blob-anonymously"></a>Fare riferimento a un BLOB in modo anonimo
 Se si conosce l'URL per un BLOB disponibile per l'accesso anonimo, è possibile fare riferimento direttamente al BLOB con tale URL:
 
@@ -148,14 +150,9 @@ Nella tabella seguente sono riportate le operazioni che possono essere richiamat
 | Get Page Ranges |Tutti |Tutti |
 | Append Blob |Solo proprietario |Solo proprietario |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
+
 * [Autenticazione per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
 * [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

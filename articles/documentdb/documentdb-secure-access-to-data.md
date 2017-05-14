@@ -1,5 +1,5 @@
 ---
-title: Informazioni su come proteggere l&quot;accesso ai dati in DocumentDB | Documentazione Microsoft
+title: Informazioni su come proteggere l&quot;accesso ai dati in DocumentDB | Microsoft Docs
 description: Informazioni sui concetti di controllo di accesso in DocumentDB, tra cui chiavi master, chiavi di sola lettura, utenti e autorizzazioni.
 services: documentdb
 author: mimig1
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: e4cbc9b0c9532d56376c4fabebcde8c64cb0474b
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 7ab474747c74295a5dba9a6f3ad32000a7551a9c
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -84,7 +85,7 @@ I token delle risorse consentono di accedere alle risorse dell'applicazione all'
 - Vengono creati quando a un [utente](#users) vengono concesse [autorizzazioni](#permissions) per una risorsa specifica.
 - Vengono ricreati quando si interviene su una risorsa di autorizzazione tramite chiamata POST, GET o PUT.
 - Usano un token di risorsa hash costruito specificamente per l'utente, la risorsa e l'autorizzazione.
-- Hanno un limite di tempo con un periodo di validità personalizzabile. L'intervallo di tempo predefinito è un'ora. La durata del token può essere tuttavia specificata in modo esplicito, fino a un massimo di cinque ore.
+- Hanno un limite di tempo con un periodo di validità personalizzabile. L'intervallo di tempo valido predefinito è un'ora. La durata del token può essere tuttavia specificata in modo esplicito, fino a un massimo di cinque ore.
 - Rappresentano un'alternativa sicura alla divulgazione della chiave master. 
 - Consentono ai client di leggere, scrivere ed eliminare risorse nell'account di DocumentDB in base alle autorizzazioni concesse.
 

@@ -1,5 +1,5 @@
 ---
-title: Creare code e argomenti partizionati del bus di servizio di Azure | Documentazione Microsoft
+title: Creare code e argomenti partizionati del bus di servizio di Azure | Microsoft Docs
 description: "Descrive come partizionare code e argomenti del bus di servizio usando più broker messaggi."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,19 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/28/2017
 ms.author: sethm;hillaryc
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 946f3ac069db436828427e575be5a14efac9dda9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
-Il bus di servizio di Azure usa più broker messaggi per elaborare i messaggi e più archivi di messaggistica per archiviarli. Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e archiviato in un archivio di messaggistica. Le *partizioni* del bus di servizio consentono anche il partizionamento delle code o degli argomenti tra più broker messaggi e archivi di messaggistica. Questo significa che la velocità effettiva complessiva di una coda o di un argomento partizionato non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea dell'alimentazione di un archivio di messaggistica non determina la mancanza di disponibilità di una coda o di un argomento partizionato. Le code e gli argomenti partizionati possono contenere tutte le funzionalità avanzate del bus di servizio, ad esempio il supporto delle transazioni e delle sessioni.
+Il bus di servizio di Azure usa più broker messaggi per elaborare i messaggi e più archivi di messaggistica per archiviarli. Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e archiviato in un archivio di messaggistica. Le *partizioni* del bus di servizio consentono il partizionamento di code e argomenti, o *entità di messaggistica*, tra più broker messaggi e archivi di messaggistica. Questo significa che la velocità effettiva complessiva di un'entità partizionata non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea dell'alimentazione di un archivio di messaggistica non determina la mancanza di disponibilità di una coda o di un argomento partizionato. Le code e gli argomenti partizionati possono contenere tutte le funzionalità avanzate del bus di servizio, ad esempio il supporto delle transazioni e delle sessioni.
 
 Per altre informazioni sugli elementi interni del bus di servizio, vedere l'articolo [Architettura del bus di servizio][Service Bus architecture].
+
+Il partizionamento è abilitato per impostazione predefinita al momento della creazione dell'entità in tutte le code e tutti gli argomenti della messaggistica sia Standard che Premium. È possibile creare entità di livello messaggistica Standard senza il partizionamento, ma le code e gli argomenti in uno spazio dei nomi Premium vengono sempre partizionati. Questa opzione non può essere disabilitata. 
+
+Non è possibile modificare l'opzione di partizionamento su una coda o un argomento esistente nei livelli Standard o Premium. L'opzione può essere impostata solo in fase di creazione dell'entità.
 
 ## <a name="how-it-works"></a>Funzionamento
 Ogni coda o argomento partizionato è costituito da più frammenti. Ogni frammento viene memorizzato in un archivio di messaggistica differente e gestito da un broker messaggi diverso. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. La selezione viene eseguita in modo casuale dal bus di servizio o tramite una chiave di partizione che può essere specificata dal mittente.
@@ -36,9 +41,19 @@ I messaggi a una coda o a un argomento partizionato non presentano costi aggiunt
 ## <a name="enable-partitioning"></a>Abilitare il partizionamento
 Per usare le code e gli argomenti partizionati con il bus di servizio di Azure, è necessario usare Azure SDK 2.2 o versione successiva oppure specificare `api-version=2013-10` nelle richieste HTTP.
 
-È possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 partizioni per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 \* 16). È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal].
+### <a name="standard"></a>Standard
 
-Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento. Non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio:
+A livello di messaggistica Standard, è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 copie (16 partizioni) per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 \* 16). È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
+
+### <a name="premium"></a>Premium
+
+Nello spazio dei nomi di livello Premium, è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4, 5, 10, 20, 40 o 80 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato per impostazione predefinita, il bus di servizio crea due partizioni per ogni entità. È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
+
+Per altre informazioni sul partizionamento nel livello di messaggistica Premium, vedere [Livelli di messaggistica Standard e Premium del bus di servizio](service-bus-premium-messaging.md). 
+
+### <a name="create-a-partitioned-entity"></a>Creare una tabella partizionata
+
+Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento. Come detto in precedenza, non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio:
 
 ```csharp
 // Create partitioned topic
@@ -48,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-In alternativa, è possibile creare una coda o un argomento partizionato in Visual Studio o nel [portale di Azure][Azure portal]. Quando si crea una coda o un nuovo argomento nel portale, impostare l'opzione **Abilita partizionamento** nel pannello **Impostazioni generali** della finestra **Impostazioni** della coda o dell'argomento su **true**. In Visual Studio selezionare la casella di controllo **Abilita partizionamento** nella finestra di dialogo **Nuova coda** o **Nuovo argomento**.
+È possibile, in alternativa, creare una coda o un argomento partizionato nel [portale di Azure][Azure portal] o in Visual Studio. Quando si crea una coda o un argomento nel portale, l'opzione **Abilita partizionamento** nel pannello **Crea** della coda o dell'argomento è selezionata per impostazione predefinita. L'opzione può essere disabilitata solo in un'entità di livello Standard. Nel livello Premium il partizionamento è sempre abilitato. In Visual Studio selezionare la casella di controllo **Abilita partizionamento** nella finestra di dialogo **Nuova coda** o **Nuovo argomento**.
 
 ## <a name="use-of-partition-keys"></a>Uso delle chiavi di partizione
 Quando un messaggio viene accodato in una coda o in un argomento partizionato, il bus di servizio controlla la presenza di una chiave di partizione. Se ne trova una, seleziona il frammento in base a tale chiave. Se invece non trova alcuna chiave di partizione, seleziona il frammento in base a un algoritmo interno.

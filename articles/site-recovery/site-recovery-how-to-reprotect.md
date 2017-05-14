@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: a655c7bf1ea5ca1439d4353df5067c0e07f2d49f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,6 +26,10 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive come eseguire la riprotezione di macchine virtuali di Azure da Azure al sito locale. Seguire le istruzioni riportate in questo articolo quando si è pronti a eseguire il failback delle macchine virtuali VMware o dei server fisici Windows/Linux dopo aver eseguito il failover dal sito locale in Azure usando [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-failover.md).
+
+> [!WARNING]
+> Se è stata [completata la migrazione](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), la macchina virtuale è stata spostata in un altro gruppo di risorse o la macchina virtuale di Azure è stata eliminata, non è possibile eseguire il failback.
+
 
 Al termine della riprotezione e dopo l'avvio della replica delle macchine virtuali protette, è possibile avviare un failback nelle macchine virtuali per spostarle nel sito locale.
 
@@ -38,8 +43,11 @@ Per una rapida panoramica, guardare il video seguente che illustra come eseguire
 Di seguito vengono riportati i passaggi obbligatori da eseguire o prendere in considerazione quando ci si prepara per la riprotezione.
 
 * Se le macchine virtuali in cui si vuole eseguire il failback sono gestite da un server vCenter, verificare di avere le autorizzazioni necessarie per l'individuazione di macchine virtuali nei server vCenter. [Altre informazioni](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-* Se in una macchina virtuale locale sono presenti snapshot, la riprotezione avrà esito negativo. È possibile eliminare gli snapshot prima di continuare con la riprotezione.
-* Prima di eseguire il failback è necessario creare due componenti aggiuntivi:
+
+> [!WARNING] 
+> Se nella destinazione master o nella macchina virtuale locale sono presenti snapshot, la riprotezione avrà esito negativo. È possibile eliminare gli snapshot nella destinazione master prima di continuare con la protezione. Durante il processo di protezione gli snapshot nella macchina virtuale verranno automaticamente uniti.
+
+* Prima di eseguire il failback, sarà necessario creare due componenti aggiuntivi:
   * **Creare un server di elaborazione**. Il server di elaborazione riceve dati dalla macchina virtuale protetta in Azure e invia dati al sito locale. È necessaria una rete a bassa latenza tra il server di elaborazione e la macchina virtuale protetta. Di conseguenza, è possibile avere un server di elaborazione locale se si usa una connessione Azure ExpressRoute o un server di elaborazione di Azure se si usa una VPN.
   * **Creare un server di destinazione master**: il server di destinazione riceve i dati di failback. Nel server di gestione locale creato è installato un server di destinazione master per impostazione predefinita. Tuttavia, a seconda del volume di traffico sottoposto a failback, potrebbe essere necessario creare un server di destinazione master separato per il failback.
         * [Per una macchina virtuale Linux è necessario un server di destinazione master Linux](site-recovery-how-to-install-linux-master-target.md).
@@ -176,6 +184,8 @@ Per ripristinare la macchina virtuale in Azure in una macchina virtuale locale e
 > [!NOTE]
 > Un gruppo di replica deve essere protetto usando la stessa destinazione master. In caso di protezione con un server di destinazione master diverso, il server non può fornire una temporizzazione comune.
 
+> [!NOTE]
+> La macchina virtuale locale verrà spenta dopo la riprotezione, al fine di assicurare la coerenza dei dati durante la replica. Non accendere la macchina virtuale al termine della riprotezione.
 
 Dopo la riprotezione, la macchina virtuale entrerà in uno stato protetto.
 

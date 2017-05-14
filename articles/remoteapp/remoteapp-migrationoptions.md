@@ -1,5 +1,5 @@
 ---
-title: Opzioni per la migrazione da Azure RemoteApp | Documentazione Microsoft
+title: Opzioni per la migrazione da Azure RemoteApp | Microsoft Docs
 description: Informazioni sulle opzioni per la migrazione da Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
@@ -11,12 +11,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 25ba53a1047863d01ba1fc2647af51fdd582feb1
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 11254a9bd82885701b457ba3b4ec0ef0aad710e6
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -186,7 +187,7 @@ La piattaforma MyCloudIT riduce i tempi di distribuzione del 95% e i costi di Az
 >   
 > Loughton, Essex IG10 3TQ
 >   
-> **Telefono: +44 (0) 20 8502 2155
+> Telefono: +44 (0) 20 8502 2155
 > 
 > **Singapore**:
 >   
@@ -194,7 +195,7 @@ La piattaforma MyCloudIT riduce i tempi di distribuzione del 95% e i costi di Az
 >   
 > The Globe, Singapore 069532
 > 
-> **Telefono: +65 6709 4933
+> Telefono: +65 6709 4933
 >   
 > **America del Nord**:
 >   
@@ -202,7 +203,7 @@ La piattaforma MyCloudIT riduce i tempi di distribuzione del 95% e i costi di Az
 >   
 > Suite 200, Houston, TX 77098
 >   
-> **Telefono: +1 713 691 0800
+> Telefono: +1 713 691 0800
 
 #### <a name="saasplaza"></a>**SaaSplaza**
 [SaaSplaza](http://www.saasplaza.com/) offre un portfolio Microsoft Dynamics completo (NAV, AX, GP, SL, CRM) con cloud privato e pubblico (Azure).
@@ -217,7 +218,7 @@ La piattaforma MyCloudIT riduce i tempi di distribuzione del 95% e i costi di Az
 > 
 > Offerta di soluzioni desktop e RemoteApp basate sulla sessione: sì, entrambe
 > 
-> **EMEA**
+> **EMEA**:
 > 
 > Prins Mauritslaan 29-35
 > 
@@ -227,7 +228,7 @@ La piattaforma MyCloudIT riduce i tempi di distribuzione del 95% e i costi di Az
 > 
 > Telefono: +31 20 547 8060 
 > 
->  **Americhe**
+>  **Americhe**:
 > 
 > 171 Saxony Road, Suite 105
 > 
@@ -239,7 +240,7 @@ La piattaforma MyCloudIT riduce i tempi di distribuzione del 95% e i costi di Az
 > 
 > Telefono: +1 858 385 8900 
 > 
-> **APAC**
+> **APAC**:
 > 
 > 105 Cecil Street
 >    

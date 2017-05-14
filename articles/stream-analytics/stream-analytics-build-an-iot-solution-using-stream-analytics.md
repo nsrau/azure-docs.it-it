@@ -1,5 +1,5 @@
 ---
-title: Compilare una soluzione IoT con Analisi di flusso | Documentazione Microsoft
+title: Compilare una soluzione IoT con Analisi di flusso | Microsoft Docs
 description: Esercitazione introduttiva per la soluzione IoT di Analisi di flusso relativa allo scenario di un casello
 keywords: soluzione IOT, funzioni finestra
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 01850cbf8967fd5f79db64103fb18c6ec01babea
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 637473db37985a4a89ddb19e02eebc377902c942
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +38,7 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, sono necessari i prerequisiti seguenti:
 
-* La versione più recente di [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* La versione più recente di [Azure PowerShell](/powershell/azure/overview)
 * Visual Studio 2017, 2015 o la versione gratuita [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilegi di amministratore nel computer
@@ -138,7 +139,7 @@ Questa esercitazione richiede due hub eventi per ricevere i flussi di dati *in i
 
 Scaricare e salvare la cartella e i file di supporto di [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) .
 
-Aprire una finestra di **Microsoft Azure PowerShell***come amministratore*. Se ancora non si ha Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per istruzioni su come installarlo.
+Aprire una finestra di **Microsoft Azure PowerShell***come amministratore*. Se ancora non si ha Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per istruzioni su come installarlo.
 
 Dato che Windows blocca automaticamente i file con estensione ps1, dll ed exe, è necessario impostare i criteri di esecuzione prima di eseguire lo script. Assicurarsi che la finestra di Azure PowerShell sia in esecuzione *come amministratore*. Eseguire **Set-ExecutionPolicy unrestricted**. Quando richiesto, digitare **Y**.
 
@@ -255,7 +256,7 @@ Per informazioni dettagliate sull'implementazione, il codice sorgente dell'appli
 6. L'origine è **hub eventi**.
 7. **Spazio dei nomi del bus di servizio** deve essere quello TollData nell'elenco a discesa.
 8. **Nome hub eventi** deve essere impostato su **entry**.
-9. **Nome criterio hub eventi* è**RootManageSharedAccessKey** (il valore predefinito).
+9. **Nome criterio hub eventi* è **RootManageSharedAccessKey** (il valore predefinito).
 10. Selezionare **JSON** per **FORMATO DI SERIALIZZAZIONE EVENTI** e **UTF8** per **CODIFICA**.
    
     Le impostazioni vengono visualizzate in questo modo:
@@ -331,7 +332,7 @@ Questa cartella contiene i file seguenti:
 ## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Domanda 1: Numero di veicoli che entrano in un casello
 1. Aprire il portale di Azure e passare al processo di Analisi di flusso di Azure creato. Fare clic sulla scheda **QUERY** e incollare la query dalla sezione precedente.
 
-2. Per convalidare la query sui dati di esempio, caricare i dati nell'input EntryStream facendo clic sul simbolo ... e selezionando **	Carica dati di esempio da file**.
+2. Per convalidare la query sui dati di esempio, caricare i dati nell'input EntryStream facendo clic sul simbolo ... e selezionando  **	Carica dati di esempio da file**.
 
     ![Screenshot del file Entry.json](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)
 3. Nel riquadro visualizzato selezionare il file (Entry.json) nel computer locale e fare clic su **OK**. L'icona di **test** diventerà luminosa e selezionabile.

@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/26/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7f6c71056bca7beebc02313409aabe386d191e23
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 93831bb163f67bbf40026faf3096ff5b7c581dfe
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -664,7 +665,7 @@ Ottenere le attività estese da un log in cui alcune voci contrassegnano l'inizi
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-    | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+    | project City, ActivityId, StartTime, StopTime, Duration=StopTime-StartTime
 
 ```
 
@@ -2750,7 +2751,8 @@ Per creare un valore letterale dinamico, usare `parsejson` (alias `todynamic`) c
 * `parsejson('21')` : un singolo valore di tipo dinamico che contiene un numero
 * `parsejson('"21"')` : un singolo valore di tipo dinamico che contiene una stringa
 
-Si noti che, a differenza di JavaScript, JSON impone l'uso delle virgolette doppie (`"`) per racchiudere le stringhe. Di conseguenza, è in genere più semplice fare riferimento ai valori letterali di stringa con codifica JSON usando virgolette singole (`'`).
+> ![NOTA] Per racchiudere etichette e valori di stringa in JSON, è necessario usare le virgolette doppie (`"`). Di conseguenza, è in genere più semplice fare riferimento ai valori letterali di stringa con codifica JSON usando virgolette singole (`'`).
+> 
 
 Questo esempio crea un valore dinamico e quindi usa i campi:
 
@@ -2927,21 +2929,23 @@ Un oggetto di tipo `dynamic` specificato da *json*.
 
 **Esempio**
 
-Nell'esempio seguente, quando `context_custom_metrics` è un valore `string` simile al seguente: 
+Nell'esempio seguente `customDimensions.person` è un elemento `string` analogo al seguente: 
 
 ```
-{"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
+"\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
 Il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e  `duration.min` (rispettivamente `118.0` e `110.0`).
 
 ```AIQL
-T
-| ...
+customEvents
+| where name == "newMember"
 | extend d=parsejson(context_custom_metrics) 
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
+> ![NOTA] Per racchiudere etichette e valori di stringa in JSON, è necessario usare le virgolette doppie. 
+>
 
 
 ### <a name="range"></a>range

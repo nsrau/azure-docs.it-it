@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: aa31b373e67d4742f7697e2ec6958e108535f746
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 06daecfe8cd61cbb3ab9d2307acb07e30270d921
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introduzione al controllo degli accessi in base al ruolo nel portale di Azure
-Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. Un numero elevato di autorizzazioni espone un account a utenti malintenzionati. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il Controllo degli accessi in base al ruolo di Azure (RBAC) aiuta a risolvere questo problema offrendo la gestione specifica degli accessi per Azure.
+Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il Controllo degli accessi in base al ruolo di Azure (RBAC) aiuta a risolvere questo problema offrendo la gestione specifica degli accessi per Azure.
 
 Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni. Ad esempio, usare il Controllo degli accessi in base al ruolo per consentire a un dipendente di gestire le macchine virtuali in una sottoscrizione, mentre un altro utente può gestire i database SQL della stessa sottoscrizione.
 
@@ -42,7 +43,7 @@ Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di bas
 * **Collaboratore** può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri utenti.
 * **Lettore** può visualizzare le risorse di Azure esistenti.
 
-Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore Macchina virtuale consente all'utente di creare e gestire macchine virtuali, ma non concede l'accesso alla rete virtuale o alla subnet a cui la macchina virtuale si connette.
+Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore Macchina virtuale consente all'utente di creare e gestire macchine virtuali, ma non concede l'accesso alla rete virtuale o alla subnet a cui la macchina virtuale si connette. 
 
 [Controllo degli accessi in base al ruolo: ruoli predefiniti](role-based-access-built-in-roles.md) elenca i ruoli disponibili in Azure. Specifica le operazioni e l'ambito che ogni ruolo predefinito concede agli utenti. Per definire ruoli personalizzati per un maggiore controllo, vedere come creare [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md).
 
@@ -51,7 +52,7 @@ Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specif
 * Ogni **gruppo di risorse** appartiene a una sola sottoscrizione.
 * Ogni **risorsa** appartiene a un solo gruppo di risorse.
 
-L’accesso che si concede all’ambito padre viene ereditato dall’ambito figlio. Ad esempio:
+L'accesso che si concede all'ambito padre viene ereditato dall'ambito figlio. Ad esempio:
 
 * Si assegna il ruolo Lettore a un gruppo di Azure AD nell'ambito della sottoscrizione. I membri di tale gruppo possono visualizzare ogni gruppo di risorse e ogni risorsa nella sottoscrizione.
 * Si assegna il ruolo Collaboratore a un'applicazione nell'ambito del gruppo di risorse. Può gestire risorse di tutti i tipi in tale gruppo di risorse, ma non altri gruppi di risorse nella sottoscrizione.
@@ -62,7 +63,7 @@ I ruoli Amministratore sottoscrizione classico e Coamministratore hanno l'access
 Solo il portale di Azure e le nuove API di Azure Resource Manager supportano il Controllo degli accessi in base al ruolo di Azure. Gli utenti e le applicazioni a cui vengono assegnati ruoli Controllo degli accessi in base al ruolo non possono usare il portale di gestione classico e il modello di distribuzione classica di Azure.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Autorizzazioni per le operazioni di gestione e per le operazioni sui dati
-Il Controllo degli accessi in base al ruolo di Azure supporta solo operazioni di gestione delle risorse di Azure nel portale di Azure e nelle API di Azure Resource Manager. Non tutte le operazioni a livello di dati svolte sulle risorse di Azure possono essere autorizzate tramite RBAC. Ad esempio, è possibile autorizzare un utente a gestire gli account di archiviazione, ma non i BLOB e le tabelle all'interno di un account di archiviazione. Analogamente, può essere gestito un database SQL, ma non le tabelle in esso contenute.
+Il Controllo degli accessi in base al ruolo di Azure supporta solo operazioni di gestione delle risorse di Azure nel portale di Azure e nelle API di Azure Resource Manager. Non tutte le operazioni a livello di dati svolte sulle risorse di Azure possono essere autorizzate tramite RBAC. È possibile ad esempio autorizzare un utente a gestire gli account di archiviazione, ma non i BLOB e le tabelle all'interno di un account di archiviazione. Analogamente, può essere gestito un database SQL, ma non le tabelle in esso contenute.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Introduzione al [Controllo degli accessi in base al ruolo di Azure nel portale di Azure](role-based-access-control-configure.md).

@@ -15,10 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 8ef393e414559ed6c7a2a3b41a0c8cf060f8d4da
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 42ac754ba24ba3e8f96d4fb6f3abb97169056c8e
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/21/2017
 In questo articolo viene illustrata l'importazione di un file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) in un nuovo database SQL di Azure. Questo articolo descrive l'uso dei metodi seguenti:
 - Il[portale di Azure](https://portal.azure.com)
 - l'utilità della riga di comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx)
-- il cmdlet [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport?view=azurermps-3.7.0)
+- il cmdlet [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport)
 
 ## <a name="overview"></a>Panoramica
 
@@ -50,7 +51,7 @@ Per importare un database tramite il portale di Azure, aprire la pagina per il d
 
 Per monitorare lo stato di avanzamento dell'operazione di importazione, aprire la pagina per il server logico contenente il database importato. Scorrere fino a **Operazioni** e quindi fare clic sulla cronologia di **importazione/esportazione**.
 
-### <a name="monitor-the-progress-of-the-import-operation"></a>Monitorare lo stato dell’operazione di importazione
+### <a name="monitor-the-progress-of-the-import-operation"></a>Monitorare lo stato dell'operazione di importazione
 1. Fare clic su **SQL Server**.
 2. Selezionare il server da ripristinare.
 3. Nel pannello server SQL fare clic su **Cronologia importazioni/esportazioni**, nell'area Operazioni:
@@ -75,12 +76,18 @@ SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.
    ![importazione sqlpackage](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
 > [!IMPORTANT]
-> Un server logico del database SQL di Azure è in ascolto sulla porta 1433. Se si sta tentando di connettersi a un server logico del database SQL di Azure dall'interno di un firewall aziendale, per la riuscita della connessione è necessario che questa porta sia aperta nel firewall aziendale.
+> Il server logico del database SQL di Azure è in ascolto sulla porta 1433. Se si sta tentando di connettersi a un server logico del database SQL di Azure dall'interno di un firewall aziendale, questa porta deve essere aperta.
 >
+
+Questo esempio illustra come importare un database usando SqlPackage.exe con l'autenticazione universale di Active Directory:
+
+```cmd
+SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
+```
 
 ## <a name="powershell"></a>PowerShell
 
-Usare il cmdlet [AzureRmSqlDatabaseImport New](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport?view=azurermps-3.7.0) per inviare una richiesta di importazione database al servizio database SQL di Azure. A seconda delle dimensioni del database, l'operazione di esportazione potrebbe richiedere diverso tempo.
+Usare il cmdlet [AzureRmSqlDatabaseImport New](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) per inviare una richiesta di importazione database al servizio database SQL di Azure. A seconda delle dimensioni del database, l'operazione di esportazione potrebbe richiedere diverso tempo.
 
  ```powershell
  $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName "myResourceGroup" `
@@ -97,7 +104,7 @@ Usare il cmdlet [AzureRmSqlDatabaseImport New](https://docs.microsoft.com/powers
 
  ```
 
-Per verificare lo stato della richiesta di importazione, usare il cmdlet [AzureRmSqlDatabaseImportExportStatus Get](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus). L'esecuzione di questo cmdlet subito dopo la richiesta restituisce in genere **Status: InProgress**. Al termine dell'esportazione, il messaggio restituito è **Status: Succeeded**.
+Per verificare lo stato della richiesta di importazione, usare il cmdlet [AzureRmSqlDatabaseImportExportStatus Get](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus). L'esecuzione di questo cmdlet subito dopo la richiesta restituisce in genere **Status: InProgress**. Al termine dell'esportazione, il messaggio restituito è **Status: Succeeded**.
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink

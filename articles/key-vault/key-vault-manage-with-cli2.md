@@ -1,5 +1,5 @@
 ---
-title: Gestire l&quot;insieme di credenziali delle chiavi tramite l&quot;interfaccia della riga di comando | Microsoft Docs
+title: Gestire Azure Key Vault tramite l&quot;interfaccia della riga di comando | Microsoft Docs
 description: "Usare questa esercitazione per automatizzare le attività comuni in Key Vault tramite l&quot;interfaccia della riga di comando 2.0"
 services: key-vault
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/20/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 24b56848523a9bd7145e1c99394d55b9708e9896
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: e53b45ef180362f7554c7819b9ae2eb3dbfe3300
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -249,5 +250,5 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 ## <a name="next-steps"></a>Passaggi successivi
 Per riferimenti sull'interfaccia della riga di comando di Azure per i comandi delle credenziali delle chiavi, vedere [Key Vault CLI reference](/cli/azure/keyvault) (Riferimento dell'interfaccia della riga di comando di Key Vault)
 
-Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
+Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 

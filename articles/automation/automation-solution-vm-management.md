@@ -1,5 +1,5 @@
 ---
-title: "Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) | Documentazione Microsoft"
+title: "Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) | Microsoft Docs"
 description: La soluzione Virtual Machine Management permette di avviare e arrestare le macchine virtuali di Azure Resource Manager in base a una pianificazione e di monitorare in modo attivo tramite Log Analytics.
 services: automation
 documentationCenter: 
@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 04/26/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
-ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2d6ef39ad4678d331eadd2c0bfd6ff93c99da501
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -29,7 +30,7 @@ La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore atti
 
 - I runbook funzionano con un [account RunAs di Azure](automation-sec-configure-azure-runas-account.md).  L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che può scadere o essere modificata di frequente.  
 
-- Questa soluzione può gestire solo le macchine virtuali che si trovano nella stessa sottoscrizione e nello stesso gruppo di risorse in cui risiede l'account di Automazione.  
+- Questa soluzione può gestire solo le macchine virtuali nella stessa sottoscrizione in cui risiede l'account di Automazione.  
 
 - È possibile eseguire la distribuzione solo nelle aree di Azure seguenti: Australia sud-orientale, Stati Uniti orientali, Asia sud-orientale ed Europa occidentale.  I runbook che gestiscono la pianificazione delle macchine virtuali possono essere usati in qualsiasi area.  
 

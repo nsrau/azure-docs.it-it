@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 229dd21f3ab1ae716cd49611e720450ae5939eb8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 6f84365acb9a1cc1fc31fa5f3c04cd112f68087b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -99,20 +100,18 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 ## <a name="data-rate"></a>Velocità dati
 Esistono tre modi per limitare il volume di invio dei dati:
 
-* **Limite giornaliero.** Il limite massimo è di 500 GB al giorno. Il valore predefinito quando si crea una risorsa di Application Insights da Visual Studio è basso (solo 32,3 MB al giorno). Quando si crea una risorsa di Application Insights nel portale di Azure, il limite è impostato sul valore massimo. Prestare attenzione quando si apporta una modifica, perché il raggiungimento del limite provocherà la perdita di dati per il resto del giorno. Per modificare il valore, usare il pannello Limite di utilizzo volume giornaliero collegato dal pannello di gestione dati.
-* **[Campionamento](app-insights-sampling.md).** Questo meccanismo può ridurre la quantità di dati di telemetria inviati da server e app client, con una distorsione minima delle metriche.
-* Con la **limitazione** la velocità dei dati non supera i 32.000 eventi al secondo, calcolati con una media di oltre 1 minuto. 
+* **Campionamento:** questo meccanismo può ridurre la quantità di dati di telemetria inviati da server e app client, con una distorsione minima delle metriche. Si tratta dello strumento principale per ottimizzare la quantità di dati. Altre informazioni sulle [funzionalità di campionamento](app-insights-sampling.md). 
+* **Limite giornaliero:** quando si crea una risorsa di Application Insights nel portale di Azure, il limite è impostato sul valore di 500 GB al giorno. Quando si crea una risorsa di Application Insights da Visual Studio, il valore predefinito è ridotto (solo 32,3 MB al giorno) al fine di semplificare il test. In questo caso è opportuno che l'utente aumenti il limite giornaliero prima di distribuire l'applicazione nell'ambiente di produzione. Il limite massimo è 500 GB al giorno, a meno che non sia stato richiesto un valore massimo più alto per un'applicazione con traffico elevato. Prestare attenzione quando si imposta il limite giornaliero perché lo scopo deve essere quello di **non raggiungere mai il limite massimo giornaliero** per evitare di perdere dati per il resto del giorno e di essere sempre in grado di monitorare l'applicazione. Per modificare il valore, usare il pannello Limite di utilizzo volume giornaliero collegato dal pannello di gestione dati (vedere di seguito). Tenere presente che ad alcuni tipi di sottoscrizione è associato un credito che non può essere usato per Application Insights. Se alla sottoscrizione è associato un limite di spesa, nel pannello relativo al limite giornaliero sono presenti istruzioni per rimuoverlo e aumentarlo oltre il valore di 32,3 MB al giorno.  
+* **Limitazione:** la velocità dei dati non supera i 32.000 eventi al secondo, calcolati con una media di oltre 1 minuto. 
 
 
 *Cosa accade se l'app supera la velocità di limitazione?*
 
-* Il volume dei dati inviati dall'app viene valutato ogni minuto. Se il valore supera la velocità media al secondo calcolata nel minuto, il server rifiuta alcune richieste. L'SDK esegue il buffering dei dati e quindi tenta di inviare di nuovo, distribuendo una sovratensione nell'arco di diversi minuti. Se l'app continua a inviare dati che eccedono la limitazione, alcuni di questi verranno eliminati. (Gli SDK di ASP.NET, Java e JavaScript ritentano l'invio, mentre altri SDK potrebbero semplicemente eliminare i dati sottoposti a limitazione).
+* Il volume dei dati inviati dall'app viene valutato ogni minuto. Se il valore supera la velocità media al secondo calcolata nel minuto, il server rifiuta alcune richieste. L'SDK esegue il buffering dei dati e quindi tenta di inviare di nuovo, distribuendo una sovratensione nell'arco di diversi minuti. Se l'app continua a inviare dati che eccedono la limitazione, alcuni di questi verranno eliminati. (Gli SDK di ASP.NET, Java e JavaScript ritentano l'invio, mentre altri SDK potrebbero semplicemente eliminare i dati sottoposti a limitazione). In caso di avvenuta limitazione, verrà visualizzata una notifica che avviserà che ciò si è verificato.
 
-In caso di avvenuta limitazione, verrà visualizzata una notifica che avviserà che ciò si è verificato.
+*Come è possibile conoscere la quantità di dati inviati dall'app?*
 
-*Come è possibile sapere quanti punti dati vengono inviati dall'app?*
-
-* Aprire il pannello Prezzi per visualizzare il grafico Volume dati.
+* Aprire il pannello **Gestione del volume dati** per visualizzare il grafico sul volume dei dati giornalieri. 
 * Altrimenti, in Esplora metriche, aggiungere un nuovo grafico e selezionare **Volume punti dati** come metrica. Attivare il raggruppamento in base a **Tipo di dati**.
 
 ## <a name="to-reduce-your-data-rate"></a>Per ridurre la velocità dei dati
@@ -130,7 +129,7 @@ Ecco alcune operazioni da eseguire per ridurre il volume di dati:
 
 Usare invece il [campionamento](app-insights-sampling.md) per ottimizzare il volume di dati al livello desiderato e usare il limite giornaliero solo come ultima opzione, nel caso in cui l'applicazione inizia a inviare volumi di dati di telemetria più elevati in modo imprevisto. 
 
-Per modificare il limite giornaliero, aprire **Funzionalità+prezzi**, **Gestione dati**.
+Per modificare il limite giornaliero, nella sezione di configurazione della risorsa di Application Insights fare clic su **Gestione del volume dati** e quindi su **Limite di utilizzo giornaliero**.
 
 ![Regolazione del limite di uso del volume di dati di telemetria giornalieri](./media/app-insights-pricing/daily-cap.png) 
 

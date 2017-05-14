@@ -1,6 +1,6 @@
 ---
-title: Creare cluster Azure HDInsight (Hadoop) usando .NET | Documentazione Microsoft
-description: "Informazioni su come creare cluster Hadoop, HBase, Storm o Spark su Linux per HDInsight tramite l’SDK HDInsight .NET."
+title: Creare cluster Azure HDInsight (Hadoop) usando .NET | Microsoft Docs
+description: Informazioni su come creare cluster Hadoop, HBase, Storm o Spark su Linux per HDInsight tramite l&quot;SDK HDInsight .NET.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 04/27/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 8377c936e37b464c2d566f9482ebda63a1e374df
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 173869858ba7891fcea8a0207e9b192b81ae4840
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -41,10 +42,6 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso di HDIns
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un account di archiviazione di Azure**. Vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account).
 * **Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017**.
-
-### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-clusters"></a>Creare i cluster
 
@@ -374,6 +371,10 @@ static void Main(string[] args)
     System.Console.ReadLine();
 }
 ```
+
+## <a name="troubleshoot"></a>Risoluzione dei problemi
+
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquisire familiarità con il cluster. 

@@ -1,8 +1,8 @@
 ---
 title: 'Azure AD: registrazione per la reimpostazione password self-service | Microsoft Docs'
-description: Registrare i dati di autenticazione per la reimpostazione password self-service
+description: Registrare i dati di autenticazione per la reimpostazione password self-service di Azure AD
 services: active-directory
-keywords: gestione delle password in Active Directory, gestione delle password, reimpostazione password self-service di Azure AD, SSPR
+keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
@@ -11,31 +11,32 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/16/2017
+ms.topic: article
+ms.date: 04/26/2017
 ms.author: joflore
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c6d3d9d8f399816928e794e8956bc35825462fb9
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: bd0175558a94a146a365e8c1a32522f1e54c184e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="register-for-self-service-password-reset"></a>Eseguire la registrazione per la reimpostazione password self-service
 
-Se consentito dall'amministratore, un utente finale può reimpostare la propria password o sbloccare il proprio account senza dover contattare nessuno usando la reimpostazione password self-service. Per poter usare questa funzionalità, è prima necessario registrare i metodi di autenticazione o confermare i metodi di autenticazione predefiniti inseriti dall'amministratore.
+Come utente finale, è possibile reimpostare la password o sbloccare l'account senza la necessità di rivolgersi a un'altra persona usando la funzionalità di reimpostazione della password self-service (SSPR). Per poter usare questa funzionalità, è prima necessario registrare i metodi di autenticazione o confermare i metodi di autenticazione predefiniti inseriti dall'amministratore.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registrare o confermare i dati di autenticazione con la reimpostazione password self-service
 
 1. Aprire il Web browser sul dispositivo e andare alla [pagina di registrazione per la reimpostazione della password](http://aka.ms/ssprsetup).
 2. Immettere il nome utente e la password forniti dall'amministratore.
-3. A seconda delle opzioni approvate dall'amministratore, verranno visualizzati per la configurazione o la verifica uno o più degli elementi seguenti, che verranno usati se sarà necessario reimpostare la password.
-    * Telefono ufficio: questa opzione può essere impostata solo dall'amministratore.
-    * Telefono per l'autenticazione: questa opzione dovrà essere impostata su un altro numero di telefono a cui si ha accesso, ad esempio un telefono cellulare che può ricevere SMS o chiamate. Il numero di telefono cellulare dell'utente può essere inserito dall'amministratore, se è stato autorizzato dall'utente a usare tale informazione.
-    * Indirizzo di posta elettronica per l'autenticazione: questa opzione dovrà essere impostata su un indirizzo di posta elettronica alternativo a cui si può accedere senza la password che deve essere reimpostata.
-    * Domande di sicurezza: questa opzione offre un elenco di domande approvate dall'amministratore a cui l'utente dovrà rispondere. Non è possibile usare la stessa risposta per più domande.
-4. Specificare e verificare le informazioni richieste dall'amministratore. Se sono disponibili più opzioni, è consigliabile registrare più metodi per assicurarsi flessibilità quando un altro metodo non è disponibile, ad esempio quando si è in viaggio e non si ha accesso al telefono dell'ufficio.
+3. A seconda delle configurazione definita dal personale IT, una o più delle opzioni seguenti sono disponibili per essere configurate e verificate. L'amministratore può specificare alcune di queste opzioni se ha l'autorizzazione per usare le informazioni.
+    * Il telefono ufficio può essere impostato solo dall'amministratore
+    * Il telefono per l'autenticazione deve essere impostato su un altro numero di telefono a cui l'utente può accedere, ad esempio un telefono cellulare in grado di ricevere un SMS o una chiamata.
+    * L'indirizzo di posta elettronica per l'autenticazione deve essere impostato su un indirizzo di posta elettronica alternativo a cui si può accedere senza la password da reimpostare.
+    * Le domande di sicurezza sono costituite da un elenco di domande approvate dall'amministratore a cui l'utente deve rispondere. Non è possibile usare la stessa domanda o rispondere più di una volta.
+4. Specificare e verificare le informazioni richieste dall'amministratore. Se sono disponibili più opzioni, è consigliabile registrare più metodi per assicurare flessibilità quando un altro metodo non è disponibile, ad esempio quando si è in viaggio e non si ha accesso al telefono dell'ufficio.
 
     ![Registrare i metodi di autenticazione e fare clic su Fine][Register]
 
@@ -53,4 +54,5 @@ Gli amministratori possono richiedere all'utente di confermare i metodi di auten
 * [Non è possibile accedere all'account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Pagina di registrazione per la reimpostazione della password con metodi registrati e pulsante Fine"
+
 

@@ -13,16 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9591d7e2dd743e44d228205163ad55cb47992283
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 361ad3a669370419e1080d3e4b3fc646f7a0a958
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori del Catalogo dati di Azure
-**Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell’origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono usare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con il **Catalogo dati di Azure**.
+**Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell'origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono usare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con il **Catalogo dati di Azure**.
 
 ## <a name="key-concepts"></a>Concetti chiave
 Il modello concettuale di **Azure Data Catalog** è basato su quattro concetti chiave: il **catalogo**, gli **utenti**, gli **asset** e le **annotazioni**.
@@ -50,7 +52,7 @@ Il **catalogo** contiene gli asset di dati. **asset** rappresentano l'unità di 
 
 La granularità di un asset varia a seconda dell'origine dati. Per database Oracle o SQL Server un asset può essere una tabella o una vista. Per SQL Server Analysis Services un asset può essere una misura, una dimensione o un indicatore di prestazioni chiave (KPI). Per SQL Server Reporting Services un asset è un report.
 
-L’ **asset** è l'elemento che si aggiunge o si rimuove da un catalogo. È l'unità di risultato ottenuto dalla **ricerca**.
+L'**asset** è l'elemento che si aggiunge o si rimuove da un catalogo. È l'unità di risultato ottenuto dalla **ricerca**.
 
 L' **asset** è composto dal relativo nome, dal percorso, dal tipo e dalle annotazioni che lo descrivono ulteriormente.
 
@@ -60,15 +62,15 @@ Le annotazioni sono elementi che rappresentano i metadati relativi agli asset.
 Descrizioni, tag, schemi, documentazione e così via sono esempi di annotazioni. Un elenco completo dei tipi di annotazione e di asset è disponibile nella sezione Modello a oggetti asset.
 
 ## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>Annotazioni crowdsourcing e prospettiva dell'utente (molteplicità di opinione)
-Un aspetto fondamentale del Catalogo dati di Azure è il supporto crowdsourcing dei metadati nel sistema. A differenza dell’approccio wiki, dove è presente una sola opinione e l'ultima scrittura prevale, il modello Catalogo dati di Azure consente a più opinioni di convivere affiancate nel sistema.
+Un aspetto fondamentale del Catalogo dati di Azure è il supporto crowdsourcing dei metadati nel sistema. A differenza dell'approccio wiki, dove è presente una sola opinione e l'ultima scrittura prevale, il modello Catalogo dati di Azure consente a più opinioni di convivere affiancate nel sistema.
 
 Questo approccio riflette il mondo reale dei dati aziendali in cui diversi utenti possono avere diverse prospettive su un determinato asset:
 
 * Un amministratore del database può fornire informazioni sui contratti di servizio o la finestra di elaborazione disponibile per le operazioni ETL in blocco
-* Un amministratore dei dati può fornire informazioni sui processi aziendali a cui si applica l'asset o le classificazioni a cui è stato applicato dall’azienda
+* Un amministratore dei dati può fornire informazioni sui processi aziendali a cui si applica l'asset o le classificazioni a cui è stato applicato dall'azienda
 * Un analista finanziario può fornire informazioni sull'uso dei dati durante le attività di reporting di fine periodo
 
-Per supportare questo esempio, ogni utente (l'amministratore del database, l'amministratore dei dati e l’analista) può aggiungere una descrizione a una singola tabella che è stata registrata nel catalogo. Tutte le descrizioni vengono gestite nel sistema e nel portale del Catalogo dati di Azure vengono visualizzate tutte le descrizioni.
+Per supportare questo esempio, ogni utente (l'amministratore del database, l'amministratore dei dati e l'analista) può aggiungere una descrizione a una singola tabella che è stata registrata nel catalogo. Tutte le descrizioni vengono gestite nel sistema e nel portale del Catalogo dati di Azure vengono visualizzate tutte le descrizioni.
 
 Questo modello viene applicato alla maggior parte degli elementi del modello a oggetti. I tipi di oggetto nel payload JSON, quindi, sono spesso matrici per le proprietà in cui è possibile prevedere un singleton.
 
@@ -77,7 +79,7 @@ Ad esempio, sotto la radice dell'asset è disponibile una matrice di oggetti des
 L'esperienza utente può quindi scegliere come visualizzare la combinazione. Esistono tre diversi modelli per la visualizzazione.
 
 * Il modello più semplice è "Mostra tutto". In questo modello tutti gli oggetti vengono visualizzati in una visualizzazione elenco. Il portale di Azure Data Catalog fa uso di questo modello per la descrizione.
-* Un altro modello è "Merge". In questo modello tutti i valori dai diversi utenti vengono uniti e i duplicati vengono rimossi. Esempi di questo modello nell’esperienza utente nel portale del Catalogo dati di Azure sono le proprietà di tag ed esperti.
+* Un altro modello è "Merge". In questo modello tutti i valori dai diversi utenti vengono uniti e i duplicati vengono rimossi. Esempi di questo modello nell'esperienza utente nel portale del Catalogo dati di Azure sono le proprietà di tag ed esperti.
 * Un terzo modello è "ultima scrittura prevale". In questo modello viene visualizzato solo il valore digitato più di recente. friendlyName è un esempio di questo modello.
 
 ## <a name="asset-object-model"></a>Modello a oggetti asset
@@ -98,7 +100,7 @@ Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi d
 <p>
 Queste proprietà si applicano a tutti i tipi di asset radice.
 
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>String</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l’asset. Vedere la sezione relativa all’identità doppia.  La struttura del percorso dell'origine dati varia in base al tipo di protocollo e di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l’asset più di recente.  Contiene l'ID univoco per l'utente (upn) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>containerId</td><td>String</td><td>ID dell'asset di contenitore per l'origine dati. Questa proprietà non è supportata per il tipo di contenitore.</td></tr></table>
+<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>name</td><td>String</td><td>Nome derivato dalle informazioni del percorso di origine dati.</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Descrive in modo univoco l'origine dati ed è uno degli identificatori per l'asset. Vedere la sezione relativa all'identità doppia.  La struttura del percorso dell'origine dati varia in base al tipo di protocollo e di origine.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Ulteriori dettagli sul tipo di asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descrive l'utente che ha registrato l'asset più di recente.  Contiene l'ID univoco per l'utente (upn) e un nome visualizzato (lastName e firstName).</td></tr><tr><td>containerId</td><td>String</td><td>ID dell'asset di contenitore per l'origine dati. Questa proprietà non è supportata per il tipo di contenitore.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Proprietà comuni di annotazione non singleton
 Queste proprietà si applicano a tutti i tipi di annotazione non singleton, ad esempio le annotazioni di cui sono consentite più occorrenze per ogni asset.
@@ -118,7 +120,7 @@ I tipi di asset radice rappresentano i diversi tipi di asset di dati che possono
 I tipi di annotazione sono tipi di metadati che possono essere assegnati ad altri tipi all'interno del catalogo.
 
 <table>
-<tr><td><b>Tipo di annotazione (nome vista annidata)</b></td><td><b>Proprietà aggiuntive</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr>
+<tr><td><b>Tipo di annotazione (nome della vista annidata)</b></td><td><b>Proprietà aggiuntive</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr>
 
 <tr><td>Descrizione ("descrizioni")</td><td></td><td></td><td>Questa proprietà contiene una descrizione per un asset. Ogni utente del sistema può aggiungere una descrizione.  Solo tale utente può modificare l'oggetto descrizione.  Gli amministratori e i proprietari di asset possono eliminare l'oggetto Description ma non modificarlo. Il sistema gestisce le descrizioni degli utenti separatamente.  Pertanto è disponibile una matrice di descrizioni in ogni asset (una per ogni utente che ha contribuito con le proprie conoscenze sull'asset, oltre a probabilmente una contenente le informazioni derivate dall'origine dati).</td></tr>
 <tr><td></td><td>description</td><td>string</td><td>Breve descrizione (2-3 righe) dell'asset</td></tr>
@@ -153,7 +155,7 @@ I tipi di annotazione sono tipi di metadati che possono essere assegnati ad altr
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>Il numero di righe nel set di dati</td></tr>
 <tr><td></td><td>size</td><td>long</td><td>La dimensione in byte del set di dati.  </td></tr>
-<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>L’ora dell'ultima modifica apportata allo schema</td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>L'ora dell'ultima modifica apportata allo schema</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>stringa</td><td>Ora dell'ultima modifica al set di dati, con aggiunta, modifica o eliminazione di dati</td></tr>
 
 <tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
@@ -193,8 +195,8 @@ I tipi comuni possono essere usati come tipi per proprietà, ma non sono element
 <tr><td>Colonna</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nome della colonna o dell'attributo.</td></tr>
 <tr><td></td><td>type</td><td>string</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset.  È supportato un solo subset di tipi.</td></tr>
-<tr><td></td><td>maxLength</td><td>int</td><td>Lunghezza massima consentita per la colonna o l’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
-<tr><td></td><td>precision</td><td>byte</td><td>Precisione della colonna o dell’attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
+<tr><td></td><td>maxLength</td><td>int</td><td>Lunghezza massima consentita per la colonna o l'attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
+<tr><td></td><td>precision</td><td>byte</td><td>Precisione della colonna o dell'attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Verifica se la colonna può avere un valore null o meno. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 <tr><td></td><td>expression</td><td>stringa</td><td>Se il valore è una colonna calcolata, questo campo contiene l'espressione che esprime il valore. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 
@@ -251,7 +253,7 @@ Catalogo dati di Azure usa due meccanismi di autorizzazione:
 ### <a name="roles"></a>Ruoli
 Sono disponibili tre ruoli: **Amministratore**, **Proprietario** e **Collaboratore**.  Ogni ruolo ha un ambito e dei diritti che sono riepilogati nella tabella seguente.
 
-<table><tr><td><b>Ruolo</b></td><td><b>Scope</b></td><td><b>Diritti</b></td></tr><tr><td>Amministratore</td><td>Catalogo (ad esempio tutti gli asset o le annotazioni del catalogo)</td><td>Read Delete ViewRoles
+<table><tr><td><b>Ruolo</b></td><td><b>Ambito</b></td><td><b>Diritti</b></td></tr><tr><td>Amministratore</td><td>Catalogo (ad esempio tutti gli asset o le annotazioni del catalogo)</td><td>Read Delete ViewRoles
 
 ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Proprietario</td><td>Ogni asset (elemento radice)</td><td>Read Delete ViewRoles
 
@@ -359,9 +361,4 @@ L'entità di sicurezza speciale &lt;Tutti&gt; ha come objectId "00000000-0000-00
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Usare C# con MapReduce in Hadoop in HDInsight - Azure | Documentazione Microsoft
+title: Usare C# con MapReduce in Hadoop in HDInsight - Azure | Microsoft Docs
 description: Informazioni su come usare C# per creare soluzioni di MapReduce con Hadoop in HDInsight di Azure.
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 9ac11d8ad5930d67fbf2822674d539839d248cde
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: f98d769542f5a52d659f561e970f0a7e9dce9fd9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -34,7 +35,7 @@ Hadoop streaming è un'utilità che consente di eseguire processi MapReduce tram
 
 ## <a name="net-on-hdinsight"></a>.NET su HDInsight
 
-__I cluster HDInsight basati su Linux__ usano [Mono (https://mono-project.com)](https://mono-project.com) per eseguire le applicazioni .NET. La versione Mono 4.2.1 è inclusa nella versione 3.5 di HDInsight. Per altre informazioni sulla versione Mono compresa in HDInsight, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](hdinsight-component-versioning.md).
+__I cluster HDInsight basati su Linux__ usano [Mono (https://mono-project.com)](https://mono-project.com) per eseguire le applicazioni .NET. La versione Mono 4.2.1 è inclusa nella versione 3.5 di HDInsight. Per altre informazioni sulla versione Mono compresa in HDInsight, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](hdinsight-component-versioning.md). Per usare una versione specifica di Mono, vedere il documento [Install or update Mono](hdinsight-hadoop-install-mono.md) (Installare o aggiornare Mono).
 
 Per altre informazioni sulla compatibilità Mono con le versioni di .NET Framework, vedere il documento relativo alla [compatibilità Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 

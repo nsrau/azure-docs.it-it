@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 53bd62688aa0d1a06d2d012c8da664d2de4b0b45
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: e36deaeba611896e793f40cf0e05b8771841816f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -146,6 +147,8 @@ Per altre informazioni su Managed Disks, vedere gli articoli seguenti.
 * [Collegare un disco dati gestito a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
 * [Aggiungere un disco gestito a una VM Linux](../virtual-machines/linux/add-disk.md)
+
+* [Script di esempio di PowerShell di Managed Disks](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
 
 ### <a name="compare-managed-disks-storage-options"></a>Confronto tra le opzioni di archiviazione di Managed Disks 
 

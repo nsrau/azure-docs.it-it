@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi delle route - PowerShell | Documentazione Microsoft
+title: Risoluzione dei problemi delle route - PowerShell | Microsoft Docs
 description: Informazioni su come risolvere i problemi delle route nel modello di distribuzione Azure Resource Manager con Azure PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -57,7 +59,7 @@ Per visualizzare le route di aggregazione applicate a una VM, completare i passa
 ### <a name="view-effective-routes-for-a-network-interface"></a>Visualizzare le route valide per un'interfaccia di rete
 Per visualizzare le route di aggregazione applicate a un'interfaccia di rete, completare i passaggi seguenti:
 
-1. Avviare una sessione di Azure PowerShell e accedere ad Azure. Se non si ha dimestichezza con Azure PowerShell, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Avviare una sessione di Azure PowerShell e accedere ad Azure. Se non si ha dimestichezza con Azure PowerShell, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 2. Il comando seguente restituisce tutte le route applicate a un'interfaccia di rete denominata *VM1 NIC1* nel gruppo di risorse *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -101,7 +103,7 @@ Per visualizzare le route di aggregazione applicate a un'interfaccia di rete, co
        ---- ----- ------------- ----------- ----------------
        Active {10.9.0.0/16} VnetLocal {}
        Active {0.0.0.0/0} Internet {}
-3. Non ci sono route elencate per la rete virtuale *WestUS VNet3* (prefisso 10.10.0.0/16)** da *WestUS VNet1* (prefisso 10.9.0.0/16) nell'output del passaggio precedente. Come illustrato nell'immagine seguente, la rete virtuale che collega in peering il collegamento con la rete virtuale *WestUS VNet3* è *disconnessa*.
+3. Non sono presenti route elencate per la rete virtuale *WestUS VNet3* (prefisso 10.10.0.0/16) da *WestUS VNet1* (prefisso 10.9.0.0/16) nell'output del passaggio precedente. Come illustrato nell'immagine seguente, la rete virtuale che collega in peering il collegamento con la rete virtuale *WestUS VNet3* è *disconnessa*.
    
     ![](./media/virtual-network-routes-troubleshoot-portal/image4.png)
    
@@ -135,10 +137,5 @@ Alcuni aspetti da tenere presenti quando si esamina l'elenco delle route restitu
 * Per il corretto funzionamento del traffico peering di rete virtuale, deve esistere una route di sistema con **nextHopType** *VNetPeering* per l'intervallo dei prefissi della rete virtuale con peering. Se non esiste una route di questo tipo e il collegamento di peering della rete virtuale ha un aspetto corretto:
   * Attendere alcuni secondi e riprovare, se si tratta di un collegamento di peering appena stabilito. In alcuni casi è necessario più tempo per propagare le route a tutte le interfacce di rete in una subnet.
   * Le regole del gruppo di sicurezza di rete possono influire sui flussi di traffico. Per altre informazioni, vedere l'articolo [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-powershell.md) (Risolvere i problemi dei gruppi di sicurezza di rete).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

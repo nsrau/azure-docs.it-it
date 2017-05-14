@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul servizio di inoltro di Azure | Documentazione Microsoft
+title: Domande frequenti sul servizio di inoltro di Azure | Microsoft Docs
 description: Risposte ad alcune domande frequenti sul servizio di inoltro di Azure.
 services: service-bus-relay
 documentationcenter: na
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
-ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7562fbee15e4450542c2c17d8ae2a763a556a44f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -49,8 +51,10 @@ Ecco tre scenari di esempio:
 
 I prezzi usati negli esempi saranno validi solo durante il periodo di anteprima e saranno soggetti a modifiche in occasione del passaggio alla versione disponibile a livello generale delle connessioni ibride.
 
-### <a name="how-are-wcf-relay-hours-calculated"></a>Come vengono calcolate le ore di Inoltro WCF?
-Le ore di inoltro vengono fatturate per la quantità totale di tempo durante il quale ogni inoltro del bus di servizio è "aperto". Un inoltro viene istanziato e aperto in modo implicito in un determinato indirizzo del bus di servizio (URL dello spazio dei nomi del servizio) quando un servizio WCF abilitato per l'inoltro, o "listener di inoltro", si connette per la prima volta a tale indirizzo. Viene chiuso solo quando l'ultimo listener si disconnette dal relativo indirizzo. Pertanto, ai fini della fatturazione un inoltro viene considerato "aperto" dal momento della prima connessione da parte di un listener di inoltro fino al momento in cui l'ultimo listener di inoltro si disconnette dall'indirizzo del bus di servizio di tale inoltro.
+### <a name="how-are-relay-hours-calculated"></a>Come vengono calcolate le ore inoltro?
+Le ore di inoltro WCF e di connessione ibrida vengono fatturate in base alla quantità totale di tempo durante il quale ogni inoltro del bus di servizio è "aperto". Un inoltro viene creato e aperto in modo implicito in un determinato indirizzo del bus di servizio (URL dello spazio dei nomi del servizio) quando un servizio abilitato per l'inoltro, o "listener di inoltro", si connette per la prima volta a tale indirizzo. Viene chiuso solo quando l'ultimo listener si disconnette dal relativo indirizzo. Pertanto, ai fini della fatturazione un inoltro viene considerato "aperto" dal momento della prima connessione da parte di un listener di inoltro fino al momento in cui l'ultimo listener di inoltro si disconnette dall'indirizzo del bus di servizio di tale inoltro.
+
+Gli inoltri WFC sono disponibili solo negli spazi dei nomi di livello Standard. Le [quote di prezzi e la connessione](../service-bus-messaging/service-bus-quotas.md) per gli inoltri restano in caso contrario invariate. Ciò significa che gli inoltri continueranno a essere addebitati sul numero di messaggi (non operazioni) e sulle ore di inoltro. Per altre informazioni, vedere la tabella relativa alle [connessioni ibride e agli inoltri WCF](https://azure.microsoft.com/pricing/details/service-bus/) nella pagina dei dettagli dei prezzi.
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-given-relay"></a>Che cosa succede se più listener sono connessi a un determinato inoltro?
 In alcuni casi, a un singolo inoltro possono essere connessi più listener. Un inoltro viene considerato "aperto" quando vi è connesso almeno un listener di inoltro. L'aggiunta di altri listener a un inoltro aperto si traduce in ore inoltro aggiuntive. Il numero di mittenti di inoltro (ossia di client che richiamano o inviano messaggi agli inoltri) connessi a un inoltro non influisce sul calcolo delle ore inoltro.
@@ -107,9 +111,4 @@ Sì. Il client di inoltro stabilisce connessioni con il servizio di inoltro usan
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione a Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
