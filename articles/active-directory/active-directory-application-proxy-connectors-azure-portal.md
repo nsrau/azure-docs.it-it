@@ -1,5 +1,5 @@
 ---
-title: Pubblicare applicazioni in reti e posizioni separate tramite gruppi di connettori nel proxy di applicazione di Azure AD | Documentazione Microsoft
+title: Pubblicare applicazioni in reti e posizioni separate tramite gruppi di connettori nel proxy di applicazione di Azure AD | Microsoft Docs
 description: Illustra come creare e gestire i gruppi di connettori nel proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: 2a050e5817ab884c9d4337cc1cc76e298299dba3
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: e1c65060c2862736c76b36676f95a88d8dbab4c6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -128,7 +129,7 @@ Nell'esempio seguente l'azienda ha due data center, A e B, con due connettori ch
 ![Azure AD senza gruppi di connettori](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
 ## <a name="next-steps"></a>Passaggi successivi
-* [Abilitare il proxy dell’applicazione](active-directory-application-proxy-enable.md)
+* [Abilitare il proxy dell'applicazione](active-directory-application-proxy-enable.md)
 * [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
 * [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 * [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)

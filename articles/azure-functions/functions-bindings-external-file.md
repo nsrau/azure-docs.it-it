@@ -1,5 +1,5 @@
 ---
-title: Associazioni di file esterni in Funzioni di Azure (Anteprima) | Documentazione Microsoft
+title: Associazioni di file esterni in Funzioni di Azure (Anteprima) | Microsoft Docs
 description: Utilizzo di associazioni di file esterni in Funzioni di Azure
 services: functions
 documentationcenter: 
@@ -14,17 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1ab9b7e306fda89235f4e9388fdbae4ea54307df
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 4400ebce2fbed709dcadf41cd2b834fd36416c15
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Associazioni di file esterni in Funzioni di Azure (Anteprima)
-Questo articolo illustra come configurare e usare le associazioni di file esterni in Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per i file esterni.
+Questo articolo illustra come modificare i file da diversi provider di SaaS (ad esempio OneDrive, Dropbox) all'interno della funzione che usa binding incorporati. Funzioni di Azure supporta il trigger e le associazioni di output per i file esterni.
 
-Le associazioni di file esterni consentono alle funzioni di accedere ai file ospitati all'esterno di Azure. L'associazione crea nuove connessioni API o usa quelle esistenti prelevandole dal gruppo di risorse dell'app per le funzioni.
+Il binding crea connessioni API ai provider SaaS o usa quelle esistenti prelevandole dal gruppo di risorse dell'app per le funzioni.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -254,76 +255,6 @@ Nelle funzioni C# è anche possibile eseguire l'associazione a uno dei tipi segu
 * `CloudBlockBlob`
 * `CloudPageBlob`
 
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>Esempio di input
-Si supponga di avere il function.json seguente, che definisce un [trigger della coda di archiviazione](functions-bindings-storage-queue.md), un input del file esterno e un output del file esterno:
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputFile",
-      "type": "apiHubFile",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "<name of external file connection>",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputFile",
-      "type": "apiHubFile",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "<name of external file connection>",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Vedere l'esempio specifico del linguaggio che copia il file di input nel file di output.
-
-* [C#](#incsharp)
-* [Node.JS](#innodejs)
-
-<a name="incsharp"></a>
-
-### <a name="input-usage-in-c"></a>Uso dell'input in C# #
-
-```cs
-public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    myOutputFile = myInputFile;
-}
-```
-
-<!--
-<a name="infsharp"></a>
-### Input usage in F# ##
-```fsharp
-
-```
--->
-
-<a name="innodejs"></a>
-
-### <a name="input-usage-in-nodejs"></a>Uso dell'input in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
 
 <a name="output"></a>
 
@@ -368,8 +299,76 @@ Nelle funzioni C# è anche possibile eseguire l'output in uno dei tipi seguenti:
 
 <a name="outputsample"></a>
 
-## <a name="output-sample"></a>Esempio di output
-Vedere [esempio di input](#inputsample).
+<a name="sample"></a>
+
+## <a name="input--output-sample"></a>Esempio di input e output
+Si supponga di avere il function.json seguente, che definisce un [trigger della coda di archiviazione](functions-bindings-storage-queue.md), un input del file esterno e un output del file esterno:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "<name of external file connection>",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "<name of external file connection>",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Vedere l'esempio specifico del linguaggio che copia il file di input nel file di output.
+
+* [C#](#incsharp)
+* [Node.js](#innodejs)
+
+<a name="incsharp"></a>
+
+### <a name="usage-in-c"></a>Uso in C# #
+
+```cs
+public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputFile = myInputFile;
+}
+```
+
+<!--
+<a name="infsharp"></a>
+### Input usage in F# ##
+```fsharp
+
+```
+-->
+
+<a name="innodejs"></a>
+
+### <a name="usage-in-nodejs"></a>Uso in Node.js
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputFile = context.bindings.myInputFile;
+    context.done();
+};
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

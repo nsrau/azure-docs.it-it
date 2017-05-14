@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d04c670daac243119b47cece2df18335c7af972c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 71668ceedca16647f814866ea9cf068f73e5daf6
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -82,6 +83,7 @@ La tabella seguente li illustra in dettaglio.
 |Definizione del recinto virtuale|DocumentDB assicura la conformità e la governance dei dati per le aree sovrane (ad esempio, Germania, Cina, US Gov).|
 |Strutture protette|I dati in DocumentDB vengono archiviati su unità SSD nei data center protetti di Azure.<br><br>Per altre informazioni, vedere [Data center globali Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |Crittografia HTTPS/SSL/TLS|A tutte le interazioni DocumentDB da client a servizio viene applicato SSL/TLS 1.2. Anche a tutte le repliche all'interno di data center e tra data center viene applicato SSL/TLS 1.2.|
+|Crittografia di dati inattivi|Tutti i dati archiviati in DocumentDB vengono crittografati quando sono inattivi. Altre informazioni sulla [crittografia di dati inattivi DocumentDB](.\documentdb-nosql-database-encryption-at-rest.md)|
 |Server con patch|Essendo un database NoSQL gestito, DocumentDB elimina la necessità di gestire e applicare patch ai server perché queste operazioni vengono eseguite automaticamente.|
 |Account amministrativi con password complesse|Può sembrare strano vedere citato questo requisito, ma, a differenza di quanto accade con alcuni concorrenti, è impossibile avere un account amministrativo senza password in DocumentDB.<br><br> La sicurezza usa SSL e l'autenticazione basata su segreti HMAC è supportata per impostazione predefinita.|
 |Certificazioni di sicurezza e protezione dei dati|DocumentDB ha le certificazioni [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [clausole del modello dell'Unione Europea](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) e [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA). Altre certificazioni saranno presto disponibili.|

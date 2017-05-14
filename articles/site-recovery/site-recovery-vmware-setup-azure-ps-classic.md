@@ -1,5 +1,5 @@
 ---
-title: " Gestire un server di elaborazione in esecuzione in Azure (versione classica) | Documentazione Microsofts"
+title: " Gestire un server di elaborazione in esecuzione in Azure (versione classica) | Microsoft Docs"
 description: Questo articolo descrive come configurare un server di elaborazione failback (versione classica) in Azure.
 services: site-recovery
 documentationcenter: 
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: bb24e1c79f6a77ec157fa05a8a212109ce8ae7ad
-ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: cceda131fc9eaa74f6328c8dd68a8e3885877061
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -28,7 +30,7 @@ ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
 Durante il failback è consigliabile distribuire un server di elaborazione in Azure se è presente una latenza elevata tra la rete virtuale di Azure e la rete locale. Questo articolo descrive come impostare, configurare e gestire i server di elaborazione in esecuzione in Azure.
 
 > [!NOTE]
-> Questo articolo è utile se è stato usato **Resource Manager** come modello di distribuzione per le macchine virtuali durante il failover. Se è stato usato il modello di distribuzione **classica**, seguire i passaggi indicati in [Come impostare e configurare un server di elaborazione failback (Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
+> Questo articolo è utile se è stato usato la versione classica come modello di distribuzione per le macchine virtuali durante il failover. Se è stato usato il modello di distribuzione di Resource Manager, seguire la procedura indicata in [How to set up & configure a Failback Process Server (Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md) (Come impostare e configurare un server di elaborazione di failback (Resource Manager)).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -60,9 +62,4 @@ Durante il failback è consigliabile distribuire un server di elaborazione in Az
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Annullamento della registrazione del server di elaborazione in esecuzione in Azure con un server di configurazione locale
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

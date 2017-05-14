@@ -4,17 +4,18 @@ description:
 keywords: 
 author: jeffgilb
 manager: femila
-ms.date: 3/28/2017
+ms.date: 5/1/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.reviewer: jsnow
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 222259e1f7c5a8796fd9f652cf5e050e75d4ce49
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: bc67058d026219d676430a55fe8cfdd3f09cf295
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -53,7 +54,8 @@ Le soluzioni Microsoft di gestione degli accessi e delle identità consentono al
 
 Il sistema di accesso condizionale in Azure AD Premium offre agli amministratori dell'organizzazione la possibilità di creare regole di accesso basate sui criteri per qualsiasi applicazione connessa ad Azure AD, come app SaaS, applicazioni personalizzate in esecuzione nel cloud o applicazioni Web locali. Azure AD valuta tali criteri in tempo reale e li applica ogni volta che un utente prova ad accedere a un'applicazione. I criteri di protezione delle identità di Azure consentono di agire automaticamente in caso di attività sospette, ad esempio bloccando l'accesso per gli utenti ad alto rischio, applicando l'autenticazione a più fattori e reimpostando le password se si ritiene che le credenziali siano state compromesse.
 
-## <a name="azure-active-directory-privileged-identify-management"></a>Azure Active Directory Privileged Identity Management
+
+## <a name="azure-active-directory-privileged-identity-management"></a>Azure Active Directory Privileged Identity Management
 
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started), incluso nell'offerta Azure Active Directory Premium P2, consente di identificare, limitare e monitorare gli account amministrativi e il relativo accesso alle risorse in Azure Active Directory e in altri servizi online di Microsoft. Permette anche di gestire l'accesso amministrativo su richiesta per l'esatto periodo di tempo necessario.
 

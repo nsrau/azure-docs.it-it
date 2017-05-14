@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Azure Multi-Factor Authentication | Documentazione Microsoft
+title: Domande frequenti su Azure Multi-Factor Authentication | Microsoft Docs
 description: "Domande frequenti e risposte su Azure Multi-Factor Authentication. Multi-Factor Authentication è un metodo di verifica dell&quot;identità dell&quot;utente che richiede l&quot;uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2017
+ms.date: 04/26/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 12b67d92fb955d9d20b0e86a38baa47a3717a333
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: d9fffa2058120f067c631a900eb8db4738f73778
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
@@ -71,9 +72,9 @@ Per altre informazioni sulle opzioni, vedere [Come ottenere Azure Multi-Factor A
 
 In alcuni casi, sì. 
 
-Multi-Factor Authentication per amministratori di Azure offre un sottoinsieme delle funzionalità di Azure MFA senza costi aggiuntivi per l'accesso ai servizi online Microsoft, inclusi i portali di amministratore di Azure e Office 365. Questa offerta è valida per gli amministratori di Azure nelle istanze di Azure Active Directory che non dispongono della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo. Se gli amministratori usano la versione gratuita e quindi si crea un provider di Multi-Factor Authentication, tutti gli amministratori e gli utenti nella directory configurati per l'uso di Multi-Factor Authentication ottengono la versione completa di Azure Multi-Factor Authentication.
+Multi-Factor Authentication per amministratori di Azure offre un sottoinsieme delle funzionalità di Azure MFA senza costi aggiuntivi per l'accesso ai servizi online Microsoft, inclusi i portali di amministratore di Azure e Office 365. Questa offerta è valida per gli amministratori globali nelle istanze di Azure Active Directory che non dispongono della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo. Se gli amministratori usano la versione gratuita e quindi si crea un provider di Multi-Factor Authentication, tutti gli amministratori e gli utenti nella directory configurati per l'uso di Multi-Factor Authentication ottengono la versione completa di Azure Multi-Factor Authentication.
 
-Multi-Factor Authentication per utenti di Office 365 offre un sottoinsieme delle funzionalità di Azure MFA senza costi aggiuntivi per l'accesso ai servizi online Microsoft, inclusi Exchange Online, SharePoint Online e altri servizi Office 365. Questa offerta è valida per gli utenti con una licenza Office 365 assegnata quando l'istanza corrispondente di Azure Active Directory non dispone della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo. 
+Multi-Factor Authentication per utenti di Office 365 offre un sottoinsieme delle funzionalità di Azure MFA senza costi aggiuntivi per l'accesso ai servizi Office 365, inclusi Exchange Online e SharePoint Online. Questa offerta è valida per gli utenti con una licenza Office 365 assegnata quando l'istanza corrispondente di Azure Active Directory non dispone della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo. 
 
 **D: L'organizzazione può passare dai modelli di fatturazione in base all'utilizzo per utente a quelli per autenticazione in qualsiasi momento?**
 

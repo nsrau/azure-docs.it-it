@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/14/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 96a968ea3f7bb8f3fbb8abb9b061bdc885776d68
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 1c095ece98c09290992ffeaca1f7b91a87a78818
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -37,9 +38,6 @@ Per seguire le istruzioni di questo articolo sono necessari:
 * Azure PowerShell e/o l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
-
-### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 I modelli di Resource Manager consentono di creare quanto segue per l'applicazione in un'unica operazione coordinata:
@@ -137,7 +135,7 @@ La procedura seguente consente di creare un cluster Hadoop in HDInsight.
         # List cluster
         Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
 
-    Lo script PowerShell configura soltanto il nome del cluster. Il nome dell’account di archiviazione è hardcoded nel modello. Viene richiesto di immettere la password utente del cluster. Il nome utente predefinito è **admin**. Viene richiesto anche di immettere la password utente SSH. Il nome utente SSH predefinito è **sshuser**.  
+    Lo script PowerShell configura soltanto il nome del cluster. Il nome dell'account di archiviazione è hardcoded nel modello. Viene richiesto di immettere la password utente del cluster. Il nome utente predefinito è **admin**. Viene richiesto anche di immettere la password utente SSH. Il nome utente SSH predefinito è **sshuser**.  
 
 Per altre informazioni, vedere [Distribuire con PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template).
 
@@ -165,6 +163,10 @@ Vedere [Distribuire con l'API REST](../azure-resource-manager/resource-group-tem
  Usare Visual Studio per creare un progetto del gruppo di risorse e distribuirlo in Azure mediante l'interfaccia utente. Selezionare il tipo di risorse da includere nel progetto. Tali risorse vengono aggiunte automaticamente al modello di Resource Manager. Il progetto fornisce anche uno script di PowerShell per distribuire il modello.
 
 Per un'introduzione all'uso di Visual Studio con gruppi di risorse, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+
+## <a name="troubleshoot"></a>Risoluzione dei problemi
+
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:

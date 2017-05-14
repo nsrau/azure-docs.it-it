@@ -1,5 +1,5 @@
 ---
-title: Guida di riferimento alla ricerca in Log Analytics di Azure | Documentazione Microsoft
+title: Guida di riferimento alla ricerca in Log Analytics di Azure | Microsoft Docs
 description: "La Guida di riferimento alla ricerca in Log Analytics descrive il linguaggio di ricerca e fornisce le opzioni della sintassi di query generale che è possibile usare quando si cercano dati e si filtrano espressioni per restringere la ricerca."
 services: log-analytics
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fc6e4eaa34694e2b20cb53b3e457803c59bf76b9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 47fb74c608315b256e88dd774af7cb5260529607
+ms.contentlocale: it-it
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -620,7 +621,7 @@ Unisce i risultati di due query in modo da formare un unico set di risultati.  S
 | sinistro  | Consente di restituire tutti i record da query a sinistra e i record corrispondenti da query a destra. |
 
 
-- I join attualmente non supportano le query che includono la parola chiave **IN** o il comando **Measure**.
+- I join attualmente non supportano query che includono la parola chiave **IN**, il comando **Measure** o il comando **Extend** se la destinazione è un campo della query a destra.
 - Attualmente, è possibile includere solo un singolo campo in un join.
 - Una singola ricerca non può includere più di un join.
 

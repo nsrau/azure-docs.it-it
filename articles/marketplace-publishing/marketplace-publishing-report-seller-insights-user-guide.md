@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2017
 ms.author: v-dabosl
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 63153ca5c0f5e3c68db09d0e59fa26ee8cb1e465
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: e168e9610cbe493618121c688e349064c877fc8a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -26,6 +27,8 @@ ms.lasthandoff: 04/04/2017
 
 >[!NOTE]
 >Solo amministratori
+
+Questa sezione illustra come accedere a Seller Insights Portal per la prima volta.
 
 ###<a name="overview-of-roles"></a>Panoramica dei ruoli
 
@@ -44,7 +47,7 @@ Idealmente, prima di accedere a Seller Insights Portal l'amministratore deve ide
 Per attivare il servizio, l'amministratore deve accedere all'URL indicato nel messaggio di posta elettronica di invito (https://reports.azure.com)
 
 >[!NOTE]
->NOTA: se l'indirizzo di posta elettronica dell'amministratore è elencato come account Microsoft e non si dispone ancora di un account Microsoft associato all'indirizzo da cui è stato ricevuto l'invito, sarà necessario crearne uno prima di effettuare l'accesso dal sito https://signup.live.command, usando questo indirizzo durante la creazione dell'account Microsoft.
+>Se l'indirizzo di posta elettronica dell'amministratore è elencato come account Microsoft e non si dispone ancora di un account Microsoft associato all'indirizzo da cui è stato ricevuto l'invito, sarà necessario crearne uno prima di effettuare l'accesso dal sito https://signup.live.command, usando questo indirizzo durante la creazione dell'account Microsoft.
 
 ###<a name="sign-in-to-the-portal"></a>Accesso al portale
 
@@ -61,7 +64,13 @@ Per attivare il servizio, l'amministratore deve accedere all'URL indicato nel me
 L'amministratore deve informare l'utente tramite posta elettronica che è stato creato il suo account e condividere l'URL di Seller Insights Portal (https://reports.azure.com).
 
 >[!NOTE]
->L'amministratore è il proprietario dell'account che pubblica di fatto soluzioni in Azure Marketplace.  Il proprietario di questo account può concedere l'accesso ad altri utenti.  
+>L'amministratore è il proprietario dell'account che pubblica di fatto soluzioni in Azure Marketplace.  Il proprietario di questo account può concedere l'accesso ad altri utenti.  Se si ha accesso al portale di pubblicazione come co-amministratore è possibile trovare l'indirizzo amministratore attenendosi alla procedura seguente:
+>1. Accedere al portale di pubblicazione
+>2. Fare clic sulla scheda Editori
+>3. Aprire il server di pubblicazione in questione (in genere è disponibile solo uno)
+>4. Fare clic su "Administrators" in basso a sinistra
+>5. L'indirizzo di posta elettronica dell'amministratore che si sta cercando si chiama "Proprietario."
+
 
 È possibile accedere a Seller Insights Portal con un account Microsoft personale o con un account aziendale, a seconda del tipo di account usato dall'amministratore quando ha configurato il profilo dell'utente.  L'amministratore deve comunicare all'utente il tipo di account da usare.
 
@@ -153,7 +162,7 @@ D. *Pannello D*: fornisce i dati relativi a ogni sottoscrizione singola.  I dati
 
   ![Mappa del pannello D][13]
 
-  1. Il pannello "Dettaglio ordine" mostra i dati dettagliati degli ordini.
+  1. Il pannello Dettaglio ordine mostra i dati dettagliati degli ordini.
   2. Usare i filtri nella parte superiore di ogni colonna per filtrare i dati tramite un'ampia gamma di comandi e di valori.
 
   ![Visualizzazione mensile degli ordini: pannello B, filtri][20]
@@ -195,7 +204,7 @@ D. *Pannello D*: fornisce i dati relativi a ogni sottoscrizione singola.  I dati
 
   ![Mappa del pannello C][12]
 
-  1. Selezionare "Trend View" ("Panoramica delle tendenze").
+  1. Selezionare Trend View (Panoramica delle tendenze).
   2. Selezionare gli elementi che si desidera visualizzare dall'elenco a discesa "Area di interesse" e fare clic su "Applica".  L'impostazione predefinita è "Seleziona tutto".
 
   ![Visualizzazione dell'uso mensile: pannello C, elenco a discesa delle aree di interesse][17]
@@ -212,19 +221,19 @@ D. *Pannello D*: fornisce i dati relativi a ogni sottoscrizione singola.  I dati
 
   ![Mappa del pannello D][13]
 
-  1. Il pannello "Usage Detail" (Dettagli utilizzo) mostra i dati dettagliati degli ordini.
+  1. Il pannello Usage Detail (Dettagli utilizzo) mostra i dati dettagliati degli ordini.
   2. Usare i filtri nella parte superiore di ogni colonna per filtrare i dati tramite un'ampia gamma di comandi e di valori.
 
   ![Visualizzazione dell'uso mensile: pannello D, filtri][20]
   3. Selezionare il numero di elementi per pagina che si desidera visualizzare, fra 10, 20 o 50.
   4. Scaricare i dati in formato Excel o con estensione csv per l'analisi offline.
 
-![Visualizzazione dell'uso mensile: pannello D 1][24]
-![Visualizzazione dell'uso mensile: pannello D 2][25]
+![Visualizzazione dell'uso mensile pannello D][24]
+![Visualizzazione dell'uso mensile pannello D][25]: scaricare i risultati
 
 ###<a name="accessing-detailed-customer-data"></a>Accesso ai dati dettagliati dei clienti
 
-  1. Dalle sezioni "Ordini" o "Uso" del pannello "Dettaglio ordine" fare clic sull'ID sottoscrizione di Azure desiderato.  Si noti che soltanto i tipi di licenza di Marketplace non BYOL sono selezionabili e che l'ID sottoscrizione BYOL viene sottoposto a hashing per motivi di sicurezza.
+  1. Dalle sezioni 'Ordini' o 'Uso' del pannello 'Dettaglio ordine' fare clic sull'ID sottoscrizione di Azure desiderato.  Si noti che soltanto i tipi di licenza di Marketplace non BYOL sono selezionabili e che l'ID sottoscrizione BYOL viene sottoposto a hashing per motivi di sicurezza.
 
   ![Dettagli su ordini e uso da parte dei clienti: pannello dettagli][26]
   2. Si verrà reindirizzati alla scheda "Cliente" e verranno recuperati i dati dettagliati del cliente a cui è associato l'ID sottoscrizione.
@@ -249,6 +258,8 @@ D. *Pannello D*: fornisce i dati relativi a ogni sottoscrizione singola.  I dati
 
 >[!NOTE]
 >Solo amministratori
+
+Questa sezione mostra come aggiungere nuovi utenti o modificare le autorizzazioni in Seller Insights Portal.
 
 ###<a name="add-user"></a>Add user
 
@@ -340,7 +351,7 @@ Provare a reimpostare la password usando la procedura guidata Reimpostazione pas
 
 
 
-[1]: ./media/marketplace-publishing-report-seller-insights-user-guide/type-of-account.png
+[1]: ./media/marketplace-publishing-report-seller-insights-user-guide/type-of-account-v2.png
 [2]: ./media/marketplace-publishing-report-seller-insights-user-guide/default-sign-in-page.png
 [3]: ./media/marketplace-publishing-report-seller-insights-user-guide/password-reset-microsoft-account.png
 [4]: ./media/marketplace-publishing-report-seller-insights-user-guide/password-reset-work-or-school-account.png

@@ -1,5 +1,5 @@
 ---
-title: Personalizzare cluster HDInsight tramite l&quot;azione script | Documentazione Microsoft
+title: Personalizzare cluster HDInsight tramite l&quot;azione script | Microsoft Docs
 description: Informazioni su come personalizzare cluster HDInsight mediante Azione di script.
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 96a7410ec90d31e565ea8338d908564c209c6a4f
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 73eca14cef9de38ba50881932312c9a44d378cf3
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +32,7 @@ Le informazioni contenute in questo articolo sono specifiche per i cluster HDIns
 > [!IMPORTANT]
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-I cluster HDInsight possono essere personalizzati in molti modi diversi, ad esempio includendo account di archiviazione di Azure aggiuntivi, modificando i file di configurazione Hadoop (core-site.xml, hive-site.xml e così via) o aggiungendo librerie condivise (ad esempio Hive e Oozie) in posizioni comuni nel cluster. Queste personalizzazioni possono essere apportate tramite Azure PowerShell, Azure HDInsight .NET SDK o il portale di Azure. Per altre informazioni, vedere [Creare cluster Hadoop basati su Windows in HDInsight][hdinsight-provision-cluster].
+I cluster HDInsight possono essere personalizzati in molti modi diversi, ad esempio includendo account di archiviazione di Azure aggiuntivi, modificando i file di configurazione Hadoop (core-site.xml, hive-site.xml e così via) o aggiungendo librerie condivise (ad esempio Hive e Oozie) in posizioni comuni nel cluster. Queste personalizzazioni possono essere apportate tramite Azure PowerShell, Azure HDInsight .NET SDK o il Portale di Azure. Per altre informazioni, vedere [Creare cluster Hadoop basati su Windows in HDInsight][hdinsight-provision-cluster].
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
@@ -64,7 +65,7 @@ HDInsight fornisce diversi script di esempio per installare i componenti seguent
 ## <a name="call-scripts-using-the-azure-portal"></a>Chiamare script tramite il portale di Azure
 **Nel portale di Azure**
 
-1. Avviare la creazione di un cluster come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md).
+1. Avviare la creazione di un cluster come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. In Configurazione facoltativa fare clic su **aggiungi azione script** nel pannello **Azioni script** per specificare i dettagli relativi all'azione script, come illustrato di seguito:
 
     ![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Usare l'azione script per personalizzare un cluster")
@@ -326,7 +327,7 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
-[hdinsight-provision-cluster]: hdinsight-provision-clusters.md
+[hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 

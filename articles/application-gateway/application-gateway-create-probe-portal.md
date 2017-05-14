@@ -1,5 +1,5 @@
 ---
-title: Creare un probe personalizzato - Gateway applicazione di Azure - Portale di Azure | Documentazione Microsoft
+title: Creare un probe personalizzato - Gateway applicazione di Azure - Portale di Azure | Microsoft Docs
 description: Informazioni su come creare un probe personalizzato per un gateway applicazione usando il portale
 services: application-gateway
 documentationcenter: na
@@ -13,77 +13,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/26/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 14b715013b4154a1fa079c0dc470e675d7cf4c1f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a12e9d342daf41ee9f83cadb9e29ee867be055de
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creare un probe personalizzato per un gateway applicazione con il portale
+
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
 
-[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+In questo articolo viene aggiunto un probe personalizzato a un gateway applicazione esistente tramite il portale di Azure. I probe personalizzati sono utili per le applicazioni che dispongono di una pagina di controllo dell'integrità specifica o per quelle che non rispondono in modo corretto all'applicazione Web predefinita.
 
-## <a name="scenario"></a>Scenario
+## <a name="before-you-begin"></a>Prima di iniziare
 
-Lo scenario seguente illustra la creazione di un probe di integrità personalizzato in un gateway applicazione esistente.
-Lo scenario presuppone che sia già stata seguita la procedura per [creare un gateway applicazione](application-gateway-create-gateway-portal.md).
+Se non si dispone già di un gateway applicazione, vedere [Creare un gateway applicazione con il portale](application-gateway-create-gateway-portal.md) per creare un gateway applicazione da usare.
 
-## <a name="a-namecreateprobeacreate-the-probe"></a><a name="createprobe"></a>Creare il probe
+## <a name="createprobe"></a>Creare il probe
 
-I probe vengono configurati con un processo in due passaggi nel portale. Il primo passaggio consiste nel creare il probe. Successivamente lo si aggiunge alle impostazioni http back-end del gateway applicazione.
+I probe vengono configurati con un processo in due passaggi nel portale. Il primo passaggio consiste nel creare il probe. Nel secondo passaggio lo si aggiunge alle impostazioni http back-end del gateway applicazione.
 
-### <a name="step-1"></a>Passaggio 1
+1. Accedere al [Portale di Azure](https://portal.azure.com). Se non si dispone già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free).
 
-Passare al [portale di Azure](http://portal.azure.com) e selezionare un gateway applicazione esistente.
+1. Nel riquadro Preferiti del portale di Azure fare clic su Tutte le risorse. Fare clic su gateway applicazione nel pannello Tutte le risorse. Se nella sottoscrizione selezionata sono già presenti risorse, è possibile immettere partners.contoso.net nella casella Filtra per nome per accedere con facilità al gateway applicazione.
 
-![Panoramica del gateway applicazione][1]
+1. Fare clic su **Probe** e quindi su **Aggiungi** per aggiungere un probe.
 
-### <a name="step-2"></a>Passaggio 2
+  ![Pannello Aggiungi probe con informazioni inserite][1]
 
-Fare clic su **Probe** e quindi su **Aggiungi** per aggiungere un probe.
+1. Nel pannello **Aggiungi probe integrità** specificare le informazioni necessarie per il probe e al termine fare clic su **OK**.
 
-![Pannello Aggiungi probe con informazioni inserite][2]
+  |**Impostazione** | **Valore** | **Dettagli**|
+  |---|---|---|
+  |**Nome**|customProbe|Nome descrittivo del probe accessibile nel portale.|
+  |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità.|
+  |**Host**|vale a dire contoso.com|Nome host usato per il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM.|
+  |**Percorso**|/ o un altro percorso|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito http://contoso.com è sufficiente usare "/" |
+  |**Intervallo (sec)**|30|Frequenza con cui viene eseguito il probe per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.|
+  |**Timeout (secondi)**|30|Durata dell'attesa prima che si verifichi il timeout del probe. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile.|
+  |**Soglia non integra**|3|Numero di tentativi non riusciti prima che venga stabilito uno stato di non integrità. Se la soglia è 0 significa che, se un controllo integrità ha esito negativo, il back-end verrà immediatamente considerato non integro.|
 
-### <a name="step-3"></a>Passaggio 3
-
-Inserire le informazioni necessarie per il probe e al termine fare clic su **OK**.
-
-* **Nome**: nome descrittivo del probe accessibile nel portale.
-* **Host**: nome host usato per il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM.
-* **Percorso** : parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/".
-* **Intervallo (sec)** : frequenza con cui il probe viene eseguito per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.
-* **Timeout (sec)** : durata dell'attesa prima che si verifichi il timeout del probe. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile.
-* **Soglia di non integrità** : numero di tentativi non riusciti da considerare come uno stato di non integrità. Se la soglia è 0 significa che, se un controllo integrità ha esito negativo, il back-end verrà immediatamente considerato non integro.
-
-> [!IMPORTANT]
-> Il nome host non è uguale al nome del server. Questo valore è il nome dell'host virtuale in esecuzione nel server applicazioni. Il probe viene inviato a http://(name host):(porta da impostazioni HTTP)/percorsoURL
-
-![Impostazioni di configurazione del probe][3]
+  > [!IMPORTANT]
+  > Il nome host non è uguale al nome del server. Questo valore è il nome dell'host virtuale in esecuzione nel server applicazioni. Il probe viene inviato a http://(name host):(porta da impostazioni HTTP)/percorsoURL
 
 ## <a name="add-probe-to-the-gateway"></a>Aggiungere il probe al gateway
 
 Ora che il probe è stato creato, deve essere aggiunto al gateway. Le impostazioni del probe vengono definite nelle impostazioni HTTP back-end del gateway applicazione.
 
-### <a name="step-1"></a>Passaggio 1
+1. Fare clic su **Impostazioni HTTP** nel gateway applicazione e quindi fare clic sulle impostazioni HTTP back-end correnti presenti nella finestra per visualizzare il pannello di configurazione.
 
-Fare clic su **Impostazioni HTTP** nel gateway applicazione, quindi fare clic sulle impostazioni HTTP back-end correnti nella finestra per visualizzare il pannello di configurazione.
+  ![Finestra delle impostazioni HTTP][2]
 
-![Finestra delle impostazioni HTTP][4]
+1. Nel pannello delle impostazioni **appGatewayBackEndHttpSettings** selezionare la casella di controllo **Usa probe personalizzato** e scegliere il probe creato nella sezione [Creare il probe](#createprobe) nell'elenco a discesa **Probe personalizzato**.
+Al termine fare clic su **Salva** per applicare le impostazioni.
 
-### <a name="step-2"></a>Passaggio 2
-
-Nel pannello delle impostazioni **appGatewayBackEndHttp** fare clic su **Usa probe personalizzato** e scegliere il probe creato nella sezione [Creare il probe](#createprobe).
-Al termine, fare clic su **OK** per applicare le impostazioni.
-
-![Pannello delle impostazioni appGatewayBackEndHttp][5]
-
-Il probe predefinito controlla l'accesso predefinito all'applicazione Web. Ora che è stato creato un probe personalizzato, il gateway applicazione usa il percorso personalizzato definito per monitorare l'integrità per il back-end selezionato. In base ai criteri definiti, il gateway applicazione controlla il file specificato nel probe. Se la chiamata a host:Porta/percorso non restituisce una risposta di stato HTTP 200 OK, dopo che è stata raggiunta la soglia di non integrità il server viene escluso dalla rotazione. Il probe continua a essere eseguito sull'istanza non integra per determinare quando risulterà di nuovo integra. Quando l'istanza viene nuovamente aggiunta al pool di server integri, il flusso del traffico verso l'istanza riprenderà e il relativo probe verrà eseguito all'intervallo normale specificato dall'utente.
+Il probe predefinito controlla l'accesso predefinito all'applicazione Web. Ora che è stato creato un probe personalizzato, il gateway applicazione usa il percorso personalizzato definito per monitorare l'integrità per i server back-end. In base ai criteri definiti, il gateway applicazione controlla il percorso specificato nel probe. Se la chiamata a host:Porta/percorso non restituisce una risposta di stato HTTP 200-299, dopo che è stata raggiunta la soglia di non integrità il server viene escluso dalla rotazione. Il probe continua a essere eseguito sull'istanza non integra per determinare quando risulterà di nuovo integra. Quando l'istanza viene nuovamente aggiunta al pool di server integri, il flusso del traffico verso l'istanza riprenderà e il relativo probe verrà eseguito all'intervallo normale specificato dall'utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -91,12 +82,5 @@ Per informazioni su come configurare l'offload SSL con un gateway applicazione d
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
-[3]: ./media/application-gateway-create-probe-portal/figure3.png
-[4]: ./media/application-gateway-create-probe-portal/figure4.png
-[5]: ./media/application-gateway-create-probe-portal/figure5.png
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

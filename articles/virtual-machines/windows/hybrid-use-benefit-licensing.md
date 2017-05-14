@@ -3,7 +3,7 @@ title: Azure Hybrid Use Benefit per Windows Server e Client Windows| Microsoft D
 description: Informazioni su come ottimizzare i vantaggi di Software Assurance per Windows per trasferire le licenze locali in Azure
 services: virtual-machines-windows
 documentationcenter: 
-author: george-moore
+author: kmouss
 manager: timlt
 editor: 
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 4/10/2017
-ms.author: georgem
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 04f5fab5a27a28a0881d59b93451f4c3615692b4
-ms.lasthandoff: 04/13/2017
+ms.date: 5/1/2017
+ms.author: kmouss
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0854ceddc473a362221140f32b24138221a6f175
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,13 +45,13 @@ Per Windows Server:
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-2016-Datacenter versione 2016.127.20170406 o versione successiva
+- 2016-Datacenter versione 2016.127.20170406 o versione successiva
 
-2012-R2-Datacenter versione 4.127.20170406 o versione successiva
+- 2012-R2-Datacenter versione 4.127.20170406 o versione successiva
 
-2012-Datacenter versione 3.127.20170406 o versione successiva
+- 2012-Datacenter versione 3.127.20170406 o versione successiva
 
-2008 R2-SP1 versione 2.127.20170406 o versione successiva
+- 2008 R2-SP1 versione 2.127.20170406 o versione successiva
 
 Per Client Windows:
 ```powershell
@@ -61,7 +62,7 @@ Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
 ## <a name="upload-a-windows-vhd"></a>Caricare un disco rigido virtuale Windows
 Per distribuire una macchina virtuale Windows in Azure è prima necessario creare un disco rigido virtuale contenente la build di base di Windows. Questo disco rigido virtuale deve essere correttamente preparato con Sysprep prima di caricarlo in Azure. Sono disponibili [altre informazioni sui requisiti dei dischi rigidi virtuali e sul processo Sysprep](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Eseguire il backup della VM prima di eseguire Sysprep. 
 
-Verificare di aver prima [installato e configurato l'ultima versione di Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo aver preparato il disco rigido virtuale, caricarlo nell'account di archiviazione di Azure usando il cmdlet `Add-AzureRmVhd` come segue:
+Verificare di aver prima [installato e configurato l'ultima versione di Azure PowerShell](/powershell/azure/overview). Dopo aver preparato il disco rigido virtuale, caricarlo nell'account di archiviazione di Azure usando il cmdlet `Add-AzureRmVhd` come segue:
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -216,6 +217,35 @@ Per Client Windows:
 ```powershell
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Client"
 ```
+
+## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Distribuire un set di scalabilità di macchine virtuali tramite un modello di Resource Manager
+Nei modelli di Resource Manager del set di scalabilità di macchine virtuali è necessario specificare un parametro aggiuntivo per `licenseType`. Altre informazioni sulla [creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md). Modificare il modello di Resource Manager per includere la proprietà licenseType come parte dell'elemento virtualMachineProfile del set di scalabilità e distribuire il modello come di consueto. Vedere l'esempio seguente che usa l'immagine di Windows Server 2016:
+
+
+```json
+"virtualMachineProfile": {
+    "storageProfile": {
+        "osDisk": {
+            "createOption": "FromImage"
+        },
+        "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2016-Datacenter",
+            "version": "latest"
+        }
+    },
+    "licenseType": "Windows_Server",
+    "osProfile": {
+            "computerNamePrefix": "[parameters('vmssName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+    }
+```
+
+> [!NOTE]
+> Il supporto per la distribuzione di un set di scalabilità di macchine virtuali con vantaggi AHUB tramite PowerShell e altri strumenti SDK sarà presto disponibile.
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sul [Vantaggio Microsoft Azure Hybrid Use](https://azure.microsoft.com/pricing/hybrid-use-benefit/).

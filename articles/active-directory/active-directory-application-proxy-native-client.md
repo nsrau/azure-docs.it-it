@@ -1,5 +1,5 @@
 ---
-title: 'Pubblicare app client native: Azure AD | Documentazione Microsoft'
+title: 'Pubblicare app client native: Azure AD | Microsoft Docs'
 description: Illustra come abilitare la comunicazione tra le app client native e il connettore del proxy di applicazione di Azure AD per consentire l&quot;accesso remoto sicuro alle app locali.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
-ms.openlocfilehash: 6762a5c88b7a3bbc0424729865ae312d74f9059f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 24396f7c82bcc0fb076c4fceca0ec4b0963d36e8
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -35,7 +37,7 @@ Configurare l'applicazione nativa come indicato di seguito:
 
 1. Accedere al portale di Microsoft Azure classico.
 2. Scegliere l'icona Active Directory dal menu a sinistra e quindi selezionare la directory.
-3. Nel menu principale fare clic su **applicazioni**. Se alla directory non è stata aggiunta alcuna applicazione, la pagina mostrerà solo il collegamento **Aggiungi app**. Fare clic sul collegamento o, in alternativa, fare clic sul pulsante **Aggiungi** sulla barra dei comandi.
+3. Nel menu principale fare clic su **applicazioni**. Se alla directory non è stata aggiunta alcuna app, in questa pagina viene visualizzato solo collegamento **Aggiungi un'app**. Fare clic sul collegamento. In alternativa, è possibile fare clic sul pulsante **Aggiungi** sulla barra dei comandi.
 4. Nella pagina **Come procedere** fare clic sul collegamento **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 5. Nella pagina **Informazioni sull'applicazione** specificare un nome per l'applicazione e scegliere **Applicazione client nativa**. Fare clic sull'icona a forma di freccia per continuare.
 6. Nella pagina **Informazioni sull'applicazione** specificare un valore in **URI di reindirizzamento** per l'applicazione client nativa, quindi fare clic sul segno di spunta per completare l'operazione.
@@ -46,12 +48,12 @@ L'applicazione viene aggiunta e si viene quindi reindirizzati alla pagina Avvio 
 Abilitare l'applicazione nativa da esporre ad altre applicazioni nella directory:
 
 1. Scegliere **Applicazioni** dal menu in alto, selezionare la nuova applicazione nativa e quindi fare clic su **Configura**.
-2. Scorrere verso il basso fino alla sezione **autorizzazioni per altre applicazioni** . Fare clic sul pulsante **Aggiungi applicazione** e selezionare l'applicazione proxy a cui si desidera concedere l'accesso dell'applicazione nativa e fare clic sul segno di spunta nell'angolo inferiore destro. Nel menu a discesa **Autorizzazioni delegate** selezionare la nuova autorizzazione.
+2. Scorrere verso il basso fino alla sezione **autorizzazioni per altre applicazioni** . Fare clic sul pulsante **Aggiungi applicazione**, selezionare l'applicazione proxy cui si vuole concedere l'accesso dell'applicazione nativa e quindi fare clic sul segno di spunta nell'angolo inferiore destro. Nel menu a discesa **Autorizzazioni delegate** selezionare la nuova autorizzazione.
 
 ![Autorizzazioni per altre applicazioni - Aggiungi applicazione.](./media/active-directory-application-proxy-native-client/delegate_native_app.png)
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>Passaggio 4: Modificare Active Directory Authentication Library
-Modificare il codice dell'applicazione nativa nel contesto di autenticazione di Active Directory Authentication Library (ADAL) per includere quanto segue:
+Modificare il codice dell'applicazione nativa nel contesto di autenticazione di Active Directory Authentication Library (ADAL) per includere il testo seguente:
 
         // Acquire Access Token from AAD for Proxy Application
         AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
@@ -83,9 +85,4 @@ Per altre informazioni sul flusso dell'applicazione nativa, vedere [Da applicazi
 * [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
 
 Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

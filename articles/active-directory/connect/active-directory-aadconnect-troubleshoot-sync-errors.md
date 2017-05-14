@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Risoluzione dei problemi durante la sincronizzazione | Documentazione Microsoft'
+title: 'Azure AD Connect: Risoluzione dei problemi durante la sincronizzazione | Microsoft Docs'
 description: Questo articolo descrive come risolvere i problemi che si verificano durante la sincronizzazione con Azure AD Connect.
 services: active-directory
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a1190f0ab4caf749cce0b5c9ba45e55f7e6ca8ec
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: d270d7cc3ceeef29aaaf1c9f984e69984049f815
+ms.contentlocale: it-it
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -212,10 +213,10 @@ Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Scenari possibili
-1. L'attributo userCertificate di Bob contiene troppi certificati assegnati a Bob, tra i quali possono esserci certificati scaduti o meno recenti. Il limite rigido consente 15 certificati.
+1. L'attributo userCertificate di Bob contiene troppi certificati assegnati a Bob, tra i quali possono esserci certificati scaduti o meno recenti. Il limite rigido consente 15 certificati. Per altre informazioni su come gestire gli errori di LargeObject con attributo userCertificate, vedere l'articolo [Handling LargeObject errors caused by userCertificate attribute](active-directory-aadconnectsync-largeobjecterror-usercertificate.md) (Gestione degli errori di LargeObject causati dall'attributo userCertificate).
 2. L'attributo userSMIMECertificate di Bob contiene troppi certificati assegnati a Bob, tra i quali possono esserci certificati scaduti o meno recenti. Il limite rigido consente 15 certificati.
 3. L'attributo thumbnailPhoto di Bob impostato in Active Directory è troppo grande per essere sincronizzato in Azure AD.
-4. Durante il popolamento automatico dell'attributo ProxyAddresses in Active Directory un oggetto è stato assegnato a più di 500 attributi ProxyAddresses.
+4. Durante il popolamento automatico dell'attributo ProxyAddresses in Active Directory a un oggetto sono stati assegnati troppi elementi ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Modalità di correzione
 1. Verificare che l'attributo che ha causato l'errore non superi il limite consentito.

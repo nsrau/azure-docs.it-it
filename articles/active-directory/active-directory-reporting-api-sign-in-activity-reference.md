@@ -1,5 +1,5 @@
 ---
-title: "Riferimento API del report sull&quot;attività di accesso di Azure Active Directory | Documentazione Microsoft"
+title: "Riferimento API del report sull&quot;attività di accesso di Azure Active Directory | Microsoft Docs"
 description: "Riferimento API del report sull&quot;attività di accesso di Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 077c39d1a6f61aba7b184ee616a93f30cdb7d12c
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,9 +35,18 @@ Vedere:
 Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="who-can-access-the-api-data"></a>Chi può accedere ai dati dell'API?
-* Gli utenti con ruolo di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza
+* Utenti ed entità servizio nel ruolo di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza
 * Gli amministratori globali
 * Qualsiasi applicazione che dispone di autorizzazione per accedere all'API. L'autorizzazione dell'app può essere configurata solo in base alle autorizzazioni dell'amministratore globale.
+
+Per configurare l'accesso per un'applicazione che usa API di sicurezza, ad esempio eventi di accesso, usare questo comando PowerShell per aggiungere le entità servizio delle applicazioni al ruolo con autorizzazioni di lettura per la sicurezza
+
+```PowerShell
+Connect-MsolService
+$servicePrincipal = Get-MsolServicePrincipal -AppPrincipalId "<app client id>"
+$role = Get-MsolRole | ? Name -eq "Security Reader"
+Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $servicePrincipal.ObjectId
+```
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per accedere a questo report tramite l'API di creazione report, è necessario:

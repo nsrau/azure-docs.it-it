@@ -4,7 +4,7 @@ description: "Questo articolo fornisce informazioni sull&quot;installazione e l&
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
 ms.service: automation
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2017
+ms.date: 05/02/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3a958b790b4501153aad86310c3783d49733dd90
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 66e749106ba1031eef19b12f06d5bd16ffa9d09e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -56,7 +57,7 @@ Tenere presente quanto segue per i ruoli di lavoro ibridi:
 * Può essere opportuno usare un computer situato fisicamente all'interno o in prossimità dell'area dell'account di automazione, perché al termine di un processo i relativi dati vengono restituiti ad Automazione di Azure.
 
 ### <a name="configure-proxy-and-firewall-settings"></a>Configurare le impostazioni di proxy e firewall
-Per connettersi e registrarsi al servizio Microsoft Operations Management Suite (OMS), il ruolo di lavoro ibrido per runbook locale deve avere accesso al numero di porta e agli URL descritti di seguito,  in aggiunta alle [porte e agli URL necessari per la connessione di Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) a OMS. Se si usa un server proxy per la comunicazione tra l'agente e il servizio OMS, è necessario assicurarsi che le risorse appropriate siano accessibili. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso.
+Per connettersi e registrarsi al servizio Microsoft Operations Management Suite (OMS), il ruolo di lavoro ibrido per runbook locale deve avere accesso al numero di porta e agli URL descritti di seguito,  in aggiunta alle [porte e agli URL necessari per la connessione di Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) a OMS. Se si usa un server proxy per la comunicazione tra l'agente e il servizio OMS, è necessario verificare che le risorse appropriate siano accessibili. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso.
 
 Di seguito sono elencati la porta e gli URL necessari affinché il ruolo di lavoro ibrido per runbook comunichi con Automazione.
 
@@ -69,6 +70,7 @@ Se si ha un account di automazione definito per un'area specifica e si vuole lim
 | --- | --- |
 | Stati Uniti centro-meridionali |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Stati Uniti orientali 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| Stati Uniti centro-occidentali | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | Europa occidentale |we-jobruntimedata-prod-su1.azure-automation.net |
 | Europa settentrionale |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Canada centrale |cc-jobruntimedata-prod-su1.azure-automation.net |
@@ -76,6 +78,14 @@ Se si ha un account di automazione definito per un'area specifica e si vuole lim
 | India centrale |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Giappone orientale |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Australia sud-orientale |ase-jobruntimedata-prod-su1.azure-automation.net |
+| Regno Unito meridionale | uks-jobruntimedata-prod-su1.azure-automation.net |
+| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Per un elenco di indirizzi IP invece dei nomi, scaricare il file XML degli [indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) dall'Area download Microsoft. 
+
+> [!NOTE]
+> Questo file contiene gli intervalli di indirizzi IP, inclusi gli intervalli di Calcolo, SQL e Archiviazione, usati nei data center di Microsoft Azure. Ogni settimana viene pubblicato un file che riflette gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non verranno usati nei data center per almeno una settimana. Scaricare il nuovo file XML ogni settimana e apportare le modifiche necessarie nel sito per identificare correttamente i servizi in esecuzione in Azure. Gli utenti di ExpressRoute possono notare che questo file viene usato per aggiornare l'annuncio BGP dello spazio di Azure la prima settimana del mese. 
+> 
 
 ## <a name="installing-hybrid-runbook-worker"></a>Installazione di Hybrid Runbook Workers
 

@@ -1,5 +1,5 @@
 ---
-title: Analizzare i dati dei sensori con Hive e Hadoop | Documentazione Microsoft
+title: Analizzare i dati dei sensori con Hive e Hadoop | Microsoft Docs
 description: Informazioni su come analizzare i dati dei sensori usando Hive Query Console con HDInsight (Hadoop) e quindi visualizzare i dati in Microsoft Excel mediante Power View.
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 3f6824ea9c306adf7279a473d5e3b0c886d29b60
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 6588d2865928a64f6e172d0779fd43d35e7d9a6a
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ In questo esempio, usare Hive per elaborare i dati cronologici e identificare i 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster HDInsight (Hadoop): per informazioni sulla creazione di un cluster, vedere [Effettuare il provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md) .
+* Cluster HDInsight (Hadoop) - Per informazioni sulla creazione di un cluster, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Microsoft Excel 2013
 
   > [!NOTE]

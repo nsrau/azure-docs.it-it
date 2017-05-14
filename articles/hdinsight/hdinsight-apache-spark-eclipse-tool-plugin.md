@@ -1,5 +1,5 @@
 ---
-title: Usare Azure Toolkit for Eclipse per creare applicazioni Scala per Spark | Documentazione Microsoft
+title: Usare Azure Toolkit for Eclipse per creare applicazioni Scala per Spark | Microsoft Docs
 description: Usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazioni Spark scritte in Scala e inoltrarle a un cluster HDInsight Spark direttamente dall&quot;IDE di Eclipse.
 services: hdinsight
 documentationcenter: 
@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 6dde4684e4bbb8eb79c69b620c7f52e085cb40c6
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 51cef9d1fc41d8ece2c5ec82df5f6a889d4c57dc
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,15 +39,13 @@ Usare gli strumenti HDInsight in Azure Toolkit for Eclipse per creare applicazio
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-* Oracle Java Development Kit versione 7 e 8. 
-  
-  * **Java SDK 7** viene usato per la compilazione di progetti Spark dal momento che i cluster HDInsight supportano Java versione 7. È possibile scaricare Java SDK 7 da [qui](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Oracle Java Development Kit versione 8. 
   * **Java SDK 8** viene usato per il runtime dell'ambiente IDE Eclipse. È possibile scaricarlo [qui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Ambiente IDE Eclipse. Questo articolo usa Eclipse Neon. Per installarlo, fare clic [qui](https://www.eclipse.org/downloads/).
 * Ambiente IDE Scala per Eclipse. 
   
-  * **Se è installato l'ambiente IDE Eclipse**, è possibile aggiungere il plug-in IDE Scala scegliendo **Help** -> **Install New SoftWare** (? > Installa nuovo software) e aggiungendo [http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site](http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site) come origine per il download del plug-in Scala per Eclipse. 
+  * **Se è installato l'ambiente IDE Eclipse**, è possibile aggiungere il plug-in IDE Scala scegliendo **Help** -> **Install New SoftWare** (? > Installa nuovo software) e aggiungendo [http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site](http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site) come origine per il download del plug-in Scala per Eclipse. 
   * **Se l'ambiente IDE Eclipse non è installato**, è possibile installare l'ambiente IDE Scala direttamente da [qui](http://scala-ide.org/download/sdk.html). È possibile scaricare il file ZIP da questo collegamento, estrarlo, passare alla cartella **/eclipse** e quindi eseguire il file **eclipse.exe** da tale posizione.
     
     > [!NOTE]
@@ -61,13 +60,15 @@ Gli strumenti HDInsight per Eclipse sono disponibili come parte del Toolkit di A
 
 ## <a name="log-into-your-azure-subscription"></a>Accedere alla propria sottoscrizione di Azure
 1. Avviare Eclipse IDE e aprire Azure Explorer. Nel menu **Window** (Finestra) nell'IDE fare clic su **Show View** (Mostra visualizzazione) e quindi fare clic su **Other** (Altro). Nella finestra di dialogo visualizzata espandere **Azure**, fare clic su **Azure Explorer** e quindi fare clic su **OK**.
-   
+
     ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-1.png)
-2. In **Azure Explorer** fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Manage Subscriptions** (Gestisci sottoscrizioni).
-3. Nella finestra di dialogo **Manage Subscriptions** (Gestisci sottoscrizioni) fare clic su **Sign in** (Accedi) e immettere le credenziali di Azure.
+2. Fare clic sul nodo **Azure** in **Azure Explorer**, quindi fare clic su **Sign in** (Accedi).
+3. Nella finestra di dialogo di **accesso ad Azure** scegliere Modalità di autenticazione, fare clic su **Sign In** (Accedi) e immettere le credenziali di Azure.
    
     ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-2.png)
-4. Dopo l'accesso, la finestra di dialogo **Manage Subscriptions** (Gestisci sottoscrizioni) elenca tutte le sottoscrizioni di Azure associate alle credenziali. Fare clic su **Close** (Chiudi) nella finestra di dialogo.
+4. Dopo l'accesso, la finestra di dialogo **Select Subscriptions** (Seleziona sottoscrizioni) elenca tutte le sottoscrizioni di Azure associate alle credenziali. Fare clic su **Select** (Seleziona) nella finestra di dialogo per chiudere.
+
+    ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 5. Nella scheda Azure Explorer espandere **HDInsight** per visualizzare i cluster HDInsight Spark nella sottoscrizione.
    
     ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-3.png)
@@ -76,9 +77,10 @@ Gli strumenti HDInsight per Eclipse sono disponibili come parte del Toolkit di A
     ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Configurare un progetto Spark in Scala per un cluster HDInsight Spark
+
 1. Nell'area di lavoro dell'ambiente IDE Eclipse fare clic su **File**, quindi su **New** (Nuovo) e infine su **Project** (Progetto). 
 2. Nella procedura guidata **New Project** (Nuovo progetto) espandere **HDInsight**, selezionare **Spark on HDInsight (Scala)** (Spark in HDInsight - Scala) e quindi fare clic su **Next** (Avanti).
-   
+
     ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 3. Nella finestra di dialogo **New HDInsight Scala Project** (Nuovo progetto HDInsight Scala) immettere/selezionare i valori come illustrato nell'immagine seguente e quindi fare clic su **Next** (Avanti).
    
@@ -86,38 +88,19 @@ Gli strumenti HDInsight per Eclipse sono disponibili come parte del Toolkit di A
    
    * Immettere un nome per il progetto.
    * Verificare che nella casella **JRE** l'opzione **Use an execution environment JRE** (Usa un ambiente di esecuzione JRE) sia impostata su **JavaSE-1.7**.
-   * Assicurarsi che Spark SDK sia impostato per il percorso in cui è stato scaricato l'SDK. Il collegamento al percorso di download è incluso nella sezione [Prerequisiti](#prerequisites) precedentemente illustrata in questo argomento. È anche possibile scaricare l'SDK dal collegamento incluso in questa finestra di dialogo, come illustrato nell'immagine precedente.     
-4. Nella successiva finestra di dialogo fare clic sulla scheda **Libraries (Librerie)** e quindi fare doppio clic su **JRE System Library [JavaSE-1.7]** (Libreria sistema JRE [JavaSE-1.7]).
+   * Assicurarsi che Spark SDK sia impostato per il percorso in cui è stato scaricato l'SDK. Il collegamento al percorso di download è incluso nella sezione [Prerequisiti](#prerequisites) precedentemente illustrata in questo argomento. È anche possibile scaricare l'SDK dal collegamento incluso in questa finestra di dialogo, come illustrato nell'immagine precedente.    
+4.    Nella successiva finestra di dialogo, fare clic sulla scheda **Librerie**, mantenere le impostazioni predefinite. 
    
     ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
-5. Nella finestra di dialogo **Edit Library (Modifica libreria)** verificare che **Execution Environment (Ambiente di esecuzione)** sia impostato su **JavaSE-1.7(jdk1.7.0_79)**. Se non è disponibile come opzione, seguire la procedura seguente.
-   
-   1. Selezionare l'opzione **Alternate JRE** (JRE alternativo) e verificare se **JavaSE-1.7(jdk1.7.0_79)** è disponibile.
-   2. In caso contrario, fare clic sul pulsante **Installed JREs** (JRE installati).
-      
-         ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-5.png)
-   3. Nella finestra di dialogo **Installed JREs** (JRE installati) fare clic su **Add** (Aggiungi).
-      
-         ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-6.png)    
-   4. Nella finestra di dialogo **JRE Type** (Tipo JRE) selezionare **Standard VM** (VM standard) e quindi fare clic su **Next** (Avanti).
-      
-         ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-7.png)    
-   5. Nella finestra di dialogo **JRE Definition** (Definizione JRE) fare clic su Directory e quindi passare al percorso dell'installazione di JDK 7 e selezionare la cartella radice per **jdk1.7.0_79**.
-      
-         ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-8.png)    
-   6. Fare clic su **Fine**. Nella finestra di dialogo **Installed JREs** (JRE installati) selezionare l'ambiente JRE appena aggiunto e quindi fare clic su **OK**.
-      
-          ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-9.png)
-   7. L'ambiente JRE appena aggiunto deve essere elencato per **Execution Environment**(Ambiente di esecuzione). Fare clic su **Fine**.
-      
-            ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-10.png)
-6. Tornando nella scheda **Libraries** (Librerie) fare doppio clic su **Scala Library Container[2.11.8]** (Contenitore della libreria Scala [2.11.8]). Nella finestra di dialogo **Edit Library** (Modifica libreria) selezionare **Fixed Scala Library container:2.10.6** (Contenitore libreria Scala fissa: 2.10.6). 
-   
-    ![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-11.png)
-   
+
     Fare clic su **Finish** (Fine) fino a chiudere la finestra di dialogo delle impostazioni di progetto.
 
+    **Eseguire un'applicazione Spark in Scala in un cluster ADLS** se si intende inviare l'applicazione a ADLS, è necessario scegliere la modalità **Interattiva** per Registrazione. 
+
+    ![Creazione di un'autenticazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/Interactive-Authentication.png)
+
 ## <a name="create-a-scala-application-for-hdinsight-spark-cluster"></a>Eseguire un'applicazione Scala in un cluster HDInsight Spark
+
 1. Nell'ambiente IDE Eclipse già aperto espandere il progetto creato in precedenza in **Package Explorer** (Esplora pacchetti), fare clic con il pulsante destro del mouse su **src**, scegliere **New** (Nuovo) e quindi fare clic su **Other** (Altro).
 2. Nella finestra di dialogo **Select a wizard** (Seleziona una procedura guidata) espandere **Scala Wizards** (Procedure guidate Scala) e fare clic su **Scala Object** (Oggetto Scala) e quindi su **Next** (Avanti).
    
@@ -162,7 +145,7 @@ Gli strumenti HDInsight per Eclipse sono disponibili come parte del Toolkit di A
       La sezione successiva illustrerà come accedere all'output del processo tramite gli strumenti HDInsight nel Toolkit di Azure per Eclipse.
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-using-the-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Accedere e gestire i cluster HDInsight Spark tramite gli strumenti HDInsight nel Toolkit di Azure per Eclipse.
-È possibile eseguire una serie di operazioni tramite gli strumenti HDInsight.
+È possibile eseguire varie operazioni tramite gli strumenti HDInsight.
 
 ### <a name="access-the-storage-container-for-the-cluster"></a>Accedere al contenitore di archiviazione per il cluster
 1. In Azure Explorer espandere il nodo radice **HDInsight** per visualizzare un elenco di cluster HDInsight Spark disponibili.

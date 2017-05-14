@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
@@ -27,14 +28,21 @@ Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli p
 ## <a name="roles-in-azure"></a>Ruoli in Azure
 La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per visualizzare un elenco dettagliato delle proprietà **actions** e **notactions** per il ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile utilizzare caratteri jolly. La proprietà **notactions** specifica le azioni non consentite.
 
+L'azione definisce quale tipo di operazioni è possibile eseguire su un tipo di risorsa specifico. Ad esempio:
+- **Write** (Scrittura) consente di eseguire le operazioni PUT, POST, PATCH e DELETE.
+- **Read** (Lettura) consente di eseguire operazioni GET. 
+
+Questo articolo tratta solo i ruoli diversi che esistono oggi. Quando si assegna un ruolo a un utente, tuttavia, è possibile limitare ulteriormente le azioni consentite definendo un ambito. Ciò è utile se si intende creare un collaboratore di siti Web, ma solo per un gruppo di risorse. 
+
 > [!NOTE]
-> Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare i cmdlet `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` applicabili.
->
->
+> Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare il cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) per elencare tutti i ruoli correnti. È possibile esaminare un ruolo specifico usando `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` in base alle esigenze. Usare [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) per elencare le operazioni di provider di risorse di Azure specifici. 
+
 
 | Nome del ruolo | Descrizione |
 | --- | --- |
-| [Collaboratore servizio Gestione API](#api-management-service-contributor) |È in grado di gestire i servizi Gestione API |
+| [Collaboratore servizio Gestione API](#api-management-service-contributor) |È in grado di gestire i servizi Gestione API e le API |
+| [Ruolo operatore del servizio Gestione API](#api-management-service-operator-role) | È in grado di gestire i servizi Gestione API ma non le API stesse |
+| [Ruolo lettura del servizio Gestione API](#api-management-service-reader-role) | Dispone di accesso in sola lettura al servizio Gestione API e alle API |
 | [Collaboratore componente di Application Insights](#application-insights-component-contributor) |È in grado di gestire i componenti di Application Insights |
 | [Operatore di automazione](#automation-operator) |È in grado di avviare, arrestare, sospendere e riprendere i processi |
 | [Collaboratore di backup](#backup-contributor) | Consente di gestire il backup nell'insieme di credenziali dei Servizi di ripristino |
@@ -64,7 +72,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore SQL Server](#sql-server-contributor) |È in grado di gestire server e database SQL, ma non i criteri di sicurezza correlati |
 | [Collaboratore account di archiviazione classico](#classic-storage-account-contributor) |È in grado di gestire gli account di archiviazione classici |
 | [Collaboratore account di archiviazione](#storage-account-contributor) |È in grado di gestire gli account di archiviazione |
-| [Amministratore accessi utente](#user-access-administrator) |Consente di gestire l’accesso degli utenti alle risorse di Azure |
+| [Amministratore accessi utente](#user-access-administrator) |Consente di gestire l'accesso degli utenti alle risorse di Azure |
 | [Collaboratore macchine virtuali classiche](#classic-virtual-machine-contributor) |È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o l'account di archiviazione a cui sono connesse |
 | [Collaboratore macchine virtuali](#virtual-machine-contributor) |È in grado di gestire macchine virtuali, ma non la rete virtuale o l'account di archiviazione a cui sono connesse |
 | [Collaboratore reti virtuali classiche](#classic-network-contributor) |È in grado di gestire reti virtuali classiche e IP riservati |
@@ -79,7 +87,41 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/* |È in grado di creare e gestire i servizi Gestione API |
+| Microsoft.ApiManagement/Service/* |È in grado di creare e gestire il servizio Gestione API |
+| Microsoft.Authorization/*/read |Autorizzazione Lettura |
+| Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
+| Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leggere i ruoli e le assegnazioni di ruoli |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="api-management-service-operator-role"></a>Ruolo operatore del servizio Gestione API
+È in grado di gestire i servizi Gestione API
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Leggere le istanze del servizio Gestione API |
+| Microsoft.ApiManagement/Service/backup/action | Eseguire il backup del servizio Gestione API nel contenitore specificato in un account di archiviazione fornito dall'utente |
+| Microsoft.ApiManagement/Service/delete | Eliminare un'istanza del servizio Gestione API |
+| Microsoft.ApiManagement/Service/managedeployments/action | Modificare gli SKU/le unità; aggiungere o rimuovere distribuzioni regionali del servizio Gestione API |
+| Microsoft.ApiManagement/Service/read | Leggere i metadati per un'istanza del servizio Gestione API |
+| Microsoft.ApiManagement/Service/restore/action | Ripristinare il servizio Gestione API dal contenitore specificato in un account di archiviazione fornito dall'utente |
+| Microsoft.ApiManagement/Service/updatehostname/action | Configurare, aggiornare o rimuovere i nomi di dominio personalizzati per un servizio Gestione API |
+| Microsoft.ApiManagement/Service/write | Creare una nuova istanza del servizio Gestione API |
+| Microsoft.Authorization/*/read |Autorizzazione Lettura |
+| Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
+| Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leggere i ruoli e le assegnazioni di ruoli |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="api-management-service-reader-role"></a>Ruolo lettura del servizio Gestione API
+È in grado di gestire i servizi Gestione API
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Leggere le istanze del servizio Gestione API |
+| Microsoft.ApiManagement/Service/read | Leggere i metadati per un'istanza del servizio Gestione API |
 | Microsoft.Authorization/*/read |Autorizzazione Lettura |
 | Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
@@ -111,7 +153,7 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 | Microsoft.Automation/automationAccounts/jobs/resume/action |Riprendere un processo di account di automazione |
 | Microsoft.Automation/automationAccounts/jobs/stop/action |Arrestare un processo di account di automazione |
 | Microsoft.Automation/automationAccounts/jobs/streams/read |Leggere flussi di processi di account di automazione |
-| Microsoft.Automation/automationAccounts/jobs/suspend/action |Sopendere un processo di account di automazione |
+| Microsoft.Automation/automationAccounts/jobs/suspend/action |Sospendere un processo di account di automazione |
 | Microsoft.Automation/automationAccounts/jobs/write |Scrivere processi di account di automazione |
 | Microsoft.Automation/automationAccounts/jobSchedules/read |Leggere una pianificazione di processo di account di automazione |
 | Microsoft.Automation/automationAccounts/jobSchedules/write |Leggere una pianificazione di processo di account di automazione |
@@ -503,7 +545,7 @@ Può gestire i criteri correlati alla sicurezza di SQL Server e database SQL
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Leggere l’autorizzazione Microsoft |
+| Microsoft.Authorization/*/read |Leggere l'autorizzazione Microsoft |
 | Microsoft.Insights/alertRules/* |Creare e gestire le regole di avviso di Insight |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
@@ -579,7 +621,7 @@ Può gestire gli account di archiviazione, ma non accedervi.
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
 ### <a name="user-access-administrator"></a>Amministratore accessi utente
-Consente di gestire l’accesso degli utenti alle risorse di Azure
+Consente di gestire l'accesso degli utenti alle risorse di Azure
 
 | **Actions** |  |
 | --- | --- |
@@ -588,7 +630,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
 ### <a name="classic-virtual-machine-contributor"></a>Collaboratore macchine virtuali classiche
-È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o gli account di archiviazione a cui sono connesse
+È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o l'account di archiviazione a cui sono connesse
 
 | **Actions** |  |
 | --- | --- |
@@ -611,7 +653,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
 ### <a name="virtual-machine-contributor"></a>Collaboratore macchine virtuali
-È in grado di gestire macchine virtuali, ma non la rete virtuale o account di archiviazione a cui sono connesse
+È in grado di gestire macchine virtuali, ma non la rete virtuale o l'account di archiviazione a cui sono connesse
 
 | **Actions** |  |
 | --- | --- |

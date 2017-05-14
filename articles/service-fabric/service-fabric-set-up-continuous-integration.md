@@ -1,5 +1,5 @@
 ---
-title: Impostare l&quot;integrazione continua per i microservizi di Azure | Documentazione Microsoft
+title: Impostare l&quot;integrazione continua per i microservizi di Azure | Microsoft Docs
 description: Panoramica di come configurare l&quot;integrazione e la distribuzione continue per un&quot;applicazione di Service Fabric tramite Visual Studio Team Services (VSTS).
 services: service-fabric
 documentationcenter: na
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 437e343425da5c8cfe71d4ae67c423fcc2b794c2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,14 +106,14 @@ Una definizione di versione di Team Services descrive un flusso di lavoro costit
     1. Selezionare **Nuovo endpoint del servizio** e quindi **Azure Service Fabric** nel menu.
     2. Selezionare il tipo di autenticazione usato dal cluster di destinazione per questo endpoint.
     3. Definire un nome per la connessione nel campo **Nome connessione** .  In genere, si userà il nome del cluster.
-    4. Definire l'URL dell'endpoint di connessione client nel campo **Cluster Endpoint** (Endpoint cluster).  Esempio: https://contoso.westus.cloudapp.azure.com:19000.
+    4. Definire l'URL dell'endpoint di connessione client nel campo **Cluster Endpoint** (Endpoint cluster).  Esempio: tcp://contoso.westus.cloudapp.azure.com:19000.
     5. Definire le credenziali di Azure Active Directory da usare per connettersi al cluster nei campi **Nome utente** e **Password**.
     6. Per l'autenticazione basata su certificati, definire la codifica Base64 del file del certificato client nel campo **Client Certificate** (Certificato client).  Per informazioni su come ottenere questo valore, vedere la finestra popup di guida su tale campo.  Se il certificato è protetto da password, definire la password nel campo **Password** .
     7. Confermare le modifiche facendo clic su **OK**. Dopo essere tornati alla definizione di versione, fare clic sull'icona di aggiornamento sul campo **Cluster Connection** (Connessione cluster) per visualizzare l'endpoint appena aggiunto.
 12. Salvare la definizione di versione.
 
 > [!NOTE]
-> Gli account Microsoft (ad esempio, @hotmail.com o @outlook.com) non sono supportati con l'autenticazione di Azure Active Directory.
+> Gli account Microsoft, ad esempio @hotmail.com o @outlook.com, non sono supportati con l'autenticazione di Azure Active Directory.
 > 
 > 
 
@@ -130,10 +132,5 @@ Per sapere di più sull'integrazione continua con applicazioni di Service Fabric
 * [Documentazione di Team Services](https://www.visualstudio.com/docs/overview)
 * [Gestione della compilazione in Team Services](https://www.visualstudio.com/docs/build/overview)
 * [Gestione della versione in Team Services](https://www.visualstudio.com/docs/release/overview)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

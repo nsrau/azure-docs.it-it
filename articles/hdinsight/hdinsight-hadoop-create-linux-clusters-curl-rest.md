@@ -1,5 +1,5 @@
 ---
-title: Creare cluster Azure HDInsight (Hadoop) usando cURL e REST | Documentazione Microsoft
+title: Creare cluster Azure HDInsight (Hadoop) usando cURL e REST | Microsoft Docs
 description: "Informazioni su come creare cluster HDInsight tramite cURL, i modelli di Azure Resource Manager e l&quot;API REST di Azure. È possibile specificare il tipo di cluster (Hadoop, HBase o Storm) o utilizzare gli script per installare i componenti personalizzati."
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c3440ac34a195bfc831ee2fa2ff916b16e92a2ac
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 05f2ce6d6f170e16985c3ed3523d4e41173e21e0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -52,10 +53,6 @@ L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospit
   > `Remove-item alias:curl`
   >
   > Una volta rimosso l'alias, sarà possibile utilizzare la versione di cURL installata nel sistema.
-
-### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-a-template"></a>Creare un modello
 
@@ -266,7 +263,7 @@ Questo esempio viene usato nei passaggi di questo documento. Sostituire i *valor
 
 Seguire i passaggi illustrati [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e connettersi alla sottoscrizione tramite il comando `az login`.
 
-## <a name="create-a-service-principal"></a>Creare un’entità servizio
+## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 > [!NOTE]
 > Questa procedura costituisce una sintesi della sezione *Creare un'entità servizio con password* dell'articolo [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password). Con questi passaggi viene creata un'entità servizio usata per autenticare l'API REST di Azure.
@@ -393,6 +390,10 @@ curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 ```
 
 Questo comando restituisce un documento JSON che contiene informazioni sull'operazione di distribuzione. L'elemento `"provisioningState"` contiene lo stato della distribuzione. Se contiene un valore di `"Succeeded"`, la distribuzione è stata completata.
+
+## <a name="troubleshoot"></a>Risoluzione dei problemi
+
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

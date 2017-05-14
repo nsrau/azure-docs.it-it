@@ -1,5 +1,5 @@
 ---
-title: Eseguire la replica di macchine virtuali Hyper-V in VMM in un sito secondario con PowerShell (Azure Resource Manager) | Documentazione Microsoft
+title: Eseguire la replica di macchine virtuali Hyper-V in VMM in un sito secondario con PowerShell (Azure Resource Manager) | Microsoft Docs
 description: Questo articolo descrive come distribuire Azure Site Recovery per coordinare la replica, il failover e il ripristino di macchine virtuali Hyper-V in cloud VMM in un sito VMM secondario tramite PowerShell (Resource Manager).
 services: site-recovery
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: sutalasi
-translationtype: Human Translation
-ms.sourcegitcommit: 0400369eb7ae3a2ebd506605b50afe08fe563d22
-ms.openlocfilehash: 33b3e7322afafd623a10661e33abe7b959eeb512
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 118dd3a69f140d57a3779e86c658982d58dbb718
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -78,9 +79,9 @@ Nei seguenti articoli vengono fornite altre informazioni sulla configurazione de
 [Altre informazioni](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) sul funzionamento del mapping di rete.
 
 ### <a name="powershell-prerequisites"></a>Prerequisiti di PowerShell
-Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](https://msdn.microsoft.com/library/dn850420.aspx).
+Assicurarsi che Azure PowerShell sia pronto all'uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](/powershell/azure/overview).
 
-Per informazioni sui suggerimenti che facilitano l'uso dei cmdlet, ad esempio i valori dei parametri, sugli input e sugli output che vengono in genere gestiti in Azure PowerShell, vedere [Iniziare a utilizzare i cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Per informazioni sui suggerimenti che facilitano l'uso dei cmdlet, ad esempio i valori dei parametri, sugli input e sugli output che vengono in genere gestiti in Azure PowerShell, vedere [Iniziare a utilizzare i cmdlet di Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="step-1-set-the-subscription"></a>Passaggio 1: impostare la sottoscrizione
 1. Da Azure PowerShell accedere all'account di Azure con i cmdlet seguenti
@@ -191,7 +192,7 @@ Per informazioni sui suggerimenti che facilitano l'uso dei cmdlet, ad esempio i 
 Per verificare il completamento dell'operazione, attenersi alla procedura descritta in [Monitorare l'attività](#monitor).
 
 ## <a name="step-6-configure-network-mapping"></a>Passaggio 6: Configurare il mapping di rete
-1. Il primo comando ottiene i server per l’insieme di credenziali corrente di Azure Site Recovery. Il comando archivia i server di Microsoft Azure Site Recovery nella variabile di matrice $Servers.
+1. Il primo comando ottiene i server per l'insieme di credenziali corrente di Azure Site Recovery. Il comando archivia i server di Microsoft Azure Site Recovery nella variabile di matrice $Servers.
 
         $Servers = Get-AzureRmSiteRecoveryServer
 2. I comandi seguenti consentono di ottenere la rete di ripristino del sito per il server VMM di origine e il server VMM di destinazione.
@@ -298,8 +299,8 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
-## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> Monitorare l'attività
-Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessario attendere l’esecuzione dei processi per il completamento dell'elaborazione.
+## <a name=monitor></a> Monitorare l'attività
+Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessario attendere l'esecuzione dei processi per il completamento dell'elaborazione.
 
     Do
     {
@@ -319,5 +320,5 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) su Azure Site Recovery con i cmdlet PowerShell per Azure Resource Manager.
+[Altre informazioni](/powershell/module/azurerm.recoveryservices.backup/#recovery) su Azure Site Recovery con i cmdlet PowerShell per Azure Resource Manager.
 

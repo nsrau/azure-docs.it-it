@@ -1,5 +1,5 @@
 ---
-title: Profilatura delle app Web attive in Azure con Application Insights | Documentazione Microsoft
+title: Profilatura delle app Web attive in Azure con Application Insights | Microsoft Docs
 description: Identificare il percorso ricorrente nel codice del server web con un profiler con footprint ridotto.
 services: application-insights
 documentationcenter: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ed685f0a4ed26fb8d1c766f87210a99d2b5270ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 13a2883c59092c964cf3c353e767839c5f9ef788
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,6 +44,8 @@ In [https://portal.azure.com](https://portal.azure.com) aprire la risorsa di App
 Se si vuole arrestare o riavviare il profiler, è possibile trovarlo nella **risorsa del servizio app** in **Processi Web**. Per eliminarlo, cercare in **Estensioni**.
 
 Se si usa WebDeploy per distribuire le modifiche all'Applicazione Web, assicurarsi di escludere la cartella **App_Data** dall'eliminazione durante la distribuzione. In caso contrario, verranno eliminati i file dell'estensione profiler alla successiva distribuzione dell'applicazione Web in Azure.
+
+**[Aggiornamento]** Nell'estensione del sito di Application Insights è stato integrato l'agente di profiler dalla versione 2.3 che sostituisce l'estensione del sito del profiler di Application Insights originale. È possibile eseguire la migrazione alla versione più recente tramite la procedura guidata **Configura**.
 
 ## <a name="viewing-profiler-data"></a>Visualizzazione dei dati del profiler
 
@@ -172,7 +175,7 @@ Quando si configura il profiler, gli aggiornamenti seguenti vengono eseguiti nel
 2. Impostare la versione di .Net Framework su 4.6.
 3. Attivare "Always On".
 4. Aggiungere l'impostazione dell'app "__APPINSIGHTS_INSTRUMENTATIONKEY__" e impostare il valore sulla stessa chiave di strumentazione usata dall'SDK.
-5. In **Estensioni** Aggiungere "profiler Application Insights" L'installazione richiede 2 o 3 minuti.
+5. In **Estensioni** aggiungere "Application Insights". L'installazione richiederà alcuni minuti.
 
 ## <a id="aspnetcore"></a>Supporto di ASP.NET Core
 

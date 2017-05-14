@@ -1,5 +1,5 @@
 ---
-title: Installare un notebook di Jupyter localmente e connetterlo a un cluster Azure Spark | Documentazione Microsoft
+title: Installare Jupyter Notebook localmente e connetterlo a un cluster Azure HDInsight Spark | Microsoft Docs
 description: Informazioni su come installare Jupyter Notebook in locale nel computer e su come connetterlo a un cluster Apache Spark in Azure HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -14,18 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 26cdaf4dc68876fa2bed4ca15d8bfb7fd3ac4b6d
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 689bcb86a5eb4476cb62516f623cd23702cd6bc9
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight"></a>Installare un notebook di Jupyter localmente e connetterlo al cluster Apache Spark in HDInsight
 
-Questo articolo illustra come installare Jupyter Notebook, insieme ai kernel personalizzati PySpark (per Python) e Spark (per Scala) e al magic Spark, e come connettere l'applicazione a un cluster HDInsight. L'installazione di Jupyter nel computer locale può essere dettata da molti motivi e può anche presentare alcuni problemi. Per un elenco di motivi e problemi, vedere la sezione [Perché installare Jupyter nel computer locale](#why-should-i-install-jupyter-on-my-computer) alla fine di questo articolo.
+Questo articolo illustra come installare Jupyter Notebook, insieme ai kernel personalizzati PySpark (per Python) e Spark (per Scala) e al magic Spark, e come connettere l'applicazione a un cluster HDInsight. L'installazione di Jupyter nel computer locale può essere dettata da molti motivi e può anche presentare alcuni problemi. Per altre informazioni, vedere la sezione [Perché installare Jupyter nel computer locale](#why-should-i-install-jupyter-on-my-computer) alla fine di questo articolo.
 
 L'installazione di Jupyter e del magic Spark nel computer si articola in tre passaggi chiave.
 
@@ -42,7 +43,8 @@ I prerequisiti elencati di seguito non riguardano l'installazione di Jupyter. Ri
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Installare Jupyter Notebook nel computer
-Prima di installare i notebook Jupyter è necessario installare Python. Sia Python che Jupyter sono disponibili come parte della [distribuzione Anaconda](https://www.continuum.io/downloads). Quando si installa Anaconda, viene effettivamente installata una distribuzione di Python. Dopo aver installato Anaconda, aggiungere l'installazione di Jupyter mediante l'esecuzione di un comando. Questa sezione fornisce istruzioni che è necessario seguire.
+
+Prima di installare i notebook Jupyter è necessario installare Python. Sia Python che Jupyter sono disponibili come parte della [distribuzione Anaconda](https://www.continuum.io/downloads). Quando si installa Anaconda, viene installata una distribuzione di Python. Dopo aver installato Anaconda, aggiungere l'installazione di Jupyter mediante l'esecuzione degli appropriati comandi.
 
 1. Scaricare il [programma di installazione di Anaconda](https://www.continuum.io/downloads) per la piattaforma in uso ed eseguirlo. Quando si esegue l'installazione guidata, assicurarsi di selezionare l'opzione per l'aggiunta di Anaconda alla variabile PATH.
 2. Eseguire il comando seguente per installare Jupyter.
@@ -52,13 +54,15 @@ Prima di installare i notebook Jupyter è necessario installare Python. Sia Pyth
     Per altre informazioni sull'installazione di Jupyter, vedere l'argomento relativo all' [installazione di Jupyter mediante Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
 
 ## <a name="install-the-kernels-and-spark-magic"></a>Installare i kernel e il magic Spark
-Per le istruzioni su come installare il magic Spar, i kernel Spark e PySpark, consultare la [documentazione sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) su GitHub.
 
-Per i cluster v3.4, installare sparkmagic 0.5.0 eseguendo `pip install sparkmagic==0.2.3`.
+Per le istruzioni su come installare il magic Spark, i kernel Spark e PySpark, seguire le istruzioni di installazione nella [documentazione sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) su GitHub. Il primo passaggio nella documentazione relativa al magic Spark richiede di installarlo. Sostituire il primo passaggio nel collegamento con i comandi seguenti, a seconda della versione del cluster HDInsight a cui ci si connetterà. Seguire quindi i passaggi rimanenti nella documentazione relativa al magic Spark. Se si intende installare i diversi kernel, è necessario eseguire il passaggio 3 nella sezione delle istruzioni di installazione del magic Spark.
 
-Per i cluster v3.5, installare sparkmagic 0.8.4 eseguendo `pip install sparkmagic==0.8.4`.
+* Per i cluster v3.4, installare sparkmagic 0.2.3 eseguendo `pip install sparkmagic==0.2.3`
+
+* Per i cluster v3.5 e v3.6, installare sparkmagic 0.11.2 eseguendo `pip install sparkmagic==0.11.2`
 
 ## <a name="configure-spark-magic-to-access-the-hdinsight-spark-cluster"></a>Configurare il magic Spark per l'accesso al cluster HDInsight Spark
+
 Questa sezione illustra come configurare il magic Spark installato in precedenza per la connessone a un cluster Apache Spark. È necessario che tale cluster sia già stato creato in Azure HDInsight.
 
 1. Le informazioni di configurazione di Jupyter sono in genere archiviate nella home directory dell'utente. Per individuare la home directory su una qualsiasi piattaforma del sistema operativo, digitare i comandi seguenti.
@@ -88,19 +92,17 @@ Questa sezione illustra come configurare il magic Spark installato in precedenza
           }
         }
 
-4. Sostituire **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** con i valori appropriati. È possibile usare diverse utilità del linguaggio di programmazione preferito o uno strumento online per convertire la password corrente in una password con codifica Base 64. Un semplice frammento di codice Python da eseguire dal prompt dei comandi può essere il seguente:
-
-        python -c "import base64; print(base64.b64encode('{YOURPASSWORD}'))"
+4. Sostituire **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** con i valori appropriati. È possibile usare diverse utilità del linguaggio di programmazione preferito o uno strumento online per convertire la password corrente in una password con codifica Base64.
 
 5. Configurare le impostazioni di heartbeat corrette in `config.json`. Queste impostazioni devono essere aggiunte allo stesso livello dei frammenti `kernel_python_credentials` e `kernel_scala_credentials` aggiunti in precedenza. Per un esempio di come e dove aggiungere le impostazioni di heartbeat, vedere questo [file config.json di esempio](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
-    * Per `sparkmagic 0.5.0` (cluster v3.4), includere:
+    * Per `sparkmagic 0.2.3` (cluster v3.4), includere:
 
             "should_heartbeat": true,
             "heartbeat_refresh_seconds": 5,
             "heartbeat_retry_seconds": 1
 
-    * Per `sparkmagic 0.8.4` (cluster v3.5), includere:
+    * Per `sparkmagic 0.11.2` (cluster v3.5 e v3.6), includere:
 
             "heartbeat_refresh_seconds": 5,
             "livy_server_heartbeat_timeout_seconds": 60,
@@ -115,19 +117,16 @@ Questa sezione illustra come configurare il magic Spark installato in precedenza
 
 7. Verificare che sia possibile connettersi al cluster mediante Jupyter Notebook e usare il magic Spark disponibile con i kernel. Eseguire i passaggi seguenti.
 
-   1. Creare un nuovo notebook. Nell'angolo a destra fare clic su **New**. Verranno visualizzati il kernel predefinito **Python2** e i due nuovi kernel installati, **PySpark** e **Spark**.
+    a. Creare un nuovo notebook. Nell'angolo a destra fare clic su **New**. Verranno visualizzati il kernel predefinito **Python2** e i due nuovi kernel installati, **PySpark** e **Spark**. Fare clic su **PySpark**.
 
-       ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Creare un nuovo notebook Jupyter")
+    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Creare un nuovo notebook Jupyter")
 
-        Fare clic su **PySpark**.
+    b. Eseguire il frammento di codice seguente.
 
+        %%sql
+        SELECT * FROM hivesampletable LIMIT 5
 
-    2. Eseguire il frammento di codice seguente.
-
-            %%sql
-            SELECT * FROM hivesampletable LIMIT 5
-
-        Se è stato possibile recuperare l'output, viene verificata la connessione al cluster HDInsight.
+    Se è stato possibile recuperare l'output, viene verificata la connessione al cluster HDInsight.
 
     >[!TIP]
     >Se si desidera aggiornare la configurazione del notebook per connettersi a un cluster differente, aggiornare il file config.json con un nuovo set di valori come illustrato nel Passaggio 3.

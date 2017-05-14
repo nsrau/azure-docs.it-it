@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 04/23/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 3dba9ebc8eb23be00f9b52907ba4bc565eeb5688
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 58b289530e16c2a2e9bbe59b372c858ff22ad5ac
+ms.contentlocale: it-it
+ms.lasthandoff: 04/29/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication - Anteprima pubblica
 
 L'estensione di Server dei criteri di rete (NPS) per Azure MFA aggiunge funzionalità MFA basate su cloud per l'infrastruttura di autenticazione usando i server esistenti. Con l'estensione di Server dei criteri di rete, è possibile aggiungere la verifica con telefonata, SMS o app telefonica al flusso di autenticazione esistente senza dover installare, configurare e gestire nuovi server. 
- 
+
+Questa estensione è stata creata per le organizzazioni che vogliono proteggere le connessioni VPN senza distribuire Azure MFA Server. L'estensione del server dei criteri di rete funge da adattatore tra RADIUS e Azure MFA basato su cloud per fornire un secondo fattore di autenticazione per utenti federati o sincronizzati. 
+
 Quando si usa l'estensione dei criteri di rete per di Azure MFA, il flusso di autenticazione include i componenti seguenti: 
 
 1. Il **Server NAS/VPN** riceve le richieste dei client VPN e le converte in richieste RADIUS per il Server dei criteri di rete. 
@@ -108,6 +111,8 @@ Seguire questa procedura per avviare un account di test:
 2. Accedere a qualsiasi sito Web in cui venga avviata l'autenticazione di Azure AD, ad esempio https://portal.azure.com.
 3. [Registrarsi alla verifica in due passaggi](./end-user/multi-factor-authentication-end-user-first-time.md).
 
+Gli utenti devono inoltre eseguire la procedura per la registrazione prima di potersi autenticare con l'estensione del server dei criteri di rete.
+
 ## <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 
 > [!IMPORTANT]
@@ -144,6 +149,8 @@ A meno che non si desideri utilizzare i propri certificati (invece dei certifica
 5. Accedere ad Azure AD come amministratore.
 6. Al termine dello script, PowerShell mostra un messaggio di conferma.  
 
+Ripetere questi passaggi per tutti i server dei criteri di rete aggiuntivi che si intende configurare per il bilanciamento del carico. 
+
 ## <a name="configure-your-nps-extension"></a>Configurare l'estensione di Server dei criteri di rete
 
 In questa sezione sono disponibili considerazioni e suggerimenti sulla progettazione per una corretta distribuzione dell'estensione di Server dei criteri di rete.
@@ -167,7 +174,7 @@ Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire 
 
 Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è registrato per MFA. Quando la chiave non esiste, non è impostata o è impostata su VERO e l'utente non è registrato, allora l'estensione non esegue correttamente la richiesta di verifica MFA. Quando la chiave è impostata su FALSO e l'utente non è registrato, l'autenticazione procede senza eseguire MFA.
 
-È possibile scegliere di creare questa chiave e impostarla su FALSO durante il caricamento dell'utente. Poiché l'impostazione della chiave consente agli utenti che non sono registrati all'MFA di accedere, è necessario rimuovere la chiave prima di passare all'ambiente di produzione.
+È possibile scegliere di creare questa chiave e impostarla su FALSE, durante il caricamento degli utenti che potrebbero non essere ancora registrati per Azure MFA. Poiché l'impostazione della chiave consente agli utenti che non sono registrati all'MFA di accedere, è necessario rimuovere la chiave prima di passare all'ambiente di produzione.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
