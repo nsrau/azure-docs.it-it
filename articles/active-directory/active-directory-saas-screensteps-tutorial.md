@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 7fbb8874367bda9be618332947ffa2c9942fe4ec
+ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
 
 
@@ -109,7 +110,6 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     1. Copiare l'**URL consumer SAML** negli Appunti.
 
 10. Nella pagina **Configura URL app** del portale di Azure classico incollare nella casella di testo **URL accesso ScreenSteps** l'**URL consumer SAML** e quindi fare clic su **Avanti**.
-
 
     ![Configurare l'URL dell'app](./media/active-directory-saas-screensteps-tutorial/IC778521.png "Configurare l'URL dell'app")
 
