@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: f017776480466979d7f2f9edec2b3ac5caca2321
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -79,9 +81,4 @@ La home page del portale del Catalogo dati di Azure include una sezione "Risorse
 
 ## <a name="summary"></a>Riepilogo
 Il Catalogo dati di Azure offre funzionalità che semplificano l'individuazione delle origini dati necessarie da parte degli utenti, in modo che sia necessario dedicare meno tempo alla ricerca dei dati e concentrarsi invece sull'uso dei dati. Le ricerche salvate e le risorse di dati aggiunte si basano su queste funzionalità di base, in modo che gli utenti possano identificare con facilità le origini dati con sui lavorano ripetutamente.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

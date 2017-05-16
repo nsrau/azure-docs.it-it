@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 0c90aff38ebe33e8c26f9e46db7e61786ea9a7dd
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -66,9 +68,4 @@ La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più
 
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
