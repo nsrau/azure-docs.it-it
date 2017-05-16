@@ -1,5 +1,5 @@
 ---
-title: 'Output di Analisi di flusso: opzioni per archiviazione, analisi | Documentazione Microsoft'
+title: 'Output di Analisi di flusso: opzioni per archiviazione, analisi | Microsoft Docs'
 description: Informazioni sulla destinazione di opzioni di output dei dati di Analisi di flusso tra cui Power BI per i risultati dell&quot;analisi.
 keywords: trasformazione dei dati, risultati dell&quot;analisi, opzioni di archiviazione dati
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 9eb581e6180a7ae6a5f24b3a991376264b0ecef9
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: f2c67bb0629c8a37e557d4813e3efa459f3c82ad
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -214,9 +214,9 @@ Per una procedura dettagliata di configurazione di un output di Power BI e del d
 > 
 
 ### <a name="schema-creation"></a>Creazione dello schema
-Analisi di flusso di Azure crea un set di dati e una tabella di Power BI per conto dell'utente, se non ne esistono già. In tutti gli altri casi la tabella viene aggiornata con nuovi valori. Attualmente non esiste alcuna limitazione che preveda l'esistenza di un'unica tabella in un set di dati.
+Analisi di flusso di Azure crea un set di dati e una tabella di Power BI per conto dell'utente, se non esiste già. In tutti gli altri casi la tabella viene aggiornata con nuovi valori. Attualmente è presente una limitazione che prevede l'esistenza di una sola tabella in un set di dati.
 
-### <a name="data-type-conversion-from-asa-to-power-bi"></a>Conversione di tipi di dati da Analisi di flusso di Azure in Power BI
+### <a name="data-type-conversion-from-asa-to-power-bi"></a>Conversione di tipi di dati da Analisi di flusso di Azure a Power BI
 Analisi di flusso di Azure consente di aggiornare il modello di dati in modo dinamico in fase di esecuzione se viene modificato lo schema di output. Vengono rilevate tutte le modifiche al nome e al tipo di colonna e l'aggiunta o la rimozione di colonne.
 
 Questa tabella contiene le conversioni dei tipi di dati dai [tipi di dati di analisi di flusso](https://msdn.microsoft.com/library/azure/dn835065.aspx) ai [tipi Entity Data Model (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) di Power BI se non esistono né un set di dati né una tabella di Power BI.
@@ -233,7 +233,7 @@ Matrice di record | Tipo String, valore di tipo Constant "IRecord" o "IArray"
 ### <a name="schema-update"></a>Aggiornamento dello schema
 L'analisi di flusso deduce lo schema del modello di dati in base al primo set di eventi dell'output. In un secondo momento, se necessario, lo schema del modello di dati viene aggiornato per gestire gli eventi in ingresso che potrebbero non rientrare nello schema originale.
 
-È consigliabile non usare la query `SELECT *` per evitare l'aggiornamento dello schema dinamico nelle righe. Oltre a implicazioni potenziali sulle prestazioni, potrebbe anche verificarsi un problema di indeterminazione del tempo necessario per ottenere i risultati. È necessario selezionare i campi esatti che devono essere visualizzati nel dashboard di Power BI. È anche necessario che i valori dei dati siano conformi al tipo di dati scelto.
+È consigliabile non usare la query `SELECT *` per evitare l'aggiornamento dinamico dello schema nelle righe. Oltre a implicazioni potenziali sulle prestazioni, potrebbe anche verificarsi un problema di indeterminazione del tempo necessario per ottenere i risultati. È necessario selezionare i campi esatti che devono essere visualizzati nel dashboard di Power BI. È anche necessario che i valori dei dati siano conformi al tipo di dati scelto.
 
 
 Precedente/Corrente | Int64 | string | DateTime | Double
@@ -318,7 +318,7 @@ L'elenco seguente illustra i nomi delle proprietà e la relativa descrizione per
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 È stato presentato Analisi di flusso, un servizio gestito per l'analisi di flusso su dati provenienti da Internet delle cose. Per altre informazioni su questo servizio, vedere:

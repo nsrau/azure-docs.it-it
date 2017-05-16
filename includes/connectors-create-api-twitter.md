@@ -16,8 +16,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Tw
 5. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:  
    ![Immagine di connessione a Twitter 4](./media/connectors-create-api-twitter/twitter-4.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

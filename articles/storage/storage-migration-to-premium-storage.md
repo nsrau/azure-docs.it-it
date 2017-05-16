@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 2703a7ae9274e6bef38e530839c1a7c5ad69fb88
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 56f4245b63cecd51bf81863e15e4e72d73e671d6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,14 +48,14 @@ Questa sezione è preparatoria ai passaggi per la migrazione indicati nell'artic
 
 ### <a name="prerequisites"></a>Prerequisiti
 * È necessaria una sottoscrizione di Azure. Se non è disponibile, è possibile creare una sottoscrizione di [valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) di un mese oppure visitare [Prezzi di Azure](https://azure.microsoft.com/pricing/) per altre opzioni.
-* Per eseguire i cmdlet PowerShell è necessario il modulo di Microsoft Azure PowerShell. Vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per le istruzioni relative al punto di installazione e all’installazione.
-* Quando si pianifica di usare macchine virtuali di Azure in esecuzione su Archiviazione Premium, è necessario usare macchine virtuali in grado di supportare Archiviazione Premium. Con le VM che supportano Archiviazione Premium è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. I dischi di archiviazione premium saranno disponibili con più tipi di macchine virtuali in futuro. Per altre informazioni su tutte le dimensioni e su tutti i tipi di dischi disponibili per le macchine virtuali di Azure, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md).
+* Per eseguire i cmdlet PowerShell è necessario il modulo di Microsoft Azure PowerShell. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per le istruzioni relative al punto di installazione e all’installazione.
+* Quando si pianifica di usare macchine virtuali di Azure in esecuzione su Archiviazione Premium, è necessario usare macchine virtuali in grado di supportare Archiviazione Premium. Con le VM che supportano Archiviazione Premium è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. I dischi di archiviazione premium saranno disponibili con più tipi di macchine virtuali in futuro. Per altre informazioni su tutte le dimensioni e su tutti i tipi di dischi disponibili per le macchine virtuali di Azure, vedere [Dimensioni delle macchine virtuali](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Considerazioni
 Una macchina virtuale di Azure supporta il collegamento di diversi dischi di Archiviazione Premium, consentendo alle applicazioni di avere fino a 64 TB di spazio di archiviazione per ogni macchina virtuale. Con Archiviazione Premium le applicazioni possono raggiungere 80.000 IOPS (operazioni di input/output al secondo) per ogni macchina virtuale e 2000 MB al secondo di velocità effettiva dei dischi per ogni macchina virtuale, con una latenza estremamente bassa per le operazioni di lettura. Sono disponibili diverse opzioni in termini di macchine virtuali e dischi. Questa sezione aiuta a individuare l'opzione più adatta al carico di lavoro.
 
 #### <a name="vm-sizes"></a>Dimensioni delle macchine virtuali
-Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano Archiviazione Premium e scegliere le dimensioni delle VM maggiormente indicate per i propri carichi di lavoro. Assicurarsi che nella macchina virtuale sia disponibile larghezza di banda sufficiente per gestire il traffico dei dischi.
+Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni delle macchine virtuali](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano Archiviazione Premium e scegliere le dimensioni delle VM maggiormente indicate per i propri carichi di lavoro. Assicurarsi che nella macchina virtuale sia disponibile larghezza di banda sufficiente per gestire il traffico dei dischi.
 
 #### <a name="disk-sizes"></a>Dimensione disco
 È possibile utilizzare tre tipi di dischi con la macchina virtuale, ciascuno con limiti IOP e di velocità effettiva specifici. Tenere in considerazione questi limiti nella scelta del tipo di disco per la macchina virtuale in base alle esigenze dell’applicazione in termini di capacità, prestazioni, scalabilità e carichi di picco.
@@ -66,7 +66,7 @@ Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni de
 | IOPS per disco |500 |2300 |5000 |
 | Velocità effettiva per disco |100 MB al secondo |150 MB al secondo |200 MB al secondo |
 
-A seconda del carico di lavoro, determinare se per la macchina virtuale in uso sono necessari dischi dati aggiuntivi. È possibile collegare più dischi dati persistenti alla macchina virtuale in uso. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Per altre informazioni sullo striping del disco, vedere [qui](storage-premium-storage-performance.md#disk-striping). Se si esegue lo striping di dischi dati di Archiviazione Premium con [Spazi di archiviazione][4], è consigliabile configurare una colonna per ogni disco usato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per le macchine virtuali Linux è possibile usare l'utilità *mdadm* per ottenere lo stesso risultato. Per informazioni dettagliate, vedere l'articolo sulla [configurazione del RAID software in Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+A seconda del carico di lavoro, determinare se per la macchina virtuale in uso sono necessari dischi dati aggiuntivi. È possibile collegare più dischi dati persistenti alla macchina virtuale in uso. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Per altre informazioni sullo striping del disco, vedere [qui](storage-premium-storage-performance.md#disk-striping). Se si esegue lo striping di dischi dati di Archiviazione Premium con [Spazi di archiviazione][4], è consigliabile configurare una colonna per ogni disco usato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per le macchine virtuali Linux è possibile usare l'utilità *mdadm* per ottenere lo stesso risultato. Per informazioni dettagliate, vedere l'articolo sulla [configurazione del RAID software in Linux](../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 #### <a name="storage-account-scalability-targets"></a>Obiettivi di scalabilità per gli account di archiviazione
 Gli account di Archiviazione Premium hanno i seguenti obiettivi di scalabilità oltre agli [obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md). Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un singolo account di archiviazione, compilare l'applicazione in modo che sia possibile usare più account di archiviazione e partizionare i dati tra tali account di archiviazione.
@@ -75,7 +75,7 @@ Gli account di Archiviazione Premium hanno i seguenti obiettivi di scalabilità 
 |:--- |:--- |
 | Capacità disco : 35 TB<br />Capacità snapshot: 10 TB |Fino a 50 gigabit al secondo per dati in ingresso e in uscita |
 
-Per altre informazioni sulle specifiche di Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+Per altre informazioni sulle specifiche di Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md#scalability-and-performance-targets).
 
 #### <a name="disk-caching-policy"></a>Criteri di memorizzazione nella cache su disco
 Per impostazione predefinita, il criterio di memorizzazione nella cache su disco è impostato su *Sola lettura* per tutti i dischi di dati Premium e su *Lettura/scrittura* per il disco del sistema operativo Premium collegato alla macchina virtuale. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni. Le impostazioni della cache per i dischi dati esistenti possono essere aggiornate mediante il [portale di Azure](https://portal.azure.com) o il parametro *-HostCaching* del cmdlet *Set-AzureDataDisk*.
@@ -185,11 +185,11 @@ Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Inte
 
     Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
 
-   * **/Source:*&lt;source&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
-   * **/SourceKey:*&lt;source-account-key&gt;:*** chiave dell'account di archiviazione di origine.
-   * **/Dest:*&lt;destination&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
-   * **/DestKey:*&lt;dest-account-key&gt;:*** chiave dell'account di archiviazione di destinazione.
-   * **/Pattern:*&lt;file-name&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
+   * **/Source: *&lt;source&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** chiave dell'account di archiviazione di origine.
+   * **/Dest: *&lt;destination&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** chiave dell'account di archiviazione di destinazione.
+   * **/Pattern: *&lt;file-name&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
 
 Per informazioni dettagliate sull'uso dello strumento AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
@@ -270,7 +270,7 @@ Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Inte
     ```azcopy
     AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
     ```
-    
+
     Esempio:
 
     ```azcopy
@@ -279,12 +279,12 @@ Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Inte
 
     Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
 
-   * **/Source:*&lt;source&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
-   * **/SourceKey:*&lt;source-account-key&gt;:*** chiave dell'account di archiviazione di origine.
-   * **/Dest:*&lt;destination&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
-   * **/DestKey:*&lt;dest-account-key&gt;:*** chiave dell'account di archiviazione di destinazione.
+   * **/Source: *&lt;source&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** chiave dell'account di archiviazione di origine.
+   * **/Dest: *&lt;destination&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** chiave dell'account di archiviazione di destinazione.
    * **/BlobType:page:** specifica che la destinazione è un BLOB di pagine.
-   * **/Pattern:*&lt;file-name&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
+   * **/Pattern: *&lt;file-name&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
 
 Per informazioni dettagliate sull'uso dello strumento AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
@@ -459,14 +459,14 @@ Di seguito viene fornito lo script di automazione. Sostituire il testo con le in
     .Terms of Use
     Copyright © 2015 Microsoft Corporation.  All rights reserved.
 
-    THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND,
+    THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
     EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY
     AND/OR FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK OF USE, INABILITY TO USE, OR
     RESULTS FROM THE USE OF THIS CODE REMAINS WITH THE USER.
 
     .Example (Save this script as Migrate-AzureVM.ps1)
 
-    .\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location “Southeast Asia”
+    .\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location "Southeast Asia"
 
     .Link
     To find more information about how to set up Azure PowerShell, refer to the following links.
@@ -581,7 +581,7 @@ Di seguito viene fornito lo script di automazione. Sostituire il testo con le in
     # check if VM is shut down
     if ( $sourceVM.Status -notmatch "Stopped" )
     {
-        Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you’d like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
+        Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you'd like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
         $ContinueAnswer = Read-Host "`n`tDo you wish to stop $SourceVMName now? Input 'N' if you want to shut down the VM manually and come back later.(Y/N)"
         If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
         $sourceVM | Stop-AzureVM

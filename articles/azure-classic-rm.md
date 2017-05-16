@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e3c8f61be72309354471451a33664c4b5497eb0e
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6dd2433bf744dd207375e92fd6f24b14cd3f828c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Azure offre due portali:
 Alcune risorse e funzionalità possono essere create e configurate solo in un portale o nell'altro. Non è ancora possibile creare o configurare alcune risorse o funzionalità in entrambi i portali, ma solo con PowerShell, l'interfaccia della riga di comando o entrambi. La documentazione per ciascuna risorsa di Azure descrive nel dettaglio con quale metodo può essere creata. 
 
 ## <a name="powershell"></a>PowerShell
-Con [PowerShell](/powershell/azureps-cmdlets-docs) è possibile usare una riga di comando o creare script per creare e configurare le risorse di Azure da un computer Windows.  Le singole risorse di Azure contengono [cmdlet di Resource Manager](https://msdn.microsoft.com/library/azure/mt125356.aspx), [cmdlet di Gestione dei servizi](https://msdn.microsoft.com/library/azure/dn708504.aspx) o entrambi.  Alcune risorse e funzionalità possono essere create e/o configurate solo usando PowerShell oppure l'interfaccia della riga di comando. A seconda della risorsa, quando si usano i cmdlet PowerShell di Gestione risorse potrebbero essere disponibili due opzioni per la creazione e la configurazione delle risorse di Azure:
+Con [PowerShell](/powershell/azureps-cmdlets-docs) è possibile usare una riga di comando o creare script per creare e configurare le risorse di Azure da un computer Windows.  Le singole risorse di Azure contengono [cmdlet di Resource Manager](/powershell/azure/overview), [cmdlet di Gestione dei servizi](/powershell/azure/overview?view=azuresmps-3.7.0) o entrambi.  Alcune risorse e funzionalità possono essere create e/o configurate solo usando PowerShell oppure l'interfaccia della riga di comando. A seconda della risorsa, quando si usano i cmdlet PowerShell di Gestione risorse potrebbero essere disponibili due opzioni per la creazione e la configurazione delle risorse di Azure:
 
 * **Solo cmdlet PowerShell:** è possibile creare e configurare singolarmente ciascuna risorsa di Azure usando i cmdlet per ogni risorsa. È possibile eseguire questa operazione dalla riga di comando o includendo più comandi in uno script di PowerShell archiviabile e la cui versione può essere controllata.
 * **Cmdlet PowerShell con un modello di Gestione risorse di Azure:** è possibile usare PowerShell per creare risorse di Azure con un modello di Gestione risorse di Azure. È possibile salvare i modelli e controllarne la versione. Per altre informazioni leggere l'articolo [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md) . Esistono anche diversi [modelli di Guida introduttiva](https://azure.microsoft.com/documentation/templates/) per soluzioni comuni che è possibile scaricare e modificare.

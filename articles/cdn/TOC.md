@@ -29,6 +29,7 @@
 ### [Monitorare le risorse](cdn-resource-health.md)
 ### [Eseguire l'override del comportamento con regole](cdn-rules-engine.md)
 ### [Ricevere avvisi in tempo reale](cdn-real-time-alerts.md)
+### [Supporto HTTP/2](cdn-http2.md)
 
 ## Analizzare
 ### [Analizzare i modelli di utilizzo](cdn-analyze-usage-patterns.md)
@@ -41,11 +42,11 @@
 ### [Node.js](cdn-app-dev-node.md)
 
 ## Risolvere problemi
-### [Stato&404;](cdn-troubleshoot-endpoint.md)
+### [Stato 404](cdn-troubleshoot-endpoint.md)
 ### [Compressione dei file](cdn-troubleshoot-compression.md)
 
 # Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
@@ -61,8 +62,3 @@
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

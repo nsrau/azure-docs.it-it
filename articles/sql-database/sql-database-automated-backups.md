@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 11/02/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8323aa27c93c1c460b31f7f7c822644f5eee929a
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: d849eeedae65c8cc35271c2e9b63236760c4629c
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -38,11 +38,6 @@ Il database SQL usa la tecnologia di SQL Server per creare backup [completi](htt
 * Ripristinare un database in un'altra area geografica. Ciò consente di eseguire un ripristino di emergenza geografico quando è impossibile accedere al server e al database. Crea un nuovo database in qualsiasi server esistente ovunque nel mondo. 
 * Ripristinare un database da un backup specifico nell'insieme di credenziali di Servizi di ripristino di Azure. Ciò consente di ripristinare una versione precedente del database per soddisfare una richiesta di conformità o di eseguire una versione precedente dell'applicazione. Vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
 * Per eseguire un ripristino, vedere l'articolo su come [ripristinare un database da un backup](sql-database-recovery-using-backups.md).
-
-> [!TIP]
-> Per un'esercitazione, vedere [Introduzione al backup e ripristino per la protezione dei dati e il ripristino](sql-database-get-started-backup-recovery-portal.md)
->
-
 
 > [!NOTE]
 > In Archiviazione di Azure il termine *replica* fa riferimento alla copia dei file da una località a un'altra. La *replica di database* di SQL fa riferimento a più database secondari sincronizzati con un database primario. 
@@ -82,14 +77,14 @@ Se l'applicazione richiede che i backup siano disponibili per un periodo di temp
 Dopo aver aggiunto il criterio LTR a un database tramite il portale di Azure o l'API, i backup settimanali completi del database verranno copiati automaticamente nel proprio insieme di credenziali di Servizio Backup di Azure. Se il database è crittografato con TDE, i backup vengono crittografati automaticamente quando i dati sono inattivi.  L'insieme di credenziali dei servizi eliminerà automaticamente i backup scaduti in base ai loro timestamp e al criterio LTR.  Non è quindi necessario gestire la pianificazione di backup o preoccuparsi di operazioni di pulitura dei vecchi file. L'API di ripristino supporta i backup archiviati nell'insieme di credenziali, purché l'insieme di credenziali si trovi nella stessa sottoscrizione del database SQL. È possibile usare il portale di Azure o PowerShell per accedere a questi backup.
 
 > [!TIP]
-> Per un'esercitazione, vedere [Introduzione al backup e ripristino per la protezione dei dati e il ripristino](sql-database-get-started-backup-recovery-portal.md)
+> Per informazioni di guida, vedere [Configurare e ripristinare dalla conservazione dei backup a lungo termine del database SQL di Azure](sql-database-long-term-backup-retention-configure.md)
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Per informazioni sulle altre soluzioni di continuità aziendale del database SQL Azure, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
-- Per eseguire il ripristino temporizzato nel portale di Azure, vedere l'articolo sul [ripristino temporizzato nel portale di Azure](sql-database-point-in-time-restore-portal.md).
+- Per eseguire il ripristino temporizzato nel portale di Azure, vedere l'articolo sul [ripristino temporizzato nel portale di Azure](sql-database-recovery-using-backups.md).
 - Per eseguire il ripristino temporizzato usando PowerShell, vedere l'articolo sul [ripristino temporizzato con PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatizzati in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, vedere [Gestire la conservazione a lungo termine dei backup tramite il portale di Azure](sql-database-manage-long-term-backup-retention-portal.md).
-- Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatizzati in un insieme di credenziali di Servizi di ripristino di Azure tramite PowerShell, vedere [Gestire la conservazione a lungo termine dei backup tramite PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
+- Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, vedere l'articolo sulla [gestione della conservazione a lungo termine dei backup tramite il portale di Azure](sql-database-long-term-backup-retention-configure.md).
+- Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in un insieme di credenziali di Servizi di ripristino di Azure tramite Powershell, vedere l'articolo sulla [gestione della conservazione a lungo termine dei backup tramite il portale di PowerShell](sql-database-long-term-backup-retention-configure.md).
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -42,7 +42,7 @@ Per iniziare a usare gratuitamente Archiviazione Standard di Azure, visitare [qu
 Per informazioni su come creare una VM con Managed Disks, vedere uno degli articoli seguenti.
 
 * [Creare una VM con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Funzionalità di Archiviazione Standard 
 
@@ -52,7 +52,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Standard.
 
 **Dischi di Archiviazione Standard**: i dischi di Archiviazione Standard possono essere collegati a tutte le VM di Azure, incluse le VM di serie di dimensioni usate con Archiviazione Premium come DSv2 e GS. Un disco di Archiviazione Standard può essere collegato a una sola VM. È tuttavia possibile collegare a una VM uno o più dischi di questo tipo, fino al numero massimo di dischi definito per la specifica dimensione di VM. Nella sezione seguente sugli obiettivi di scalabilità e prestazioni di Archiviazione Standard verranno descritte in dettaglio le specifiche. 
 
-**BLOB di pagine Standard**: i BLOB di pagine Standard vengono usati per contenere dischi persistenti per le VM e sono anche accessibili direttamente tramite REST come altri tipi di BLOB di Azure. I [BLOB di pagine](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sono una raccolta di pagine di 512 byte ottimizzata per operazioni di lettura e scrittura casuali. 
+**BLOB di pagine Standard**: i BLOB di pagine Standard vengono usati per contenere dischi persistenti per le VM e sono anche accessibili direttamente tramite REST come altri tipi di BLOB di Azure. I [BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sono una raccolta di pagine di 512 byte ottimizzata per operazioni di lettura e scrittura casuali. 
 
 **Replica di Archiviazione**: nella maggior parte delle aree, i dati in un account di archiviazione Standard possono essere replicati in locale oppure essere sottoposti a replica geografica tra più data center. Sono disponibili i quattro tipi di replica seguenti: archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). In Archiviazione Standard, Managed Disks supporta attualmente solo l'archiviazione con ridondanza locale. Per altre informazioni, vedere [Replica di Archiviazione](storage-redundancy.md).
 
@@ -99,11 +99,11 @@ Per il servizio Archiviazione, il file VHD è un BLOB di pagine. È possibile cr
 
 È possibile creare [snapshot incrementali](storage-incremental-snapshots.md) dei dischi Standard non gestiti nello stesso modo in cui si usano gli snapshot con Archiviazione Standard. Se il disco di origine si trova in un account di archiviazione con ridondanza locale, è consigliabile creare gli snapshot e quindi copiarli in un account di archiviazione Standard con ridondanza geografica. Per altre informazioni, vedere [Opzioni di ridondanza di Archiviazione di Azure](storage-redundancy.md).
 
-Se un disco è collegato a una macchina virtuale, alcune operazioni API non sono consentite sui dischi. Ad esempio, non è possibile eseguire un'operazione [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) sul BLOB finché il disco è collegato a una macchina virtuale. Al contrario, è necessario creare innanzitutto uno snapshot del BLOB usando il metodo dell'API REST [Snapshot Blob](/rest/api/storageservices/fileservices/Snapshot-Blob), quindi eseguire l'operazione [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) dello snapshot per copiare il disco collegato. In alternativa, è possibile scollegare il disco e quindi eseguire le operazioni necessarie.
+Se un disco è collegato a una macchina virtuale, alcune operazioni API non sono consentite sui dischi. Ad esempio, non è possibile eseguire un'operazione [Copy Blob](/rest/api/storageservices/Copy-Blob) sul BLOB finché il disco è collegato a una macchina virtuale. Al contrario, è necessario creare innanzitutto uno snapshot del BLOB usando il metodo dell'API REST [Snapshot Blob](/rest/api/storageservices/Snapshot-Blob), quindi eseguire l'operazione [Copy Blob](/rest/api/storageservices/Copy-Blob) dello snapshot per copiare il disco collegato. In alternativa, è possibile scollegare il disco e quindi eseguire le operazioni necessarie.
 
-Per mantenere copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione con ridondanza locale a un account di archiviazione Standard con ridondanza geografica usando AzCopy o Copy Blob. Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob).
+Per mantenere copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione con ridondanza locale a un account di archiviazione Standard con ridondanza geografica usando AzCopy o Copy Blob. Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
-Per informazioni dettagliate sull'esecuzione di operazioni REST sui BLOB di pagine negli account di archiviazione Standard, vedere l'articolo relativo alle [API REST per i servizi di archiviazione di Azure](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference).
+Per informazioni dettagliate sull'esecuzione di operazioni REST sui BLOB di pagine negli account di archiviazione Standard, vedere l'articolo relativo alle [API REST per i servizi di archiviazione di Azure](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 ### <a name="managed-disks"></a>Dischi gestiti
 
@@ -125,7 +125,7 @@ Quando si usa Archiviazione Standard, tenere conto delle considerazioni seguenti
 
 **Dischi gestiti:** la fatturazione dei dischi gestiti è basata sulle dimensioni per cui è stato effettuato il provisioning. Se per un disco è stato effettuato il provisioning come disco da 10 GB e si usano solo 5 GB, verranno comunque addebitate le dimensioni di 10 GB del provisioning.
 
-**Snapshot**: gli snapshot dei dischi Standard vengono fatturati in base alla capacità aggiuntiva usata allo scopo. Per informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/fileservices/Creating-a-Snapshot-of-a-Blob).
+**Snapshot**: gli snapshot dei dischi Standard vengono fatturati in base alla capacità aggiuntiva usata allo scopo. Per informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Trasferimenti di dati in uscita**: i [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/data-transfers/) (dati in uscita dai data center di Azure) vengono fatturati in base all'uso della larghezza di banda.
 
@@ -153,4 +153,4 @@ Per informazioni dettagliate sui prezzi di Archiviazione Standard, Macchine virt
 
 * [Creare una VM con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/linux/quick-create-cli.md)

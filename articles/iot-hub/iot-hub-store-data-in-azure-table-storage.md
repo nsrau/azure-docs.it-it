@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4918648906212ea9708b6c6f0e89d1f4bb7bdcc5
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Salvare i messaggi dell'hub IoT che contengono informazioni come i dati di sensori nell'archiviazione tabelle di Azure
+
+![Diagramma end-to-end](media/iot-hub-get-started-e2e-diagram/3.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,7 +41,7 @@ Si apprenderà come creare un account di archiviazione di Azure e un'app per le 
 
 ## <a name="what-you-will-need"></a>Prerequisiti
 
-- Completare l'esercitazione [Connettere ESP8266 all'hub IoT di Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) che prevede i requisiti seguenti:
+- Completare l'esercitazione [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che prevede i requisiti seguenti:
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
   - Un'applicazione in esecuzione che invia messaggi all'hub IoT di Azure.
@@ -127,29 +130,15 @@ L'hub IoT espone un endpoint predefinito compatibile con Hub eventi per consenti
       ![Aggiungere un archivio tabelle all'app per le funzioni nel portale di Azure](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
    1. Immettere le informazioni necessarie.
 
+      **Nome del parametro della tabella**: usare `outputTable` per il nome, che verrà usato nel codice di Funzioni di Azure.
+      
       **Nome tabella**: usare `deviceData` per il nome.
 
-      **Connessione dell'account di archiviazione**: fare clic su **nuovo** e selezionare l'account di archiviazione.
+      **Connessione dell'account di archiviazione**: fare clic su **nuovo** e selezionare o immettere l'account di archiviazione.
    1. Fare clic su **Salva**.
 1. In **Trigger** fare clic su **Hub eventi di Azure (myEventHubTrigger)**.
 1. In **Gruppo di consumer dell'hub eventi** immettere il nome del gruppo di consumer creato, quindi fare clic su **Salva**.
 1. Fare clic su **Sviluppo** e quindi su **Visualizza file**.
-1. Fare clic su **Aggiungi** per aggiungere un nuovo file denominato `package.json`, incollare le informazioni seguenti e quindi fare clic su **Salva**.
-
-   ```json
-   {
-      "name": "iothub_save_message_to_table",
-      "version": "0.0.1",
-      "private": true,
-      "main": "index.js",
-      "author": "Microsoft Corp.",
-      "dependencies": {
-         "azure-iothub": "1.0.9",
-         "azure-iot-common": "1.0.7",
-         "moment": "2.14.1"
-      }
-   }
-   ```
 1. Sostituire il codice in `index.js` con il codice seguente, quindi fare clic su **Salva**.
 
    ```javascript
@@ -157,34 +146,20 @@ L'hub IoT espone un endpoint predefinito compatibile con Hub eventi per consenti
 
    // This function is triggered each time a message is revieved in the IoTHub.
    // The message payload is persisted in an Azure Storage Table
-   var moment = require('moment');
-
+ 
    module.exports = function (context, iotHubMessage) {
-      context.log('Message received: ' + JSON.stringify(iotHubMessage));
-      context.bindings.outputTable = {
-      "partitionKey": moment.utc().format('YYYYMMDD'),
-         "rowKey": moment.utc().format('hhmmss') + process.hrtime()[1] + '',
-         "message": JSON.stringify(iotHubMessage)
-      };
-      context.done();
+    context.log('Message received: ' + JSON.stringify(iotHubMessage));
+    var date = Date.now();
+    var partitionKey = Math.floor(date / (24 * 60 * 60 * 1000)) + '';
+    var rowKey = date + '';
+    context.bindings.outputTable = {
+     "partitionKey": partitionKey,
+     "rowKey": rowKey,
+     "message": JSON.stringify(iotHubMessage)
+    };
+    context.done();
    };
    ```
-1. Fare clic su **Impostazioni dell'app per le funzioni** > **Apri console sviluppo**.
-
-   È necessario trovarsi al livello della cartella `wwwroot` dell'app per le funzioni.
-1. Passare alla cartella della funzione con il comando seguente:
-
-   ```bash
-   cd <your function name>
-   ```
-1. Installare il pacchetto npm eseguendo questo comando:
-
-   ```bash
-   npm install
-   ```
-
-   > [!Note]
-   > Il completamento dell'installazione può richiedere del tempo.
 
 L'app per le funzioni è stata creata. Archivia i messaggi ricevuti dall'hub IoT nell'archivio tabelle di Azure.
 
@@ -205,3 +180,4 @@ L'app per le funzioni è stata creata. Archivia i messaggi ricevuti dall'hub IoT
 È stato creato l'account di archiviazione di Azure e l'app per le funzioni di Azure per archiviare i messaggi ricevuti dall'hub IoT nell'archivio tabelle di Azure.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

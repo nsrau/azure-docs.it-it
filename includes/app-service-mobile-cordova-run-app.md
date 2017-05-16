@@ -15,8 +15,3 @@ Il back-end inserisce i dati della richiesta nella tabella TodoItem del database
 È possibile ripetere i passaggi da 3 a 5 per altre piattaforme.
 
 [portale di Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

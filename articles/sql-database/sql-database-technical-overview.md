@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a139b97e20685a5ced513c1fd180a74e91c497a7
+ms.lasthandoff: 04/15/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Informazioni sul database SQL Introduzione al Database SQL
@@ -35,7 +35,7 @@ Per un set di esempi dell'interfaccia della riga di comando di Azure e di PowerS
  - [Esempi di Azure PowerShell per database SQL di Azure](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Regolare le prestazioni e scalabilità senza tempi di inattività
-Il servizio database SQL offre tre livelli di servizio: Basic, Standard e Premium. Ogni livello di servizio offre [diversi livelli di prestazioni e capacità](sql-database-service-tiers.md) per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile creare la prima app in un database di piccole dimensioni per un costo mensile conveniente e quindi [modificare il livello di servizio](sql-database-service-tiers.md) manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile eseguire questa operazione senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
+Il servizio database SQL offre i livelli di servizio Basic, Standard, Premium e Premium RS. Ogni livello di servizio offre [diversi livelli di prestazioni e capacità](sql-database-service-tiers.md) per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile creare la prima app in un database di piccole dimensioni per un costo mensile conveniente e quindi [modificare il livello di servizio](sql-database-service-tiers.md) manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile eseguire questa operazione senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
 ## <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 Per molte aziende e app, la possibilità di creare singoli database e connettere o disconnettere prestazioni su richiesta è sufficiente, specialmente se i modelli d'uso sono relativamente prevedibili. Ma se si dispone di modelli di utilizzo imprevedibili, può risultare difficile gestire i costi e il modello aziendale. I [pool elastici](sql-database-elastic-pool.md) sono stati progettati per risolvere questo problema. Il concetto è semplice. È possibile allocare le risorse relative alle prestazioni a un pool invece che a un database singolo e quindi pagare le risorse relative alle prestazioni collettive del pool invece di pagare le prestazioni del database singolo. Con i pool elastici non è necessario concentrarsi sul ridimensionamento delle prestazioni del database in base alla fluttuazione della richiesta delle risorse. I database nel pool utilizzano le risorse relative alle prestazioni del pool elastico in base alla necessità. I database nel pool utilizzano ma non superano i limiti del pool, quindi il costo rimane prevedibile, indipendentemente dall'utilizzo dei singoli database. Inoltre, è possibile [aggiungere e rimuovere i database al pool](sql-database-elastic-pool-manage-portal.md), con la scalabilità dell’app da un numero limitato di database a migliaia, tutto all'interno di un budget che è possibile controllare. È infine possibile controllare le risorse minime e massime disponibili per i database del pool per verificare che nessun database del pool usi tutte le risorse del pool e che a ogni database nel pool sia garantita una quantità minima di risorse. Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
@@ -61,6 +61,6 @@ Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni su
 
 * Vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/sql-database/) per informazioni sui prezzi e per confrontare e calcolare il prezzo per database singoli e per pool elastici.
 * Informazioni sui [pool elastici](sql-database-elastic-pool.md).
-* Per iniziare, [creare il primo database](sql-database-get-started.md).
+* Per iniziare, [creare il primo database](sql-database-get-started-portal.md).
 * Creare la prima app in C#, Java, Node.js, PHP, Python o Ruby: [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md)
 

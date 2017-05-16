@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c6d26aca309597cf9552e97a22e84b6c122fe58b
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e76a20c7c7eef9a51c6c0373785fd810c09e34a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +37,7 @@ Nell'articolo si presuppone che il lettore abbia familiarità con i concetti seg
 * Distribuzione, configurazione e gestione di applicazioni relying party, ovvero siti e servizi Web, che possono utilizzare token di AD FS di Windows Server
 * Concetti generali sulle macchine virtuale, ad esempio come configurare una macchina virtuale, i dischi virtuali e le reti virtuali
 
-Questo articolo illustra i requisiti per uno scenario di distribuzione ibrida in cui Servizi di dominio Active Directory di Windows Server o AD FS di Windows Server viene distribuito parte in locale e parte in macchine virtuali di Azure. La prima parte del documento illustra le differenze principali tra l'esecuzione di Servizi di dominio Active Directory di Windows Server e di AD FS di Windows Server in macchine virtuali di Azure e in locale. Descrive anche importanti decisioni che interessano la progettazione e la distribuzione. La parte restante del documento illustra più in dettaglio le linee guida per ogni decisione e la modalità di applicazione di queste linee guida ai diversi scenari di distribuzione.
+Questo articolo illustra i requisiti per uno scenario di distribuzione ibrida in cui Servizi di dominio Active Directory di Windows Server o AD FS di Windows Server viene distribuito parte in locale e parte in macchine virtuali di Azure. La prima parte del documento illustra le differenze critiche tra l'esecuzione di Active Directory Domain Services e AD FS di Windows Server in macchine virtuali di Azure e in locale. Descrive anche le decisioni importanti che interessano la progettazione e la distribuzione. La parte restante del documento illustra più in dettaglio le linee guida per ogni decisione e la modalità di applicazione di queste linee guida ai diversi scenari di distribuzione.
 
 Questo articolo non descrive la configurazione di [Azure Active Directory](http://azure.microsoft.com/services/active-directory/), un servizio basato su REST che fornisce funzionalità di gestione delle identità e di controllo di accesso per le applicazioni cloud. Azure Active Directory (Azure AD) e Servizi di dominio Active Directory di Windows Server sono tuttavia progettati per interagire in modo da garantire una soluzione di gestione delle identità e dell'accesso per le applicazioni moderne e gli ambienti IT ibridi attuali. Per comprendere le differenze e le relazioni tra Servizi di dominio Active Directory di Windows Server e Azure AD, si tenga presente quanto riportato di seguito:
 
@@ -120,7 +120,7 @@ Azure è ideale anche come soluzione alternativa a siti di ripristino di emergen
 Infine è possibile distribuire un'applicazione di rete in Azure, ad esempio SharePoint, che richiede Active Directory di Windows Server, ma non ha dipendenze dalla rete locale o dall'istanza di Active Directory di Windows Server aziendale. In questo caso, la distribuzione di una foresta isolata in Azure per soddisfare requisiti del server SharePoint è la soluzione ottimale. La distribuzione di applicazioni di rete che richiedono la connettività alla rete locale e all'istanza di Active Directory aziendale è supportata anche in questo caso.
 
 > [!NOTE]
-> Poiché offre una connessione di livello&3;, il componente VPN che fornisce la connettività tra una rete virtuale di Azure e una rete locale può anche consentire a server membri eseguiti in locale di sfruttare i controller di dominio eseguiti come VM nella rete virtuale di Azure. Se però la VPN non è disponibile, la comunicazione tra i computer locali e i controller di dominio basati su Azure non funzionerà, generando errori di autenticazione e di altra natura.  
+> Poiché offre una connessione di livello 3, il componente VPN che fornisce la connettività tra una rete virtuale di Azure e una rete locale può anche consentire a server membri eseguiti in locale di sfruttare i controller di dominio eseguiti come VM nella rete virtuale di Azure. Se però la VPN non è disponibile, la comunicazione tra i computer locali e i controller di dominio basati su Azure non funzionerà, generando errori di autenticazione e di altra natura.  
 > 
 > 
 
@@ -206,7 +206,7 @@ Uno svantaggio di questa opzione è la necessità di configurare gli ACL di rete
 
 Un'altra opzione consiste nell'usare il dispositivo [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) per controllare il traffico tra i server proxy AD FS e i server AD FS. Questa opzione è conforme alle procedure consigliate per la sicurezza e la disponibilità elevata e richiede meno attività di amministrazione dopo l'installazione iniziale, perché il dispositivo Barracuda NG Firewall offre una modalità di tipo elenco elementi consentiti per l'amministrazione del firewall e può essere installato direttamente in una rete virtuale di Azure. Questo approccio elimina la necessità di configurare gli ACL di rete ogni volta che si aggiunge un nuovo server alla distribuzione. Questa opzione comporta tuttavia maggiori costi e complessità per la distribuzione iniziale.
 
-In questo caso, vengono distribuite due reti virtuali invece di una, ad esempio rete virtuale&1; e rete virtuale&2;. La rete virtuale&1; contiene i proxy, mentre la rete virtuale&2; contiene i servizi token di sicurezza e la connessione di rete alla rete aziendale. La rete virtuale&1; è quindi fisicamente, anche se virtualmente, isolata dalla rete virtuale&2; e di conseguenza anche dalla rete aziendale. La rete virtuale&1; è quindi connessa alla rete virtuale&2; con una speciale tecnologia di tunneling chiamata Transport Independent Network Architecture (TINA). Il tunnel TINA è collegato a ognuna delle reti virtuali tramite un dispositivo Barracuda NG Firewall, uno in ogni rete virtuale.  Per garantire la disponibilità elevata, è consigliabile distribuire due dispositivi Barracuda in ogni rete virtuale, uno attivo e l'altro passivo. Questi dispositivi offrono funzionalità firewall complesse che consentono di simulare il funzionamento di una tradizionale rete perimetrale locale in Azure.
+In questo caso, vengono distribuite due reti virtuali invece di una, ad esempio rete virtuale 1 e rete virtuale 2. La rete virtuale 1 contiene i proxy, mentre la rete virtuale 2 contiene i servizi token di sicurezza e la connessione di rete alla rete aziendale. La rete virtuale 1 è quindi fisicamente, anche se virtualmente, isolata dalla rete virtuale 2 e di conseguenza anche dalla rete aziendale. La rete virtuale 1 è quindi connessa alla rete virtuale 2 con una speciale tecnologia di tunneling chiamata Transport Independent Network Architecture (TINA). Il tunnel TINA è collegato a ognuna delle reti virtuali tramite un dispositivo Barracuda NG Firewall, uno in ogni rete virtuale.  Per garantire la disponibilità elevata, è consigliabile distribuire due dispositivi Barracuda in ogni rete virtuale, uno attivo e l'altro passivo. Questi dispositivi offrono funzionalità firewall complesse che consentono di simulare il funzionamento di una tradizionale rete perimetrale locale in Azure.
 
 ![AD FS in Azure con firewall.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)
 
@@ -394,7 +394,7 @@ Per motivi di prestazioni e tolleranza di errore, la soluzione ottimale consiste
 
 Le VM registrano il relativo nome DNS automaticamente all'avvio o in caso di modifica di un nome.
 
-Per altre informazioni su questo esempio e su un altro che illustra il provisioning della prima VM e l'installazione in quest'ultima di Servizi di dominio Active Directory, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per altre informazioni sull'uso di Windows PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlet di gestione di Azure](https://msdn.microsoft.com/library/azure/jj152841).
+Per altre informazioni su questo esempio e su un altro che illustra il provisioning della prima VM e l'installazione in quest'ultima di Servizi di dominio Active Directory, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per altre informazioni sull'uso di Windows PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlet di gestione di Azure](/powershell/module/azurerm.compute/#virtual_machines).
 
 ### <a name="BKMK_DistributedDCs"></a>Controller di dominio con distribuzione geografica
 Azure offre vantaggi quando si ospitano più controller di dominio in reti virtuali diverse:

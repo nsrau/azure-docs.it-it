@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/01/2017
+ms.date: 3/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 82f084b220ba321945975c8d1a6d22e419acf5e4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,7 +33,7 @@ L'accesso assegnato tramite RBAC è granulare in quanto offre due modalità per 
 * **Ambito:** le assegnazioni di ruolo RBAC hanno un ambito riferito a una sottoscrizione, una risorsa o un gruppo di risorse specifici. Un utente al quale è stato concesso l'accesso a una singola risorsa non può accedere alle altre risorse nella stessa sottoscrizione.
 * **Ruolo:** all'interno dell'ambito dell'assegnazione, l'accesso è ulteriormente limitato con l'assegnazione di un ruolo. I ruoli possono essere di livello superiore, ad esempio quello di proprietario, o specifici, ad esempio quello di lettore di macchina virtuale.
 
-I ruoli possono essere assegnati solo all'interno della sottoscrizione, del gruppo di risorse o della risorsa che rientra nell'ambito dell'assegnazione. È tuttavia possibile visualizzare in un'unica posizione tutte le assegnazioni di accesso di un determinato utente o gruppo.
+I ruoli possono essere assegnati solo all'interno della sottoscrizione, del gruppo di risorse o della risorsa che rientra nell'ambito dell'assegnazione. È tuttavia possibile visualizzare in un'unica posizione tutte le assegnazioni di accesso di un determinato utente o gruppo. È possibile avere fino a 2000 assegnazioni di ruolo in ogni sottoscrizione. 
 
 Altre informazioni su come [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](role-based-access-control-configure.md).
 

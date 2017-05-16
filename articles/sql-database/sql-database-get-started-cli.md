@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: hero-article
-ms.date: 04/04/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 24a99c20dc015b15de980e8323f2d88a39d318dd
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: fb0cd3898703b9acf54d7ff70774bd090d39f0e5
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -39,21 +39,40 @@ Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#logi
 az login
 ```
 
+## <a name="define-variables"></a>Definire le variabili
+
+Definire le variabili da usare negli script di questa guida introduttiva.
+
+```azurecli
+# The data center and resource name for your resources
+export resourcegroupname = myResourceGroup
+export location = westeurope
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
+export servername = server-$RANDOM
+# Set an admin login and password for your database
+export adminlogin = ServerAdmin
+export password = ChangeYourAdminPassword1
+# The ip address range that you want to allow to access your DB
+export startip = "0.0.0.0"
+export endip = "0.0.0.1"
+# The database name
+export databasename = mySampleDatabase
+```
+
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con il comando [az group create](/cli/azure/group#create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `westeurope`.
 
 ```azurecli
-az group create --name myResourceGroup --location westeurope
+az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>Creare un server logico
 
 Creare un [server logico del database SQL di Azure](sql-database-features.md) con il comando [az sql server create](/cli/azure/sql/server#create). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un account di accesso amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
 
 ```azurecli
-servername=server-$RANDOM
-az sql server create --name $servername --resource-group myResourceGroup --location westeurope \
-    --admin-user ServerAdmin --admin-password ChangeYourAdminPassword1
+az sql server create --name $servername --resource-group $resourcegroupname --location $location \
+    --admin-user $adminlogin --admin-password $password
 ```
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurare una regola del firewall del server
@@ -61,8 +80,8 @@ az sql server create --name $servername --resource-group myResourceGroup --locat
 Creare una [regola del firewall del server del database SQL di Azure](sql-database-firewall-configure.md) con il comando [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utility SQLCMD, di connettersi a un database SQL tramite il firewall del servizio di database SQL. Nell'esempio seguente, il firewall è aperto solo per altre risorse di Azure. Per abilitare la connettività esterna, modificare l'indirizzo IP in un indirizzo appropriato per l'ambiente. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.  
 
 ```azurecli
-az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
-    -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
+    -n AllowYourIp --start-ip-address $startip --end-ip-address $endip
 ```
 
 > [!NOTE]
@@ -74,26 +93,33 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 Creare nel server un database con [livello di prestazioni S0](sql-database-service-tiers.md) con il comando [az sql db create](/cli/azure/sql/db#create). L'esempio seguente crea un database denominato `mySampleDatabase` e carica i dati di esempio di AdventureWorksLT in questo database. Sostituire questi valori predefiniti con quelli desiderati. Altre guide introduttive di questa raccolta si basano sui valori di questa guida introduttiva.
 
 ```azurecli
-az sql db create --resource-group myResourceGroup --server $servername \
-    --name mySampleDatabase --sample-name AdventureWorksLT --service-objective S0
+az sql db create --resource-group $resourcegroupname --server $servername \
+    --name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide introduttive di questa raccolta si basano sui valori di questa guida introduttiva. Se si prevede di continuare a usare le guide introduttive successive o le esercitazioni, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, usare il comando seguente per eliminare tutte le risorse create da questa guida introduttiva.
+Altre guide introduttive di questa raccolta si basano sui valori di questa guida introduttiva. 
+
+> [!TIP]
+> Se si prevede di continuare a usare le guide introduttive successive, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questa guida introduttiva nel portale di Azure.
+>
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per connettersi ed effettuare una query usando SQL Server Management Studio, vedere [Connettersi ed eseguire una query con SSMS](sql-database-connect-query-ssms.md)
-- Per connettersi ed eseguire query usando Visual Studio Code, vedere [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Per connettersi ed eseguire query usando .NET, vedere [Connettersi ed eseguire query con .NET](sql-database-connect-query-dotnet.md).
-- Per connettersi ed eseguire query usando PHP, vedere [Connettersi ed eseguire query con PHP](sql-database-connect-query-php.md).
-- Per connettersi ed eseguire query usando Node.js, vedere [Connettersi ed eseguire query con Node.js](sql-database-connect-query-nodejs.md).
-- Per connettersi ed eseguire query usando Java, vedere [Connettersi ed eseguire query con Java](sql-database-connect-query-java.md).
-- Per connettersi ed eseguire query usando Python, vedere [Connettersi ed eseguire query con Python](sql-database-connect-query-python.md).
-- Per connettersi ed eseguire query usando Ruby, vedere [Connettersi ed eseguire query con Ruby](sql-database-connect-query-ruby.md).
+Dopo aver creato un database, è possibile connettersi ed eseguire query usando gli strumenti preferiti. Per altre informazioni, scegliere uno strumento di seguito:
+
+- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
+- [.NET](sql-database-connect-query-dotnet.md)
+- [PHP](sql-database-connect-query-php.md)
+- [Node.JS](sql-database-connect-query-nodejs.md)
+- [Java](sql-database-connect-query-java.md)
+- [Python](sql-database-connect-query-python.md)
+- [Ruby](sql-database-connect-query-ruby.md)
+
 

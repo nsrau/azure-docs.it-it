@@ -12,39 +12,42 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 1d7ba169675e822ae08a6c679301a0db01e6e338
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 3f0575a170eb20d136858bedc1f87d4f4375c812
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="move-data-to-and-from-azure-data-lake-store-using-azure-data-factory"></a>Spostare dati da e in Archivio Azure Data Lake con Azure Data Factory
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso Azure Data Lake Store. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia. 
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso Azure Data Lake Store. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
 È possibile copiare i dati da qualsiasi archivio dati di origine supportato ad Azure Data Lake Store o da Azure Data Lake Store a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
 
 > [!NOTE]
 > Prima di creare una pipeline con un'attività di copia per spostare i dati da e in Azure Data Lake Store, creare un account Azure Data Lake Store. Per informazioni su Azure Data Lake Store, vedere [Introduzione ad Azure Data Lake Store con il portale di Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
+## <a name="supported-authentication-types"></a>Tipi di autenticazione supportati
+Il connettore di Azure Data Lake Store supporta l'autenticazione basata su **entità servizio** e l'autenticazione basata su **credenziali utente** (OAuth). È consigliabile usare il primo tipo di autenticazione, in particolare per la copia pianificata di dati, per evitare il comportamento di scadenza dei token, che può verificarsi con il secondo. Vedere la sezione [Proprietà del servizio collegato](#linked-service-properties) per i dettagli di configurazione.
+
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso Azure Data Lake Store usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
-Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink: 
+Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso Azure Data Lake Store, vedere la sezione degli [esempi JSON](#json-examples) in questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso Azure Data Lake Store, vedere la sezione degli [esempi JSON](#json-examples) in questo articolo.
 
-Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di Azure Data Lake Store: 
+Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di Azure Data Lake Store:
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 Un servizio collegato collega un archivio dati a una data factory. Si crea un servizio collegato di tipo **AzureDataLakeStore** per collegare l'Azure Data Lake Store alla data factory. La tabella seguente fornisce una descrizione degli elementi JSON specifici per il servizio collegato di Azure Data Lake Store ed è possibile scegliere tra l'autenticazione basata su **entità servizio** e l'autenticazione basata su **credenziali utente**.
@@ -57,7 +60,7 @@ Un servizio collegato collega un archivio dati a una data factory. Si crea un se
 | resourceGroupName | Nome del gruppo di risorse di Azure a cui il Data Lake Store appartiene. | Richiesto per il sink |
 
 ### <a name="using-service-principal-authentication-recommended"></a>Uso dell'autenticazione basata su entità servizio (opzione consigliata)
-Per usare l'autenticazione basata su entità servizio, registrare un'entità applicazione in Azure Active Directory (AAD) e concedere a tale entità l'accesso a Data Lake Store. Vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) per la procedura dettagliata. Annotare i valori seguenti: **ID applicazione**, **chiave applicazione**, e **ID tenant**. Usare queste informazioni nella definizione di servizio collegato. 
+Per usare l'autenticazione basata su entità servizio, registrare un'entità applicazione in Azure Active Directory (AAD) e concedere a tale entità l'accesso a Data Lake Store. Vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) per la procedura dettagliata. Annotare i valori seguenti: **ID applicazione**, **chiave applicazione**, e **ID tenant**. Usare queste informazioni nella definizione di servizio collegato.
 
 > [!IMPORTANT]
 > Se si usa la copia guidata per creare pipeline di dati, assicurarsi di concedere all'entità servizio almeno il ruolo Lettore per il controllo di accesso (IAM) per l'account di Data Lake Store e almeno l'autorizzazione di Lettura+Esecuzione per la radice di Data Lake Store ("/") e i suoi figli. In caso contrario, potrebbe essere visualizzato l'errore "Le credenziali fornite non sono valide".
@@ -115,7 +118,7 @@ In alternativa, è possibile usare l'autenticazione delle credenziali dell'utent
 
 #### <a name="token-expiration"></a>Scadenza del token
 Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. È possibile che venga visualizzato il seguente messaggio di errore alla **scadenza del token** di autenticazione:
- 
+
 ```
 "Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
 ```
@@ -158,7 +161,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vedere gli argomenti [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Aggiungere un riferimento alla versione **2.9.10826.1824** di **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll** per la classe WindowsFormsWebAuthenticationDialog usata nel codice.
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
-Per specificare un set di dati per rappresentare i dati di input in un'archiviazione BLOB di Azure, impostare la proprietà del tipo del set di dati su **AzureDataLakeStore**. Impostare la proprietà **linkedServiceName** del set di dati sul nome del servizio collegato Azure Data Lake Store. Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via. La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione, il formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureDataLakeStore** include le proprietà seguenti:
+Per specificare un set di dati per rappresentare i dati di input in Azure Data Lake Store, impostare la proprietà del tipo del set di dati su **AzureDataLakeStore**. Impostare la proprietà **linkedServiceName** del set di dati sul nome del servizio collegato Azure Data Lake Store. Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via. La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione, il formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureDataLakeStore** include le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
@@ -214,6 +217,9 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | copyBehavior |Specifica il comportamento di copia. |<b>PreserveHierarchy:</b> mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/><b>FlattenHierarchy</b>: tutti i file della cartella di origine vengono creati nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/><b>MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No |
+
+## <a name="supported-file-and-compression-formats"></a>Formati di file e di compressione supportati
+Per i dettagli, vedere l'articolo relativo ai [file e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-examples"></a>Esempi JSON
 Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati da/in Azure Data Lake Store e Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati **direttamente** da qualsiasi origine a qualsiasi sink supportato. Per altre informazioni, vedere la sezione "Archivi dati e formati supportati" in [Spostare dati con l'attività di copia](data-factory-data-movement-activities.md).  
@@ -350,11 +356,11 @@ L'esempio copia i dati in un Archivio Azure Data Lake. Nuovi dati vengono copiat
 ```
 
 
-**Un'attività di copia in una pipeline con un'origine BLOB e un sink Azure Data Lake Store:** 
+**Un'attività di copia in una pipeline con un'origine BLOB e un sink Azure Data Lake Store:**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **BlobSource** e il tipo **sink** è impostato su **AzureDataLakeStoreSink**.
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":
@@ -415,7 +421,7 @@ L'esempio copia i dati di una serie temporale da Azure Data Lake Store in un arc
 
 **Servizio collegato dell'Archivio Azure Data Lake:**
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreLinkedService",
     "properties": {
@@ -451,7 +457,7 @@ L'esempio copia i dati di una serie temporale da Azure Data Lake Store in un arc
 
 Impostando **"external" su "true"** si comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreInput",
       "properties":
@@ -546,7 +552,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo **source** è impostato su **AzureDataLakeStoreSource** e il tipo **sink** è impostato su **BlobSink**.
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":{  

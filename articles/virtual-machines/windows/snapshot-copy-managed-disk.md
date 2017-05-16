@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 2/9/2017
 ms.author: cwatson
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 620c9223106c06cf6ea2b80fce87d81ea44d02ca
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bb913050fd3388d4632e6f75b36415006f370cbd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Se si usa PowerShell, verificare di avere la versione più recente del modulo di
 ```
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Per altre informazioni, vedere [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Controllo delle versioni di Azure PowerShell).
+Per altre informazioni, vedere [Azure PowerShell Versioning](/powershell/azure/overview) (Controllo delle versioni di Azure PowerShell).
 
 ## <a name="copy-the-vhd-with-a-snapshot"></a>Copiare il disco rigido virtuale con uno snapshot
 Usare il portale di Azure o PowerShell per creare uno snapshot del disco gestito.

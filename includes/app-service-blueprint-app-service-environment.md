@@ -9,8 +9,3 @@
 * [Impostazioni di configurazione personalizzate per gli ambienti del servizio app, tra cui impostazioni di conformità PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Hosting ad alta densità nel servizio app di Azure](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

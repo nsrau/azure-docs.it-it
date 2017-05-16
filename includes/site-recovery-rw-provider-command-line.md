@@ -24,8 +24,3 @@ Parametri
 * SkipSpaceCheck: facoltativo. Ignora la verifica dello spazio per la cache.
 * AcceptThirdpartyEULA: Obbligatorio. Accetta il contratto di licenza di terze parti.
 * ShowThirdpartyEULA: obbligatorio. Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

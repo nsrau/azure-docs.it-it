@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9c5c0b40d796130d93111545c93bedf86c374fd9
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -102,10 +103,5 @@ Se il dominio personalizzato è stato acquistato nel pannello **Domini personali
 * Il pannello **Domini personalizzati ed SSL** che si sta esaminando potrebbe appartenere a un'app creata in un'altra sottoscrizione di Azure. Passare a un'altra app in una sottoscrizione differente ed esaminare il relativo pannello **Domini personalizzati ed SSL**.  
     All'interno del portale non sarà possibile visualizzare o gestire domini personalizzati creati in una sottoscrizione di Azure diversa da quella dell'app. Tuttavia, se si fa clic su **Gestione avanzata** nel pannello **Gestisci dominio** del dominio, si verrà reindirizzati al sito Web del provider di dominio, dove sarà possibile   [configurare manualmente il dominio personalizzato come qualsiasi dominio personalizzato esterno](web-sites-custom-domain-name.md) 
    per app create in un'altra sottoscrizione di Azure. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

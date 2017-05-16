@@ -1,4 +1,4 @@
-## <a name="service-chaining-transit-through-peered-vnet"></a>Concatenamento dei servizi: passaggio attraverso la rete virtuale con peering
+## <a name="service-chaining---transit-through-peered-vnet"></a>Concatenamento dei servizi: passaggio attraverso la rete virtuale con peering
 Sebbene l'utilizzo di route del sistema faciliti il traffico automaticamente per la distribuzione, esistono casi in cui si desidera controllare il routing dei pacchetti tramite un dispositivo virtuale.
 In questo scenario esistono due reti virtuali in una sottoscrizione, HubVNet e VNet1, come descritto nel diagramma di seguito. Si distribuisce un'appliance virtuale di rete nella rete virtuale HubVNet. Dopo avere stabilito il peering reti virtuali tra HubVNet e VNet1, è possibile configurare route definite dall'utente e specificare l'hop successivo all'appliance virtuale di rete in HubVNet.
 
@@ -10,9 +10,4 @@ In questo scenario esistono due reti virtuali in una sottoscrizione, HubVNet e V
 > 
 
 La proprietà principale per abilitare il routing di transito è il parametro "Consentire traffico inoltrato". In questo modo è possibile accettare e inviare il traffico da e verso l'appliance virtuale di rete nella rete virtuale con peering.  
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

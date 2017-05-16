@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.contentlocale: it-it
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +109,7 @@ Aprire il pannello Browser per visualizzare i dati sulle prestazioni aggregati r
 
 ![In portal.azure.com aprire la risorsa dell'app e fare clic su Impostazioni, Browser](./media/app-insights-javascript/03.png)
 
-*Ancora nessun dato? Fare clic su**Aggiorna**nella parte superiore della pagina. Ancora niente di fatto? Vedere [Risoluzione dei problemi](app-insights-troubleshoot-faq.md).*
+*Ancora nessun dato? Fare clic su **Aggiorna** nella parte superiore della pagina. Ancora niente di fatto? Vedere [Risoluzione dei problemi](app-insights-troubleshoot-faq.md).*
 
 Il pannello Browser è un [pannello di Esplora metriche](app-insights-metrics-explorer.md) con selezioni di grafici e filtri predefiniti. È possibile modificare l'intervallo di tempo, i filtri e la configurazione del grafico e salvare il risultato tra i preferiti. Fare clic su **Ripristina impostazioni predefinite** per tornare alla configurazione originale del pannello.
 
@@ -230,6 +231,6 @@ Per sapere in che modo gli utenti usano l'app,
 ## <a name="next"></a> Passaggi successivi
 * [Tenere traccia dell'utilizzo](app-insights-web-track-usage.md)
 * [Metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-overview-usage.md)
+* [Build-measure-learn](app-insights-web-track-usage.md)
 
 

@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
+ms.date: 4/10/2017
 ms.author: negat
 ms.custom: na
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: e207ace4eb5722e08f2020078dfea9129ef1deb8
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1c7b4c4b7675bfc33e102c9abb4f942a1dd33ad4
+ms.contentlocale: it-it
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -410,7 +411,7 @@ Per definire un'estensione, usare la proprietà JsonADDomainExtension:
                                 "properties": {
                                     "publisher": "Microsoft.Compute",
                                     "type": "JsonADDomainExtension",
-                                    "typeHandlerVersion": "1.0",
+                                    "typeHandlerVersion": "1.3",
                                     "settings": {
                                         "Name": "[parameters('domainName')]",
                                         "OUPath": "[variables('ouPath')]",
@@ -538,6 +539,28 @@ In questo esempio viene inviato un avviso a Pagerduty.com al raggiungimento di u
 
 
 
+## <a name="patching-and-operations"></a>Applicazione di patch e operazioni
+
+### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Come si crea un set di scalabilità in un gruppo di risorse esistente?
+
+La creazione di set di scalabilità in un gruppo di risorse esistente non è ancora possibile dal portale di Azure, ma è possibile specificare un gruppo di risorse esistente quando si distribuisce un set di scalabilità da un modello di Azure Resource Manager. È anche possibile specificare un gruppo di risorse esistente durante la creazione di un set di scalabilità usando Azure PowerShell o l'interfaccia della riga di comando.
+
+### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>È possibile spostare un set di scalabilità in un altro gruppo di risorse?
+
+Sì, è possibile spostare le risorse di un set di scalabilità in una nuova sottoscrizione o in un nuovo gruppo di risorse.
+
+### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Come si aggiorna il set di scalabilità di macchine virtuali a una nuova immagine? Come si gestisce l'applicazione di patch?
+
+Per aggiornare il set di scalabilità di macchine virtuali a una nuova immagine e gestire l'applicazione di patch, vedere [Aggiornare un set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+
+### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>È possibile usare l'operazione di ricreazione dell'immagine per ripristinare una macchina virtuale senza modificare l'immagine, ovvero ripristinare le impostazioni predefinite di una VM invece di usare una nuova immagine?
+
+Sì, è possibile usare l'operazione di ricreazione dell'immagine per ripristinare una macchina virtuale senza modificare l'immagine. Se tuttavia il set di scalabilità di macchine virtuali fa riferimento a un'immagine di piattaforma con `version = latest`, la macchina virtuale può essere aggiornata a un'immagine del sistema operativo successiva quando si chiama `reimage`.
+
+Per altre informazioni, vedere [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set) (Gestire tutte le VM in un set di scalabilità di macchine virtuali).
+
+
+
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Come si attiva la diagnostica di avvio?
@@ -561,21 +584,6 @@ Quando viene creata una nuova VM, la proprietà InstanceView della VM mostra i d
     "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
   }
 ```
-
- 
-
-## <a name="updates"></a>Aggiornamenti
-
-### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Come si aggiorna il set di scalabilità di macchine virtuali a una nuova immagine? Come si gestisce l'applicazione di patch?
-
-Per aggiornare il set di scalabilità di macchine virtuali a una nuova immagine e gestire l'applicazione di patch, vedere [Aggiornare un set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
-
-### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>È possibile usare l'operazione di ricreazione dell'immagine per ripristinare una macchina virtuale senza modificare l'immagine, ovvero ripristinare le impostazioni predefinite di una VM invece di usare una nuova immagine?
-
-Sì, è possibile usare l'operazione di ricreazione dell'immagine per ripristinare una macchina virtuale senza modificare l'immagine. Se tuttavia il set di scalabilità di macchine virtuali fa riferimento a un'immagine di piattaforma con `version = latest`, la macchina virtuale può essere aggiornata a un'immagine del sistema operativo successiva quando si chiama `reimage`.
-
-Per altre informazioni, vedere [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set) (Gestire tutte le VM in un set di scalabilità di macchine virtuali).
-
 
 
 ## <a name="virtual-machine-properties"></a>Proprietà della macchina virtuale

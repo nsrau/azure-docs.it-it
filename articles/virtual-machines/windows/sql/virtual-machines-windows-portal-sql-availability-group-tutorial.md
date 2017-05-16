@@ -17,14 +17,14 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 81de52ac95aaf1b6d02572a70a4c1a84fb541401
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 67663af0913a03f2001b4cce6f9f49ee91195026
+ms.lasthandoff: 04/06/2017
 
 
 ---
 
-# <a name="create-always-on-availability-group-to-improve-availability-and-disaster-recovery"></a>Creare un gruppo di disponibilità AlwaysOn per migliorare la disponibilità e il ripristino di emergenza
+# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
 Questa esercitazione illustra come creare un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure. L'esercitazione completa crea un gruppo di disponibilità con una replica di database in due istanze di SQL Server.
 
@@ -296,7 +296,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
     ![Creazione guidata nuovo gruppo di disponibilità: selezionare la sincronizzazione dati iniziale](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\**. Fare clic su**Avanti**.
+8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\**. Fare clic su **Avanti**.
 
    >[!NOTE]
    >La sincronizzazione completa acquisisce un backup completo del database nella prima istanza di SQL Server e lo ripristina nella seconda istanza. Per i database di grandi dimensioni, la sincronizzazione completa non è consigliabile perché può richiedere diverso tempo. È possibile ridurre manualmente il tempo necessario acquisendo un backup del database e ripristinandolo con `NO RECOVERY`. Se il database è già stato ripristinato con `NO RECOVERY` nella seconda istanza di SQL Server prima di configurare il gruppo di disponibilità, scegliere **Solo join**. Per acquisire il backup dopo la configurazione del gruppo di disponibilità, scegliere **Ignora sincronizzazione dei dati iniziale**.

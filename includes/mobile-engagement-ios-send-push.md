@@ -11,7 +11,7 @@ Per consentire a Mobile Engagement di inviare notifiche push per conto dell'uten
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Inviare una notifica all'app
+## <a id="send"></a>Inviare una notifica all'app
 Si creerà ora una semplice campagna di notifica push per l'invio di un push all'app.
 
 1. Passare alla scheda **Reach** nel portale di Mobile Engagement.
@@ -39,9 +39,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 8. Se si dispone di un controllo Apple abbinato a questo dispositivo iOS, allora verrà visualizzata la notifica nel controllo Apple:
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

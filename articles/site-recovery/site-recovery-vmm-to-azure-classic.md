@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
 
 
@@ -84,7 +85,7 @@ Preparare le reti in VMM:
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Passaggio 1: creare un insieme di credenziali di Ripristino sito
 1. Accedere al [portale di gestione](https://portal.azure.com) dal server VMM che si vuole registrare.
-2. Espandere **Servizi dati** > **Servizi di ripristino ** > **Insieme di credenziali di Site Recovery**.
+2. Espandere **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali di Site Recovery**.
 3. Fare clic su **Creare nuovo** > **Creazione rapida**.
 4. In **Nome**immettere un nome descrittivo per identificare l'insieme di credenziali.
 5. In **Region**selezionare l'area geografica per l'insieme di credenziali. Per verificare le aree geografiche supportate, vedere la sezione Disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).

@@ -1,5 +1,5 @@
 ---
-title: Come usare le code del bus di servizio di Azure con Python | Documentazione Microsoft
+title: Come usare le code del bus di servizio di Azure con Python | Microsoft Docs
 description: Informazioni su come usare le code del bus di servizio da Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/30/2017
 ms.author: sethm;lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
-ms.openlocfilehash: 775959d93105ca9fb28ce72e4ee4adf6b956e815
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 215db83e766d595b8f03a89ea6b4221fc756b1aa
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -50,13 +52,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-I valori relativi al nome e al valore della chiave di firma di accesso condiviso sono disponibili nelle informazioni di connessione del [portale di Azure classico][Azure classic portal] o nel pannello **Proprietà** di Visual Studio quando si seleziona lo spazio dei nomi del bus di servizio in Esplora server, come illustrato nella sezione precedente.
+I valori relativi al nome e al valore della chiave di firma di accesso condiviso sono disponibili nelle informazioni di connessione del [portale di Azure][Azure portal] o nel pannello **Proprietà** di Visual Studio quando si seleziona lo spazio dei nomi del bus di servizio in Esplora server, come illustrato nella sezione precedente.
 
 ```python
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue** supporta anche opzioni aggiuntive che consentono di eseguire l’override delle impostazioni predefinite delle code, come ad esempio la durata (TTL) dei messaggi o la dimensione massima della coda. Il seguente esempio illustra come impostare la dimensione massima della coda su 5 GB e la durata a 1 minuto:
+**create_queue** supporta anche opzioni aggiuntive che consentono di eseguire l'override delle impostazioni predefinite delle code, come ad esempio la durata (TTL) dei messaggi o la dimensione massima della coda. L'esempio seguente illustra come impostare la dimensione massima della coda su 5 GB e il valore TTL su 1 minuto:
 
 ```python
 queue_options = Queue()
@@ -90,7 +92,7 @@ I messaggi vengono eliminati dalla coda non appena vengono letti, quando il para
 
 Il comportamento di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
 
-Se il parametro **peek\_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, l’applicazione esegue la seconda fase del processo di ricezione chiamando il metodo **delete** per l'oggetto **Message**. Il metodo **delete** contrassegna il messaggio come usato e lo rimuove dalla coda.
+Se il parametro **peek\_lock** è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo **delete** per l'oggetto **Message**. Il metodo **delete** contrassegna il messaggio come usato e lo rimuove dalla coda.
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
@@ -111,14 +113,9 @@ Dopo aver appreso le nozioni di base sulle code del bus di servizio, vedere gli 
 
 * [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions]
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: beec132956ed4d382517379a47da57db983e7b54
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: c2616c6ff91a8fe78d60ed3bbae90b0739a6c104
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -25,6 +25,9 @@ ms.lasthandoff: 03/29/2017
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso database SQL di Azure. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.  
 
 È possibile copiare i dati da qualsiasi archivio dati di origine supportato al database SQL di Azure o dal database SQL di Azure a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+
+## <a name="supported-authentication-type"></a>Tipo di autenticazione supportato
+È supportato il connettore per database SQL di Azure per l'autenticazione di base.
 
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un database SQL di Azure usando diversi strumenti/API.
@@ -49,7 +52,7 @@ Un servizio collegato SQL di Azure collega un database SQL di Azure alla data fa
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | type |La proprietà del tipo deve essere impostata su: **AzureSqlDatabase** |Sì |
-| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. |Sì |
+| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. È supportata solo l'autenticazione di base. |Sì |
 
 > [!IMPORTANT]
 > Configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e il server di database in modo da [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se si copiano dati nel database SQL di Azure dall'esterno di Azure e da origini dati locali con gateway di data factory, configurare anche un intervallo di indirizzi IP appropriato per il computer che invia dati al database SQL di Azure.
@@ -81,7 +84,7 @@ In caso di attività di copia con origine di tipo **SqlSource**, nella sezione *
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | SqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Esempio: `select * from MyTable`. |No |
-| sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. |Nome della stored procedure. |No |
+| sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. |Nome della stored procedure. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
 | storedProcedureParameters |Parametri per la stored procedure. |Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
 
 Se la proprietà **sqlReaderQuery** è specificata per SqlSource, l'attività di copia esegue questa query nell'origine del database SQL di Azure per ottenere i dati. In alternativa, è possibile specificare una stored procedure indicando i parametri **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se la stored procedure accetta parametri).
@@ -105,6 +108,7 @@ Se non si specifica sqlReaderQuery o sqlReaderStoredProcedureName, le colonne de
     }
 }
 ```
+
 **Definizione della stored procedure:**
 
 ```SQL

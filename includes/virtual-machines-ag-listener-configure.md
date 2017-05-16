@@ -14,7 +14,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
 
 Le sezioni seguenti illustrano istruzioni dettagliate per ciascuna operazione. 
 
-#### <a name="a-namegetnetaget-the-name-of-the-cluster-network-resource"></a><a name="getnet"></a>Ottenere il nome della risorsa di rete di cluster
+#### <a name="getnet"></a>Ottenere il nome della risorsa di rete di cluster
 
 1. Usare RDP per connettersi alla macchina virtuale di Azure che ospita la replica primaria. 
 
@@ -26,7 +26,7 @@ Le sezioni seguenti illustrano istruzioni dettagliate per ciascuna operazione.
 
    ![Nome rete di cluster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-#### <a name="a-nameaddcapaadd-the-client-access-point"></a><a name="addcap"></a>Aggiungere il punto di accesso client
+#### <a name="addcap"></a>Aggiungere il punto di accesso client
 
 Il punto di accesso client è il nome della rete che le applicazioni useranno per connettersi ai database nel gruppo di disponibilità. Creare il punto di accesso client in Gestione cluster di failover. 
 
@@ -42,7 +42,7 @@ Il punto di accesso client è il nome della rete che le applicazioni useranno pe
    
    Per completare la creazione del listener, fare clic su **Avanti** due volte e quindi su **Fine**. Non portare il listener o la risorsa in linea a questo punto.
    
-#### <a name="a-namecongroupaconfigure-the-ip-resource-for-the-availability-group"></a><a name="congroup"></a>Configurare la risorsa IP per il gruppo di disponibilità
+#### <a name="congroup"></a>Configurare la risorsa IP per il gruppo di disponibilità
 
 1. Scegliere la scheda **Risorse** , quindi espandere il punto di accesso client creato. Il punto di accesso client è offline.
 
@@ -58,7 +58,7 @@ Il punto di accesso client è il nome della rete che le applicazioni useranno pe
 1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
 ------------------------->
 
-#### <a name="a-name--dependencygroupamake-the-sql-server-availability-group-resource-dependent-on-the-client-access-point"></a><a name = "dependencyGroup"></a>Rendere la risorsa del gruppo di disponibilità di SQL Server dipendente dal punto di accesso client
+#### <a name = "dependencyGroup"></a>Rendere la risorsa del gruppo di disponibilità di SQL Server dipendente dal punto di accesso client
 
 1. In Gestione cluster di failover fare clic su **Ruoli**, quindi sul gruppo di disponibilità.
 
@@ -70,7 +70,7 @@ Il punto di accesso client è il nome della rete che le applicazioni useranno pe
 
 1. Fare clic su **OK**.
 
-#### <a name="a-namelistnameamake-the-client-access-point-resource-dependent-on-the-ip-address"></a><a name="listname"></a>Rendere la risorsa del punto di accesso client dipendente dall'indirizzo IP
+#### <a name="listname"></a>Rendere la risorsa del punto di accesso client dipendente dall'indirizzo IP
 
 1. In Gestione cluster di failover fare clic su **Ruoli**, quindi sul gruppo di disponibilità. 
 
@@ -84,7 +84,7 @@ Il punto di accesso client è il nome della rete che le applicazioni useranno pe
 
 1. Fare clic con il pulsante destro del mouse sul nome del listener e scegliere **Porta in linea**. 
 
-#### <a name="a-namesetparamaset-the-cluster-parameters-in-powershell"></a><a name="setparam"></a>Impostare i parametri del cluster in PowerShell
+#### <a name="setparam"></a>Impostare i parametri del cluster in PowerShell
 
 1. Copiare lo script di PowerShell seguente in uno dei server SQL. Aggiornare le variabili per l'ambiente.     
    ```PowerShell
@@ -102,10 +102,5 @@ Il punto di accesso client è il nome della rete che le applicazioni useranno pe
 
 > [!NOTE]
 > Se le istanze di SQL Server sono in aree separate, è necessario eseguire lo script di PowerShell due volte. La prima volta usare i parametri `$ILBIP` e `$ProbePort` della prima area. La seconda volta usare i parametri `$ILBIP` e `$ProbePort` della seconda area. Il nome della rete di cluster e il nome della risorsa IP del cluster coincidono. 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

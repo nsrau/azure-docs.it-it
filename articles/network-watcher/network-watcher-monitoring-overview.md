@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: f9e4fededc2bbb069cc653791137f248a7dc3fe8
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: aabc0cf743487752312f5e1b078837545169e964
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -36,8 +36,6 @@ Questo articolo illustra il monitoraggio a livello di risorsa e di scenario. Il 
 
 Network Watcher è un servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di scenario di rete da, verso e all'interno di Azure. Gli strumenti di visualizzazione e diagnostica di rete disponibili in Network Watcher permettono di comprendere, diagnosticare e ottenere informazioni dettagliate sulla rete in Azure.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 Di seguito sono elencate le funzionalità attualmente disponibili in Network Watcher.
 
 * **[Topologia](network-watcher-topology-overview.md)**: offre una visualizzazione a livello di rete che mostra le varie interconnessioni e le associazioni tra le risorse di rete in un gruppo di risorse.
@@ -52,7 +50,7 @@ Di seguito sono elencate le funzionalità attualmente disponibili in Network Wat
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controllo degli accessi in base al ruolo in Network Watcher
 
-Network Watcher fa uso del [modello di controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md). Di seguito sono indicate le autorizzazioni necessarie per Network Watcher in anteprima. È importante assicurarsi che il ruolo usato per avviare le API di Network Watcher o per usare Network Watcher dal portale abbia l'accesso necessario.
+Network Watcher fa uso del [modello di controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md). Di seguito sono indicate le autorizzazioni necessarie per Network Watcher. È importante assicurarsi che il ruolo usato per avviare le API di Network Watcher o per usare Network Watcher dal portale abbia l'accesso necessario.
 
 |Risorsa| Autorizzazione|
 |---|---|

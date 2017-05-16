@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: amanbha
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 22f906de37ad7ae2a48acf26be26f2af1e3bde7a
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 0d942fa9f4a3b9094d8122e4745c0450f507ea16
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,14 +29,14 @@ Quando un attore viene attivato, si verifica quanto segue:
 
 * Quando viene effettuata una chiamata per un attore che non è ancora attivo, viene creato un nuovo attore.
 * Viene caricato lo stato dell'attore, se viene mantenuto.
-* Viene chiamato il metodo `OnActivateAsync` (che può essere sottoposto a override nell'implementazione dell'attore).
+* Viene chiamato il metodo `OnActivateAsync` (C#) o `onActivateAsync` (Java), che può essere sottoposto a override nell'implementazione dell'attore.
 * A questo punto l'attore è considerato attivo.
 
 ## <a name="actor-deactivation"></a>Disattivazione di un attore
 Quando un attore viene disattivato, si verifica quanto segue:
 
 * Quando un attore rimane inutilizzato per un determinato periodo di tempo, viene rimosso dalla tabella degli attori attivi.
-* Viene chiamato il metodo `OnDeactivateAsync` (che può essere sottoposto a override nell'implementazione dell'attore). Ciò elimina tutti i timer dell'attore. Le operazioni dell'attore come le modifiche di stato non devono essere chiamate da questo metodo.
+* Viene chiamato il metodo `OnDeactivateAsync` (C#) o `onDeactivateAsync` (Java), che può essere sottoposto a override nell'implementazione dell'attore. Ciò elimina tutti i timer dell'attore. Le operazioni dell'attore come le modifiche di stato non devono essere chiamate da questo metodo.
 
 > [!TIP]
 > Il runtime di Fabric Actors emette alcuni [eventi relativi all'attivazione e alla disattivazione](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). che sono utili per la diagnostica e il monitoraggio delle prestazioni.
@@ -44,7 +44,7 @@ Quando un attore viene disattivato, si verifica quanto segue:
 >
 
 ### <a name="actor-garbage-collection"></a>Garbage Collection degli attori
-Quando un attore viene disattivato, i riferimenti all'oggetto corrispondente vengono rilasciati e l'attore può essere sottoposto a Garbage Collection dal garbage collector di common language runtime (CLR). L'operazione di Garbage Collection pulisce solo l'oggetto attore, ma **non** rimuove lo stato archiviato nel gestore di stato dell'attore. Alla successiva attivazione dell'attore viene creato un nuovo oggetto attore e viene ripristinato il relativo stato.
+Quando un attore viene disattivato, i riferimenti all'oggetto corrispondente vengono rilasciati e l'attore può essere sottoposto a Garbage Collection dal garbage collector di Common Language Runtime (CLR) o di Java Virtual Machine (JVM). L'operazione di Garbage Collection pulisce solo l'oggetto attore, ma **non** rimuove lo stato archiviato nel gestore di stato dell'attore. Alla successiva attivazione dell'attore viene creato un nuovo oggetto attore e viene ripristinato il relativo stato.
 
 Quali criteri determinano l'uso degli attori ai fini della disattivazione e dell'operazione di Garbage Collection?
 
@@ -82,6 +82,18 @@ public class Program
 }
 ```
 
+```Java
+public class Program
+{
+    public static void main(String[] args)
+    {
+        ActorRuntime.registerActorAsync(
+                MyActor.class,
+                (context, actorTypeInfo) -> new FabricActorService(context, actorTypeInfo),
+                timeout);
+    }
+}
+```
 Per ogni attore attivo, il runtime di Actors tiene traccia del periodo di inattività. Il runtime di Actors controlla ogni attore in base alla frequenza definita da `ScanIntervalInSeconds` per verificare se può essere sottoposto a Garbage Collection e determina se l'attore è rimasto inattivo per il numero di secondi definito da `IdleTimeoutInSeconds`.
 
 Ogni volta che un attore viene usato, il periodo di inattività viene reimpostato su 0. A questo punto, l'attore può essere sottoposto a Garbage Collection solo se rimane nuovamente inattivo per il numero di secondi definito da `IdleTimeoutInSeconds`. È importante ricordare che l'uso di un attore è determinato in base all'esecuzione di un metodo di interfaccia o di un callback di promemoria dell'attore. L'uso di un attore **non** è determinato in base all'esecuzione del callback dei timer.
@@ -114,6 +126,14 @@ IActorService myActorServiceProxy = ActorServiceProxy.Create(
 
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
+```Java
+ActorId actorToDelete = new ActorId(id);
+
+ActorService myActorServiceProxy = ActorServiceProxy.create(
+    new Uri("fabric:/MyApp/MyService"), actorToDelete);
+
+myActorServiceProxy.deleteActorAsync(actorToDelete);
+```
 
 L'eliminazione di un attore produce gli effetti seguenti, a seconda del fatto che l'attore sia attualmente attivo o meno:
 
@@ -131,7 +151,8 @@ Si noti che un attore non può chiamare un'operazione di eliminazione su se stes
 * [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Codice di esempio](https://github.com/Azure/servicefabric-samples)
+* [Codice di esempio C#](https://github.com/Azure/servicefabric-samples)
+* [Codice di esempio Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

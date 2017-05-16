@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 0dcc02e4f3b1e512a2c9e4b96894324414182af9
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a213c146a9ea1bb6c23bbcbfb6353372f2e4cbfc
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -55,7 +55,7 @@ azure network vpn-connection list -g resourceGroupName
 azure network vpn-connection list -s subscription
 ```
 
-Dopo aver ottenuto il nome dell'account di archiviazione, è possibile eseguire questo comando per ottenere il relativo ID della risorsa:
+Dopo aver ottenuto il nome della connessione, è possibile eseguire questo comando per ottenere il relativo ID della risorsa:
 
 ```azurecli
 azure network vpn-connection show -g resourceGroupName -n connectionName
@@ -65,9 +65,23 @@ azure network vpn-connection show -g resourceGroupName -n connectionName
 
 Il comando per la risoluzione dei problemi delle risorse restituisce i dati sullo stato della risorsa e salva i log in un account di archiviazione, per la successiva revisione. In questo passaggio viene creato un account di archiviazione. È anche possibile usare un account di archiviazione già esistente.
 
-```azurecli
-azure storage account create -n storageAccountName -l location -g resourceGroupName
-```
+1. Creare l'account di archiviazione
+
+    ```azurecli
+    azure storage account create -n storageAccountName -l location -g resourceGroupName
+    ```
+
+1. Ottenere le chiavi dell'account di archiviazione
+
+    ```azurecli
+    azure storage account keys list storageAccountName -g resourcegroupName
+    ```
+
+1. Creare il contenitore
+
+    ```azurecli
+    azure storage container create --account-name storageAccountName -g resourcegroupName --acount-key {storageAccountKey} --container logs
+    ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Eseguire il comando per la risoluzione dei problemi delle risorse di Network Watcher
 

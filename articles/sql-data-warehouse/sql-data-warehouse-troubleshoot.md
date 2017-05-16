@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi ad Azure SQL Data Warehouse | Documentazione Microsoft
+title: Risoluzione dei problemi relativi ad Azure SQL Data Warehouse | Microsoft Docs
 description: Risoluzione dei problemi relativi a SQL Data Warehouse di Azure.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/03/2017
+ms.custom: manage
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 73f10984b7fe2636f5b9f664b831adc910e7ac7a
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3107e918a12ba17e72dbbe3660d42527e9e9f051
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,12 +32,13 @@ Questo argomento elenca alcune delle domande più comuni per la risoluzione dei 
 | L'entità server "MyUserName" non può accedere al database "master" nel contesto di sicurezza corrente. Impossibile aprire il database predefinito dell'utente. Accesso non riuscito. Accesso non riuscito per l'utente 'MyUserName'. (Microsoft SQL Server, Errore: 916) |Questo errore si verifica quando un utente AAD tenta di connettersi al database master, ma non dispone di un utente nel database master.  Per risolvere questo problema specificare che l'SQL Data Warehouse a cui si desidera connettersi al momento della connessione o aggiungere l'utente al database master.  Per altri dettagli, vedere l'articolo [Panoramica della sicurezza][Security overview]. |
 | Errore CTAIP |Questo errore può verificarsi quando è stato creato un account di accesso nel database master di SQL Server, ma non nel database di SQL Data Warehouse.  Se si verifica questo errore, vedere l'articolo [Panoramica della sicurezza][Security overview].  Questo articolo illustra come creare un account di accesso e un utente in un database master e come creare un utente nel database di SQL Data Warehouse. |
 | Blocco da parte del firewall |I database SQL di Azure sono protetti da firewall a livello di server e di database per garantire che solo gli indirizzi IP noti accedano a un database. I firewall sono protetti per impostazione predefinita, il che significa che è necessario abilitare in modo esplicito un indirizzo IP o un intervallo di indirizzi prima di potersi connettere.  Per configurare il firewall per l'accesso, seguire la procedura descritta in [Configurare l'accesso al firewall del server per l'indirizzo IP del client][Configure server firewall access for your client IP] nella [Procedura di configurazione del provisioning][Provisioning instructions]. |
-| Impossibile connettersi con lo strumento o il driver |SQL Data Warehouse consiglia di usare [SSMS][SSMS], [SSDT per Visual Studio 2015][SSDT for Visual Studio 2015] o [sqlcmd][sqlcmd] per eseguire query sui dati. Per altre informazioni sui driver e sulla connessione a SQL Data Warehouse, vedere gli articoli [Driver per Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] e [Connettersi ad Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
+| Impossibile connettersi con lo strumento o il driver |Per eseguire query sui dati in SQL Data Warehouse, è consigliabile usare [SSMS][SSMS], [SSDT per Visual Studio][SSDT for Visual Studio] o [sqlcmd][sqlcmd]. Per altre informazioni sui driver e sulla connessione a SQL Data Warehouse, vedere gli articoli [Driver per Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] e [Connettersi ad Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
 
 ## <a name="tools"></a>Strumenti
 | Problema | Risoluzione |
 |:--- |:--- |
 | Esplora oggetti di Visual Studio non riconosce gli utenti di AAD |Questo è un problema noto.  Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals][sys.database_principals].  Per altre informazioni sull'uso di Azure Active Directory con SQL Data Warehouse, vedere [Autenticazione in Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse]. |
+|Lo scripting manuale, tramite l'uso della creazione guidata scripting o la connessione tramite SSMS, è lento, bloccato o genera errori| Assicurarsi che gli utenti siano stati creati nel database master. Nelle opzioni di scripting, assicurarsi inoltre che l'edizione del motore sia impostata come "Edizione Microsoft Azure SQL Data Warehouse" e che il tipo di motore sia "Database SQL di Microsoft Azure".|
 
 ## <a name="performance"></a>Prestazioni
 | Problema | Risoluzione |
@@ -54,6 +56,7 @@ Questo argomento elenca alcune delle domande più comuni per la risoluzione dei 
 | Messaggio 40847: Non è stato possibile eseguire l'operazione perché il server avrebbe superato la quota di DTU consentita di 45000. |Ridurre il [DWU][DWU] del database che si sta tentando di creare oppure [richiedere un aumento della quota][request a quota increase]. |
 | Analisi dell'uso dello spazio |Per comprendere l'uso dello spazio nel sistema, vedere [Dimensioni delle tabelle][Table sizes] . |
 | Aiuto nella gestione delle tabelle |Per informazioni su come gestire le tabelle, vedere [Panoramica delle tabelle][Overview].  Questo articolo contiene anche collegamenti ad articoli più dettagliati, ad esempio relativi a [tipi di dati delle tabelle][Data types], [distribuzione di una tabella][Distribute], [indicizzazione di una tabella][Index],  [partizionamento di una tabella][Partition], [gestione delle statistiche delle tabelle][Statistics] e [tabelle temporanee][Temporary]. |
+|L'indicatore di stato TDE (Transparent Data Encryption) non viene aggiornato nel portale di Azure|È possibile visualizzare lo stato di TDE tramite [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## <a name="polybase"></a>PolyBase
 | Problema | Risoluzione |
@@ -88,7 +91,7 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
-[SSDT for Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [Creare un ticket di supporto]: ./sql-data-warehouse-get-started-create-support-ticket.md

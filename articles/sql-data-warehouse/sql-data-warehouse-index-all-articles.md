@@ -12,11 +12,13 @@ ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.custom: reference
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -34,7 +36,7 @@ Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento
 | &nbsp; | Articolo | Testo aggiornato, frammento di codice | Data aggiornamento |
 | ---:|:--- |:--- |:--- |
 | 2 |[Caricare dati dall’archiviazione BLOB di Azure in un SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/- Per tenere traccia dei byte e dei file SELECT  r.command,  s.request_id,  r.status,  count(distinct input_name) as nbr_files,  sum(s.bytes_processed)/1024/1024 as gb_processed FROM  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id WHERE  r. label  = 'CTAS : Load  cso . DimProduct  '  OR r. label  = 'CTAS : Load  cso . FactOnlineSales  ' GROUP BY  r.command,  s.request_id,  r.status ORDER BY  nbr_files desc,  gb_processed desc; |2016-09-07 |
-| 3 |[Ripristino di SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** È possibile ripristinare un data warehouse in pausa?** Per ripristinare un data warehouse in pausa è necessario innanzitutto riportarlo in linea. Dopo che il data warehouse è tornato in linea, si hanno sette giorni di punti di ripristino tra cui scegliere. ** Ripristinare a un'area con ridondanza geografica** Se si usa l'archiviazione con ridondanza geografica è possibile ripristinare il data warehouse al data center associato in un'area geografica diversa. Il data warehouse viene ripristinato dall'ultimo backup giornaliero. ** Ripristino della sequenza temporale** È possibile ripristinare un database a qualsiasi punto di ripristino degli ultimi sette giorni. Gli snapshot vengono eseguiti ogni quattro-otto ore e sono disponibili per sette giorni. Quando uno snapshot supera i sette giorni di vita, scade e il relativo punto di ripristino non è più disponibile. ** Costi di ripristino** Il costo di archiviazione per il data warehouse ripristinato viene fatturato alla tariffa di archiviazione Premium di Azure. Se si mette in pausa un data warehouse ripristinato, l'archiviazione viene fatturata alla tariffa di archiviazione Premium di Azure. Con la messa in pausa la fatturazione viene sospesa |2016-09-29 |
+| 3 |[Ripristino di SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** È possibile ripristinare un data warehouse in pausa?** Per ripristinare un data warehouse in pausa, prima di tutto è necessario riportarlo in linea. Dopo che il data warehouse è tornato in linea, si hanno sette giorni di punti di ripristino tra cui scegliere. ** Ripristinare a un'area con ridondanza geografica** Se si usa l'archiviazione con ridondanza geografica, è possibile ripristinare il data warehouse nel data center associato in un'area geografica diversa. Il data warehouse viene ripristinato dall'ultimo backup giornaliero. ** Ripristinare la sequenza temporale** È possibile ripristinare un database in qualsiasi punto di ripristino degli ultimi sette giorni. Gli snapshot vengono eseguiti ogni quattro-otto ore e sono disponibili per sette giorni. Quando uno snapshot supera i sette giorni di vita, scade e il relativo punto di ripristino non è più disponibile. ** Costi di ripristino** Il costo di archiviazione per il data warehouse ripristinato viene fatturato alla tariffa di Archiviazione Premium di Azure. Se si mette in pausa un data warehouse ripristinato, l'archiviazione viene fatturata alla tariffa di archiviazione Premium di Azure. Con la messa in pausa la fatturazione viene sospesa |2016-09-29 |
 
 ## <a name="get-started"></a>Introduzione
 | &nbsp; | Titolo | Descrizione |
@@ -158,15 +160,10 @@ Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento
 ## <a name="miscellaneous"></a>Miscellaneous
 | &nbsp; | Titolo | Descrizione |
 | ---:|:--- |:--- |
-| 83 |[Installare Visual Studio 2015 e SSDT per SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Installare Visual Studio e SQL Server Data Tools (SSDT) per Azure SQL Data Warehouse |
+| 83 |[Installare Visual Studio e SSDT per SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Installare Visual Studio e SQL Server Data Tools (SSDT) per Azure SQL Data Warehouse |
 | 84 |[Dettagli sulla migrazione ad Archiviazione Premium](sql-data-warehouse-migrate-to-premium-storage.md) |Istruzioni per la migrazione di un SQL Data Warehouse esistente all’archiviazione Premium |
 | 85 |[Introduzione al rilevamento delle minacce](sql-data-warehouse-security-threat-detection.md) |Attività iniziali per il rilevamento delle minacce |
 | 86 |[Limiti di capacità di SQL Data Warehouse](sql-data-warehouse-service-capacity-limits.md) |I valori massimi per le connessioni, i database, le tabelle e le query per SQL Data Warehouse. |
 | 87 |[Risoluzione dei problemi relativi a SQL Data Warehouse di Azure](sql-data-warehouse-troubleshoot.md) |Risoluzione dei problemi relativi a SQL Data Warehouse di Azure. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

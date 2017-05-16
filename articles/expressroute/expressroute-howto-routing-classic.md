@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 6315e0fda231f2bfd3a92cf03cea7cd558bfda37
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: fab0a7b7ef3fd54194d719f49537a98416107e8a
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -41,8 +41,9 @@ Questo articolo descrive le procedure per creare e gestire la configurazione di 
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+
 ## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
-* È necessaria la versione più recente dei cmdlet di PowerShell per Gestione dei servizi di Azure. Per altre informazioni, vedere [Introduzione ai cmdlet di Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* È necessaria la versione più recente dei cmdlet di PowerShell per Gestione dei servizi di Azure. Per altre informazioni, vedere [Introduzione ai cmdlet di Azure PowerShell](/powershell/azure/overview).  
 * Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti per il routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md).
 * È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti di seguito deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
 

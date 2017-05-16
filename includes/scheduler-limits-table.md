@@ -17,8 +17,3 @@ Nella tabella seguente viene descritto ciascuno dei principali quote, limiti, im
 | **Memorizzazione di processi completati e con errori** |I processi completati e con errori vengono conservati per 60 giorni. |
 | **Timeout** |Esiste un timeout delle richieste statico (non configurabile) di 60 secondi per le azioni HTTP. Per le operazioni dai tempi di esecuzione più lunghi, seguire i protocolli HTTP asincroni, ad esempio, restituendo immediatamente un 202, ma continuando a lavorare in background. |
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

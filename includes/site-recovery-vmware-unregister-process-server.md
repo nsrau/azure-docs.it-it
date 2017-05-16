@@ -20,8 +20,3 @@ La procedura per annullare la registrazione di un server di elaborazione varia a
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
 4. I dettagli del server di elaborazione verranno eliminati dal sistema.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

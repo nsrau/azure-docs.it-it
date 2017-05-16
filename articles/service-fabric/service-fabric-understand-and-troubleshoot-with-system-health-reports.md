@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: d20b8d5848d1a11326c60d998099571a4ab8056e
-ms.openlocfilehash: 0306b8c38a7dd86dff56f6cc7bb9eab7e0428762
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 93a4e5fc2ec3c4e847f3fe8e76df9f83253eea9b
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -57,7 +57,7 @@ Il report specifica il timeout di lease globale come durata (TTL). Il report vie
 * **Passaggi successivi**: analizzare il motivo della perdita del nodo vicino, ad esempio controllare la comunicazione tra i nodi del cluster.
 
 ## <a name="node-system-health-reports"></a>Report sull'integrità del sistema di nodi
-**System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui nodi del cluster. Ogni nodo deve avere un report generato da System.FM che mostra il relativo stato. Le entità nodo vengono rimosse quando viene rimosso lo stato del nodo (vedere [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
+**System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui nodi del cluster. Ogni nodo deve avere un report generato da System.FM che mostra il relativo stato. Le entità nodo vengono rimosse quando viene rimosso lo stato del nodo (vedere [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
 
 ### <a name="node-updown"></a>Nodo attivo/inattivo
 System.FM restituisce OK quando il nodo viene aggiunto all'anello, ovvero è operativo. Segnala un errore quando il nodo non fa più parte dell'anello, ovvero è inattivo perché è in corso un aggiornamento o semplicemente perché si è verificato un errore. La gerarchia di integrità creata dall'archivio integrità agisce sulle entità distribuite in correlazione con i report sui nodi di System.FM. Considera il nodo un elemento padre virtuale di tutte le entità distribuite. Le entità distribuite in tale nodo vengono esposte tramite query se il nodo è segnalato come attivo da System.FM, con la stessa istanza associata alle entità. Quando System.FM segnala che il nodo è inattivo o riavviato (nuova istanza), l'archivio integrità elimina automaticamente le entità distribuite eventualmente esistenti solo nel nodo inattivo o nell'istanza precedente del nodo.
@@ -111,7 +111,7 @@ System.CM restituisce OK quando l'applicazione viene creata o aggiornata. Inform
 
 * **SourceId**: System.CM
 * **Proprietà**: State
-* **Passaggi successivi**: se l'applicazione è stata creata, deve includere il report sull'integrità di Cluster Manager. In caso contrario, controllare lo stato dell'applicazione eseguendo una query, ad esempio con il cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName*** di PowerShell.
+* **Passaggi successivi**: se l'applicazione è stata creata, deve includere il report sull'integrità di Cluster Manager. In caso contrario, controllare lo stato dell'applicazione eseguendo una query, ad esempio con il cmdlet di PowerShell **Get-ServiceFabricApplication -ApplicationName *applicationName***.
 
 L'esempio seguente illustra l'evento State nell'applicazione **fabric:/WordCount** :
 
@@ -486,7 +486,7 @@ Eventi di diagnostica di Visual Studio 2015: errore RunAsync in **fabric:/HelloW
 * **Proprietà**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo della replica
 
 ### <a name="slow-naming-operations"></a>Operazioni di Naming lente
-**System.NamingService** segnala lo stato di integrità per la replica primaria quando un'operazione di Naming richiede più tempo di quanto sia accettabile. Esempi di operazioni di Naming sono [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) e [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx). Altri metodi sono disponibili in FabricClient, ad esempio nell'ambito dei [metodi di gestione dei servizi](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) o dei [metodi di gestione delle proprietà](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
+**System.NamingService** segnala lo stato di integrità per la replica primaria quando un'operazione di Naming richiede più tempo di quanto sia accettabile. Esempi di operazioni di Naming sono [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) e [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Altri metodi sono disponibili in FabricClient, ad esempio nell'ambito dei [metodi di gestione dei servizi](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) o dei [metodi di gestione delle proprietà](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > Il servizio Naming risolve i nomi del servizio in una posizione nel cluster e consente agli utenti di gestire i nomi e le proprietà del servizio. È un servizio permanente partizionato di Service Fabric. Una partizione rappresenta l'authority owner, contenente i metadati relativi a tutti i nomi e i servizi di Service Fabric. I nomi di Service Fabric sono mappati a partizioni diverse, denominate name owner, e il servizio è quindi estendibile. Per altre informazioni, vedere [Architettura di Service Fabric](service-fabric-architecture.md).
@@ -604,7 +604,7 @@ System.Hosting restituisce OK se l'attivazione del pacchetto di servizi nel nodo
 **System.Hosting** restituisce OK per ogni pacchetto di codice se l'attivazione è riuscita. In caso contrario, restituisce l'avviso configurato. Se l'attivazione di **CodePackage** non riesce o termina con un errore superiore alla soglia configurata per **CodePackageHealthErrorThreshold**, viene restituito un errore. Se un pacchetto servizio contiene più pacchetti di codice, viene generato un report sull'attivazione per ognuno.
 
 * **SourceId**: System.Hosting
-* **Proprietà**: usa il prefisso **CodePackageActivation** e contiene il nome del pacchetto di codice e il punto di ingresso come **CodePackageActivation:*NomePacchettoCodice*:*SetupEntryPoint/EntryPoint***, ad esempio **CodePackageActivation:Code:SetupEntryPoint**
+* **Proprietà**: usa il prefisso **CodePackageActivation** e contiene il nome del pacchetto di codice e il punto di ingresso come **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint***, ad esempio **CodePackageActivation:Code:SetupEntryPoint**
 
 ### <a name="service-type-registration"></a>Registrazione del tipo di servizio
 **System.Hosting** restituisce OK se il tipo di servizio è stato registrato correttamente. Viene restituito un errore se la registrazione non è stata eseguita in tempo, secondo quanto configurato con **ServiceTypeRegistrationTimeout**. L'annullamento della registrazione del tipo di servizio nel nodo è causato dalla chiusura del runtime. Hosting genera un avviso.

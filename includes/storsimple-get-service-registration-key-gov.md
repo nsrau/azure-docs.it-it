@@ -9,16 +9,11 @@
    
      ![Finestra di dialogo Chiave di registrazione del servizio](./media/storsimple-get-service-registration-key-gov/HCS_ServiceRegistrationKey-gov-include.png)
 3. Individuare la chiave di registrazione del servizio.
-4. Fare clic sull'icona di copia  ![Icona di copia di StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png)  per copiare la chiave e salvarla per un utilizzo successivo.
+4. Fare clic sull'icona di copia  ![Icona di copia di StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png) per copiare la chiave e salvarla per un utilizzo successivo.
 5. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta di StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png) per chiudere questa finestra di dialogo e tornare alla pagina **Avvio rapido** .
 
 > [!NOTE]
 > La chiave di registrazione del servizio viene utilizzata per registrare tutti i dispositivi che è necessario registrare con il servizio StorSimple Manager.
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

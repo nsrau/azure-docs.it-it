@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: ac67a1a67c3a11fde98242519266fcd3ab4f60cb
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 33ddab887ade0d788129367eec4db7e70f35e0b9
+ms.contentlocale: it-it
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -95,6 +96,7 @@ In questa sezione si scriverà un'app console .NET che crea un'identità del dis
 > 
 > 
 
+<a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Ricezione di messaggi da dispositivo a cloud
 In questa sezione si crea un'app console di .NET che legge i messaggi da dispositivo a cloud dall'hub IoT. Un hub IoT espone un endpoint compatibile con gli [hub eventi di Azure][lnk-event-hubs-overview] per abilitare la lettura dei messaggi dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. Per informazioni sull'elaborazione di messaggi dispositivo a cloud su vasta scala, vedere l'esercitazione [Elaborare messaggi dispositivo a cloud][lnk-process-d2c-tutorial]. Per altre informazioni su come elaborare i messaggi da Hub eventi, vedere l'esercitazione [Introduzione all'Hub eventi][lnk-eventhubs-tutorial]. Questa esercitazione è applicabile agli endpoint compatibili con Hub eventi di hub IoT.
 
@@ -178,20 +180,24 @@ In questa sezione si crea un'app console di .NET che simula un dispositivo che i
    
         private static async void SendDeviceToCloudMessagesAsync()
         {
-            double avgWindSpeed = 10; // m/s
+            double minTemperature = 20;
+            double minHumidity = 60;
             Random rand = new Random();
    
             while (true)
             {
-                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+                double currentTemperature = minTemperature + rand.NextDouble() * 15;
+                double currentHumidity = minHumidity + rand.NextDouble() * 20;
    
                 var telemetryDataPoint = new
                 {
                     deviceId = "myFirstDevice",
-                    windSpeed = currentWindSpeed
+                    temperature = currentTemperature,
+                    humidity = currentHumidity
                 };
                 var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
                 var message = new Message(Encoding.ASCII.GetBytes(messageString));
+                message.Properties.Add("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
    
                 await deviceClient.SendEventAsync(message);
                 Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
@@ -200,7 +206,7 @@ In questa sezione si crea un'app console di .NET che simula un dispositivo che i
             }
         }
    
-    Questo metodo invia un nuovo messaggio da dispositivo a cloud ogni secondo. Il messaggio contiene un oggetto serializzato JSON con ID dispositivo e un numero generato casualmente per simulare un sensore di velocità del vento.
+    Questo metodo invia un nuovo messaggio da dispositivo a cloud ogni secondo. Il messaggio contiene un oggetto serializzato JSON con ID dispositivo e numeri generati casualmente per simulare un sensore temperatura e un sensore umidità.
 7. Aggiungere infine le righe seguenti al metodo **Main** :
    
         Console.WriteLine("Simulated device\n");

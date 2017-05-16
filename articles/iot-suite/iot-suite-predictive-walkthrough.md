@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 719f9810abb12cbe8645651d35cbff936cecd158
-ms.openlocfilehash: 57531b609b095359c8bf0ea3685af40124f46311
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
+ms.contentlocale: it-it
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -83,8 +85,3 @@ Dopo avere esaminato i componenti chiave della soluzione preconfigurata di manut
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

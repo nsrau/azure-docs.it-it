@@ -15,23 +15,14 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: 1caea59e71126e934e2e52a1ad7f533ffa7d4b03
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="devtest-labs-concepts"></a>Concetti di Lab di sviluppo e test
-> [!NOTE]
-> Questo articolo è la parte 3 di una serie in 3 parti:
->
-> 1. [Che cosa sono i lab di sviluppo/test?](devtest-lab-overview.md)
-> 2. [Perché Lab di sviluppo e test?](devtest-lab-why.md)
-> 3. **[Concetti di Lab di sviluppo e test](devtest-lab-concepts.md)**
->
->
-
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 L'elenco seguente contiene le definizioni e i concetti chiave di Lab di sviluppo e test:
 
 ## <a name="labs"></a>Lab
@@ -91,10 +82,10 @@ Per informazioni sulla creazione di ruoli personalizzati in DevTest Labs, vedere
 
 Poiché gli ambiti sono gerarchici, quando un utente ha le autorizzazioni per un determinato ambito, gli vengono automaticamente concesse tali autorizzazioni per ogni ambito di livello inferiore incluso. Ad esempio, se un utente è assegnato al ruolo di proprietario della sottoscrizione, ha accesso a tutte le risorse in una sottoscrizione, che includono tutte le macchine virtuali, tutte le reti virtuali e tutti i lab. Il proprietario di una sottoscrizione eredita quindi automaticamente il ruolo di proprietario del lab, ma non il contrario. Il proprietario di un lab ha accesso a un lab, che è un ambito più basso del livello della sottoscrizione. Il proprietario di un lab quindi non potrà visualizzare le macchine virtuali, le reti virtuali o nessuna altra risorsa esterna al lab.
 
-## <a name="arm-templates"></a>Modelli di Gestione risorse di Azure
-Tutti i concetti discussi in questo articolo possono essere configurati usando modelli di Azure Resource Manager. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di ripetere la distribuzione in modo coerente.
+## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+Tutti i concetti illustrati in questo articolo possono essere configurati con i modelli di Azure Resource Manager, che consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e distribuirle ripetutamente in uno stato coerente.
 
-L'articolo [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descrive la struttura di un modello di Azure Resource Manager e le proprietà disponibili nelle diverse sezioni di un modello.
+L'articolo [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descrive la struttura di un modello di Azure Resource Manager e le proprietà disponibili nelle diverse sezioni di un modello.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

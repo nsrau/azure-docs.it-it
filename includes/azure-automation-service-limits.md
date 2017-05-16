@@ -8,8 +8,3 @@
 | Quantità massima di memoria assegnata a un processo |400 MB |
 | Numero massimo di socket di rete consentiti per processo |1000 |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

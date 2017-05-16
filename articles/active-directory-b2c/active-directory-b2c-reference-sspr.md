@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -45,10 +47,5 @@ Per eseguire il test, usare la funzionalità "Esegui adesso" in ogni criterio di
 > Le pagine di reimpostazione della password self-service possono essere personalizzate con la [funzionalità di aggiunta di informazioni distintive dell'azienda](../active-directory/active-directory-add-company-branding.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

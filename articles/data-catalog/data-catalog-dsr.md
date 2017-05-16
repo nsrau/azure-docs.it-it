@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 03/14/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: b92db8dd81af0c58861644cc02ca9e56b6a6a832
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d68ed62022834c9417d820a7a64e30b47f71a1bd
+ms.contentlocale: it-it
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -417,6 +418,24 @@ ms.lasthandoff: 03/17/2017
     <tr>
       <td>Raccolta DocumentDB di Azure</td>
       <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Tabella ODBC generica</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Visualizzazione ODBC generica</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2></font></td>
@@ -918,6 +937,22 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
       <td>Raccolta</td>
       <td>Protocollo 
         <font size=2>: document-db <br>autenticazione: {azure-access-key} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; raccolta </font>
+      </td>
+    </tr>
+    <tr>
+      <td>ODBC generico</td>
+      <td>Contenitore</td>
+      <td>Database</td>
+      <td>
+        <font size=2> protocollo: odbc <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; opzioni <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+      </td>
+    </tr>
+    <tr>
+      <td>ODBC generico</td>
+      <td>Tabella</td>
+      <td>Tabella, vista</td>
+      <td>
+        <font size=2> protocollo: odbc <br>autenticazione: {basic, windows} <br>indirizzo: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; opzioni <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oggetto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
       </td>
     </tr>
     <tr>

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 148bc76b7f3e09745cbecfa41710a5e949704948
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -72,6 +72,14 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **R:** Montiamo una condivisione SMB nella directory \home\. In questo modo si esegue l'override di qualsiasi contenuto presente.
 
+**D:** Qual è il formato dell'URL del server del Registro di sistema privato?
+
+**R:** È necessario immettere l'URL completo del Registro, incluso "http://" o "https://".
+
+**D:** Qual è il formato per il nome dell'immagine nell'opzione del Registro di sistema privato?
+
+**R:** È necessario aggiungere il nome completo dell'immagine, incluso l'URL del Registro di sistema privato (es. myacr.azurecr.io/dotnet:latest)
+
 **D:** Si desidera esporre più di una porta sull'immagine del contenitore personalizzato. È possibile?
 
 **R:** Attualmente questa operazione non è supportata.
@@ -87,6 +95,10 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 **D:** Il contenitore personalizzato è in attesa su una porta diversa dalla porta 80. Come si può configurare l'app in modo da indirizzare le richieste a questa porta?
 
 **R:** È possibile specificare un'impostazione dell'applicazione denominata **PORTA** e assegnare a tale impostazione il valore del numero di porta previsto.
+
+**D:** È necessario implementare HTTPS nel contenitore personalizzato?
+
+**R:** No, la piattaforma gestisce l'interruzione HTTPS a livello dei server front-end condivisi.
 
 ## <a name="pricing-and-sla"></a>Prezzi e contratto di servizio
 

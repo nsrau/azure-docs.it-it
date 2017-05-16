@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e9c9f440aa6554e30dc0974d1ab777a9bca50762
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 78f993ce9bab6266479cdd121eeea4965724d9bd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Se si usa PowerShell, verificare di avere la versione più recente del modulo di
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/powershell/azure/overview).
 
 
 ## <a name="create-the-subnet-and-vnet"></a>Creare la subNet e la vNet
@@ -123,7 +123,7 @@ oppure
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
-    -AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
+    -AccountType StandardLRS  -Location $location -CreateOption Import `
     -SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
     -ResourceGroupName $rgName
     ```

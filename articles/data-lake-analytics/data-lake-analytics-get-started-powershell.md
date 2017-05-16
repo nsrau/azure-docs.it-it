@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 32f115a4d901a43abf1bf69d1c0c72b65ec7368c
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2bc3e4573ff4f202c3c8492e8110dc35c7e8ff2a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ In questa esercitazione si svilupperà un processo che legge un file di valori s
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Workstation con Azure PowerShell**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **Workstation con Azure PowerShell**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
 È necessario disporre di un account di Data Lake Analytics prima di poter eseguire qualsiasi processo. Per creare un account di Data Lake Analytics, è necessario specificare quanto segue:

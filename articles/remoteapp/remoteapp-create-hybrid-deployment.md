@@ -12,17 +12,18 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2c4a3ee9ec97dac78485e0f275fbb78412e7cb98
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-create-a-hybrid-collection-for-azure-remoteapp"></a>Come creare una raccolta ibrida per Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -51,8 +52,8 @@ Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 * [Accedere](https://azure.microsoft.com/services/remoteapp/) ad Azure RemoteApp.
 * Creare in Active Directory un account utente da usare come account del servizio RemoteApp di Azure. Limitare le autorizzazioni per l'account in modo che possa aggiungere computer al dominio.
 * Raccogliere informazioni sulla rete locale: informazioni sull'indirizzo IP e dettagli sul dispositivo VPN.
-* Installare il modulo [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
-* Raccogliere informazioni sugli utenti a cui concedere l'accesso. È necessario il nome dell'entità utente Azure Active Directory (ad esempio, name@contoso.com)) per ogni utente. Assicurarsi che il nome UPN corrisponda tra Azure Active Directory e Active Directory.
+* Installare il modulo [Azure PowerShell](/powershell/azure/overview) .
+* Raccogliere informazioni sugli utenti a cui concedere l'accesso. È necessario il nome dell'entità utente Azure Active Directory (ad esempio, name@contoso.com) per ogni utente. Assicurarsi che il nome UPN corrisponda tra Azure Active Directory e Active Directory.
 * Scegliere un'immagine modello. Un'immagine modello di RemoteApp di Azure contiene le app e i programmi da pubblicare per gli utenti. Per altre informazioni, vedere [Opzioni immagine di RemoteApp di Azure](remoteapp-imageoptions.md) .
 * Se si desidera usare l'immagine di Office 365 ProPlus, consultare le informazioni in [questo articolo](remoteapp-officesubscription.md).
 * [Configurare Active Directory per RemoteApp](remoteapp-ad.md).
@@ -136,10 +137,5 @@ La procedura è stata completata e la raccolta ibrida RemoteApp di Azure è stat
 
 ### <a name="help-us-help-you"></a>Come contribuire al miglioramento
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche e suggerire miglioramenti, che saranno esaminati e approvati per poi essere applicati a questo articolo.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

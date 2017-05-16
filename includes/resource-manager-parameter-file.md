@@ -30,8 +30,3 @@ La dimensione del file di parametro non può essere superiore a 64 KB.
 
 Se è necessario fornire un valore sensibile per un parametro (ad esempio una password), aggiungere tale valore a un insieme di credenziali delle chiavi. Recuperare l'insieme di credenziali delle chiavi durante la distribuzione, come illustrato nell'esempio precedente. Per ulteriori informazioni, vedere [Passare valori protetti durante la distribuzione](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

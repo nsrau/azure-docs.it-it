@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
 ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
+ms.contentlocale: it-it
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -58,9 +60,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,9 +1,9 @@
 ---
-title: Acquistare e configurare un certificato SSL per il servizio app di Azure
-description: Informazioni su come acquistare e configurare un certificato SSL per il servizio app di Azure.
+title: Aggiungere un certificato SSL all&quot;app del Servizio app di Azure | Documentazione Microsoft
+description: Informazioni su come aggiungere un certificato SSL all&quot;app del Servizio app.
 services: app-service
 documentationcenter: .net
-author: apurvajo
+author: ahmedelnably
 manager: stefsch
 editor: cephalin
 tags: buy-ssl-certificates
@@ -14,197 +14,182 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
-ms.author: apurvajo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f9ff33f33a196e65f6cb7ee7f5332aacb9231f6d
-ms.lasthandoff: 03/29/2017
-
+ms.author: apurvajo;aelnably
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: c4e7ee86ad9dc7a51fff9e948757faaf5ca9b9c4
+ms.contentlocale: it-it
+ms.lasthandoff: 04/22/2017
 
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
-> [!div class="op_single_selector"]
-> * [Acquistare un certificato SSL in Azure](web-sites-purchase-ssl-web-site.md)
-> * [Usare un certificato SSL per un dominio personalizzato](web-sites-configure-ssl-certificate.md)
-> 
-> 
 
-Per impostazione predefinita, il **[servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** abilita già HTTPS per un'app Web con un certificato con caratteri jolly per il dominio *.azurewebsites.net. Se non si intende configurare un dominio personalizzato, è possibile usare il certificato HTTPS predefinito. Come tutti i *[domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), tuttavia, non è sicuro quanto un dominio personalizzato con il proprio certificato. Il servizio app di Azure offre ora un modo molto semplice per acquistare e gestire un certificato SSL direttamente dal portale di Azure, senza mai uscire dal portale stesso.  
-Questo articolo spiega come acquistare e configurare un certificato SSL per il **[Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** in 3 semplici passaggi. 
+In questa esercitazione, si intende proteggere l'app Web tramite l'acquisto di un certificato SSL per il  **[servizio App di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)**, archiviandolo in modo sicuro nell'[ Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)e associandolo a un dominio personalizzato.
 
-> [!NOTE]
-> Non è possibile usare certificati SSL per i nomi di dominio personalizzati con un'app Web inclusa nel piano Gratuito e Condiviso. È necessario configurare l'app Web per la modalità Basic, Standard o Premium. Gli importi fatturati per la sottoscrizione variano a seconda della modalità scelta. Per altre informazioni vedere **[Prezzi di Servizio app](https://azure.microsoft.com/pricing/details/web-sites/)**.
-> 
-> 
+## <a name="step-1---log-in-to-azure"></a>Passaggio 1: Accedere ad Azure
 
-## <a name="bkmk_Overview"></a>Panoramica
-> [!NOTE]
-> Non tentare di acquistare un certificato SSL con una sottoscrizione a cui non è associata una carta di credito attiva, perché è possibile che la sottoscrizione venga disabilitata. 
-> 
-> 
+Accedere al portale di Azure all'indirizzo http://portal.azure.com
 
-## <a name="a-purchase-store-and-assign-an-ssl-certificate-for-your-custom-domain-a"></a><a> Acquistare, archiviare e assegnare un certificato SSL per il dominio personalizzato </a>
-Per abilitare HTTPS per un dominio personalizzato, ad esempio contoso.com, è necessario prima **[configurare un nome di dominio personalizzato nel Servizio app di Azure.](web-sites-custom-domain-name.md)**
+## <a name="step-2---place-an-ssl-certificate-order"></a>Passaggio 2: eseguire un ordine per un certificato SSL
 
-Prima di richiedere un certificato SSL, è necessario determinare i nomi di dominio da proteggere tramite il certificato, in modo da stabilire il tipo di certificato che è necessario ottenere. Se si vuole proteggere solo un singolo nome di dominio, ad esempio contoso.com or www.contoso.com, sarà sufficiente un certificato Standard (di base). Se è necessario proteggere più nomi di dominio, ad esempio contoso.com, www.contoso.com e mail.contoso.com, è possibile ottenere un **[certificato con caratteri jolly](http://en.wikipedia.org/wiki/Wildcard_certificate)**
+È possibile ordinare un certificato SSL creando un nuovo [certificato di servizio App](https://portal.azure.com/#create/Microsoft.SSL) nel **portale di Azure**.
 
-## <a name="bkmk_purchasecert"></a>Passaggio 0: eseguire un ordine per un certificato SSL
-Questo passaggio descrive come eseguire un ordine per il certificato SSL desiderato.
+![Creazione del certificato](./media/app-service-web-purchase-ssl-web-site/createssl.png)
 
-1. Nel **[Portale di Azure](https://portal.azure.com/)** fare clic su Sfoglia e digitare "Certificati del servizio app" nella barra di ricerca, quindi selezionare "Certificati del servizio app" dai risultati e fare clic su Aggiungi. 
-   
-   ![inserimento immagine della creazione con il pulsante Sfoglia](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
-   
-   ![inserimento immagine della creazione con il pulsante Sfoglia](./media/app-service-web-purchase-ssl-web-site/add.jpg)
-2. Immettere un **nome descrittivo** per il certificato SSL.
-3. Immettere il **nome host**
-   
-   > [!NOTE]
-   > Questa è una delle parti più importanti del processo di acquisto. Assicurarsi di immettere il nome host corretto (dominio personalizzato) che si desidera proteggere con il certificato. **NON** aggiungere WWW al nome host. Ad esempio, se il nome di dominio personalizzato è www.contoso.com, sarà sufficiente immettere contoso.com nel campo Nome host e il certificato in questione proteggerà sia domini www sia domini radice. 
-   > 
-   > 
-4. Selezionare la propria **sottoscrizione**. 
-   
-   Se si dispone di più sottoscrizioni, verificare di creare un certificato SSL nella stessa sottoscrizione usata per il dominio personalizzato o per l'app Web in questione.
-5. Selezionare o creare un **gruppo di risorse**.
-   
-   I gruppi di risorse consentono di gestire risorse di Azure correlate come un'unità e sono utili per stabilire le regole di controllo degli accessi in base al ruolo (RBAC) per le app. Per altre informazioni, vedere Gestione delle risorse di Azure.
-6. Selezionare lo **SKU del certificato** 
-   
-   Infine, selezionare lo SKU del certificato adatto alle proprie esigenze e fare clic su Crea. Attualmente, il Servizio app di Azure consente di acquistare due diverse SKU
-   
-        •    S1 – Standard Certificate with 1-year validity and auto renewal  
-        •    W1 – Wild card Certificate with 1-year validity and auto renewal      
-   Per altre informazioni vedere **[Prezzi di Servizio app](https://azure.microsoft.com/pricing/details/web-sites/)**.
-
-![inserimento immagine del certificato SKU](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
+Immettere un **nome descrittivo** per il certificato SSL e immettere il **nome del dominio**
 
 > [!NOTE]
-> La creazione del certificato SSL richiederà da 1 a 10 minuti. Questo processo esegue più passaggi in background che sarebbero altrimenti molto complessi da eseguire manualmente.  
-> 
-> 
+> Questa è una delle parti più importanti del processo di acquisto. Assicurarsi di immettere il nome host corretto (dominio personalizzato) che si desidera proteggere con il certificato. **NON** aggiungere WWW al nome host. 
+>
 
-## <a name="bkmk_StoreKeyVault"></a>Passaggio 1: archiviare il certificato nell'insieme di credenziali delle chiavi di Azure
-Questo passaggio descrive come archiviare un certificato SSL acquistato nell'insieme di credenziali delle chiavi di Azure desiderato.
+Selezionare la **Sottoscrizione**, il **Gruppo di risorse** e lo **SKU del certificato**
 
-1. Dopo aver completato l'acquisto del certificato SSL è necessario aprire manualmente il pannello delle risorse **Certificati del servizio app** passando nuovamente a questo pannello (vedere Passaggio 1)   
-   
-   ![inserimento immagine stato di pronto per l'archiviazione in un insieme di credenziali delle chiavi](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
-   
-   Si noterà che lo stato del certificato è **In attesa di rilascio** dal momento che sono previsti pochi altri passaggi da completare prima di iniziare a usare questo certificato.
-2. Fare clic su **Configurazione certificati** nel pannello Proprietà certificato e fare clic su **Passaggio 1: archiviare** per archiviare il certificato nell'insieme di credenziali delle chiavi di Azure.
-3. Nel pannello **Stato insieme di credenziali delle chiavi** fare clic su **Repository dell'insieme di credenziali delle chiavi** per scegliere un insieme esistente in cui archiviare il certificato **O su 	Crea nuovo insieme di credenziali delle chiavi** per creare un nuovo insieme all'interno della stessa sottoscrizione e dello stesso gruppo di risorse.
-   
-   ![inserimento immagine della creazione di un nuovo insieme di credenziali delle chiavi](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
-   
-   > [!NOTE]
-   > L'insieme di credenziali delle chiavi di Azure prevede addebiti minimi per l'archiviazione di questo certificato. Per altre informazioni, vedere **[Prezzi di Insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/pricing/details/key-vault/)**.
-   > 
-   > 
-4. Dopo aver selezionato l'archivio dell'insieme di credenziali delle chiavi in cui archiviare il certificato, procedere e archiviarlo facendo clic sul pulsante **"Archivia"** nella parte superiore del pannello **"Key Vault Status"** (Stato dell'insieme di credenziali delle chiavi).  
-   
-    Questa operazione conclude il passaggio di archiviazione del certificato acquistato nell'insieme di credenziali delle chiavi di Azure desiderato. Quando si aggiorna il pannello, dovrebbe essere presente un segno di spunta verde in corrispondenza anche di questo passaggio.
+> [!WARNING]
+> I certificati del servizio App possono essere usati solo da altri servizi App nella stessa sottoscrizione.  
+>
 
-## <a name="bkmk_VerifyOwnership"></a>Passaggio 2: verificare la proprietà del dominio
-Questo passaggio descrive come eseguire la verifica della proprietà del dominio per un certificato SSL appena ordinato. 
+## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Passaggio 3: archiviare il certificato nell'Azure Key Vault
 
-1. Fare clic su **"Step 2: Verify"** (Passaggio 2: verifica) nel pannello **"Certificate Configuration"** (Configurazione del certificato). Esistono 3 tipi di verifica del dominio supportati da Certificati del servizio app.
-   
-   * **Verifica del dominio** 
-     
-     * Questo è il processo più semplice **SOLO** in caso di **[acquisto del dominio personalizzato dal Servizio app di Azure.](custom-dns-web-site-buydomains-web-app.md)**
-     * Fare clic sul pulsante **"Verifica"** per completare questo passaggio.
-     * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
-   * **Verifica tramite posta elettronica**
-     
-     * Un messaggio di posta elettronica di verifica è già stato inviato agli indirizzi di posta elettronica associati al dominio personalizzato.
-     * Aprire il messaggio di posta elettronica e fare clic sul collegamento per la verifica per completare il passaggio di verifica tramite posta elettronica. 
-     * Se è necessario un nuovo invio del messaggio di verifica, fare clic sul pulsante **"Invia di nuovo il messaggio di posta elettronica"** .
-   * **Verifica manuale**    
-     
-      **Verifica della pagina Web HTML (funziona solo con lo SKU del certificato standard)**
+> [!NOTE]
+> Il [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) è un servizio di Azure che consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud.
+>
 
-        * Creare un file HTML denominato **"starfield.html"**
-        * Il contenuto di questo file deve corrispondere esattamente al nome del token di verifica del dominio. È possibile copiare il token dal pannello dello stato di verifica del dominio.
-        * Caricare il file nella radice del server Web che ospita il dominio **/.well-known/pki-validation/starfield.html**
-        * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
-          
-          Se si acquista ad esempio un certificato standard per **contosocertdemo.com** con token di verifica del dominio **tgjgthq8d11ttaeah97s3fr2sh**, una richiesta Web a **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** dovrà restituire **tgjgthq8d11ttaeah97s3fr2sh**.
+Dopo aver completato l'acquisto del certificato SSL, è necessario aprire il pannello delle risorse [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders).
 
-      **Verifica del record TXT DNS**
-        
-        * Usando il gestore DNS, creare un record TXT nel sottodominio **"@"** con valore uguale al **token di verifica del dominio.**
-        * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
-          
-          Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host **\*.contosocertdemo.com** o **\*.subdomain.contosocertdemo.com** e token di verifica del dominio **tgjgthq8d11ttaeah97s3fr2sh**, è necessario creare un record TXT in **contosocertdemo.com** con valore **tgjgthq8d11ttaeah97s3fr2sh**     
+![inserimento immagine stato di pronto per l'archiviazione in un insieme di credenziali delle chiavi](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-## <a name="bkmk_AssignCertificate"></a>Passaggio 3: Assegnare il certificato all'app del servizio app
-Questo passaggio descrive come assegnare un certificato appena acquistato alle app del servizio app. 
+Si noterà che lo stato del certificato è **"Rilascio in sospeso"** dal momento che sono previsti pochi altri passaggi da completare prima di iniziare a usare questo certificato.
+
+Fare clic su **Configurazione del certificato** nel pannello Proprietà del certificato e fare clic su **Passaggio 1: archiviare** per archiviare il certificato nell'Azure Key Vault.
+
+Nel pannello **Stato del Key Vault** fare clic su **Archivio del Key Vault** per scegliere un insieme esistente in cui archiviare il certificato **O Crea nuovo Key Vault** per creare un nuovo insieme all'interno della stessa sottoscrizione e dello stesso gruppo di risorse.
+
+> [!NOTE]
+> L' Azure Key Vault prevede addebiti minimi per l'archiviazione di questo certificato.
+> Per altre informazioni, vedere **[Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)**.
+>
+
+Dopo aver selezionato l'archivio del Key Vault in cui archiviare il certificato, selezionare il pulsante **Archivia**.
+
+![inserimento immagine per la riuscita dell'archiviazione in un Key Vault](./media/app-service-web-purchase-ssl-web-site/KVStoreSuccess.png)
+
+## <a name="step-4---verify-the-domain-ownership"></a>Passaggio 4: verificare la proprietà del dominio
+
+> [!NOTE]
+> Esistono 3 tipi di verifica del dominio supportati da Certificati del servizio app: Domain, Mail, Manual Verification. Sono illustrati più dettagliatamente nella [sezione Avanzate](#advanced).
+
+Dallo stesso pannello **configurazione certificato** utilizzato nel passaggio 3, fare clic su **Passaggio 2: verificare**.
+
+La **verifica del dominio** è il processo più semplice **SOLO IN CASO DI**acquisto **[del dominio personalizzato dal Servizio app di Azure.](custom-dns-web-site-buydomains-web-app.md)**
+Fare clic sul pulsante **Verifica** per completare questo passaggio.
+
+![inserimento immagine della verifica del dominio](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
+
+Dopo aver fatto clic su **Verifica**, utilizzare il pulsante **Aggiorna** fino a quando l'opzione **Verifica** non avrà esito positivo.
+
+![inserimento immagine per la riuscita della verifica in un Key Vault](./media/app-service-web-purchase-ssl-web-site/KVVerifySuccess.png)
+
+## <a name="step-5---assign-certificate-to-app-service-app"></a>Passaggio 5: Assegnare il certificato all'app del servizio app
 
 > [!NOTE]
 > Prima di eseguire la procedura inclusa in questa sezione, è necessario avere associato un nome di dominio personalizzato all'app. Per altre informazioni, vedere **[Configurare un nome di dominio personalizzato nel servizio app di Azure.](web-sites-custom-domain-name.md)**
-> 
-> 
+>
 
-1. Accedere al **Portale di Azure[ dal browser.](https://portal.azure.com/)**
-2. Fare clic sull'opzione **Servizio app** a sinistra nella pagina.
-3. Fare clic sul nome dell'app a cui si desidera assegnare il certificato. 
-4. In **Impostazioni** fare clic su **Certificati SSL**
-5. Fare clic su **Importa il certificato del servizio app** e selezionare il certificato appena acquistato
-   
-   ![inserimento immagine dell'importazione del certificato](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
-6. Nella sezione **Associazioni SSL** fare clic su **Add bindings** (Aggiungi associazioni)
-7. Nel pannello **Aggiungi associazione SSL** usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È possibile anche stabilire se usare il metodo SSL basato su **[Indicazione nome server (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o su IP.
-   
-    ![inserimento immagine di associazioni SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
-   
-       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
-       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
-8. Fare clic su **Aggiungi l'associazione** per salvare le modifiche e abilitare SSL.
+Nel **[portale di Azure](https://portal.azure.com/)** fare clic sull'opzione **Servizio app** a sinistra nella pagina.
+
+Fare clic sul nome dell'app a cui si desidera assegnare il certificato.
+
+In **Impostazioni** fare clic su **Certificati SSL**.
+
+Fare clic su **Importa il certificato di servizio app** e selezionare il certificato appena acquistato.
+
+![inserimento immagine dell'importazione del certificato](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
+
+Nella sezione **associazione SSL** fare clic su **Aggiungi associazioni** e usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È possibile anche stabilire se usare il metodo SSL basato su **[Indicazione nome server (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o su IP.
+
+![inserimento immagine di associazioni SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
+
+Fare clic su **Aggiungi l'associazione** per salvare le modifiche e abilitare SSL.
+
+> [!NOTE]
+> Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizzato è stato configurato usando un record A, sarà necessario eseguire i passaggi aggiuntivi seguenti. Sono illustrati più dettagliatamente nella [sezione Avanzata](#Advanced).
+
+A questo punto si dovrebbe poter andare all'app usando `HTTPS://` anziché `HTTP://` per verificare che il certificato sia stato configurato correttamente.
+
+<!--![insert image of https](./media/app-service-web-purchase-ssl-web-site/Https.png)-->
+
+## <a name="step-6---management-tasks"></a>Passaggio 6: attività di gestione
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Associare un certificato SSL personalizzato a un'App Web")] 
+
+### <a name="powershell"></a>PowerShell
+
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Associare un certificato SSL personalizzato a un'App Web")]
+
+## <a name="advanced"></a>Avanzate
+
+### <a name="verifying-domain-ownership"></a>Verifica della la proprietà del dominio
+
+Esistono altri due tipi di verifica del dominio supportati da Certificati del servizio app: Mail e Manual Verification.
+
+#### <a name="mail-verification"></a>Verifica tramite posta elettronica
+
+Un messaggio di posta elettronica di verifica è già stato inviato agli indirizzi di posta elettronica associati al dominio personalizzato.
+Per completare il passaggio di verifica tramite posta elettronica, aprire la posta elettronica e fare clic sul collegamento di verifica.
+
+![inserimento immagine della verifica dell'indirizzo di posta elettronica](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
+
+Se è necessario un nuovo invio del messaggio di verifica, fare clic sul pulsante **Invia di nuovo il messaggio di posta elettronica**.
+
+#### <a name="manual-verification"></a>Verifica manuale
+
+> [!IMPORTANT]
+> Verifica della pagina Web HTML (funziona solo con lo SKU del certificato standard)
+>
+
+1. Creare un file HTML denominato **"starfield.html"**
+
+1. Il contenuto di questo file deve corrispondere esattamente al nome del token di verifica del dominio. È possibile copiare il token dal pannello dello Stato di verifica del dominio.
+
+1. Caricare il file nella radice del server Web che ospita il dominio `/.well-known/pki-validation/starfield.html`
+
+1. Fare clic su **Aggiorna** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
+
+> [!TIP]
+> Verificare in un terminale mediante `curl -G http://<domain>/.well-known/pki-validation/starfield.html` la risposta deve contenere il `<verification-token>`.
+
+#### <a name="dns-txt-record-verification"></a>Verifica del record TXT DNS
+
+1. Usando il gestore DNS, creare un record TXT nel sottodominio `@` con valore uguale al token di verifica del dominio.
+1. Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica.
+
+> [!TIP]
+> È necessario creare un record TXT su `@.<domain>` con valore `<verification-token>`.
+
+### <a name="assign-certificate-to-app-service-app"></a>Assegnare il certificato all'app del servizio app
 
 Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizzato è stato configurato usando un record A, sarà necessario eseguire i passaggi aggiuntivi seguenti:
 
-* Dopo la configurazione di un'associazione SSL basata su IP, un indirizzo IP dedicato viene assegnato all'app. È possibile trovare questo indirizzo IP nella pagina **Dominio personalizzato** nelle impostazioni dell'app, proprio sotto la sezione **Nomi host**. Sarà elencato come **Indirizzo IP esterno**
-  
-    ![inserimento immagine di IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
-  
-    Si noti che questo indirizzo IP sarà diverso rispetto all'indirizzo IP virtuale utilizzato in precedenza per la configurazione del record A per il dominio. Se è stato impostato l'uso del metodo SSL basato su SNI o se non è stato impostato l'uso del metodo SSL, per questa voce non verrà elencato alcun indirizzo.
+Dopo la configurazione di un'associazione SSL basata su IP, un indirizzo IP dedicato viene assegnato all'app. È possibile trovare questo indirizzo IP nella pagina **Dominio personalizzato** nelle impostazioni dell'app, proprio sotto la sezione **Nomi host**. È elencato come **Indirizzo IP esterno**
 
-* Usando gli strumenti forniti dal registrar, modificare il record A per il nome di dominio personalizzato, in modo che faccia riferimento all'indirizzo IP riportato nel passaggio precedente.
-   A questo punto si dovrebbe poter andare all'app usando HTTPS:// anziché HTTP:// per verificare che il certificato sia stato configurato correttamente.
+![inserimento immagine di IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
-## <a name="bkmk_Export"></a>Esportare il certificato del servizio app
-È possibile creare una copia PFX locale di un certificato del servizio app per poterla usare con altri servizi di Azure. Per altre informazioni, **[vedere questo post di blog](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**
+Si noti che questo indirizzo IP è diverso rispetto all'indirizzo IP virtuale utilizzato in precedenza per la configurazione del record A per il dominio. Se è stato impostato l'uso del metodo SSL basato su SNI o se non è stato impostato l'uso del metodo SSL, per questa voce non è elencato alcun indirizzo.
 
-## <a name="bkmk_Renew"></a>Rinnovo automatico del certificato del servizio app
-Per attivare o disattivare le impostazioni di rinnovo automatico del certificato o per rinnovare manualmente il certificato selezionare l'opzione **Impostazioni di rinnovo automatico** nel pannello **Proprietà certificato**. 
+Usando gli strumenti forniti dal registrar, modificare il record A per il nome di dominio personalizzato, in modo che faccia riferimento all'indirizzo IP riportato nel passaggio precedente.
 
+## <a name="rekey-and-sync-the-certificate"></a>Reimpostare e sincronizzare il certificato
 
-  ![inserimento immagine della creazione con il pulsante Sfoglia](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
+Sarà possibile reimpostare il certificato selezionando l'opzione **"Reimposta e sincronizza"** nel pannello **"Proprietà del certificato"**.
 
-Attivare il **Rinnovo automatico** per rinnovare automaticamente il certificato prima della scadenza. Questa è l'opzione predefinita. Se attivata, il sistema tenta di rinnovare il certificato a partire da 90 giorni prima della scadenza. Se sono state create associazioni SSL nelle app del servizio app tramite il portale di Azure, anche queste associazioni verranno aggiornate una volta pronto il nuovo certificato, come nello scenario di sincronizzazione e reimpostazione delle chiavi. Per eseguire i rinnovi manualmente è necessario disattivare questa impostazione. È possibile rinnovare manualmente un certificato del servizio app solo se la scadenza è entro 90 giorni.
+Fare clic sul pulsante **Reimposta** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti.
 
-## <a name="bkmk_Rekey"></a>Reimpostare e sincronizzare il certificato
-1. Per motivi di sicurezza, sarà possibile reimpostare il certificato semplicemente selezionando l'opzione **"Reimposta e sincronizza"** nel pannello **"Proprietà del certificato"**. 
-2. Fare clic sul pulsante **"Reimposta"** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti. 
-   
-    ![inserimento immagine della reimpostazione SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
-3. Con la reimpostazione verrà emesso un nuovo certificato da parte dell'autorità di certificazione.
-4. Non sono previsti addebiti per la reimpostazione delle chiavi per l'intera durata del certificato. 
-5. La reimpostazione modifica lo stato del certificato su Rilascio in sospeso. 
-6. Quando il certificato è pronto, accertarsi di sincronizzare le risorse usando questo certificato per evitare l'interruzione del servizio.
-7. Non è disponibile l'opzione di sincronizzazione per i certificati non ancora assegnati all'app Web. 
+![inserimento immagine della reimpostazione SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
-## <a name="more-resources"></a>Altre risorse
-* [Abilitare HTTPS per un'app in Azure App Service](web-sites-configure-ssl-certificate.md)
-* [Acquistare e configurare un nome di dominio personalizzato in Servizio app di Azure](custom-dns-web-site-buydomains-web-app.md)
-* [Centro protezione Microsoft Azure](/support/trust-center/security/)
-* [Opzioni di configurazione sbloccate in Siti Web di Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-* [Portale di gestione di Azure](https://manage.windowsazure.com)
+Con la reimpostazione viene emesso un nuovo certificato da parte dell'autorità di certificazione.
 
-> [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-> 
-> 
+## <a name="next-steps"></a>Passaggi successivi
 
-
+* [Aggiungere una Rete per la distribuzione di contenuti (CDN)](app-service-web-tutorial-content-delivery-network.md)

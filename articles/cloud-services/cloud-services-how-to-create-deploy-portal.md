@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 1ce2e980dc71ede4f8cd8ec7c9166efac7b25d2e
-ms.openlocfilehash: 554ef45d7fba5f2ff314a162ae33c6cc27206933
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 542817c562e10ff32c62afd186cf012abbe82ac5
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,7 +33,7 @@ Nel portale di Azure sono disponibili due modi per creare e distribuire un servi
 In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica** . Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando Creazione personalizzata.
 
 > [!NOTE]
-> Se si prevede di pubblicare il servizio cloud da Visual Studio Team Services (VSTS), usare Creazione rapida, quindi configurare la pubblicazione VSTS da Azure Quickstart o dal dashboard. Per altre informazioni, vedere [Recapito continuo in Azure tramite Visual Studio Team Services][TFSTutorialForCloudService] o la Guida per la pagina **Avvio rapido**.
+> Se si prevede di pubblicare il servizio cloud da Visual Studio Team Services (VSTS), usare Creazione rapida, quindi configurare la pubblicazione VSTS da Azure Quickstart o dal dashboard. Per altre informazioni, vedere [Recapito continuo in Azure tramite Visual Studio Team Services][TFSTutorialForCloudService] o la guida alla pagina **Avvio rapido**.
 >
 >
 
@@ -108,9 +109,4 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

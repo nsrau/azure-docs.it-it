@@ -5,8 +5,3 @@ Si usa già Azure? Fare clic sul pulsante seguente per creare un lab in DevTest 
 
 [![Iniziare a usare Azure DevTest Labs in pochi minuti](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

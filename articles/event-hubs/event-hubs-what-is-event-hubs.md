@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 28a14cc68f44a278274e60cf46d5344c85dcc777
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="what-is-azure-event-hubs"></a>Che cos'è l'hub di eventi di Azure?
-Hub eventi è una piattaforma di streaming di dati a scalabilità elevata, che consente di inserire milioni di eventi al secondo. I dati inviati a un Hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Con la possibilità di fornire funzionalità di pubblicazione-sottoscrizione con una latenza bassa e su larga scala, Hub eventi funge da "rampa di ingresso" per Big Data.
+# <a name="what-is-event-hubs"></a>Che cos'è Hub eventi?
+Hub eventi di Azure è una piattaforma di streaming di dati a scalabilità elevata che consente di inserire milioni di eventi al secondo. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Con la possibilità di fornire funzionalità di pubblicazione-sottoscrizione con una latenza bassa e su larga scala, Hub eventi funge da "rampa di ingresso" per Big Data.
 
 ## <a name="why-use-event-hubs"></a>Vantaggi dell'uso di Hub eventi
 Gli eventi e le funzionalità di gestione della telemetria di Hub eventi sono particolarmente utili per:
@@ -40,13 +40,13 @@ Il ruolo comune svolto da Hub eventi nelle architetture delle soluzioni è la su
 
 Hub eventi di Azure è un servizio di elaborazione eventi che consente l'inserimento di eventi e telemetria su scala cloud, con bassa latenza e affidabilità elevata. Hub eventi fornisce funzionalità di gestione del flusso di messaggi e presenta caratteristiche diverse dai servizi di messaggistica aziendale tradizionale. Le funzionalità di Hub eventi sono basate su scenari con velocità effettiva elevata ed elaborazione di eventi. Di conseguenza, Hub eventi non implementa alcune delle funzionalità di messaggistica disponibili per le entità di messaggistica, ad esempio gli argomenti.
 
-Un Hub eventi viene creato a livello di spazio dei nomi e usa AMQP e HTTP come interfacce API primarie.
+Un hub eventi viene creato a livello di spazio dei nomi e usa AMQP e HTTP come interfacce API primarie.
 
-## <a name="event-publishers"></a>Publisher di eventi
-Qualsiasi entità che invia dati a un Hub di eventi è un *autore di eventi*. Gli autori di eventi possono pubblicare eventi usando HTTPS o AMQP 1.0. Gli autori di eventi usano un token di firma di accesso condiviso (SAS) per identificarsi con un Hub eventi e possono avere un'identità univoca oppure usare un token SAS comune.
+## <a name="event-publishers"></a>Autori di eventi
+Qualsiasi entità che invia dati a un hub eventi è un *autore di eventi*. Gli autori di eventi possono pubblicare eventi usando HTTPS o AMQP 1.0. Gli autori di eventi usano un token di firma di accesso condiviso per identificarsi con un hub eventi e possono avere un'identità univoca oppure usare un token di firma di accesso condiviso comune.
 
 ### <a name="publishing-an-event"></a>Pubblicazione di un evento
-È possibile pubblicare un evento tramite AMQP 1.0 o HTTPS. Bus di servizio fornisce una classe [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) per la pubblicazione di eventi a un Hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](http://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 256 KB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni maggiori determina un errore. È consigliabile che gli autori non conoscano le partizioni presenti nell'Hub eventi e specifichino solo una *chiave di partizione* (introdotta nella sezione successiva) o la propria identità tramite i token SAS.
+È possibile pubblicare un evento tramite AMQP 1.0 o HTTPS. Il bus di servizio fornisce una classe [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) per la pubblicazione di eventi in un hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](http://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 256 KB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni maggiori determina un errore. È consigliabile che gli autori non rilevino le partizioni all'interno dell'hub eventi e specifichino solo una *chiave di partizione* (illustrata nella sezione successiva) o la propria identità tramite il token di firma di accesso condiviso.
 
 La scelta di utilizzare AMQP o HTTPS dipende dallo scenario di utilizzo. AMQP richiede di stabilire un socket bidirezionale persistente oltre alla sicurezza a livello di trasporto (TLS) o SSL/TLS. AMQP comporta costi di rete superiori in fase di inizializzazione della sessione, ma HTTPS richiede un costo generale SSL aggiuntivo per ogni richiesta. AMQP offre prestazioni più elevate per i server di pubblicazione più attivi.
 
@@ -55,7 +55,7 @@ La scelta di utilizzare AMQP o HTTPS dipende dallo scenario di utilizzo. AMQP ri
 Hub eventi garantisce che tutti gli eventi che condividono un valore di chiave di partizione vengano recapitati in ordine e alla stessa partizione. Se si usano chiavi di partizione con i criteri di autore, l'identità dell’autore e il valore della chiave di partizione devono corrispondere. In caso contrario, si verifica un errore.
 
 ### <a name="publisher-policy"></a>Criteri di autore
-Hub eventi consente un controllo granulare degli autori di eventi tramite *criteri di autore*. I criteri di autore sono funzionalità di runtime progettate per consentire un numero elevato di autori di eventi indipendenti. Con i criteri di autore, ogni autore utilizza un proprio identificatore univoco durante la pubblicazione di eventi in un Hub eventi mediante il meccanismo seguente:
+Hub eventi consente un controllo granulare degli autori di eventi tramite *criteri di autore*. I criteri di autore sono funzionalità di runtime progettate per consentire un numero elevato di autori di eventi indipendenti. Con i criteri di autore, ogni autore usa il proprio identificatore univoco durante la pubblicazione di eventi in un hub eventi, con il meccanismo seguente:
 
 ```
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
@@ -66,15 +66,15 @@ Non è necessario creare nomi di autore prima di procedere, ma devono corrispond
 ## <a name="partitions"></a>Partitions
 Hub eventi fornisce lo streaming di messaggi tramite un modello consumer partizionato in cui ogni consumer legge solo un sottoinsieme specifico, o partizione, del flusso di messaggi. Questo modello consente la scalabilità orizzontale per l'elaborazione di eventi e fornisce altre funzionalità incentrate sul flusso non disponibili in code e argomenti.
 
-Una partizione è una sequenza ordinata di eventi contenuta in un Hub eventi. Man mano che arrivano, i nuovi eventi vengono aggiunti alla fine di questa sequenza. Una partizione può essere considerata come "registro commit".
+Una partizione è una sequenza ordinata di eventi contenuta in un hub eventi. Man mano che arrivano, i nuovi eventi vengono aggiunti alla fine di questa sequenza. Una partizione può essere considerata come "registro commit".
 
 ![Hub eventi](./media/event-hubs-what-is-event-hubs/partition.png)
 
-Gli Hub eventi conservano i dati per un periodo di conservazione configurato che viene applicato a tutte le partizioni in Hub eventi. Gli eventi scadono su base temporale; non è possibile eliminarli in modo esplicito. Poiché le partizioni sono indipendenti e contengono una sequenza specifica di dati, presentano spesso velocità di crescita diverse.
+Gli hub eventi mantengono i dati per un periodo di conservazione configurato che viene applicato a tutte le partizioni nell'hub eventi. Gli eventi scadono su base temporale; non è possibile eliminarli in modo esplicito. Poiché le partizioni sono indipendenti e contengono una sequenza specifica di dati, presentano spesso velocità di crescita diverse.
 
 ![Hub eventi](./media/event-hubs-what-is-event-hubs/multiple_partitions.png)
 
-Il numero di partizioni viene specificato in fase di creazione e deve essere compreso tra 2 e 32. Il numero di partizioni non può essere modificato. È quindi consigliabile valutare le dimensioni a lungo termine in fase di impostazione del numero di partizioni. Le partizioni sono un meccanismo di organizzazione dei dati correlato al parallelismo downstream necessario per utilizzare le applicazioni. Il numero di partizioni in un Hub eventi è direttamente correlato al numero di lettori simultanei previsti. Per impostare un numero di partizioni superiore a 32, contattare il team di Hub eventi.
+Il numero di partizioni viene specificato in fase di creazione e deve essere compreso tra 2 e 32. Il numero di partizioni non può essere modificato. È quindi consigliabile valutare le dimensioni a lungo termine in fase di impostazione del numero di partizioni. Le partizioni sono un meccanismo di organizzazione dei dati correlato al parallelismo downstream necessario per utilizzare le applicazioni. Il numero di partizioni in un hub eventi è direttamente correlato al numero di lettori simultanei previsti. Per impostare un numero di partizioni superiore a 32, contattare il team di Hub eventi.
 
 Anche se le partizioni sono identificabili e consentono l'invio diretto, questa operazione non è consigliata. È invece possibile usare i costrutti più generici introdotti nelle sezioni [Autore di eventi](#event-publishers) e [Capacità](#capacity). 
 
@@ -83,20 +83,20 @@ Nelle partizioni viene inserita una sequenza di dati evento, che include il corp
 Per altre informazioni sulle partizioni e il necessario equilibrio tra disponibilità e affidabilità, vedere la [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md#partition-key) e l'articolo [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md).
 
 ### <a name="partition-key"></a>Chiave di partizione
-È possibile usare una [chiave di partizione](event-hubs-programming-guide.md#partition-key) per mappare i dati dell'evento in ingresso in partizioni specifiche ai fini dell'organizzazione dei dati. La chiave di partizione è un valore fornito dal mittente passato a un Hub eventi. Viene elaborato tramite una funzione di hashing statica, che crea l'assegnazione di partizione. Se non si specifica una chiave di partizione quando si pubblica un evento, viene usata un'assegnazione round robin.
+È possibile usare una [chiave di partizione](event-hubs-programming-guide.md#partition-key) per mappare i dati dell'evento in ingresso in partizioni specifiche ai fini dell'organizzazione dei dati. La chiave di partizione è un valore fornito dal mittente che viene passato a un hub eventi. Viene elaborato tramite una funzione di hashing statica, che crea l'assegnazione di partizione. Se non si specifica una chiave di partizione quando si pubblica un evento, viene usata un'assegnazione round robin.
 
 L'autore di eventi è a conoscenza solo della chiave di partizione, non la partizione in cui gli eventi vengono pubblicati. Questa separazione tra chiave e partizione evita che il mittente debba conoscere troppe informazioni sull'elaborazione downstream. Un’identità univoca per dispositivo o utente crea una chiave di partizione efficace, ma è possibile utilizzare anche altri attributi, ad esempio l’area geografica, per raggruppare gli eventi correlati in un'unica partizione.
 
 ## <a name="sas-tokens"></a>Token di firma di accesso condiviso
-Hub eventi usa le *firme di accesso condiviso*, disponibili a livello di spazio dei nomi e di Hub eventi. Un token SAS viene generato da una chiave SAS ed è un hash SHA di un URL, codificato in un formato specifico. Usando il nome della chiave (criterio) e il token, Hub eventi può rigenerare l'hash e quindi autenticare il mittente. In genere, i token SAS per gli autori di eventi vengono creati con soli privilegi di **invio** su un Hub eventi specifico. Questo meccanismo di URL token SAS costituisce la base per l'identificazione dell’autore introdotta nei criteri di autore. Per altre informazioni sull'uso di SAS, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](../service-bus-messaging/service-bus-sas.md).
+Hub eventi usa *firme di accesso condiviso*, disponibili a livello di spazio dei nomi e di hub eventi. Un token SAS viene generato da una chiave SAS ed è un hash SHA di un URL, codificato in un formato specifico. Usando il nome della chiave (criterio) e il token, Hub eventi può rigenerare l'hash e quindi autenticare il mittente. In genere, i token di firma di accesso condiviso per gli autori di eventi vengono creati con privilegi solo di **invio** per un hub eventi specifico. Questo meccanismo di URL token SAS costituisce la base per l'identificazione dell’autore introdotta nei criteri di autore. Per altre informazioni sull'uso di SAS, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](../service-bus-messaging/service-bus-sas.md).
 
 ## <a name="event-consumers"></a>Consumer di eventi
-Qualsiasi entità che legge i dati dell'evento da un Hub eventi è un *consumer di eventi*. Tutti i consumer di Hub eventi si connettono tramite la sessione AMQP 1.0 e gli eventi vengono recapitati tramite la sessione appena disponibili. Il client non deve eseguire il polling per la disponibilità dei dati.
+Qualsiasi entità che legge i dati dell'evento da un hub eventi è un *consumer eventi*. Tutti i consumer di Hub eventi si connettono tramite la sessione AMQP 1.0 e gli eventi vengono recapitati tramite la sessione appena disponibili. Il client non deve eseguire il polling per la disponibilità dei dati.
 
 ### <a name="consumer-groups"></a>Gruppi di utenti
-Il meccanismo di pubblicazione/sottoscrizione degli Hub eventi è abilitato tramite i *gruppi di consumer*. Un gruppo di consumer è una vista (stato, posizione o offset) di un intero Hub eventi. I gruppi di consumer consentono a più applicazioni costose di avere una visualizzazione separata del flusso di eventi e di leggere il flusso in modo indipendente in base alle proprie esigenze e con i propri gli offset.
+Il meccanismo di pubblicazione/sottoscrizione degli Hub eventi è abilitato tramite i *gruppi di consumer*. Un gruppo di consumer è una vista (stato, posizione o offset) di un intero hub eventi. I gruppi di consumer consentono a più applicazioni costose di avere una visualizzazione separata del flusso di eventi e di leggere il flusso in modo indipendente in base alle proprie esigenze e con i propri gli offset.
 
-In un’architettura di elaborazione flusso, ogni applicazione a valle equivale a un gruppo di consumer. Se si desidera scrivere i dati dell’evento nell’archiviazione a lungo termine, tale applicazione writer di archiviazione è un gruppo di consumer. L'elaborazione di eventi complessi può essere quindi eseguita da un altro gruppo di consumer separato. È possibile accedere alla partizioni solo tramite un gruppo di consumer. Ogni partizione può avere solo un lettore attivo alla volta **da un gruppo di consumer specifico**. In un Hub eventi è sempre presente un gruppo di consumer predefinito ed è possibile creare fino a 20 gruppi di consumer per un Hub eventi di livello Standard.
+In un’architettura di elaborazione flusso, ogni applicazione a valle equivale a un gruppo di consumer. Se si desidera scrivere i dati dell’evento nell’archiviazione a lungo termine, tale applicazione writer di archiviazione è un gruppo di consumer. L'elaborazione di eventi complessi può essere quindi eseguita da un altro gruppo di consumer separato. È possibile accedere alla partizioni solo tramite un gruppo di consumer. Ogni partizione può avere solo un lettore attivo alla volta **da un gruppo di consumer specifico**. In un hub eventi è sempre presente un gruppo di consumer predefinito e per un hub eventi di livello Standard è possibile creare fino a 20 gruppi di consumer.
 
 Di seguito sono riportati esempi della convenzione dell'URI del gruppo di consumer:
 
@@ -117,7 +117,7 @@ Un *offset* è la posizione di un evento all'interno di una partizione. Un offse
 ### <a name="checkpointing"></a>Checkpoint
 *Checkpoint* è un processo mediante il quale i lettori contrassegnano o eseguono il commit della propria posizione all'interno di una sequenza di eventi di partizione. Il checkpoint è responsabilità del consumer e si verifica per partizione all'interno di un gruppo di consumer. Questa responsabilità significa che per ogni gruppo di consumer, ogni lettore di partizione deve tenere traccia della posizione corrente nel flusso di eventi e può informare il servizio quando considera completo il flusso di dati.
 
-Se un lettore si disconnette da una partizione, quando riconnette inizia a leggere in corrispondenza del checkpoint inviato in precedenza dall’ulitimo lettore di tale partizione in tale gruppo di consumer. Quando il lettore si connette, passa l'offset all'Hub eventi per specificare la posizione da cui iniziare la lettura. In questo modo è possibile usare la funzionalità di checkpoint sia per contrassegnare gli eventi come "completi" dalle applicazioni a valle sia per fornire la resilienza in caso di failover tra i lettori in esecuzione in computer diversi. È possibile tornare a dati precedenti specificando un offset inferiore da questo processo di checkpoint. Tramite questo meccanismo il checkpoint consente sia la resilienza del failover che la riproduzione del flusso di eventi.
+Se un lettore si disconnette da una partizione, quando riconnette inizia a leggere in corrispondenza del checkpoint inviato in precedenza dall’ulitimo lettore di tale partizione in tale gruppo di consumer. Quando il lettore si connette, passa l'offset all'hub eventi per specificare la posizione da cui iniziare la lettura. In questo modo è possibile usare la funzionalità di checkpoint sia per contrassegnare gli eventi come "completi" dalle applicazioni a valle sia per fornire la resilienza in caso di failover tra i lettori in esecuzione in computer diversi. È possibile tornare a dati precedenti specificando un offset inferiore da questo processo di checkpoint. Tramite questo meccanismo il checkpoint consente sia la resilienza del failover che la riproduzione del flusso di eventi.
 
 ### <a name="common-consumer-tasks"></a>Attività comuni del consumer
 Tutti i consumer di Hub eventi si connettono tramite una sessione AMQP 1.0 e un canale di comunicazione bidirezionale in grado di riconoscere lo stato. Ogni partizione ha una sessione AMQP 1.0 che facilita il trasporto di eventi separati dalla partizione.
@@ -152,7 +152,7 @@ Le unità elaborate vengo o fatturate su base oraria e sono pre-acquistate. Una 
 
 È possibile acquistare altre unità elaborate in blocchi di 20, fino a un massimo di 100 unità elaborate, contattando il Supporto tecnico di Azure. Inoltre, è possibile acquistare blocchi di 100 unità elaborate.
 
-È consigliabile bilanciare unità elaborate e partizioni per ottenere una scalabilità ottimale. Una singola partizione ha una scala massima di una unità elaborata. Il numero di unità elaborate deve essere minore o uguale al numero di partizioni in un Hub eventi.
+È consigliabile bilanciare unità elaborate e partizioni per ottenere una scalabilità ottimale. Una singola partizione ha una scala massima di una unità elaborata. Il numero di unità elaborate deve essere minore o uguale al numero di partizioni in un hub eventi.
 
 Per dettagliate informazioni sui prezzi, vedere [Hub eventi Prezzi](https://azure.microsoft.com/pricing/details/event-hubs/).
 

@@ -47,8 +47,3 @@ Quando si specifica una proprietà `compression` in un set di dati di input JSON
 * Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in un BLOB di Azure. Definire un set di dati di output del BLOB di Azure con la proprietà JSON `compression` `type` impostata su GZIP.
 * Leggere il file ZIP dal server FTP, decomprimerlo per ottenere i file all'interno e inserire i file in Azure Data Lake Store. Definire un set di dati FTP di input con la proprietà JSON `compression` `type` impostata su ZipDeflate.
 * Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. In questo caso, il set di dati di input del BLOB di Azure viene definito con `compression` `type` impostato su GZIP e il set di dati di output viene definito con `compression` `type` impostato su BZIP2.   
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -12,8 +12,3 @@
 8. Viene visualizzato il nome del listener creato in Gestione Cluster di Failover. Fare clic con il pulsante destro del mouse sul nome del listener e quindi su **Proprietà**.
 9. Nella casella **Porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il valore di $EndpointPort usato in precedenza (in questa esercitazione, 1433 era l'impostazione predefinita) e quindi fare clic su **OK**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f29c3ed47c772609cfeca0ad2b5078001b6d0737
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9d10ebf9d7bd07bd126302a6ecf442d809e00196
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -145,7 +146,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Altre informazioni:**
 
-* [Come aggiornare la password](active-directory-passwords-update-your-own-password.md#reset-my-password)
+* [Come aggiornare la password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (motore di sincronizzazione che estende le directory locali ad Azure Active Directory)
 **Tipo:** funzionalità comuni
@@ -366,17 +367,6 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 **Altre informazioni:**
 
 * [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-
-## <a name="azure-ad-preview-features"></a>Funzionalità in anteprima di Azure AD
-Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Basic e Premium (P1 e P2), Azure AD offre anche una raccolta di funzionalità in anteprima. È possibile usare le funzionalità in anteprima per scoprire le prossime novità e determinare se queste funzionalità possono essere utili per migliorare il proprio ambiente.
-
-**Funzionalità in anteprima disponibili:**
-
-* [Collaborazione B2B](active-directory-b2b-collaboration-overview.md)
-* [Unità amministrative](active-directory-administrative-units-management.md)
-* [Integrazione delle applicazioni HR](active-directory-saas-workday-inbound-tutorial.md)
-* [Autenticazione basata su certificati in iOS](active-directory-certificate-based-authentication-ios.md)
-* [Autenticazione basata su certificati in Android](active-directory-certificate-based-authentication-android.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)

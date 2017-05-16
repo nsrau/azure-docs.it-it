@@ -12,8 +12,3 @@
 
 Dopo aver creato l'endpoint, è possibile visualizzarne i dettagli e determinare l'indirizzo IP virtuale pubblico (VIP, Virtual Private Network). Registrare tale indirizzo.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

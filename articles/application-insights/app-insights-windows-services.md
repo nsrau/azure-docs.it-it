@@ -4,7 +4,7 @@ description: "Aggiungere manualmente Application Insights SDK all&quot;applicazi
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/01/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
-ms.lasthandoff: 03/31/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 29598f052778759ed362e3aa4b997acb799717ef
+ms.contentlocale: it-it
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -115,10 +116,7 @@ Distribuire ora l'applicazione nel server o in Azure e osservare l'accumulo dei 
 Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipeline, quindi i dati vengono visualizzati in pochi secondi. Quando si distribuisce l'applicazione nella configurazione Release, i dati si accumulano più lentamente.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Nessun dato dopo la pubblicazione nel server?
-Aprire le seguenti porte per il traffico in uscita nel firewall del server:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Aprire le porte per il traffico in uscita nel firewall del server. Per l'elenco degli indirizzi necessari, vedere [questa pagina](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses). 
 
 #### <a name="trouble-on-your-build-server"></a>Problemi del server di compilazione
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).

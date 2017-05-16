@@ -24,6 +24,7 @@ ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
+
 A volte può essere necessario modificare i file di configurazione che includono:
 
 * clusterIdentity.xml
@@ -139,7 +140,7 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
-[hdinsight-provision-cluster]: hdinsight-provision-clusters.md
+[hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 

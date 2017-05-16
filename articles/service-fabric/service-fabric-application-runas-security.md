@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -26,7 +26,7 @@ Azure Service Fabric consente di proteggere le applicazioni sicure in esecuzione
 
 Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. Service Fabric consente anche di eseguire le applicazioni con un account utente locale o un account di sistema locale, specificato nel manifesto dell'applicazione. I tipi di account supportati dal sistema locale sono **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
 
- Quando si esegue Service Fabric in Windows Server nel data center usando il programma di installazione autonomo, è possibile usare gli account di dominio di Active Directory.
+ Quando si esegue Service Fabric in Windows Server nel data center usando il programma di installazione autonomo, è possibile usare gli account di dominio di Active Directory, inclusi gli account del servizio gestito del gruppo.
 
 È possibile definire e creare gruppi di utenti per aggiungere uno o più utenti a ogni gruppo e gestirli insieme. Questo aspetto è utile quando sono presenti più utenti per punti di ingresso del servizio differenti che devono avere determinati privilegi comuni disponibili a livello di gruppo.
 
@@ -290,7 +290,44 @@ L'esempio seguente illustra un utente di Active Directory denominato *TestUser* 
 </Policies>
 <Certificates>
 ```
+### <a name="use-a-group-managed-service-account"></a>Usare un account del servizio gestito del gruppo.
+Per un'istanza di Service Fabric installata in Windows Server con il programma di installazione autonomo, è possibile eseguire il servizio come account del servizio gestito del gruppo (gMSA). Si noti che si tratta di Active Directory locale nel dominio e non di Azure Active Directory (Azure AD). Usando un account gMSA, nel `Application Manifest` non viene archiviata alcuna password o password crittografata.
 
+L'esempio seguente mostra come creare un account gMSA denominato *svc-Test$*, come distribuire tale account del servizio gestito ai nodi del cluster e come configurare l'entità utente.
+
+##### <a name="prerequisites"></a>Prerequisiti.
+- Il dominio richiede una chiave radice del Servizio distribuzione chiavi.
+- Il dominio deve essere a livello funzionale di Windows Server 2012 o versione successiva.
+
+##### <a name="example"></a>Esempio
+1. Chiedere a un amministratore di dominio di Active Directory di creare un account del servizio gestito del gruppo usando il cmdlet `New-ADServiceAccount` e assicurarsi che `PrincipalsAllowedToRetrieveManagedPassword` includa tutti i nodi del cluster di Service Fabric. Si noti che `AccountName`, `DnsHostName` e `ServicePrincipalName` devono essere univoci.
+```
+New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
+```
+2. In ognuno dei nodi del cluster di Service Fabric, ad esempio `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`, installare e testare l'account del servizio gestito del gruppo.
+```
+Add-WindowsFeature RSAT-AD-PowerShell
+Install-AdServiceAccount svc-Test$
+Test-AdServiceAccount svc-Test$
+```
+3. Configurare l'entità utente e RunAsPolicy per fare riferimento all'utente.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="DomaingMSA"/>
+      </Policies>
+   </ServiceManifestImport>
+  <Principals>
+    <Users>
+      <User Name="DomaingMSA" AccountType="ManagedServiceAccount" AccountName="domain\svc-Test$"/>
+    </Users>
+  </Principals>
+</ApplicationManifest>
+```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Assegnare un criterio di accesso di sicurezza per gli endpoint HTTP e HTTPS
 Se si applicano criteri RunAs a un servizio e il manifesto del servizio dichiara le risorse dell'endpoint con il protocollo HTTP, è necessario specificare **SecurityAccessPolicy** per garantire che le porte allocate a questi endpoint siano correttamente inserite nell'elenco di controllo di accesso per l'account utente RunAs con cui viene eseguito il servizio. In caso contrario, **http.sys** non ha accesso al servizio e le chiamate del client hanno esito negativo. L'esempio seguente applica l'account Customer3 a un endpoint denominato **ServiceEndpointName**, a cui assegna diritti di accesso completi.

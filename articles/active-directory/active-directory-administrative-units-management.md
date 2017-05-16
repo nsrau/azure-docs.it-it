@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b30ed9727229c082bff65023bfe4900640caa995
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: d05b4a34c5271b636400ed90ead76fabf0d911bd
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -30,7 +32,7 @@ Ciò risulta utile nelle organizzazioni con divisioni indipendenti, ad esempio, 
 >
 >
 
-Dal punto di vista dell'amministratore centrale, un'unità amministrativa è un oggetto directory che può essere creato e popolato con le risorse. **In questa versione, queste risorse possono essere solo gli utenti.**  Dopo averla creata e popolata, l'unità amministrativa può essere utilizzata come ambito per limitare le autorizzazioni concesse solo alle risorse contenute nell’unità amministrativa.
+Dal punto di vista dell'amministratore centrale, un'unità amministrativa è un oggetto directory che può essere creato e popolato con le risorse. **In questa versione di anteprima, queste risorse possono essere solo gli utenti.** Dopo averla creata e popolata, l'unità amministrativa può essere utilizzata come ambito per limitare le autorizzazioni concesse solo alle risorse contenute nell’unità amministrativa.
 
 ## <a name="managing-administrative-units"></a>Gestione delle unità amministrative
 In questa versione di anteprima, è possibile creare e gestire le unità amministrative utilizzando i cmdlet del modulo di Microsoft Azure Active Directory per Windows PowerShell.
@@ -39,9 +41,4 @@ Per ulteriori informazioni sui requisiti software e l'installazione del modulo d
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Edizioni di Azure Active Directory](active-directory-editions.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

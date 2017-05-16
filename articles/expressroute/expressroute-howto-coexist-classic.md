@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7e866a218c003390e0281f1adce7c0d843d006c0
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 594dee64f49e83949403fc85903ec66f9cf0d996
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -82,7 +82,7 @@ Esistono due diverse serie di procedure disponibili per configurare le connessio
 ## <a name="new"></a>Per creare una nuova rete virtuale con connessioni coesistenti
 Questa procedura illustra come creare una rete virtuale e connessioni da sito a sito ed ExpressRoute coesistenti.
 
-1. È necessario installare l'ultima versione dei cmdlet di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Si noti che i cmdlet usati per questa configurazione possono essere leggermente diversi da quelli con cui si ha familiarità. Assicurarsi di usare i cmdlet specificati in queste istruzioni. 
+1. È necessario installare l'ultima versione dei cmdlet di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . Si noti che i cmdlet usati per questa configurazione possono essere leggermente diversi da quelli con cui si ha familiarità. Assicurarsi di usare i cmdlet specificati in queste istruzioni. 
 2. Creare uno schema per la rete virtuale. Per altre informazioni sullo schema di configurazione, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
    
     Quando si crea lo schema, assicurarsi di usare i valori seguenti:
@@ -195,7 +195,7 @@ Se la subnet del gateway è /27 o superiore e la rete virtuale è connessa trami
 > 
 > 
 
-1. È necessario installare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Si noti che i cmdlet usati per questa configurazione possono essere leggermente diversi da quelli con cui si ha familiarità. Assicurarsi di usare i cmdlet specificati in queste istruzioni. 
+1. È necessario installare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . Si noti che i cmdlet usati per questa configurazione possono essere leggermente diversi da quelli con cui si ha familiarità. Assicurarsi di usare i cmdlet specificati in queste istruzioni. 
 2. Eliminare il gateway ExpressRoute o VPN da sito a sito esistente. Usare il cmdlet seguente, sostituendo i valori con quelli personalizzati.
    
         Remove-AzureVNetGateway –VnetName MyAzureVNET

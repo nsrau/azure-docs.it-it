@@ -1,5 +1,5 @@
 ---
-title: Creare un gateway applicazione di Azure - Modelli | Documentazione Microsoft
+title: Creare un gateway applicazione di Azure - Modelli | Microsoft Docs
 description: Questa pagina fornisce istruzioni per la creazione di un gateway applicazione di Azure usando il modello di Gestione risorse di Azure
 documentationcenter: na
 services: application-gateway
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: f550ec9a8d254378d165f0c842459fd50ade7945
-ms.openlocfilehash: 5cdd26529ed06b7903ae232ab8da4527e79a8a68
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 0786e54c288f30b0039c1d0b88f5c5b5965eecef
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -30,7 +31,10 @@ ms.lasthandoff: 03/30/2017
 > * [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello&7;. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre. Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md)
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale.
+Il gateway applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre.
+
+Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md)
 
 Questo articolo illustra come scaricare e modificare un modello di Azure Resource Manager esistente da GitHub e distribuire il modello da GitHub, da PowerShell e dall'interfaccia della riga di comando di Azure.
 
@@ -40,13 +44,13 @@ Se si sta distribuendo il modello di Gestione risorse di Azure direttamente da G
 
 In questo scenario si apprenderà come:
 
-* Creare un gateway applicazione con due istanze.
+* Creare un gateway applicazione con web application firewall.
 * Creare una rete virtuale denominata VirtualNetwork1 con un blocco CIDR riservato 10.0.0.0/16.
 * Creare una subnet denominata Appgatewaysubnet che usa 10.0.0.0/28 come blocco CIDR.
 * Impostare due indirizzi IP back-end configurati in precedenza per i server Web da usare per bilanciare il carico del traffico. In questo esempio di modello vengono usati gli indirizzi IP back-end 10.0.1.10 e 10.0.1.11.
 
 > [!NOTE]
-> Tali impostazioni sono i parametri per il modello. Per personalizzare il modello è possibile modificare le regole, il listener e il protocollo SSL che apre il file azuredeploy.json.
+> Tali impostazioni sono i parametri per il modello. Per personalizzare il modello, è possibile modificare le regole, il listener, il protocollo SSL e altre opzioni nel file azuredeploy.json.
 
 ![Scenario](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
@@ -54,180 +58,155 @@ In questo scenario si apprenderà come:
 
 È possibile scaricare da GitHub il modello di Gestione risorse di Azure esistente per creare una rete virtuale e due subnet, apportare eventuali modifiche e riutilizzarlo. A tale scopo, seguire questa procedura:
 
-1. Passare a [Create Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create)(Crea gateway applicazione).
-2. Fare clic su **azuredeploy.json**, quindi fare clic su **RAW**.
-3. Salvare il file in una cartella locale nel computer.
-4. Se si ha familiarità con i modelli di Gestione risorse di Azure, procedere al passaggio 7.
-5. Aprire il file salvato e visualizzare il contenuto di **parameters** , alla riga 5. La sezione parameters del modello di Gestione risorse di Azure è un segnaposto per i valori che possono essere inseriti durante la distribuzione.
-   
-   | Parametro | Descrizione |
-   | --- | --- |
-   | **location** |Area di Azure in cui viene creato il gateway applicazione |
-   | **VirtualNetwork1** |Nome della nuova rete virtuale |
-   | **addressPrefix** |Spazio degli indirizzi per la rete virtuale, in formato CIDR |
-   | **ApplicationGatewaysubnet** |Nome della subnet del gateway applicazione |
-   | **subnetPrefix** |Blocco CIDR della subnet del gateway applicazione |
-   | **skuname** |Dimensione dell'istanza SKU |
-   | **capacity** |Numero di istanze |
-   | **backendaddress1** |Indirizzo IP del primo server Web |
-   | **backendaddress2** |Indirizzo IP del secondo server Web |
+1. Passare a [Create Application Gateway with web application firewall enabled (Creare un gateway applicazione con web application firewall abilitato)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf).
+1. Fare clic su **azuredeploy.json**, quindi fare clic su **RAW**.
+1. Salvare il file in una cartella locale nel computer.
+1. Se si ha familiarità con i modelli di Gestione risorse di Azure, procedere al passaggio 7.
+1. Aprire il file salvato e visualizzare il contenuto in **parameters** nella riga
+1. La sezione parameters del modello di Gestione risorse di Azure è un segnaposto per i valori che possono essere inseriti durante la distribuzione.
 
-    > [!IMPORTANT]
-    >I modelli di Gestione risorse di Azure conservati in GitHub possono cambiare nel tempo. Assicurarsi di aver controllato il modello prima di usarlo.
+  | Parametro | Descrizione |
+  | --- | --- |
+  | **subnetPrefix** |Blocco CIDR della subnet del gateway applicazione. |
+  | **applicationGatewaySize** | Dimensione del gateway applicazione.  WAF consente solo gateway di medie e grandi dimensioni. |
+  | **backendIpaddress1** |Indirizzo IP del primo server Web. |
+  | **backendIpaddress2** |Indirizzo IP del secondo server Web. |
+  | **wafEnabled** | Impostazione per determinare se WAF è abilitato.|
+  | **wafMode** | Modalità di web application firewall.  Le opzioni disponibili sono **prevention** (prevenzione) e **detection** (rilevamento).|
+  | **wafRuleSetType** | Tipo di set di regole per WAF.  Attualmente OWASP è l'unica opzione supportata. |
+  | **wafRuleSetVersion** |Versione del set di regole. Attualmente, sono supportate le opzioni OWASP CRS 2.2.9 e 3.0. |
 
-6. Controllare il contenuto in **resources** e prendere nota delle proprietà seguenti:
+1. Controllare il contenuto in **resources** e prendere nota delle proprietà seguenti:
 
    * **type**. Tipo di risorsa che sarà creato dal modello. In questo caso il tipo è `Microsoft.Network/applicationGateways`, che rappresenta un gateway applicazione.
    * **name**. Nome della risorsa. Si noti l'uso di `[parameters('applicationGatewayName')]`, che indica che il nome viene specificato come input dell'utente o di un file di parametri durante la distribuzione.
    * **properties**. Elenco di proprietà per la risorsa. Questo modello usa la rete virtuale e l'indirizzo IP pubblico durante la creazione del gateway applicazione.
 
-7. Tornare a [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
-8. Fare clic su **azuredeploy-parameters.json** e quindi su **RAW**.
-9. Salvare il file in una cartella locale nel computer.
-10. Aprire il file salvato e modificare i valori dei parametri. Usare i valori riportati di seguito per la distribuzione del gateway applicazione descritto in questo scenario.
+   > [!NOTE]
+   > Per altre informazioni sui modelli, visitare la pagina [Resource Manager templates reference (Riferimenti ai modelli di Resource Manager)](/templates/)
+
+1. Tornare a [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
+1. Fare clic su **azuredeploy-parameters.json** e quindi su **RAW**.
+1. Salvare il file in una cartella locale nel computer.
+1. Aprire il file salvato e modificare i valori dei parametri. Usare i valori riportati di seguito per la distribuzione del gateway applicazione descritto in questo scenario.
 
     ```json
-        {
+    {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        {
-        "location" : {
-        "value" : "West US"
-        },
-        "addressPrefix": {
-        "value": "10.0.0.0/16"
-        },
-        "subnetPrefix": {
-        "value": "10.0.0.0/24"
-        },
-        "skuName": {
-        "value": "Standard_Small"
-        },
-        "capacity": {
-        "value": 2
-        },
-        "backendIpAddress1": {
-        "value": "10.0.1.10"
-        },
-        "backendIpAddress2": {
-        "value": "10.0.1.11"
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "addressPrefix": {
+            "value": "10.0.0.0/16"
+            },
+            "subnetPrefix": {
+            "value": "10.0.0.0/28"
+            },
+            "applicationGatewaySize": {
+            "value": "WAF_Medium"
+            },
+            "capacity": {
+            "value": 2
+            },
+            "backendIpAddress1": {
+            "value": "10.0.1.10"
+            },
+            "backendIpAddress2": {
+            "value": "10.0.1.11"
+            },
+            "wafEnabled": {
+            "value": true
+            },
+            "wafMode": {
+            "value": "Detection"
+            },
+            "wafRuleSetType": {
+            "value": "OWASP"
+            },
+            "wafRuleSetVersion": {
+            "value": "3.0"
+            }
         }
-        }
+    }
     ```
 
-11. Salvare il file. È possibile testare il modello JSON e il modello di parametri usando strumenti online di convalida di JSON come [JSlint.com](http://www.jslint.com/).
+1. Salvare il file. È possibile testare il modello JSON e il modello di parametri usando strumenti online di convalida di JSON come [JSlint.com](http://www.jslint.com/).
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Distribuire il modello di Gestione risorse di Azure usando PowerShell
 
-Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e seguire le istruzioni per accedere ad Azure e selezionare la sottoscrizione.
+Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni per accedere ad Azure e selezionare la sottoscrizione.
 
-### <a name="step-1"></a>Passaggio 1
+1. Accesso a PowerShell
 
-```powershell
-Login-AzureRmAccount
-```
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
-### <a name="step-2"></a>Passaggio 2
+1. Controllare le sottoscrizioni per l'account.
 
-Controllare le sottoscrizioni per l'account.
+    ```powershell
+    Get-AzureRmSubscription
+    ```
 
-```powershell
-Get-AzureRmSubscription
-```
+    Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
-Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
+1. Scegliere le sottoscrizioni ad Azure da usare.
 
-### <a name="step-3"></a>Passaggio 3
+    ```powershell
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    ```
 
-Scegliere le sottoscrizioni ad Azure da usare.
+1. Se necessario, creare un gruppo di risorse usando il cmdlet **New-AzureResourceGroup** . Nell'esempio seguente viene creato un nuovo gruppo di risorse denominato AppgatewayRG nella località Stati Uniti orientali.
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
+    ```powershell
+    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    ```
 
-### <a name="step-4"></a>Passaggio 4
-
-Se necessario, creare un gruppo di risorse usando il cmdlet **New-AzureResourceGroup** . Nell'esempio seguente viene creato un nuovo gruppo di risorse denominato AppgatewayRG nella località Stati Uniti orientali.
-
-```powershell
-New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-```
-
-Eseguire il cmdlet **New-AzureRmResourceGroupDeployment** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
-
-```powershell
-New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
--TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-```
+1. Eseguire il cmdlet **New-AzureRmResourceGroupDeployment** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
+    
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+    ```
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>Distribuire il modello di Gestione risorse di Azure usando l'interfaccia della riga di comando di Azure
 
 Per distribuire il modello di Azure Resource Manager scaricato usando l'interfaccia della riga di comando di Azure, seguire questa procedura:
 
-### <a name="step-1"></a>Passaggio 1
+1. Se è la prima volta che si usa l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 
-Se è la prima volta che si usa l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se necessario, eseguire il comando `az group create` per creare un nuovo gruppo di risorse, come illustrato nel frammento di codice seguente. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-### <a name="step-2"></a>Passaggio 2
+    ```azurecli
+    az group create --location westus --name appgatewayRG
+    ```
+    
+    **-n (o --nome)**. Nome del nuovo gruppo di risorse. Per questo scenario, *appgatewayRG*.
+    
+    **-l (o --location)**. Area di Azure in cui viene creato il nuovo gruppo di risorse. Per questo scenario, *westus*.
 
-Eseguire il comando **azure config mode** per passare alla modalità Resource Manager, come illustrato nel frammento di codice seguente.
+1. Eseguire il cmdlet `az group deployment create` per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati nel passaggio precedente. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
-```azurecli
-azure config mode arm
-```
-
-Di seguito è riportato l'output previsto per il comando precedente:
-
-```azurecli
-info:    New mode is arm
-```
-
-### <a name="step-3"></a>Passaggio 3
-
-Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato nel frammento di codice seguente. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-```azurecli
-azure group create -n appgatewayRG -l eastus
-```
-
-**-n (o --nome)**. Nome del nuovo gruppo di risorse. Per questo scenario, *appgatewayRG*.
-
-**-l (o --location)**. Area di Azure in cui viene creato il nuovo gruppo di risorse. Per questo scenario, *eastus*.
-
-### <a name="step-4"></a>Passaggio 4
-
-Eseguire il cmdlet **azure group deployment create** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati nel passaggio precedente. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
-
-```azurecli
-azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-```
+    ```azurecli
+    az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
+    ```
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>Distribuire il modello di Gestione risorse di Azure usando il pulsante per la distribuzione
 
 Il pulsante per la distribuzione offre un altro modo per usare i modelli di Gestione risorse di Azure. Questo è un modo semplice di usare i modelli con il portale di Azure.
 
-### <a name="step-1"></a>Passaggio 1
+1. Andare a [Creare un gateway applicazione con web application firewall](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
 
-Vedere [Create an application gateway with public IP](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/)(Creare un gateway applicazione con IP pubblico).
+1. Fare clic su **Distribuzione in Azure**.
 
-### <a name="step-2"></a>Passaggio 2
+    ![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+    
+1. Inserire i parametri per il modello di distribuzione nel portale e fare clic su **OK**.
 
-Fare clic su **Distribuzione in Azure**.
+    ![Parametri](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
+    
+1. Selezionare **Accetto le condizioni riportate sopra** e quindi fare clic su **Acquista**.
 
-![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
-
-### <a name="step-3"></a>Passaggio 3
-
-Inserire i parametri per il modello di distribuzione nel portale e fare clic su **OK**.
-
-![parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
-
-### <a name="step-4"></a>Passaggio 4
-
-Selezionare **Note legali** e fare clic su **Acquista**.
-
-### <a name="step-5"></a>Passaggio 5
-
-Nel pannello Distribuzione personalizzata fare clic su **Crea**.
+1. Nel pannello Distribuzione personalizzata fare clic su **Crea**.
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Fornire i dati certificato ai modelli di Resource Manager
 
@@ -237,11 +216,27 @@ Quando si usa SSL con un modello, il certificato deve essere fornito in una stri
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
 
+## <a name="delete-all-resources"></a>Eliminare tutte le risorse
+
+Per eliminare tutte le risorse create durante l'esecuzione dell'esercizio, seguire questa procedura:
+
+### <a name="powershell"></a>PowerShell
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgatewayRG
+```
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+```azurecli
+az group delete --name appgatewayRG
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
+Per configurare l'offload SSL, visitare [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, visitare [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 

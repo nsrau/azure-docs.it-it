@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 04/11/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4f6f8dd109a1f0d395782ba73fd425c7a6ccf0eb
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1a808a83a8ed1162d57f7c5a49e34b2e3be50833
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,18 +29,13 @@ Questo articolo illustra considerazioni sulle macchine virtuali Oracle su Azure,
 * Immagini di macchine virtuali Oracle JDK
 
 ## <a name="oracle-database-virtual-machine-images"></a>Immagini di macchine virtuali Oracle Database
-### <a name="clustering-rac-is-not-supported"></a>Il clustering (RAC) non è supportato.
-Azure non supporta attualmente Oracle Real Application Clusters (RAC) del Database Oracle. Sono possibili solo le istanze di Oracle Database autonome. Questo perché Azure attualmente non supporta la condivisione del disco virtuale in modalità lettura/scrittura tra più istanze di macchine virtuali. Anche il multicast UDP non è supportato.
 
 ### <a name="no-static-internal-ip"></a>Nessun IP statico interno
 Azure assegna a ciascuna macchina virtuale un indirizzo IP interno. A meno che la macchina virtuale faccia parte di una rete virtuale, l'indirizzo IP della macchina virtuale è dinamico e potrebbe cambiare dopo il riavvio della macchina virtuale. Ciò può causare problemi perché Oracle Database prevede che l'indirizzo IP sia statico. Per evitare il problema, provare ad aggiungere la macchina virtuale a una rete virtuale di Azure. Per ulteriori informazioni, vedere [Rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) e [Creare una rete virtuale in Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 ### <a name="attached-disk-configuration-options"></a>Opzioni di configurazione dei dischi collegati
-È possibile posizionare i file di dati sul disco del sistema operativo della macchina virtuale o sui dischi collegati, noti anche come dischi dati. I dischi collegati potrebbero offrire prestazioni migliori e flessibilità nelle dimensioni rispetto al disco del sistema operativo. Il disco del sistema operativo può essere preferibile solo per i database inferiori a 10 giga byte (GB).
 
-I dischi collegati si basano sul servizio di archiviazione BLOB di Azure. Ciascun disco è in grado di eseguire un massimo teorico di circa 500 operazioni di input/output al secondo (IOPS). Le prestazioni dei dischi collegati potrebbero non essere ottimali inizialmente e quelle delle operazioni IOPS potrebbero migliorare notevolmente dopo un periodo «burn-in» di circa 60-90 minuti di operazione continua. Se in seguito un disco rimane inattivo, le prestazioni delle operazioni IOPS potrebbero diminuire fino a un nuovo periodo burn-in di operazione continua. In breve, più un disco è attivo, più è probabile che le prestazioni delle operazioni IOPS siano ottimali.
-
-Sebbene l'approccio più semplice consista nel collegare un unico disco alla macchina virtuale e inserire i file dei database su tale disco, questo approccio presente maggiori limitazioni in termini di prestazioni. Al contrario, spesso è possibile migliorare le prestazioni delle operazioni IOPS effettive utilizzando più dischi collegati, distribuendo i dati dei database su di essi, quindi utilizzando Oracle Automatic Storage Management (ASM). Per ulteriori informazioni, vedere [Panoramica dell'archiviazione automatica di Oracle](http://www.oracle.com/technetwork/database/index-100339.html) . Sebbene sia possibile utilizzare lo striping a livello di sistema operativo di più dischi, tale approccio è sconsigliato perché non è noto per migliorare le prestazioni delle operazioni IOPS.
+I dischi collegati si basano sul servizio di archiviazione BLOB di Azure. Ogni disco standard è in grado di supportare un massimo teorico di circa 500 operazioni di input/output al secondo (IOPS). I dischi premium Microsoft sono la soluzione preferibile per i carichi di lavoro di database ad alte prestazioni e possono raggiungere fino a 5000 IOPS per disco. Sebbene sia possibile usare un singolo disco se questo soddisfa le esigenze di prestazioni, è possibile migliorare le prestazioni delle operazioni IOPS effettive usando più dischi collegati, distribuendo tra loro i dati dei database e quindi usando Oracle Automatic Storage Management (ASM). Per ulteriori informazioni, vedere [Panoramica dell'archiviazione automatica di Oracle](http://www.oracle.com/technetwork/database/index-100339.html) . Sebbene sia possibile usare lo striping di più dischi a livello di sistema operativo, vi sono delle conseguenze per entrambi gli approcci. 
 
 Prendere in considerazione due diversi approcci per il collegamento di più dischi a seconda se si desidera assegnare la priorità alle prestazioni delle operazioni di lettura o a quelle delle operazioni di scrittura per il database:
 
@@ -48,14 +43,16 @@ Prendere in considerazione due diversi approcci per il collegamento di più disc
     ![](media/mysql-2008r2/image2.png)
 
 > [!IMPORTANT]
-> Valutare il compromesso tra prestazioni di scrittura e prestazioni di lettura caso per caso. I risultati effettivi possono variare quando si usa questo approccio.
+> Valutare il compromesso tra prestazioni di scrittura e prestazioni di lettura caso per caso. I risultati effettivi possono variare, pertanto è consigliabile testare la soluzione. ASM predilige le operazioni di scrittura, lo striping dei dischi a livello di sistema operativo predilige invece le operazioni di lettura.
 > 
-> 
+
+### <a name="clustering-rac-is-not-supported"></a>Il clustering (RAC) non è supportato.
+Oracle Real Application Clusters (RAC) è progettato per ridurre l'errore di un singolo nodo in una configurazione cluster a più nodi locale.  Si basa su due tecnologie locali che non funzionano in ambienti di cloud pubblico iperscalabili come Microsoft Azure: multicast di rete e disco condiviso. Se si desidera progettare una configurazione a più nodi con ridondanza geografica di un database Oracle, è necessario implementare la replica dei dati con Oracle DataGuard.
 
 ### <a name="high-availability-and-disaster-recovery-considerations"></a>Considerazioni sulla disponibilità elevata e sul ripristino di emergenza
 Quando si utilizzano le macchine virtuali Oracle Database in Azure, si è responsabili dell'implementazione di una soluzione di disponibilità elevata e di ripristino di emergenza per evitare i tempi di inattività. Si è anche responsabili del backup dei propri dati e delle applicazioni.
 
-La disponibilità elevata e il ripristino di emergenza per Oracle Database Enterprise Edition (senza RAC) su Azure possono essere ottenuti usando [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) oppure [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), con due database in due macchine virtuali separate. Entrambe le macchine virtuali dovrebbero trovarsi nello stesso [servizio cloud](../../linux/classic/connect-vms.md) e nella stessa [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente.  Inoltre, è consigliabile posizionare le macchine virtuali nello stesso [set di disponibilità](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Solo le macchine virtuali nello stesso servizio cloud possono partecipare allo stesso set di disponibilità. Ogni macchina virtuale deve disporre di almeno 2 GB di memoria e 5 GB di spazio su disco.
+La disponibilità elevata e il ripristino di emergenza per Oracle Database Enterprise Edition (senza RAC) su Azure possono essere ottenuti usando [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) oppure [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), con due database in due macchine virtuali separate. Entrambe le macchine virtuali dovrebbero trovarsi nella stessa [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) per assicurare l'accesso reciproco attraverso l'indirizzo IP privato permanente.  Inoltre, è consigliabile posizionare le macchine virtuali nello stesso [set di disponibilità](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per consentire ad Azure di inserirle in domini di errore e domini di aggiornamento separati. Ogni macchina virtuale deve disporre di almeno 2 GB di memoria e 5 GB di spazio su disco.
 
 Con Oracle Data Guard, la disponibilità elevata può essere ottenuta con un database primario in una macchina virtuale, un database secondario (standby) in un'altra macchina virtuale e la replica unidirezionale configurata tra di essi. Il risultato è l'accesso in lettura alla copia del database. Con Oracle GoldenGate, è possibile configurare la replica bidirezionale tra due database. Per informazioni su come configurare una soluzione a disponibilità elevata per i database usando questi strumenti, vedere la documentazione di [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) e [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) sul sito Web di Oracle. Se è necessario accedere in lettura-scrittura alla copia del database, è possibile utilizzare [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 

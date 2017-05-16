@@ -18,8 +18,3 @@ Questa procedura presuppone che l'utente sia connesso al database SQL in Esplora
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

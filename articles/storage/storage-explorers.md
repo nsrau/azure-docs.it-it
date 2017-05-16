@@ -3,7 +3,7 @@ title: Strumenti per l&quot;uso di Archiviazione di Azure | Documentazione Micro
 description: Elenco di strumenti che consentono di visualizzare o interagire con i dati di Archiviazione di Azure.
 services: storage
 documentationcenter: 
-author: seguler
+author: dineshmurthy
 manager: jahogg
 editor: tysonn
 ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
@@ -12,11 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb7e798120ea9075dba92da76826ff621882c32a
+ms.date: 05/11/2017
+ms.author: dineshmurthy
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 85ef906d680df8f6848b323d79a09b8414ed0817
+ms.contentlocale: it-it
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -252,9 +254,4 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <td></td>
   </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

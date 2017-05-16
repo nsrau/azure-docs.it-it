@@ -1,5 +1,5 @@
 ---
-title: Migrazione dal modello classico al modello Resource Manager con gateway VPN| Documentazione Microsoft
+title: Migrazione dal modello classico al modello Resource Manager con gateway VPN| Microsoft Docs
 description: Questa pagina fornisce una panoramica della migrazione dal modello classico al modello Resource Manager con Gateway VPN.
 documentationcenter: na
 services: vpn-gateway
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2016
+ms.date: 05/02/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 32ca2e4b1dcf5715602b8e1e1f3026cb785fbe0c
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -40,7 +41,7 @@ La migrazione dal modello classico a quello Resource Manager supporta gli scenar
 
 Gli scenari non supportati includono:  
 
-* Attualmente le reti virtuali contenenti gateway ExpressRoute non supportano la migrazione. Di conseguenza la coesistenza con i gateway ExpressRoute nella stessa rete virtuale non è attualmente supportata.
+* La rete virtuale con il gateway ExpressRoute e Gateway VPN al momento non è supportata.
 * Scenari di transito in cui le estensioni di VM sono connesse ai server locali. Le limitazioni relative alla connettività VPN di transito sono descritte di seguito.
 
 > [!NOTE]

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 04/24/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -30,8 +31,6 @@ ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-> 
-> 
 
 La **Copia guidata** di Azure Data Factory consente di creare in modo semplice e rapido una pipeline che implementa lo scenario di inserimento/spostamento dei dati. È quindi consigliabile usare la procedura guidata come primo passaggio per creare una pipeline di esempio per uno scenario di spostamento dei dati. Questa esercitazione illustra come creare una data factory di Azure, avviare la Copia guidata ed eseguire una serie di passaggi per specificare i dettagli relativi allo scenario di inserimento/spostamento dei dati. Al termine dei passaggi della procedura guidata, verrà creata automaticamente una pipeline con un'attività di copia per copiare i dati da un archivio BLOB di Azure a un database SQL di Azure. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) . 
 
@@ -159,10 +158,5 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

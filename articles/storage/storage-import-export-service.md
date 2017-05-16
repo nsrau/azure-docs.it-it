@@ -12,17 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 04/17/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: fd2338b73bd82121ed36e286446b07ccd4a8a219
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 132c1cf6b06924b8d23d696ea732856886be975d
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB
-
 Il servizio Importazione/Esportazione di Azure consente di trasferire in modo sicuro grandi quantità di dati nell'archiviazione BLOB di Azure tramite la spedizione delle unità disco rigido a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati dall'archivio BLOB di Azure a unità disco rigido per la spedizione al sito locale. Questo servizio è adatto in situazioni in cui si desidera trasferire diversi terabyte (TB) di dati da o verso Azure, ma non è possibile eseguire l'upload o il download sulla rete a causa della larghezza di banda limitata o degli elevati costi della rete.
 
 Il servizio richiede che le unità disco rigido siano crittografate con crittografia bitlocker per la protezione dei dati. Il servizio supporta gli account di archiviazione classici e Azure Resource Manager (livelli standard e accesso sporadico) presenti in tutte le aree di Azure pubblico. È necessario spedire l'unità disco rigido a una delle località supportate specificate più avanti in questo articolo.
@@ -73,6 +72,7 @@ Scaricare la versione più recente dello [strumento WAImportExport](http://downl
 
 >[!NOTE]
 >**Versione precedente:** è possibile [scaricare la versione WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) dello strumento e fare riferimento alla [guida all'uso di WAImportExport V1](storage-import-export-tool-how-to-v1.md). La versione WAImportExport V1 dello strumento offre supporto per la **preparazione di dischi quando i dati sono già scritti in precedenza sul disco**. Sarà inoltre necessario usare lo strumento WaImportExport V1 se è disponibile solo una chiave SAS.
+
 >
 
 ### <a name="hard-disk-drives"></a>Unità disco rigido
@@ -104,9 +104,11 @@ Località di spedizione supportate:
 * Stati Uniti Orientali
 * Stati Uniti occidentali
 * Stati Uniti orientali 2
+* Stati Uniti occidentali 2
 * Stati Uniti centrali
 * Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
+* Stati Uniti centro-occidentali
 * Europa settentrionale
 * Europa occidentale
 * Asia orientale
@@ -116,9 +118,19 @@ Località di spedizione supportate:
 * Giappone occidentale
 * Giappone orientale
 * India centrale
-* Canada
-* US Gov
-* Cina
+* India meridionale
+* India occidentale
+* Canada centrale
+* Canada orientale
+* Brasile meridionale
+* Corea centrale
+* US Gov Virginia
+* Governo degli Stati Uniti - Iowa
+* Dipartimento della difesa Stati Uniti orientali
+* Dipartimento della difesa Stati Uniti centrali
+* Cina orientale
+* Cina settentrionale
+* Regno Unito meridionale
 
 ### <a name="shipping"></a>Spedizione
 **Spedizione di unità al data center:**

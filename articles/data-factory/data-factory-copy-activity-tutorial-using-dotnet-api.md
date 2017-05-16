@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 0664888dbb14aaa353d5d126cdf799b62711d71f
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 834d01a446c77e69c325058fa00ed5860a82d891
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 * Per una panoramica dell'esercitazione e per eseguire i passaggi relativi ai [prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) , vedere **Panoramica e prerequisiti** .
 * Visual Studio 2012 o 2013 o 2015
 * Scaricare e installare [.NET SDK di Azure](http://azure.microsoft.com/downloads/)
-* Azure PowerShell. Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per installare la versione più recente di Azure PowerShell nel computer. Azure PowerShell verrà usato per creare un'applicazione Azure Active Directory.
+* Azure PowerShell. Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per installare la versione più recente di Azure PowerShell nel computer. Azure PowerShell verrà usato per creare un'applicazione Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Creare un'applicazione in Azure Active Directory
 Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'applicazione e assegnarla al ruolo **Collaboratore Data Factory** .

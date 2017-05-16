@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 4ec026a5b95170d0eba244123c37cd3c8fab150a
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: c123b76b0e4c95cfebcc79063fb1c3a27efc8646
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -47,9 +47,9 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 ![Log attività di Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* [Creare un avviso di posta elettronica o webhook che attiva un evento del log attività.](insights-auditlog-to-webhook-email.md)
+* [Creare un avviso che disattiva un evento del log attività.](monitoring-activity-log-alerts.md)
 * [Trasmetterlo a un **hub eventi**](monitoring-stream-activity-logs-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
-* Analizzarlo in Power BI usando il [**pacchetto di contenuto di Power BI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* Analizzarlo in Power BI usando il [**pacchetto di contenuto di Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Salvarlo in un **account di archiviazione** per fini di archiviazione o di ispezione manuale](monitoring-archive-activity-log.md). È possibile specificare il tempo di conservazione in giorni tramite i **profili di log**.
 * Eseguire query e visualizzarlo nel **portale di Azure**.
 * Eseguire query tramite l'API REST, i cmdlet di PowerShell o l'interfaccia della riga di comando.
@@ -80,11 +80,10 @@ Queste impostazioni possono essere configurate tramite l'opzione "Esporta" nel p
 
     ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. Nel pannello visualizzato è possibile selezionare:  
-
-   * aree per cui esportare gli eventi
-   * account di archiviazione in cui salvare gli eventi
-   * numero di giorni di conservazione degli eventi nella risorsa di archiviazione (se si impostano 0 giorni, i log vengono conservati all'infinito)
-   * spazio dei nomi del bus di servizio in cui creare un hub eventi per la trasmissione di questi eventi.
+  * aree per cui esportare gli eventi
+  * account di archiviazione in cui salvare gli eventi
+  * numero di giorni di conservazione degli eventi nella risorsa di archiviazione (se si impostano 0 giorni, i log vengono conservati all'infinito)
+  * spazio dei nomi del bus di servizio in cui creare un hub eventi per la trasmissione di questi eventi.
 
      ![Pannello Esporta log di controllo](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Fare clic su **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.

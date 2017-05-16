@@ -9,19 +9,21 @@
 
 # Attività iniziali
 ## [Replicare VM VMware in Azure](site-recovery-vmware-to-azure.md)
-## [Replicare VM VMware in Azure in una distribuzione multi-tenant (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Replicare i server fisici in Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicare VM Hyper-V in Azure con VMM](site-recovery-vmm-to-azure.md)
 ## [Replicare VM Hyper-V in Azure](site-recovery-hyper-v-site-to-azure.md)
-## [Replicare VM VMware e server fisici in un sito secondario](site-recovery-vmware-to-vmware.md)
 ## [Replicare le VM Hyper-V in un sito secondario con VMM](site-recovery-vmm-to-vmm.md)
+## [Replicare VM VMware e server fisici in un sito secondario](site-recovery-vmware-to-vmware.md)
+## [Replicare VM VMware in Azure in una distribuzione multi-tenant (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # Procedure
 ## Pianificare
 ### [Prerequisiti di distribuzione](site-recovery-prereq.md)
-### [Considerazioni sull'infrastruttura di rete](site-recovery-network-design.md)
+### [Pianificare l'infrastruttura di rete](site-recovery-network-design.md)
 ### [Pianificare la capacità e ridimensionare la replica VMware in Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner per la replica VMware in Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner per la replica Hyper-V](site-recovery-capacity-planner.md)
+### [Controllo degli accessi in base al ruolo](site-recovery-role-based-linked-access-control.md)
 
 ## Configurare
 ### [Configurare l'ambiente di origine](site-recovery-set-up-vmware-to-azure.md)
@@ -31,7 +33,7 @@
 #### [Distribuire il servizio Mobility con System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Distribuire il servizio Mobility con Automation DSC per Azure](site-recovery-automate-mobility-service-install.md)
 ### [Abilitare la replica](site-recovery-replicate-vmware-to-azure.md)
-## Failover e failback
+## Effettuare il failover e il failback
 ### [Effettuare il failover di computer protetti](site-recovery-failover.md)
 ### [Configurare piani di ripristino](site-recovery-create-recovery-plans.md)
 #### [Aggiungere runbook di Azure a piani di ripristino](site-recovery-runbook-automation.md)
@@ -46,8 +48,8 @@
 ## Carichi di lavoro
 ### [Active Directory e DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
+### [SharePoint](site-recovery-sharepoint.md)
+### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [Servizi Desktop remoto](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
@@ -66,8 +68,8 @@
 ## [Monitorare e risolvere i problemi](site-recovery-monitoring-and-troubleshooting.md)
 
 # Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
-## [PowerShell - Classica](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [PowerShell](/powershell/module/azurerm.siterecovery)
+## [PowerShell - Classica](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Risorse correlate

@@ -91,7 +91,7 @@ HPC Pack installa un certificato autofirmato nel nodo head, denominato Default M
 3. Sulla barra dei comandi fare clic su **Upload**.
    
     ![Impostazioni certificato][upload_cert1]
-4. Individuare il file C:\Programmi\Microsoft HPC Pack 2012\Bin\hpccert.cer nel nodo head. Fare quindi clic sul pulsante **** con il segno di spunta.
+4. Individuare il file C:\Programmi\Microsoft HPC Pack 2012\Bin\hpccert.cer nel nodo head. Fare quindi clic sul pulsante con il segno di **spunta**.
    
     ![Caricamento del certificato][install_hpc10]
 

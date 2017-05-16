@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e9e1009bc20679a907e4bd2387865a6000b4a898
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -82,9 +84,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 ## <a name="see-also"></a>Vedere anche
 * [Che cos'è il Catalogo dei dati di Azure?](data-catalog-what-is-data-catalog.md) Questo articolo fornisce una panoramica del servizio Azure Data Catalog, del valore offerto dal servizio e degli scenari supportati.
 * [Introduzione ad Azure Data Catalog](data-catalog-get-started.md), che contiene un'esercitazione end-to-end in cui viene spiegato come utilizzare Azure Data Catalog per individuare le origini dati.  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

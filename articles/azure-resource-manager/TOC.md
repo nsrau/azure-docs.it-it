@@ -10,6 +10,12 @@
 ## [Creare il primo modello](resource-manager-create-first-template.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Esempi
+## PowerShell
+### [Distribuire un modello](resource-manager-samples-powershell-deploy.md)
+## Interfaccia della riga di comando di Azure
+### [Distribuire un modello](resource-manager-samples-cli-deploy.md)
+
 # Procedure
 ## Creare modelli
 ### [Procedure consigliate per i modelli](resource-manager-template-best-practices.md)
@@ -23,11 +29,19 @@
 ### [Impostare la posizione](resource-manager-template-location.md)
 ### [Assegnare i tag](resource-manager-template-tags.md)
 ### [Impostare il nome e il tipo della risorsa figlio](resource-manager-template-child-resource.md)
+### [Aggiornare una risorsa](resource-manager-update.md)
+### [Usare gli oggetti per i parametri](resource-manager-objects-as-parameters.md)
 ### [Condividere lo stato tra modelli collegati](best-practices-resource-manager-state.md)
 ### [Schemi per la progettazione di modelli](best-practices-resource-manager-design-templates.md)
 ## Distribuire
-### [PowerShell](resource-group-template-deploy.md)
-### [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Distribuire un modello](resource-group-template-deploy.md)
+#### [Distribuire un modello privato con token SAS](resource-manager-powershell-sas-token.md)
+#### [Esportare il modello e ridistribuirlo](resource-manager-export-template-powershell.md)
+### Interfaccia della riga di comando di Azure
+#### [Distribuire un modello](resource-group-template-deploy-cli.md)
+#### [Distribuire un modello privato con token SAS](resource-manager-cli-sas-token.md)
+#### [Esportare il modello e ridistribuirlo](resource-manager-export-template-cli.md)
 ### [Portale](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Integrazione continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -62,7 +76,13 @@
 
 # Riferimento
 ## [Funzioni di modello](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Matrici e funzioni oggetto](resource-group-template-functions-array.md)
+### [Funzioni di confronto](resource-group-template-functions-comparison.md)
+### [Funzioni di distribuzione](resource-group-template-functions-deployment.md)
+### [Funzioni numeriche](resource-group-template-functions-numeric.md)
+### [Funzioni delle risorse](resource-group-template-functions-resource.md)
+### [Funzioni stringa](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Interfaccia della riga di comando Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

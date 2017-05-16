@@ -1,5 +1,5 @@
 ---
-title: Elaborazione in tempo reale in Analisi di flusso per le funzioni di Azure | Documentazione Microsoft
+title: Elaborazione in tempo reale in Analisi di flusso per le funzioni di Azure | Microsoft Docs
 description: Informazioni su come utilizzare una funzione di Azure connessa a una coda del bus di servizio per popolare una cache Redis di Azure dall&quot;output di un processo di analisi di flusso.
 keywords: flusso di dati, cache redis, coda bus di servizio
 services: stream-analytics
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: ryancraw
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -50,8 +51,8 @@ A questo punto è possibile connettere la coda al processo di analisi di flusso 
    * **Formato serializzatore eventi**: JSON
    * **Codifica**: UTF8
    * **FORMATO**: riga separata
-4. Fare clic sul pulsante **Crea** per aggiungere l'origine e per verificare che Analisi di flusso possa connettersi all’account di archiviazione.
-5. Nella scheda **Query** , sostituire la query corrente con quanto segue. Sostituire *[YOUR SERVICE BUS NAME] * con il nome di output creato nel passaggio 3. 
+4. Fare clic sul pulsante **Crea** per aggiungere l'origine e per verificare che Analisi di flusso possa connettersi all'account di archiviazione.
+5. Nella scheda **Query** , sostituire la query corrente con quanto segue. Sostituire *[YOUR SERVICE BUS NAME]* con il nome di output creato nel passaggio 3. 
    
     ```    
    
@@ -188,7 +189,7 @@ Siamo entusiasti di vedere tutto ciò che le nuove funzioni di Azure e l'analisi
 
 Per i neofiti di Microsoft Azure, li invitiamo a provare questa soluzione registrandosi per ottenere un [account di prova gratuito di Azure](https://azure.microsoft.com/pricing/free-trial/). Per i neofiti della funzionalità di analisi di flusso, li invitiamo a [creare il primo processo di analisi di flusso](stream-analytics-create-a-job.md).
 
-In caso di domande o per ricevere assistenza, pubblicare un messaggio nel forum [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) o [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
+In caso di domande o per ricevere assistenza, pubblicare un messaggio nel forum [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) o [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
 
 È anche possibile consultare le risorse seguenti:
 

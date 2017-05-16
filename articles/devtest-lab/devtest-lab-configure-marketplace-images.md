@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5606c538d7ee5afc6b2c3cfcfae0a6aca341c7f
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 0779371b10e64a12ef994c63ee0fba724be88c4a
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configurare le impostazioni dell'immagine di Azure Marketplace in Azure DevTest Labs
-Lab di sviluppo/test supporta la creazione di VM basate su immagini di Azure Marketplace in base alla configurazione delle immagini di Azure Marketplace da usare nel lab. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di VM in un lab.
+Lab di sviluppo/test supporta la creazione di VM basate su immagini di Azure Marketplace in base alla configurazione delle immagini di Azure Marketplace da usare nel lab. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di VM in un lab. Ciò garantisce che il team abbia accesso solo alle immagini del Marketplace necessarie. 
 
 ## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Selezionare le immagini di Azure Marketplace consentite per la creazione di una macchina virtuale
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -49,10 +50,5 @@ Lab di sviluppo/test supporta la creazione di VM basate su immagini di Azure Mar
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere configurato le immagini di Azure Marketplace consentite per la creazione di una macchina virtuale, il passaggio successivo consiste nell'[aggiungere una macchina virtuale nel lab](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

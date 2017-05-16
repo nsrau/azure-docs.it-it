@@ -1,5 +1,5 @@
 ---
-title: Digitalizzare il testo con il riconoscimento ottico dei caratteri (OCR) con Analisi Servizi multimediali di Azure | Documentazione Microsoft
+title: Digitalizzare il testo con il riconoscimento ottico dei caratteri (OCR) con Analisi Servizi multimediali di Azure | Microsoft Docs
 description: "Il riconoscimento ottico dei caratteri (OCR) di Analisi servizi multimediali di Azure consente di convertire il contenuto di testo dei file video in testo digitale modificabile e sui cui è possibile eseguire ricerche.  Ciò consente di automatizzare l&quot;estrazione di metadati importanti dal segnale video del contenuto multimediale."
 services: media-services
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
-ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
-ms.lasthandoff: 02/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 4327a3e3f67369a61eb945791ca1011fab6fb01d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -44,7 +45,8 @@ Configurazione delle attività (set di impostazioni). Quando si crea un'attivit�
 ### <a name="attribute-descriptions"></a>Descrizioni degli attributi
 | Nome attributo | Descrizione |
 | --- | --- |
-| Linguaggio |(Facoltativo) Descrive la lingua del testo da cercare. Uno dei seguenti: AutoDetect (default), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
+|AdvancedOutput| Se si imposta AdvancedOutput su true, l'output JSON conterrà dati posizionali per ogni singola parola (oltre alle aree e le frasi). Se non si intende visualizzare i dettagli, impostare il flag su false. Il valore predefinito è False. Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| Lingua |(Facoltativo) Descrive la lingua del testo da cercare. Uno dei seguenti: AutoDetect (default), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
 | TextOrientation |(Facoltativo) Descrive l'orientamento del testo da cercare.  "Left" significa che la parte superiore di tutte le lettere è rivolta verso sinistra.  Il testo predefinito (simile a quello di un libro) può essere orientato come "Up".  Uno dei seguenti: AutoDetect (default), Up, Right, Down, Left. |
 | TimeInterval |(Facoltativo) Descrive la frequenza di campionamento.  Il valore predefinito è ogni 1/2 secondo.<br/>Formato JSON: HH:mm:ss.SSS (impostazione predefinita 00:00:00.500)<br/>Formato XML – durata primitivi W3C XSD (predefinito PT0.5) |
 | DetectRegions |(Facoltativo) Una matrice di oggetti DetectRegion che specifica le aree del fotogramma video in cui rilevare il testo.<br/>Un oggetto DetectRegion è costituito dai quattro valori interi seguenti:<br/>Left: pixel dal margine sinistro<br/>Top: pixel dal margine superiore<br/>Width: larghezza dell'area in pixel<br/>Height: altezza dell'area in pixel |
@@ -55,6 +57,7 @@ Configurazione delle attività (set di impostazioni). Quando si crea un'attivit�
         "Version":1.0, 
         "Options": 
         {
+            "AdvancedOutput":"true"
             "Language":"English", 
             "TimeInterval":"00:00:01.5",
             "TextOrientation":"Up",
@@ -74,6 +77,7 @@ Configurazione delle attività (set di impostazioni). Quando si crea un'attivit�
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
+         <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>

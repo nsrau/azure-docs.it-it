@@ -13,17 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 04/18/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
-ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4338fc03664175b7c27a48f1ab682179c1035313
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>Visualizzare, modificare, creare e caricare documenti JSON con Esplora documenti di DocumentDB
-Questo articolo offre una panoramica di Esplora documenti di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) , uno strumento del portale di Azure che consente di visualizzare, modificare, creare, caricare e filtrare documenti JSON con DocumentDB. 
+# <a name="view-edit-create-and-upload-json-documents"></a>Visualizzare, modificare, creare e caricare documenti JSON 
+
+In questo articolo viene fornita una panoramica dei due modi per creare, modificare ed eseguire query su documenti nel portale: [Esplora documenti](#launch-document-explorer) e [Esplora dati (anteprima)](#data-explorer).
 
 > [!NOTE]
 > Esplora documenti non è abilitato per gli account DocumentDB con supporto del protocollo per MongoDB. Questa pagina verrà aggiornata quando verrà abilitata questa funzionalità.
@@ -147,6 +148,13 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
    
     ![Schermata dei risultati dell’inserimento in blocco di Esplora documenti](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 5. Al termine dell'operazione, è possibile selezionare un massimo di altri 100 documenti da caricare.
+
+<a id="data-explorer"></a>
+## <a name="create-a-document-by-using-data-explorer-preview"></a>Creare un documento usando Esplora dati (anteprima)
+
+L'altro metodo per creare, modificare ed eseguire query sui documenti nel portale consiste nell'usare Esplora dati. Per aprire Esplora dati, fare clic su **Esplora dati (anteprima)** nella barra di spostamento del portale, quindi espandere il nome del database e il nome della raccolta, fare clic su **Documenti**, quindi su **Nuovo documento**, come illustrato nella schermata seguente.
+
+![Schermata che mostra il pulsante Nuova raccolta nel portale](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
 
 ## <a name="work-with-json-documents-outside-the-portal"></a>Usare documenti JSON all'esterno del portale
 Esplora documenti nel portale di Azure è soltanto uno dei modi in cui è possibile usare i documenti in DocumentDB. Per lavorare con i documenti è anche possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o gli [SDK client](documentdb-sdk-dotnet.md). Per un codice di esempio, vedere gli [esempi di documento per .NET SDK](documentdb-dotnet-samples.md#document-examples) e gli [esempi di documento per Node.js SDK](documentdb-nodejs-samples.md#document-examples).

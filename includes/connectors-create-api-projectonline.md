@@ -14,8 +14,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Pr
 4. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Passaggio 4 ProjectOnline](./media/connectors-create-api-projectonline/projectonline-4.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

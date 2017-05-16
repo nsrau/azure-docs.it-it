@@ -4,8 +4,3 @@
 > * [PowerShell](../articles/load-balancer/load-balancer-get-started-internet-classic-ps.md)
 > * [Interfaccia della riga di comando di Azure](../articles/load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [servizi cloud di Azure](../articles/load-balancer/load-balancer-get-started-internet-classic-cloud.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

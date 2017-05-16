@@ -14,8 +14,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Of
 4. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Passaggio di creazione della connessione a Office 365 Video](./media/connectors-create-api-office365video/office365video-4.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -67,7 +67,10 @@
   - name: "Government"
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
-  - name: "Portale"
+  - name: "Germania"
+    tocHref: /azure/germany/
+    topicHref: /azure/germany/
+  - name: "di Microsoft Azure"
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
   - name: "Gestione risorse"
@@ -188,6 +191,9 @@
   - name: "Network Watcher"
     tocHref: /azure/network-watcher/
     topicHref: /azure/network-watcher/
+  - name: "Rete"
+    tocHref: /azure/networking/
+    topicHref: /azure/networking/networking-overview
   - name: "Hub di notifica"
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/

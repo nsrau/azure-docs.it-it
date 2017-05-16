@@ -1,5 +1,5 @@
 ---
-title: "Procedure consigliate per la scalabilità automatica | Documentazione Microsoft"
+title: "Procedure consigliate per la scalabilità automatica | Microsoft Docs"
 description: "Informazioni per applicare in modo efficace la scalabilità automatica in macchine virtuali, set di scalabilità di macchine virtuali e servizi cloud."
 author: kamathashwin
 manager: carmonm
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
+ms.date: 04/20/2017
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
-ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
+ms.contentlocale: it-it
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="best-practices-autoscaling-virtual"></a>Procedure consigliate per la scalabilità automatica virtuale
+# <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 Questo articolo illustra le procedure consigliate per applicare la scalabilità automatica in Azure. L'articolo si riferisce a macchine virtuali, set di scalabilità di macchine virtuali e servizi Cloud.  Altri servizi Azure usavano metodi di ridimensionamento diversi.
 
 ## <a name="autoscale-concepts"></a>Concetti di scalabilità automatica
@@ -149,9 +151,4 @@ La scalabilità automatica invia una notifica tramite posta elettronica agli amm
 * Non sono disponibili metriche che consentono al servizio di scalabilità automatica di prendere una decisione sulla scalabilità.
 * Sono di nuovo disponibili metriche (ripristino) che consentono di prendere una decisione sulla scalabilità.
   Oltre alle condizioni precedenti, è possibile configurare notifiche di posta elettronica o webhook per ricevere notifiche relative alle azioni di scalabilità riuscite.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

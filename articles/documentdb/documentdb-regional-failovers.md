@@ -16,9 +16,9 @@ ms.date: 02/09/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e23c5849cb89d0d72052e3ebaace14a55f9c6f71
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -28,7 +28,7 @@ Azure DocumentDB semplifica la distribuzione globale dei dati, offrendo [account
 Azure DocumentDB supporta sia failover espliciti sia failover basati su criteri che consentono di controllare il comportamento del sistema end-to-end in caso di errori. Questo articolo analizza i seguenti aspetti:
 
 * Come funzionano i failover manuali in DocumentDB?
-* Come funzionano i failover automatici in DocumentDB?
+* Come funzionano i failover automatici in DocumentDB e cosa accade quando un data center smette di funzionare?
 * In che modo è possibile usare i failover manuali in architetture applicative?
 
 In questo video di Azure Friday, con Scott Hanselman e Karthik Raman, Principal Engineering Manager, sono disponibili altre informazioni sui failover regionali.
@@ -72,7 +72,7 @@ Il diagramma dell'architettura seguente illustra la distribuzione di un'applicaz
 Ora esaminiamo in che modo il servizio DocumentDB gestisce errori a livello di area tramite i failover automatici. 
 
 ## <a id="AutomaticFailovers"></a>Failover automatici
-Nel raro caso di un'interruzione del servizio di Azure a livello di area, DocumentDB attiva automaticamente i failover di tutti gli account DocumentDB presenti nell'area interessata. 
+Nel raro caso di un'interruzione del servizio regionale di Azure o del data center, DocumentDB attiva automaticamente i failover di tutti gli account DocumentDB presenti nell'area interessata. 
 
 **Cosa accade se si verifica un'interruzione del servizio in un'area di lettura?**
 
@@ -112,7 +112,7 @@ Alcuni degli scenari comuni in cui il failover manuale può essere utile sono:
 
 **Aggiornamento del servizio**: in alcuni casi la distribuzione globale di un'applicazione può comportare il reinstradamento del traffico a un'area diversa tramite Gestione traffico durante l'aggiornamento del servizio pianificato. Tale distribuzione può ora usare il failover manuale per mantenere lo stato di scrittura nell'area in cui ci sarà traffico attivo durante la finestra di aggiornamento del servizio.
 
-**Esercitazioni di continuità aziendale e ripristino di emergenza (BCDR)**: la maggior parte delle applicazioni aziendali include test di continuità aziendale come parte del processo di sviluppo e rilascio. I test BCDR sono spesso un passaggio importante nelle certificazioni di conformità e garantiscono la disponibilità del servizio in caso di interruzioni del servizio a livello dell'area. È possibile verificare la preparazione BCDR delle applicazioni che usano DocumentDB per l'archiviazione tramite attivazione di un failover manuale del proprio account DocumentDB e/o aggiunta e rimozione dinamica di un'area.
+**Continuità aziendale e ripristino di emergenza, BCDR, e Disponibilità elevata e ripristino di emergenza, HADR**: la maggior parte delle applicazioni aziendali include test di continuità aziendale come parte del processo di sviluppo e rilascio. I test BCDR e HADR sono spesso un passaggio importante nelle certificazioni di conformità e garantiscono la disponibilità del servizio in caso di interruzioni del servizio a livello regionale. È possibile verificare la preparazione BCDR delle applicazioni che usano DocumentDB per l'archiviazione tramite attivazione di un failover manuale del proprio account DocumentDB e/o aggiunta e rimozione dinamica di un'area.
 
 In questo articolo abbiamo esaminato la modalità di funzionamento di failover manuali e automatici in Azure DocumentDB e analizzato in che modo è necessario configurare l'account DocumentDB e le applicazioni affinché siano disponibili a livello globale. Tramite l'uso del supporto per replica globale di Azure DocumentDB, è possibile migliorare la latenza end-to-end e assicurare la disponibilità elevata anche in caso di errori di un'area. 
 

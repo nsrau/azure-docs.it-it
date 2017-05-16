@@ -5,8 +5,3 @@ Prima di iniziare questa esercitazione, è necessario completare l'esercitazione
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

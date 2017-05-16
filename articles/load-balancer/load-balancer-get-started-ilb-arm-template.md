@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0cee0950055012cef7324f97e1b8a8f3fbd0112c
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5559f610a2556aaecff61eabd19759250904c379
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -44,7 +44,7 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 
 Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura.
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Scaricare il file dei parametri sul disco locale.
 3. Modificare il file e salvarlo.
 4. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureRmResourceGroupDeployment** .

@@ -12,8 +12,3 @@
 * [Come richiedere l'autenticazione a più fattori (MFA)](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 * [Come usare il log di controllo](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-
-
-<!--HONumber=Dec16_HO4-->
-
-

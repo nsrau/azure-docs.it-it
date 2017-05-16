@@ -12,54 +12,109 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 18aa17f6af7fe492f3875e1af7cb06b613f171af
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="update-management-solution-in-oms"></a>Soluzione Gestione aggiornamenti in OMS
 La soluzione Gestione aggiornamenti in OMS consente di gestire gli aggiornamenti per i computer Windows e Linux.  È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e avviare il processo di installazione degli aggiornamenti necessari per i server. 
 
+## <a name="solution-components"></a>Componenti della soluzione
+
+I computer gestiti da OMS usano i componenti seguenti per le valutazioni e le distribuzioni degli aggiornamenti: 
+
+* Agente OMS per Windows o Linux
+* PowerShell DSC (Desired State Configuration) per Linux 
+* Ruolo di lavoro ibrido per runbook di Automazione 
+* Microsoft Update o Windows Server Update Services per computer Windows
+
+I diagrammi seguenti offrono una visualizzazione concettuale del comportamento e del flusso dei dati e indicano in che modo la soluzione valuta e applica gli aggiornamenti a tutti i computer Windows Server e Linux connessi in un'area di lavoro.    
+
+#### <a name="windows-server"></a>Windows Server
+![Flusso del processo di gestione dell'aggiornamento di Windows Server](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)
+
+#### <a name="linux"></a>Linux
+![Flusso del processo di gestione dell'aggiornamento di Linux](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
+
+Quando il computer ha completato l'analisi di conformità degli aggiornamenti, l'agente OMS inoltra le informazioni in blocco a OMS. In un computer Windows, l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.  Oltre all'analisi pianificata, l'analisi di conformità degli aggiornamenti viene avviata entro 15 minuti in caso di riavvio di Microsoft Monitoring Agent (MMA) e prima e dopo l'installazione degli aggiornamenti.  Con un computer Linux, l'analisi di conformità viene eseguita ogni 3 ore per impostazione predefinita e avviata entro 15 minuti in caso di riavvio dell'agente MMA.  
+
+Le informazioni di conformità vengono quindi elaborate e riepilogate nei dashboard inclusi nella soluzione oppure possono essere cercate tramite query predefinite o definite dall'utente.  La soluzione genera report sullo stato di aggiornamento del computer in base all'origine configurata per la sincronizzazione.  Se il computer Windows è configurato per l'invio di report a WSUS, a seconda della data/ora in cui WSUS ha eseguito l'ultima sincronizzazione con Microsoft Update i risultati possono differire da quanto visualizzato da Microsoft Update.  Lo stesso vale per i computer Linux configurati per l'invio di report a un repository locale rispetto a un repository pubblico.   
+
+È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata.  A differenza degli aggiornamenti obbligatori, gli aggiornamenti classificati come *facoltativi* non sono inclusi nell'ambito della distribuzione per i computer Windows.  La distribuzione pianificata definisce quali computer di destinazione riceveranno gli aggiornamenti applicabili, specificando i computer in modo esplicito oppure selezionando un [gruppo di computer](../log-analytics/log-analytics-computer-groups.md) in base alle ricerche log di un determinato set di computer.  Si specifica anche una pianificazione per approvare e definire un periodo di tempo entro il quale è possibile installare gli aggiornamenti.  Gli aggiornamenti vengono installati da runbook in Automazione di Azure.  Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati.  Quando si crea una distribuzione degli aggiornamenti, viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificata per i computer inclusi.  Questo runbook master avvia un runbook figlio in ogni agente che esegue l'installazione degli aggiornamenti necessari.       
+
+Alla data e ora specificate nella distribuzione degli aggiornamenti, i computer di destinazione eseguono la distribuzione in parallelo.  Viene prima di tutto eseguita un'analisi per verificare che gli aggiornamenti siano ancora necessari, quindi viene eseguita l'installazione.  È importante notare che per i computer client WSUS, la distribuzione degli aggiornamenti avrà esito negativo se gli aggiornamenti non sono approvati in WSUS.  I risultati degli aggiornamenti applicati vengono inoltrati a OMS e saranno elaborati e riepilogati nei dashboard oppure saranno disponibili tramite ricerche negli eventi.     
+
 ## <a name="prerequisites"></a>Prerequisiti
-* La soluzione supporta solo l'esecuzione delle valutazioni di aggiornamento in Windows Server 2008 e versioni successive e le distribuzioni degli aggiornamenti in Windows Server 2012 e versioni successive.  Le opzioni di installazione Server Core e Nano Server non sono supportate.
+* La soluzione supporta l'esecuzione delle valutazioni degli aggiornamenti in Windows Server 2008 e versioni successive e le distribuzioni degli aggiornamenti in Windows Server 2012 e versioni successive.  Le opzioni di installazione Server Core e Nano Server non sono supportate.
 * I sistemi operativi client di Windows non sono supportati.  
 * Gli agenti Windows devono essere configurati per comunicare con un server Windows Server Update Services (WSUS) o avere accesso a Microsoft Update.  
   
-  > [!NOTE]
-  > L'agente Windows non può essere gestito contemporaneamente da System Center Configuration Manager.  
-  > 
-  > 
-* Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.  L'agente OMS per Linux può essere scaricato da [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
+    > [!NOTE]
+    > L'agente Windows non può essere gestito contemporaneamente da System Center Configuration Manager.  
+    >
+* CentOS 6 (x86/x64) e 7 (x64)
+* Red Hat Enterprise 6 (x86/x64) e 7 (x64)
+* SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)
+* Ubuntu 12.04 LTS e versioni x86/x64 più recenti  
+* Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.  
 
-## <a name="configuration"></a>Configurazione
-Eseguire questa procedura per aggiungere la soluzione Gestione aggiornamenti nell'area di lavoro di OMS e aggiungere gli agenti Linux. Gli agenti Windows vengono aggiunti automaticamente senza alcuna configurazione aggiuntiva.
+    > [!NOTE]
+    > Un agente OMS per Linux configurato per l'invio di report a più aree di lavoro OMS non è supportato con questa soluzione.  
+    > 
 
-> [!NOTE]
-> Se si abilita questa soluzione, qualsiasi computer Windows connesso all'area di lavoro OMS verrà automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.  Tuttavia, essa non è registrata nei gruppi ruolo di lavoro ibrido già definiti nell'account di Automazione.  È possibile aggiungerla a un gruppo ruolo di lavoro ibrido per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo ruolo di lavoro ibrido per runbook.  Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.   
+Per altre informazioni su come installare l'agente OMS per Linux e scaricare la versione più recente, vedere l'[agente Operations Management Suite per Linux](https://github.com/microsoft/oms-agent-for-linux).  Per informazioni su come installare l'agente OMS per Windows, vedere l'[agente Operations Management Suite per Windows](../log-analytics/log-analytics-windows-agents.md).  
 
-1. Aggiungere la soluzione Gestione aggiornamenti all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni OMS](../log-analytics/log-analytics-add-solutions.md) nella raccolta soluzioni.  
-2. Nel portale OMS selezionare **Impostazioni** e quindi **Origini connesse**.  Prendere nota del valore di **ID area di lavoro** e di **Chiave primaria** o **Chiave secondaria**.
-3. Eseguire questa procedura per ogni computer Linux.
-   
-   a.    Installare la versione più recente dell'agente OMS per Linux usando i comandi seguenti.  Sostituire <Workspace ID> con l'ID area di lavoro e <Key> con la chiave primaria o secondaria.
-   
-        cd ~
-        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
+## <a name="solution-components"></a>Componenti della soluzione
+Questa soluzione è costituita dalle risorse seguenti che vengono aggiunte all'account di Automazione e agli agenti direttamente connessi o al gruppo di gestione connesso di Operations Manager. 
 
-   b. Per rimuovere l'agente, usare il processo descritto nella sezione [Uninstalling the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux) (Disinstallazione dell'agente OMS per Linux).  
-
-## <a name="management-packs"></a>Management Pack
-Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di OMS, in Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione. Per questi Management Pack non è richiesta alcuna configurazione o manutenzione. 
+### <a name="management-packs"></a>Management Pack
+Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di OMS, in Operations Manager verranno installati i Management Pack seguenti.  Questi Management Pack vengono installati anche su computer Windows direttamente connessi dopo l'aggiunta di questa soluzione. Non sono richieste attività di configurazione o gestione con questi Management Pack. 
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Update Deployment MP
 
-Per altre informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../log-analytics/log-analytics-om-agents.md).
+
+### <a name="hybrid-worker-groups"></a>Gruppi di ruoli di lavoro ibridi
+Dopo aver abilitato questa soluzione, qualsiasi computer Windows direttamente connesso all'area di lavoro OMS viene configurato automaticamente come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.  Per ogni computer Windows gestito dalla soluzione, il ruolo di lavoro sarà elencato nel pannello dei gruppi di ruoli di lavoro ibridi per runbook dell'account di Automazione secondo la convenzione di denominazione *Hostname FQDN_GUID*.  Non è possibile applicare runbook a questi gruppi nell'account perché avranno esito negativo. Questi gruppi servono solo per supportare la soluzione di gestione.   
+
+È tuttavia possibile aggiungere i computer Windows a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook.  Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.  
+
+## <a name="configuration"></a>Configurazione
+Eseguire questa procedura per aggiungere la soluzione Gestione aggiornamenti nell'area di lavoro di OMS e verificare che gli agenti inviino report. Gli agenti Windows già connessi all'area di lavoro vengono aggiunti automaticamente senza alcuna configurazione aggiuntiva. 
+
+Per distribuire la soluzione è possibile usare i metodi seguenti:
+
+* Da Azure Marketplace nel portale di Azure, selezionando l'offerta Automation & Control o la soluzione Gestione aggiornamenti
+* Dalla Raccolta soluzioni di OMS nell'area di lavoro di OMS
+
+Se un account di Automazione e un'area di lavoro OMS sono già collegati tra loro nello stesso gruppo di risorse e nella stessa area, Automation & Control, se selezionato, verificherà la configurazione e si limiterà a installare e configurare la soluzione in entrambi i servizi.  Selezionando la soluzione Update Management da Azure Marketplace si avrà lo stesso comportamento.  Se questi servizi non sono distribuiti nella sottoscrizione, seguire la procedura nel pannello **Crea nuova soluzione** e confermare che si vogliono installare le altre soluzioni preselezionate consigliate.  È possibile aggiungere la soluzione Update Management all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni OMS](../log-analytics/log-analytics-add-solutions.md) nella raccolta soluzioni.  
+
+### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Verificare gli agenti OMS e il gruppo di gestione di Operations Manager connesso a OMS
+
+Per verificare che gli agenti OMS direttamente connessi per Linux e Windows comunichino con OMS, dopo alcuni minuti è possibile eseguire la ricerca log seguente:
+
+* Linux - `Type=Heartbeat OSType=Linux | top 500000 | dedup SourceComputerId | Sort Computer | display Table`.  
+
+* Windows - `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
+
+In un computer Windows, la connettività degli agenti con OMS può essere verificata nel modo seguente:
+
+1.  Aprire Microsoft Monitoring Agent nel Pannello di controllo. Nella scheda **Analisi dei log di Azure (OMS)** l'agente visualizza il messaggio **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite).   
+2.  Aprire il registro eventi di Windows, passare a **Registri applicazioni e servizi\Operations Manager** e cercare gli ID evento 3000 e 5002 del connettore del servizio di origine.  Questi eventi indicano che il computer ha eseguito la registrazione all'area di lavoro OMS e sta ricevendo la configurazione.  
+
+Se l'agente non può comunicare con il servizio OMS ed è configurato per la comunicazione con Internet tramite firewall o server proxy, verificare che il firewall o il server proxy sia configurato correttamente come descritto in [Configurare le impostazioni di proxy e firewall in Log Analytics](../log-analytics/log-analytics-proxy-firewall.md).
+  
+Gli agenti Linux appena aggiunti visualizzeranno lo stato **Aggiornato** dopo l'esecuzione di una valutazione.  Il processo può richiedere fino a 6 ore. 
+
+Per verificare che un gruppo di gestione di Operations Manager comunichi con OMS, vedere [Convalidare l'integrazione di Operations Manager con OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Raccolta dei dati
 ### <a name="supported-agents"></a>Agenti supportati
@@ -68,45 +123,34 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 | Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
 | Agenti di Windows |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e avvia l'installazione degli aggiornamenti necessari. |
-| Agenti Linux |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux. |
+| Agenti Linux |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
 | Gruppo di gestione di Operations Manager |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati vengono inoltrati dal gruppo di gestione al repository OMS. |
 | Account di archiviazione di Azure |No |Archiviazione di Azure non include informazioni sugli aggiornamenti del sistema. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
-Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno.  Quando viene installato un aggiornamento, le relative informazioni vengono aggiornate entro 15 minuti.  
+Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno. Ogni 15 minuti, l'API Windows viene chiamata per eseguire una query per la data/ora dell'ultimo aggiornamento e determinare se lo stato è stato modificato. In caso affermativo viene avviata un'analisi di conformità.  Per ogni computer Linux gestito viene eseguita un'analisi ogni 3 ore. 
 
-Per ogni computer Linux gestito viene eseguita un'analisi ogni 3 ore.  
+La visualizzazione dei dati aggiornati dei computer gestiti nel dashboard può richiedere da 30 minuti a 6 ore.   
 
 ## <a name="using-the-solution"></a>Uso della soluzione
-Quando si aggiunge la soluzione Gestione aggiornamenti all'area di lavoro di OMS, il riquadro **Gestione aggiornamenti** viene aggiunto al dashboard OMS. Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di computer nell'ambiente che richiedono attualmente aggiornamenti del sistema.<br><br>
+Quando si aggiunge la soluzione Gestione aggiornamenti all'area di lavoro di OMS, il riquadro **Gestione aggiornamenti** viene aggiunto al dashboard OMS. Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di computer nell'ambiente con la relativa conformità degli aggiornamenti.<br><br>
 ![Riquadro di riepilogo di Gestione aggiornamenti](media/oms-solution-update-management/update-management-summary-tile.png)  
 
+
 ## <a name="viewing-update-assessments"></a>Visualizzazione della valutazione degli aggiornamenti
-Fare clic sul riquadro **Gestione aggiornamenti** per aprire il dashboard **Gestione aggiornamenti**. Il dashboard include le colonne nella tabella seguente. Ogni colonna elenca fino a dieci elementi corrispondenti ai criteri della colonna per l'ambito e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
+Fare clic sul riquadro **Gestione aggiornamenti** per aprire il dashboard **Gestione aggiornamenti**.<br><br> ![Dashboard di riepilogo di Gestione aggiornamenti](./media/oms-solution-update-management/update-management-dashboard.png)<br> 
 
-| Colonna | Descrizione |
-| --- | --- |
-| **Computer con aggiornamenti mancanti** | |
-| Aggiornamenti critici o della sicurezza |Elenca i primi dieci computer con aggiornamenti mancanti, ordinati in base al numero di aggiornamenti mancanti. Fare clic sul nome di un computer per eseguire una ricerca log e ottenere tutti i record di aggiornamento per quel computer. |
-| Aggiornamenti critici o della sicurezza più vecchi di 30 giorni |Identifica il numero di computer con aggiornamenti critici o della sicurezza mancanti, raggruppati in base al tempo trascorso dalla pubblicazione dell'aggiornamento. Fare clic su una delle voci per eseguire una ricerca log e ottenere tutti gli aggiornamenti critici e mancanti. |
-| **Aggiornamenti mancanti necessari** | |
-| Aggiornamenti critici o della sicurezza |Elenca le classificazioni degli aggiornamenti mancanti nei computer, ordinati in base al numero di computer nei quali mancano gli aggiornamenti di quella categoria. Fare clic su una classificazione per eseguire una ricerca log e ottenere tutti i record di aggiornamento per quella classificazione. |
-| **Distribuzioni di aggiornamento** | |
-| Distribuzioni di aggiornamento |Numero di distribuzioni di aggiornamento attualmente pianificate e tempo mancante alla successiva esecuzione pianificata.  Fare clic sul riquadro per visualizzare gli aggiornamenti pianificati, in esecuzione e completati o per pianificare una nuova distribuzione. |
+Questo dashboard offre una descrizione dettagliata dello stato di aggiornamento in base al tipo di sistema operativo e alla classificazione dell'aggiornamento, ovvero critico, di sicurezza o altro, ad esempio un aggiornamento delle definizioni. Quando è selezionato, il riquadro **Distribuzioni di aggiornamento** reindirizza alla pagina Distribuzioni di aggiornamento in cui è possibile visualizzare le pianificazioni e le distribuzioni in esecuzione e completate oppure pianificare una nuova distribuzione.  
 
-<br>  
-![Dashboard di riepilogo di Gestione aggiornamenti](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
-<br>
-![Visualizzazione dei computer nel dashboard di Gestione aggiornamenti](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
-<br>
-![Visualizzazione dei pacchetti nel dashboard di Gestione aggiornamenti](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
+È possibile eseguire una ricerca log che restituisce tutti i record facendo clic sul riquadro specifico. Per eseguire una query di una determinata categoria e con criteri predefiniti, selezionarne una dall'elenco disponibile nella colonna **Query comuni sugli aggiornamenti**.    
 
 ## <a name="installing-updates"></a>Installazione degli aggiornamenti
-Dopo aver valutato gli aggiornamenti per tutti i computer Windows nell'ambiente, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*.  Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer Windows.  Specificare la data e l'ora della distribuzione, oltre a un computer o gruppo di computer da includere.  
+Dopo aver valutato gli aggiornamenti per tutti i computer Linux e Windows nell'area di lavoro, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*.  Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer.  Specificare la data e l'ora della distribuzione, oltre a un computer o gruppo di computer da includere nell'ambito della distribuzione.  Per altre informazioni sui gruppi di computer, vedere [Gruppi di computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md).  Quando si includono gruppi di computer nella distribuzione degli aggiornamenti, l'appartenenza ai gruppi viene valutata una sola volta al momento della creazione della pianificazione.  Le modifiche successive a un gruppo non vengono riflesse.  Per risolvere questo problema, eliminare la distribuzione degli aggiornamenti pianificata e ricrearla. 
 
-Gli aggiornamenti vengono installati da runbook in Automazione di Azure.  Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati.  Quando si crea una distribuzione degli aggiornamenti, viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificata per i computer inclusi.  Questo runbook master avvia un runbook figlio in ogni agente Windows che esegue l'installazione degli aggiornamenti necessari.  
+> [!NOTE]
+> Per impostazione predefinita, le VM di Windows distribuite da Azure Marketplace ricevono aggiornamenti automatici dal servizio Windows Update.  Questo comportamento rimane invariato dopo l'aggiunta di questa soluzione o delle VM di Windows all'area di lavoro.  Se gli aggiornamenti non vengono gestiti attivamente con questa soluzione, sarà applicabile il comportamento predefinito, ovvero gli aggiornamenti verranno applicati automaticamente.  
 
-Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux (RHEL) su richiesta disponibili in Azure Marketplace vengono registrate per accedere al servizio [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) distribuito in Azure.  Altre distribuzioni di Linux devono essere aggiornate dal repository di file online per le distribuzioni seguendo i metodi supportati.  
+Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux (RHEL) su richiesta disponibili in Azure Marketplace vengono registrate per accedere al servizio [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) distribuito in Azure.  Altre distribuzioni di Linux devono essere aggiornate dal repository di file online per le distribuzioni seguendo i metodi supportati.  
 
 ### <a name="viewing-update-deployments"></a>Visualizzazione delle distribuzioni degli aggiornamenti
 Fare clic sul riquadro **Distribuzione aggiornamento** per visualizzare l'elenco delle distribuzioni degli aggiornamenti esistenti.  Le distribuzioni sono raggruppate per stato, ovvero **Pianificato**, **In esecuzione** e **Completato**.<br><br> ![Pagina di pianificazione delle distribuzioni degli aggiornamenti](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -116,23 +160,23 @@ La tabella seguente descrive le proprietà visualizzate per ogni distribuzione d
 | Proprietà | Descrizione |
 | --- | --- |
 | Nome |Nome della distribuzione degli aggiornamenti. |
-| Pianificazione |Tipo di pianificazione.  *Una sola volta* è attualmente l'unico valore possibile. |
+| Pianificazione |Tipo di pianificazione.  Le opzioni disponibili sono *Una sola volta*, *Ricorrenza settimanale* o *Ricorrenza mensile*. |
 | Ora di inizio |Data e ora pianificata per l'avvio della distribuzione degli aggiornamenti. |
 | Durata |Numero di minuti consentiti per l'esecuzione della distribuzione degli aggiornamenti.  Se non tutti gli aggiornamenti vengono installati entro questo periodo di tempo, gli aggiornamenti rimanenti dovranno attendere la distribuzione successiva. |
-| Server |Numero di computer interessati dalla distribuzione degli aggiornamenti. |
+| Server |Numero di computer interessati dalla distribuzione degli aggiornamenti.  |
 | Status |Stato corrente della distribuzione degli aggiornamenti.<br><br>I valori possibili sono:<br>- Non avviato<br>- In esecuzione<br>- Operazione terminata |
 
-Fare clic su una distribuzione degli aggiornamenti per visualizzare la schermata dei dettagli che include le colonne della tabella seguente.  Queste colonne non verranno popolate se la distribuzione degli aggiornamenti non è ancora iniziata.<br>
+Selezionare una distribuzione degli aggiornamenti completata per visualizzare la schermata dei dettagli che include le colonne della tabella seguente.  Queste colonne non verranno popolate se la distribuzione degli aggiornamenti non è ancora iniziata.<br><br> ![Panoramica dei risultati della distribuzione degli aggiornamenti](./media/oms-solution-update-management/update-management-deploymentresults-dashboard.png)
 
-| Colonna | Description |
+| Colonna | Descrizione |
 | --- | --- |
-| **Risultati computer** | |
-| Operazione completata |Elenca il numero di computer nella distribuzione degli aggiornamenti in base allo stato.  Fare clic su uno stato per eseguire una ricerca log e ottenere tutti i record di aggiornamento con tale stato per la distribuzione degli aggiornamenti. |
+| **Vista Computer** | |
+| Computer Windows |Elenca il numero di computer Windows nella distribuzione degli aggiornamenti in base allo stato.  Fare clic su uno stato per eseguire una ricerca log e ottenere tutti i record di aggiornamento con tale stato per la distribuzione degli aggiornamenti. |
+| Computer Linux |Elenca il numero di computer Linux nella distribuzione degli aggiornamenti in base allo stato.  Fare clic su uno stato per eseguire una ricerca log e ottenere tutti i record di aggiornamento con tale stato per la distribuzione degli aggiornamenti. |
 | Stato di installazione del computer |Elenca i computer interessati dalla distribuzione degli aggiornamenti e la percentuale degli aggiornamenti installati correttamente. Fare clic su una delle voci per eseguire una ricerca log e ottenere tutti gli aggiornamenti critici e mancanti. |
-| **Risultati aggiornamento istanza** | |
-| Stato di installazione dell'istanza |Elenca le classificazioni degli aggiornamenti mancanti nei computer, ordinati in base al numero di computer nei quali mancano gli aggiornamenti di quella categoria. Fare clic su un computer per eseguire una ricerca log e ottenere tutti i record di aggiornamento per quel computer. |
-
-<br><br> ![Panoramica dei risultati della distribuzione degli aggiornamenti](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
+| **Vista Aggiornamenti** | |
+| Aggiornamenti di Windows |Elenca gli aggiornamenti di Windows inclusi nella distribuzione degli aggiornamenti e il relativo stato di installazione per ogni aggiornamento.  Selezionare un aggiornamento per eseguire una ricerca nei log che restituirà tutti i record per lo specifico aggiornamento oppure fare clic sullo stato per eseguire una ricerca nei log che restituirà tutti i record di aggiornamento per la distribuzione. | 
+| Aggiornamenti Linux |Elenca gli aggiornamenti di Linux inclusi nella distribuzione degli aggiornamenti e il relativo stato di installazione per ogni aggiornamento.  Selezionare un aggiornamento per eseguire una ricerca nei log che restituirà tutti i record per lo specifico aggiornamento oppure fare clic sullo stato per eseguire una ricerca nei log che restituirà tutti i record di aggiornamento per la distribuzione. | 
 
 ### <a name="creating-an-update-deployment"></a>Creazione di una distribuzione degli aggiornamenti
 Creare una nuova distribuzione degli aggiornamenti facendo clic sul pulsante **Aggiungi** nella parte superiore della schermata per aprire la pagina **Nuova distribuzione aggiornamenti**.  È necessario specificare i valori per le proprietà nella tabella seguente.
@@ -141,16 +185,17 @@ Creare una nuova distribuzione degli aggiornamenti facendo clic sul pulsante **A
 | --- | --- |
 | Nome |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 | Fuso orario |Fuso orario da usare per l'ora di inizio. |
-| Ora di inizio |Data e ora di inizio della distribuzione degli aggiornamenti. |
+| Tipo di pianificazione | Tipo di pianificazione.  Le opzioni disponibili sono *Una sola volta*, *Ricorrenza settimanale* o *Ricorrenza mensile*.  
+| Ora di inizio |Data e ora di inizio della distribuzione degli aggiornamenti. **Nota:** il primo momento possibile per la distribuzione è 30 minuti dall'ora corrente, se è necessario eseguire la distribuzione immediatamente. |
 | Durata |Numero di minuti consentiti per l'esecuzione della distribuzione degli aggiornamenti.  Se non tutti gli aggiornamenti vengono installati entro questo periodo di tempo, gli aggiornamenti rimanenti dovranno attendere la distribuzione successiva. |
-| Computer |Nomi di computer o gruppi di computer da includere nella distribuzione degli aggiornamenti.  Selezionare una o più voci dall'elenco a discesa. |
+| Computer |Nomi di computer o gruppi di computer da includere come destinazioni nella distribuzione degli aggiornamenti.  Selezionare una o più voci dall'elenco a discesa. |
 
 <br><br> ![Pagina Nuova distribuzione aggiornamenti](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
 ### <a name="time-range"></a>Intervallo di tempo
 Per impostazione predefinita, l'ambito dei dati analizzati nella soluzione Gestione aggiornamenti riguarda tutti i gruppi di gestione connessi generati nell'ultimo giorno. 
 
-Per modificare l'intervallo di tempo dei dati, selezionare **Dati basati su** nella parte superiore del dashboard. È possibile selezionare i record creati o aggiornati negli ultimi 7 giorni, nell'ultimo giorno o nelle ultime 6 ore. In alternativa, è possibile selezionare **Personalizzato** e specificare un intervallo di date personalizzato.<br><br> ![Opzione Intervallo di tempo personalizzato](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
+Per modificare l'intervallo di tempo dei dati, selezionare **Dati basati su** nella parte superiore del dashboard. È possibile selezionare i record creati o aggiornati negli ultimi 7 giorni, nell'ultimo giorno o nelle ultime 6 ore. In alternativa, è possibile selezionare **Personalizzato** e specificare un intervallo di date personalizzato.
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 La soluzione Gestione aggiornamenti crea due tipi di record nel repository OMS.
@@ -184,7 +229,6 @@ Viene creato un record di tipo **Aggiornamento** per ogni aggiornamento installa
 | UpdateID |GUID che identifica l'aggiornamento in modo univoco. |
 | UpdateState |Specifica se l'aggiornamento è installato nel computer.<br>I valori possibili sono:<br>- Installato: l'aggiornamento è installato nel computer.<br>- Necessario: l'aggiornamento non è installato ed è necessario nel computer. |
 
-<br>
 Quando si esegue una ricerca log che restituisce record di tipo **Aggiornamento**, è possibile selezionare la visualizzazione **Aggiornamenti** che presenta una serie di riquadri di riepilogo degli aggiornamenti restituiti dalla ricerca. È possibile fare clic sulle voci nei riquadri **Aggiornamenti mancanti e applicati** e **Aggiornamenti obbligatori e facoltativi** per definire l'ambito della visualizzazione del set di aggiornamenti. Selezionare la visualizzazione **Elenco** o **Tabella** per ottenere i singoli record.<br> 
 
 ![Visualizzazione degli aggiornamenti con ricerca log per record di tipo Aggiornamento](./media/oms-solution-update-management/update-la-view-updates.png)  
@@ -225,22 +269,37 @@ La tabella seguente contiene esempi di ricerche log per i record di aggiornament
 
 | Query | Descrizione |
 | --- | --- |
-| Tutti i computer con aggiornamenti mancanti |Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Missing updates for computer "COMPUTER01.contoso.com" (sostituire con il nome del computer) |Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |
-| Tutti i computer con aggiornamenti critici o della sicurezza mancanti |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |
-| Aggiornamenti critici o della sicurezza necessari nei computer in cui gli aggiornamenti vengono applicati manualmente |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |
-| Eventi di errore per computer con aggiornamenti critici o della sicurezza necessari mancanti |Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |
-| Tutti i computer con aggiornamenti cumulativi mancanti |Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Aggiornamenti distinti mancanti tra tutti i computer |Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |
-| Appartenenza computer WSUS |Type=UpdateSummary &#124; measure count() by WSUSServer |
-| Configurazione dell'aggiornamento automatico |Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |
-| Computer con aggiornamento automatico disabilitato |Type=UpdateSummary WindowsUpdateSetting=Manual |
-| Elenco di tutti i computer Linux con un aggiornamento pacchetto disponibile |Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |
-| Elenco di tutti i computer Linux con un aggiornamento pacchetto critico o della sicurezza disponibile |Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |
+|Computer server basati su Windows che richiedono aggiornamenti |`Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false | measure count() by Computer` |
+|Server Linux che richiedono aggiornamenti | `Type:Update OSType=Linux UpdateState!="Not needed" | measure count() by Computer` |
+| Tutti i computer con aggiornamenti mancanti |`Type=Update UpdateState=Needed Optional=false | select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
+| Aggiornamenti mancanti per un computer specifico. Sostituire il valore con il nome computer. |`Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" | select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate` |
+| Tutti i computer con aggiornamenti critici o della sicurezza mancanti |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates"`) |
+| Aggiornamenti critici o della sicurezza necessari nei computer in cui gli aggiornamenti vengono applicati manualmente |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID` |
+| Eventi di errore per computer con aggiornamenti critici o della sicurezza necessari mancanti |`Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false | Distinct Computer}` |
+| Tutti i computer con aggiornamenti cumulativi mancanti |`Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed| select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
+| Aggiornamenti distinti mancanti tra tutti i computer |`Type=Update UpdateState=Needed Optional=false | Distinct Title` |
+| Computer server basati su Windows con aggiornamenti non riusciti in un'operazione di aggiornamento | `Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Title, UpdateRunName` |
+| Server Linux con aggiornamenti non riusciti in un'operazione di aggiornamento |`Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Product, UpdateRunName` |
+| Appartenenza computer WSUS |`Type=UpdateSummary | measure count() by WSUSServer` |
+| Configurazione dell'aggiornamento automatico |`Type=UpdateSummary | measure count() by WindowsUpdateSetting` |
+| Computer con aggiornamento automatico disabilitato |`Type=UpdateSummary WindowsUpdateSetting=Manual` |
+| Elenco di tutti i computer Linux con un aggiornamento pacchetto disponibile |`Type=Update and OSType=Linux and UpdateState!="Not needed" | measure count() by Computer` |
+| Elenco di tutti i computer Linux con un aggiornamento pacchetto critico o della sicurezza disponibile |`Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") | measure count() by Computer` |
 | Elenco di tutti i pacchetti con un aggiornamento disponibile |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| Elenco di tutti i pacchetti con un aggiornamento critico o della sicurezza disponibile |Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |
-| Elenco di tutti i computer "Ubuntu" con aggiornamenti disponibili |Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |
+| Elenco di tutti i pacchetti con un aggiornamento critico o della sicurezza disponibile |`Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates")` |
+| Elencare quali distribuzioni degli aggiornamenti hanno modificato i computer |`Type:UpdateRunProgress | measure Count() by UpdateRunName` |
+|Computer che sono stati aggiornati in questa operazione di aggiornamento. Sostituire il valore con il nome della distribuzione degli aggiornamenti |`Type:UpdateRunProgress UpdateRunName="DeploymentName" | measure Count() by Computer` |
+| Elenco di tutti i computer "Ubuntu" con aggiornamenti disponibili |`Type=Update and OSType=Linux and OSName = Ubuntu &| measure count() by Computer` |
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi 
+
+Questa sezione fornisce informazioni sulla risoluzione dei problemi della soluzione Gestione aggiornamenti.  
+
+### <a name="how-do-i-troubleshoot-update-deployments"></a>Come si risolvono i problemi con le distribuzioni degli aggiornamenti?
+È possibile visualizzare i risultati del runbook responsabile della distribuzione degli aggiornamenti inclusi nella distribuzione degli aggiornamenti pianificata dal pannello Processi dell'account di Automazione collegato all'area di lavoro di OMS che supporta questa soluzione.  Il runbook **Patch-MicrosoftOMSComputer** è un runbook figlio destinato a un computer gestito specifico. Il flusso dettagliato presenta informazioni dettagliate relative alla distribuzione.  L'output visualizzerà gli aggiornamenti necessari applicabili, lo stato del download e dell'installazione e altri dettagli.<br><br> ![Stato del processo di distribuzione degli aggiornamenti](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
+
+Per altre informazioni, vedere [Output e messaggi dei runbook in Automazione di Azure](../automation/automation-runbook-output-and-messages.md).   
+  
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare le ricerche log in [Log Analytics](../log-analytics/log-analytics-log-searches.md) per visualizzare dati dettagliati sugli aggiornamenti.
 * [Creare dashboard personalizzati](../log-analytics/log-analytics-dashboards.md) che indicano la conformità degli aggiornamenti per i computer gestiti.

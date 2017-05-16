@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c5e05a8693bd000010013922ed6f2a127e998efe
 ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
+ms.contentlocale: it-it
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -53,6 +55,8 @@ Prima di iniziare questa esercitazione, è necessario soddisfare i requisiti seg
 - [Creare un Registro di sistema del contenitore di Azure](../container-registry/container-registry-get-started-portal.md)
 - [Disporre di un account Visual Studio Team Services e aver creato un progetto di team](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [Creare una fork del repository GitHub nell'account GitHub](https://github.com/jcorioland/MyShop/)
+
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
 
 È inoltre necessario disporre di un computer Ubuntu (14.04 o 16.04) con Docker. Questo computer viene usato da Visual Studio Team Services durante i processi di compilazione e rilascio. Un modo per creare questo computer consiste nell'usare l'immagine disponibile in [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
 
@@ -206,7 +210,7 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
     Il comando eseguito nel nodo principale usa l'interfaccia della riga di comando di Docker e Docker-Compose per eseguire le attività seguenti:
 
     - Accedere al Registro di sistema del contenitore di Azure (usa tre variabili di compilazione definite nella scheda **Variabili**)
-    - Definire la variabile **DOCKER_HOST** in modo che sia compatibile con l'endpoint Swarm (:&2375;)
+    - Definire la variabile **DOCKER_HOST** in modo che sia compatibile con l'endpoint Swarm (:2375)
     - Accedere alla cartella di *distribuzione* che è stata creata dall'attività di copia sicura precedente e che contiene il file docker-compose.yml 
     - Eseguire i comandi `docker-compose` che effettuano il pull di nuove immagini, interrompono e rimuovono i servizi e creano i contenitori.
 
@@ -227,8 +231,3 @@ Dopo aver completato la configurazione, è il momento di testare la nuova pipeli
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni su CI/CD con Visual Studio Team Services, vedere la [panoramica sulla compilazione di VSTS](https://www.visualstudio.com/docs/build/overview).
-
-
-<!--HONumber=Dec16_HO2-->
-
-

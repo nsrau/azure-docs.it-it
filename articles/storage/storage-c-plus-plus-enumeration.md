@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
-ms.openlocfilehash: f14ed08473ba9c424acf39d3fe98d4a11adf9948
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d234dd87919f4906628014156708489bd1efab6c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,12 +149,12 @@ do
 
 Specificando il parametro *max_results* del segmento, è possibile bilanciare numero di richieste e uso della memoria per soddisfare le considerazioni sulle prestazioni dell'applicazione.
 
-Inoltre, se si utilizzano API ad elenco segmentato ma si memorizzano i dati in una raccolta locale in stile "greedy", è consigliabile eseguire il refactoring del codice per gestire l'archiviazione dei dati in una raccolta locale facendo attenzione alla scalabilità.
+Se si usano anche API a elenco segmentato, ma si memorizzano i dati in una raccolta locale in stile "greedy", è consigliabile effettuare il refactoring del codice per gestire l'archiviazione dei dati in una raccolta locale facendo attenzione alla scalabilità.
 
 ## <a name="lazy-listing"></a>Elenco Lazy
 Benché l’elenco greedy generi potenziali problemi, è conveniente non avere troppi oggetti nel contenitore.
 
-Se inoltre si utilizza C# o Oracle Java SDK, è necessario conoscere il modello di programmazione enumerabile, che offre un elenco a stile-lazy, dove dati a un determinato offset vengono recuperati solo se necessario. In C++, il modello basato sull’iteratore offre inoltre un approccio simile.
+Se si usa anche C# o Oracle Java SDK, è necessario conoscere il modello di programmazione enumerabile, che offre un elenco in stile lazy, in cui i dati in un determinato offset vengono recuperati solo se necessario. In C++, il modello basato sull’iteratore offre inoltre un approccio simile.
 
 Un'API tipica ad elenco lazy, che usa **list_blobs** come esempio, è simile a quanto segue:
 
@@ -202,10 +203,5 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 * [Documentazione relativa alla libreria Client di archiviazione Azure per API C++.](http://azure.github.io/azure-storage-cpp/)
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

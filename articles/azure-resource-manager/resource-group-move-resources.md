@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -36,7 +37,7 @@ Non è possibile modificare il percorso della risorsa. Lo spostamento di una ris
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
 Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
 
-1. Le sottoscrizioni di origine e di destinazione devono trovarsi all'interno dello stesso [tenant di Active Directory](../active-directory/active-directory-howto-tenant.md). Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
+1. Le sottoscrizioni di origine e di destinazione devono trovarsi nello stesso [tenant di Azure Active Directory](../active-directory/active-directory-howto-tenant.md). Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
   Per Azure PowerShell usare:
 
@@ -50,7 +51,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, è possibile tentare di modificare la directory della sottoscrizione. Tuttavia, questa opzione è disponibile solo per gli amministratori del servizio sono registrati con un account Microsoft (non un account aziendale). Per tentare di modificare la directory, accedere al [portale classico](https://manage.windowsazure.com/), selezionare **Impostazioni**, quindi la sottoscrizione. Se l'icona **Modifica directory** è disponibile, selezionarla per modificare l'Active Directory associato. 
+  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, è possibile tentare di modificare la directory della sottoscrizione. Tuttavia, questa opzione è disponibile solo per gli amministratori del servizio sono registrati con un account Microsoft (non un account aziendale). Per tentare di modificare la directory, accedere al [portale classico](https://manage.windowsazure.com/), selezionare **Impostazioni**, quindi la sottoscrizione. Se l'icona **Modifica directory** è disponibile, selezionarla per modificare l'istanza di Azure Active Directory associata. 
 
   ![modifica directory](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -67,7 +68,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
 
 Chiamare il supporto quando è necessario:
 
-* Spostare le risorse in un nuovo account Azure (e tenant di Active Directory).
+* Spostare le risorse in un nuovo account di Azure (e tenant di Azure Active Directory).
 * Spostare le risorse classiche ma si verificano problemi relativi alle limitazioni.
 
 ## <a name="services-that-enable-move"></a>Servizi che abilitano lo spostamento
@@ -75,6 +76,7 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 
 * Gestione API
 * App del servizio app (app Web): vedere [Limitazioni del servizio app](#app-service-limitations)
+* Application Insights
 * Automazione
 * Batch
 * Bing Mappe
@@ -124,7 +126,6 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 
 * Servizio ibrido per l'integrità di AD
 * gateway applicazione
-* Application Insights
 * Servizi BizTalk
 * Servizio contenitore
 * Express Route
@@ -147,12 +148,12 @@ Quando si usano le app del servizio app non è possibile spostare solo un piano 
 * Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. In base a questo requisito è necessario spostare anche le risorse del servizio app non associate al piano di servizio app. 
 * Spostare le app in un gruppo di risorse diverso, ma mantenere tutti i piani di servizio app nel gruppo di risorse originale.
 
-Se il gruppo di risorse originale include anche una risorsa Application Insights non è possibile spostarla, perché attualmente Application Insights non abilita l'operazione di spostamento. Se si include la risorsa Application Insights quando si spostano le app del servizio app, l'intera operazione di spostamento non riesce. Tuttavia per il corretto funzionamento dell'app non è necessario che la risorsa Application Insights e il piano di servizio app risiedano nello stesso gruppo di risorse in cui si trova l'app stessa.
+Per il corretto funzionamento dell'app non è necessario che il piano di servizio app risieda nello stesso gruppo di risorse in cui si trova l'app stessa.
 
 Se ad esempio il gruppo di risorse contiene:
 
-* **web-a** associata a **plan-a** e **app-insights-a**
-* **web-b** associata a **plan-b** e **app-insights-b**
+* **web-a** che è associata a **plan-a**
+* **web-b** che è associata a **plan-b**
 
 Le opzioni possibili sono:
 
@@ -161,7 +162,7 @@ Le opzioni possibili sono:
 * Spostare **web-a**
 * Spostare **web-b**
 
-Con tutte le altre combinazioni si sposterebbe un tipo di risorsa non spostabile (Application Insights) o si lascerebbe dove si trova un tipo di risorsa che non può essere lasciato nella stessa posizione quando si sposta un piano di servizio app (qualsiasi tipo di risorsa del servizio app).
+Con tutte le altre combinazioni si lascerebbe dove si trova un tipo di risorsa che non può essere lasciato nella stessa posizione quando si sposta un piano di servizio app (qualsiasi tipo di risorsa del servizio app).
 
 Se l'app web si trova in un gruppo di risorse diverso rispetto al piano di servizio app corrispondente ma si vuole spostare entrambi gli elementi in un nuovo gruppo di risorse, è necessario eseguire lo spostamento in due fasi. Ad esempio:
 

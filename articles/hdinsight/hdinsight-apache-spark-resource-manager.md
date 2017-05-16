@@ -14,11 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 68972d9422dd0861318b0f26a4543f7596d9a680
+ms.contentlocale: it-it
 ms.lasthandoff: 01/24/2017
 
 
@@ -85,7 +86,7 @@ Per le applicazioni in esecuzione in Jupyter Notebook è possibile usare `%%conf
 Il frammento di codice riportato di seguito mostra come modificare la configurazione per un'applicazione in esecuzione in Jupyter.
 
     %%configure
-    {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
 I parametri di configurazione devono essere passati come una stringa JSON e devono trovarsi nella riga successiva a magic, come illustrato nella colonna di esempio.
 

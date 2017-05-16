@@ -46,20 +46,22 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Modello](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [Interfacce di rete](virtual-network-network-interface.md)
+### Interfacce di rete
+#### [Aggiungere, modificare o eliminare](virtual-network-network-interface.md)
+#### [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md)
 
 ### [Indirizzi IP pubblici](virtual-network-public-ip-address.md)
 
 ### Macchine virtuali
-
-#### Indirizzi IP pubblici statici
+#### [Aggiungere o rimuovere interfacce di rete](virtual-network-network-interface-vm.md) 
+#### Creare una VM con un indirizzo IP pubblico statico
 ##### [Portale](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Modello](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell (versione classica)](virtual-networks-reserved-public-ip.md)
 
-#### Indirizzi IP privati statici
+#### Creare una VM con un indirizzo IP privato statico
 ##### [Portale](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -67,15 +69,14 @@
 ##### [PowerShell (versione classica)](virtual-networks-static-private-ip-classic-ps.md)
 ##### [Interfaccia della riga di comando (versione classica)](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Più interfacce di rete
-##### [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [CLI](virtual-network-deploy-multinic-arm-cli.md)
-##### [Modello](virtual-network-deploy-multinic-arm-template.md)
+#### Creare una VM con più interfacce di rete
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (versione classica)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [Interfaccia della riga di comando (versione classica)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Più indirizzi IP
-##### [portale di Azure](virtual-network-multiple-ip-addresses-portal.md)
+#### Creare una macchina virtuale con più indirizzi IP
+##### [Portale di Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Modello](virtual-network-multiple-ip-addresses-template.md)
@@ -126,8 +127,8 @@
 ### [Test della velocità effettiva](virtual-network-bandwidth-testing.md)
 
 # Riferimento
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
-## [PowerShell (Classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking) (PowerShell (classico))
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
+## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0) (PowerShell (classico))
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)

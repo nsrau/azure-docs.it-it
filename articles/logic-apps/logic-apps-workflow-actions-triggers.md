@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 3a240ff317e1b3ea450703965629c08053668856
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -407,6 +407,8 @@ Esistono molti tipi di azioni, ognuna con un comportamento univoco. Le azioni di
   
 -   **Workflow** \- Questa azione rappresenta un flusso di lavoro annidato.  
 
+-   **Function** \- Questa azione rappresenta una funzione di Azure.
+
 ### <a name="collection-actions"></a>Azioni di raccolta
 
 -   **Scope** \- Questa azione è un raggruppamento logico di altre azioni.
@@ -453,7 +455,7 @@ L'azione seguente, ad esempio, prova a recuperare di nuovo le ultime novità per
     "type": "http",
     "inputs": {
         "method": "GET",
-        "uri": "uri": "https://mynews.example.com/latest",
+        "uri": "https://mynews.example.com/latest",
         "retryPolicy" : {
             "type": "fixed",
             "interval": "PT30S",
@@ -658,6 +660,28 @@ L'output dell'azione `query` è una matrice con elementi della matrice di input 
 |from|Sì|Array|Matrice di origine.|
 |dove|Sì|String|Condizione da applicare a ogni elemento della matrice di origine.|
 
+## <a name="select-action"></a>Seleziona azione
+
+L'azione `select` consente di proiettare ogni elemento dell'array in un nuovo valore.
+Ad esempio, per convertire un array di numeri in un array di oggetti è possibile usare:
+
+```json
+"SelectNumbers" : {
+    "type": "select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+L'output dell'azione `select` è un array con la stessa cardinalità dell'array di input, con ogni elemento trasformato secondo quanto definito dalla proprietà `select`. Se l'input è un array vuoto, lo sarà anche l'output.
+
+|Nome|Obbligatoria|Tipo|Descrizione|
+|--------|------------|--------|---------------|
+|from|Sì|Array|Matrice di origine.|
+|seleziona|Sì|Qualsiasi|La proiezione da applicare a ogni elemento dell'array di origine.|
+
 ## <a name="terminate-action"></a>Azione terminate
 
 L'azione terminate arresta l'esecuzione del flusso di lavoro, interrompendo eventuali azioni in elaborazione e ignorando le azioni rimanenti. Per terminare un'esecuzione con stato **Failed**, ad esempio, è possibile usare il frammento seguente:
@@ -704,6 +728,71 @@ L'azione compose consente di costruire un oggetto arbitrario. L'output dell'azio
 > [!NOTE]
 > L'azione **Compose** può essere usata per costruire qualsiasi output, inclusi oggetti, matrici e altri tipi supportati a livello nativo dalle app per la logica, ad esempio file XML e binari.
 
+## <a name="table-action"></a>azione Tabella
+
+`table` consente di convertire un array di elementi in una tabella in formato **CVS** o **HTML**.
+
+Presumere che @triggerBody() sia
+
+```json
+[{
+  "id": 0,
+  "name": "apples"
+},{
+  "id": 1, 
+  "name": "oranges"
+}]
+```
+
+Lasciare che l'azione venga definita come
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html"
+    }
+}
+```
+
+L'elemento sopra darebbe
+
+<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>mele</td></tr><tr><td>1</td><td>arance</td></tr></tbody></table>"
+
+Per personalizzare la tabella, è possibile specificare le colonne in modo esplicito. Ad esempio:
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html",
+        "columns": [{
+          "header": "produce id",
+          "value": "@item().id"
+        },{
+          "header": "description",
+          "value": "@concat('fresh ', item().name)"
+        }]
+    }
+}
+```
+
+L'elemento sopra darebbe
+
+<table><thead><tr><th>ottenere ID</th><th>Descrizione</th></tr></thead><tbody><tr><td>0</td><td>mele fresche</td></tr><tr><td>1</td><td>arance fresche</td></tr></tbody></table>"
+
+Se il valore della proprietà `from` è un array vuoto, l'output sarà una tabella vuota.
+
+|Nome|Obbligatoria|Tipo|Descrizione|
+|--------|------------|--------|---------------|
+|from|Sì|Array|Matrice di origine.|
+|format|Sì|String|Il formato, **CVS** o **HTML**.|
+|columns|No|Array|Le colonne. Consente di sostituire la forma predefinita della tabella.|
+|intestazione di colonna|No|String|L'intestazione della colonna.|
+|valore colonna|Sì|String|Il valore della colonna.|
+
 ## <a name="workflow-action"></a>Azione workflow   
 
 |Nome|Obbligatoria|Tipo|Descrizione|  
@@ -741,6 +830,47 @@ L'azione compose consente di costruire un oggetto arbitrario. L'output dell'azio
 Poiché viene eseguito un controllo dell'accesso sul flusso di lavoro \(più in particolare, sul trigger\), è necessario l'accesso al flusso di lavoro.  
   
 Gli output dell'azione `workflow` si basano su quanto definito nell'azione `response` nel flusso di lavoro figlio. Se non sono state definite azioni `response`, gli output sono vuoti.  
+
+## <a name="function-action"></a>Azione delle funzioni   
+
+|Nome|Obbligatoria|Tipo|Descrizione|  
+|--------|------------|--------|---------------|  
+|function id|Sì|String|ID risorsa della funzione che si vuole richiamare.|  
+|statico|No|String|Il metodo HTTP utilizzato per richiamare la funzione. Per impostazione predefinita, è `POST` quando non è specificato.|  
+|query|No|Oggetto|Rappresenta i parametri di query da aggiungere all'URL. `"queries" : { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL.|  
+|headers|No|Oggetto|Rappresenta ogni intestazione inviata alla richiesta. Ad esempio, per impostare il linguaggio e il tipo in una richiesta: `"headers" : { "Accept-Language": "en-us" }`.|  
+|body|No|Oggetto|Rappresenta il payload inviato all'endpoint.|  
+
+```json
+"myfunc" : {
+    "type" : "Function",
+    "inputs" : {
+        "function" : {
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Web/sites/myfuncapp/functions/myfunc"
+        },
+        "queries" : {
+            "extrafield" : "specialValue"
+        },  
+        "headers" : {
+            "x-ms-date" : "@utcnow()"
+        },
+        "method" : "POST",
+    "body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+Quando si salva l'app per la logica, vengono eseguiti alcuni controlli sulla funzione a cui si fa riferimento:
+-   È necessario disporre dell'accesso alla funzione.
+-   È consentito solo il trigger HTTP standard o il trigger webhook JSON generico.
+-   Non deve essere presente alcuna route definita.
+-   Sono consentiti solo i livelli di autorizzazione "funzione" e "anonimo".
+
+L'URL del trigger viene recuperato, memorizzato nella cache e usato durante il runtime. Pertanto, se qualsiasi operazione invalida l'URL memorizzato nella cache, l'azione non riesce durante il runtime. Per risolvere il problema, salvare di nuovo l'app per la logica. In questo modo, l'app per la logica verrà recuperata e l'URL del trigger verrà memorizzato nuovamente nella cache.
 
 ## <a name="collection-actions-scopes-and-loops"></a>Azioni di raccolta (ambiti e cicli)
 
@@ -897,3 +1027,4 @@ Se una condizione restituisce un valore corretto, viene contrassegnata come `Suc
 ## <a name="next-steps"></a>Passaggi successivi
 
 [API REST del servizio flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows)
+

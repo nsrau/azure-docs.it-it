@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/07/2017
+ms.date: 04/05/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 9797df57e6efcba689e6d2f13fed165ee0cc0755
-ms.openlocfilehash: 2b51cdf8ef55c2ee80e3f660a1073419e353ec3a
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: cc2b025b7f3e28954c7f95409ffab03e5cbcf13d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -80,6 +81,8 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 | **12.** |CHAP |Le credenziali di autenticazione CHAP create non possono essere rimosse. Se si modificano le credenziali di autenticazione CHAP, per rendere effettive le modifiche è necessario portare i volumi offline e quindi riportarli online. |La risoluzione del problema è prevista per una versione futura. |
 | **13.** |Server iSCSI |Le risorse di archiviazione usate visualizzate per un volume iSCSI possono essere diverse nel servizio StorSimple Manager e nell'host iSCSI. |L'host iSCSI ha la visualizzazione del file system.<br></br>Il dispositivo vede i blocchi allocati quando il volume aveva raggiunto le dimensioni massime. |
 | **14.** |File server |Se un file contenuto in una cartella è associato a un flusso di dati alternativi (ADS), sul flusso non viene eseguito il backup o il ripristino tramite ripristino di emergenza, clonazione e ripristino a livello di elemento. | |
+| **15.** |File server |I collegamenti simbolici non sono supportati. | |
+| **16.** |File server |I file protetti da Windows Encrypting File System (EFS), quando vengono copiati o archiviati in un file server StorSimple Virtual Array, restituiscono una configurazione non supportata.  | |
 
 ## <a name="next-step"></a>Passaggio successivo
 [Installare l'aggiornamento 0.4](storsimple-virtual-array-install-update-04.md) nell'array virtuale StorSimple.
@@ -90,10 +93,5 @@ Si desidera consultare le note su una versione precedente? Passare a:
 * [Note sulla versione dell'aggiornamento 0.3 per l'array virtuale StorSimple](storsimple-ova-update-03-release-notes.md)
 * [Note sulla versione dell'Aggiornamento 0.1 e 0.2 per l'array virtuale StorSimple](storsimple-ova-update-01-release-notes.md)
 * [Note sulla versione con disponibilità generale dell'array virtuale StorSimple](storsimple-ova-pp-release-notes.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

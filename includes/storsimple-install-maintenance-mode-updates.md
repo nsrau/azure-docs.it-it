@@ -17,8 +17,3 @@
 8. Quando l'aggiornamento è installato nel controller corrente ed è stato riavviato, connettersi all'altro controller ed eseguire i passaggi da 1 a 6.
 9. Dopo l'aggiornamento di entrambi i controller, uscire dalla modalità di manutenzione. Per istruzioni, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](../articles/storsimple/storsimple-update-device.md#step4).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

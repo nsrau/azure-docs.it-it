@@ -29,8 +29,3 @@ Questa sezione illustra la configurazione dell'ambiente di sviluppo, incluse la 
     ![Finestra di dialogo Servizi connessi](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
 1. Nella finestra di dialogo **Archiviazione di Azure** selezionare l'account di archiviazione di Azure desiderato e selezionare **Aggiungi**.
-
-
-<!--HONumber=Dec16_HO3-->
-
-

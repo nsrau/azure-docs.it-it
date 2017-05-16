@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 18d64f1ad4ef0dd41ae9302d08e02e94d1c608f5
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 766120913d419ec8090a4f25d304f2d3cf9b6693
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -33,7 +33,7 @@ Per iniziare, è necessario:
 * Un **gateway locale**: se una o più origini dati si trovano nella rete locale dell'organizzazione, è necessario installare un [gateway dati locale](analysis-services-gateway.md). Il gateway è necessario affinché il server nel cloud possa connettersi alle origini dati locali per elaborare e aggiornare i dati nel modello.
 
 ## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Per distribuire un modello tabulare da SSDT
-Per distribuire da SSDT, assicurarsi che si stia usando la [versione più recente](https://msdn.microsoft.com/library/mt204009.aspx), aggiornata il 30 settembre 2016, o una versione successiva.
+Per distribuire da SSDT, assicurarsi di usare la [versione più recente](https://msdn.microsoft.com/library/mt204009.aspx).
 
 > [!TIP]
 > Prima di distribuire, assicurarsi che sia possibile elaborare i dati nelle tabelle. In SSDT fare clic su **Modello** > **Elabora** > **Elabora tutto**. Se l'elaborazione ha esito negativo, anche la distribuzione non potrà essere eseguita.

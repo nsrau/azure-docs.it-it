@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e9e1649e4329d10ca8b87c730ad8c6beb3be818f
-ms.lasthandoff: 03/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ac3f4d2220c1902f00049ce237468ddee992209d
+ms.contentlocale: it-it
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -45,7 +46,7 @@ Per un confronto tra i servizi dell'hub IoT e di Hub eventi, vedere [Confronto t
 ## <a name="device-to-cloud-messages"></a>Messaggi da dispositivo a cloud
 I messaggi da dispositivo a cloud vengono inviati tramite un endpoint per il dispositivo (**/devices/{deviceId}/messages/events**). A quel punto le regole di routing reindirizzano i messaggi a uno degli endpoint di servizio nell'hub IoT. Le regole di routing usano le proprietà dei messaggi da dispositivo a cloud che passano nell'hub per determinare dove reindirizzarli. Per impostazione predefinita, i messaggi vengono reindirizzati all'endpoint per servizio predefinito (messages/events) compatibile con [Hub eventi][lnk-event-hubs]. È quindi possibile usare l'[integrazione standard di Hub eventi e gli SDK][lnk-compatible-endpoint] per ricevere i messaggi da dispositivo a cloud.
 
-L'hub IoT implementa la messaggistica da dispositivo a cloud usando un modello di messaggistica di flusso. I messaggi da dispositivo a cloud dell'hub IoT somigliano più a eventi di [Hub eventi][lnk-event-hubs]** che non a messaggi del [bus di servizio][lnk-servicebus]**, poiché è presente un volume elevato di eventi che passa nel servizio ed è leggibile da più lettori.
+L'hub IoT implementa la messaggistica da dispositivo a cloud usando un modello di messaggistica di flusso. I messaggi da dispositivo a cloud dell'hub IoT somigliano più a *eventi* di [Hub eventi][lnk-event-hubs] che non a *messaggi* del [bus di servizio][lnk-servicebus], poiché è presente un volume elevato di eventi che passa nel servizio ed è leggibile da più lettori.
 
 Questa implementazione presenta le implicazioni seguenti:
 
@@ -191,7 +192,7 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
 | --- | --- |
 | EnqueuedTimeUtc |Timestamp che indica quando è stato creato il risultato del messaggio. Ad esempio, il dispositivo ha completato l'operazione o il messaggio è scaduto. |
 | OriginalMessageId |**MessageId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
-| StatusCode |Numero intero obbligatorio. Usato nei messaggi con commenti generati dall'hub IoT. <br/> 0 = esito positivo <br/> 1 = il messaggio è scaduto <br/> 2 = il numero massimo di recapiti è stato superato <br/> 3 = messaggio rifiutato |
+| StatusCode |Stringa obbligatoria. Usato nei messaggi con commenti generati dall'hub IoT. <br/> 'Operazione riuscita' <br/> 'Scaduto' <br/> 'Numero di distribuzioni superato' <br/> 'Rifiutato' <br/> 'Eliminato definitivamente' |
 | Descrizione |Valori stringa per **StatusCode**. |
 | deviceId |**DeviceId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
 | DeviceGenerationId |**DeviceGenerationId** del dispositivo di destinazione del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
@@ -384,7 +385,7 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 [img-lifecycle]: ./media/iot-hub-devguide-messaging/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messaging/eventhubcompatible.png
 
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-gateway-guidance]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-guidance-scale]: iot-hub-scaling.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
@@ -394,7 +395,7 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-management-portal]: https://portal.azure.com
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-[lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
+[lnk-eventhub-partitions]: ../event-hubs/event-hubs-features.md#partitions
 [lnk-portal]: iot-hub-create-through-portal.md
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
@@ -435,5 +436,5 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions
+[lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions
 

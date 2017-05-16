@@ -12,95 +12,155 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 04/30/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 0320aafd5eed1b3ef658d5f020fc37ba1dcff308
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 5a788f87693ebb09ed40cb71983fce4014c907f1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-template-deploy.md)
-> * [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
-> * [Portale](resource-group-template-deploy-portal.md)
-> * [API REST](resource-group-template-deploy-rest.md)
-> 
-> 
 
-Questo argomento illustra come usare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) con modelli di Resource Manager per distribuire risorse in Azure.  Il modello può essere un file locale oppure un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
+Questo argomento illustra come usare l'interfaccia della riga di comando di Azure 2.0 con modelli di Resource Manager per distribuire risorse in Azure. Per comprendere i concetti di distribuzione e gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).  
 
-## <a name="deploy"></a>Distribuire
+Il modello di Resource Manager che si distribuisce può essere un file locale nel computer o un file esterno che si trova in un repository come GitHub. Il modello che viene distribuito in questo articolo è disponibile nella sezione [Modello di esempio](#sample-template) o come [modello di account di archiviazione in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-* Per iniziare rapidamente la distribuzione, usare i comandi seguenti per distribuire un modello locale con parametri inline:
+[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
-  ```azurecli
-  az login
-  az account set --subscription {subscription-id}
+<a id="deploy-local-template" />
 
-  az group create --name ExampleGroup --location "Central US"
-  az group deployment create \
-      --name ExampleDeployment \
-      --resource-group ExampleGroup \
-      --template-file storage.json \
-      --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
-  ```
+## <a name="deploy-a-template-from-your-local-machine"></a>Distribuire un modello dal computer locale
 
-  Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio che include il risultato:
+Per distribuire le risorse in Azure, seguire questa procedura:
 
-  ```azurecli
-  "provisioningState": "Succeeded",
-  ```
-  
-* Il comando `az account set` è necessario solo se si desidera usare una sottoscrizione diversa dalla sottoscrizione predefinita. Per vedere tutte le sottoscrizioni e i relativi ID, usare:
+1. Accedere all'account Azure
+2. Creare un gruppo di risorse che funge da contenitore per le risorse distribuite
+3. Distribuire nel gruppo di risorse il modello che definisce le risorse da creare.
 
-  ```azurecli
-  az account list
-  ```
+Un modello può includere parametri che consentono di personalizzare la distribuzione. Può includere ad esempio valori specifici per un determinato ambiente (di sviluppo, test e produzione). Il modello di esempio definisce un parametro per lo SKU dell'account di archiviazione. 
 
-* Per distribuire un modello esterno, usare il parametro **template-uri**:
+L'esempio seguente crea un gruppo di risorse e distribuisce un modello dal computer locale:
+
+```azurecli
+az login
+
+az group create --name ExampleGroup --location "Central US"
+az group deployment create \
+    --name ExampleDeployment \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+```
+
+Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio che include il risultato:
+
+```azurecli
+"provisioningState": "Succeeded",
+```
+
+## <a name="deploy-a-template-from-an-external-source"></a>Distribuire un modello da un'origine esterna
+
+Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
+
+Per distribuire un modello esterno, usare il parametro **template-uri**. Usare l'URI indicato nell'esempio per distribuire il modello di esempio da GitHub.
    
-   ```azurecli
-   az group deployment create \
-       --name ExampleDeployment \
-       --resource-group ExampleGroup \
-       --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/storage.json" \
-       --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
-   ```
+```azurecli
+az group deployment create \
+    --name ExampleDeployment \
+    --resource-group ExampleGroup \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+```
 
-* Per passare i valori dei parametri in un file, usare:
+L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati riservati. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-cli-sas-token.md).
 
-   ```azurecli
-   az group deployment create \
-       --name ExampleDeployment \
-       --resource-group ExampleGroup \
-       --template-file storage.json \
-       --parameters @storage.parameters.json
-   ```
+## <a name="parameter-files"></a>File dei parametri
 
-   Il file dei parametri deve essere nel formato seguente:
+Invece di passare i parametri come valori inline nello script, può risultare più facile usare un file JSON che contenga i valori dei parametri. Il file dei parametri deve essere nel formato seguente:
 
-   ```json
-   {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-        "storageNamePrefix": {
-            "value": "contoso"
-        },
-        "storageSKU": {
-            "value": "Standard_GRS"
-        }
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+     "storageAccountType": {
+         "value": "Standard_GRS"
      }
-   }
-   ```
+  }
+}
+```
 
+Si noti che la sezione dei parametri include un nome di parametro che corrisponde al parametro definito nel modello (storageAccountType). Il file dei parametri contiene un valore per il parametro. Questo valore viene passato automaticamente al modello durante la distribuzione. È possibile creare più file dei parametri per scenari di distribuzione diversi e successivamente passare il file dei parametri appropriato. 
+
+Copiare l'esempio precedente e salvarlo come file denominato `storage.parameters.json`.
+
+Per passare un file dei parametri locale, usare `@` per specificare un file locale denominato storage.parameters.json.
+
+```azurecli
+az group deployment create \
+    --name ExampleDeployment \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters @storage.parameters.json
+```
+
+## <a name="test-a-template-deployment"></a>Testare una distribuzione del modello
+
+Per testare il modello e i valori dei parametri senza distribuire effettivamente le risorse, usare il comando [az group deployment validate](/cli/azure/group/deployment#validate). 
+
+```azurecli
+az group deployment validate \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters @storage.parameters.json
+```
+
+Se non vengono rilevati errori, il comando restituisce informazioni sulla distribuzione di test. Si noti nello specifico che il valore dell'**errore** è null.
+
+```azurecli
+{
+  "error": null,
+  "properties": {
+      ...
+```
+
+Se viene rilevato un errore, il comando restituisce un messaggio di errore. Il tentativo, ad esempio, di passare un valore non corretto per lo SKU dell'account di archiviazione, restituisce l'errore seguente:
+
+```azurecli
+{
+  "error": {
+    "code": "InvalidTemplate",
+    "details": null,
+    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 
+      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed 
+      value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
+    "target": null
+  },
+  "properties": null
+}
+```
+
+Se il modello contiene un errore di sintassi, il comando restituisce un errore che indica che non è riuscito ad analizzare il modello. Il messaggio indica il numero di riga e la posizione dell'errore di analisi.
+
+```azurecli
+{
+  "error": {
+    "code": "InvalidTemplate",
+    "details": null,
+    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered:
+      \". Path 'variables', line 31, position 3.'.",
+    "target": null
+  },
+  "properties": null
+}
+```
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-Per usare la modalità completa, usare il parametro mode:
+Per usare la modalità completa, usare il parametro `mode`:
 
 ```azurecli
 az group deployment create \
@@ -108,210 +168,63 @@ az group deployment create \
     --mode Complete \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
 ```
 
-## <a name="deploy-template-from-storage-with-sas-token"></a>Distribuire modelli dall'archiviazione con token SAS
-È possibile aggiungere i modelli a un account di archiviazione e collegarli durante la distribuzione con un token SAS.
+## <a name="sample-template"></a>Modello di esempio
 
-> [!IMPORTANT]
-> Attenendosi alla seguente procedura, il BLOB contenente il modello sarà accessibile solo da parte del proprietario dell'account. Tuttavia, quando si crea un token di firma di accesso condiviso per il BLOB, quest'ultimo sarà accessibile a tutti gli utenti con quell'URI. Se l'URI viene intercettato da un altro utente, quest'ultimo sarà in grado di accedere al modello. Utilizzare un token di firma di accesso condiviso è un buon metodo per limitare l'accesso ai modelli, ma è necessario non includere direttamente nel modello dati sensibili come le password.
-> 
-> 
+Il modello seguente viene usato per gli esempi in questo argomento. Copiarlo e salvarlo come file denominato storage.json. Per informazioni su come creare questo modello, vedere [Creare il primo modello di Azure Resource Manager](resource-manager-create-first-template.md).  
 
-### <a name="add-private-template-to-storage-account"></a>Aggiungere un modello privato all'account di archiviazione
-L'esempio seguente configura un contenitore dell'account di archiviazione privato e carica un modello:
-   
-```azurecli
-az group create --name "ManageGroup" --location "South Central US"
-az storage account create \
-    --resource-group ManageGroup \
-    --location "South Central US" \
-    --sku Standard_LRS \
-    --kind Storage \
-    --name {your-unique-name}
-connection=$(az storage account show-connection-string \
-    --resource-group ManageGroup \
-    --name {your-unique-name} \
-    --query connectionString)
-az storage container create \
-    --name templates \
-    --public-access Off \
-    --connection-string $connection
-az storage blob upload \
-    --container-name templates \
-    --file vmlinux.json \
-    --name vmlinux.json \
-    --connection-string $connection
-```
-
-### <a name="provide-sas-token-during-deployment"></a>Fornire il token SAS in fase di distribuzione
-Per distribuire un modello privato in un account di archiviazione, generare un token di firma di accesso condiviso e includerlo nell'URI del modello. Impostare l'ora di scadenza in modo da garantire un tempo sufficiente per completare la distribuzione.
-   
-```azurecli
-seconds='@'$(( $(date +%s) + 1800 ))
-expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
-connection=$(az storage account show-connection-string \
-    --resource-group ManageGroup \
-    --name {your-unique-name} \
-    --query connectionString)
-token=$(az storage blob generate-sas \
-    --container-name templates \
-    --name vmlinux.json \
-    --expiry $expiretime \
-    --permissions r \
-    --output tsv \
-    --connection-string $connection)
-url=$(az storage blob url \
-    --container-name templates \
-    --name vmlinux.json \
-    --output tsv \
-    --connection-string $connection)
-az group deployment create --resource-group ExampleGroup --template-uri $url?$token
-```
-
-Per un esempio sull'uso di un token di firma di accesso condiviso con modelli collegati, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
-
-## <a name="debug"></a>Debug
-
-Per visualizzare informazioni sulle operazioni per una distribuzione non riuscita, usare:
-   
-```azurecli
-az group deployment operation list --resource-group ExampleGroup --name vmlinux --query "[*].[properties.statusMessage]"
-```
-
-Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-
-## <a name="complete-deployment-script"></a>Completare lo script di distribuzione
-
-L'esempio seguente mostra lo script dell'interfaccia della riga di comando di Azure 2.0 per la distribuzione di un modello che viene generato dalla funzionalità di [esportazione modello](resource-manager-export-template.md):
-
-```azurecli
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
-
-# -e: immediately exit if any command has a non-zero exit status
-# -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
-
-usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
-
-declare subscriptionId=""
-declare resourceGroupName=""
-declare deploymentName=""
-declare resourceGroupLocation=""
-
-# Initialize parameters specified from command line
-while getopts ":i:g:n:l:" arg; do
-    case "${arg}" in
-        i)
-            subscriptionId=${OPTARG}
-            ;;
-        g)
-            resourceGroupName=${OPTARG}
-            ;;
-        n)
-            deploymentName=${OPTARG}
-            ;;
-        l)
-            resourceGroupLocation=${OPTARG}
-            ;;
-        esac
-done
-shift $((OPTIND-1))
-
-#Prompt for parameters is some required parameters are missing
-if [[ -z "$subscriptionId" ]]; then
-    echo "Subscription Id:"
-    read subscriptionId
-    [[ "${subscriptionId:?}" ]]
-fi
-
-if [[ -z "$resourceGroupName" ]]; then
-    echo "ResourceGroupName:"
-    read resourceGroupName
-    [[ "${resourceGroupName:?}" ]]
-fi
-
-if [[ -z "$deploymentName" ]]; then
-    echo "DeploymentName:"
-    read deploymentName
-fi
-
-if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
-    echo "ResourceGroupLocation:"
-    read resourceGroupLocation
-fi
-
-#templateFile Path - template file to be used
-templateFilePath="template.json"
-
-if [ ! -f "$templateFilePath" ]; then
-    echo "$templateFilePath not found"
-    exit 1
-fi
-
-#parameter file path
-parametersFilePath="parameters.json"
-
-if [ ! -f "$parametersFilePath" ]; then
-    echo "$parametersFilePath not found"
-    exit 1
-fi
-
-if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
-    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
-    usage
-fi
-
-#login to azure using your credentials
-az account show 1> /dev/null
-
-if [ $? != 0 ];
-then
-    az login
-fi
-
-#set the default subscription id
-az account set --name $subscriptionId
-
-set +e
-
-#Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
-    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
-    (
-        set -x
-        az resource group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
-    )
-    else
-    echo "Using existing resource group..."
-fi
-
-#Start deployment
-echo "Starting deployment..."
-(
-    set -x
-    az resource group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
-)
-
-if [ $?  == 0 ];
- then
-    echo "Template has been successfully deployed"
-fi
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "apiVersion": "2016-01-01",
+      "location": "[resourceGroup().location]",
+      "sku": {
+          "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "Storage", 
+      "properties": {
+      }
+    }
+  ],
+  "outputs": {
+      "storageAccountName": {
+          "type": "string",
+          "value": "[variables('storageAccountName')]"
+      }
+  }
+}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Per definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md#parameters).
-* Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
-* Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
+* Gli esempi inclusi in questo articolo distribuiscono risorse a un gruppo di risorse nella sottoscrizione predefinita. Per usare una sottoscrizione diversa, vedere [Gestire più sottoscrizioni di Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
+* Per uno script di esempio completo che consente di distribuire un modello, vedere lo [script di distribuzione di modelli di Resource Manager](resource-manager-samples-cli-deploy.md).
+* Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
+* Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-cli-sas-token.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-* Per una serie di quattro parti sull'automazione della distribuzione, vedere [Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Questa serie illustra argomenti come architettura, accesso e sicurezza, disponibilità, scalabilità e distribuzione delle applicazioni.
-
 

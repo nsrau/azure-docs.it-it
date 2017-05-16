@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: d7eef61b28d63b794235d82fdbbabb13b4cd3372
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 763ec017cef58b91ba12b616870cb9d830448749
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -30,7 +30,7 @@ Questo articolo illustra come creare e popolare Azure Active Directory e quindi 
 ## <a name="create-and-populate-an-azure-ad"></a>Creare e popolare un'istanza di Azure AD
 Creare un'istanza di Azure AD e popolarla con utenti e gruppi. Azure AD può essere il dominio gestito di Azure AD iniziale. Azure AD può anche essere un set di servizi di dominio Active Directory locali federato con Azure AD.
 
-Per altre informazioni, consultare [Integrazione delle identità locali con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Aggiungere un nome di dominio personalizzato ad Azure AD](../active-directory/active-directory-add-domain.md), [Windows Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Nuovo supporto per la federazione con Active Directory di Windows Server in Windows Azure), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD con Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) e [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](../active-directory/active-directory-aadconnect-ports.md).
+Per altre informazioni, consultare [Integrazione delle identità locali con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Aggiungere un nome di dominio personalizzato ad Azure AD](../active-directory/active-directory-add-domain.md), [Windows Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Nuovo supporto per la federazione con Active Directory di Windows Server in Windows Azure), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD con Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) e [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](../active-directory/active-directory-aadconnect-ports.md).
 
 ## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Facoltativo: associare o modificare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure
 Per associare il database alla directory di Azure AD dell'organizzazione, impostare la directory come directory attendibile per la sottoscrizione di Azure che ospita il database. Per altre informazioni, vedere [Associazione delle sottoscrizioni di Azure ad Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
@@ -95,7 +95,7 @@ Le due procedure seguenti illustrano come eseguire il provisioning di un amminis
 Per rimuovere un amministratore in un secondo momento, nella parte superiore del pannello **Amministratore di Active Directory** fare clic su **Rimuovi amministratore**, quindi su **Salva**.
 
 ### <a name="powershell"></a>PowerShell
-Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 Per eseguire il provisioning di un amministratore di Azure AD, eseguire i comandi di Azure PowerShell seguenti:
 
@@ -106,9 +106,9 @@ Cmdlet usati per il provisioning e la gestione dell'amministratore di Azure AD:
 
 | Nome del cmdlet | Descrizione |
 | --- | --- |
-| [Set-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) |Esegue il provisioning di un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. Deve far parte della sottoscrizione corrente. |
-| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) |Rimuove un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. |
-| [Get-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) |Restituisce informazioni sull'amministratore di Azure Active Directory attualmente configurato per il server di Azure SQL o Azure SQL Data Warehouse. |
+| [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Esegue il provisioning di un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. Deve far parte della sottoscrizione corrente. |
+| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Rimuove un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. |
+| [Get-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Restituisce informazioni sull'amministratore di Azure Active Directory attualmente configurato per il server di Azure SQL o Azure SQL Data Warehouse. |
 
 Per visualizzare altri dettagli per ogni comando, usare il comando di PowerShell get-help, ad esempio ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 

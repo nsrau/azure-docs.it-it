@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4491d7385b9cfc2105e83f0e1099b68cde75feec
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cfb4104dd58f2af8b3ffed7491c91ae6c6557ddc
+ms.openlocfilehash: f5006b6ce1b409fae5e540d8414e8e56651f9349
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -61,10 +63,5 @@ Dopo aver risposto a queste domande, sarà possibile capire se l'autenticazione 
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

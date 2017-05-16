@@ -1,5 +1,5 @@
 ---
-title: Creare cluster Azure HDInsight (Hadoop) usando un Web browser | Documentazione Microsoft
+title: Creare cluster Azure HDInsight (Hadoop) usando un Web browser | Microsoft Docs
 description: Informazioni su come creare cluster Hadoop, HBase, Storm o Spark in Linux per HDInsight usando un browser Web e il portale di anteprima di Azure.
 services: hdinsight
 documentationcenter: 
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 22b45634ee66ec29c089ecd0a4d9bacc60f68b94
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 030935ec304cc9b26bd2369fdadf2d99bd094c5d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -33,9 +34,6 @@ Il portale di Azure è uno strumento di gestione basato sul Web per servizi e ri
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un Web browser moderno**. Il portale di Azure usa HTML5 e Javascript e potrebbe non funzionare correttamente nei Web browser meno recenti.
-
-### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-clusters"></a>Creare i cluster
 Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il modello di Azure Resource Manager è possibile nascondere molti dettagli. Per altre informazioni, vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
@@ -91,6 +89,9 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
     Fare clic su **Avanti**. 
 
+    > [!WARNING]
+    > L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
+
 5. Se lo si desidera, fare clic su **Applicazioni** per installare le applicazioni che funzionano con i cluster HDInsight. Queste applicazioni possono essere sviluppate da Microsoft, da fornitori di software indipendenti (ISV) o dall'utente. Per altre informazioni, vedere [Installare applicazioni HDInsight](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
@@ -145,6 +146,10 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
 ## <a name="delete-the-cluster"></a>Eliminazione del cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot"></a>Risoluzione dei problemi
+
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquisire familiarità con il cluster:

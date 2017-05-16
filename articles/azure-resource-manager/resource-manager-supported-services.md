@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: bf4e400e30cc93ca8fa0cc727ada0f1b224b05cb
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -37,7 +37,7 @@ Nelle tabelle seguenti vengono elencati quali servizi Microsoft supportano la di
 | Registro di sistema del contenitore |Sì |[Registro contenitori REST](/rest/api/containerregistry) |[Risorse di Registro contenitori](/azure/templates/microsoft.containerregistry/registries) |
 | Servizio contenitore |Sì |[Container Service REST](/rest/api/compute/containerservices) |[Risorse del servizio contenitore](/azure/templates/microsoft.containerservice/containerservices) |
 | Servizi del ciclo di vita Dynamics |Sì | | |
-| Set di scalabilità |Sì |[Scale Set REST](/rest/api/compute/virtualmachinescalesets) |[Risorse del set di scalabilità](/azure/templates/microsoft.compute/virtualmachinescalesets) |
+| Set di scalabilità |Sì |[Scale Set REST](/rest/api/virtualmachinescalesets/) |[Risorse del set di scalabilità](/azure/templates/microsoft.compute/virtualmachinescalesets) |
 | Service Fabric |Sì |[REST di Service Fabric](/rest/api/servicefabric) | [Risorse di Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Macchine virtuali |Sì |[VM REST](/rest/api/compute/virtualmachines) |[Risorse VM](/azure/templates/microsoft.compute/virtualmachines) |
 | Macchine virtuali (classico) |Limitato |- |- |
@@ -125,14 +125,14 @@ Servizi cloud (classico) può essere usato con altre risorse classiche. Le risor
 | Bus di servizio |Sì |[REST del bus di servizio](/rest/api/servicebus) |[Risorse del bus di servizio](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Gestione dell'identità e dell'accesso
-Azure Active Directory funziona con Gestione risorse per l'abilitazione del controllo di accesso basato sul ruolo per la sottoscrizione. Per informazioni sull'uso del controllo degli accessi in base al ruolo e su Active Directory vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
+Azure Active Directory funziona con Gestione risorse per l'abilitazione del controllo di accesso basato sul ruolo per la sottoscrizione. Per informazioni sull'uso del controllo di accesso in base al ruolo e su Azure Active Directory, vedere [Controllo di accesso in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="developer-services"></a>Servizi per gli sviluppatori
 | Servizio | Gestione risorse abilitato | API REST | Formato del modello |
 | --- | --- | --- | --- |
 | Monitorare |Sì |[REST Monitoraggio](/rest/api/monitor) |[Risorse di Insights](/azure/templates/microsoft.insights/alertrules) |
 | Bing Mappe |Sì | | |
-| DevTest Labs |Sì | [DevTest REST (REST di DevTest) ](/rest/api/dtl) |[Risorse di DevTest Lab](/azure/templates/microsoft.devtestlab/labs) |
+| DevTest Labs |Sì | [REST di DevTest Labs](/rest/api/dtl) |[Risorse di DevTest Labs](/azure/templates/microsoft.devtestlab/labs) |
 | Account di Visual Studio |Sì | |[Schema Visual Studio](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## <a name="management-and-security"></a>Gestione e sicurezza
@@ -157,9 +157,9 @@ Azure Active Directory funziona con Gestione risorse per l'abilitazione del cont
 ## <a name="resource-providers-and-types"></a>Provider e tipi di risorse
 Quando si distribuiscono risorse, è spesso necessario recuperare informazioni sui provider e i tipi di risorse. Queste informazioni possono essere recuperate tramite l'API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
-Per usare un provider di risorse, il provider deve essere registrato con l'account. Per impostazione predefinita, molti provider di risorse sono registrati automaticamente. Tuttavia, potrebbe essere necessario registrare alcuni provider di risorse manualmente. Nell'esempio seguente viene illustrato come ottenere lo stato della registrazione di un provider di risorse e registrare il provider di risorse, se necessario.
+Per usare un provider di risorse, il provider deve essere registrato con l'account. Per impostazione predefinita, molti provider di risorse sono registrati automaticamente. Tuttavia, potrebbe essere necessario registrare alcuni provider di risorse manualmente. L'esempio di questa sezione illustra come ottenere lo stato della registrazione di un provider di risorse e registrare il provider di risorse.
 
-### <a name="portal"></a>Portale
+### <a name="portal"></a>di Microsoft Azure
 È possibile visualizzare facilmente un elenco di provider di risorse supportate selezionando **Provider di risorse** nel pannello di sottoscrizione. Per registrare la sottoscrizione con un provider di risorse, selezionare il collegamento **Registra**.
    
 ![Elenco di provider di risorse](./media/resource-manager-supported-services/view-resource-providers.png)
@@ -255,7 +255,7 @@ Per scoprire quali versioni API sono disponibili per determinati tipi di risorse
 L'esempio seguente illustra come ottenere le versioni dell'API disponibili per un determinato tipo di risorse.
 
 ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 L'output è simile a:

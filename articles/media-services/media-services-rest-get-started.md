@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 52f672dcf42a19bf10935fcf733b8f07ff559a8d
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93481fe9c3920ea4c578f3da326de9f9e8531a71
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -226,7 +226,7 @@ Quando si crea un asset è necessario specificare le opzioni correlate. La propr
 
 * **None** = **0**: non viene usata alcuna crittografia. Quando si usa questa opzione il contenuto non è protetto durante il transito, né nell'archiviazione locale.
     Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
-* **StorageEncrypted** = **1**: crittografa il contenuto non crittografato localmente usando la crittografia AES a&256; bit, quindi li carica in Archiviazione di Azure dove vengono archiviati con crittografia in modo inattivo. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
+* **StorageEncrypted** = **1**: crittografa il contenuto non crittografato localmente usando la crittografia AES a 256 bit, quindi li carica in Archiviazione di Azure dove vengono archiviati con crittografia in modo inattivo. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
 * **CommonEncryptionProtected** = **2**: usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
 * **EnvelopeEncryptionProtected** = **4**: usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 
@@ -473,7 +473,7 @@ Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel
 >
 >
 
-Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Aggiornare l'entità AssetFile
 Una volta caricato il file, è possibile aggiornare la dimensione dell'entità FileAsset e altre informazioni. ad esempio:
@@ -705,7 +705,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 * Il parametro value passato a JobInputAsset o JobOutputAsset rappresenta il valore di indice di un asset. Gli asset effettivi vengono definiti nelle proprietà di navigazione InputMediaAssets e OutputMediaAssets nella definizione dell'entità Job.
 
 > [!NOTE]
-> Poiché Servizi multimediali si basa su OData versione&3;, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "__metadata : uri".
+> Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "__metadata : uri".
 >
 >
 
@@ -962,7 +962,7 @@ Una volta impostate le entità AccessPolicy e Locator, è possibile scaricare i 
 >
 >
 
-Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 Come risultato del processo di codifica eseguito in precedenza (in un set MP4 a velocità adattiva), si hanno più file MP4 di cui è possibile eseguire il download progressivo. ad esempio:    
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
-ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a8f1bf660c44f7716767d3244a7d6e7f7acf8a83
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,9 +78,9 @@ Quando si decide di distribuire una nuova versione di un servizio cloud, è poss
 
 Esistono due prerequisiti chiave per lo scambio corretto di distribuzioni:
 
-- Se si desidera usare un indirizzo IP statico per lo slot di produzione, è necessario riservarne uno anche per lo slot di staging. In caso contrario, lo scambio avrà esito negativo.
+- Se si desidera usare un indirizzo IP statico per lo slot di produzione, è necessario riservarne uno anche per lo slot di gestione temporanea. In caso contrario, lo scambio avrà esito negativo.
 
-- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel pannello di panoramica del portale di Azure o usando il [comando Get-AzureRole in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel pannello di panoramica del portale di Azure o usando il [comando Get-AzureRole in Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
 
 Si noti che anche gli aggiornamenti del sistema operativo guest e le operazioni di correzione del servizio possono ostacolare il corretto scambio delle distribuzioni. Per altre informazioni, vedere [Risolvere eventuali problemi di distribuzione dei servizi cloud](cloud-services-troubleshoot-deployment-problems.md).
 
@@ -121,9 +122,4 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -3,21 +3,22 @@ title: Crittografia lato client con Java per Archiviazione di Microsoft Azure | 
 description: La libreria client di archiviazione di Azure per Java offre supporto per la crittografia lato client e l&quot;integrazione con l&quot;insieme di credenziali delle chiavi di Azure per la massima sicurezza delle applicazioni di archiviazioni Azure.
 services: storage
 documentationcenter: java
-author: seguler
+author: lakasa
 manager: jahogg
 editor: tysonn
 ms.assetid: 3df49907-554c-404a-9b0c-b3e3269ad04f
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: 7e182ee18e3c2c12eb29f864dd875d764ca5d534
-ms.openlocfilehash: 116693fdb8a8fa0e332b74459f7827bbf44c9ed7
-ms.lasthandoff: 11/22/2016
+ms.date: 05/11/2017
+ms.author: lakasa
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 7601449c7f84a4367f9d684d9bbb0cf61fda29b0
+ms.contentlocale: it-it
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +45,7 @@ La decrittografia tramite la tecnica basata su envelope funziona nel modo seguen
 
 1. La libreria client presuppone che l'utente gestisce la chiave di crittografia della chiave (KEK) in locale o negli insiemi di credenziali Azure. L'utente non deve necessariamente conoscere la chiave specifica utilizzata per la crittografia. Al contrario, è possibile impostare e utilizzare un resolver di chiavi che risolve diversi identificatori di chiave per le chiavi.  
 2. La libreria client scarica i dati crittografati insieme al materiale di crittografia archiviato nel servizio.  
-3. La chiave di crittografia dei contenuti (CEK) con wrapping viene quindi sottoposta a rimozione del wrapping (decrittografata) utilizzando la chiave di crittografia della chiave (KEK). Anche in questo caso, la libreria client non ha accesso alla KEK. Richiama semplicemente l'algoritmo di rimozione del wrapping personalizzato o del provider dell’insieme di credenziali chiave.  
+3. La chiave di crittografia dei contenuti (CEK) con wrapping viene quindi sottoposta a rimozione del wrapping (decrittografata) utilizzando la chiave di crittografia della chiave (KEK). Anche in questo caso, la libreria client non ha accesso alla KEK. Richiama semplicemente l'algoritmo di rimozione del wrapping personalizzato o del provider Key Vault.  
 4. La chiave di crittografia del contenuto (CEK) viene quindi utilizzata per decrittografare i dati utente crittografati.
 
 ## <a name="encryption-mechanism"></a>Meccanismo di crittografia
@@ -193,7 +194,7 @@ CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
 
 ### <a name="table-service-encryption"></a>Crittografia del servizio tabelle
-Oltre a creare un criterio di crittografia e a impostarlo nelle opzioni di richiesta, è necessario specificare **EncryptionResolver** in **TableRequestOptions** o impostare l'attributo [Encrypt] nel getter e setter dell'entità.
+Oltre a creare un criterio di crittografia e a impostarlo nelle opzioni di richiesta, è necessario specificare **EncryptionResolver** in **TableRequestOptions** o impostare l'attributo [Encrypt] nelle proprietà Get e Set dell'entità.
 
 ### <a name="using-the-resolver"></a>Utilizzo del resolver
 

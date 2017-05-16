@@ -16,17 +16,14 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: b62097f945bc5c595c0893d16bb2c1d9bbfd7a07
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 Le operazioni di invio in batch al database SQL di Azure migliorano in modo significativo le prestazioni e la scalabilità delle applicazioni. Per comprendere i vantaggi, la prima parte di questo articolo descrive alcuni risultati dei test di esempio che confrontano le richieste sequenziali e in batch inviate a un database SQL. Il resto dell'articolo illustra le tecniche, gli scenari e le considerazioni che facilitano l'uso corretto dell'invio in batch nelle applicazioni Azure.
-
-**Autori**: Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
-
-**Revisori**: Conor Cunningham, Michael Thomassy
 
 ## <a name="why-is-batching-important-for-sql-database"></a>Perché l'invio in batch è importante per il database SQL?
 L'invio in batch di chiamate a un servizio remoto è una strategia nota per migliorare le prestazioni e la scalabilità. Ogni interazione con un servizio remoto, ad esempio la serializzazione, il trasferimento in rete e la deserializzazione, comporta costi fissi di elaborazione. Il raggruppamento di più transazioni distinte in un singolo batch consente di ridurre al minimo questi costi.
@@ -44,7 +41,7 @@ La prima parte del documento esamina le diverse tecniche di invio in batch per l
 ## <a name="batching-strategies"></a>Strategie di invio in batch
 ### <a name="note-about-timing-results-in-this-topic"></a>Nota sui risultati della tempistica in questo argomento
 > [!NOTE]
-> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio](sql-database-service-tiers.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
+> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati tempo fa e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere attualmente. Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
 > 
 > 
 
@@ -585,7 +582,7 @@ In questo esempio, è possibile usare il fatto che la colonna SocialSecurityNumb
       SocialSecurityNumber NVARCHAR(50) );
     GO
 
-Successivamente, creare una stored procedure oppure scrivere codice che usi l'istruzione MERGE per eseguire l'aggiornamento e l'inserimento. L'esempio seguente usa l'istruzione MERGE in un parametro con valori di tabella @employees, di tipo EmployeeTableType. Il contenuto della tabella @employees non è illustrato.
+Successivamente, creare una stored procedure oppure scrivere codice che usi l'istruzione MERGE per eseguire l'aggiornamento e l'inserimento. L'esempio seguente usa l'istruzione MERGE in un parametro con valori di tabella, @employees, di tipo EmployeeTableType. Il contenuto della tabella @employees non è illustrato.
 
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
@@ -622,11 +619,6 @@ L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in 
 * Considerare il buffering in base a dimensioni e tempo come modalità di implementazione dell'invio in batch per più scenari.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi per migliorare le prestazioni e la scalabilità, vedere le [indicazioni sulle prestazioni del database SQL di Azure per i database singoli](sql-database-performance-guidance.md) e le [considerazioni su prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
+Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi per migliorare le prestazioni e la scalabilità, vedere le [indicazioni sulle prestazioni del database SQL di Azure per i database singoli](sql-database-performance-guidance.md) e le [considerazioni su prezzo e prestazioni per un pool elastico](sql-database-elastic-pool.md).
 
 

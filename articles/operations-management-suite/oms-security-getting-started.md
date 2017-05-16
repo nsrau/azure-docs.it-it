@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.contentlocale: it-it
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -99,12 +100,12 @@ Come qualsiasi altro riquadro animato disponibile nel dashboard di OMS, quando s
 Se si fa clic sul nome del computer, si ottiene la visualizzazione cronologica dello stato di protezione per questo computer. Ciò è molto utile per gli scenari in cui è necessario sapere se l'antimalware è stato installato e se a un certo punto che è stato rimosso.   
 
 ### <a name="update-assessment"></a>Valutazione aggiornamenti
-Questa opzione consente di determinare rapidamente l'esposizione complessiva a potenziali problemi di sicurezza e se o in che modo questi aggiornamenti sono critici per l'ambiente. La soluzione Sicurezza e controllo di OMS fornisce solo la visualizzazione di questi aggiornamenti, mentre i dati reali provengono dalle [soluzioni di aggiornamento del sistema](https://technet.microsoft.com/library/mt484096.aspx), ovvero un modulo diverso all'interno di OMS. Di seguito è riportato un esempio degli aggiornamenti:
+Questa opzione consente di determinare rapidamente l'esposizione complessiva a potenziali problemi di sicurezza e se o in che modo questi aggiornamenti sono critici per l'ambiente. La soluzione Sicurezza e controllo di OMS fornisce solo la visualizzazione di questi aggiornamenti, mentre i dati reali provengono dalla [soluzione Gestione aggiornamenti](oms-solution-update-management.md), ovvero un modulo diverso all'interno di OMS. Di seguito è riportato un esempio degli aggiornamenti:
 
-![Aggiornamenti di sistema](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![Aggiornamenti di sistema](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> Per altre informazioni sulla soluzione Aggiornamenti, vedere [Aggiornare i server con la soluzione Aggiornamenti di sistema](https://technet.microsoft.com/library/mt484096.aspx).
+> Per altre informazioni sulla soluzione Gestione aggiornamenti, vedere [Soluzione Gestione aggiornamenti in OMS](oms-solution-update-management.md).
 > 
 > 
 
@@ -134,6 +135,14 @@ Questo riquadro può essere usato per accedere a tutti i computer che presentano
 ![Computer](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
 È possibile continuare l'analisi facendo clic su ogni computer ed esaminando gli eventi di sicurezza contrassegnati.
+
+### <a name="threat-intelligence"></a>Intelligence per le minacce
+
+Tramite l'opzione Intelligence per le minacce disponibile nel dashboard Sicurezza e controllo di OMS, gli amministratori IT possono identificare le minacce per la sicurezza dell'ambiente, ad esempio determinare se un computer fa parte di una botnet. I computer possono diventare nodi di una botnet quando utenti malintenzionati installano illecitamente malware che connette il computer al comando e al controllo all'insaputa dell'utente. Questa funzionalità può anche identificare potenziali minacce provenienti da canali di comunicazione sotterranei, ad esempio una darknet. Altre informazioni sull'opzione Intelligence per le minacce sono disponibili nell'articolo [Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Sicurezza e controllo di Operations Management Suite](oms-security-responding-alerts.md).
+
+### <a name="baseline-assessment"></a>Valutazione di base
+
+Microsoft, insieme ad altre organizzazioni del settore e governative in tutto il mondo, definisce una configurazione di Windows che rappresenta distribuzioni server a sicurezza elevata. Questa configurazione è un set di chiavi del Registro di sistema, impostazioni dei criteri di controllo e impostazioni di criteri di sicurezza, oltre ai valori consigliati di Microsoft per queste impostazioni. Questo set di regole è noto come baseline sicurezza. Vedere [Valutazione baseline nella soluzione Sicurezza e controllo di Operations Management Suite](oms-security-baseline.md) per altre informazioni su questa opzione.
 
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
 Questo riquadro è fondamentalmente un collegamento per accedere ai dashboard del Centro sicurezza di Azure. Per altre informazioni su questa soluzione, vedere [Introduzione al Centro sicurezza Azure](../security-center/security-center-get-started.md) .

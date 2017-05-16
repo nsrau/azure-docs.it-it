@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
-translationtype: Human Translation
-ms.sourcegitcommit: d68c2f496cfdfa52c33243542ee141c44639e5c0
-ms.openlocfilehash: 7b4fda3ffb269c6a9de407bbd9af32d90768504f
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 86eec91025ae8ae553fa1f76a687e440784e7855
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 02/16/2017
 
 Per creare un peering reti virtuali con i modelli di Resource Manager, seguire questa procedura:
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
    > [!NOTE]
    > Il cmdlet di PowerShell per la gestione di un peering reti virtuali viene fornito con [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
@@ -341,7 +342,7 @@ Per creare un peering tra reti virtuali da modelli di distribuzione diversi, seg
     - Completare i passaggi 1 e 2 della sezione [Peering tra sottoscrizioni](#x-sub) di questo articolo.
 2. Il testo seguente illustra la definizione del collegamento per il peering reti virtuali da VNET1 a VNET2 in questo scenario. È necessario un solo collegamento per eseguire il peering di una rete virtuale classica a una rete virtuale di Azure Resource Manager.
 
-    Be sure to put in your subscription ID for where the classic virtual network or VNET2 is located and change MyResouceGroup to the appropriate resource group name.
+    Assicurarsi di inserire l'ID sottoscrizione del percorso della rete virtuale classica o VNET2 e di modificare il nome di MyResourceGroup inserendo quello del gruppo di risorse appropriato.
 
     ```json
        {

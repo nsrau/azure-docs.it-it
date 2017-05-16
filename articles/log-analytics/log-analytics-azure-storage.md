@@ -16,9 +16,9 @@ ms.date: 04/12/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 04bab3024474ae521090a8693b6c095e1704d4dc
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 350aa79cf1f41084c33e16b6fcf2ada971b22626
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -52,7 +52,7 @@ Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Az
 | Servizi di ricerca         | Microsoft.Search/searchServices         | Diagnostica | Diagnostica | |
 | Spazio dei nomi del bus di servizio   | Microsoft.ServiceBus/namespaces         | Diagnostica | Diagnostica | [Service Bus Analytics (Anteprima)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Archiviazione     |             | [Service Fabric Analytics (anteprima)](log-analytics-service-fabric.md) |
-| SQL (versione&12;)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostica | [Azure SQL Analytics (Anteprima)](log-analytics-azure-sql.md) |
+| SQL (versione 12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostica | [Azure SQL Analytics (Anteprima)](log-analytics-azure-sql.md) |
 | Archiviazione                 |                                         |             | Script      | [Azure Storage Analytics (Anteprima)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Macchine virtuali        | Microsoft.Compute/virtualMachines       | Estensione   | Estensione <br> Diagnostica  | |
 | Set di scalabilità di macchine virtuali | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostica | |
@@ -74,9 +74,9 @@ Le risorse di Azure che supportano [Monitoraggio di Azure](../monitoring-and-dia
 * Per informazioni dettagliate sui registri disponibili, vedere [Servizi supportati e schema per i log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Abilitare la diagnostica con PowerShell
-È necessaria la versione di novembre 2016 (2.3.0) o versione successiva di [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+È necessaria la versione di novembre 2016 (2.3.0) o versione successiva di [Azure PowerShell](/powershell/azure/overview).
 
-L'esempio di PowerShell seguente mostra come usare [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting) per abilitare la diagnostica in un gruppo di sicurezza di rete. Lo stesso approccio funziona per tutte le risorse supportate. Impostare `$resourceId` sull'ID della risorsa per cui si vuole abilitare la diagnostica.
+L'esempio di PowerShell seguente mostra come usare [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) per abilitare la diagnostica in un gruppo di sicurezza di rete. Lo stesso approccio funziona per tutte le risorse supportate. Impostare `$resourceId` sull'ID della risorsa per cui si vuole abilitare la diagnostica.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

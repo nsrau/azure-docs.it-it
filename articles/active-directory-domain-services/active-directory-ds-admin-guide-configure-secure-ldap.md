@@ -128,7 +128,7 @@ Per esportare il certificato LDAPS in un file PFX, seguire questa procedura.
     > È NECESSARIO esportare la chiave privata insieme al certificato. Se si abilita l'accesso LDAP sicuro per il dominio gestito specificando un file PFX che non contiene la chiave privata per il certificato, l'operazione avrà esito negativo.
     >
     >
-13. Nella pagina **Formato file di esportazione** selezionare **Scambio di informazioni personali - PKCS #12 (*.PFX)** come formato di file per il certificato esportato.
+13. Nella pagina **Formato file di esportazione** selezionare **Scambio di informazioni personali - PKCS #12 (.PFX)** come formato di file per il certificato esportato.
 
     ![Esportare il certificato, formato di file](./media/active-directory-domain-services-admin-guide/secure-ldap-export-to-pfx.png)
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 4ef0118435020edc3a922c88a5a55400992cbc09
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -106,14 +107,68 @@ Se si usano le impostazioni rapide, viene creato un account in Active Directory 
 
 ![Account AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### <a name="azure-ad-connect-sync-service-accounts"></a>Account del servizio di sincronizzazione Azure AD Connect
+Se si usano le impostazioni personalizzate, l'utente è responsabile della creazione dell'account prima di avviare l'installazione.
+
+### <a name="azure-ad-connect-sync-service-account"></a>Account del servizio di sincronizzazione Azure AD Connect
+Il servizio di sincronizzazione può essere eseguito con account diversi, ad esempio con un **account del servizio virtuale** (VSA), un **account del servizio gestito del gruppo** (gMSA/sMSA) o un normale account utente. Le opzioni supportate sono state modificate con il rilascio di aprile 2017 di Connect se si esegue una nuova installazione. Se si esegue un aggiornamento da una versione precedente di Azure AD Connect, tali opzioni non sono disponibili.
+
+| Tipo di account | Opzione di installazione | Descrizione |
+| --- | --- | --- |
+| [Account del servizio virtuale](#virtual-service-account) | Rapida e personalizzata, aprile 2017 e versioni successive | Questa è l'opzione usata per tutte le installazioni rapide, ad eccezione delle installazioni in un controller di dominio. Per l'installazione personalizzata è l'opzione predefinita a meno che non si usi un'altra opzione. |
+| [Account del servizio gestito del gruppo](#group-managed-service-account) | Personalizzata, aprile 2017 e versioni successive | Se si usa un server SQL remoto, è consigliabile usare un account del servizio gestito del gruppo. |
+| [Account utente](#user-account) | Rapida e personalizzata, aprile 2017 e versioni successive | Un account utente con il prefisso AAD_ viene creato durante l'installazione solo se è installato in Windows Server 2008 e in un controller di dominio. |
+| [Account utente](#user-account) | Rapida e personalizzata, marzo 2017 e versioni precedenti | Durante l'installazione viene creato un account locale con prefisso AAD_. Se si usa l'installazione personalizzata, è possibile specificare un altro account. |
+
+Se si usa Connect con una build di marzo 2017 o precedente, non reimpostare la password nell'account del servizio poiché Windows elimina le chiavi di crittografia per motivi di sicurezza. Non è possibile modificare l'account impostandone un altro senza reinstallare Azure AD Connect. Se si esegue l'aggiornamento a una build di aprile 2017 o successiva, è possibile modificare la password dell'account del servizio ma non l'account in uso.
+
+> [!Important]
+> È possibile impostare solo l'account del servizio durante la prima installazione. Non è supportata la modifica dell'account del servizio dopo il completamento dell'installazione.
+
+La tabella seguente illustra le opzioni predefinite, consigliate e supportate per l'account del servizio di sincronizzazione.
+
+Legenda:
+
+- Il **grassetto** indica l'opzione predefinita e nella maggior parte dei casi l'opzione consigliata.
+- Il *corsivo* indica l'opzione consigliata quando non è l'opzione predefinita.
+- 2008: opzione predefinita se installata in Windows Server 2008
+- Non in grassetto: opzione supportata
+- Account locale: account utente locale sul server
+- Account di dominio: account utente di dominio
+- sMSA: [account del servizio gestito autonomo](https://technet.microsoft.com/library/dd548356.aspx)
+- gMSA: [account del servizio gestito del gruppo](https://technet.microsoft.com/library/hh831782.aspx)
+
+| | DB locale</br>Express | DB/SQL locale</br>Personalizzate | SQL remoto</br>Personalizzate |
+| --- | --- | --- | --- |
+| **computer autonomo o di gruppo di lavoro** | Non supportate | **VSA**</br>Account locale (2008)</br>Account locale |  Non supportate |
+| **computer aggiunto a un dominio** | **VSA**</br>Account locale (2008) | **VSA**</br>Account locale (2008)</br>Account locale</br>Account di dominio</br>sMSA, gMSA | **gMSA**</br>Account di dominio |
+| **Controller di dominio** | **Account di dominio** | *gMSA*</br>**Account di dominio**</br>sMSA| *gMSA*</br>**Account di dominio**|
+
+#### <a name="virtual-service-account"></a>Account del servizio virtuale
+Un account del servizio virtuale è un tipo speciale di account che non ha una password ed è gestito da Windows.
+
+![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
+
+L'account del servizio virtuale deve essere usato con scenari in cui il motore di sincronizzazione e SQL sono sullo stesso server. Se però si usa un server SQL remoto, è consigliabile usare un [account del servizio gestito del gruppo](#managed-service-account).
+
+Questa funzionalità richiede Windows Server 2008 R2 o versioni successive. Se si installa Azure AD Connect in Windows Server 2008, l'installazione ritorna all'uso di un [account utente](#user-account).
+
+#### <a name="group-managed-service-account"></a>Account del servizio gestito del gruppo
+Se si usa un server SQL remoto, è consigliabile usare un **account del servizio gestito del gruppo**. Per altre informazioni su come preparare Active Directory per l'account del servizio gestito del gruppo, vedere la [panoramica sugli account del servizio gestito del gruppo](https://technet.microsoft.com/library/hh831782.aspx).
+
+Per usare questa opzione, nella pagina [Installazione dei componenti necessari](active-directory-aadconnect-get-started-custom.md#install-required-components) selezionare **Usa un account del servizio esistente** e quindi **Account del servizio gestito**.  
+![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
+L'opzione è supportata anche per l'uso di un [account del servizio gestito autonomo](https://technet.microsoft.com/library/dd548356.aspx). Poiché tuttavia l'opzione può essere usata solo nel computer locale, non offre praticamente alcun vantaggio se usata con un account del servizio virtuale predefinito.
+
+Questa funzionalità richiede Windows Server 2012 o versioni successive. Se è necessario usare un sistema operativo precedente e SQL remoto, usare un [account utente](#user-account).
+
+#### <a name="user-account"></a>Account utente
 Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account, preceduto da **AAD_**, viene usato per l'esecuzione del servizio di sincronizzazione effettivo. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. Se si usa un server remoto che esegue SQL Server o un proxy che richiede l'autenticazione, l'account del servizio **AAD_** deve trovarsi nel dominio.
 
 ![Account del servizio di sincronizzazione](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 L'account viene creato con una password lunga e complessa priva di scadenza.
 
-Questo account viene usato per archiviare in modo sicuro le password per gli altri account. Le password di questi altri account vengono archiviate crittografate nel database. Le chiavi private per le chiavi di crittografia sono protette tramite la crittografia a chiave segreta dei servizi di crittografia con Data Protection API (DPAPI) di Windows. Non reimpostare la password nell'account del servizio, perché Windows elimina le chiavi di crittografia per motivi di sicurezza.
+Questo account viene usato per archiviare in modo sicuro le password per gli altri account. Le password di questi altri account vengono archiviate crittografate nel database. Le chiavi private per le chiavi di crittografia sono protette tramite la crittografia a chiave segreta dei servizi di crittografia con Data Protection API (DPAPI) di Windows.
 
 Se si usa una versione completa di SQL Server, l'account del servizio corrisponde al DBO del database creato per il motore di sincronizzazione. Il servizio non funzionerà come previsto con tutte le altre autorizzazioni. Viene inoltre creato l'accesso a SQL.
 
@@ -132,10 +187,4 @@ L'account del servizio viene creato con una password lunga e complessa priva di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

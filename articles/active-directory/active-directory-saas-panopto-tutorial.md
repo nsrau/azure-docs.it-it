@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 41e04425a291c9f89bc58341c6bad22ad1bdb8ef
-ms.openlocfilehash: 90f962fbd19f125cfb609e439f157c4822acfce4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 078a2ea0db006cf976f89a55c65a536a7b9f04aa
+ms.lasthandoff: 04/03/2017
 
 
 ---
 
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Esercitazione: Integrazione di Azure Active Directory con Panopto
-In questa esercitazione viene illustrata l'integrazione di Azure e Panopto. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+In questa esercitazione viene illustrata l'integrazione di Azure e Panopto. 
+
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 * Sottoscrizione di Azure valida
 * Tenant Panopto
@@ -31,13 +34,13 @@ Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Panopto sarann
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
 1. Abilitazione dell'integrazione dell'applicazione per Panopto
-2. Configurazione dell'accesso Single Sign-On
+2. Configurazione dell'accesso Single Sign-On (SSO)
 3. Configurazione del provisioning utente
 4. Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-panopto-tutorial/IC777665.png "Scenario")
 
-## <a name="enabling-the-application-integration-for-panopto"></a>Abilitazione dell'integrazione dell'applicazione per Panopto
+## <a name="enable-the-application-integration-for-panopto"></a>Abilitare l'integrazione dell'applicazione per Panopto
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Panopto.
 
 **Per abilitare l'integrazione dell'applicazione per Panopto, seguire questa procedura:**
@@ -66,10 +69,11 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Panopto tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.  
 
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base&64;.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. 
+
 Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-**Per configurare l'accesso Single Sign-On, seguire questa procedura:**
+**Per configurare l'accesso SSO, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Panopto** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
@@ -99,33 +103,33 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
    3. Nella casella di testo **Descrizione** , digitare una descrizione.
    4. Nella finestra di dialogo **Configure single sign-on at Panopto** (Configura accesso Single Sign-On in Panopto) del portale di Azure classico copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Issuer** (Autorità di certificazione).
    5. Nella finestra di dialogo **Configura accesso Single Sign-On in Panopto** del portale di Azure classico copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Bounce Page Url** (URL pagina non recapitata).
-   6. Creare un file con **codifica Base&64;** dal certificato scaricato.    
+   6. Creare un file con **codifica Base 64** dal certificato scaricato.    
    
       >[!TIP]
       >Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
       >
       
-   7. Aprire il certificato con codifica Base&64; nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Chiave pubblica**
+   7. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Chiave pubblica**
    8. Fare clic su **Save**.
 
  ![Salvare](./media/active-directory-saas-panopto-tutorial/IC777673.png "Salvare")
 9. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configurare l'accesso Single Sign-On")
+  ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-panopto-tutorial/IC777674.png "Configurare l'accesso Single Sign-On")
    
-## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configure-user-provisioning"></a>Configura provisioning utenti
 
 Non è richiesto alcun intervento dell'utente per configurare il provisioning degli utenti in Panopto.  
 Quando un utente assegnato tenta di accedere a Panopto usando il pannello di accesso, Panopto controlla se l'utente esiste.  
 
 Se l’account utente non è disponibile, viene creato automaticamente da Panopto.
 
-> [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Panopto per eseguire il provisioning degli account utente di Azure AD.
-> 
+>[!NOTE]
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Panopto per eseguire il provisioning degli account utente di Azure AD.
+>
+>
 
-
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 **Per assegnare gli utenti a Panopto, seguire questa procedura:**
@@ -138,11 +142,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    
    ![Sì](./media/active-directory-saas-panopto-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 

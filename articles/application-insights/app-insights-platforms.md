@@ -4,7 +4,7 @@ description: Linguaggi, piattaforme e integrazioni disponibili per Application I
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
-manager: douge
+manager: carmonm
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 219ccaf9a97642fda99490423aa94883b0629fb5
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b78c574e9edf6ce28e8deb80d264858d480f5861
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -41,6 +42,7 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 * [App Web di Azure](app-insights-azure-web-apps.md)
 * [Servizi cloud di Azure](app-insights-cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
+* [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
@@ -64,12 +66,13 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 * [Test di carico basato su cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [Plug-in LogStash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Log Analytics di OMS](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
+* [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 
 ## <a name="content-management-systems"></a>Sistemi di gestione del contenuto
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
-* [Orchard](https://orchardazureappinsights.codeplex.com)
+* [Orchard](https://azure.microsoft.com/blog/integrating-application-insights-into-a-modular-cms-and-a-multi-tenant-public-saas/preview/)
 * [SharePoint](app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 

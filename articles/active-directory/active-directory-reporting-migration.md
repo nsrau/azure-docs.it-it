@@ -47,7 +47,7 @@ In questa visualizzazione sono consolidati i report seguenti:
 -     Attività di reimpostazione password
 -     Attività di registrazione reimpostazione password
 -     Attività dei gruppi self-service
--     Modifiche del nome del gruppo di Office&365;
+-     Modifiche del nome del gruppo di Office 365
 -     Attività di provisioning dell'account
 -     Stato rollover della password
 -     Errori di provisioning dell'account
@@ -145,7 +145,7 @@ Per visualizzare tutti i dati di controllo, nel pannello **Azure Active Director
 | Attività di provisioning dell'account        | Per **Categoria attività** selezionare **Account User Provisioning** (Provisioning dell'utente account).         |
 | Stato rollover della password             | Per **Categoria attività** selezionare **Automatic App Password Rollover** (Rollover password app automatico).      |
 | Errori di provisioning dell'account          | Per **Categoria attività** selezionare **Account User Provisioning** (Provisioning dell'utente account).        |
-| Modifiche del nome del gruppo di Office&365;         | Per **Categoria attività** selezionare **Self Service Password Management** (Gestione delle password self-service). Per **Activity Resource Type** (Tipo di risorsa attività) selezionare **Gruppo**. Per **Origine attività** selezionare **O365 groups** (Gruppi di O365).|
+| Modifiche del nome del gruppo di Office 365         | Per **Categoria attività** selezionare **Self Service Password Management** (Gestione delle password self-service). Per **Activity Resource Type** (Tipo di risorsa attività) selezionare **Gruppo**. Per **Origine attività** selezionare **O365 groups** (Gruppi di O365).|
 
 Per visualizzare il report **Utilizzo applicazioni**, nel pannello **Azure Active Directory**, in **GESTISCI** selezionare **Applicazioni aziendali** e scegliere **Accessi**.
 

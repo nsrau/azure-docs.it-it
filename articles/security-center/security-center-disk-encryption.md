@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ L'installazione dei prerequisiti e la configurazione della crittografia per le m
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Installare e configurare Azure PowerShell
-È necessario che Azure PowerShell 1.2.1 o versione successiva sia installato nel computer. L'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) contiene tutti i passaggi necessari per effettuare il provisioning del computer per l'uso di Azure PowerShell. L'approccio più semplice consiste nell'eseguire l'installazione da WebPI menzionata nell'articolo. Anche se Azure PowerShell è già presente nel computer, installarlo nuovamente da WebPI per avere l'ultima versione di Azure PowerShell.
+È necessario che Azure PowerShell 1.2.1 o versione successiva sia installato nel computer. L'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) contiene tutti i passaggi necessari per effettuare il provisioning del computer per l'uso di Azure PowerShell. L'approccio più semplice consiste nell'eseguire l'installazione da WebPI menzionata nell'articolo. Anche se Azure PowerShell è già presente nel computer, installarlo nuovamente da WebPI per avere l'ultima versione di Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Ottenere ed eseguire lo script di configurazione dei prerequisiti di Crittografia dischi di Azure.
 Lo script di configurazione dei prerequisiti di Crittografia dischi di Azure configura tutti i prerequisiti necessari per la crittografia delle macchine virtuali di Azure.

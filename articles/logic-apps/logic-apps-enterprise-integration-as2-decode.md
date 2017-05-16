@@ -78,7 +78,7 @@ Il connettore Decode AS2 esegue queste attività:
 * Riconcilia una notifica sulla ricezione del messaggio ricevuta con il messaggio in uscita originale
 * Aggiorna e mette in correlazione i record nel database di non ripudio
 * Scrive i record per la creazione di report di stato su AS2
-* Il contenuto del payload di output è codificato con codifica Base&64;
+* Il contenuto del payload di output è codificato con codifica Base 64
 * Determina se una notifica sulla ricezione del messaggio è obbligatoria, se deve essere sincrona o asincrona in base alla configurazione nel contratto AS2
 * Genera una notifica sulla ricezione del messaggio sincrona o asincrona, in base alle configurazioni nel contratto
 * Imposta le proprietà e il token di correlazione nella notifica sulla ricezione del messaggio

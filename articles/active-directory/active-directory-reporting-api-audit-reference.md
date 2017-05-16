@@ -3,7 +3,7 @@ title: Informazioni di riferimento sull&quot;API di controllo di Azure Active Di
 description: Come iniziare a usare l&quot;API di controllo di Azure Active Directory
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: markusvi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 04/05/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
-ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -75,6 +76,8 @@ Per i dati relativi all'API di accesso sono supportati i filtri seguenti:
 Per specificare il tipo di record da restituire, è possibile compilare un'istruzione per il filtro che può contenere uno o una combinazione dei campi filtro seguenti:
 
 * [activityDate](#activitydate): definisce una data o un intervallo di date
+* [category](#category): definisce la categoria in base alla quale applicare il filtro
+* [activityStatus](#activitystatus): definisce lo stato di un'attività
 * [activityType](#activitytype): definisce il tipo di un'attività
 * [activity](#activity) - definisce l'attività come stringa  
 * [actor/name](#actorname): definisce l'attore mediante il nome dell'attore
@@ -97,6 +100,45 @@ Per specificare il tipo di record da restituire, è possibile compilare un'istru
 datetime deve essere in formato UTC
 
 - - -
+### <a name="category"></a>category
+
+**Valori supportati**:
+
+| Categoria                         | Valore     |
+| :--                              | ---       |
+| Directory principale                   | Directory |
+| Gestione delle password self-service | SSPR      |
+| Gestione gruppi self-service    | SSGM      |
+| Provisioning degli account             | Sincronizzazione      |
+| Automated Password Rollover (Rollover automatizzato delle password)      | Automated Password Rollover (Rollover automatizzato delle password) |
+| Identity Protection              | IdentityProtection |
+| Utenti invitati                    | Utenti invitati |
+| Servizio MIM                      | Servizio MIM |
+
+
+
+**Operatori supportati**: eq
+
+**Esempio**:
+
+    $filter=category eq 'SSPR'
+- - -
+### <a name="activitystatus"></a>activityStatus
+
+**Valori supportati**:
+
+| Stato attività | Valore |
+| :--             | ---   |
+| Success         | 0     |
+| Esito negativo         | - 1   |
+
+**Operatori supportati**: eq
+
+**Esempio**:
+
+    $filter=activityStatus eq -1    
+
+---
 ### <a name="activitytype"></a>activityType
 **Operatori supportati**: eq
 
@@ -139,6 +181,7 @@ non fa distinzione tra maiuscole e minuscole
 **Esempio**:
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
+
 
 - - -
 ### <a name="targetname"></a>target/name
@@ -190,10 +233,5 @@ non fa distinzione tra maiuscole e minuscole
 ## <a name="next-steps"></a>Passaggi successivi
 * Si desidera vedere esempi sulle attività di sistema filtrate? Vedere gli [esempi dell'API di controllo Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Si desiderano altre informazioni sull'API di creazione report di Azure AD? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

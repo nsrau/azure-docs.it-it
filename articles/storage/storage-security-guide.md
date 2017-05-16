@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f9d15570aeeb398b34198918b78590948020f256
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: fb764e3d228aa852a4d4e6b0f314daa60d099093
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -34,19 +34,19 @@ Ecco gli argomenti trattati in questo articolo:
   Il piano di gestione è costituito dalle risorse usate per gestire l'account di archiviazione. Questa sezione illustra il modello di distribuzione Azure Resource Manager e come usare il controllo degli accessi in base al ruolo per controllare l'accesso agli account di archiviazione. Descrive anche la gestione delle chiavi dell'account di archiviazione e come rigenerarle.
 * [Sicurezza del piano dati](#data-plane-security) : proteggere l'accesso ai dati
   
-  Questa sezione illustra come concedere l'accesso agli oggetti dati effettivi nell'account di archiviazione, ad esempio BLOB, file, code e tabelle, usando firme di accesso condiviso e criteri di accesso archiviati. Vengono trattate anche le firme di accesso condiviso sia a livello di servizio che di account. Si vedrà anche come limitare l'accesso a un indirizzo IP specifico, o un intervallo di indirizzi IP, come limitare il protocollo usato per HTTPS e come revocare una firma di accesso condiviso senza attendere che scada.
+  Questa sezione illustra come concedere l'accesso agli oggetti dati effettivi nell'account di archiviazione, ad esempio BLOB, file, code e tabelle, usando firme di accesso condiviso e criteri di accesso archiviati. Vengono trattate anche le firme di accesso condiviso sia a livello di servizio che di account. Viene inoltre spiegato come limitare l'accesso a un indirizzo IP specifico o un intervallo di indirizzi IP, come limitare il protocollo usato per HTTPS e come revocare una firma di accesso condiviso senza attenderne la scadenza.
 * [Crittografia in transito](#encryption-in-transit)
   
-  Questa sezione descrive come proteggere i dati durante il trasferimento da e verso Archiviazione di Azure. Si esamineranno l'uso consigliato di HTTPS e la crittografia usata da SMB 3.0 per Condivisioni file di Azure. Si osserverà anche la crittografia lato client, che consente di crittografare i dati prima che siano trasferiti nel servizio di archiviazione in un'applicazione client e di decrittografarli dopo il trasferimento dal servizio di archiviazione.
+  Questa sezione descrive come proteggere i dati durante il trasferimento da e verso Archiviazione di Azure. Si esaminano l'uso consigliato di HTTPS e la crittografia usata da SMB 3.0 per Condivisioni file di Azure. Si osserverà anche la crittografia lato client, che consente di crittografare i dati prima che siano trasferiti nel servizio di archiviazione in un'applicazione client e di decrittografarli dopo il trasferimento dal servizio di archiviazione.
 * [Crittografia di dati inattivi](#encryption-at-rest)
   
   Si discuterà di Crittografia del servizio di archiviazione (SSE) e come è possibile abilitarla per un account di archiviazione, determinando la crittografia automatica dei BLOB in blocchi, BLOB di pagine e BLOB aggiunti al momento della scrittura nell'Archiviazione di Azure. Verrà illustrato anche come è possibile usare Crittografia dischi di Azure e si esamineranno differenze di base e casi relativi a Crittografia dischi rispetto a SSE e alla crittografia lato client. Si esaminerà brevemente la conformità FIPS per i computer del Governo degli Stati Uniti.
 * Uso [di Analisi archiviazione](#storage-analytics) per controllare l'accesso dell'archiviazione di Azure
   
-  Questa sezione illustra come trovare informazioni nei log di Analisi archiviazione per una richiesta. Si osserveranno dati dei log di Analisi archiviazione reali e si vedrà come distinguere se una richiesta viene eseguita con la chiave dell'account di archiviazione, con una firma di accesso condiviso oppure in modo anonimo e se è riuscita o meno.
+  Questa sezione illustra come trovare informazioni nei log di Analisi archiviazione per una richiesta. Si osservano dati dei log di Analisi archiviazione reali e si vedrà come distinguere se una richiesta viene eseguita con la chiave dell'account di archiviazione, con una firma di accesso condiviso oppure in modo anonimo e se è riuscita o meno.
 * [Abilitazione dei client basati su browser tramite CORS](#Cross-Origin-Resource-Sharing-CORS)
   
-  Questa sezione descrive come consentire la condivisione risorse tra le origini (CORS). Verrà descritto l'accesso tra domini e come gestirlo con le funzionalità CORS integrate in Archiviazione di Azure.
+  Questa sezione descrive come consentire la condivisione risorse tra le origini (CORS). Viene descritto l'accesso tra domini e come gestirlo con le funzionalità CORS integrate in Archiviazione di Azure.
 
 ## <a name="management-plane-security"></a>Sicurezza del piano di gestione
 Il piano di gestione è costituito da operazioni che interessano lo stesso account di archiviazione. Ad esempio, è possibile creare o eliminare un account di archiviazione, ottenere un elenco di account di archiviazione in una sottoscrizione, recuperare le chiavi dell'account di archiviazione o rigenerarle.
@@ -56,7 +56,7 @@ Quando si crea un nuovo account di archiviazione, si seleziona un modello di dis
 Questa guida è incentrata sul modello di Resource Manager, ovvero il mezzo consigliato per la creazione di account di archiviazione. Con gli account di archiviazione di Resource Manager, invece di concedere l'accesso all'intera sottoscrizione, è possibile controllare l'accesso al piano di gestione in base a un livello più limitato usando il controllo degli accessi in base al ruolo.
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo
-Si vedrà ora cos'è il controllo degli accessi in base al ruolo e come è possibile usarlo. Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni in questa directory può essere consentito l'accesso per gestire le risorse nella sottoscrizione di Azure che usa il modello di distribuzione di Resource Manager. Questo approccio è detto controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST del provider di risorse di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Viene ora spiegato cos'è il controllo degli accessi in base al ruolo e come usarlo. Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni in questa directory può essere consentito l'accesso per gestire le risorse nella sottoscrizione di Azure che usa il modello di distribuzione di Resource Manager. Questo approccio è detto controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST del provider di risorse di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Con il modello di Resource Manager si inserisce l'account di archiviazione in un gruppo di risorse e si controlla l'accesso al piano di quell'account di archiviazione specifico tramite Azure Active Directory. Ad esempio, è possibile concedere a utenti specifici la possibilità di accedere alle chiavi dell'account di archiviazione, mentre altri utenti possono visualizzare le informazioni sull'account di archiviazione, ma non accedere alle relative chiavi.
 
@@ -68,12 +68,12 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 * Quando si assegna l'accesso, si assegna essenzialmente un ruolo all'account a cui si vuole accedere. È possibile controllare l'accesso alle operazioni usate per gestire quell'account di archiviazione, ma non agli oggetti dati nell'account. Ad esempio, è possibile concedere l'autorizzazione per recuperare le proprietà dell'account di archiviazione, ad esempio la ridondanza, ma non a un contenitore o ai dati all'interno di un contenitore nell'archivio BLOB.
 * A chiunque abbia l'autorizzazione di accesso agli oggetti dati nell'account di archiviazione è possibile concedere l'autorizzazione di lettura delle chiavi dell'account di archiviazione. Questo utente potrà quindi usare le chiavi per accedere a BLOB, code, tabelle e file.
 * I ruoli possono essere assegnati a un account utente specifico, a un gruppo di utenti o a un'applicazione specifica.
-* Per ogni ruolo è disponibile un elenco di azioni e non azioni. Ad esempio, per il ruolo Collaboratore Macchina virtuale è disponibile un'azione "listKeys" che consente la lettura delle chiavi dell'account di archiviazione. Per il ruolo Collaboratore sono disponibili "non azioni", come l'aggiornamento dell'accesso per gli utenti in Active Directory.
+* Per ogni ruolo è disponibile un elenco di azioni e non azioni. Per il ruolo Collaboratore Macchina virtuale, ad esempio, è disponibile un'azione "listKeys" che consente la lettura delle chiavi dell'account di archiviazione. Per il ruolo Collaboratore sono disponibili "non azioni", come l'aggiornamento dell'accesso per gli utenti in Active Directory.
 * I ruoli per l'archiviazione includono, tra le altre, le operazioni seguenti:
   
   * Proprietario: può gestire qualsiasi elemento, compreso l'accesso.
   * Collaboratore: può eseguire tutte le operazioni consentite al proprietario, tranne l'assegnazione dell'accesso. Un utente con questo ruolo può visualizzare e rigenerare le chiavi dell'account di archiviazione. Con le chiavi di account di archiviazione può accedere gli oggetti dati.
-  * Lettore: può visualizzare le informazioni sull'account di archiviazione, tranne i segreti. Ad esempio, se si assegna a qualcuno un ruolo con autorizzazioni di lettura per l'account di archiviazione, potrà visualizzare le proprietà dell'account di archiviazione, ma non apportare modifiche alle proprietà o visualizzare le chiavi dell'account di archiviazione.
+  * Lettore: può visualizzare le informazioni sull'account di archiviazione, tranne i segreti. Se ad esempio si assegna a un utente un ruolo con autorizzazioni di lettura per l'account di archiviazione, l'utente potrà visualizzare le proprietà dell'account di archiviazione, ma non apportare modifiche alle proprietà o visualizzare le chiavi dell'account di archiviazione.
   * Collaboratore Account di archiviazione: può gestire l'account di archiviazione, leggere i gruppi di risorse e le risorse della sottoscrizione, nonché creare e gestire distribuzioni di gruppi di risorse della sottoscrizione. Potendo accedere alle chiavi dell'account di archiviazione, può accedere anche al piano dati.
   * Amministratore Accesso utenti: può gestire l'accesso degli utenti all'account di archiviazione. Ad esempio, può concedere l'accesso in lettura a un utente specifico.
   * Collaboratore Macchina virtuale: può gestire le macchine virtuali, ma non l'account di archiviazione a cui è connesso. Questo ruolo consente di elencare le chiavi dell'account di archiviazione e ciò significa che l'utente al quale si assegna questo ruolo può aggiornare il piano dati.
@@ -115,7 +115,7 @@ Esistono diversi motivi per rigenerare le chiavi dell'account di archiviazione.
 
 * Si possono rigenerarle a intervalli regolari per motivi di sicurezza.
 * È necessario rigenerare le chiavi dell'account di archiviazione se un utente riesce a violare un'applicazione e a recuperare la chiave hardcoded o salvata in un file di configurazione, ottenendo così l'accesso completo all'account di archiviazione.
-* Un altro caso per la rigenerazione delle chiave si verifica se il team usa un'applicazione di Storage Explorer che mantiene la chiave dell'account di archiviazione e un membro del team lascia l'organizzazione. L'applicazione continuerà a funzionare, consentendo l'accesso all'account di archiviazione dopo che se ne è andato. Questo è in effetti il motivo principale per cui sono state create le firme di accesso condiviso a livello di account. È possibile usare una firma di accesso condiviso a livello di account invece di archiviare le chiavi di accesso in un file di configurazione.
+* Un altro caso per la rigenerazione delle chiave si verifica se il team usa un'applicazione di Storage Explorer che mantiene la chiave dell'account di archiviazione e un membro del team lascia l'organizzazione. L'applicazione continuerà a funzionare, consentendo l'accesso all'account di archiviazione dopo che il membro del team se ne è andato. Questo è in effetti il motivo principale per cui sono state create le firme di accesso condiviso a livello di account. È possibile usare una firma di accesso condiviso a livello di account invece di archiviare le chiavi di accesso in un file di configurazione.
 
 #### <a name="key-regeneration-plan"></a>Piano di rigenerazione delle chiavi
 È consigliabile non rigenerare semplicemente la chiave in uso senza una pianificazione. Se lo si fa, è possibile che venga completamente interrotto l'accesso all'account di archiviazione, con il rischio di causare gravi interruzioni. È per questo motivo che sono disponibili due chiavi ed è consigliabile rigenerarne una alla volta.
@@ -124,7 +124,7 @@ Prima di rigenerare le chiavi, assicurarsi di avere un elenco di tutte le applic
 
 È possibile rigenerare le chiavi nel portale di Azure. Una volta che le chiavi sono state rigenerate, per la sincronizzazione con i servizi di archiviazione potrebbero essere necessari fino a 10 minuti.
 
-Quando si è pronti, ecco la procedura generale che illustra in dettaglio come deve essere modificata la chiave. In questo caso, si presuppone che attualmente sia in uso la Chiave 1 e si voglia cambiare tutto per usare invece la Chiave 2.
+Quando si è pronti, seguire la procedura generale che illustra in dettaglio come deve essere modificata la chiave. In questo caso, si presuppone che attualmente sia in uso la Chiave 1 e si voglia cambiare tutto per usare invece la Chiave 2.
 
 1. Rigenerare la Chiave 2 per assicurarsi che sia protetta. Questa operazione può essere eseguita nel portale di Azure.
 2. Modificare la chiave di archiviazione in tutte le applicazioni in cui è archiviata, in modo da usare il nuovo valore della Chiave 2. Testare e pubblicare l'applicazione.
@@ -202,7 +202,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 ```
 
 #### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Modalità di autenticazione della firma di accesso condiviso tramite il servizio di archiviazione di Azure
-Quando il servizio di archiviazione riceve la richiesta, accetta i parametri di query di input e crea una firma usando lo stesso metodo del programma chiamante, quindi confronta le due firme. Se concordano, il servizio di archiviazione quindi può controllare la versione del servizio di archiviazione per assicurarsi che sia valida, verificare che la data e l'ora correnti rientrino nell'intervallo specificato, assicurarsi che l'accesso richiesto corrisponda alla richiesta eseguita e così via.
+Quando il servizio di archiviazione riceve la richiesta, accetta i parametri di query di input e crea una firma usando lo stesso metodo del programma chiamante, quindi confronta le due firme. Se concordano, il servizio di archiviazione può controllare la versione del servizio di archiviazione per assicurarsi che sia valida, verificare che la data e l'ora correnti rientrino nell'intervallo specificato, assicurarsi che l'accesso richiesto corrisponda alla richiesta eseguita e così via.
 
 Ad esempio, se l'URL precedente puntasse a un file invece che a un BLOB, la richiesta non riuscirebbe perché specifica che la firma di accesso condiviso è per un BLOB. Se il comando REST chiamato doveva aggiornare un BLOB, non sarebbe riuscito perché la firma di accesso condiviso specifica che è consentito solo l'accesso in lettura.
 
@@ -216,7 +216,7 @@ Ad esempio, se l'URL precedente puntasse a un file invece che a un BLOB, la rich
    Questo approccio è molto flessibile, ma se è disponibile un set logico di parametri simili ogni volta, l'uso di criteri di accesso archiviati è preferibile.
 2. È possibile creare criteri di accesso archiviati per un intero contenitore, una condivisione file, una tabella o una coda, che potranno quindi essere usati come base per gli URI di firma di accesso condiviso creati. Le autorizzazioni basate su criteri di accesso archiviati possono essere revocate facilmente. In ogni contenitore, coda, tabella o condivisione di file possono essere definiti fino a 5 criteri.
    
-   Ad esempio, se si prevede che molte persone leggano i BLOB in un contenitore specifico, è possibile creare criteri di accesso archiviati con l'indicazione "concedere l'accesso in lettura" e qualsiasi altra impostazione che sarà uguale ogni volta. È quindi possibile creare un URI di firma di accesso condiviso usando le impostazioni dei criteri di accesso archiviati e specificando la data/ora di scadenza. Il vantaggio di questo approccio è che non è necessario specificare ogni volta tutti i parametri di query.
+   Se ad esempio si prevede che molte persone leggano i BLOB in un contenitore specifico, è possibile creare criteri di accesso archiviati con l'indicazione "concedere l'accesso in lettura" e qualsiasi altra impostazione che sarà uguale ogni volta. È quindi possibile creare un URI di firma di accesso condiviso usando le impostazioni dei criteri di accesso archiviati e specificando la data/ora di scadenza. Il vantaggio di questo approccio è che non è necessario specificare ogni volta tutti i parametri di query.
 
 #### <a name="revocation"></a>Revoca
 Si supponga che la firma di accesso condiviso sia stata compromessa o si voglia modificarla a causa dei requisiti di conformità alle normative o di sicurezza aziendale. Come si revoca l'accesso a una risorsa con quella firma di accesso condiviso? Dipende da come è stato creato l'URI di firma di accesso condiviso.
@@ -289,7 +289,7 @@ Si noti che mentre Condivisioni file Azure può essere usato con Unix, il client
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Uso della crittografia lato client per proteggere i dati inviati alla risorsa di archiviazione
 Un'altra opzione che consente di assicurarsi che i dati siano protetti durante il trasferimento tra un'applicazione client e la risorsa di archiviazione è la crittografia lato client. I dati vengono crittografati prima di essere trasferiti nell'archiviazione di Azure. Quando si recuperano i dati dall'archiviazione di Azure, vengono decrittografati dopo la ricezione sul lato client. Anche se i dati vengono crittografati mentre sono in transito, è consigliabile usare anche HTTPS, perché incorpora controlli di integrità dei dati che contribuiscono a ridurre gli errori di rete che interessano l'integrità dei dati.
 
-La crittografia lato client è anche un metodo per crittografare i dati inattivi, perché i dati vengono archiviati in formato crittografato. Verranno fornite informazioni più dettagliate nella sezione [Crittografi di dati inattivi](#encryption-at-rest).
+La crittografia lato client è anche un metodo per crittografare i dati inattivi, perché i dati vengono archiviati in formato crittografato. Verranno fornite informazioni più dettagliate nella sezione [Crittografia di dati inattivi](#encryption-at-rest).
 
 ## <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi. Crittografia dischi di Azure viene usata per crittografare i dischi dati e del sistema operativo nelle macchine virtuali IaaS. Le altre due, ovvero SSE e crittografia lato client, vengono entrambe usate per crittografare i dati nell'archiviazione di Azure. Si esaminerà ognuna di queste funzionalità, eseguendo quindi un confronto per vedere quando usare ognuna di esse.
@@ -318,7 +318,7 @@ Un esempio d'uso di questa opzione è la disponibilità di un'applicazione Web c
 
 La crittografia lato client è incorporata nelle librerie client di archiviazione per .NET e Java, che a loro volta usano le API dell'insieme di credenziali delle chiavi di Azure, rendendo l'implementazione piuttosto semplice. Il processo di crittografia e decrittografia dei dati usa la tecnica delle envelope e archivia i metadati usati per la crittografia in ogni oggetto di archiviazione. Ad esempio, per i BLOB li archivia nei metadati del BLOB, mentre per le code li aggiunge a ogni messaggio nella coda.
 
-Per la crittografia stessa, è possibile generare e gestire chiavi di crittografia personalizzate. È anche possibile usare le chiavi generate dalla libreria client di archiviazione di Azure oppure è possibile impostare la generazione delle chiavi usando l'insieme di credenziali delle chiavi di Azure. Si possono archiviare le chiavi di crittografia nell'archiviazione chiavi locale oppure in un insieme di credenziali delle chiavi di Azure. L'insieme di credenziali delle chiavi di Azure consente di concedere l'accesso ai segreti nello stesso insieme di credenziali delle chiavi Azure a utenti specifici usando Azure Active Directory. Ciò significa che non tutti possono leggere l'insieme di credenziali delle chiavi di Azure e recuperare le chiavi usate per la crittografia lato client.
+Per la crittografia stessa, è possibile generare e gestire chiavi di crittografia personalizzate. È anche possibile usare le chiavi generate dalla libreria client di archiviazione di Azure oppure è possibile impostare la generazione delle chiavi usando l'insieme di credenziali delle chiavi di Azure. Si possono archiviare le chiavi di crittografia nell'archiviazione chiavi locale oppure in un insieme di credenziali delle chiavi di Azure. L'insieme di credenziali delle chiavi di Azure consente di concedere l'accesso ai segreti nello stesso insieme di credenziali delle chiavi Azure a utenti specifici usando Azure Active Directory. Ciò significa che non tutti possono leggere Azure Key Vault e recuperare le chiavi usate per la crittografia lato client.
 
 #### <a name="resources"></a>Risorse
 * [Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali chiave di Azure](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -405,13 +405,13 @@ Queste informazioni possono essere molto utili se l'accesso alla risorsa di arch
 #### <a name="what-do-the-logs-look-like"></a>Aspetto dei log
 Dopo avere abilitato le metriche dell'account di archiviazione e la registrazione tramite il portale di Azure, i dati di analisi inizieranno ad accumularsi rapidamente. La registrazione e le metriche per ogni servizio sono separate. La registrazione viene scritta solo quando si verificano attività nell'account di archiviazione, mentre le metriche vengono registrate ogni minuto, ogni ora oppure ogni giorno, a seconda della configurazione.
 
-I log sono archiviati in BLOB in blocchi in un contenitore denominato $logs nell'account di archiviazione. Questo contenitore viene creato automaticamente quando si abilita Analisi archiviazione. Dopo la creazione di questo contenitore, non sarà possibile eliminarlo, anche se si può eliminare il relativo contenuto.
+I log sono archiviati in BLOB in blocchi in un contenitore denominato $logs nell'account di archiviazione. Questo contenitore viene creato automaticamente quando si abilita Analisi archiviazione. Dopo che il contenitore è stato creato, non sarà possibile eliminarlo, anche se si può eliminare il relativo contenuto.
 
 Nel contenitore $logs è presente una cartella per ogni servizio e sono disponibili le sottocartelle per anno/mese/giorno/ora. Nella cartella delle ore i log sono semplicemente numerati. Ecco come apparirà la struttura di directory:
 
 ![Visualizzazione dei file di log](./media/storage-security-guide/image1.png)
 
-Viene registrata ogni richiesta all'archiviazione di Azure viene registrata. Ecco uno snapshot di un file di log, che mostra i primi campi.
+Viene registrata ogni richiesta all'archiviazione di Azure viene registrata. Ecco uno snapshot di un file di log che mostra i primi campi.
 
 ![Snapshot di un file di log](./media/storage-security-guide/image2.png)
 
@@ -422,9 +422,9 @@ Le risorse indicate di seguito includono un articolo che fornisce l'elenco dei m
 
 ![Snapshot dei campi in un file di log](./media/storage-security-guide/image3.png)
 
-In questo caso, sono interessati le voci per GetBlob e come vengono autenticati, quindi occorre cercare le voci con tipo di operazione "Get-Blob" e controllare lo stato della richiesta (4<sup>a</sup> colonna) e il tipo di autorizzazione (8<sup>a</sup> colonna).
+In questo caso, sono interessanti le voci per GetBlob e come vengono autenticate, quindi occorre cercare le voci con tipo di operazione "Get-Blob" e controllare lo stato della richiesta (4<sup>a</sup> colonna) e il tipo di autorizzazione (8<sup>a</sup> colonna).
 
-Ad esempio, nelle prime righe nell'elenco precedente, request-status è "Success" e authorization-type "authenticated". Ciò significa che la richiesta è stata convalidata con la chiave dell'account di archiviazione.
+Nelle prime righe nell'elenco precedente, ad esempio, request-status è "Success" e authorization-type è "authenticated". Ciò significa che la richiesta è stata convalidata con la chiave dell'account di archiviazione.
 
 #### <a name="how-are-my-blobs-being-authenticated"></a>Modalità di autenticazione dei BLOB
 Sono tre i casi interessanti in questo caso.
@@ -462,7 +462,7 @@ Sono tre i casi interessanti in questo caso.
 ### <a name="cross-domain-access-of-resources"></a>Accesso tra domini alle risorse
 Quando un Web browser in esecuzione in un dominio invia una richiesta HTTP per una risorsa da un dominio diverso, viene definita richiesta HTTP tra le origini. Ad esempio, una pagina HTML servita da contoso.com esegue una richiesta per un'immagine JPEG ospitata in fabrikam.blob.core.windows.net. Per motivi di sicurezza, i browser limitano le richieste HTTP tra le origini avviate da script, ad esempio JavaScript. Ciò significa che quando il codice JavaScript in una pagina Web in contoso.com richiede tale immagine JPEG in fabrikam.blob.core.windows.net, il browser non consentirà la richiesta.
 
-Cosa ha a che fare questo comportamento con Archiviazione di Azure? Anche se si archiviano asset statici, ad esempio file di dati JSON o XML nell'archiviio BLOB con un account di archiviazione denominato Fabrikam, il dominio per gli asset sarà fabrikam.blob.core.windows.net e l'applicazione Web contoso.com non potrà accedervi tramite JavaScript, perché i domini sono diversi. Questo vale anche se si prova a chiamare uno dei servizi di archiviazione di Azure, ad esempio l'archivio tabelle, che restituisce dati JSON da elaborare con il client JavaScript.
+Cosa ha a che fare questo comportamento con Archiviazione di Azure? Anche se si archiviano asset statici, ad esempio file di dati JSON o XML nell'archiviio BLOB con un account di archiviazione denominato Fabrikam, il dominio per gli asset sarà fabrikam.blob.core.windows.net e l'applicazione Web contoso.com non potrà accedervi tramite JavaScript, perché i domini sono diversi. Questo vale anche se si prova a chiamare uno dei servizi di Archiviazione di Azure, ad esempio l'archivio tabelle, che restituisce dati JSON da elaborare con il client JavaScript.
 
 #### <a name="possible-solutions"></a>Possibili soluzioni
 Un modo per risolvere questo problema consiste nell'assegnare un dominio personalizzato come "storage.contoso.com" a fabrikam.blob.core.windows.net. Il problema è dovuto al fatto che è possibile assegnare solo quel dominio personalizzato a un solo account di archiviazione. Cosa accade se gli asset vengono archiviati in più account di archiviazione?
@@ -493,7 +493,7 @@ Ecco il significato di ogni riga:
 * **AllowedOrigins** : indica i domini non corrispondenti che possono richiedere e ricevere dati dal servizio di archiviazione. Significa che contoso.com e fabrikam.com possono richiedere dati dall'archivio BLOB per un account di archiviazione specifico. È anche possibile impostare questo parametro su un carattere jolly (\*) per consentire a tutti i domini di accedere alle richieste.
 * **AllowedMethods** : si tratta dell'elenco di metodi (verbi di richiesta HTTP) che si possono usare quando si esegue la richiesta. In questo esempio, sono consentiti solo PUT e GET. È possibile impostarlo su un carattere jolly (\*) per consentire l'uso di tutti i metodi.
 * **AllowedHeaders** : sono le intestazioni della richiesta che possono essere specificate dal dominio di origine quando si esegue la richiesta. In questo esempio, sono consentite tutte le intestazioni dei di metadati che iniziano con x-ms-meta-data, x-ms-meta-target e x-ms-meta-abc. Il carattere jolly (\*) indica che è permessa qualsiasi intestazione che inizi col prefisso consentito.
-* **ExposedHeaders** : indica quali intestazioni della risposta devono essere esposte al richiedente dal browser. In questo esempio, verranno esposte tutte le intestazioni che iniziano con "x-ms-meta-".
+* **ExposedHeaders** : indica quali intestazioni della risposta devono essere esposte al richiedente dal browser. In questo esempio vengono esposte tutte le intestazioni che iniziano con "x-ms-meta-".
 * **MaxAgeInSeconds** : indica il periodo massimo di memorizzazione della richiesta OPTIONS preliminare nella cache di un browser. Per altre informazioni sulla richiesta preliminare, vere il primo articolo di seguito.
 
 #### <a name="resources"></a>Risorse
@@ -510,7 +510,7 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
   Questo è un collegamento all'articolo relativo al blog iniziale che annuncia CORS e illustra come usarlo.
 
 ## <a name="frequently-asked-questions-about-azure-storage-security"></a>Domande frequenti sulla sicurezza di Archiviazione di Azure
-1. **Come è possibile verificare l'integrità dei BLOB trasferiti e recuperati nell'archiviazione di Azure se non è possibile usare il protocollo HTTPS?**
+1. **Come è possibile verificare l'integrità dei BLOB trasferiti e recuperati in Archiviazione di Azure se non è possibile usare il protocollo HTTPS?**
    
    Se per qualsiasi motivo è necessario utilizzare il protocollo HTTP anziché HTTPS e si utilizzano BLOB in blocchi, è possibile utilizzare il controllo MD5 per verificare l'integrità dei BLOB in fase di trasferimento. Ciò contribuisce a proteggere dagli errori a livello di rete/trasporto, ma non necessariamente dalle violazioni.
    
@@ -527,10 +527,10 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 
 * [Perché non viene più consigliata la "Modalità FIPS"](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
   
-  Questo post di blog fornisce una panoramica di FIPS e spiega perché non viene più abilitata la modalità FIPS per impostazione predefinita.
+  Questo articolo di blog fornisce una panoramica di FIPS e spiega perché non viene più abilitata la modalità FIPS per impostazione predefinita.
 * [Convalida FIPS 140](https://technet.microsoft.com/library/cc750357.aspx)
   
   Questo articolo fornisce informazioni sulla conformità dei prodotti e dei moduli di crittografia Microsoft allo standard FIPS per il Governo Federale degli Stati Uniti.
-* [Effetti delle impostazioni di sicurezza "Crittografia di sistema: utilizza algoritmi FIPS compatibili per crittografia, hash e firma" in Windows XP e versioni successive di Windows](https://support.microsoft.com/kb/811833)
+* [Effetti delle impostazioni di sicurezza "Crittografia di sistema: usa algoritmi FIPS conformi per crittografia, hash e firma" in Windows XP e versioni successive di Windows](https://support.microsoft.com/kb/811833)
   
   Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.

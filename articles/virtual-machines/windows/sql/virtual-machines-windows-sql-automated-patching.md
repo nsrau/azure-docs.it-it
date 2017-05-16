@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: c48e23c1904d824ce2360f83c9df9c8e17d6200a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 506a40f6c05cdeee56184074774b1f6ace8f0426
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -51,7 +51,7 @@ Per usare l'applicazione automatica delle patch, tenere in considerazione i segu
 
 **Azure PowerShell**:
 
-* [Installare i comandi di Azure PowerShell più recenti](/powershell/azureps-cmdlets-docs) se si prevede di configurare l'applicazione automatica delle patch con PowerShell.
+* [Installare i comandi di Azure PowerShell più recenti](/powershell/azure/overview) se si prevede di configurare l'applicazione automatica delle patch con PowerShell.
 
 > [!NOTE]
 > L'applicazione automatica delle patch si basa sull'estensione dell'agente IaaS di SQL Server. Per impostazione predefinita, le attuali immagini della raccolta di macchine virtuali di SQL aggiungono questa estensione. Per altre informazioni, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).

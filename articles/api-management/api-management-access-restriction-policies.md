@@ -1,5 +1,5 @@
 ---
-title: Criteri di limitazione dell&quot;accesso di Gestione API di Azure | Documentazione Microsoft
+title: Criteri di limitazione dell&quot;accesso di Gestione API di Azure | Microsoft Docs
 description: Informazioni sui criteri di limitazione dell&quot;accesso disponibili per l&quot;uso in Gestione API di Azure.
 services: api-management
 documentationcenter: 
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
-ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 4c9991baf3fbcf3b8ea01f8dd573e2336db88b68
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameaccessrestrictionpoliciesa-access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Criteri di limitazione dell'accesso  
+##  <a name="AccessRestrictionPolicies"></a> Criteri di limitazione dell'accesso  
   
 -   [check-header](api-management-access-restriction-policies.md#CheckHTTPHeader) : impone l'esistenza e/o il valore di un'intestazione HTTP.  
   
@@ -38,7 +40,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   [validate-JWT](api-management-access-restriction-policies.md#ValidateJWT) : impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.  
   
-##  <a name="a-namecheckhttpheadera-check-http-header"></a><a name="CheckHTTPHeader"></a> Intestazione check-header  
+##  <a name="CheckHTTPHeader"></a> Intestazione check-header  
  Usare il criterio `check-header` per applicare una richiesta che presenta un'intestazione HTTP specificata. Facoltativamente, è possibile verificare se l'intestazione presenta un valore specifico o un intervallo di valori consentiti. Se la verifica ha esito negativo, il criterio termina l'elaborazione della richiesta e restituisce il codice di stato HTTP e il messaggio di errore specificati dai criteri.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -81,7 +83,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namelimitcallratea-limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limita frequenza delle chiamate per sottoscrizione  
+##  <a name="LimitCallRate"></a> Limita frequenza delle chiamate per sottoscrizione  
  Il criterio `rate-limit` impedisce picchi d'uso dell'API per ogni sottoscrizione impostando la frequenza delle chiamate su un numero specificato per un periodo di tempo specificato. All'attivazione di questo criterio, il chiamate riceve il codice di stato della risposta `429 Too Many Requests`.  
   
 > [!IMPORTANT]
@@ -136,7 +138,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** prodotto  
   
-##  <a name="a-namelimitcallratebykeya-limit-call-rate-by-key"></a><a name="LimitCallRateByKey"></a> Limita la frequenza delle chiamate per chiave  
+##  <a name="LimitCallRateByKey"></a> Limita la frequenza delle chiamate per chiave  
  Il criterio `rate-limit-by-key` impedisce picchi d'uso dell'API per ogni chiave impostando la frequenza delle chiamate su un numero specificato per un periodo di tempo specificato. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri. Per specificare le richieste da considerare nel limite, è possibile aggiungere una condizione opzionale di incremento. All'attivazione di questo criterio, il chiamate riceve il codice di stato della risposta `429 Too Many Requests`.  
   
  Per altre informazioni ed esempi su questo criterio, vedere [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/) (Limitazione avanzata delle richieste con Gestione API di Azure).  
@@ -194,7 +196,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namerestrictcalleripsa-restrict-caller-ips"></a><a name="RestrictCallerIPs"></a> ip-filter  
+##  <a name="RestrictCallerIPs"></a> ip-filter  
  Il criterio `ip-filter` filtra (permette/rifiuta) le chiamate da indirizzi IP e/o intervalli di indirizzi IP specifici.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -237,7 +239,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namesetusagequotaa-set-usage-quota-by-subscription"></a><a name="SetUsageQuota"></a> Imposta quota di utilizzo per sottoscrizione  
+##  <a name="SetUsageQuota"></a> Imposta quota di utilizzo per sottoscrizione  
  Il criterio `quota` consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per sottoscrizione.  
   
 > [!IMPORTANT]
@@ -293,7 +295,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** prodotto  
   
-##  <a name="a-namesetusagequotabykeya-set-usage-quota-by-key"></a><a name="SetUsageQuotaByKey"></a> Impostare la quota per chiave  
+##  <a name="SetUsageQuotaByKey"></a> Impostare la quota per chiave  
  Il criterio `quota-by-key` consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri. Per specificare le richieste da considerare nella quota, è possibile aggiungere una condizione opzionale di incremento.  
   
  Per altre informazioni ed esempi su questo criterio, vedere [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/) (Limitazione avanzata delle richieste con Gestione API di Azure).  
@@ -354,7 +356,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namevalidatejwta-validate-jwt"></a><a name="ValidateJWT"></a> Convalida token JWT  
+##  <a name="ValidateJWT"></a> Convalida token JWT  
  Il criterio `validate-jwt` impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.  
   
 > [!IMPORTANT]
@@ -419,7 +421,27 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ```xml  
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
-    <openid-config url="https://login.windows.net/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <audiences>
+        <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
+    </audiences>
+    <required-claims>  
+        <claim name="id" match="all">  
+            <value>insert claim here</value>  
+        </claim>  
+    </required-claims>  
+</validate-jwt>  
+```  
+
+  
+#### <a name="azure-active-directory-b2c-token-validation"></a>Convalida del token di Azure Active Directory B2C  
+  
+```xml  
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
+    <openid-config url="https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
+    <audiences>
+        <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
+    </audiences>
     <required-claims>  
         <claim name="id" match="all">  
             <value>insert claim here</value>  
@@ -495,7 +517,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |require-expiration-time|Booleano. Specifica se è necessaria un'attestazione di scadenza nel token.|No|true|
 |require-scheme|Il nome dello schema di token, ad esempio "Bearer". Quando questo attributo è impostato, il criterio assicura che lo schema specificato sia presente nel valore dell'intestazione di autorizzazione.|No|N/D|
 |require-signed-tokens|Booleano. Specifica se è necessario firmare un token.|No|true|  
-|URL|URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. Per Azure Active Directory, usare il seguente URL: `https://login.windows.net/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`.|Sì|N/D|  
+|URL|URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. Per Azure Active Directory, usare il seguente URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`.|Sì|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -506,9 +528,4 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

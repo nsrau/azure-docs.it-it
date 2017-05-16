@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory | Documentazione Microsoft
+title: Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory | Microsoft Docs
 description: Informazioni su come risolvere i problemi comuni di Collaborazione B2B di Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 66c0084c89b5c7510196142afd27b58953d0dc86
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4ae08f16db8c0b8cd2e918d25aa546f1da615af1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,9 +27,6 @@ ms.lasthandoff: 03/15/2017
 
 Questo articolo illustra come risolvere i problemi comuni di Collaborazione B2B di Azure Active Directory (Azure AD).
 
-## <a name="i-cant-create-an-external-user-due-to-an-existing-contact"></a>Non è possibile creare un utente esterno a causa di un contatto esistente
-
-Se l'utente esterno che si vuole invitare ha già un oggetto contatto esistente, non è possibile invitare l'utente finché non viene risolto il conflitto, in genere rimuovendo l'oggetto contatto. Fino alla disponibilità generale di Collaborazione B2B, è necessario risolvere il conflitto manualmente.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>L'utente esterno aggiunto non viene visualizzato nella rubrica globale o nella selezione utenti
 
@@ -54,7 +51,7 @@ Di seguito sono riportati gli errori più comuni.
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>L'amministratore dell'invitato non consente la creazione di utenti EmailVerified nel tenant
 
-Questo si verifica quando si invitano utenti la cui organizzazione usa Azure Active Directory, ma dove l'account dell'utente specifico non esiste (ad esempio se l'utente non esiste in contoso.com di Azure AD). L'amministratore di contoso.com potrebbe aver impostato criteri che impediscono la creazione di utenti. L'utente deve rivolgersi all'amministratore per determinare se gli utenti esterni sono consentiti. L'amministratore dell'utente esterno potrebbe dover consentire gli utenti verificati tramite posta elettronica nel dominio (vedere questo [articolo](https://docs.microsoft.com/powershell/msonline/v1/set-msolcompanysettings#parameters) su come consentire gli utenti verificati tramite posta elettronica).
+Questo si verifica quando si invitano utenti la cui organizzazione usa Azure Active Directory, ma dove l'account dell'utente specifico non esiste (ad esempio se l'utente non esiste in contoso.com di Azure AD). L'amministratore di contoso.com potrebbe aver impostato criteri che impediscono la creazione di utenti. L'utente deve rivolgersi all'amministratore per determinare se gli utenti esterni sono consentiti. L'amministratore dell'utente esterno potrebbe dover consentire gli utenti verificati tramite posta elettronica nel dominio (vedere questo [articolo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) su come consentire gli utenti verificati tramite posta elettronica).
 
 ![](media/active-directory-b2b-troubleshooting/allow-email-verified-users.png)
 
@@ -66,7 +63,7 @@ Per risolvere questo problema, l'amministratore dell'utente esterno deve sincron
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>In che modo "\#", che in genere è un carattere non valido, viene sincronizzato con Azure AD?
 
-"\#" è un carattere riservato negli UPN per Collaborazione B2B di Azure AD o per gli utenti esterni, vale a dire che &lt;user@contoso.com&gt; invitato diventa &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;. Non è quindi consentito l'accesso al portale di Azure a "\#" negli UPN locali.
+"\#" è un carattere riservato negli UPN per Collaborazione B2B di Azure AD o per gli utenti esterni (vale a dire che user@contoso.com invitato diventa user_contoso.com#EXT@fabrikam.onmicrosoft.com). Non è quindi consentito l'accesso al portale di Azure a "\#" negli UPN locali.
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Viene visualizzato un errore durante l'aggiunta di utenti esterni a un gruppo sincronizzato
 
@@ -74,11 +71,11 @@ Per risolvere questo problema, l'amministratore dell'utente esterno deve sincron
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>L'utente esterno non ha ricevuto un messaggio di posta elettronica da riscattare
 
-L'invitato deve rivolgersi al provider di servizi Internet o controllare il filtro della posta indesiderata per verificare che sia consentito l'indirizzo seguente: &lt;Invites@microsoft.com&gt;
+L'invitato deve rivolgersi al provider di servizi Internet o controllare il filtro della posta indesiderata per verificare che sia consentito l'indirizzo seguente: Invites@microsoft.com
 
-## <a name="my-recipient-received-multiple-emails-from-me"></a>Il destinatario ha ricevuto più messaggi di posta elettronica
+## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Il messaggio personalizzato a volte non viene incluso con i messaggi di invito
 
-Se il destinatario dell'invito ha più alias per l'account, potrebbe ricevere più di un invito. In questi casi il primo collegamento riscattato è l'account che viene creato quindi il secondo collegamento non è valido per il riscatto.
+Per garantire la conformità con le leggi sulla privacy, le API non includono messaggi personalizzati nell'invito tramite posta elettronica quando il mittente dell'invito non dispone di un indirizzo di posta elettronica nell'organizzazione risorse (noto anche come tenancy che emette l’invito) o quando un'entità servizio app invia l'invito. Se si tratta di uno scenario importante per l'utente, è possibile impedire all'API di inviare l'invito tramite posta elettronica e inviarlo tramite un meccanismo di posta elettronica di propria scelta. È necessario richiedere consulenza legale alla propria organizzazione per assicurarsi che qualsiasi messaggio di posta elettronica inviato in questo modo sia conforme alle leggi sulla privacy.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

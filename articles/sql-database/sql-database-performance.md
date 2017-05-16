@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 071cc504cc4111e20391af86ffdc7819644ec434
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 155e9ddb48c65ad1648e18eb306c9badc2cb27e8
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -55,11 +56,6 @@ Facendo clic su **Panoramica** o sul riquadro **Prestazioni** viene visualizzato
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md)
-* [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
+* [Quando usare un pool elastico](sql-database-elastic-pool.md)
 
 

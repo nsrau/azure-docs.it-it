@@ -1,5 +1,5 @@
 ---
-title: Pianificare processi con l&quot;hub IoT di Azure (.NET/Node) | Documentazione Microsoft
+title: Pianificare processi con l&quot;hub IoT di Azure (.NET/Node) | Microsoft Docs
 description: "Come pianificare un processo dell&quot;hub IoT di Azure per richiamare un metodo diretto su più dispositivi. Usare Azure IoT SDK per dispositivi per Node.js per implementare app per dispositivo simulato e Azure IoT SDK per servizi per .NET per implementare un&quot;app di servizio che esegue il processo."
 services: iot-hub
 documentationcenter: .net
@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2017
+ms.date: 03/30/2017
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: fd53e73d6a686581ea2b807ae66716fc36a99ad4
-ms.lasthandoff: 12/07/2016
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 659a1df454f7085b1f6e2cea3ae1e18d386a09f7
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +31,7 @@ L'hub IoT di Azure è un servizio completamente gestito che consente a un'app ba
 * Aggiornare i tag
 * Richiamare metodi diretti
 
-Concettualmente, un processo esegue il wrapping di una di queste azioni e tiene traccia dell'avanzamento dell'esecuzione rispetto a un set di dispositivi, definito da una query di dispositivi gemelli.  Ad esempio, tramite un processo un'app back-end può richiamare un metodo di riavvio in 10.000 dispositivi, specificato da una query di dispositivi gemelli e pianificato in un secondo momento.  L'applicazione può quindi tenere traccia dell'avanzamento mentre ognuno dei dispositivi riceve ed esegue il metodo di riavvio.
+Concettualmente, un processo esegue il wrapping di una di queste azioni e tiene traccia dell'avanzamento dell'esecuzione rispetto a un set di dispositivi, definito da una query di dispositivi gemelli.  Grazie a un processo, ad esempio, un'app back-end può richiamare un metodo di riavvio in 10.000 dispositivi, specificato da una query di dispositivi gemelli e pianificato in un secondo momento.  L'applicazione può quindi tenere traccia dell'avanzamento mentre ognuno dei dispositivi riceve ed esegue il metodo di riavvio.
 
 Altre informazioni su queste funzionalità sono disponibili in questi articoli:
 
@@ -51,9 +51,9 @@ Al termine dell'esercitazione saranno disponibili un'app per il dispositivo cons
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Microsoft Visual Studio 2015
-* Node.js 0.12.x o versione successiva. <br/>  [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
-* Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
+* Visual Studio 2015 o Visual Studio 2017.
+* Node.js 0.12.x o versione successiva. L'articolo [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
+* Un account Azure attivo. Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -66,21 +66,26 @@ In questa sezione si creerà un'app console .NET (usando C#) che avvia un **lock
 
     ![Nuovo progetto desktop di Windows classico in Visual C#][img-createapp]
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ScheduleJob** e quindi scegliere **Gestisci pacchetti NuGet**.
-3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **microsoft.azure.devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al [pacchetto NuGet Azure IoT - SDK per dispositivi][lnk-nuget-service-sdk] e alle relative dipendenze.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ScheduleJob** e quindi scegliere **Gestisci pacchetti NuGet**.
+1. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **microsoft.azure.devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al pacchetto NuGet [Azure IoT SDK per servizi][lnk-nuget-service-sdk] e alle relative dipendenze.
 
     ![Finestra Gestione pacchetti NuGet][img-servicenuget]
-4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
+
+1. Aggiungere l'istruzione `using` seguente se non è già presente nelle istruzioni predefinite.
+
+        using System.Threading.Tasks;
         
-5. Aggiungere i campi seguenti alla classe **Program** . Sostituire il segnaposto con la stringa di connessione dell'hub IoT creato nella sezione precedente.
+1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il segnaposto con la stringa di connessione dell'hub IoT creato nella sezione precedente.
    
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static JobClient jobClient;
         
-6. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il metodo seguente alla classe **Program** :
    
         public static async Task MonitorJob(string jobId)
         {
@@ -93,7 +98,7 @@ In questa sezione si creerà un'app console .NET (usando C#) che avvia un **lock
             } while ((result.Status != JobStatus.Completed) && (result.Status != JobStatus.Failed));
         }
                 
-7. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il metodo seguente alla classe **Program** :
 
         public static async Task StartMethodJob(string jobId)
         {
@@ -108,7 +113,7 @@ In questa sezione si creerà un'app console .NET (usando C#) che avvia un **lock
             Console.WriteLine("Started Method Job");
         }
 
-8. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il metodo seguente alla classe **Program** :
 
         public static async Task StartTwinUpdateJob(string jobId)
         {
@@ -127,7 +132,7 @@ In questa sezione si creerà un'app console .NET (usando C#) che avvia un **lock
         }
  
 
-9. Aggiungere infine le righe seguenti al metodo **Main** :
+1. Aggiungere infine le righe seguenti al metodo **Main** :
    
         jobClient = JobClient.CreateFromConnectionString(connString);
 
@@ -144,8 +149,8 @@ In questa sezione si creerà un'app console .NET (usando C#) che avvia un **lock
         MonitorJob(twinUpdateJobId).Wait();
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
-                   
-10. Compilare la soluzione.
+
+1. In Esplora soluzioni aprire **Imposta progetti di avvio** e assicurarsi che **Azione** per il progetto **ScheduleJob** sia impostata su **Avvio**. Compilare la soluzione.
 
 ## <a name="create-a-simulated-device-app"></a>Creare un'app di dispositivo simulato
 In questa sezione si crea un'app console Node.js che risponde a un metodo diretto chiamato dal cloud, che attiva un riavvio del dispositivo simulato e usa le proprietà segnalate per abilitare le query del dispositivo gemello che consentono di identificare i dispositivi e di sapere quando sono stati riavviati l'ultima volta.
@@ -155,13 +160,13 @@ In questa sezione si crea un'app console Node.js che risponde a un metodo dirett
     ```
     npm init
     ```
-2. Eseguire questo comando al prompt dei comandi nella cartella **simDevice** per installare il pacchetto SDK per dispositivi **azure-iot-device** e il pacchetto **azure-iot-device-mqtt**:
+1. Al prompt dei comandi nella cartella **simDevice** digitare il comando seguente per installare i pacchetti **azure-iot-device** e **azure-iot-device-mqtt**:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Con un editor di testo creare un nuovo file **simDevice.js** nella cartella **simDevice**.
-4. Aggiungere le istruzioni "require" seguenti all'inizio del file **simDevice.js**:
+1. Con un editor di testo creare un nuovo file **simDevice.js** nella cartella **simDevice**.
+1. Aggiungere le istruzioni "require" seguenti all'inizio del file **simDevice.js**:
    
     ```
     'use strict';
@@ -169,13 +174,13 @@ In questa sezione si crea un'app console Node.js che risponde a un metodo dirett
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**.  
+1. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**. Assicurarsi di sostituire i segnaposto con valori appropriati per l'installazione.
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Aggiungere la funzione seguente per gestire il metodo **lockDoor**.
+1. Aggiungere la funzione seguente per gestire il metodo **lockDoor**.
    
     ```
     var onLockDoor = function(request, response) {
@@ -192,7 +197,7 @@ In questa sezione si crea un'app console Node.js che risponde a un metodo dirett
         console.log('Locking Door!');
     };
     ```
-7. Aggiungere il codice seguente per registrare il gestore per il metodo **lockDoor**.
+1. Aggiungere il codice seguente per registrare il gestore per il metodo **lockDoor**.
    
     ```
     client.open(function(err) {
@@ -204,7 +209,7 @@ In questa sezione si crea un'app console Node.js che risponde a un metodo dirett
         }
     });
     ```
-8. Salvare e chiudere il file **simDevice.js**.
+1. Salvare e chiudere il file **simDevice.js**.
 
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri per i tentativi, ad esempio un backoff esponenziale, come illustrato nell'articolo di MSDN [Transient Fault Handling][lnk-transient-faults] (Gestione degli errori temporanei).
@@ -219,22 +224,23 @@ A questo punto è possibile eseguire le app.
     ```
     node simDevice.js
     ```
-2. Eseguire l'app console C# **ScheduleJob**: fare clic con il pulsante destro del mouse sul progetto **ScheduleJob**, quindi scegliere **Debug** e **Avvia nuova istanza**.
+1. Eseguire l'app console C# **ScheduleJob** facendo clic con il pulsante destro del mouse sul progetto **ScheduleJob**, quindi selezionando **Debug** e **Avvia nuova istanza**.
 
-3. L'output viene visualizzato sia dal dispositivo che dalle app back-end.
+1. L'output viene visualizzato sia dal dispositivo che dalle app back-end.
+
+    ![Eseguire le app per pianificare i processi][img-schedulejobs]
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stato usato un processo per pianificare un metodo diretto in un dispositivo e aggiornare le proprietà di un dispositivo gemello.
 
-Per altre informazioni sull'hub IoT e sui modelli di gestione dei dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware air, vedere:
-
-[Esercitazione: Come eseguire un aggiornamento del firmware][lnk-fwupdate]
+Per altre informazioni sull'hub IoT e sui modelli di gestione dei dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware air, vedere [Esercitazione: Come eseguire un aggiornamento del firmware][lnk-fwupdate].
 
 Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Getting started with the IoT Gateway SDK][lnk-gateway-SDK] (Introduzione a IoT Gateway SDK).
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-schedule-jobs/createnetapp.png
+[img-schedulejobs]: media/iot-hub-csharp-node-schedule-jobs/schedulejobs.png
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md

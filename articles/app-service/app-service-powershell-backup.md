@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 172b55a68662dd98c4af946d51f3ece51f7835e1
-ms.lasthandoff: 12/07/2016
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0d1c323155aae90e8a92d7a3b92b5ca1482e1ef5
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ L'URL di firma di accesso condiviso può essere generato con PowerShell. Di segu
         $sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
 ## <a name="install-azure-powershell-132-or-greater"></a>Installare Azure PowerShell 1.3.2 o versioni successive
-Per istruzioni sull'installazione e sull'uso di Azure PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](/powershell/azureps-cmdlets-docs) .
+Per istruzioni sull'installazione e sull'uso di Azure PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](/powershell/azure/overview) .
 
 ## <a name="create-a-backup"></a>Creare un backup
 Usare il cmdlet New-AzureRmWebAppBackup per creare un backup di un'app Web.
@@ -96,7 +96,8 @@ Per semplificare, è anche possibile inviare tramite pipe un oggetto app Web in 
 * **Slot** : facoltativo. Nome dello slot dell'app Web.
 * **StorageAccountUrl** : URL di firma di accesso condiviso del contenitore di archiviazione di Azure usato per archiviare i backup.
 * **FrequencyInterval** : valore numerico relativo alla frequenza con cui devono essere eseguiti i backup. Deve essere un intero positivo.
-* **FrequencyUnit** : unità di tempo relativa alla frequenza con cui devono essere eseguiti i backup.. Le opzioni disponibili sono Hour e Day.
+* <seg>
+  **FrequencyUnit** : unità di tempo relativa alla frequenza con cui devono essere eseguiti i backup..</seg> Le opzioni disponibili sono Hour e Day.
 * **RetentionPeriodInDays** : giorni per cui è necessario conservare i backup automatici prima dell'eliminazione automatica.
 * **StartTime** : facoltativo. Ora in cui devono iniziare i backup automatici. I backup iniziano immediatamente se questo valore è Null. Deve essere un valore DateTime.
 * **Databases** : facoltativo. Una matrice di DatabaseBackupSettings per i database da sottoporre a backup.

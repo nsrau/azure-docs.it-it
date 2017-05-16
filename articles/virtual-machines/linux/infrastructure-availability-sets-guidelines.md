@@ -17,9 +17,9 @@ ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9fe18ba70c98baacae99e4f26506510921dcf894
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 05d5ae485f5a345ade59326ab77cb38127f06580
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -53,7 +53,7 @@ Quando si progetta l'infrastruttura dell'applicazione, pianificare anche i livel
 
 In ogni livello di applicazione è possibile usare servizi di bilanciamento del carico a supporto di un set di disponibilità, per garantire che il traffico venga sempre indirizzato a un'istanza in esecuzione. Senza bilanciamento del carico, le macchine virtuali possono restare in esecuzione durante gli eventi di manutenzione pianificata e non pianificata, ma gli utenti finali potrebbero non essere in grado di risolvere i problemi se la macchina virtuale primaria non è disponibile.
 
-Quando si usano i dischi non gestiti, progettare l'applicazione per la disponibilità elevata a livello di archiviazione. È consigliabile usare un account di archiviazione separato per ogni VM di un set di disponibilità. Mantenere tutti i dischi (del sistema operativo e dei dati) associati a una VM nello stesso account di archiviazione. Quando si aggiungono più dischi rigidi virtuali a un account di archiviazione, tenere presenti i [limiti](../../storage/storage-scalability-targets.md) degli account di archiviazione. Per [Managed Disks di Azure](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), la distribuzione dei dischi sottostanti viene eseguita automaticamente.
+Progettare l'applicazione per la disponibilità elevata a livello di archiviazione. La procedura consigliata consiste nell'[usare Managed Disks per le macchine virtuali in un set di disponibilità](../linux/manage-availability.md#use-managed-disks-for-vms-in-availability-set). Se si usano macchine virtuali con dischi non gestiti, è fortemente consigliabile [convertire le macchine virtuali nel set di disponibilità per l'uso di Managed Disks](../linux/convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]

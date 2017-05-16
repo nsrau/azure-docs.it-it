@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2fb323e8cf6d14d0b5cf10071475cf4669545ed
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
 L'insieme di credenziali delle chiavi di Azure dispone di più livelli di ridondanza, per garantire che le chiavi e i segreti rimangano disponibili per l'applicazione anche quando si verificano errori di singoli componenti del servizio.
 
-I contenuti dell'insieme di credenziali delle chiavi vengono replicati all'interno dell'area e in un'area secondaria distante almeno 250 chilometri, ma all'interno della stessa area geografica. Questo garantisce un'elevata durabilità delle chiavi e dei segreti.
+I contenuti dell'insieme di credenziali delle chiavi vengono replicati all'interno dell'area e in un'area secondaria distante almeno 250 chilometri, ma all'interno della stessa area geografica. Questo garantisce un'elevata durabilità delle chiavi e dei segreti. Per informazioni dettagliate su coppie di aree specifiche, vedere il documento [Aree abbinate di Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
 
 Se si verificano errori di singoli componenti del servizio dell'insieme di credenziali delle chiavi, per gestire la richiesta subentrano componenti alternativi all'interno dell'area in modo che non si verifichi alcuna riduzione delle prestazioni delle funzionalità. A tale scopo, non è necessario alcun intervento in quanto l'azione viene eseguita automaticamente e in modo trasparente per l'utente.
 
@@ -47,10 +48,5 @@ Esistono alcune limitazioni che è necessario tenere presenti:
   * Sign
   * Backup
 * Dopo il failback di un failover, tutti i tipi di richiesta, ad esempio le richieste di lettura *e* scrittura, risultano disponibili.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

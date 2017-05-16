@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
-ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
-ms.lasthandoff: 11/23/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
+ms.contentlocale: it-it
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -47,6 +48,9 @@ L'esecuzione di analisi scientifica dei dati implica l'iterazione di una sequenz
 La macchina virtuale per l'analisi scientifica dei dati di Microsoft avvia rapidamente il progetto di analisi e consente di svolgere attività in vari linguaggi, ad esempio R, Python, SQL e C#. Visual Studio fornisce un IDE facile da usare per sviluppare e testare il codice. Azure SDK incluso nella VM consente di compilare le applicazioni usando vari servizi sulla piattaforma cloud di Microsoft. 
 
 Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti costi per il software. Si pagano solo le spese di utilizzo di Azure in base alle dimensioni della macchina virtuale di cui viene eseguito il provisioning. Per informazioni dettagliate sui costi di calcolo, vedere la sezione Dettagli prezzi nella pagina relativa alla [macchina virtuale per l'analisi scientifica dei dati](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) . 
+
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>Altre versioni della macchina virtuale per l'analisi scientifica dei dati
+È disponibile anche un'immagine [CentOS](machine-learning-data-science-linux-dsvm-intro.md), con molti degli stessi strumenti dell'immagine Windows. È disponibile anche un'immagine [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md), con molti strumenti simili, oltre a framework di apprendimento avanzato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di creare una macchina virtuale per l'analisi scientifica dei dati di Microsoft, è necessario quanto segue:

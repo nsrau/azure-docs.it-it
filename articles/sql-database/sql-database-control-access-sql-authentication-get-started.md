@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a5084b62a309dba433e2b363322b9a9c362bcdc3
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1bd474cc547ca2f6aa32944c1a1e5a92f917444a
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -58,11 +58,6 @@ I passaggi di questa procedura illustrano come connettersi al portale di Azure c
 1. Aprire il browser preferito e connettersi al [portale di Azure](https://portal.azure.com/).
 2. Accedere al [portale di Azure](https://portal.azure.com/).
 3. Nella **pagina di accesso** specificare le credenziali per la sottoscrizione.
-   
-   ![pagina di accesso](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
 
 ## <a name="view-logical-server-security-information-in-the-azure-portal"></a>Visualizzare le informazioni sulla sicurezza del server logico nel portale di Azure
 
@@ -268,17 +263,17 @@ I passaggi di questa procedura illustrano come creare una regola del firewall a 
 
 2. Nella finestra **Connetti al server** immettere il nome del server e le informazioni di autenticazione per connettersi usando l'autenticazione di SQL Server con l'account **user1**. 
     
-   ![Connettersi come user1 senza regola del firewall&1;](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
+   ![Connettersi come user1 senza regola del firewall 1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
-3. Fare clic su **Opzioni** per specificare il database a cui connettersi e quindi digitare **sqldbtutorialdb** nella casella di riepilogo a discesa **Connetti al database** della scheda **Proprietà connessione**.
+3. Fare clic su **Opzioni** nella finestra di dialogo **Connetti al server** per specificare il database a cui connettersi e quindi digitare **sqldbtutorialdb** nella casella di riepilogo a discesa **Connetti al database** della scheda **Proprietà connessione**.
    
-   ![Connettersi come user1 senza regola del firewall&2;](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
+   ![Connettersi come user1 senza regola del firewall 2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
 4. Fare clic su **Connect**. 
 
    Verrà visualizzata una finestra di dialogo che informa che il computer da cui si sta tentando di connettersi al database SQL non ha una regola del firewall che consente l'accesso al database. 
 
-   ![Connettersi come user1 senza regola del firewall&4;](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule4.png)
+   ![Connettersi come user1 senza regola del firewall 4](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule4.png)
 
 
 5. Copiare l'indirizzo IP client riportato in questa finestra di dialogo, che verrà usato nel passaggio 8.
@@ -301,7 +296,7 @@ I passaggi di questa procedura illustrano come creare una regola del firewall a 
 
 10. Dopo aver stabilito la connessione, espandere **Database** in Esplora oggetti. Si noti che **user1** può visualizzare solo il database **sqldbtutorialdb**.
 
-   ![Connettersi come user1 con la regola del firewall&1;](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
+   ![Connettersi come user1 con la regola del firewall 1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
 
 11. Espandere **sqldbtutorialdb** e quindi **Tabelle**. Si noti che user1 ha solo l'autorizzazione per visualizzare una singola tabella, **SalesLT.ProductCategory**. 
 

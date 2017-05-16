@@ -11,12 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5c6ab3a8fdacb43546801518b76a15314d0b4b0f
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7914b9f1f747d246f58c19b7faf56357bd39a201
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -34,8 +35,7 @@ ms.lasthandoff: 03/21/2017
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. <br/>Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
-* [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
-* [Cmdlet di Azure Resource Manager][lnk-rm-install].
+* [Cmdlet di Azure PowerShell][lnk-powershell-install].
 
 ## <a name="connect-to-your-azure-subscription"></a>Connettersi alla sottoscrizione di Azure
 In un prompt dei comandi di PowerShell, immettere il comando seguente per accedere alla sottoscrizione di Azure:
@@ -115,10 +115,9 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
-[lnk-iothub-cmdlets]: /powershell/resourcemanager/azurerm.iothub/v1.3.0/azurerm.iothub
-[lnk-rm-install]: /powershell/resourcemanager/
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-iothub-cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.iothub/
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md

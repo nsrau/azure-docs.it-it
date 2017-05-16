@@ -16,23 +16,22 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: dbcee4d57448c6f25de24d5995b85849d6d82f77
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 3756f1a039730bfd99b0375ce9bfeaf27178f2e0
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
-Funzioni di Azure semplifica la configurazione della distribuzione continua per l'app per le funzioni. Funzioni usa l'integrazione del servizio app di Azure con BitBucket, Dropbox, GitHub e Visual Studio Team Services (VSTS) per consentire un flusso di lavoro di distribuzione continua in cui Azure effettua il pull degli aggiornamenti al codice delle funzioni quando vengono pubblicati in uno di questi servizi. Se non si ha familiarità con Funzioni di Azure, iniziare con [Panoramica di Funzioni di Azure](functions-overview.md).
+Le funzioni di Azure semplificano la distribuzione dell'app per le funzioni usando l'integrazione continua del servizio app. Le funzioni si integrano con Dropbox, GitHub, BitBucket e Visual Studio Team Services, VSTS. In questo modo viene abilitato un flusso di lavoro in cui gli aggiornamenti al codice della funzione vengono eseguiti tramite una di queste distribuzioni del trigger dei servizi integrati in Azure. Se non si ha familiarità con Funzioni di Azure, iniziare con [Panoramica di Funzioni di Azure](functions-overview.md).
 
 La distribuzione continua è un'ottima opzione per i progetti in cui vengono integrati contributi numerosi e frequenti. Consente anche di mantenere il controllo dell'origine del codice funzione. Sono attualmente supportate le origini di distribuzione seguenti:
 
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
-* [Repository Git locale](../app-service-web/app-service-deploy-local-git.md)
-* Repository Git esterno
-* [GitHub]
-* Repository Mercurial esterno
+* Archivio esterno (Git o Mercurial)
+* [Archivio locale GIT](../app-service-web/app-service-deploy-local-git.md)
+* [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
 
@@ -40,25 +39,26 @@ Le distribuzioni sono configurate in base alla singola app per le funzioni. Dopo
 
 ## <a name="continuous-deployment-requirements"></a>Requisiti per la distribuzione continua
 
-È necessario che l'origine della distribuzione sia configurata e che il codice funzioni sia presente nell'origine della distribuzione prima di configurare la distribuzione continua. In una determinata distribuzione di app per le funzioni, ogni funzione si trova in una sottodirectory denominata, dove il nome della directory è il nome della funzione. Questa struttura di cartelle è essenzialmente il codice del sito. 
+È necessario che l'origine della distribuzione sia configurata e che il codice funzioni sia presente nell'origine della distribuzione prima di configurare la distribuzione continua. In una determinata distribuzione di app per le funzioni, ogni funzione si trova in una sottodirectory denominata, dove il nome della directory è il nome della funzione.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 ## <a name="set-up-continuous-deployment"></a>Configurare la distribuzione continua
-Usare la procedura seguente per configurare la distribuzione continua per un'app per le funzioni esistente:
+Usare la procedura seguente per configurare la distribuzione continua per un'app per le funzioni esistente. Questa procedura illustra l'integrazione con un archivio di GitHub. Una procedura analoga si applica a Visual Studio Team Services o ad altri servizi di distribuzione.
 
-1. Nell'app per le funzioni nel [portale Funzioni di Azure](https://functions.azure.com/signin) fare clic su **Impostazioni dell'app per le funzioni** > **Configura integrazione continua** > **Configurazione**.
+1. Nell'app per le funzioni nel [portale di Azure](https://portal.azure.com) fare clic su **Funzionalità della piattaforma** e **Opzioni di distribuzione**. 
    
     ![Configurare la distribuzione continua](./media/functions-continuous-deployment/setup-deployment.png)
-   
+ 
+2. Quindi, nel pannello **Distribuzione** fare clic su **Installazione**.
+ 
     ![Configurare la distribuzione continua](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-    È anche possibile accedere al pannello Distribuzioni dall'avvio rapido Funzioni facendo clic su **Iniziare dal controllo del codice sorgente**.
-2. Nel pannello **Origine distribuzione** fare clic su **Scegliere l'origine**, quindi digitare le informazioni per l'origine della distribuzione scelta e fare clic su **OK**.
+2. Nel pannello **Origine distribuzione** fare clic su **Scegliere l'origine**, quindi inserire le informazioni per l'origine della distribuzione scelta e fare clic su **OK**.
    
     ![Scegliere l'origine della distribuzione](./media/functions-continuous-deployment/choose-deployment-source.png)
 
-Dopo aver configurato la distribuzione continua, tutti i file delle modifiche nell'origine della distribuzione vengono copiati nell'app per le funzioni e viene attivata una distribuzione completa del sito. Il sito viene ridistribuito quando vengono aggiornati i file nell'origine.
+Dopo aver configurato la distribuzione continua, tutti le modifiche dei file nell'origine della distribuzione vengono copiate nell'app per le funzioni e viene attivata una distribuzione completa del sito. Il sito viene ridistribuito quando vengono aggiornati i file nell'origine.
 
 ## <a name="deployment-options"></a>Opzioni di distribuzione
 
@@ -78,15 +78,15 @@ Il processo per la configurazione e l'uso di una distribuzione di staging è in 
 
 2. Creare un'origine della distribuzione, se non è già presente. Questo esempio usa [GitHub].
 
-3. Per l'app per le funzioni di produzione, eseguire i passaggi illustrati sopra in **Configurare la distribuzione continua** e impostare il ramo di distribuzione sul ramo master del repository GitHub.
+3. Per l'app per le funzioni di produzione, eseguire i passaggi illustrati sopra in **Configurare la distribuzione continua** e impostare il ramo di distribuzione sul ramo master dell'archivio GitHub.
    
     ![Scegliere il ramo della distribuzione](./media/functions-continuous-deployment/choose-deployment-branch.png)
 
 4. Ripetere questo passaggio per l'app per le funzioni di staging, ma scegliere il ramo di staging nel repository GitHub. Se l'origine della distribuzione non supporta le diramazioni, usare una cartella diversa.
-
+    
 5. Apportare aggiornamenti al codice nel ramo o nella cartella di staging, quindi verificare che le modifiche vengono apportate nella distribuzione di staging.
 
-6. Dopo i test, unire le modifiche dal ramo di staging nel ramo master. Verrà attivata la distribuzione nell'app per le funzioni di produzione. Se l'origine della distribuzione non supporta i rami, sovrascrivere i file nella cartella di produzione con i file dalla cartella di staging.
+6. Dopo i test, unire le modifiche dal ramo di staging nel ramo master. Questa unione attiva la distribuzione nell'app per le funzioni di produzione. Se l'origine della distribuzione non supporta i rami, sovrascrivere i file nella cartella di produzione con i file dalla cartella di staging.
 
 <a name="existing"></a>
 ### <a name="move-existing-functions-to-continuous-deployment"></a>Trasferire le funzioni esistenti nella distribuzione continua
@@ -97,13 +97,13 @@ Quando si hanno funzioni esistenti che sono state create e gestite nel portale, 
 
 - [Procedura: Configurare le credenziali di distribuzione](#credentials)
 - [Procedura: Scaricare i file con FTP](#downftp)
-- [Procedura: Scaricare file usando il repository Git locale](#downgit)
+- [Procedura: scaricare file tramite l'archivio GIT locale](#downgit)
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>Procedura: Configurare le credenziali di distribuzione
-Prima di poter scaricare i file dall'app per le funzioni con FTP o il repository Git locale, è necessario configurare le credenziali per accedere al sito. Questa operazione può essere eseguita dal portale. Le credenziali vengono impostate a livello di app per le funzioni.
+Prima di poter scaricare i file dall'app per le funzioni con FTP o l'archivio GIT locale, è necessario configurare le credenziali per accedere al sito. Le credenziali vengono impostate a livello di app per le funzioni. Usare la procedura seguente per impostare le credenziali di distribuzione nel portale di Azure:
 
-1. Nell'app per le funzioni nel [portale Funzioni di Azure](https://functions.azure.com/signin) fare clic su **Impostazioni dell'app per le funzioni** > **Passa a Impostazioni del servizio app** > **Credenziali per la distribuzione**.
+1. Nell'app per le funzioni nel [portale di Azure](https://portal.azure.com) fare clic su **Funzionalità della piattaforma** e **Credenziali distribuzione**.
    
     ![Impostare le credenziali di distribuzione locali](./media/functions-continuous-deployment/setup-deployment-credentials.png)
 
@@ -112,26 +112,32 @@ Prima di poter scaricare i file dall'app per le funzioni con FTP o il repository
 <a name="downftp"></a>
 #### <a name="how-to-download-files-using-ftp"></a>Procedura: Scaricare i file tramite FTP
 
-1. Nell'app per le funzioni nel [portale Funzioni di Azure](https://functions.azure.com/signin) fare clic su **Impostazioni dell'app per le funzioni** > **Passa a Impostazioni del servizio app** > **Proprietà** e copiare i valori di **Utente FTP/distribuzione**, **Nome host FTP** e **Nome host FTPS**.  
+1. Nell'app per le funzioni nel [portale di Azure](https://portal.azure.com) fare clic su **Funzionalità della piattaforma** e su **Proprietà**, quindi copiare i valori di **Utente FTP/distribuzione**, **Nome host FTP** e **Nome host FTPS**.  
 
-    **Utente FTP/distribuzione** deve essere immesso come visualizzato dal portale, includendo il nome dell'app, per rendere disponibile un contesto appropriato per il server FTP.
+    **Utente FTP/distribuzione** deve essere immesso come visualizzato nel portale, includendo il nome dell'app, per rendere disponibile un contesto appropriato per il server FTP.
    
     ![Ottenere le informazioni di distribuzione](./media/functions-continuous-deployment/get-deployment-credentials.png)
 
 2. Dal client FTP, usare le informazioni di connessione raccolte per connettersi all'app e scaricare i file di origine per le funzioni.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-the-local-git-repository"></a>Procedura: Scaricare file tramite il repository Git locale
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>Procedura: scaricare file tramite l'archivio GIT locale
 
-1. Nell'app per le funzioni nel [portale Funzioni di Azure](https://functions.azure.com/signin) fare clic su **Impostazioni dell'app per le funzioni** > **Configura integrazione continua** > **Configurazione**.
+1. Nell'app per le funzioni nel [portale di Azure](https://portal.azure.com) fare clic su **Funzionalità della piattaforma** e **Opzioni di distribuzione**. 
+   
+    ![Configurare la distribuzione continua](./media/functions-continuous-deployment/setup-deployment.png)
+ 
+2. Quindi, nel pannello **Distribuzione** fare clic su **Installazione**.
+ 
+    ![Configurare la distribuzione continua](./media/functions-continuous-deployment/setup-deployment-1.png)
+   
+2. Nel pannello **Origine distribuzione** fare clic su **Archivio Git locale** e quindi fare clic su **OK**.
 
-2. Nel pannello Distribuzioni fare clic su **Scegliere l'origine**, **Repository Git locale** e quindi fare clic su **OK**.
-
-3. Fare clic su **Passa a Impostazioni del servizio app** > **Proprietà** e prendere nota del valore di URL GIT. 
+3. In **Funzionalità della piattaforma** fare clic su **Proprietà** e prendere nota del valore dell'URL GIT. 
    
     ![Configurare la distribuzione continua](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
 
-4. Clonare il repository nel computer locale tramite riga di comando compatibile con Git o con lo strumento Git preferito. Il comando git clone è simile al seguente:
+4. Clonare l'archivio nel computer locale tramite il prompt dei comandi compatibile con GIT o con lo strumento GIT preferito. Il comando clone GIT è simile al seguente:
    
         git clone https://username@my-function-app.scm.azurewebsites.net:443/my-function-app.git
 
@@ -139,7 +145,7 @@ Prima di poter scaricare i file dall'app per le funzioni con FTP o il repository
    
         git pull origin master
    
-    Se richiesto, specificare nome utente e password per la distribuzione dell'app per le funzioni.  
+    Se richiesto inserire le [credenziali di distribuzione configurate](#credentials).  
 
 [GitHub]: https://github.com/
 

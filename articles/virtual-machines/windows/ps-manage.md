@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: ca695dd140af0a6f9b13f75e0402e1675b9e79d7
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c8ed83c6c0219995030408f276d4ef7d83703c7c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/31/2017
 
 Questo articolo descrive il modo in cui è possibile eseguire attività di gestione comuni in una macchina virtuale di Azure.
 
-Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
 > Per utilizzare la funzionalità descritta in questo articolo potrebbe essere necessario reinstallare Azure PowerShell. Le funzionalità dei dischi gestiti presentano la versione 3.5 e versioni successive.

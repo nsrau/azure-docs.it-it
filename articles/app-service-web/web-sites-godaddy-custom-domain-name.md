@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: fe8b4b097f7ff157d624c09b8dbf26f94401395c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 158c5dc06f83e16633d3c2fbb4eb27d3e8af030c
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ Questo articolo contiene istruzioni generiche sull'uso di un nome di dominio per
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>Aggiunta di un record DNS per il dominio personalizzato
 Per associare il dominio personalizzato a un'app Web nel servizio app, è necessario aggiungere nella tabella DNS una nuova voce per il dominio personalizzato usando gli strumenti forniti da GoDaddy. Per individuare gli strumenti DNS per GoDaddy.com, attenersi alla procedura seguente
 
-1. Accedere al proprio account presso GoDaddy.com e selezionare **Mio account**, quindi **Gestisci i miei domini**. Infine, selezionare il menu a discesa relativo al nome di dominio da usare con l'app Web di Azure e selezionare **Gestisci DNS**.
+1. Accedere al proprio account presso GoDaddy.com e selezionare **Mio account**, quindi **Gestisci i miei domini**. Selezionare il menu a discesa relativo al nome di dominio da usare con l'app Web di Azure e selezionare **Gestisci DNS**.
    
     ![pagina del domino personalizzato per GoDaddy](./media/web-sites-godaddy-custom-domain-name/godaddy-customdomain.png)
 2. Nella pagina **Dettagli dominio** selezionare la scheda **DNS Zone File**. In questa sezione è possibile aggiungere e modificare i record DNS per il nome di dominio.
@@ -65,7 +65,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
    
     ![add zone record](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
    
-   * Quando si aggiunge un **record A (host)**, è necessario impostare il campo **Host** su **@** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su * (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare (ad esempio **www**). È necessario impostare il campo **Points to* (Punta a)* sull'indirizzo IP dell'app Web di Azure.
+   * Quando si aggiunge un **record A (host)**, è necessario impostare il campo **Host** su **@** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**)* (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare (ad esempio **www**). È necessario impostare il campo **Points to** (Punta a) sull'indirizzo IP dell'app Web di Azure.
    * Quando si aggiunge un **record CNAME (alias)**, è necessario impostare il campo **Host** sul sottodominio da usare, ad esempio **www**. È necessario impostare il campo **Points to** (Punta a) sul nome di dominio **.azurewebsites.net** dell'app Web di Azure. Ad esempio, **contoso.azurewebsites.net**.
 4. Fare clic su **Aggiungi utente**.
 5. Selezionare **TXT** come tipo di record, quindi specificare un valore **Host** di **@** e un valore **Points to** (Punta a) di **&lt;nomeappweb&gt;.azurewebsites.net**.

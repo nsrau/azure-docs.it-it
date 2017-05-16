@@ -16,9 +16,9 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 76077d39f17df63abe6c08f91991095c53f5dbb8
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a635b214fcc9b37ac426df227420b643e2a02cc7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ Questo argomento descrive i comandi di PowerShell che consentono di eseguire mol
 Questi comandi si affiancano alle opzioni di gestione disponibili nella pagina relativa alle [API REST di gestione di Ricerca di Azure](http://msdn.microsoft.com/library/dn832684.aspx).
 
 ## <a name="prerequisites"></a>Prerequisiti
-* È necessario disporre di Azure PowerShell 1.0 o versioni successive. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* È necessario disporre di Azure PowerShell 1.0 o versioni successive. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * In PowerShell è necessario connettersi alla sottoscrizione di Azure come descritto di seguito.
 
 In primo luogo, è necessario accedere a Microsoft Azure con questo comando:

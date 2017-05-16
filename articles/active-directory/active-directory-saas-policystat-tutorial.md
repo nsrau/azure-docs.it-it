@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 8290d90f22a80d5c585192b17cfa0aeba00aa891
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ecd58d8f1df60aff99d9ac2e0245d06f61e0b6bb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,13 +33,13 @@ Al termine dell'esercitazione, gli utenti di Azure AD assegnati a PolicyStat sar
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
 1. Abilitazione dell'integrazione dell'applicazione per PolicyStat
-2. Configurazione dell'accesso Single Sign-On
+2. Configurazione dell'accesso Single Sign-On (SSO)
 3. Configurazione del provisioning utente
 4. Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-policystat-tutorial/IC808662.png "Scenario")
 
-## <a name="enabling-the-application-integration-for-policystat"></a>Abilitazione dell'integrazione dell'applicazione per PolicyStat
+## <a name="enable-the-application-integration-for-policystat"></a>Abilitare l'integrazione dell'applicazione per PolicyStat
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per PolicyStat.
 
 **Per abilitare l'integrazione dell'applicazione per PolicyStat, seguire questa procedura:**
@@ -63,7 +64,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
    
    ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
    
-## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a PolicyStat tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.  
 
@@ -126,19 +127,18 @@ Lo screenshot seguente ne illustra un esempio.
    4. Nell'elenco **Posta** selezionare **User.mail**.
    5. Fare clic su **Complete**.
 
-##<a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+##<a name="configure-user-provisioning"></a>Configura provisioning utenti
 
 Per consentire agli utenti di Azure AD di accedere a PolicyStat, è necessario eseguirne il provisioning in PolicyStat.  
 
-PolicyStat supporta solo il provisioning JIT dell'utente. Non è pertanto è necessario aggiungere gli utenti manualmente a PolicyStat.  
-Gli utenti verranno vengono aggiunti automaticamente al primo accesso tramite il Single Sign-On.
+PolicyStat supporta solo il provisioning JIT dell'utente. Non è pertanto è necessario aggiungere gli utenti manualmente a PolicyStat. Gli utenti verranno aggiunti automaticamente al primo accesso tramite SSO.
 
-> [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da PolicyStat per eseguire il provisioning degli account utente di Azure AD.
+>[!NOTE]
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da PolicyStat per eseguire il provisioning degli account utente di Azure AD.
 > 
 > 
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 **Per assegnare gli utenti a PolicyStat, seguire questa procedura:**
@@ -151,11 +151,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    
    ![Sì](./media/active-directory-saas-policystat-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 

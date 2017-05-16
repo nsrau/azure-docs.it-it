@@ -55,8 +55,3 @@ Tabella di route di esempio in formato JSON:
 * Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) per le tabelle di route.
 * Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) per le route definite dall'utente.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

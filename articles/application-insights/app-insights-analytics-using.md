@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 8485fd9350672dd0f41e2d5dada57a1940c43f16
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -134,7 +134,7 @@ Ciò significa che, quando si crea un dashboard per monitorare le prestazioni o 
 È possibile aggiungere una tabella al dashboard se contiene un massimo di quattro colonne. Verranno visualizzate solo le prime sette righe.
 
 ### <a name="dashboard-refresh"></a>Aggiornamento del dashboard
-Il grafico aggiunto al dashboard viene aggiornato automaticamente eseguendo di nuovo la query ogni due ore circa.
+Il grafico aggiunto al dashboard viene aggiornato automaticamente rieseguendo la query ogni due ore circa. È possibile anche fare clic sul pulsante Aggiorna.
 
 ### <a name="automatic-simplifications"></a>Semplificazioni automatiche
 

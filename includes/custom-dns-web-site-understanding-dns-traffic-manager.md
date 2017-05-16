@@ -23,8 +23,3 @@ Quando il traffico raggiunge Gestione traffico, quest'ultimo lo indirizza al sit
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: f32f61824de6a0195fc57b8cb0d73a89c7a06067
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d1709c2c28505e66a88cfbbcf4dc88c8ccca841f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,10 +32,10 @@ Questa esercitazione offre un'esplorazione pratica di uno scenario di risoluzion
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Strumenti per la risoluzione dei problemi delle applicazioni di archiviazione di Azure
 Per risolvere i problemi relativi alle applicazioni client mediante Archiviazione di Microsoft Azure, è possibile usare una combinazione di strumenti per determinare quando si è verificato un problema e quale potrebbe essere la sua causa. Questi strumenti comprendono:
 
-* **Analisi archiviazione di Azure**. [Analisi archiviazione di Azure](/rest/api/storageservices/fileservices/Storage-Analytics) fornisce metriche e registrazioni per Archiviazione di Azure.
+* **Analisi archiviazione di Azure**. [Analisi archiviazione di Azure](/rest/api/storageservices/Storage-Analytics) fornisce metriche e registrazioni per Archiviazione di Azure.
   
-  * **metriche di archiviazione** tengono traccia delle metriche relative alle transazioni e alla capacità per l'account di archiviazione. Le metriche consentono di determinare le prestazioni dell'applicazione in base a un'ampia gamma di misure diverse. Per altre informazioni sui tipi di metriche di cui Analisi archiviazione tiene traccia, vedere [Schema di tabella della metrica di Analisi archiviazione](/rest/api/storageservices/fileservices/Storage-Analytics-Metrics-Table-Schema) .
-  * **registrazione di archiviazione** registra tutte le richieste in arrivo ai servizi di Archiviazione di Azure in un log sul lato server. Nel log vengono registrati dati dettagliati per ogni richiesta, tra cui l'operazione eseguita, lo stato dell'operazione e le informazioni sulla latenza. Per altre informazioni sui dati di richiesta e risposta che vengono scritti nei log di Analisi di archiviazione, vedere [Formato del log di Analisi archiviazione](/rest/api/storageservices/fileservices/Storage-Analytics-Log-Format) .
+  * **metriche di archiviazione** tengono traccia delle metriche relative alle transazioni e alla capacità per l'account di archiviazione. Le metriche consentono di determinare le prestazioni dell'applicazione in base a un'ampia gamma di misure diverse. Per altre informazioni sui tipi di metriche di cui Analisi archiviazione tiene traccia, vedere [Schema di tabella della metrica di Analisi archiviazione](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) .
+  * **registrazione di archiviazione** registra tutte le richieste in arrivo ai servizi di Archiviazione di Azure in un log sul lato server. Nel log vengono registrati dati dettagliati per ogni richiesta, tra cui l'operazione eseguita, lo stato dell'operazione e le informazioni sulla latenza. Per altre informazioni sui dati di richiesta e risposta che vengono scritti nei log di Analisi di archiviazione, vedere [Formato del log di Analisi archiviazione](/rest/api/storageservices/Storage-Analytics-Log-Format) .
 
 > [!NOTE]
 > Per gli account di archiviazione con un tipo di replica di archiviazione con ridondanza della zona (ZRS) al momento non sono abilitate le funzionalità di metrica e registrazione. 
@@ -103,9 +103,9 @@ Per configurare la registrazione e le metriche dell'account di archiviazione tra
 
 **Tramite PowerShell**
 
-Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-1. Usare il cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) per aggiungere l'account utente di Azure alla finestra di PowerShell:
+1. Usare il cmdlet [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) per aggiungere l'account utente di Azure alla finestra di PowerShell:
    
     ```powershell
     Add-AzureAccount
@@ -374,3 +374,4 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
+

@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc6acf7b24bb017e4a93df1c15ed493a4442d6b5
-ms.openlocfilehash: 917261e32845b53f2f2f3d12f60ca5fa87d441c7
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 11b9f52801e9a62b9c52f0f622fdcae761cc122a
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,7 +26,7 @@ Flusso metriche attive mostra le metriche [Application Insights](app-insights-ov
 
 A differenza di [Esplora metriche](app-insights-metrics-explorer.md), Flusso metriche attive consente di visualizzare un set fisso di metriche. I dati vengono mantenuti finché  si trovano nel grafico, poi vengono eliminati.
 
-I dati di Flusso metriche attive sono gratuiti e non vengono addebitati in fattura.
+I dati di Flusso metriche attive sono gratuiti e non vengono addebitati in fattura. Sono disponibili per applicazioni ASP.NET e per applicazioni Java.
 
 ![Video del flusso di metriche in diretta](./media/app-insights-live-stream/youtube.png) [Video del flusso di metriche in diretta](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
@@ -57,7 +57,7 @@ Dati non visualizzati Flusso metriche attive usa porte diverse da quelle di altr
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Monitoraggio dell'utilizzo con Application Insights](app-insights-overview-usage.md)
+* [Monitoraggio dell'utilizzo con Application Insights](app-insights-web-track-usage.md)
 * [Uso di Ricerca diagnostica](app-insights-diagnostic-search.md)
 
 

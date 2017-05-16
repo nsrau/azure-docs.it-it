@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 8c76eaa6681b10370fd4db3df88e0c50c46df44d
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: af6bc7cc4245208d2dc92a9b248aa4686cf42272
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -54,24 +55,6 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                     </div>
                     <div class="cardText">
                         <h3>Catalogo video di Archiviazione di Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/storage/storage-getting-started-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Informazioni di base sull'Archiviazione</h3>
                     </div>
                 </div>
             </div>
@@ -126,6 +109,7 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: BLOB, code, tabelle e file</a></p>
                         <p><a href="/java/api/">Java</a></p>
                         <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p>
                         <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
                         <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
                         <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
@@ -142,10 +126,10 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">BLOB, code, tabelle e file</a></p>
+                        <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">BLOB, code, tabelle e file</a></p>
                         <p><a href="/rest/api/storagerp">Provider di risorse</a></p>
                         <p><a href="/rest/api/storageimportexport">Importazione/Esportazione</a></p>
-                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">API REST per i dati di archiviazione</a></p>
+                        <p><a href="/rest/api/storageservices">API REST per i dati di archiviazione</a></p>
                    </div>
                 </div>
             </div>

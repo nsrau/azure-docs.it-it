@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
-ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3fd5224983c723faefb8001888ae20e78acdb8ce
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +33,8 @@ L'elenco seguente riepiloga le funzionalità principali che non sono supportate 
 * [Istruzione merge][merge statement]
 * Join tra database
 * [Cursori][cursors]
-* [INSERT..EXEC][INSERT..EXEC]
+* <seg>
+  [INSERT..EXEC][INSERT..EXEC]</seg>
 * Clausola di output
 * Funzioni inline definite dall'utente
 * Funzioni a istruzioni multiple
@@ -90,8 +93,8 @@ Anche alcune funzioni di sistema non sono supportate. Alcune di queste funzioni 
 
 Per alcuni di questi problemi esiste una soluzione alternativa.
 
-## <a name="rowcount-workaround"></a>soluzione alternativa @@ROWCOUNT
-Per risolvere la mancanza di supporto per @@ROWCOUNT,, creare una stored procedure per recuperare l'ultimo conteggio delle righe da sys.dm_pdw_request_steps e quindi eseguire `EXEC LastRowCount` dopo un'istruzione DML.
+## <a name="rowcount-workaround"></a>Soluzione alternativa @@ROWCOUNT
+Per risolvere la mancanza di supporto per @@ROWCOUNT, creare una stored procedure per recuperare l'ultimo conteggio delle righe da sys.dm_pdw_request_steps e quindi eseguire `EXEC LastRowCount` dopo un'istruzione DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -135,9 +138,4 @@ Per un elenco completo di tutte le istruzioni T-SQL supportate, vedere [Argoment
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

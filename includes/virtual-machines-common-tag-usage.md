@@ -18,8 +18,3 @@ Dai dettagli di utilizzo, è possibile visualizzare tutti i tag nella colonna **
 
 Analizzando i tag e il loro utilizzo, le organizzazioni saranno in grado di acquisire nuove informazioni nei dati relativi al consumo.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

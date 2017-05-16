@@ -1,6 +1,6 @@
 ---
 title: Guida di riferimento per gli sviluppatori JavaScript di Funzioni di Azure | Microsoft Docs
-description: Informazioni su come sviluppare Funzioni di Azure con JavaScript.
+description: Informazioni su come sviluppare funzioni con JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -14,12 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 02/06/2017
 ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 2c2d352a8aaf572612e64bd69e6e45616c15891d
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: ff8a92c66303c81075c8a42baaa841301d65daf1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 03/22/2017
 > 
 > 
 
-L'esperienza JavaScript per Funzioni di Azure semplifica l'esportazione di una funzione a cui viene passato un oggetto `context` per la comunicazione con il runtime e per la ricezione e l'invio di dati tramite associazioni.
+L'esperienza JavaScript per Funzioni di Azure semplifica l'esportazione di una funzione, che viene passata come oggetto `context` per la comunicazione con il runtime e per la ricezione e l'invio di dati tramite associazioni.
 
 Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md).
 
@@ -52,16 +53,16 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Le associazioni di `direction === "in"` vengono passate come argomenti della funzione, ovvero è possibile usare [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) per gestire in modo dinamico nuovi input, ad esempio usando `arguments.length` per l'iterazione di tutti gli input. Questa funzionalità è molto utile se si ha un solo trigger senza input aggiuntivi, perché è possibile accedere ai dati del trigger in modo prevedibile senza fare riferimento all'oggetto `context` .
+Le associazioni di `direction === "in"` vengono passate come argomenti della funzione, pertanto è possibile usare [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) per gestire in modo dinamico nuovi input, ad esempio usando `arguments.length` per l'iterazione di tutti gli input. Questa funzionalità è utile se si ha solo un trigger e nessun input aggiuntivo, in quanto consente di accedere ai dati del trigger in modo prevedibile senza fare riferimento all'oggetto `context`.
 
 Gli argomenti vengono sempre passati insieme alla funzione nell'ordine in cui sono indicati nel file *function.json*, anche se non vengono specificati nell'istruzione exports. Se ad esempio si ha `function(context, a, b)` e viene modificato in `function(context, a)`, è comunque possibile ottenere il valore di `b` nel codice della funzione facendo riferimento a `arguments[3]`.
 
-Anche tutte le associazioni, indipendentemente dalla direzione, vengono passate sull'oggetto `context` (vedere di seguito). 
+Anche tutte le associazioni, indipendentemente dalla direzione, vengono passate sull'oggetto `context` (vedere lo script seguente). 
 
 ## <a name="context-object"></a>Oggetto context
 Il runtime usa un oggetto `context` per passare dati dalla e alla funzione e consentire la comunicazione con il runtime.
 
-L'oggetto context è sempre il primo parametro di una funzione e deve sempre essere incluso, perché contiene i metodi, ad esempio `context.done` e `context.log`, necessari per usare correttamente il runtime. È possibile assegnare all'oggetto un nome qualsiasi, ad esempio `ctx` o `c`.
+L'oggetto context è sempre il primo parametro di una funzione e deve essere incluso, in quanto contiene i metodi necessari per usare correttamente il runtime, ad esempio `context.done` e `context.log`. È possibile assegnare all'oggetto un nome qualsiasi, ad esempio `ctx` o `c`.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -70,8 +71,12 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="contextbindings"></a>context.bindings
-L'oggetto `context.bindings` raccoglie tutti i dati di input e output. I dati vengono aggiunti all'oggetto `context.bindings` tramite la proprietà `name` dell'associazione. Data la seguente definizione di associazione in *function.json*, è ad esempio possibile accedere al contenuto della coda da `context.bindings.myInput`. 
+### <a name="contextbindings-property"></a>Proprietà context.bindings
+
+```
+context.bindings
+```
+Restituisce un oggetto denominato che contiene tutti i dati di input e output. Data la seguente definizione di associazione in *function.json*, è ad esempio possibile accedere al contenuto della coda tramite l'oggetto `context.bindings.myInput`. 
 
 ```json
 {
@@ -83,7 +88,7 @@ L'oggetto `context.bindings` raccoglie tutti i dati di input e output. I dati ve
 ```
 
 ```javascript
-// myInput contains the input data which may have properties such as "name"
+// myInput contains the input data, which may have properties such as "name"
 var author = context.bindings.myInput.name;
 // Similarly, you can set your output data
 context.bindings.myOutput = { 
@@ -91,10 +96,14 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-## `context.done([err],[propertyBag])`
-La funzione `context.done` comunica al runtime che l'esecuzione è stata completata. È importante eseguire questa chiamata una volta completata la funzione. In caso contrario, il runtime non saprà mai che la funzione è stata completata. 
+### <a name="contextdone-method"></a>Metodo context.done
+```
+context.done([err],[propertyBag])
+```
 
-La funzione `context.done` consente di passare di nuovo al runtime un errore definito dall'utente, nonché un contenitore delle proprietà con proprietà che sovrascriveranno quelle nell'oggetto `context.bindings`.
+Comunica al runtime che l'esecuzione è stata completata. La chiamata a `context.done` è necessaria. In caso contrario, il runtime non saprà mai che la funzione è stata completata e l'esecuzione raggiungerà il timeout. 
+
+Il metodo `context.done` consente di passare di nuovo al runtime sia un errore definito dall'utente sia un contenitore delle proprietà con proprietà che sovrascriveranno quelle presenti nell'oggetto `context.bindings`.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -106,52 +115,163 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: hello there, world, noNumber: true
 ```
 
-## <a name="contextlogmessage"></a>context.log(messaggio)
-Il metodo `context.log` consente di generare istruzioni log correlate tra loro a scopo di registrazione. Se si usa `console.log`, i messaggi saranno visualizzati solo per la registrazione a livello di processo, che non è particolarmente utile.
+### <a name="contextlog-method"></a>Metodo context.log  
+
+```
+context.log(message)
+```
+Consente di scrivere nei log della console in streaming a livello di traccia predefinito. In `context.log` sono disponibili altri metodi di registrazione che consentono di scrivere nel log della console ad altri livelli di traccia:
+
+
+| Metodo                 | Descrizione                                |
+| ---------------------- | ------------------------------------------ |
+| **error(_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
+| **warn(_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
+| **info(_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
+| **verbose(_messaggio_)** | Scrive nella registrazione a livello dettagliato.           |
+
+L'esempio seguente scrive nella console a livello di traccia di avviso:
 
 ```javascript
-/* You can use context.log to log output specific to this 
-function. You can access your bindings via context.bindings */
-context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
+context.log.warn("Something has happened."); 
+```
+È possibile impostare la soglia del livello di traccia per la registrazione nel file host.json o disattivarla.  Per altre informazioni su come scrivere nei log, vedere la sezione successiva.
+
+## <a name="writing-trace-output-to-the-console"></a>Scrittura dell'output di traccia nella console 
+
+In Funzioni usare i metodi `context.log` per scrivere l'output di traccia nella console. A questo punto, non è possibile usare `console.log` per scrivere nella console.
+
+Quando si chiama `context.log()`, il messaggio viene scritto nella console a livello di traccia predefinito, ovvero il livello di traccia _info_. Il codice seguente scrive nella console a livello di traccia informazioni:
+
+```javascript
+context.log({hello: 'world'});  
 ```
 
-Il metodo `context.log` supporta lo stesso formato di parametri supportato dal [metodo util.format](https://nodejs.org/api/util.html#util_util_format_format) in Node. Ad esempio, un codice simile al seguente:
+Il codice precedente equivale al seguente:
+
+```javascript
+context.log.info({hello: 'world'});  
+```
+
+Il codice seguente scrive nella console a livello di errore:
+
+```javascript
+context.log.error("An error has occurred.");  
+```
+
+Poiché _error_ è il livello di traccia più alto, questa traccia viene scritta nell'output a tutti i livelli di traccia, fintantoché la registrazione è abilitata.  
+
+
+Tutti i metodi `context.log` supportano lo stesso formato di parametri supportato dal metodo Node.js [ util.format](https://nodejs.org/api/util.html#util_util_format_format). Si consideri il codice seguente, che scrive nella console usando il livello di traccia predefinito:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
 context.log('Request Headers = ' + JSON.stringify(req.headers));
 ```
 
-può essere scritto così:
+È possibile scrivere lo stesso codice anche nel formato seguente:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-## <a name="http-triggers-contextreq-and-contextres"></a>Trigger HTTP: context.req e context.res
-Nel caso di trigger HTTP, essendo un modello molto comune l'uso di `req` e `res` per gli oggetti di richiesta e risposta HTTP, si è deciso di semplificare l'accesso a quelli contenuti nell'oggetto context, invece di dover usare il modello `context.bindings.name` completo.
+### <a name="configure-the-trace-level-for-console-logging"></a>Configurare il livello di traccia per la registrazione della console
 
-```javascript
-// You can access your http request off of the context ...
-if(context.req.body.emoji === ':pizza:') context.log('Yay!');
-// and also set your http response
-context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
+Funzioni consente di definire la soglia del livello di traccia per la scrittura nella console; questo consente di controllare più facilmente il modo in cui le tracce vengono scritte nella console dalle funzioni. Per impostare la soglia per tutte le tracce scritte nella console, usare la proprietà `tracing.consoleLevel` nel file host.json. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni. L'esempio seguente imposta la soglia di traccia per abilitare la registrazione dettagliata:
+
+```json
+{ 
+    "tracing": {      
+        "consoleLevel": "verbose"      
+    }
+}  
 ```
 
-## <a name="node-version--package-management"></a>Versione di Node e gestione dei pacchetti
+I valori di **consoleLevel** corrispondono ai nomi dei metodi `context.log`. Per disabilitare tutta la registrazione traccia nella console, impostare **consoleLevel** su _off_. Per altre informazioni sul file host.json, vedere l'[argomento di riferimento host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+
+## <a name="http-triggers-and-bindings"></a>Trigger e associazioni HTTP
+
+I trigger e i webhook HTTP e le associazioni di output HTTP usano oggetti di richiesta e risposta per rappresentare la messaggistica HTTP.  
+
+### <a name="request-object"></a>Oggetto della richiesta
+
+Di seguito sono elencate le proprietà dell'oggetto `request`:
+
+| Proprietà      | Descrizione                                                    |
+| ------------- | -------------------------------------------------------------- |
+| _body_        | Oggetto che contiene il corpo della richiesta.               |
+| _headers_     | Oggetto che contiene le intestazioni della richiesta.                   |
+| _method_      | Metodo HTTP della richiesta.                                |
+| _originalUrl_ | URL della richiesta.                                        |
+| _params_      | Oggetto che contiene i parametri di routing della richiesta. |
+| _query_       | Oggetto che contiene i parametri di query della richiesta.                  |
+| _rawBody_     | Il corpo del messaggio sotto forma di stringa.                           |
+
+
+### <a name="response-object"></a>Oggetto della risposta
+
+Di seguito sono elencate le proprietà dell'oggetto `response`:
+
+| Proprietà  | Descrizione                                               |
+| --------- | --------------------------------------------------------- |
+| _body_    | Oggetto che contiene il corpo della risposta.         |
+| _headers_ | Oggetto che contiene le intestazioni della risposta.             |
+| _isRaw_   | Indica che la formattazione viene ignorata per la risposta.    |
+| _Stato_  | Codice di stato HTTP della risposta.                     |
+
+### <a name="accessing-the-request-and-response"></a>Accesso a richiesta e risposta 
+
+Quando si lavora con i trigger HTTP, è possibile accedere agli oggetti richiesta e risposta HTTP in uno qualsiasi dei tre modi seguenti:
+
++ Dalle associazioni di input e di output denominate. In questo modo, il trigger e le associazioni HTTP funzionano come qualsiasi altra associazione. L'esempio seguente imposta l'oggetto risposta usando un'associazione `response` denominata. 
+
+    ```javascript
+    context.bindings.response = { status: 201, body: "Insert succeeded." };
+    ```
+
++ Dalle proprietà `req` e `res` sull'oggetto `context`. In questo modo per accedere ai dati HTTP dall'oggetto di contesto è possibile usare il modello convenzionale anziché il modello `context.bindings.name` completo. L'esempio seguente illustra come accedere agli oggetti `req` e `res` nell'oggetto `context`:
+
+    ```javascript
+    // You can access your http request off the context ...
+    if(context.req.body.emoji === ':pizza:') context.log('Yay!');
+    // and also set your http response
+    context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
+    ```
+
++ Oppure chiamando `context.done()`. Un tipo speciale di associazione HTTP restituisce la risposta che viene passata al metodo `context.done()`. L'associazione di output HTTP seguente definisce un parametro di output `$return`:
+
+    ```json
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+    ``` 
+    Questa associazione di output prevede che l'utente dia la risposta quando chiama `done()`, come indicato di seguito:
+
+    ```javascript
+     // Define a valid response object.
+    res = { status: 201, body: "Insert succeeded." };
+    context.done(null, res);   
+    ```  
+
+## <a name="node-version-and-package-management"></a>Versione di Node e gestione dei pacchetti
 La versione di Node è attualmente bloccata alla `6.5.0`. Si sta analizzando la possibilità di aggiungere il supporto per altre versioni e renderle configurabili.
 
-È possibile includere pacchetti nella funzione caricando un file *package.json* nella cartella della funzione nel file system dell'app per le funzioni. Per istruzioni sul caricamento di file, vedere la sezione **Come aggiornare i file dell'app per le funzioni** dell'argomento [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md#fileupdate). 
+I passaggi seguenti consentono di includere i pacchetti nell'app per le funzioni: 
 
-È anche possibile usare `npm install` nell'interfaccia della riga di comando SCM (Kudu) dell'app per le funzioni:
+1. Passare a `https://<function_app_name>.scm.azurewebsites.net`.
 
-1. Accedere a `https://<function_app_name>.scm.azurewebsites.net`.
-2. Fare clic su **Debug Console (Console di debug) > CMD**.
-3. Accedere a `D:\home\site\wwwroot\<function_name>`.
-4. Eseguire `npm install`.
+2. Fare clic su **Debug Console** > **CMD** (Console di debug > CMD).
 
-Una volta che i pacchetti necessari sono installati è possibile importarli nella funzione con i metodi normali, ad esempio con `require('packagename')`
+3. Passare a `D:\home\site\wwwroot`, quindi trascinare il file package.json nella cartella **wwwroot** nella metà superiore della pagina.  
+    È possibile caricare i file nell'app per le funzioni anche in altri modi. Per altre informazioni, vedere [Come aggiornare i file delle app per le funzioni](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+
+4. Dopo aver caricato il file package.json, eseguire il comando `npm install` nella  **console di esecuzione remota Kudu**.  
+    Questa azione scarica i pacchetti indicati nel file package.json e riavvia l'app per le funzioni.
+
+Una volta che i pacchetti necessari sono installati, è possibile importarli nella funzione chiamando il metodo `require('packagename')`, come nell'esempio seguente:
 
 ```javascript
 // Import the underscore.js library
@@ -164,7 +284,7 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Il nodo deve disporre di un elemento `package.json` alla radice dell'app per le funzioni in modo che Funzioni possa condividere pacchetti memorizzati nella cache. Se sono presenti conflitti di versione, è possibile aggiungere un elemento `package.json` a livello di funzione. Tale operazione è tuttavia sconsigliata per motivi di prestazioni. 
+È necessario definire un file `package.json` nella directory principale dell'app per le funzioni. La definizione del file consente a tutte le funzioni dell'app di condividere gli stessi pacchetti memorizzati nella cache garantendo prestazioni migliori. In caso di conflitto di versione, è possibile risolverlo aggiungendo un file `package.json` nella cartella di una funzione specifica.  
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 Per ottenere una variabile di ambiente o un valore di impostazione dell'app, usare `process.env`come illustrato nell'esempio di codice seguente:
@@ -185,14 +305,21 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+## <a name="considerations-for-javascript-functions"></a>Considerazioni per le funzioni JavaScript
 
-## <a name="typescriptcoffeescript-support"></a>Supporto di TypeScript/CoffeeScript
-Non è ancora disponibile il supporto diretto per la compilazione automatica di TypeScript/CoffeeScript tramite il runtime, quindi queste operazioni devono essere tutte gestite all'esterno del runtime al momento della distribuzione. 
+Quando si usano le funzioni JavaScript, tenere presente le considerazioni nelle due sezioni che seguono.
+
+### <a name="choose-single-core-app-service-plans"></a>Scegliere i piani di servizio app single core
+
+Quando si crea un'app per le funzioni che usa il piano di servizio app, è consigliabile selezionare un piano single core anziché uno con più core. Oggi Funzioni esegue funzioni JavaScript in modo più efficiente in macchine virtuali single core e l'uso di macchine virtuali di dimensioni maggiori non produce i miglioramenti delle prestazioni previsti. Se necessario, è possibile scalare orizzontalmente manualmente aggiungendo altre istanze di macchine virtuali single core oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+
+### <a name="typescript-and-coffeescript-support"></a>Supporto TypeScript e CoffeeScript
+Dal momento che non è ancora disponibile il supporto diretto per la compilazione automatica di TypeScript o CoffeeScript tramite il runtime, il supporto deve essere gestito all'esterno del runtime al momento della distribuzione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le seguenti risorse:
 
-* [Best Practices for Azure Functions](functions-best-practices.md) (Procedure consigliate per Funzioni di Azure)
+* [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#](functions-reference-fsharp.md)

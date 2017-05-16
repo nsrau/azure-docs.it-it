@@ -5,8 +5,3 @@
 5. In **ASP.NET Core Templates** (Modelli di ASP.NET Core) selezionare **Applicazione Web** e quindi **OK**.
 6. Deselezionare l'opzione **Host nel cloud**. Come soluzione di distribuzione verrà usato Docker.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

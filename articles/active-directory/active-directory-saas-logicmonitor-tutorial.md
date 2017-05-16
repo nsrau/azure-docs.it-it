@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d87f6068cef7630ca7d9e8929b43449d28d11f78
-ms.openlocfilehash: 9d9074c986c7210e7d7a345ad5d761ac781be3c1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d47cb9ae48034c73ccb20bd1872a6b50eebb27d7
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -37,7 +37,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 
 ![Scenario](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Scenario")
 
-## <a name="enabling-the-application-integration-for-logicmonitor"></a>Abilitazione dell'integrazione dell'applicazione per LogicMonitor
+## <a name="enable-the-application-integration-for-logicmonitor"></a>Abilitare l'integrazione dell'applicazione per LogicMonitor
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per LogicMonitor.
 
 **Per abilitare l'integrazione dell'applicazione per LogicMonitor eseguire la procedura seguente:**
@@ -62,7 +62,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
    
    ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
    
-## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a LogicMonitor tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.
 
@@ -99,7 +99,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configurare l'accesso Single Sign-On")
    
-## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configure-user-provisioning"></a>Configura provisioning utenti
 
 Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provisioning nell’applicazione LogicMonitor utilizzando i relativi nomi utente di Azure Active Directory.
 
@@ -122,7 +122,7 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provis
 >È possibile utilizzare qualsiasi altro strumento di creazione di account utente di LogicMonitor o le API fornite da LogicMonitor per eseguire il provisioning degli account utente di Azure Active Directory. 
 > 
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 **Per assegnare gli utenti a LogicMonitor eseguire la procedura seguente:**

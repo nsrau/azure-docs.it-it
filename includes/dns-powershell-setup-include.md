@@ -46,7 +46,3 @@ Il servizio DNS di Azure viene gestito dal provider di risorse Microsoft.Network
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
-
-<!--HONumber=Dec16_HO3-->
-
-

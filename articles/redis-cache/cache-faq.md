@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/27/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: afdbd737be96acbcf2883c644bfbbb741fe94179
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: cbd764b3c6ce912c825aa2756ac6f35c23d047bf
+ms.contentlocale: it-it
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -50,7 +51,7 @@ Le domande frequenti riportate di seguito riguardano i concetti e le domande di 
 * [Prestazioni di Cache Redis di Azure](#azure-redis-cache-performance)
 * [In quale area è consigliabile posizionare la cache?](#in-what-region-should-i-locate-my-cache)
 * [Quali sono i costi addebitati per Cache Redis di Azure?](#how-am-i-billed-for-azure-redis-cache)
-* [È possibile usare Cache Redis di Azure con Azure Government Cloud o Azure China Cloud?](#can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud)
+* [È possibile usare Cache Redis di Azure con Azure Government Cloud, Azure China Cloud o Microsoft Azure Germania?](#can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## <a name="development-faqs"></a>Domande frequenti sullo sviluppo
 * [Qual è la funzione delle opzioni di configurazione StackExchange.Redis?](#what-do-the-stackexchangeredis-configuration-options-do)
@@ -70,6 +71,7 @@ Le domande frequenti riportate di seguito riguardano i concetti e le domande di 
 * [In che modo è possibile valutare e testare le prestazioni della cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Informazioni importanti sulla crescita del pool di thread](#important-details-about-threadpool-growth)
 * [Abilitare il server Garbage Collection per poter ottenere una velocità effettiva maggiore sul client quando si usa StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Considerazioni sulle prestazioni per le connessioni](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>Domande sul monitoraggio e sulla risoluzione dei problemi
 Le domande frequenti riportate in questa sezione riguardano il monitoraggio e la risoluzione dei problemi più comuni. Per altre informazioni sul monitoraggio e la risoluzione dei problemi relativi alle istanze di Cache Redis di Azure, vedere [Come monitorare Cache Redis di Azure](cache-how-to-monitor.md) e [Come risolvere i problemi di Cache Redis di Azure](cache-how-to-troubleshoot.md).
@@ -162,15 +164,28 @@ Per ottenere le prestazioni migliori e la latenza più bassa, posizionare la Cac
 ### <a name="how-am-i-billed-for-azure-redis-cache"></a>Quali sono i costi addebitati per Cache Redis di Azure?
 I prezzi di Cache Redis di Azure sono indicati [qui](https://azure.microsoft.com/pricing/details/cache/) come tariffa oraria. Le cache vengono fatturate a minuto dal momento in cui la cache viene creata fino a quando viene eliminata. Non è disponibile alcuna opzione per interrompere o sospendere la fatturazione di una cache.
 
-## <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud"></a>È possibile usare Cache Redis di Azure con Azure Government Cloud o Azure China Cloud?
-Sì, Cache Redis di Azure è disponibile sia in Azure Government Cloud che in Azure China Cloud. Gli URL per l'accesso e la gestione di Cache Redis di Azure sono diversi nel cloud di Azure per enti pubblici e in Azure China Cloud da quelli del cloud pubblico di Azure. Per altre informazioni e considerazioni per l'uso di Cache Redis di Azure con Azure Government Cloud e Azure China Cloud, vedere [Azure Government Databases - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache) (Database di Microsoft Azure per enti pubblici: Cache Redis di Azure) e [Azure China Cloud - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/) (Azure China Cloud: Azure Redis Cache).
+### <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>È possibile usare Cache Redis di Azure con Azure Government Cloud, Azure China Cloud o Microsoft Azure Germania?
+Sì, è possibile usare Cache Redis di Azure con Azure Government Cloud, Azure China Cloud e Microsoft Azure Germania. Gli URL per l'accesso e la gestione di Cache Redis di Azure sono diversi in questi cloud da quelli del cloud pubblico di Azure. 
 
-Per informazioni sull'uso di Cache Redis di Azure con PowerShell in Azure Government Cloud e in Azure China Cloud, vedere [Come connettersi ad Azure Government Cloud o ad Azure China Cloud](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
+| Cloud   | Suffisso DNS per Redis            |
+|---------|---------------------------------|
+| Pubblico  | *.redis.cache.windows.net       |
+| US Gov  | *.redis.cache.usgovcloudapi.net |
+| Germania | *.redis.cache.cloudapi.de       |
+| Cina   | *.redis.cache.chinacloudapi.cn  |
+
+Per ulteriori informazioni sulle considerazioni relative all’uso di Cache Redis di Azure con altri cloud, vedere i collegamenti seguenti.
+
+- [Database di Azure per enti pubblici - Cache Redis di Azure](../azure-government/documentation-government-services-database.md#azure-redis-cache)
+- [Azure China Cloud - Cache Redis di Azure](https://www.azure.cn/documentation/services/redis-cache/)
+- [Microsoft Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)
+
+Per informazioni sull'uso di Cache Redis di Azure con PowerShell in Azure Government Cloud, Azure China Cloud e Microsoft Azure Germania, vedere [Come connettersi ad altri cloud - Powershell con Cache Redis di Azure](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Qual è la funzione delle opzioni di configurazione StackExchange.Redis?
-StackExchange.Redis include diverse opzioni. Questa sezione illustra alcune impostazioni comuni. Per informazioni più dettagliate sulle opzioni StackExchange.Redis, vedere la pagina relativa alla [configurazione di StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
+StackExchange.Redis include diverse opzioni. Questa sezione illustra alcune impostazioni comuni. Per informazioni più dettagliate sulle opzioni StackExchange.Redis, vedere la pagina relativa alla [configurazione di StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
 | Opzioni configurazione | Descrizione | Raccomandazione |
 | --- | --- | --- |
@@ -392,6 +407,13 @@ L'abilitazione del server Garbage Collection consente di ottimizzare il client e
 * [Per abilitare il server Garbage Collection](https://msdn.microsoft.com/library/ms229357.aspx)
 * [Nozioni fondamentali di Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
 * [Garbage Collection e prestazioni](https://msdn.microsoft.com/library/ee851764.aspx)
+
+
+### <a name="performance-considerations-around-connections"></a>Considerazioni sulle prestazioni per le connessioni
+
+Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e larghezza di banda. Mentre ogni dimensione della cache consente *fino a* un determinato numero di connessioni, ogni connessione a Redis dispone di un sovraccarico associato. Un esempio di questo sovraccarico potrebbe essere l'utilizzo della CPU e della memoria a causa della crittografia TLS/SSL. Il limite massimo di connessioni per una dimensione della cache specificata presuppone una cache leggermente caricata. Se il carico del sovraccarico della connessione *sommato* al carico delle operazioni client supera la capacità del sistema, la cache può riscontrare problemi di capacità anche se il limite della connessione non è stato superato in base alla dimensione della cache corrente.
+
+Per ulteriori informazioni sui diversi limiti di connessione per ogni livello, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/). Per ulteriori informazioni sulle connessioni e altre configurazioni predefinite, vedere [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration).
 
 <a name="cache-monitor"></a>
 

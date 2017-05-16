@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
-ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
+ms.contentlocale: it-it
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -40,9 +42,11 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
    2. Selezionare la **Sottoscrizione** da associare al lab.
    3. Selezionare un **Percorso** in cui archiviare il lab.
    4. Selezionare **Arresto automatico** per indicare se si vogliono abilitare e definire i parametri per l'arresto automatico di tutte le macchine virtuali del lab. 
-   5. Selezionare **Create**.
-      
-      ![Creare un pannello lab](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+   5. Selezionare **Aggiungi al dashboard** se si vuole visualizzare un collegamento al lab nel dashboard del portale.
+   6. Selezionare **Opzioni di Automazione** per ottenere i modelli di Azure Resource Manager per l'automazione della configurazione. 
+   7. Selezionare **Crea**.
+    
+    ![Creare un pannello lab](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -54,10 +58,5 @@ Una volta creato il lab, ecco alcuni passaggi successivi da considerare:
 * [Creare un modello di lab](devtest-lab-create-template.md).
 * [Creare elementi personalizzati per le VM](devtest-lab-artifact-author.md).
 * [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

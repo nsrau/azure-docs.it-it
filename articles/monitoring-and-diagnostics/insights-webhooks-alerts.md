@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/03/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
-ms.openlocfilehash: 440bd939f0c7d235d7be210c7fee9f2bc122718c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7282de704a1053e2052a189990fb2b30b2adad6f
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,10 +34,7 @@ Gli avvisi di Azure eseguono l'azione HTTP POST per il contenuto degli avvisi in
 È anche possibile configurare un avviso da inserire nell'URI di un webhook usando i [cmdlet di Azure PowerShell](insights-powershell-samples.md#create-alert-rules), l'[interfaccia della riga di comando multipiattaforma](insights-cli-samples.md#work-with-alerts) o l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticating-the-webhook"></a>Autenticazione del webhook
-L'autenticazione del webhook può essere eseguita con uno di questi metodi:
-
-1. **Autorizzazione basata su token**: l'URI del webhook viene salvato con un ID token, ad esempio `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Autorizzazione basata su password**: l'URI del webhook viene salvato con nome utente e password, ad esempio `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+È possibile autenticare il webhook usando l'autorizzazione basata su token. L'URI del webhook viene salvato con un ID token, ad esempio `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Schema del payload
 L'operazione POST contiene il seguente payload e schema JSON per tutti gli avvisi basati su metriche.
@@ -112,9 +110,4 @@ L'operazione POST contiene il seguente payload e schema JSON per tutti gli avvis
 * [Usare l'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 * [Usare l'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
 * [Usare l'app per la logica per inviare un messaggio a una coda di Azure da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

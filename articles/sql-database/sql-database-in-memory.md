@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 620572f66367f61c6ee61d3c044083a0f71aca6f
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -27,7 +28,7 @@ Tramite le tecnologie in memoria del database SQL di Azure, è possibile miglior
 
 Di seguito sono riportati due esempi che mostrano come la tecnologia OLTP in memoria abbia contribuito a migliorare significativamente le prestazioni.
 
-- Sfruttando la tecnologia OLTP in memoria [Quorum Business Solutions è riuscita a raddoppiare il carico di lavoro migliorando i valori DTU, ad esempio l'uso di risorse, del 70%](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- Sfruttando la tecnologia OLTP in memoria [Quorum Business Solutions è riuscita a raddoppiare il carico di lavoro migliorando i valori DTU, ad esempio l'uso di risorse, del 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 - Il video seguente illustra un miglioramento significativo nell'uso delle risorse con un carico di lavoro di esempio: [OLTP in memoria nel database SQL di Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
 
 Le tecnologie in memoria sono disponibili in tutti i database nel livello Premium, inclusi i database nei pool elastici Premium.
@@ -139,7 +140,7 @@ Prima di eseguire il downgrade del database al piano Standard o Basic, eliminare
 
 ## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installare l'esempio di OLTP in memoria
 
-È possibile creare il database AdventureWorksLT [V12] di esempio con pochi clic nel [portale di Azure](https://portal.azure.com/). I passaggi descritti in questa sezione illustrano come migliorare il database AdventureWorksLT con oggetti OLTP in memoria e dimostra i vantaggi sulle prestazioni.
+È possibile creare il database AdventureWorksLT di esempio con pochi clic nel [portale di Azure](https://portal.azure.com/). I passaggi descritti in questa sezione illustrano come migliorare il database AdventureWorksLT con oggetti OLTP in memoria e dimostra i vantaggi sulle prestazioni.
 
 Per una dimostrazione più semplice e visivamente più interessante sulle prestazioni di OLTP in memoria, vedere:
 
@@ -148,7 +149,7 @@ Per una dimostrazione più semplice e visivamente più interessante sulle presta
 
 #### <a name="installation-steps"></a>Procedura di installazione
 
-1. Nel [portale di Azure](https://portal.azure.com/)creare un database Premium in un server versione&12;. Impostare **Origine** sul database AdventureWorksLT [V12] di esempio. Per istruzioni dettagliate, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md).
+1. Nel [portale di Azure](https://portal.azure.com/)creare un database Premium in un server. Impostare **Origine** sul database AdventureWorksLT di esempio. Per istruzioni dettagliate, vedere [Creare il primo database SQL di Azure](sql-database-get-started-portal.md).
 
 2. Connettersi al database con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -478,7 +479,7 @@ SET STATISTICS TIME OFF
 GO
 ```
 
-In un database con piano tariffario P2 è possibile raggiungere circa&9;X il guadagno sulle prestazioni per la query tramite l'indice columnstore cluster rispetto a un indice tradizionale. Con P15, è possibile prevedere un miglioramento delle prestazioni pari a 57X usando l'indice columnstore.
+In un database con piano tariffario P2 è possibile raggiungere circa 9X il guadagno sulle prestazioni per la query tramite l'indice columnstore cluster rispetto a un indice tradizionale. Con P15, è possibile prevedere un miglioramento delle prestazioni pari a 57X usando l'indice columnstore.
 
 
 
@@ -495,7 +496,7 @@ In un database con piano tariffario P2 è possibile raggiungere circa&9;X il gua
 
 #### <a name="deeper-information"></a>Approfondimenti
 
-- [Informazioni in Learn how Quorum doubles key database's workload while lowering DTU by 70% with In-Memory OLTP in SQL Databas](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) (Il quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con OLTP in memoria nel database SQL)
+- [Informazioni in Learn how Quorum doubles key database's workload while lowering DTU by 70% with In-Memory OLTP in SQL Databas](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) (Il quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con OLTP in memoria nel database SQL)
 
 - [Informazioni su OLTP in memoria](http://msdn.microsoft.com/library/dn133186.aspx)
 
@@ -518,9 +519,4 @@ In un database con piano tariffario P2 è possibile raggiungere circa&9;X il gua
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

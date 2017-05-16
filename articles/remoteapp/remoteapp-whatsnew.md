@@ -11,17 +11,18 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 05487c4bbdce24ea9f31ed451026531c16ead7c4
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6720bb6471ef36179042562c751e1a501979f02b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="whats-new-in-azure-remoteapp"></a>Novità di RemoteApp di Azure
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -43,7 +44,7 @@ Il team di RemoteApp di Azure pubblica mensilmente aggiornamenti nel blog di Ser
 In agosto sono state apportate notevoli modifiche, tra cui:
 
 * Possibilità di usare una rete virtuale di Azure con una raccolta nel cloud. Per la nuova procedura, vedere le [istruzioni per la creazione cloud](remoteapp-create-cloud-deployment.md) .
-* Possibilità di aggiungere app al menu **Start **per il nuovo client Windows RemoteApp. Le app verranno visualizzate nell'elenco di applicazioni ed è possibile aggiungerle al menu **Start **di Windows.
+* Possibilità di aggiungere app al menu **Start** per il nuovo client Windows RemoteApp. Le app verranno visualizzate nell'elenco di applicazioni ed è possibile aggiungerle al menu **Start** di Windows.
 * Aggiunta di una nuova immagine alla raccolta di VM di Azure: Host sessione Desktop remoto di Windows Server con Microsoft Office 365 ProPlus.
 * Correzione del client Mac per evitare il blocco delle app con finestre modali.
 * Documentazione sull'uso della [sottoscrizione di Office 365 ProPlus](remoteapp-officesubscription.md) con Azure RemoteApp.
@@ -87,10 +88,5 @@ Grazie per l’attenzione. Ulteriori aggiornamenti saranno comunicati il mese pr
 
 ### <a name="help-us-help-you"></a>Come contribuire al miglioramento
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche e suggerire miglioramenti, che saranno esaminati e approvati per poi essere applicati a questo articolo.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

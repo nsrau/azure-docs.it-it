@@ -19,15 +19,10 @@
        ![modificare le pianificazioni 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
    4. Specificare la frequenza, la memorizzazione e l'ora di inizio per la pianificazione del backup.
    5. Selezionare la casella di controllo per abilitare o disabilitare la pianificazione.
-   6. Fare clic sull’icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png)  per salvare la pianificazione.
+   6. Fare clic sull’icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) per salvare la pianificazione.
 6. Nella sezione **Volumi** , scegliere i volumi a cui verrà applicato questo criterio.
 7. Per salvare le modifiche a questo criterio, fare clic su **Salva** nella parte inferiore della pagina.
 8. Verrà richiesto di confermare. Fare clic su **Sì** per salvare il criterio.
 
 La pagina **Criteri di backup** verrà aggiornata per salvare le modifiche apportate al criterio.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -16,8 +16,3 @@ Nel caso gli utenti abbiano creato i propri account per app SaaS che non sono ge
 
 Quando si integra un'app in Azure AD, è possibile mappare le identità delle applicazioni stabilite dagli utenti alle rispettive identità di Azure AD.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -16,8 +16,3 @@ Per completare questa esercitazione, è necessario disporre di:
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

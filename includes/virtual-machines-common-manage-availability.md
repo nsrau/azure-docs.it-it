@@ -9,7 +9,7 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 * [Configurare più macchine virtuali in un set di disponibilità per la ridondanza]
 * [Configurare ogni livello dell'applicazione in set di disponibilità separati]
 * [Combinare il bilanciamento del carico con set di disponibilità]
-* [Usare più account di archiviazione per ogni set di disponibilità]
+* [Usare Managed Disks per le macchine virtuali nel set di disponibilità]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Configurare più macchine virtuali in un set di disponibilità per la ridondanza
 Per garantire la ridondanza dell'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Questa configurazione assicura infatti che, nel corso di un evento di manutenzione pianificata o non pianificata, almeno una delle macchine virtuali sia sempre disponibile e soddisfi per almeno il 99,95% i requisiti del contratto di servizio di Azure. Per altre informazioni, vedere [Contratto di Servizio per Macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -41,24 +41,21 @@ Per ottenere una resilienza elevata dell'applicazione, è possibile combinare [A
 
 Se il bilanciamento del carico non è configurato in modo da bilanciare il traffico tra più macchine virtuali, qualsiasi evento di manutenzione pianificata influirà sull'unica macchina virtuale di gestione del traffico, determinando un'interruzione del livello di applicazione. Associando più macchine virtuali dello stesso livello a un unico servizio di bilanciamento del carico e a uno stesso set di disponibilità, si garantisce che il traffico sia sempre gestito da almeno un'istanza.
 
-## <a name="use-multiple-storage-accounts-for-each-availability-set"></a>Usare più account di archiviazione per ogni set di disponibilità
-Se si usa Azure Managed Disks, è possibile ignorare le linee guida seguenti. Azure Managed Disks offre intrinsecamente disponibilità elevata e ridondanza, dato che i dischi vengono archiviati in domini di errore che si allineano ai set di disponibilità delle macchine virtuali. Per altre informazioni, vedere [Azure Managed Disks Overview](../articles/storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks).
+## <a name="use-managed-disks-for-vms-in-availability-set"></a>Usare Managed Disks per le macchine virtuali nel set di disponibilità
+Se si usano macchine virtuali con dischi non gestiti, è fortemente consigliabile [convertire le macchine virtuali nel set di disponibilità per l'uso di Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
 
-Se si usano dischi non gestiti, seguire le procedure consigliate per gli account di archiviazione usati dai dischi rigidi virtuali (VHD) nella macchina virtuale. Ogni disco rigido virtuale è un BLOB di pagine in un account di archiviazione di Azure. È importante verificare la ridondanza e l'isolamento degli account di archiviazione per garantire una disponibilità elevata per le macchine virtuali all'interno del set di disponibilità.
+[Managed Disks](../articles/storage/storage-managed-disks-overview.md) offre una maggiore affidabilità per i set di disponibilità, perché fa in modo che i dischi delle macchine virtuali in un set di disponibilità siano sufficientemente isolati gli uni dagli altri per evitare singoli punti di errore. Ciò avviene mediante l'inserimento automatico dei dischi in unità di scala di archiviazione diverse, dette stamp. Se uno stamp non riesce a causa di un errore hardware o software, hanno esito negativo solo le istanze delle macchine virtuali con dischi in tali stamp. 
+
+Se si intende usare macchine virtuali con [dischi non gestiti](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), seguire queste procedure consigliate per gli account di archiviazione in cui i dischi rigidi virtuali (VHD) delle macchine virtuali vengono archiviati come [BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs). 
 
 1. **Mantenere tutti i dischi (sistema operativo e dati) associati a una macchina virtuale nello stesso account di archiviazione**
-2. **Tenere presente i [limiti](../articles/storage/storage-scalability-targets.md) degli account di archiviazione** quando si aggiungono più dischi rigidi virtuali all'account di archiviazione
-3. **Usare un account di archiviazione separato per ogni macchina virtuale di un set di disponibilità.** Più macchine virtuali in uno stesso set di disponibilità NON devono condividere gli account di archiviazione. Le macchine virtuali in set di disponibilità diversi possono condividere gli account di archiviazione purché vengano seguite le procedure consigliate suddette.
+2. **Esaminare i [limiti](../articles/storage/storage-scalability-targets.md) al numero di dischi non gestiti in un account di archiviazione** prima di aggiungere altri dischi rigidi virtuali a un account di archiviazione
+3. **Usare un account di archiviazione separato per ogni macchina virtuale di un set di disponibilità.** Non condividere gli account di archiviazione con più macchine virtuali in uno stesso set di disponibilità. Le macchine virtuali di set di disponibilità diversi possono condividere gli account di archiviazione, purché vengano seguite le procedure consigliate precedenti.
 
 <!-- Link references -->
 [Configurare più macchine virtuali in un set di disponibilità per la ridondanza]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Configurare ogni livello dell'applicazione in set di disponibilità separati]: #configure-each-application-tier-into-separate-availability-sets
 [Combinare il bilanciamento del carico con set di disponibilità]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Usare più account di archiviazione per ogni set di disponibilità]: #use-multiple-storage-accounts-for-each-availability-set
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Usare Managed Disks per le macchine virtuali nel set di disponibilità]: #use-managed-disks-for-vms-in-availability-set
 

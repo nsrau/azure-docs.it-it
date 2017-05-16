@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 82515c2ee27e4866a167619f193620786b72cedf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -63,7 +63,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
 
 1. **Ripristinare la connessione RDP**. Questa procedura di risoluzione dei problemi consente di ripristinare la configurazione della connessione RDP quando, ad esempio, le connessioni remote sono disabilitate o le regole di Windows Firewall la bloccano.
    
-    Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Reimposta password**. Impostare la **Modalità** su **Reset configuration only**(Reimposta solo configurazione) quindi fare clic sul pulsante **Aggiorna**:
+    Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Reimposta password**. Impostare la **Modalità** su **Reset configuration only** (Reimposta solo configurazione) quindi fare clic sul pulsante **Aggiorna**:
    
     ![Ripristinare la configurazione della connessione RDP nel portale di Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
 2. **Verificare le regole del gruppo di sicurezza di rete**. Questo passaggio verifica che le regole del gruppo di sicurezza di rete consentono il traffico RDP. La porta RDP predefinita è la porta TCP 3389. Quando si crea la macchina virtuale, non è possibile creare automaticamente una regola che consenta il traffico RDP.
@@ -114,12 +114,12 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
 Se continuano a verificarsi errori RDP, è possibile [aprire una richiesta di supporto](https://azure.microsoft.com/support/options/) o leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Risoluzione dei problemi con Azure PowerShell
-Se non è già stato fatto, [installare e configurare la versione più recente di Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Se non è già stato fatto, [installare e configurare la versione più recente di Azure PowerShell](/powershell/azure/overview).
 
 Negli esempi seguenti vengono usate alcune variabili, ad esempio `myResourceGroup`, `myVM` e `myVMAccessExtension`. Sostituire i nomi e i percorsi delle variabili con i valori personalizzati.
 
 > [!NOTE]
-> Reimpostare le credenziali utente e la configurazione della connessione RDP usando il cmdlet [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) di PowerShell. Negli esempi seguenti `myVMAccessExtension` è un nome specificato come parte del processo. Se in precedenza è stato usato il VMAccessAgent, è possibile ottenere il nome dell'estensione esistente usando `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` per controllare le proprietà della VM. Esaminare quindi la sezione dell'output relativa alle estensioni per visualizzare il nome.
+> Reimpostare le credenziali utente e la configurazione della connessione RDP usando il cmdlet [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) di PowerShell. Negli esempi seguenti `myVMAccessExtension` è un nome specificato come parte del processo. Se in precedenza è stato usato il VMAccessAgent, è possibile ottenere il nome dell'estensione esistente usando `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` per controllare le proprietà della VM. Esaminare quindi la sezione dell'output relativa alle estensioni per visualizzare il nome.
 > 
 > 
 
@@ -205,7 +205,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 
 1. **Ripristinare la connessione RDP**. Questa procedura di risoluzione dei problemi consente di ripristinare la configurazione della connessione RDP quando, ad esempio, le connessioni remote sono disabilitate o le regole di Windows Firewall la bloccano.
    
-    Selezionare la macchina virtuale nel portale di Azure. Fare clic sul pulsante **Altro** quindi su **Reimposta accesso remoto**:
+    Selezionare la macchina virtuale nel portale di Azure. Fare clic sul pulsante  **Altro** quindi su **Reimposta accesso remoto**:
    
     ![Ripristinare la configurazione della connessione RDP nel portale di Azure](./media/troubleshoot-rdp-connection/classic-reset-rdp.png)
 2. **Controllare gli endpoint di Servizi cloud**. Questa procedura di risoluzione dei problemi verifica che gli endpoint di Servizi cloud consentano il traffico RDP. La porta RDP predefinita è la porta TCP 3389. Quando si crea la macchina virtuale, non è possibile creare automaticamente una regola che consenta il traffico RDP.

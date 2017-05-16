@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: a78fc57d264e9f8074c94b334b24bbf1b7871d08
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ee3a2e0fe4c8a554d763befc466d7fc0638964ce
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/25/2017
 
 Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azure. È possibile usare una connessione Desktop remoto per risolvere e diagnosticare i problemi dell'applicazione mentre è in esecuzione.
 
-Questo articolo descrive come abilitare Desktop remoto nei ruoli dei servizi cloud con PowerShell. Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . PowerShell usa l'estensione di Desktop remoto per poter abilitare Desktop remoto dopo la distribuzione dell'applicazione.
+Questo articolo descrive come abilitare Desktop remoto nei ruoli dei servizi cloud con PowerShell. Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . PowerShell usa l'estensione di Desktop remoto per poter abilitare Desktop remoto dopo la distribuzione dell'applicazione.
 
 ## <a name="configure-remote-desktop-from-powershell"></a>Configurare Remote Desktop da PowerShell
-Il cmdlet [Set AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) consente di abilitare Desktop remoto su tutti o specifici ruoli di distribuzione del servizio cloud. Il cmdlet consente di specificare il nome utente e la password per l'utente Desktop remoto tramite il parametro *Credential* che accetta un oggetto PSCredential.
+Il cmdlet [Set AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) consente di abilitare Desktop remoto su tutti o specifici ruoli di distribuzione del servizio cloud. Il cmdlet consente di specificare il nome utente e la password per l'utente Desktop remoto tramite il parametro *Credential* che accetta un oggetto PSCredential.
 
 Se si usa PowerShell in modo interattivo è possibile impostare facilmente l'oggetto PSCredential chiamando il cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) .
 
@@ -60,7 +60,7 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 
 Per creare l'oggetto credential dal file della password di protezione, è necessario leggere il contenuto del file e riconvertirlo in una stringa sicura con [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
-Il cmdlet [Set AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) accetta anche un parametro *Expiration* che specifica un valore **DateTime** che specifica la scadenza dell'account utente. Ad esempio, è possibile impostare la scadenza dell'account alcuni giorni dopo la data e l'ora correnti.
+Il cmdlet [Set AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) accetta anche un parametro *Expiration* che specifica un valore **DateTime** che specifica la scadenza dell'account utente. Ad esempio, è possibile impostare la scadenza dell'account alcuni giorni dopo la data e l'ora correnti.
 
 Questo esempio di PowerShell illustra come impostare l'estensione di Desktop remoto in un servizio cloud:
 
@@ -77,7 +77,7 @@ Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $cr
 L'estensione per il Desktop remoto è associata a una distribuzione. Se si crea una nuova distribuzione per il servizio, si dovrà abilitare Desktop remoto in quella distribuzione. Se si vuole che Desktop remoto sia sempre abilitato, considerare la possibilità di integrare gli script di PowerShell nel flusso di lavoro di distribuzione.
 
 ## <a name="remote-desktop-into-a-role-instance"></a>Desktop remoto in un'istanza del ruolo
-Il cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) viene usato per integrare Desktop remoto in una specifica istanza del ruolo del servizio cloud. È possibile usare il parametro *LocalPath* per scaricare il file RDP in locale. In alternativa si può usare il parametro *Launch* per avviare direttamente la finestra di dialogo Connessione Desktop remoto per accedere all'istanza del ruolo del servizio cloud.
+Il cmdlet [Get-AzureRemoteDesktopFile](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) viene usato per integrare Desktop remoto in una specifica istanza del ruolo del servizio cloud. È possibile usare il parametro *LocalPath* per scaricare il file RDP in locale. In alternativa si può usare il parametro *Launch* per avviare direttamente la finestra di dialogo Connessione Desktop remoto per accedere all'istanza del ruolo del servizio cloud.
 
 ```
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
@@ -85,7 +85,7 @@ Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -L
 
 
 ## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Verificare se l'estensione di Desktop remoto è attivata in un servizio
-Il cmdlet [Get AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) indica che Desktop remoto è abilitato o disabilitato in una distribuzione del servizio. Il cmdlet restituisce il nome utente per l'utente Desktop remoto e i ruoli per quali è abilitata l'estensione di Desktop remoto. Per impostazione predefinita, ciò avviene nello slot di distribuzione ed è possibile scegliere di usare in alternativa lo slot di staging.
+Il cmdlet [Get AzureServiceRemoteDesktopExtension](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) indica che Desktop remoto è abilitato o disabilitato in una distribuzione del servizio. Il cmdlet restituisce il nome utente per l'utente Desktop remoto e i ruoli per quali è abilitata l'estensione di Desktop remoto. Per impostazione predefinita, ciò avviene nello slot di distribuzione ed è possibile scegliere di usare in alternativa lo slot di staging.
 
 ```
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
@@ -94,7 +94,7 @@ Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ## <a name="remove-remote-desktop-extension-from-a-service"></a>Rimuovere l'estensione di Desktop remoto da un servizio
 Se già stata abilitata l'estensione di Desktop remoto in una distribuzione ed è necessario aggiornare le impostazioni di Desktop remoto, occorre prima di tutto rimuovere l'estensione e quindi riabilitarla con le nuove impostazioni. Ad esempio, se si vuole impostare una nuova password per l'account utente remoto o l'account scaduto. Questa operazione è necessaria nelle distribuzioni esistenti in cui è abilitata l'estensione di Desktop remoto. Per le nuove distribuzioni è possibile applicare semplicemente l'estensione direttamente.
 
-Per rimuovere l'estensione di Desktop remoto dalla distribuzione, è possibile usare il cmdlet [Remove AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495280.aspx) . È anche possibile specificare lo slot di distribuzione e il ruolo dal quale si vuole rimuovere l'estensione di Desktop remoto.
+Per rimuovere l'estensione di Desktop remoto dalla distribuzione, è possibile usare il cmdlet [Remove AzureServiceRemoteDesktopExtension](/powershell/module/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) . È anche possibile specificare lo slot di distribuzione e il ruolo dal quale si vuole rimuovere l'estensione di Desktop remoto.
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration

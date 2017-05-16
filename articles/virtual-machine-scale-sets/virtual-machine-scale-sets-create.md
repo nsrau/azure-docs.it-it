@@ -11,14 +11,14 @@ ms.assetid:
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/30/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 949e59b64557ac3efc07da73a205c808e25aeaab
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -30,11 +30,11 @@ Questa esercitazione mostra come creare un set di scalabilità di macchine virtu
 >[!NOTE]
 >Per altre informazioni sulle risorse di Azure Resource Manager, vedere [Confronto tra distribuzione di Azure Resource Manager e classica](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Se si usa l'interfaccia della riga di comando di Azure 2.0 o PowerShell per creare un set di scalabilità, per prima cosa è necessario accedere alla propria sottoscrizione.
+Se si usa l'interfaccia della riga di comando di Azure 2.0 o Azure PowerShell per creare un set di scalabilità, per prima cosa è necessario accedere alla propria sottoscrizione.
 
-Per altre informazioni su come installare, configurare e accedere ad Azure con l'interfaccia della riga di comando di Azure 2.0 o con PowerShell, vedere [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) (Introduzione all'interfaccia della riga di comando di Azure 2.0) o [Get started with Azure PowerShell cmdlets](/powershell/resourcemanager/) (Introduzione ai cmdlet di Azure PowerShell).
+Per altre informazioni su come installare, configurare e accedere ad Azure con l'interfaccia della riga di comando di Azure o con PowerShell, vedere [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) (Introduzione all'interfaccia della riga di comando di Azure 2.0) o [Get started with Azure PowerShell cmdlets](/powershell/azure/overview) (Introduzione ai cmdlet di Azure PowerShell).
 
 ```azurecli
 az login
@@ -44,7 +44,7 @@ az login
 Login-AzureRmAccount
 ```
 
-## <a name="prep-create-a-resource-group"></a>Preparazione: creare un gruppo di risorse
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Per prima cosa è necessario creare un gruppo di risorse a cui sia associato il set di scalabilità di macchine virtuali.
 
@@ -58,38 +58,54 @@ New-AzureRmResourceGroup -Location westus2 -Name vmss-test-1
 
 ## <a name="create-from-azure-cli"></a>Creare un set di scalabilità dall'interfaccia della riga di comando di Azure
 
-Con l'interfaccia della riga di comando di Azure, è possibile creare facilmente un set di scalabilità di macchine virtuali. Se sono stati omessi, i valori predefiniti vengono forniti automaticamente. Ad esempio, se non si specificano le informazioni relative alla rete virtuale, ne verrà creata una automaticamente. Se le seguenti informazioni vengono omesse, saranno fornite automaticamente: bilanciamento del carico, rete virtuale e indirizzo IP pubblico.
+Con l'interfaccia della riga di comando di Azure, è possibile creare facilmente un set di scalabilità di macchine virtuali. Se omessi, i valori predefiniti vengono forniti automaticamente. Ad esempio, se non si specificano le informazioni relative alla rete virtuale, ne verrà creata una automaticamente. Se si omettono le parti seguenti, queste verranno create: 
+- Un bilanciamento del carico
+- Una rete virtuale
+- Un indirizzo IP pubblico
 
 Quando si sceglie l'immagine della macchina virtuale da usare nel set di scalabilità di macchine virtuali, sono disponibili alcune opzioni:
 
-1. URN  
+- URN  
 L'identificatore di una risorsa:  
-**Win2012R2Datacenter**.
+**Win2012R2Datacenter**
 
-2. Alias URN  
+- Alias URN  
 Il nome descrittivo di un URN:  
-**MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest**.
+**MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest**
 
-3. ID risorsa personalizzata  
+- ID risorsa personalizzata  
 Il percorso di una risorsa di Azure:  
-**/subscriptions/subscription-guid/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyImage**.
+**/subscriptions/subscription-guid/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyImage**
 
-4. Risorsa Web  
+- Risorsa Web  
 Il percorso di un URI HTTP:  
-**http://contoso.blob.core.windows.net/vhds/osdiskimage.vhd**.
+**http://contoso.blob.core.windows.net/vhds/osdiskimage.vhd**
 
 >[!TIP]
 >È possibile ottenere un elenco di immagini disponibili con `az vm image list`.
 
-Per creare un set di scalabilità di macchine virtuali, è necessario specificare il _gruppo di risorse_, il _nome_, l'_immagine del sistema operativo_ e le _informazioni di autenticazione_. L'esempio seguente consente di creare un set di scalabilità di macchine virtuali di base (questo passaggio può richiedere alcuni minuti).
+Per creare un set di scalabilità di macchine virtuali, è necessario specificare quanto segue:
+
+- Resource group 
+- Nome
+- Immagine del sistema operativo
+- Informazioni di autenticazione 
+ 
+L'esempio seguente crea un set di scalabilità di macchine virtuali di base (questo passaggio può richiedere alcuni minuti).
 
 ```azurecli
 az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
 ```
 
+Dopo il completamento del comando il set di scalabilità di macchine virtuali è stato creato. Potrebbe essere necessario ottenere l'indirizzo IP della macchina virtuale per stabilire la connessione. È possibile ottenere varie informazioni relative alla macchina virtuale (incluso l'indirizzo IP) con il comando seguente. 
+
+```azurecli
+az vmss list-instance-connection-info --resource-group vmss-test-1 --name MyScaleSet
+```
+
 ## <a name="create-from-powershell"></a>Creare un set di scalabilità da PowerShell
 
-PowerShell è più complicato da usare rispetto all'interfaccia della riga di comando di Azure. Infatti, mentre l'interfaccia della riga di comando di Azure fornisce automaticamente le opzioni predefinite per le risorse di rete (bilanciamento del carico, indirizzo IP, rete virtuale), questo non avviene in PowerShell. Anche fare riferimento a un'immagine è leggermente più complicato. È possibile ottenere immagini con i cmdlet seguenti:
+PowerShell è più complicato da usare rispetto all'interfaccia della riga di comando di Azure. Mentre l'interfaccia della riga di comando di Azure fornisce automaticamente le opzioni predefinite per le risorse di rete (bilanciamenti del carico, indirizzi IP, reti virtuali), questo non avviene in PowerShell. Anche fare riferimento a un'immagine con PowerShell è leggermente più complicato. È possibile ottenere immagini con i cmdlet seguenti:
 
 1. Get-AzureRMVMImagePublisher
 2. Get-AzureRMVMImageOffer
@@ -114,15 +130,15 @@ MicrosoftBizTalkServer     BizTalk-Server           2016-Enterprise
 ...
 ```
 
-Il flusso di lavoro per la creazione di un set di scalabilità di macchine virtuali è:
+Il flusso di lavoro per la creazione di un set di scalabilità di macchine virtuali è il seguente:
 
 1. Creare un oggetto di configurazione contenente informazioni sul set di scalabilità.
 2. Fare riferimento all'immagine del sistema operativo di base.
-3. Configurare le impostazioni del sistema operativo: autenticazione, prefisso del nome della VM, utente/password.
+3. Configurare le impostazioni del sistema operativo: autenticazione, prefisso del nome della VM e utente/password.
 4. Configurare le impostazioni di rete.
 5. Creare il set di scalabilità.
 
-Questo esempio consente di creare un set di scalabilità di base a due istanze con installato Windows Server 2016.
+Questo esempio consente di creare un set di scalabilità di base a due istanze per un computer con installato Windows Server 2016.
 
 ```powershell
 # Create a config object
@@ -131,7 +147,7 @@ $vmssConfig = New-AzureRmVmssConfig -Location WestUS2 -SkuCapacity 2 -SkuName St
 # Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWindowsServer -ImageReferenceOffer WindowsServer -ImageReferenceSku 2016-Datacenter -ImageReferenceVersion latest
 
-# Setup information about how to authenticate with the virtual machine
+# Set up information for authenticating with the virtual machine
 Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@ssw0rd! -ComputerNamePrefix myvmssvm
 
 # Create the virtual network resources
@@ -142,7 +158,7 @@ $ipConfig = New-AzureRmVmssIpConfig -Name "my-ip-address" -LoadBalancerBackendAd
 # Attach the virtual network to the config object
 Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig -Name "network-config" -Primary $true -IPConfiguration $ipConfig
 
-# Create the scale set with the config object (this step may take a few minutes)
+# Create the scale set with the config object (this step might take a few minutes)
 New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachineScaleSet $vmssConfig
 ```
 
@@ -151,15 +167,21 @@ New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachin
 È possibile distribuire un set di scalabilità di macchine virtuali usando un modello di Azure Resource Manager. È possibile creare un modello personalizzato o usarne uno del [repository di modelli](https://azure.microsoft.com/resources/templates/?term=vmss). Questi modelli possono essere distribuiti direttamente alla sottoscrizione di Azure.
 
 >[!NOTE]
->Per creare un modello personalizzato, si crea un file di testo con estensione _json_. Per informazioni generali su come creare e personalizzare un modello, vedere [Modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+>Per creare un modello personalizzato, si crea un file di testo JSON. Per informazioni generali su come creare e personalizzare un modello, vedere [Modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Un modello di esempio è disponibile [in GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). Per altre informazioni su come creare e usare tale esempio, vedere [Set di scalabilità a validità minima](.\virtual-machine-scale-sets-mvss-start.md).
+Un modello di esempio è disponibile [in GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). Per altre informazioni su come creare e usare tale esempio, vedere [Un set di scalabilità a validità minima](.\virtual-machine-scale-sets-mvss-start.md).
 
 ## <a name="create-from-visual-studio"></a>Creare un set di scalabilità da Visual Studio
 
-Con Visual Studio, è possibile creare un progetto del gruppo di risorse di Azure e aggiungervi un modello di set di scalabilità di macchine virtuali. È possibile scegliere il modello da importare, ad esempio da GitHub o dalla raccolta di Azure. Viene inoltre generato automaticamente uno script di PowerShell per la distribuzione. Per altre informazioni, vedere [Come creare un set di scalabilità di macchine virtuali con Visual Studio](virtual-machine-scale-sets-vs-create.md).
+Con Visual Studio, è possibile creare un progetto del gruppo di risorse di Azure e aggiungervi un modello di set di scalabilità di macchine virtuali. È possibile scegliere se si desidera eseguire l'importazione da GitHub o dalla raccolta di applicazioni Web di Azure. Viene inoltre generato automaticamente uno script di PowerShell per la distribuzione. Per altre informazioni, vedere [Come creare un set di scalabilità di macchine virtuali con Visual Studio](virtual-machine-scale-sets-vs-create.md).
 
 ## <a name="create-from-the-azure-portal"></a>Creare un set di scalabilità dal portale di Azure
 
 Il portale di Azure costituisce un modo semplice per creare rapidamente un set di scalabilità. Per altre informazioni, vedere [Come creare un set di scalabilità di macchine virtuali tramite il portale di Azure](virtual-machine-scale-sets-portal-create.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni su [dischi dati](virtual-machine-scale-sets-attached-disks.md).
+
+Informazioni su come [gestire le app](virtual-machine-scale-sets-deploy-app.md).
 

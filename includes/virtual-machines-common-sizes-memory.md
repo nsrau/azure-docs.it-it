@@ -44,7 +44,7 @@ ACU: 180 - 240
 
 ## <a name="dsv2-series"></a>Serie DSv2*
 
-ACU: 210-250
+ACU: 210 - 250
 
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -68,7 +68,7 @@ Bps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 ## <a name="dv2-series"></a>Serie Dv2
 
-ACU: 21--250
+ACU: 210 - 250
 
 | Dimensione              | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Velocità effettiva massima del disco locale: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Larghezza di banda della rete/scheda NIC max |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

@@ -74,16 +74,60 @@
 ### [Chiamare le app per la logica con Funzioni di Azure](logic-apps-scenario-function-sb-trigger.md)
 ### [Aggiungere la gestione di errori ed eccezioni](logic-apps-scenario-error-and-exception-handling.md)
 ### [Elaborazione B2B](logic-apps-enterprise-integration-b2b.md)
+### [Come gestire documenti EDIFACT con un segmento UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Prezzi e fatturazione
 ### [Prezzi](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Misurazione dell'utilizzo](logic-apps-pricing.md)
 
+# Senza server
+## Panoramica
+### [Senza server in Azure](logic-apps-serverless-overview.md)
+## Attività iniziali
+### [Creare un'app senza server in Visual Studio](logic-apps-serverless-get-started-vs.md)
+## Scenari e procedure dettagliate
+### [Raccogliere commenti e suggerimenti dei clienti](logic-apps-scenario-social-serverless.md)
+### [Inviare messaggi di posta elettronica automatizzati](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
+### [Elaborazione degli ordini B2B/EDI](logic-apps-enterprise-integration-overview.md)
+
 # Riferimento
 ## [Linguaggio di definizione del flusso di lavoro](logic-apps-workflow-definition-language.md)
 ## [Azioni e trigger del flusso di lavoro](logic-apps-workflow-actions-triggers.md)
 ## [API REST](/rest/api/logic/)
-## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
+## [PowerShell](/powershell/module/azurerm.logicapp)
+## Connettori: argomenti dettagliati
+### [AS2](logic-apps-enterprise-integration-as2.md)
+### [Archiviazione BLOB di Azure](../connectors/connectors-create-api-azureblobstorage.md)
+### [Funzioni di Azure](logic-apps-azure-functions.md)
+### [App per la logica di Azure](logic-apps-http-endpoint.md)
+### [Database SQL di Azure](../connectors/connectors-create-api-sqlazure.md)
+### [API/App Web personalizzate](logic-apps-create-api-app.md)
+### [DB2](../connectors/connectors-create-api-db2.md)
+### [Dynamics 365 CRM Online](../connectors/connectors-create-api-crmonline.md)
+### [EDIFACT](logic-apps-enterprise-integration-edifact.md)
+### [Hub eventi](../connectors/connectors-create-api-azure-event-hubs.md)
+### [File system](logic-apps-using-file-connector.md)
+### [File Flat](logic-apps-enterprise-integration-flatfile.md)
+### [FTP](../connectors/connectors-create-api-ftp.md)
+### [HTTP](../connectors/connectors-native-http.md)
+### [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+### [Webhook HTTP](../connectors/connectors-native-webhook.md)
+### [Informix](../connectors/connectors-create-api-informix.md)
+### [Account di integrazione](logic-apps-enterprise-integration-metadata.md)
+### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
+### [Oracle Database](../connectors/connectors-create-api-oracledatabase.md)
+### [Richiesta/Risposta](../connectors/connectors-native-reqres.md)
+### [Salesforce](../connectors/connectors-create-api-salesforce.md)
+### [SAP](logic-apps-using-sap-connector.md)
+### [Pianificare](../connectors/connectors-native-recurrence.md)
+### [Bus di servizio](../connectors/connectors-create-api-servicebus.md)
+### [SharePoint Online](../connectors/connectors-create-api-sharepointonline.md)
+### [SharePoint Server](../connectors/connectors-create-api-sharepointonline.md)
+### [SQL Server](../connectors/connectors-create-api-sqlazure.md)
+### [Trasformare XML](logic-apps-enterprise-integration-transform.md)
+### [Twitter](../connectors/connectors-create-api-twitter.md)
+### [X12](logic-apps-enterprise-integration-x12.md)
+### [Convalida XML](logic-apps-enterprise-integration-xml-validation.md)
 ## Cronologia degli schemi
 ### [Disponibilità generale](logic-apps-schema-2016-04-01.md)
 ### [Anteprima](logic-apps-schema-2015-08-01.md)

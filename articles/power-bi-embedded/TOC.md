@@ -24,7 +24,7 @@
 ### [Sicurezza a livello di riga con Power BI Embedded](power-bi-embedded-rls.md)
 
 # Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
+## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [Azure Resource Manager .NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Download di .NET SDK](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)

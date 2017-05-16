@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6a99749a96a6239428e5b018a26a6e8fd440c9d2
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: ba25cdee46ce4ceb5acd5ff9da683a057f2bd733
+ms.contentlocale: it-it
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizzare i dati del sensore in tempo reale da IoT Hub di Azure tramite Power BI
+
+![Diagramma end-to-end](media/iot-hub-get-started-e2e-diagram/4.png)
+
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,22 +42,13 @@ Informazioni su come visualizzare i dati del sensore in tempo reale che l'hub Io
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-- Completare l'esercitazione [Collegare ESP8266 all'hub IoT di Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) che prevede i requisiti seguenti:
+- Completare l'esercitazione [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che prevede i requisiti seguenti:
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
   - Un'applicazione client che invia messaggi all'hub IoT di Azure.
 - Un account di Power BI. ([Provare gratuitamente Power BI](https://powerbi.microsoft.com/))
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Aggiungere un gruppo di consumer dell'hub IoT
-
-I gruppi di consumer vengono usati dalle applicazioni per eseguire il pull dei dati dall'hub IoT di Azure. In questa lezione viene creato un gruppo di consumer che il processo di analisi di flusso userà per leggere i dati dall'hub IoT.
-
-Per aggiungere un gruppo di consumer all'hub IoT, seguire questa procedura:
-
-1. Nel [portale di Azure](https://ms.portal.azure.com/), aprire l'hub IoT.
-1. Fare clic su **Endpoint** nel riquadro a sinistra, selezionare **Eventi** nel riquadro centrale, immettere un nome in **Gruppi di consumer** nel riquadro a destra, quindi **Salva**.
-
-   ![Creare un gruppo di consumer nell'hub IoT di Azure](media/iot-hub-live-data-visualization-in-power-bi/1_iot-hub-create-consumer-group-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Configurare, configurare ed eseguire un processo di analisi di flusso
 

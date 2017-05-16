@@ -3,7 +3,7 @@ title: Gestione della concorrenza nell&quot;archiviazione di Microsoft Azure
 description: Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file
 services: storage
 documentationcenter: 
-author: jasonnewyork
+author: jasontang501
 manager: tadb
 editor: tysonn
 ms.assetid: cc6429c4-23ee-46e3-b22d-50dd68bd4680
@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: jahogg
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7519ff07efd5bb450362fca8d54e4d9e3be8f0df
-ms.lasthandoff: 11/17/2016
+ms.date: 05/11/2017
+ms.author: jasontang501
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: b5b8346c6a645ae18fd0c23a8956274f764710e0
+ms.contentlocale: it-it
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Le moderne applicazioni basate su Internet sono in genere caratterizzate dalla presenza simultanea di più utenti che visualizzano e aggiornano dati. Ciò richiede agli sviluppatori di applicazioni un'attenta riflessione su come offrire un'esperienza prevedibile ai propri utenti finali, in particolare per gli scenari in cui più utenti possono aggiornare gli stessi dati. Gli sviluppatori in genere prendono in considerazione tre strategie principali di concorrenza dei dati:  
 
 1. Concorrenza ottimistica: un'applicazione che esegue un aggiornamento verificherà, nell'ambito di tale attività, se i dati siano cambiati rispetto all'ultima lettura. Ad esempio, se due utenti che visualizzano una pagina wiki effettuano un aggiornamento alla stessa pagina, la piattaforma wiki deve garantire che il secondo aggiornamento non sovrascriva il primo e che entrambi gli utenti sappiano se il proprio aggiornamento è stato effettuato correttamente o meno. Questa strategia viene usata con maggiore frequenza nelle applicazioni Web.
@@ -40,7 +41,7 @@ Oltre a scegliere una strategia di concorrenza appropriata, gli sviluppatori dev
 È possibile scegliere di usare modelli di concorrenza ottimistica o pessimistica per gestire l'accesso a BLOB e contenitori nel servizio BLOB. Se non specifica esplicitamente una strategia, per impostazione predefinita prevale l'ultima scrittura.  
 
 ### <a name="optimistic-concurrency-for-blobs-and-containers"></a>Concorrenza ottimistica per BLOB e contenitori
-Il servizio di archiviazione assegna un identificatore a ogni oggetto archiviato, che viene aggiornato ogni volta che un'operazione di aggiornamento viene eseguita su un oggetto. L'identificatore viene restituito al client nell'ambito di una risposta HTTP GET mediante l'intestazione (tag di entità) ETag definita all'interno del protocollo HTTP. Un utente che esegua un aggiornamento su tale oggetto può inviare l'ETag insieme a un'intestazione condizionale per garantire che un aggiornamento si verificherà solo se una determinata condizione viene soddisfatta; in questo caso la condizione è che un'intestazione “If-Match” che richiede il servizio di archiviazione per garantire il valore ETag specificato nella richiesta di aggiornamento sia uguale a quella archiviata nel servizio di archiviazione.  
+Il servizio di archiviazione assegna un identificatore a ogni oggetto archiviato, che viene aggiornato ogni volta che un'operazione di aggiornamento viene eseguita su un oggetto. L'identificatore viene restituito al client nell'ambito di una risposta HTTP GET mediante l'intestazione (tag di entità) ETag definita all'interno del protocollo HTTP. Un utente che esegue un aggiornamento su tale oggetto può inviare l'ETag con un'intestazione condizionale per garantire che un aggiornamento si verificherà solo se una determinata condizione viene soddisfatta. In questo caso la condizione è che un'intestazione "If-Match" che richiede il servizio di archiviazione per garantire il valore ETag specificato nella richiesta di aggiornamento sia uguale a quella archiviata nel servizio di archiviazione.  
 
 Il processo è il seguente:  
 

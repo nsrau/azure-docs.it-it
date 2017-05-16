@@ -3,8 +3,3 @@
 2. Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
 3. Fare clic su **Arresta**.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

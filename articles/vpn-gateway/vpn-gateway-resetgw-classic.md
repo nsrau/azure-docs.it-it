@@ -1,5 +1,5 @@
 ---
-title: Reimpostare un&quot;istanza di gateway VPN di Azure per ristabilire tunnel IPsec | Documentazione Microsoft
+title: Reimpostare un&quot;istanza di gateway VPN di Azure per ristabilire tunnel IPsec | Microsoft Docs
 description: Questo articolo descrive la reimpostazione di Gateway VPN di Azure per ristabilire i tunnel IPsec. L&quot;articolo riguarda i gateway VPN nei modelli di distribuzione classica e Resource Manager.
 services: vpn-gateway
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2017
+ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 1c93a8900ea5fae8abe0d2d47f632a067736ac56
-ms.openlocfilehash: 7aef9360ab341dd7d4932a6e9c2d8ed1d7bf1163
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0065a4a73ddd7eb9877359626bac231ec3fdef7c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -61,16 +61,20 @@ Verificare gli elementi seguenti prima di reimpostare il gateway:
 
 ### <a name="resource-manager-deployment-model"></a>Modello di distribuzione di Gestione risorse
 
-È necessario scaricare la versione più recente dei cmdlet di PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Il cmdlet di PowerShell per Resource Manager per la reimpostazione del gateway è `Reset-AzureRmVirtualNetworkGateway`. Nell'esempio seguente viene reimpostato il gateway VPN di Azure, "VNet1GW", nel gruppo di risorse "TestRG1".
+È necessario scaricare la versione più recente dei cmdlet di PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . Il cmdlet di PowerShell per Resource Manager per la reimpostazione del gateway è `Reset-AzureRmVirtualNetworkGateway`. Nell'esempio seguente viene reimpostato il gateway VPN di Azure, "VNet1GW", nel gruppo di risorse "TestRG1".
 
-    $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
-    Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+```powershell
+$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
+Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+```
 
-### <a name="a-nameresetclassicaclassic-deployment-model"></a><a name="resetclassic"></a>Modello di distribuzione classica
+### <a name="resetclassic"></a>Modello di distribuzione classica
 
-È necessario scaricare la versione più recente dei cmdlet di PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Il cmdlet PowerShell per la reimpostazione di un gateway VPN di Azure è `Reset-AzureVNetGateway`. L'esempio seguente reimposta il gateway VPN di Azure per la rete virtuale denominata "ContosoVNet".
+È necessario scaricare la versione più recente dei cmdlet di PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . Il cmdlet PowerShell per la reimpostazione del gateway VPN di Azure è **Reset-AzureVNetGateway**. L'esempio seguente reimposta il gateway VPN di Azure per la rete virtuale denominata "ContosoVNet".
 
-    Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+```powershell
+Reset-AzureVNetGateway –VnetName “ContosoVNet”
+``` 
 
 Risultato:
 

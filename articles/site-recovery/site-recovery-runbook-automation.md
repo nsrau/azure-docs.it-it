@@ -15,9 +15,9 @@ ms.workload: required
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: ac56273cf85aff550febecf0d75ec87d5c6dbbca
-ms.openlocfilehash: 26547135548dde96e9da601f2e0ccfe96c626880
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -238,25 +238,15 @@ Si prenda ad esempio uno scenario in cui uno script deve abilitare un indirizzo 
 È possibile usare lo stesso script con piani di ripristino diversi e specificare parametri differenti archiviando il valore corrispondente a vari piani di ripristino in variabili differenti.
 
 ## <a name="sample-scripts"></a>Script di esempio
-Per un repository di script che è possibile importare direttamente nell'account di automazione, vedere il [repository OMS di script di Kristian Nese](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation).
+Distribuire gli script di esempio nell'account di Automazione usando il pulsante Distribuisci in Azure sotto.
 
-Lo script usato è un modello di Azure Resource Manager che distribuisce tutti gli script seguenti.
+[![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* NSG
+Guardare anche un breve video sul ripristino di un'applicazione WordPress a due livelli in Azure.
 
-Il runbook NSG assegna indirizzi IP pubblici a tutte le macchine virtuali inserite nel piano di ripristino e collega le relative schede di rete virtuale a un gruppo di sicurezza di rete che consente la comunicazione predefinita.
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
-* IP pubblico
 
-Il runbook dell'indirizzo IP pubblico assegna indirizzi IP pubblici a tutte le macchine virtuali inserite nel piano di ripristino. L'accesso ai computer e alle applicazioni dipenderà dalle impostazioni del firewall all'interno di ciascun guest
-
-* CustomScript
-
-Il runbook CustomScript assegna indirizzi IP pubblici a tutte le macchine virtuali inserite nel piano di ripristino e installa un'estensione di script personalizzato che effettua il pull dello script a cui si fa riferimento durante la distribuzione del modello.
-
-* NSGwithCustomScript
-
-Il runbook NSGwithCustomScript assegna indirizzi IP pubblici a tutte le macchine virtuali inserite nel piano di ripristino, installa uno script personalizzato usando l'estensione e connette le schede di rete virtuale a un gruppi di sicurezza di rete, consentendo le comunicazioni in ingresso e in uscita predefinite per l'accesso remoto.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 [Account RunAs per il servizio di Automazione di Azure](../automation/automation-sec-configure-azure-runas-account.md)

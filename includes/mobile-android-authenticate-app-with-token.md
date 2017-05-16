@@ -82,8 +82,3 @@ L'esempio precedente illustra un accesso standard che richiede al client di cont
             }
         }
 6. Creare l'app e testare l'autenticazione con un account valido. Eseguirla almeno due volte. Durante la prima esecuzione, si riceverà un prompt di accesso per creare la cache dei token. Successivamente, ogni esecuzione tenta di caricare la cache dei token per l'autenticazione. Non viene richiesto di effettuare l'accesso.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

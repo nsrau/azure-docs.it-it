@@ -19,8 +19,3 @@ Verificare che sia già stato creato uno spazio dei nomi del bus di servizio, co
 
 [namespace-how-to]: ../articles/service-bus-messaging/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
-
-
-<!--HONumber=Dec16_HO1-->
-
-

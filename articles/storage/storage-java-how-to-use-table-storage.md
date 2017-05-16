@@ -14,16 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: bb72ac092496b5962c98006aca61b8c085cb1694
-ms.openlocfilehash: 2c73585e9d1f265c011cf94d1923ecec5f6a3435
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a4d6f144cc6940ffe2b2c6f27553cd7aa3bcb381
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-table-storage-from-java"></a>Come usare l'archiviazione tabelle da Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Panoramica
 Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione tabelle di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari presentati includono **creazione**, **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento**, **esecuzione di query**, **modifica** ed **eliminazione** di entità in una tabella. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi](#Next-Steps) .
@@ -540,7 +541,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-delete-a-table"></a>Procedura: eliminare una tabella
-Nell'esempio di codice seguente viene infine illustrato come eliminare una tabella da un account di archiviazione. Una tabella eliminata non potrà essere creata nuovamente per un certo periodo di tempo, di solito inferiore a&40; secondi.
+Nell'esempio di codice seguente viene infine illustrato come eliminare una tabella da un account di archiviazione. Una tabella eliminata non potrà essere creata nuovamente per un certo periodo di tempo, di solito inferiore a 40 secondi.
 
 ```java
 try
@@ -562,10 +563,11 @@ catch (Exception e)
     e.printStackTrace();
 }
 ```
+[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Azure Storage SDK per Java][Azure Storage SDK for Java]
 * [Riferimento all'SDK del client di archiviazione di Azure][Riferimento all'SDK del client di archiviazione di Azure]
 * [API REST di Archiviazione di Azure][Azure Storage REST API]
@@ -580,9 +582,4 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori Java](/develop/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

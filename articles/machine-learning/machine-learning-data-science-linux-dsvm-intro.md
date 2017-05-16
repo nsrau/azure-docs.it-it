@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c041802cd86f9e8b07771413f867691d76b01abf
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: b94b8b84ae2cf26a1680f816460cc86c4d79e885
+ms.contentlocale: it-it
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati
-La macchina virtuale Linux per l'analisi scientifica dei dati è una macchina virtuale di Azure fornita con un insieme di strumenti preinstallati. Questi strumenti vengono comunemente usati per eseguire l'analisi dei dati e il Machine Learning. Ecco i componenti software principali:
+La macchina virtuale Linux per l'analisi scientifica dei dati è una macchina virtuale di Azure basata su CentOS fornita con un insieme di strumenti preinstallati. Questi strumenti vengono comunemente usati per eseguire l'analisi dei dati e il Machine Learning. Ecco i componenti software principali:
 
 * Microsoft R Server Developer Edition
 * Distribuzione di Anaconda Python, versioni 2.7 e 3.5, incluse le più comuni librerie di analisi dei dati
@@ -53,6 +54,9 @@ Gli esperti di dati usano vari strumenti per completare queste attività. Trovar
 La macchina virtuale Linux per l'analisi scientifica dei dati può rendere queste attività sostanzialmente più facili. Usarla per avviare rapidamente il progetto di analisi. Consente di svolgere attività in diversi linguaggi, ad esempio R, Python, SQL, Java e C++. Eclipse fornisce un IDE facile da usare per sviluppare e testare il codice. Azure SDK, incluso nella VM, consente di compilare le applicazioni usando vari servizi in Linux sulla piattaforma cloud di Microsoft. È anche possibile accedere ad altri linguaggi, come Ruby, Perl, PHP e Node. js, anch'essi pre-installati.
 
 Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti costi per il software. Si pagano solo le spese d'uso dell'hardware di Azure valutate in base alle dimensioni della macchina virtuale di cui si esegue il provisioning con l'immagine della VM. Altre informazioni sui costi di calcolo sono disponibili alla [pagina con l'elenco delle VM su Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>Altre versioni della macchina virtuale per l'analisi scientifica dei dati
+È disponibile anche un'immagine [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md), con molti degli stessi strumenti dell'immagine CentOS, oltre a framework di apprendimento avanzato. È disponibile anche un'immagine [Windows](machine-learning-data-science-provision-vm.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di creare una macchina virtuale Linux per l'analisi scientifica dei dati, è necessario avere gli elementi seguenti:

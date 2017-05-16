@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Promapp | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Promapp | Microsoft Docs'
 description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Promapp.
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: ac73b5c2ece8044d9f75e017428c43259f8a9357
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 610c731195ffa92ccd915b93e8c901f47b2ff16a
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Esercitazione: Integrazione di Azure Active Directory con Promapp
-Questa esercitazione descrive l'integrazione di Promapp con Azure Active Directory (Azure AD).  
+Questa esercitazione descrive l'integrazione di Promapp con Azure Active Directory (Azure AD).
+
 L'integrazione di Promapp con Azure AD offre i vantaggi seguenti: 
 
 * È possibile controllare in Azure AD chi può accedere a Promapp 
-* È possibile abilitare gli utenti per l'accesso automatico a Promapp (Single Sign-On) con i propri account Azure AD
+* È possibile abilitare gli utenti per l'accesso automatico a Promapp (SSO) con i propri account Azure AD
 * È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory classico.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -34,25 +36,25 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Promapp, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione di Promapp abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Promapp abilitata per l'accesso Single Sign-On (SSO)
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 > 
 > 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Promapp dalla raccolta 
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD (SSO)
 
-## <a name="adding-promapp-from-the-gallery"></a>Aggiunta di Promapp dalla raccolta
+## <a name="add-promapp-from-the-gallery"></a>Aggiungere Promapp dalla raccolta
 Per configurare l'integrazione di Promapp in Azure AD, è necessario aggiungere Promapp dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Promapp dalla raccolta, seguire questa procedura:**
@@ -77,24 +79,25 @@ Per configurare l'integrazione di Promapp in Azure AD, è necessario aggiungere 
    
     ![Applicazioni][500]
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Promapp con un utente test di nome "Britta Simon".
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+Questa sezione descrive come configurare e testare l'accesso SSO di Azure AD con Promapp in base a un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Promapp che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Promapp.  
+Per il funzionamento dell'accesso SSO, Azure AD deve conoscere qual è l'utente di Promapp che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Promapp.  
+
 La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in Promapp.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Promapp, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con Promapp, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test per Promapp](#creating-a-halogen-software-test-user)** : per avere una controparte di Britta Simon in Promapp collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD classico e configurare l'accesso Single Sign-On nell'applicazione Promapp.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
+Questa sezione descrive come abilitare l'accesso SSO di Azure AD nel portale di Azure classico e configurare l'accesso SSO nell'applicazione Promapp.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Promapp, seguire questa procedura:**
+**Per configurare l'accesso SSO di Azure AD con Promapp, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Promapp** del portale di Azure AD classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
@@ -137,7 +140,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
    
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
 
 ![Creare un utente di Azure AD][20]
@@ -182,12 +185,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
    1. Prendere nota del valore visualizzato in **Nuova password**.
    2. Fare clic su **Completa**.   
 
-### <a name="creating-a-promapp-test-user"></a>Creazione di un utente test per Promapp
-L'applicazione Promapp supporta il provisioning JIT (just-in-time).
-Questo significa che, se necessario, un account utente viene creato automaticamente durante il tentativo di accedere all'applicazione tramite il pannello di accesso.  
+### <a name="create-a-promapp-test-user"></a>Creare un utente test per Promapp
+L'applicazione Promapp supporta il provisioning JIT (just-in-time). Questo significa che, se necessario, un account utente viene creato automaticamente durante il tentativo di accedere all'applicazione tramite il pannello di accesso.  
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
-Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Promapp.
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso SSO di Azure concedendole l'accesso a Promapp.
 
 ![Assegna utente][200] 
 
@@ -207,8 +209,9 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.  
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+
 Quando si fa clic sul riquadro Promapp nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Promapp.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
@@ -248,9 +251,4 @@ Quando si fa clic sul riquadro Promapp nel pannello di accesso, si dovrebbe acce
 [400]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_400.png
 [401]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_401.png
 [402]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_402.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

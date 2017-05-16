@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 7d980e14776cade574fc9ef4e63aea5c91fb8fdf
-ms.openlocfilehash: a5867566afc80fe7ae57b5027b5578e3144f7f07
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d6e3ea06106463367eb03498ef8d9bc47d83c694
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -35,11 +35,11 @@ In Servizi multimediali di Azure un *canale* rappresenta una pipeline per l'elab
 
 A partire da Servizi multimediali versione 2.10, quando si crea un canale è possibile specificare in che modo si vuole che il canale riceva il flusso di input. È anche possibile specificare se si vuole che il canale esegue la codifica live del flusso. Sono disponibili due opzioni:
 
-* **Nessuno**: specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a bitrate multipli (un flusso pass-through) come output. In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10. Questo argomento fornisce informazioni dettagliate sull'uso dei canali di questo tipo.
-* **Standard**: scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a bitrate singolo in un flusso a bitrate multipli. Si noti che se si lascia un canale di codifica live nello stato **In esecuzione**, verranno applicati addebiti. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. Servizi multimediali invia il flusso ai clienti che lo richiedono.
+* **Pass-through**: specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a bitrate multipli (un flusso pass-through) come output. In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10. Questo argomento fornisce informazioni dettagliate sull'uso dei canali di questo tipo.
+* **Codifica live**: scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a bitrate singolo in un flusso a bitrate multipli. Si noti che se si lascia un canale di codifica live nello stato **In esecuzione**, verranno applicati addebiti. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. Servizi multimediali invia il flusso ai clienti che lo richiedono.
 
 > [!NOTE]
-> Questo argomento illustra gli attributi dei canali non abilitati per l'esecuzione della codifica live (tipo di codifica**Nessuno** ). Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
+> Questo argomento illustra gli attributi dei canali non abilitati per l'esecuzione della codifica live. Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 >
 >
 
@@ -47,7 +47,7 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live che usa 
 
 ![Flusso di lavoro live][live-overview]
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Scenario comune di streaming live
+## <a id="scenario"></a>Scenario comune di streaming live
 La procedura seguente illustra le attività relative alla creazione di applicazioni comuni di streaming live.
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che genera un flusso in formato RTMP o MP4 frammentato (Smooth Streaming) a bitrate multipli come output. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
@@ -79,9 +79,9 @@ La procedura seguente illustra le attività relative alla creazione di applicazi
 
 10. Eliminare il programma e, facoltativamente, eliminare l'asset.     
 
-## <a name="a-idchanneladescription-of-a-channel-and-its-related-components"></a><a id="channel"></a>Descrizione di un canale e dei relativi componenti
-### <a name="a-idchannelinputachannel-input-ingest-configurations"></a><a id="channel_input"></a>Configurazioni di input (inserimento) del canale
-#### <a name="a-idingestprotocolsaingest-streaming-protocol"></a><a id="ingest_protocols"></a>Protocollo di streaming di inserimento
+## <a id="channel"></a>Descrizione di un canale e dei relativi componenti
+### <a id="channel_input"></a>Configurazioni di input (inserimento) del canale
+#### <a id="ingest_protocols"></a>Protocollo di streaming di inserimento
 Servizi multimediali supporta l'inserimento di feed live usando MP4 frammentato a bitrate multipli e RTMP a bitrate multipli come protocolli di streaming. Quando è selezionato il protocollo di streaming di inserimento RTMP, vengono creati due endpoint di inserimento (input) per il canale:
 
 * **URL primario**: specifica l'URL completo dell'endpoint primario di inserimento RTMP del canale.
@@ -95,7 +95,7 @@ Usare l'URL secondario se si vuole migliorare la durabilità e la tolleranza di 
 
 - Più codificatori ognuno dei quali effettua il push al punto dedicato:
 
-    Questo scenario fornisce sia la ridondanza di inserimento che del codificatore. In questo scenario il codificatore&1; effettua il push all'URL primario e il codificatore&2; effettua il push all'URL secondario. In caso di errore di un codificatore, l'altro codificatore può continuare a inviare dati. La ridondanza dei dati può essere mantenuta perché Servizi multimediali non disconnette simultaneamente gli URL primario e secondario. Questo scenario presume che l'ora dei codificatori sia sincronizzata e fornisce esattamente gli stessi dati.  
+    Questo scenario fornisce sia la ridondanza di inserimento che del codificatore. In questo scenario il codificatore 1 effettua il push all'URL primario e il codificatore 2 effettua il push all'URL secondario. In caso di errore di un codificatore, l'altro codificatore può continuare a inviare dati. La ridondanza dei dati può essere mantenuta perché Servizi multimediali non disconnette simultaneamente gli URL primario e secondario. Questo scenario presume che l'ora dei codificatori sia sincronizzata e fornisce esattamente gli stessi dati.  
 
 - Push doppio di più codificatori agli URL primario e secondario:
 
@@ -110,7 +110,7 @@ Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'ut
 
 È possibile inserire un flusso live MP4 frammentato (Smooth Streaming) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente, non è possibile inserire flussi RTMP tramite SSL.
 
-#### <a name="a-idkeyframeintervalakeyframe-interval"></a><a id="keyframe_interval"></a>Intervallo tra fotogrammi chiave
+#### <a id="keyframe_interval"></a>Intervallo tra fotogrammi chiave
 Quando si usa un codificatore live locale per generare un flusso a bitrate multipli, l'intervallo tra fotogrammi chiave specifica la durata Group of Pictures (GOP) usata dal codificatore esterno. Dopo la ricezione del flusso in ingresso da parte del canale, è possibile distribuire il flusso live alle applicazioni di riproduzione client in uno dei formati seguenti: Smooth Streaming, DASH (Dynamic Adaptive Streaming over HTTP) e HLS (HTTP Live Streaming). Quando si esegue lo streaming live, la creazione di pacchetti in HLS avviene sempre in modo dinamico. Per impostazione predefinita, Servizi multimediali calcola automaticamente il rapporto per la creazione di pacchetti dei segmenti HLS (FragmentsPerSegment) in base all'intervallo tra fotogrammi chiave ricevuti dal codificatore live.
 
 La seguente tabella illustra la modalità di calcolo della durata dei segmenti:
@@ -169,7 +169,7 @@ Per eliminare il contenuto archiviato, arrestare ed eliminare il programma e qui
 
 Anche dopo l'arresto e l'eliminazione del programma, gli utenti possono trasmettere in streaming il contenuto archiviato sotto forma di video su richiesta, fino all'eliminazione dell'asset. Se si vuole mantenere il contenuto archiviato ma non averlo disponibile per lo streaming, eliminare il localizzatore di streaming.
 
-## <a name="a-idstatesachannel-states-and-billing"></a><a id="states"></a>Stati del canale e fatturazione
+## <a id="states"></a>Stati del canale e fatturazione
 I valori possibili per lo stato corrente di un canale includono i seguenti:
 
 * **Arrestato**: stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
@@ -187,7 +187,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | **Arresto** |**Arresto** |No (stato temporaneo) |
 | **Stopped** |**Stopped** |No |
 
-## <a name="a-idccandadsaclosed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Sottotitoli codificati e inserimento di annunci
+## <a id="cc_and_ads"></a>Sottotitoli codificati e inserimento di annunci
 La tabella seguente illustra gli standard supportati per i sottotitoli codificati e l'inserimento di annunci.
 
 | Standard | Note |
@@ -196,7 +196,7 @@ La tabella seguente illustra gli standard supportati per i sottotitoli codificat
 | TTML all'interno di file ismt (tracce di testo Smooth Streaming) |La creazione dinamica dei pacchetti di Servizi multimediali consente ai client di trasmettere in streaming il contenuto in uno dei formati seguenti: DASH, HLS o Smooth Streaming. Se si inserisce il formato MP4 frammentato (Smooth Streaming) con sottotitoli all'interno dei file con estensione ismt (tracce di testo Smooth Streaming), è possibile distribuire il flusso solo ai client Smooth Streaming. |
 | SCTE-35 |SCTE-35 è un sistema di segnalazione digitale usato per predisporre l'inserimento di annunci pubblicitari. I ricevitori a valle usano il segnale per congiungere l'annuncio al flusso per l'intervallo assegnato. SCTE-35 deve essere inviato come una traccia di tipo sparso nel flusso di input.<p><p>Al momento l'unico formato di flusso di input supportato che trasporta i segnali degli annunci è il formato MP4 frammentato (Smooth Streaming). Smooth Streaming è anche l'unico formato di output supportato. |
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>Considerazioni
+## <a id="considerations"></a>Considerazioni
 Quando si usa un codificatore live locale per l'invio di un flusso a bitrate multipli in un canale, si applicano i vincoli seguenti:
 
 * Assicurarsi che sia disponibile connettività Internet sufficiente per inviare dati ai punti di inserimento.

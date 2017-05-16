@@ -29,8 +29,3 @@ Per configurare questa azione, è necessario fornire le informazioni indicate di
 10. Salvare le modifiche al flusso di lavoro  
 11. Congratulazioni, ora si dispone di un'app per la logica pienamente operativa che si avvia quando un nuovo elemento viene aggiunto a un elenco SharePoint Online. L'app quindi creerà un file, utilizzando alcune delle proprietà del nuovo elemento in elenco.  È ora possibile mettere alla prova l'app creando un nuovo elemento nell'elenco di SharePoint. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

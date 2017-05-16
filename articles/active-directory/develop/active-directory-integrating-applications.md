@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: mbaldwin;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 57383c11682342cb0a6446c79e603843a698fc8c
-ms.openlocfilehash: 835e1c494de59576fd8ac529240729cb33eaa50b
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e8cc9b790224891a0770b18fe2edb8e1bbfd5b72
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -58,7 +58,7 @@ Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere
 ### <a name="overview-of-the-consent-framework"></a>Panoramica del framework di consenso
 Il framework di consenso di Azure AD semplifica lo sviluppo di applicazioni client Web e native multi-tenant che devono accedere ad API Web protette da un tenant di Azure AD, diverso da quello in cui l'applicazione client viene registrata. Tra queste API Web sono incluse l'API di Microsoft Graph (per l'accesso ad Azure Active Directory, Intune e ai servizi di Office 365) e le API di altri servizi Microsoft, oltre alle API Web personalizzate. Il framework è basato sulla possibilità per un utente o un amministratore di fornire il consenso alla richiesta di registrazione di un'applicazione nella propria directory, che può comportare l'accesso a dati di directory.
 
-Ad esempio, se un'applicazione client Web deve leggere le informazioni del calendario dell'utente da Office 365, l'utente dovrà fornire il consenso all'applicazione client. Una volta ottenuto il consenso, l'applicazione client potrà chiamare l'API di Microsoft Graph per conto dell'utente e usare le informazioni del calendario nel modo necessario. L'[API di Microsoft Graph](https://graph.microsoft.io) fornisce l'accesso ai dati in Office 365, ad esempio calendari e messaggi di Exchange, siti ed elenchi di SharePoint, documenti di OneDrive, blocchi appunti di OneNote, attività di Pianificazione, cartelle di lavoro di Excel e così via; fornisce anche l'accesso agli utenti e gruppi di Azure AD e ad altri oggetti di dati da più servizi cloud di Microsoft. 
+Ad esempio, se un'applicazione client Web deve leggere le informazioni del calendario dell'utente da Office 365, l'utente dovrà fornire il consenso all'applicazione client. Una volta ottenuto il consenso, l'applicazione client potrà chiamare l'API di Microsoft Graph per conto dell'utente e usare le informazioni del calendario nel modo necessario. L'[API Microsoft Graph](https://graph.microsoft.io) fornisce l'accesso ai dati in Office 365 (come calendari e messaggi di Exchange, siti ed elenchi di SharePoint, documenti di OneDrive, blocchi appunti di OneNote, attività di Planner, cartelle di lavoro di Excel e così via), nonché a utenti e gruppi di Azure AD e ad altri oggetti dati di più servizi cloud Microsoft. 
 
 Il framework di consenso è basato su OAuth 2.0 e i relativi flussi diversi, come la concessione del codice di autorizzazione e delle credenziali utente, mediante client pubblici o riservati. Tramite OAuth 2.0 Azure AD consente di compilare molti tipi diversi di applicazioni client, ad esempio su un telefono, un tablet, un server o un'applicazione Web, e di ottenere l'accesso alle risorse necessarie.
 

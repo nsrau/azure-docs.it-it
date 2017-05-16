@@ -15,8 +15,9 @@ ms.workload: storage
 ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
-ms.openlocfilehash: dc466ed5dbd7ad14dd1c84760d9205b940acf504
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: dd11ad70efd8f78805e74ad193fb9000abf6a3a8
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -27,9 +28,12 @@ Utilizzare i collegamenti seguenti per visualizzare e scaricare esempi di risors
 ## <a name="azure-code-samples-library"></a>Libreria di esempi di codice per Azure
 La libreria degli [esempi di codice per Azure](https://azure.microsoft.com/documentation/samples/?service=storage) include esempi per Archiviazione di Azure che è possibile scaricare ed eseguire localmente. La libreria degli esempi di codice fornisce il codice di esempio in formato .zip. In alternativa, è possibile esplorare e clonare l'archivio GitHub per ogni esempio.
 
-## <a name="getting-started-samples"></a>Per iniziare
-* [Introduzione a Azure Storage in cinque minuti](storage-getting-started-guide.md)
+<!--## Getting started samples-->
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 * [Visual Studio Quick Starts for Azure Storage](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
+-->
 
 ## <a name="net-samples"></a>Esempi .NET
 Per esplorare gli esempi .NET, scaricare la [libreria client di archiviazione .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) da NuGet. La libreria client di archiviazione .NET è disponibile anche nell' [Azure SDK per .NET](https://azure.microsoft.com/downloads/).
@@ -76,10 +80,5 @@ Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione 
 ### <a name="c-resources"></a>Risorse C++
 * [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)
 * [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

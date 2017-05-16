@@ -13,18 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 05/11/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 25e266441e902a06d980b3b51abdd4fcf668d4d2
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
-## <a name="overview"></a>Overview
-In Data Factory di Azure, è possibile usare l'attività di copia per copiare i dati di diverse forme da varie origini dati locali e nel cloud in Azure. Dopo la copia, è possibile trasformare o analizzare ulteriormente i dati. L'attività di copia può essere usata anche per pubblicare risultati di trasformazione e analisi per Business Intelligence (BI) e l'uso delle applicazioni.
+## <a name="overview"></a>Panoramica
+In Azure Data Factory è possibile usare l'attività di copia per copiare i dati da archivi dati locali e cloud. Dopo la copia, è possibile trasformare o analizzare ulteriormente i dati. L'attività di copia può essere usata anche per pubblicare risultati di trasformazione e analisi per Business Intelligence (BI) e l'uso delle applicazioni.
 
 ![Ruolo dell'attività di copia](media/data-factory-data-movement-activities/copy-activity.png)
 
@@ -60,19 +61,27 @@ Per un'introduzione e una procedura dettagliata, vedere [Spostare dati tra origi
 È anche possibile spostare dati da/da archivi dati supportati ospitati su macchine virtuali IaaS di Azure tramite il Gateway di gestione dati. In questo caso, è possibile installare il Gateway di gestione dati sulla stessa macchina virtuale dell'archivio dati o su una macchina virtuale separata con accesso all'archivio dati.
 
 ## <a name="supported-data-stores-and-formats"></a>Archivi dati e formati supportati
+L'attività di copia in Data Factory esegue la copia dei dati da un archivio dati di origine a un archivio dati sink. Data Factory supporta gli archivi dati seguenti. I dati da qualsiasi origine possono essere scritti in qualsiasi sink. Fare clic su un archivio dati per informazioni su come copiare dati da e verso tale archivio.
+
+> [!NOTE] 
+> Per spostare dati da e verso un archivio dati che non è supportato dall'attività di copia, usare l' **attività personalizzata** in Data Factory con la logica personalizzata per copiare o spostare i dati. Per i dettagli sulla creazione e l'uso di un'attività personalizzata, vedere l'articolo [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md).
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Per spostare dati da e verso un archivio dati che non è supportato dall'attività di copia, usare l' **attività personalizzata** in Data Factory con la logica personalizzata per copiare o spostare i dati. Per i dettagli sulla creazione e l'uso di un'attività personalizzata, vedere l'articolo [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md).
+> [!NOTE]
+> Gli archivi dati contrassegnati da un asterisco (*) possono essere locali o in IaaS di Azure e richiederanno l'installazione del [Gateway di gestione dati](data-factory-data-management-gateway.md) in un computer IaaS locale o in Azure.
 
 ### <a name="supported-file-formats"></a>Formati di file supportati
-È possibile usare l'attività di copia per **copiare i file così come sono** tra due archivi dati basati su file, come BLOB di Azure, Azure Data Lake Store, Amazon S3, File System e Hadoop Distributed File System (HDFS). A tale scopo, è possibile ignorare la [sezione Formato](data-factory-create-datasets.md) in entrambe le definizioni di set di dati di input e output. I dati vengono copiati in modo efficiente senza serializzazione/deserializzazione.
+È possibile usare l'attività di copia per **copiare i file così come sono** tra due archivi di dati basati su file ed è possibile saltare la [sezione formato](data-factory-create-datasets.md) sia nella definizione del set di dati di input che in quello di output. I dati vengono copiati in modo efficiente senza serializzazione/deserializzazione.
 
-L'attività di copia esegue anche operazioni di lettura e scrittura in formati specifici, ovvero **text, Avro, ORC, Parquet e JSON**, e sono supportati i codec di compressione **GZip, Deflate, BZip2 e ZipDeflate**. È possibile eseguire le attività di copia seguenti, ad esempio:
+L'attività di copia esegue anche operazioni di lettura e scrittura in formati specifici, ovvero **Text, JSON, Avro, ORC e Parquet** e sono supportati i codec di compressione **GZip, Deflate, BZip2 e ZipDeflate**. Vedere [Formati di compressione e file supportati](data-factory-supported-file-and-compression-formats.md) per i dettagli.
 
-* Copiare i dati in formato testo (CSV) con compressione GZip dal BLOB di Azure e scrivere nel database SQL Azure.
-* Copiare i file in formato testo (CSV) dal file system locale e scrivere nel BLOB di Azure nel formato Avro.
+È possibile ad esempio eseguire queste attività di copia:
+
 * Copiare i dati nell'istanza locale di SQL Server e scrivere in Azure Data Lake Store nel formato ORC.
+* Copiare i file in formato testo (CSV) dal file system locale e scrivere nel BLOB di Azure nel formato Avro.
 * Copiare i file compressi dal file system locale e decomprimerli in Azure Data Lake Store.
+* Copiare i dati in formato testo (CSV) con compressione GZip dal BLOB di Azure e scrivere nel database SQL Azure.
 
 ## <a name="global"></a>Spostamento dei dati disponibile a livello globale
 Azure Data Factory è disponibile solo nelle seguenti aree: Stati Uniti occidentali, Stati Uniti orientali ed Europa settentrionale. Tuttavia, il servizio alla base dell'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e di solito consente di evitare passaggi tra diverse aree. Per la disponibilità del servizio Data Factory e lo spostamento dei dati in un'area, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services) .
@@ -80,7 +89,7 @@ Azure Data Factory è disponibile solo nelle seguenti aree: Stati Uniti occident
 ### <a name="copy-data-between-cloud-data-stores"></a>Copiare dati tra archivi dati cloud
 Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel cloud, Data Factory usa una distribuzione del servizio nell'area più vicina al sink nella stessa area geografica per spostare i dati. Consultare la tabella seguente per il mapping:
 
-| Geografia dell'archivio dati di destinazione | Area dell'archivio dati di destinazione | Area usata per lo spostamento dei dati |
+| Geografia degli archivi dati di destinazione | Area dell'archivio dati di destinazione | Area usata per lo spostamento dei dati |
 |:--- |:--- |:--- |
 | Stati Uniti | Stati Uniti orientali | Stati Uniti orientali |
 | &nbsp; | Stati Uniti orientali 2 | Stati Uniti orientali 2 |
@@ -107,7 +116,7 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | &nbsp; | India occidentale | India centrale |
 | &nbsp; | India meridionale | India centrale |
 
-In alternativa, è possibile indicare esplicitamente l'area del servizio Data Factory da usare per eseguire la copia specificando la proprietà `executionLocation` in `typeProperties` nell'attività di copia. I valori supportati per questa proprietà sono elencati nella colonna **Area usata per lo spostamento dei dati** precedente. Si noti che i dati verranno trasferiti in rete attraverso tale area durante la copia. Ad esempio, per eseguire la copia tra archivi di Azure in Corea è possibile specificare `"executionLocation": "Japan East"` per instradare i dati tramite l'area del Giappone (vedere l'[esempio JSON](#by-using-json-scripts) come riferimento).
+In alternativa, è possibile indicare esplicitamente l'area del servizio Data Factory da usare per eseguire la copia specificando la proprietà `executionLocation` in `typeProperties` nell'attività di copia. I valori supportati per questa proprietà sono elencati nella colonna **Area usata per lo spostamento dei dati** precedente. Si noti che i dati vengono trasferiti in rete attraverso tale area durante la copia. Ad esempio, per eseguire la copia tra archivi di Azure in Corea è possibile specificare `"executionLocation": "Japan East"` per instradare i dati tramite l'area del Giappone (vedere l'[esempio JSON](#by-using-json-scripts) come riferimento).
 
 > [!NOTE]
 > Se l'area dell'archivio dati di destinazione non è nell'elenco precedente o non è rilevabile, per impostazione predefinita l'attività di copia non viene completata invece di passare attraverso un'area alternativa, a meno che non sia specificato `executionLocation`. L'elenco di aree supportate verrà ampliato nel tempo.
@@ -180,7 +189,7 @@ La pianificazione definita nel set di dati di output determina quando viene eseg
 Vedere l'articolo [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md), che descrive i fattori chiave che influiscono sulle prestazioni di spostamento dei dati (attività di copia) in Data Factory di Azure. Vengono anche elencate le prestazioni osservate durante il test interni e vengono descritti i modi per ottimizzare le prestazioni dell'attività di copia.
 
 ## <a name="scheduling-and-sequential-copy"></a>Pianificazione e copia sequenziale
-Vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md) per informazioni dettagliate sul funzionamento della pianificazione e dell'esecuzione in Data Factory. È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Vedere la sezione [Copiare in sequenza](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence).
+Vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md) per informazioni dettagliate sul funzionamento della pianificazione e dell'esecuzione in Data Factory. È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Vedere la sezione [Copiare in sequenza](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="type-conversions"></a>Conversioni di tipi
 Gli archivi dati provengono tutti da uno specifico sistema di tipi nativo. L'attività di copia esegue automaticamente la conversione dai tipi di origine ai tipi sink con il metodo seguente in due passaggi:

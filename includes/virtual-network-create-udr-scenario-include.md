@@ -12,8 +12,3 @@ In questo scenario si creerà un UDR per la *subnet front-end* e un altro UDR pe
 
 La combinazione di queste route garantisce che tutto il traffico destinato da una subnet a un’altra venga indirizzato alla macchina virtuale **FW1** , che viene utilizzato come un dispositivo virtuale. È inoltre necessario attivare l'inoltro IP per tale macchina virtuale, per garantire che possa ricevere il traffico destinato ad altre macchine virtuali.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

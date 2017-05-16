@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: fa62c0883b8230e514f60626b59fa3b3b20a6784
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5bcdb2cd11ffa633bce4e0faee4f49d9053a662b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -51,7 +51,7 @@ Per convertire l'esperimento di training in un esperimento predittivo, fare clic
 
 ![Eseguire la conversione a un esperimento di assegnazione dei punteggi](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
-Per altre informazioni su come eseguire questa conversione, vedere [Convertire un esperimento di training di Machine Learning in un esperimento predittivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+Per altre informazioni su come eseguire questa conversione, vedere l'articolo relativo alla [preparazione del modello per la distribuzione in Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 Nei passaggi seguenti è descritta la distribuzione di un esperimento predittivo come nuovo servizio Web. È anche possibile distribuire l'esperimento come servizio Web classico.
 

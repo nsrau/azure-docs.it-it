@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8cae78052a4433f0a26d774a7085c110e32911c9
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 62c428215c5bd89789ae65bd420281a2f16f33a1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Questo articolo illustra come caricare la propria immagine VM generalizzata come
 Questo articolo presuppone che l'utente abbia:
 
 * **Una sottoscrizione di Azure** : se non si ha tale sottoscrizione, [è possibile aprire un account Azure per ottenerne gratuitamente una](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-* **[Microsoft Azure PowerShell](/powershell/azureps-cmdlets-docs)**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per l'uso della sottoscrizione.
+* **[Microsoft Azure PowerShell](/powershell/azure/overview)**: è necessario che il modulo di Microsoft Azure PowerShell sia installato e configurato per l'uso della sottoscrizione.
 * **Un file .VHD** : una versione supportata del sistema operativo Windows archiviata in un file con .vhd e collegata a una macchina virtuale. Verificare inoltre che i ruoli del server in esecuzione sul disco rigido virtuale siano supportati da Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
     > [!IMPORTANT]
@@ -88,7 +88,7 @@ Dalla macchina virtuale su cui è stato installato il sistema operativo, complet
     ```
 
 ## <a name="step-3-upload-the-vhd-file"></a>Passaggio 3: Caricare il file .vhd
-Usare [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) per caricare il file VHD.
+Usare [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) per caricare il file VHD.
 
 Nella finestra di Azure PowerShell usata nel passaggio precedente, digitare il comando seguente e sostituire le variabili tra &lsaquo; parentesi &rsaquo; con le proprie informazioni.
 
@@ -97,7 +97,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>Passaggio 4: Aggiungere l'immagine all'elenco di immagini personalizzate
-Usare il cmdlet [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) per aggiungere l'immagine all'elenco di immagini personalizzate.
+Usare il cmdlet [Add-AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) per aggiungere l'immagine all'elenco di immagini personalizzate.
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"

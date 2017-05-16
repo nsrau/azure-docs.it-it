@@ -14,8 +14,3 @@ Eseguire il cmdlet [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/a
 Se si hanno più sottoscrizioni, usare il cmdlet [**Set-AzureRmContext**](https://msdn.microsoft.com/library/azure/mt619263\(v=azure.300\).aspx) per selezionare la sottoscrizione da usare nella sessione di PowerShell. Per visualizzare la sottoscrizione in uso nella sessione corrente di PowerShell, eseguire [**Get-AzureRmContext**](https://msdn.microsoft.com/library/azure/mt619265\(v=azure.300\).aspx). Per visualizzare tutte le sottoscrizioni, eseguire [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/azure/mt619284\(v=azure.300\).aspx).
 
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
-
-
-<!--HONumber=Dec16_HO2-->
-
-

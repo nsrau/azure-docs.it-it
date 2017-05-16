@@ -99,7 +99,7 @@ Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (dea
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scenario di allocazione: distribuzioni di gestione temporanea/produzione (solo Platform-as-a-Service)
 **Errore**
 
-New_General* o New_VMSizeNotSupported*
+New_General *o New_VMSizeNotSupported*
 
 **Causa del blocco su un cluster**
 
@@ -112,7 +112,7 @@ Eliminare la prima distribuzione e il servizio cloud originale, quindi ridistrib
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scenario di allocazione: gruppo di affinità (prossimità di VM o servizi)
 **Errore**
 
-New_General* o New_VMSizeNotSupported*
+New_General *o New_VMSizeNotSupported*
 
 **Causa del blocco su un cluster**
 
@@ -125,7 +125,7 @@ Se un gruppo di affinità non è necessario, non usare un gruppo di affinità o 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scenario di allocazione: rete virtuale basata su gruppi di affinità
 **Errore**
 
-New_General* o New_VMSizeNotSupported*
+New_General *o New_VMSizeNotSupported*
 
 **Causa del blocco su un cluster**
 
@@ -151,7 +151,7 @@ In generale, finché l'errore non indica che le dimensioni della VM richieste no
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Scenario di allocazione: ridimensionare una VM o aggiungere VM a un set di disponibilità esistente
 **Errore**
 
-Upgrade_VMSizeNotSupported* o GeneralError*
+Upgrade_VMSizeNotSupported *o GeneralError*
 
 **Causa del blocco su un cluster**
 
@@ -204,10 +204,5 @@ Allocazione non riuscita. Impossibile soddisfare i vincoli nella richiesta. La n
 
 **GeneralError***
 
-"Errore interno del server.  Ritentare la richiesta" o "Non è stato possibile produrre un'allocazione per il servizio".
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+"Errore interno del server. Ritentare la richiesta" o "Non è stato possibile produrre un'allocazione per il servizio".
 

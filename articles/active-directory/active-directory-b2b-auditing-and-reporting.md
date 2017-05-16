@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 867a1c8dda37815663fa3fb095351fa3854a52cc
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 
 
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Controllo e creazione di report per un utente di Collaborazione B2B
-Con gli utenti guest, in questa anteprima sono disponibili funzionalità di controllo analoghe a quelle degli utenti membri. Di seguito è riportato un esempio di cronologia di inviti e riscatti dell'invitato Sam Oogle:
+Con gli utenti guest, sono disponibili funzionalità di controllo analoghe a quelle degli utenti membri. Di seguito è riportato un esempio di cronologia di inviti e riscatti dell'invitato Sam Oogle:
 
 ![log di controllo](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 

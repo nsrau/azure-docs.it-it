@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: c86a1feee02bbf8580a40119ac140528217e435d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: e286693b585a5991dbecd537fe5cd6621dd27e01
+ms.lasthandoff: 04/26/2017
 
 ---
 
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Guida introduttiva alla ricezione di messaggi con Event Processor Host in .NET Standard
 
 > [!NOTE]
-> Questo esempio è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
+> Questo esempio è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-In questa esercitazione viene illustrata la procedura per scrivere un'applicazione console .NET Core per ricevere messaggi da un Hub eventi usando **EventProcessorHost**. È possibile eseguire la soluzione [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) così com'è, sostituendo le stringhe con i valori di Hub eventi e dell'account di archiviazione. Oppure è possibile seguire la procedura illustrata in questa esercitazione per crearne una propria.
+In questa esercitazione viene illustrata la procedura per scrivere un'applicazione console .NET Core per ricevere messaggi da un hub eventi usando **EventProcessorHost**. È possibile eseguire la soluzione [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) così com'è, sostituendo le stringhe con i valori dell'hub eventi e dell'account di archiviazione. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,9 +36,9 @@ In questa esercitazione viene illustrata la procedura per scrivere un'applicazio
 * Uno spazio dei nomi di Hub eventi in Azure.
 * Un account di archiviazione di Azure.
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un Hub eventi  
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi  
 
-Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi per il tipo Hub eventi e ottenere le credenziali di gestione richieste dall'applicazione per comunicare con Hub eventi. Per creare uno spazio dei nomi e un Hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e procedere con i passaggi seguenti.  
+Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi per il tipo Hub eventi e ottenere le credenziali di gestione richieste dall'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e procedere con i passaggi seguenti.  
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure  
 
@@ -121,7 +121,7 @@ Aggiungere i pacchetti NuGet seguenti al progetto:
     using System.Threading.Tasks;
     ```
 
-2. Aggiungere le costanti alla classe `Program` per la stringa di connessione di Hub eventi, il nome dell'Hub, il nome del contenitore dell'account di archiviazione, il nome dell'account di archiviazione e la chiave dell'account di archiviazione. Aggiungere il codice seguente, sostituendo i segnaposto con i relativi valori.
+2. Aggiungere le costanti alla classe `Program` per la stringa di connessione dell'hub eventi, il nome dell'hub, il nome del contenitore dell'account di archiviazione, il nome dell'account di archiviazione e la chiave dell'account di archiviazione. Aggiungere il codice seguente, sostituendo i segnaposto con i relativi valori.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -211,13 +211,13 @@ Aggiungere i pacchetti NuGet seguenti al progetto:
 
 4. Eseguire il programma e assicurarsi che non siano presenti errori.
 
-Congratulazioni. Sono stati appena ricevuti dei messaggi da un Hub eventi usando l'host del processore di eventi.
+Congratulazioni. Sono stati appena ricevuti dei messaggi da un hub eventi usando l'host del processore di eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
+* [Creare un hub eventi](event-hubs-create.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png

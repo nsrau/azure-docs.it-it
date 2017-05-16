@@ -7,7 +7,7 @@
 ## [Scegliere dove eseguire la distribuzione](multi-factor-authentication-get-started.md)
 ## [MFA nel cloud](multi-factor-authentication-get-started-cloud.md)
 ## [MFA locale](multi-factor-authentication-get-started-server.md)
-## [MFA per utenti di Office&365;](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [MFA per utenti di Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 ## [Procedure di sicurezza consigliate](multi-factor-authentication-security-best-practices.md)
 
 # Procedure
@@ -47,3 +47,4 @@
 ## Risolvere i problemi
 ### [Domande frequenti](multi-factor-authentication-faq.md)
 ### [Porre una domanda](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+### [Errori dell'estensione del Server dei criteri di rete](multi-factor-authentication-nps-errors.md)

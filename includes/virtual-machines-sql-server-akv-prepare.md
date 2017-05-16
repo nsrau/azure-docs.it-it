@@ -32,8 +32,3 @@ Al passaggio Creare un insieme di credenziali delle chiavi, si noti la propriet√
 
 L'URL dell'insieme di credenziali delle chiavi viene assegnato successivamente al parametro **$akvURL** nello script di PowerShell, per abilitare l'integrazione dell'insieme di credenziali delle chiavi di Azure.
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/08/2016
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ccfa8d72b51c43e04d924d2b096e3cbc407af043
+ms.contentlocale: it-it
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -49,10 +51,5 @@ Questa operazione può essere eseguita anche usando [Microsoft PowerShell](https
 * [Uso di nomi di dominio personalizzati per semplificare l'esperienza di accesso degli utenti](active-directory-add-domain.md)
 * [Gestire i nomi di dominio personalizzati](active-directory-add-manage-domain-names.md)
 * [Informazioni sui concetti relativi alla gestione dei domini in Azure AD](active-directory-add-domain-concepts.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

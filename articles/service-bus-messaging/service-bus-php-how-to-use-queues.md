@@ -1,5 +1,5 @@
 ---
-title: Come usare le code del bus di servizio con PHP | Documentazione Microsoft
+title: Come usare le code del bus di servizio con PHP | Microsoft Docs
 description: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in PHP.
 services: service-bus-messaging
 documentationcenter: php
@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 23be0f9cbfb37fe3f5b30ec67595d67f0568a527
-ms.openlocfilehash: c5db806969a6e018596c1ff0a0861423df19b61c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: a8866119b631ec9776d6587a078c8e54c311071a
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Come usare le code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Questa guida illustra come usare le code del bus di servizio. Gli esempi sono scritti in PHP e usano [Azure SDK per PHP](../php-download-sdk.md). Gli scenari presentati includono **la creazione di code**, **l’invio e la ricezione di messaggi** e **l’eliminazione di code**.
+Questa guida illustra come usare le code del bus di servizio. Gli esempi sono scritti in PHP e usano [Azure SDK per PHP](../php-download-sdk.md). Gli scenari presentati includono **la creazione di code**, **l'invio e la ricezione di messaggi** e **l'eliminazione di code**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -160,13 +162,13 @@ I messaggi inviati e ricevuti dalle code del bus di servizio sono istanze della 
 Le code del bus di servizio supportano messaggi di dimensioni massime pari a 256 KB nel [livello Standard](service-bus-premium-messaging.md) e pari a 1 MB nel [livello Premium](service-bus-premium-messaging.md). Le dimensioni massime dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non possono superare 64 KB. Non esiste alcun limite al numero di messaggi mantenuti in una coda, mentre è prevista una limitazione alla dimensione totale dei messaggi di una coda. Il limite massimo della dimensione di una coda è di 5 GB.
 
 ## <a name="how-to-receive-messages-from-a-queue"></a>Come ricevere messaggi da una coda
-Il modo ideale per ricevere i messaggi da una coda prevede l'uso di un metodo `ServiceBusRestProxy->receiveQueueMessage`. Le modalità di ricezione dei messaggi sono due: [*ReceiveAndDelete* e *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** è la modalità predefinita.
+Il modo ideale per ricevere i messaggi da una coda prevede l'uso di un metodo `ServiceBusRestProxy->receiveQueueMessage`. È possibile ricevere i messaggi in due modi diversi: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) e [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock). **PeekLock** è la modalità predefinita.
 
-Quando si usa la modalità [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), l'operazione di ricezione viene eseguita in un'unica fase. Quando infatti il bus di servizio riceve una richiesta di lettura per un messaggio in una coda, lo contrassegna come utilizzato e lo restituisce all'applicazione. La modalità [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) costituisce il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
+Quando si usa la modalità [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete), l'operazione di ricezione viene eseguita in un'unica fase. Quando infatti il bus di servizio riceve una richiesta di lettura per un messaggio in una coda, lo contrassegna come utilizzato e lo restituisce all'applicazione. La modalità [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) costituisce il modello più semplice ed è adatta per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo meccanismo, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
 
-Nella modalità [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) predefinita l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da utilizzare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione completa la seconda fase del processo di ricezione passando il messaggio ricevuto a `ServiceBusRestProxy->deleteMessage`. Quando il bus di servizio vede la chiamata `deleteMessage`, contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
+Nella modalità [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) predefinita l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da utilizzare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione completa la seconda fase del processo di ricezione passando il messaggio ricevuto a `ServiceBusRestProxy->deleteMessage`. Quando il bus di servizio vede la chiamata `deleteMessage`, contrassegna il messaggio come utilizzato e lo rimuove dalla coda.
 
-L'esempio seguente illustra come ricevere ed elaborare un messaggio usando la modalità [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) (predefinita).
+L'esempio seguente illustra come ricevere ed elaborare un messaggio usando la modalità [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) (predefinita).
 
 ```php
 require_once 'vendor/autoload.php';
@@ -218,14 +220,9 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 
 Per altre informazioni, vedere anche il [Centro per sviluppatori PHP](https://azure.microsoft.com/develop/php/).
 
-[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

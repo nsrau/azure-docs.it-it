@@ -1,5 +1,5 @@
 ---
-title: Pubblicare contenuti di Servizi multimediali di Azure mediante .NET
+title: Pubblicare contenuti di Servizi multimediali di Azure mediante .NET | Microsoft Docs
 description: Informazioni su come creare un localizzatore da usare per un URL di streaming. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET.
 author: juliako
 manager: erikre
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 37f6cd3a25c36fe27c9c711a430a2fc11e50906e
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ ms.lasthandoff: 03/14/2017
 Questo argomento illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e creare URL di streaming Smooth, MPEG DASH e HLS, e come creare URL di download progressivo. 
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Creare un localizzatore di streaming OnDemand
-Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessario effettuare le seguenti operazioni:
+Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessario effettuare le operazioni seguenti:
 
 1. Se il contenuto viene crittografato, definire i criteri di accesso.
 2. Creare un localizzatore di streaming OnDemand.
@@ -53,7 +54,7 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
 
 
 >[!NOTE]
->È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Se si usano sempre gli stessi giorni/autorizzazioni di accesso, usare lo stesso ID criterio. Ad esempio, i criteri dei localizzatori che devono rimanere sul posto per molto tempo (criteri di non-caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
 
 ### <a name="use-media-services-net-sdk"></a>Usare l'SDK di Servizi multimediali per .NET
 Creare URL di streaming 
@@ -95,7 +96,7 @@ Creare URL di streaming
         Console.WriteLine();
     }
 
-Output del codice:
+Gli output:
 
     URL to manifest for client streaming using Smooth Streaming protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
@@ -106,7 +107,7 @@ Output del codice:
 
 
 > [!NOTE]
-> Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Si noti che attualmente AMS non supporta SSL con domini personalizzati.  
+> Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Attualmente AMS non supporta SSL con domini personalizzati.
 > 
 > 
 
@@ -140,7 +141,7 @@ Creare URL di download progressivo
             Console.WriteLine(originLocator.Path + pd.Name);
     }
 
-Output del codice:
+Gli output:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +151,7 @@ Output del codice:
     . . . 
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Usare le estensioni dell'SDK di Servizi multimediali per .NET
-Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano un localizzatore e generano URL Smooth Streaming, HLS e MPEG-DASH per lo streaming adattivo.
+Il codice seguente chiama i metodi delle estensioni dell'SDK per .NET che creano un localizzatore e generano URL Smooth Streaming, HLS e MPEG-DASH per lo streaming adattivo.
 
     // Create a loctor.
     _context.Locators.Create(
@@ -175,8 +176,8 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche
-[Asset mediante download](media-services-deliver-asset-download.md)
-[Configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="next-steps"></a>Passaggi successivi
+* [Scaricare gli asset](media-services-deliver-asset-download.md)
+* [Configurare i criteri di distribuzione dell'asset](media-services-dotnet-configure-asset-delivery-policy.md)
 
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: a888593f992913e31bbf04834c86b1d4a2f1b196
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: b7cb18fcfda5b829b72b2ded6a1ea9e996e771d7
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
@@ -41,7 +42,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 
 | **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
 | --- | --- | --- |
-| **America del Nord** |Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
+| **America del Nord** |Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
 | **America del Sud** |Brasile meridionale |Sao Paulo |
 | **Europa** |Europa settentrionale, Europa occidentale, Regno Unito occidentale, Regno Unito meridionale |Amsterdam, Dublino, Londra, Newport (Galles), Parigi |
 | **Asia** |Asia orientale, Asia sudorientale |Hong Kong, Singapore |
@@ -55,7 +56,7 @@ Nella tabella seguente vengono fornite informazioni su aree e confini geopolitic
 
 | **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
 | --- | --- | --- | --- |
-| **Cloud del governo degli Stati Uniti** |US Gov Iowa, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
+| **Cloud del governo degli Stati Uniti** |US Gov Iowa, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **Cina** |Cina meridionale, Cina orientale |Pechino, Shanghai |
 | **Germania** |Germania centrale, Germania orientale |Berlino, Francoforte |
 
@@ -71,12 +72,12 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telefonica+, Telenor, Verizon |
 | **Atlanta** |Equinix |
-| **Busan** |LG CNS+ |
+| **Busan** |LG CNS |
 | **Chennai** |Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Dublino** |Colt, Telecity Group |
-| **Hong Kong** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Las Vegas** |Level 3 Communications+, Megaport |
 | **Londra** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
@@ -109,7 +110,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Dallas** |Equinix, Megaport, Verizon |
 | **New York** |Equinix, Level 3 Communications+, Verizon |
 | **Silicon Valley** | Equinix |
-| **Seattle** | Equinix+ |
+| **Seattle** | Equinix |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Cina

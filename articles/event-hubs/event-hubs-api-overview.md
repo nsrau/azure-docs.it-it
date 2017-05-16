@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/03/2017
 ms.author: jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
-ms.lasthandoff: 02/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 2a718be9789aa4befdf2d3e1ac437fa69d6f33b8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 02/02/2017
 
 ## <a name="runtime-apis"></a>API di runtime
 
-Di seguito è riportato un elenco di tutti i client di runtime di Hub eventi attualmente disponibili. Sebbene alcune di queste librerie includano anche la funzionalità di gestione limitata, esistono [librerie specifiche](#management-apis) dedicate alle operazioni di gestione. L'obiettivo principale di queste librerie è di inviare e ricevere messaggi da un Hub eventi.
+Di seguito è riportato un elenco di tutti i client di runtime di Hub eventi di Azure attualmente disponibili. Sebbene alcune di queste librerie includano anche la funzionalità di gestione limitata, esistono [librerie specifiche](#management-apis) dedicate alle operazioni di gestione. L'obiettivo principale di queste librerie è di inviare e ricevere messaggi da un hub eventi.
 
 Sono disponibili [altre informazioni](#additional-information) per trovare più dettagli sullo stato corrente di tutte le librerie di runtime.
 
@@ -40,7 +41,7 @@ Sono disponibili [altre informazioni](#additional-information) per trovare più 
 ### <a name="additional-information"></a>Informazioni aggiuntive
 
 #### <a name="net"></a>.NET
-I runtime in un ecosistema .NET sono vari, pertanto sono presenti più librerie .NET per gli Hub eventi. La libreria .NET Standard può essere eseguita usando .NET Core o .NET Framework, mentre la libreria .NET Framework può essere eseguita solo in un ambiente .NET Framework. Per ulteriori informazioni su .NET Framework, vedere [Versioni di framework.](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)
+I runtime in un ecosistema .NET sono vari, pertanto sono presenti più librerie .NET per gli Hub eventi. La libreria .NET Standard può essere eseguita usando .NET Core o .NET Framework, mentre la libreria .NET Framework può essere eseguita solo in un ambiente .NET Framework. Per altre informazioni su .NET Framework, vedere le [versioni del framework](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### <a name="node"></a>Nodo
 
@@ -58,5 +59,5 @@ Di seguito è riportato un elenco di tutte le librerie di gestione specifiche at
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
+* [Creare un hub eventi](event-hubs-create.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)

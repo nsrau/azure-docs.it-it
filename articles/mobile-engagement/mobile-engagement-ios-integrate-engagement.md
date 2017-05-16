@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 7c4e962527d0b4cd66f6ca4974851c5e5d523de7
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -107,7 +108,7 @@ Per attivare la segnalazione di tutti i log richiesti da Engagement per il calco
 Se non si può o non si vuole eseguire l'overload delle classi `UIViewController`, è possibile avviare le attività chiamando direttamente i metodi di `EngagementAgent`.
 
 > [!IMPORTANT]
-> iOS SDK chiama automaticamente il metodo `endActivity()` quando viene chiusa l'applicazione. Di conseguenza, è *CONSIGLIABILE* chiamare il metodo `startActivity` ogni volta che l'attività dell'utente cambia e non chiamare *MAI`endActivity` il metodo * poiché questo metodo forza la chiusura della sessione corrente.
+> iOS SDK chiama automaticamente il metodo `endActivity()` quando viene chiusa l'applicazione. Di conseguenza, è *CONSIGLIABILE* chiamare il metodo `startActivity` ogni volta che l'attività dell'utente cambia e non chiamare *MAI* il metodo `endActivity` poiché questo metodo forza la chiusura della sessione corrente.
 > 
 > 
 
@@ -210,9 +211,4 @@ L'esempio seguente di `Settings.bundle` mostra come implementarla:
 [NSLocationAlwaysUsageDescription]:https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]:http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]:https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

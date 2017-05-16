@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 05/08/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -89,7 +90,7 @@ Azure Site Recovery consente di proteggere le distribuzioni di SharePoint come i
 * Semplifica lo sviluppo e i test dell'applicazione SharePoint creando una copia su richiesta simile a quella in produzione per il test e il debug nell'ambiente di replica.
 * Semplifica la transizione nel cloud usando Site Recovery per la migrazione di distribuzioni di SharePoint in Azure.
 
-[Altre informazioni](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) sulla protezione di SharePoint.
+[Altre informazioni](site-recovery-sharepoint.md) sulla protezione di SharePoint.
 
 ## <a name="protect-dynamics-ax"></a>Proteggere Dynamics AX
 Azure Site Recovery consente di proteggere la soluzione ERP Dynamics AX. In particolare, è possibile:
@@ -98,7 +99,7 @@ Azure Site Recovery consente di proteggere la soluzione ERP Dynamics AX. In part
 * Semplificare della migrazione delle distribuzioni di Dynamics AX nel cloud (Azure).
 * Semplificare lo sviluppo e il test dell'applicazione Dynamics AX creando una copia su richiesta simile a quella in produzione per il test e il debug.
 
-[Altre informazioni](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) sulla protezione di Dynamic AX.
+[Altre informazioni](site-recovery-dynamicsax.md) sulla protezione di Dynamic AX.
 
 ## <a name="protect-rds"></a>Proteggere RDS
 Servizi Desktop remoto abilita l'uso di un'infrastruttura VDI (Virtual Desktop Infrastructure), di desktop basati su sessione e di applicazioni, consentendo agli utenti di lavorare ovunque. Con Azure Site Recovery è possibile:
@@ -157,5 +158,5 @@ Usare Site Recovery per proteggere le distribuzioni Citrix XenApp e XenDesktop c
 [Altre informazioni](https://aka.ms/citrix-xenapp-xendesktop-with-asr) sulla protezione di distribuzioni Citrix XenApp e XenDesktop.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Controllare i prerequisiti](site-recovery-prereq.md) 
+[Verifica dei prerequisiti](site-recovery-prereq.md) 
 

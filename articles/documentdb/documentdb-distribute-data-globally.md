@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8e1fccf953579beb138d47d1897bf702461fc39a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 746fefab12aae11774a7d582e39ac2bc7eb9c88b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -58,7 +58,7 @@ DocumentDB è progettato per l'uso di funzionalità di geofencing basate su crit
 DocumentDB consente di aggiungere (associare) o rimuovere (dissociare) aree nell'account del database in qualsiasi momento (vedere la [figura precedente](#UnlimitedRegionsPerAccount)). Grazie alla replica dei dati in parallelo tra le partizioni, DocumentDB garantisce che quando viene aggiunta una nuova area in Azure, DocumentDB sia disponibile in qualsiasi parte del mondo per un massimo di 100 TB entro 30 minuti. 
 
 ### <a id="FailoverPriorities"></a>Priorità di failover
-Per controllare la sequenza esatta dei failover a livello di area quando si verifica un'interruzione di servizio in più aree, DocumentDB consente di impostare una priorità per le varie aree associate all'account del database, come illustrato nella figura seguente. DocumentDB garantisce che la sequenza di failover automatico venga eseguita in base all'ordine di priorità specificato.
+Per controllare la sequenza esatta dei failover a livello di area quando si verifica un'interruzione di servizio in più aree, DocumentDB consente di impostare una priorità per le varie aree associate all'account del database, come illustrato nella figura seguente. DocumentDB garantisce che la sequenza di failover automatico venga eseguita in base all'ordine di priorità specificato. Per altre informazioni su failover regionali, vedere [Failover regionali automatici per la continuità aziendale in DocumentDB](documentdb-regional-failovers.md).
 
 **Un tenant di DocumentDB può configurare l'ordine di priorità di failover (riquadro a destra) per le aree associate a un account del database**
 
@@ -219,7 +219,7 @@ Una raccolta di DocumentDB viene distribuita usando due dimensioni, all'interno 
 
 Grazie a funzionalità di gestione delle partizioni a velocità di risposta elevata, bilanciamento del carico e governance delle risorse rigida, DocumentDB consente di ridimensionare in modo elastico la velocità effettiva in più aree di Azure per una raccolta di DocumentDB. La modifica della velocità effettiva per una raccolta è un'operazione di runtime in DocumentDB. Come per qualsiasi altra operazione su database, DocumentDB garantisce il limite superiore assoluto della latenza durante l'operazione di modifica della velocità effettiva. Ad esempio, la figura seguente mostra la raccolta di un cliente per la quale il provisioning della velocità effettiva (compreso tra 1 milione e 10 milioni di richieste al secondo in due aree) viene eseguito in modo elastico in base alla domanda.
  
-**Raccolta di un cliente con provisioning elastico della velocità effettiva (compresa tra&1; milione e&10; milioni di richieste al secondo)**
+**Raccolta di un cliente con provisioning elastico della velocità effettiva (compresa tra 1 milione e 10 milioni di richieste al secondo)**
 
 ![Provisioning elastico della velocità effettiva di Azure DocumentDB](./media/documentdb-distribute-data-globally/documentdb-elastic-throughput.png)
 
@@ -259,5 +259,5 @@ DocumentDB espone in modo trasparente le metriche per velocità effettiva, laten
 6. Peter Bailis et al. [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (Decadimento ristretto probabilistico per quorum parziali pratici)
 7. Naor e Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) (Carico, capacità e disponibilità nei sistemi di quorum)
 8. Herlihy e Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) (Linearizzabilità: una condizione di correttezza per gli oggetti simultanei)
-9. Contratto di servizio di Azure DocumentDB (ultimo aggiornamento: dicembre 2016)
+9. [Contratto di servizio di Azure DocumentDB](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/)
 

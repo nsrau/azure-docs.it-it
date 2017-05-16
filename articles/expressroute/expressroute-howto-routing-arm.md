@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 160560fcc3d586d2bbcba67d2f7c60cfed26f5c3
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 97d61099ef4109d8fc1d6078bdaeddd36ad7c648
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -35,12 +35,9 @@ ms.lasthandoff: 03/24/2017
 
 Questo articolo descrive le procedure per creare e gestire la configurazione di routing per un circuito ExpressRoute usando PowerShell e il modello di distribuzione Azure Resource Manager.  La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o eseguire il deprovisioning dei peering per un circuito ExpressRoute. 
 
-**Informazioni sui modelli di distribuzione di AzureAbout Azure deployment models**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
-* È necessaria la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* È necessaria la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). 
 * Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti per il routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md).
 * È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti di seguito deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
 

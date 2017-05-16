@@ -1,5 +1,5 @@
 ---
-title: "Porte e protocolli necessari per la soluzione ibrida di gestione delle identità | Documentazione Microsoft"
+title: "Porte e protocolli necessari per la soluzione ibrida di gestione delle identità | Microsoft Docs"
 description: "Questa pagina è una pagina di riferimento tecnico relativa alle porte che devono essere aperte per Azure AD Connect"
 services: active-directory
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 04/25/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: ee4a47cf53898803e0080d3f9d00cf7617fe4ce8
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: adf358a130fd20674cbf2585de93005a9e1cb3ec
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -78,20 +79,18 @@ La tabella seguente descrive le porte e i protocolli necessari per la comunicazi
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabella 6a - Autenticazione pass-through con SSO
 |Protocol|Numero della porta|Descrizione
 | --- | --- | ---
-|HTTP|80|Abilitare il traffico HTTP in uscita per la convalida di sicurezza quale SSL.
-|HTTPS|443|    Abilitare l'autenticazione utente con Azure AD
-|HTTPS|10100–10120|    Abilitare risposte dal connettore ad Azure AD 
-|Bus di servizio di Azure|9352, 5671|    Abilitare la comunicazione tra il connettore e il servizio di Azure per le richieste in ingresso.
-|HTTPS|9350|    Facoltativo, per consentire prestazioni migliori per le richieste in ingresso
-|HTTPS|8080/443|    Abilitare la sequenza di bootstrap del connettore e l'aggiornamento automatico del connettore
-|HTTPS|9090|    Abilitare la registrazione del connettore (necessaria solo per il processo di registrazione del connettore)
-|HTTPS|9091|    Abilitare il rinnovo automatico dei certificati di attendibilità del connettore
+|HTTP|80|Abilitare il traffico HTTP in uscita per la convalida di sicurezza quale SSL. Serve anche per il funzionamento corretto dell'aggiornamento automatico del connettore.
+|HTTPS|443|    Consentire il traffico HTTPS in uscita per operazioni quali l'abilitazione e disabilitazione della funzionalità, la registrazione di connettori, il download degli aggiornamenti del connettore e la gestione di tutte le richieste di accesso degli utenti.
+
+È necessario anche che Azure AD Connect sia in grado di creare connessioni IP dirette agli [intervalli IP dei data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tabella 6b - Sincronizzazione degli hash delle password con SSO
 
 |Protocol|Numero della porta|Descrizione
 | --- | --- | ---
-|HTTPS|9090|    Abilitare la registrazione SSO (necessaria solo per il processo di registrazione SSO).
+|HTTPS|443|    Abilitare la registrazione SSO (necessaria solo per il processo di registrazione SSO).
+
+È necessario anche che Azure AD Connect sia in grado di creare connessioni IP dirette agli [intervalli IP dei data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Anche questo requisito è necessario solo per il processo di registrazione SSO.
 
 ## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabelle 7a e 7b - Agente di Azure AD Connect Health (AD FS/sincronizzazione) e Azure AD
 Le tabelle seguenti descrivono gli endpoint, le porte e i protocolli necessari per la comunicazione tra gli agenti di Azure AD Connect Health e Azure AD

@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: c2fb44817f168eee8303d0c07473f043ae30d350
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a2a6ca04ca8043bc0ed142310ad3e7b55100d228
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -36,7 +36,7 @@ Ogni profilo di Gestione traffico è rappresentato da una risorsa di tipo "Traff
 
 In queste istruzioni viene usato Microsoft Azure PowerShell. L'articolo seguente illustra come installare e configurare Azure PowerShell.
 
-* [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
 
 Negli esempi inclusi in questo articolo si presuppone che esista un gruppo di risorse. È possibile creare un gruppo di risorse usando il comando seguente:
 

@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5faf7dc0b544f6fe2f83565cc368e218c6df35af
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Differenze tra Service Fabric in Linux (anteprima) e in Windows (disponibile a livello generale)
 
-Poiché Service Fabric in Linux è un'anteprima, alcune funzionalità sono supportate in Windows, ma non in Linux. Quando Service Fabric in Linux sarà disponibile a livello generale, i set di funzionalità saranno gli stessi.
+Poiché Service Fabric in Linux è un'anteprima, alcune funzionalità sono supportate in Windows, ma non ancora in Linux. Quando Service Fabric in Linux sarà disponibile a livello generale, i set di funzionalità saranno gli stessi.
 
 * Reliable Collections (e Reliable Stateful Services) non sono supportati in Linux.
 * ReverseProxy non è disponibile in Linux.
@@ -38,7 +39,7 @@ Poiché Service Fabric in Linux è un'anteprima, alcune funzionalità sono suppo
 >[!NOTE]
 >Il reindirizzamento della console non è supportato nei cluster di produzione, nemmeno in Windows.
 
-Gli strumenti di sviluppo sono diversi per VisualStudio, Powershell, VSTS ed ETW usati in Windows e per Yeoman, Eclipse, Jenkins e LTTng usati in Linux.
+Anche gli strumenti di sviluppo presentano differenze tra Windows e Linux. VisualStudio, Powershell, VSTS e ETW vengono usati in Windows mentre Yeoman, Eclipse, Jenkins, e LTTng vengono usati in Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlet di Powershell che non funzionano in un cluster di Service Fabric in Linux
 

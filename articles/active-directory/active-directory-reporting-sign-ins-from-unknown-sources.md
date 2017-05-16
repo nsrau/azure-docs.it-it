@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 90006121e4b3392f6e3ecffb4a56aca330feb02f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -26,10 +28,5 @@ Questo report indica gli utenti che hanno eseguito correttamente l'accesso alla 
 I risultati del report mostreranno il numero di volte in cui un utente ha effettuato correttamente l'accesso alla directory da quell'indirizzo e l'indirizzo IP del proxy.
 
 ![Accessi da origini sconosciute](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

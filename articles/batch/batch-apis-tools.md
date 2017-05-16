@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 405cb202e2b6da0dd24e6f7b8ed55ce8c56e0fe1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9d523044f5107eea9dfbba17564cc15ec05076c5
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -49,13 +49,13 @@ Le applicazioni e i servizi possono rilasciare chiamate API REST dirette o usare
 | **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Esercitazione](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [Note sulla versione](https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/Client/changelog.md) |
 | **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Esercitazione](batch-python-tutorial.md)|[GitHub][api_sample_python] | [File Leggimi](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |- | [File Leggimi](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
-| **Batch Java** (anteprima) |[github.io][api_java] |[Maven][api_java_jar] |- |[File Leggimi][api_sample_java] | [File Leggimi](https://github.com/Azure/azure-batch-sdk-for-java)|
+| **Batch Java** |[github.io][api_java] |[Maven][api_java_jar] |- |[File Leggimi][api_sample_java] | [File Leggimi](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-command-line-tools"></a>Strumenti da riga di comando di Batch
 
 La funzionalità fornita dalle API di sviluppo è disponibile anche con gli strumenti da riga di comando: 
 
-* [Cmdlet di PowerShell per Batch][batch_ps]: i cmdlet di Azure Batch nel modulo di [Azure PowerShell](/powershell/azureps-cmdlets-docs) consentono di gestire le risorse Batch con PowerShell.
+* [Cmdlet di PowerShell per Batch][batch_ps]: i cmdlet di Azure Batch nel modulo di [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse Batch con PowerShell.
 * [Interfaccia della riga di comando di Azure](/cli/azure/overview): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che offre comandi della shell per l'interazione con molti servizi di Azure, incluso Batch.
 
 ## <a name="batch-resource-management"></a>Gestione delle risorse di Batch

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/18/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: be44ca9d14d6dbb7a50d5c42c163bc66531bb90f
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 5b77598e76de3508d90b35ce5a1f2ee338aca0c8
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -241,7 +241,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 >
 
 ## <a name="create-and-manage-blobs"></a>Creare e gestire gli account di accesso
-Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md) e [Concetti relativi al servizio BLOB](/rest/api/storageservices/fileservices/blob-service-concepts).
+Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md) e [Concetti relativi al servizio BLOB](/rest/api/storageservices/blob-service-concepts).
 
 ### <a name="create-a-container"></a>Creare un contenitore
 Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. È possibile creare un contenitore usando il comando `az storage container create`:
@@ -267,7 +267,7 @@ az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
 
  Per impostazione predefinita il comando `blob upload` carica i file *.vhd in BLOB di pagine o altrimenti in BLOB in blocchi. Per specificare un altro tipo quando si carica un BLOB, è possibile usare l'argomento `--type`: i valori consentiti sono `append`, `block` e `page`.
 
- Per altre informazioni sui diversi tipi di BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di accodamento e sui BLOB di pagine](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
+ Per altre informazioni sui diversi tipi di BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di accodamento e sui BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ### <a name="download-blobs-from-a-container"></a>Come scaricare i BLOB da un contenitore
 Questo esempio dimostra come scaricare i BLOB da un contenitore:

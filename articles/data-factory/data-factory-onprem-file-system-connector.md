@@ -12,22 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 9ce6110b3677ccf8252a91654d71de4273e68b9e
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6c26bf3eda7ef15e7a580a31ab7b6624c8a7a826
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="move-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Spostare dati da e in un file system locale usando Azure Data Factory
 È possibile copiare dati da un HDFS a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento di dati da un HDFS ad altri archivi dati, ma non da altri archivi dati a un HDFS locale.
 
-In questo articolo viene illustrato come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso un file system locale. È possibile copiare i dati da un file system locale a qualsiasi archivio dati sink supportato o da qualsiasi archivio dati di origine supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia. Per un elenco di archivi dati che possono essere usati come origini o sink con il file system locale, vedere [Archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . 
+In questo articolo viene illustrato come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso un file system locale. È possibile copiare i dati da un file system locale a qualsiasi archivio dati sink supportato o da qualsiasi archivio dati di origine supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia. Per un elenco di archivi dati che possono essere usati come origini o sink con il file system locale, vedere [Archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
+
+> [!NOTE]
+> L'attività di copia non elimina il file di origine dopo che è stato correttamente copiato nella destinazione. Se è necessario eliminare il file di origine dopo una copia con esito positivo, creare un'attività personalizzata per eliminare il file e usare l'attività nella pipeline. 
 
 ## <a name="enabling-connectivity"></a>Abilitazione della connettività
-Data Factory supporta la connessione da e verso il file system locale tramite il **Gateway di gestione dati**. È necessario installare il Gateway di gestione di dati nell'ambiente locale per consentire al servizio Data Factory per connettersi a qualsiasi archivio dati locale supportato, incluso il file system. Per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md). Non è necessario installare altri file binari per la comunicazione da e verso il file system locale, tranne il Gateway di gestione dati. È necessario installare e usare il Gateway di gestione dati anche se il file system si trova in una macchina virtuale di Azure IaaS. Per informazioni dettagliate sul gateway, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md). 
+Data Factory supporta la connessione da e verso il file system locale tramite il **Gateway di gestione dati**. È necessario installare il Gateway di gestione di dati nell'ambiente locale per consentire al servizio Data Factory per connettersi a qualsiasi archivio dati locale supportato, incluso il file system. Per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md). Non è necessario installare altri file binari per la comunicazione da e verso il file system locale, tranne il Gateway di gestione dati. È necessario installare e usare il Gateway di gestione dati anche se il file system si trova in una macchina virtuale di Azure IaaS. Per informazioni dettagliate sul gateway, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md).
 
 Per usare una condivisione di file Linux, installare [Samba](https://www.samba.org/) sul server Linux e installare il Gateway di gestione dati in un server Windows. L'installazione di un Gateway di gestione dati su un server Linux non è supportata.
 
@@ -36,15 +39,15 @@ Per usare una condivisione di file Linux, installare [Samba](https://www.samba.o
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
-Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink: 
+Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un file system, vedere la sezione degli [esempi JSON](#json-examples) in questo articolo. 
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un file system, vedere la sezione degli [esempi JSON](#json-examples) in questo articolo.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di un file system:
 
@@ -179,6 +182,9 @@ Questa sezione descrive il comportamento derivante dell'operazione di copia per 
 | false |preserveHierarchy |Per una cartella di origine Cartella1 con la struttura seguente,<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la Cartella1 di destinazione viene creata con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>La sottocartella1 con File3, File4 e File5 non viene considerata. |
 | false |flattenHierarchy |Per una cartella di origine Cartella1 con la struttura seguente,<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la Cartella1 di destinazione viene creata con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome generato automaticamente per File2<br/><br/>La sottocartella1 con File3, File4 e File5 non viene considerata. |
 | false |mergeFiles |Per una cartella di origine Cartella1 con la struttura seguente,<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la Cartella1 di destinazione viene creata con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Il contenuto di File1 + File2 viene unito in un file con un nome file generato automaticamente.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/><br/>La sottocartella1 con File3, File4 e File5 non viene considerata. |
+
+## <a name="supported-file-and-compression-formats"></a>Formati di file e di compressione supportati
+Per i dettagli, vedere l'articolo relativo ai [file e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-examples"></a>Esempi JSON
 Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Questi esempi mostrano come copiare dati da e nel file system locale e in Archiviazione BLOB di Azure. È tuttavia possibile copiare dati *direttamente* da una qualsiasi delle origini in uno qualsiasi dei sink elencati in [Sink e origini supportate](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tramite l'attività di copia in Azure Data Factory.
@@ -355,7 +361,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 }
 ```
 
-**Un'attività di copia in una pipeline con un'origine su file system e un sink BLOB:** 
+**Un'attività di copia in una pipeline con un'origine su file system e un sink BLOB:**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **FileSystemSource** e il tipo di **sink** è impostato su **BlobSink**.
 
@@ -596,7 +602,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 ```
 
 
-È anche possibile eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati sink nella definizione dell'attività di copia. Per altre informazioni, vedere [Mapping di colonne nel set di dati in Azure Data Factory](data-factory-map-columns.md).
+È anche possibile eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati sink nella definizione dell'attività di copia. Per altre informazioni, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Prestazioni e ottimizzazione
  Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).

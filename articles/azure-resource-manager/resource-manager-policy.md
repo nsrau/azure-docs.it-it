@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 6d459e37b8b39f5d76c4ec86ebb7351c783b81fb
-ms.openlocfilehash: 64cb4be184e02519a6c496f8639035201ebb60f8
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d75088bd83b0b70c889388c95331bb56fe9ba15b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ I criteri delle risorse consentono di definire le convenzioni per le risorse nel
 * definizione dei criteri: l'utente descrive quando i criteri vengono applicati e quale azione intraprendere
 * assegnazione di criteri: si applica la definizione di criteri a un ambito (sottoscrizione o gruppo di risorse)
 
-In questo argomento viene illustrata la definizione di criteri. Per informazioni sull'assegnazione dei criteri, vedere [Assegnare e gestire i criteri](resource-manager-policy-create-assign.md).
+In questo argomento viene illustrata la definizione di criteri. Per informazioni sull'assegnazione dei criteri, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse) o [Assegnare e gestire i criteri tramite script](resource-manager-policy-create-assign.md).
 
 Azure offre alcune definizioni di criteri predefiniti che possono ridurre il numero di criteri da definire. Se una definizione di criteri predefiniti funziona per lo scenario specifico, usare tale definizione per l'assegnazione a un ambito.
 
@@ -239,7 +239,7 @@ I seguenti argomenti contengono esempi di criteri:
 
 * Per gli esempi di criteri di tag, vedere [Applicare criteri delle risorse per i tag](resource-manager-policy-tags.md).
 * Per gli esempi di criteri di archiviazione, vedere [Applicare i criteri delle risorse agli account di archiviazione](resource-manager-policy-storage.md).
-* Per gli esempi di criteri di macchine virtuali, vedere [Applicare criteri delle risorse alle macchine virtuali di Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) e [Applicare criteri delle risorse alle macchine virtuali di Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+* Per gli esempi di criteri di macchine virtuali, vedere [Applicare criteri delle risorse alle macchine virtuali di Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) e [Applicare criteri delle risorse alle macchine virtuali di Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ### <a name="allowed-resource-locations"></a>Percorsi di risorse consentiti
 Per specificare i percorsi consentiti, vedere l'esempio nella sezione [Struttura delle definizioni di criteri](#policy-definition-structure). Per assegnare la definizione dei criteri, usare i criteri predefiniti con l'ID risorsa `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
@@ -326,7 +326,7 @@ L'esempio seguente illustra l'uso dei caratteri jolly supportato dalla condizion
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Dopo aver definito una regola dei criteri, assegnarla a un ambito. Per informazioni sull'assegnazione dei criteri, vedere [Assegnare e gestire i criteri](resource-manager-policy-create-assign.md).
+* Dopo aver definito una regola dei criteri, assegnarla a un ambito. Per assegnare i criteri tramite il portale, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse). Per assegnare i criteri tramite l'API REST, PowerShell o l'interfaccia della riga di comando di Azure, vedere [Assegnare e gestire i criteri tramite script](resource-manager-policy-create-assign.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
 * Lo schema del criterio è pubblicato in [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 

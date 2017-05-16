@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 1c7a95354358d91859ce9d2019cef93b6662811f
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 695c6bd0a08e88be2d8e28eb15d903f3ae1eccaf
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Introduzione ad Apache Kafka (anteprima) in HDInsight
@@ -41,10 +42,6 @@ Per completare correttamente questa esercitazione di Apache Kafka, è necessario
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o equivalente, ad esempio OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
-
-### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-a-kafka-cluster"></a>Creare un cluster Kafka
 
@@ -333,6 +330,10 @@ L'API di streaming è stata aggiunta a Kafka nella versione 0.10.0; le versioni 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
+## <a name="troubleshoot"></a>Risoluzione dei problemi
+
+Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo documento sono state illustrate le nozioni di base per l'uso di Apache Kafka in HDInsight. Per altre informazioni sull'uso di Kafka, vedere:
@@ -341,5 +342,4 @@ In questo documento sono state illustrate le nozioni di base per l'uso di Apache
 * [Usare MirrorMaker per creare una replica di Kafka in HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Usare Apache Storm (anteprima) con Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md) (Usare Apache Spark con Kafka in HDInsight)
-
-
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md) (Connettersi a Kafka tramite una rete virtuale di Azure)

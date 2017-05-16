@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/19/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 24b575a3c32c9df963f889954abd152ada4f3102
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: d5552615bfa663f4604e29839ecf8f5fc25c328f
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -57,36 +57,41 @@ DocumentDB .NET Core SDK ha le stesse funzionalità delle versione più recente 
 > [!NOTE] 
 > DocumentDB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
-### <a name="a-name121121httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore121"></a><a name="1.2.1"/>[1.2.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.2.1)
+### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
+
+* Risolto un problema per cui il valore PartitionKey in FeedOptions veniva ignorato per le query di aggregazione.
+* Risolto un problema nella gestione trasparente delle partizioni durante l'esecuzione dell'ordinamento per query della partizione trasversale intermedia.
+
+### <a name="a-name121121"></a><a name="1.2.1"/>1.2.1
 
 * Correzione di un problema che ha causato deadlock in alcune API asincrone, se usate in un contesto ASP.NET.
 
-### <a name="a-name120120httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore120"></a><a name="1.2.0"/>[1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.2.0)
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 
 * Correzioni per rendere l'SDK più resiliente per il failover automatico in determinate condizioni.
 
-### <a name="a-name112112httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore112"></a><a name="1.1.2"/>[1.1.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.2)
+### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
 * Correzione di un problema che occasionalmente causa un'eccezione WebException, ovvero l'impossibilità di risolvere il nome remoto.
 * Aggiunta del supporto per la lettura diretta di un documento con tipo includendo nuovi overload all'API ReadDocumentAsync.
 
-### <a name="a-name111111httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore111"></a><a name="1.1.1"/>[1.1.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.1)
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 
 * Aggiunta del supporto LINQ per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
 * Correzione per un problema di perdita di memoria per l'oggetto ConnectionPolicy provocata dall'uso del gestore eventi.
 * Correzione per un problema relativo al mancato funzionamento di UpsertAttachmentAsync in caso di uso di ETag.
 * Correzione di un problema relativo al mancato funzionamento della continuazione della query di tipo order-by tra partizioni in caso di ordinamento in un campo di tipo stringa.
 
-### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.0)
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
 * Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG). Vedere [Supporto dell'aggregazione](documentdb-sql-query.md#Aggregates).
 * Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
 
-### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.0.0)
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
 DocumentDB .NET Core SDK consente di compilare app [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) veloci e multipiattaforma da eseguire in Windows, Mac e Linux. La versione più recente di DocumentDB .NET Core SDK è completamente compatibile con [Xamarin](https://www.xamarin.com) e può essere usata per compilare applicazioni destinate a iOS, Android e Mono (Linux).  
 
-### <a name="a-name010-preview010-previewhttpswwwnugetorgpackagesmicrosoftazuredocumentdbcore010-preview"></a><a name="0.1.0-preview"/>[0.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/0.1.0-preview)
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 
 DocumentDB .NET Core Preview SDK consente di compilare app [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) veloci e multipiattaforma da eseguire in Windows, Mac e Linux.
 
@@ -102,6 +107,7 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.2.2](#1.2.2) |19 aprile 2017 |--- |
 | [1.2.1](#1.2.1) |29 marzo 2017 |--- |
 | [1.2.0](#1.2.0) |25 marzo 2017 |--- |
 | [1.1.2](#1.1.2) |20 marzo 2017 |--- |

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5560b22f3f92a8e0a7cb8b973ef2e4c66bc32c06
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,7 +31,7 @@ Per implementare un criterio è necessario eseguire tre passaggi:
 
 Azure offre alcuni criteri predefiniti che possono ridurre il numero di criteri da definire. Se un criterio predefinito è appropriato per lo scenario, ignorare i primi due passaggi e assegnare il criterio predefinito a un ambito.
 
-Questo argomento illustra i passaggi per creare una definizione di criterio e assegnare tale definizione a un ambito. Non tratta la sintassi per la creazione della definizione di criterio. Per informazioni sulla sintassi dei criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
+Questo articolo illustra i passaggi per creare una definizione di criterio e assegnare tale definizione a un ambito tramite l'API REST, PowerShell o l'interfaccia della riga di comando di Azure. Se si preferisce usare il portale per assegnare i criteri, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse). Questo articolo non tratta la sintassi per la creazione della definizione di un criterio. Per informazioni sulla sintassi dei criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
 ## <a name="rest-api"></a>API REST
 
@@ -141,6 +141,8 @@ L'esempio seguente illustra la definizione di un alias. È possibile notare che 
 ```
 
 ## <a name="powershell"></a>PowerShell
+
+Prima di passare agli esempi di PowerShell, verificare di avere [installato la versione più recente](/powershell/azure/install-azurerm-ps) di Azure PowerShell. I parametri dei criteri sono stati aggiunti nella versione 3.6.0. Se si ha una versione precedente, gli esempi restituiscono un errore che indica che non è possibile trovare il parametro.
 
 ### <a name="create-policy-definition"></a>Creare una definizione di criterio
 È possibile creare una definizione di criterio usando il cmdlet `New-AzureRmPolicyDefinition`. L'esempio seguente crea una definizione di criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.

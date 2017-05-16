@@ -77,8 +77,3 @@ Rete virtuale di esempio in formato JSON:
 * Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) per le reti virtuali.
 * Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) per le subnet.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

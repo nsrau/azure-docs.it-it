@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 9f664b07566fe78d93b1e35a2e0f7e5513960fad
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -31,14 +32,23 @@ Di seguito viene mostrata la finestra di dialogo **Endpoint del servizio** .
 Nella finestra di dialogo **Endpoint del servizio** , eseguire una delle seguenti operazioni:
 
 * Se si vuole usare la piattaforma Azure globale, nell'elenco a discesa **Active Set** (Set attivo) selezionare **windowsazure.com** e fare clic su **OK**.
+
 * Se si vuole usare Azure gestito da 21Vianet in Cina, nell'elenco a discesa **Active Set** (Set attivo) selezionare **windowsazure.cn (China)** (windowsazure.cn - Cina) e fare clic su **OK**.
+
 * Se si desidera utilizzare una piattaforma Azure privata:
+
   1. Fare clic su **Modifica**.
+
   2. Verrà visualizzata una finestra di dialogo che informa che la finestra di dialogo **Endpoint del servizio** verrà chiusa e che verrà aperto il file dei set di preferenza. Fare clic su **OK**.
+
   3. Nel file preferencesets.xml, creare un nuovo elemento `preferenceset` . Per questo nuovo elemento, creare gli attributi `name`, `blob`, `management`, `portalURL` e `publishsettings` e aggiungere ad essi valori che corrispondano alla piattaforma Azure privata. È possibile utilizzare i valori forniti dagli elementi esistenti `preferenceset` come modelli. **Nota**: il valore usato per l'attributo `blob` deve contenere il testo "blob" nell'URL.
+
   4. Salvare e chiudere preferencesets.xml.
+
   5. Riaprire la finestra di dialogo **Endpoint del servizio** .
+
   6. Nell'elenco a discesa **Active Set** (Set attivo) selezionare il set attivo creato e fare clic su **OK**.
+
   7. Dopo aver creato l'elemento `preferenceset` della piattaforma Azure privata, è possibile modificare i valori assegnati facendo clic sul pulsante **Edit** (Modifica) nella finestra di dialogo **Service Endpoints** (Endpoint del servizio). È inoltre possibile creare più elementi `preferenceset` della piattaforma Azure privata, se lo si desidera.
 
 ## <a name="see-also"></a>Vedere anche
@@ -62,9 +72,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

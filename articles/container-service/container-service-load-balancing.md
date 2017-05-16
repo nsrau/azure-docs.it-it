@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 27ad7100f6203db3ba3dcc88ffdc191b9b9d45cb
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: f8a001350c9e1ac50641c3ee4430849023233c60
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -93,19 +94,19 @@ Ora che il pacchetto marathon-lb è disponibile, è possibile distribuire un con
 
 ```
 
-* Impostare il valore di `HAProxy_0_VHOST` sul nome di dominio completo (FQDN) del servizio di bilanciamento del carico per gli agenti, con il formato `<acsName>agents.<region>.cloudapp.azure.com`. Se si crea un cluster del servizio contenitore con nome `myacs` nell'area `West US`, ad esempio, il nome di dominio completo sarà `myacsagents.westus.cloudapp.azure.com`. Per trovarlo, è anche possibile cercare il servizio di bilanciamento del carico con "agent" nel nome quando si esaminano le risorse del gruppo di risorse creato per il servizio contenitore nel [portale di Azure](https://portal.azure.com).
-* Impostare servicePort su una porta >= 10.000. Viene così identificato il servizio in esecuzione nel contenitore; marathon-lb può così identificare i servizi tra cui eseguire il bilanciamento.
+* Impostare il valore di `HAPROXY_0_VHOST` sul nome di dominio completo (FQDN) del servizio di bilanciamento del carico per gli agenti, con il formato `<acsName>agents.<region>.cloudapp.azure.com`. Se si crea un cluster del servizio contenitore con nome `myacs` nell'area `West US`, ad esempio, il nome di dominio completo sarà `myacsagents.westus.cloudapp.azure.com`. Per trovarlo, è anche possibile cercare il servizio di bilanciamento del carico con "agent" nel nome quando si esaminano le risorse del gruppo di risorse creato per il servizio contenitore nel [portale di Azure](https://portal.azure.com).
+* Impostare `servicePort` su una porta maggiore o uguale a 10000. Viene così identificato il servizio in esecuzione nel contenitore; marathon-lb può così identificare i servizi tra cui eseguire il bilanciamento.
 * Impostare l'etichetta `HAPROXY_GROUP` su "external".
 * Impostare `hostPort` su 0. Ciò significa che Marathon allocherà arbitrariamente una porta disponibile.
 * Impostare `instances` sul numero di istanze da creare. È sempre possibile aumentare e ridurre il numero di istanze in seguito.
 
-È opportuno notare che per impostazione predefinita Marathon verrà distribuito nel cluster privato e la distribuzione precedente sarà quindi accessibile solo tramite il servizio di bilanciamento del carico, come in genere desiderato.
+È opportuno notare che per impostazione predefinita Marathon verrà distribuito nel cluster privato e la distribuzione riportata sopra sarà quindi accessibile solo tramite il servizio di bilanciamento del carico, come in genere desiderato.
 
 ### <a name="deploy-using-the-dcos-web-ui"></a>Distribuire usando l'interfaccia utente Web di DC/OS
-1. Visitare la pagina Marathon all'indirizzo http://localhost/marathon (dopo aver configurato il [tunnel SSH](container-service-connect.md)) e fare clic su `Create Appliction`.
+1. Visitare la pagina Marathon all'indirizzo http://localhost/marathon (dopo aver configurato il [tunnel SSH](container-service-connect.md)) e fare clic su `Create Application`.
 2. Nella finestra di dialogo `New Application` fare clic su `JSON Mode` nell'angolo superiore destro.
 3. Incollare il codice JSON precedente nell'editor.
-4. Fare clic su`Create Appliction`.
+4. Fare clic su`Create Application`.
 
 ### <a name="deploy-using-the-dcos-cli"></a>Distribuire usando l'interfaccia della riga di comando di DC/OS
 Per distribuire questa applicazione con l'interfaccia della riga di comando di DC/OS, è sufficiente copiare il codice JSON precedente in un file denominato `hello-web.json` ed eseguire questo comando:
@@ -132,10 +133,5 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/), vedere la documentazione relativa a DC/OS.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

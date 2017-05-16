@@ -22,8 +22,3 @@
 
 Il criterio appena aggiunto verrà visualizzato nella visualizzazione tabulare nella pagina **Criteri di backup** .
 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
 ms.openlocfilehash: 89174dad8fcd3bcceafd728feb2211926266720a
+ms.contentlocale: it-it
 ms.lasthandoff: 02/28/2017
 
 ---
+
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Che cos'è Azure AD Privileged Identity Management?
 Con Azure Active Directory (AD) Privileged Identity Management è possibile gestire, il controllo e monitorare l'accesso all'interno dell'organizzazione. È incluso l'accesso alle risorse in Azure AD e altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.  
 

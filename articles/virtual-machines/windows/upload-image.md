@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7552f95c1c62aaa59dbe4a8e986a56ad036e0d1a
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2cbd8461cb8e50765c988c64de03acf92936cc86
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ Per informazioni dettagliate sui dischi e sui dischi rigidi virtuali in Azure, v
   * Assicurarsi che la macchina virtuale sia configurata per eseguire il pull dell'indirizzo IP e delle impostazioni DNS tramite DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio. 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
-Se PowerShell versione 1.4 o successiva non è già stato installato, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Se PowerShell versione 1.4 o successiva non è già stato installato, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 1. Aprire Azure PowerShell e accedere al proprio account di Azure. Verrà visualizzata una finestra popup in cui immettere le credenziali dell'account Azure.
    
@@ -86,7 +86,7 @@ Per creare un account di archiviazione, seguire questa procedura:
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Creare un account di archiviazione denominato **mystorageaccount** in questo gruppo di risorse con il cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx).
+2. Creare un account di archiviazione denominato **mystorageaccount** in questo gruppo di risorse con il cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount).
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -102,7 +102,7 @@ Per creare un account di archiviazione, seguire questa procedura:
    * **Premium_LRS**: archiviazione con ridondanza locale Premium. 
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>Caricare il disco rigido virtuale nell'account di archiviazione
-Usare il cmdlet [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) per caricare l'immagine in un contenitore nell'account di archiviazione. In questo esempio, il file **myVHD.vhd** viene caricato da `"C:\Users\Public\Documents\Virtual hard disks\"` a un account di archiviazione denominato **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Il file viene inserito nel contenitore denominato **mycontainer** e il nuovo nome del file sarà **myUploadedVHD.vhd**.
+Usare il cmdlet [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) per caricare l'immagine in un contenitore nell'account di archiviazione. In questo esempio, il file **myVHD.vhd** viene caricato da `"C:\Users\Public\Documents\Virtual hard disks\"` a un account di archiviazione denominato **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Il file viene inserito nel contenitore denominato **mycontainer** e il nuovo nome del file sarà **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"

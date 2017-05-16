@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: f60e1188d1eb8baf8c6d5e77e2ff91a449351e1e
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
+ms.contentlocale: it-it
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="create-a-python-application-on-web-app"></a>Creare un'applicazione Python in un'app Web
 
-Questa esercitazione introduttiva illustra come sviluppare e distribuire un'app Python in Azure. L'app verrà eseguita usando un servizio app di Azure basato su Linux, in cui verrà creata e configurata una nuova app Web usando l'interfaccia della riga di comando di Azure. Si userà quindi Git per distribuire l'app Python in Azure.
+Questa esercitazione introduttiva illustra come sviluppare e distribuire un'app Python in Azure. L'app verrà eseguita usando un servizio app di Azure, in cui verrà creata e configurata una nuova app Web usando l'interfaccia della riga di comando di Azure. Si userà quindi Git per distribuire l'app Python in Azure.
 
 ![Hello World nel browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
@@ -34,7 +35,7 @@ Questa esercitazione introduttiva illustra come sviluppare e distribuire un'app 
 Prima di eseguire l'esempio, installare in locale questi prerequisiti:
 
 1. [Scaricare e installare Git](https://git-scm.com/)
-1. [Scaricare e installare Python](https://Python.net)
+1. [Scaricare e installare Python](https://www.python.org/downloads/)
 1. Scaricare e installare l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
@@ -59,13 +60,13 @@ cd Python-docs-hello-world
 Per eseguire l'applicazione in locale, aprire una finestra del terminale e usare la riga di comando `Python` per l'esempio per avviare il server Web Python predefinito.
 
 ```bash
-Python -S localhost:8080
+python main.py
 ```
 
 Aprire un Web browser e passare all'esempio.
 
 ```bash
-http://localhost:8080
+http://localhost:5000
 ```
 
 Nella pagina verrà visualizzato il messaggio **Hello World** dell'app di esempio.
@@ -119,27 +120,34 @@ Creare un piano di servizio app basato su Linux con il comando [az appservice pl
 > * SKU (Gratuito, Condiviso, Basic, Standard, Premium)
 >
 
-L'esempio seguente crea un piano di servizio app denominato `quickStartPlan` in ruoli di lavoro Linux, con il piano tariffario **Standard**.
+L'esempio seguente crea un piano di servizio app denominato `quickStartPlan` in ruoli di lavoro Linux, con il piano tariffario **GRATUITO**.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 Al termine della creazione del piano di servizio app, l'interfaccia della riga di comando di Azure visualizza informazioni simili all'esempio seguente.
 
 ```json
 {
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
-    "location": "West Europe",
-    "sku": {
-    "capacity": 1,
-    "family": "S",
-    "name": "S1",
-    "tier": "Standard"
-    },
-    "status": "Ready",
-    "type": "Microsoft.Web/serverfarms"
+"appServicePlanName": "quickStartPlan",
+"geoRegion": "North Europe",
+"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+"kind": "app",
+"location": "North Europe",
+"maximumNumberOfWorkers": 1,
+"name": "quickStartPlan",
+"provisioningState": "Succeeded",
+"resourceGroup": "myResourceGroup",
+"sku": {
+  "capacity": 0,
+  "family": "F",
+  "name": "F1",
+  "size": "F1",
+  "tier": "Free"
+},
+"status": "Ready",
+"type": "Microsoft.Web/serverfarms",
 }
 ```
 
@@ -147,7 +155,7 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 
 Ora che è stato creato il piano di servizio app `quickStartPlan`, creare un'app Web in tale piano. L'app Web offre uno spazio di hosting per la distribuzione del codice e fornisce un URL per visualizzare l'applicazione distribuita. Usare il comando [az appservice web create](/cli/azure/appservice/web#create) per creare l'app Web.
 
-Nel comando seguente sostituire il segnaposto <app_name> con il nome univoco della propria app. Dato che verrà usato come sito DNS predefinito per l'app Web, è necessario che il nome sia univoco tra tutte le app in Azure. In un secondo momento è possibile eseguire il mapping di qualsiasi voce DNS personalizzata all'app Web prima di esporla agli utenti.
+Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco della propria app. Dato che verrà usato come sito DNS predefinito per l'app Web, è necessario che `<app_name>` sia univoco tra tutte le app in Azure. In un secondo momento è possibile eseguire il mapping di qualsiasi voce DNS personalizzata all'app Web prima di esporla agli utenti.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -157,19 +165,24 @@ Al termine della creazione dell'app Web, l'interfaccia della riga di comando di 
 
 ```json
 {
-    "clientAffinityEnabled": true,
-    "defaultHostName": "<app_name>.azurewebsites.net",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
-    "isDefaultContainer": null,
-    "kind": "app",
-    "location": "West Europe",
-    "name": "<app_name>",
-    "repositorySiteName": "<app_name>",
-    "reserved": true,
-    "resourceGroup": "myResourceGroup",
-    "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "state": "Running",
-    "type": "Microsoft.Web/sites",
+  "clientAffinityEnabled": true,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  "enabledHostNames": [
+    "<app_name>.azurewebsites.net",
+    "<app_name>.scm.azurewebsites.net"
+  ],
+  "hostNames": [
+    "<app_name>.azurewebsites.net"
+  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
+  "kind": "app",
+  "location": "North Europe",
+  "outboundIpAddresses": "13.69.190.80,13.69.191.239,13.69.186.193,13.69.187.34",
+  "resourceGroup": "myResourceGroup",
+  "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+  "state": "Running",
+  "type": "Microsoft.Web/sites",
 }
 ```
 
@@ -185,13 +198,13 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="configure-to-use-python"></a>Eseguire la configurazione per usare Python
 
-Usare il comando [az appservice web config update](/cli/azure/app-service/web/config#update) per configurare l'app Web per l'uso di Python versione `7.0.x`.
+Usare il comando [az appservice web config update](/cli/azure/app-service/web/config#update) per configurare l'app Web per l'uso di Python versione `3.4`.
 
 > [!TIP]
 > Impostando la versione di Python in questo modo verrà usato un contenitore predefinito fornito dalla piattaforma. Per usare un contenitore personalizzato, vedere le informazioni di riferimento sull'interfaccia della riga di comando relativamente al comando [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update).
 
 ```azurecli
-az appservice web config update --name <app_name> --resource-group myResourceGroup
+az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
 ```
 
 ## <a name="configure-local-git-deployment"></a>Configurare la distribuzione con l'istanza Git locale
@@ -227,28 +240,45 @@ git push azure master
 Durante la distribuzione, il servizio app di Azure comunicherà lo stato di avanzamento con Git.
 
 ```bash
-Counting objects: 2, done.
+Counting objects: 18, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (18/18), 4.31 KiB | 0 bytes/s, done.
+Total 18 (delta 4), reused 0 (delta 0)
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
+remote: Preparing deployment for commit id '44e74fe7dd'.
 remote: Generating deployment script.
+remote: Generating deployment script for python Web Site
+remote: Generated deployment script files
 remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Handling python deployment.
+remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
+remote: Deleting file: 'hostingstart.html'
 remote: Copying file: '.gitignore'
 remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
 remote: Copying file: 'main.py'
-remote: Ignoring: .git
+remote: Copying file: 'README.md'
+remote: Copying file: 'requirements.txt'
+remote: Copying file: 'virtualenv_proxy.py'
+remote: Copying file: 'web.2.7.config'
+remote: Copying file: 'web.3.4.config'
+remote: Detected requirements.txt.  You can skip Python specific steps with a .skipPythonDeployment file.
+remote: Detecting Python runtime from site configuration
+remote: Detected python-3.4
+remote: Creating python-3.4 virtual environment.
+remote: .................................
+remote: Pip install requirements.
+remote: Successfully installed Flask click itsdangerous Jinja2 Werkzeug MarkupSafe
+remote: Cleaning up...
+remote: .
+remote: Overwriting web.config with web.3.4.config
+remote:         1 file(s) copied.
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
-   cc39b1e..25f1805  master -> master
+ * [new branch]      master -> master
 ```
 
 ## <a name="browse-to-the-app"></a>Passare all'app
@@ -261,14 +291,14 @@ http://<app_name>.azurewebsites.net
 
 La pagina in cui viene visualizzato il messaggio Hello World viene ora eseguita usando il codice Python eseguito come app Web del servizio app di Azure.
 
-
+![]()
 
 ## <a name="updating-and-deploying-the-code"></a>Aggiornamento e distribuzione del codice
 
-Usando un editor di testo locale, aprire il file `main.py` nell'app Python e apportare una piccola modifica al testo nella stringa accanto a `echo`:
+Usando un editor di testo locale, aprire il file `main.py` nell'app Python e apportare una piccola modifica al testo nella stringa accanto all'istruzione `return`:
 
 ```python
-echo "Hello Azure!";
+return 'Hello, Azure!'
 ```
 
 Eseguire il commit delle modifiche in Git e quindi effettuare il push delle modifiche al codice in Azure.

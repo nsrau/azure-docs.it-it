@@ -15,8 +15,3 @@ Consente di creare il piano di servizio per ospitare l'app Web. Fornire il nome 
       }
     },
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -17,9 +17,9 @@ ms.date: 02/14/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: d83bfd81768722592565fe924c4d00610b149999
-ms.openlocfilehash: 16801860b78b40cc883393ca4db3ffa208b889fd
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: e4042dfbf28e78d2fca5c3f6a93df751a12153f2
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ Molte persone preferiscono oggi Hive e Pig rispetto a MapReduce.  Per altre info
 **Prerequisiti**:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Un cluster HDInsight**. Per informazioni sui vari metodi disponibili per la creazione dei cluster, vedere [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md).
+* **Un cluster HDInsight**. Per informazioni sui vari metodi disponibili per la creazione dei cluster, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Workstation con Azure PowerShell**.
 
     > [!IMPORTANT]
@@ -173,7 +173,7 @@ Lo script fornito per questo esempio invia un processo jar Hadoop ed è configur
                                 -Arguments "16", "10000000"
     ```
 
-## <a name="hdinsight-sample-10gb-graysort"></a>Graysort da&10; GB
+## <a name="hdinsight-sample-10gb-graysort"></a>Graysort da 10 GB
 In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Vengono usate le applicazioni MapReduce sviluppate da Owen O'Malley e Arun Murthy, vincitrici del benchmark annuale di ordinamento generico di terabyte ("daytona") nel 2009 con una velocità pari a 0,578 TB/min (100 TB in 173 minuti). Per ulteriori informazioni su questo e su altri benchmark di ordinamento, vedere il sito [Sortbenchmark](http://sortbenchmark.org/) .
 
 In questo esempio vengono utilizzati tre set di programmi MapReduce:
@@ -314,9 +314,14 @@ namespace cat
             }
 
             string line;
+            char[] separators = { ' ', '\n'};
             while ((line = Console.ReadLine()) != null)
             {
-                Console.WriteLine(line);
+                string[] words = line.Split(separators);
+                foreach (var word in words)
+                {
+                    Console.WriteLine("{0}\t1", word);
+                }
             }
         }
     }
@@ -331,6 +336,7 @@ Il codice del mapper nel file cat.cs usa un oggetto [StreamReader][streamreader]
 using System;
 using System.IO;
 using System.Linq;
+using System.Collections;
 
 namespace wc
 {
@@ -339,16 +345,33 @@ namespace wc
         static void Main(string[] args)
         {
             string line;
-            var count = 0;
 
-            if (args.Length > 0){
+            if (args.Length > 0)
+            {
                 Console.SetIn(new StreamReader(args[0]));
             }
 
-            while ((line = Console.ReadLine()) != null) {
-                count += line.Count(cr => (cr == ' ' || cr == '\n'));
+            Hashtable wordCount = new Hashtable();
+            while ((line = Console.ReadLine()) != null)
+            {
+                string[] words = line.Split('\t');
+
+                string key = words[0];
+
+                if (wordCount.ContainsKey(key) == true)
+                {
+                    int n = Convert.ToInt32(wordCount[key]);
+                    wordCount[key] = Convert.ToString(n + 1);
+                }
+                else
+                {
+                    wordCount[key] = words[1];
+                }
             }
-            Console.WriteLine(count);
+            foreach (var key in wordCount.Keys)
+            {
+                Console.WriteLine("{0} {1}", key, wordCount[key]);
+            }
         }
     }
 }

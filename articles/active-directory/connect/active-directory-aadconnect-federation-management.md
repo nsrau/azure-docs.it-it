@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 4/4/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: b4b5e1af6c03e1124de78308cab1dad86d06641e
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 2a64405c0862d09dd487d260a651123eafbcaf99
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -29,6 +29,7 @@ In questo articolo viene descritto come gestire e personalizzare Active Director
 |:--- |:--- |
 | **Gestire AD FS** | |
 | [Ripristinare il trust](#repairthetrust) |Come ripristinare il trust federativo con Office 365. |
+| [Attuare la federazione con Azure AD mediante l'ID di accesso alternativo ](#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
 | [Aggiungere un server AD FS](#addadfsserver) |Come espandere una farm AD FS con un server AD FS aggiuntivo. |
 | [Aggiungere un server proxy applicazione Web AD FS](#addwapserver) |Come espandere la farm AD FS con un server Proxy applicazione Web (WAP) aggiuntivo. |
 | [Aggiunta di un dominio federato](#addfeddomain) |Come aggiungere un dominio federato. |
@@ -66,6 +67,22 @@ In questo articolo viene descritto come gestire e personalizzare Active Director
 
 > [!NOTE]
 > Azure AD Connect può solo ripristinare o eseguire azioni sui certificati autofirmati. I certificati di terze parti non possono essere ripristinati da Azure AD Connect.
+
+## Attuare la federazione con Azure AD mediante AlternateID <a name=alternateid></a>
+Il nome dell’entità utente locale e il nome dell'entità utente cloud devono essere preferibilmente uguali. Se il nome dell’entità utente locale usa un dominio non instradabile (ad esempio Contoso.local) o non può essere modificato a causa di dipendenze dell'applicazione locale, è consigliabile configurare l'ID di accesso alternativo. L’ID di accesso alternativo consente di configurare un'esperienza in cui gli utenti possono accedere con un attributo diverso dal relativo nome dell’entità locale, ad esempio mail. La scelta del nome dell’entità utente in Azure AD Connect ricade per impostazione predefinita sull’attributo userPrincipalName in Active Directory. Se si sceglie qualsiasi altro attributo per il nome dell'entità utente e si sta eseguendo la federazione con AD FS, Azure AD Connect configurerà AD FS per l’ID di accesso alternativo. Di seguito è riportato un esempio della scelta di un attributo diverso per il nome dell'entità utente:
+
+![Selezione dell’attributo ID alternativo](media/active-directory-aadconnect-federation-management/attributeselection.png)
+
+La configurazione dell’ID di accesso alternativo per AD FS consiste in due passaggi principali:
+1. **Configurare il set corretto di attestazioni di rilascio**: le regole di attestazione di rilascio nel trust della relying party di Azure AD vengono modificate per usare l’attributo UserPrincipalName selezionato come ID alternativo dell'utente.
+2. **Abilitare l'ID di accesso alternativo nella configurazione di AD FS**: la configurazione di AD FS viene aggiornata in modo che AD FS possa cercare gli utenti delle foreste appropriate con un ID alternativo. Questa configurazione è supportata per AD FS in Windows Server 2012 R2 (con KB2919355) o versioni successive. Se i server AD FS sono 2012 R2, Azure AD Connect controlla la presenza della KB richiesta. Se la Knowledge Base non viene rilevata, un avviso verrà visualizzato al termine della configurazione, come illustrato di seguito:
+
+    ![Avviso per KB mancante su 2012 R2](media/active-directory-aadconnect-federation-management/kbwarning.png)
+
+    Per risolvere la configurazione in caso di KB mancante, installare la [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) richiesta e quindi ripristinare il trust usando [Ripristino del trust AAD e AD FS](#repairthetrust).
+
+> [!NOTE]
+> Per altre informazioni su alternateID e i passaggi per eseguire la configurazione manuale, leggere [Configurazione di ID di accesso alternativo](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id).
 
 ## Aggiungere un server AD FS <a name=addadfsserver></a>
 

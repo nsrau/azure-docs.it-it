@@ -1,10 +1,10 @@
 ---
-title: 'Configurare un gateway VPN: portale di Azure classico: Azure| Documentazione Microsoft'
+title: 'Configurare un gateway VPN: portale di Azure classico: Azure| Microsoft Docs'
 description: Questo articolo illustra come configurare la rete virtuale del gateway VPN e modificare il tipo di routing VPN del gateway. Questi passaggi si applicano al modello di distribuzione classico e al portale classico.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: fbe59ba8-b11f-4d21-9bb1-225ec6c6d351
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/09/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b6f001345daf411497295357ab43d01635ae743e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2ea4e6bb86b1ba6f7b501b193d0713d3901457af
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,21 +62,25 @@ Quando per il gateway viene visualizzato *Connessione*, è possibile raccogliere
 Se si sta creando una connessione da sito a sito, dopo aver creato il gateway raccogliere le informazioni per la configurazione del dispositivo VPN. Tali informazioni sono disponibili nella pagina **Dashboard** della rete virtuale:
 
 1. **Indirizzo IP del gateway**: l'indirizzo IP è incluso nella pagina **Dashboard**, ma verrà visualizzato solo al termine della creazione del gateway.
-2. **Chiave condivisa**: fare clic su **Gestisci chiave** nella parte inferiore della schermata. Fare clic sull'icona accanto alla chiave per copiarla negli Appunti, quindi incollare e salvare la chiave. Questo pulsante funziona solo quando è presente un solo tunnel VPN Site-to-Site. Se si dispone di più tunnel VPN da sito a sito (S2S), usare l'API *Ottieni chiave condivisa per il gateway della rete virtuale* o il cmdlet di PowerShell.
+2. **Chiave condivisa**: fare clic su **Gestisci chiave** nella parte inferiore della schermata. Fare clic sull'icona accanto alla chiave per copiarla negli Appunti, quindi incollare e salvare la chiave. Questo pulsante funziona solo quando è presente un solo tunnel VPN Site-to-Site. Se si dispone di più tunnel VPN S2S, usare l'API *Get Virtual Network Gateway Shared Key* (Ottieni chiave condivisa per il gateway della rete virtuale) o il cmdlet di PowerShell.
 
 ![Gestisci chiave](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
 
 ### <a name="step-2--configure-your-vpn-device"></a>Passaggio 2.  Configurare il dispositivo VPN
-Per le connessioni da sito a sito, dopo aver completato i passaggi precedenti l'utente o l'amministratore di rete deve configurare il dispositivo VPN per creare la connessione. Per altre informazioni sui dispositivi VPN, vedere [Informazioni sui dispositivi e i gateway VPN per la connettività di rete virtuale](vpn-gateway-about-vpn-devices.md) .
+Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VPN. Anche se non viene specificata la procedura di configurazione per tutti i dispositivi VPN, le informazioni contenute nei collegamenti seguenti potrebbero risultare utili:
+
+- Per informazioni sui dispositivi VPN compatibili, vedere l'articolo relativo ai [dispositivi VPN](vpn-gateway-about-vpn-devices.md). 
+- Per collegamenti alle impostazioni di configurazione dei dispositivi, vedere [Dispositivi VPN convalidati](vpn-gateway-about-vpn-devices.md#devicetable). I collegamenti forniti rappresentano i migliori possibili. È sempre consigliabile rivolgersi al produttore del dispositivo per le informazioni di configurazione più aggiornate.
+- Per informazioni sulla modifica degli esempi, vedere [Modifica degli esempi di configurazione di dispositivo](vpn-gateway-about-vpn-devices.md#editing).
+- Per informazioni sui parametri IPsec/IKE, vedere [Parametri](vpn-gateway-about-vpn-devices.md#ipsec).
+- Prima di configurare il dispositivo VPN, verificare eventuali [Problemi noti di compatibilità del dispositivo](vpn-gateway-about-vpn-devices.md#known) per il dispositivo VPN da usare.
+
+Durante la configurazione del dispositivo VPN, sono necessari gli elementi seguenti:
+
+- Indirizzo IP pubblico del gateway di rete virtuale. Per trovarlo, passare al pannello **Panoramica** della rete virtuale usata.
+- Chiave condivisa. Si tratta della stessa chiave condivisa che viene specificata durante la creazione della connessione VPN da sito a sito. In questi esempi viene usata una chiave condivisa molto semplice. È necessario generare una chiave più complessa per l'uso effettivo.
 
 Dopo avere configurato il dispositivo VPN, è possibile visualizzare le informazioni di connessione aggiornate nella pagina Dashboard per la rete virtuale.
-
-Per verificare la connessione è anche possibile eseguire uno dei comandi seguenti:
-
-|  | Cisco ASA | Cisco ISR/ASR | Juniper SSG/ISG | Juniper SRX/J |
-| --- | --- | --- | --- | --- |
-| **Check main mode SAs** |show crypto isakmp sa |show crypto isakmp sa |get ike cookie |show security ike security-association |
-| **Check quick mode SAs** |show crypto ipsec sa |show crypto ipsec sa |get sa |show security ipsec security-association |
 
 ### <a name="step-3-verify-your-local-network-ranges-and-vpn-gateway-ip-address"></a>Passaggio 3. Verificare gli intervalli della rete locale e l'indirizzo IP del gateway VPN
 #### <a name="verify-your-vpn-gateway-ip-address"></a>Verificare l'indirizzo IP del gateway VPN

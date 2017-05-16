@@ -16,8 +16,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Dr
 5. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Dropbox passaggio 5](./media/connectors-create-api-dropbox/dropbox-5.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

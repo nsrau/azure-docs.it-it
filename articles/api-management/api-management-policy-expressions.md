@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
-ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d96dde8c74141d000c1f7c5fd9ef624ff5e46953
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
@@ -186,7 +186,7 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 |context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|  
 |IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|Id: string<br /><br /> Name: string|  
-|IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> I metodi `context.Request.Body.As<T>` e `context.Request.Body.As<T>` vengono utilizzati per leggere il corpo di un messaggio di richiesta o risposta in uno dei formati specificati. Si noti che, per impostazione predefinita, quando si accede al corpo del messaggio, quello originale viene perso e deve essere impostato riportandolo nell'espressione che lo legge. Per mantenere il contenuto del corpo, impostare `preserveContent` su `true` quando si accede al messaggio. Il valore predefinito di `preserveContent` è `false`. Se `preserveContent` è impostato su `true` viene restituito un corpo dall'espressione, viene usato il corpo restituito. Per ulteriori informazioni, vedere il criterio [Imposta corpo](api-management-transformation-policies.md#SetBody).|  
+|IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> I metodi `context.Request.Body.As<T>` e `context.Response.Body.As<T>` vengono usati per leggere il corpo dei messaggi di richiesta e di risposta in un tipo `T` specificato. Per impostazione predefinita, il metodo usa il flusso del corpo del messaggio originale e lo rende non disponibile dopo aver restituito un valore. Per evitarlo, far sì che il metodo venga eseguito su una copia del flusso del corpo impostando il parametro `preserveContent` su `true`. Per un esempio, vedere [qui](api-management-transformation-policies.md#SetBody).|  
 |IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> Query: IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|  
 |IUserIdentity|Id: string<br /><br /> Provider: string|  
 |ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|  

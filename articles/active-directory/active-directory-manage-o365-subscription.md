@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
 ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
+ms.contentlocale: it-it
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -61,13 +63,8 @@ Si supponga ora che Jane Doe debba amministrare le risorse di database e di siti
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) con l'account amministratore del servizio per la sottoscrizione di Azure, in questo esempio msmith@hotmail.com).
 2. Trasferire la sottoscrizione alla directory Contoso: fare clic su **Impostazioni** > **Sottoscrizioni** > selezionare la sottoscrizione > **Modifica directory** > selezionare **Contoso (Contoso.com)**. Durante il trasferimento, gli eventuali account aziendali o dell'istituto di istruzione di coamministratori della sottoscrizione verranno rimossi.
-3. Aggiungere Jane Doe come coamministratore della sottoscrizione: fare clic su **Impostazioni** > **Amministratori** > selezionare la sottoscrizione > **Aggiungi ** > digitare **JohnDoe@Contoso.com**.
+3. Aggiungere Jane Doe come coamministratore della sottoscrizione: fare clic su **Impostazioni** > **Amministratori** > selezionare la sottoscrizione > **Aggiungi** > digitare **JohnDoe@Contoso.com**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla relazione tra sottoscrizioni e directory, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

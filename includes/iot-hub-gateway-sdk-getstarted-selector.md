@@ -71,7 +71,3 @@ La figura precedente illustra l'architettura dell'esempio Hello World e i percor
 <!-- Links -->
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
-
-<!--HONumber=Dec16_HO1-->
-
-

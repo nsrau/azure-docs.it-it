@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 7faa27220bcc07fff0bb2a77e7b90c386cc5ae1e
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: db3645304ab1274da7cd312bf01bbdb0fd158beb
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -199,7 +200,7 @@ Si crea ora una pipeline con un'attività SqlServerStoredProcedure.
    Vedere [Monitorare la pipeline](data-factory-monitor-manage-pipelines.md) per informazioni dettagliate sul monitoraggio delle pipeline di Data Factory di Azure.  
 
 > [!NOTE]
-> In questo esempio l'attività SprocActivitySample non contiene dati di input. Per concatenarla con un'attività upstream (ovvero l'elaborazione precedente), è possibile usare gli output dell'attività upstream come input di questa attività. In questo caso, l'attività non verrà eseguita finché l'attività upstream non sarà completata e gli output delle attività upstream non saranno disponibili (in stato Ready). Non è possibile usare gli input direttamente come parametri dell'attività di stored procedure.
+> In questo esempio l'attività SprocActivitySample non contiene dati di input. Per concatenarla con un'attività upstream (ovvero l'elaborazione precedente), è possibile usare gli output dell'attività upstream come input di questa attività. In questo caso, l'attività non verrà eseguita finché l'attività upstream non sarà completata e gli output delle attività upstream non saranno disponibili (in stato Ready). Non è possibile usare gli input direttamente come parametri dell'attività di stored procedure. Per altre informazioni sul concatenamento di attività in una pipeline, vedere [attività multiple in una pipeline](data-factory-create-pipelines.md#multiple-activities-in-a-pipeline)
 >
 >
 
@@ -232,7 +233,7 @@ Di seguito è riportato il formato JSON per la definizione di un'attività di St
 | Descrizione |Testo descrittivo per lo scopo dell'attività |No |
 | type | Deve essere impostato su: **SqlServerStoredProcedure** | Sì |
 | inputs | Facoltativo. Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. |No |
-| outputs | È necessario specificare un set di dati di output per un'attività della stored procedure. Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). <br/><br/>Il set di dati di output deve usare un **servizio collegato** che faccia riferimento a un database SQL di Azure, a un Azure SQL Data Warehouse o a un database SQL Server in cui si vuole che venga eseguita la stored procedure. <br/><br/>Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività ([concatenamento di attività](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. <br/><br/>In alcuni casi, il set di dati di output può essere un **set di dati fittizio**che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure. |Sì |
+| outputs | È necessario specificare un set di dati di output per un'attività della stored procedure. Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). <br/><br/>Il set di dati di output deve usare un **servizio collegato** che faccia riferimento a un database SQL di Azure, a un Azure SQL Data Warehouse o a un database SQL Server in cui si vuole che venga eseguita la stored procedure. <br/><br/>Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività, [concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline), nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. <br/><br/>In alcuni casi, il set di dati di output può essere un **set di dati fittizio**che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure. |Sì |
 | storedProcedureName |Specificare il nome della stored procedure nel database SQL di Azure o Azure SQL Data Warehouse rappresentato dal servizio collegato che usa la tabella di output. |Sì |
 | storedProcedureParameters |Specificare i valori dei parametri della stored procedure. Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole). Vedere l'esempio seguente per informazioni sull'uso di questa proprietà. |No |
 

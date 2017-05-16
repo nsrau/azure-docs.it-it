@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5311274867de6e0d863ac532a5b3a31cf964351e
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2d44a2d9a247ffce8bcf35152170562ac0b86710
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -177,7 +177,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
    Per altre informazioni, vedere [Iniziare a usare i cmdlet di Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
-   Per altre informazioni sull'installazione e la configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+   Per altre informazioni sull'installazione e la configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Passaggio 4: caricare il file VHD
 È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archivio BLOB. Di seguito sono riportati alcuni termini che saranno quando si carica il file:

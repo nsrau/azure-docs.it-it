@@ -1,8 +1,3 @@
-L'attività di copia in Data Factory esegue la copia dei dati da un archivio dati di origine a un archivio dati sink. Data Factory supporta gli archivi dati seguenti. I dati da qualsiasi origine possono essere scritti in qualsiasi sink. Fare clic su un archivio dati per informazioni su come copiare dati da e verso tale archivio.
-
-> [!NOTE] 
-> Per spostare dati da e verso un archivio dati che non è supportato dall'attività di copia, usare l' **attività personalizzata** in Data Factory con la logica personalizzata per copiare o spostare i dati. Per i dettagli sulla creazione e l'uso di un'attività personalizzata, vedere l'articolo [Usare attività personalizzate in una pipeline di Azure Data Factory](../articles/data-factory/data-factory-use-custom-activities.md).
-
 | Categoria | Archivio dati | Supportato come origine | Supportato come sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Archivio BLOB di Azure](../articles/data-factory/data-factory-azure-blob-connector.md) |✓  |✓  |
@@ -36,7 +31,4 @@ L'attività di copia in Data Factory esegue la copia dei dati da un archivio dat
 | &nbsp; |[Tabella Web (tabella da HTML)](../articles/data-factory/data-factory-web-table-connector.md) |✓  | |
 | &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓  | | |
 
-> [!NOTE]
-> Gli archivi dati contrassegnati da un asterisco (*) possono essere locali o in IaaS di Azure e richiederanno l'installazione del [Gateway di gestione dati](../articles/data-factory/data-factory-data-management-gateway.md) in un computer IaaS locale o in Azure.
->
->
+

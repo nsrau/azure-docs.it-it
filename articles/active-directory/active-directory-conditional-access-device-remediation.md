@@ -1,6 +1,6 @@
 ---
-title: "Risoluzione dei problemi per il messaggio &quot;Non è possibile accedervi da qui&quot; nel portale di Azure da un dispositivo Windows | Microsoft Docs"
-description: "Informazioni sulle procedure che è possibile eseguire per risolvere i problemi di accesso relativi alle risorse online dell&quot;organizzazione."
+title: "Messaggio &quot;Non è possibile accedervi da qui&quot; nel portale di Azure da un dispositivo Windows | Microsoft Docs"
+description: "Informazioni sull&quot;origine del messaggio &quot;Non è possibile accedervi da qui&quot; e su cosa controllare per evitarlo."
 services: active-directory
 keywords: accesso condizionale basato su dispositivo, registrazione dispositivo, abilitare registrazione dispositivo, registrazione dispositivo e software MDM
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.lasthandoff: 04/12/2017
 
 
 ---

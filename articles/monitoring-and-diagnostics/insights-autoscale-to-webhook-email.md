@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 04/03/2017
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.contentlocale: it-it
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -34,7 +36,7 @@ I webhook consentono di instradare le notifiche di avviso di Azure ad altri sist
 
 * Scegliere la metrica **Ridimensiona di** .
 
-![Ridimensiona di](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![Ridimensiona di](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
 Per le macchine virtuali più recenti create con Resource Manager (set di scalabilità di macchine virtuali), è possibile configurare questa opzione tramite l'API REST, i modelli di Resource Manager, PowerShell e l'interfaccia della riga di comando. Un'interfaccia del portale non è ancora disponibile.
@@ -75,10 +77,7 @@ Quando si usa l'API REST o il modello di Resource Manager, includere l'elemento 
 | properties |sì |Il valore deve essere vuoto {} o può contenere coppie chiave-valore |
 
 ## <a name="authentication-in-webhooks"></a>Autenticazione nei webhook
-Esistono due tipi di URI di autenticazione:
-
-1. Autenticazione basata su token, che prevede il salvataggio dell'URI del webhook con un ID token come parametro di query. Ad esempio, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Autenticazione di base, che prevede l'uso di un ID utente e una password. Ad esempio, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+È possibile autenticare il webhook usando l'autenticazione basata su token, che prevede il salvataggio dell'URI del webhook con un ID token come parametro di query. Ad esempio, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Schema di payload del webhook di notifica di scalabilità automatica
 Quando viene generata la notifica di scalabilità automatica, nel payload del webhook vengono inclusi i metadati seguenti:
@@ -128,10 +127,4 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 | oldCapacity |sì |Conteggio delle istanze corrente (precedente) quando la scalabilità automatica ha eseguito un'azione di scalabilità |
 | newCapacity |sì |Nuovo conteggio delle istanze in base al quale la scalabilità automatica ha ridimensionato la risorsa |
 | properties |No |Facoltativo. Set di coppie <chiave, valore> (ad esempio Dizionario <Stringa, Stringa>). Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, è possibile immettere chiavi e valori che possono essere passati usando il payload. Un metodo alternativo per passare le proprietà personalizzate alla chiamata al webhook in uscita è di usare l'URI del webhook stesso (sotto forma di parametri di query) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

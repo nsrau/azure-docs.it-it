@@ -15,9 +15,9 @@ ms.date: 02/27/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d6330397b6e74b62836a2e864b1c37ab172d0028
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c5a0f3f958d42d514a95477c1e39f02c78307d4d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -60,7 +60,7 @@ Dopo l'autenticazione, gli utenti possono interagire con le applicazioni che son
 ## <a name="web-browser-requirements"></a>Requisiti del Web browser
 Per il pannello di accesso è previsto come requisito minimo del browser il supporto di JavaScript e l'abilitazione di CSS. Affinché gli utenti possano accedere alle applicazioni tramite il servizio Single Sign-On (SSO) basato su password, è necessario installare l'estensione del pannello di accesso nel browser degli utenti. Questa estensione viene scaricata automaticamente quando un utente seleziona un'applicazione configurata per il servizio Single Sign-On basato su password.
 
-L'estensione del pannello di accesso è attualmente disponibile per i browser Internet Explorer 8 e versioni successive, Chrome e Firefox.
+L'estensione del pannello di accesso è attualmente disponibile per i browser Internet Explorer 8 e versioni successive, Microsoft Edge, Chrome e Firefox.
 
 ## <a name="mobile-app-support"></a>Supporto per app per dispositivi mobili
 Il team di Azure Active Directory pubblica l'app per dispositivi mobili App personali. Quando gli utenti installano l'app possono accedere alle applicazioni SSO basate su password da dispositivi iOS e Android.

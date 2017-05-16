@@ -11,27 +11,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e75099e1ca7e3bbfc427883a8c343d773f3923ae
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3879eb3d0c6fa9d74fff01b07f5c07d3991dfbbd
+ms.contentlocale: it-it
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Servizio Azure Batch per i processi di Machine Learning
 
-L'elaborazione di pool Batch in Machine Learning usa il [servizio Azure Batch](../batch/batch-technical-overview.md) per fornire la scalabilità gestita dal cliente per il servizio di esecuzione Batch di Azure Machine Learning. L'elaborazione batch classica avviene in un ambiente multi-tenant, limitando il numero di processi simultanei che è possibile inviare, e i processi vengono accodati in base alla modalità First-In-First-Out. Non è quindi possibile prevedere con precisione quando verrà eseguito il processo.
+L'elaborazione di pool di Batch in Machine Learning fornisce la scalabilità gestita dal cliente per il servizio di esecuzione Batch di Azure Machine Learning. L'elaborazione batch classica per l'apprendimento automatico avviene in un ambiente multi-tenant, limitando il numero di processi simultanei che è possibile inviare, e i processi vengono accodati in base alla modalità First-In-First-Out. Non è quindi possibile prevedere con precisione quando verrà eseguito il processo.
 
-L'elaborazione di pool Batch consente di creare pool Azure Batch a cui è possibile inviare i processi batch. Vengono controllati le dimensioni del pool e il pool specifico a cui viene inviato il processo. Il processo BES viene eseguito nel proprio spazio di elaborazione, assicurando prestazioni di elaborazione prevedibili e la possibilità di creare pool di risorse corrispondenti al carico di elaborazione inviato.
+L'elaborazione di pool di Batch consente di creare pool a cui è possibile inviare i processi batch. Vengono controllati le dimensioni del pool e il pool specifico a cui viene inviato il processo. Il processo BES viene eseguito nel proprio spazio di elaborazione, assicurando prestazioni di elaborazione prevedibili e la possibilità di creare pool di risorse corrispondenti al carico di elaborazione inviato.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Procedura: Usare l'elaborazione di pool Batch
 
-Per usare l'elaborazione di pool Batch, è necessario disporre di:
+La configurazione dell'elaborazione di pool di Batch non è attualmente disponibile tramite il portale di Azure. Per usare l'elaborazione di pool di Batch, è necessario:
 
--   Un account di pool Batch con un URL del servizio pool e una chiave di autorizzazione
--   Un nuovo servizio Web e un nuovo piano di fatturazione basati su Resource Manager
+-   Chiamare CSS per creare un account di pool di Batch e ottenere un URL del servizio pool e una chiave di autorizzazione
+-   Creare un nuovo servizio Web e un nuovo piano di fatturazione basati su Resource Manager
 
 Per creare il proprio account, contattare il Supporto tecnico Microsoft e fornire l'ID di sottoscrizione. Il personale è a disposizione per aiutare a determinare la capacità necessaria per lo scenario in uso. Configurerà quindi l'account con il numero massimo di pool che è possibile creare e il numero massimo di macchine virtuali (VM) che è possibile inserire in ogni pool. Al termine della configurazione dell'account viene fornito l'URL del servizio pool e una chiave di autorizzazione.
 

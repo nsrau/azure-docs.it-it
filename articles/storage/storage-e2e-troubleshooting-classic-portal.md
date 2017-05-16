@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3d85823b5f5a2476745564d0663ea4560b75489a
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bd76adbc250658f6d8e7dc13413b9554a9ee8236
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,9 +104,9 @@ Per configurare la registrazione e la metrica per l'account di archiviazione tra
 
 **Tramite PowerShell**
 
-Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-1. Usare il cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) per aggiungere l'account utente di Azure alla finestra di PowerShell:
+1. Usare il cmdlet [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) per aggiungere l'account utente di Azure alla finestra di PowerShell:
 
     ```powershell
      Add-AzureAccount
@@ -315,7 +315,7 @@ Dopo aver applicato il filtro, si noterà che vengono escluse le righe del log d
 Le risorse di archiviazione includono filtri predefiniti che possono essere usati per limitare i dati di log per trovare gli errori o le tendenze che si stanno cercando. A questo punto verranno applicati due filtri predefiniti: uno che filtra il log del server e il log della traccia di rete per trovare gli errori 404 e uno che filtra i dati in un determinato intervallo di tempo.
 
 1. Visualizzare la finestra degli strumenti View Filter se non è visualizzata. Sulla barra multifunzione selezionare **Finestre degli strumenti** e **Filtro visualizzazione**.
-2. Nella finestra Filtro visualizzazione selezionare **Libreria** e cercare in `Azure Storage` per trovare i filtri di Archiviazione di Azure. Selezionare il filtro **Messaggi&404; (non trovato) in tutti i log**.
+2. Nella finestra Filtro visualizzazione selezionare **Libreria** e cercare in `Azure Storage` per trovare i filtri di Archiviazione di Azure. Selezionare il filtro **Messaggi 404 (non trovato) in tutti i log**.
 3. Visualizzare nuovamente il menu **Libreria** e quindi individuare e selezionare **Global Time Filter** (Filtro tempo di esecuzione globale).
 4. Modificare i timestamp presenti nel filtro impostando l'intervallo che si vuole visualizzare. In questo modo si limiterà l'intervallo di date da analizzare.
 5. Il filtro dovrebbe risultare analogo a quello riportato nell'esempio seguente. Fare clic su **Applica** per applicare il filtro alla griglia di analisi.

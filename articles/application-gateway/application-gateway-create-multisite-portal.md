@@ -1,5 +1,5 @@
 ---
-title: "Hosting di più siti con il gateway applicazione di Azure | Documentazione Microsoft"
+title: "Hosting di più siti con il gateway applicazione di Azure | Microsoft Docs"
 description: "Questa pagina contiene istruzioni per configurare un gateway applicazione di Azure esistente per l&quot;hosting di più applicazioni Web nello stesso gateway con il portale di Azure."
 documentationcenter: na
 services: application-gateway
@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 90b7e2f7f5327684f173bd7e10f21e65bea8fbe7
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 84bd62ae17b7f7ba4cd815ef1f9880679607ebce
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -52,7 +53,7 @@ Per aggiornare il gateway applicazione, seguire questa procedura:
 * **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 * **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 * **Listener** : ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL). Per i gateway applicazione abilitati per più siti vengono aggiunti anche indicatori SNI e nome host.
-* **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico.
+* **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. Le regole vengono elaborate nell'ordine in cui sono elencate e il traffico verrà indirizzato tramite la prima regola corrispondente indipendentemente dalla specificità. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
 * **Certificati**: ogni listener richiede un certificato univoco. In questo esempio vengono creati due listener per più siti. È necessario creare due certificati con estensione pfx e le relative password.
 
 ## <a name="create-back-end-pools-for-each-site"></a>Creare i pool di back-end per ogni sito
@@ -140,9 +141,4 @@ Informazioni su come proteggere i siti Web con [Gateway applicazione: firewall a
 [9]: ./media/application-gateway-create-multisite-portal/figure9.png
 [10]: ./media/application-gateway-create-multisite-portal/figure10.png
 [multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

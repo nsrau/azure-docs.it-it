@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1f274fdbcdb64425a296ac7388938c423745f477
-ms.openlocfilehash: c9c0756fd714438e4ae74deadf0e5f009164af13
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 3b7eca721181155cd2bcc619d517c9b5a6a89a0d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -234,9 +235,4 @@ Se le soglie per il passaggio dell'applicazione alla modalità di sola lettura s
 * Per altre informazioni sull'archiviazione con ridondanza geografica e accesso in lettura, incluso un altro esempio di impostazione di LastSyncTime, vedere [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Opzioni di ridondanza di archiviazione di Windows Azure e archiviazione con ridondanza geografica e accesso in lettura).
 
 * Per un esempio completo che illustra come attivare il passaggio dall'endpoint primario all'endpoint secondario e viceversa, vedere [Esempi di Azure: uso del modello a interruttore con l'archiviazione con ridondanza geografica e accesso in lettura](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: dd673ba36689c83021a27d593139f0676b0c5e79
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 51c6a8ae17821d4eb00bf26612bc6e1e434ebbd9
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,10 +26,11 @@ Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazi
 
 ## <a name="authentication-protocols-articles-and-reference"></a>Articoli e riferimenti sui protocolli di autenticazione
 * [Informazioni importanti sul rollover della chiave di firma in Azure AD](active-directory-signing-key-rollover.md) : informazioni sulla cadenza di rollover della chiave di firma di Azure AD, sulle modifiche che è possibile apportare per aggiornare automaticamente la chiave e su come aggiornare gli scenari più comuni per le applicazioni.
-* [Token e tipi di attestazione supportati](active-directory-token-and-claims.md) : informazioni sulle attestazioni nei token rilasciati da Azure AD.
+* [Token e tipi di attestazione supportati](active-directory-token-and-claims.md): informazioni sulle attestazioni nei token rilasciati da Azure AD.
 * [Metadati di federazione](active-directory-federation-metadata.md) : informazioni su come trovare e interpretare i documenti dei metadati generati da Azure AD.
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md) : informazioni sull'implementazione di OAuth 2.0 in Azure AD.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) : Informazioni su come usare OAuth 2.0, un protocollo di autenticazione, per l'autenticazione.
+* [Chiamate da servizio a servizio](active-directory-protocols-oauth-service-to-service.md): informazioni su come usare il flusso di concessione delle credenziali client OAuth 2.0 per le chiamate da servizio a servizio.
 * [Informazioni di riferimento sul protocollo SAML](active-directory-saml-protocol-reference.md) : informazioni sui profili SAML Single Sign-On e Single Sign-Out di Azure AD.
 
 ## <a name="see-also"></a>Vedere anche

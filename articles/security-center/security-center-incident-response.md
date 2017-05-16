@@ -53,7 +53,7 @@ Ai fini di questo scenario verranno presi in esame i ruoli degli utenti seguenti
 
 Alice si occupa delle attività di sicurezza. Le sue responsabilità includono:
 
-* Monitoraggio e risposta alle minacce per la sicurezza&24; ore su&24;.
+* Monitoraggio e risposta alle minacce per la sicurezza 24 ore su 24.
 * Escalation al proprietario dei carichi di lavoro nel cloud o all'analista della sicurezza in base alle esigenze.
 
 Guido è un analista della sicurezza e le sue responsabilità includono:

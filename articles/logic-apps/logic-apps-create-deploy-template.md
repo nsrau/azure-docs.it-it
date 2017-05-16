@@ -16,33 +16,44 @@ ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 18c66b0ade7f96fa377926474f8f278d110b91e4
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: e736bf626cd379e1bffe2dbf023e86addb09539f
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>Creare modelli per la distribuzione delle app per la logica e la gestione dei rilasci
 
-Una volta creata un'app per la logica, è possibile crearla come un modello di Azure Resource Manager. Così facendo, l'app per la logica potrà essere facilmente distribuita in qualsiasi ambiente o gruppo di risorse in cui potrebbe essere necessaria. Per altre informazioni sui modelli di Resource Manager, vedere gli articoli su [creazione di modelli di Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [distribuzione delle risorse con i modelli di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+Una volta creata un'app per la logica, è possibile crearla come un modello di Azure Resource Manager.
+Così facendo, l'app per la logica potrà essere facilmente distribuita in qualsiasi ambiente o gruppo di risorse in cui potrebbe essere necessaria.
+Per altre informazioni sui modelli di Resource Manager, vedere gli articoli su [creazione di modelli di Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [distribuzione delle risorse con i modelli di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="logic-app-deployment-template"></a>Modello di distribuzione di app per la logica
 
 Un'app per la logica dispone di tre componenti di base:
 
 * **Risorsa di app per la logica**: contiene informazioni su elementi quali piano tariffario, posizione e definizione del flusso di lavoro.
-* **Definizione del flusso di lavoro**: descrive i passaggi del flusso di lavoro dell'app per la logica e come il motore dell'app per la logica deve eseguire il flusso di lavoro. È possibile visualizzare questa definizione nella finestra **Visualizzazione Codice** dell'app per la logica. Nella risorsa di app per la logica è possibile trovare questa definizione nella proprietà `definition`.
-* **Connessioni**: si riferisce a risorse separate per archiviare in modo sicuro i metadati su qualsiasi connessione del connettore, ad esempio una stringa di connessione e un token di accesso. Nella risorsa di app per la logica, l'app per la logica si riferisce a queste risorse nella sezione `parameters`.
+* **Definizione del flusso di lavoro**: descrive i passaggi del flusso di lavoro dell'app per la logica e come il motore dell'app per la logica deve eseguire il flusso di lavoro.
+È possibile visualizzare questa definizione nella finestra **Visualizzazione Codice** dell'app per la logica.
+Nella risorsa di app per la logica è possibile trovare questa definizione nella proprietà `definition`.
+* **Connessioni**: si riferisce a risorse separate per archiviare in modo sicuro i metadati su qualsiasi connessione del connettore, ad esempio una stringa di connessione e un token di accesso.
+Nella risorsa di app per la logica, l'app per la logica si riferisce a queste risorse nella sezione `parameters`.
 
 È possibile visualizzare tutti questi elementi delle app per la logica esistenti usando uno strumento come [Esplora inventario risorse di Azure](http://resources.azure.com).
 
-Per creare un modello per un'app per la logica da usare con distribuzioni di gruppi di risorse, è necessario definire le risorse e creare i parametri necessari. Ad esempio, se si esegue la distribuzione in un ambiente di sviluppo, un ambiente di test e un ambiente di produzione, è probabile che in ogni si vogliano usare stringhe di connessione a un database SQL diverse. In alternativa, è possibile che si voglia eseguire la distribuzione in sottoscrizioni o gruppi di risorse diversi.  
+Per creare un modello per un'app per la logica da usare con distribuzioni di gruppi di risorse, è necessario definire le risorse e creare i parametri necessari.
+Ad esempio, se si esegue la distribuzione in un ambiente di sviluppo, un ambiente di test e un ambiente di produzione, è probabile che in ogni si vogliano usare stringhe di connessione a un database SQL diverse.
+In alternativa, è possibile che si voglia eseguire la distribuzione in sottoscrizioni o gruppi di risorse diversi.  
 
 ## <a name="create-a-logic-app-deployment-template"></a>Creare un modello di distribuzione di app per la logica
 
-Il modo più semplice per ottenere un modello di distribuzione di app per la logica consiste nell'usare [Visual Studio Tools per app per la logica](logic-apps-deploy-from-vs.md). Gli strumenti di Visual Studio generano un modello di distribuzione valido, che può essere usato in qualsiasi sottoscrizione o località.
+Il modo più semplice per ottenere un modello di distribuzione di app per la logica consiste nell'usare [Visual Studio Tools per app per la logica](logic-apps-deploy-from-vs.md).
+Gli strumenti di Visual Studio generano un modello di distribuzione valido, che può essere usato in qualsiasi sottoscrizione o località.
 
-Esistono altri strumenti utili per la creazione di un modello di distribuzione di app per la logica. È possibile eseguire la creazione manualmente utilizzando le risorse appena descritte per creare i parametri in base alle esigenze. In alternativa è possibile utilizzare un modulo [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator) di PowerShell. Questo modulo open source valuta l'app per la logica ed eventuali connessioni che utilizza, quindi genera risorse del modello con i parametri necessari per la distribuzione. Se, ad esempio, si dispone di un'app per la logica che ha ricevuto un messaggio da una coda del bus del servizio di Azure e ha aggiunto dati a un database SQL di Azure, lo strumento conserva l'intera logica di orchestrazione e crea parametri per le stringhe di connessione di SQL e del bus di servizio, in modo che sia possibile configurarle in fase di distribuzione.
+Esistono altri strumenti utili per la creazione di un modello di distribuzione di app per la logica.
+È possibile eseguire la creazione manualmente utilizzando le risorse appena descritte per creare i parametri in base alle esigenze.
+In alternativa è possibile utilizzare un modulo [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator) di PowerShell. Questo modulo open source valuta l'app per la logica ed eventuali connessioni che utilizza, quindi genera risorse del modello con i parametri necessari per la distribuzione.
+Se, ad esempio, si dispone di un'app per la logica che ha ricevuto un messaggio da una coda del bus del servizio di Azure e ha aggiunto dati a un database SQL di Azure, lo strumento conserva l'intera logica di orchestrazione e crea parametri per le stringhe di connessione di SQL e del bus di servizio, in modo che sia possibile configurarle in fase di distribuzione.
 
 > [!NOTE]
 > Le connessioni devono essere incluse nello stesso gruppo di risorse dell'app per la logica.
@@ -71,12 +82,16 @@ Dopo aver creato il modello di app per la logica, è possibile continuare ad agg
 
 ## <a name="deploy-a-logic-app-template"></a>Distribuire un modello di app per la logica
 
-Per distribuire il modello, è possibile usare alcuni strumenti, inclusi PowerShell, API REST, [Visual Studio Team Services Release Management](#team-services) e la distribuzione dei modelli attraverso il Portale di Azure. Per archiviare i valori per i parametri, è inoltre consigliabile creare un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#parameters).
+Per distribuire il modello, è possibile usare alcuni strumenti, inclusi PowerShell, API REST, [Visual Studio Team Services Release Management](#team-services) e la distribuzione dei modelli attraverso il Portale di Azure.
+Per archiviare i valori per i parametri, è inoltre consigliabile creare un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Sono disponibili informazioni su come [distribuire risorse con i modelli di Azure Resource Manager e PowerShell](../azure-resource-manager/resource-group-template-deploy.md) o [distribuire risorse con i modelli di Azure Resource Manager e il Portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 ### <a name="authorize-oauth-connections"></a>Autorizzare le connessioni OAuth
 
-Una volta distribuite, le app per la logica funzionano end-to-end con parametri validi. Tuttavia, è necessario continuare ad autorizzare le connessioni OAuth per generare un token di accesso valido. Per autorizzare le connessioni OAuth, aprire l'app per la logica nella finestra di progettazione delle app per la logica e autorizzare le connessioni. In alternativa, per la distribuzione automatizzata è possibile usare uno script per consentire ogni connessione OAuth. Nel progetto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) è presente uno script di esempio su GitHub.
+Una volta distribuite, le app per la logica funzionano end-to-end con parametri validi.
+Tuttavia, è necessario continuare ad autorizzare le connessioni OAuth per generare un token di accesso valido.
+Per autorizzare le connessioni OAuth, aprire l'app per la logica nella finestra di progettazione delle app per la logica e autorizzare le connessioni. In alternativa, per la distribuzione automatizzata è possibile usare uno script per consentire ogni connessione OAuth.
+Nel progetto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) è presente uno script di esempio su GitHub.
 
 <a name="team-services"></a>
 ## <a name="visual-studio-team-services-release-management"></a>Visual Studio Team Services Release Management

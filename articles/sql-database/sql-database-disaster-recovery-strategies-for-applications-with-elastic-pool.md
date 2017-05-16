@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
-ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 7d666b81f6c836e161d3c97512767638c088d3c8
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -172,10 +173,5 @@ Questo articolo illustra le strategie di ripristino di emergenza per il livello 
 * Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
 * Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)  
 * Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

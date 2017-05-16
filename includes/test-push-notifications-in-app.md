@@ -3,8 +3,3 @@
 * Nell'app aggiungere un nuovo elemento e fare clic su **+**.
 * Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla. L'esercitazione è stata completata.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

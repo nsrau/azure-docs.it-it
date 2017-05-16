@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
 ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.contentlocale: it-it
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -72,7 +74,7 @@ Quando si assegnano utenti o gruppi di sicurezza ad account di Archivio Data Lak
 
 7. L'utente/gruppo di sicurezza dispone ora dell'autorizzazione di accesso all'account di Archivio Data Lake di Azure. Se si desidera assegnare l'accesso a un utente specifico, è possibile aggiungerlo al gruppo di sicurezza. Analogamente, se si desidera revocare l'accesso per un utente, è possibile rimuoverlo dal gruppo di sicurezza. È possibile anche assegnare più gruppi di sicurezza a un account. 
 
-## <a name="a-namefilepermissionsaassign-users-or-security-group-as-acls-to-the-azure-data-lake-store-file-system"></a><a name="filepermissions"></a>Assegnare utenti o gruppi di sicurezza come elenchi di controllo di accesso al file system di Archivio Data Lake di Azure
+## <a name="filepermissions"></a>Assegnare utenti o gruppi di sicurezza come elenchi di controllo di accesso al file system di Archivio Data Lake di Azure
 Con l'assegnazione di utenti/gruppi di sicurezza al file system di Azure Data Lake, si imposta il controllo di accesso sui dati presenti in Archivio Data Lake di Azure.
 
 1. Nel pannello dell'account di Archivio Data Lake, fare clic su **Esplora dati**.
@@ -146,10 +148,5 @@ Quando si rimuovono gli elenchi di controllo di accesso dei gruppi di sicurezza 
 * [Introduzione ad Archivio Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 * [Introduzione ad Archivio Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Accesso ai log di diagnostica per Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

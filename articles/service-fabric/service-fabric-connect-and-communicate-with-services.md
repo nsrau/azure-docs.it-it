@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6f408d6e4a6a80f10a5116071efee7546c7febdf
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c78f07cb780d5e7cd758fb782fc6ba37946f9537
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -60,7 +60,7 @@ Un cluster di Service Fabric in Azure viene posizionato dietro un servizio di bi
 
 Ad esempio, per accettare il traffico esterno sulla porta **80**, è necessario configurare gli elementi seguenti:
 
-1. Scrivere un servizio che rimane in ascolto sulla porta 80. Configurare la porta 80 nel file ServiceManifest.xml del servizio e aprire un listener nel servizio, ad esempio un server Web self-hosted.
+1. Scrivere un servizio che resta in ascolto sulla porta 80. Configurare la porta 80 nel file ServiceManifest.xml del servizio e aprire un listener nel servizio, ad esempio un server Web self-hosted.
 
     ```xml
     <Resources>

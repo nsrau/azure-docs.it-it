@@ -5,8 +5,3 @@
     ![Impostare la chiave WNS nel portale](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
 Il back-end ora è configurato per poter inviare le notifiche push tramite WSN.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

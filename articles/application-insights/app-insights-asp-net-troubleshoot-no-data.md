@@ -12,10 +12,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
+ms.contentlocale: it-it
 ms.lasthandoff: 03/15/2017
 
 
@@ -180,7 +181,7 @@ Se l'applicazione invia una grande quantità di dati ed è in uso Application In
 Le dimensioni relative alla città, all'area, al paese e alla regione vengono derivate dagli indirizzi IP e non sono sempre accurate.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Eccezione "metodo non trovato" durante l'esecuzione dei servizi cloud di Azure
-È stata eseguita la compilazione per .NET 4.6? La versione&4;.6 non è supportata automaticamente nei ruoli dei servizi cloud di Azure. [Installare la versione 4.6 in ogni ruolo](../cloud-services/cloud-services-dotnet-install-dotnet.md) prima di eseguire l'app.
+È stata eseguita la compilazione per .NET 4.6? La versione 4.6 non è supportata automaticamente nei ruoli dei servizi cloud di Azure. [Installare la versione 4.6 in ogni ruolo](../cloud-services/cloud-services-dotnet-install-dotnet.md) prima di eseguire l'app.
 
 ## <a name="still-not-working"></a>Non funzionante...
 * [Forum di Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

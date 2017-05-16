@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0ec56111847300833ba92cc9149e8a276ba2c6c1
-ms.openlocfilehash: af7cabf3d5286dc3cd368db191bc5218cd9c5893
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: e64c0336578be2c1a1126f7459775f47d73f9d6e
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
@@ -95,7 +95,7 @@ L'amministratore Enterprise può trasferire la proprietà delle sottoscrizioni n
 
 * **Vengono trasferite tutte le risorse? Anche gruppi di risorse, macchine virtuali, dischi e altri servizi in esecuzione?**
 
-  Sì, tutte le risorse, come macchine virtuali, dischi e siti Web, vengono trasferite al nuovo proprietario. Tuttavia, non vengono trasferiti eventuali [ruoli di amministratore](billing-add-change-azure-subscription-administrator.md) e criteri di [controllo degli accessi in base al ruolo (RBAC)](../active-directory/role-based-access-control-configure.md) configurati. 
+  Sì, tutte le risorse, come macchine virtuali, dischi e siti Web, vengono trasferite al nuovo proprietario. I [ruoli di amministratore](billing-add-change-azure-subscription-administrator.md) e i criteri di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) eventualmente configurati, invece, non vengono trasferiti tra directory diverse.
 
 * <a id="no-button"></a> **Perché non viene visualizzato il pulsante Transfer Subscription (Trasferisci sottoscrizione)?**
 

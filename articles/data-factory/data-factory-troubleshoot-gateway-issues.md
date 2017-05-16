@@ -2,7 +2,7 @@
 title: Risolvere i problemi del gateway di gestione dati | Documentazione Microsoft
 description: Questo articolo offre suggerimenti per risolvere i problemi correlati al gateway di gestione dati.
 services: data-factory
-author: linda33wj
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
@@ -11,8 +11,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
-ms.author: jingwang
+ms.date: 05/04/2017
+ms.author: abnarain
 published: true
 translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25

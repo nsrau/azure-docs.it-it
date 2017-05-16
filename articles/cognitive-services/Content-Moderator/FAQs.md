@@ -10,9 +10,9 @@ ms.topic: article
 ms.date: 11/21/2016
 ms.author: sajagtap
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 8afe774179c575d2dc8f876cb4c1bb6cb28a6e1d
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: ef9e53ae11aa696e1841af705237afaf7cfbec19
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -22,9 +22,9 @@ ms.lasthandoff: 04/12/2017
 Your Content Moderator subscription includes access to the review tool and the APIs. You can decide whether you want to use one or the other, or both, depending on your business needs.
 
 #### <a name="when-do-i-use-review-tool-vs-the-api-or-both"></a>When do I use review tool vs. the API, or both? ####
-**The API:** If you have an existing implementation for reviewing and/or taking action on flagged content, and would like to just use the APIs for scanning speed, coverage, and scale, use the API to scan your content and process the results at your end.
+**The API:** If you have an existing implementation for reviewing and/or taking action on flagged content, just use the APIs to scan your content and process the results at your end.
 
-**The Review tool:** If you are looking to moderate your content, augmented by human review teams, while complying with your escalation workflows and content policies, the review tool is a great new product to try out. We will be constantly adding support for new content types, adding more extensibility options, and integrating custom classifiers for even better fit with your business and users.
+**The Review tool:** If you are looking to moderate your content with human review teams, while complying with your escalation workflows and content policies, the review tool is a great new product to try out. We will be constantly adding support for new content types and adding more extensibility options.
 
 **Both:** You either have an existing API subscription that you would like to use with the review tool, or you could be trying out the review tool with one content type (images) while using your own systems for another content type (text). In any or all combinations of these scenarios, it's completely fine to use both the review tool and the API.
 

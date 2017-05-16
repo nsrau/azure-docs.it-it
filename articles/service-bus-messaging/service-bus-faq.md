@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul bus di servizio di Azure | Documentazione Microsoft
+title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
 description: Risposte ad alcune delle domande frequenti sul bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 05/02/2017
 ms.author: sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: da7f8e3e61705cf07ff65c9dd1d8f292f4fb9f62
-ms.openlocfilehash: 9061829e42ed5563d64860774aa7d80f2ab011bd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f3ddc2d7036b9951d4796cf4664f870a0c5f4b6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -55,7 +57,11 @@ Le proprietà seguenti di code e argomenti non sono modificabili. Tenerne conto 
 * Entità espressa
 
 ## <a name="pricing"></a>Prezzi
-In questa sezione vengono fornite le risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio. Per informazioni generali sui prezzi di Microsoft Azure, vedere le [Domande frequenti su Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) . Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
+In questa sezione vengono fornite le risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio.
+
+L'articolo [Informazioni sul prezzo e la fatturazione del Bus di servizio](service-bus-pricing-billing.md) illustra la fatturazione nel bus di servizio. Per informazioni sulle opzioni di prezzo del bus di servizio, vedere [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
+
+Per informazioni generali sui prezzi di Azure, vedere le [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083). 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Quali sono le modalità di addebito per il bus di servizio?
 Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio][Pricing overview]. Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
@@ -67,40 +73,15 @@ Qualsiasi trasferimento di dati nell'ambito di una specifica area di Azure non �
 No, per il bus di servizio non viene addebitato lo spazio di archiviazione. È tuttavia prevista una quota che limita la quantità massima di dati che è possibile salvare in modo permanente per ogni coda e argomento. Vedere la risposta alla domanda successiva.
 
 ## <a name="quotas"></a>Quote
-Per un elenco di limiti e quote del bus di servizio, vedere [Quote del bus di servizio][Quotas overview].
+
+Per un elenco di limiti e quote del bus di servizio, vedere la [panoramica sulle quote del bus di servizio][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Sono previste quote di utilizzo per il bus di servizio?
-Per impostazione predefinita, per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. Dal momento che i limiti previsti potrebbero non essere sufficienti, è possibile rivolgersi in qualsiasi momento al servizio clienti, che identificherà le esigenze specifiche e modificherà di conseguenza i limiti. Per il bus di servizio, le quote di utilizzo aggregate sono pari a 5 miliardi di messaggi al mese.
+Per impostazione predefinita, per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. Dal momento che i limiti previsti potrebbero non essere sufficienti, è possibile rivolgersi in qualsiasi momento al servizio clienti, che identificherà le esigenze specifiche e modificherà di conseguenza i limiti. Per il bus di servizio, la quota di utilizzo aggregata è pari a 5 miliardi di messaggi al mese.
 
 Anche se Microsoft si riserva il diritto di disabilitare l'account di un cliente che abbia superato le quote di utilizzo previste in un determinato mese, invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi di contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili per gli addebiti delle eccedenze.
 
-Come gli altri servizi in Azure, il bus di servizio applica un set specifico di quote per garantire un utilizzo corretto delle risorse. Le quote di utilizzo applicate dal servizio sono le seguenti:
-
-#### <a name="queuetopic-size"></a>Dimensioni coda/argomento
-È possibile specificare le dimensioni massime di una coda o di un argomento al momento della creazione. La quota può avere un valore pari a 1, 2, 3, 4 o 5 GB. Se vengono raggiunte le dimensioni massime, i messaggi successivi verranno rifiutati e il codice chiamante riceverà un'eccezione.
-
-#### <a name="naming-restrictions"></a>Limitazioni relative all'assegnazione dei nomi
-La lunghezza del nome di uno spazio dei nomi del bus di servizio deve essere compresa tra 6 e 50 caratteri. Il numero limite di caratteri per ogni coda, argomento e sottoscrizione è compreso tra 1 e 50 caratteri.
-
-#### <a name="number-of-concurrent-connections"></a>Numero di connessioni simultanee
-Coda/argomento/sottoscrizione: il numero di connessioni TCP simultanee per una coda, un argomento o una sottoscrizione è limitato a 100. Se viene raggiunta questa quota, le successive richieste di connessioni aggiuntive verranno rifiutate e il codice chiamante riceverà un'eccezione. Per ogni factory di messaggistica, il bus di servizio mantiene una connessione TCP se uno qualsiasi dei client creati da tale factory ha un'operazione attiva in sospeso oppure ha completato un'operazione da meno di 60 secondi. Le operazioni REST non vengono conteggiate ai fini del numero di connessioni TCP simultanee.
-
-#### <a name="number-of-topicsqueues-per-service-namespace"></a>Numero di argomenti/code per spazio dei nomi servizio
-Il numero massimo di argomenti o code (entità con archiviazione permanente) per uno spazio dei nomi del servizio è limitato a 10.000. Se viene raggiunta questa quota, le successive richieste di creazione di un nuovo argomento o di una nuova coda nello spazio dei nomi del servizio verranno rifiutate. In questo caso, nel portale di Azure classico verrà visualizzato un messaggio di errore oppure al codice client chiamante verrà inviata un'eccezione, a seconda che il tentativo di creazione sia stato eseguito tramite il portale o nel codice client.
-
-### <a name="message-size-quotas"></a>Quote per le dimensioni dei messaggi
-#### <a name="queuetopicsubscription"></a>Coda/argomento/sottoscrizione
-**Dimensioni dei messaggi** : le dimensioni complessive di ogni messaggio non possono superare 256 KB, incluse le intestazioni.
-
-**Dimensioni delle intestazioni dei messaggi** : per ogni intestazione del messaggio è previsto il limite di 64 KB.
-
-I messaggi che superano queste quote di dimensioni verranno rifiutati e il codice chiamante riceverà un'eccezione.
-
-**Numero di sottoscrizioni per argomento** : il numero massimo di sottoscrizioni per argomento è limitato a 2.000. Se viene raggiunta questa quota, le successive richieste di creazione di altre sottoscrizioni per l'argomento verranno rifiutate. In questo caso, nel portale di Azure classico verrà visualizzato un messaggio di errore oppure al codice client chiamante verrà inviata un'eccezione, a seconda che il tentativo di creazione sia stato eseguito tramite il portale o nel codice client.
-
-**Numero di filtri SQL per argomento** : il numero massimo di filtri SQL per argomento è limitato a 2.000. Se viene raggiunta questa quota, le successive richieste di creazione di altri filtri per l'argomento verranno rifiutate e il codice chiamante riceverà un'eccezione.
-
-**Numero di filtri di correlazione per argomento** : il numero massimo di filtri di correlazione per argomento è limitato a 100.000. Se viene raggiunta questa quota, le successive richieste di creazione di altri filtri per l'argomento verranno rifiutate e il codice chiamante riceverà un'eccezione.
+Come gli altri servizi in Azure, il bus di servizio applica un set specifico di quote per garantire un utilizzo corretto delle risorse. Per altre informazioni su queste quote, vedere la [panoramica sulle quote del bus di servizio][Quotas overview].
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quali sono alcune delle eccezioni generate dalle API del bus di servizio di Azure e le azioni consigliate?
@@ -140,10 +121,5 @@ Per altre informazioni sul bus di servizio, vedere gli argomenti seguenti.
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Quotas overview]: service-bus-quotas.md
 [Exceptions overview]: service-bus-messaging-exceptions.md
-[Shared Access Signatures]: service-bus-sas-overview.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Shared Access Signatures]: service-bus-sas.md
 

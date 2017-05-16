@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi al backup di una macchina virtuale di Azure | Documentazione Microsoft
+title: Risolvere i problemi relativi al backup di una macchina virtuale di Azure | Microsoft Docs
 description: Risolvere i problemi relativi al backup e al ripristino delle macchine virtuali di Azure
 services: backup
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 04/24/2017
 ms.author: trinadhk;markgal;jpallavi;
-translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: e40a31b7226bd94a3d0e07f528a87f4f686e5bdc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: f89375510cdcb89d800edc2513f34e601f52efe9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -46,8 +48,16 @@ ms.openlocfilehash: e40a31b7226bd94a3d0e07f528a87f4f686e5bdc
 | La macchina virtuale di Azure non è stata trovata. |Questo errore si verifica quando viene rilevata la macchina virtuale primaria ma i criteri di backup continuano a cercare una macchina virtuale per il backup. Per correggere l'errore:  <ol><li>Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse [nome del servizio cloud], <br>OPPURE <li> Disabilitare la protezione per questa macchina virtuale affinché i processi di backup non vengano creati. </ol> |
 | L'agente di macchine virtuali non è presente nella macchina virtuale. Installare i prerequisiti necessari, l'agente VM, quindi ripetere l'operazione. |[Altre informazioni](#vm-agent) sull'installazione dell'agente di VM e su come convalidare l'installazione dell'agente di VM. |
 | L'operazione di snapshot non è riuscita a causa dello stato non corretto dei VSS writer |È necessario riavviare i VSS (servizio Copia Shadow del volume) writer con stato non corretto. A questo scopo, da un prompt dei comandi con privilegi elevati eseguire _vssadmin list writers_. L'output contiene tutti i VSS writer con lo stato. Riavviare ogni VSS writer con stato diverso da "[1] Stable" usando i comandi seguenti da un prompt dei comandi con privilegi elevati<br> _net stop serviceName_ <br> _net start serviceName_|
-| L'operazione di snapshot non è riuscita a causa di un errore di analisi della configurazione |Questo problema si verifica a causa della modifica delle autorizzazioni nella directory MachineKeys: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Eseguire il comando sotto e verificare che le autorizzazioni per la directory MachineKeys siano quelle predefinite:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Le autorizzazioni predefinite sono:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>Se vengono visualizzate autorizzazioni per la directory MachineKeys diverse da quelle predefinite, seguire i passaggi sotto per correggere le autorizzazioni, eliminare il certificato e attivare il backup.<ol><li>Correggere le autorizzazioni per la directory MachineKeys.<br>Usando le impostazioni di sicurezza avanzate e le proprietà di sicurezza di Explorer per la directory, reimpostare le autorizzazioni sui valori predefiniti, rimuovere eventuali oggetti utente aggiuntivi (diversi da quelli predefiniti) dalla directory e assicurarsi che le autorizzazioni "Everyone" abbiano l'accesso speciale per:<br>-Elencare cartelle/leggere dati <br>-Leggere attributi <br>-Leggere attributi estesi <br>-Creare file/scrivere dati <br>-Creare cartelle/aggiungere dati<br>-Scrivere attributi<br>-Scrivere attributi estesi<br>-Leggere autorizzazioni<br><br><li>Eliminare i certificati con il campo "Rilasciato a" = Microsoft Azure Service Management per le estensioni<ul><li>[Aprire la console Certificati](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Eliminare i certificati (in Personale -> Certificati) con il campo "Rilasciato a" = "Microsoft Azure Service Management per le estensioni"</ul><li>Attivare il backup della VM. </ol>|
+| L'operazione di snapshot non è riuscita a causa di un errore di analisi della configurazione |Questo problema si verifica a causa della modifica delle autorizzazioni nella directory MachineKeys: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Eseguire il comando sotto e verificare che le autorizzazioni per la directory MachineKeys siano quelle predefinite:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Le autorizzazioni predefinite sono:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>Se vengono visualizzate autorizzazioni per la directory MachineKeys diverse da quelle predefinite, seguire i passaggi sotto per correggere le autorizzazioni, eliminare il certificato e attivare il backup.<ol><li>Correggere le autorizzazioni per la directory MachineKeys.<br>Usando le impostazioni di sicurezza avanzate e le proprietà di sicurezza di Explorer per la directory, reimpostare le autorizzazioni sui valori predefiniti, rimuovere eventuali oggetti utente aggiuntivi (diversi da quelli predefiniti) dalla directory e assicurarsi che le autorizzazioni "Everyone" abbiano l'accesso speciale per:<br>-Elencare cartelle/leggere dati <br>-Leggere attributi <br>-Leggere attributi estesi <br>-Creare file/scrivere dati <br>-Creare cartelle/aggiungere dati<br>-Scrivere attributi<br>-Scrivere attributi estesi<br>-Leggere autorizzazioni<br><br><li>Eliminare il certificato con il campo "Rilasciato a" = "Windows Azure Service Management for Extensions" (Microsoft Azure Service Management per le estensioni) o "Windows Azure CRP Certificate Generator
+" (Generatore certificati CRP Microsoft Azure).<ul><li>[Aprire la console certificati (computer locale)](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Eliminare il certificato (in Personale -> Certificati) con il campo "Rilasciato a" = "Windows Azure Service Management for Extensions" (Microsoft Azure Service Management per le estensioni) o "Windows Azure CRP Certificate Generator
+" (Generatore certificati CRP Microsoft Azure).</ul><li>Attivare il backup della VM. </ol>|
 | Convalida non riuscita perché la macchina virtuale è crittografata con il solo BEK. I backup possono essere abilitati solo per le macchine virtuali crittografate con BEK e KEK. |La macchina virtuale deve essere crittografata mediante la chiave di crittografia BitLocker e la chiave di crittografia delle chiavi. In seguito, il backup deve essere abilitato. |
+| Il servizio backup di Azure non possiede autorizzazioni sufficienti nel Key Vault per il backup di macchine virtuali crittografate. |Il servizio di backup deve ricevere queste autorizzazioni in PowerShell tramite la procedura indicata nella sezione **Abilitazione del backup** della [Documentazione di PowerShell](backup-azure-vms-automation.md). |
+|L'installazione dell'estensione dello snapshot non è riuscita con un errore che indica che il servizio COM+ non può comunicare con Microsoft Distributed Transaction Coordinator | Provare ad avviare il servizio di Windows "Applicazione di sistema COM+" (da un prompt dei comandi con privilegi elevati - _net start COMSysApp_). <br>In caso di errore durante l'avvio, seguire questa procedura:<ol><li> Verificare che l'account di accesso del servizio "Distributed Transaction Coordinator" sia "Servizio di rete". In caso contrario, modificarlo in "Servizio di rete", riavviare il servizio e quindi provare ad avviare il servizio "Applicazione di sistema COM+".<li>Se il problema persiste, disinstallare/installare il servizio "Distributed Transaction Coordinator" seguendo questa procedura:<br> - Arrestare il servizio MSDTC<br> - Aprire un prompt dei comandi (cmd) <br> - Eseguire il comando "msdtc -uninstall" <br> - Eseguire il comando "msdtc -install" <br> - Avviare il servizio MSDTC<li>Avviare il servizio di Windows "Applicazione di sistema COM+" e quindi attivare il backup dal portale.</ol> |
+| Impossibile bloccare uno o più punti di montaggio della macchina virtuale per creare uno snapshot coerente con il file system | <ol><li>Controllare lo stato del file system di tutti i dispositivi montati tramite il comando _'tune2fs'_.<br> Ad esempio: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>Smontare i dispositivi il cui stato del file system non è pulito tramite il comando _'umount'_. <li> Eseguire il controllo FileSystemConsistency su tali dispositivi tramite il comando _'fsck'_. <li> Montare di nuovo i dispositivi e provare a eseguire il backup.</ol> |
+| L'operazione di snapshot non è riuscita a causa di un errore durante la creazione del canale di comunicazione di rete protetta | <ol><Li> Aprire l'editor del Registro di sistema eseguendo regedit.exe con privilegi elevati. <li> Identificare tutte le versioni di .NetFramework presenti nel sistema, disponibili nella gerarchia della chiave del Registro di sistema "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> Per ogni versione di .NetFramework presente nella chiave del Registro di sistema, aggiungere la seguente chiave: <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
+| L'operazione di snapshot non è riuscita a causa di un errore durante l'installazione di Visual C++ Redistributable per Visual Studio 2012 | Andare a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e installare vcredist2012_x64. Assicurarsi che il valore della chiave del Registro di sistema per consentire l'installazione del servizio sia impostato correttamente: il valore della chiave del Registro di sistema _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ deve essere impostato su 3, non su 4. Se i problemi di installazione persistono, riavviare il servizio di installazione eseguendo _MSIEXEC /UNREGISTER_ e quindi _MSIEXEC /REGISTER_ da un prompt dei comandi con privilegi elevati.  |
+
 
 ## <a name="jobs"></a>Processi
 | Dettagli errore | Soluzione alternativa |
@@ -72,10 +82,8 @@ ms.openlocfilehash: e40a31b7226bd94a3d0e07f528a87f4f686e5bdc
 | La subnet selezionata non esiste. Selezionare una subnet esistente |Nessuno |
 | Il servizio Backup non ha l'autorizzazione per accedere alle risorse nella sottoscrizione. |Per risolvere questo problema, ripristinare prima di tutto i dischi seguendo la procedura illustrata nella sezione **Ripristino dei dischi sottoposti a backup** in [Scelta di una configurazione di ripristino per la macchina virtuale](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Seguire quindi la procedura di PowerShell illustrata in [Creare una macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) per creare una macchina virtuale completa dai dischi ripristinati. |
 
-## <a name="policy"></a>Criteri
-| Dettagli errore | Soluzione alternativa |
-| --- | --- |
-| Non è stato possibile creare i criteri. Per continuare con la configurazione dei criteri, ridurre le opzioni di conservazione. |None |
+## <a name="backup-or-restore-taking-time"></a>Il backup o il ripristino richiede del tempo
+Se l'operazione di backup (>12 ore) o ripristino (>6 ore) richiede tempi lunghi, assicurarsi di seguire le [Procedure consigliate per il backup](backup-azure-vms-introduction.md#best-practices). Verificare inoltre che le applicazioni usino [Archiviazione di Azure in modo ottimale](backup-azure-vms-introduction.md#total-vm-backup-time) per il backup.
 
 ## <a name="vm-agent"></a>Agente di macchine virtuali
 ### <a name="setting-up-the-vm-agent"></a>Configurazione dell'agente di VM
@@ -98,7 +106,7 @@ Per VM di Windows:
 
 Per le macchine virtuali Linux:
 
-* Seguire le istruzioni in [Come aggiornare l'agente Linux di Azure su una macchina virtuale per la versione più recente da GitHub](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Seguire le istruzioni in [Come aggiornare l'agente Linux di Azure su una macchina virtuale per la versione più recente da GitHub](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 È **fortemente consigliato** aggiornare l'agente solo tramite il repository di distribuzione. Non è consigliabile scaricare il codice dell'agente direttamente da GitHub e aggiornarlo. Se l'agente più recente non è disponibile per la distribuzione, contattare il supporto per la distribuzione per istruzioni su come installare l'agente più recente. È possibile trovare le informazioni più recenti sull'[agente Linux di Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) nel repository GitHub.
 
 ### <a name="validating-vm-agent-installation"></a>Convalida dell'installazione dell'agente di VM
@@ -123,7 +131,7 @@ Il backup delle macchine virtuali si basa sull'esecuzione dei comandi di snapsho
    Se la macchina virtuale si è fermata in RDP, verificare nel portale che lo stato della VM venga indicato correttamente. In caso contrario, arrestare la VM nel portale usando l'opzione ''Arresta'' nel dashboard della VM.
 4. Se più di quattro VM condividono lo stesso servizio cloud, configurare criteri di backup multipli per organizzare i tempi di backup in modo che non vengano eseguiti più di quattro backup delle VM allo stesso tempo. Provare a distribuire i tempi di avvio del backup ogni ora tra i criteri.
 5. La VM è in esecuzione con un uso elevato di CPU/memoria.<br>
-   Se la macchina virtuale è in esecuzione con un uso elevato della CPU (&gt;&amp;90;%) o della memoria, l'attività di snapshot viene messa in coda, ritardata e infine messa in timeout. In tali situazioni, provare a eseguire un backup su richiesta.
+   Se la macchina virtuale è in esecuzione con un uso elevato della CPU (&gt; 90%) o della memoria, l'attività di snapshot viene messa in coda, ritardata e infine messa in timeout. In tali situazioni, provare a eseguire un backup su richiesta.
 
 <br>
 
@@ -151,9 +159,4 @@ Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso 
 > Vedere altre informazioni sull' [impostazione di un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md).
 >
 >
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

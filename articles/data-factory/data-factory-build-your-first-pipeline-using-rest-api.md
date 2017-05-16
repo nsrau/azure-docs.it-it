@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/25/2017
+ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 78117fd3947be922e339931a0f8f31040ebf79fe
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19fe97eb41be3222a846f86b2a390bf86157884f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +47,7 @@ In questo articolo viene usata l'API REST di Data Factory per creare la prima da
   2. Ottenere i valori per l'**ID client** e la **chiave privata**.
   3. Ottenere l' **ID tenant**.
   4. Assegnare l'applicazione **ADFGetStartedApp** al ruolo **Collaboratore Data Factory**.
-* Installare [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Installare [Azure PowerShell](/powershell/azure/overview).
 * Avviare **Azure PowerShell** ed eseguire il comando seguente. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
   1. Eseguire **Login-AzureRmAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.
   2. Eseguire **Get-AzureRmSubscription** per visualizzare tutte le sottoscrizioni per l'account.
@@ -487,9 +488,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) |Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -4,7 +4,7 @@ description: Usare il plug-in Eclipse per aggiungere il monitoraggio delle prest
 services: application-insights
 documentationcenter: java
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: e88c9f53-cd90-4abc-b097-1f170937908e
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 16e1276d5c0cc7eb8a8a868fa3b31fd51fbb1b96
-ms.lasthandoff: 02/02/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 8922c65a1755343e19072a0594b800838a5e1cf9
+ms.contentlocale: it-it
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -225,7 +226,7 @@ Inserire alcune righe di codice nell'applicazione Web Java per scoprire come vie
 
 #### <a name="track-usage"></a>Tenere traccia dell'utilizzo
 * [Aggiungere dati di telemetria client Web][usage] per monitorare le visualizzazioni pagina e le metriche utente di base.
-* [Tenere traccia di eventi personalizzati e metriche][track] per altre informazioni sulle modalità di uso dell'applicazione, sia sul lato client che server.
+* [Tenere traccia di eventi personalizzati e metriche](app-insights-web-track-usage.md) per altre informazioni sulle modalità di uso dell'applicazione, sul lato client e server.
 
 <!--Link references-->
 
@@ -235,5 +236,5 @@ Inserire alcune righe di codice nell'applicazione Web Java per scoprire come vie
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 9b0912edc5adf804e7a3e6dcc6b440fc165d3673
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 647e3de08dd8d3b520705f0d52ba2bb674eda0bf
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 9b0912edc5adf804e7a3e6dcc6b440fc165d3673
 PowerShell offre uno dei metodi più flessibili per gestire i profili e gli endpoint della rete CDN.  È possibile usare PowerShell in modo interattivo o scrivendo script per automatizzare le attività di gestione.  Questa esercitazione illustra alcune delle attività più comuni che è possibile eseguire con PowerShell per gestire i profili e gli endpoint della rete CDN di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per usare PowerShell per gestire i profili e gli endpoint della rete CDN di Azure, è necessario avere il modulo Azure PowerShell installato.  Per informazioni su come installare Azure PowerShell e connettersi ad Azure usando il cmdlet `Login-AzureRmAccount`[Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Per usare PowerShell per gestire i profili e gli endpoint della rete CDN di Azure, è necessario avere il modulo Azure PowerShell installato.  Per informazioni su come installare Azure PowerShell e connettersi ad Azure usando il cmdlet `Login-AzureRmAccount`[Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
 > È necessario accedere con `Login-AzureRmAccount` per poter eseguire i cmdlet di Azure PowerShell.
@@ -244,10 +245,5 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 Informazioni su come automatizzare la rete CDN di Azure con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
 
 Per informazioni sulle funzionalità della rete CDN, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

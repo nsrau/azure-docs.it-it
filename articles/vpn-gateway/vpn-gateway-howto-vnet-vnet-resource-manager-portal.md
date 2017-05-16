@@ -13,24 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4133e2e90f51d141044f2ac064c60df1263b498e
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 50934bcc065b4039467d7371d4bbac11f5933888
+ms.lasthandoff: 04/25/2017
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Configurare una connessione da rete virtuale a rete virtuale con il portale di Azure
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Configurare una connessione gateway VPN tra reti virtuali con il portale di Azure
 
-La connessione di una rete virtuale a un'altra rete virtuale (da rete virtuale a rete virtuale) è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni di connessioni multisito. Questo permette di definire topologie di rete che consentono di combinare la connettività cross-premise con la connettività tra reti virtuali.
-
-![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
-
-Questo articolo illustra la creazione di una connessione tra reti virtuali nel modello di distribuzione Resource Manager usando il gateway VPN e il portale di Azure. Quando si usa il portale di Azure per connettere reti virtuali, queste devono trovarsi nella stessa sottoscrizione. Se le reti virtuali si trovano in sottoscrizioni diverse, è comunque possibile connetterle seguendo la procedura illustrata per [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
-
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] Se si desidera creare una connessione tra reti virtuali usando un modello o uno strumento di distribuzione diverso o tra modelli di distribuzione diversi, è possibile selezionare un articolo dall'elenco a discesa seguente:
+Questo articolo descrive come creare una connessione gateway VPN tra reti virtuali. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager e al portale di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -41,17 +35,16 @@ Questo articolo illustra la creazione di una connessione tra reti virtuali nel m
 >
 >
 
-[!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
+![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
+La connessione di una rete virtuale a un'altra rete virtuale (da rete virtuale a rete virtuale) è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE. Se le reti virtuali si trovano nella stessa area, è consigliabile considerare la possibilità di connetterle tramite peering reti virtuali. Peering reti virtuali non usa un gateway VPN. Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="about-vnet-to-vnet-connections"></a>Informazioni sulla connessione da rete virtuale a rete virtuale
-La connessione di una rete virtuale a un'altra rete virtuale (da rete virtuale a rete virtuale) è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività usano un gateway VPN di Azure per fornire un tunnel sicuro tramite IPsec/IKE. Le reti virtuali a cui ci si connette possono trovarsi in aree geografiche o sottoscrizioni diverse. Si noti che se le reti virtuali si trovano in sottoscrizioni diverse non sarà possibile creare la connessione nel portale. È possibile però usare [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
-
-È anche possibile combinare una comunicazione tra reti virtuali con configurazioni multisito. In questo modo è possibile definire topologie di rete che consentono di combinare la connettività cross-premise con la connettività tra reti virtuali, come illustrato nel diagramma seguente:
+La comunicazione tra reti virtuali può essere associata a configurazioni multisito. In questo modo è possibile definire topologie di rete che consentono di combinare la connettività cross-premise con la connettività tra reti virtuali, come illustrato nel diagramma seguente:
 
 ![Informazioni sulle connessioni](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Informazioni sulle connessioni")
 
 ### <a name="why-connect-virtual-networks"></a>Perché connettere reti virtuali?
+
 È possibile connettere reti virtuali per i seguenti motivi:
 
 * **Presenza e ridondanza in più aree geografiche**
@@ -62,10 +55,10 @@ La connessione di una rete virtuale a un'altra rete virtuale (da rete virtuale a
   
   * All'interno di una stessa area è possibile configurare applicazioni multilivello con più reti virtuali connesse tra loro a causa dell'isolamento o di requisiti amministrativi.
 
-Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Considerazioni sulle connessioni da rete virtuale a rete virtuale](#faq) alla fine di questo articolo.
+Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Domande frequenti relative alla connessione da rete virtuale a rete virtuale](#faq) alla fine di questo articolo. Si noti che se le reti virtuali si trovano in sottoscrizioni diverse non sarà possibile creare la connessione nel portale. È possibile però usare [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 ### <a name="values"></a>Impostazioni di esempio
-Quando si segue questa procedura come esercizio, è possibile usare i valori della configurazione di esempio. A scopo esemplificativo, vengono usati più spazi di indirizzi per ogni rete virtuale, anche se per le configurazioni da rete virtuale a rete virtuale non sono necessari.
+Quando si segue questa procedura come esercizio, è possibile usare i valori delle impostazioni di esempio. A scopo esemplificativo, vengono usati più spazi di indirizzi per ogni rete virtuale, anche se per le configurazioni da rete virtuale a rete virtuale non sono necessari.
 
 **Valori per TestVNet1:**
 
@@ -187,7 +180,7 @@ Per visualizzare altre informazioni, è possibile fare doppio clic su ogni singo
 
 ![Informazioni di base](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Informazioni di base")
 
-## <a name="faq"></a>Considerazioni sulle connessioni da rete virtuale a rete virtuale
+## <a name="faq"></a>Domande frequenti sulle connessioni da rete virtuale a rete virtuale
 Visualizzare i dettagli delle frequenti per altre informazioni sulle connessioni da rete virtuale a rete virtuale.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]

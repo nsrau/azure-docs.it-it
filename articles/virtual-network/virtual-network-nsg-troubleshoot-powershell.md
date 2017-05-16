@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 13ffe90e03dbe99366fb4f6e2788ba7a3c968a30
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b067278389a364514067bcef7045542486e113c9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,7 +45,7 @@ Sebbene in questo esempio si usi la porta TCP 3389, è possibile attenersi alla 
 ## <a name="detailed-troubleshooting-steps"></a>Procedura di risoluzione dei problemi dettagliata
 Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza di rete per una VM:
 
-1. Avviare una sessione di Azure PowerShell e accedere ad Azure. Se non si ha dimestichezza con Azure PowerShell, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Avviare una sessione di Azure PowerShell e accedere ad Azure. Se non si ha dimestichezza con Azure PowerShell, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 2. Immettere il comando seguente per restituire tutte le regole dei gruppi di sicurezza di rete applicate a un'interfaccia di rete denominata *VM1 NIC1* nel gruppo di risorse *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -197,10 +198,5 @@ Durante la risoluzione dei problemi di connettività, tenere presente quanto seg
 * Se si hanno reti virtuali con peering, il tag VIRTUAL_NETWORK si espanderà automaticamente per impostazione predefinita in modo da includere i prefissi delle reti virtuali con peering. È possibile vedere questi prefissi nell'elenco **ExpandedAddressPrefix** per risolvere eventuali problemi legati alla connettività di peering della rete virtuale. 
 * Le regole di sicurezza effettive vengono visualizzate solo se c'è un gruppo di sicurezza di rete associato all'interfaccia di rete o alla subnet della VM. 
 * Se non esistono gruppi di sicurezza di rete associati all'interfaccia di rete o alla subnet e si dispone di un indirizzo IP pubblico assegnato alla VM, tutte le porte saranno aperte per l'accesso in ingresso e in uscita. Se la VM ha un indirizzo IP pubblico, è consigliabile applicare gruppi di sicurezza di rete all'interfaccia di rete o alla subnet.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

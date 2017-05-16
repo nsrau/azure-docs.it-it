@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/20/2017
 ms.author: magoedte;banders
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 93d653c4e70dd058cf0408d821724a175256c918
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: ce2f9311775389366c66323070254f721f0896ab
+ms.contentlocale: it-it
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -27,9 +28,10 @@ Questo documento descrive in che modo i computer gestiti OMS e monitorati da Sys
 
 Il gateway OMS supporta:
 
-1. Funzionalità Hybrid Runbook Workers di Automazione di Azure  
-2. Computer Windows con Microsoft Monitoring Agent direttamente connesso a un'area di lavoro OMS
-3. System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3 o il gruppo di gestione di Operations Manager 2016 integrato con OMS.  
+* Funzionalità Hybrid Runbook Workers di Automazione di Azure  
+* Computer Windows con Microsoft Monitoring Agent direttamente connesso a un'area di lavoro OMS
+* Computer Linux con l'agente OMS per Linux direttamente connesso a un'area di lavoro OMS  
+* System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3 o il gruppo di gestione di Operations Manager 2016 integrato con OMS.  
 
 Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, ad esempio dispositivi POS o server che supportano servizi IT, ma è necessario connetterli a OMS per gestirli e monitorarli, è possibile configurarli per comunicare direttamente con il gateway OMS per poter ricevere la configurazione e inoltrare i dati per conto dei computer.  Se questi computer vengono configurati con l'agente OMS per connettersi direttamente a un'area di lavoro OMS, tutti i computer comunicheranno invece con il gateway OMS.  Il gateway trasferisce i dati dagli agenti direttamente a OMS senza analizzare i dati in transito.
 
@@ -53,7 +55,8 @@ Il diagramma seguente illustra il flusso di dati da un gruppo di gestione di Ope
 
 Quando si designa un computer per l'esecuzione del gateway OMS, il computer presenta i requisiti seguenti:
 
-* Sistema operativo Windows 10, Windows 7, Windows 8.1, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2
+* Windows 10, Windows 8.1, Windows 7
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .NET Framework 4.5
 * Almeno un processore a 4 core e 8 GB di memoria 
 
@@ -230,18 +233,18 @@ I cmdlet consentono di completare le attività necessarie per aggiornare le impo
 
 Se si verifica un errore nel passaggio 3, il modulo non è stato importato. L'errore può verificarsi quando PowerShell non riesce a trovare il modulo. È possibile trovarlo nel percorso di installazione del gateway: *C:\Programmi\Microsoft OMS Gateway\PowerShell*.
 
-| **Cmdlet** | **Parametri** | **Descrizione** | **esempi** |
-| --- | --- | --- | --- |
-| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> Valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |
-| `Get-OMSGatewayConfig` |Chiave |Ottiene la configurazione del servizio |`Get-OMSGatewayConfig` <br> <br> `Get-OMSGatewayConfig -Name ListenPort` |
-| `Set-OMSGatewayRelayProxy` |Indirizzo <br> Nome utente <br> Password |Imposta l'indirizzo (e le credenziali) del proxy di inoltro (upstream) |1. Impostare un proxy di risposta e le credenziali: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080 -Username user1 -Password 123` <br> <br> 2. Impostare un proxy di risposta che non richiede l'autenticazione: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080` <br> <br> 3. Deselezionare l'impostazione del proxy di risposta, ovvero non è necessario un proxy di risposta: `Set-OMSGatewayRelayProxy -Address ""` |
-| `Get-OMSGatewayRelayProxy` | |Ottiene l'indirizzo del proxy di inoltro (upstream) |`Get-OMSGatewayRelayProxy` |
-| `Add-OMSGatewayAllowedHost` |Host (obbligatorio) |Aggiunge l'host all'elenco dei valori consentiti |`Add-OMSGatewayAllowedHost -Host www.test.com` |
-| `Remove-OMSGatewayAllowedHost` |Host (obbligatorio) |Rimuove l'host dall'elenco dei valori consentiti |`Remove-OMSGatewayAllowedHost -Host www.test.com` |
-| `Get-OMSGatewayAllowedHost` | |Ottiene gli host attualmente consentiti (solo gli host consentiti configurati localmente, non include gli host consentiti scaricati automaticamente) |`Get-OMSGatewayAllowedHost` |
-| `Add-OMSGatewayAllowedClientCertificate` |Oggetto (obbligatorio) |Aggiunge l'oggetto del certificato client all'elenco dei valori consentiti |`Add-OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Remove-OMSGatewayAllowedClientCertificate` |Oggetto (obbligatorio) |Rimuove l'oggetto del certificato client dall'elenco dei valori consentiti |`Remove- OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Get-OMSGatewayAllowedClientCertificate` | |Ottiene gli oggetti del certificato client attualmente consentiti (solo gli oggetti consentiti configurati localmente, non include gli oggetti consentiti scaricati automaticamente) |`Get-OMSGatewayAllowedClientCertificate` |
+| **Cmdlet** | **Parametri** | **Descrizione** | **Esempio** |
+| --- | --- | --- | --- |  
+| `Get-OMSGatewayConfig` |Chiave |Ottiene la configurazione del servizio |`Get-OMSGatewayConfig` |  
+| `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> Valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Get-OMSGatewayRelayProxy` | |Ottiene l'indirizzo del proxy di inoltro (upstream) |`Get-OMSGatewayRelayProxy` |  
+| `Set-OMSGatewayRelayProxy` |Indirizzo<br> Nome utente<br> Password |Imposta l'indirizzo (e le credenziali) del proxy di inoltro (upstream) |1. Impostare un proxy di inoltro e le credenziali:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Impostare un proxy di inoltro che non richiede autenticazione: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Deselezionare l'impostazione del proxy di inoltro:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |Ottiene gli host attualmente consentiti (solo gli host consentiti configurati localmente, non include gli host consentiti scaricati automaticamente) |`Get-OMSGatewayAllowedHost` | 
+| `Add-OMSGatewayAllowedHost` |Host (obbligatorio) |Aggiunge l'host all'elenco dei valori consentiti |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
+| `Remove-OMSGatewayAllowedHost` |Host (obbligatorio) |Rimuove l'host dall'elenco dei valori consentiti |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
+| `Add-OMSGatewayAllowedClientCertificate` |Oggetto (obbligatorio) |Aggiunge l'oggetto del certificato client all'elenco dei valori consentiti |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
+| `Remove-OMSGatewayAllowedClientCertificate` |Oggetto (obbligatorio) |Rimuove l'oggetto del certificato client dall'elenco dei valori consentiti |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
+| `Get-OMSGatewayAllowedClientCertificate` | |Ottiene gli oggetti del certificato client attualmente consentiti (solo gli oggetti consentiti configurati localmente, non include gli oggetti consentiti scaricati automaticamente) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 Per raccogliere gli eventi registrati dal gateway, è necessario che sia installato anche l'agente OMS.<br><br> ![Visualizzatore eventi – Log del gateway OMS](./media/log-analytics-oms-gateway/event-viewer.png)

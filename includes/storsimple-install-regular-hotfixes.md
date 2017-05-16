@@ -17,8 +17,3 @@
 4. Quando richiesto, specificare il percorso della cartella condivisa di rete che contiene i file dell'aggiornamento rapido.
 5. Verrà richiesto di confermare. Digitare **Y** per procedere con l'installazione dell'aggiornamento rapido.
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

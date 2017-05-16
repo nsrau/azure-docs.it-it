@@ -1,5 +1,5 @@
 ---
-title: Panoramica del servizio di analisi degli errori | Documentazione Microsoft
+title: Panoramica del servizio di analisi degli errori | Microsoft Docs
 description: Questo articolo descrive il servizio di analisi degli errori di Service Fabric per provocare errori ed eseguire scenari di test sui servizi dell&quot;utente.
 services: service-fabric
 documentationcenter: .net
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
 ms.author: anmola
-translationtype: Human Translation
-ms.sourcegitcommit: e3dda1f6a0d513668aca252aa1855a93f3720247
-ms.openlocfilehash: 3bff3fb99f27985c24b5a2e677738595314242c4
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c05081685532aecbe29e9bf380f0278e775ad6b7
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ Il servizio di analisi degli errori è progettato per testare servizi basati su 
 Le azioni sono i singoli errori destinati a un servizio a scopo di test. Uno sviluppatore di servizi può utilizzarle come blocchi predefiniti per scrivere scenari complicati. Ad esempio:
 
 * Riavviare un nodo per simulare un qualsiasi numero di situazioni in cui un computer o una VM viene riavviata.
-* Spostare una replica del servizio con stato per simulare il bilanciamento del carico, il failover o l’aggiornamento dell'applicazione.
+* Spostare una replica del servizio con stato per simulare il bilanciamento del carico, il failover o l'aggiornamento dell'applicazione.
 * Richiamare la perdita del quorum in un servizio con stato per creare una situazione in cui le operazioni di scrittura non possono continuare perché il numero delle repliche di "backup" o "secondarie" non è sufficiente per accettare nuovi dati.
 * Richiamare la perdita di dati in un servizio con stato per creare una situazione in cui tutto lo stato in memoria sia completamente cancellato.
 
@@ -37,7 +38,7 @@ Gli scenari sono operazioni complesse costituite da una o più azioni. Il serviz
 * Scenario di failover
 
 ## <a name="testing-as-a-service"></a>Test come servizio
-Il servizio di analisi degli errori è un servizio di sistema di Service Fabric che viene avviato automaticamente con un cluster di Service Fabric. Questo servizio fa da host per l'inserimento di errori, l'esecuzione degli scenari di test e l'analisi dell'integrità. 
+Il servizio di analisi degli errori è un servizio di sistema di Service Fabric che viene avviato automaticamente con un cluster di Service Fabric. Questo servizio funge da host per l'inserimento di errori, l'esecuzione degli scenari di test e l'analisi dell'integrità. 
 
 ![Servizio di analisi degli errori][0]
 

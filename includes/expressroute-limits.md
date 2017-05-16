@@ -25,8 +25,3 @@ Le seguenti limitazioni si applicano alle risorse di ExpressRoute per ogni sotto
 | 5 Gbps |10 |75 |
 | 10 Gbps |10 |100 |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

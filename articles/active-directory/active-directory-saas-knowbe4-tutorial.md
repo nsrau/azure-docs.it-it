@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: bc7ce4867180dd9f896b894b56a02bf033ed6bbb
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: deb4916d69ad9a447836b33711864c242e5c5dec
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ Questa esercitazione descrive l'integrazione di KnowBe4 con Azure Active Directo
 L'integrazione di KnowBe4 con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a KnowBe4.
-* È possibile abilitare gli utenti per l'accesso automatico a KnowBe4 (Single Sign-On) con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico con Single Sign-On (SSO) a KnowBe4 con i propri account Azure AD
 * È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -46,7 +46,7 @@ Per configurare l'integrazione di Azure AD con KnowBe4, sono necessari gli eleme
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.  
@@ -54,7 +54,7 @@ L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 * Aggiunta di KnowBe4 dalla raccolta
-* Configurazione e test dell'accesso Single Sign-On di Azure AD
+* Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
 
 ## <a name="add-knowbe4-from-the-gallery"></a>Aggiungere KnowBe4 dalla raccolta
 Per configurare l'integrazione di KnowBe4 in Azure AD, è necessario aggiungere KnowBe4 dalla raccolta al proprio elenco di app SaaS gestite.
@@ -88,11 +88,11 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con KnowBe4, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creare un utente di test di KnowBe4](#creating-a-KnowBe4-test-user)**: per avere una controparte di Britta Simon in KnowBe4 collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+5. **[Testare l'accesso Single Sign-On](#testing-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione KnowBe4.
@@ -180,7 +180,7 @@ Non è necessario alcun intervento dell'utente in questa sezione. Durante il ten
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a KnowBe4.
 
-    ![Assign User][200] 
+   ![Assegna utente][200] 
 
 **Per assegnare Britta Simon a KnowBe4, seguire questa procedura:**
 

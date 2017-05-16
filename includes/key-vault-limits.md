@@ -9,8 +9,3 @@
 
 <sup>1</sup> La sottoscrizione prevede un limite globale per tutti i tipi di transazione, ovvero un valore 5 volte superiore al limite dell'insieme di credenziali delle chiavi. Ad esempio, le transazioni diverse da HSM hanno un limite di 5000 transazioni ogni 10 secondi per sottoscrizione.
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

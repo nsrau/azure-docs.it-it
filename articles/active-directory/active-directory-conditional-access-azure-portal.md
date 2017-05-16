@@ -1,5 +1,5 @@
 ---
-title: Accesso condizionale di Azure Active Directory | Documentazione Microsoft
+title: Accesso condizionale di Azure Active Directory | Microsoft Docs
 description: Usare il controllo di accesso condizionale di Azure Active Directory per controllare condizioni specifiche durante il processo di autenticazione per l&quot;accesso alle applicazioni.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/06/2017
+ms.date: 05/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 62804019a8c2c5e719c36021ee04cbd20e03dd05
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 85a59eddf3c453ee112f279d439c94853b2f62b5
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -84,7 +85,7 @@ Se in un criterio di accesso condizionale è selezionato più di un requisito, �
 ![Controllo](./media/active-directory-conditional-access-azure-portal/06.png)
 
 ### <a name="session-controls"></a>Controlli di sessione
-I controlli di sessione consentono di limitare esperienza in un'app cloud. Questi controlli sono imposti dalle app cloud e si basano sulle informazioni aggiuntive relative alla sessione fornite da Azure AD all'app.
+I controlli di sessione consentono di limitare l'esperienza in un'app cloud. Questi controlli sono imposti dalle app cloud e si basano sulle informazioni aggiuntive relative alla sessione fornite da Azure AD all'app.
 
 ![Controllo](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
 
@@ -171,7 +172,7 @@ Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che t
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>L'accesso condizionale funziona con Exchange ActiveSync?
 
-No, non è possibile usare Exchange ActiveSync in un criterio di accesso condizionale in questa fase.
+Sì, è possibile usare Exchange ActiveSync in criteri di accesso condizionale.
 
 
 ### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>Che cosa accade se si richiedi l'autenticazione a più fattori o un dispositivo conforme?

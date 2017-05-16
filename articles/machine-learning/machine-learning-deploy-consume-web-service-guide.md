@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
 ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
+ms.lasthandoff: 12/19/2016
 
 
 ---
@@ -96,9 +97,4 @@ Per altre informazioni, vedere gli articoli e il codice di esempio seguenti:
 
 ### <a name="from-a-rest-based-client"></a>Da un client basato su REST
 I servizi Web di Azure Machine Learning sono API RESTful. È possibile usare queste API da diverse piattaforme quali .NET, Python, R, Java e così via. La pagina **di utilizzo** del servizio Web nel [portale dei servizi Web di Microsoft Azure Machine Learning](https://services.azureml.net) offre codice di esempio che può essere utile per iniziare. Per altre informazioni, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

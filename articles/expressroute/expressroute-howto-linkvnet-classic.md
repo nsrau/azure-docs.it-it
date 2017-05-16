@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 9601ff3152e62baf95794919fdc5a7fc43204d52
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c30f58079c9d8b8077b65881517178fa0ae0e598
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ Questo articolo spiega come collegare le reti virtuali ai circuiti di Azure Expr
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
-1. È necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare i moduli di PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download di Azure](https://azure.microsoft.com/downloads/). Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli di Azure PowerShell, seguire le istruzioni contenute in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. È necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare i moduli di PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download di Azure](https://azure.microsoft.com/downloads/). Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli di Azure PowerShell, seguire le istruzioni contenute in [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 2. Prima di procedere con la configurazione, è necessario verificare i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 3. È necessario avere un circuito ExpressRoute attivo.
    * Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) e fare in modo che il circuito venga abilitato dal provider di connettività.

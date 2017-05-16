@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 3/31/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 845a950f02ba95a100ffedbb07e4d1491b22a2da
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ecfe9d512b0ffc891120d899f0541d3d3c9f6498
+ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="failback-in-site-recovery"></a>Failback in Site Recovery
+
+# <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Failback in Site Recovery per macchine virtuali Hyper-V
+
 > [!div class="op_single_selector"]
-> * [Computer VMware/fisici da Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Computer VMware/fisici da Azure](site-recovery-how-to-failback-azure-to-vmware.md)
 > * [Macchine virtuali Hyper-V da Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
 Questo articolo descrive come eseguire il failback di macchine virtuali protette da Site Recovery. 
@@ -44,7 +46,7 @@ Azure è un ambiente a elevata disponibilità e le macchine virtuali saranno sem
 Dopo il failover dalla posizione primaria alla posizione secondaria, le macchine virtuali replicate non sono protette da Site Recovery e la posizione secondaria funge da posizione attiva. Utilizzare queste procedure per eseguire il failback al sito primario originale. Questa procedura descrive come eseguire un failover pianificato per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina nella scheda **Macchine virtuali** .
 
 1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Planned Failover**.
-2. Nella pagina **Conferma failover pianificato**selezionare il percorso di origine e destinazione. Prendere nota della direzione del failover. Se il failover dal sito primario funziona nel modo previsto e tutte le macchine virtuali si trovano nella posizione secondaria, la direzione ha solo scopo informativo.
+2. Nella pagina **Conferma failover pianificato** selezionare i percorsi di origine e di destinazione. Prendere nota della direzione del failover. Se il failover dal sito primario funziona nel modo previsto e tutte le macchine virtuali si trovano nella posizione secondaria, la direzione ha solo scopo informativo.
 3. Se si esegue il failback da Azure, selezionare le impostazioni in **Sincronizzazione dati**:
 
    * **Sincronizza i dati prima del failover (sincronizza solo modifiche differenziali)**: questa opzione riduce al minimo i tempi di inattività delle macchine virtuali poiché le sincronizza senza arrestarle. Effettua le seguenti operazioni:

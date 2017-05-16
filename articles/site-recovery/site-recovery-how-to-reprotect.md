@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7b7177faa9fa571d3a62ee15b4a0fbfdab3a097f
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,6 +26,10 @@ ms.lasthandoff: 03/24/2017
 
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive come eseguire la riprotezione di macchine virtuali di Azure da Azure al sito locale. Seguire le istruzioni riportate in questo articolo quando si è pronti a eseguire il failback delle macchine virtuali VMware o dei server fisici Windows/Linux dopo aver eseguito il failover dal sito locale in Azure usando [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-failover.md).
+
+> [!WARNING]
+> Se è stata [completata la migrazione](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), la macchina virtuale è stata spostata in un altro gruppo di risorse o la macchina virtuale di Azure è stata eliminata, non è possibile eseguire il failback.
+
 
 Al termine della riprotezione e dopo l'avvio della replica delle macchine virtuali protette, è possibile avviare un failback nelle macchine virtuali per spostarle nel sito locale.
 
@@ -38,15 +43,18 @@ Per una rapida panoramica, guardare il video seguente che illustra come eseguire
 Di seguito vengono riportati i passaggi obbligatori da eseguire o prendere in considerazione quando ci si prepara per la riprotezione.
 
 * Se le macchine virtuali in cui si vuole eseguire il failback sono gestite da un server vCenter, verificare di avere le autorizzazioni necessarie per l'individuazione di macchine virtuali nei server vCenter. [Altre informazioni](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-* Se in una macchina virtuale locale sono presenti snapshot, la riprotezione avrà esito negativo. È possibile eliminare gli snapshot prima di continuare con la riprotezione.
-* Prima di eseguire il failback è necessario creare due componenti aggiuntivi:
+
+> [!WARNING] 
+> Se nella destinazione master o nella macchina virtuale locale sono presenti snapshot, la riprotezione avrà esito negativo. È possibile eliminare gli snapshot nella destinazione master prima di continuare con la protezione. Durante il processo di protezione gli snapshot nella macchina virtuale verranno automaticamente uniti.
+
+* Prima di eseguire il failback, sarà necessario creare due componenti aggiuntivi:
   * **Creare un server di elaborazione**. Il server di elaborazione riceve dati dalla macchina virtuale protetta in Azure e invia dati al sito locale. È necessaria una rete a bassa latenza tra il server di elaborazione e la macchina virtuale protetta. Di conseguenza, è possibile avere un server di elaborazione locale se si usa una connessione Azure ExpressRoute o un server di elaborazione di Azure se si usa una VPN.
   * **Creare un server di destinazione master**: il server di destinazione riceve i dati di failback. Nel server di gestione locale creato è installato un server di destinazione master per impostazione predefinita. Tuttavia, a seconda del volume di traffico sottoposto a failback, potrebbe essere necessario creare un server di destinazione master separato per il failback.
         * [Per una macchina virtuale Linux è necessario un server di destinazione master Linux](site-recovery-how-to-install-linux-master-target.md).
         * Per una macchina virtuale Windows è necessario un server di destinazione master Windows. È possibile usare ancora il server di elaborazione locale e i computer di destinazione master.
 * Quando si esegue un failback, è necessario un server di configurazione locale. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione. In caso contrario, il failback non riuscirà. Verificare di pianificare backup regolari del server. In caso di emergenza, è necessario ripristinare il server con lo stesso indirizzo IP in modo che il failback funzioni.
 * Assicurarsi di configurare l'impostazione disk.EnableUUID=true nei parametri di configurazione della macchina virtuale di destinazione master in VMware. Se questa riga non esiste, aggiungerla perché questa impostazione è necessaria per fornire un valore UUID coerente al disco della macchina virtuale (VMDK) in modo che venga installato correttamente.
-* *Non è possibile usare Storage vMaster per il server di destinazione master*. perché può impedire il completamento del failback. La macchina virtuale non verrà avviata perché i dischi non saranno disponibili.
+* *Non è possibile usare Storage vMotion nel server di destinazione master* perché può impedire il completamento del failback. La macchina virtuale non verrà avviata perché i dischi non saranno disponibili. Per impedire questo problema, escludere i server di destinazione master dall'elenco vMotion.
 * È necessario aggiungere una nuova unità al server di destinazione master. Questa unità è denominata unità di conservazione. Aggiungere un nuovo disco e formattare l'unità.
 * La destinazione master ha altri prerequisiti elencati in [Elementi comuni da controllare dopo aver installato un server di destinazione master](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
@@ -76,6 +84,11 @@ Tenere presente che la replica avrà luogo solo tramite la VPN S2S o tramite il 
 
 Altre informazioni su come installare un [server di elaborazione di Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
+> [!TIP]
+> È consigliabile usare un server di elaborazione basato su Azure durante il failback. Le prestazioni di replica sono migliori se il server di elaborazione è più vicino alla macchina virtuale di replica (computer su cui viene eseguito il failover in Azure). Tuttavia, durante i modelli di verifica o le dimostrazioni, è possibile usare il server di elaborazione locale insieme a ExpressRoute con peering privato per completare più rapidamente il modello di verifica.
+
+
+
 ### <a name="what-are-the-ports-to-be-open-on-different-components-so-that-reprotect-can-work"></a>Porte da aprire per i diversi componenti in modo che la riprotezione possa funzionare
 
 ![Failover-failback: tutte le porte](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
@@ -94,9 +107,12 @@ Fare clic sui collegamenti seguenti per informazioni su come installare un serve
 
 * Se la macchina virtuale è presente in locale nel server vCenter, il server di destinazione master deve poter accedere al disco VMDK nella macchina virtuale locale. L'accesso è necessario per scrivere i dati replicati nei dischi della macchina virtuale. Assicurarsi che l'archivio dati della macchina virtuale locale sia montato nell'host del server di destinazione master con accesso in lettura/scrittura.
 
-* Se la macchina virtuale non è presente in locale nel server vCenter, è necessario creare una nuova macchina virtuale durante la riprotezione. Questa macchina virtuale verrà creata nell'host ESX in cui si crea il server di destinazione master. Scegliere con attenzione l'host ESX in modo che la macchina virtuale di failback venga creata nell'host desiderato.
+* Se la macchina virtuale non è presente in locale nel server vCenter, il servizio Site Recovery deve creare una nuova macchina virtuale durante la riprotezione. Questa macchina virtuale verrà creata nell'host ESX in cui si crea il server di destinazione master. Scegliere con attenzione l'host ESX in modo che la macchina virtuale di failback venga creata nell'host desiderato.
 
 * *Non è possibile usare Storage vMotion per il server di destinazione master*. perché può impedire il completamento del failback. La macchina virtuale non verrà avviata perché i dischi non saranno disponibili.
+
+> [!WARNING]
+> Se una destinazione master viene sottoposta a una riprotezione successiva di Storage vMotion, i dischi delle macchine virtuali protette collegati alla destinazione master vengono migrati nella destinazione di vMotion. Se dopo questa operazione si prova il failback, lo scollegamento del disco non riesce, con un messaggio che indica che i dischi non sono stati trovati. Diventa quindi molto difficile trovare i dischi negli account di archiviazione. Sarà necessario trovarli manualmente e collegarli alla macchina virtuale. Sarà quindi possibile riavviare la macchina virtuale locale.
 
 * È necessario aggiungere una nuova unità al server di destinazione master Windows esistente. Questa unità è denominata unità di conservazione. Aggiungere un nuovo disco e formattare l'unità. L'unità di conservazione viene usata per arrestare i punti nel tempo quando la macchina virtuale esegue di nuovo la replica nel sito locale. Di seguito sono indicati alcuni criteri per un'unità di conservazione, senza i quali l'unità non sarà elencata per il server di destinazione master.
 
@@ -113,6 +129,11 @@ Fare clic sui collegamenti seguenti per informazioni su come installare un serve
    * Il volume di conservazione predefinito per Windows è il volume R.
 
    * Il volume di conservazione predefinito per Linux è /mnt/retention/.
+   
+   > [!IMPORTANT]
+   > È necessario aggiungere una nuova unità se si usa un computer CS+PS esistente o un computer di scala o PS+MT. La nuova unità deve soddisfare i requisiti indicati sopra. Se l'unità di conservazione non è presente, nessuna unità verrà elencata nell'elenco a discesa di selezione nel portale. Dopo aver aggiunto un'unità alla destinazione master locale, sono necessari fino a 15 minuti perché l'unità appaia nell'elenco di selezione nel portale. È anche possibile aggiornare il server di configurazione se l'unità non appare dopo 15 minuti.
+
+
 
 * Per una macchina virtuale Linux sottoposta a failover è necessario un server di destinazione master Linux. Per una macchina virtuale Windows sottoposta a failover è necessario un server di destinazione master Windows.
 
@@ -163,6 +184,8 @@ Per ripristinare la macchina virtuale in Azure in una macchina virtuale locale e
 > [!NOTE]
 > Un gruppo di replica deve essere protetto usando la stessa destinazione master. In caso di protezione con un server di destinazione master diverso, il server non può fornire una temporizzazione comune.
 
+> [!NOTE]
+> La macchina virtuale locale verrà spenta dopo la riprotezione, al fine di assicurare la coerenza dei dati durante la replica. Non accendere la macchina virtuale al termine della riprotezione.
 
 Dopo la riprotezione, la macchina virtuale entrerà in uno stato protetto.
 

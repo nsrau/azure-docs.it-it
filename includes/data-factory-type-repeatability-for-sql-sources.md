@@ -83,8 +83,3 @@ Data factory di Azure popolerà la colonna in modo che l'origine e la destinazio
 
 Analogamente al meccanismo 1, l'attività di copia pulisce prima i dati della sezione specificata dalla tabella SQL di destinazione, quindi esegue normalmente l'attività di copia per inserire i dati dall'origine alla destinazione della sezione. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

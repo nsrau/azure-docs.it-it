@@ -1,10 +1,10 @@
 ---
-title: Modello di dati di Application Insights
+title: Modello di dati di Azure Application Insights | Microsoft Docs
 description: "Descrive le proprietà esportate da esportazione continua in JSON e usate come filtri."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
-ms.lasthandoff: 02/02/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3084bb344976bc542e78a55a1c27c4dedc111af0
+ms.contentlocale: it-it
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +32,6 @@ Punti da notare:
 * Le durate sono espresse in decimi di microsecondo, quindi 10000000 == 1 secondo.
 * Date e ore sono in formato UTC e vengono specificate nel formato ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
-Ci sono diversi [esempi](app-insights-export-telemetry.md#code-samples) che illustrano come usarle.
 
 ## <a name="example"></a>Esempio
     // A server report about an HTTP request

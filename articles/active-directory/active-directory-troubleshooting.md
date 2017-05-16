@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9c52e9257272c5b0c55c488d2c7ca6fef500260b
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -51,10 +52,5 @@ Quando si fa clic su **+Nuovo** > **Servizi app**, viene visualizzata la voce **
 Tuttavia, durante il caricamento della pagina, la voce viene visualizzata in grigio ed è contrassegnata come **Non disponibile**. Questo stato è temporaneo. Dopo alcuni secondi, la voce diventerà disponibile. Se il ritardo è prolungato, spesso il problema si risolve aggiornando la pagina Web.
 
 ![Schermata: Active Directory non disponibile](./media/active-directory-troubleshooting/not-available.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

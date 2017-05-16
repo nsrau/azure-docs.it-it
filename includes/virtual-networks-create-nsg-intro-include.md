@@ -2,8 +2,3 @@
 
 Per ulteriori informazioni su NSGs, visitare [Informazioni su NSG](../articles/virtual-network/virtual-networks-nsg.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

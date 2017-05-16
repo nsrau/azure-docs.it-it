@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: gsacavdm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b035ad1505e45c8c0820c825ff609df6e6100f0
-ms.openlocfilehash: 826824d6ecf039dcf458dd2444b029f284103ed9
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: a13bedc2ad31e45f3525a87655b6c46e653cee16
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -39,7 +40,7 @@ Il modo in cui l'applicazione gestisce il rollover della chiave dipende da varia
 * [API / applicazioni Web che proteggono le risorse usando middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [API / applicazioni Web che proteggono le risorse usando middleware .NET Core OpenID Connect o JwtBearerAuthentication](#owincore)
 * [API / applicazioni Web che proteggono le risorse usando il modulo Node.js passport-azure-ad](#passport)
-* [API / applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2015](#vs2015)
+* [API/applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2015 o Visual Studio 2017](#vs2015)
 * [Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2013](#vs2013)
 * [API Web che proteggono le risorse e sono state create con Visual Studio 2013](#vs2013_webapi)
 * [Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2012](#vs2012)
@@ -51,20 +52,20 @@ Queste indicazioni **non** sono valide per:
 * Applicazioni aggiunte dalla raccolta di applicazioni di Azure AD (incluse quelle personalizzate), che hanno indicazioni separate per la chiave di firma. [Altre informazioni.](../active-directory-sso-certs.md)
 * Applicazioni locali pubblicate tramite il proxy di applicazione, che non prevedono le chiavi di firma.
 
-### <a name="a-namenativeclientanative-client-applications-accessing-resources"></a><a name="nativeclient"></a>Applicazioni client native che accedono alle risorse
+### <a name="nativeclient"></a>Applicazioni client native che accedono alle risorse
 Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, l'insieme di credenziali, l'API Outlook e altre API Microsoft, in genere ottengono soltanto un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
 
 Le applicazioni client native, sia per desktop che per dispositivi mobili, rientrano in questa categoria e quindi non sono interessate dal rollover.
 
-### <a name="a-namewebclientaweb-applications--apis-accessing-resources"></a><a name="webclient"></a>API / applicazioni Web che accedono alle risorse
+### <a name="webclient"></a>API / applicazioni Web che accedono alle risorse
 Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, l'insieme di credenziali, l'API Outlook e altre API Microsoft, in genere ottengono soltanto un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
 
 Le applicazioni Web e le API Web che usano il flusso solo app (credenziali client / certificato client) rientrano in questa categoria e quindi non sono interessate dal rollover.
 
-### <a name="a-nameappservicesaweb-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>API / applicazioni Web che proteggono le risorse e sono state compilate con i servizi app di Azure
+### <a name="appservices"></a>API / applicazioni Web che proteggono le risorse e sono state compilate con i servizi app di Azure
 La funzionalità di autenticazione / autorizzazione (EasyAuth) dei servizi app di Azure ha già la logica necessaria per gestire automaticamente il rollover della chiave.
 
-### <a name="a-nameowinaweb-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>API / applicazioni Web che proteggono le risorse usando middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication
+### <a name="owin"></a>API / applicazioni Web che proteggono le risorse usando middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication
 Se l'applicazione usa middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication, ha già la logica necessaria per gestire automaticamente il rollover della chiave.
 
 È possibile verificare che l'applicazione usi middleware di questo tipo cercando uno dei frammenti seguenti nei file Startup.cs o Startup.Auth.cs dell'applicazione
@@ -91,7 +92,7 @@ app.UseWsFederationAuthentication(
      });
 ```
 
-### <a name="a-nameowincoreaweb-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>API / applicazioni Web che proteggono le risorse usando middleware .NET Core OpenID Connect o JwtBearerAuthentication
+### <a name="owincore"></a>API / applicazioni Web che proteggono le risorse usando middleware .NET Core OpenID Connect o JwtBearerAuthentication
 Se l'applicazione usa middleware .NET Core OWIN OpenID Connect o JwtBearerAuthentication, ha già la logica necessaria per gestire automaticamente il rollover della chiave.
 
 È possibile verificare che l'applicazione usi middleware di questo tipo cercando uno dei frammenti seguenti nei file Startup.cs o Startup.Auth.cs dell'applicazione
@@ -111,7 +112,7 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="a-namepassportaweb-applications--apis-protecting-resources-using-nodejs-passport-azure-ad-module"></a><a name="passport"></a>API / applicazioni Web che proteggono le risorse usando il modulo Node.js passport-azure-ad
+### <a name="passport"></a>API / applicazioni Web che proteggono le risorse usando il modulo Node.js passport-azure-ad
 Se l'applicazione usa il modulo Node.js passport-ad, ha già la logica necessaria per gestire automaticamente il rollover della chiave.
 
 È possibile verificare che l'applicazione usi il modulo passport-ad cercando il frammento seguente nel file app.js dell'applicazione
@@ -124,12 +125,12 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="a-namevs2015aweb-applications--apis-protecting-resources-and-created-with-visual-studio-2015"></a><a name="vs2015"></a>API / applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2015
-Se l'applicazione è stata creata usando un modello di applicazione Web in Visual Studio 2015 e sono stati selezionati **account aziendali o dell'istituto di istruzione** dal menu **Modifica autenticazione**, l'applicazione ha già la logica necessaria per gestire automaticamente il rollover della chiave. Questa logica, incorporata nel middleware OWIN OpenID Connect, recupera e memorizza nella cache le chiavi dal documento di individuazione di OpenID Connect e le aggiorna periodicamente.
+### <a name="vs2015"></a>API/applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2015 o Visual Studio 2017
+Se l'applicazione è stata creata usando un modello di applicazione Web in Visual Studio 2015 o Visual Studio 2017 ed è stata selezionata l'opzione **Account aziendali o dell'istituto di istruzione** nel menu **Modifica autenticazione**, l'applicazione ha già la logica necessaria per gestire automaticamente il rollover della chiave. Questa logica, incorporata nel middleware OWIN OpenID Connect, recupera e memorizza nella cache le chiavi dal documento di individuazione di OpenID Connect e le aggiorna periodicamente.
 
 Se l'autenticazione è stata aggiunta alla soluzione manualmente, l'applicazione potrebbe non avare la logica di rollover della chiave necessaria. Sarà necessario scriverla oppure seguire i passaggi illustrati in [API/Applicazioni Web che proteggono le risorse usando qualsiasi altra libreria o con implementazione manuale di qualsiasi protocollo supportato](#other).
 
-### <a name="a-namevs2013aweb-applications-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2013
+### <a name="vs2013"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2013
 Se l'applicazione è stata creata usando un modello di applicazione Web in Visual Studio 2013 e sono stati selezionati **account aziendali** dal menu **Modifica autenticazione**, l'applicazione ha già la logica necessaria per gestire automaticamente il rollover della chiave. Questa logica archivia l'identificatore univoco dell'organizzazione e informazioni sulla chiave di firma in due tabelle di database associate al progetto. La stringa di connessione per il database si trova nel file Web.config del progetto.
 
 Se l'autenticazione è stata aggiunta alla soluzione manualmente, l'applicazione potrebbe non avare la logica di rollover della chiave necessaria. Sarà necessario scriverla oppure seguire i passaggi illustrati in [API/Applicazioni Web che proteggono le risorse usando qualsiasi altra libreria o con implementazione manuale di qualsiasi protocollo supportato](#other).
@@ -144,7 +145,7 @@ I passaggi seguenti consentono di verificare il corretto funzionamento della log
 6. Compilare ed eseguire l'applicazione. Dopo aver effettuato l'accesso al proprio account sarà possibile arrestare l'applicazione.
 7. Tornare a **Esplora Server** ed esaminare i valori nelle tabelle **IssuingAuthorityKeys** e **Tenant**. Si noterà che sono stati popolati automaticamente con le informazioni appropriate dal documento di metadati della federazione.
 
-### <a name="a-namevs2013aweb-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>API Web che proteggono le risorse e sono state create con Visual Studio 2013
+### <a name="vs2013"></a>API Web che proteggono le risorse e sono state create con Visual Studio 2013
 Se è stata creata un'applicazione API Web in Visual Studio 2013 usando il modello API Web e sono stati selezionati **account aziendali** dal menu **Modifica autenticazione**, l'applicazione ha già la logica necessaria.
 
 Se l'autenticazione è stata configurata manualmente, seguire queste istruzioni per informazioni su come configurare l'API Web per aggiornare automaticamente le informazioni sulle chiavi.
@@ -239,7 +240,7 @@ namespace JWTValidation
 }
 ```
 
-### <a name="a-namevs2012aweb-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2012
+### <a name="vs2012"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2012
 Se l'applicazione è stata creata in Visual Studio 2012 è stato probabilmente usato lo strumento Identità e accesso per configurare l'applicazione. È anche probabile che si usi [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR gestisce le informazioni sui provider di identità attendibili (Azure AD) e le chiavi usate per convalidare i token rilasciati dai provider. VINR semplifica anche l'aggiornamento automatico delle informazioni sulla chiave archiviate in un file Web.config, scaricando il documento di metadati della federazione più recente associato alla directory, verificando se la configurazione è aggiornata con il documento più recente e aggiornando l'applicazione per l'uso della nuova chiave se necessario.
 
 Se l'applicazione è stata creata usando uno degli esempi di codice o le procedure dettagliate offerte da Microsoft, la logica di rollover della chiave è già inclusa nel progetto. Si noterà che il codice seguente esiste già nel progetto. Se l'applicazione non ha questa logica, seguire questa procedura per aggiungerla e verificarne il corretto funzionamento.
@@ -285,7 +286,7 @@ Seguire questa procedura per verificare che la logica di rollover della chiave f
 2. Nella tabella **<add thumbprint=””>** modificare il valore di identificazione personale sostituendo un carattere con uno diverso. Salvare il file **Web.config** .
 3. Compilare l'applicazione ed eseguirla. Se è possibile completare il processo di accesso, l'applicazione aggiorna in modo corretto la chiave scaricando le informazioni necessarie dal documento di metadati della federazione della directory. In caso di problemi di accesso verificare che le modifiche nell'applicazione siano corrette leggendo l'argomento [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) (Aggiunta del processo di accesso nell'applicazione Web tramite Azure AD) oppure scaricando ed esaminando l'esempio di codice seguente: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Applicazione cloud multi-tenant per Azure Active Directory).
 
-### <a name="a-namevs2010aweb-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2008 o 2010 o con Windows Identity Foundation (WIF) v1.0 per .NET 3.5
+### <a name="vs2010"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2008 o 2010 o con Windows Identity Foundation (WIF) v1.0 per .NET 3.5
 Se è stata compilata un'applicazione in WIF v1.0 non esistono meccanismi per aggiornare automaticamente la configurazione dell'applicazione per l'uso di una nuova chiave.
 
 * *Modo più semplice* : usare lo strumento FedUtil incluso in WIF SDK, che può recuperare il documento di metadati più recente e aggiornare la configurazione.
@@ -299,7 +300,7 @@ Istruzioni per usare FedUtil per aggiornare la configurazione:
 3. Al prompt selezionare **Aggiorna** per iniziare l'aggiornamento dei metadati della federazione. Se si ha accesso all'ambiente server in cui è ospitata l'applicazione, è possibile usare facoltativamente l' [utilità di pianificazione dell'aggiornamento automatico dei metadati](https://msdn.microsoft.com/library/ee517272.aspx)di FedUtil.
 4. Fare clic su **Fine** per completare il processo di aggiornamento.
 
-### <a name="a-nameotheraweb-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>API / applicazioni Web che proteggono le risorse usando qualsiasi altra libreria o con implementazione manuale di qualsiasi protocollo supportato
+### <a name="other"></a>API / applicazioni Web che proteggono le risorse usando qualsiasi altra libreria o con implementazione manuale di qualsiasi protocollo supportato
 Se si usano altre librerie o si implementa manualmente qualsiasi protocollo supportato, sarà necessario esaminare la libreria o l'implementazione per verificare che la chiave venga recuperata dal documento di individuazione di OpenID Connect o dal documento di metadati della federazione. Un modo per eseguire la verifica è cercare nel codice o nel codice della libreria chiamate al documento di individuazione di OpenID o al documento di metadati della federazione.
 
 Se la chiave è archiviata in una posizione qualsiasi o è hardcoded nell'applicazione, è possibile recuperarla manualmente e aggiornarla di conseguenza eseguendo un rollover manuale in base alle istruzioni disponibili alla fine di questo documento. **È vivamente consigliato ottimizzare l'applicazione per il supporto del rollover automatico** usando uno degli approcci descritti in questo articolo per evitare interruzioni future e sovraccarichi se Azure AD aumenta la cadenza di rollover o esegue un rollover di emergenza fuori programma.
@@ -309,10 +310,5 @@ Se la chiave è archiviata in una posizione qualsiasi o è hardcoded nell'applic
 
 ## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>Come eseguire un rollover manuale se l'applicazione non supporta il rollover automatico
 Se l'applicazione **non** supporta il rollover automatico, sarà necessario stabilire un processo che monitori periodicamente le chiavi di firma di Azure AD ed esegua un rollover manuale di conseguenza. [Questo repository GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contiene gli script e le istruzioni necessarie.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

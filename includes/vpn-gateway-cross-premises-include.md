@@ -11,8 +11,3 @@
 | **Documentazione tecnica** |[Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
 | **DOMANDE FREQUENTI** |[Domande frequenti sul gateway VPN](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[Domande frequenti sul gateway VPN](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[Domande frequenti su ExpressRoute](../articles/expressroute/expressroute-faqs.md) |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

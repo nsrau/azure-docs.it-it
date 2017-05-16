@@ -1,5 +1,5 @@
 ---
-title: Azioni consentite e non consentite per i ruoli nel controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
+title: Azioni consentite e non consentite per i ruoli nel controllo degli accessi in base al ruolo di Azure | Microsoft Docs
 description: Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: 
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: 404c4c4012eb5b6f8e7acdd7f985009b9f13b9f3
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
@@ -27,19 +28,27 @@ Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli p
 ## <a name="roles-in-azure"></a>Ruoli in Azure
 La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per visualizzare un elenco dettagliato delle proprietà **actions** e **notactions** per il ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile utilizzare caratteri jolly. La proprietà **notactions** specifica le azioni non consentite.
 
+L'azione definisce quale tipo di operazioni è possibile eseguire su un tipo di risorsa specifico. Ad esempio:
+- **Write** (Scrittura) consente di eseguire le operazioni PUT, POST, PATCH e DELETE.
+- **Read** (Lettura) consente di eseguire operazioni GET. 
+
+Questo articolo tratta solo i ruoli diversi che esistono oggi. Quando si assegna un ruolo a un utente, tuttavia, è possibile limitare ulteriormente le azioni consentite definendo un ambito. Ciò è utile se si intende creare un collaboratore di siti Web, ma solo per un gruppo di risorse. 
+
 > [!NOTE]
-> Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare i cmdlet `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` applicabili.
->
->
+> Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare il cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) per elencare tutti i ruoli correnti. È possibile esaminare un ruolo specifico usando `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` in base alle esigenze. Usare [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) per elencare le operazioni di provider di risorse di Azure specifici. 
+
 
 | Nome del ruolo | Descrizione |
 | --- | --- |
-| [Collaboratore servizio Gestione API](#api-management-service-contributor) |È in grado di gestire i servizi Gestione API |
+| [Collaboratore servizio Gestione API](#api-management-service-contributor) |È in grado di gestire i servizi Gestione API e le API |
+| [Ruolo operatore del servizio Gestione API](#api-management-service-operator-role) | È in grado di gestire i servizi Gestione API ma non le API stesse |
+| [Ruolo lettura del servizio Gestione API](#api-management-service-reader-role) | Dispone di accesso in sola lettura al servizio Gestione API e alle API |
 | [Collaboratore componente di Application Insights](#application-insights-component-contributor) |È in grado di gestire i componenti di Application Insights |
 | [Operatore di automazione](#automation-operator) |È in grado di avviare, arrestare, sospendere e riprendere i processi |
 | [Collaboratore di backup](#backup-contributor) | Consente di gestire il backup nell'insieme di credenziali dei Servizi di ripristino |
 | [Operatore di backup](#backup-operator) | Consente di gestire il backup, ad eccezione della rimozione del backup, nell'insieme di credenziali dei Servizi di ripristino |
 | [Lettore di backup](#backup-reader) | Consente di visualizzare tutti i servizi di gestione di backup  |
+| [Lettore per la fatturazione](#billing-reader) | Consente di visualizzare tutte le informazioni di fatturazione  |
 | [Collaboratore BizTalk](#biztalk-contributor) |È in grado di gestire i servizi BizTalk |
 | [Collaboratore database ClearDB MySQL](#cleardb-mysql-db-contributor) |È in grado di gestire i database ClearDB MySQL |
 | [Collaboratore](#contributor) |È in grado di gestire tutto ad eccezione degli accessi. |
@@ -48,6 +57,8 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore zona DNS](#dns-zone-contributor) |È in grado di gestire zone e record DNS |
 | [Collaboratore account DocumentDB](#documentdb-account-contributor) |Può gestire gli account DocumentDB |
 | [Collaboratore account Intelligent Systems](#intelligent-systems-account-contributor) |È in grado di gestire account Intelligent Systems |
+| [Lettore di monitoraggio](#monitoring-reader) |Può leggere tutti i dati del monitoraggio |
+| [Collaboratore al monitoraggio](#monitoring-contributor) |Può leggere i dati del monitoraggio e modificare le impostazioni di monitoraggio |
 | [Collaboratore di rete](#network-contributor) |È in grado di gestire tutte le risorse di rete |
 | [Collaboratore account New Relic APM](#new-relic-apm-account-contributor) |Può gestire account e applicazioni di New Relic Application Performance Management |
 | [Proprietario](#owner) |È in grado di gestire tutti gli elementi, compresi gli accessi |
@@ -61,7 +72,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore SQL Server](#sql-server-contributor) |È in grado di gestire server e database SQL, ma non i criteri di sicurezza correlati |
 | [Collaboratore account di archiviazione classico](#classic-storage-account-contributor) |È in grado di gestire gli account di archiviazione classici |
 | [Collaboratore account di archiviazione](#storage-account-contributor) |È in grado di gestire gli account di archiviazione |
-| [Amministratore accessi utente](#user-access-administrator) |Consente di gestire l’accesso degli utenti alle risorse di Azure |
+| [Amministratore accessi utente](#user-access-administrator) |Consente di gestire l'accesso degli utenti alle risorse di Azure |
 | [Collaboratore macchine virtuali classiche](#classic-virtual-machine-contributor) |È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o l'account di archiviazione a cui sono connesse |
 | [Collaboratore macchine virtuali](#virtual-machine-contributor) |È in grado di gestire macchine virtuali, ma non la rete virtuale o l'account di archiviazione a cui sono connesse |
 | [Collaboratore reti virtuali classiche](#classic-network-contributor) |È in grado di gestire reti virtuali classiche e IP riservati |
@@ -76,7 +87,41 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/* |È in grado di creare e gestire i servizi Gestione API |
+| Microsoft.ApiManagement/Service/* |È in grado di creare e gestire il servizio Gestione API |
+| Microsoft.Authorization/*/read |Autorizzazione Lettura |
+| Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
+| Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leggere i ruoli e le assegnazioni di ruoli |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="api-management-service-operator-role"></a>Ruolo operatore del servizio Gestione API
+È in grado di gestire i servizi Gestione API
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Leggere le istanze del servizio Gestione API |
+| Microsoft.ApiManagement/Service/backup/action | Eseguire il backup del servizio Gestione API nel contenitore specificato in un account di archiviazione fornito dall'utente |
+| Microsoft.ApiManagement/Service/delete | Eliminare un'istanza del servizio Gestione API |
+| Microsoft.ApiManagement/Service/managedeployments/action | Modificare gli SKU/le unità; aggiungere o rimuovere distribuzioni regionali del servizio Gestione API |
+| Microsoft.ApiManagement/Service/read | Leggere i metadati per un'istanza del servizio Gestione API |
+| Microsoft.ApiManagement/Service/restore/action | Ripristinare il servizio Gestione API dal contenitore specificato in un account di archiviazione fornito dall'utente |
+| Microsoft.ApiManagement/Service/updatehostname/action | Configurare, aggiornare o rimuovere i nomi di dominio personalizzati per un servizio Gestione API |
+| Microsoft.ApiManagement/Service/write | Creare una nuova istanza del servizio Gestione API |
+| Microsoft.Authorization/*/read |Autorizzazione Lettura |
+| Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
+| Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leggere i ruoli e le assegnazioni di ruoli |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="api-management-service-reader-role"></a>Ruolo lettura del servizio Gestione API
+È in grado di gestire i servizi Gestione API
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Leggere le istanze del servizio Gestione API |
+| Microsoft.ApiManagement/Service/read | Leggere i metadati per un'istanza del servizio Gestione API |
 | Microsoft.Authorization/*/read |Autorizzazione Lettura |
 | Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
@@ -108,7 +153,7 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 | Microsoft.Automation/automationAccounts/jobs/resume/action |Riprendere un processo di account di automazione |
 | Microsoft.Automation/automationAccounts/jobs/stop/action |Arrestare un processo di account di automazione |
 | Microsoft.Automation/automationAccounts/jobs/streams/read |Leggere flussi di processi di account di automazione |
-| Microsoft.Automation/automationAccounts/jobs/suspend/action |Sopendere un processo di account di automazione |
+| Microsoft.Automation/automationAccounts/jobs/suspend/action |Sospendere un processo di account di automazione |
 | Microsoft.Automation/automationAccounts/jobs/write |Scrivere processi di account di automazione |
 | Microsoft.Automation/automationAccounts/jobSchedules/read |Leggere una pianificazione di processo di account di automazione |
 | Microsoft.Automation/automationAccounts/jobSchedules/write |Leggere una pianificazione di processo di account di automazione |
@@ -213,6 +258,15 @@ Consente di monitorare la gestione di backup nell'insieme di credenziali dei Ser
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Consente di leggere i risultati dell'operazione eseguita sugli elementi registrati dell'insieme di credenziali |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Consente di leggere gli elementi registrati dell'insieme di credenziali |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Consente di leggere l'uso dell'insieme di credenziali dei Servizi di ripristino |
+
+## <a name="billing-reader"></a>Lettore per la fatturazione
+Consente di visualizzare tutte le informazioni di fatturazione
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Leggere i ruoli e le assegnazioni di ruoli |
+| Microsoft.Billing/*/read |Lettura delle informazioni di fatturazione |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
 
 ### <a name="biztalk-contributor"></a>Collaboratore BizTalk
 È in grado di gestire i servizi BizTalk
@@ -336,6 +390,36 @@ Può gestire gli account DocumentDB
 | Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="monitoring-reader"></a>Lettore di monitoraggio
+Può leggere tutti i dati del monitoraggio (metriche, log e così via). Vedere anche [Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Actions** |  |
+| --- | --- |
+| */lettura |Legge risorse di tutti i tipi, eccetto i segreti. |
+| Microsoft.OperationalInsights/workspaces/search/action |Ricerca di dati in Log Analytics |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="monitoring-contributor"></a>Collaboratore al monitoraggio
+Può leggere tutti i dati del monitoraggio e modificare le impostazioni di monitoraggio. Vedere anche [Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Actions** |  |
+| --- | --- |
+| */lettura |Legge risorse di tutti i tipi, eccetto i segreti. |
+| Microsoft.Insights/AlertRules/* |Regole di avviso di lettura, scrittura ed eliminazione. |
+| Microsoft.Insights/components/* |Leggere, scrivere ed eliminare componenti di Application Insights. |
+| Microsoft.Insights/DiagnosticSettings/* |Impostazioni di diagnostica di lettura, scrittura ed eliminazione. |
+| Microsoft.Insights/eventtypes/* |Elenco degli eventi dei registri attività (eventi di gestione) in una sottoscrizione. Questa autorizzazione è applicabile sia all'accesso programmatico che all'accesso al portale per il registro attività. |
+| Microsoft.Insights/LogDefinitions/* |Questa autorizzazione è necessaria per gli utenti che hanno bisogno dell'accesso ai registri attività tramite il portale. Elencare categorie di log nel log attività. |
+| Microsoft.Insights/MetricDefinitions/* |Definizioni delle metriche (elenco dei tipi di metriche disponibili per una risorsa). |
+| Microsoft.Insights/Metrics/* |Metriche per una risorsa. |
+| Microsoft.Insights/Register/Action |Registra il provider Microsoft.Insights. |
+| Microsoft.Insights/webtests/* |Leggere, scrivere ed eliminare test Web di Application Insights. |
+| Microsoft.OperationalInsights/workspaces/intelligencepacks/* |Leggere, scrivere ed eliminare pacchetti di soluzioni Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/savedSearches/* |Leggere, scrivere ed eliminare ricerche salvate di Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/search/action |Cercare aree di lavoro di Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/sharedKeys/action |Elencare chiavi per un'area di lavoro di Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* |Leggere, scrivere ed eliminare configurazione di dati di archiviazione di Log Analytics. |
 
 ### <a name="network-contributor"></a>Collaboratore di rete
 È in grado di gestire tutte le risorse di rete
@@ -461,7 +545,7 @@ Può gestire i criteri correlati alla sicurezza di SQL Server e database SQL
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Leggere l’autorizzazione Microsoft |
+| Microsoft.Authorization/*/read |Leggere l'autorizzazione Microsoft |
 | Microsoft.Insights/alertRules/* |Creare e gestire le regole di avviso di Insight |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
@@ -537,7 +621,7 @@ Può gestire gli account di archiviazione, ma non accedervi.
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
 ### <a name="user-access-administrator"></a>Amministratore accessi utente
-Consente di gestire l’accesso degli utenti alle risorse di Azure
+Consente di gestire l'accesso degli utenti alle risorse di Azure
 
 | **Actions** |  |
 | --- | --- |
@@ -546,7 +630,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
 ### <a name="classic-virtual-machine-contributor"></a>Collaboratore macchine virtuali classiche
-È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o gli account di archiviazione a cui sono connesse
+È in grado di gestire macchine virtuali classiche, ma non la rete virtuale o l'account di archiviazione a cui sono connesse
 
 | **Actions** |  |
 | --- | --- |
@@ -569,7 +653,7 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
 ### <a name="virtual-machine-contributor"></a>Collaboratore macchine virtuali
-È in grado di gestire macchine virtuali, ma non la rete virtuale o account di archiviazione a cui sono connesse
+È in grado di gestire macchine virtuali, ma non la rete virtuale o l'account di archiviazione a cui sono connesse
 
 | **Actions** |  |
 | --- | --- |

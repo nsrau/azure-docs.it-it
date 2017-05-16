@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1db5cd0149374842b0201cd6b820436f3822325
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
 I dati in transito sono dati consolidati di rete e sulle prestazioni provenienti da computer con agenti OMS, inclusi Operations Manager e gli agenti connessi a Windows. I dati di rete vengono combinati con i dati dei log per poter correlare i dati. Gli agenti OMS installati nei computer dell’infrastruttura IT monitorano i dati di rete inviati verso e da tali computer per i livelli di rete 2 e 3 nel [modello OSI](https://en.wikipedia.org/wiki/OSI_model) , inclusi i diversi protocolli e porte usati.
 
 > [!NOTE]
-> Attualmente, la soluzione Wire Data non può essere aggiunta ad aree di lavoro, I clienti che hanno già abilitato la soluzione Wire Data possono continuare a utilizzarla.
+> Attualmente, la soluzione Wire Data 1.0 non può essere aggiunta ad aree di lavoro, ma i clienti che hanno già abilitato la soluzione Wire Data 1.0 possono continuare a usarla. I nuovi clienti, tuttavia, devono usare la soluzione [Wire Data 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WireData2OMS?tab=Overview).
 >
 >
 
@@ -106,9 +107,4 @@ Requisiti: per usare l’esempio seguente, la soluzione Security and Audit deve 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Ricerche nei log](log-analytics-log-searches.md) per visualizzare i record di ricerca dettagliati su Wire Data.
 * Leggere il post del blog di Dan dal titolo [Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Uso di Wire Data nella ricerca nei log di Operations Management Suite) per altre informazioni sulla frequenza con cui i dati vengono raccolti e su come modificare le proprietà di raccolta per gli agenti di Operations Manager.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

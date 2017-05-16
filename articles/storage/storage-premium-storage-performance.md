@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
-ms.openlocfilehash: 69fbac5acdc812917d1e022d19768a8d72955783
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 0efa2fdb2b78086e89e77429f8fac813ae1cf1a4
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -184,10 +184,10 @@ Le VM a scalabilità elevata sono disponibili in dimensioni diverse con un numer
 
 | Dimensioni macchina virtuale | Core CPU | Memoria | Dimensioni di disco della VM | Max. dischi dati | Dimensioni cache | IOPS | Limiti di I/O della cache della larghezza di banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |Sistema operativo = 1023 GB  <br> SSD locale = 224 GB |32 |576 GB |50.000 IOPS  <br> &512; MB al secondo |4.000 IOPS e 33 MB al secondo |
-| Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB  <br> SSD locale = 896 GB |64 |4224 GB |80.000 IOPS  <br> &2;.000 MB al secondo |5.000 IOPS e 50 MB al secondo |
+| Standard_DS14 |16 |112 GB |Sistema operativo = 1023 GB  <br> SSD locale = 224 GB |32 |576 GB |50.000 IOPS  <br> 512 MB al secondo |4.000 IOPS e 33 MB al secondo |
+| Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB  <br> SSD locale = 896 GB |64 |4224 GB |80.000 IOPS  <br> 2.000 MB al secondo |5.000 IOPS e 50 MB al secondo |
 
-Per visualizzare un elenco completo di tutte le dimensioni delle VM di Azure disponibili, vedere [Dimensioni per le macchine virtuali Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Dimensioni per le macchine virtuali Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
+Per visualizzare un elenco completo di tutte le dimensioni delle VM di Azure disponibili, vedere [Dimensioni per le macchine virtuali Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Dimensioni per le macchine virtuali Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
 
 *Limiti di scalabilità*  
 I limiti massimi per IOPS per ogni VM e ogni disco sono diversi e indipendenti gli uni dagli altri. Assicurarsi che l'applicazione gestisca i valori di IOPS entro i limiti della VM e dei dischi Premium collegati alla VM. In caso contrario, le prestazioni dell'applicazione verranno limitate.
@@ -197,21 +197,21 @@ Si supponga, ad esempio, che i requisiti dell'applicazione siano pari a 4.000 IO
 *Costo operativo*  
 In molti casi è possibile che il costo operativo complessivo con l'Archiviazione Premium sia inferiore al costo dell'uso dell'Archiviazione Standard.
 
-Ad esempio, si consideri un'applicazione che richiede 16.000 IOPS. Per ottenere queste prestazioni sarà necessaria una VM IaaS di Azure di tipo Standard\_StandardD14, che può offrire un valore massimo di IOPS pari a 16.000 usando 32 dischi di archiviazione Standard da 1 TB. Ogni disco di archiviazione Standard da 1 TB può raggiungere un valore massimo di 500 IOPS. Il costo stimato di questa VM al mese sarà pari a $&1;.570. Il costo mensile di 32 dischi di archiviazione Standard sarà pari a $ 1.638. Il costo totale mensile stimato sarà pari a $&3;.208.
+Ad esempio, si consideri un'applicazione che richiede 16.000 IOPS. Per ottenere queste prestazioni sarà necessaria una VM IaaS di Azure di tipo Standard\_StandardD14, che può offrire un valore massimo di IOPS pari a 16.000 usando 32 dischi di archiviazione Standard da 1 TB. Ogni disco di archiviazione Standard da 1 TB può raggiungere un valore massimo di 500 IOPS. Il costo stimato di questa VM al mese sarà pari a $ 1.570. Il costo mensile di 32 dischi di archiviazione Standard sarà pari a $ 1.638. Il costo totale mensile stimato sarà pari a $ 3.208.
 
-Se tuttavia la stessa applicazione è ospitata nell'Archiviazione Premium, sarà necessaria una dimensione di VM minore e saranno necessari meno dischi di Archiviazione Premium. Ciò consente una riduzione del costo complessivo. Una VM Standard\_StandardDS13 può soddisfare il requisito di 16.000 IOPS con quattro dischi P30. La VM DS13 offre un valore massimo di IOPS pari a 25.600 e ogni disco P30 ha un valore massimo di IOPS pari a 5.000. Questa configurazione consente complessivamente di ottenere 5.000 x 4 = 20.000 IOPS. Il costo stimato di questa VM al mese sarà pari a $&1;.003. Il costo mensile di quattro dischi di Archiviazione Premium P30 sarà pari a $&544;,34. Il costo totale mensile stimato sarà pari a $&1;.544.
+Se tuttavia la stessa applicazione è ospitata nell'Archiviazione Premium, sarà necessaria una dimensione di VM minore e saranno necessari meno dischi di Archiviazione Premium. Ciò consente una riduzione del costo complessivo. Una VM Standard\_StandardDS13 può soddisfare il requisito di 16.000 IOPS con quattro dischi P30. La VM DS13 offre un valore massimo di IOPS pari a 25.600 e ogni disco P30 ha un valore massimo di IOPS pari a 5.000. Questa configurazione consente complessivamente di ottenere 5.000 x 4 = 20.000 IOPS. Il costo stimato di questa VM al mese sarà pari a $ 1.003. Il costo mensile di quattro dischi di Archiviazione Premium P30 sarà pari a $ 544,34. Il costo totale mensile stimato sarà pari a $ 1.544.
 
 La tabella seguente riepiloga la scomposizione costi di questo scenario per l'Archiviazione Premium e Standard.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
 | **Costo di VM al mese** |$1.570,58 (Standard\_D14) |$1.003,66 (Standard\_DS13) |
-| **Costo di dischi al mese** |$ 1.638,40 (32 x dischi da 1 TB) |$&544;,34 (4 x dischi P30) |
-| **Costo complessivo al mese** |$&3;.208,98 |$&1;.544,34 |
+| **Costo di dischi al mese** |$ 1.638,40 (32 x dischi da 1 TB) |$ 544,34 (4 x dischi P30) |
+| **Costo complessivo al mese** |$ 3.208,98 |$ 1.544,34 |
 
 *Distribuzioni Linux*  
 
-Archiviazione Premium di Azure offre lo stesso livello di prestazioni per le macchine virtuali che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile [qui](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
+Archiviazione Premium di Azure offre lo stesso livello di prestazioni per le macchine virtuali che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile [qui](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
 
 Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibili aggiornamenti recenti per i driver necessari, in modo da assicurare prestazioni elevate.
 
@@ -292,7 +292,7 @@ In Windows è possibile usare gli spazi di archiviazione per lo striping dei dis
 
 Importante: l'uso dell'interfaccia utente di Gestione server consente di impostare il numero totale di colonne fino a un massimo di 8 per un volume con striping. Quando si collegano più di 8 dischi, usare PowerShell per creare il volume. L'uso di PowerShell consente di impostare un numero di colonne uguale al numero di dischi. Ad esempio, se un singolo set di striping include 16 dischi, specificare 16 colonne nel parametro *NumberOfColumns* del cmdlet *New-VirtualDisk* di PowerShell.
 
-In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 *Dimensioni di striping*  
 Un elemento importante della configurazione dello striping del disco è la dimensione di striping. La dimensione di striping o la dimensione del blocco è il blocco più piccolo di dati che l'applicazione può gestire in un volume con striping. La dimensione di striping configurabile dipende dal tipo di applicazione e dal relativo modello di richieste. Se si sceglie la dimensione di striping errata, è possibile che si ottenga un allineamento di I/O non corretto, che porta a prestazioni degradate per l'applicazione.
@@ -333,7 +333,7 @@ Un valore elevato per la profondità della coda consente di allineare più opera
 
 In genere, un'applicazione può ottenere una velocità effettiva massima con 8-16+ I/O in attesa per ogni disco collegato. Se il valore della profondità della coda è pari a uno, l'applicazione non effettua il push di un numero sufficiente di I/O nel sistema e ne elaborerà una quantità inferiore in un periodo specifico. In altri termini, si otterrà una velocità effettiva minore.
 
-Ad esempio, in SQL Server l'impostazione del valore MAXDOP per una query su "4" indica a SQL Server che può usare al massimo quattro core per eseguire la query. SQL Server determinerà il valore migliore per la profondità della coda e il numero di core per l'esecuzione della query.
+In SQL Server ,ad esempio, l'impostazione del valore MAXDOP per una query su "4" indica a SQL Server che può usare al massimo quattro core per eseguire la query. SQL Server determinerà il valore migliore per la profondità della coda e il numero di core per l'esecuzione della query.
 
 *Profondità ottimale della coda*  
 Un valore molto elevato per la coda può avere alcuni svantaggi. Se il valore della profondità della coda è troppo alto, l'applicazione proverà a effettuare un numero molto elevato di IOPS. A meno che un'applicazione non abbia dischi persistenti con un numero sufficiente di IOPS con provisioning, ciò può influire negativamente sulle latenze dell'applicazione. La formula seguente illustra la relazione tra IOPS, latenza e profondità della coda.  
@@ -370,7 +370,7 @@ Il disco con memorizzazione nella cache dell'host di tipo ReadOnly sarà in grad
 Iometer usa un file di test archiviato nel volume in cui eseguire i test di benchmarking. Gestisce le operazioni di lettura e scrittura sul file di test per misurare i valori di IOPS e velocità effettiva del disco. Iometer crea questo file di test se non ne è stato fornito uno. Creare un file di test di 200 GB denominato iobw.tst nei volumi CacheReads e NoCacheWrites.
 
 *Specifiche di accesso*  
-Le specifiche, la dimensione della richiesta I/O, la percentuale di letture/scritture e la percentuale di operazioni casuali/sequenziali vengono configurate mediante la scheda "Access Specifications" in Iometer. Creare una specifica di accesso per ogni scenario illustrato di seguito. Creare le specifiche di accesso, quindi salvarle con un nome appropriato, ad esempio RandomWrites\_8K, RandomReads\_8K. Selezionare la specifica corrispondente durante l'esecuzione dello scenario di test.
+Le specifiche, la dimensione della richiesta I/O, la percentuale di letture/scritture e la percentuale di operazioni casuali/sequenziali vengono configurate tramite la scheda "Access Specifications" in Iometer. Creare una specifica di accesso per ogni scenario illustrato di seguito. Creare le specifiche di accesso, quindi salvarle con un nome appropriato, ad esempio RandomWrites\_8K, RandomReads\_8K. Selezionare la specifica corrispondente durante l'esecuzione dello scenario di test.
 
 Un esempio di specifiche di accesso per uno scenario con valori massimi di IOPS di scrittura è riportato di seguito,   
     ![](media/storage-premium-storage-performance/image8.png)
@@ -443,7 +443,7 @@ Eseguire il comando seguente per Ubuntu:
 apt-get install fio
 ```
 
-Verranno usati quattro thread di lavoro per la gestione delle operazioni di scrittura e quattro thread di lavoro per la gestione delle operazioni di lettura sui dischi. I thread di lavoro di scrittura indirizzeranno il traffico sul volume "nocache", che include 10 dischi con cache impostata su "None". I thread di lavoro di scrittura indirizzeranno il traffico sul volume "readcache", che include un disco con cache impostata su "ReadOnly".
+Verranno usati quattro thread di lavoro per la gestione delle operazioni di scrittura e quattro thread di lavoro per la gestione delle operazioni di lettura sui dischi. I ruoli di lavoro di scrittura indirizzeranno il traffico verso il volume "nocache", che include 10 dischi con cache impostata su "None". I ruoli di lavoro di lettura indirizzeranno il traffico verso il volume "readcache", che include un disco con cache impostata su "ReadOnly".
 
 *IOPS massime di scrittura*  
 Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS di scrittura. Assegnare al file il nome "fiowrite.ini".

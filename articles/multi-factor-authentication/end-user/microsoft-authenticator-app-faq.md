@@ -1,24 +1,24 @@
 ---
-title: Guida e supporto tecnico per l&quot;app Microsoft Authenticator | Documentazione Microsoft
+title: Guida e supporto tecnico per l&quot;app Microsoft Authenticator | Microsoft Docs
 description: Elenca le domande frequenti e le risposte correlate all&quot;app Microsoft Authentication e ad Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: pblachar, librown
+editor: librown
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 7c91ae265dd86e8d7f206c1ada021c40fd8c4479
-ms.openlocfilehash: cb3b7cfefe22176e17064ad6cbb9df4da8c57c0f
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 731275c72422a622e1d49f7d362447ef3361338b
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Domande frequenti sull'app Microsoft Authenticator
@@ -38,6 +38,18 @@ Questi codici vengono usati quando si accede al proprio account. Dopo aver immes
 I codici cambiano ogni 30 secondi in modo che non venga usato lo stesso codice due volte. A differenza di una password, che deve essere nota all'utente, l'idea è che solo un utente con accesso al telefono possa entrare in possesso del codice di verifica.
 
 I codici non richiedono l'uso di Internet e non creano traffico dati, pertanto non è necessario che il servizio telefonico sia attivo per eseguire l'accesso e non c'è neppure la preoccupazione che l'app creerà traffico dati. Quando la si chiude, l'app non continua la sua esecuzione in background, perciò non scarica la batteria. È possibile chiudere l'app e ignorarla fino al successivo accesso.  
+
+### <a name="i-only-get-notifications-when-i-have-the-app-open-if-the-app-isnt-open-i-dont-get-any-notifications"></a>Ricevo le notifiche solo quando l'app è aperta. Se l'applicazione non è aperta, non ricevo alcuna notifica.
+
+Se si ricevono le notifiche, ma non si sentono rumori o vibrazioni nonostante la suoneria sia attivata, verificare innanzitutto le impostazioni dell'applicazione. Abilitare l'app a emettere suoni o vibrazioni quando riceve una notifica.
+
+Se non si ricevono le notifiche, controllare quanto segue:
+
+- Il telefono è in modalità non disturbare o non interattiva? Tale modalità può impedire l'invio di notifiche da parte delle app.
+- Si ricevono notifiche da altre app? In questo caso, potrebbe esserci un problema con le connessioni di rete sul telefono o con il canale di notifiche Android o Apple. Nel primo caso è possibile risolvere il problema con le impostazioni del telefono, ma potrebbe essere necessario contattare il provider di servizi per assistenza nel secondo caso.
+- Si ricevono notifiche per alcuni account sull'app, ma non per altri? In caso affermativo, rimuovere l'account problematico dall'app e aggiungerlo nuovamente per abilitare nuovamente le notifiche push. 
+
+Se questi suggerimenti per la risoluzione dei problemi sono stati provati ma il problema permane, inviare i log per la diagnostica (andare alle impostazioni dell'app, quindi selezionare **Guida e commenti** e **Invia log**). Andare quindi al [forum delle app di Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) per metterci al corrente del problema e dei passaggi provati finora. 
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>Sto già usando l'app Microsoft Authenticator per i codici di verifica. Come posso attivare le notifiche push con un clic?
 L'approvazione dell'accesso tramite notifica push è disponibile solo per account Microsoft personali o account Microsoft aziendali o dell'istituto di istruzione, non per account di terze parti come Google o Facebook. Se si ha un account Microsoft aziendale o dell'istituto di istruzione, tuttavia, l'organizzazione può scegliere di disabilitare questa opzione.
@@ -83,6 +95,10 @@ Di seguito è riportato l'elenco completo delle autorizzazioni che potrebbero es
 ### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>Perché l'app Microsoft Authenticator consente di approvare una richiesta senza sbloccare il dispositivo?
 
 Si tratta di un comportamento previsto da progettazione. La verifica in due passaggi richiede di dimostrare di conoscere una determinata informazione e di essere in possesso di qualcosa, ovvero di conoscere la password e di essere in possesso del telefono, configurato con l'app Microsoft Authenticator e registrato come prova MFA.  Avendo il telefono e approvando la richiesta vengono quindi soddisfatti i criteri per il secondo fattore dell'autenticazione. 
+
+### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>Cosa significa l'icona a forma di lucchetto nell'elenco degli account?
+
+L'icona del lucchetto indica che il dispositivo è registrato in Azure AD e registrato per l'account. La registrazione del dispositivo per iOS avviene durante l'enrollment di Microsoft Intune.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 04/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 05fc8ff05f8e2f20215f6683a125c1a506b4ccdc
-ms.openlocfilehash: 23ed2e066cc6751ebabb57c8077f95b0cb074850
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e14da5fa10533d922a6263e8f52a53c0eaa23393
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -38,7 +38,7 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 * CSV (vedere la funzionalità in anteprima [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md))
 
 > [!IMPORTANT]
-> Il supporto per i file in formato CSV e JSON è attualmente in anteprima. Tali formati sono disponibili solo usando la versione **2015-02-28-Preview** dell'API REST o la versione 2.x-preview dell'SDK .NET. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
+> Il supporto per gli array in formato CSV e JSON è attualmente in anteprima. Tali formati sono disponibili solo usando la versione **2015-02-28-Preview** dell'API REST o la versione 2.x-preview dell'SDK .NET. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 >
 >
 
@@ -139,11 +139,15 @@ Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare
 A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore BLOB può indicizzare solo i metadati di archiviazione, opzione utile quando si è interessati solo ai metadati e non è necessario indicizzare il contenuto dei BLOB, indicizzare i metadati del contenuto e di archiviazione o indicizzare sia i metadati che il contenuto di testo. Per impostazione predefinita, l'indicizzatore estrae sia i metadati che il contenuto.
 
 > [!NOTE]
-> Per impostazione predefinita, i BLOB con contenuto strutturato, come quelli in formato JSON, CSV o XML, vengono indicizzati come un unico blocco di testo. Per indicizzare i BLOB JSON e CSV in modo strutturato, vedere le funzionalità in anteprima [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) e [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md). L'analisi di contenuto XML non è attualmente supportata. Per questo tipo di esigenza è possibile aggiungere un suggerimento in [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
->
+> Per impostazione predefinita, i BLOB con contenuto strutturato, come quelli in formato JSON o CSV, vengono indicizzati come un unico blocco di testo. Per indicizzare i BLOB JSON e CSV in modo strutturato, vedere le funzionalità in anteprima [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) e [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md).
+> 
 > Anche un documento composito o incorporato (ad esempio, un archivio ZIP o un documento di Word con una e-mail di Outlook incorporata con allegati) viene indicizzato come documento singolo.
 
-* L'intero contenuto di testo del documento viene estratto in un campo di tipo stringa denominato `content`.
+* Il contenuto di testo del documento viene estratto in un campo di tipo stringa denominato `content`.
+
+> [!NOTE]
+> Ricerca di Azure limita il testo estratto in base al piano tariffario: 32.000 caratteri per il livello gratuito, 64.000 per il livello Basic e 4 milioni per i livelli Standard, Standard S2 e Standard S3. Un avviso è incluso nella risposta dello stato dell'indicizzatore per i documenti troncati.  
+
 * Le proprietà dei metadati specificate dall'utente eventualmente presenti nel BLOB vengono estratte letteralmente.
 * Le proprietà dei metadati BLOB standard vengono estratte nei campi seguenti:
 
@@ -173,7 +177,7 @@ In Ricerca di Azure la chiave del documento identifica un documento in modo univ
 * Se nessuna delle opzioni elencate è appropriata, è possibile aggiungere una proprietà di metadati personalizzati ai BLOB. Questa opzione, tuttavia, richiede che il processo di caricamento del BLOB aggiunga la proprietà dei metadati a tutti i BLOB. Poiché la chiave è una proprietà obbligatoria, tutti i BLOB privi di tale proprietà non potranno essere indicizzati.
 
 > [!IMPORTANT]
-> Se non esiste alcun mapping esplicito per il campo chiave nell'indice, Ricerca di Azure usa automaticamente `metadata_storage_path` come chiave e codifica i valori delle chiavi in base&64; (la seconda opzione illustrata sopra).
+> Se non esiste alcun mapping esplicito per il campo chiave nell'indice, Ricerca di Azure usa automaticamente `metadata_storage_path` come chiave e codifica i valori delle chiavi in base 64 (la seconda opzione illustrata sopra).
 >
 >
 
@@ -184,7 +188,7 @@ Per questo esempio, si seleziona il campo `metadata_storage_name` come chiave de
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
 
-Per unire il tutto, ecco come è possibile aggiungere i mapping di campo e abilitare la codifica in base&64; delle chiavi per un indicizzatore esistente:
+Per unire il tutto, ecco come è possibile aggiungere i mapping di campo e abilitare la codifica in base 64 delle chiavi per un indicizzatore esistente:
 
     PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2016-09-01
     Content-Type: application/json
@@ -300,7 +304,7 @@ Per supportare l'eliminazione di documenti, usare un approccio di "eliminazione 
 
 Il criterio illustrato sotto, ad esempio, considera l'eliminazione di un BLOB se ha una proprietà di metadati `IsDeleted` con il valore `true`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -338,7 +342,7 @@ L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di
 
 I documenti possono avere metadati associati, ad esempio il reparto che ha creato il documento, che vengono archiviati come dati strutturati in una delle posizioni seguenti.
 -   In un archivio dati separato, ad esempio il database SQL o DocumentDB.
--   Associati direttamente a ogni documento nell'Archiviazione BLOB di Azure come metadati personalizzati. Per altre informazioni, vedere [Impostazione e recupero di proprietà e metadati per le risorse BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).
+-   Associati direttamente a ogni documento nell'Archiviazione BLOB di Azure come metadati personalizzati. Per altre informazioni, vedere [Impostazione e recupero di proprietà e metadati per le risorse BLOB](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).
 
 È possibile indicizzare i documenti e i relativi metadati assegnando lo stesso valore chiave univoco a ogni documento e ai relativi metadati e specificando l'azione `mergeOrUpload` per ogni indicizzatore. Per una descrizione dettagliata di questa soluzione, vedere l'articolo esterno: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinare documenti con altri dati in Ricerca di Azure).
 

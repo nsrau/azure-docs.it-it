@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 04/11/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: f9eea56f7f7b4f8f47a159c0c444d0d0aacc99cc
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: fb8eaa4bb122cd6bb7e3f72bb5f7000103bffb29
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,11 +35,13 @@ Quando si crea un'app per le funzioni, inserire un **nome dell'app** valido, che
 
 I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. Nome dell'account di archiviazione deve essere univoco all'interno di Azure. 
 
-Dopo aver creato l'app per le funzioni, è possibile creare singole funzioni in una o più lingue diverse. Creare funzioni [tramite il portale](functions-create-first-azure-function-azure-portal.md#create-a-function), [la distribuzione continua](functions-continuous-deployment.md) o tramite il [caricamento con FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).  
+Dopo aver creato l'app per le funzioni, è possibile creare singole funzioni in una o più lingue diverse. Creare funzioni [tramite il portale](functions-create-first-azure-function.md#create-function), [la distribuzione continua](functions-continuous-deployment.md) o tramite il [caricamento con FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).  
 
 ## <a name="service-plans"></a>Piani di servizio
 
 Funzioni di Azure offre due piani di servizio diversi: piano a consumo e piano di servizio app. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice, aumenta il numero di istanze in base alla necessità per gestire il carico e quindi riduce il numero di istanze quando il codice non è in esecuzione. Il piano di servizio app consente all'app per le funzioni di accedere a tutte le funzionalità del servizio app. È necessario scegliere il piano di servizio quando viene creata l'app per le funzioni, che al momento non può essere modificato. Per altre informazioni, vedere [Scegliere un piano di hosting di Funzioni di Azure](functions-scale.md).
+
+Se si prevede di eseguire funzioni JavaScript in un piano di servizio App, è necessario scegliere un piano con un minor numero di core. Per altre informazioni, vedere le [informazioni di riferimento su JavaScript per le funzioni](functions-reference-node.md#choose-single-core-app-service-plans). 
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
@@ -52,6 +55,6 @@ Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzion
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 
 

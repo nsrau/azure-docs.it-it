@@ -3,8 +3,3 @@ In questo documento verrà illustrata una distribuzione che usa più schede di r
 
 ![Scenario MultiNIC](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

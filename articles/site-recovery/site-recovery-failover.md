@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: b818d5083f1436035185b1b0d7990b5a36716da4
-ms.openlocfilehash: 1fca09ad0c9e1bc72109910cd0dcaf186d6a7c3d
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 960fb84c309b18c7f9741bb60b52cfcc3753a07d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -83,6 +84,26 @@ L'attivazione di un failover comporta l'esecuzione dei passaggi riportati di seg
 > **Non annullare un failover in corso**: prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si **annulla** un processo in corso, il failover viene arrestato ma la macchina virtuale non avvia la replica. Non è possibile riavviare nuovamente la replica. 
 >
 > 
+
+## <a name="time-taken-for-failover-to-azure"></a>Tempo impiegato per il failover in Azure
+
+Il failover di macchine virtuali richiede in alcuni casi un passaggio aggiuntivo intermedio che in genere viene completato in circa 8-10 minuti. Questi casi sono i seguenti:
+
+* Macchine virtuali VMware che usano una versione del servizio di mobilità precedente alla 9.8
+* Server fisici 
+* Macchine virtuali VMware Linux
+* Macchine virtuali Hyper-V protette come server fisici
+* Macchine virtuali VMware in cui i driver seguenti non sono presenti come driver di avvio 
+    * storvsc 
+    * vmbus 
+    * storflt 
+    * intelide 
+    * atapi
+* Macchine virtuali VMware che non dispongono del servizio DHCP abilitato indipendentemente che usino indirizzi IP statici o DHCP.
+
+In tutti gli altri casi questo passaggio intermedio non è necessario e il tempo impiegato per il failover è notevolmente inferiore. 
+
+
 
 
 

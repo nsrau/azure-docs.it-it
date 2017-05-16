@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ae8e531c32b49e121b1c43b15071c138aaacf498
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -29,6 +29,11 @@ ms.lasthandoff: 03/21/2017
 >
 
 L'interfaccia della riga di comando di Azure è un ottimo modo di gestire l'infrastruttura di Azure da qualsiasi piattaforma. In questo articolo viene illustrato come creare e gestire le istanze di Cache Redis di Azure tramite la CLI di Azure.
+
+> [!NOTE]
+> Questo articolo si applica a una versione precedente dell'interfaccia della riga di comando di Azure. Per script di esempio della più recente interfaccia della riga di comando di Azure 2.0, vedere gli [esempi dell'interfaccia della riga di comando di Azure per Cache Redis](cli-samples.md).
+> 
+> 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per creare e gestire le istanze di Cache Redis di Azure utilizzando CLI di Azure, è necessario completare i passaggi seguenti.

@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
-ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
@@ -81,7 +81,9 @@ I seguenti requisiti software si riferiscono ai client SMB che accedono all'arra
 > [!IMPORTANT]
 > Non copiare o archiviare i file protetti da Windows Encrypting File System (EFS) in un file server StorSimple Virtual Array, perché la configurazione non sarà supportata. 
 > 
-> 
+
+### <a name="supported-storage-format"></a>Formati di archiviazione supportati
+Solo l'archiviazione BLOB in blocchi di Azure è supportata. I BLOB di pagine non sono supportati. Altre informazioni [sui BLOB in blocchi e i BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico iSCSI, SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Fuori* o *in uscita* fa riferimento alla direzione in cui il dispositivo StorSimple invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.

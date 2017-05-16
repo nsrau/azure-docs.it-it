@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 04/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ae2280f7bd7945f723d88dc6ce3f9a117074e93f
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 1d712ef6987a4af2014bedb54378f288bcf535a8
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -48,10 +48,10 @@ Mentre si seguono le istruzioni nel collegamento riportato sopra, assicurarsi di
 
 ![Creare un'app Web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Creare un'app Web")
 
-## <a name="step-2-get-client-id-client-secret-and-tenant-id"></a>Passaggio 2: Ottenere ID client, segreto client e ID tenant
+## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Passaggio 2: ottenere l'ID applicazione, la chiave di autenticazione e l'ID del tenant
 Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicazione. Se l'applicazione viene eseguita con le proprie credenziali, è necessaria anche una chiave di autenticazione.
 
-* Per istruzioni su come recuperare l'ID client e il segreto client per l'applicazione, vedere [Ottenere l'ID applicazione e la chiave di autenticazione](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Per istruzioni su come recuperare l'ID applicazione e la chiave di autenticazione, definita anche segreto client, per l'applicazione, vedere [Ottenere l'ID applicazione e la chiave di autenticazione](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 * Per istruzioni su come recuperare l'ID tenant, vedere [Ottenere l'ID tenant](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
 
@@ -76,7 +76,21 @@ Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicaz
     Per altre informazioni sulle autorizzazioni in Data Lake Store e gli ACL predefiniti/di accesso, vedere [Controllo di accesso in Data Lake Store](data-lake-store-access-control.md).
 7. Nel pannello **Aggiungi accesso personalizzato** fare clic su **OK**. Il gruppo appena aggiunto, con le autorizzazioni associate, risulterà ora elencato nel pannello di **accesso** .
    
-    ![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assegnare autorizzazioni a un gruppo")    
+    ![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assegnare autorizzazioni a un gruppo")
+
+## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Passaggio 4: Ottenere l'endpoint di token OAuth 2.0 (solo per applicazioni basate su Java)
+
+1. Accedere al nuovo [portale di Azure](https://portal.azure.com) e fare clic su Active Directory dal riquadro a sinistra.
+
+2. Nel riquadro a sinistra fare clic su **Registrazioni per l'app**.
+
+3. Nella parte superiore del pannello Registrazioni per l'app fare clic su **Endpoint**.
+
+    ![Endpoint di token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Endpoint di token OAuth")
+
+4. Copiare l'endpoint di token OAuth 2.0 dall'elenco di endpoint.
+
+    ![Endpoint di token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Endpoint di token OAuth")   
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stata creata un'applicazione Web di Azure AD e sono state raccolte le informazioni necessarie nelle applicazioni client create tramite .NET SDK, Java SDK e così via. È ora possibile passare agli articoli seguenti che illustrano come usare l'applicazione Web di Azure AD per eseguire prima l'autenticazione con Data Lake Store e quindi altre operazioni sull'archivio.

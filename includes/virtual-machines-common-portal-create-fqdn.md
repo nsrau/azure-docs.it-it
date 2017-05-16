@@ -15,8 +15,3 @@ L'articolo presuppone che sia già stata effettuata la connessione alla sottoscr
    
    ![Verificare che sia impostata la nuova etichetta DNS](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

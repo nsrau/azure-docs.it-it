@@ -1,5 +1,5 @@
 ---
-title: Installazione di driver per serie N di Azure per Linux | Documentazione Microsoft
+title: Installazione di driver per serie N di Azure per Linux | Microsoft Docs
 description: Informazioni su come installare driver GPU NVIDIA per macchine virtuali serie N che eseguono Linux in Azure
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,37 +13,61 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
+ms.date: 05/02/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e7f6c840be3a284f635114287a69c151f671531d
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 181428e5302c5c8f5b72f06d6c54b0f87802690a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
 
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-linux"></a>Configurare i driver GPU per le VM serie N che eseguono Linux
 
-Per usufruire delle funzionalità per GPU delle macchine virtuali serie N di Azure che eseguono una distribuzione Linux supportata, dopo la distribuzione è necessario installare driver di grafica NVIDIA in ogni macchina virtuale. Le informazioni di configurazione dei driver sono disponibili anche per le [VM Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per usufruire delle funzionalità GPU delle VM serie N di Azure che eseguono Linux, è necessario installare i driver della scheda grafica NVIDIA in ogni VM. Questo articolo descrive la procedura di installazione dei driver dopo la distribuzione di una macchina virtuale serie N. Le informazioni di configurazione dei driver sono disponibili anche per le [VM Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+
+Per conoscere le specifiche, le capacità di archiviazione e i dettagli dei dischi delle macchine virtuali serie N, vedere [Dimensioni delle macchine virtuali Linux GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+
+
+
+## <a name="supported-distributions-and-drivers"></a>Driver e distribuzioni supportati
 
 > [!IMPORTANT]
-> Attualmente, il supporto per GPU Linux è disponibile solo sulle macchine virtuali NC di Azure che eseguono Ubuntu Server 16.04 LTS.
-> 
+> Il supporto per GPU Linux al momento è disponibile solo sulle macchine virtuali NC di Azure. 
 
-Per conoscere le specifiche, le capacità di archiviazione e i dettagli dei dischi delle macchine virtuali serie N, vedere [Dimensioni delle macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vedere anche [General considerations for N-series VMs](#general-considerations-for-n-series-vms) (Considerazioni generali per le VM serie N).
+Per eseguire i driver di grafica NVIDIA in macchine virtuali Linux serie N, sono supportate le distribuzioni seguenti da Azure Marketplace.
+
+### <a name="nc-vms-tesla-k80-card"></a>Macchine virtuali NC (scheda Tesla K80)
+* Ubuntu 16.04 LTS 
+* Red Hat Enterprise Linux 7.3 
+* CentOS-based 7.3 
+
+**Driver supportati**: NVIDIA CUDA 8.0, driver branch R375. [Procedura di installazione](#install-CUDA-drivers-for-NC-VMs)
 
 
 
-## <a name="install-nvidia-cuda-drivers"></a>Installare i driver NVIDIA CUDA
 
-Ecco i passaggi per installare i driver NVIDIA nelle VM NC Linux dal Toolkit 8.0 di NVIDIA CUDA. Gli sviluppatori C++ e C possono facoltativamente installare il toolkit completo per creare applicazioni con accelerazione GPU. Per altre informazioni, vedere la [guida di installazione di CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+> [!WARNING] 
+> L'installazione di software di terze parti in prodotti Red Hat può influenzare i termini di supporto di Red Hat. Vedere l'[articolo della Knowledge base di Red Hat](https://access.redhat.com/articles/1067).
+>
+
+
+
+
+## <a name="install-cuda-drivers-for-nc-vms"></a>Installare i driver CUDA per macchine virtuali NC
+
+Ecco i passaggi per installare i driver NVIDIA nelle VM NC Linux dal Toolkit 8.0 di NVIDIA CUDA. 
+
+Gli sviluppatori C++ e C possono facoltativamente installare il toolkit completo per creare applicazioni con accelerazione GPU. Per altre informazioni, vedere la [guida di installazione di CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> I collegamenti ai download dei driver forniti qui sono quelli attivi al momento della pubblicazione. Per i driver più aggiornati, visitare il sito Web di [NVIDIA](http://www.nvidia.com/).
+> I collegamenti ai download dei driver CUDA forniti qui sono quelli attivi al momento della pubblicazione. Per i driver più aggiornati, visitare il sito Web di [NVIDIA](http://www.nvidia.com/).
+>
 
 Per installare il toolkit di CUDA, eseguire una connessione SSH a ciascuna VM. Per verificare che nel sistema sia presente una GPU con supporto per core CUDA, eseguire il comando seguente:
 
@@ -82,18 +106,64 @@ sudo apt-get install cuda
 
 Riavviare la VM e procedere a verificare l'installazione.
 
-## <a name="verify-driver-installation"></a>Verificare l'installazione del driver
+### <a name="centos-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 o Red Hat Enterprise Linux 7.3
+
+> [!IMPORTANT] 
+> A causa di un problema noto, non si riesce a installare il driver NVIDIA CUDA nelle macchine virtuali NC24r che eseguono CentOS 7.3 o Red Hat Enterprise Linux 7.3.
+>
+
+Ottenere prima gli aggiornamenti. 
+
+```bash
+sudo yum update
+
+sudo reboot
+```
+
+Riconnettersi alla macchina virtuale e continuare l'installazione con i comandi seguenti:
+
+```bash
+sudo yum install kernel-devel
+
+sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+sudo yum install dkms
+
+CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+
+wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+
+rm -f /tmp/${CUDA_REPO_PKG}
+
+sudo yum install cuda-drivers
+```
+
+L'installazione può richiedere alcuni minuti. Per installare facoltativamente il toolkit di CUDA completo, digitare:
+
+```bash
+sudo yum install cuda
+```
+
+Riavviare la VM e procedere a verificare l'installazione.
+
+
+### <a name="verify-driver-installation"></a>Verificare l'installazione del driver
 
 
 Per controllare lo stato del dispositivo GPU, eseguire una connessione SSH alla VM ed eseguire l'utilità della riga di comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installata con il driver. 
 
+Verrà visualizzato un output simile al seguente:
+
 ![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)
 
-## <a name="cuda-driver-updates"></a>Aggiornamenti dei driver CUDA
+
+### <a name="cuda-driver-updates"></a>Aggiornamenti dei driver CUDA
 
 È consigliabile aggiornare periodicamente i driver CUDA dopo la distribuzione.
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+#### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
 ```bash
 sudo apt-get update
@@ -107,12 +177,21 @@ sudo apt-get install cuda-drivers
 
 Al termine dell'aggiornamento, riavviare la VM.
 
+#### <a name="centos-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 o Red Hat Enterprise Linux 7.3
 
-[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
+```bash
+sudo yum update
+```
 
-* Non è consigliabile installare X Server o altri sistemi che usano il driver nouveau in VM NC Ubuntu. Prima di installare i driver NVIDIA GPU, è necessario disabilitare il driver nouveau.  
+Al termine dell'aggiornamento, riavviare la VM.
 
-* Se si desidera acquisire un'immagine di una VM Linux in cui sono installati driver NVIDIA, vedere [Come generalizzare e acquisire una macchina virtuale Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+* Esiste un problema noto con i driver CUDA sulle macchine virtuali serie N di Azure che eseguono il kernel Linux 4.4.0-75 su Ubuntu 16.04 LTS. Per mantenere il funzionamento del driver quando si aggiorna il kernel, eseguire l'aggiornamento del kernel almeno alla versione 4.4.0-77. 
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -120,4 +199,4 @@ Al termine dell'aggiornamento, riavviare la VM.
     * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (per VM NC Azure)
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (per macchine virtuali NC di Azure)
 
-
+* Se si intende acquisire un'immagine di una VM Linux in cui sono installati driver NVIDIA, vedere [Come generalizzare e acquisire una macchina virtuale Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

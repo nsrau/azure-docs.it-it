@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 04/28/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5121da4f4e68ac5a95f80a4c7e622bba2f65ffea
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: bab651ffc314e64ca9b9432d1fae3ea29b8d15f5
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -108,7 +108,6 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
         # sudo yum install WALinuxAgent
 
         # sudo chkconfig waagent on
-
 
     L'installazione del pacchetto WALinuxAgent determina la rimozione dei pacchetti NetworkManager e NetworkManager-gnome, se non sono già stati rimossi nel passaggio 3.
 
@@ -351,16 +350,12 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
     Verificare che le dimensioni dell'immagine non elaborata siano pari a 1 MB. In caso contrario, arrotondare le dimensioni a 1 MB:
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
-
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     Convertire il disco non formattato in un disco rigido virtuale a dimensione fissa:
 
@@ -432,7 +427,7 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
     Modificare `/etc/dracut.conf` e aggiungere il contenuto:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="�hv_vmbus hv_netvsc hv_storvsc"
 
     Ricompilare initramfs:
 
@@ -495,15 +490,12 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 
     Verificare che le dimensioni dell'immagine non elaborata siano pari a 1 MB. In caso contrario, arrotondare le dimensioni a 1 MB:
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-        
-                # qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     Convertire il disco non formattato in un disco rigido virtuale a dimensione fissa:
 
@@ -557,9 +549,9 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
 8. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. A tale scopo, aprire `/etc/default/grub` in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`. Ad esempio:
    
-        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
-   In questo modo si garantisce inoltre che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto di Azure nella risoluzione dei problemi di debug. Questa configurazione disattiva anche le nuove convenzioni di denominazione di RHEL 7 per le schede di interfaccia di rete. È consigliabile anche rimuovere i parametri seguenti:
+   In questo modo si garantisce inoltre che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto di Azure nella risoluzione dei problemi di debug. È consigliabile anche rimuovere i parametri seguenti:
    
         rhgb quiet crashkernel=auto
    
@@ -569,7 +561,7 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
     Modificare `/etc/dracut.conf` e aggiungere il contenuto seguente:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Ricompilare initramfs:
 
@@ -615,15 +607,12 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
     Verificare che le dimensioni dell'immagine non elaborata siano pari a 1 MB. In caso contrario, arrotondare le dimensioni a 1 MB:
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     Convertire il disco non formattato in un disco rigido virtuale a dimensione fissa:
 
@@ -722,15 +711,12 @@ In questa sezione si presuppone che una macchina virtuale RHEL sia già stata in
 
     Verificare che le dimensioni dell'immagine non elaborata siano pari a 1 MB. In caso contrario, arrotondare le dimensioni a 1 MB:
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-                
-                # qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     Convertire il disco non formattato in un disco rigido virtuale a dimensione fissa:
 

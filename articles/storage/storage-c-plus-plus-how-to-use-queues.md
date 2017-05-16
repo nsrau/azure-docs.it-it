@@ -3,20 +3,21 @@ title: Come usare l&quot;archiviazione code (C++) | Microsoft Docs
 description: Informazioni su come usare il servizio di archiviazione delle code in Azure. Gli esempi sono scritti in C++.
 services: storage
 documentationcenter: .net
-author: seguler
+author: cbrooksmsft
 manager: jahogg
 editor: tysonn
 ms.assetid: c8a36365-29f6-404d-8fd1-858a7f33b50a
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: cpp
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-translationtype: Human Translation
+ms.date: 05/11/2017
+ms.author: cbrooksmsft
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
 ms.openlocfilehash: ca4b5428279291c0b3fe4fb52f6dc4e2c1208bf2
+ms.contentlocale: it-it
 ms.lasthandoff: 11/22/2016
 
 

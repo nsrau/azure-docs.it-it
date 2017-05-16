@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 47869775365ea517b94cbd5a2eb83c93f4d2b4df
-ms.openlocfilehash: 17b7337ddcfa2671bb3a035de8462e31bfa0c85f
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -72,6 +72,10 @@ Un altro scenario di tipo line-of-business prevede l'uso di una rete VPN da sito
 ![Bilanciamento del carico interno tramite VPN da sito a sito](./media/load-balancer-internal-overview/IC744150.png)
 
 Figura 4. Il traffico di rete locale può essere instradato all'endpoint di bilanciamento del carico interno
+
+## <a name="limitations"></a>Limitazioni
+
+SNAT non è supportato dalle configurazioni del servizio di bilanciamento del carico interno. Nel contesto di questo documento, SNAT fa riferimento alla traduzione dell'indirizzo di rete di origine mascherato della porta.  Questo vale per gli scenari in cui una macchina virtuale in un pool di bilanciamento del carico deve raggiungere l'indirizzo IP front-end del rispettivo servizio di bilanciamento del carico interno. Questo scenario non è supportato per il servizio di bilanciamento del carico interno. Si verificheranno errori di connessione una volta eseguito il bilanciamento del carico del flusso sulla macchina virtuale che ha originato il flusso. È necessario usare un servizio di bilanciamento del carico di tipo proxy per questi scenari.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7c6ca3789e9a5dcde799d9ef40b58bd2f3c8966c
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f44119d651767881cfd999808925b0066a5e502b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +42,7 @@ Il [servizio BLOB](../storage/storage-introduction.md#blob-storage) di [Archivia
 Questa esercitazione illustra vari modi in cui è possibile impostare la durata (TTL) per un BLOB in Archiviazione di Azure.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure.  Usare il cmdlet `Get-AzureStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
+[Azure PowerShell](/powershell/azure/overview) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure.  Usare il cmdlet `Get-AzureStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
 
 ```powershell
 # Create a storage context
@@ -101,7 +101,7 @@ class Program
 ## <a name="other-methods"></a>Altri metodi
 * [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
   
-    Quando si carica il BLOB, impostare la proprietà *cacheControl* usando l'opzione `-p`.  Questo esempio imposta la durata (TTL) su un'ora, ovvero&3;.600 secondi.
+    Quando si carica il BLOB, impostare la proprietà *cacheControl* usando l'opzione `-p`.  Questo esempio imposta la durata (TTL) su un'ora, ovvero 3.600 secondi.
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt

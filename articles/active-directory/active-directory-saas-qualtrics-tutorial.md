@@ -11,27 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 8e209d70a0bdcac4d3d1f7fefe265bf4824520e3
-ms.openlocfilehash: 20c198577349a2173d5b7bafd1b84fd4c24fa711
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2fcde595a40dafda7549f5bccb582b57585b314e
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Esercitazione: Integrazione di Azure Active Directory con Qualtrics
 In questa esercitazione viene illustrata l'integrazione di Azure e Qualtrics.  
+
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 * Sottoscrizione di Azure valida
-* Sottoscrizione di Qualtrics abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Qualtrics abilitata per l'accesso Single Sign-On (SSO)
 
 Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Qualtrics saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Qualtrics (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
 1. Abilitazione dell'integrazione dell'applicazione per Qualtrics
-2. Configurazione dell'accesso Single Sign-On
+2. Configurazione dell'accesso Single Sign-On (SSO)
 3. Configurazione del provisioning utente
 4. Assegnazione degli utenti
 
@@ -40,7 +42,8 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 ## <a name="enabling-the-application-integration-for-qualtrics"></a>Abilitazione dell'integrazione dell'applicazione per Qualtrics
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Qualtrics.
 
-### <a name="to-enable-the-application-integration-for-qualtrics-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per Qualtrics, eseguire la procedura seguente:
+**Per abilitare l'integrazione dell'applicazione per Qualtrics, seguire questa procedura:**
+
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-qualtrics-tutorial/IC700993.png "Active Directory")
@@ -61,11 +64,12 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
    
    ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
    
-## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Qualtrics tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+**Per configurare l'accesso Single Sign-On, seguire questa procedura:**
+
 1. Nella pagina di integrazione dell'applicazione **Qualtrics** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "Configurare l'accesso Single Sign-On")
@@ -80,25 +84,25 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "Configurare l'accesso Single Sign-On")
 5. Inviare il file di metadati al team di supporto di Qualtrics.
    
-   > [!NOTE]
-   > La configurazione dell'accesso Single Sign-On deve essere eseguita dal team di supporto di Qualtrics. Al termine della configurazione, viene ricevuta una notifica.
+   >[!NOTE]
+   >La configurazione dell'accesso SSO deve essere eseguita dal team di supporto di Qualtrics. Al termine della configurazione, viene ricevuta una notifica.
    > 
    > 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "Configurare l'accesso Single Sign-On")
    
-## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configure-user-provisioning"></a>Configura provisioning utenti
 
-Non è richiesto alcun intervento dell'utente per configurare il provisioning degli utenti in Qualtrics.  
-Quando un utente assegnato tenta di accedere a Qualtrics usando il pannello di accesso, Qualtrics verifica se l'utente esiste.  
+Non è richiesto alcun intervento dell'utente per configurare il provisioning degli utenti in Qualtrics. Quando un utente assegnato tenta di accedere a Qualtrics usando il pannello di accesso, Qualtrics verifica se l'utente esiste.  
 
 Se l’account utente non è disponibile, viene creato automaticamente da Qualtrics.
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-qualtrics-perform-the-following-steps"></a>Per assegnare gli utenti a Qualtrics, eseguire la procedura seguente:
+**Per assegnare gli utenti a Qualtrics, seguire questa procedura:**
+
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Qualtrics** fare clic su **Assegna utenti**.
    
@@ -107,11 +111,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    
    ![Sì](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 

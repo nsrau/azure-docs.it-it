@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -60,7 +60,7 @@ Se si usa System Center Operations Manager, ogni gruppo di gestione di Operation
 
 È possibile visualizzare i dettagli sull'area di lavoro nel portale di Azure. È inoltre possibile visualizzare i dettagli nel portale di OMS.
 
-#### <a name="view-workspace-information-the-azure-portal"></a>Visualizzare le informazioni sull'area di lavoro nel portale di Azure
+#### <a name="view-workspace-information-in-the-azure-portal"></a>Visualizzare le informazioni sull'area di lavoro nel portale di Azure
 
 1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com), usando la sottoscrizione di Azure.
 2. Scegliere **Altri servizi** dal menu **Hub** e digitare **Log Analytics** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Log Analytics**.  
@@ -94,13 +94,15 @@ La tabella seguente riepiloga l'accesso che si può impostare con ogni modello d
 
 I ruoli utente di Log Analytics legacy controllano solo l'accesso alle attività eseguite nel [portale di Log Analytics](https://mms.microsoft.com).
 
-Le attività seguenti nel portale di Log Analytics richiedono le autorizzazioni di Azure:
+Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
 | Azione                                                          | Autorizzazioni di Azure necessarie | Note |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Aggiunta e rimozione di soluzioni di gestione                        | Scrittura per il gruppo di risorse <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Aggiunta e rimozione di soluzioni di gestione                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Modifica del piano tariffario                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Visualizzazione dei dati nei riquadri delle soluzioni *Backup* e *Site Recovery* | Amministratore/Coamministratore | Risorse di accesso distribuite usando il modello di distribuzione classica |
+| Creare un'area di lavoro nel portale di Azure                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gestione dell'accesso a Log Analytics con le autorizzazioni di Azure
 Per concedere l'accesso all'area di lavoro di Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md).
@@ -202,9 +204,6 @@ Tutte le aree di lavoro create dopo il 26 settembre 2016 devono essere collegate
     > [!IMPORTANT]
     > Per collegare un'area di lavoro, è necessario che l'account di Azure abbia già accesso a tale area.  In altri termini, è necessario che l'account usato per accedere al portale di Azure sia **lo stesso** account usato per accedere all'area di lavoro. In caso contrario, vedere [Aggiungere un utente a un'area di lavoro esistente](#add-a-user-to-an-existing-workspace).
 
-
-
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Per collegare un'area di lavoro a una sottoscrizione di Azure nel portale di Azure
 1. Accedere al [portale di Azure](http://portal.azure.com).
 2. Cercare e selezionare **Log Analytics**.
@@ -225,7 +224,7 @@ Tutte le aree di lavoro create dopo il 26 settembre 2016 devono essere collegate
 8. Fare clic su **OK**. L'area di lavoro ora è collegata all'account Azure.
 
 > [!NOTE]
-> Se non viene visualizzata l'area di lavoro a cui ci si vuole collegare, la sottoscrizione di Azure non ha accesso all'area di lavoro creata usando il sito Web OMS.  Per concedere l'accesso a questo account dal portale di OMS, vedere [Aggiungere un utente a un'area di lavoro esistente](#add-a-user-to-an-existing-workspace).
+> Se non viene visualizzata l'area di lavoro a cui ci si vuole collegare, la sottoscrizione di Azure non ha accesso all'area di lavoro creata usando il portale di OMS.  Per concedere l'accesso a questo account dal portale di OMS, vedere [Aggiungere un utente a un'area di lavoro esistente](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -250,7 +249,7 @@ Per assicurarsi che l'uso di un'area di lavoro venga applicato ai diritti deriva
 I diritti della sottoscrizione di OMS non sono visibili nel portale di Azure o OMS. È possibile visualizzare i diritti e l'uso in Enterprise Portal.  
 
 Se è necessario modificare la sottoscrizione di Azure a cui è collegata la propria area di lavoro, è possibile usare il cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) di Azure PowerShell.
-to
+
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Uso dell'impegno di Azure da un contratto Enterprise
 Se non si dispone di una sottoscrizione di OMS, è necessario pagare separatamente per ogni componente di OMS e l'uso viene visualizzato nella fattura di Azure.
 

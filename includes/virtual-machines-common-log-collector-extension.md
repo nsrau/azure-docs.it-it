@@ -483,8 +483,3 @@ SetAzureVMLogCollector.ps1
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile esaminare o copiare i log da una posizione semplificata.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

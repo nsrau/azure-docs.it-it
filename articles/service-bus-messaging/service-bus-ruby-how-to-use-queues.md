@@ -1,5 +1,5 @@
 ---
-title: Come usare le code del bus di servizio di Azure con Ruby | Documentazione Microsoft
+title: Come usare le code del bus di servizio di Azure con Ruby | Microsoft Docs
 description: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Ruby.
 services: service-bus-messaging
 documentationcenter: ruby
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
-ms.openlocfilehash: 343dc0d39f284488f03e1d1ba3df21ae616e97d9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 9f0eb5a265777bdf249c46c41a065ef427fac920
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -33,7 +35,7 @@ Questa guida illustra come usare le code del bus di servizio. Gli esempi sono sc
 Creare un'applicazione Ruby. Per istruzioni, vedere [Creare un'applicazione Ruby in Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Ruby Azure, che comprende un set di pratiche librerie che comunicano con i servizi di archiviazione REST.
+Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Ruby di Azure, che comprende un set di pratiche librerie che comunicano con i servizi REST di archiviazione.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Utilizzare RubyGems per ottenere il pacchetto
 1. Usare un'interfaccia della riga di comando, ad esempio **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix).
@@ -112,7 +114,7 @@ Il bus di servizio fornisce funzionalità per il ripristino gestito automaticame
 
 Al messaggio bloccato nella coda è inoltre associato un timeout. Se l'applicazione non riesce a elaborare il messaggio prima della scadenza del timeout, ad esempio a causa di un arresto anomalo, il bus di servizio sbloccherà automaticamente il messaggio rendendolo nuovamente disponibile per la ricezione.
 
-In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata al metodo **delete\_queue\_message()**, il messaggio verrà recapitato di nuovo al riavvio dell'applicazione. Questo processo di elaborazione viene spesso definito di tipo **At-Least-Once**, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **message\_id** del messaggio, che rimane costante in tutti i tentativi di recapito.
+In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata al metodo **delete\_queue\_message()**, il messaggio verrà recapitato di nuovo al riavvio dell'applicazione. Questo processo di elaborazione viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, gli sviluppatori dovranno aggiungere logica aggiuntiva all'applicazione per gestire il secondo recapito del messaggio. A tale scopo viene spesso usata la proprietà **message\_id** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base delle code del bus di servizio, usare i collegamenti seguenti per altre informazioni.
@@ -121,10 +123,5 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 * Vedere il repository [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) su GitHub.
 
 Per un confronto tra le code del bus di servizio di Azure discusse in questo articolo e le code di Azure discusse nell'articolo [Come usare l'archiviazione di accodamento da Ruby](../storage/storage-ruby-how-to-use-queue-storage.md), vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

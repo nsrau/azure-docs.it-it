@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: 3b22dee95d064de8190d7429cc4118884fb81172
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -50,10 +52,5 @@ Per utilizzare LinkedIn come provider di identità in Azure Active Directory (Az
 5. Fare clic su **Identity provider type** (Tipo di provider di identità), selezionare **LinkedIn** e fare clic su **OK**.
 6. Fare clic su **Impostare il provider di identità** e immettere l'ID client e il segreto client dell'applicazione LinkedIn creata in precedenza.
 7. Fare clic su **OK** e quindi su **Create** (Crea) per salvare la configurazione di LinkedIn.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

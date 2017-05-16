@@ -10,8 +10,3 @@
    
     Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità di manutenzione.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

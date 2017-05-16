@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 8ada071c9ef7c534f6e048e4804aa1b4b2b787e0
-ms.openlocfilehash: f9b28b177e83e49bd83328919efbd5887b46c7d4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 934ac698c09f2d7c130fe787994dc6fa12abbd2f
+ms.lasthandoff: 04/18/2017
 
 ---
 
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilità e coerenza nell'Hub eventi
 
 ## <a name="overview"></a>Panoramica
-L'Hub eventi di Azure usa un [modello di partizionamento](event-hubs-what-is-event-hubs.md#partitions) per migliorare la disponibilità e la parallelizzazione all'interno di un singolo Hub eventi. Se ad esempio un Hub eventi include quattro partizioni e una di queste partizioni viene spostata da un server a un altro in un'operazione di bilanciamento del carico, è comunque possibile inviare e ricevere dalle altre tre partizioni. Più partizioni consentono anche di avere più lettori simultaneamente che elaborano i dati, migliorando la velocità effettiva di aggregazione. Comprendere le implicazioni del partizionamento e dell'ordinamento in un sistema distribuito è un aspetto critico della progettazione di una soluzione.
+Hub eventi di Azure usa un [modello di partizionamento](event-hubs-what-is-event-hubs.md#partitions) per migliorare la disponibilità e la parallelizzazione all'interno di un singolo hub eventi. Se ad esempio un hub eventi include quattro partizioni e una di queste partizioni viene spostata da un server a un altro in un'operazione di bilanciamento del carico, è comunque possibile inviare e ricevere dalle altre tre partizioni. Più partizioni consentono anche di avere più lettori simultaneamente che elaborano i dati, migliorando la velocità effettiva di aggregazione. Comprendere le implicazioni del partizionamento e dell'ordinamento in un sistema distribuito è un aspetto critico della progettazione di una soluzione.
 
 Per spiegare il compromesso tra ordinamento e disponibilità, vedere il [teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), noto anche come Teorema di Brewer. Il teorema afferma che è necessario scegliere tra coerenza, disponibilità e tolleranza di partizione.
 
@@ -34,10 +34,10 @@ Il teorema di Brewer definisce coerenza e disponibilità come segue:
 * Coerenza: una lettura garantisce la restituzione della scrittura più recente per un determinato client.
 
 ## <a name="partition-tolerance"></a>Tolleranza di partizione
-L'Hub eventi si basa su un modello di dati partizionato. È possibile configurare il numero di partizioni nell'Hub eventi durante l'installazione, ma non è possibile modificare questo valore in un secondo momento. Poiché è obbligatorio usare le partizioni con l'Hub eventi, è necessario solo prendere una decisione relativa a disponibilità e coerenza dell'applicazione.
+L'Hub eventi si basa su un modello di dati partizionato. È possibile configurare il numero di partizioni nell'hub eventi durante l'installazione, ma non è possibile modificare questo valore in un secondo momento. Poiché è obbligatorio usare le partizioni con l'Hub eventi, è necessario solo prendere una decisione relativa a disponibilità e coerenza dell'applicazione.
 
 ## <a name="availability"></a>Disponibilità
-Il modo più semplice per iniziare a usare l'Hub eventi è il comportamento predefinito. Se si crea un nuovo oggetto `EventHubClient` e si usa il metodo `Send`, gli eventi vengono distribuiti automaticamente tra le partizioni nell'Hub eventi. Questo comportamento consente la maggiore quantità di tempo di attività.
+Il modo più semplice per iniziare a usare l'Hub eventi è il comportamento predefinito. Se si crea un nuovo oggetto `EventHubClient` e si usa il metodo `Send`, gli eventi vengono distribuiti automaticamente tra le partizioni nell'hub eventi. Questo comportamento consente la maggiore quantità di tempo di attività.
 
 Per i casi di uso che richiedono il massimo del tempo di attività, è preferibile usare questo modello.
 
@@ -59,11 +59,11 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-Nell'esempio precedente, l'evento viene inviato a una delle partizioni disponibili nell'Hub eventi e il numero di sequenza corrispondente viene impostato dall'applicazione. Questa soluzione richiede che l'applicazione di elaborazione mantenga lo stato, ma propone ai mittenti un endpoint che ha maggiori probabilità di essere disponibile.
+Nell'esempio precedente, l'evento viene inviato a una delle partizioni disponibili nell'hub eventi e il numero di sequenza corrispondente viene impostato dall'applicazione. Questa soluzione richiede che l'applicazione di elaborazione mantenga lo stato, ma propone ai mittenti un endpoint che ha maggiori probabilità di essere disponibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
+* [Creare un hub eventi](event-hubs-create.md)
 

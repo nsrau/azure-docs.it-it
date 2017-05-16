@@ -17,6 +17,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
 ms.openlocfilehash: cba595704af8e48506a25d592770ec273cb9bd30
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 **Per configurare Single Sign-On di Azure AD con @Task,, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **@Task** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo** Configura accesso Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **@Task** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo**Configura accesso Single Sign-On**.
    
     ![Configura accesso Single Sign-On][6] 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a @Task** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
@@ -270,10 +271,5 @@ Quando si fa clic sul riquadro @Task nel pannello di accesso, si dovrebbe accede
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

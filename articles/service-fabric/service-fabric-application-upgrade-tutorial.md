@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 2b1b12666b71bf173342d5864772a94b9625d38b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -41,7 +41,9 @@ Selezionando **Pubblica** viene visualizzata una finestra popup in cui è possib
 
 ![Pubblicazione di un'applicazione di Service Fabric][image2]
 
-Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Visual Objects include un servizio Web a cui è possibile accedere digitando [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) sulla barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
+Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Visual Objects include un servizio Web a cui è possibile accedere digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) sulla barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
+
+**NOTA:** in caso di distribuzione nel profilo `Cloud.xml` (Azure Service Fabric), l'applicazione deve quindi essere disponibile all'indirizzo **http://{NomeServiceFabric}.{Area}.cloudapp.azure.com:8081/visualobjects/**. Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passaggio 2: aggiornare l'applicazione Oggetti visivi di esempio
 È possibile osservare come con la versione distribuita al passaggio 1 gli oggetti visivi non ruotino. L'applicazione può essere aggiornata in modo che gli oggetti visivi ruotino.

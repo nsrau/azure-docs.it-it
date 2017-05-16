@@ -1,5 +1,5 @@
 ---
-title: Creare un gateway applicazione di Azure - Interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
+title: Creare un gateway applicazione di Azure - Interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
 description: Informazioni su come creare un gateway applicazione usando l&quot;interfaccia della riga di comando di Azure 2.0 in Resource Manager
 services: application-gateway
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 05/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
-ms.openlocfilehash: 68d3e3ee9b35f2d6d88cde68365cef91d9683462
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 14dab2197ff7c1eaff012066e321ef1b99f05bb3
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.lasthandoff: 03/01/2017
 > * [Interfaccia della riga di comando di Azure 1.0](application-gateway-create-gateway-cli.md)
 > * [Interfaccia della riga di comando di Azure 2.0](application-gateway-create-gateway-cli.md)
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello&7;. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata sui cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati e supporto per più siti.
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata sui cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati e supporto per più siti.
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
 
@@ -76,7 +77,8 @@ Aprire il **prompt dei comandi di Microsoft Azure**ed effettuare l'accesso.
 az login -u "username"
 ```
 
->[NOTA] È possibile anche usare `az login` senza lo switch per l'accesso del dispositivo che richiederà l'inserimento di un codice in aka.ms/devicelogin.
+> [!NOTE]
+> È possibile anche usare `az login` senza l'opzione per l'accesso del dispositivo che richiederà l'inserimento di un codice in aka.ms/devicelogin.
 
 Dopo avere digitato l'esempio precedente, viene fornito un codice. Passare a https://aka.ms/devicelogin in un browser per continuare il processo di accesso.
 
@@ -129,8 +131,7 @@ az network application-gateway create \
 --cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
 --cert-password P@ssw0rd \
 --capacity 2 \
---sku-tier Standard \
---sku-name Standard_Small \
+--sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
 --frontend-port 443 \
@@ -145,6 +146,14 @@ az network application-gateway create \
 Questo esempio crea un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Viene anche configurato l'offload SSL. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
 Se l'applicazione Web è già stata definita con il pool back-end nei passaggi precedenti, dopo la creazione, inizia il bilanciamento del carico.
 
+## <a name="delete-all-resources"></a>Eliminare tutte le risorse
+
+Per eliminare tutte le risorse create nell'esecuzione dell'esercizio, seguire questa procedura:
+
+```azurecli
+az group delete --name AdatumAppGatewayRG
+```
+ 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come creare probe di integrità personalizzati, vedere [Creare un probe personalizzato per un gateway applicazione con il portale](application-gateway-create-probe-portal.md)

@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 90584f60864589744888817ea71d0eb0d4d170ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -49,7 +49,7 @@ Un gateway viene installato in un computer della rete. È necessario installare 
 * In alcuni casi, i modelli tabulari che si connettono alle origini dati usando provider nativi quali SQL Server Native Client (SQLNCLI11) possono restituire un errore. Per altre informazioni, vedere [Connessioni alle origini dati](analysis-services-datasource.md).
 
 ## <a name="supported-on-premises-data-sources"></a>Origini dati locali supportate
-Per la versione di anteprima, il gateway supporta le connessioni tra il server Azure Analysis Services e le origini dati locali seguenti:
+Il gateway supporta le connessioni tra il server Azure Analysis Services e le origini dati locali seguenti:
 
 * SQL Server
 * SQL Data Warehouse
@@ -129,6 +129,25 @@ Dietro le quinte, il gateway di dati locale usato per la connessione alle origin
 Se si verificano problemi durante l'installazione e la configurazione di un gateway, vedere [Troubleshooting the Power BI Gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/) (Risoluzione dei problemi del gateway Power BI). In caso di problemi con il firewall, vedere le sezioni relative al firewall o al proxy.
 
 Se si verificano problemi di proxy con il gateway, vedere [Configuring proxy settings for the Power BI Gateways](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md) (Configurazione delle impostazioni del proxy per i gateway Power BI).
+
+### <a name="telemetry"></a>Telemetria
+La telemetria può essere usata per il monitoraggio e la risoluzione dei problemi. 
+
+**Per attivare la telemetria**
+
+1.    Verificare la directory del client gateway dati locale nel computer. In genere è %systemdrive%\Programmi\gateway dati locale. Oppure è possibile aprire una console dei servizi e verificare il percorso al file eseguibile, una proprietà del servizio gateway dati locale.
+2.    Nel file Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config nella directory del client modificare l'impostazione SendTelemetry su true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.    Salvare le modifiche e riavviare il servizio Windows gateway dati locale.
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire Analysis Services](analysis-services-manage.md)

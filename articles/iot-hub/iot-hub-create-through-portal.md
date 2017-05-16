@@ -1,5 +1,5 @@
 ---
-title: Usare il portale di Azure per creare un hub IoT | Documentazione Microsoft
+title: Usare il portale di Azure per creare un hub IoT | Microsoft Docs
 description: Come creare, gestire ed eliminare hub IoT di Azure con il portale di Azure. Include informazioni su piani tariffari, ridimensionamento, sicurezza e configurazione della messaggistica.
 services: iot-hub
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: ddf69b7256ae9665363ee0f491a6475c69d6d555
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -132,7 +133,7 @@ Fare clic su **Route** per gestire la modalità di invio dei messaggi da disposi
 
 ![][14]
 
-È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route***, inserendo le informazioni necessarie e facendo clic su **OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Abilito** su **Off**. Fare clic su **OK** nella parte inferiore del pannello per salvare le modifiche.
+È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route***, inserendo le informazioni necessarie e facendo clic su **OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Enabled** su **Off**. Fare clic su **OK** nella parte inferiore del pannello per salvare le modifiche.
 
 ![][15]
 

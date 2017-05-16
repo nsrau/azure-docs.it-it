@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 05/03/2017
 ms.author: sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f9f68644f5a53f8ddb76a51785d0641211b8288a
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 897b2c1c4e622ebe74a21643317c9b6270c3ae2c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -45,31 +46,47 @@ If the VM image VHD is available locally on the console VM (or another externall
 
 3. Create the Azure Stack administrator's AzureRM environment by using the following cmdlet:
    ```powershell
-   Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+   Add-AzureStackAzureRmEnvironment `
+     -Name "AzureStackAdmin" `
+     -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
    ```
 
-4. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+4. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
 
     a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
-       $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    $TenantID = Get-DirectoryTenantID `
+      -AADTenantName "<myaadtenant>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     
     ```PowerShell
-    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
+    $TenantID = Get-DirectoryTenantID `
+      -ADFS `
+      -EnvironmentName AzureStackAdmin 
     ```
 
-5. Add the VM image by invoking the **Add-VMImage** cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. Following is an example invocation of the script:
+5. Add the VM image by invoking the `Add-VMImage` cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. Following is an example invocation of the script:
      
      ```powershell
-     # Store the AAD service administrator account credentials in a variable 
+     # Store the service administrator account credentials in a variable 
      $UserName='<Username of the service administrator account>'
-     $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
+     $Password='<Admin password provided when deploying Azure Stack>'| `
+       ConvertTo-SecureString -Force -AsPlainText
      $Credential=New-Object PSCredential($UserName,$Password)
 
-     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenantID -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
+     Add-VMImage `
+       -publisher "Canonical" `
+       -offer "UbuntuServer" `
+       -sku "14.04.3-LTS" `
+       -version "1.0.0" `
+       -osType Linux `
+       -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
+       -TenantId $TenantID `
+       -EnvironmentName "AzureStackAdmin" `
+       -azureStackCredentials $Credential
      ```
 
 The command does the following:
@@ -134,5 +151,3 @@ To make the blob anonymously accessible, go to the storage account blob containe
    ![Begin to create the image](./media/azure-stack-add-vm-image/image4.png)
 3. The VM Image status changes to ‘Succeeded’ when the image is successfully added.
 4. Tenants can deploy the VM Image by specifying the publisher, offer, SKU, and version of the VM image in an Azure Resource Manager template. To make the VM image more readily available for tenant consumption in the UI, it is best to [create a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
-
-

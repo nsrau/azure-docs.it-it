@@ -1,6 +1,6 @@
 ---
-title: Pubblicare Desktop remoto con il proxy applicazione Azure Active Directory | Documentazione Microsoft
-description: Tratta i fondamenti dei connettori del proxy applicazione Azure AD.
+title: Pubblicare Desktop remoto con il proxy applicazione di Azure AD | Microsoft Docs
+description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -11,76 +11,97 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fd0ecc62fd3cfc860423acd02108648e99f44753
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 9724ad2e460837157c7677d2c91493cebc8f7012
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 
-# <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione Azure AD
+# <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
-Questo articolo illustra come rendere accessibili le distribuzioni di Desktop remoto Windows per gli utenti remoti. Le distribuzioni di Desktop remoto possono risiedere in locale o in reti private, ad esempio distribuzioni IaaS.
+Questo articolo descrive come distribuire Servizi Desktop remoto con il proxy applicazione in modo che gli utenti remoti restino produttivi. 
 
-> [!NOTE]
-> Il proxy applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory (Azure AD). Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+I destinatari di questo articolo sono:
+- I clienti attuali del proxy applicazione di Azure AD che vogliono offrire un maggior numero di applicazioni ai propri utenti finali tramite la pubblicazione di applicazioni locali attraverso Servizi Desktop remoto. 
+- I clienti attuali di Servizi Desktop remoto che vogliono ridurre la superficie di attacco della propria distribuzione usando il proxy applicazione di AD Azure. Questo scenario fornisce un set limitato di controlli di verifica in due passaggi e di controlli di accesso condizionale per Servizi Desktop remoto.
 
-Il traffico del protocollo di RDP (Remote Desktop Protocol) può essere pubblicato tramite il proxy applicazione di Azure AD come applicazione proxy pass-through. Questa soluzione consente di risolvere il problema di connettività e offre la protezione di base per la sicurezza, ad esempio il buffer di rete, un front-end Internet più robusto e protezione DDoS (Denial-of-Service) distribuita.
+## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Ruolo del proxy applicazione nella distribuzione standard di Servizi Desktop remoto
 
-## <a name="remote-desktop-deployment"></a>Distribuzione di Desktop remoto
+Una distribuzione standard di Servizi Desktop remoto include vari servizi ruolo Desktop remoto in esecuzione su Windows Server. L'[architettura di Servizi Desktop remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) offre più opzioni di distribuzione. La differenza più evidente tra la [distribuzione di Servizi Desktop remoto con proxy applicazione di AD Azure](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (illustrata nella figura seguente) e le altre opzioni di distribuzione è che lo scenario con il proxy applicazione dispone di una connessione permanente in uscita dal server che segue il servizio connettore. Altre distribuzioni lasciano le connessioni in ingresso aperte tramite un servizio di bilanciamento del carico. 
 
-All'interno della distribuzione di Desktop remoto viene pubblicato il Gateway Desktop remoto, per consentire di convertire RPC (Remote Procedure Call) sul traffico HTTPS in RDP sul traffico UDP (User Datagram Protocol).
+![Il proxy applicazione si trova tra la VM di Servizi Desktop remoto e la rete Internet pubblica](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
 
-È possibile configurare i client in modo che usino client di Desktop remoto, ad esempio MSTSC.exe, per accedere al proxy applicazione di Azure AD. In questo modo è possibile creare una nuova connessione HTTPS al Gateway Desktop remoto usando i suoi connettori. Il gateway non viene quindi esposto direttamente a Internet e tutte le richieste HTTPS verranno prima di tutto terminate nel cloud.
+In una distribuzione di Servizi Desktop remoto, il ruolo di Web Desktop remoto e il ruolo di Gateway Desktop remoto vengono eseguiti su computer con connessione Internet. Questi endpoint vengono esposti per i motivi seguenti:
+- Web Desktop remoto fornisce all'utente un endpoint pubblico per accedere e visualizzare le applicazioni e i desktop locali vari a cui può accedere. Dopo che è stata selezionata una risorsa, viene creata una connessione RDP tramite l'app nativa nel sistema operativo.
+- Gateway Desktop remoto entra in gioco una volta che l'utente avvia la connessione RDP. Gateway Desktop remoto gestisce il traffico RDP crittografato su Internet e lo trasferisce nel server locale a cui si connette l'utente. In questo scenario il traffico che Gateway Desktop remoto riceve proviene dal proxy applicazione di AD Azure.
 
-Questa topologia viene illustrata nel diagramma seguente:
+>[!TIP]
+>Se Servizi Desktop remoto non è stato distribuito prima e se si desiderano altre informazioni prima di iniziare, vedere come [distribuire facilmente Servizi Desktop remoto con Azure Resource Manager e Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
- ![Diagramma dei servizi locali di Azure AD](./media/application-proxy-publish-remote-desktop/remote-desktop-topology.png)
+## <a name="requirements"></a>Requisiti
 
-## <a name="configure-the-remote-desktop-gateway-url"></a>Configurare l'URL del gateway di Desktop remoto
+Entrambi gli endpoint Web Desktop remoto e Gateway Desktop remoto devono trovarsi nello stesso computer e avere una radice comune. Web Desktop remoto e Gateway Desktop remoto verranno pubblicati come un'unica applicazione in modo da consentire un'esperienza di accesso Single Sign-On tra le due applicazioni. 
 
-Quando gli utenti configurano l'URL del Gateway Desktop remoto e attivano il traffico RDP, come di consueto, possono accedere ai file e agli altri metodi.
+Si dovrebbe avere già [distribuito Servizi Desktop remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) e avere già [abilitato il proxy applicazione](active-directory-application-proxy-enable.md). 
 
-È possibile eseguire la pubblicazione usando il nome di dominio fornito dal proxy applicazione (msappproxy.net) oppure usando un nome di dominio personalizzato configurato in Azure AD (ad esempio, rdg.contoso.com).
+Gli utenti finali possono accedere a questo scenario solo dai desktop di Windows 7 e Windows 10 che si connettono tramite la pagina Web Desktop remoto. Questo scenario non è supportato su altri sistemi operativi, anche quelli dotati delle applicazioni Desktop remoto di Microsoft.
 
-Se i dispositivi client e il file RDP sono già configurati con l'URL del Gateway Desktop remoto, è possibile usare lo stesso nome di dominio e pertanto evitare la modifica. In questo caso il certificato che riguarda il dominio deve essere fornito al proxy applicazione e il rispettivo elenco di revoche di certificati deve essere accessibile tramite Internet.
+Gli utenti finali devono usare Internet Explorer e abilitare il componente aggiuntivo ActiveX di Servizi Desktop remoto quando si connettono alle proprie risorse. 
 
-Se non è configurato alcun URL del Gateway Desktop remoto, gli utenti o gli amministratori possono specificarlo nei client di Desktop remoto (MSTSC) usando la finestra di dialogo Connessione Desktop remoto, come illustrato qui.
+## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Distribuire lo scenario di Servizi desktop remoto e proxy applicazione congiunti
 
- ![Finestra di dialogo Connessione Desktop remoto](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-advanced.png)
+Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure AD per l'ambiente in uso, seguire questa procedura per combinare le due soluzioni. Questa procedura descrive come pubblicare i due endpoint di Servizi Desktop remoto per il Web (Web Desktop remoto e Gateway Desktop remoto) come applicazioni e quindi come indirizzare il traffico su Servizi Desktop remoto attraverso il proxy applicazione.
 
-La finestra di dialogo **Impostazioni connessione** viene visualizzata quando si fa clic su **Impostazioni** nella scheda **Avanzate**.
+### <a name="publish-the-rd-host-endpoint"></a>Pubblicare l'endpoint host di Desktop remoto
 
- ![Finestra Impostazioni connessione nella finestra di dialogo Connessione Desktop remoto](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-settings.png)
+1. [Pubblicare un nuovo proxy applicazione](application-proxy-publish-azure-portal.md) con i valori seguenti:
+   - URL interno: https://\<rdhost\>.com, dove \<rdhost\> è la radice comune condivisa da Web Desktop remoto e Gateway Desktop remoto. 
+   - URL esterno: questo campo viene popolato automaticamente in base al nome dell'applicazione, ma è possibile modificarlo. Gli utenti passeranno a questo URL quando accedono a Servizi Desktop remoto. 
+   - Metodo di autenticazione preliminare: Azure Active Directory
+   - Tradurre le intestazioni degli URL: No
+2. Assegnare utenti all'applicazione di Desktop remoto pubblicata. Assicurarsi che tutti gli utenti abbiano accesso anche a Servizi Desktop remoto.
+3. Lasciare il metodo Single Sign-On per l'applicazione come **Single Sign-On di Azure AD disabilitato**. Agli utenti viene richiesto di eseguire l'autenticazione una volta in Azure AD e una volta in Web Desktop remoto, ma dispongono dell'accesso Single Sign-On a Gateway Desktop remoto. 
+4. Andare a **Azure Active Directory** > **Registrazioni per l'app** > *Applicazione* > **Impostazioni**. 
+5. Selezionare **Proprietà** e aggiornare il campo **URL della pagina iniziale** in modo che punti all'endpoint di Web Desktop remoto, ad esempio https://\<rdhost\>.com/RDWeb.
 
-## <a name="remote-desktop-web-access"></a>Accesso Web Desktop remoto
+### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigere il traffico di Servizi Desktop remoto verso il proxy applicazione
 
-Se l'organizzazione usa il portale Accesso Web Desktop remoto (RDWA) è possibile pubblicare anche tramite il proxy applicazione di Azure Active Directory. È possibile pubblicare in questo portale con la preautenticazione e l'accesso Single Sign-On (SSO).
+Connettersi alla distribuzione di Servizi Desktop remoto come amministratore e modificare il nome del server Gateway Desktop remoto per la distribuzione. Ciò garantisce che le connessioni vengano indirizzate tramite il proxy applicazione di Azure AD.
 
-La topologia dello scenario RDWA viene illustrata nel diagramma seguente:
+1. Connettersi al server di Servizi Desktop remoto che esegue il ruolo Gestore connessione Desktop remoto.
+2. Avviare **Server Manager**.
+3. Selezionare **Servizi Desktop remoto** dal riquadro a sinistra.
+4. Selezionare **Panoramica**.
+5. Nella sezione Panoramica della distribuzione selezionare il menu a discesa e scegliere **Modificare proprietà di distribuzione**.
+6. Nella scheda Gateway Desktop remoto modificare il campo **Nome server** con l'URL esterno che è stato impostato per l'endpoint host di Desktop remoto nel proxy applicazione. 
+7. Impostare il campo **Metodo di accesso** su **Autenticazione della password**.
 
- ![Diagramma dello scenario RDWA](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal1.png)
+  ![Schermata Proprietà di distribuzione in Servizi Desktop remoto](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-Nel caso precedente gli utenti vengono autenticati in Azure AD prima di accedere a RDWA. Se sono già stati autenticati in Azure AD, ad esempio se usano Office 365, non devono eseguire nuovamente l'autenticazione per RDWA.
+8. Per ogni raccolta, eseguire il comando seguente. Sostituire *\<yourcollectionname\>* e *\<proxyfrontendurl\>* con le proprie informazioni. Questo comando abilita l'accesso Single Sign-On tra Web Desktop remoto e Gateway Desktop remoto e ottimizza le prestazioni:
 
-Quando gli utenti avviano la sessione RDP, devono eseguire nuovamente l'autenticazione sul canale RDP. Questo avviene perché l'accesso SSO da RDWA al Gateway Desktop remoto si basa sull'archiviazione delle credenziali dell'utente finale nel client tramite ActiveX. Questo processo viene attivato dall'autenticazione RDWA basata su form. Quando l'autenticazione RDWA usa Kerbros, non viene presentata alcuna autenticazione basata su form e quindi l'accesso SSO da RDWA a RDP non funziona.
+   ```
+   Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <proxyfrontendurl> `n require pre-authentication:i:1"
+   ```
 
-Se RDWA ha bisogno dell'accesso SSO al traffico RDP oppure l'autenticazione RDWA basata su form è stata ampiamente personalizzata, è possibile pubblicare RDWA senza la preautenticazione.
+Dopo avere configurato Desktop remoto, il proxy applicazione di Azure AD diventa il componente con connessione Internet di Servizi Desktop remoto. È possibile rimuovere gli altri endpoint con connessione Internet pubblici nei computer Web Desktop remoto e Gateway Desktop remoto. 
 
-La topologia di questo scenario viene illustrata nel diagramma seguente:
+## <a name="test-the-scenario"></a>Testare lo scenario
 
- ![Diagramma dello scenario RDWA](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal2.png)
+Testare lo scenario con Internet Explorer su un computer Windows 7 o 10.
 
-Nel caso precedente gli utenti devono eseguire l'autenticazione su RDWA usando l'autenticazione basata su form ma non hanno bisogno di eseguire l'autenticazione sul protocollo RDP.
-
->[!NOTE]
->In entrambi i casi precedenti, non è necessaria alcuna preautenticazione sul traffico RDP. Gli utenti possono quindi accedervi senza prima passare attraverso RDWA.
+1. Passare all'URL esterno impostato o individuare l'applicazione nel [pannello MyApps](https://myapps.microsoft.com).
+2. Viene chiesto di eseguire l'autenticazione ad Azure Active Directory. Usare un account che è stato precedentemente assegnato all'applicazione.
+3. Viene chiesto di eseguire l'autenticazione a Web Desktop remoto. 
+4. Al termine dell'autenticazione di Servizi Desktop remoto, è possibile selezionare il desktop o l'applicazione che si desidera e iniziare a lavorare. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Abilitare l'accesso remoto a SharePoint con il proxy applicazione di Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
-[Abilitare il proxy di applicazione nel portale di Azure](active-directory-application-proxy-enable.md)
+[Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD](application-proxy-security-considerations.md)
 

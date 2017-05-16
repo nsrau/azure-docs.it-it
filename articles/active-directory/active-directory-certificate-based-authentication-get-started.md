@@ -10,11 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: d818cd3a243fb78228706b21a002f295782189be
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e0adbb9f7c427c08e59841a598b4f0fc99e43f26
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -98,7 +99,7 @@ Lo schema per un'autorità di certificazione ha un aspetto simile al seguente:
         IntermediateAuthority = 1 
     } 
 
-Per la configurazione, è possibile usare [Azure Active Directory PowerShell versione 2](https://docs.microsoft.com/powershell/azuread/):  
+Per la configurazione, è possibile usare [Azure Active Directory PowerShell versione 2](/powershell/azure/install-adv2?view=azureadps-2.0):  
 
 1. Avviare Windows PowerShell con privilegi amministrativi. 
 2. Installare il modulo Azure AD. È necessario installare la versione [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) o una versione successiva.  
@@ -109,21 +110,21 @@ Il primo passaggio di configurazione consiste nello stabilire una connessione co
 
 ### <a name="connect"></a>Connettere
 
-Per stabilire una connessione con il tenant, usare il cmdlet [Connect-AzureAD](https://docs.microsoft.com/powershell/azuread/v2/connect-azuread):
+Per stabilire una connessione con il tenant, usare il cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
     Connect-AzureAD 
 
 
 ### <a name="retrieve"></a>Recupero 
 
-Per recuperare le autorità di certificazione attendibili definite nella directory, usare il cmdlet [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/get-azureadtrustedcertificateauthority). 
+Per recuperare le autorità di certificazione attendibili definite nella directory, usare il cmdlet [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0). 
 
     Get-AzureADTrustedCertificateAuthority 
  
 
 ### <a name="add"></a>Add
 
-Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/new-azureadtrustedcertificateauthority): 
+Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0): 
    
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
@@ -134,7 +135,7 @@ Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-Azur
 
 ### <a name="remove"></a>Rimuovere
 
-Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/remove-azureadtrustedcertificateauthority):
+Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
    
     $c=Get-AzureADTrustedCertificateAuthority 
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -142,7 +143,7 @@ Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remov
 
 ### <a name="modfiy"></a>Modificare
 
-Per modificare un'autorità di certificazione attendibile, usare il cmdlet [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/set-azureadtrustedcertificateauthority):
+Per modificare un'autorità di certificazione attendibile, usare il cmdlet [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
     $c=Get-AzureADTrustedCertificateAuthority 
     $c[0].AuthorityType=1 
@@ -218,10 +219,5 @@ Un profilo EAS può essere configurato e aggiunto al dispositivo tramite l'uso d
 
 1. Configurare un profilo EAS nell'applicazione che soddisfi i requisiti riportati sopra.  
 2. Aprire l'applicazione e verificare che venga eseguita la sincronizzazione dell'email. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

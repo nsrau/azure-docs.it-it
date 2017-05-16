@@ -10,8 +10,3 @@ Il back-end dell'app per dispositivi mobili è ora configurato per l'uso di Fire
 
 
 <!-- images -->
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: f06bf515accd8507189ecd5f1759f14f4f06fd33
-ms.openlocfilehash: faac9909993895b3e8a27b2cbaa7b62b3e508933
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 765a30f360cf8d3f8bde08aa94b20eba0d4537c9
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -31,6 +32,9 @@ DNS di Azure supporta l'importazione e l'esportazione di file di zona tramite l'
 
 L'interfaccia della riga di comando di Azure è uno strumento da riga di comando multipiattaforma usato per la gestione dei servizi di Azure. È disponibile per le piattaforme Windows, Mac e Linux nella [pagina di download di Azure](https://azure.microsoft.com/downloads/). Il supporto multipiattaforma è particolarmente importante per l'importazione e l'esportazione di file di zona, perché il software Domain Name Server più comune, [BIND](https://www.isc.org/downloads/bind/), viene eseguito in genere in Linux.
 
+> [!NOTE]
+> Esistono attualmente due versioni dell'interfaccia della riga di comando di Azure. CLI1.0 è basata su Node.js e ha comandi che iniziano con "azure".
+> CLI2.0 è basata su Python e ha comandi che iniziano con "az". Nonostante l'importazione dei file di zona sia supportata in entrambe le versioni, è consigliabile usare i comandi CLI1.0, come descritto in questa pagina.
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Recupero del file di zona DNS esistente
 
@@ -40,9 +44,13 @@ Prima di importare il file di zona DNS in DNS di Azure, è necessario ottenere u
 * Se la zona DNS è ospitata nel DNS di Windows, la cartella predefinita per i file di zona è **%systemroot%\system32\dns**. Il percorso completo di ogni file di zona è anche visualizzato nella scheda **Generale** della console di gestione del servizio DNS.
 * Se la zona DNS è ospitata con BIND, il percorso del file di zona per ogni zona è specificato nel file di configurazione di BIND **named.conf**.
 
-**Uso dei file di zona di GoDaddy**
-
-I file di zona scaricati da GoDaddy hanno un formato leggermente non standard. È necessario correggerlo prima di importare questi file di zona in DNS di Azure. I nomi DNS in RData di ogni record DNS sono specificati come nomi completi, ma non hanno un "." di terminazione. Ciò significa che vengono interpretati da altri sistemi DNS come nomi relativi. È necessario modificare il file di zona aggiungendo il '.' di terminazione ai relativi nomi prima di importarli in DNS di Azure.
+> [!NOTE]
+> I file di zona scaricati da GoDaddy hanno un formato leggermente non standard. È necessario correggerlo prima di importare questi file di zona in DNS di Azure.
+>
+> I nomi DNS in RDATA di ogni record DNS sono specificati come nomi completi, ma non hanno un "." alla fine. Ciò significa che vengono interpretati da altri sistemi DNS come nomi relativi. È necessario modificare il file di zona aggiungendo il '.' di terminazione ai relativi nomi prima di importarli in DNS di Azure.
+>
+> Ad esempio, il record CNAME "www 3600 IN CNAME contoso.com" deve essere modificato in "www 3600 IN CNAME contoso.com."
+> con un "." alla fine.
 
 ## <a name="import-a-dns-zone-file-into-azure-dns"></a>Importare un file di zona DNS in DNS di Azure
 
@@ -210,9 +218,4 @@ Come per l'importazione di una zona, è necessario prima di tutto accedere, sceg
     ```azurecli
     azure network dns zone export myresourcegroup contoso.com contoso.com.txt
     ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -12,17 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: b159d3583c24e36c2803d7d02deca1415669d054
-ms.openlocfilehash: ebc5461177df5b5a16ab9b5668f5fda890ee11a4
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-update-a-cloud-service"></a>Come aggiornare un servizio cloud
-## <a name="overview"></a>Overview
-In generale, l'aggiornamento di un servizio cloud, inclusi i ruoli e il sistema operativo guest, è un processo in tre passaggi. Prima devono essere caricati i file binari e di configurazione per la nuova versione del nuovo servizio cloud o del sistema operativo. Quindi Azure riserva le risorse di calcolo e di rete per il servizio cloud in base ai requisiti della nuova versione del servizio cloud. Infine Azure esegue un aggiornamento in sequenza per aggiornare in modo incrementale il tenant alla nuova versione o al nuovo sistema operativo guest, mantenendo nello stesso tempo la disponibilità. Questo articolo illustra i dettagli dell'ultimo passaggio, l'aggiornamento in sequenza.
+
+L'aggiornamento di un servizio cloud, inclusi i ruoli e il sistema operativo guest, è un processo in tre passaggi. Prima devono essere caricati i file binari e di configurazione per la nuova versione del nuovo servizio cloud o del sistema operativo. Quindi Azure riserva le risorse di calcolo e di rete per il servizio cloud in base ai requisiti della nuova versione del servizio cloud. Infine Azure esegue un aggiornamento in sequenza per aggiornare in modo incrementale il tenant alla nuova versione o al nuovo sistema operativo guest, mantenendo nello stesso tempo la disponibilità. Questo articolo illustra i dettagli dell'ultimo passaggio, l'aggiornamento in sequenza.
 
 ## <a name="update-an-azure-service"></a>Aggiornare un servizio di Azure
 Azure organizza le istanze del ruolo in raggruppamenti logici chiamati domini di aggiornamento. I domini di aggiornamento sono set logici di istanze del ruolo aggiornate come gruppo.  Azure aggiorna un servizio cloud un dominio di aggiornamento alla volta, per consentire alle istanze negli altri domini di aggiornamento di continuare a gestire il traffico.
@@ -66,9 +67,9 @@ La tabella seguente mostra le modifiche consentite a un servizio durante un aggi
 | Modificare i certificati esistenti |Sì |Sì |Sì |
 | Distribuire nuovo codice |Sì |Sì |Sì |
 
-<sup>1</sup>Modifica delle dimensioni limitata al sottoinsieme di dimensioni disponibili per il servizio cloud.
+<sup>1</sup> Modifica delle dimensioni limitata al sottoinsieme di dimensioni disponibili per il servizio cloud.
 
-<sup>2</sup>Richiede Azure SDK 1.5 o versioni successive.
+<sup>2</sup> Richiede Azure SDK 1.5 o versioni successive.
 
 > [!WARNING]
 > La modifica della dimensione di una macchina virtuale eliminerà i dati locali.
@@ -90,11 +91,11 @@ Se intende eseguire altri aggiornamenti alla definizione del servizio, ad esempi
 
 Il diagramma seguente illustra come avviene l'aggiornamento se si aggiornano tutti i ruoli nel servizio:
 
-![Aggiornare il servizio](media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
+![Servizio di aggiornamento](media/cloud-services-update-azure-service/IC345879.png "Servizio di aggiornamento")
 
 Il diagramma successivo illustra come avviene l'aggiornamento se si aggiorna un solo ruolo:
 
-![Aggiornare il ruolo](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
+![Aggiornamento ruolo](media/cloud-services-update-azure-service/IC345880.png "Aggiornamento ruolo")  
 
 Durante un aggiornamento automatico, il controller di infrastruttura di Azure valuta periodicamente l'integrità del servizio cloud per determinare quando è sicuro passare al dominio di aggiornamento successivo. Questa valutazione dell'integrità viene eseguita per ogni singolo ruolo e considera solo le istanze nella versione più recente (ad esempio, le istanze dei domini di aggiornamento già analizzati). Verifica che un numero minimo di istanze del ruolo, per ogni ruolo, abbia raggiunto uno stato finale soddisfacente.
 
@@ -178,7 +179,7 @@ I domini di aggiornamento vengono identificati con un indice in base zero: il pr
 
 Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in un servizio quando il servizio definisce due domini di aggiornamento. Il servizio esegue otto istanze del ruolo Web e nove istanze del ruolo di lavoro.
 
-![Distribuzione di domini di aggiornamento](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
+![Distribuzione di domini di aggiornamento](media/cloud-services-update-azure-service/IC345533.png "Distribuzione di domini di aggiornamento")
 
 > [!NOTE]
 > Si noti che Azure controlla come le istanze vengono allocate nei domini di aggiornamento. Non è possibile specificare quali istanze vengono allocate in ogni dominio.
@@ -189,9 +190,4 @@ Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in u
 [Come gestire i servizi cloud](cloud-services-how-to-manage.md)  
 [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md)  
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

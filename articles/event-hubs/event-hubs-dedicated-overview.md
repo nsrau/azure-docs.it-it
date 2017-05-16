@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 9c1756d2c2c4dd73c60a71b24bfb4606cab289ed
-ms.openlocfilehash: 8e718e74443e3d51dc54edaf667e34875bc67c5d
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fa0d49498db74ec81c98f3df9317d42cdd31ab46
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -55,7 +55,7 @@ Quando si usa Hub eventi dedicato sono disponibili i vantaggi seguenti:
 * Manutenzione ridotta al minimo: il bilanciamento del carico, gli aggiornamenti del sistema operativo, le patch di protezione e il partizionamento vengono gestiti automaticamente.
 * Prezzo mensile fisso.
 
-Hub eventi dedicato rimuove anche alcune limitazioni relative alla velocità effettiva presenti nel livello Standard. Le unità elaborate dei livelli Basic e Standard consentono di usare fino a 1000 eventi al secondo o 1 MB al secondo in ingresso per le unità elaborare e il doppio in uscita. Il livello Dedicato non prevede restrizioni sul numero di eventi in ingresso e in uscita. Questi limiti vengono gestiti solo dalla capacità di elaborazione degli Hub eventi acquistati.
+Hub eventi dedicato rimuove anche alcune limitazioni relative alla velocità effettiva presenti nel livello Standard. Le unità elaborate dei livelli Basic e Standard consentono di usare fino a 1000 eventi al secondo o 1 MB al secondo in ingresso per le unità elaborare e il doppio in uscita. Il livello Dedicato non prevede restrizioni sul numero di eventi in ingresso e in uscita. Questi limiti vengono gestiti solo dalla capacità di elaborazione degli hub eventi acquistati.
 
 Il servizio è destinato agli utenti che usano quantità elevate di dati di telemetria ed è disponibile ai clienti con contratto Enterprise.
 

@@ -40,7 +40,7 @@ Per eseguire questa esercitazione è necessario:
 * Applicazione di Azure Active Directory da usare per l'autenticazione da servizio a servizio. Per la creazione, vedere [Autenticazione di Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)
 
 >[!NOTE] 
-> Sono necessari ID client, chiave e valore dell'endpoint di token OAuth&2;.0 dell'applicazione Active Directory per la connessione ad Azure Data Lake da SQL Data Warehouse. I dettagli su come ottenere questi valori sono disponibili nel collegamento precedente.
+> Sono necessari ID client, chiave e valore dell'endpoint di token OAuth 2.0 dell'applicazione Active Directory per la connessione ad Azure Data Lake da SQL Data Warehouse. I dettagli su come ottenere questi valori sono disponibili nel collegamento precedente.
 
 * SQL Server Management Studio o SQL Server Data Tools. Per il download di SSMS e la connessione, vedere [Query con SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
@@ -96,7 +96,7 @@ Usare questo comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
+    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalakestore.net',
     CREDENTIAL = ADLCredential
 );
 ```

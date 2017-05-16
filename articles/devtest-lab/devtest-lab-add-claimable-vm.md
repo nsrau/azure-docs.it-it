@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 1b6e826426ebafe10abdf33f9bcfecc1c6315cfc
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 98950d72e90b0e178bae2fffa7644fd824a25eea
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -32,7 +33,7 @@ Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è nec
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Procedura per aggiungere una macchina virtuale a disposizione degli utenti in un lab in Azure DevTest Labs
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
-1. Nell'elenco di lab selezionare il lab in cui si vuole creare la nuova VM.  
+1. Nell'elenco di lab selezionare il lab in cui si vuole creare la VM a disposizione degli utenti.  
 1. Nel pannello **Panoramica** del lab selezionare **+ Aggiungi**.  
 
     ![Pulsante Aggiungi VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
@@ -46,13 +47,12 @@ Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è nec
 1. Se si vuole usare una password archiviata nell'[archivio segreto](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), selezionare **Use a saved secret** (Usa un segreto salvato) e specificare un valore chiave corrispondente al segreto (password). In alternativa, immettere una password nel campo di testo **Digita un valore**.
 1. Il **tipo di disco della macchina virtuale** determina il tipo di disco di archiviazione consentito per le macchine virtuali nel lab.
 1. Selezionare **Dimensioni macchina virtuale** e uno degli elementi predefiniti che specificano le memorie centrali del processore, la dimensione della RAM e le dimensioni dell'unità disco rigido della VM da creare.
-1. Selezionare **Elementi** e dall'elenco di elementi selezionare e configurare gli elementi da aggiungere all'immagine di base.
-    **Nota:** se non si ha familiarità con DevTest Labs o con la configurazione di elementi, vedere la sezione [Aggiungere un elemento esistente in una macchina virtuale](./devtest-lab-add-vm-with-artifacts.md#add-an-existing-artifact-to-a-vm) e tornare qui al termine dell'operazione.
+1. Selezionare **Elementi** e dall'elenco di elementi selezionare e configurare gli elementi da aggiungere all'immagine di base. Se non si ha familiarità con DevTest Labs o con la configurazione di elementi, vedere la sezione [Aggiungere un elemento esistente in una macchina virtuale](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e tornare qui al termine dell'operazione.
 1. Selezionare **Impostazioni avanzate** per configurare le opzioni di rete e le opzioni relative alla scadenza della VM. In **Claim options** (Opzioni di richiesta), scegliere **Sì** per rendere la macchina a disposizione degli utenti.
 
   ![Scegliere di rendere la macchina virtuale a disposizione degli utenti.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
 
-1. Se si vuole visualizzare o copiare il modello di Azure Resource Manager, vedere la sezione [Salvare il modello di Azure Resource Manager](./devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) e tornare qui al termine dell'operazione.
+1. Se si vuole visualizzare o copiare il modello di Azure Resource Manager, vedere la sezione [Salvare il modello di Azure Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) e tornare qui al termine dell'operazione.
 1. Selezionare **Crea** per aggiungere la macchina virtuale specificata al lab.
 1. Il pannello lab consente di visualizzare lo stato di creazione della VM prima come **Creazione**, poi come **Esecuzione** dopo aver avviato la VM.
 

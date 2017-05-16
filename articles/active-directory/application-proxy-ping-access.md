@@ -1,5 +1,5 @@
 ---
-title: Eseguire PingAccess per il proxy dell&quot;applicazione di Azure AD | Documentazione Microsoft
+title: Autenticazione basata su intestazione con PingAccess per il proxy dell&quot;applicazione di Azure AD | Microsoft Docs
 description: Pubblicare le applicazioni con PingAccess e il proxy dell&quot;applicazione per supportare l&quot;autenticazione basata su intestazione.
 services: active-directory
 documentationcenter: 
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 173607c481d0ba7ceece6310fcd131ff622a0677
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 8db76d1f83cdf1cf53ddd1e9c69c56400d04af2d
+ms.contentlocale: it-it
+ms.lasthandoff: 04/29/2017
 
 ---
 
-# <a name="publish-applications-that-support-header-based-authentication-with-pingaccess-for-azure-ad"></a>Pubblicare applicazioni che supportano l'autenticazione basata su intestazione con PingAccess per Azure AD
+# <a name="publish-applications-that-support-header-based-authentication-with-azure-ad-application-proxy-and-pingaccess"></a>Pubblicare le applicazioni che supportano l'autenticazione basata su intestazione con il proxy dell'applicazione di AD Azure e PingAccess
 
 Il proxy dell'applicazione Azure Active Directory e PingAccess hanno collaborato per fornire ai clienti di Azure Active Directory l'accesso a un numero ancora maggiore di applicazioni. PingAccess espande le [offerte esistenti del proxy dell'applicazione](active-directory-application-proxy-get-started.md) per includere l'accesso remoto alle applicazioni che usano intestazioni per l'autenticazione. 
 

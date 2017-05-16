@@ -11,8 +11,3 @@ Nella sessione desktop remota per ciascuno dei nodi del cluster, scaricare [KB28
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

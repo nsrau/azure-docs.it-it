@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
-ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9fc3b38b22c3a092dc2d932d2d7471872f5ba66d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ In questi passaggi viene illustrato come personalizzare un set di comandi di Azu
 
 Questi passaggi seguono un approccio basato sul completamento di valori predefiniti per la creazione di set di comandi di Azure PowerShell. Questo approccio può essere utile se non si è esperti di PowerShell o per sapere semplicemente quali valori specificare per una corretta configurazione. Gli utenti esperti di PowerShell possono usare i comandi sostituendo le variabili (le righe che iniziano con "$") con i propri valori.
 
-Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Windows PowerShell.
+Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Windows PowerShell.
 
 ## <a name="step-1-add-your-account"></a>Passaggio 1: Aggiungere l'account
 1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **INVIO**.

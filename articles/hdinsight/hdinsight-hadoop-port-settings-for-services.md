@@ -13,31 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 693e3aebad339b1a9b5e0afbe7770197ea70dcf6
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: c27e6c19f44d9f0fa60ae31d0cda756dcd032f02
+ms.lasthandoff: 04/17/2017
 
 
 ---
 # <a name="ports-and-uris-used-by-hdinsight"></a>Porte e URI usati da HDInsight
+
 Questo documento fornisce un elenco delle porte usate dai servizi Hadoop in esecuzione nei cluster HDInsight basati su Linux. Fornisce anche informazioni sulle porte usate per connettersi al cluster tramite SSH.
 
 ## <a name="public-ports-vs-non-public-ports"></a>Porte pubbliche e porte non pubbliche
+
 I cluster HDInsight basati su Linux espongono pubblicamente solo tre porte su Internet: 22, 23 e 443. Queste porte vengono usate per accedere in modo sicuro al cluster tramite SSH e ai servizi esposti tramite il protocollo HTTPS protetto.
 
 Internamente, HDInsight viene implementato da più macchine virtuali di Azure (i nodi all'interno del cluster) in esecuzione su una rete virtuale di Azure. Dall'interno della rete virtuale è possibile accedere alle porte non esposte a Internet. Ad esempio, se ci si connette a uno dei nodi head tramite SSH, dal nodo head è possibile accedere direttamente ai servizi in esecuzione sui nodi del cluster.
 
 > [!IMPORTANT]
-> Quando si crea un cluster HDInsight, se non si specifica una rete virtuale di Azure come opzione di configurazione, ne viene creata una. Tuttavia, non è possibile aggiungere altre macchine (ad esempio altre macchine virtuali Azure o computer di sviluppo client) a questa rete virtuale creata in modo automatico. 
-> 
-> 
+> Se non si specifica una rete virtuale di Azure come opzione di configurazione per HDInsight, se ne crea automaticamente una. Tuttavia, non è possibile aggiungere altri computer (ad esempio altre macchine virtuali di Azure o nel computer di sviluppo client) a questa rete virtuale.
+
 
 Per aggiungere altre macchine alla rete virtuale, creare innanzitutto la rete virtuale e specificarla durante la creazione del cluster HDInsight. Per altre informazioni, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="public-ports"></a>Porte pubbliche
+
 Tutti i nodi di un cluster HDInsight si trovano all'interno di una rete virtuale Azure e non sono accessibile direttamente da Internet. Un gateway pubblico fornisce accesso a Internet per le porte seguenti, comuni a tutti i tipi di cluster HDInsight.
 
 | Service | Port | Protocol | Descrizione |
@@ -60,6 +62,7 @@ Gli elementi seguenti sono disponibili per tipi di cluster specifici:
 | Storm |443 |HTTPS |Storm |Interfaccia utente Web di Storm Vedere [Distribuire e gestire topologie Apache Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Autenticazione
+
 Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 
 | Port | Credenziali |
@@ -68,15 +71,15 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 | 443 |Il nome di accesso (impostazione predefinita: admin) e la password impostati durante la creazione del cluster |
 
 ## <a name="non-public-ports"></a>Porte non pubbliche
+
 > [!NOTE]
 > Alcuni servizi sono disponibili solo su tipi di cluster specifici. Ad esempio, HBase è disponibile solo su tipi di cluster HBase.
-> 
-> 
 
 ### <a name="hdfs-ports"></a>Porte HDFS
-| Service | Nodo/i | Port | Protocol | Descrizione |
+
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
-| Interfaccia utente Web NameNode |Nodi head |30070 |HTTPS |Interfaccia utente Web per visualizzare lo stato corrente |
+| Interfaccia utente Web NameNode |Nodi head |30070 |HTTPS |Interfaccia utente Web per visualizzare lo stato |
 | Servizio metadati NameNode |Nodi head |8020 |IPC |Metadati del file system |
 | DataNode |Tutti i nodi di lavoro |30075 |HTTPS |Interfaccia utente Web per visualizzare lo stato, i log e così via. |
 | DataNode |Tutti i nodi di lavoro |30010 |&nbsp; |Trasferimento dati |
@@ -84,7 +87,8 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 | NameNode secondario |Nodi head |50090 |HTTP |Checkpoint per i metadati NameNode |
 
 ### <a name="yarn-ports"></a>Porte YARN
-| Service | Nodo/i | Port | Protocol | Descrizione |
+
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Interfaccia utente Web di Resource Manager |Nodi head |8088 |HTTP |Interfaccia utente Web per Resource Manager |
 | Interfaccia utente Web di Resource Manager |Nodi head |8090 |HTTPS |Interfaccia utente Web per Resource Manager |
@@ -97,38 +101,44 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 | Interfaccia utente Web di Timeline |Nodi head |8181 |HTTP |L'interfaccia utente Web del servizio Timeline |
 
 ### <a name="hive-ports"></a>Porte Hive
-| Service | Nodo/i | Port | Protocol | Descrizione |
+
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Nodi head |10001 |Thrift |Servizio per la connessione a livello di programmazione ad Hive (Thrift/JDBC) |
 | HiveServer |Nodi head |10000 |Thrift |Servizio per la connessione a livello di programmazione ad Hive (Thrift/JDBC) |
 | Metastore Hive |Nodi head |9083 |Thrift |Servizio per la connessione a livello di programmazione ai metadati Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Porte WebHCat
-| Service | Nodo/i | Port | Protocol | Descrizione |
+
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Server WebHCat |Nodi head |30111 |HTTP |API Web su HCatalog e su altri servizi Hadoop |
 
 ### <a name="mapreduce-ports"></a>Porte MapReduce
-| Service | Nodo/i | Port | Protocol | Descrizione |
+
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | JobHistory |Nodi head |19888 |HTTP |Interfaccia utente Web di MapReduce JobHistory |
 | JobHistory |Nodi head |10020 |&nbsp; |Server di MapReduce JobHistory |
 | ShuffleHandler |&nbsp; |13562 |&nbsp; |Trasferisce output intermedi di Map ai reducer che eseguono la richiesta |
 
 ### <a name="oozie"></a>Oozie
-| Service | Nodo/i | Port | Protocol | Descrizione |
+
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Server di Oozie |Nodi head |11000 |HTTP |URL per il servizio Oozie |
 | Server di Oozie |Nodi head |11001 |HTTP |Porta per l'amministrazione di Oozie |
 
 ### <a name="ambari-metrics"></a>Metriche di Ambari
-| Service | Nodo/i | Port | Protocol | Descrizione |
+
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | TimeLine (cronologia delle applicazioni) |Nodi head |6188 |HTTP |L'interfaccia utente Web del servizio Timeline |
 | TimeLine (cronologia delle applicazioni) |Nodi head |30200 |RPC |L'interfaccia utente Web del servizio Timeline |
 
 ### <a name="hbase-ports"></a>Porte HBase
-| Service | Nodo/i | Port | Protocol | Descrizione |
+
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | HMaster |Nodi head |16000 |&nbsp; |&nbsp; |
 | Interfaccia utente Web informativa di HMaster |Nodi head |16010 |HTTP |La porta per l'interfaccia utente Web Master HBase |
@@ -136,7 +146,8 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 | &nbsp; |&nbsp; |2181 |&nbsp; |La porta usata dai client per connettersi a ZooKeeper |
 
 ### <a name="kafka-ports"></a>Porte Kafka
-| Service | Nodo/i | Port | Protocol | Descrizione |
+
+| Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
 | Gestore |Nodi di lavoro |9092 |[Protocollo di trasmissione Kafka](http://kafka.apache.org/protocol.html) |Usato per la comunicazione di client |
 | &nbsp; |Nodi Zookeeper |2181 |&nbsp; |La porta usata dai client per connettersi a ZooKeeper |

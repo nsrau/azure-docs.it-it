@@ -16,8 +16,3 @@ Questa condizione valuterà il campo dell'indirizzo di posta elettronica di ogni
    ![Immagine di condizione Salesforce 7](./media/connectors-create-api-salesforce/condition-7.png)  
 8. Salvare le app per la logica.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -1,21 +1,23 @@
 ---
-title: Application Insights per app di Microsoft Azure
+title: Application Insights per app Microsoft Azure | Microsoft Docs
 description: Analizzare l&quot;utilizzo e le prestazioni dell&quot;app Azure con Application Insights.
 services: application-insights
 documentationcenter: windows
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 4bb5dac9-fb01-416e-813c-6e5ae7d6a847
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 727c0a5283f305c805b0f80dc62778cb05932ae2
+ms.date: 03/31/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 04c83dcd4df442d3e8bb41a15bb033de91bc4fcc
+ms.contentlocale: it-it
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -30,16 +32,11 @@ Che tipo di app si ha a disposizione?
 
 * [App Web di Azure](app-insights-asp-net.md)
 * [App Servizi cloud di Azure - ruoli di lavoro e Web](app-insights-cloudservices.md)
-* [App Web in IIS nella macchina virtuale di Azure](app-insights-asp-net.md)
 * [Applicazione all'esterno di Azure](app-insights-overview.md)
 
 Telemetria aggiuntiva
 
+* [Profiler per app Web live Azure](app-insights-profiler.md)
 * [Visualizza i log del servizio Diagnostica di Azure in Application Insights](app-insights-azure-diagnostics.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -17,6 +17,7 @@ ms.author: nkolli;trinadhk;anuragm;markgal
 translationtype: Human Translation
 ms.sourcegitcommit: 127484103706be5acd0f988aee3d13217d4d87f2
 ms.openlocfilehash: f73bdcf056dc745f9f40e96d3dc51e5e4b88f77d
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -123,7 +124,7 @@ Per poter eseguire la registrazione con il servizio Backup di Azure, è necessar
 * Avere una sottoscrizione di Azure valida
 * Ottieni un archivio di backup
 
-Per scaricare le credenziali dell'archivio, eseguire il commandlet **Get AzureBackupVaultCredentials** in una console Azure PowerShell e archiviarlo in una posizione comoda come * C:\Downloads\*.
+Per scaricare le credenziali dell'archivio, eseguire il commandlet **Get AzureBackupVaultCredentials** in una console Azure PowerShell e archiviarlo in una posizione comoda come *C:\Downloads\*.
 
 ```
 PS C:\> $credspath = "C:\"
@@ -348,9 +349,4 @@ I comandi possono essere facilmente estesi per qualsiasi tipo di origine dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su Backup di Azure per DPM, vedere [Introduzione al backup di DPM](backup-azure-dpm-introduction.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

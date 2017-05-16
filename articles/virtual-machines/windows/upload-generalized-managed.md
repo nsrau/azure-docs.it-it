@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 81f755dcb1ee9e8fee7bf172467cb9c2d4c5fb66
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d5233e71863a47988ab3458ba15dba7b53025db9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ Se si usa PowerShell, verificare di avere la versione più recente del modulo di
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Per altre informazioni, vedere [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Controllo delle versioni di Azure PowerShell).
+Per altre informazioni, vedere [Azure PowerShell Versioning](/powershell/azure/overview) (Controllo delle versioni di Azure PowerShell).
 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizzare la macchina virtuale Windows con Sysprep
@@ -69,7 +69,7 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
-Se PowerShell versione 1.4 o successiva non è già stato installato, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Se PowerShell versione 1.4 o successiva non è già stato installato, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 1. Aprire Azure PowerShell e accedere al proprio account di Azure. Verrà visualizzata una finestra popup in cui immettere le credenziali dell'account Azure.
    
@@ -114,7 +114,7 @@ Per creare un account di archiviazione, seguire questa procedura:
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Creare un account di archiviazione denominato **mystorageaccount** in questo gruppo di risorse con il cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx).
+2. Creare un account di archiviazione denominato **mystorageaccount** in questo gruppo di risorse con il cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount).
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `

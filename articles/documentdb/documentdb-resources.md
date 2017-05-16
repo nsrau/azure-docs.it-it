@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: ec64215bfa3b812cddbed290d343c2d99fb70257
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -408,7 +408,7 @@ L'annullamento della registrazione di una funzione definita dall'utente avviene 
 Anche se i frammenti di codice precedenti illustrano la registrazione (POST), l'annullamento della registrazione (PUT), la lettura/creazione di un elenco (GET) e l'esecuzione (POST) tramite [JavaScript SDK di DocumentDB](https://github.com/Azure/azure-documentdb-js), è anche possibile usare le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o altri [SDK del client](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ## <a name="documents"></a>Documenti
-È possibile inserire, sostituire, eliminare, leggere, enumerare ed eseguire query in documenti JSON arbitrari in una raccolta. DocumentDB non rende obbligatorio alcuno schema e non richiede indici secondari per il supporto delle query in documenti di una raccolta. Per impostazione predefinita, la dimensione massima per un documento è pari a 2 MB.   
+È possibile inserire, sostituire, eliminare, leggere, enumerare ed eseguire query in documenti JSON arbitrari in una raccolta. DocumentDB non rende obbligatorio alcuno schema e non richiede indici secondari per il supporto delle query in documenti di una raccolta. Le dimensioni massime per un documento sono pari a 2 MB.   
 
 Essendo un servizio database effettivamente aperto, DocumentDB non propone tipo di dati specializzati (ad esempio data e ora) o codifica specifica per i documenti JSON. Tenere presente che DocumentDB non richiede alcuna convenzione JSON specifica per codificare le relazioni tra i diversi documenti. La sintassi SQL di DocumentDB offre operatori di query avanzati gerarchici e relazionali per eseguire query e proiezioni sui documenti senza annotazioni speciali o senza dovere codificare le relazioni tra i documenti tramite proprietà distinte.  
 

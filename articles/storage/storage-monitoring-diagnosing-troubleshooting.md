@@ -3,8 +3,8 @@ title: Monitorare, diagnosticare e risolvere i problemi correlati ad Archiviazio
 description: "Usare funzionalità quali l&quot;analisi dell&quot;archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Azure."
 services: storage
 documentationcenter: 
-author: jasonnewyork
-manager: tadb
+author: fhryo-msft
+manager: jahogg
 editor: tysonn
 ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
 ms.service: storage
@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
-ms.author: jahogg
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a5193cb222fab1f3ed3e700d45c4a51676707d5a
-ms.lasthandoff: 03/22/2017
+ms.date: 05/11/2017
+ms.author: fhryo-msft
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 8598e18aeb0552455a6e5344f10eb48382e8c2f4
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -328,19 +329,19 @@ Il problema riguarda la disponibilità di uno dei servizi di archiviazione?
 * [Il client sta ricevendo messaggi HTTP 409 (Conflitto)]
 
 ---
-[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
+[Le metriche indicano un valore PercentSuccess basso o le voci del log di analisi contengono operazioni con stato della transazione ClientOtherErrors]
 
 ---
 [Le metriche della capacità indicano un aumento imprevisto dell'uso della capacità di archiviazione]
 
 ---
-[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
+[Si stanno verificando riavvii imprevisti delle macchine virtuali con un numero elevato di VHD allegati]
 
 ---
 [Il problema è dovuto all'uso dell'emulatore di archiviazione per attività di sviluppo o test]
 
 ---
-[You are encountering problems installing the Azure SDK for .NET]
+[Si stanno verificando problemi di installazione di Azure SDK per .NET]
 
 ---
 [Si è verificato un problema diverso con un servizio di archiviazione]
@@ -361,7 +362,7 @@ Si noti che il servizio di archiviazione calcola solo la metrica **AverageE2ELat
 #### <a name="investigating-client-performance-issues"></a>Analisi dei problemi di prestazioni del client
 I motivi possibili per cui il client risponde lentamente includono la quantità limitata di connessioni o thread disponibili oppure la limitata disponibilità di risorse quali CPU, memoria o larghezza di banda della rete. Il problema può essere risolto modificando il codice del client in modo che sia più efficiente (ad esempio usando chiamate asincrone al servizio di archiviazione) o usando una macchina virtuale più grande (con più core e più memoria).
 
-Per i servizi di tabelle e accodamento, l'algoritmo Nagle può inoltre causare la presenza di un valore **AverageE2ELatency** elevato rispetto al valore **AverageServerLatency**: per altre informazioni, vedere il post relativo al comportamento dell'[algoritmo Nagle nei confronti delle piccole richieste](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). È possibile disabilitare l'algoritmo Nagle nel codice tramite la classe **ServicePointManager** nello spazio dei nomi **System.Net**. Eseguire questa operazione prima di effettuare chiamate ai servizi di tabelle o accodamento nell'applicazione poiché non ha effetto sulle connessioni già aperte. L'esempio seguente proviene dal metodo **Application_Start** in un ruolo di lavoro.
+Per i servizi di tabelle e accodamento, l'algoritmo Nagle può inoltre causare la presenza di un valore **AverageE2ELatency** elevato rispetto al valore **AverageServerLatency**: per altre informazioni, vedere il post [Nagle's Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (Comportamento dell'algoritmo Nagle con richieste di piccole dimensioni). È possibile disabilitare l'algoritmo Nagle nel codice tramite la classe **ServicePointManager** nello spazio dei nomi **System.Net**. Eseguire questa operazione prima di effettuare chiamate ai servizi di tabelle o accodamento nell'applicazione poiché non ha effetto sulle connessioni già aperte. L'esempio seguente proviene dal metodo **Application_Start** in un ruolo di lavoro.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -400,7 +401,7 @@ Per ulteriori informazioni sull'utilizzo di Microsoft Message Analyzer per risol
 ### <a name="metrics-show-high-AverageServerLatency"></a>Le metriche indicano un valore AverageServerLatency alto
 Nel caso in cui il valore **AverageServerLatency** sia elevato per le richieste di download di BLOB, è necessario utilizzare il file di log della registrazione dell'archiviazione per verificare se esistono richieste ripetute per lo stesso oggetto BLOB (o insieme di oggetti BLOB). Per le richieste di caricamento di BLOB, è necessario verificare le dimensioni dei blocchi usate dal client (ad esempio, i blocchi inferiori a 64 Kb possono causare sovraccarichi a mano che anche le letture non vengano eseguite su blocchi inferiori a 64 Kb) e se più client stanno caricando blocchi nello stesso BLOB parallelo. Verificare anche le metriche al minuto per i picchi del numero di richieste che determinano il superamento degli obiettivi di scalabilità al secondo: vedere anche "[Le metriche indicano un aumento di PercentTimeoutError]".
 
-Se si riscontra un valore **AverageServerLatency** elevato per le richieste di download di BLOB quando sono presenti ripetute richieste allo stesso BLOB o insieme di BLOB, è necessario considerare la possibilità di memorizzare nella cache gli oggetti BLOB utilizzando il servizio cache di Azure o la rete per la distribuzione di contenuti di Azure. Per le richieste di caricamento, è possibile ottimizzare la velocità utilizzando blocchi di dimensioni maggiori. Per le query sulle tabelle, è inoltre possibile implementare la memorizzazione nella cache lato client sui client che eseguono le stesse operazioni di query e i cui dati non cambiano di frequente.
+Se si riscontra un valore **AverageServerLatency** elevato per le richieste di download di BLOB quando sono presenti ripetute richieste allo stesso BLOB o insieme di BLOB, è necessario considerare la possibilità di memorizzare nella cache gli oggetti BLOB utilizzando il servizio cache di Azure o la rete per la distribuzione di contenuti di Azure. Per le richieste di caricamento, è possibile ottimizzare la velocità utilizzando blocchi di dimensioni maggiori. Per le query sulle tabelle, è anche possibile implementare la memorizzazione nella cache lato client sui client che eseguono le stesse operazioni di query e i cui dati non cambiano di frequente.
 
 I valori elevati di **AverageServerLatency** possono essere anche sintomo della presenza di tabelle o query progettate in modo non corretto, che causano operazioni di scansione o seguono l'antipattern append/prepend. Per ulteriori informazioni, vedere "[Le metriche indicano un aumento di PercentThrottlingError]".
 
@@ -618,7 +619,7 @@ client.SetServiceProperties(sp);
 #### <a name="network-failure"></a>Errore della rete
 In alcune circostanze, la perdita di pacchetti di rete può causare la restituzione da parte del servizio di archiviazione di messaggi HTTP 404 per il client. Ad esempio, quando l'applicazione client elimina un'entità dal servizio tabelle, il client genera un'eccezione di archiviazione segnalando un messaggio di stato "HTTP 404 (Non trovato)" ricevuto dal servizio tabelle. Quando si esamina la tabella nel servizio di archiviazione tabelle, si può notare che il servizio ha eliminato l'entità come richiesto.
 
-I dettagli dell'eccezione nel client includono l'ID richiesta (7e84f12d…) assegnato dal servizio tabelle per la richiesta. È possibile usare queste informazioni per individuare i dettagli della richiesta nei log di archiviazione sul lato server, eseguendo una ricerca nella colonna **request-id-header** del file di log. È inoltre possibile usare le metriche per identificare il momento in cui si verificano errori come questo e quindi eseguire una ricerca nei file di log in base all'orario in cui le metriche hanno registrato l'errore. Questa voce del file di log indica che l'eliminazione non è riuscita con messaggio di stato HTTP&404; (altro errore del client). La stessa voce del log include anche l'ID richiesta generato dal client nella colonna **client-request-id** (813ea74f…).
+I dettagli dell'eccezione nel client includono l'ID richiesta (7e84f12d…) assegnato dal servizio tabelle per la richiesta. È possibile usare queste informazioni per individuare i dettagli della richiesta nei log di archiviazione sul lato server, eseguendo una ricerca nella colonna **request-id-header** del file di log. È inoltre possibile usare le metriche per identificare il momento in cui si verificano errori come questo e quindi eseguire una ricerca nei file di log in base all'orario in cui le metriche hanno registrato l'errore. Questa voce del file di log indica che l'eliminazione non è riuscita con messaggio di stato HTTP 404 (altro errore del client). La stessa voce del log include anche l'ID richiesta generato dal client nella colonna **client-request-id** (813ea74f…).
 
 Il log sul lato server contiene anche un'altra voce con lo stesso valore **client-request-id** (813ea74f…) in modo che venga eseguita correttamente l'eliminazione della stessa entità e dallo stesso client. L'operazione di eliminazione corretta viene eseguita poco prima della richiesta di eliminazione non riuscita.
 
@@ -812,7 +813,7 @@ Nel passaggio 1 dell'**Importazione guidata testo**, selezionare **Punto e virgo
 ### <a name="appendix-5"></a>Appendice 5: Monitoraggio con Application Insights per Visual Studio Team Services
 È possibile usare la funzionalità Application Insights per Visual Studio Team Services come parte del monitoraggio delle prestazioni e della disponibilità. Questo strumento consente di:
 
-* Assicurarsi che il servizio Web sia disponibile e reattivo. Sia che l'applicazione sia un sito Web o un'app per dispositivo che utilizza un servizio Web, è in grado di testare l'URL a intervalli di pochi minuti da postazioni situate in tutto il mondo e indicare se è presente un problema.
+* Assicurarsi che il servizio Web sia disponibile e reattivo. Indipendentemente dal fatto che l'applicazione sia un sito Web o un'app per dispositivo che usa un servizio Web, può testare l'URL a intervalli di pochi minuti da località di tutto il mondo e indicare se è presente un problema.
 * Diagnosticare rapidamente eventuali problemi di prestazioni o eccezioni del servizio Web. Sapere se la CPU o altre risorse vengono estese, ricavare analisi dello stack dalle eccezioni ed eseguire facilmente la ricerca delle tracce nei log. Se le prestazioni dell'app scendono al di sotto di limiti accettabili, verrà inviato un messaggio di posta elettronica. L'utente può monitorare i servizi Web sia .NET che Java.
 
 Ulteriori informazioni sono disponibili in [Informazioni su Azure Application Insights](../application-insights/app-insights-overview.md).

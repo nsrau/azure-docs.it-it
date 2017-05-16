@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: e24bd626cd950f6e6d9474d1bd5f97c3ea4fb925
-ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a6b6610bb4d4b427f525934146340a9cca6f52cb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,13 +33,13 @@ Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Picturepark sa
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
 1. Abilitazione dell'integrazione dell'applicazione per Picturepark
-2. Configurazione dell'accesso Single Sign-On
+2. Configurazione dell'accesso Single Sign-On (SSO)
 3. Configurazione del provisioning utente
 4. Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-picturepark-tutorial/IC795055.png "Scenario")
 
-## <a name="enabling-the-application-integration-for-picturepark"></a>Abilitazione dell'integrazione dell'applicazione per Picturepark
+## <a name="enable-the-application-integration-for-picturepark"></a>Abilitare l'integrazione dell'applicazione per Picturepark
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Picturepark.
 
 **Per abilitare l'integrazione dell'applicazione per Picturepark, seguire questa procedura:**
@@ -64,11 +65,11 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
    ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
 
 
-## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
 
 In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Picturepark tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.  
 
-La configurazione dell'accesso Single Sign-On per Picturepark richiede di recuperare un valore di identificazione personale da un certificato.  
+Per configurare l'accesso SSO per Picturepark è necessario recuperare un valore di identificazione personale da un certificato.  
 
 Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
@@ -103,21 +104,23 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
    4. Nella finestra di dialogo **Configure single sign-on at Picturepark** (Configura accesso Single Sign-On in Picturepark) del portale di Azure classico copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Issuer URI** (URI autorità di certificazione).
    5. Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo relativa all'**identificazione personale dell'autorità di certificazione attendibile**.  
       
-      > [!TIP]
-      > Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
-      > 
+      >[!TIP]
+      >Per informazioni dettagliate, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
+      >
+      >
 
 9. Fare clic su **JoinDefaultUsersGroup**.
-10. Per impostare l'attributo **Emailaddress** nella casella di testo **Attestazione**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+10. Per impostare l'attributo **Emailaddress** nella casella di testo **Claim** (Attestazione), digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** e fare clic su **Save** (Salva).
 
-      ![Configurazione](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configurazione") Fare clic su **Save**.
+      ![Configurazione](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configurazione")
 11. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Configurare l'accesso Single Sign-On")
 
-## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configure-user-provisioning"></a>Configura provisioning utenti
 Per consentire agli utenti di Azure AD di accedere a Picturepark, è necessario eseguirne il provisioning in Picturepark.  
-Nel caso di Picturepark, il provisioning è un'attività manuale.
+
+ * Nel caso di Picturepark, il provisioning è un'attività manuale.
 
 **Per effettuare il provisioning di un account utente, seguire questa procedura:**
 
@@ -136,12 +139,12 @@ Nel caso di Picturepark, il provisioning è un'attività manuale.
   2. Selezionare una **Language**.
   3. Fare clic su **Crea**.
 
-> [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Picturepark per eseguire il provisioning degli account utente di Azure AD.
+>[!NOTE]
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Picturepark per eseguire il provisioning degli account utente di Azure AD.
 > 
 > 
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 **Per assegnare gli utenti a Picturepark, seguire questa procedura:**
@@ -154,11 +157,6 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    
    ![Sì](./media/active-directory-saas-picturepark-tutorial/IC767830.png "Sì")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 

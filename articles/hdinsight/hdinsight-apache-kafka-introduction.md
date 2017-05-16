@@ -8,15 +8,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: f284b6e3-5f3b-4a50-b455-917e77588069
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 28d213fa23d480635fd4376e22ff54a5e6374350
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introduzione ad Apache Kafka in HDInsight (anteprima)
@@ -47,10 +50,6 @@ Kafka fornisce le funzionalità seguenti:
 
 * **Trasformazione**: usando l'elaborazione dei flussi, è possibile combinare e arricchire dati da più argomenti di input in uno o più argomenti di output.
 
-## <a name="where-do-i-start"></a>Dove iniziare?
-
-Vedere [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md) (Introduzione a Kafka in HDInsight) per i passaggi necessari per creare un cluster Kafka e per usare Kafka, inclusi esempi basati su Java dell'uso dell'API di produzione, utilizzo e streaming.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Usare i collegamenti seguenti per informazioni su come usare Apache Kafka in HDInsight:
@@ -63,9 +62,4 @@ Usare i collegamenti seguenti per informazioni su come usare Apache Kafka in HDI
 
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md) (Usare Apache Spark con Kafka in HDInsight)
 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md) (Connettersi a Kafka tramite una rete virtuale di Azure)

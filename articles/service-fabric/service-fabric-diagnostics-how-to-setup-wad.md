@@ -3,7 +3,7 @@ title: Raccogliere log con Diagnostica di Azure | Microsoft Docs
 description: Questo articolo illustra come configurare Diagnostica di Azure per raccogliere log da un cluster di Service Fabric in esecuzione in Azure.
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 9f7e1fa5-6543-4efd-b53f-39510f18df56
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/17/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
-ms.sourcegitcommit: 1b4599848f44a7200f13bd6ddf4e82e96a75e069
-ms.openlocfilehash: 41343990d3379aabd129af437ff2edbbd2134dcc
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7c3311800af27016b7f993b375055bbc65d9a727
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,9 +37,9 @@ Questi strumenti vengono usati per eseguire alcune operazioni nel documento:
 
 * [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (correlata ai Servizi cloud di Azure, include alcune informazioni ed esempi utili)
 * [Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Client di Azure Resource Manager](https://github.com/projectkudu/ARMClient)
-* [Modello di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Modello di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Origini di log da raccogliere
 * **Log di Service Fabric:** generati dalla piattaforma in canali Event Tracing for Windows (ETW) ed EventSource standard. I log possono essere di diversi tipi:
@@ -80,7 +81,7 @@ Per usare il modello scaricato per aggiornare una configurazione:
 4. Eseguire **deploy.ps1** e immettere ID sottoscrizione, nome del gruppo di risorse (usare lo stesso nome per aggiornare la configurazione) e un nome di distribuzione univoco.
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Distribuire l’estensione Diagnostica come parte della creazione di cluster tramite Gestione risorse di Azure
-Per creare un cluster tramite Resource Manager, è necessario aggiungere il file JSON di configurazione di Diagnostica al modello di Resource Manager di tipo cluster completo prima di creare il cluster. Gli esempi relativi ai modelli di Gestione risorse includono un modello di cluster con&5; VM con aggiunta della configurazione di Diagnostica, disponibile nella raccolta di esempi di Azure nella pagina relativa all'[esempio di modello di Resource Manager di cluster con cinque nodi con Diagnostica](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
+Per creare un cluster tramite Resource Manager, è necessario aggiungere il file JSON di configurazione di Diagnostica al modello di Resource Manager di tipo cluster completo prima di creare il cluster. Gli esempi relativi ai modelli di Gestione risorse includono un modello di cluster con 5 VM con aggiunta della configurazione di Diagnostica, disponibile nella raccolta di esempi di Azure nella pagina relativa all'[esempio di modello di Resource Manager di cluster con cinque nodi con Diagnostica](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
 
 Per visualizzare l'impostazione di Diagnostica nel modello di Resource Manager, aprire il file azuredeploy.json e cercare **IaaSDiagnostics**. Per creare un cluster con questo modello, è sufficiente selezionare il pulsante di **distribuzione in Azure** disponibile nel collegamento precedente.
 
@@ -193,7 +194,7 @@ Aggiornare quindi la sezione `VirtualMachineProfile` del file template.json aggi
 
 Dopo aver modificato il file template.json come descritto, pubblicare nuovamente il modello di Resource Manager. Se il modello è stato esportato, eseguire il file deploy.ps1 per pubblicarlo di nuovo. Dopo la distribuzione, assicurarsi che il valore di **ProvisioningState** sia **Succeeded**.
 
-## <a name="update-diagnostics-to-collection-health-and-load-events"></a>Aggiornare i dati di diagnostica per la raccolta di eventi di integrità e di caricamento
+## <a name="update-diagnostics-to-collect-health-and-load-events"></a>Aggiornare i dati di diagnostica per raccogliere eventi di integrità e di caricamento
 
 A partire dalla versione 5.4 di Service Fabric è possibile raccogliere gli eventi di metrica di integrità e caricamento. Questi riflettono gli eventi generati dal sistema o dal codice usando le API di creazione di report di integrità o caricamento, ad esempio [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Ciò consente l'aggregazione e la visualizzazione dell'integrità del sistema nel tempo, nonché la generazione di avvisi in base a eventi di integrità o di caricamento. Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000008" all'elenco di provider ETW.
 
@@ -229,18 +230,13 @@ Ad esempio, se l'origine evento è denominato My Eventsource, aggiungere il codi
         }
 ```
 
-Per raccogliere i contatori delle prestazioni o i log eventi, modificare il modello di Resource Manager tramite gli esempi forniti in [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pubblicare di nuovo il modello di Resource Manager.
+Per raccogliere i contatori delle prestazioni o i log eventi, modificare il modello di Resource Manager tramite gli esempi forniti in [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pubblicare di nuovo il modello di Resource Manager.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni più dettagliate sugli eventi da esaminare durante la risoluzione dei problemi, vedere gli eventi di diagnostica emessi per [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Informazioni su come raccogliere i contatori delle prestazioni o i log mediante l'estensione Diagnostica](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Informazioni su come raccogliere i contatori delle prestazioni o i log mediante l'estensione Diagnostica](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Soluzione Service Fabric in Log Analytics](../log-analytics/log-analytics-service-fabric.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

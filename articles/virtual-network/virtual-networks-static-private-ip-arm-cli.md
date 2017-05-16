@@ -17,9 +17,9 @@ ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: ea54b413b92a4d4e312b741ce42090c77de0e6f5
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -127,15 +127,15 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
             "resourceGuid": "<guid>"
         }
     }
-        ```
+    ```
     
-    Parameters:
+    Parametri
 
-    * `--private-ip-address`: Static private IP address for the NIC.
-    * `--vnet-name`: Name of the VNet in wihch to create the NIC.
-    * `--subnet`: Name of the subnet in which to create the NIC.
+    * `--private-ip-address`: indirizzo IP privato statico per la scheda di interfaccia di rete.
+    * `--vnet-name`: nome della rete virtuale in cui creare la scheda di interfaccia di rete.
+    * `--subnet`: nome della subnet in cui creare la scheda di interfaccia di rete.
 
-4. Run the [azure vm create](/cli/azure/vm/nic#create) command to create the VM using the public IP and NIC created above. The list shown after the output explains the parameters used.
+4. Eseguire il comando [azure vm create](/cli/azure/vm/nic#create) per creare la VM usando l'indirizzo IP pubblico e il gruppo NIC creati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
    
     ```azurecli
     az vm create \

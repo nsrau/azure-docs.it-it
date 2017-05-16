@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2c41c2df135caaead328d8fe05407cfa75cbcb91
-ms.openlocfilehash: a486fbe46f9892f6f70dcdcf27edbac63728af6e
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 223edfde090c9b77467e032198c2150fbaa56a5b
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -74,7 +74,7 @@ Per visualizzare la vista **Diagramma** della data factory, fare clic su **Diagr
 1. Fare clic con il pulsante destro del mouse sulla pipeline e scegliere **Apri pipeline** per visualizzare tutte le attività della pipeline, oltre ai set di dati di input e output relativi a tali attività. Questa funzionalità è utile quando la pipeline include più di una attività e si vuole conoscere la derivazione operativa di una singola pipeline.
 
     ![Menu Apri pipeline](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
-2. Nell'esempio seguente sono visibili due attività nella pipeline con gli input e gli output. L'attività denominata **JoinData** di tipo attività Hive HDInsight e **EgressDataAzure** di tipo attività di copia sono nella stessa pipeline di esempio.
+2. L'esempio seguente mostra un'attività di copia nella pipeline con un input e un output. 
 
     ![Attività all'interno di una pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. Per tornare alla home page della data factory, fare clic sul collegamento **Data factory** nella barra di navigazione nell'angolo superiore sinistro.
@@ -84,11 +84,9 @@ Per visualizzare la vista **Diagramma** della data factory, fare clic su **Diagr
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Visualizzare lo stato di ogni attività all'interno di una pipeline
 Per visualizzare lo stato corrente di un'attività, visualizzare lo stato di uno dei set di dati generati dall'attività.
 
-Nell'esempio seguente l'attività **BlobPartitionHiveActivity** è stata eseguita correttamente e ha generato un set di dati denominato **PartitionedProductsUsageTable**, con lo stato **Pronto**.
+Facendo doppio clic su **OutputBlobTable** nella vista **Diagramma**, è possibile visualizzare tutte le sezioni generate da esecuzioni diverse dell'attività all'interno di una pipeline. Si noti che l'attività di copia è stata eseguita correttamente nelle ultime otto ore e ha generato sezioni con lo stato **Pronto**.  
 
 ![Stato della pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
-
-Facendo doppio clic su **PartitionedProductsUsageTable** nella vista **Diagramma**, è possibile visualizzare tutte le sezioni generate da esecuzioni diverse dell'attività all'interno di una pipeline. Si noti che l'attività **BlobPartitionHiveActivity** è stata eseguita correttamente ogni mese negli ultimi otto mesi e ha generato sezioni con lo stato **Pronto**.
 
 Le sezioni dei set di dati nella data factory possono avere uno degli stati seguenti:
 

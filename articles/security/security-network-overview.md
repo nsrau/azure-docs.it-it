@@ -1,5 +1,5 @@
 ---
-title: Concetti e requisiti per la sicurezza di rete in Azure | Documentazione Microsoft
+title: Concetti e requisiti per la sicurezza di rete in Azure | Microsoft Docs
 description: " Questo articolo rende più facilmente comprensibile ciò che Microsoft Azure può offrire nell&quot;area della sicurezza di rete. Vengono fornite spiegazioni di base per i principali concetti e requisiti della sicurezza di rete, nonché informazioni sulle funzionalità offerte da Azure in ognuna di queste aree. "
 services: security
 documentationcenter: na
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/27/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 7fe9111061fed4af6aa720d0b158e5b4f2becd90
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: e74f3f7ed4ab0a7a37047b1277e76b6695f3884f
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -29,14 +30,13 @@ L'obiettivo di questo articolo è facilitare la comprensione di ciò che Microso
 Questa panoramica della sicurezza di rete sarà incentrata sugli argomenti seguenti:
 
 * Rete di Azure
-* Azure Network Watcher
 * Controllo di accesso alla rete
 * Accesso remoto sicuro e connettività cross-premise
 * Disponibilità
-* Registrazione
 * Risoluzione dei nomi
 * Architettura della rete perimetrale
-* Centro sicurezza di Azure
+* Monitoraggio e rilevamento delle minacce
+
 
 ## <a name="azure-networking"></a>Rete di Azure
 La connettività di rete è indispensabile per le macchine virtuali. Per supportare questo requisito, Azure richiede che le macchine virtuali siano connesse a una rete virtuale di Azure. Una rete virtuale di Azure è un costrutto logico basato sull'infrastruttura di rete fisica di Azure. Ogni rete virtuale di Azure logica è isolata da tutte le altre reti virtuali di Azure. Ciò garantisce che il traffico di rete nelle distribuzioni di un utente non sia accessibile da altri clienti di Microsoft Azure.
@@ -45,29 +45,18 @@ Altre informazioni:
 
 * [Panoramica di Rete virtuale.](../virtual-network/virtual-networks-overview.md)
 
-## <a name="azure-network-watcher"></a>Azure Network Watcher
-Azure Network Watcher include molte funzionalità di monitoraggio della rete utili per la risoluzione dei problemi nonché per fornire un nuovo e completo set di strumenti di supporto per l'identificazione dei problemi di sicurezza.
-
-[Visualizzazione Gruppo di sicurezza](/network-watcher/network-watcher-security-group-view-overview.md) è utile per la conformità di controllo e protezione delle macchine virtuali e può essere usato per eseguire controlli a livello di codice confrontando i criteri di base definiti dall'organizzazione alle regole effettive per ognuna delle VM. Ciò consente di identificare eventuali deviazioni della configurazione.
-
-[Acquisizione pacchetti](/network-watcher/network-watcher-packet-capture-overview.md) consente di acquisire il traffico di rete da e verso la macchina virtuale. Oltre a essere d'aiuto in quanto consente di raccogliere le statistiche di rete e di risolvere i problemi dell'applicazione, l'acquisizione pacchetti può essere utile per analizzare le intrusioni nella rete. Questa funzionalità può essere usata anche con Funzioni di Azure per avviare acquisizioni di rete in risposta ad avvisi specifici di Azure.
-
-Per altre informazioni su Azure Network Watcher e su come avviare il test di alcune delle funzionalità nei laboratori, vedere [Azure network watcher monitoring overview](/network-watcher/network-watcher-monitoring-overview.md) (Panoramica del monitoraggio di Azure Network Watcher)
-
->[!NOTE]
-Azure Network Watcher è attualmente in versione di anteprima pubblica e potrebbe non offrire lo stesso livello di disponibilità e affidabilità dei servizi presenti nella versione con disponibilità generale. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per ricevere le notifiche più aggiornate sulla disponibilità e lo stato di questo servizio, vedere la [pagina degli aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=network-watcher)
 
 ## <a name="network-access-control"></a>Controllo di accesso alla rete
-Il controllo di accesso alla rete comporta la limitazione della connettività da e verso subnet o dispositivi specifici all'interno di una rete virtuale di Azure. L'obiettivo del controllo di accesso alla rete consiste nel garantire che le macchine virtuali e i servizi siano accessibili solo agli utenti e ai dispositivi a cui si vuole concedere l'accesso. I controlli di accesso si basano su decisioni secondo cui le connessioni da e verso una macchina virtuale o un servizio sono consentite o negate.
+Il controllo di accesso alla rete comporta la limitazione della connettività da e verso subnet o dispositivi specifici all'interno di una rete virtuale di Azure. L'obiettivo del controllo di accesso alla rete è di limitare agli utenti e ai dispositivi autorizzati l'accesso a macchine virtuali e servizi. I controlli di accesso si basano su decisioni secondo cui le connessioni da e verso una macchina virtuale o un servizio sono consentite o negate.
 
-Azure supporta diversi tipi di controllo di accesso alla rete. inclusi i seguenti:
+Azure supporta numerosi tipi di controllo di accesso alla rete:
 
 * Controllo a livello rete
 * Controllo di route e tunneling forzato
 * Appliance di sicurezza di rete virtuale
 
 ### <a name="network-layer-control"></a>Controllo a livello rete
-Qualsiasi distribuzione sicura richiede alcune misure di controllo di accesso alla rete. L'obiettivo del controllo di accesso alla rete è garantire che le macchine virtuali e i servizi di rete eseguiti in tali macchine virtuali possano comunicare solo con altri dispositivi in rete con i quali è necessario che comunichino, mentre tutti gli altri tentativi di connessione vengono bloccati.
+Qualsiasi distribuzione sicura richiede alcune misure di controllo di accesso alla rete. L'obiettivo del controllo di accesso alla rete è di limitare la comunicazione delle macchine virtuali ai sistemi necessari e di bloccare gli altri tentativi di comunicazione.
 
 Se è necessario un controllo di accesso di base a livello di rete, basato sull'indirizzo IP e sul protocollo TCP o UDP, è possibile usare i gruppi di sicurezza di rete. Un gruppo di sicurezza di rete (NSG) è un firewall di filtro dei pacchetti con stato di base e consente di gestire l'accesso sulla base di una [5-tupla](https://www.techopedia.com/definition/28190/5-tuple). Gli NSG non forniscono ispezione a livello dell'applicazione o controlli di accesso autenticato.
 
@@ -76,13 +65,13 @@ Altre informazioni:
 * [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>Controllo di route e tunneling forzato
-La possibilità di controllare il comportamento di routing nella rete virtuale di Azure è una funzionalità critica per il controllo di accesso e la sicurezza di rete. Se il routing non è configurato correttamente, è possibile che le applicazioni e i servizi ospitati nella macchina virtuale si connettano a dispositivi a cui non dovrebbero connettersi, inclusi i dispositivi di proprietà e gestita da potenziali utenti malintenzionati.
+La possibilità di controllare il comportamento di routing nella rete virtuale di Azure è una funzionalità critica per il controllo di accesso e la sicurezza di rete. Se il routing non è configurato correttamente, è possibile che le applicazioni e i servizi ospitati nella macchina virtuale si connettano a dispositivi non autorizzati, inclusi i dispositivi di proprietà e gestiti da potenziali utenti malintenzionati.
 
-La rete di Azure supporta la personalizzazione del comportamento di routing per il traffico di rete nelle reti virtuali di Azure. Ciò consente di modificare le voci predefinite della tabella di routing nella rete virtuale di Azure. Il controllo del comportamento di routing consente di assicurarsi che l'ingresso o l'uscita di tutto il traffico da un determinato dispositivo o gruppo di dispositivi nella rete virtuale di Azure avvenga attraverso un percorso specifico.
+La rete di Azure supporta la personalizzazione del comportamento di routing per il traffico di rete nelle reti virtuali di Azure. Ciò consente di modificare le voci predefinite della tabella di routing nella rete virtuale di Azure. Il controllo del comportamento di routing consente di assicurarsi che tutto il traffico in ingresso o in uscita da un determinato dispositivo o gruppo di dispositivi nella rete virtuale di Azure avvenga attraverso un percorso specifico.
 
 Ad esempio, nella rete virtuale di Azure potrebbe essere presente un'appliance di sicurezza di rete virtuale. Si vuole essere certi che tutto il traffico da e verso la rete virtuale di Azure passi attraverso l'appliance di sicurezza virtuale. A questo scopo è possibile configurare le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) in Azure.
 
-[tunneling forzato](https://www.petri.com/azure-forced-tunneling) è un meccanismo che può essere usato per assicurarsi che ai servizi sia impedito di stabilire una connessione a dispositivi in Internet. Questo approccio è diverso dall'accettare connessioni in ingresso e rispondere alle richieste. I server Web front-end devono rispondere alle richieste dagli host in Internet e di conseguenza il traffico originato da Internet è consentito in ingresso per questi server Web che sono autorizzati a rispondere.
+[tunneling forzato](https://www.petri.com/azure-forced-tunneling) è un meccanismo che può essere usato per assicurarsi che ai servizi sia impedito di stabilire una connessione a dispositivi in Internet. Questo approccio è diverso dall'accettare connessioni in ingresso e rispondere alle richieste. I server Web front-end devono rispondere alle richieste dagli host in Internet e di conseguenza il traffico originato da Internet è consentito in ingresso a questi server Web, che sono autorizzati a rispondere.
 
 Non si vuole invece consentire a un server Web front-end di avviare una richiesta in uscita. Tali richieste possono rappresentare un rischio per la sicurezza, perché queste connessioni potrebbero essere usate per il download di malware. Anche se si vuole che i server front-end possano avviare richieste in uscita verso Internet, è consigliabile imporre il passaggio tramite i proxy Web locali per poter sfruttare le funzionalità di filtro e registrazione degli URL.
 
@@ -106,7 +95,7 @@ Ad esempio, i requisiti di sicurezza possono includere:
 * Controllo di accesso all'applicazione
 * Protezione da attacchi DDoS aggiuntiva, oltre alla protezione DDoS fornita l'infrastruttura di Azure
 
-È possibile accedere a queste funzionalità di sicurezza di rete avanzate usando una soluzione dei partner di Azure. Le soluzioni di sicurezza di rete più recenti offerte dai partner di Azure sono disponibili in [Azure Marketplace](https://azure.microsoft.com/marketplace/) cercando "sicurezza" e "sicurezza di rete".
+È possibile accedere a queste funzionalità di sicurezza di rete avanzate usando una soluzione dei partner di Azure. Le soluzioni di sicurezza di rete più recenti offerte dai partner Azure sono disponibili in [Azure Marketplace](https://azure.microsoft.com/marketplace/) cercando "sicurezza" e "sicurezza di rete".
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Accesso remoto sicuro e connettività cross-premise
 Le operazioni di installazione, configurazione e gestione delle risorse di Azure devono essere eseguite in modalità remota. È anche consigliabile distribuire soluzioni di [IT ibrido](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) che includono componenti sia locali che nel cloud pubblico di Azure. Questi scenari richiedono l'accesso remoto sicuro.
@@ -214,19 +203,6 @@ Altre informazioni:
 
 * [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md)
 
-## <a name="logging"></a>Registrazione
-La registrazione a livello di rete è una funzione chiave per qualsiasi scenario di sicurezza di rete. In Azure è possibile registrare le informazioni ottenute per i gruppi di sicurezza di rete per avere informazioni di registrazione a livello di rete. Con la registrazione dei gruppi di sicurezza di rete si ottengono informazioni da:
-
-* [Log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md): vengono usati per visualizzare tutte le operazioni inviate alle sottoscrizioni di Azure. Questi log sono abilitati per impostazione predefinita e possono essere usati nel portale di Azure. In precedenza erano noti come "log di controllo" o "log operativi".
-* Log eventi: forniscono informazioni sulle regole applicate ai gruppi di sicurezza di rete.
-* Log contatori: consentono di sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
-
-Per visualizzare e analizzare questi log è anche possibile usare [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), uno strumento avanzato di visualizzazione dei dati.
-
-Altre informazioni:
-
-* [Log Analytics per i gruppi di sicurezza di rete (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="name-resolution"></a>Risoluzione dei nomi
 La risoluzione dei nomi è una funzione critica per tutti i servizi ospitati in Azure. Dal punto di vista della sicurezza la compromissione della funzione di risoluzione dei nomi può consentire a un utente malintenzionato di reindirizzare le richieste dai siti dell'utente al suo sito. La sicurezza della risoluzione dei nomi è un requisito per tutti i servizi cloud ospitati.
@@ -270,8 +246,25 @@ Altre informazioni:
 
 * [Servizi cloud Microsoft e sicurezza della rete](../best-practices-network-security.md)
 
-## <a name="azure-security-center"></a>Centro sicurezza di Azure
-Il Centro sicurezza consente di prevenire, rilevare e rispondere alle minacce e fornisce livelli avanzati di visibilità e controllo della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
+
+## <a name="monitoring-and-threat-detection"></a>Monitoraggio e rilevamento delle minacce
+
+Per aiutare in questo settore chiave, Azure offre funzionalità come il rilevamento tempestivo, il monitoraggio e la possibilità di raccogliere ed esaminare il traffico di rete.
+
+### <a name="azure-network-watcher"></a>Azure Network Watcher
+Azure Network Watcher include molte funzionalità per la risoluzione dei problemi e fornisce un nuovo e completo set di strumenti di supporto per l'identificazione dei problemi di sicurezza.
+
+[Visualizzazione Gruppo di sicurezza](/network-watcher/network-watcher-security-group-view-overview.md) è utile per la conformità di controllo e protezione delle macchine virtuali e può essere usato per eseguire controlli a livello di codice confrontando i criteri di base definiti dall'organizzazione alle regole effettive per ognuna delle VM. Ciò consente di identificare eventuali deviazioni della configurazione.
+
+[Acquisizione pacchetti](/network-watcher/network-watcher-packet-capture-overview.md) consente di acquisire il traffico di rete da e verso la macchina virtuale. Oltre a essere d'aiuto in quanto consente di raccogliere le statistiche di rete e di risolvere i problemi dell'applicazione, l'acquisizione pacchetti può essere utile per analizzare le intrusioni nella rete. Questa funzionalità può essere usata anche con Funzioni di Azure per avviare acquisizioni di rete in risposta ad avvisi specifici di Azure.
+
+Per altre informazioni su Azure Network Watcher e su come avviare il test di alcune delle funzionalità nei laboratori, vedere [Azure network watcher monitoring overview](/network-watcher/network-watcher-monitoring-overview.md) (Panoramica del monitoraggio di Azure Network Watcher)
+
+>[!NOTE]
+Azure Network Watcher è attualmente in versione di anteprima pubblica e potrebbe non offrire lo stesso livello di disponibilità e affidabilità dei servizi presenti nella versione con disponibilità generale. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per ricevere le notifiche più aggiornate sulla disponibilità e lo stato di questo servizio, vedere la [pagina degli aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=network-watcher)
+
+### <a name="azure-security-center"></a>Centro sicurezza di Azure
+Il Centro sicurezza consente di prevenire, rilevare e rispondere alle minacce e fornisce livelli avanzati di visibilità e controllo della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio set di soluzioni di sicurezza.
 
 Il Centro sicurezza di Azure aiuta a ottimizzare e monitorare la sicurezza di rete offrendo:
 
@@ -282,4 +275,18 @@ Il Centro sicurezza di Azure aiuta a ottimizzare e monitorare la sicurezza di re
 Altre informazioni:
 
 * [Introduzione al Centro sicurezza di Azure](../security-center/security-center-intro.md)
+
+
+### <a name="logging"></a>Registrazione
+La registrazione a livello di rete è una funzione chiave per qualsiasi scenario di sicurezza di rete. In Azure è possibile registrare le informazioni ottenute per i gruppi di sicurezza di rete per avere informazioni di registrazione a livello di rete. Con la registrazione dei gruppi di sicurezza di rete si ottengono informazioni da:
+
+* [Log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md): vengono usati per visualizzare tutte le operazioni inviate alle sottoscrizioni di Azure. Questi log sono abilitati per impostazione predefinita e possono essere usati nel portale di Azure. In precedenza erano noti come "log di controllo" o "log operativi".
+* Log eventi: forniscono informazioni sulle regole applicate ai gruppi di sicurezza di rete.
+* Log contatori: consentono di sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
+
+Per visualizzare e analizzare questi log è anche possibile usare [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), uno strumento avanzato di visualizzazione dei dati.
+
+Altre informazioni:
+
+* [Log Analytics per i gruppi di sicurezza di rete (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
 

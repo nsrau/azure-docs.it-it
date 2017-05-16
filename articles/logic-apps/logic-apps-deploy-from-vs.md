@@ -16,9 +16,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5dfff8620d66eca0d54763efbc5702e4b4d122d1
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: ad18896548449d85e2af8a91ddd90c8192db1ab2
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -34,7 +34,7 @@ Per installare e configurare gli strumenti di Visual Studio per le app per la lo
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) o Visual Studio 2015
 * [Versione più recente di Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 o versione successiva)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * Accesso al Web mentre viene usata la finestra di progettazione incorporata
@@ -50,7 +50,7 @@ Dopo aver installato i prerequisiti:
 5. Al termine dell'installazione riavviare Visual Studio.
 
 > [!NOTE]
-> È inoltre possibile scaricare gli strumenti App per la logica di Azure per Visual Studio direttamente il [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
+> È anche possibile scaricare gli [strumenti per Visual Studio 2017 di app per la logica di Azure](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) e gli [strumenti per Visual Studio 2015 di app per la logica di Azure](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio) direttamente da Visual Studio Marketplace.
 
 Al completamento dell'installazione è possibile usare il progetto Gruppo di risorse di Azure con la Progettazione delle app per la logica.
 

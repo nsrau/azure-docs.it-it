@@ -4,8 +4,3 @@ Per realizzare la procedura descritta in questo articolo, è necessario [install
 
 > [!NOTE]
 > Se non si dispone di un account Azure, è necessario procurarsene uno. Usare la [versione di valutazione gratuita](../articles/active-directory/sign-up-organization.md).
-
-
-<!--HONumber=Dec16_HO1-->
-
-

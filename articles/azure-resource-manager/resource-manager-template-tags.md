@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: cec255f5bf017c98fbd1f198a78dfb963acc3cd0
 ms.openlocfilehash: 7d4d325cc1b2d953c766f5381a2e6d4b5805b90c
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -30,10 +31,5 @@ ms.openlocfilehash: 7d4d325cc1b2d953c766f5381a2e6d4b5805b90c
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sui tag, vedere [Use tags to organize your Azure resources](resource-group-using-tags.md) (Uso dei tag per organizzare le risorse di Azure).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

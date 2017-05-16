@@ -18,8 +18,3 @@
 | **Da punto a sito** |Supportato |Non supportato |
 | **Classico a Gestione risorse** |Supportato |Non supportato |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

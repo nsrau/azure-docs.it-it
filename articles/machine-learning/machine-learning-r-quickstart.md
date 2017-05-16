@@ -1249,7 +1249,7 @@ Alcune importanti risorse su Internet:
 * DataCamp: DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. È possibile partecipare alle esercitazioni interattive e gratuite su R all'indirizzo https://www.datacamp.com/courses/introduction-to-r
 * Una Guida introduttiva alla programmazione con R da Programiz https://www.programiz.com/r-programming
 * Una rapida esercitazione su R di Kelly Black della Clarkson University è disponibile all'indirizzo http://www.cyclismo.org/tutorial/R/
-* Oltre&60; risorse su R sono elencate all'indirizzo http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
+* Oltre 60 risorse su R sono elencate all'indirizzo http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
 [1]: ./media/machine-learning-r-quickstart/fig1.png

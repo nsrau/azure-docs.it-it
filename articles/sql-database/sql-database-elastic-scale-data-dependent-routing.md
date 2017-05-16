@@ -13,11 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
+ms.date: 03/27/2017
+ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
-ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: ff9f3ee4e44f7d0b51a6724304b0ec0f967f7d88
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -126,10 +127,5 @@ Le proprietà transazionali sono garantite per tutte le operazioni locali rispet
 Per disconnettere o riconnettere una partizione, vedere [Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni](sql-database-elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

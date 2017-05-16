@@ -1,5 +1,5 @@
 ---
-title: Onboarding di computer per la gestione con Automation DSC per Azure | Documentazione Microsoft
+title: Onboarding di computer per la gestione con Automation DSC per Azure | Microsoft Docs
 description: Come configurare i computer per la gestione con Automation DSC per Azure
 services: automation
 documentationcenter: dev-center-name
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-translationtype: Human Translation
-ms.sourcegitcommit: e2257730f0c62dbc0313ce7953fc5f953dae8ac3
-ms.openlocfilehash: f81536322ad1bb16e4af326e0b053da47690619c
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
+ms.contentlocale: it-it
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -136,7 +137,7 @@ Le macchine virtuali di Azure possono essere distribuite e caricate in Automatio
 
 ### <a name="powershell"></a>PowerShell
 
-Il cmdlet [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) può essere usato per caricare macchine virtuali nel portale di Azure tramite PowerShell.
+Il cmdlet [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) può essere usato per caricare macchine virtuali nel portale di Azure tramite PowerShell.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Macchine virtuali di Amazon Web Services (AWS)
 
@@ -161,7 +162,7 @@ I computer Windows locali e le macchine virtuali Windows in cloud non di Azure, 
 
 I computer Linux locali, i computer Linux in Azure, e le macchine virtuali Linux in cloud non di Azure possono essere caricati in Automation DSC per Azure con pochi e semplici passaggi, a condizione che abbiano l'accesso in uscita a Internet:
 
-1. Assicurarsi che nei computer da caricare in Automation DSC per Azure sia installata la versione più recente dell' [agente DSC per Linux](http://www.microsoft.com/download/details.aspx?id=49150) .
+1. Assicurarsi che la versione più recente di [PowerShell DSC (Desidered State Configuration) per Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) sia installata nei computer in cui caricare Automation DSC per Azure.
 2. Se i [valori predefiniti di Gestione configurazione locale per PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig4) corrispondono al caso d'uso corrente e si vogliono caricare i computer in modo che **entrambi** eseguano il pull e inviino informazioni ad Automation DSC per Azure:
 
    + In tutti i computer Linux da caricare in Automation DSC per Azure usare Register.py per caricarli con i valori predefiniti di Gestione configurazione locale per PowerShell DSC:
@@ -382,7 +383,7 @@ Per risolvere i problemi o visualizzare lo stato dell'estensione DSC per le macc
 
 Dopo la registrazione di un computer come nodo DSC in Automation DSC per Azure, esistono diversi motivi, che rendono necessario ripetere la registrazione del nodo in futuro:
 
-* Dopo la registrazione, ogni nodo negozia automaticamente un certificato univoco per l'autenticazione che scade dopo un anno. Attualmente il protocollo di registrazione di PowerShell DSC non può rinnovare automaticamente i certificati quando si avvicina la scadenza, quindi è necessario registrare di nuovo i nodi dopo un anno. Prima di registrare di nuovo, verificare che ogni nodo esegua Windows Management Framework 5.0 RTM. Se il certificato di autenticazione di un nodo scade e se il nodo non è registrato, il nodo non sarà in grado di comunicare con Automazione di Azure e sarà indicato che "Non risponde". Una registrazione eseguita 90 giorni o meno dall'ora di scadenza del certificato, o in qualsiasi momento dopo l’ora di scadenza del certificato. comporterà un nuovo certificato che viene generato e utilizzato.
+* Dopo la registrazione, ogni nodo negozia automaticamente un certificato univoco per l'autenticazione che scade dopo un anno. Attualmente il protocollo di registrazione di PowerShell DSC non può rinnovare automaticamente i certificati quando si avvicina la scadenza, quindi è necessario registrare di nuovo i nodi dopo un anno. Prima di registrare di nuovo, verificare che ogni nodo esegua Windows Management Framework 5.0 RTM. Se il certificato di autenticazione di un nodo scade e se il nodo non è registrato, il nodo non sarà in grado di comunicare con Automazione di Azure e sarà indicato che "Non risponde". Una registrazione eseguita 90 giorni o meno dall'ora di scadenza del certificato, o in qualsiasi momento dopo l'ora di scadenza del certificato. comporterà un nuovo certificato che viene generato e utilizzato.
 * Per modificare qualsiasi [valore di Gestione configurazione locale per PowerShell DS](https://msdn.microsoft.com/powershell/dsc/metaconfig4) impostato durante la registrazione iniziale del nodo, ad esempio ConfigurationMode. Attualmente, i valori dell'agente DSC possono essere modificati solo tramite la registrazione. L'unica eccezione è il valore di Configurazione del nodo assegnato al nodo che può essere modificato direttamente in Automation DSC per Azure.
 
 La ripetizione della registrazione può essere eseguita così' come è stato registrato il nodo inizialmente, usando uno dei metodi di caricamento descritti in questo documento. Non è necessario annullare la registrazione di un nodo da Automation DSC per Azure prima di registrarlo di nuovo.
@@ -390,6 +391,6 @@ La ripetizione della registrazione può essere eseguita così' come è stato reg
 ## <a name="related-articles"></a>Articoli correlati
 
 * [Panoramica di Automation DSC per Azure](automation-dsc-overview.md)
-* [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Cmdlet di Automation DSC per Azure](/powershell/module/azurerm.automation/#automation)
 * [Prezzi di Automation DSC per Azure](https://azure.microsoft.com/pricing/details/automation/)
 

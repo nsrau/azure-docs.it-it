@@ -17,6 +17,7 @@ ms.author: manuaery
 translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 284e404c44505a98d9e0ed5abe87cd945415af56
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Usare il pannello di riepilogo servizio per il servizio Gestione dispositivi StorSimple connesso all'array virtuale StorSimple
@@ -34,7 +35,7 @@ L'area relativa alle informazioni di base riporta alcune proprietà importanti, 
 
 ## <a name="storsimple-device-manager-service-summary"></a>Riepilogo servizio di Gestione dispositivi StorSimple
 * Il riquadro **Avvisi** fornisce uno snapshot di tutti gli avvisi attivi per tutti i dispositivi virtuali, raggruppati in base alla gravità. Facendo clic sul riquadro viene aperto il pannello **Avvisi**, in cui è possibile fare clic su un singolo avviso per visualizzare altri dettagli specifici, incluse tutte le operazioni consigliate. È inoltre possibile cancellare l'avviso se il problema è stato risolto.
-* II riquadro **Capacità** mostra l'archiviazione primaria di cui è stato eseguito il provisioning e quella rimanente in tutti i dispositivi virtuali rispetto all'archiviazione totale disponibile tra tutti i dispositivi virtuali. **Provisioning** fa riferimento alla quantità di archiviazione preparata e allocata per l'uso; **Rimanente** fa riferimento alla capacità rimanente di cui è possibile eseguire il provisioning in tutti i dispositivi virtuali. **Rimanente a livelli** è la capacità disponibile di cui è possibile eseguire il provisioning, tra cui il cloud, mentre **Rimanente locale ** è la capacità rimanente sui dischi collegati agli array virtuali.
+* II riquadro **Capacità** mostra l'archiviazione primaria di cui è stato eseguito il provisioning e quella rimanente in tutti i dispositivi virtuali rispetto all'archiviazione totale disponibile tra tutti i dispositivi virtuali. **Provisioning** fa riferimento alla quantità di archiviazione preparata e allocata per l'uso; **Rimanente** fa riferimento alla capacità rimanente di cui è possibile eseguire il provisioning in tutti i dispositivi virtuali. **Rimanente a livelli** è la capacità disponibile di cui è possibile eseguire il provisioning, tra cui il cloud, mentre **Rimanente locale** è la capacità rimanente sui dischi collegati agli array virtuali.
 * Nel grafico **Utilizzo** è possibile visualizzare le metriche rilevanti per i dispositivi virtuali. È possibile visualizzare l'archiviazione primaria usata in tutti i dispositivi virtuali e l'archiviazione cloud usata dai dispositivi virtuali negli ultimi sette giorni, il periodo di tempo predefinito. Usare l'opzione **Modifica** nell'angolo superiore destro del grafico per scegliere una scala cronologica differente.
 * Il riquadro **Dispositivi** fornisce un riepilogo del numero di array virtuali in Gestione dispositivi StorSimple raggruppati per stato del dispositivo. Fare clic su questo riquadro per aprire l'elenco **Dispositivi** e fare clic su un singolo dispositivo per esaminarne in dettaglio il riepilogo. È anche possibile eseguire azioni specifiche relative a un dispositivo dal pannello di riepilogo di uno specifico dispositivo. Per altre informazioni sul pannello di riepilogo dispositivo, vedere [Pannello di riepilogo dispositivo](storsimple-virtual-array-device-summary.md).
 
@@ -45,10 +46,5 @@ Per visualizzare le varie operazioni eseguite in Gestione dispositivi StorSimple
 
 ## <a name="next-steps"></a>Passaggi successivi
 Scoprire come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

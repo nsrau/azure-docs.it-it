@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 38fe7818771f6a6965cb324631d0935959576541
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/09/2017
 ## <a name="introduction"></a>Introduzione
 Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose (IoT).
 
-Questa esercitazione illustra come scrivere un'applicazione console .NET Framework per ricevere messaggi da un Hub eventi usando l'**[host processore di eventi][EventProcessorHost]**. Per inviare eventi usando .NET Framework, vedere [Inviare eventi a Hub eventi di Azure usando .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) oppure fare clic sul linguaggio di invio appropriato nel sommario a sinistra.
+Questa esercitazione illustra come scrivere un'applicazione console .NET Framework che riceve messaggi da un hub eventi usando l'**[host processore di eventi][EventProcessorHost]**. Per inviare eventi usando .NET Framework, vedere [Inviare eventi a Hub eventi di Azure usando .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) oppure fare clic sul linguaggio di invio appropriato nel sommario a sinistra.
 
-L'[host processore di eventi][EventProcessorHost] è una classe .NET che semplifica la ricezione di eventi da Hub eventi tramite la gestione di checkpoint persistenti e ricezioni parallele da tali hub. Usando l'[host processore di eventi][Event Processor Host] è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'[host processore di eventi][EventProcessorHost] per un ricevitore singolo. L'esempio di [elaborazione di eventi con aumento del numero di istanze][Scale out Event Processing with Event Hubs] illustra come usare l'[host processore di eventi][EventProcessorHost] con più ricevitori.
+L'[host processore di eventi][EventProcessorHost] è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'[host processore di eventi][Event Processor Host] è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'[host processore di eventi][EventProcessorHost] per un ricevitore singolo. L'esempio di [elaborazione di eventi con aumento del numero di istanze][Scale out Event Processing with Event Hubs] illustra come usare l'[host processore di eventi][EventProcessorHost] con più ricevitori.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,9 +37,9 @@ Per completare l'esercitazione sono necessari gli elementi seguenti:
 * [Microsoft Visual Studio 2015 o versione successiva](http://visualstudio.com). Gli screenshot in questa esercitazione illustrano Visual Studio 2017.
 * Un account Azure attivo. Se non si ha un account, è possibile crearne uno gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un Hub eventi
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
 
-Il primo passaggio consiste nell'usare il [Portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi con tipo Hub eventi e ottenere le credenziali di gestione richieste dall'applicazione per comunicare con l'Hub eventi. Per creare uno spazio dei nomi e un Hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e procedere con i passaggi seguenti.
+Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e quindi procedere con i passaggi seguenti.
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
@@ -119,7 +119,7 @@ Per usare l'[host processore di eventi][EventProcessorHost] è necessario un [ac
      }
      ```
     
-     Questa classe verrà chiamata da **EventProcessorHost** per elaborare eventi ricevuti dall'hub eventi. Si noti che la classe `SimpleEventProcessor` usa un cronometro per chiamare periodicamente il metodo checkpoint sul contesto di **EventProcessorHost** . Questo assicura che, se il ricevitore viene riavviato, non perderà più di cinque minuti di lavoro di elaborazione.
+     Questa classe verrà chiamata da **EventProcessorHost** per elaborare gli eventi ricevuti dall'hub eventi. Si noti che la classe `SimpleEventProcessor` usa un cronometro per chiamare periodicamente il metodo checkpoint sul contesto di **EventProcessorHost** . Questo assicura che, se il ricevitore viene riavviato, non perderà più di cinque minuti di lavoro di elaborazione.
 11. Nella classe **Program** aggiungere l'istruzione `using` seguente all'inizio del file:
     
      ```csharp
@@ -152,7 +152,7 @@ Per usare l'[host processore di eventi][EventProcessorHost] è necessario un [ac
 
 12. Eseguire il programma e assicurarsi che non siano presenti errori.
   
-Congratulazioni. Sono stati appena ricevuti dei messaggi da un Hub eventi usando Event Processor Host.
+Congratulazioni. Sono stati ricevuti messaggi da un hub eventi usando l'host processore di eventi.
 
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Congratulazioni. Sono stati appena ricevuti dei messaggi da un Hub eventi usando
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo la compilazione di un'applicazione di lavoro che crea un Hub eventi e invia e riceve dati, è possibile ottenere altre informazioni selezionando i collegamenti seguenti:
+Ora che è stata creata un'applicazione funzionante che crea un hub eventi e invia e riceve dati, è possibile ottenere altre informazioni visitando i collegamenti seguenti:
 
 * [Host processore di eventi](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Panoramica di Hub eventi][Event Hubs overview]

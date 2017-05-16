@@ -56,8 +56,3 @@
         }
 11. Salvare il file.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

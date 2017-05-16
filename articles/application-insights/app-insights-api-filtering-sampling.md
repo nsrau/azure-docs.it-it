@@ -12,10 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 4813610bc938c1a2fb6581bc9d8352b519a2d8ef
-ms.openlocfilehash: ea5285a7997beed926e35649362cee7de53e1efe
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f961cde4aa8de5bdd0f8f220d355f2c93af580a4
+ms.contentlocale: it-it
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -345,28 +347,8 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Passaggi successivi
-* [Cercare eventi e log][diagnostic]
+## <a name="next"></a>Passaggi successivi
+* [Ricerca di eventi e log](app-insights-diagnostic-search.md)
 * [Campionamento](app-insights-sampling.md)
-* [Risoluzione dei problemi][qna]
-
-<!--Link references-->
-
-[client]: app-insights-javascript.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[create]: app-insights-create-new-resource.md
-[data]: app-insights-data-retention-privacy.md
-[diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-asp-net.md
-[java]: app-insights-java-get-started.md
-[metrics]: app-insights-metrics-explorer.md
-[qna]: app-insights-troubleshoot-faq.md
-[trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+* [Risoluzione dei problemi](app-insights-troubleshoot-faq.md)
 

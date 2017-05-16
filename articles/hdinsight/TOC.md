@@ -105,6 +105,7 @@
 ### [Configurare criteri Hive](hdinsight-domain-joined-run-hive.md)
 ## Usare Kafka (anteprima)
 ### [Replicare i dati di Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Usare con le reti virtuali](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Uso con Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Uso con Storm](hdinsight-apache-storm-with-kafka.md)
 ## Sviluppare
@@ -131,8 +132,9 @@
 ## Estendere i cluster
 ### [Personalizzare i cluster usando bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Personalizzare i cluster con l'azione script](hdinsight-hadoop-customize-cluster-linux.md)
-### [Aggiungere le librerie Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Sviluppare azioni di script](hdinsight-hadoop-script-actions-linux.md)
+### [Installare o aggiornare Mono](hdinsight-hadoop-install-mono.md)
+### [Aggiungere le librerie Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Usare Giraph](hdinsight-hadoop-giraph-install-linux.md)
 ### [Usare Hue](hdinsight-hadoop-hue-linux.md)
 ### [Usare R](hdinsight-hadoop-r-scripts-linux.md)
@@ -164,6 +166,7 @@
 #### [Usare l'API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Aggiungere account di archiviazione](hdinsight-hadoop-add-storage.md)
 ### [Caricare dati per processi Hadoop](hdinsight-upload-data.md)
+### [Cluster HDInsight multipli con Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Importare ed esportare i dati con Sqoop](hdinsight-use-sqoop.md)
 #### [Connettersi tramite SSH](hdinsight-use-sqoop-mac-linux.md)
 #### [Esecuzione con cURL](hdinsight-hadoop-use-sqoop-curl.md)
@@ -189,7 +192,7 @@
 #### [Prestazioni delle query Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)

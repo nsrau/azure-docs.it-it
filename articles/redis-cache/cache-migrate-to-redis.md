@@ -58,8 +58,8 @@ Il Servizio cache gestita di Azure e la Cache Redis di Azure sono simili, ma imp
 Cache Redis di Microsoft Azure è disponibile nei seguenti livelli:
 
 * **Basic**: singolo nodo. Più dimensioni fino a 53 GB.
-* **Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del&99;,9%.
-* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del&99;,9%.
+* **Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del 99,9%.
+* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache](https://azure.microsoft.com/pricing/details/cache/).
 

@@ -1,10 +1,9 @@
 # Panoramica
 ## [Introduzione al servizio Azure Data Factory](data-factory-introduction.md)
 ## Concetti
-### [Set di dati](data-factory-create-datasets.md)
 ### [Pipeline e attività](data-factory-create-pipelines.md)
+### [Set di dati](data-factory-create-datasets.md)
 ### [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md)
-### [Servizi collegati di calcolo](data-factory-compute-linked-services.md)
 
 # Attività iniziali
 ## [Esercitazione: Creare una pipeline per copiare i dati](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,6 +20,7 @@
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 ### [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Esercitazione: Spostare dati tra origini locali e cloud](data-factory-move-data-between-onprem-and-cloud.md)
 ## [Domande frequenti](data-factory-faq.md)
 
 # Procedure
@@ -29,6 +29,7 @@
 ### [Copia guidata di data factory](data-factory-azure-copy-wizard.md)
 #### [Caricare 1 TB in 15 minuti](data-factory-load-sql-data-warehouse.md)
 ### [Guida alle prestazioni e all'ottimizzazione](data-factory-copy-activity-performance.md)
+### [Considerazioni relative alla sicurezza](data-factory-data-movement-security-considerations.md)
 ### Connettori
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
@@ -60,7 +61,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Tabella Web](data-factory-web-table-connector.md)
 ### [Gateway di gestione dati](data-factory-data-management-gateway.md)
-### [Spostare dati tra origini locali e cloud](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Trasformare i dati](data-factory-data-transformation-activities.md)
 ### [Attività Hive di HDInsight](data-factory-hive-activity.md)
@@ -75,6 +76,7 @@
 ### [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 ### [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Rielaborare i modelli in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Servizi collegati di calcolo](data-factory-compute-linked-services.md)
 
 ## Sviluppare
 ### [Modello di Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
@@ -90,7 +92,7 @@
 ### [Risolvere i problemi con Gateway di gestione dati](data-factory-troubleshoot-gateway-issues.md)
 
 # Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
 ## [JSON](data-factory-json-scripting-reference.md)

@@ -1,22 +1,23 @@
 ---
-title: Cosa fare in Application Insights | Microsoft Docs
+title: Cosa fare in Azure Application Insights | Microsoft Docs
 description: Domande frequenti in Application Insights
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 9e54ee2d67a8dfb5b480db01219e128607e26f51
-ms.lasthandoff: 02/02/2017
+ms.date: 04/04/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: d7795a494fbe8d3a850d7d8805cf059a86965a64
+ms.contentlocale: it-it
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -207,3 +208,21 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 * Innanzitutto [aggiungere un nuovo grafico](app-insights-metrics-explorer.md) e verificare che il contatore sia incluso nel set di base offerto.
 * In caso contrario, [aggiungere il contatore al set raccolto dal modulo del contatore delle prestazioni](app-insights-performance-counters.md).
 
+## <a name="version-and-release-tracking"></a>Verifica della versione
+Per tenere traccia della versione dell'applicazione, assicurarsi che il processo di Microsoft Build Engine generi `buildinfo.config`. Nel file con estensione csproj, aggiungere:  
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+```
+
+Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](app-insights-diagnostic-search.md) o quando si [esaminano le metriche](app-insights-metrics-explorer.md).
+
+Si noti tuttavia che il numero di versione della build viene generato solo da Microsoft Build Engine, non dalla build dello sviluppatore in Visual Studio.
+
+### <a name="release-annotations"></a>Annotazioni sulle versioni
+Se si usa Visual Studio Team Services, è possibile [aggiungere un marcatore di annotazione](app-insights-annotations.md) ai grafici quando si rilascia una nuova versione. L'immagine seguente illustra come viene visualizzato il marcatore.
+
+![Screenshot di annotazione sulla versione di esempio in un grafico](./media/app-insights-asp-net/release-annotation.png)

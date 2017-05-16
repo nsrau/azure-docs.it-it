@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1a462b8d557ad23bda912ddf9431195a8cfe909e
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -33,7 +33,7 @@ Managed Disks è una funzionalità che semplifica la gestione dei dischi per le 
 
 **Se si crea un disco gestito Standard da un disco rigido virtuale esistente da 80 GB, qual è il costo?**
 
-Un disco gestito Standard creato da un disco rigido virtuale da 80 GB viene considerato come il disco Premium immediatamente successivo in termini di dimensioni, ovvero un disco S10. Il costo addebitato corrisponderà al prezzo del disco S10. Per altri dettagli, vedere la pagina [relativa ai prezzi](https://azure.microsoft.com/pricing/details/storage).
+Un disco gestito Standard creato da un disco rigido virtuale da 80 GB viene considerato il disco Standard immediatamente successivo in termini di dimensioni, ovvero un disco S10. Il costo addebitato corrisponderà al prezzo del disco S10. Per altri dettagli, vedere la pagina [relativa ai prezzi](https://azure.microsoft.com/pricing/details/storage).
 
 **Sono previsti costi di transazione per i dischi gestiti Standard?**
 
@@ -121,6 +121,11 @@ Sì.
 
 Azure Managed Disks supporta attualmente solo l'archiviazione con ridondanza locale.
 
+**È possibile ridurre/ridimensionare Managed Disks?**
+No. Questa funzionalità non è attualmente supportata. 
+
+**È possibile modificare la proprietà del nome del computer quando si usa un disco del sistema operativo specializzato (non preparato con Sysprep o generalizzato) per il provisioning di una VM?** No. Non è possibile aggiornare la proprietà del nome del computer. La nuova VM erediterà la proprietà dalla VM padre usata per creare il disco del sistema operativo. 
+
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks e porta 8443
 
 **Perché i clienti devono sbloccare il traffico in uscita sulla porta 8443 per le macchine virtuali usando Managed Disks di Azure?**
@@ -189,8 +194,13 @@ I limiti combinati per la cache e l'unità SSD locale per la serie DS sono 4000 
 
 L'unità SSD locale è un archivio temporaneo che è incluso in una macchina virtuale di Managed Disks. Questa archiviazione temporanea non comporta costi aggiuntivi. Si consiglia di non usare questa unità SSD locale per archiviare dati dell'applicazione che non sono salvati in modo permanente nell'archivio BLOB di Azure.
 
+**L'uso di TRIM su dischi Premium ha ripercussioni?**
+
+L'uso di TRIM su dischi Azure Premium o Standard non ha alcun impatto negativo.
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 
 Se la domanda non è elencata qui, invitiamo gli utenti a comunicarcela per consentirci di fornire il nostro aiuto. È possibile pubblicare una domanda nei commenti alla fine di questo articolo o nel [forum MSDN di Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) per mettersi in contattato con il team di Archiviazione di Azure e altri membri della community.
 
 Per eseguire una richiesta di funzionalità, inviare richieste e idee al [forum dei commenti su Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage).
+

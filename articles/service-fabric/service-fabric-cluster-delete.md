@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: e73334373e9909069641cd4ad2c3280e51b5e2db
-ms.lasthandoff: 12/06/2016
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c2792287ef8b25a57beb4af069ffc5a3eed85e15
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +34,7 @@ Sono disponibili due opzioni: eliminare il gruppo di risorse contenente il clust
 Questo è il modo più semplice per verificare che vengano eliminate tutte le risorse associate al cluster, incluso il gruppo di risorse. È possibile eliminare il gruppo di risorse mediante PowerShell o tramite il portale di Azure. Se nel gruppo sono incluse risorse non correlate al cluster Service Fabric, è possibile eliminare le risorse specifiche.
 
 ### <a name="delete-the-resource-group-using-azure-powershell"></a>Eliminare il gruppo di risorse mediante Azure PowerShell
-Per eliminare il gruppo di risorse è anche possibile eseguire i cmdlet di Azure PowerShell seguenti. Verificare che nel computer sia installato Azure PowerShell 1.0 o versione successiva. Se non è ancora installato, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
+Per eliminare il gruppo di risorse è anche possibile eseguire i cmdlet di Azure PowerShell seguenti. Verificare che nel computer sia installato Azure PowerShell 1.0 o versione successiva. Se non è ancora installato, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
 
 Aprire una finestra di PowerShell ed eseguire i cmdlet di PowerShell seguenti:
 
@@ -78,7 +78,7 @@ Se il cluster è stato distribuito mediante il portale o tramite uno dei modelli
     ![Risorse con tag][TaggedResources]
 
 ### <a name="delete-the-resources-using-azure-powershell"></a>Eliminare le risorse mediante Azure PowerShell
-Per eliminare una risorsa alla volta è possibile eseguire i cmdlet di Azure PowerShell seguenti. Verificare che nel computer sia installato Azure PowerShell 1.0 o versione successiva. Se non è ancora installato, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
+Per eliminare una risorsa alla volta è possibile eseguire i cmdlet di Azure PowerShell seguenti. Verificare che nel computer sia installato Azure PowerShell 1.0 o versione successiva. Se non è ancora installato, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
 
 Aprire una finestra di PowerShell ed eseguire i cmdlet di PowerShell seguenti:
 

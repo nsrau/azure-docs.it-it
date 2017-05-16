@@ -17,6 +17,7 @@ ms.author: tarcher
 translationtype: Human Translation
 ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
 ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -127,7 +128,7 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 1. Creare un'applicazione Web ASP.NET in Visual Studio.
 2. Scegliere **Macchina virtuale** dall'elenco a discesa nella sezione Azure della finestra di dialogo Nuovo progetto ASP.NET. Lasciare selezionata la casella di controllo **Crea risorse remote** . Selezionare **OK** per procedere.
 
-    Verrà visualizzata la finestra di dialogo per la creazione di una macchina virtuale in Azure **** .
+    Verrà visualizzata la finestra di dialogo per la **creazione di una macchina virtuale in Azure**.
 
     ![Finestra di dialogo Crea progetto Web ASP.NET](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746723.png)
 
@@ -165,9 +166,4 @@ I progetti ASP.NET di Visual Studio offrono un'opzione per creare una macchina v
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare **Intellitrace** per raccogliere un registro degli eventi e delle chiamate da un server di rilascio. Vedere [Debug di un servizio cloud pubblicato con IntelliTrace e Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 * Usare **Diagnostica di Azure** per registrare informazioni dettagliate dal codice eseguito all'interno dei ruoli, sia che essi siano eseguiti nell'ambiente di sviluppo o in Azure. Vedere [Raccogliere dati di registrazione usando Diagnostica di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

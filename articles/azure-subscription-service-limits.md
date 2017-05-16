@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/19/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e26a37fbe783c2ca95679b5bdcc9b0ba0beec76b
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 2450eada5a49763542c95799a381f2029fec7575
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -71,9 +71,10 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Servizi multimediali](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Servizi mobili](#mobile-services-limits)
-* [Monitoraggio](#monitoring-limits)
+* [Monitorare](#monitor-limits)
 * [Autenticazione a più fattori](#multi-factor-authentication)
 * [Rete](#networking-limits)
+* [Network Watcher](#network-watcher-limits)
 * [Servizio di Hub di notifica](#notification-hub-service-limits)
 * [Gruppo di risorse](#resource-group-limits)
 * [Utilità di pianificazione](#scheduler-limits)
@@ -123,6 +124,9 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 
 #### <a name="application-gateway-limits"></a>Limiti del gateway applicazione
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
+#### <a name="network-watcher-limits"></a>Limiti relativi a Network Watcher
+[!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
 
 #### <a name="traffic-manager-limits"></a>Limiti relativi a Gestione traffico
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
@@ -206,7 +210,7 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 ### <a name="mobile-services-limits"></a>Limiti relativi a Servizi mobili
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitoring-limits"></a>Limiti relativi al monitoraggio
+### <a name="monitor-limits"></a>Limiti relativi al monitoraggio
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### <a name="notification-hub-service-limits"></a>Limiti relativi al servizio di Hub di notifica

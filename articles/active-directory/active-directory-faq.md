@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 025e8c9e575123a3ad9863a35061ebd0af212486
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 521169d52d37e644ba416e27c9adc8587868ab40
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -134,7 +134,7 @@ Per gli account Azure AD, gli amministratori possono reimpostare le password in 
 
 - [Reimpostare gli account nel portale di Azure](active-directory-users-reset-password-azure-portal.md)
 - [Reimpostare gli account nel portale classico](active-directory-create-users-reset-password.md)
-- [Uso di PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
+- [Uso di PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -

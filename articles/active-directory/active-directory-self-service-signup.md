@@ -1,5 +1,5 @@
 ---
-title: Informazioni sull&quot;iscrizione self-service per Azure | Documentazione Microsoft
+title: Informazioni sull&quot;iscrizione self-service per Azure | Microsoft Docs
 description: Panoramica dell&quot;iscrizione self-service per Azure e informazioni su come gestire il processo di iscrizione e come acquisire un nome di dominio DNS.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 63818878e01dd52a988e10a6e4f624638ea1cfae
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +93,7 @@ In un'acquisizione della proprietà esterna, è già presente una directory gest
 
 Un amministratore di una directory gestita potrebbe aggiungere un dominio a cui è associata una directory non gestita.
 
-Si supponga, ad esempio, di essere un amministratore IT e di avere già una directory gestita per Contoso.com, il nome di dominio registrato per la propria organizzazione. Si scopre che gli utenti dell'organizzazione hanno eseguito l'iscrizione self-service per un'offerta usando il nome di dominio di posta elettronica user@contoso.co.uk,, ovvero un altro nome di dominio dell'organizzazione. Attualmente gli utenti hanno account in una directory contoso.co.uk non gestita.
+Si supponga, ad esempio, di essere un amministratore IT e di avere già una directory gestita per Contoso.com, il nome di dominio registrato per la propria organizzazione. Si rileva che gli utenti dell'organizzazione hanno eseguito l'iscrizione self-service per un'offerta usando il nome di dominio di posta elettronica user@contoso.co.uk, ovvero un altro nome di dominio dell'organizzazione. Attualmente gli utenti hanno account in una directory contoso.co.uk non gestita.
 
 Non si vogliono gestire due directory separate, quindi si unisce la directory non gestita per contoso.co.uk alla directory contoso.com esistente gestita dal reparto IT.
 
@@ -193,19 +195,14 @@ Il diagramma di flusso seguente illustra tutte le diverse combinazioni di questi
 
 ![][1]
 
-Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
+Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## <a name="see-also"></a>Vedere anche
-* [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Informazioni di riferimento sui cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
-* [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

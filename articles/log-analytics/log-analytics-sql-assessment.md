@@ -16,9 +16,9 @@ ms.date: 04/12/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: a78c3877ac64b9376104d853d6b66b90fbb476d8
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c07e7fd218f2ec696e280f0cc6f199a090f424e6
+ms.lasthandoff: 04/13/2017
 
 
 ---

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2017
+ms.date: 04/26/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0182d0d600af691daf8c2ac7a5cb93d7755f61da
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 2b25b4f4925962b1e4de681d268e78909a93eccd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Per informazioni sui sistemi operativi supportati e per le istruzioni di install
 Molte estensioni della macchina virtuale di diverso tipo sono disponibili per l'uso con le macchine virtuali di Azure. Per visualizzare un elenco completo, eseguire il comando seguente con l'interfaccia della riga di comando di Azure, sostituendo il percorso di esempio con quello scelto.
 
 ```azurecli
-azure vm extension-image list westus
+az vm extension image list --location westus -o table
 ```
 
 ## <a name="run-vm-extensions"></a>Eseguire le estensioni della macchina virtuale
@@ -67,12 +67,15 @@ Per eseguire un'estensione in una macchina virtuale esistente, è possibile usar
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Le estensioni della macchina virtuale di Azure possono essere eseguite in una macchina virtuale esistente usando il comando `azure vm extension set`. Questo esempio esegue l'estensione script personalizzata in una macchina virtuale.
+Le estensioni della macchina virtuale di Azure possono essere eseguite in una macchina virtuale esistente usando il comando `az vm extension set`. Questo esempio esegue l'estensione script personalizzata in una macchina virtuale.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set `
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 Lo script genera un output simile al testo seguente:
@@ -205,18 +208,15 @@ I passaggi per la risoluzione dei problemi seguenti si applicano a tutte le este
 Dopo l'esecuzione di un'estensione macchina virtuale in una macchina virtuale, usare il comando dell'interfaccia della riga di comando seguente di Azure per ottenere lo stato dell'estensione. Sostituire i nomi dei parametri di esempio con i valori desiderati.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 L'output ha un aspetto simile al testo seguente:
 
 ```azurecli
-info:    Executing command vm extension get
-+ Looking up the VM "myVM"
-data:    Publisher                   Name             Version  State
-data:    --------------------------  ---------------  -------  ---------
-data:    Microsoft.Azure.Extensions  DockerExtension  1.0      Succeeded
-info:    vm extension get command OK         :
+AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publisher                   ResourceGroup      TypeHandlerVersion  VirtualMachineExtensionType
+-------------------------  ----------  ------------  -------------------  --------------------------  ---------------  --------------------  -----------------------------
+True                       westus      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
 Lo stato di esecuzione dell'estensione è disponibile anche nel portale di Azure. Per visualizzare lo stato di un'estensione, selezionare la macchina virtuale, scegliere **Estensioni** e selezionare l'estensione desiderata.
@@ -226,7 +226,7 @@ Lo stato di esecuzione dell'estensione è disponibile anche nel portale di Azure
 In alcuni casi potrebbe essere necessario rieseguire un'estensione della macchina virtuale. È possibile eseguire tale operazione rimuovendo l'estensione e quindi eseguendola di nuovo con il metodo scelto. Per rimuovere un'estensione, eseguire il comando seguente con l'interfaccia della riga di comando di Azure. Sostituire i nomi dei parametri di esempio con i valori desiderati.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
 È possibile rimuovere un'estensione usando i passaggi seguenti nel portale di Azure:

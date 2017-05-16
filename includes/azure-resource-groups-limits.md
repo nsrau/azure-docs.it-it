@@ -7,9 +7,5 @@
 | Numero di tag (per risorsa o gruppo di risorse) |15 |15 |
 | Lunghezza della chiave dei tag |512 |512 |
 | Lunghezza del valore dei tag |256 |256 |
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+| Risorse in modelli esportati |200 |200 |
 

@@ -1,6 +1,6 @@
 Usare la procedura corrispondente al tipo di progetto di back-end che sia &mdash; [back-end .NET](#dotnet) o [back-end Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-back-end-project"></a><a name="dotnet"></a>Progetto di back-end .NET
+### <a name="dotnet"></a>Progetto di back-end .NET
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto server, quindi scegliere **Gestisci pacchetti NuGet**. Cercare `Microsoft.Azure.NotificationHubs`, quindi fare clic su **Installa**. Verrà installata la libreria client dell'Hub di notifica.
 2. Nella cartella Controller aprire TodoItemController.cs e aggiungere le istruzioni `using` seguenti:
 
@@ -48,7 +48,7 @@ Usare la procedura corrispondente al tipo di progetto di back-end che sia &mdash
 
 4. Pubblicare di nuovo il progetto server.
 
-### <a name="a-namenodejsanodejs-back-end-project"></a><a name="nodejs"></a>Progetto di back-end Node.js
+### <a name="nodejs"></a>Progetto di back-end Node.js
 1. [Scaricare il progetto di avvio rapido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), se non è ancora stato scaricato, oppure usare l'[editor online del Portale di Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Sostituire il codice esistente nel file todoitem.js file con il codice seguente:
 
@@ -97,8 +97,3 @@ Usare la procedura corrispondente al tipo di progetto di back-end che sia &mdash
 
     Ogni volta che viene inserito un nuovo elemento Todo, viene inviata una notifica GCM contenente l'elemento item.text.
 3. Quando si modifica il file nel computer locale, ripubblicare il progetto server.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

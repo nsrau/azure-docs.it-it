@@ -1,5 +1,5 @@
 ---
-title: Creare code e argomenti partizionati del bus di servizio di Azure | Documentazione Microsoft
+title: Creare code e argomenti partizionati del bus di servizio di Azure | Microsoft Docs
 description: "Descrive come partizionare code e argomenti del bus di servizio usando più broker messaggi."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,19 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/28/2017
 ms.author: sethm;hillaryc
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 1952adece7e874ade97c2a8480455e1236bb74f1
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
-Il bus di servizio di Azure usa più broker messaggi per elaborare i messaggi e più archivi di messaggistica per archiviarli. Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e archiviato in un archivio di messaggistica. Le *partizioni* del bus di servizio consentono anche il partizionamento delle code o degli argomenti tra più broker messaggi e archivi di messaggistica. Questo significa che la velocità effettiva complessiva di una coda o di un argomento partizionato non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea dell'alimentazione di un archivio di messaggistica non determina la mancanza di disponibilità di una coda o di un argomento partizionato. Le code e gli argomenti partizionati possono contenere tutte le funzionalità avanzate del bus di servizio, ad esempio il supporto delle transazioni e delle sessioni.
+Il bus di servizio di Azure usa più broker messaggi per elaborare i messaggi e più archivi di messaggistica per archiviarli. Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e archiviato in un archivio di messaggistica. Le *partizioni* del bus di servizio consentono il partizionamento di code e argomenti, o *entità di messaggistica*, tra più broker messaggi e archivi di messaggistica. Questo significa che la velocità effettiva complessiva di un'entità partizionata non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea dell'alimentazione di un archivio di messaggistica non determina la mancanza di disponibilità di una coda o di un argomento partizionato. Le code e gli argomenti partizionati possono contenere tutte le funzionalità avanzate del bus di servizio, ad esempio il supporto delle transazioni e delle sessioni.
 
 Per altre informazioni sugli elementi interni del bus di servizio, vedere l'articolo [Architettura del bus di servizio][Service Bus architecture].
+
+Il partizionamento è abilitato per impostazione predefinita al momento della creazione dell'entità in tutte le code e tutti gli argomenti della messaggistica sia Standard che Premium. È possibile creare entità di livello messaggistica Standard senza il partizionamento, ma le code e gli argomenti in uno spazio dei nomi Premium vengono sempre partizionati. Questa opzione non può essere disabilitata. 
+
+Non è possibile modificare l'opzione di partizionamento su una coda o un argomento esistente nei livelli Standard o Premium. L'opzione può essere impostata solo in fase di creazione dell'entità.
 
 ## <a name="how-it-works"></a>Funzionamento
 Ogni coda o argomento partizionato è costituito da più frammenti. Ogni frammento viene memorizzato in un archivio di messaggistica differente e gestito da un broker messaggi diverso. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. La selezione viene eseguita in modo casuale dal bus di servizio o tramite una chiave di partizione che può essere specificata dal mittente.
@@ -36,9 +41,19 @@ I messaggi a una coda o a un argomento partizionato non presentano costi aggiunt
 ## <a name="enable-partitioning"></a>Abilitare il partizionamento
 Per usare le code e gli argomenti partizionati con il bus di servizio di Azure, è necessario usare Azure SDK 2.2 o versione successiva oppure specificare `api-version=2013-10` nelle richieste HTTP.
 
-È possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 partizioni per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 \* 16). È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal].
+### <a name="standard"></a>Standard
 
-Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento. Non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio:
+A livello di messaggistica Standard, è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 copie (16 partizioni) per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 \* 16). È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
+
+### <a name="premium"></a>Premium
+
+Nello spazio dei nomi di livello Premium, è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4, 5, 10, 20, 40 o 80 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato per impostazione predefinita, il bus di servizio crea due partizioni per ogni entità. È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
+
+Per altre informazioni sul partizionamento nel livello di messaggistica Premium, vedere [Livelli di messaggistica Standard e Premium del bus di servizio](service-bus-premium-messaging.md). 
+
+### <a name="create-a-partitioned-entity"></a>Creare una tabella partizionata
+
+Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento. Come detto in precedenza, non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio:
 
 ```csharp
 // Create partitioned topic
@@ -48,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-In alternativa, è possibile creare una coda o un argomento partizionato in Visual Studio o nel [portale di Azure][Azure portal]. Quando si crea una coda o un nuovo argomento nel portale, impostare l'opzione **Abilita partizionamento** nel pannello **Impostazioni generali** della finestra **Impostazioni** della coda o dell'argomento su **true**. In Visual Studio selezionare la casella di controllo **Abilita partizionamento** nella finestra di dialogo **Nuova coda** o **Nuovo argomento**.
+È possibile, in alternativa, creare una coda o un argomento partizionato nel [portale di Azure][Azure portal] o in Visual Studio. Quando si crea una coda o un argomento nel portale, l'opzione **Abilita partizionamento** nel pannello **Crea** della coda o dell'argomento è selezionata per impostazione predefinita. L'opzione può essere disabilitata solo in un'entità di livello Standard. Nel livello Premium il partizionamento è sempre abilitato. In Visual Studio selezionare la casella di controllo **Abilita partizionamento** nella finestra di dialogo **Nuova coda** o **Nuovo argomento**.
 
 ## <a name="use-of-partition-keys"></a>Uso delle chiavi di partizione
 Quando un messaggio viene accodato in una coda o in un argomento partizionato, il bus di servizio controlla la presenza di una chiave di partizione. Se ne trova una, seleziona il frammento in base a tale chiave. Se invece non trova alcuna chiave di partizione, seleziona il frammento in base a un algoritmo interno.
@@ -65,7 +80,9 @@ In base allo scenario vengono usate come chiave di partizione proprietà dei mes
 **MessageId**: se per la coda o l'argomento la proprietà [QueueDescription.RequiresDuplicateDetection][QueueDescription.RequiresDuplicateDetection] è impostata su **true** e la proprietà [BrokeredMessage.SessionId][BrokeredMessage.SessionId] o [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] non è impostata, la proprietà [BrokeredMessage.MessageId][BrokeredMessage.MessageId] viene usata come chiave di partizione. (tenere presente che le librerie di Microsoft .NET e AMQP assegnano automaticamente un ID messaggio, se questo non viene assegnato dall'applicazione mittente). In questo caso tutte le copie dello stesso messaggio vengono gestite dallo stesso broker messaggi. Questo consente al bus di servizio di rilevare ed eliminare i messaggi duplicati. Se la proprietà [QueueDescription.RequiresDuplicateDetection][QueueDescription.RequiresDuplicateDetection] non è impostata su **true**, il bus di servizio non considera la proprietà [MessageId][MessageId] come chiave di partizione.
 
 ### <a name="not-using-a-partition-key"></a>Senza l'uso di una chiave di partizione
-In assenza di una chiave di partizione, il bus di servizio distribuisce, con un'alternanza di tipo round robin, i messaggi ai frammenti della coda o dell'argomento partizionato. Se il frammento scelto non è disponibile, il bus di servizio assegna il messaggio a un altro frammento. In questo modo, l'operazione di invio viene completata correttamente indipendentemente dalla disponibilità o meno di un archivio di messaggistica.
+In assenza di una chiave di partizione, il bus di servizio distribuisce, con un'alternanza di tipo round robin, i messaggi ai frammenti della coda o dell'argomento partizionato. Se il frammento scelto non è disponibile, il bus di servizio assegna il messaggio a un altro frammento. In questo modo, l'operazione di invio viene completata correttamente indipendentemente dalla disponibilità o meno di un archivio di messaggistica. Non si otterrà tuttavia l'ordinamento garantito fornito da una chiave di partizione.
+
+Per un'analisi più approfondita del compromesso tra disponibilità (nessuna chiave di partizione) e coerenza (uso di una chiave di partizione), vedere [questo articolo](../event-hubs/event-hubs-availability-and-consistency.md). Queste informazioni si applicano ugualmente alle entità del bus di servizio partizionate e alle partizioni di Hub eventi.
 
 Per concedere al bus di servizio tempo sufficiente per l'accodamento del messaggio in un frammento diverso, il valore [MessagingFactorySettings.OperationTimeout][MessagingFactorySettings.OperationTimeout] specificato dal client che invia il messaggio deve essere maggiore di 15 secondi. È consigliabile impostare la proprietà [OperationTimeout][OperationTimeout] sul valore predefinito di 60 secondi.
 
@@ -109,7 +126,7 @@ committableTransaction.Commit();
 Il bus di servizio supporta l'inoltro automatico dei messaggi da, a o tra entità partizionate. Per abilitare l'inoltro automatico dei messaggi, impostare la proprietà [QueueDescription.ForwardTo][QueueDescription.ForwardTo] nella coda o nella sottoscrizione di origine. Se il messaggio specifica una chiave di partizione ([SessionId][SessionId], [PartitionKey][PartitionKey] o [MessageId][MessageId]), tale chiave viene usata per l'entità di destinazione.
 
 ## <a name="considerations-and-guidelines"></a>Considerazioni e indicazioni
-* **Funzionalità a coerenza elevata**: se un'entità usa funzionalità come le sessioni, il rilevamento dei duplicati o il controllo esplicito della chiave di partizionamento, le operazioni di messaggistica vengono indirizzate sempre a frammenti specifici. In caso di traffico elevato in uno dei frammenti o di stato non integro dell'archivio sottostante, queste operazioni hanno esito negativo e la disponibilità viene ridotta. La coerenza è complessivamente molto più elevata rispetto alle entità non partizionate. I problemi si verificano solo per un sottoinsieme del traffico, invece che per tutto il traffico.
+* **Funzionalità a coerenza elevata**: se un'entità usa funzionalità come le sessioni, il rilevamento dei duplicati o il controllo esplicito della chiave di partizionamento, le operazioni di messaggistica vengono indirizzate sempre a frammenti specifici. In caso di traffico elevato in uno dei frammenti o di stato non integro dell'archivio sottostante, queste operazioni hanno esito negativo e la disponibilità viene ridotta. La coerenza è complessivamente molto più elevata rispetto alle entità non partizionate. I problemi si verificano solo per un sottoinsieme del traffico, invece che per tutto il traffico. Per altre informazioni, vedere la [discussione relativa a disponibilità e coerenza](../event-hubs/event-hubs-availability-and-consistency.md).
 * **Gestione**: le operazioni di creazione, aggiornamento ed eliminazione devono essere eseguite su tutti i frammenti dell'entità. Se un frammento non è integro, potrebbero verificarsi errori per queste operazioni. Per l'operazione Get è necessario aggregare da tutti i frammenti le informazioni quali il numero di messaggi. Se un frammento non è integro, lo stato di disponibilità dell'entità risulta limitato.
 * **Scenari con volumi ridotti di messaggi**: per questi scenari, in particolare se si usa il protocollo HTTP, potrebbe essere necessario eseguire più operazioni di ricezione per ottenere tutti i messaggi. Per le richieste di ricezione, il front-end esegue una ricezione su tutti i frammenti e memorizza nella cache tutte le risposte ricevute. Una richiesta di ricezione successiva sulla stessa connessione sarebbe avvantaggiata dalla memorizzazione nella cache e le latenze di ricezione saranno minori. Se tuttavia sono presenti più connessioni o si usa HTTP, ciò crea una nuova connessione per ogni richiesta. Non è quindi possibile assicurare che la richiesta venga ricevuta sullo stesso nodo. Se tutti i messaggi esistenti sono bloccati e memorizzati nella cache in un altro front-end, l'operazione di ricezione restituisce **null**. I messaggi raggiungeranno infine la scadenza e verranno ricevuti di nuovo. È consigliabile usare la connessione keep-alive HTTP.
 * **Esaminare/Visualizzare l'anteprima dei messaggi**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) non restituisce sempre il numero di messaggi specificati nella proprietà [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MessageCount) a causa di due motivi comuni. Il primo motivo consiste nel fatto che le dimensioni aggregate della raccolta di messaggi superano le dimensioni massime peri a 256 KB. L'altro motivo dipende dal fatto che, se la [proprietà EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning) della coda o dell'argomento è impostata su **true**, è possibile che una partizione non includa una quantità di messaggi sufficiente per completare il numero di messaggi richiesto. In genere, se un'applicazione vuole ricevere un numero specifico di messaggi, deve chiamare ripetutamente [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) fino a ottenere tale numero di messaggi o fino a quando non siano più presenti messaggi di cui visualizzare l'anteprima. Per altre informazioni, inclusi esempi di codice, vedere [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) o [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PeekBatch_System_Int32_).

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6d11b75fdd33260be3d975d9bc25fdac3cf22b49
-ms.openlocfilehash: 73f42b25d667f07205e7e67556c367f1a0e6e215
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7f04ac92d7a9eff9db49ff493cdaa8693ce188c6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/06/2017
 Per usare un circuito ExpressRoute per il modello di distribuzione classica e per Resource Manager,è necessario spostare il circuito nel modello di distribuzione Resource Manager. Nelle sezioni seguenti verranno illustrati i passaggi per spostare il circuito tramite PowerShell.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Verificare di avere la versione più recente dei moduli di Azure PowerShell (almeno la versione 1.0). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Verificare di avere la versione più recente dei moduli di Azure PowerShell (almeno la versione 1.0). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * Prima di procedere con la configurazione, assicurarsi di avere verificato i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 * Rivedere le informazioni disponibili in [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](expressroute-move.md). Assicurarsi di aver compreso pienamente i limiti e le limitazioni.
 * Verificare che il circuito sia completamente operativo nel modello di distribuzione classica.

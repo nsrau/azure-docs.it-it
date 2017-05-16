@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza per l&quot;array virtuale StorSimple e failover del dispositivo | Documentazione Microsoft
+title: Ripristino di emergenza per l&quot;array virtuale StorSimple e failover del dispositivo | Microsoft Docs
 description: "Scoprire di più su come eseguire il failover di StorSimple Virtual Array."
 services: storsimple
 documentationcenter: NA
@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 01acc0a5a6db7695d04d3adbf843826da5288025
-ms.openlocfilehash: 30b0aaa27be46ed581f56176fa3385273ff101c0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
+ms.lasthandoff: 04/13/2017
 
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure
@@ -54,7 +54,7 @@ Per il failover del dispositivo, verificare che siano soddisfatti i prerequisiti
   > Non tentare di configurare il dispositivo virtuale registrato tramite il servizio. Non si deve eseguire nessuna configurazione del dispositivo tramite questo servizio.
   > 
   > 
-* Il nome del dispositivo di destinazione non può essere lo stesso del dispositivo di origine. È sempre possibile rinominare il dispositivo di destinazione una volta completato il failover.
+* Il nome del dispositivo di destinazione non può essere lo stesso del dispositivo di origine.
 * Il dispositivo di origine e quello di destinazione devono essere dello stesso tipo. Il failover di un array virtuale configurato come file server può essere eseguito solo su un altro file server. Lo stesso vale per un server iSCSI.
 * Per il ripristino di emergenza di un file server, è consigliabile aggiungere il dispositivo di destinazione nello stesso dominio del dispositivo di origine. Questa configurazione assicura che le autorizzazioni di condivisione vengano risolte automaticamente. È supportato solo il failover su un dispositivo di destinazione nello stesso dominio.
 * I dispositivi di destinazione disponibili per il ripristino di emergenza sono dispositivi dotati di capacità uguale o superiore rispetto al dispositivo di origine. I dispositivi connessi al servizio che non soddisfano i criteri di spazio sufficiente non sono disponibili come dispositivi di destinazione.
@@ -78,7 +78,7 @@ Prima di iniziare il ripristino di emergenza, il dispositivo esegue le verifiche
   
   * dei nomi relativi a record di controllo di accesso validi
   * di IQN (lunghezza non superiore a 220 caratteri)
-  * e di password CHAP (lunghezza di&12; e&16; caratteri).
+  * e di password CHAP (lunghezza di 12 e 16 caratteri).
 
 Se una qualsiasi delle verifiche preliminari riportate sopra non va a buon fine, non è possibile procedere con il ripristino di emergenza. Risolvere questi problemi, quindi riprovare il ripristino di emergenza.
 
@@ -155,7 +155,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
     1. Selezionare e fare clic sul dispositivo StorSimple usato come dispositivo di destinazione per il processo di failover.
     2. Passare a **Impostazioni > Gestione > Condivisioni** o **Volumi** in caso di server iSCSI. Nel pannello **Condivisioni** è possibile visualizzare tutte le condivisioni (volumi) del dispositivo precedente.
         ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. È ora possibile rinominare il dispositivo (come il dispositivo di origine precedente) in modo che i server delle applicazioni possano connettersi direttamente al dispositivo. Se non si vuole rinominare il dispositivo, sarà necessario [creare un alias DNS](https://support.microsoft.com/kb/168322) in modo che tutte le applicazioni che stanno tentando di connettersi possano venire reindirizzate al nuovo dispositivo.
+14. Sarà necessario [creare un alias DNS](https://support.microsoft.com/kb/168322) in modo che tutte le applicazioni che stanno tentando di connettersi possano venire reindirizzate al nuovo dispositivo.
 
 ## <a name="errors-during-dr"></a>Errori durante il ripristino di emergenza
 

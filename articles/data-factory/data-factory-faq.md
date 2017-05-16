@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 02d810db5433370802b866424c24464d64171ef0
-ms.openlocfilehash: 6921965c3286209e024ba59637da0c485b4a0c71
-ms.lasthandoff: 02/01/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6af34cf24a8fb7d2dd8f4c44392e0e6c3ed46b1a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +28,7 @@ Data Factory è un servizio di integrazione dei dati basato sul cloud che **auto
 
 Data Factory consente di creare flussi di lavoro basati sui dati per spostare dati dagli archivi locali a quelli sul cloud e viceversa, nonché per elaborare o trasformare i dati usando servizi di calcolo come Azure HDInsight e Azure Data Lake Analytics. Dopo aver creato una pipeline che esegue l'azione necessaria, è possibile pianificarne l'esecuzione periodica, ad esempio ogni ora, giorno, settimana e così via.   
 
-Per maggiori dettagli vedere [Panoramica e concetti chiave](data-factory-introduction.md).
+Per altre informazioni, vedere [Cenni preliminari e concetti chiave](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Dove posso trovare informazioni dettagliate sui prezzi di Azure Data Factory?
 Per saperne di più, vedere la [pagina Dettagli prezzi di Data Factory][adf-pricing-details].  
@@ -45,7 +45,7 @@ Data Factory è disponibile negli **Stati Uniti occidentali** e in **Europa sett
 Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md#data-factory-limits) .
 
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Quale esperienza di creazione/sviluppo offre il servizio Azure Data Factory?
-È possibile creare data factory con uno degli strumenti seguenti:
+È possibile creare data factory con uno degli strumenti/SDK seguenti:
 
 * **Portale di Azure**
    I pannelli di Data Factory nel portale di Azure offrono una ricca interfaccia utente per la creazione di data factory e servizi collegati. L' **editor di Data Factory**, anch'esso parte del portale, consente di creare facilmente servizi collegati, tabelle, set di dati e pipeline specificando definizioni JSON per questi elementi. Per un esempio dell'uso del portale o dell'editor per creare e distribuire una data factory, vedere [Creare la prima data factory di Azure usando il portale di Azure/l'editor di Data Factory](data-factory-build-your-first-pipeline-using-editor.md) .
@@ -64,7 +64,7 @@ Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione
 No. Come per le altre risorse di Azure, non è possibile modificare il nome di una data factory di Azure.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>È possibile trasferire una data factory da una sottoscrizione di Azure a un'altra?
-Sì. Usare il pulsante **Sposta** nel pannello della data factory come mostrato nel diagramma seguente.
+Sì. Usare il pulsante **Sposta** nel pannello della data factory come mostrato nel diagramma seguente:
 
 ![Spostare una data factory](media/data-factory-faq/move-data-factory.png)
 
@@ -79,6 +79,9 @@ La seguente tabella presenta un elenco degli ambienti di calcolo supportati da D
 | [Azure Data Lake Analytics.](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored procedure](data-factory-stored-proc-activity.md) |
 
+### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Come si confronta Azure Data Factory con SQL Server Integration Services (SSIS)? 
+Vedere la presentazione [Azure Data Factory e SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) di uno dei nostri MVP (Most Valued Professional): Reza Rad. Alcune delle modifiche recenti in Data Factory potrebbero non essere elencate della presentazione. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Questi aggiornamenti verranno incorporati nel confronto delle tecnologie di integrazione di dati da Microsoft nel corso di quest'anno.   
+
 ## <a name="activities---faq"></a>Attività - Domande frequenti
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quali sono i diversi tipi di attività che si possono usare in una pipeline di Data Factory?
 * [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per spostare i dati.
@@ -92,7 +95,12 @@ L'impostazione di configurazione **availability** della tabella dati di output d
 Le pipeline sono state progettate per aggregare attività correlate. Se i set di dati che si interconnettono non vengono usati da altre attività esterne alla pipeline, è possibile mantenere le attività in un'unica pipeline. In questo modo non sarà necessario concatenare periodi attivi della pipeline per allinearli reciprocamente. Ciò consentirà anche di mantenere meglio l'integrità dei dati delle tabelle interne alla pipeline durante l'aggiornamento di quest'ultima. Essenzialmente, l'aggiornamento arresta tutte le attività nella pipeline, le rimuove e le crea di nuovo. Dal punto di vista della creazione, potrebbe anche risultare più semplice visualizzare il flusso di dati entro le attività correlate in un file JSON per la pipeline.
 
 ### <a name="what-are-the-supported-data-stores"></a>Quali sono gli archivi dati supportati?
+L'attività di copia in Data Factory esegue la copia dei dati da un archivio dati di origine a un archivio dati sink. Data Factory supporta gli archivi dati seguenti. I dati da qualsiasi origine possono essere scritti in qualsiasi sink. Fare clic su un archivio dati per informazioni su come copiare dati da e verso tale archivio.
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+> [!NOTE]
+> Gli archivi dati contrassegnati da un asterisco (*) possono essere locali o in IaaS di Azure e richiederanno l'installazione del [Gateway di gestione dati](data-factory-data-management-gateway.md) in un computer IaaS locale o in Azure.
 
 ### <a name="what-are-the-supported-file-formats"></a>Quali sono i formati di file supportati?
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
@@ -148,7 +156,7 @@ Pipeline 1: dataset4->activity4->dataset5
 Se la proprietà esterna è impostata correttamente, verificare che i dati di input siano presenti nel percorso specificato nella definizione del set di dati di input.
 
 ### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>In che modo è possibile eseguire una sezione in un momento diverso dalla mezzanotte quando tale sezione viene prodotta ogni giorno?
-Usare la proprietà **offset** per specificare l'ora di produzione della sezione. Per altre informazioni su questa proprietà, vedere [Disponibilità dei set di dati](data-factory-create-datasets.md#Availability) . Di seguito è riportato un rapido esempio:
+Usare la proprietà **offset** per specificare l'ora di produzione della sezione. Per altre informazioni su questa proprietà, vedere [Disponibilità dei set di dati](data-factory-create-datasets.md#dataset-availability) . Di seguito è riportato un rapido esempio:
 
 ```json
 "availability":
@@ -185,7 +193,7 @@ Per conoscere la durata dell'elaborazione di una sezione di dati, usare Activity
 6. Nel campo **DURATA** dovrebbe essere visualizzato un valore, ovvero il tempo impiegato per elaborare la sezione.   
 
 ### <a name="how-to-stop-a-running-slice"></a>In che modo è possibile interrompere una sezione in esecuzione?
-Se è necessario interrompere l'esecuzione della pipeline, è possibile usare il cmdlet [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) . La sospensione della pipeline attualmente non interrompe le esecuzioni di sezioni in corso. Al termine delle esecuzioni in corso non verranno eseguite altre sezioni.
+Se è necessario interrompere l'esecuzione della pipeline, è possibile usare il cmdlet [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) . La sospensione della pipeline attualmente non interrompe le esecuzioni di sezioni in corso. Al termine delle esecuzioni in corso non verranno eseguite altre sezioni.
 
 L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste nell'eliminare la pipeline e crearla di nuovo. Se si sceglie di eliminare la pipeline, NON sarà necessario eliminare le tabelle e i servizi collegati usati da essa.
 

@@ -14,8 +14,3 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 
 Per un elenco delle impostazioni DWU correnti, vedere l'obiettivo del livello di servizio nell'articolo relativo ai [limiti di capacità del servizio](../articles/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

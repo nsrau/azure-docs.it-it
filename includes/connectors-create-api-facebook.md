@@ -14,8 +14,3 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Fa
 4. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![facebook passaggio 4](./media/connectors-create-api-facebook/facebook-4.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

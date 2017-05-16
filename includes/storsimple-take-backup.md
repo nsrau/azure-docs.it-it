@@ -16,7 +16,7 @@
    3. Selezionare un periodo di conservazione. Le scelte di conservazione dipendono dalla frequenza di backup. Ad esempio, per un criterio giornaliero, la conservazione può essere specificata in settimane, mentre la conservazione per un criterio mensile è specificata in mesi.
    4. Selezionare la data e l’ora di inizio per il criterio di backup.
    5. Selezionare la casella di controllo **Abilita** per abilitare il criterio di backup. 
-   6. Fare clic sull’icona del segno del spunta  ![icona del segno di spunta](./media/storsimple-take-backup/HCS_CheckIcon-include.png)  per salvare il criterio.
+   6. Fare clic sull’icona del segno del spunta  ![icona del segno di spunta](./media/storsimple-take-backup/HCS_CheckIcon-include.png) per salvare il criterio.
       
       ![Aggiungi criterio di backup](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
       
@@ -27,9 +27,4 @@ La configurazione del dispositivo è stata completata.
 ![Video disponibile](./media/storsimple-take-backup/Video_icon.png) **Video disponibile**
 
 Per guardare un video che illustra come eseguire un backup StorSimple, fare clic [qui](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

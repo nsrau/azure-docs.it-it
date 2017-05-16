@@ -16,8 +16,3 @@
 | Numero di siti |20 |1 per listener HTTP |
 | Mappe URL per listener |1 | |
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

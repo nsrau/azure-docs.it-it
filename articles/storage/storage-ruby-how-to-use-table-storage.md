@@ -14,16 +14,17 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: e1df2fcf4478ef7f58c5686e85abd6ae94b5a2d3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 03f466cb08ed2ccbd2985471d0956af9e66d97f1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-azure-table-storage-from-ruby"></a>Come usare l'archiviazione tabelle di Azure da Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Panoramica
 Questa guida illustra come eseguire scenari comuni con il servizio tabelle di Azure. Gli esempi sono scritti utilizzando l'API Ruby. Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento di entità ed esecuzione di query sulle entità in una tabella**.
@@ -170,14 +171,8 @@ azure_table_service.delete_table("testtable")
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
-* [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Azure SDK per Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

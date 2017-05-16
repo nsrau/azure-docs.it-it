@@ -18,8 +18,3 @@ Per impostazione predefinita, le API in un back-end dell'app per dispositivi mob
         table.access = 'authenticated';
 
     Per altre informazioni, vedere [Procedura: Richiedere l'autenticazione per l'accesso alle tabelle](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Per informazioni su come scaricare il progetto di codice di avvio rapido dal sito, vedere [Procedura: Scaricare il progetto di codice di avvio rapido del back-end Node.js tramite Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 22966659db3951316dca11fd555e07a183114062
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c32cb52e4bb7bacde20e21820f277b4e86877e74
+ms.contentlocale: it-it
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="create-a-nodejs-application-on-web-app"></a>Creare un'applicazione Node.js in un'app Web
@@ -148,7 +149,7 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 
 Ora che è stato creato il piano di servizio app `quickStartPlan`, creare un'app Web in tale piano. L'app Web offre uno spazio di hosting per la distribuzione del codice e fornisce un URL per visualizzare l'applicazione distribuita. Usare il comando [az appservice web create](/cli/azure/appservice/web#create) per creare l'app Web.
 
-Nel comando seguente sostituire il segnaposto <app_name> con il nome univoco della propria app. Dato che verrà usato come sito DNS predefinito per l'app Web, è necessario che il nome sia univoco tra tutte le app in Azure. In un secondo momento è possibile eseguire il mapping di qualsiasi voce DNS personalizzata all'app Web prima di esporla agli utenti.
+Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco della propria app. Dato che verrà usato come sito DNS predefinito per l'app Web, è necessario che `<app_name>` sia univoco tra tutte le app in Azure. In un secondo momento è possibile eseguire il mapping di qualsiasi voce DNS personalizzata all'app Web prima di esporla agli utenti.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -321,3 +322,4 @@ Queste schede del pannello mostrano le numerose utili funzionalità che è possi
 ## <a name="next-steps"></a>Passaggi successivi
 
 Esplorare gli [script dell'interfaccia della riga di comando per le app Web](app-service-cli-samples.md) già creati.
+

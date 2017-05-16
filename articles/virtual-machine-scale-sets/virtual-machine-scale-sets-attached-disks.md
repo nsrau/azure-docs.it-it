@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 4/25/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -58,10 +58,21 @@ Un altro modo per creare un set di scalabilità con dischi di dati collegati è 
 Un esempio completo e pronto per la distribuzione di un modello di set di scalabilità con un disco collegato è disponibile qui: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Aggiungere un disco dati a un set di scalabilità esistente
+> [!NOTE]
+>  È possibile collegare i dischi dati solo a un set di scalabilità creato con [Azure Managed Disks](./virtual-machine-scale-sets-managed-disks.md).
+
 È possibile aggiungere un disco dati a un set di scalabilità di macchine virtuali usando il comando _az vmss disk attach_ dell'interfaccia della riga di comando di Azure. Specificare un lun che non sia già in uso. L'esempio di interfaccia della riga di comando seguente aggiunge un'unità da 50 GB a lun 3:
 ```bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
+
+L'esempio di PowerShell seguente aggiunge un'unità da 50 GB a lun 3:
+```powershell
+$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
+$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
+Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
+```
+
 > [!NOTE]
 > Le diverse dimensioni delle macchine virtuali hanno limiti differenti per quanto riguarda il numero di unità collegate supportate. Verificare le [dimensioni delle macchine virtuali](../virtual-machines/windows/sizes.md) prima di aggiungere un nuovo disco.
 

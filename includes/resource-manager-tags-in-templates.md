@@ -86,7 +86,3 @@ Per memorizzare più valori in un singolo tag, è possibile applicare una string
     ]
 }
 ```
-
-<!--HONumber=Feb17_HO1-->
-
-

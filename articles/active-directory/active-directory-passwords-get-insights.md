@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: ff26d568624a712cf86db962193c8f631065c004
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7375d2d3c237c3b1c2dcdab44b2fcb0000ff961c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>Come ottenere informazioni dettagliate con i report di gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 >
 >
 
@@ -202,16 +203,12 @@ Per trovare i report di gestione delle password, seguire questa procedura:
 4. Controllare la sezione **Log attività** .
 5. Selezionare il report **Attività di reimpostazione password** o **Attività di registrazione reimpostazione password**.
 
-   ![][001]
-
 ## <a name="view-password-reset-registration-activity-in-the-classic-portal"></a>Visualizzare le attività di registrazione per la reimpostazione delle password nel portale classico
 Il report relativo alle attività di registrazione per la reimpostazione delle password illustra tutte le registrazioni per la reimpostazione delle password che si sono verificate nell'organizzazione.  Questo report consente di visualizzare le registrazioni per la reimpostazione delle password di tutti gli utenti che hanno registrato correttamente le informazioni di autenticazione nel portale di registrazione per la reimpostazione delle password ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 * **Intervallo di tempo massimo**: 30 giorni
 * **Numero massimo di righe**: 75.000
 * **Scaricabile**: Sì, tramite file CSV
-
-    ![][002]
 
 ### <a name="description-of-report-columns"></a>Descrizione delle colonne del report
 L'elenco seguente descrive le colonne del report in modo dettagliato:
@@ -234,8 +231,6 @@ Questo report illustra tutti i tentativi di reimpostazione delle password che si
 * **Intervallo di tempo massimo**: 30 giorni
 * **Numero massimo di righe**: 75.000
 * **Scaricabile**: Sì, tramite file CSV
-
-    ![][003]
 
 ### <a name="description-of-report-columns"></a>Descrizione delle colonne del report
 L'elenco seguente descrive le colonne del report in modo dettagliato:
@@ -300,7 +295,7 @@ Di seguito è riportato l'elenco dei tipi di risultati previsti quando si usa il
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
@@ -308,8 +303,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 * [**Domande frequenti**](active-directory-passwords-faq.md) : risposte alle domande frequenti
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
 * [**Altre informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
-
-[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 

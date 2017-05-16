@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 2149bcf588b019a0c0f3c64a4e39fec9b9bc5925
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -187,7 +187,7 @@ L'aggiornamento continua dal dominio di aggiornamento in corrispondenza del qual
 ### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>Service Fabric non segue i criteri di integrità specificati
 Possibile causa 1:
 
-Service Fabric converte tutte le percentuali in numeri effettivi di entità (ad esempio repliche, partizioni e servizi) per la valutazione dell'integrità ed esegue sempre l'arrotondamento alle entità intere. Se ad esempio il valore massimo di *MaxPercentUnhealthyReplicasPerPartition* è 21% e sono presenti cinque repliche, Service Fabric accetta un massimo di due repliche non integre, ovvero Math.Ceiling (5\*0,21). Perciò, i criteri di integrità devono essere impostati in modo da tenere conto di questo.
+Service Fabric converte tutte le percentuali in numeri effettivi di entità (ad esempio repliche, partizioni e servizi) per la valutazione dell'integrità ed esegue sempre l'arrotondamento alle entità intere. Se ad esempio il valore massimo di *MaxPercentUnhealthyReplicasPerPartition* è 21% e ci sono cinque repliche, Service Fabric accetta un massimo di due repliche non integre, ovvero `Math.Ceiling (5*0.21)`. Perciò, i criteri di integrità devono essere impostati in modo da tenere conto di questo.
 
 Possibile causa 2:
 
@@ -222,7 +222,4 @@ Controllare l’aggiornamento dell'applicazione tramite [Parametri di aggiorname
 Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 
 Per informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione, vedere [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
-
-Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione](service-fabric-application-upgrade-troubleshooting.md).
-
 

@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9bd7a76ef644df3db72ce95a3ef89a04bec1381f
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -54,10 +56,5 @@ Quando viene configurato un circuito ExpressRoute, i server locali possono acced
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica di Data Lake Store di Azure](data-lake-store-overview.md)
 * [Sicurezza in Azure Data Lake Store](data-lake-store-security-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

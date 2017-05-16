@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2016
+ms.date: 04/06/2017
 ms.author: luywang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 41e3db2762998bd042c0a23fccd03e599bd237a5
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 522fd46e8c0ccc64eb97ee6622e9886bb51f1e24
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -31,22 +31,15 @@ Il servizio Azure Site Recovery contribuisce alla strategia di continuità azien
 
 ![][1]
 
-## <a name="migration-scenario-components"></a>Componenti dello scenario di migrazione
+## <a name="azure-site-recovery-components"></a>Componenti di Azure Site Recovery
 
-**Componenti di Site Recovery pertinenti in questo scenario di migrazione:**
+Questi sono i componenti di Site Recovery rilevanti per questo scenario di migrazione.
 
-* Un **server di configurazione** è una VM di Azure che coordina le comunicazioni e gestisce i processi di ripristino e replica dei dati. In questa VM si eseguirà un singolo file di installazione per installare il server di configurazione e un componente aggiuntivo, denominato server di elaborazione, come gateway di replica. Vedere le informazioni sui [prerequisiti del server di configurazione](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites). Il server di configurazione deve essere configurato una sola volta e può essere usato per tutte le migrazioni alla stessa area.
+* Un **Server di configurazione** è una VM di Azure che coordina le comunicazioni e gestisce i processi di ripristino e replica dei dati. In questa VM si eseguirà un singolo file di installazione per installare il server di configurazione e un componente aggiuntivo, denominato server di elaborazione, come gateway di replica. Vedere le informazioni sui [prerequisiti del server di configurazione](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites). Il server di configurazione deve essere configurato una sola volta e può essere usato per tutte le migrazioni alla stessa area.
 
-* Un **server di elaborazione** è un gateway di replica che riceve i dati di replica dalle VM di origine, ottimizza i dati con la memorizzazione nella cache, la compressione e la crittografia e li invia a un account di archiviazione. Gestisce anche l'installazione push del servizio Mobility nelle VM di origine ed esegue l'individuazione automatica delle VM di origine. Il server di elaborazione predefinito viene installato nel server di configurazione. È possibile distribuire altri server di elaborazione autonomi per ridimensionare l'ambiente. Vedere le informazioni sulle [procedure consigliate per la distribuzione del server di elaborazione](https://azure.microsoft.com/en-us/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) e sulla [distribuzione di server di elaborazione aggiuntivi](../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Il server di elaborazione deve essere configurato una sola volta e può essere usato per tutte le migrazioni alla stessa area.
+* Un **Server di elaborazione** è un gateway di replica che riceve i dati di replica dalle VM di origine, ottimizza i dati con la memorizzazione nella cache, la compressione e la crittografia e li invia a un account di archiviazione. Gestisce anche l'installazione push del servizio Mobility nelle VM di origine ed esegue l'individuazione automatica delle VM di origine. Il server di elaborazione predefinito viene installato nel server di configurazione. È possibile distribuire altri server di elaborazione autonomi per ridimensionare l'ambiente. Vedere le informazioni sulle [procedure consigliate per la distribuzione del server di elaborazione](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) e sulla [distribuzione di server di elaborazione aggiuntivi](../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Il server di elaborazione deve essere configurato una sola volta e può essere usato per tutte le migrazioni alla stessa area.
 
-* Un **servizio Mobility** è un componente che viene distribuito in ogni VM standard che si vuole replicare. Acquisisce le scritture di dati nella VM standard e le inoltra al server di elaborazione. Vedere le informazioni sui [prerequisiti dei computer replicati](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites).
-
-**Informazioni di base su Azure**: 
-
-* Una sottoscrizione di Azure.
-* Un account di archiviazione Premium per archiviare i dati replicati.
-* Una rete virtuale di Azure a cui le VM di Azure possano connettersi quando vengono create in fase di failover. La rete virtuale di Azure deve trovarsi nella stessa area di quella in cui viene eseguito Site Recovery.
-* Un account di archiviazione Standard di Azure in cui archiviare i log delle repliche. Può essere lo stesso account di archiviazione dei dischi delle VM di cui viene eseguita la migrazione.
+* Un **Servizio Mobility** è un componente che viene distribuito in ogni VM standard che si vuole replicare. Acquisisce le scritture di dati nella VM standard e le inoltra al server di elaborazione. Vedere le informazioni sui [prerequisiti dei computer replicati](../site-recovery/site-recovery-vmware-to-azure.md#prerequisites).
 
 Il grafico seguente mostra l'interazione tra questi componenti.
 
@@ -56,6 +49,15 @@ Il grafico seguente mostra l'interazione tra questi componenti.
 > Site Recovery non supporta la migrazione di dischi di Spazi di archiviazione.
 
 Per i componenti aggiuntivi di altri scenari, vedere [Architettura dello scenario](../site-recovery/site-recovery-vmware-to-azure.md).
+
+## <a name="azure-essentials"></a>Informazioni di base su Azure
+
+Questi sono i requisiti di Azure per questo scenario di migrazione.
+
+* Una sottoscrizione di Azure.
+* Un account di archiviazione Premium per archiviare i dati replicati.
+* Una rete virtuale di Azure a cui le VM di Azure possano connettersi quando vengono create in fase di failover. La rete virtuale di Azure deve trovarsi nella stessa area di quella in cui viene eseguito Site Recovery.
+* Un account di archiviazione Standard di Azure in cui archiviare i log delle repliche. Può essere lo stesso account di archiviazione dei dischi delle VM di cui viene eseguita la migrazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -68,74 +70,83 @@ Per i componenti aggiuntivi di altri scenari, vedere [Architettura dello scenari
 
 1. **Creare un insieme di credenziali di Servizi di ripristino**. Creare e gestire l'insieme di credenziali di Site Recovery tramite il [portale di Azure](https://portal.azure.com). Fare clic su **Nuovo** > **Gestione** > **Backup** e **Site Recovery (OMS)**. In alternativa, è possibile fare clic su **Sfoglia** > **Insieme di credenziali dei servizi di ripristino** > **Aggiungi**. Le VM verranno replicate nell'area specificata in questo passaggio. Per eseguire la migrazione nella stessa area, selezionare l'area in cui si trovano le VM di origine e gli account di archiviazione di origine. Si noti che la migrazione agli account di archiviazione Premium è supportata solo nel [portale di Azure](https://portal.azure.com), non nel [portale classico](https://manage.windowsazure.com).
 
-2. **Scegliere gli obiettivi della protezione**. Nella VM in cui si vuole installare il server di configurazione aprire il [portale di Azure](https://portal.azure.com). Andare a **Insiemi di credenziali dei servizi di ripristino** > **Impostazioni**. In **Impostazioni** selezionare **Site Recovery**. In **Site Recovery** selezionare **Passaggio 1: Preparare l'infrastruttura**. In **Preparare l'infrastruttura** selezionare **Obiettivo di protezione**.
-  
-  ![][2]
-  
-  In **Obiettivo di protezione**, nel primo elenco a discesa sezionare **In Azure**. Nel secondo elenco a discesa selezionare **Non virtualizzato/Altro** e quindi fare clic su **OK**.
-  
-  ![][3]
-  
-3. **Configurare l'ambiente di origine (server di configurazione)**. Scaricare l'**installazione unificata di Azure Site Recovery** e la **chiave di registrazione dell'insieme di credenziali** andando al pannello **Preparare l'infrastruttura** > **Prepara origine** > **Aggiungi server**. Sarà necessaria la chiave di registrazione dell'insieme di credenziali per eseguire l'installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
-  
-  ![][4]
-  
-  ![][5]
-  
-  Nella VM che si usa come server di configurazione, eseguire l'Installazione unificata per installare il server di configurazione e il server di elaborazione. È possibile seguire gli screenshot [qui](../site-recovery/site-recovery-vmware-to-azure.md#set-up-the-source-environment) per completare l'installazione. È possibile vedere gli screenshot seguenti per i passaggi specificati per questo scenario di migrazione.
+2. La procedura seguente consente di **scegliere gli obiettivi di protezione**.
 
-  In **Prima di iniziare** selezionare l'opzione **Installare il server di configurazione e il server di elaborazione**.
-  
-  ![][6]
+    2a. Nella VM in cui si vuole installare il server di configurazione aprire il [portale di Azure](https://portal.azure.com). Andare a **Insiemi di credenziali dei servizi di ripristino** > **Impostazioni**. In **Impostazioni** selezionare **Site Recovery**. In **Site Recovery** selezionare **Passaggio 1: Preparare l'infrastruttura**. In **Preparare l'infrastruttura** selezionare **Obiettivo di protezione**.
 
-  In **Registrazione** cercare e selezionare la chiave di registrazione scaricata dall'insieme di credenziali.
-  
-  ![][7]
+    ![][2]
 
-  In **Dettagli ambiente** specificare se si vuole eseguire la replica di VM VMware. Per questo scenario di migrazione, scegliere **No**.
-  
-  ![][8]
-  
-  Al termine dell'installazione, verrà visualizzata la finestra **Microsoft Azure Site Recovery Configuration Server** (Server di configurazione Microsoft Azure Site Recovery). Usare la scheda **Gestisci account** per creare l'account che Site Recovery può usare per l'individuazione automatica. Nello scenario sulla protezione dei computer fisici la configurazione dell'account non è pertinente, ma è necessario almeno un account per abilitare uno dei passaggi seguenti. In questo caso, è possibile usare qualsiasi account e password. Usare la scheda **Vault Registration** (Registrazione dell'insieme di credenziali) per caricare il file delle credenziali dell'insieme di credenziali.
-  
-  ![][9]
+    2b. In **Obiettivo di protezione**, nel primo elenco a discesa sezionare **In Azure**. Nel secondo elenco a discesa selezionare **Non virtualizzato/Altro** e quindi fare clic su **OK**.
+
+    ![][3]
+
+3. La seguente procedura aiuta a **configurare l'ambiente di origine (server di configurazione)**.
+
+    3a. Scaricare l'**installazione unificata di Azure Site Recovery** e la **chiave di registrazione dell'insieme di credenziali** andando al pannello **Preparare l'infrastruttura** > **Prepara origine** > **Aggiungi server**. Sarà necessaria la chiave di registrazione dell'insieme di credenziali per eseguire l'installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
+
+    ![][4]
+
+    3b. Aggiungere Server di configurazione nel pannello **Aggiungi server**.
+
+    ![][5]
+
+    3c. Nella VM che si usa come server di configurazione, eseguire l'Installazione unificata per installare il server di configurazione e il server di elaborazione. È possibile seguire gli screenshot [qui](../site-recovery/site-recovery-vmware-to-azure.md#set-up-the-source-environment) per completare l'installazione. È possibile vedere gli screenshot seguenti per i passaggi specificati per questo scenario di migrazione.
+
+    In **Prima di iniziare** selezionare l'opzione **Installare il server di configurazione e il server di elaborazione**.
+
+    ![][6]
+
+    3d. In **Registrazione** cercare e selezionare la chiave di registrazione scaricata dall'insieme di credenziali.
+
+    ![][7]
+
+    3e. In **Dettagli ambiente** specificare se si vuole eseguire la replica di VM VMware. Per questo scenario di migrazione, scegliere **No**.
+
+    ![][8]
+
+    3f. Al termine dell'installazione, verrà visualizzata la finestra **Microsoft Azure Site Recovery Configuration Server** (Server di configurazione Microsoft Azure Site Recovery). Usare la scheda **Gestisci account** per creare l'account che Site Recovery può usare per l'individuazione automatica. Nello scenario sulla protezione dei computer fisici la configurazione dell'account non è pertinente, ma è necessario almeno un account per abilitare uno dei passaggi seguenti. In questo caso, è possibile usare qualsiasi account e password. Usare la scheda **Vault Registration** (Registrazione dell'insieme di credenziali) per caricare il file delle credenziali dell'insieme di credenziali.
+
+    ![][9]
 
 4. **Configurare l'ambiente di destinazione**. Fare clic su **Preparare l'infrastruttura** > **Destinazione** e specificare il modello di distribuzione da usare per le macchine virtuali dopo il failover. È possibile scegliere **Classica** o **Resource Manager**, a seconda dello scenario.
-  
-  ![][10]
 
-  Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili. Si noti che, se si usa un account di archiviazione Premium per i dati replicati, è necessario configurare un account di archiviazione Standard aggiuntivo per l'archiviazione dei log di replica.
+    ![][10]
 
-5. **Configurare le impostazioni di replica**. Seguire i passaggi [qui](../site-recovery/site-recovery-vmware-to-azure.md#set-up-replication-settings) per verificare che il server di configurazione venga associato correttamente ai criteri di replica creati.
+    Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili. Si noti che, se si usa un account di archiviazione Premium per i dati replicati, è necessario configurare un account di archiviazione Standard aggiuntivo per l'archiviazione dei log di replica.
+
+5. **Configurare le impostazioni di replica**. Seguire [Configurare le impostazioni di replica](../site-recovery/site-recovery-vmware-to-azure.md#set-up-replication-settings) per verificare che il server di configurazione venga associato correttamente ai criteri di replica creati.
 
 6. **Pianificazione della capacità**. Usare [Capacity Planner](../site-recovery/site-recovery-capacity-planner.md) per stimare con precisione la larghezza di banda di rete, lo spazio di archiviazione e gli altri requisiti per poter soddisfare le esigenze di replica. Al termine scegliere **Sì** in **È stata completata la pianificazione della capacità?**
-  
-  ![][11]
 
-7. **Installare il servizio Mobility e abilitare la replica**. È possibile scegliere di [effettuare il push dell'installazione](../site-recovery/site-recovery-vmware-to-azure.md#prepare-for-automatic-discovery-and-push-installation) nelle VM di origine o di [installare manualmente il servizio Mobility](../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) nelle VM di origine. È possibile trovare il requisito del push dell'installazione e il percorso del programma di installazione manuale nel collegamento fornito. Se si esegue un'installazione manuale, potrebbe essere necessario usare un indirizzo IP interno per trovare il server di configurazione. 
-  
-  ![][12]
-  
-  La VM sottoposta a failover avrà due dischi temporanei: uno dalla VM primaria e l'altro creato durante il provisioning della VM nell'area di ripristino. Per escludere il disco temporaneo prima della replica, installare il servizio Mobility prima di abilitare la replica. Per altre informazioni su come escludere il disco temporaneo, vedere [Escludere dischi dalla replica](../site-recovery/site-recovery-vmware-to-azure.md#exclude-disks-from-replication).
-**Per abilitare la replica, procedere come descritto di seguito**:
-  * Fare clic su **Eseguire la replica dell'applicazione** > **Origine**. Dopo avere abilitato la replica per la prima volta, fare clic su +Replica nell'insieme di credenziali per abilitare la replica per altri computer.
-  * Nel passaggio 1 configurare l'origine come server di elaborazione.
-  * Nel passaggio 2 specificare il modello di distribuzione successivo al failover, un account di archiviazione Premium a cui eseguire la migrazione, un account di archiviazione Standard per salvare i log e una rete virtuale in cui effettuare il failover. 
-  * Nel passaggio 3 aggiungere le VM protette per indirizzo IP. Per trovarle, potrebbe essere necessario un indirizzo IP interno. 
-  * Nel passaggio 4 configurare le proprietà selezionando gli account configurati prima nel server di elaborazione. 
-  * Nel passaggio 5 scegliere i criteri di replica creati prima e configurare le impostazioni di replica. 
-  Fare clic su **OK** e abilitare la replica.
-  
-  > [!NOTE]
-  > Quando una VM di Azure viene deallocata e riavviata, non è certo che ottenga lo stesso indirizzo IP. Se l'indirizzo IP del server di configurazione/server di elaborazione o le VM di Azure protette cambiano, la replica in questo scenario potrebbe non funzionare correttamente.
-  
-  ![][13]
-  
-  Quando si progetta l'ambiente di Archiviazione di Azure, è consigliabile usare account di archiviazione distinti per ogni VM in un set di disponibilità. È preferibile seguire le procedure consigliate nel livello di archiviazione per le VM [Windows](../virtual-machines/virtual-machines-windows-manage-availability.md#use-multiple-storage-accounts-for-each-availability-set) e [Linux](../virtual-machines/virtual-machines-linux-manage-availability.md#use-multiple-storage-accounts-for-each-availability-set). Distribuire i dischi delle VM in più account di archiviazione consente di migliorare la disponibilità di archiviazione e di suddividere le operazioni di I/O nell'infrastruttura di archiviazione di Azure. Se le VM sono in un set di disponibilità, invece di replicare i dischi di tutte le VM in un account di archiviazione, è consigliabile eseguire più volte la migrazione di più VM, in modo che le VM nello stesso set di disponibilità non condividano un solo account di archiviazione. Usare il pannello **Abilitazione della replica** per configurare contemporaneamente un account di archiviazione di destinazione per ogni VM. È possibile scegliere un modello di distribuzione post-failover adatto alle proprie esigenze. Se si sceglie Resource Manager (RM) come modello di distribuzione post-failover, è possibile effettuare il failover di una VM RM in una VM RM o di una VM classica in una VM RM.
+    ![][11]
+
+7. La seguente procedura consente di **installare il servizio Mobility e abilitare la replica**.
+
+    7a. È possibile scegliere di [effettuare il push dell'installazione](../site-recovery/site-recovery-vmware-to-azure.md#prepare-for-automatic-discovery-and-push-installation) nelle VM di origine o di [installare manualmente il servizio Mobility](../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) nelle VM di origine. È possibile trovare il requisito del push dell'installazione e il percorso del programma di installazione manuale nel collegamento fornito. Se si esegue un'installazione manuale, potrebbe essere necessario usare un indirizzo IP interno per trovare il server di configurazione.
+
+    ![][12]
+
+    La VM sottoposta a failover avrà due dischi temporanei: uno dalla VM primaria e l'altro creato durante il provisioning della VM nell'area di ripristino. Per escludere il disco temporaneo prima della replica, installare il servizio Mobility prima di abilitare la replica. Per altre informazioni su come escludere il disco temporaneo, vedere [Escludere dischi dalla replica](../site-recovery/site-recovery-vmware-to-azure.md#exclude-disks-from-replication).
+
+    7b. Per abilitare la replica, procedere come descritto di seguito.
+      * Fare clic su **Eseguire la replica dell'applicazione** > **Origine**. Dopo avere abilitato la replica per la prima volta, fare clic su +Replica nell'insieme di credenziali per abilitare la replica per altri computer.
+      * Nel passaggio 1 configurare l'origine come server di elaborazione.
+      * Nel passaggio 2 specificare il modello di distribuzione successivo al failover, un account di archiviazione Premium a cui eseguire la migrazione, un account di archiviazione Standard per salvare i log e una rete virtuale in cui effettuare il failover.
+      * Nel passaggio 3 aggiungere le VM protette per indirizzo IP. Per trovarle, potrebbe essere necessario un indirizzo IP interno.
+      * Nel passaggio 4 configurare le proprietà selezionando gli account configurati prima nel server di elaborazione.
+      * Nel passaggio 5 scegliere i criteri di replica creati prima e configurare le impostazioni di replica.
+      Fare clic su **OK** e abilitare la replica.
+
+    > [!NOTE]
+    > Quando una VM di Azure viene deallocata e riavviata, non è certo che ottenga lo stesso indirizzo IP. Se l'indirizzo IP del server di configurazione/server di elaborazione o le VM di Azure protette cambiano, la replica in questo scenario potrebbe non funzionare correttamente.
+
+    ![][13]
+
+    Quando si progetta l'ambiente di Archiviazione di Azure, è consigliabile usare account di archiviazione distinti per ogni VM in un set di disponibilità. È consigliabile seguire le procedure consigliate nel livello di archiviazione per [usare più account di archiviazione per ogni set di disponibilità](../virtual-machines/windows/manage-availability.md). Distribuire i dischi delle VM in più account di archiviazione consente di migliorare la disponibilità di archiviazione e di suddividere le operazioni di I/O nell'infrastruttura di archiviazione di Azure. Se le VM sono in un set di disponibilità, invece di replicare i dischi di tutte le VM in un account di archiviazione, è consigliabile eseguire più volte la migrazione di più VM, in modo che le VM nello stesso set di disponibilità non condividano un solo account di archiviazione. Usare il pannello **Abilitazione della replica** per configurare contemporaneamente un account di archiviazione di destinazione per ogni VM. È possibile scegliere un modello di distribuzione post-failover adatto alle proprie esigenze. Se si sceglie Resource Manager (RM) come modello di distribuzione post-failover, è possibile effettuare il failover di una VM RM in una VM RM o di una VM classica in una VM RM.
 
 8. **Eseguire un failover di test**. Per controllare se la replica è completa, fare clic Site Recovery e quindi su **Impostazioni** > **Elementi replicati**. Verranno visualizzati lo stato e la percentuale del processo di replica. Al termine della replica iniziale, eseguire il failover di test per convalidare la strategia di replica. Per i passaggi dettagliati del failover di test, vedere [Eseguire un failover di test in Site Recovery](../site-recovery/site-recovery-vmware-to-azure.md#run-a-test-failover). È possibile visualizzare lo stato del failover di test in **Impostazioni** > **Processi** > **NOME_PIANO_FAILOVER**. Nel pannello verranno visualizzati una suddivisione dei passaggi e i risultati positivi/negativi. Se il failover di test ha esito negativo in qualche passaggio, fare clic sul passaggio per controllare il messaggio di errore. Verificare che le macchine virtuali e la strategia di replica soddisfino i requisiti prima di eseguire un failover non pianificato. Per altre informazioni e istruzioni sul failover di test, leggere [Failover di test in Azure Site Recovery](../site-recovery/site-recovery-test-failover-to-azure.md).
 
-9. **Eseguire un failover**. Al termine del failover di test, eseguire un failover per eseguire la migrazione dei dischi all'Archiviazione Premium e replicare le istanze delle macchine virtuali. Seguire la procedura dettagliata in [Eseguire un failover](../site-recovery/site-recovery-failover.md#run-a-failover). Assicurarsi di selezionare **Arresta le macchine virtuali e sincronizza i dati più recenti** per specificare che Site Recovery deve provare ad arrestare le VM protette e sincronizzare i dati in modo che venga eseguito il failover dei dati più recenti. Se non si seleziona questa opzione o il tentativo ha esito negativo, il failover avverrà dall'ultimo punto di ripristino disponibile per la VM. Site Recovery creerà un'istanza di una VM di tipo uguale o simile a quello di una VM che supporta Archiviazione Premium. Per controllare le prestazioni e il prezzo delle diverse istanze delle VM, vedere [Prezzi di Macchine virtuali Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) o [Prezzi di Macchine virtuali Linux](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/).
+9. **Eseguire un failover**. Al termine del failover di test, eseguire un failover per eseguire la migrazione dei dischi all'Archiviazione Premium e replicare le istanze delle macchine virtuali. Seguire la procedura dettagliata in [Eseguire un failover](../site-recovery/site-recovery-failover.md#run-a-failover). Assicurarsi di selezionare **Arresta le macchine virtuali e sincronizza i dati più recenti** per specificare che Site Recovery deve provare ad arrestare le VM protette e sincronizzare i dati in modo che venga eseguito il failover dei dati più recenti. Se non si seleziona questa opzione o il tentativo ha esito negativo, il failover avverrà dall'ultimo punto di recupero disponibile per la VM. Site Recovery creerà un'istanza di una VM di tipo uguale o simile a quello di una VM che supporta Archiviazione Premium. Per controllare le prestazioni e il prezzo delle diverse istanze delle VM, vedere [Prezzi di Macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) o [Prezzi di Macchine virtuali Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 ## <a name="post-migration-steps"></a>Passaggi post-migrazione
 
@@ -150,7 +161,7 @@ Per i componenti aggiuntivi di altri scenari, vedere [Architettura dello scenari
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * [Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici](../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Forum di Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+* [Forum di Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

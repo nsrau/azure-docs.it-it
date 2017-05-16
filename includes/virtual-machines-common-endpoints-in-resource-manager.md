@@ -70,8 +70,3 @@ Con i gruppi di sicurezza di rete, la funzione di port forwarding è gestita da 
 
 > [!NOTE]
 > Quando si implementa un servizio di bilanciamento del carico, in genere non si assegna un indirizzo IP pubblico alla VM. Al servizio di bilanciamento del carico viene invece assegnato un indirizzo IP pubblico. È comunque necessario creare un gruppo di sicurezza di rete e regole ACL per definire il flusso del traffico in ingresso e in uscita dalla VM. Le regole NAT del servizio di bilanciamento del carico hanno semplicemente lo scopo di definire le porte consentite tramite il servizio di bilanciamento del carico e come vengono distribuite tra le VM back-end. È quindi necessario creare una regola NAT perché il traffico possa transitare attraverso il servizio di bilanciamento del carico. Creare una regola ACL del gruppo di sicurezza di rete per consentire al traffico di raggiungere la VM.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

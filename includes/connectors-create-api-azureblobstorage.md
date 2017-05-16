@@ -26,8 +26,3 @@ Connettersi all'account di archiviazione Blob di Azure attenendosi alla procedur
    
     ![Passaggio per la creazione della connessione ad archiviazione BLOB di Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -17,6 +17,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
 ms.openlocfilehash: bec672005b0b1856faeb230f5674013a37add774
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -136,7 +137,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png) 
    
-    a. Nella casella di testo **URL di accesso`https://<server name>.crm.ondemand.com` digitare l'URL usato dagli utenti per accedere all'applicazione SAP Cloud for Customer usando il modello seguente: **
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione SAP Cloud for Customer usando il modello seguente: `https://<server name>.crm.ondemand.com`
    
     b. Fare clic su **Avanti**
 
@@ -313,9 +314,4 @@ Quando si fa clic sul riquadro SAP Cloud for Customer nel pannello di accesso, s
 [203]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -96,8 +96,3 @@ Per altre informazioni su come usare queste funzionalità di crittografia, veder
 
 Si noti che i passaggi in questo articolo presuppongono che si disponga già di SQL Server in esecuzione in una macchina virtuale di Azure. In caso contrario, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server in Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Per altre informazioni dettagliate sull'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server nella panoramica delle macchine virtuali di Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-

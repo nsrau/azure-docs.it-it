@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 868026150e81347aa3a7914f63bc19c3a878c586
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c65a932d0bf9bfb00f138997babc1bd642bcf879
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -59,7 +59,7 @@ Per altre informazioni sulle opzioni di distribuzione del cluster HPC Pack in Az
 Prerequisiti aggiuntivi per distribuire il cluster usando lo script di distribuzione di HPC Pack IaaS:
 
 * **Computer client** : è necessario un computer client basato su Windows per eseguire lo script di distribuzione del cluster.
-* **Azure PowerShell** - [installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) (versione 0.8.10 o versione successiva) nel computer client.
+* **Azure PowerShell** - [installare e configurare Azure PowerShell](/powershell/azure/overview) (versione 0.8.10 o versione successiva) nel computer client.
 * **Script di distribuzione di HPC Pack IaaS** : scaricare e decomprimere la versione più recente dello script dall' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). È possibile controllare la versione dello script eseguendo `.\New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione dello script 4.4.1 o successiva.
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Opzione di distribuzione 1. Usare il modello di Resource Manager
@@ -87,7 +87,7 @@ Prerequisiti aggiuntivi per distribuire il cluster usando lo script di distribuz
 Prerequisiti aggiuntivi per distribuire il cluster usando lo script di distribuzione IaaS di HPC Pack:
 
 * **Computer client** : è necessario un computer client basato su Windows per eseguire lo script di distribuzione del cluster.
-* **Azure PowerShell** - [installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) (versione 0.8.10 o versione successiva) nel computer client.
+* **Azure PowerShell** - [installare e configurare Azure PowerShell](/powershell/azure/overview) (versione 0.8.10 o versione successiva) nel computer client.
 * **Script di distribuzione di HPC Pack IaaS** : scaricare e decomprimere la versione più recente dello script dall' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). È possibile controllare la versione dello script eseguendo `.\New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione dello script 4.4.1 o successiva.
 
 **File di configurazione XML**

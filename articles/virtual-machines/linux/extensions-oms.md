@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/26/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e890582e790ad9187287e1323159098e19d7325
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 05f823955eb5c47ce024c2b7d246e361e1302d78
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +41,7 @@ L'estensione agente OMS può essere eseguita in queste distribuzioni di Linux.
 | Oracle Linux | 5, 6 e 7 |
 | Red Hat Enterprise Linux Server | 5, 6 e 7 |
 | Debian GNU/Linux | 6, 7 e 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 e 12 |
 
 ### <a name="internet-connectivity"></a>Connettività Internet
@@ -63,7 +64,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -81,7 +82,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. 
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1.3 |
 | workspaceId (esempio) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (esempio) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -106,7 +107,7 @@ L'esempio seguente presuppone che l'estensione OMS sia annidata all'interno dell
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -131,7 +132,7 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -144,13 +145,16 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione macchina virtuale Agente OMS in una macchina virtuale esistente. Prima di distribuire l'estensione Agente OMS, creare un file public.json e protected.json. Lo schema per questi file è illustrato nei dettagli in precedenza in questo documento.
+L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione macchina virtuale Agente OMS in una macchina virtuale esistente. Sostituire la chiave OMS e l'ID OMS con i dati presenti nello spazio di lavoro OMS. 
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
-  --public-config-path public.json  \
-  --private-config-path protected.json
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name OmsAgentForLinux \
+  --publisher Microsoft.EnterpriseCloud.Monitoring \
+  --version 1.0 --protected-settings '{"workspaceKey": "omskey"}' \
+  --settings '{"workspaceId": "omsid"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
@@ -160,7 +164,7 @@ azure vm extension set myResourceGroup myVM \
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
@@ -168,6 +172,30 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 ```
 /opt/microsoft/omsagent/bin/stdout
 ```
+
+### <a name="error-codes-and-their-meanings"></a>Codici di errore e relativi significati
+
+| Codice di errore | Significato | Azione possibile |
+| :---: | --- | --- |
+| 2 | Opzione non valida generata per l'aggregazione della shell | |
+| 3 | Nessuna opzione generata per l'aggregazione della shell | |
+| 4 | Tipo di pacchetto non valido | |
+| 5 | L'aggregazione della shell deve essere eseguita come radice | |
+| 6 | Architettura del pacchetto non valida | |
+| 10 | La macchina virtuale è già connessa a un'area di lavoro OMS | Per connettere la macchina virtuale all'area di lavoro specificata nello schema dell'estensione, impostare stopOnMultipleConnections su false nelle impostazioni pubbliche o rimuovere questa proprietà. Questa macchina virtuale viene fatturata una volta per ogni area di lavoro a cui è connessa. |
+| 11 | Configurazione non valida generata per l'estensione | Seguire l'esempio precedente per impostare tutti i valori della proprietà necessari alla distribuzione. |
+| 20 | Installazione di SCX/OMI non riuscita | |
+| 21 | Installazione di SCX/kit del provider non riuscita | |
+| 22 | Installazione del pacchetto di aggregazione non riuscita | |
+| 23 | Pacchetto SCX oppure OMI già installato | |
+| 30 | Errore interno aggregazione | |
+| 51 | Questa estensione non è supportata sul sistema operativo della macchina virtuale | |
+| 60 | Versione di OpenSSL non supportata | Installare una versione di OpenSSL che soddisfi [i requisiti dei pacchetti](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#package-requirements). |
+| 61 | Libreria ctypes Python mancante | Installare la libreria o il pacchetto ctypes Python (python-ctypes). |
+| 62 | Programma tar mancante | Installare tar. |
+| 63 | Programma sed mancante | Installare sed. |
+
+Altre informazioni sulla risoluzione dei problemi possono essere consultate nella [Guida alla risoluzione dei problemi per l'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
 
 ### <a name="support"></a>Supporto
 

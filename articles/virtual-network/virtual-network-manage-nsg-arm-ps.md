@@ -262,8 +262,8 @@ Per modificare la regola creata in precedenza per consentire traffico in ingress
     -Protocol Tcp `
     -Direction Inbound `
     -Priority 102 `
-    -SourceAddressPrefix * `
-    -SourcePortRange Internet `
+    -SourceAddressPrefix Internet `
+    -SourcePortRange * `
     -DestinationAddressPrefix * `
     -DestinationPortRange 443
     ```

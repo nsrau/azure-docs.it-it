@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sui ruoli di Servizi cloud Azure | Documentazione Microsoft
-description: Domande frequenti su Servizi cloud di Azure. L&quot;articolo contiene risposte ad alcune domande comuni su certificati, ruoli Web e ruoli di lavoro.
+title: Domande frequenti sui ruoli di Servizi cloud Azure | Microsoft Docs
+description: Domande frequenti su Servizi cloud di Azure. L&quot;articolo contiene risposte ad alcune domande frequenti su certificati, ruoli Web e ruoli di lavoro.
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7287cb1709b7c863cd046edfb995e23455398ec2
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: a0fd75e0797319aecac29b48df75e7a268063e04
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -95,5 +95,5 @@ Assicurarsi prima di tutto che l'istanza di macchina virtuale per cui si sta pro
 
 ## <a name="remote-desktop"></a>Desktop remoto
 ### <a name="how-do-i-remote-desktop-when-i-have-an-nsg"></a>Come si usa Desktop remoto quando si ha un gruppo di sicurezza di rete?
-Aggiungere una regola al gruppo di sicurezza di rete che esegue l'inoltro della porta **20000**.
+Aggiungere regole al gruppo di sicurezza di rete che consentono il traffico sulle porte **3389** e **20000**.  Il desktop remoto usa la porta **3389**.  Le istanze del servizio cloud hanno il carico bilanciato, pertanto non è possibile controllare direttamente a quale istanza connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* gestiscono il traffico RDP e consentono al client di inviare un cookie RDP e specificare una singola istanza a cui connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* richiedono che la porta **20000*** sia aperta, che potrebbe essere bloccata se si dispone di un gruppo di sicurezza di rete.
 

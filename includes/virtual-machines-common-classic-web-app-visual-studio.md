@@ -43,8 +43,3 @@ Se si vogliono personalizzare gli script pubblicati creati, leggere informazioni
 [3]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-common-classic-web-app-visual-studio/VS_Create_VM_Connect.png
-
-
-<!--HONumber=Nov16_HO3-->
-
-

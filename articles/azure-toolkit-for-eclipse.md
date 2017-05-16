@@ -1,5 +1,5 @@
 ---
-title: Azure Toolkit for Eclipse | Documentazione Microsoft
+title: Azure Toolkit for Eclipse | Microsoft Docs
 description: Informazioni su come usare il Toolkit di Azure per Eclipse
 services: 
 documentationcenter: java
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: d58166140c5de03462df07ea6ea83eb78ffa54ba
-ms.openlocfilehash: 1c60d3730aa2bbca63abf259727ec41ffc164b47
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 98c42ae7945d0cf29807319c7b777c5740fc8449
+ms.lasthandoff: 04/22/2017
 
 
 ---
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
 # <a name="azure-toolkit-for-eclipse"></a>Toolkit di Azure per Eclipse
 Il Toolkit di Azure per Eclipse offre modelli e funzionalità che permettono di creare, sviluppare, testare e distribuire con facilità applicazioni di Azure tramite l'ambiente di sviluppo Eclipse. Si tratta di un progetto Open Source, il cui codice sorgente è disponibile con la licenza MIT dal sito del progetto in:
@@ -37,6 +37,7 @@ Gli articoli seguenti consentiranno di iniziare a usare il Toolkit di Azure per 
 
 * [Novità di Azure Toolkit per Eclipse]
 * [Installare il Toolkit di Azure per Eclipse.]
+* [Istruzioni di accesso ad Azure per il Toolkit di Azure per Eclipse]
 * [Creare un servizio cloud Hello World per Azure in Eclipse]
 * [Creare un'app Web Hello World per Azure in Eclipse]
 
@@ -55,21 +56,23 @@ Gli articoli seguenti illustrano l'uso del Toolkit di Azure per Eclipse per aggi
 
 * [Visualizzare il contenuto Javadoc in Eclipse per il pacchetto per le librerie di Azure per Java]
 * [Distribuire distribuzioni di grandi dimensioni]
-* [Debug di un'App Web Java su Azure in Eclipse]
-* [Debug delle applicazione Azure in Eclipse]
+<!-- * [Debug a Java Web App on Azure in Eclipse] -->
+<!-- * [Debugging Azure Applications in Eclipse] -->
 * [Usare il plug-in degli strumenti HDInsight per Eclipse per creare applicazioni Spark per il cluster HDInsight Spark Linux][HDInsight Tools Plugin for Eclipse]
 
 ## <a name="see-also"></a>Vedere anche
 Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
 * *Azure Toolkit per Eclipse (questo articolo)*
+  * [Novità di Azure Toolkit per Eclipse]
   * [Installare il Toolkit di Azure per Eclipse.]
   * [Creare un'app Web Hello World per Azure in Eclipse]
-  * [Novità di Azure Toolkit per Eclipse]
+  * [Istruzioni di accesso ad Azure per il Toolkit di Azure per Eclipse]
 * [Azure Toolkit per IntelliJ]
+  * [Novità del Toolkit di Azure per IntelliJ]
   * [Installazione del Toolkit di Azure per IntelliJ]
   * [Creare un'App Web Hello World per Azure in IntelliJ]
-  * [Novità del Toolkit di Azure per IntelliJ]
+  * [Istruzioni di accesso ad Azure per il Toolkit di Azure per IntelliJ]
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure] e gli [strumenti Java per Visual Studio Team Services].
 
@@ -81,6 +84,8 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installare il Toolkit di Azure per Eclipse.]: ./azure-toolkit-for-eclipse-installation.md
 [Installazione del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Istruzioni di accesso ad Azure per il Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Istruzioni di accesso ad Azure per il Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Novità di Azure Toolkit per Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Novità del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
@@ -92,14 +97,16 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Endpoint del servizio di Azure]: ./azure-toolkit-for-eclipse-azure-service-endpoints.md
 [Elenco di Account di archiviazione di Azure]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
 [Creare un servizio cloud Hello World per Azure in Eclipse]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
-[Debug delle applicazione Azure in Eclipse]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md
-[Debug di un'App Web Java su Azure in Eclipse]: ./app-service-web/app-service-web-debug-java-web-app-in-eclipse.md
+<!-- [Debugging Azure Applications in Eclipse]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md -->
+<!-- [Debug a Java Web App on Azure in Eclipse]: ./app-service-web/app-service-web-debug-java-web-app-in-eclipse.md -->
 [Distribuire distribuzioni di grandi dimensioni]: ./azure-toolkit-for-eclipse-deploying-large-deployments.md
 [Visualizzare il contenuto Javadoc in Eclipse per il pacchetto per le librerie di Azure per Java]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Abilitare l'accesso remoto per le distribuzioni di Azure in Eclipse]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
 [Abilitare l'affinità di sessione]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
 [HDInsight Tools Plugin for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
+
+<!-- Temporarily Deprecated URLs -->
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -109,8 +116,5 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 <!-- [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549 -->
 <!-- [Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551 -->
 
-
-
-<!--HONumber=Jan17_HO2-->
-
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 

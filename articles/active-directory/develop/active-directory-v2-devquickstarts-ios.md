@@ -1,5 +1,5 @@
 ---
-title: Aggiungere informazioni di accesso a un&quot;applicazione iOS usando l&quot;endpoint&2;.0 di Azure AD | Documentazione Microsoft
+title: Aggiungere informazioni di accesso a un&quot;applicazione iOS usando l&quot;endpoint 2.0 di Azure AD | Documentazione Microsoft
 description: Come compilare un&quot;app per iOS che consente agli utenti di accedere con un account Microsoft personale, aziendale o dell&quot;istituto di istruzione usando librerie di terze parti.
 services: active-directory
 documentationcenter: 

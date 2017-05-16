@@ -3,7 +3,7 @@ title: Usare trigger e associazioni in Funzioni di Azure | Microsoft Docs
 description: Informazioni su come usare trigger e associazioni in Funzioni di Azure per connettere l&quot;esecuzione del codice a eventi online e servizi basati su cloud.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: lindydonna
 manager: erikre
 editor: 
 tags: 
@@ -14,125 +14,288 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: chrande
+ms.date: 04/14/2017
+ms.author: donnam
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a56d71d437814ed08b2e0a05d9acc8448f6b9ae5
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: ed0ade96cc1cf6afc82787133d3fbcf874c43e0f
+ms.lasthandoff: 04/18/2017
 
 
 ---
 
-# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Informazioni su come usare trigger e associazioni in Funzioni di Azure 
-Questo argomento illustra come usare trigger e associazioni in Funzioni di Azure per connettere il codice a una vasta gamma di trigger e servizi di Azure e ad altri servizi basati su cloud. Sono descritte alcune funzionalità di associazione avanzate e la sintassi supportate da tutti i tipi di associazione.  
-
-Per informazioni dettagliate sull'uso di un tipo specifico di trigger o di associazione, vedere uno degli argomenti di riferimento seguenti:
-
-| | | | |  
-| --- | --- | --- | --- |  
-| [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [App per dispositivi mobili](functions-bindings-mobile-apps.md) | [Bus di servizio](functions-bindings-service-bus.md)  |  
-| [DocumentDB](functions-bindings-documentdb.md) |  [Archiviazione BLOB](functions-bindings-storage-blob.md) | [Archiviazione - Coda](functions-bindings-storage-queue.md) |  [Archiviazione - Tabelle](functions-bindings-storage-table.md) |  
-| [Hub eventi](functions-bindings-event-hubs.md) | [Hub di notifica](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
-| | | | |  
-
-In questi articoli si presuppone che siano stati letti la [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) e gli articoli di riferimento per gli sviluppatori di [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) o [Node.js](functions-reference-node.md).
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
+Funzioni di Azure consente di scrivere codice in risposta agli eventi in Azure e in altri servizi, tramite *trigger* e *associazioni*. In questo articolo viene fornita una panoramica concettuale di trigger e associazioni per tutti i linguaggi di programmazione supportati. Le funzionalità comuni a tutte le associazioni sono descritte di seguito.
 
 ## <a name="overview"></a>Panoramica
-I trigger sono risposte agli eventi usate per attivare il codice personalizzato. Consentono di rispondere agli eventi nella piattaforma Azure o in locale. Le associazioni rappresentano i metadati necessari per connettere il codice al trigger desiderato o ai dati di input o output associati. Il file *function.json* per ogni funzione contiene tutte le relative associazioni. Non esiste alcun limite al numero di associazioni di input e output che può avere una funzione. Tuttavia, per ogni funzione è supportata solo una singola associazione del trigger.  
 
-Per capire meglio le diverse associazioni che è possibile integrare con l'app per le funzioni di Azure, fare riferimento alla tabella seguente.
+I trigger e le associazioni sono un modo dichiarativo per definire come viene invocata una funzione e con quali dati opera. Un *trigger* definisce come viene richiamata una funzione. Una funzione deve avere esattamente un trigger. I trigger hanno dei dati associati, ovvero in genere il payload che ha attivato la funzione. 
 
-[!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+Le *associazioni* di input e output forniscono una modalità dichiarativa per connettersi ai dati dall'interno del codice. Analogamente ai trigger, specificare le stringhe di connessione e le altre proprietà nella configurazione della funzione. Le associazioni sono facoltative e una funzione può avere più associazioni di input e output. 
 
-Per comprendere meglio i trigger e le associazioni in generale, si supponga di voler eseguire un codice per elaborare un nuovo elemento rilasciato in una coda di Archiviazione di Azure. A questo scopo, Funzioni di Azure fornisce un trigger di coda di Azure. Per monitorare la coda sono necessarie le informazioni seguenti:
+Usando i trigger e le associazioni, è possibile scrivere codice più generico e non impostare come hardcoded i dettagli dei servizi con cui interagisce. I dati provenienti dai servizi diventano semplicemente valori di input per il codice della funzione. Per restituire i dati a un altro servizio (ad esempio la creazione di una nuova riga nell'archiviazione tabelle di Azure), usare il valore restituito del metodo. In alternativa, se è necessario restituire più valori, usare un oggetto di supporto. I trigger e le associazioni presentano una proprietà **nome**, che è un identificatore che si usa nel codice per accedere all'associazione.
 
-* L'account di archiviazione in cui esiste la coda.
-* Il nome della coda.
-* Un nome di variabile che verrà usato dal codice per fare riferimento al nuovo elemento rilasciato nella coda.  
+È possibile configurare i trigger e le associazioni nella scheda **Integrazione** nel portale delle Funzioni di Azure. Dietro le quinte, l'interfaccia utente modifica un file denominato file *function.json* nella directory della funzione. È possibile modificare questo file passando all'**Editor avanzato**.
 
-Un'associazione di trigger della coda contiene queste informazioni per una funzione di Azure. Di seguito è riportato un esempio *function.json* contenente un'associazione di trigger della coda. 
+La tabella seguente mostra i trigger e le associazioni supportate con le Funzioni di Azure. 
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    }
-  ],
-  "disabled": false
-}
-```
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-Il codice può inviare diversi tipi di output a seconda della modalità di elaborazione del nuovo elemento della coda. Ad esempio, si potrebbe voler scrivere un nuovo record in una tabella di Archiviazione di Azure.  A tale scopo, si crea un'associazione di output a una tabella di archiviazione di Azure. Di seguito è riportato un esempio *function.json* che include un'associazione di output nella tabella di archiviazione che può essere usata con un trigger della coda. 
+### <a name="example-queue-trigger-and-table-output-binding"></a>Esempio: trigger di coda e tabella di associazione di output
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    },
-    {
-      "type": "table",
-      "name": "myNewUserTableBinding",
-      "tableName": "newUserTable",
-      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
+Si supponga di voler scrivere una nuova riga in archiviazione tabelle di Azure ogni volta che viene visualizzato un messaggio nuovo in archiviazione code di Azure. Questo scenario può essere implementato tramite un trigger della coda di Azure e una tabella di associazione di output. 
 
-La funzione C# seguente risponde al rilascio di un nuovo elemento nella coda e scrive un nuovo elemento dell'utente in una tabella di Archiviazione di Azure.
+Un trigger della coda richiede le informazioni seguenti nella scheda **Integrazione**:
+
+* Il nome dell'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione per la coda
+* Il nome della coda
+* L'identificatore nel codice per leggere il contenuto del messaggio in coda, ad esempio `order`.
+
+Per scrivere in archiviazione tabelle di Azure, usare un'associazione di output con i dettagli seguenti:
+
+* Il nome dell'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione per la tabella
+* Il nome della tabella
+* L'identificatore nel codice per creare elementi di output o il valore restituito dalla funzione.
+
+Le associazioni usano le impostazioni app per le stringhe di connessione per applicare la migliore pratica in base alla quale *function.json* non contiene i segreti di servizio.
+
+Quindi, usare gli identificatori che vengono forniti per l'integrazione con archiviazione di Azure nel codice.
 
 ```cs
 #r "Newtonsoft.Json"
 
-using System;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-public static async Task Run(string myNewUserQueueItem, IAsyncCollector<Person> myNewUserTableBinding, 
-                                TraceWriter log)
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
 {
-    // In this example the queue item is a JSON string representing an order that contains the name, 
-    // address and mobile number of the new customer.
-    dynamic order = JsonConvert.DeserializeObject(myNewUserQueueItem);
-
-    await myNewUserTableBinding.AddAsync(
-        new Person() { 
-            PartitionKey = "Test", 
-            RowKey = Guid.NewGuid().ToString(), 
-            Name = order.name,
-            Address = order.address,
-            MobileNumber = order.mobileNumber }
-        );
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
 }
-
+ 
 public class Person
 {
     public string PartitionKey { get; set; }
     public string RowKey { get; set; }
     public string Name { get; set; }
-    public string Address { get; set; }
     public string MobileNumber { get; set; }
 }
 ```
 
-Per altri esempi di codice e informazioni più specifiche sui tipi di archiviazione di Azure supportati, vedere [Trigger e associazioni di Archiviazione di Azure in Funzioni di Azure](functions-bindings-storage.md).
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
 
-Per usare le funzionalità di associazione più avanzate nel portale di Azure, fare clic sull'opzione **Editor avanzato** nella scheda **Integra** della funzione. L'editor avanzato consente di modificare *function.json* direttamente nel portale.
+    context.done(null, order);
+};
 
-## <a name="random-guids"></a>GUID casuali
-Funzioni di Azure fornisce una sintassi per generare GUID casuali con le associazioni. La sintassi di associazione seguente scrive l'output in un nuovo BLOB con un nome univoco in un contenitore di archiviazione: 
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+Ecco il *function.json* che corrisponde al codice precedente. Si noti che si può usare la stessa configurazione, indipendentemente dal linguaggio di implementazione della funzione.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "myqueue-items",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    },
+    {
+      "name": "$return",
+      "type": "table",
+      "direction": "out",
+      "tableName": "outTable",
+      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+Per visualizzare e modificare i contenuti della *funzione .json* nel portale di Azure, fare clic sull'opzione **Editor avanzato** nella scheda **Integrazione** della funzione.
+
+Per altri esempi di codice e informazioni dettagliate sull'integrazione con archiviazione di Azure, vedere [Associazioni del BLOB del servizio di archiviazione di Funzioni di Azure](functions-bindings-storage.md).
+
+### <a name="binding-direction"></a>Direzione dell'associazione
+
+Tutti i trigger e le associazioni hanno una proprietà `direction`:
+
+- Per i trigger, la direzione è sempre `in`
+- Le associazioni di input e di output usano `in` e `out`
+- Alcune associazioni supportano una direzione speciale `inout`. Se si usa `inout`, solo l'**Editor avanzato** è disponibile nelle scheda **Integrazione**.
+
+## <a name="using-the-function-return-type-to-return-a-single-output"></a>Uso del tipo restituito della funzione per restituire un singolo output
+
+Nell'esempio precedente viene illustrato come usare il valore restituito della funzione per offrire l'output a un'associazione, che si può fare tramite il parametro nome speciale `$return`. (Questa opzione è supportata solo nei linguaggi che dispongono di un valore restituito, ad esempio C#, JavaScript e F#). Se una funzione dispone di più associazioni di output, usare `$return` per una sola delle associazioni di output. 
+
+```json
+// excerpt of function.json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Gli esempi seguenti mostrano come i tipi restituiti vengono usati con le associazioni di output in C#, JavaScript e F#.
+
+```cs
+// C# example: use method return value for output binding
+public static string Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+// C# example: async method, using return value for output binding
+public static Task<string> Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```javascript
+// JavaScript: return a value in the second parameter to context.done
+module.exports = function (context, input) {
+    var json = JSON.stringify(input);
+    context.log('Node.js script processed queue message', json);
+    context.done(null, json);
+}
+```
+
+```fsharp
+// F# example: use return value for output binding
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+## <a name="resolving-app-settings"></a>Risoluzione di impostazioni app
+Come procedura consigliata, i segreti e le stringhe di connessione devono essere gestiti tramite le impostazioni dell'app, invece dei file di configurazione. Ciò limita l'accesso a questi segreti e rende sicuro archiviare *function.json* in un repository di controllo sorgente pubblico.
+
+Le impostazioni dell'app sono utili anche ogni volta che si desidera modificare la configurazione in base all'ambiente. Ad esempio, in un ambiente di test, si potrebbe voler monitorare un contenitore di archiviazione BLOB o di coda diverso.
+
+Le impostazioni dell'app vengono risolte ogni volta che un valore è racchiuso tra simboli di percentuale, ad esempio `%MyAppSetting%`. Si noti che la proprietà `connection` di trigger e associazioni è un caso speciale e risolve automaticamente i valori come impostazioni dell'app. 
+
+L'esempio seguente è un trigger di coda che usa un'impostazione dell'app `%input-queue-name%` per definire la coda di trigger.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "%input-queue-name%",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+
+## <a name="trigger-metadata-properties"></a>Proprietà dei metadati di trigger
+
+Oltre al payload dei dati offerto da un trigger (ad esempio, il messaggio di coda che ha attivato una funzione), molti trigger forniscono i valori dei metadati aggiuntivi. Questi valori possono essere usati come parametri di input in C# e F# o come proprietà nell'oggetto `context.bindings` in JavaScript. 
+
+Ad esempio, un trigger di coda supporta le proprietà seguenti:
+
+* QueueTrigge: attivazione del contenuto del messaggio, se una stringa valida
+* DequeueCount
+* ExpirationTime
+* ID
+* InsertionTime
+* NextVisibleTime
+* PopReceipt
+
+I dettagli delle proprietà dei metadati per ogni trigger sono descritti nell'argomento di riferimento corrispondente. La documentazione è disponibile anche nella scheda **Integrazione** del portale nella sezione **Documentazione** sotto l'area di configurazione dell'associazione.  
+
+Ad esempio, poiché i trigger BLOB presentano alcuni ritardi, è possibile usare un trigger della coda per l'esecuzione della funzione (vedere [Trigger del BLOB del servizio di archiviazione](functions-bindings-storage-blob.md#storage-blob-trigger). Il messaggio della coda contiene il filename del BLOB da attivare. Con l'uso della proprietà dei metadati `queueTrigger`, è possibile specificareper intero questo comportamento nella configurazione, invece che nel codice.
+
+```json
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    }
+  ]
+```
+
+Le proprietà dei metadati da un trigger possono anche essere usate in una *espressione dell'associazione* per un'altra associazione, come descritto nella sezione seguente.
+
+## <a name="binding-expressions-and-patterns"></a>Modelli ed espressioni di associazione
+
+Una delle funzionalità più potenti di trigger e associazioni sono le *espressioni di associazione*. All'interno dell'associazione, è possibile definire delle espressioni di modello che possono quindi essere usate in altre associazioni o nel codice. I metadati del trigger possono essere usati anche nelle espressioni di associazione, come illustrato nell'esempio nella sezione precedente.
+
+Ad esempio, si supponga che si desidera ridimensionare le immagini in un contenitore di archiviazione BLOB specifico, simile al modello di **ridimensionamento immagine** nella pagina **Nuova funzione**. Passare a **Nuova funzione** -> Linguaggio **C#** -> Scenario **Esempi** -> **ImageResizer-CSharp**. 
+
+Ecco la definizione di *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Si noti che il parametro `filename` viene usato nella definizione del trigger BLOB e anche nell'associazione output di BLOB. Questo parametro può essere usato anche nel codice della funzione.
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+
+### <a name="random-guids"></a>GUID casuali
+Funzioni di Azure fornisce una sintassi utile per la generazione di GUID nelle associazioni, tramite l'espressione dell'associazione `{rand-guid}`. Nell'esempio seguente questa operazione viene usata per generare un nome del BLOB univoco: 
 
 ```json
 {
@@ -143,248 +306,91 @@ Funzioni di Azure fornisce una sintassi per generare GUID casuali con le associa
 }
 ```
 
+## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Associare le proprietà di input personalizzate in un'espressione di associazione
 
-## <a name="returning-a-single-output"></a>Restituzione di un output singolo
-Nei casi in cui il codice della funzione restituisce un output singolo, è possibile usare un'associazione di output di nome `$return` per mantenere una firma più naturale della funzione nel codice. Tale associazione può essere usata solo con i linguaggi che supportano un valore restituito (C#, Node.js, F#). L'associazione sarà simile all'associazione di output BLOB seguente che viene usata con un trigger della coda.
+Le espressioni di associazione possono anche fare riferimento alle proprietà definite nel payload del trigger stesso. Ad esempio, si potrebbe voler associare in modo dinamico ad un file di archiviazione BLOB un filename fornito da un webhook.
+
+Ad esempio, la seguente *function.json* usa una proprietà denominata `BlobName` dal payload del trigger:
 
 ```json
 {
   "bindings": [
     {
-      "type": "queueTrigger",
-      "name": "input",
+      "name": "info",
+      "type": "httpTrigger",
       "direction": "in",
-      "queueName": "test-input-node"
+      "webHookType": "genericJson",
     },
     {
+      "name": "blobContents",
       "type": "blob",
-      "name": "$return",
-      "direction": "out",
-      "path": "test-output-node/{id}"
+      "direction": "in",
+      "path": "strings/{BlobName}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
     }
   ]
 }
 ```
 
-Il codice C# seguente restituisce l'output in modo più naturale, senza usare un parametro `out` nella firma della funzione.
+A tale scopo in C# e F #, è necessario definire un POCO che definisce i campi che saranno deserializzati nel payload del trigger.
 
-```cs
-public static string Run(WorkItem input, TraceWriter log)
+```csharp
+using System.Net;
+
+public class BlobInfo
 {
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    public string BlobName { get; set; }
+}
+  
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+{
+    if (blobContents == null) {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    } 
+
+    return req.CreateResponse(HttpStatusCode.OK, new {
+        data = $"{blobContents}"
+    });
 }
 ```
 
-Esempio asincrono:
-
-```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
-}
-```
-
-
-Di seguito è illustrato lo stesso approccio con Node.js:
+In JavaScript, viene eseguita automaticamente la deserializzazione di JSON ed è possibile usare direttamente le proprietà.
 
 ```javascript
-module.exports = function (context, input) {
-    var json = JSON.stringify(input);
-    context.log('Node.js script processed queue message', json);
-    context.done(null, json);
-}
-```
-
-Di seguito è riportato un esempio di F#:
-
-```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
-```
-
-Può essere usato anche con più parametri di output, definendo un output singolo con `$return`.
-
-## <a name="resolving-app-settings"></a>Risoluzione di impostazioni app
-È consigliabile archiviare i dati sensibili come parte dell'ambiente di runtime usando le impostazioni app. Mantenendo le informazioni all'esterno dei file di configurazione dell'applicazione, si limita l'esposizione quando si usa un repository pubblico per archiviare i file app.  
-
-Il runtime di Funzioni di Azure risolve le impostazioni app in valori quando il nome dell'impostazione app è racchiusa tra segni di percentuale, `%your app setting%`. La seguente [associazione Twilio](functions-bindings-twilio.md) usa un'impostazione app denominata `TWILIO_ACCT_PHONE` per il campo `from` dell'associazione. 
-
-```json
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received Node.js",
-  "direction": "out"
-},
-```
-
-
-
-## <a name="parameter-binding"></a>Associazione di parametri
-Invece di un'impostazione di configurazione statica per le proprietà di associazione dell'output, è possibile configurare le impostazioni in modo da essere associate dinamicamente ai dati come parte dell'associazione di input del trigger. Si consideri uno scenario in cui vengono elaborati nuovi ordini tramite una coda di Archiviazione di Azure. Ogni nuovo elemento della coda è una stringa JSON contenente almeno le proprietà seguenti:
-
-```json
-{
-  "name" : "Customer Name",
-  "address" : "Customer's Address",
-  "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
-}
-```
-
-Si potrebbe inviare al cliente un SMS tramite il proprio account Twilio come aggiornamento per confermare la ricezione dell'ordine.  È possibile configurare i campi `body` e `to` dell'associazione dell'output Twilio in modo che sia associata dinamicamente a `name` e `mobileNumber`, che facevano parte dell'input, come mostrato di seguito.
-
-```json
-{
-  "name": "myNewOrderItem",
-  "type": "queueTrigger",
-  "direction": "in",
-  "queueName": "queue-newOrders",
-  "connection": "orders_STORAGE"
-},
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received",
-  "direction": "out"
-},
-```
-
-A questo punto il codice della funzione deve solo inizializzare il parametro di output come mostrato di seguito. Durante l'esecuzione, le proprietà di output vengono associate ai dati di input desiderati.
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio.Api"
-
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Twilio;
-
-public static async Task<SMSMessage> Run(string myNewOrderItem, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myNewOrderItem}");
-
-    dynamic order = JsonConvert.DeserializeObject(myNewOrderItem);    
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
-    SMSMessage smsText = new SMSMessage();
-
-    // The following isn't needed since we use parameter binding for this
-    //string msg = "Hello " + order.name + ", thank you for your order.";
-    //smsText.Body = msg;
-    //smsText.To = order.mobileNumber;
-
-    return smsText;
-}
-```
-
-Node.js:
-
-```javascript
-module.exports = function (context, myNewOrderItem) {    
-    context.log('Node.js queue trigger function processed work item', myNewOrderItem);    
-
-    // No need to set the properties of the text, we use parameters in the binding. We do need to 
-    // initialize the object.
-    var smsText = {};    
-
-    context.done(null, smsText);
-}
-```
-
-## <a name="advanced-binding-at-runtime-imperative-binding"></a>Associazione avanzata in fase di esecuzione (associazione imperativa)
-
-Il modello standard di associazione di input e output che usa *function.json* viene chiamato associazione [*dichiarativa*](https://en.wikipedia.org/wiki/Declarative_programming), in cui l'associazione viene definita dalla dichiarazione JSON. Tuttavia, è possibile usare l'associazione [imperativa](https://en.wikipedia.org/wiki/Imperative_programming). Con questo modello è possibile associare rapidamente i dati a qualsiasi numero di associazioni di input e output supportate nel codice della funzione.
-L'associazione imperativa può essere necessaria nei casi in cui il calcolo del percorso di associazione o di altri input deve avvenire in fase di esecuzione nella funzione anziché in fase di progettazione. 
-
-Definire un'associazione imperativa, come segue:
-
-- **Non** includere una voce in *function.json* per le associazioni imperative da eseguire.
-- Passare un parametro di input [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
-- Usare il seguente modello C# per eseguire l'associazione dati.
-
-```cs
-using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-{
-    ...
-}
-```
-
-dove `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è il tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
-    
-L'esempio di codice seguente crea un [associazione di output del BLOB di archiviazione](functions-bindings-storage-blob.md#storage-blob-output-binding) con percorso del BLOB definito in fase di esecuzione, quindi scrive una stringa per il BLOB.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-    {
-        writer.Write("Hello World!!");
+module.exports = function (context, info) {
+    if ('BlobName' in info) {
+        context.res = {
+            body: { 'data': context.bindings.blobContents }
+        }
     }
-}
-```
-
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definisce l'associazione di input o output del [BLOB di archiviazione](functions-bindings-storage-blob.md) e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) è un tipo di associazione di output supportato.
-Ovvero, il codice ottiene l'impostazione app predefinita per la stringa di connessione dell'account di archiviazione (`AzureWebJobsStorage`). È possibile specificare un'impostazione app personalizzata da usare aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Ad esempio,
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    var attributes = new Attribute[]
-    {    
-        new BlobAttribute("samples-output/path"),
-        new StorageAccountAttribute("MyStorageAccount")
-    };
-
-    using (var writer = await binder.BindAsync<TextWriter>(attributes))
-    {
-        writer.Write("Hello World!");
+    else {
+        context.res = {
+            status: 404
+        };
     }
+    context.done();
 }
 ```
-
-La tabella seguente indica l'attributo .NET corrispondente da usare per ogni tipo di associazione e il pacchetto di riferimento.
-
-> [!div class="mx-codeBreakAll"]
-| Associazione | Attributo | Aggiungi riferimento |
-|------|------|------|
-| DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
-| Hub eventi | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
-| App per dispositivi mobili | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-| Hub di notifica | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
-| Bus di servizio | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
-| Coda di archiviazione | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| BLOB di archiviazione | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Tabella di archiviazione | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedere le seguenti risorse:
+Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
 
-* [Test di Funzioni di Azure](functions-test-a-function.md)
-* [Scalabilità di Funzioni di Azure](functions-scale.md)
-
+- [HTTP e webhook](functions-bindings-http-webhook.md)
+- [Timer](functions-bindings-timer.md)
+- [Archiviazione code](functions-bindings-storage-queue.md)
+- [Archiviazione BLOB](functions-bindings-storage-blob.md)
+- [Archiviazione tabelle](functions-bindings-storage-table.md)
+- [Hub eventi](functions-bindings-event-hubs.md)
+- [Bus di servizio](functions-bindings-service-bus.md)
+- [DocumentDB](functions-bindings-documentdb.md)
+- [SendGrid](functions-bindings-sendgrid.md)
+- [Twilio](functions-bindings-twilio.md)
+- [Hub di notifica](functions-bindings-notification-hubs.md)
+- [App per dispositivi mobili](functions-bindings-mobile-apps.md)
+- [File esterno](functions-bindings-external-file.md)
 

@@ -7,6 +7,7 @@
 ## [Visualizzazione di un gruppo di sicurezza](network-watcher-security-group-view-overview.md)
 ## [Hop successivo](network-watcher-next-hop-overview.md)
 ## [Risoluzione dei problemi di connettività VPN](network-watcher-troubleshoot-overview.md)
+## [Limiti del servizio](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Attività iniziali
 ## [Configurare Network Watcher](network-watcher-create.md)
 ## Gestire l'acquisizione pacchetti
@@ -53,7 +54,7 @@
 ## [Eseguire il rilevamento di intrusioni usando strumenti open source](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analizzare i log del gateway applicazione in Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Riferimento
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
 # Risorse correlate

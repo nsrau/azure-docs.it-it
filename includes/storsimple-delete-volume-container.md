@@ -7,8 +7,3 @@
 
 Se il contenitore ha volumi associati, è prima necessario impostare lo stato offline di tali volumi. Per effettuare questa operazione seguire le istruzioni riportate in [Portare un volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Quando i volumi sono offline, è possibile eliminarli. Quando il contenitore non dispone di volumi associati, eliminare il contenitore di volumi seguendo la procedura descritta in precedenza.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

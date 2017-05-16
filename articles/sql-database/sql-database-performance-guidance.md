@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/06/2017
+ms.date: 04/19/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 03d38dbce86711395a967cf8bad440fd50a38631
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: a022e7fc34cac85cb26cc6ca86a6941b1ccbfb95
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/28/2017
 Il database SQL di Azure offre quattro [livelli di servizio](sql-database-service-tiers.md): Basic, Standard, Premium e Premium RS. Ogni livello di servizio isola rigorosamente le risorse che possono essere usate dal database SQL e assicura prestazioni prevedibili per tale livello di servizio. In questo articolo sono disponibili indicazioni utili per scegliere il livello di servizio per l'applicazione. Viene illustrato anche come ottimizzare l'applicazione per ottenere il massimo dal database SQL di Azure.
 
 > [!NOTE]
-> Questo articolo è incentrato sulle indicazioni relative alle prestazioni per singoli database nel database SQL di Azure. Per indicazioni sulle prestazioni relative ai pool elastici, vedere le [considerazioni su prezzo e prestazioni per i pool elastici](sql-database-elastic-pool-guidance.md). Si noti, tuttavia, che molte raccomandazioni sull'ottimizzazione contenute in questo articolo possono essere applicate ai database in un pool elastico ottenendo vantaggi simili a livello di prestazioni.
+> Questo articolo è incentrato sulle indicazioni relative alle prestazioni per singoli database nel database SQL di Azure. Per indicazioni sulle prestazioni relative ai pool elastici, vedere le [considerazioni su prezzo e prestazioni per i pool elastici](sql-database-elastic-pool.md). Si noti, tuttavia, che molte raccomandazioni sull'ottimizzazione contenute in questo articolo possono essere applicate ai database in un pool elastico ottenendo vantaggi simili a livello di prestazioni.
 >
 >
 
@@ -58,7 +58,7 @@ Ogni livello di servizio e prestazione è associato a limiti e caratteristiche d
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale.
+> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente disponibile nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale.
 >
 
 ### <a name="maximum-in-memory-oltp-storage"></a>Archiviazione di OLTP in memoria massima
@@ -145,7 +145,7 @@ In base ai dati, per il livello di prestazioni P2 il carico massimo della CPU di
 
 Altri tipi di applicazioni possono interpretare in modo diverso lo stesso grafico. Se ad esempio un'applicazione prova a elaborare i dati del libro paga ogni giorno e usa lo stesso grafico, questo tipo di modello di processo batch potrebbe essere eseguito correttamente con un livello di prestazioni P1. Il valore di DTU del livello di prestazioni P1 è pari a 100, mentre quello del livello P2 è pari a 200. Il livello di prestazioni fornito dal livello di servizio P2 è doppio rispetto a quello fornito dal livello P1. Il 50% dell'uso della CPU nel livello P2 equivale quindi al 100% dell'uso della CPU in P1. Se l'applicazione non presenta timeout, è possibile che non sia rilevante se il completamento di un processo richiede 2 ore o 2,5 ore, se viene completato in giornata. Per un'applicazione che rientra in questa categoria è probabilmente sufficiente usare il livello di prestazioni P1. Si può sfruttare la presenza di periodi di tempo durante il giorno in cui l'uso delle risorse è inferiore, in modo da spalmare un picco massimo in altri momenti nel corso della giornata. Il livello di prestazioni P1 può essere ottimale per questo tipo di applicazione e può consentire di limitare i costi, purché i processi vengano completati in orario ogni giorno.
 
-Il database SQL di Azure espone le informazioni sulla risorsa usata per ogni database attivo nella vista **sys.resource_stats** del database **master** in ogni server. I dati nella tabella vengono aggregati per intervalli di 5 minuti. Con i livelli di servizio Basic, Standard e Premium, è possibile che la visualizzazione dei dati nella tabella richieda più di 5 minuti, quindi i dati risultano più utili per le analisi cronologiche, invece che per le analisi in tempo quasi reale. Eseguire una query nella vista **sys.resource_stats** per visualizzare la cronologia recente di un database e per verificare se la prenotazione scelta ha offerto le prestazioni desiderate quando necessario.
+Il database SQL di Azure espone le informazioni sulla risorsa usata per ogni database attivo nella vista **sys.resource_stats** del database **master** in ogni server. I dati nella tabella vengono aggregati per intervalli di 5 minuti. Con i livelli di servizio Basic, Standard, Premium e Premium RS, è possibile che la visualizzazione dei dati nella tabella richieda più di 5 minuti, quindi i dati risultano più utili per le analisi cronologiche anziché per le analisi in tempo quasi reale. Eseguire una query nella vista **sys.resource_stats** per visualizzare la cronologia recente di un database e per verificare se la prenotazione scelta ha offerto le prestazioni desiderate quando necessario.
 
 > [!NOTE]
 > È necessario essere connessi al database **master** del server logico del database SQL per eseguire la query **sys.resource_stats** negli esempi seguenti.
@@ -435,5 +435,5 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sui livelli di servizio, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
 * Per altre informazioni sui pool elastici, vedere [Informazioni sui pool elastici di Azure](sql-database-elastic-pool.md)
-* Per informazioni sulle prestazioni e sui pool elastici, vedere [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md)
+* Per informazioni sulle prestazioni e sui pool elastici, vedere [Quando usare un pool elastico](sql-database-elastic-pool.md)
 

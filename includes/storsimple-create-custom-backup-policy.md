@@ -25,8 +25,3 @@
    
     ![Criterio di backup personalizzato](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

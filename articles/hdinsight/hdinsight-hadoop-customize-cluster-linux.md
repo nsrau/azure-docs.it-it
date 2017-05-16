@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 02a978402c8067105900ac50a2796000f8eef67f
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9f1997175a8a0cf2adbcae1123de55894d3931ac
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -171,7 +171,7 @@ Questa sezione fornisce esempi relativi alle diverse possibilità di usare le az
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Usare un'azione script durante la creazione di un cluster dal portale di Azure
 
-1. Avviare la creazione di un cluster come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md).
+1. Avviare la creazione di un cluster come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. In **Configurazione facoltativa** fare clic su **aggiungi azione script** nel pannello **Azioni script** per specificare i dettagli relativi all'azione script, come illustrato di seguito:
 
     ![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
@@ -195,7 +195,7 @@ In questa sezione si useranno i modelli di Azure Resource Manager per creare un 
 
 #### <a name="before-you-begin"></a>Prima di iniziare
 
-* Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Per informazioni sulla configurazione di una workstation per l'esecuzione dei cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * Per istruzioni su come creare modelli, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Se Azure PowerShell non è stato usato in precedenza con Gestione risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md).
 
@@ -405,7 +405,7 @@ In questa sezione si useranno i modelli di Azure Resource Manager per creare un 
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Usare un'azione script durante la creazione di un cluster da Azure PowerShell
 
-In questa sezione si userà il cmdlet [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) per richiamare script usando l'azione di script per personalizzare un cluster. Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione di cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+In questa sezione si userà il cmdlet [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) per richiamare script usando l'azione di script per personalizzare un cluster. Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione di cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 Eseguire la procedura seguente:
 
@@ -513,7 +513,7 @@ Questa sezione offre esempi dei diversi modi in cui è possibile applicare le az
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Applicare un'azione script a un cluster in esecuzione da Azure PowerShell
 
-Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione di cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShell. Per informazioni sulla configurazione di una workstation per l'esecuzione di cmdlet PowerShell per HDInsight, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 1. Aprire la console di Azure PowerShell e usare il comando seguente per accedere alla sottoscrizione di Azure e dichiarare alcune variabili di PowerShell:
 

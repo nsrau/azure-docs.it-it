@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 981275da75adb11e8fff16f77e31d4ff86affe1f
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
+ms.contentlocale: it-it
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -34,14 +35,21 @@ Questo articolo illustra i passaggi per creare la prima zona e il primo record D
 
 Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Per iniziare a ospitare il dominio in DNS di Azure, è necessario creare una zona DNS per il nome di dominio. Ogni record DNS per il dominio viene quindi creato all'interno di questa zona DNS. Per pubblicare infine la zona DNS su Internet, è necessario configurare i server dei nomi per il dominio. Ogni passaggio è illustrato di seguito.
 
-Queste istruzioni presuppongono che l'interfaccia della riga di comando di Azure 1.0 sia già stata installata e che sia già stato eseguito l'accesso. Per informazioni, vedere [Come gestire le zone DNS usando l'interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md).
+Queste istruzioni presuppongono che l'interfaccia della riga di comando di Azure 2.0 sia già stata installata e che sia già stato eseguito l'accesso. Per informazioni, vedere [Come gestire le zone DNS usando l'interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md).
 
+## <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
+
+Prima di creare la zona DNS, viene creato un gruppo di risorse per contenere la zona DNS. Di seguito è riportato il comando.
+
+```azurecli
+az group create --name MyResourceGroup --location "West US"
+```
 
 ## <a name="create-a-dns-zone"></a>Creare una zona DNS
 
 Una zona DNS viene creata utilizzando il comando `az network dns zone create` . Per visualizzare la guida per questo comando, digitare `az network dns zone create -h`.
 
-L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di risorse denominato *MyResourceGroup*. Usare l'esempio per creare una zona DNS, sostituendo i valori con quelli personalizzati.
+L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di risorse *MyResourceGroup*. Usare l'esempio per creare una zona DNS, sostituendo i valori con quelli personalizzati.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.com
@@ -55,7 +63,7 @@ Per creare un record DNS, usare il comando `az network dns record-set [record ty
 L'esempio seguente crea un record con il nome relativo "www" nella zona DNS "contoso.com" nel gruppo di risorse "MyResourceGroup". Il nome completo del set di record sarà "www.contoso.com". Il tipo di record è "A" con indirizzo IP "1.2.3.4" e viene usato un valore TTL predefinito di 3600 secondi (1 ora).
 
 ```azurecli
-az network dns record-set A add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
+az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
 
 Per altri tipi di record, per set di record con più di un record, per valori TTL alternativi e per modificare i record esistenti, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md).
@@ -100,6 +108,13 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 
 I server dei nomi devono essere configurati con il registrar dei nomi di dominio, in cui è stato acquistato il nome di dominio. Il registrar offrirà l'opzione per la configurazione dei server dei nomi per il dominio. Per altre informazioni, vedere [Delegare un dominio al servizio DNS Azure](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Eliminare tutte le risorse
+ 
+Per eliminare tutte le risorse create in questo articolo, seguire questa procedura:
+
+```azurecli
+az group delete --name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,8 +5,3 @@ Per illustrare meglio come configurare un indirizzo IP statico per una macchina 
 
 In questo scenario si creerà una macchina virtuale denominata **DNS01** nella subnet **FrontEnd** e la si imposterà in modo che usi l'indirizzo IP statico **192.168.1.101**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

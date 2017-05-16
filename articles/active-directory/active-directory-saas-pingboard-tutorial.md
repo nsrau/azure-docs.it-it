@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 04/04/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d9daa59b1f20a76dfe18390ffdab008245387332
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 008c670a8043da0c67ccefde48d5ef721c75d97c
+ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Esercitazione: integrazione di Azure Active Directory con PingBoard
+# <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Esercitazione: Integrazione di Azure Active Directory con PingBoard
 
 Questa esercitazione descrive come integrare PingBoard con Azure Active Directory (Azure AD).
 
@@ -72,11 +72,11 @@ Per configurare l'integrazione di PingBoard in Azure AD, è necessario aggiunger
 
 4. Nella casella di ricerca digitare **PingBoard**.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-PingBoard-tutorial/tutorial_PingBoard_search.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_search.png)
 
 5. Nel pannello dei risultati selezionare **PingBoard** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-PingBoard-tutorial/tutorial_PingBoard_addfromgallery.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con PingBoard con un utente test di nome "Britta Simon".
@@ -105,11 +105,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 2. Nella finestra di dialogo **Single Sign-On** in **Modalità** selezionare **Accesso basato su SAML** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/tutorial_PingBoard_samlbase.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
 3. Nella sezione **URL e dominio PingBoard**, se si vuole configurare l'applicazione in modalità avviata da **IDP**, seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/tutorial_PingBoard_url.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_url.png)
 
     a. Nella casella di testo **Identificatore** digitare il valore `http://<entity-id>.pingboard.com/sp`
 
@@ -120,35 +120,35 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Selezionare **Mostra impostazioni URL avanzate**, se si desidera configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/tutorial_pingboard_sp_initiated01.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
     a. Nella casella di testo **URL di accesso** digitare il valore come: `http://<sub-domain>.pingboard.com/sign_in`
      
 5. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/tutorial_pingboard_certificate.png) 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png) 
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/tutorial_general_400.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/tutorial_general_400.png)
 
 7. Per configurare il SSO sul lato PingBoard, aprire una nuova finestra del browser e accedere al proprio account di PingBoard. È necessario essere un amministratore di PingBoard per configurare il Single Sign-On.
 
 8. Nel menu principale selezionare **App > Integrazioni**
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/pingboard_integration.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
 9.    Nella pagina **Integrazioni**, trovare e fare clic sul riquadro di **"Azure Active Directory"**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/pingboard_aad.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
 10. Nella finestra modale che segue fare clic su **"Configura"**
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/pingboard_configure.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/Pingboard_configure.png)
 
 11. Nella pagina seguente, si noterà che l'"integrazione SSO di Azure è abilitata". Aprire il file XML metadati scaricato in Notepad e incollare il contenuto in **IDP Metadata** (Metadati IDP).
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/pingboard_sso_configure.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/Pingboard_sso_configure.png)
 
 12. Il file verrà convalidato e verrà abilitato il Single Sign-On se tutto è corretto
 
@@ -161,19 +161,19 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 1. Nel **portale di gestione di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-PingBoard-tutorial/create_aaduser_01.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pingboard-tutorial/create_aaduser_01.png) 
 
 2. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-PingBoard-tutorial/create_aaduser_02.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png) 
 
 3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-PingBoard-tutorial/create_aaduser_03.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pingboard-tutorial/create_aaduser_03.png) 
 
 4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-PingBoard-tutorial/create_aaduser_04.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png) 
 
     a. Nella casella di testo **Nome** digitare **BrittaSimon**.
 
@@ -194,11 +194,11 @@ Nel caso di PingBoard, il provisioning è un'attività manuale.
 
 2. Fare clic sul pulsante **"Add Employee"** ("Aggiungi dipendente") nella pagina **Directory**.
 
-    ![Aggiungere un dipendente](./media/active-directory-saas-PingBoard-tutorial/create_testuser_add.png)
+    ![Aggiungere un dipendente](./media/active-directory-saas-pingboard-tutorial/create_testuser_add.png)
 
 3. Nella pagina della finestra di dialogo **"Add Employee"** ("Aggiungi dipendente") eseguire la procedura seguente.
 
-    ![Invita persone](./media/active-directory-saas-PingBoard-tutorial/create_testuser_name.png)
+    ![Invita persone](./media/active-directory-saas-pingboard-tutorial/create_testuser_name.png)
 
     a. Nella casella di testo **Nome completo** digitare il nome completo di Britta Simon.
 
@@ -212,7 +212,7 @@ Nel caso di PingBoard, il provisioning è un'attività manuale.
 
 4. Verrà visualizzata una schermata di conferma per confermare l'aggiunta dell'utente.
     
-    ![confermare](./media/active-directory-saas-PingBoard-tutorial/create_testuser_confirm.png)
+    ![confermare](./media/active-directory-saas-pingboard-tutorial/create_testuser_confirm.png)
         
     > [!NOTE]
     > Il titolare dell'account Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
@@ -225,13 +225,13 @@ In questa sezione, Britta Simon viene abilitata per l'uso dell'accesso Single Si
 
 **Per assegnare Britta Simon a PingBoard, seguire questa procedura:**
 
-1. Nel portale di gestione di Azure aprire la visualizzazione applicazioni, passare alla visualizzazione directory e andare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+1. Nel portale di gestione di Azure aprire la visualizzazione con le applicazioni e quindi passare alla visualizzazione con le directory e andare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
     ![Assegna utente][201] 
 
 2. Nell'elenco di applicazioni selezionare **PingBoard**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-PingBoard-tutorial/tutorial_pingboard_app.png) 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -262,15 +262,15 @@ Quando si fa clic sul riquadro di PingBoard nel pannello di accesso, si dovrebbe
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-PingBoard-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-PingBoard-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-PingBoard-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-PingBoard-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-PingBoard-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-PingBoard-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-PingBoard-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-PingBoard-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-PingBoard-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-pingboard-tutorial/tutorial_general_203.png
 

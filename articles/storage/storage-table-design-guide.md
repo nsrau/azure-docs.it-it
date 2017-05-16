@@ -15,9 +15,9 @@ ms.workload: storage
 ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: daff0744d20996014b065b9d4f5fd6b196af923c
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 9da543dbebe8f35178233d91492b0aff21f10986
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -188,7 +188,7 @@ Le soluzioni di servizio tabelle possono eseguire un'intensa attività di lettur
 Quando si inizia a progettare una soluzione di servizio tabelle che consenta di leggere i dati in modo efficiente, è importante chiedersi quali query dovrà eseguire l'applicazione per recuperare i dati necessari dal servizio tabelle.  
 
 > [!NOTE]
-> Con il servizio tabelle, è fondamentale realizzare una progettazione corretta fin dall'inizio perché cambiarla in seguito sarebbe difficile e costoso. Ad esempio, in un database relazionale spesso è possibile risolvere i problemi di prestazioni semplicemente aggiungendo degli indici a un database esistente, ma questa opzione non è applicabile al servizio tabelle.  
+> Con il servizio tabelle, è fondamentale realizzare una progettazione corretta fin dall'inizio perché cambiarla in seguito è complesso e costoso. In un database relazionale, ad esempio, spesso è possibile risolvere i problemi di prestazioni semplicemente aggiungendo degli indici a un database esistente, ma questa opzione non è applicabile al servizio tabelle.  
 > 
 > 
 
@@ -416,7 +416,7 @@ Le sezioni precedenti illustrano in dettaglio come ottimizzare la progettazione 
 La mappa dei modelli nella figura precedente evidenzia alcune relazioni tra i modelli (blu) e gli anti-modelli (arancione) documentati in questa guida. Ovviamente esistono molti altri modelli utili. Ad esempio, uno degli scenari chiave per il servizio tabelle è l'uso del [modello di vista materializzata](https://msdn.microsoft.com/library/azure/dn589782.aspx) dal modello [Command Query Responsibility Segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Modello per indice secondario intrapartizione
-Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi. Gli aggiornamenti tra copie possono essere mantenuti coerenti usando transazioni ETG.  
+Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi. Gli aggiornamenti tra copie possono essere mantenuti coerenti usando transazioni EGT.  
 
 #### <a name="context-and-problem"></a>Contesto e problema
 Il servizio tabelle indicizza automaticamente le entità usando i valori **PartitionKey** e **RowKey**. Questo consente a un'applicazione client di recuperare un'entità in modo efficiente mediante questi valori. Ad esempio, usando la struttura della tabella riportata di seguito, un'applicazione client può usare una query di tipo punto per recuperare una singola entità dipendente attraverso il nome del reparto e l'ID del dipendente (i valori **PartitionKey** e **RowKey**). Un client può anche recuperare entità ordinate per ID dipendente in ogni reparto.
@@ -450,7 +450,7 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 * Per mantenere la coerenza tra entità duplicate è possibile usare transazioni ETG, che consentono di aggiornare le due copie dell'entità in modo atomico. A questo scopo è necessario archiviare tutte le copie di un'entità nella stessa partizione. Per altre informazioni, vedere la sezione [Transazioni di gruppi di entità](#entity-group-transactions).  
 * Il valore usato per **RowKey** deve essere univoco per ogni entità. Provare a usare valori di chiave composti.  
 * Il riempimento dei valori numerici in **RowKey** (ad esempio l'ID dipendente 000223) rende possibile l'ordinamento e il filtro corretto in base ai limiti superiori e inferiori.  
-* Non è necessario duplicare tutte le proprietà dell'entità. Ad esempio, se le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non hanno mai bisogno dell'età del dipendente, queste entità potrebbero avere la struttura seguente:
+* Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non hanno mai bisogno dell'età del dipendente, queste entità potrebbero avere la struttura seguente:
 
 ![][8]
 
@@ -503,7 +503,7 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 * L'uso dell'archiviazione tabelle è relativamente economico, pertanto l'aumento dei costi dovuto all'archiviazione di dati duplicati non dovrebbe rappresentare una preoccupazione. È però consigliabile valutare sempre il costo del progetto in base ai requisiti di archiviazione previsti e aggiungere entità duplicate solo per supportare le query che verranno eseguite dall'applicazione client.  
 * Il valore usato per **RowKey** deve essere univoco per ogni entità. Provare a usare valori di chiave composti.  
 * Il riempimento dei valori numerici in **RowKey** (ad esempio l'ID dipendente 000223) rende possibile l'ordinamento e il filtro corretto in base ai limiti superiori e inferiori.  
-* Non è necessario duplicare tutte le proprietà dell'entità. Ad esempio, se le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non hanno mai bisogno dell'età del dipendente, queste entità potrebbero avere la struttura seguente:
+* Non è necessario duplicare tutte le proprietà dell'entità. Se ad esempio le query che eseguono la ricerca di entità usando l'indirizzo di posta elettronica in **RowKey** non hanno mai bisogno dell'età del dipendente, queste entità potrebbero avere la struttura seguente:
   
   ![][11]
 * In genere è preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità mediante l'indice secondario e un'altra per cercare i dati richiesti nell'indice primario.  
@@ -627,7 +627,7 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 
 * Questa soluzione richiede almeno due query per recuperare le entità corrispondenti: una sulle entità di indice per ottenere l'elenco di valori **RowKey** e altre query per il recupero di ogni entità dell'elenco.  
 * Poiché una singola entità ha una dimensione massima di 1 MB, le opzioni 2 e 3 della soluzione presuppongono che l'elenco di ID dipendente per qualsiasi cognome non sia mai più grande di 1 MB. Se è probabile che l'elenco di ID dipendente abbia dimensioni superiori a 1 MB, usare l'opzione 1 e archiviare i dati di indice nell'archiviazione BLOB.  
-* Se si usa l'opzione 2 (usando transazioni ETG per gestire l'aggiunta e l'eliminazione dei cognomi dei dipendenti) è necessario valutare se il volume delle transazioni raggiungerà i limiti di scalabilità in una determinata partizione. In tal caso, è opportuno considerare una soluzione con coerenza finale (opzione 1 o 3) che gestisca le richieste di aggiornamento mediante code e consenta di archiviare le entità di indice in una partizione separata rispetto alle entità dipendente.  
+* Se si usa l'opzione 2 (uso di transazioni EGT per gestire l'aggiunta e l'eliminazione dei dipendenti e la modifica del cognome di un dipendente), è necessario valutare se il volume delle transazioni raggiungerà i limiti di scalabilità in una determinata partizione. In tal caso, è opportuno considerare una soluzione con coerenza finale (opzione 1 o 3) che gestisca le richieste di aggiornamento mediante code e consenta di archiviare le entità di indice in una partizione separata rispetto alle entità dipendente.  
 * L'opzione 2 di questa soluzione presuppone che si vogliano effettuare ricerche in base al cognome all'interno di un reparto, ad esempio recuperare un elenco di dipendenti del reparto vendite il cui cognome è Jones. Se si desidera poter cercare tutti i dipendenti il cui cognome è Jones nell'intera organizzazione, usare l'opzione 1 o l'opzione 3.
 * È possibile implementare una soluzione basata su code che garantisca coerenza finale. Per altri dettagli, vedere [Modello per transazioni con coerenza finale](#eventually-consistent-transactions-pattern).  
 
@@ -646,7 +646,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 combina i dati correlati in una singola entità per consentire di recuperare tutti i dati necessari con un sola query di tipo punto.  
 
 #### <a name="context-and-problem"></a>Contesto e problema
-In un database relazionale, in genere i dati vengono normalizzati per rimuovere i risultati duplicati nelle query che recuperano dati da più tabelle. Se si normalizzano i dati nelle tabelle di Azure, è necessario eseguire più round trip dal client al server per recuperare i dati correlati. Con la struttura della tabella riportata di seguito, ad esempio, per recuperare i dettagli per un reparto sono necessari due round trip: uno per recuperare l'entità reparto che include l'ID del manager e una seconda richiesta per recuperare i dettagli sul manager in un'entità dipendente.  
+In un database relazionale, in genere i dati vengono normalizzati per rimuovere i risultati duplicati nelle query che recuperano dati da più tabelle. Se si normalizzano i dati nelle tabelle di Azure, è necessario eseguire più round trip dal client al server per recuperare i dati correlati. Con la struttura della tabella mostrata di seguito, ad esempio, per recuperare i dettagli per un reparto sono necessari due round trip: uno per recuperare l'entità reparto che include l'ID del manager e una seconda richiesta per recuperare i dettagli sul manager in un'entità dipendente.  
 
 ![][16]
 
@@ -694,7 +694,7 @@ Archiviare un nuovo tipo di entità nella tabella originale usando entità con l
 
 ![][20]
 
-Si noti che ora il valore **RowKey** è una chiave composta costituita dall'ID dipendente e dall'anno dei dati di valutazione, che consente di recuperare le prestazioni e le valutazioni del dipendente con una singola richiesta per una singola entità.  
+Si noti che ora il valore di **RowKey** è una chiave composta costituita dall'ID dipendente e dall'anno dei dati di valutazione, che consente di recuperare le prestazioni e le valutazioni del dipendente con una singola richiesta per una singola entità.  
 
 L'esempio seguente illustra come recuperare tutti i dati di valutazione per uno specifico dipendente (ad esempio il dipendente 000123 del reparto vendite):  
 
@@ -877,7 +877,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 Quando si dispone di un volume elevato di inserimenti, aumentare la scalabilità suddividendoli tra più partizioni.  
 
 #### <a name="context-and-problem"></a>Contesto e problema
-L'anteposizione o l'aggiunta di entità alle entità archiviate determina in genere l'aggiunta da parte dell'applicazione di nuove entità alla prima o ultima partizione di una sequenza di partizioni. In questo caso, tutti gli inserimenti in un determinato momento vengono eseguiti nella stessa partizione, creando un hotspot che impedisce al servizio tabelle di bilanciare il carico degli inserimenti tra più nodi e causando il possibile raggiungimento degli obiettivi di scalabilità per partizione da parte dell'applicazione. Ad esempio, se si dispone di un'applicazione che registra l'accesso alla rete e alle risorse da parte dei dipendenti, la struttura dell'entità mostrata sotto potrebbe determinare la trasformazione della partizione dell'ora corrente in un hotspot se il volume delle transazioni raggiunge l'obiettivo di scalabilità per una singola partizione:  
+L'anteposizione o l'aggiunta di entità alle entità archiviate determina in genere l'aggiunta da parte dell'applicazione di nuove entità alla prima o ultima partizione di una sequenza di partizioni. In questo caso, tutti gli inserimenti in un determinato momento vengono eseguiti nella stessa partizione, creando un hotspot che impedisce al servizio tabelle di bilanciare il carico degli inserimenti tra più nodi e causando il possibile raggiungimento degli obiettivi di scalabilità per partizione da parte dell'applicazione. Se ad esempio si dispone di un'applicazione che registra l'accesso alla rete e alle risorse da parte dei dipendenti, la struttura dell'entità mostrata sotto potrebbe determinare la trasformazione della partizione dell'ora corrente in un hotspot se il volume delle transazioni raggiunge l'obiettivo di scalabilità per una singola partizione:  
 
 ![][26]
 
@@ -1415,7 +1415,7 @@ Per altre informazioni sull'uso di token di firma di accesso condiviso con il se
 
 Tuttavia, è comunque necessario generare i token delle firme di accesso condiviso che consentono a un'applicazione client di accedere alle entità nel servizio tabelle: questa operazione deve essere eseguita in un ambiente che dispone di un accesso sicuro alle chiavi dell'account di archiviazione. In genere, è possibile usare un ruolo Web o di lavoro per generare i token delle firme di accesso condiviso e distribuirli alle applicazioni client che richiedono l'accesso alle entità. Poiché la generazione e la distribuzione dei token delle firme di accesso condiviso ai client comportano comunque un sovraccarico, è consigliabile valutare il modo migliore di ridurre tale sovraccarico, soprattutto in scenari con volumi elevati.  
 
-È possibile generare un token delle firme di accesso condiviso che concede l'accesso a un sottoinsieme delle entità in una tabella. Per impostazione predefinita, viene creato un token della firma di accesso condiviso per un'intera tabella, ma è anche possibile specificare che il token della firma di accesso condiviso conceda l'accesso a un intervallo di valori **PartitionKey** o a un intervallo di valori **PartitionKey** e **RowKey**. Si potrebbe scegliere di generare token delle firme di accesso condiviso per i singoli utenti del sistema in modo che il token delle firme di accesso condiviso di ogni utente consenta di accedere solo alle proprie entità nel servizio tabelle.  
+È possibile generare un token delle firme di accesso condiviso che concede l'accesso a un sottoinsieme delle entità in una tabella. Per impostazione predefinita, viene creato un token della firma di accesso condiviso per un'intera tabella, ma è anche possibile specificare che il token della firma di accesso condiviso conceda l'accesso a un intervallo di valori **PartitionKey** o a un intervallo di valori **PartitionKey** e **RowKey**. Si potrebbe scegliere di generare token SAS per i singoli utenti del sistema in modo che il token SAS di ogni utente consenta di accedere solo alle proprie entità nel servizio tabelle.  
 
 ### <a name="asynchronous-and-parallel-operations"></a>Operazioni asincrone e parallele
 A condizione che le richieste vengano distribuite in più partizioni, è possibile migliorare la velocità effettiva e la velocità di risposta del client usando le query parallele o asincrone.

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
-ms.openlocfilehash: bc8b93d59b53e17eff4b7448f5c6b445894f47e9
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5834ad4e35894f9417d0319f120c8b74b69b3355
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -76,7 +77,7 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
        ![Sezione quick glance in cui è visualizzato l'URL del sito][csurl]
      
        **OR**  
-   * Installare e configurare [Azure Powershell](/powershell/azureps-cmdlets-docs), quindi eseguire il comando seguente:
+   * Installare e configurare [Azure Powershell](/powershell/azure/overview), quindi eseguire il comando seguente:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +112,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
        ![Sezione quick glance in cui è visualizzato l'indirizzo VIP][vip]
      
        **OR**  
-   * Installare e configurare [Azure Powershell](/powershell/azureps-cmdlets-docs), quindi eseguire il comando seguente:
+   * Installare e configurare [Azure Powershell](/powershell/azure/overview), quindi eseguire il comando seguente:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -156,9 +157,4 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
 [vip]: ./media/cloud-services-custom-domain-name/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

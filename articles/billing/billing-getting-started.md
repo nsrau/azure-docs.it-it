@@ -1,6 +1,6 @@
 ---
-title: Indicazioni per la gestione dei costi e la fatturazione di Azure | Documentazione Microsoft
-description: Informazioni sulle procedure consigliate e sulle prime operazioni da eseguire per ottimizzare i costi
+title: Evitare costi imprevisti e gestire la fatturazione - Azure | Microsoft Docs
+description: "Informazioni su come evitare addebiti imprevisti nella fattura di Azure. Usare le funzionalità di gestione e verifica dei costi per una sottoscrizione di Microsoft Azure."
 services: 
 documentationcenter: 
 author: jlian
@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: jlian
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: af53cea83d2e348b2c73e56cf4b6ce5a875bce18
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -44,7 +44,7 @@ Per altre informazioni, vedere le [domande frequenti sui prezzi](https://azure.m
 
 ### <a name="check-your-subscription-and-access"></a>Controllare la sottoscrizione e l'accesso
 
-Per visualizzare i costi è necessario l'[accesso a livello di sottoscrizione](../active-directory/role-based-access-control-configure.md), ma solo l'amministratore dell'account può accedere al [Centro account](https://account.windowsazure.com/Home/Index), modificare le informazioni di fatturazione e gestire le sottoscrizioni. L'amministratore dell'account è la persona che ha completato il processo di iscrizione. Per altre informazioni, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](billing-add-change-azure-subscription-administrator.md).
+Per visualizzare i costi è necessario l'[accesso alle informazioni di fatturazione a livello di sottoscrizione](billing-manage-access.md), ma solo l'amministratore dell'account può accedere al [Centro account](https://account.windowsazure.com/Home/Index), modificare le informazioni di fatturazione e gestire le sottoscrizioni. L'amministratore dell'account è la persona che ha completato il processo di iscrizione. Per altre informazioni, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](billing-add-change-azure-subscription-administrator.md).
 
 Per verificare se si è l'amministratore dell'account, passare al [pannello Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ed esaminare l'elenco delle sottoscrizioni a cui si ha accesso. Se in **Ruolo personale** è riportato *Amministratore dell'account*, non sussistono problemi. Se il ruolo indicato è diverso, ad esempio *Proprietario*, non si hanno privilegi completi.
 

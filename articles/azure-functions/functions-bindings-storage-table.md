@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 67c308f8216ebd291ae483c9b18d43528687e9a9
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: bb01be3ee044f60376e0c9c2de7b3dd34f3b7aca
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -61,7 +61,7 @@ L'input della tabella di archiviazione in una funzione usa gli oggetti JSON segu
 Tenere presente quanto segue: 
 
 * Usare `partitionKey` e `rowKey` insieme per leggere una singola entità. Queste proprietà sono facoltative. 
-* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. È anche possibile [configurare questa impostazione dell'app manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings).  
+* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. È anche possibile [configurare questa impostazione dell'app manualmente](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 <a name="inputusage"></a>
 
@@ -179,7 +179,7 @@ L'output della tabella di archiviazione per una funzione usa gli oggetti JSON se
 Tenere presente quanto segue: 
 
 * Usare `partitionKey` e `rowKey` insieme per scrivere una singola entità. Queste proprietà sono facoltative. È possibile specificare `PartitionKey` e `RowKey` anche quando si creano gli oggetti entità nel codice della funzione.
-* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. È anche possibile [configurare questa impostazione dell'app manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings). 
+* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. È anche possibile [configurare questa impostazione dell'app manualmente](functions-how-to-use-azure-function-app-settings.md#settings). 
 
 <a name="outputusage"></a>
 

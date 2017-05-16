@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: db3285bcdfb93c0c2b9f8972edb04e7064cfa31c
-ms.lasthandoff: 04/12/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: e6efa8c05c51b0438912738c3c5fcad4bc12b8f4
+ms.contentlocale: it-it
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -56,8 +57,16 @@ I pannelli o i set di grafici particolarmente interessanti possono essere aggiun
 
 Si noti che i grafici sono raggruppati in riquadri e che un riquadro può contenere più di un grafico. Viene aggiunto al dashboard l'intero riquadro.
 
+Il grafico viene aggiornato automaticamente con una frequenza che dipende dall'intervallo di tempo del grafico:
+
+* Intervallo di tempo fino ad un'ora: viene aggiornato ogni 5 minuti
+* Intervallo di tempo da una a 24 ore: viene aggiornato ogni 15 minuti
+* Intervallo di tempo superiore a 24 ore: (intervallo di tempo) / 60.
+
 ### <a name="pin-any-query-in-analytics"></a>Aggiungere query in Analisi
 È anche possibile aggiungere grafici di [Analisi](app-insights-analytics-using.md#pin-to-dashboard) a un dashboard [condiviso](#share-dashboards-with-your-team). In questo modo è possibile aggiungere grafici di una query arbitraria insieme alle metriche standard. La funzionalità è a pagamento.
+
+I risultati vengono ricalcolati automaticamente ogni ora. Fare clic sull'icona Aggiorna del grafico per un ricalcolo immediato. (L'aggiornamento del browser non esegue il ricalcolo).
 
 ## <a name="adjust-a-tile-on-the-dashboard"></a>Modificare un riquadro nel dashboard
 Dopo aver aggiunto un riquadro al dashboard, è possibile modificarlo.

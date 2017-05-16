@@ -9,17 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 03/06/2017
+wms.date: 04/26/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 827394be9485685388879c1eb4cee4d79ef9fe51
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 0ab804ee1dc25f1e44be856564ac8ffa87c54dea
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,24 +45,24 @@ Nella tabella seguente sono riportati esempi dei livelli ottimali adatti ai cari
 | **Premium RS** | Progettato per carichi di lavoro con un numero elevato di operazioni di I/O che non richiedono una garanzia di disponibilità massima. Gli esempi includono test di carichi di lavoro ad alte prestazioni e carichi di lavoro di analisi in cui il database non è il sistema di registrazione. |
 |||
 
-Prima di tutto è necessario decidere se eseguire un database singolo con una quantità specifica di risorse dedicate o condividere un pool di risorse in un gruppo di database. Fare riferimento alle [considerazioni sul pool elastico](sql-database-elastic-pool-guidance.md). Per decidere il livello di servizio da usare, stabilire innanzitutto le funzionalità minime necessarie del database:
+Prima di tutto è necessario decidere se eseguire un database singolo con una quantità specifica di risorse dedicate o condividere un pool di risorse in un gruppo di database. Fare riferimento alle [considerazioni sul pool elastico](sql-database-elastic-pool.md). Per decidere il livello di servizio da usare, stabilire innanzitutto le funzionalità minime necessarie del database:
 
 | **Funzionalità del livello di servizio** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Dimensioni massime del singolo database | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Spazio di archiviazione totale massimo in un pool elastico | 117 GB | 1200 GB | 750 GB | 750 GB |
-| Numero massimo di database per pool | 400  | 400 | 50 | 50 |
+| Dimensioni massime del database singolo | 2 GB | 250 GB | 4 TB*  | 500 GB  |
+| Dimensioni massime dei database in un pool elastico | 156 GB | 2,9 TB | 500 GB | 500 GB |
+| Numero massimo di database per pool | 500  | 500 | 100 | 100 |
 | Periodo di conservazione dei backup dei database | 7 giorni | 35 giorni | 35 giorni | 35 giorni |
 ||||||
 
 > [!IMPORTANT]
-> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Per altre informazioni, vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize).
+> Le opzioni di archiviazione aggiuntive sono attualmente disponibili nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Dopo aver determinato il livello di servizio minimo, è possibile determinare il livello di prestazioni del database, ovvero il numero di DTU. I livelli di prestazioni Standard S2 e S3 sono in molti casi un valido punto di inizio. Per i database con requisiti elevati di CPU o I/O, i livelli di prestazioni Premium sono il punto di partenza ottimale. Premium offre più CPU e inizia a 10 volte più I/O rispetto al livello di prestazioni Standard massimo.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Livelli di servizio e di prestazioni per database singoli
-Per i database singoli sono disponibili più livelli di prestazioni all'interno di ogni livello di servizio. È possibile scegliere il livello che soddisfa meglio le esigenze del carico di lavoro usando il [portale Azure](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# e l'API REST. 
+Per i database singoli sono disponibili più livelli di prestazioni all'interno di ogni livello di servizio. È possibile scegliere il livello che soddisfa meglio le esigenze del carico di lavoro usando il portale di Azure, [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), C# e l'API REST.  
 
 Indipendentemente dal numero di database ospitati, il database in uso ottiene un set garantito di risorse e le caratteristiche delle prestazioni previste per il database non saranno interessate.
 
@@ -73,7 +74,7 @@ Indipendentemente dal numero di database ospitati, il database in uso ottiene un
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>Ridimensionamento di un singolo database
 
-Dopo aver selezionato inizialmente un livello di servizio e di prestazioni, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva. Se è necessario applicare la scalabilità verso l'alto o verso il basso, è possibile modificare facilmente i livelli del database mediante il [portale di Azure](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# e l'API REST. 
+Dopo aver selezionato inizialmente un livello di servizio e di prestazioni, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva. Se è necessario ridimensionare, è possibile modificare facilmente i livelli del database usando il portale di Azure, [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), C# e l'API REST. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -88,13 +89,9 @@ La durata dell'intero processo di scalabilità verticale dipende dalla dimension
 * Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si effettua il downgrade è possibile che la capacità di eseguire un ripristino temporizzato o di disporre di un periodo di mantenimento del backup inferiore vengano perse. Per ulteriori informazioni, vedere [Backup e ripristino del database SQL di Azure](sql-database-business-continuity.md).
 * Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
 
-> [!IMPORTANT]
-> Per informazioni dettagliate, vedere gli articoli relativi alla gestione di un database singolo [nel portale di Azure](sql-database-manage-single-databases-portal.md), [con PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) oppure [con Transact-SQL](sql-database-manage-single-databases-tsql.md).
->
-
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Livelli di servizio e di prestazioni per pool elastici in eDTU
 
-I pool consentono ai database di condividere e usare risorse DTU senza dover assegnare un livello di prestazioni specifico a ogni database nel pool. Ad esempio, un database singolo in un pool Standard può passare dall'uso di 0 eDTU al valore eDTU massimo per il database impostato quando si configura il pool. I pool consentono a più database con carichi di lavoro diversi di usare in modo efficiente le risorse eDTU disponibili per l'intero pool. Per altre informazioni relative alle considerazioni su prezzi e prestazioni per un pool di database elastici, vedere [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md) .
+I pool consentono ai database di condividere e usare risorse DTU senza dover assegnare un livello di prestazioni specifico a ogni database nel pool. Ad esempio, un database singolo in un pool Standard può passare dall'uso di 0 eDTU al valore eDTU massimo per il database impostato quando si configura il pool. I pool consentono a più database con carichi di lavoro diversi di usare in modo efficiente le risorse eDTU disponibili per l'intero pool. Per altre informazioni relative alle considerazioni su prezzi e prestazioni per un pool di database elastici, vedere [Quando usare un pool di database elastici](sql-database-elastic-pool.md) .
 
 La tabella seguente descrive le caratteristiche dei livelli di servizio del pool.
 
@@ -127,7 +124,7 @@ Quando si crea un database con un livello di prestazioni P11 o P15, è possibile
 
 Per i database P11 e P15 che si trovano in una delle aree supportate, è possibile aumentare lo spazio di archiviazione massimo fino a 4 TB. A tale scopo è possibile usare il portale di Azure, PowerShell o Transact-SQL. L'esempio seguente illustra la modifica delle dimensioni massime con il comando ALTER DATABASE:
 
- ```t-sql
+ ```sql
 ALTER DATABASE <myDatabaseName> 
    MODIFY (MAXSIZE = 4096 GB);
 ```
@@ -144,13 +141,13 @@ La creazione o l'aggiornamento di un database P11/P15 in un'area non supportata 
 - Per gli scenari di replica geografica attiva:
    - Impostazione di una relazione di replica geografica: se il database primario è P11 o P15, devono esserlo anche i database secondari. I livelli di prestazioni inferiori non verranno accettati come database secondari in quanto non supportano l'opzione da 4 TB.
    - Aggiornamento del database primario in una relazione di replica geografica: portando a 4 TB le dimensioni massime di un database primario, verranno portate a 4 TB anche le dimensioni del database secondario. Entrambi gli aggiornamenti devono avere esito positivo per applicare la modifica al database primario. Si applicano limitazioni per l'opzione da 4 TB (vedere sopra). Se il database secondario si trova in un'area che non supporta l'opzione da 4 TB, il database primario non verrà aggiornato.
-- Il servizio di importazione/esportazione per caricare i database P11 o P15 da 4 TB non è supportato. Usare SqlPackage.exe per [importare](sql-database-import-sqlpackage.md) ed [esportare](sql-database-export.md) i dati.
+- Il servizio di importazione/esportazione per caricare i database P11 o P15 da 4 TB non è supportato. Usare SqlPackage.exe per [importare](sql-database-import.md) ed [esportare](sql-database-export.md) i dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni dettagliate sui [pool elastici](sql-database-elastic-pool-guidance.md) e [considerazioni su prezzi e prestazioni dei pool elastici](sql-database-elastic-pool-guidance.md).
+* Informazioni dettagliate sui [pool elastici](sql-database-elastic-pool.md) e [considerazioni su prezzi e prestazioni dei pool elastici](sql-database-elastic-pool.md).
 * Informazioni su come [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md) e [Monitorare le prestazioni del database nel database SQL di Azure](sql-database-single-database-monitor.md).
-* Dopo aver acquisito familiarità con i livelli del database SQL, provare con un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) per scoprire come [creare il primo database SQL](sql-database-get-started.md).
+* Dopo aver acquisito familiarità con i livelli del database SQL, provare con un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) per scoprire come [creare il primo database SQL](sql-database-get-started-portal.md).
 * Per gli scenari di migrazione usare lo strumento per il [calcolo di DTU](http://dtucalculator.azurewebsites.net/) per simulare il numero di DTU necessario. 
 
 

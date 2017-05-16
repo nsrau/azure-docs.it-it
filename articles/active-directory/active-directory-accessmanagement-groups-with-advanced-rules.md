@@ -1,5 +1,5 @@
 ---
-title: Uso di attributi per la creazione di regole avanzate | Documentazione Microsoft
+title: Uso di attributi per la creazione di regole avanzate | Microsoft Docs
 description: Procedura per creare regole avanzate per un gruppo inclusi gli operatori delle regole di espressione e i parametri.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
-ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: d00375d9bc696b41a074eebe6d205e6907a54c4b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -26,13 +28,14 @@ Il portale di Azure classico offre la possibilità di creare regole avanzate per
 Quando gli attributi di un utente cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica degli attributi dell'utente attiverà aggiunte o rimozioni nel gruppo. Se un utente soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfa più la regola di un gruppo di cui è membro, viene rimosso come membro da tale gruppo.
 
 > [!NOTE]
-> È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365. Le appartenenze a gruppi annidati non sono attualmente supportate per l'assegnazione alle applicazioni in base al gruppo.
+> È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365. 
 >
 > Le appartenenze dinamiche ai gruppi richiedono che venga assegnata una licenza Azure AD Premium a:
 >
 > * L'amministratore che gestisce la regola in un gruppo
 > * Tutti i membri del gruppo
 >
+> Si noti anche che, sebbene sia possibile creare un gruppo dinamico per i dispositivi o gli utenti, non è possibile creare una regola che consente di selezionare sia oggetti utente che dispositivo. 
 
 ## <a name="to-create-the-advanced-rule"></a>Per creare la regola avanzata
 1. Nel [portale di Azure classico](https://manage.windowsazure.com)selezionare **Active Directory**e aprire la directory dell'organizzazione.
@@ -105,9 +108,9 @@ Nella tabella seguente sono elencati errori potenziali e indica come correggerli
 | --- | --- | --- |
 | Errore: l'attributo non è supportato |(user.invalidProperty -eq "Valore") |(user.department -eq "valore")<br/>La proprietà deve corrispondere a una delle proprietà nell' [elenco di proprietà supportate](#supported-properties). |
 | Errore: l'operatore non è supportato sull'attributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/>La proprietà è di tipo booleano. Usare gli operatori supportati (-eq o - ne) per il tipo boolean nell'elenco precedente. |
-| Errore: si è verificato un errore di compilazione della query. |(user.department -eq "Vendite") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>L'operatore logico deve corrispondere a una delle proprietà supportate nell'elenco sopra.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error nell'espressione regolare. |
+| Errore: si è verificato un errore di compilazione della query. |(user.department -eq "Vendite") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext" |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>L'operatore logico deve corrispondere a una delle proprietà supportate nell'elenco sopra.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error nell'espressione regolare. |
 | Errore: l'espressione binaria non ha il formato corretto |(user.department –eq "Vendite") (user.department -eq "Vendite")(user.department-eq"Vendite") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La query include più errori. La parentesi non si trova nella posizione corretta. |
-| Errore: si è verificato un errore sconosciuto durante la configurazione delle appartenenze dinamiche. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La query include più errori. La parentesi non si trova nella posizione corretta. |
+| Errore: si è verificato un errore sconosciuto durante la configurazione delle appartenenze dinamiche. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain" |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La query include più errori. La parentesi non si trova nella posizione corretta. |
 
 ## <a name="supported-properties"></a>Proprietà supportate
 Di seguito sono elencate tutte le proprietà utente che è possibile usare nelle regole avanzate:
@@ -251,9 +254,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

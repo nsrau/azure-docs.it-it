@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9ae8852c02361ff11c302f86cb5c53e01a48068a
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 590e2bc759567cf3d679e261592dff1e699ba295
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Integrare Azure AD in un'app per Android
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+> [!TIP]
+> È consigliabile provare l'anteprima del nuovo [portale per sviluppatori](https://identity.microsoft.com/Docs/Android) che consentirà di imparare a usare Azure AD in pochi minuti. Il portale per sviluppatori guida l'utente nel processo di registrazione di un'app e di integrazione di Azure AD nel codice. Al termine si ottiene una semplice applicazione in grado di autenticare gli utenti nel tenant e un back-end che può accettare i token ed eseguire la convalida.
+>
+>
 
 Se si sta sviluppando un'applicazione desktop, Azure Active Directory (Azure AD) semplifica e facilita l'autenticazione degli utenti tramite gli account Active Directory locali. Consente inoltre all'applicazione di usare in modo sicuro qualsiasi API Web protetta da Azure AD, ad esempio le API di Office 365 o l'API di Azure.
 
@@ -35,11 +38,6 @@ Per i client Android che devono accedere a risorse protette, Azure AD fornisce A
 * Disconnette gli utenti.
 
 Per iniziare, è necessario un tenant di Azure AD in cui poter creare gli utenti e registrare un'applicazione. Se non si ha già un tenant, vedere le [informazioni su come ottenerne uno](active-directory-howto-tenant.md).
-
-> [!TIP]
-> È consigliabile provare l'anteprima del nuovo [portale per sviluppatori](https://identity.microsoft.com/Docs/Android) che consentirà di imparare a usare Azure AD in pochi minuti. Il portale per sviluppatori guida l'utente nel processo di registrazione di un'app e di integrazione di Azure AD nel codice. Al termine si ottiene una semplice applicazione in grado di autenticare gli utenti nel tenant e un back-end che può accettare i token ed eseguire la convalida.
->
->
 
 ## <a name="step-1-download-and-run-the-nodejs-rest-api-todo-sample-server"></a>Passaggio 1: Scaricare ed eseguire il server di esempio dell'API REST TODO per Node.js
 L'esempio dell'API REST TODO per Node.js è scritto specificamente per funzionare con l'esempio esistente per la compilazione di una singola API REST To-Do del tenant per Azure AD. Questo è un prerequisito per l'Avvio rapido.

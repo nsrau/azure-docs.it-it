@@ -12,15 +12,19 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 03178e1b933f5681caf6efbeb5a89d56727ae743
-ms.lasthandoff: 03/25/2017
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-vmware-to-azure
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 88c0e4d02f13d3dcc8824ed1cba8fecd3c5cfa77
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
+
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery"></a>Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery
 > [!div class="op_single_selector"]
 > * [Il portale di Azure](site-recovery-vmware-to-azure.md)
@@ -225,7 +229,7 @@ Per altre informazioni sulle reti di Azure, vedere la [panoramica sulle reti vir
 ## <a name="step-3-install-the-vmware-components"></a>Passaggio 3: Installare i componenti VMware
 Per eseguire la replica di macchine virtuali VMware, eseguire questa procedura nel server di gestione:
 
-1. [Scaricare](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) e installare VMware vSphere PowerCLI 6.0.
+1. [Scaricare](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) e installare VMware vSphere PowerCLI 6.0.
 2. Riavviare il server.
 
 ## <a name="step-4-download-a-vault-registration-key"></a>Passaggio 4: Scaricare una chiave di registrazione dell'insieme di credenziali
@@ -567,7 +571,7 @@ Lo stato può essere monitorato nella pagina **Processi** .
 
 ![Monitorare lo stato nella pagina Processi](./media/site-recovery-vmware-to-azure-classic/enable-protection5.png)
 
-È possibile monitorare lo stato di protezione anche in **Elementi protetti** > *nome gruppo di protezione* > **Macchine virtuali**. Al termine della replica iniziale, quando i dati sono sincronizzati, lo stato della macchina passa a **Protetto**.
+È possibile monitorare lo stato di protezione anche in **Elementi protetti** > *nome gruppo di protezione* > **Macchine virtuali**. Al termine della replica iniziale, quando i dati sono sincronizzati, lo stato della macchina passa a  **Protetto**.
 
 ![Monitorare lo stato in Elementi protetti](./media/site-recovery-vmware-to-azure-classic/enable-protection6.png)
 
@@ -579,7 +583,7 @@ Lo stato può essere monitorato nella pagina **Processi** .
 3. È possibile modificare queste impostazioni:
 
    * **Nome della VM di Azure**: il nome assegnato al computer in Azure dopo il failover. Il nome deve essere conforme ai requisiti di Azure.
-   * **Dimensioni della VM di Azure**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per altre informazioni sulle dimensioni, vedere le [tabelle delle dimensioni](../virtual-machines/virtual-machines-linux-sizes.md). Si noti che:
+   * **Dimensioni della VM di Azure**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per altre informazioni sulle dimensioni, vedere le [tabelle delle dimensioni](../virtual-machines/linux/sizes.md). Si noti che:
 
      * Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della scheda **Configura**. Il numero minimo di schede di rete nelle macchine virtuali di destinazione è uguale al numero minimo di schede di rete in una macchina virtuale di origine. Il numero massimo di schede di rete dipende dalle dimensioni della macchina virtuale.
        * Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per le dimensioni della macchina di destinazione, la destinazione avrà lo stesso numero di schede dell'origine.
@@ -709,7 +713,7 @@ Il server di elaborazione può rilevare automaticamente le macchine virtuali in 
 | --- | --- | --- |
 | Ruolo Azure_Site_Recovery |Individuazione di macchine virtuali VMware |Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Datastore (Archivio dati): Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)<br/><br/>Network (Rete): Network assign (Assegnazione rete)<br/><br/>Resource (Risorsa): Assign virtual machine to resource pool (Assegna macchina virtuale a pool di risorse), Migrate powered off virtual machine (Esegui migrazione macchina virtuale spenta), Migrate powered on virtual machine (Esegui migrazione macchina virtuale accesa)<br/><br/>Tasks (Attività): Create task (Crea attività), Update task (Aggiorna attività)<br/><br/>Virtual machine (Macchina virtuale) > Configuration (Configurazione)<br/><br/>Virtual machine (Macchina virtuale) > Interact (Interagisci) > Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)<br/><br/>Virtual machine (Macchina virtuale) > Inventory (Inventario) > Create (Crea), Register (Registra), Unregister (Annulla registrazione)<br/><br/>Virtual machine (Macchina virtuale) > Provisioning > Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)<br/><br/>Virtual machine (Macchina virtuale) > Snapshots > Remove snapshots (Rimuovi snapshot) |
 | Ruolo vCenter User |Individuazione della macchina virtuale VMware/Failover senza arresto della macchina virtuale di origine |Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Data Center object (Oggetto data center) > Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura) <br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child object** agli oggetti figlio: host ESX, archivi dati, VM e reti. |
-| Ruolo vCenter User |Failover e failback |Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Data Center object (Oggetto data center) - Propagate to Child Object (Propaga a oggetto figlio), role=Azure_Site_Recovery (ruolo=Azure_Site_Recovery)<br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center.  Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child object** all'oggetto figlio: host ESX, archivi dati, VM e reti. |
+| Ruolo vCenter User |Failover e failback |Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Data Center object (Oggetto data center) - Propagate to Child Object (Propaga a oggetto figlio), role=Azure_Site_Recovery (ruolo=Azure_Site_Recovery)<br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center.  Per limitare l'accesso, assegnare il ruolo **Nessun accesso** con **Propagate to child object** (Propaga a oggetto figlio) all'oggetto figlio (host ESX, archivi dati, VM e reti). |
 
 ## <a name="third-party-software-notices-and-information"></a>Informazioni e comunicazioni sul software di terze parti
 <!--Do Not Translate or Localize-->

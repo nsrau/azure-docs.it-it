@@ -23,8 +23,3 @@
    | 5 |PDU |
 4. Accendere il sistema girando l'interruttore di alimentazione di ciascun modulo PCM su ON.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

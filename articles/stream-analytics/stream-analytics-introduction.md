@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ Al giorno d'oggi, vi sono quantità enormi di dati trasferite ad alta velocità 
 * **Connettività:** Analisi di flusso si connette direttamente a Hub eventi di Azure e Azure IoT Hub per l'inserimento dei flussi, nonché al servizio BLOB di Azure per inserire dati cronologici. Analisi di flusso può quindi scrivere i risultati in BLOB del servizio di archiviazione di Azure o tabelle di archiviazione di Azure, database SQL di Azure, Azure Data Lake Store, DocumentDB, Hub eventi, argomenti del bus di servizio o code di Azure e in Power BI, dove potranno essere visualizzati, ulteriormente elaborati dai flussi di lavoro, usati nell'analisi batch tramite [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) oppure rielaborati come serie di eventi. Quando si usano gli Hub eventi è possibile comporre più Analisi di flusso con altre origini dati e motori di elaborazione senza perdere la natura di streaming dei calcoli.  
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 È stato presentato Analisi di flusso, un servizio gestito per l'analisi di flusso su dati provenienti da Internet delle cose. Per altre informazioni su questo servizio, vedere:

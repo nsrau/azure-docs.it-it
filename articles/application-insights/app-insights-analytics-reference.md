@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 04/26/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b850264ef2b89ad1679ae1e956a58cc849e63c84
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 93831bb163f67bbf40026faf3096ff5b7c581dfe
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -664,7 +665,7 @@ Ottenere le attività estese da un log in cui alcune voci contrassegnano l'inizi
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-    | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+    | project City, ActivityId, StartTime, StopTime, Duration=StopTime-StartTime
 
 ```
 
@@ -824,7 +825,7 @@ Gli elementi nella clausola `with` vengono confrontati a loro volta con il testo
 * In un'analisi regex un'espressione regolare può usare l'operatore di riduzione "?" per passare il prima possibile alla corrispondenza seguente.
 * Un nome di colonna con un tipo analizza il testo come tipo specificato. A meno che kind=relaxed, un'analisi non riuscita invalida la corrispondenza con l'intero schema.
 * Un nome di colonna senza un tipo o con il tipo "string", copia il numero minimo di caratteri per passare alla corrispondenza seguente.
-* "*" ignora il numero minimo di caratteri per passare alla corrispondenza seguente. È possibile usare "*" all'inizio e alla fine dello schema o dopo un tipo diverso da string oppure tra corrispondenze di stringa.
+* "*" ignora il numero minimo di caratteri per passare alla corrispondenza seguente. È possibile usare "*" all'inizio e alla fine dello schema, dopo un tipo diverso da string oppure tra corrispondenze di stringa.
 
 Tutti gli elementi in uno schema di analisi devono corrispondere correttamente. In caso contrario, non verrà generato alcun risultato. L'eccezione a questa regola è che, quando kind=relaxed, se l'analisi di una variabile tipizzata non riesce, il resto dell'analisi continua.
 
@@ -1035,9 +1036,13 @@ Ad esempio, il risultato di `reduce by city` può includere:
 | Parigi |27163 |
 
 ### <a name="render-directive"></a>Direttiva render
-    T | render [ table | timechart  | barchart | piechart ]
+    T | render [ table | timechart  | barchart | piechart | areachart | scatterchart ] 
+        [kind= default|stacked|stacked100|unstacked]
 
 Indica al livello di presentazione la modalità di visualizzazione della tabella. Deve essere l'ultimo elemento della pipe. Si tratta di una valida alternativa all'uso dei controlli su schermo che consente di salvare una query con un metodo di presentazione specifico.
+
+Per alcuni tipi di grafico, `kind` rende disponibili altre opzioni. Un grafico a barre `stacked` segmenta ad esempio ogni barra in base a una dimensione scelta, mostrando il contributo al totale dei diversi valori della dimensione. In un grafico `stacked100` ogni barra ha un'altezza equivalente, pari a 100%, in modo che sia possibile confrontare i relativi contributi.
+
 
 ### <a name="restrict-clause"></a>Clausola restrict
 Specifica il set di nomi di tabelle disponibili per gli operatori che seguono. Ad esempio:
@@ -1764,6 +1769,12 @@ Controllare se una stringa può essere convertita in un tipo specifico:
     iff(notnull(todouble(customDimensions.myValue)),
        ..., ...)
 
+
+
+
+
+
+
 ### <a name="scalar-comparisons"></a>Confronti scalari
 |  |  |
 | --- | --- |
@@ -2096,6 +2107,12 @@ Funzione della radice quadrata.
 ## <a name="date-and-time"></a>Data e ora
 [ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) |  [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
+Un valore timespan rappresenta un intervallo di tempo, ad esempio 3 ore o 1 anno.
+
+Un valore datetime rappresenta una data e ora di calendario/orologio in formato UTC.
+
+Non esiste un tipo "date" separato. Per rimuovere l'ora da un valore datetime, usare un'espressione, ad esempio `bin(timestamp, 1d)`.
+
 ### <a name="date-and-time-literals"></a>Valori letterali di data e ora
 |  |  |
 | --- | --- |
@@ -2118,22 +2135,22 @@ Funzione della radice quadrata.
 | `time("0.12:34:56.7")` |`0d+12h+34m+56.7s` |
 
 ### <a name="date-and-time-expressions"></a>Espressioni di data e ora
-| Expression | Risultato |
-| --- | --- |
-| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` |
-| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` |
-| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` |
-| `2h * 24` |`2d` |
-| `2d` / `2h` |`24` |
-| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |
-| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |
-|  | |
-| `<` |Minore |
-| `<=` |Minore o uguale a |
-| `>` |Maggiore |
-| `>=` |Maggiore o uguale a |
-| `<>` |Non uguale a |
-| `!=` |Non uguale a |
+| Expression | Risultato |Effetto|
+| --- | --- |---|
+| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` | Differenza di tempo|
+| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` | Aggiunta di giorni |
+| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` | Sottrazione di giorni|
+| `2h * 24` |`2d` |Moltiplicazione di un valore timespan|
+| `2d` / `2h` |`24` |Divisione di un valore timespan|
+| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |Ora di un valore datetime|
+| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |Data di un valore datetime|
+|  | ||
+| `<` ||Minore |
+| `<=` ||Minore o uguale |
+| `>` ||Maggiore |
+| `>=` ||Maggiore o uguale |
+| `<>` ||Diverso |
+| `!=` ||Diverso |
 
 ### <a name="ago"></a>ago
 Sottrae l'intervallo di tempo specificato dall'ora UTC corrente. Analogamente a `now()`, questa funzione può essere usata più volte in un'istruzione e l'ora UTC a cui fa riferimento sarà la stessa per tutte le istanze.
@@ -2734,7 +2751,8 @@ Per creare un valore letterale dinamico, usare `parsejson` (alias `todynamic`) c
 * `parsejson('21')` : un singolo valore di tipo dinamico che contiene un numero
 * `parsejson('"21"')` : un singolo valore di tipo dinamico che contiene una stringa
 
-Si noti che, a differenza di JavaScript, JSON impone l'uso delle virgolette doppie (`"`) per racchiudere le stringhe. Di conseguenza, è in genere più semplice fare riferimento ai valori letterali di stringa con codifica JSON usando virgolette singole (`'`).
+> ![NOTA] Per racchiudere etichette e valori di stringa in JSON, è necessario usare le virgolette doppie (`"`). Di conseguenza, è in genere più semplice fare riferimento ai valori letterali di stringa con codifica JSON usando virgolette singole (`'`).
+> 
 
 Questo esempio crea un valore dinamico e quindi usa i campi:
 
@@ -2911,21 +2929,23 @@ Un oggetto di tipo `dynamic` specificato da *json*.
 
 **Esempio**
 
-Nell'esempio seguente, quando `context_custom_metrics` è un valore `string` simile al seguente: 
+Nell'esempio seguente `customDimensions.person` è un elemento `string` analogo al seguente: 
 
 ```
-{"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
+"\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
 Il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e  `duration.min` (rispettivamente `118.0` e `110.0`).
 
 ```AIQL
-T
-| ...
+customEvents
+| where name == "newMember"
 | extend d=parsejson(context_custom_metrics) 
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
+> ![NOTA] Per racchiudere etichette e valori di stringa in JSON, è necessario usare le virgolette doppie. 
+>
 
 
 ### <a name="range"></a>range

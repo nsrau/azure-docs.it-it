@@ -14,16 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 61658fdafb6d2ead155c2d1b5c2563771c93ed0f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 15d3216ef5bb1d7ff312bd886837a3a7b0335afd
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-table-storage-from-php"></a>Come usare l'archiviazione tabelle da PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Overview
 Questa guida illustra come eseguire scenari comuni con il servizio tabelle di Azure. Gli esempi sono scritti in PHP e usano [Azure SDK per PHP][download]. Gli scenari presentati includono **creazione ed eliminazione di una tabella, inserimento ed eliminazione di entità ed esecuzione di query sulle entità in una tabella**. Per altre informazioni sul servizio tabelle di Azure, vedere la sezione [Passaggi successivi](#next-steps) .
@@ -483,9 +484,9 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo avere appreso le nozioni di base del servizio tabelle di Azure, usare i collegamenti seguenti per altre informazioni su attività di archiviazione più complesse.
 
-* [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
-Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
+* [Centro sviluppatori PHP](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://php.net/require_once
@@ -494,9 +495,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 [table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

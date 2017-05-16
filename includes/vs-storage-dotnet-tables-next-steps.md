@@ -7,8 +7,3 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle 
   * Per lavorare con le code di archiviazione di Azure, vedere [Introduzione all'archiviazione code di Azure con .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
   * Per archiviare i dati relazionali, vedere [Connettersi al database SQL tramite .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

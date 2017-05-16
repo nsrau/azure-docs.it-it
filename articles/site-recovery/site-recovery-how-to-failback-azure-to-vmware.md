@@ -1,5 +1,5 @@
 ---
-title: Come eseguire il failback da Azure in Hyper-V | Documentazione Microsoft
+title: Come eseguire il failback da Azure in VMware | Microsoft Docs
 description: "Dopo il failover delle macchine virtuali in Azure, è possibile avviare il failback per riportarle in locale. Informazioni sui passaggi per il failback."
 services: site-recovery
 documentationcenter: 
@@ -14,15 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 28fd433676046ef474ac602c1c9e9829378bfddb
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1c56a7f16361ac4fae97be6c9f21c959723b396c
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Eseguire il failback da Azure a un sito locale
+
+> [!div class="op_single_selector"]
+> * [Computer VMware/fisici da Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Macchine virtuali Hyper-V da Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
+
 Questo articolo descrive come eseguire il failback da Macchine virtuali di Azure al sito locale. Seguire le istruzioni riportate in questo articolo per eseguire il failback delle macchine virtuali VMware o dei server fisici Windows/Linux dopo aver eseguito il failover dal sito locale in Azure usando l'esercitazione [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
+
+> [!WARNING]
+> Se è stata [completata la migrazione](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), la macchina virtuale è stata spostata in un altro gruppo di risorse o la macchina virtuale di Azure è stata eliminata, non è possibile eseguire il failback.
+
+> [!NOTE]
+> Se è stato eseguito il failover delle macchine virtuali VMware, non è possibile eseguire il failback a un host Hyper-V.
 
 ## <a name="overview-of-failback"></a>Panoramica del failback
 Ecco come funziona il failback. Dopo aver eseguito il failover in Azure, eseguire il failback nel sito locale procedendo come segue:
@@ -30,7 +43,7 @@ Ecco come funziona il failback. Dopo aver eseguito il failover in Azure, eseguir
 1. [Riproteggere](site-recovery-how-to-reprotect.md) le macchine virtuali in Azure in modo che inizino a replicare le macchine virtuali VMware nel sito locale. Come parte di questo processo, è necessario:
     1. Configurare una destinazione master locale: la destinazione master Windows per le macchine virtuali Windows e la [destinazione master Linux](site-recovery-how-to-install-linux-master-target.md) per le macchine virtuali Linux.
     2. Configurare un [server di elaborazione](site-recovery-vmware-setup-azure-ps-resource-manager.md).
-    3. Avviare la [riprotezione](site-recovery-how-to-reprotect.md).
+    3. Avviare la [riprotezione](site-recovery-how-to-reprotect.md). Verrà spenta la macchina virtuale locale e i dati della macchina virtuale Azure verranno sincronizzati con i dischi locali.
 5. Dopo la replica delle macchine virtuali in Azure nel sito locale, avviare un failover da Azure al sito locale.
 
 Dopo aver eseguito il failback dei dati, abilitare la riprotezione delle macchine virtuali locali in cui è stato eseguito il failback, in modo che inizino la replica in Azure.
@@ -41,6 +54,9 @@ Per una rapida panoramica, guardare il video seguente che illustra come eseguire
 ### <a name="fail-back-to-the-original-or-alternate-location"></a>Eseguire il failback nella posizione originaria o in una posizione alternativa
 
 Se è stato eseguito il failover di una macchina virtuale VMware è possibile eseguire il failback nella stessa macchina virtuale di origine locale, se è ancora presente. In questo scenario viene eseguita la replica delle sole modifiche. Questo scenario è noto come ripristino nel percorso originale. Se la macchina virtuale locale non esiste, lo scenario è un ripristino del percorso alternativo.
+
+> [!NOTE]
+> È possibile eseguire il failback solo al server vCenter e al server di configurazione originali. Non è possibile distribuire un server di configurazione ed eseguire il failback usandolo. Non è inoltre possibile aggiungere un nuovo vCenter al server di configurazione esistente ed eseguire il failback nel nuovo vCenter.
 
 #### <a name="original-location-recovery"></a>Ripristino del percorso originale
 
@@ -74,7 +90,7 @@ Prima di proseguire, completare i passaggi di riprotezione in modo che le macchi
 ## <a name="steps-to-fail-back"></a>Passaggi per eseguire il failback
 
 > [!IMPORTANT]
-Prima di avviare il failback, assicurarsi di aver completato la riprotezione delle macchine virtuali. Le macchine virtuali devono essere in stato protetto e l'integrità deve essere **OK**. Per riproteggere le macchine virtuali, leggere [come eseguire la riprotezione](site-recovery-how-to-reprotect.md).
+> Prima di avviare il failback, assicurarsi di aver completato la riprotezione delle macchine virtuali. Le macchine virtuali devono essere in stato protetto e l'integrità deve essere **OK**. Per riproteggere le macchine virtuali, leggere [come eseguire la riprotezione](site-recovery-how-to-reprotect.md).
 
 1. Nella pagina degli elementi replicati selezionare la macchina virtuale e con il pulsante destro del mouse selezionare **Failover non pianificato**.
 2. In **Conferma failover** verificare la direzione del failover (da Azure) e selezionare il punto di recupero (più recente o quello coerente con l'app più recente) da usare per il failover. Il punto coerente con l'app deve essere antecedente all'ultimo punto di temporizzazione e causerà la perdita di alcuni dati.
@@ -93,6 +109,12 @@ Non è possibile eseguire il failback di una macchina virtuale finché non ha al
 
 Se si seleziona il punto di recupero coerente con l'applicazione, un singolo failback della macchina virtuale ripristinerà l'ultimo punto di recupero coerente con l'applicazione più recente disponibile. In caso di piano di ripristino con un gruppo di replica, ogni gruppo di replica ripristinerà il punto di recupero disponibile comune.
 Si noti che i punti di recupero coerenti con l'applicazione possono essere indietro nel tempo e potrebbero verificarsi perdite di dati.
+
+### <a name="what-happens-to-vmware-tools-post-failback"></a>Che cosa succede agli strumenti VMware dopo il failback?
+
+Durante il failover in Azure, gli strumenti VMware non possono essere eseguiti nella macchina virtuale di Azure. Nel caso di una macchina virtuale Windows, Azure Site Recovery disabilita gli strumenti VMware durante il failover. Nel caso di una macchina virtuale Linux, Azure Site Recovery disinstalla gli strumenti VMware durante il failover. 
+
+Durante il failback della macchina virtuale Windows, gli strumenti VMware vengono riabilitati al failback. Analogamente, per una macchina virtuale Linux, gli strumenti VMware vengono reinstallati nella macchina durante il failback.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

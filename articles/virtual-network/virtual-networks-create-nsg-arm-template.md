@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9c36ed4ed16b53a7cca2d2eba93ad5063e60569b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 87246de343f5c810bf765b467ba0d131934f8526
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,7 +104,7 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 ## <a name="deploy-the-arm-template-by-using-powershell"></a>Distribuire il modello ARM tramite PowerShell
 Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla procedura seguente.
 
-1. Se si usa Azure PowerShell per la prima volta, vedere [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Come installare e configurare Azure PowerShell) per l'installazione e la configurazione.
+1. Se si usa Azure PowerShell per la prima volta, vedere [How to Install and Configure Azure PowerShell](/powershell/azure/overview) (Come installare e configurare Azure PowerShell) per l'installazione e la configurazione.
 2. Eseguire il cmdlet **`New-AzureRmResourceGroup`** per creare un gruppo di risorse usando il modello.
 
     ```powershell

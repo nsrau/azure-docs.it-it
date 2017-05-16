@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
-ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: d29cf81747390fe153c3c6dc330ef738de0cd83a
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +28,13 @@ Per connettersi a servizi cloud Microsoft tramite ExpressRoute, è necessario co
 Per una panoramica dei diversi domini di routing, vedere la pagina [Circuiti e domini di routing ExpressRoute](expressroute-circuit-peerings.md) . Per soddisfare i requisiti di indirizzi IP pubblici per i peering Microsoft e pubblico di Azure, è consigliabile configurare un'infrastruttura NAT tra la rete e Microsoft. Questa sezione fornisce una descrizione dettagliata dell'infrastruttura NAT che è necessario configurare.
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>Requisiti NAT per il peering pubblico di Azure
-Il percorso di peering pubblico di Azure consente di connettersi a tutti i servizi ospitati in Azure tramite i relativi indirizzi IP pubblici. Sono inclusi i servizi elencati nell'articolo [Domande frequenti su ExpressRoute](expressroute-faqs.md) e tutti i servizi ospitati da ISV in Microsoft Azure. La connettività ai servizi di Microsoft Azure nel peering pubblico viene sempre avviata dalla propria rete nella rete Microsoft. Il traffico destinato a Microsoft Azure nel peering pubblico deve essere inviato tramite SNAT a indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft. La figura seguente riporta come eseguire una configurazione generale della NAT per soddisfare i requisiti elencati precedentemente.
+Il percorso di peering pubblico di Azure consente di connettersi a tutti i servizi ospitati in Azure tramite i relativi indirizzi IP pubblici. Sono inclusi i servizi elencati nell'articolo [Domande frequenti su ExpressRoute](expressroute-faqs.md) e tutti i servizi ospitati da ISV in Microsoft Azure. 
+
+> [!IMPORTANT]
+> La connettività ai servizi di Microsoft Azure nel peering pubblico viene sempre avviata dalla propria rete nella rete Microsoft. Non è quindi possibile avviare sessioni da servizi di Microsoft Azure alla propria rete tramite ExpressRoute. Se si prova a eseguire questa operazione, i pacchetti inviati a tali indirizzi IP annunciati useranno Internet anziché ExpressRoute.
+> 
+
+Il traffico destinato a Microsoft Azure nel peering pubblico deve essere inviato tramite SNAT a indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft. La figura seguente riporta come eseguire una configurazione generale della NAT per soddisfare i requisiti elencati precedentemente.
 
 ![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
@@ -41,7 +49,7 @@ Non esistono restrizioni per la lunghezza del prefisso IP NAT annunciato tramite
 > 
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisiti NAT per il peering Microsoft
-Il percorso di peering Microsoft consente di connettersi a servizi cloud Microsoft che non sono supportati tramite il percorso di peering pubblico di Azure. L'elenco dei servizi include servizi Office 365 quali Exchange Online, SharePoint Online, Skype for Business e CRM Online. Microsoft prevede di supportare la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve essere inviato tramite SNAT a indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft. Il traffico destinato alla propria rete dai servizi cloud Microsoft deve essere inviato tramite SNAT perché possa accedere alla rete. La figura seguente riporta come eseguire una configurazione generale della NAT per il peering Microsoft.
+Il percorso di peering Microsoft consente di connettersi a servizi cloud Microsoft che non sono supportati tramite il percorso di peering pubblico di Azure. L'elenco dei servizi include servizi Office 365 quali Exchange Online, SharePoint Online, Skype for Business e CRM Online. Microsoft prevede di supportare la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve essere inviato tramite SNAT a indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft. Il traffico destinato alla propria rete dai servizi cloud Microsoft deve essere inviato tramite SNAT al perimetro Internet per evitare il [routing asimmetrico](expressroute-asymmetric-routing.md). La figura seguente riporta come eseguire una configurazione generale della NAT per il peering Microsoft.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -56,7 +64,9 @@ Il percorso di peering Microsoft consente di connettersi a servizi cloud Microso
 
 ### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Traffico proveniente da Microsoft e destinato alla propria rete
 * Per alcuni scenari è necessario che Microsoft avvii la connettività agli endpoint di servizio ospitati nella propria rete. Un esempio tipico di scenario è rappresentato dalla connettività a server ADFS ospitati nella propria rete da Office 365. In questi casi, è necessario inviare prefissi appropriati dalla propria rete al peering Microsoft. 
-* È necessario inviare tramite SNAT il traffico destinato agli indirizzi IP nella propria rete da Microsoft. 
+* È necessario inviare il traffico Microsoft tramite SNAT al perimetro Internet per consentire agli endpoint di servizio della rete di impedire il [routing asimmetrico](expressroute-asymmetric-routing.md). Le richieste **e le risposte** con un IP di destinazione corrispondente a una route ricevuta tramite ExpressRoute verranno sempre inviate tramite ExpressRoute. Il routing asimmetrico si verifica se la richiesta viene ricevuta tramite Internet con la risposta inviata tramite ExpressRoute. L'invio tramite SNAT del traffico Microsoft in ingresso al perimetro Internet forza il traffico di risposta di nuovo verso il perimetro Internet, risolvendo il problema.
+
+![Routing asimmetrico con ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Fare riferimento ai requisiti per [routing](expressroute-routing.md) e [QoS](expressroute-qos.md).
@@ -66,10 +76,5 @@ Il percorso di peering Microsoft consente di connettersi a servizi cloud Microso
   * [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configurare il routing](expressroute-howto-routing-classic.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

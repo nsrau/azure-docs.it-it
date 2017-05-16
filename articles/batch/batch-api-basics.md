@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -73,11 +74,12 @@ Un account Batch è un'entità identificata in modo univoco all'interno del serv
 
 È possibile creare un account Batch di Azure usando il [portale di Azure](batch-account-create-portal.md) o a livello di codice, ad esempio con la [libreria di gestione .NET per Batch](batch-management-dotnet.md). Quando si crea l'account, è possibile associarvi un account di archiviazione di Azure.
 
-Batch supporta due configurazioni account, in base alla proprietà *Modalità di allocazione pool*. Le due configurazioni offrono diverse opzioni per l'autenticazione con il servizio Batch e per il provisioning e la gestione di [pool](#pool) di Batch, illustrati più avanti in questo articolo. 
+Batch supporta due configurazioni account, in base alla proprietà *Modalità di allocazione pool*. Le due configurazioni consentono di accedere a diverse funzionalità relative ai [pool](#pool) di Batch, illustrati più avanti in questo articolo. 
 
 
-* **Servizio Batch** (impostazione predefinita): è possibile accedere alle API di Batch usando l'autenticazione con chiave condivisa o l'[autenticazione di Azure Active Directory](batch-aad-auth.md). Le risorse di calcolo di Batch vengono allocate in background in un account gestito di Azure.   
-* **Sottoscrizione utente**: è possibile accedere alle API di Batch soltanto con l'[autenticazione di Azure Active Directory](batch-aad-auth.md). Le risorse di calcolo di Batch vengono allocate direttamente nella sottoscrizione di Azure. Questa modalità offre una maggiore flessibilità per configurare i nodi di calcolo e integrare altri servizi. Per questa è necessario configurare un'istanza aggiuntiva di Azure Key Vault per l'account Batch.
+* **Servizio Batch**: è l'opzione predefinita, che prevede l'allocazione delle VM dei pool di Batch in background in sottoscrizioni gestite da Azure. Questa configurazione di account deve essere usata se sono necessari pool di Servizi cloud, ma non può essere usata se sono necessari pool di macchine virtuali creati da immagini di VM personalizzate o che usano una rete virtuale. È possibile accedere alle API Batch usando l'autenticazione con chiave condivisa o l'[autenticazione di Azure Active Directory](batch-aad-auth.md). 
+
+* **Sottoscrizione utente**: questa configurazione di account deve essere usata se sono necessari pool di macchine virtuali creati da immagini di VM personalizzate o che usano una rete virtuale. È possibile accedere alle API Batch solo con l'[autenticazione di Azure Active Directory](batch-aad-auth.md) e i pool di Servizi cloud non sono supportati. Le VM di calcolo di Batch vengono allocate direttamente nella sottoscrizione di Azure. Per questa modalità è necessario configurare un'istanza di Azure Key Vault per l'account Batch.
  
 
 ## <a name="compute-node"></a>Nodo di calcolo
@@ -336,7 +338,7 @@ Quando si crea un pool di nodi di calcolo in Azure Batch, è possibile usare le 
 
 * La subnet specificata deve consentire la comunicazione dal servizio Batch per poter pianificare le operazioni sui nodi di calcolo. Se la comunicazione ai nodi di calcolo viene negata da un **gruppo di sicurezza di rete** associato alle rete virtuale, il servizio Batch imposta lo stato dei nodi di calcolo su **Non utilizzabile**. 
 
-* Se la rete virtuale specificata è associata a un gruppo di sicurezza di rete, è necessario abilitare le comunicazioni in ingresso. Per un pool Linux, è necessario abilitare le porte 29876, 29877 e 22. Per un pool Windows, è necessario abilitare la porta 3389.
+* Se la rete virtuale specificata è associata a un gruppo di sicurezza di rete, è necessario abilitare le comunicazioni in ingresso. Per i pool sia Linux che Windows devono essere abilitate le porte 29876 e 29877. Facoltativamente, è possibile abilitare o filtrare in modo selettivo le porte 22 o 3389, rispettivamente per SSH in pool Linux o RDP in pool Windows.
 
 Le impostazioni aggiuntive della rete virtuale dipendono dalla modalità di allocazione pool dell'account Batch.
 

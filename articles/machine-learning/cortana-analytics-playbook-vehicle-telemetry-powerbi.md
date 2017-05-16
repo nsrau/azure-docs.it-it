@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
-ms.openlocfilehash: 24d440049b5e889c6d4417cc16787edd42bc5848
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f880aceb1657ffdfe909b73f175b9673d9ab02cd
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Questo **menu** contiene i collegamenti alle sezioni dello studio.
 La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le concessionarie d'auto, i produttori di automobili e le compagnie di assicurazione possano sfruttare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida in modo da apportare miglioramenti nelle aree dell'esperienza cliente, di ricerca e sviluppo e delle campagne di marketing. Questo documento contiene istruzioni dettagliate su come configurare i report e il dashboard di Power BI dopo la distribuzione della soluzione nella sottoscrizione. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Distribuire la soluzione per l'analisi dei dati di telemetria del veicolo passando a [https://gallery.cortanaanalytics.com/SolutionTemplate/Vehicle-Telemetry-Analytics-3](https://gallery.cortanaanalytics.com/SolutionTemplate/Vehicle-Telemetry-Analytics-3)  
+1. Distribuire la soluzione per l'[analisi dei dati di telemetria](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90)  
 2. [Installare Microsoft Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331)
 3. Una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/). Se non si dispone di una sottoscrizione Azure, iniziare con una sottoscrizione gratuita di Azure.
 4. Account di Microsoft Power BI
@@ -38,7 +38,7 @@ La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le c
 Come parte del modello di soluzione per l'analisi dei dati di telemetria del veicolo, nella sottoscrizione vengono distribuiti i servizi di Cortana Intelligence seguenti.
 
 * **Hub eventi** per l'inserimento di milioni di eventi di telemetria del veicolo in Azure.
-* **Analisi di flusso**per ottenere informazioni dettagliate in tempo reale sull'integrità del veicolo e salvare i dati in modo permanente in un archivio a lungo termine per un'analisi batch avanzata.
+* **Analisi di flusso** per ottenere informazioni dettagliate in tempo reale sul funzionamento del veicolo e salvare i dati in modo permanente nello spazio di archiviazione a lungo termine per un'analisi batch avanzata.
 * **Machine Learning** per il rilevamento di anomalie in tempo reale e l'elaborazione batch per ottenere informazioni predittive.
 * **HDInsight** per trasformare i dati su larga scala
 * **Data Factory** gestisce l'orchestrazione, la pianificazione, la gestione delle risorse e il monitoraggio della pipeline di elaborazione batch.
@@ -52,40 +52,21 @@ Nella soluzione è incluso un simulatore di dati telematici relativi al veicolo.
 Il catalogo del veicolo è un set di dati di riferimento contenente il numero di identificazione del veicolo per il mapping del modello.
 
 ## <a name="power-bi-dashboard-preparation"></a>Preparazione del dashboard di Power BI
-### <a name="deployment"></a>Distribuzione
-Dopo aver completato la distribuzione, verrà visualizzato il diagramma seguente con tutti i componenti contrassegnati con il colore VERDE. 
-
-* Per passare ai servizi corrispondenti e verificare se sono stati tutti distribuiti correttamente, fare clic sulla freccia in alto a destra dei nodi verdi.
-* Per scaricare il pacchetto del simulatore di dati, fare clic sulla freccia in alto a destra nel nodo **Vehicle Telematics Simulator**. Salvare ed estrarre i file in locale. 
-
-![Componenti distribuiti](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/1-deployed-components.png)
-
-A questo punto si è pronti per configurare il dashboard di Power BI con visualizzazioni avanzate, per ottenere informazioni dettagliate predittive e in tempo reale sull'integrità del veicolo e sulle abitudini di guida. Per creare tutti i report e configurare il dashboard, sono necessari da circa 45 minuti a un'ora. 
-
 ### <a name="setup-power-bi-real-time-dashboard"></a>Configurare il dashboard in tempo reale di Power BI
-**Generare dati simulati**
 
-1. Nel computer locale, passare alla cartella in cui è stato estratto il pacchetto Vehicle Telematics Simulator.
-  ![Cartella del simulatore](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/2-vehicle-telematics-simulator-folder.png)
-2. Eseguire l'applicazione ***CarEventGenerator.exe***.
-3. Il simulatore genera informazioni di diagnostica e segnali corrispondenti allo stato del veicolo e allo schema di guida in un determinato momento. Queste informazioni vengono pubblicate in un'istanza di Hub eventi di Azure configurata come parte della distribuzione.
+**Avviare l'applicazione dashboard in tempo reale** Dopo aver completato la distribuzione, è necessario seguire le istruzioni di funzionamento manuale
 
-![Diagnostica](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/3-vehicle-telematics-diagnostics.png)
+* Scaricare l'applicazione dashboard in tempo reale RealtimeDashboardApp.zip e decomprimere il file.
+*  Nella cartella non compressa, aprire il file di configurazione app 'RealtimeDashboardApp.exe.config', sostituire appSettings per hub eventi, archiviazione BLOB e connessioni al servizio ML con i valori indicati nelle istruzioni di funzionamento manuale e salvare le modifiche.
+* Eseguire l'applicazione RealtimeDashboardApp.exe. Specificare le credenziali di Power BI valide nella finestra di accesso visualizzata e fare clic sul pulsante **Accetto**. Viene avviata l'esecuzione dell'app.
 
-**Avviare l'applicazione dashboard in tempo reale**
-
-La soluzione include un'applicazione che genera un dashboard in tempo reale in Power BI. Questa applicazione ascolta un'istanza di Hub eventi, da cui l'analisi di flusso pubblica continuamente gli eventi. Per ogni evento ricevuto dall'applicazione, elabora i dati usando un endpoint del servizio di richiesta-risposta di Machine Learning per l'assegnazione dei punteggi. Il set di dati risultante viene pubblicato nell'API push di Power BI per la visualizzazione. 
-
-Per scaricare l'applicazione:
-
-1. Fare clic sul nodo Power BI nella vista diagramma e fare clic sul collegamento per **scaricare l'applicazione dashboard in tempo reale** nel riquadro delle proprietà.![Dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard-new1.png)
-2. Estrarre e salvare l'applicazione in locale ![Applicazione dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
-3. Eseguire l'applicazione **RealtimeDashboardApp.exe**
-4. Fornire credenziali di Power BI valide, accedere e fare clic su **Accetta**
-   
    ![Accedere a Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
    
    ![Autorizzazioni per il dashboard di Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-powerbi-dashboard-permissions.png)
+
+* Accedere al sito Web di Power BI e creare dashboard in tempo reale.
+
+A questo punto si è pronti per configurare il dashboard di Power BI con visualizzazioni avanzate, per ottenere informazioni dettagliate predittive e in tempo reale sull'integrità del veicolo e sulle abitudini di guida. Per creare tutti i report e configurare il dashboard, sono necessari da circa 45 minuti a un'ora. 
 
 ### <a name="configure-power-bi-reports"></a>Configurare i report di Power BI
 Il completamento dei report in tempo reale e del dashboard richiede circa 30-45 minuti. Passare a [http://powerbi.com](http://powerbi.com) e accedere.
@@ -258,7 +239,7 @@ Modificare il campo **Titolo** del grafico in **"Modelli di veicolo che richiedo
 
 Fare clic sull'area vuota per aggiungere una nuova visualizzazione.
 
-Nella visualizzazione selezionare **Grafico a barre in pila&100;%**, trascinare il campo **città** nell'area **Asse** e i campi **MaintenanceProbability** e **RecallProbability** nell'area **Valore**.
+Nella visualizzazione selezionare **Grafico a barre in pila 100%**, trascinare il campo **città** nell'area **Asse** e i campi **MaintenanceProbability** e **RecallProbability** nell'area **Valore**.
 
 ![Automobili connesse: aggiungi nuova visualizzazione](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4dd.png)
 
@@ -319,13 +300,13 @@ Congratulazioni. Il dashboard in tempo reale è stato creato correttamente. Cont
 
 **Scaricare il file di progettazione Power BI**
 
-* Un file di progettazione Power BI preconfigurato è incluso con la distribuzione
-* Fare clic sul nodo Power BI nella vista diagramma e fare clic sul collegamento per **scaricare il file di progettazione Power BI** nel riquadro delle proprietà ![Scaricare progettazione Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+* Un file di progettazione Power BI preconfigurato è incluso con le istruzioni di funzionamento manuale della distribuzione
+* Cercare 2. Impostare il dashboard di elaborazione batch Power BI È possibile scaricare il modello di Power BI per il dashboard di elaborazione batch denominato **ConnectedCarsPbiReport.pbix**.
 * Salvare in locale
 
 **Configurare i report di Power BI**
 
-* Aprire il file di progettazione "VehicleTelemetryAnalytics - Desktop Report.pbix" con Power BI Desktop. Se non lo si è ancora fatto, installare Power BI Desktop da [Installazione Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331). 
+* Aprire il file di progettazione '**ConnectedCarsPbiReport.pbix**' tramite Power BI Desktop. Se non lo si è ancora fatto, installare Power BI Desktop da [Installazione Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331). 
 * Fare clic su **Modifica query**.
 
 ![Modificare la query di Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
@@ -334,9 +315,14 @@ Congratulazioni. Il dashboard in tempo reale è stato creato correttamente. Cont
 
 ![Impostare l'origine di Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/11-set-powerbi-source.png)
 
-* Aggiornare la stringa di connessione del server con il server di Azure SQL di cui è stato effettuato il provisioning come parte della distribuzione. Fare clic sul nodo di Azure SQL nel diagramma e visualizzare il nome del server nel riquadro proprietà.
+* Aggiornare la stringa di connessione del server con il server di Azure SQL di cui è stato effettuato il provisioning come parte della distribuzione.  Esaminare le istruzioni di funzionamento manuale in 
 
-![Visualizzare il nome del server](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/11.5-view-server-name.png)
+    4. Database SQL di Azure
+    
+    * Server: somethingsrv.database.windows.net
+    * Database: connectedcar
+    * Nome utente: nome utente
+    * Password: è possibile gestire la password di SQL Server dal portale di Azure
 
 * Lasciare **Database** come *connectedcar*.
 
@@ -364,12 +350,12 @@ Sono stati configurati tutti i report corrispondenti al percorso di elaborazione
 2. Fare clic su **Recupera dati**  
 3. Caricare il file di Power BI Desktop.  
 4. Per caricarlo, fare clic su **Recupera dati -> Recupera File -> File locale**  
-5. Passare a **"VehicleTelemetryAnalytics – Desktop Report.pbix"**  
+5. Individuare il file **"**ConnectedCarsPbiReport.pbix**"**  
 6. Una volta caricato il file, si verrà reindirizzati nuovamente all'area di lavoro di PowerBI.  
 
 Verranno creati automaticamente un set di dati, un report e un dashboard vuoto.  
 
-Aggiungere grafici al dashboard esistente **Vehicle Telemetry Analytics Dashboard ** (Dashboard di analisi dei dati di telemetria del veicolo) in **Power BI**. Fare clic sul dashboard vuoto creato in precedenza, quindi passare alla sezione **Report** e fare clic sul report appena caricato.  
+Aggiungere grafici a un nuovo dashboard denominato **Vehicle Telemetry Analytics Dashboard**  (Dashboard di analisi dei dati di telemetria del veicolo) in **Power BI**. Fare clic sul dashboard vuoto creato in precedenza, quindi passare alla sezione **Report** e fare clic sul report appena caricato.  
 
 ![Vehicle Telemetry Power BI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard1.png) 
 
@@ -420,5 +406,4 @@ Pagina 6: Logo di Contoso
 ![Telemetria veicolo: organizza dashboard 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 Congratulazioni. Sono stati creati il report e il dashboard per ottenere in tempo reale informazioni dettagliate in batch e predittive sullo stato di integrità dei veicoli e sulle abitudini di guida.  
-
 
