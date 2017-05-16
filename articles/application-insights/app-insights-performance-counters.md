@@ -4,7 +4,7 @@ description: Sistema di monitoraggio e contatori delle prestazioni .NET personal
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
@@ -12,10 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -128,13 +130,8 @@ Come altri dati di telemetria, **performanceCounters** contiene anche una colonn
 ## <a name="alerts"></a>Avvisi
 Come per altre metriche, è possibile [impostare un avviso](app-insights-alerts.md) per ricevere una notifica se un contatore delle prestazioni supera un limite specificato. Aprire il pannello Avvisi e fare clic su Aggiungi avviso.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Passaggi successivi
+## <a name="next"></a>Passaggi successivi
 * [Rilevamento delle dipendenze](app-insights-asp-net-dependencies.md)
 * [Rilevamento delle eccezioni](app-insights-asp-net-exceptions.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

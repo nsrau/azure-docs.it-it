@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 975084c19909b0829b6f93cab05373fb71b10cf3
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -65,9 +67,4 @@ Il trasferimento delle conoscenze specifiche in atto fa parte del processo di in
 Talvolta questi esperti di dati si applicano per documentare le proprie conoscenze e condividerle tramite posta elettronica o in documenti di Word in un sito di SharePoint del team. Sebbene tutto ciò possa essere utile, è necessario considerare un nuovo problema di individuazione, ossia come fanno gli utenti a sapere quale documentazione è disponibile e dove reperirla.
 
 Il Catalogo dati di Azure fornisce un percorso per la condivisione di queste conoscenze specifiche e per renderle facilmente individuabili. Gli esperti di dati possono annotare direttamente gli asset di dati e possono includere anche i collegamenti alla documentazione esistente. In tal modo non solo si acquisisce conoscenza, ma inserisce la competenza nella stessa esperienza impiegata per l'individuazione dell’origine dati. Quando un utente usa il catalogo per individuare un'origine dati, non solo trova l'origine, ma ha inoltre a disposizione le informazioni di un esperto che esistevano in precedenza solo nella mente dell'esperto stesso.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

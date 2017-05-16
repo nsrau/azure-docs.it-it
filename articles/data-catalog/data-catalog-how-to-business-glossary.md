@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 8a528f8bccaeb55851ad550aee1da93bf4876730
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -88,9 +90,4 @@ Il glossario aziendale di Azure Data Catalog e la relativa assegnazione di tag r
 
 ## <a name="see-also"></a>Vedere anche
 * [Documentazione relativa all'API REST per operazioni che riguardano il glossario aziendale](https://msdn.microsoft.com/library/mt708855.aspx)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
