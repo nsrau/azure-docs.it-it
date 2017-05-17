@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: ashwink
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f1e4a60cd98d40794c63dc334f242415445e0d6d
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
-Questo articolo illustra le procedure consigliate per applicare la scalabilità automatica in Azure. L'articolo si riferisce a macchine virtuali, set di scalabilità di macchine virtuali e servizi Cloud.  Altri servizi Azure usavano metodi di ridimensionamento diversi.
+Questo articolo illustra le procedure consigliate per applicare la scalabilità automatica in Azure. Il ridimensionamento automatico di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) e [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/). Altri servizi Azure usano metodi di ridimensionamento diversi.
 
 ## <a name="autoscale-concepts"></a>Concetti di scalabilità automatica
 * Una risorsa può avere *una* sola impostazione di scalabilità automatica.
@@ -119,7 +119,7 @@ L'immagine seguente illustra un'impostazione di scalabilità automatica con un p
 
 Allo stesso modo, quando la scalabilità automatica torna al profilo predefinito, per prima cosa controlla se sono soddisfatte le condizioni minima e massima. Se al momento il numero di istanze è 12, ne riduce il numero a 10, il massimo consentito per il profilo predefinito.
 
-![Impostazioni di scalabilità automatica](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+![Impostazioni di scalabilità automatica](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerazioni sul ridimensionamento quando vengono configurate più regole in un profilo
 In alcuni casi potrebbe essere necessario impostare più regole in un profilo. Il set di regole di scalabilità automatica seguente viene usato dai servizi quando vengono impostate più regole.

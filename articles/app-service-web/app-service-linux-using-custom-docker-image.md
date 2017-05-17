@@ -1,6 +1,6 @@
 ---
-title: Come usare un&quot;immagine Docker personalizzata per il servizio app di Azure in Linux | Documentazione Microsoft
-description: Come usare un&quot;immagine Docker personalizzata per il servizio app in Linux.
+title: Come usare un&quot;immagine Docker personalizzata per App Web di Azure in Linux | Microsoft Docs
+description: Come usare un&quot;immagine Docker personalizzata per App Web di Azure in Linux.
 keywords: Servizio app di Azure, app Web, Linux, Docker, contenitore
 services: app-service
 documentationcenter: 
@@ -15,15 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 7e4aab65feac187b48ccca65b35bb94185323506
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9962766b0a1fdfe313b70ea65e08785ec8a97996
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-a-custom-docker-image-for-app-service-on-linux"></a>Uso di un'immagine Docker personalizzata per il servizio app in Linux #
+# <a name="using-a-custom-docker-image-for-azure-web-app-on-linux"></a>Uso di un'immagine Docker personalizzata per App Web di Azure in Linux #
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
 
 Il servizio app fornisce stack di applicazioni predefiniti in Linux con il supporto per versioni specifiche, ad esempio PHP 7.0 e Node.js 4.5. Il servizio app in Linux usa i contenitori Docker per ospitare questi stack di applicazioni predefiniti. È anche possibile usare un'immagine Docker personalizzata per distribuire l'app Web in uno stack di applicazioni non ancora definito in Azure. Le immagini Docker personalizzate possono essere ospitate in un repository Docker pubblico o privato.
 
@@ -98,12 +102,12 @@ Quando non è possibile avviare l'applicazione con l'immagine Docker personalizz
 
 ## <a name="next-steps"></a>Passaggi successivi ##
 
-Fare clic sui collegamenti seguenti per iniziare a usare il servizio app in Linux.   
+Fare clic sui collegamenti seguenti per iniziare a usare App Web in Linux.   
 
-* [Introduzione al servizio app in Linux](./app-service-linux-intro.md)
-* [Creating Apps in an App Service on Linux](./app-service-linux-how-to-create-a-web-app.md) (Creazione di app Web nel servizio app in Linux)
-* [Uso della configurazione PM2 per Node.js nelle app Web in Linux](./app-service-linux-using-nodejs-pm2.md)
-* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md) (App Web del Servizio app di Azure nelle domande frequenti su Linux)
+* [Introduzione ad App Web di Azure in Linux](./app-service-linux-intro.md)
+* [Creazione di app Web in App Web di Azure in Linux](./app-service-linux-how-to-create-web-app.md)
+* [Uso della configurazione PM2 per Node.js in App Web in Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Domande frequenti su App Web del Servizio app di Azure su Linux](app-service-linux-faq.md)
 
 Pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

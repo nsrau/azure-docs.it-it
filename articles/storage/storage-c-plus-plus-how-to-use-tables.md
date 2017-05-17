@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: 3047ba6bb363e087bfdf767a32c92a503000f11e
-ms.openlocfilehash: c97343008b5af378ed9d441e242018849e2ab69a
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ab71da3b7cc77cfe6bf78caf358ddd0a4a10321b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-table-storage-from-c"></a>Come usare l'archiviazione tabelle da C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Overview
 In questa guida sono illustrati diversi scenari di utilizzo comuni del servizio di archiviazione tabelle di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Gli scenari presentati includono **creazione ed eliminazione di una tabella** e **uso di entità di tabella**.
@@ -452,10 +452,10 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle, visitare i collegamenti seguenti per accedere ad altre informazioni su Archiviazione di Azure:  
 
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Come usare l'archiviazione BLOB da C++](storage-c-plus-plus-how-to-use-blobs.md)
 * [Come usare l'archiviazione delle code da C++](storage-c-plus-plus-how-to-use-queues.md)
 * [Elenco delle risorse di archiviazione di Azure in C++](storage-c-plus-plus-enumeration.md)
 * [Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-
 
