@@ -3,7 +3,7 @@ title: Aggiungere informazioni di accesso a un&quot;applicazione iOS usando l&qu
 description: Come compilare un&quot;app per iOS che consente agli utenti di accedere con un account Microsoft personale, aziendale o dell&quot;istituto di istruzione usando librerie di terze parti.
 services: active-directory
 documentationcenter: 
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: xerners
-translationtype: Human Translation
+ms.author: brandwe
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
 ms.openlocfilehash: 36c83ad9424c7c1e0bc096696148dda801bc4257
+ms.contentlocale: it-it
 ms.lasthandoff: 01/24/2017
 
 

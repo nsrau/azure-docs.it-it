@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bf9f0ae5876af6f9e92f86f0d49315ccb5ff06cf
 ms.openlocfilehash: 5f25bee0d6cb4c6985a63073e19929f8d69de139
+ms.contentlocale: it-it
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -40,10 +42,5 @@ ms.openlocfilehash: 5f25bee0d6cb4c6985a63073e19929f8d69de139
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
