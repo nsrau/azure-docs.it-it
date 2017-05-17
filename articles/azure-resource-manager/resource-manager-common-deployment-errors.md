@@ -11,15 +11,16 @@ keywords: errore di distribuzione, distribuzione di azure, distribuire in azure
 ms.assetid: c002a9be-4de5-4963-bd14-b54aa3d8fa59
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 7dfd3f7f0bebd0dbe20ffc9952d83cb8b4fcfe3e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -285,7 +286,7 @@ Se si sta provando a distribuire la risorsa mancante nel modello, verificare se 
 
 Per suggerimenti sulla risoluzione degli errori relativi alle dipendenze, vedere [Controllare la sequenza di distribuzione](#check-deployment-sequence).
 
-Questo errore viene visualizzato anche quando la risorsa si trova in un gruppo di risorse diverso rispetto a quello in cui viene distribuita. In tal caso, usare la [funzione resourceId](resource-group-template-functions.md#resourceid) per ottenere il nome completo della risorsa.
+Questo errore viene visualizzato anche quando la risorsa si trova in un gruppo di risorse diverso rispetto a quello in cui viene distribuita. In tal caso, usare la [funzione resourceId](resource-group-template-functions-resource.md#resourceid) per ottenere il nome completo della risorsa.
 
 ```json
 "properties": {
@@ -294,7 +295,7 @@ Questo errore viene visualizzato anche quando la risorsa si trova in un gruppo d
 }
 ```
 
-Se si prova a usare la funzione [reference](resource-group-template-functions.md#reference) o la funzione [listKeys](resource-group-template-functions.md#listkeys) con una risorsa che non può essere risolta, verrà visualizzato l'errore seguente:
+Se si prova a usare la funzione [reference](resource-group-template-functions-resource.md#reference) o la funzione [listKeys](resource-group-template-functions-resource.md#listkeys) con una risorsa che non può essere risolta, verrà visualizzato l'errore seguente:
 
 ```
 Code=ResourceNotFound;
@@ -339,7 +340,7 @@ Code=StorageAccountAlreadyTaken
 Message=The storage account named mystorage is already taken.
 ```
 
-È possibile creare un nome univoco concatenando la convenzione di denominazione con il risultato della funzione [uniqueString](resource-group-template-functions.md#uniquestring) .
+È possibile creare un nome univoco concatenando la convenzione di denominazione con il risultato della funzione [uniqueString](resource-group-template-functions-string.md#uniquestring) .
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
@@ -349,7 +350,7 @@ Message=The storage account named mystorage is already taken.
 Se si distribuisce un account di archiviazione con lo steso nome di un account di archiviazione esistente nella sottoscrizione specificando però una diversa località, verrà visualizzato un errore che indica che l'account di archiviazione esiste già in un'altra località. Eliminare l'account di archiviazione esistente oppure specificare la stessa località di tale account.
 
 ### <a name="accountnameinvalid"></a>AccountNameInvalid
-L'errore **AccountNameInvalid** viene visualizzato quando si prova ad assegnare a un account di archiviazione un nome contenente caratteri non consentiti. I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole. La funzione [uniqueString](resource-group-template-functions.md#uniquestring) restituisce 13 caratteri. Se si concatena un prefisso al risultato di **uniqueString**, specificare un prefisso composto al massimo da 11 caratteri.
+L'errore **AccountNameInvalid** viene visualizzato quando si prova ad assegnare a un account di archiviazione un nome contenente caratteri non consentiti. I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare solo numeri e lettere minuscole. La funzione [uniqueString](resource-group-template-functions-string.md#uniquestring) restituisce 13 caratteri. Se si concatena un prefisso al risultato di **uniqueString**, specificare un prefisso composto al massimo da 11 caratteri.
 
 ### <a name="badrequest"></a>RichiestaNonValida
 
@@ -626,7 +627,7 @@ In alternativa, si supponga di incontrare errori di distribuzione presumibilment
 
 Molti errori di distribuzione si verificano quando le risorse vengono distribuite secondo una sequenza imprevista. Questi errori vengono generati quando le dipendenze non sono impostate correttamente. Quando manca una dipendenza necessaria, una risorsa tenta di usare un valore per un'altra risorsa che tuttavia non esiste ancora e viene visualizzato un errore che indica che non è stata trovata una risorsa. Questo tipo di errore può verificarsi in modo intermittente perché i tempi di distribuzione delle singole risorse possono variare. È ad esempio possibile che il primo tentativo di distribuire le risorse abbia esito positivo perché una risorsa obbligatoria viene casualmente completata in tempo, ma che ciò non avvenga al secondo tentativo e che questo abbia quindi esito negativo. 
 
-È tuttavia opportuno evitare di impostare dipendenze non necessarie. La presenza di dipendenze non necessarie prolunga la durata della distribuzione impedendo di distribuire in parallelo risorse che non sono interdipendenti. Si potrebbero anche creare dipendenze circolari che bloccano la distribuzione. La funzione [reference](resource-group-template-functions.md#reference) crea una dipendenza implicita dalla risorsa specificata come parametro nella funzione, se tale risorsa viene distribuita nello stesso modello. Si potrebbero quindi avere dipendenze aggiuntive rispetto a quelle specificate nella proprietà **dependsOn**. La funzione [resourceId](resource-group-template-functions.md#resourceid) non crea una dipendenza implicita né esegue la convalida dell'esistenza della risorsa.
+È tuttavia opportuno evitare di impostare dipendenze non necessarie. La presenza di dipendenze non necessarie prolunga la durata della distribuzione impedendo di distribuire in parallelo risorse che non sono interdipendenti. Si potrebbero anche creare dipendenze circolari che bloccano la distribuzione. La funzione [reference](resource-group-template-functions-resource.md#reference) crea una dipendenza implicita dalla risorsa specificata come parametro nella funzione, se tale risorsa viene distribuita nello stesso modello. Si potrebbero quindi avere dipendenze aggiuntive rispetto a quelle specificate nella proprietà **dependsOn**. La funzione [resourceId](resource-group-template-functions-resource.md#resourceid) non crea una dipendenza implicita né esegue la convalida dell'esistenza della risorsa.
 
 In caso di problemi relativi alle dipendenze, è necessario approfondire l'ordine di distribuzione delle risorse. Per visualizzare l'ordine delle operazioni di distribuzione:
 
