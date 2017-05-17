@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 04/03/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f1156572dece1dd59d5a258b670c8fb4f3e3d0e6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 85a2fac77cf5beae6debad044df169301d43f4ca
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -108,6 +108,7 @@ Le tabelle seguenti includono variabili di lettura/scrittura e di sola lettura d
 | $SucceededTasks |Numero di attività completate correttamente. |
 | $FailedTasks |Numero di attività non riuscite. |
 | $CurrentDedicated |Numero corrente di nodi di calcolo dedicati. |
+| $PreemptedNodeCount | Il numero di nodi nel pool che si trovano nello stato Annullato. |
 
 > [!TIP]
 > Le variabili di sola lettura definite dal servizio illustrate sopra sono *oggetti* che offrono vari metodi per accedere ai dati associati a ognuno. Per altre informazioni, vedere [Ottenere dati di esempio](#getsampledata) di seguito.

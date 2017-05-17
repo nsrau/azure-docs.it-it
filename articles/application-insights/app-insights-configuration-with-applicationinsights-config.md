@@ -5,18 +5,20 @@ services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
 editor: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: a43eca9878881731f54dc1ec3bc8a9cd15bf2c5e
+ms.date: 05/3/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 52b5be98742c9bf0834c12136416e856af5d99cc
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -75,6 +77,18 @@ Riporta il [tempo di risposta e il codice dei risultati](app-insights-asp-net.md
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - rileva le eccezioni non gestite per i ruoli di lavoro, servizi windows, e applicazioni della console.
 * [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) .
 
+### <a name="eventsource-tracking"></a>Rilevamento EventSource
+`EventSourceTelemetryModule` consente di configurare eventi EventSource da inviare ad Application Insights come tracce. Per informazioni su eventi EventSource di rilevamento, vedere [Using EventSource Events](app-insights-asp-net-trace-logs.md#using-eventsource-events) (uso degli eventi EventSource).
+
+* `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
+* [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
+
+### <a name="etw-event-tracking"></a>Registrazione degli eventi ETW
+`EtwCollectorTelemetryModule` consente di configurare gli eventi dai provider ETW da inviare ad Application Insights come tracce. Per informazioni sul rilevamento di eventi ETW, vedere [Using ETW Events](app-insights-asp-net-trace-logs.md#using-etw-events) (Uso di eventi ETW).
+
+* `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
+* [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
+
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
 Il pacchetto Microsoft.ApplicationInsights include l' [API principale](https://msdn.microsoft.com/library/mt420197.aspx) dell'SDK. Gli altri moduli di telemetria utilizzano questo pacchetto, ed è possibile anche [utilizzarlo per definire la propria telemetria](app-insights-api-custom-events-metrics.md).
 
@@ -117,6 +131,8 @@ Gli inizializzatori standard sono tutti impostati dal Web o dai pacchetti NuGet 
 * `UserTelemetryInitializer` aggiorna le proprietà `Id` e `AcquisitionDate` del contesto `User` per tutti gli elementi di telemetria con i valori estratti dal cookie `ai_user` generato dal codice di strumentazione JavaScript di Application Insights in esecuzione nel browser dell'utente.
 * `WebTestTelemetryInitializer` imposta l'id utente, l'id di sessione e le proprietà di origine sintetica per le richieste HTTP che provengono da [test di disponibilità](app-insights-monitor-web-app-availability.md).
   `<Filters>` imposta le proprietà di identificazione delle richieste.
+
+Per le applicazioni .NET in esecuzione in Service Fabric, è possibile includere il pacchetto NuGet `Microsoft.ApplicationInsights.ServiceFabric`. Questo pacchetto include `FabricTelemetryInitializer`, che aggiunge le proprietà di Service Fabric per gli elementi di telemetria. Per ulteriori informazioni, vedere la [pagina GitHub](https://go.microsoft.com/fwlink/?linkid=848457) sulle proprietà aggiunte dal pacchetto NuGet.
 
 ## <a name="telemetry-processors-aspnet"></a>Processori di telemetria (ASP.NET)
 I processori di telemetria possono filtrare e modificare ciascun elemento di telemetria prima di inviarlo dal SDK al portale.
@@ -261,9 +277,4 @@ Per ottenere una nuova chiave, [creare una nuova risorsa nel portale di Applicat
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

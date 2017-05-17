@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 37b85ba4987f8f29e4e825a17f0a892ddabf9599
-ms.lasthandoff: 04/12/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e76a31a8eaa249ab064d180bfd7ed158ef32c85a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -86,19 +87,35 @@ Per salvare i filtri applicati, bloccare la visualizzazione filtrata su un [dash
 
 ![Aggiungi al dashboard](./media/app-insights-app-map/12.png)
 
+## <a name="error-pane"></a>Riquadro dell'errore
+Quando si fa clic su un nodo nella mappa, viene visualizzato un riquadro dell'errore sul lato destro che riassume i problemi relativi a tale nodo. Gli errori vengono prima raggruppati per ID operazione e quindi per ID del problema.
+
+![Riquadro dell'errore](./media/app-insights-app-map/error-pane.png)
+
+Per passare all'istanza più recente dell'errore fare clic sull'errore stesso.
+
+## <a name="resource-health"></a>Integrità delle risorse
+Per alcuni tipi di risorsa, l'integrità delle risorse viene visualizzata nella parte superiore del riquadro dell'errore. Ad esempio, facendo clic su un nodo SQL verranno visualizzati l'integrità del database ed eventuali avvisi che sono stati attivati.
+
+![Integrità delle risorse](./media/app-insights-app-map/resource-health.png)
+
+È possibile fare clic sul nome della risorsa per visualizzare le metriche di panoramica standard per la risorsa.
+
 ## <a name="end-to-end-system-app-maps"></a>Mappe delle app del sistema end-to-end
+
+*È necessaria la versione 2.3 o successive di SDK*
 
 Se l'applicazione include diversi componenti, ad esempio un servizio back-end oltre all'App Web, è anche possibile visualizzarli tutti in una mappa integrata delle app.
 
 ![impostare i filtri](./media/app-insights-app-map/multi-component-app-map.png)
 
-La mappa delle app consente di trovare i nodi del server mediante la ricerca di tutte le risorse di Application Insights all'interno del gruppo di risorse corrente. Rileva inoltre i nodi server seguendo le chiamate di dipendenza di cui le risorse di Application Insights hanno tenuto traccia nel gruppo di risorse corrente.
+La mappa dell'app consente di trovare i nodi del server seguendo le chiamate di dipendenza HTTP inviate tra i server con Application Insights SDK installato. Si presuppone che ogni risorsa di Application Insights contenga un server.
 
+### <a name="multi-role-app-map-preview"></a>Mappa con app multi-ruolo (anteprima)
 
-### <a name="setting-up"></a>Configurazione
+La funzionalità di anteprima della mappa dell'app multi-ruolo consente di usare la mappa dell'app con più server che inviano dati alla stessa risorsa o alla stessa chiave di strumentazione di Application Insights. I server nella mappa vengono segmentati in base alla proprietà cloud_RoleName negli elementi di telemetria. Impostare *Multi-role Application Map* (Mappa dell'applicazione multi-ruolo) su *On* (Attivo) nel pannello Anteprime per abilitare questa configurazione.
 
-> [!NOTE] 
-> La mappa delle app del sistema end-to-end è in versione di anteprima. È necessario instrumentare i componenti con una versione speciale dell'SDK, inoltre è necessario usare un URL speciale per visualizzare la mappa delle app. [Informazioni su come configurare le mappe delle app del sistema end-to-end](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
+Questo approccio potrebbe essere necessario in un'applicazione di micro-servizi o in altri scenari in cui si desidera correlare gli eventi tra più server all'interno di una singola risorsa di Application Insights.
 
 ## <a name="video"></a>Video
 

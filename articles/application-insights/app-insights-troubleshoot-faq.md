@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 191d9e1197c3526d2f72b972b7fada76dee84447
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 65c199064273930f66db580b6c01dabb4b906e7a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -103,7 +104,7 @@ Un'app desktop che è possibile usare nel server Web IIS per configurare Applica
 Da app Web del server:
 
 * Richieste HTTP
-* [Dipendenze](app-insights-asp-net-dependencies.md). Chiamate a: database SQL, chiamate HTTP a servizi esterni, Azure DocumentDB, tabelle, archiviazione BLOB e code. 
+* [Dipendenze](app-insights-asp-net-dependencies.md). Chiamate a: database SQL, chiamate HTTP a servizi esterni, Azure Cosmos DB, tabelle, archiviazione BLOB e code. 
 * [Eccezioni](app-insights-asp-net-exceptions.md) e analisi dello stack.
 * [Contatori delle prestazioni](app-insights-performance-counters.md): se si usa [Status Monitor](app-insights-monitor-performance-live-website-now.md), il monitoraggio di Azure (app-insights-azure-web-apps.md) o il [writer collectd di Application Insights](app-insights-java-collectd.md).
 * [Metrica ed eventi personalizzati](app-insights-api-custom-events-metrics.md) codificati.

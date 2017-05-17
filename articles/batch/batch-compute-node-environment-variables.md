@@ -10,13 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/26/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 171393bc4145a1d39d6ae7bf76815e7cd2d18164
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -60,9 +60,10 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 | AZ_BATCH_MASTER_NODE            | L'indirizzo IP e la porta del nodo di calcolo in cui viene eseguita l'attività principale di un'[attività multi-istanza][multi_instance]. | Principale multi-istanza e sottoattività. | `10.0.0.4:6000`|
 | AZ_BATCH_TASK_SHARED_DIR | Un percorso di directory identico per l'attività principale e tutte le sottoattività di un'[attività multi-istanza][multi_instance]. Il percorso esiste in ogni nodo in cui viene eseguita l'attività multi-istanza ed è accessibile in lettura/scrittura per i comandi di attività in esecuzione su tale nodo (sia il [comando di coordinamento][coord_cmd] che [il comando di applicazione][app_cmd]). Le sottoattività o un'attività principale eseguite su altri nodi non dispongono dell'accesso remoto per questa directory (non è una directory di rete "condivisa"). | Principale multi-istanza e sottoattività. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Specifica se il nodo corrente è il nodo principale per un'[attività multi-istanza][multi_instance]. I valori possibili sono `true` e `false`.| Principale multi-istanza e sottoattività. | `true` |
-
+| AZ_BATCH_NODE_IS_DEDICATED | Se `true`, il nodo corrente è un nodo dedicato. Se `false`, è un [nodo con priorità bassa](batch-low-pri-vms.md). | Tutte le attività. | `true` |
 
 [files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
 [multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/
 [coord_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#coordination-command
 [app_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#application-command
+

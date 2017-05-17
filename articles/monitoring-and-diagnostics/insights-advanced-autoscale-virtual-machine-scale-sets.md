@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
-ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 02/23/2017
 È possibile aumentare e ridurre il numero di istanze dei set di scalabilità di macchine virtuali in base ai valori soglia per le metriche delle prestazioni, a una pianificazione ricorrente oppure a una data specifica. È anche possibile configurare notifiche di posta elettronica e webhook per le azioni di scalabilità. Questa procedura dettagliata illustra un esempio di configurazione di tutti tali oggetti usando in modello di Resource Manager in un set di scalabilità di macchine virtuali.
 
 > [!NOTE]
-> Mentre la procedura dettagliata illustra i passaggi per il set di scalabilità di macchine virtuali, le stesse informazioni si applicano a Servizi cloud e ad App Web per la scalabilità automatica.
+> Mentre la procedura dettagliata illustra i passaggi per il set di scalabilità di macchine virtuali, le stesse informazioni si applicano a [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) e ad [Servizio app - App Web](https://azure.microsoft.com/services/app-service/web/) per la scalabilità automatica.
 > Per una semplice impostazione di riduzione/aumento del numero di istanze in un set di scalabilità di macchine virtuali in base a una semplice metrica delle prestazioni, ad esempio la CPU, vedere i documenti relativi a [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) e [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 >
 >
