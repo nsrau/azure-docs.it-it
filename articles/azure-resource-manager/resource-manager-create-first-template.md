@@ -15,10 +15,10 @@ ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
 ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -185,7 +185,7 @@ Anche in questo caso, Visual Studio Code assiste l'utente suggerendo le funzioni
 
 ![Visualizzare le funzioni](./media/resource-manager-create-first-template/show-functions.png)
 
-Si noti che la funzione è racchiusa tra parentesi quadre. La funzione [resourceGroup](resource-group-template-functions.md#resourcegroup) restituisce un oggetto con una proprietà denominata `location`. Il gruppo di risorse contiene tutte le risorse correlate per la soluzione. È possibile impostare la proprietà location come hardcoded con un valore come "Central US", ma per la ridistribuzione in una località diversa sarebbe necessario modificare manualmente il modello. L'uso della funzione `resourceGroup` semplifica la ridistribuzione del modello in un diverso gruppo di risorse in una diversa località.
+Si noti che la funzione è racchiusa tra parentesi quadre. La funzione [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) restituisce un oggetto con una proprietà denominata `location`. Il gruppo di risorse contiene tutte le risorse correlate per la soluzione. È possibile impostare la proprietà location come hardcoded con un valore come "Central US", ma per la ridistribuzione in una località diversa sarebbe necessario modificare manualmente il modello. L'uso della funzione `resourceGroup` semplifica la ridistribuzione del modello in un diverso gruppo di risorse in una diversa località.
 
 Il modello si presenta ora come segue:
 
@@ -217,7 +217,7 @@ Il modello si presenta ora come segue:
 ## <a name="add-parameters-and-variables"></a>Aggiungere parametri e variabili
 Nel modello restano da impostare solo due valori: **name** e **sku.name**. Per queste proprietà si aggiungono parametri che consentono di personalizzare i valori durante la distribuzione. 
 
-I nomi degli account di archiviazione sono soggetti a diverse restrizioni che ne complicano l'impostazione. Il nome deve essere di lunghezza compresa tra 3 e 24 caratteri, contenere solo numeri e lettere minuscole ed essere univoco. Invece di provare a indovinare un valore univoco corrispondente alle restrizioni, usare la funzione [uniqueString](resource-group-template-functions.md#uniquestring) per generare un valore hash. Per rendere il valore hash più significativo, aggiungere un prefisso che consenta di identificarlo come account di archiviazione dopo la distribuzione. 
+I nomi degli account di archiviazione sono soggetti a diverse restrizioni che ne complicano l'impostazione. Il nome deve essere di lunghezza compresa tra 3 e 24 caratteri, contenere solo numeri e lettere minuscole ed essere univoco. Invece di provare a indovinare un valore univoco corrispondente alle restrizioni, usare la funzione [uniqueString](resource-group-template-functions-string.md#uniquestring) per generare un valore hash. Per rendere il valore hash più significativo, aggiungere un prefisso che consenta di identificarlo come account di archiviazione dopo la distribuzione. 
 
 1. Per passare un prefisso per il nome corrispondente alle proprie convenzioni di denominazione, andare alla sezione **parameters** del modello. Aggiungere al modello un parametro che accetta un prefisso per il nome dell'account di archiviazione:
 
