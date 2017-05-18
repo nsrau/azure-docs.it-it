@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 2673a9c0d91510756a97b2dba3801d2925905c9a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -44,11 +45,9 @@ Sarà anche necessaria una sottoscrizione di Azure per completare i passaggi di 
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Creare un progetto Web dinamico in Eclipse
 
-Nell'IDE di Eclipse fare clic su **File**, quindi su **New** (Nuovo) e infine su **Dynamic Web Project** (Progetto Web dinamico).
+In Eclipse scegliere **New** (Nuovo) dal menu **File**, quindi **Dynamic Web Project** (Progetto Web dinamico).
 
-![Nuovo progetto Web dinamico](./media/app-service-web-get-started-java/file-new-dynamic-web-project-menu.png)
-
-Quando viene visualizzata la finestra di dialogo Dynamic Web Project (Progetto Web dinamico), assegnare all'applicazione il nome **MyFirstJavaOnAzureWebApp** e quindi fare clic su **Finish** (Fine).
+Nella finestra di dialogo **New Dynamic Web Project** (Nuovo progetto Web dinamico) assegnare al progetto il nome **MyFirstJavaOnAzureWebApp** e selezionare **Finish** (Fine).
    
 ![Finestra di dialogo Dynamic Web Project (Progetto Web dinamico)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -73,13 +72,11 @@ Quando la nuova pagina si apre in Eclipse, sostituire la sezione `<body></body>`
 
 ```jsp
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 ```
 
 Salvare le modifiche alla pagina.
-
-![Modifica del codice JSP](./media/app-service-web-get-started-java/creating-index-jsp-page.png)
 
 ## <a name="publish-your-web-app-to-azure"></a>Pubblicare l'app Web in Azure
 
@@ -183,14 +180,12 @@ Modificare prima di tutto il codice JSP di esempio precedente, sostituendo il ti
 <title><% out.println(date.format(new Date())); %></title>
 </head>
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 </html>
 ```
 
-![Aggiornamento del codice JSP](./media/app-service-web-get-started-java/updating-index-jsp-page.png)
-
-Dopo avere salvato le modifiche alla pagina, fare clic con il pulsante destro del mouse sul progetto in **Project Explorer** (Esplora progetti) di Eclipse, quindi scegliere **Azure** e infine **Publish as Azure Web App** (Pubblica come app Web di Azure).
+Dopo avere salvato le modifiche, fare clic con il pulsante destro del mouse sul progetto in **Project Explorer** (Esplora progetti) di Eclipse, quindi scegliere **Azure** e infine **Publish as Azure Web App** (Pubblica come app Web di Azure).
 
 ![Pubblicare l'app Web aggiornata](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
 
@@ -207,9 +202,9 @@ Dopo avere pubblicato le modifiche, si noterà che il titolo della pagina è sta
 
 ![Passare all'app Web](./media/app-service-web-get-started-java/browse-web-app-2.png)
 
-## <a name="deleting-your-web-app"></a>Eliminazione dell'app Web
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per eliminare un'app Web, è possibile usare **Azure Explorer**, che fa parte di Azure Toolkit. Se la visualizzazione **Azure Explorer** non è già visibile in Eclipse, seguire questa procedura per aprirla:
+Per eliminare l'app Web, usare **Azure Explorer** incluso in Azure Toolkit. Se la visualizzazione **Azure Explorer** non è già visibile in Eclipse, seguire questa procedura per aprirla:
 
 1. Fare clic su **Window** (Finestra), quindi su **Show View** (Mostra visualizzazione) e infine su **Other** (Altro).
 
