@@ -11,16 +11,16 @@ ms.assetid:
 ms.service: cosmosdb
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 87c9bfc3d23ed2c21d989e06058c017e41009453
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: bad18882dd362ded4dac53beecbd65ff6df4c725
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -32,7 +32,7 @@ Questo script dell'interfaccia della riga di comando di Azure di esempio permett
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[principale](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Creare un account API di Azure Cosmos DB DocumentDB, un database e una raccolta")]
+[!code-azurecli-interactive[principale](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Creare un account API di Azure Cosmos DB DocumentDB, un database e una raccolta")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -57,3 +57,4 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili nella [documentazione dell'interfaccia della riga di comando di Azure Cosmos DB](../cli-samples.md).
+

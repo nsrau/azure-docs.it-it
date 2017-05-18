@@ -1,25 +1,23 @@
 ---
 title: Creare un&quot;app per le funzioni e distribuire codice di funzione da GitHub | Documentazione Microsoft
-description: Creare un&quot;app per le funzioni e distribuire codice di funzione da GitHub
+description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;app per le funzioni e distribuire codice di funzione da GitHub
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
 ms.topic: sample
+ms.service: functions
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 152dfe6a9bafada83457d3518fbc3758dd34cde0
+ms.openlocfilehash: f87cf7d300b4c2b89ad692aadcda958e9747c7f9
 ms.contentlocale: it-it
 ms.lasthandoff: 05/15/2017
 
 ---
-# <a name="create-an-app-service"></a>Creare un servizio app
+# <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Creare un'app per le funzioni e distribuire codice di funzione da GitHub
 
-Questo script di esempio crea un'app per le funzioni usando il [piano a consumo](../functions-scale.md#consumption-plan) con le relative risorse correlate e distribuisce in modo continuo il codice di funzione da un archivio GitHub. In questo esempio è necessario:
-
-* Un archivio GitHub contenente il codice di funzione per il quale si hanno autorizzazioni amministrative.
-* [Token di accesso personale](https://help.github.com/articles/creating-an-access-token-for-command-line-use) per il proprio account GitHub.
+Questo script di esempio crea un'app per le funzioni usando il [piano a consumo](../functions-scale.md#consumption-plan) con le relative risorse correlate e distribuisce il codice di funzione da un archivio GitHub pubblico (senza la distribuzione continua). Per la distribuzione continua del codice di funzione da GitHub, leggere [Create a function app and continuously deploy from GitHub](functions-cli-create-function-app-github-continuous.md) (Creare un'app per le funzioni ed eseguire la distribuzione continua da GitHub)
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -27,7 +25,7 @@ Questo script di esempio crea un'app per le funzioni usando il [piano a consumo]
 
 Questo esempio crea un'app per le funzioni di Azure e distribuisce il codice di funzione da GitHub.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Servizio di Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github/deploy-function-app-with-function-github.sh?highlight=3 "Creare un'app per le funzioni con la distribuzione da GitHub")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -39,7 +37,7 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Consente di creare un piano di servizio app. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Crea un'app per le funzioni di Azure. |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Associa un'app per le funzioni con un archivio Git o Mercurial. |
 
 ## <a name="next-steps"></a>Passaggi successivi
