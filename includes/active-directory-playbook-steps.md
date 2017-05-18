@@ -25,7 +25,7 @@
      * [Reimpostazione password self-service](../articles/active-directory/active-directory-playbook-implementation.md#self-service-password-reset)
      * [Accesso self-service alle applicazioni](../articles/active-directory/active-directory-playbook-implementation.md#self-service-access-to-applications)
 4. [Blocchi predefiniti](../articles/active-directory/active-directory-playbook-building-blocks.md)
-   * [Catalogo degli attori](../articles/active-directory/active-directory-playbook-building-blocks.md#catalog-of-actors)
+   * [Catalogo degli attori](../articles/active-directory/active-directory-playbook-building-blocks.md)
    * [Prerequisiti comuni per tutti i blocchi predefiniti](../articles/active-directory/active-directory-playbook-building-blocks.md#common-prerequisites-for-all-building-blocks)
    * [Sincronizzazione directory: sincronizzazione dell'hash delle password (PHS), nuova installazione](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation)
    * [Personalizzazione](../articles/active-directory/active-directory-playbook-building-blocks.md#branding)
