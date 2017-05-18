@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: af85e4921a2b81c71f1d132c6df591acbe5d3764
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7132c83168efcebc9ac03b42afdec9f760e4fcbe
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -156,12 +156,18 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 
 ## <a name="VPNDevice"></a>8. Configurare il dispositivo VPN
 
-[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
- Per trovare l'indirizzo IP pubblico del gateway di rete virtuale, usare il comando [az network public-ip list](/cli/azure/network/public-ip#list). Per facilitare la lettura, la formattazione dell'output visualizza l'elenco di IP pubblici in formato tabella.
+Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VPN. In questo passaggio viene configurato il dispositivo VPN. Durante la configurazione del dispositivo VPN, è necessario quanto segue:
 
-```azurecli
-az network public-ip list --resource-group TestRG1 --output table
-```
+- Chiave condivisa. Si tratta della stessa chiave condivisa che viene specificata durante la creazione della connessione VPN da sito a sito. In questi esempi viene usata una chiave condivisa semplice. È consigliabile generare una chiave più complessa per l'uso effettivo.
+- Indirizzo IP pubblico del gateway di rete virtuale. È possibile visualizzare l'indirizzo IP pubblico usando il portale di Azure, PowerShell o l'interfaccia della riga di comando. Per trovare l'indirizzo IP pubblico del gateway di rete virtuale, usare il comando [az network public-ip list](/cli/azure/network/public-ip#list). Per facilitare la lettura, la formattazione dell'output visualizza l'elenco di IP pubblici in formato tabella.
+
+  ```azurecli
+  az network public-ip list --resource-group TestRG1 --output table
+  ```
+
+
+[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+
 
 ## <a name="CreateConnection"></a>9. Creare la connessione VPN
 

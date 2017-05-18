@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: ae91d49bf4f715847bcef5d6b00e3798e6a02500
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: fea9796d8ca03351573f091dce41689743821cad
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -36,9 +36,10 @@ Questo articolo illustra come usare il portale di Azure per creare una connessio
 > 
 >
 
-![Diagramma della connessione cross-premise gateway VPN da sito a sito](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
 Una connessione gateway VPN da sito a sito viene usata per connettere la rete locale a una rete virtuale di Azure tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Questo tipo di connessione richiede un dispositivo VPN che si trova in locale con un indirizzo IP pubblico esterno assegnato. Per altre informazioni sui gateway VPN, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
+
+![Diagramma della connessione cross-premise gateway VPN da sito a sito](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -100,9 +101,14 @@ Il gateway di rete locale in genere fa riferimento al percorso locale. Assegnare
 [!INCLUDE [vpn-gateway-add-lng-s2s-rm-portal](../../includes/vpn-gateway-add-lng-s2s-rm-portal-include.md)]
 
 ## <a name="VPNDevice"></a>6. Configurare il dispositivo VPN
-[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-Per trovare l'indirizzo IP pubblico del gateway VPN usando il portale di Azure, passare a **Gateway di rete virtuali**, quindi fare clic sul nome del gateway.
+Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VPN. In questo passaggio viene configurato il dispositivo VPN. Durante la configurazione del dispositivo VPN, è necessario quanto segue:
+
+- Chiave condivisa. Si tratta della stessa chiave condivisa che viene specificata durante la creazione della connessione VPN da sito a sito. In questi esempi viene usata una chiave condivisa semplice. È consigliabile generare una chiave più complessa per l'uso effettivo.
+- Indirizzo IP pubblico del gateway di rete virtuale. È possibile visualizzare l'indirizzo IP pubblico usando il portale di Azure, PowerShell o l'interfaccia della riga di comando. Per trovare l'indirizzo IP pubblico del gateway VPN usando il portale di Azure, passare a **Gateway di rete virtuali**, quindi fare clic sul nome del gateway.
+
+
+[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## <a name="CreateConnection"></a>7. Creare la connessione VPN
 
