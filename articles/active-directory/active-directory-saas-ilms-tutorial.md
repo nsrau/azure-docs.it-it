@@ -174,7 +174,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella sezione **Provider di identità** fare clic su **Import metadata** (Importa metadati).
     
-    c. Selezionare il file **Metadati** scaricato dal portale di Azure dalla sezione **	Certificato di firma SAML**.
+    c. Selezionare il file **Metadati** scaricato dal portale di Azure dalla sezione **Certificato di firma SAML**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_ssoconfig1.png) 
 

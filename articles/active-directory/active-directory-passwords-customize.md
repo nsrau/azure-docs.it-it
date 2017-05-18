@@ -57,7 +57,7 @@ Questi elementi grafici vengono visualizzati nelle seguenti circostanze:
 
 ### <a name="graphics-details"></a>Dettagli di grafica
 
-Le impostazioni seguenti consentono di modificare le caratteristiche visive della pagina di accesso e possono essere trovate in **Azure Active Directory**, **Informazioni personalizzate distintive dell'azienda**, **	Modifica informazioni personalizzate distintive dell'azienda**
+Le impostazioni seguenti consentono di modificare le caratteristiche visive della pagina di accesso e possono essere trovate in **Azure Active Directory**, **Informazioni personalizzate distintive dell'azienda**, **Modifica informazioni personalizzate distintive dell'azienda**
 
 * L'immagine della pagina di accesso deve essere un file con estensione PNG o JPG da 1420 x 1200 pixel e non superiore a 500 KB. È consigliabile che sia di circa 200 KB per ottenere risultati ottimali.
 * Il colore dello sfondo nella pagina di accesso viene usato nel caso di connessioni a latenza elevata e deve essere nel formato RGB esadecimale
