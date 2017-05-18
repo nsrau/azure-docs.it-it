@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -30,7 +30,7 @@ Questa guida introduttiva illustra come distribuire la prima app Web ASP.NET nel
 
 ![App Web ASP.NET nel servizio app di Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione illustra come usare Visual Studio 2017 per compilare e distribuire un'app Web ASP.NET in Azure. Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
@@ -38,7 +38,7 @@ Questa esercitazione illustra come usare Visual Studio 2017 per compilare e dist
 
 ## <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
 
-In Visual Studio creare un nuovo progetto con `Ctrl`+`Shift`+`N`.
+In Visual Studio creare un progetto con `Ctrl`+`Shift`+`N`.
 
 Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C# > Web > Applicazione Web ASP.NET (.NET Framework)**.
 
@@ -111,7 +111,7 @@ Nella finestra di dialogo **Configura piano di servizio app** configurare il nuo
 
 Fare clic su **OK**.
 
-![Creare un nuovo piano di servizio app](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Creare un piano di servizio app](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>Creare e pubblicare l'app Web
 
@@ -166,11 +166,11 @@ Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web 
 
 Si accede così al _pannello_, ovvero una pagina del portale visualizzata in orizzontale, dell'app Web. 
 
-Per impostazione predefinita, nel pannello dell'app Web viene aperta la pagina **Panoramica**, che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare. Le schede sul lato sinistro del pannello mostrano le diverse pagine di configurazione che è possibile aprire. 
+Per impostazione predefinita, nel pannello dell'app Web viene aperta la pagina **Panoramica**, che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare.  
 
 ![Pannello del servizio app nel portale di Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Queste schede del pannello mostrano le numerose utili funzionalità che è possibile aggiungere all'app Web. Nell'elenco seguente sono riportate solo alcune delle possibilità:
+Le schede sul lato sinistro del pannello mostrano le diverse pagine di configurazione che è possibile aprire. Nell'elenco seguente sono riportate solo alcune delle possibilità:
 
 - Eseguire il mapping di un nome DNS personalizzato
 - Associare un certificato SSL personalizzato
@@ -194,5 +194,9 @@ Nel pannello di conferma eseguire una verifica digitando il nome del gruppo di r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esplorare gli [script di PowerShell per le app Web](app-service-powershell-samples.md) già creati.
+> [!div class="nextstepaction"]
+> [Informazioni su come creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Esplorare gli script di PowerShell per App Web di esempio](app-service-powershell-samples.md)
 

@@ -1,149 +1,300 @@
 ---
-title: Aggiungere una rete per la distribuzione di contenuti in un servizio app di Azure | Microsoft Docs
-description: Aggiungere una rete per la distribuzione di contenuti in un servizio app di Azure per distribuire i file statici da nodi perimetrali.
+title: Aggiungere una rete per la distribuzione di contenuti (CDN) a un servizio app di Azure | Microsoft Docs
+description: Aggiungere una rete per la distribuzione di contenuti (CDN) a un servizio app di Azure per memorizzare nella cache e distribuire i file statici dai server vicini ai clienti in tutto il mondo.
 services: app-service
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/03/2017
+ms.date: 05/01/2017
 ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 7ba3737566401152a3171e8926beca188045230c
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7208abc0e6eaa9067c5bb36a09e1bfd276fe0b0c
 ms.contentlocale: it-it
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/09/2017
 
 ---
-# <a name="add-a-content-deliver-network-on-an-azure-app-service"></a>Aggiungere una rete per la distribuzione di contenuti in un servizio app di Azure
+# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Aggiungere una rete per la distribuzione di contenuti (CDN) a un servizio app di Azure
 
-In questa esercitazione si aggiungerà una rete per la distribuzione di contenuti (rete CDN) al servizio app di Azure per esporre i contenuti statici in un server perimetrale. Si creerà un profilo di rete CDN, che è una raccolta di un massimo di 10 endpoint di rete CDN.
+La [rete per la distribuzione di contenuti (CDN) di Azure](../cdn/cdn-overview.md) memorizza nella cache il contenuto Web statico in località strategiche per offrire la massima velocità effettiva per la distribuzione del contenuto agli utenti. La rete CDN riduce anche il carico del server per l'app Web. Questa esercitazione illustra come aggiungere la rete CDN di Azure a un'[app Web nel servizio app di Azure](app-service-web-overview.md). 
 
-Una rete per la distribuzione di contenuti memorizza nella cache il contenuto Web statico in località strategiche per offrire la massima velocità effettiva per la distribuzione del contenuto agli utenti. L'uso della rete CDN per memorizzare nella cache gli asset dei siti Web offre diversi vantaggi, inclusi i seguenti:
+In questa esercitazione si apprenderà come:
 
-* Una migliore esperienza utente e migliori prestazioni per gli utenti finali, specialmente quando usano applicazioni in cui sono necessari più round trip per caricare il contenuto.
-* Grande scalabilità per gestire al meglio un carico elevato immediato, ad esempio all'inizio di un evento per il lancio di un prodotto.
-* Grazie alla distribuzione delle richieste utente e alla gestione del contenuto da server perimetrali, viene inviata una minore quantità di traffico all'origine.
+> [!div class="checklist"]
+> * Creare un endpoint della rete CDN.
+> * Aggiornare gli asset memorizzati nella cache.
+> * Usare stringhe di query per controllare le versioni memorizzate nella cache.
+> * Usare un dominio personalizzato per l'endpoint della rete CDN.
 
-> [!TIP]
-> Vedere l'elenco aggiornato delle [località POP della rete CDN di Azure](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
->
+Di seguito è riportata la home page del sito HTML statico di esempio che verrà usato:
 
-## <a name="deploy-the-sample"></a>Distribuire l'esempio
+![Home page dell'app di esempio](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
 
-Per completare questa esercitazione, sarà necessaria un'applicazione distribuita nell'app Web. Seguire la [guida introduttiva su HTML statico](app-service-web-get-started-html.md) che costituisce la base per questa esercitazione.
+## <a name="create-the-web-app"></a>Creare l'app Web
 
-## <a name="step-1---login-to-azure-portal"></a>Passaggio 1: accedere al portale di Azure
+Per creare l'app Web che verrà usata, seguire le istruzioni riportate nella [guida introduttiva per siti HTML statici](app-service-web-get-started-html.md), senza però completare il passaggio **Pulire le risorse**.
 
-Aprire un browser a scelta e passare al [portale](https://portal.azure.com) di Azure.
+Al termine, mantenere aperto il prompt dei comandi per poter distribuire altre modifiche nell'app Web più avanti in questa esercitazione.
 
-## <a name="step-2---create-a-cdn-profile"></a>Passaggio 2: creare un profilo della rete CDN
+### <a name="have-a-custom-domain-ready"></a>Preparare un dominio personalizzato
 
-Nel riquadro di spostamento a sinistra fare clic sul pulsante `+ New` e quindi su **Web e dispositivi mobili**. Nella categoria Web e dispositivi mobili selezionare **Rete CDN**.
+Per completare il passaggio di questa esercitazione relativo al dominio personalizzato, è necessario avere accesso al registro DNS per il provider di dominio (ad esempio, GoDaddy). Ad esempio, per aggiungere le voci DNS per `contoso.com` e `www.contoso.com`, è necessario avere l’accesso per configurare le impostazioni DNS per il dominio radice `contoso.com`.
 
-Specificare i campi seguenti:
+Se non si ha ancora un nome di dominio, può essere opportuno seguire l'[esercitazione relativa ai domini nel servizio app](custom-dns-web-site-buydomains-web-app.md) per acquistare un dominio usando il portale di Azure. 
 
-| Campo | Valore di esempio | Descrizione |
-|---|---|---|
-| Nome | myCDNProfile | Un nome per il profilo della rete CDN. |
-| Percorso | Europa occidentale | Questo è il percorso di Azure in cui verranno archiviate le informazioni relative al profilo di rete CDN. Non incide sulle posizioni dell’endpoint di rete CDN. |
-| Gruppo di risorse | myResourceGroup | Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups). |
-| Piano tariffario  | Standard Akamai | Per un confronto tra i piani tariffari, vedere [Panoramica della rete CDN](../cdn/cdn-overview.md#azure-cdn-features) . |
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
 
-Fare clic su **Crea**.
+Aprire un browser e passare al [portale di Azure](https://portal.azure.com).
 
-Aprire l'hub dei gruppi di risorse dal riquadro di spostamento sinistro e selezionare **myResourceGroup**. Dall'elenco di risorse selezionare **myCDNProfile**.
+## <a name="create-a-cdn-profile-and-endpoint"></a>Creare un profilo e un endpoint della rete CDN
 
-![azure-cdn-profile-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-profile-created.png)
+Nel riquadro di spostamento a sinistra selezionare **Servizi app** e quindi l'app creata nella [guida introduttiva per siti HTML statici](app-service-web-get-started-html.md).
 
-## <a name="step-3---create-a-cdn-endpoint"></a>Passaggio 3: creare un endpoint della rete CDN
+![Selezionare Servizi app nel portale](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
-Fare clic su **+ Endpoint** nei comandi accanto alla casella di ricerca per aprire il pannello di creazione di endpoint.
+Nella sezione **Impostazioni** della pagina **Servizio app** selezionare **Rete > Configurare la rete CDN di Azure per l'app**.
 
-Specificare i campi seguenti:
+![Selezionare la rete CDN nel portale](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
 
-| Campo | Valore di esempio | Descrizione |
-|---|---|
-| Nome |  | Questo nome verrà usato per accedere alle risorse memorizzate nella cache nel dominio `<endpointname>.azureedge.net`. |
-| Tipo di origine | App Web | La selezione di un tipo di origine offre i menu di scelta rapida per i campi rimanenti. La selezione dell'origine personalizzata offrirà un campo di testo per il nome host dell'origine. |
-| Nome host dell'origine | |  Nell'elenco a discesa compariranno tutte le origini disponibili del tipo specificato. Se è stato selezionata l'origine personalizzata come tipo di origine, si digiterà il dominio dell'origine personalizzata.  |
+Nella pagina **Rete per la distribuzione di contenuti di Azure** specificare le impostazioni in **Nuovo endpoint** come indicato nella tabella.
 
-Fare clic su **Aggiungi**.
+![Creare un profilo e un endpoint nel portale](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
-Verrà creato l'endpoint. Dopo aver creato l'endpoint della rete per la distribuzione di contenuti, lo stato diventerà **In esecuzione**.
+| Impostazione | Valore consigliato | Descrizione |
+| ------- | --------------- | ----------- |
+| **Profilo CDN** | myCDNProfile | Selezionare **Crea nuovo** per creare un nuovo profilo di rete CDN. Un profilo di rete CDN è una raccolta di endpoint della rete CDN con lo stesso piano tariffario. |
+| **Piano tariffario** | Standard Akamai | Il [piano tariffario](../cdn/cdn-overview.md#azure-cdn-features) specifica il provider e le funzionalità disponibili. In questa esercitazione si userà Akamai standard. |
+| **Nome endpoint rete CDN** | Qualsiasi nome univoco nel dominio azureedge.net | Si accede alle risorse memorizzate nella cache nel dominio *\<nomeendpoint>.azureedge.net*.
 
-![azure-cdn-endpoint-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-endpoint-created.png)
+Selezionare **Create**.
 
-## <a name="step-4---serve-from-azure-cdn"></a>Passaggio 4: Eseguire la distribuzione dalla rete CDN di Azure
+Azure crea il profilo e l'endpoint. Il nuovo endpoint verrà visualizzato nell'elenco **Endpoint** nella stessa pagina e al termine del relativo provisioning lo stato sarà **In esecuzione**.
 
-Dopo che l'endpoint della rete CDN è **in esecuzione**, dovrebbe essere possibile accedere al contenuto dall'endpoint della rete CDN.
+![Nuovo endpoint nell'elenco](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
 
-Poiché è stata usata la [guida introduttiva su HTML statico](app-service-web-get-started-html.md) come base per questa esercitazione, nella rete CDN saranno disponibili le cartelle seguenti: `css`, `img`, `js`.
+### <a name="test-the-cdn-endpoint"></a>Testare l'endpoint della rete CDN
 
-I percorsi del contenuto tra l'URL dell'app Web `http://<app_name>.azurewebsites.net/img/` e l'URL dell'endpoint della rete CDN `http://<endpointname>.azureedge.net/img/` sono gli stessi, quindi è sufficiente sostituire il dominio dell'endpoint della rete CDN in modo che qualsiasi contenuto statico venga distribuito dalla rete CDN.
+Se è stato selezionato il piano tariffario Verizon, la propagazione dell'endpoint richiede in genere circa 90 minuti. Per Akamai è sufficiente qualche minuto.
 
-Per effettuare il pull della prima immagine dall'endpoint della rete CDN, passare all'URL seguente nel Web browser preferito:
+L'app di esempio include un file `index.html` e le cartelle *css*, *img* e *js* che contengono altri asset statici. I percorsi del contenuto per tutti questi file sono gli stessi nell'endpoint della rete CDN. Entrambi gli URL seguenti, ad esempio, accedono al file *bootstrap.css* nella cartella *css*:
 
-```bash
-http://<endpointname>.azureedge.net/img/03-enterprise.png
+```
+http://<appname>.azurewebsites.net/css/bootstrap.css
 ```
 
-Ora che il contenuto statico è disponibile nella rete CDN, è possibile aggiornare l'applicazione per usare l'endpoint della rete CDN per la distribuzione del contenuto all'utente finale.
+```
+http://<endpointname>.azureedge.net/css/bootstrap.css
+```
 
-A seconda del linguaggio con cui è stato compilato il sito, potrebbero essere presenti diversi framework a supporto del fallback della rete CDN. ASP.NET offre ad esempio il supporto per [creazione di bundle e minimizzazione](https://docs.microsoft.com/en-us/aspnet/mvc/overview/performance/bundling-and-minification#using-a-cdn) che abilita anche le funzionalità di fallback della rete CDN.
+Passando con un browser all'URL seguente verrà visualizzata la stessa pagina eseguita in precedenza in un'app Web di Azure, che ora viene però fornita dalla rete CDN.
 
-Se il linguaggio in uso non offre il supporto predefinito o di una libreria per il failback CDN, è possibile usare un framework JavaScript, ad esempio [FallbackJS](http://fallback.io/), che supporta il caricamento di [script](https://github.com/dolox/fallback/tree/master/examples/loading-scripts), [fogli di stile](https://github.com/dolox/fallback/tree/master/examples/loading-stylesheets) e [immagini](https://github.com/dolox/fallback/tree/master/examples/loading-images).
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-## <a name="step-5---purge-the-cdn"></a>Passaggio 5: Ripulire la rete CDN
+![Home page dell'app di esempio fornita dalla rete CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
-In alcuni casi può essere necessario forzare una ripulitura della rete CDN, se si vuole impostare come scaduto il contenuto prima della scadenza della durata (TTL).
+Ciò dimostra che la rete CDN di Azure ha recuperato gli asset dell'app Web di origine e li fornisce dal proprio endpoint. 
 
-È possibile ripulire manualmente la rete CDN di Azure dal pannello Profilo CDN o dal pannello Endpoint rete CDN. Se si seleziona Ripulisci dalla pagina del profilo, sarà necessario selezionare l'endpoint che si vuole ripulire.
+Per assicurarsi che questa pagina sia memorizzata nella cache nella rete CDN, aggiornare la pagina. Affinché la rete CDN memorizzi nella cache il contenuto richiesto sono talvolta necessarie due richieste dello stesso asset.
 
-Per ripulire il contenuto, digitare i percorsi del contenuto che si vuole ripulire. È possibile passare un percorso file completo per ripulire un singolo file oppure un segmento di percorso per ripulire e aggiornare il contenuto di una determinata cartella.
+Per altre informazioni sulla creazione dei profili e degli endpoint della rete CDN di Azure, vedere [Introduzione alla rete CDN di Azure](../cdn/cdn-create-new-endpoint.md).
 
-Dopo avere specificato tutti i percorsi del contenuto che si vuole ripulire, fare clic su **Ripulisci**.
+## <a name="purge-the-cdn"></a>Ripulire la rete CDN
 
-![app-service-web-purge-cdn](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+La rete CDN aggiorna periodicamente le proprie risorse dall'app Web di origine in base alla configurazione della durata (TTL). La durata predefinita è 7 giorni.
 
-## <a name="step-6---map-a-custom-domain"></a>Passaggio 6: Eseguire il mapping di un dominio personalizzato
+Potrebbe essere talvolta necessario aggiornare la rete CDN prima della scadenza del valore TTL, ad esempio quando si distribuisce contenuto aggiornato nell'app Web. Per attivare un aggiornamento, è possibile ripulire manualmente le risorse della rete CDN. 
 
-Il mapping di un dominio personalizzato all'endpoint della rete CDN fornisce un dominio uniforme per l'applicazione Web.
+In questa sezione dell'esercitazione si distribuirà una modifica nell'app Web e si ripulirà la rete CDN per attivare l'aggiornamento della cache.
 
-Per eseguire il mapping di un dominio personalizzato all'endpoint della rete CDN, creare un record CNAME con il registrar del dominio.
+### <a name="deploy-a-change-to-the-web-app"></a>Distribuire una modifica nell'app Web
 
-> [!NOTE]
-> Un record CNAME è una funzionalità DNS con cui viene eseguito il mapping di un dominio di origine, come `www.contosocdn.com` o `static.contosocdn.com`, a uno di destinazione.
+Aprire il file `index.html` e aggiungere "- V2" all'intestazione H1 come illustrato nell'esempio seguente: 
 
-In questo caso si aggiungerà un dominio di origine `static.contosocdn.com` e si punterà al dominio di destinazione che è l'endpoint della rete CDN.
+```
+<h1>Azure App Service - Sample Static HTML Site - V2</h1>
+```
 
-| dominio di origine | dominio di destinazione |
-|---|---|
-| static.contosocdn.com | &lt;nomeendpoint&gt;.azureedge.net |
+Eseguire il commit della modifica e distribuirla nell'app Web.
 
-Nel pannello di panoramica Endpoint rete CDN fare clic sul pulsante `+ Custom domain`.
+```bash
+git commit -am "version 2"
+git push azure master
+```
 
-Nel pannello Aggiungi un dominio personalizzato immettere il dominio personalizzato, incluso il sottodominio, nella finestra di dialogo. Ad esempio, immettere il nome di dominio nel formato `static.contosocdn.com`.
+Al termine della distribuzione, passando all'URL dell'app Web verrà visualizzata la modifica.
 
-Fare clic su **Aggiungi**.
+```
+http://<appname>.azurewebsites.net/index.html
+```
 
-## <a name="step-7---version-content"></a>Passaggio 7 : Contenuto della versione
+!["V2" nel titolo nell'app Web](media/app-service-web-tutorial-content-delivery-network/v2-in-web-app-title.png)
 
-Nel riquadro di spostamento a sinistra di Endpoint rete CDN selezionare **Cache** nell'intestazione Impostazioni.
+Passando all'URL dell'endpoint della rete CDN per la home page, la modifica non verrà visualizzata perché la versione memorizzata nella cache nella rete CDN non è ancora scaduta. 
 
-Il pannello **Cache** consente di configurare come la rete CDN gestisce le stringhe di query nella richiesta.
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-> [!NOTE]
-> Per una descrizione delle opzioni di comportamento di memorizzazione nella cache delle stringhe di query, vedere l'argomento [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query](../cdn/cdn-query-string.md).
+![Titolo nella rete CDN senza "V2"](media/app-service-web-tutorial-content-delivery-network/no-v2-in-cdn-title.png)
 
-Selezionare **Memorizza nella cache tutti gli URL univoci** nell'elenco a discesa Comportamento di memorizzazione nella cache della stringa di query.
+### <a name="purge-the-cdn-in-the-portal"></a>Ripulire la rete CDN nel portale
 
-Fare clic su **save**.
+Per attivare l'aggiornamento della versione memorizzata nella cache nella rete CDN, ripulire la rete CDN.
+
+Nel riquadro di spostamento a sinistra nel portale selezionare **Gruppi di risorse** e quindi il gruppo di risorse creato per l'app Web (myResourceGroup).
+
+![Selezionare il gruppo di risorse](media/app-service-web-tutorial-content-delivery-network/portal-select-group.png)
+
+Nell'elenco delle risorse selezionare l'endpoint della rete CDN.
+
+![Selezionare l'endpoint](media/app-service-web-tutorial-content-delivery-network/portal-select-endpoint.png)
+
+Nella parte superiore della pagina **Endpoint** fare clic su **Ripulisci**.
+
+![Selezionare Ripulisci](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
+
+Immettere i percorsi del contenuto che si vuole ripulire. È possibile passare un percorso file completo per ripulire un singolo file oppure un segmento di percorso per ripulire e aggiornare tutto il contenuto in una cartella. Dato che è stato modificato `index.html`, verificare che sia incluso in tali percorsi.
+
+Nella parte inferiore della pagina selezionare **Ripulisci**.
+
+![Pagina Ripulisci](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+
+### <a name="verify-that-the-cdn-is-updated"></a>Verificare che la rete CDN sia aggiornata
+
+Attendere il completamento dell'elaborazione della richiesta di ripulitura, che in genere richiede qualche minuto. Per visualizzare lo stato corrente, selezionare l'icona a forma di campana nella parte superiore della pagina. 
+
+![Notifica di ripulitura](media/app-service-web-tutorial-content-delivery-network/portal-purge-notification.png)
+
+Passando all'URL dell'endpoint della rete CDN per `index.html`, "V2" risulterà ora aggiunto al titolo nella home page. Ciò dimostra che la cache della rete CDN è stata aggiornata.
+
+```
+http://<endpointname>.azureedge.net/index.html
+```
+
+!["V2" nel titolo nella rete CDN](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title.png)
+
+Per altre informazioni, vedere [Ripulire un endpoint della rete CDN di Azure](../cdn/cdn-purge-endpoint.md). 
+
+## <a name="use-query-strings-to-version-content"></a>Usare le stringhe di query per il controllo delle versioni del contenuto
+
+Per il comportamento di memorizzazione nella cache, la rete CDN di Azure offre le opzioni seguenti:
+
+* Ignora stringhe di query
+* Disabilita la memorizzazione nella cache per le stringhe di query
+* Memorizza nella cache tutti gli URL univoci 
+
+La prima è l'opzione predefinita, con cui di un asset esiste una sola versione memorizzata nella cache indipendentemente dalla stringa di query usata nell'URL per accedervi. 
+
+In questa sezione dell'esercitazione si modificherà il comportamento per memorizzare nella cache tutti gli URL univoci.
+
+### <a name="change-the-cache-behavior"></a>Modificare il comportamento della cache
+
+Nella pagina **Endpoint rete CDN** del portale di Azure selezionare **Cache**.
+
+Selezionare **Memorizza nella cache tutti gli URL univoci** nell'elenco a discesa **Comportamento di memorizzazione nella cache della stringa di query**.
+
+Selezionare **Salva**.
+
+![Selezionare il comportamento di memorizzazione nella cache della stringa di query](media/app-service-web-tutorial-content-delivery-network/portal-select-caching-behavior.png)
+
+### <a name="verify-that-unique-urls-are-cached-separately"></a>Verificare che gli URL univoci vengano memorizzati nella cache separatamente
+
+In un browser passare alla home page nell'endpoint della rete CDN includendo però una stringa di query: 
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+La rete CDN restituirà il contenuto corrente dell'app Web, che include "V2" nell'intestazione. 
+
+Per assicurarsi che questa pagina sia memorizzata nella cache nella rete CDN, aggiornare la pagina. 
+
+Aprire `index.html`, modificare "V2" in "V3" e distribuire la modifica. 
+
+```bash
+git commit -am "version 3"
+git push azure master
+```
+
+In un browser passare all'URL dell'endpoint della rete CDN con una nuova stringa di query come `q=2`. La rete CDN recupera il file `index.html` corrente e visualizza "V3".  Se invece si passa all'endpoint della rete CDN con la stringa di query `q=1`, viene visualizzato "V2".
+
+```
+http://<endpointname>.azureedge.net/index.html?q=2
+```
+
+!["V3" nel titolo nella rete CDN, con stringa di query 2](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs2.png)
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+!["V2" nel titolo nella rete CDN, con stringa di query 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
+
+Questo output illustra che ogni stringa di query viene gestita in modo diverso. La stringa q=1 è stata usata in precedenza, quindi viene restituito il contenuto memorizzato nella cache (V2). La stringa di query q=2 invece è nuova, quindi viene recuperato e restituito il contenuto più recente dell'app Web (V3).
+
+Per altre informazioni, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query](../cdn/cdn-query-string.md).
+
+## <a name="map-a-custom-domain-to-a-cdn-endpoint"></a>Eseguire il mapping di un dominio personalizzato a un endpoint della rete CDN
+
+Per eseguire il mapping del dominio personalizzato all'endpoint della rete CDN si creerà un record CNAME. Un record CNAME è una funzionalità DNS tramite cui viene eseguito il mapping di un dominio di origine a uno di destinazione. Ad esempio, si potrebbe eseguire il mapping di `cdn.contoso.com` o `static.contoso.com` a `contoso.azureedge.net`.
+
+Se non si ha un dominio personalizzato, può essere opportuno seguire l'[esercitazione relativa ai domini nel servizio app](custom-dns-web-site-buydomains-web-app.md) per acquistare un dominio usando il portale di Azure. 
+
+### <a name="find-the-hostname-to-use-with-the-cname"></a>Trovare il nome host da usare con il record CNAME
+
+Nella pagina **Endpoint** del portale di Azure verificare che nel riquadro di spostamento a sinistra sia selezionata l'opzione **Panoramica** e quindi selezionare il pulsante **+ Dominio personalizzato** nella parte superiore della pagina.
+
+![Selezionare l'aggiunta di un dominio personalizzato](media/app-service-web-tutorial-content-delivery-network/portal-select-add-domain.png)
+
+Nella pagina **Aggiungi dominio personalizzato** verrà visualizzato il nome host dell'endpoint da usare per la creazione di un record CNAME. Il nome host è derivato dall'URL dell'endpoint della rete CDN: **&lt;NomeEndpoint>.azureedge.net**. 
+
+![Pagina per l'aggiunta di un dominio](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
+
+### <a name="configure-the-cname-with-your-domain-registrar"></a>Configurare il record CNAME con il registrar
+
+Passare al sito Web del registrar e individuare la sezione per la creazione di record DNS. Queste informazioni possono essere disponibili in una sezione come **Domain Name**, **DNS** o **Name Server Management**.
+
+Individuare la sezione per la gestione dei record CNAME. Potrebbe essere necessario passare a una pagina di impostazioni avanzate e cercare le parole CNAME, Alias o Subdomains.
+
+Creare un nuovo record CNAME per il mapping del sottodominio scelto (ad esempio, **static** o **cdn**) al **nome host dell'endpoint** visualizzato in precedenza nel portale. 
+
+### <a name="enter-the-custom-domain-in-azure"></a>Immettere il dominio personalizzato in Azure
+
+Tornare alla pagina **Aggiungi dominio personalizzato** e immettere il dominio personalizzato, includendo il sottodominio, nella finestra di dialogo. Ad esempio, immettere `cdn.contoso.com`.   
+   
+Azure verifica l'esistenza del record CNAME per il nome di dominio immesso. Se il record CNAME è corretto, il dominio personalizzato viene convalidato.
+
+La propagazione del record CNAME nei server dei nomi in Internet può richiedere tempo. Se il dominio non viene convalidato immediatamente e si ritiene che il record CNAME sia corretto, attendere alcuni minuti e riprovare.
+
+### <a name="test-the-custom-domain"></a>Testare il dominio personalizzato
+
+In un browser passare al file `index.html` usando il dominio personalizzato (ad esempio, `cdn.contoso.com/index.html`) per verificare che il risultato sia lo stesso ottenuto andando direttamente a `<endpointname>azureedge.net/index.html`.
+
+![Home page dell'app di esempio con URL del dominio personalizzato](media/app-service-web-tutorial-content-delivery-network/home-page-custom-domain.png)
+
+Per altre informazioni, vedere [Eseguire il mapping del contenuto della rete CDN di Azure a un dominio personalizzato](../cdn/cdn-map-content-to-custom-domain.md).
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [What is Azure CDN](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json) (Che cos'è la rete CDN di Azure)
-* [Abilitare HTTPS in un dominio personalizzato della rete CDN di Azure](../cdn/cdn-custom-ssl.md)
-* [Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure](../cdn/cdn-improve-performance.md)
-* [Precaricamento di risorse in un endpoint della rete CDN di Azure](../cdn/cdn-preload-endpoint.md)
+In questa esercitazione si è appreso come:
+
+> [!div class="checklist"]
+> * Creare un endpoint della rete CDN.
+> * Aggiornare gli asset memorizzati nella cache.
+> * Usare stringhe di query per controllare le versioni memorizzate nella cache.
+> * Usare un dominio personalizzato per l'endpoint della rete CDN.
+
+Per informazioni su come ottimizzare la rete CDN, vedere gli articoli seguenti.
+
+> [!div class="nextstepaction"]
+> [Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure](../cdn/cdn-improve-performance.md)
+
+> [!div class="nextstepaction"]
+> [Precaricamento di risorse in un endpoint della rete CDN di Azure](../cdn/cdn-preload-endpoint.md)
+
 
