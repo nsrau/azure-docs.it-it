@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -59,6 +60,20 @@ Se l'applicazione è in esecuzione come servizio Web di Azure, ecco come attivar
     ![Fare clic sulle opzioni disponibili fino ad Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Monitoraggio di app cloud e VM](app-insights-azure.md).
+
+### <a name="enable-client-side-monitoring-in-azure"></a>Abilitare il monitoraggio lato client in Azure
+
+Se è stato abilitato Application Insights in Azure, è possibile aggiungere la visualizzazione delle pagine e la telemetria utente.
+
+1. Selezionare Impostazioni > Impostazioni applicazione
+2.  In Impostazioni app aggiungere una nuova coppia chiave-valore: 
+   
+    Chiave: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Valore: `true`
+3. Salvare le impostazioni scegliendo **Salva** e quindi fare clic su **Riavvia** per riavviare l'app.
+
+Application Insights JavaScript SDK è ora incluso in ogni pagina Web.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Monitorare un'app Web live di IIS
 
