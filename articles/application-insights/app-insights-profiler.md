@@ -3,7 +3,7 @@ title: Profilatura delle app Web attive in Azure con Application Insights | Micr
 description: Identificare il percorso ricorrente nel codice del server web con un profiler con footprint ridotto.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

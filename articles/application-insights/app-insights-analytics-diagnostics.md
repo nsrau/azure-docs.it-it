@@ -3,7 +3,7 @@ title: Diagnostica intelligente di modifiche delle prestazioni delle app Web in 
 description: Diagnosi automatica di modifiche improvvise nella telemetria delle prestazioni da parte di un&quot;app web.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

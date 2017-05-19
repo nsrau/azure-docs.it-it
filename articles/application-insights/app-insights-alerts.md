@@ -3,7 +3,7 @@ title: Impostare gli avvisi in Application Insights di Azure | Microsoft Docs
 description: "Ricevere notifiche su tempi di risposta più lenti, eccezioni e altre prestazioni o modifiche nell&quot;uso delle app Web."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights

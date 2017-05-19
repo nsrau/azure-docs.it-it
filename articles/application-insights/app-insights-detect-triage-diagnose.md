@@ -1,7 +1,7 @@
 ---
 title: 'Rilevare e diagnosticare i problemi delle app Web: Azure Application Insights | Documentazione Microsoft'
 description: Analizzare gli arresti anomali per rilevare e diagnosticare problemi di prestazioni nelle applicazioni
-author: alancameronwills
+author: CFreemanwa
 services: application-insights
 documentationcenter: 
 manager: carmonm

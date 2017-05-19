@@ -3,7 +3,7 @@ title: Esaminare le metriche in Azure Application Insights | Microsoft Docs
 description: Come interpretare i grafici in Esplora metriche e come personalizzare i pannelli di Esplora metriche.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights

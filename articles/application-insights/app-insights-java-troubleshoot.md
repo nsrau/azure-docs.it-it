@@ -3,7 +3,7 @@ title: Risoluzione dei problemi di Application Insights in un progetto Web Java
 description: Guida per la risoluzione dei problemi - monitoraggio di app Java live con Application Insights.
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights

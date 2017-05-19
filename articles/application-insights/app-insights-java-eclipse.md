@@ -3,7 +3,7 @@ title: Introduzione ad Azure Application Insights con Java in Eclipse | Document
 description: Usare il plug-in Eclipse per aggiungere il monitoraggio delle prestazioni e l&quot;uso nel sito Web Java con Application Insights
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: e88c9f53-cd90-4abc-b097-1f170937908e
 ms.service: application-insights

@@ -3,7 +3,7 @@ title: Monitorare le applicazioni Docker in Azure Application Insights | Microso
 description: I contatori delle prestazioni, gli eventi e le eccezioni di Docker possono essere visualizzati in Application Insights, insieme ai dati di telemetria dalle app nei contenitori.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights

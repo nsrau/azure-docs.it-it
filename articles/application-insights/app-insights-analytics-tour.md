@@ -3,7 +3,7 @@ title: Presentazione di Analisi in Azure Application Insights | Microsoft Docs
 description: Brevi esempi di tutte le principali query in Analisi, lo strumento di ricerca avanzato di Application Insights.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights
