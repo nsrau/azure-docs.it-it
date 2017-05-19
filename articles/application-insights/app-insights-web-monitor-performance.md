@@ -3,7 +3,7 @@ title: "Monitoraggio dell&quot;integrità e dell&quot;utilizzo di un&quot;app co
 description: "Introduzione a Application Insights. Analizzare l&quot;uso, la disponibilità e le prestazioni delle applicazioni locali o Microsoft Azure."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 40650472-e860-4c1b-a589-9956245df307
 ms.service: application-insights

@@ -3,7 +3,7 @@ title: Errori ed eccezioni di diagnosi nelle app Web con Azure Application Insig
 description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria della richiesta.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights

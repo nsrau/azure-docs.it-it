@@ -3,7 +3,7 @@ title: Filtrare i dati di telemetria di Azure Application Insights nell&quot;App
 description: "Ridurre il traffico di telemetria escludendo gli eventi che non è necessario monitorare."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

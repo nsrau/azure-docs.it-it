@@ -3,7 +3,7 @@ title: 'Monitoraggio delle prestazioni delle applicazioni Web: Azure Application
 description: Funzione di Application Insights nel ciclo devOps
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
