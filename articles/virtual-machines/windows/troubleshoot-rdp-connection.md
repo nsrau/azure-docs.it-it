@@ -14,11 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 02/09/2017
+ms.date: 05/18/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 
@@ -45,8 +46,7 @@ Continuare la lettura per procedure dettagliate e altre informazioni. Verificare
 
 > [!TIP]
 > Se il pulsante **Connetti** della VM è disattivato nel portale e non si è connessi ad Azure tramite una connessione [Express Route](../../expressroute/expressroute-introduction.md) o [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), per poter usare il protocollo RDP è necessario creare un indirizzo IP pubblico e assegnarlo alla VM. Altre informazioni sono disponibili in [Indirizzi IP pubblici in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
-> 
-> 
+
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Risoluzione dei problemi di connessione RDP
 È possibile risolvere i problemi delle macchine virtuali create usando il modello di distribuzione di Resource Manager con uno dei metodi seguenti:
@@ -120,8 +120,6 @@ Negli esempi seguenti vengono usate alcune variabili, ad esempio `myResourceGrou
 
 > [!NOTE]
 > Reimpostare le credenziali utente e la configurazione della connessione RDP usando il cmdlet [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) di PowerShell. Negli esempi seguenti `myVMAccessExtension` è un nome specificato come parte del processo. Se in precedenza è stato usato il VMAccessAgent, è possibile ottenere il nome dell'estensione esistente usando `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` per controllare le proprietà della VM. Esaminare quindi la sezione dell'output relativa alle estensioni per visualizzare il nome.
-> 
-> 
 
 Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di connettersi alla VM. Se ancora non è possibile connettersi, procedere al passaggio successivo.
 

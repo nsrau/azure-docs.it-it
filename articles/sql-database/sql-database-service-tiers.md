@@ -17,10 +17,10 @@ ms.workload: data-management
 wms.date: 04/26/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 0ab804ee1dc25f1e44be856564ac8ffa87c54dea
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 3300c4e79ddc6c8e04c3b4d80b3ee07bd6aeea9d
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,8 +50,11 @@ Prima di tutto è necessario decidere se eseguire un database singolo con una qu
 | **Funzionalità del livello di servizio** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Dimensioni massime del database singolo | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Dimensioni massime dei database in un pool elastico | 156 GB | 2,9 TB | 500 GB | 500 GB |
+| Dimensioni massime di un pool elastico | 156 GB | 2,9 TB | 4 TB* | 750 GB |
+| Dimensioni massime dei database in un pool elastico | 2 GB | 250 GB | 500 GB | 500 GB |
 | Numero massimo di database per pool | 500  | 500 | 100 | 100 |
+| DTU massime del database singolo | 5 | 100 | 4000 | 1000 |
+| DTU massime per database in un pool elastico | 5 | 100 | 4000 | 1000 |
 | Periodo di conservazione dei backup dei database | 7 giorni | 35 giorni | 35 giorni | 35 giorni |
 ||||||
 
@@ -93,11 +96,9 @@ La durata dell'intero processo di scalabilità verticale dipende dalla dimension
 
 I pool consentono ai database di condividere e usare risorse DTU senza dover assegnare un livello di prestazioni specifico a ogni database nel pool. Ad esempio, un database singolo in un pool Standard può passare dall'uso di 0 eDTU al valore eDTU massimo per il database impostato quando si configura il pool. I pool consentono a più database con carichi di lavoro diversi di usare in modo efficiente le risorse eDTU disponibili per l'intero pool. Per altre informazioni relative alle considerazioni su prezzi e prestazioni per un pool di database elastici, vedere [Quando usare un pool di database elastici](sql-database-elastic-pool.md) .
 
-La tabella seguente descrive le caratteristiche dei livelli di servizio del pool.
+Le tabelle seguenti descrivono i limiti delle risorse dei pool elastici.  Si noti che i limiti delle risorse di database singoli nei pool elastici sono in genere identici a quelli di database singoli all'esterno dei pool in base alle DTU e al livello di servizio.  Ad esempio, il numero massimo di thread di lavoro simultanei per un database S2 è 120.  Pertanto, anche il numero massimo di thread di lavoro simultanei per un database in un pool Standard è 120 se il numero massimo di DTU per ogni database nel pool è 50 (equivalente a S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche di database singolo per il livello in questione. Ad esempio, il pool Basic ha un limite di 4800 - 28800 per il numero massimo di sessioni per pool. Un database singolo all'interno del pool Basic ha un limite di 300 sessioni.
 
 ## <a name="scaling-up-or-scaling-down-an-elastic-pool"></a>Ridimensionamento di un pool elastico
 
@@ -137,7 +138,7 @@ La creazione o l'aggiornamento di un database P11/P15 in un'area non supportata 
 ## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitazioni correnti dei database P11 e P15 con dimensioni massime di 4 TB
 
 - Durante la creazione o l'aggiornamento di un database P11 o P15, è possibile scegliere solamente 1 TB o 4 TB di dimensioni massime. Gli account di archiviazione intermedi non sono attualmente supportati.
-- Un database dalle dimensioni massime di 4 TB non potrà essere modificato a 1 TB, anche se la memoria usata non supera quest'ultimo valore. Pertanto, non è possibile eseguire il downgrade da P11 o P15 da 4 TB a P11 o P15 da 1 TB o a un livello di prestazioni minore, ad esempio P1-P6, fino a quando non verranno fornite opzioni di archiviazione aggiuntive per tutti gli altri livelli di prestazioni. Questa restrizione si applica anche agli scenari di ripristino e copia, inclusi gli scenari temporizzati, il ripristino geografico, la conservazione backup a lungo termine e la copia del database. Dopo avere configurato un database con l'opzione da 4 TB, tutte le operazioni di ripristino di tale database dovranno essere P11/P15 con dimensioni massime di 4 TB.
+- Un database dalle dimensioni massime di 4 TB non potrà essere modificato a 1 TB, anche se la memoria usata non supera quest'ultimo valore. Pertanto, non è possibile eseguire il downgrade da P11 o P15 da 4 TB a P11 o P15 da 1 TB o a un livello di prestazioni minore, ad esempio P1-P6, fino a quando non verranno fornite opzioni di archiviazione aggiuntive per tutti gli altri livelli di prestazioni. Questa restrizione si applica anche agli scenari di ripristino e copia, inclusi gli scenari temporizzati, il ripristino geografico, la conservazione backup a lungo termine e la copia del database. Dopo avere configurato un database con l'opzione da 4 TB, tutte le operazioni di ripristino di tale database devono essere eseguite in un database P11/P15 con dimensioni massime di 4 TB.
 - Per gli scenari di replica geografica attiva:
    - Impostazione di una relazione di replica geografica: se il database primario è P11 o P15, devono esserlo anche i database secondari. I livelli di prestazioni inferiori non verranno accettati come database secondari in quanto non supportano l'opzione da 4 TB.
    - Aggiornamento del database primario in una relazione di replica geografica: portando a 4 TB le dimensioni massime di un database primario, verranno portate a 4 TB anche le dimensioni del database secondario. Entrambi gli aggiornamenti devono avere esito positivo per applicare la modifica al database primario. Si applicano limitazioni per l'opzione da 4 TB (vedere sopra). Se il database secondario si trova in un'area che non supporta l'opzione da 4 TB, il database primario non verrà aggiornato.
