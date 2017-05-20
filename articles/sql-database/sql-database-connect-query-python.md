@@ -13,12 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: meetb;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: f055f1eb2c6f1c0fa9f032f033929299e224de2e
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2e2138b88bd15f8c3e86aba8593f684ce0dc8b80
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -33,7 +34,7 @@ Questa guida introduttiva usa come punto di partenza le risorse create in una de
 
 ## <a name="install-the-python-and-database-communication-libraries"></a>Installare le librerie di comunicazione Python e del database
 
-Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo tramite Python ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con Python, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server), selezionare **Python** e quindi il sistema operativo in uso.
+Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo con Python ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con Python, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server), selezionare **Python** e quindi il sistema operativo in uso.
 
 ### <a name="mac-os"></a>**Mac OS**
 Aprire il terminale in uso e passare a una directory in cui si prevede di creare lo script python. Immettere i comandi seguenti per installare il **brew**, il **driver ODBC di Microsoft per Mac** e **pyodbc**. pyodbc usa il driver ODBC di Microsoft su Linux per connettersi ai database SQL.
@@ -81,7 +82,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.     
+4. Se si dimenticano le informazioni di accesso per il server, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.     
    
 ## <a name="select-data"></a>Selezionare i dati
 
@@ -159,13 +160,8 @@ cnxn.commit()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni in [Microsoft Python Driver for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/) (Driver Microsoft Python per SQL server).
-- Visitare il [Centro per sviluppatori Python](/develop/python/).
-- Per connettersi ed effettuare una query usando SQL Server Management Studio, vedere [Connettersi ed eseguire una query con SSMS](sql-database-connect-query-ssms.md)
-- Per connettersi ed eseguire query usando Visual Studio, vedere [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Per connettersi ed eseguire query usando .NET, vedere [Connettersi ed eseguire query con .NET](sql-database-connect-query-dotnet.md).
-- Per connettersi ed eseguire query usando PHP, vedere [Connettersi ed eseguire query con PHP](sql-database-connect-query-php.md).
-- Per connettersi ed eseguire query usando Node.js, vedere [Connettersi ed eseguire query con Node.js](sql-database-connect-query-nodejs.md).
-- Per connettersi ed eseguire query usando Java, vedere [Connettersi ed eseguire query con Java](sql-database-connect-query-java.md).
-- Per connettersi ed eseguire query usando Ruby, vedere [Connettersi ed eseguire query con Ruby](sql-database-connect-query-ruby.md).
+- [Progettare il primo database SQL di Azure](sql-database-design-first-database.md)
+- [Driver Microsoft Python per SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Centro per sviluppatori Python](/develop/python/)
+
 

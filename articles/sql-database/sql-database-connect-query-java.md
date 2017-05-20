@@ -13,12 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: defb32835971fe423e77a11817fce057fa7c929d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -33,10 +34,10 @@ Questa guida introduttiva usa come punto di partenza le risorse create in una de
 
 ## <a name="install-java-software"></a>Installare il software Java
 
-Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo tramite Java ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con Java, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server), selezionare **Java** e quindi il sistema operativo in uso.
+Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo con Java ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con Java, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server), selezionare **Java** e quindi il sistema operativo in uso.
 
 ### <a name="mac-os"></a>**Mac OS**
-Aprire il terminale in uso e passare alla directory in cui si prevede di creare il progetto Java. Immettere i comandi seguenti per installare **brew** e **Maven**. 
+Aprire il terminale in uso e passare alla directory in cui si prevede di creare il progetto Java. Installare **brew** e **Maven** immettendo i comandi seguenti: 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -45,14 +46,14 @@ brew install maven
 ```
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Aprire il terminale in uso e passare alla directory in cui si prevede di creare il progetto Java. Immettere i comandi seguenti per installare **Maven**. 
+Aprire il terminale in uso e passare alla directory in cui si prevede di creare il progetto Java. Installare **Maven** immettendo i comandi seguenti:
 
 ```bash
 sudo apt-get install maven
 ```
 
 ### <a name="windows"></a>**Windows**
-Installare [Maven](https://maven.apache.org/download.cgi) tramite il programma di installazione ufficiale. Maven è utilizzabile per gestire le dipendenze, compilare, testare ed eseguire il progetto Java. 
+Installare [Maven](https://maven.apache.org/download.cgi) tramite il programma di installazione ufficiale. Usare Maven per gestire le dipendenze e compilare, testare ed eseguire il progetto Java. 
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 
@@ -64,7 +65,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.
+4. Se si dimenticano le informazioni di accesso per il server, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.
 5. Fare clic su **Mostra stringhe di connessione del database**.
 
 6. Esaminare la stringa di connessione **JDBC**completa.
@@ -300,15 +301,8 @@ public class App {
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Repository di GitHub per [Driver Microsoft JDBC per SQL Server](https://github.com/microsoft/mssql-jdbc).
-- [Segnalazione di problemi/domande](https://github.com/microsoft/mssql-jdbc/issues).
-- Per connettersi ed effettuare una query usando SQL Server Management Studio, vedere [Connettersi ed eseguire una query con SSMS](sql-database-connect-query-ssms.md)
-- Per connettersi ed eseguire query usando Visual Studio, vedere [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Per connettersi ed eseguire query usando .NET, vedere [Connettersi ed eseguire query con .NET](sql-database-connect-query-dotnet.md).
-- Per connettersi ed eseguire query usando PHP, vedere [Connettersi ed eseguire query con PHP](sql-database-connect-query-php.md).
-- Per connettersi ed eseguire query usando Node.js, vedere [Connettersi ed eseguire query con Node.js](sql-database-connect-query-nodejs.md).
-- Per connettersi ed eseguire query usando Python, vedere [Connettersi ed eseguire query con Python](sql-database-connect-query-python.md).
-- Per connettersi ed eseguire query usando Ruby, vedere [Connettersi ed eseguire query con Ruby](sql-database-connect-query-ruby.md).
+- [Progettare il primo database SQL di Azure](sql-database-design-first-database.md)
+- [Driver Microsoft JDBC per SQL Server](https://github.com/microsoft/mssql-jdbc)
+- [Segnalare problemi e porre domande](https://github.com/microsoft/mssql-jdbc/issues)
 
 

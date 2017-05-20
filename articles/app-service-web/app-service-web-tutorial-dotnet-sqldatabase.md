@@ -12,22 +12,33 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d7006a50d35412021f7e475df526661854b23dc8
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 6563d1520149ae5ced7e2de80686ef1624ebb651
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="create-an-aspnet-app-in-azure-with-sql-database"></a>Creare un'app ASP.NET in Azure con un database SQL
+# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Creare un'app ASP.NET in Azure con un database SQL
 
 Questa esercitazione illustra come sviluppare un'app Web ASP.NET basata sui dati in Azure, connetterla al database SQL di Azure e abilitare la funzionalità collegata ai dati. Al termine sarà disponibile un'applicazione ASP.NET in esecuzione nel [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) e connessa al database SQL.
 
 ![Applicazione ASP.NET pubblicata nell'app Web di Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-## <a name="before-you-begin"></a>Prima di iniziare
+In questa esercitazione si apprenderà come:
+
+> [!div class="checklist"]
+> * Creare un database SQL in Azure
+> * Connettere un'app ASP.NET al database SQL
+> * Distribuire l'app in Azure
+> * Aggiornare il modello di dati e ridistribuire l'app
+> * Eseguire lo streaming dei log da Azure al terminale
+> * Gestire l'app nel portale di Azure
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di eseguire questo esempio, [scaricare e installare la versione gratuita di Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
@@ -40,7 +51,7 @@ In questo passaggio viene scaricata un'applicazione ASP.NET di esempio.
 
 Scaricare il progetto di esempio facendo clic [qui](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
 
-Estrarre il file `dotnet-sqldb-tutorial-master.zip` scaricato in una directory di lavoro.
+Estrarre il file _dotnet-sqldb-tutorial-master.zip_ scaricato in una directory di lavoro.
 
 > [!TIP]
 > È possibile ottenere il progetto di esempio tramite la clonazione del repository GitHub:
@@ -55,7 +66,7 @@ Questo progetto di esempio contiene l'applicazione CRUD (create-read-update-dele
 
 ### <a name="run-the-application"></a>Eseguire l'applicazione
 
-Dalla directory estratta avviare `dotnet-sqldb-tutorial-master\DotNetAppSqlDb.sln` in Visual Studio 2017.
+Dalla directory estratta aprire _dotnet-sqldb-tutorial-master\DotNetAppSqlDb.sln_ in Visual Studio 2017.
 
 Dopo aver aperto la soluzione di esempio, digitare `F5` per eseguirla nel browser.
 
@@ -63,7 +74,7 @@ Nella home page viene visualizzato un elenco attività semplice. Provare ad aggi
 
 ![Finestra di dialogo Nuovo progetto ASP.NET](./media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
-Il contesto di database usa una stringa di connessione denominata `MyDbConnection`. La definizione della stringa di connessione si trova in `Web.config` e il riferimento in `Models\MyDatabaseContext.cs`. In seguito, al momento della connessione dell'app Web di Azure al database SQL di Azure sarà necessario specificare solo il nome della stringa di connessione. 
+Il contesto di database usa una stringa di connessione denominata `MyDbConnection`. A questa stringa di connessione, definita in _Web.config_, viene fatto riferimento in _Models\MyDatabaseContext.cs_. In seguito, al momento della connessione dell'app Web di Azure al database SQL di Azure, sarà sufficiente specificare il nome della stringa di connessione. 
 
 ## <a name="publish-to-azure-with-sql-database"></a>Pubblicare in Azure con il database SQL
 
@@ -128,11 +139,14 @@ Fare clic su **OK**.
 
 ### <a name="configure-the-web-app-name"></a>Configurare il nome dell'app Web
 
-In **Nome app Web** digitare un nome univoco per l'app. Questo nome verrà usato come parte del nome DNS predefinito per l'app (`<app_name>.azurewebsites.net`), quindi deve essere univoco tra tutte le app in Azure. In un secondo momento è possibile eseguire il mapping di un nome di dominio personalizzato all'app prima di esporla agli utenti.
+In **Nome app Web** digitare un nome univoco per l'app. Questo nome viene usato come parte del nome DNS predefinito per l'app (`<app_name>.azurewebsites.net`) e deve quindi essere univoco tra tutte le app in Azure. In un secondo momento è possibile eseguire il mapping di un nome di dominio personalizzato all'app prima di esporla agli utenti.
 
 È anche possibile accettare il nome generato automaticamente, che è già univoco.
 
 Per preparare il passaggio successivo, fare clic su **Esplora altri servizi di Azure**.
+
+> [!NOTE]
+> Non fare ancora clic su **Crea** in questa finestra di dialogo. È prima necessario configurare un database SQL nel passaggio successivo.
 
 ![Configurare il nome dell'app Web](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
@@ -142,7 +156,7 @@ Nella scheda **Servizi** fare clic sull'icona **+** accanto a **Database SQL**.
 
 nella finestra di dialogo **Configura database SQL** fare clic su **Nuovo** accanto a **SQL Server**. 
 
-In **Nome server** digitare un nome univoco. Poiché questo nome viene usato come parte del nome DNS predefinito per il server di database (`<server_name>.database.windows.net`), è necessario specificare un nome univoco in tutte le istanze di SQL Server in Azure. 
+In **Nome server** digitare un nome univoco. Questo nome viene usato come parte del nome DNS predefinito per il server di database (`<server_name>.database.windows.net`) e deve quindi essere univoco tra tutte le istanze di SQL Server in Azure. 
 
 Configurare i campi rimanenti come desiderato e fare clic su **OK**.
 
@@ -150,9 +164,9 @@ Configurare i campi rimanenti come desiderato e fare clic su **OK**.
 
 ### <a name="configure-the-sql-database"></a>Configurare il database SQL
 
-In **Nome database** digitare `myToDoAppDb` o il nome desiderato.
+In **Nome database** digitare _myToDoAppDb_ o qualsiasi nome si preferisca.
 
-In **Nome stringa di connessione** digitare `MyDbConnection`. Questo nome deve corrispondere alla stringa di connessione cui viene fatto riferimento in `Models\MyDatabaseContext.cs`.
+In **Nome stringa di connessione** digitare _MyDbConnection_. Questo nome deve corrispondere alla stringa di connessione a cui viene fatto riferimento in _Models\MyDatabaseContext.cs_.
 
 ![Configurare il database SQL](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
@@ -170,11 +184,11 @@ Congratulazioni. L'applicazione ASP.NET basata sui dati è in esecuzione nel Ser
 
 ## <a name="access-the-sql-database-locally"></a>Accedere al database SQL locale
 
-Visual Studio consente di esplorare e gestire il nuovo database SQL in modo semplice in **Esplora oggetti di SQL Server**.
+Visual Studio consente di esplorare e gestire facilmente il nuovo database SQL in **Esplora oggetti di SQL Server**.
 
 ### <a name="create-a-database-connection"></a>Creare una connessione al database
 
-Aprire **Esplora oggetti di SQL Server** digitando `Ctrl`+`\`, `Ctrl`+`S`.
+Aprire **Esplora oggetti di SQL Server** digitando `Ctrl`+`` ` ``, `Ctrl`+`S`.
 
 Nella parte superiore di **Esplora oggetti di SQL Server** fare clic sul pulsante **Aggiungi istanza di SQL Server**.
 
@@ -182,7 +196,7 @@ Nella parte superiore di **Esplora oggetti di SQL Server** fare clic sul pulsant
 
 Nella finestra di dialogo **Connetti** espandere il nodo **Azure**. Vengono visualizzati tutti i database SQL di Azure.
 
-Selezionare il database SQL creato in precedenza. La connessione usata in precedenza viene immessa automaticamente nella parte inferiore.
+Selezionare il database SQL creato in precedenza. La connessione usata in precedenza viene inserita automaticamente nella parte inferiore.
 
 Digitare la password di amministratore di database usata in precedenza e fare clic su **Connetti**.
 
@@ -206,11 +220,11 @@ In questa posizione è possibile eseguire le operazioni di database più comuni,
 
 ## <a name="update-app-with-code-first-migrations"></a>Aggiornare l'app con Migrazioni Code First
 
-In questo passaggio viene usato Migrazioni Code First in Entity Framework per apportare una modifica allo schema del database e pubblicarlo in Azure.
+In questo passaggio si usa Migrazioni Code First di Entity Framework per apportare una modifica allo schema del database e pubblicarlo in Azure.
 
 ### <a name="update-your-data-model"></a>Aggiornare il modello di dati
 
-Nell'editor di codice aprire `Models\Todo.cs`. Aggiungere la proprietà seguente alla classe `ToDo`:
+Aprire _Models\Todo.cs_ nell'editor di codice. Aggiungere la proprietà seguente alla classe `ToDo`:
 
 ```csharp
 public bool Done { get; set; }
@@ -248,7 +262,7 @@ Se l'applicazione viene caricata senza errori, l'esecuzione di Migrazioni Code F
 
 Apportare alcune modifiche al codice per usare la proprietà `Done`. Per motivi di semplicità in questa esercitazione vengono modificate solo le visualizzazioni `Index` e `Create` per visualizzare la proprietà.
 
-Aprire `Controllers\TodosController.cs`.
+Aprire _Controllers\TodosController.cs_.
 
 Trovare il metodo `Create()` e aggiungere `Done` all'elenco delle proprietà nell'attributo `Bind`. Al termine, la firma del metodo `Create()` dovrebbe apparire come segue:
 
@@ -256,7 +270,7 @@ Trovare il metodo `Create()` e aggiungere `Done` all'elenco delle proprietà nel
 public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] Todo todo)
 ```
 
-Aprire `Views\Todos\Create.cshtml`.
+Aprire _Views\Todos\Create.cshtml_.
 
 Nel codice Razor viene visualizzato un tag `<div class="form-group">` che usa `model.Description` e quindi un altro tag `<div class="form-group">` che usa `model.CreatedDate`. Immediatamente dopo questi due tag, aggiungere un altro tag `<div class="form-group">` che usa `model.Done` come segue:
 
@@ -272,7 +286,7 @@ Nel codice Razor viene visualizzato un tag `<div class="form-group">` che usa `m
 </div>
 ```
 
-Aprire `Views\Todos\Index.cshtml`.
+Aprire _Views\Todos\Index.cshtml_.
 
 Cercare il tag `<th></th>` vuoto. Immediatamente sopra il tag, aggiungere il codice Razor seguente:
 
@@ -320,7 +334,7 @@ Dopo aver abilitato Migrazioni Code First nell'app Web di Azure è possibile pub
 
 Nella pagina di pubblicazione fare clic su **Pubblica**.
 
-Provare di nuovo a creare nuove attività e selezionare **Fine**. Le attività verranno visualizzate come attività completate nella home page.
+Provare di nuovo ad aggiungere attività e selezionare **Fine**. Le attività verranno visualizzate nella home page come completate.
 
 ![App Web di Azure dopo la migrazione Code First](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
@@ -333,7 +347,7 @@ Provare di nuovo a creare nuove attività e selezionare **Fine**. Le attività v
 
 È possibile eseguire lo streaming dei messaggi di traccia direttamente dall'app Web di Azure in Visual Studio.
 
-Aprire `Controllers\TodosController.cs`.
+Aprire _Controllers\TodosController.cs_.
 
 Si noti che ogni azione inizia con un metodo `Trace.WriteLine()`. Questo codice è stato aggiunto per illustrare com'è facile aggiungere messaggi di traccia all'app Web di Azure.
 
@@ -349,7 +363,7 @@ In **Esplora server** espandere **Azure** > **Servizio app**.
 
 Espandere il gruppo di risorse **myResourceGroup** creato al momento della creazione dell'app Web di Azure.
 
-Fare clic con il pulsante destro del mouse sull'app Web di Azure e selezionare **Visualizza log in streaming**.
+Fare clic con il pulsante destro del mouse sull'app Web di Azure e scegliere **Visualizza log in streaming**.
 
 ![Abilitare lo streaming dei log](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -370,7 +384,7 @@ Nell'elenco a discesa **Registrazione applicazioni (file system)** selezionare *
 ![Modificare il livello di traccia in Dettagli](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
 > [!TIP]
-> È possibile provare i diversi livelli di traccia per verificare i tipi di messaggio visualizzati per ogni livello. Ad esempio, il livello **Informazioni** include tutti i log creati da `Trace.TraceInformation()`, `Trace.TraceWarning()` e `Trace.TraceError()`, ma non i log creati da `Trace.WriteLine()`.
+> È possibile provare i diversi livelli di traccia per verificare i tipi di messaggi visualizzati per ogni livello. Ad esempio, il livello **Informazioni** include tutti i log creati da `Trace.TraceInformation()`, `Trace.TraceWarning()` e `Trace.TraceError()`, ma non i log creati da `Trace.WriteLine()`.
 >
 >
 
@@ -391,7 +405,7 @@ Per arrestare il servizio di streaming dei log, fare clic sul pulsante **Interro
 
 ## <a name="manage-your-azure-web-app"></a>Gestire l'app Web di Azure
 
-Passare al portale di Azure per visualizzare l'app Web creata. 
+Accedere al portale di Azure per visualizzare l'app Web creata. 
 
 A tale scopo, accedere a [https://portal.azure.com](https://portal.azure.com).
 
@@ -413,6 +427,30 @@ Queste schede del pannello mostrano le numerose utili funzionalità che è possi
 - Aumentare le prestazioni e il numero di istanze
 - Aggiungere l'autenticazione utente
 
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
+ 
+Se queste risorse non sono necessarie per un'altra esercitazione (vedere [Passaggi successivi](#next)), è possibile eliminarle eseguendo questo comando: 
+  
+```azurecli 
+az group delete --name myResourceGroup 
+``` 
+
+<a name="next"></a>
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esplorare gli [script di PowerShell per le app Web](app-service-powershell-samples.md) già creati.
+In questa esercitazione si è appreso come:
+
+> [!div class="checklist"]
+> * Creare un database SQL in Azure
+> * Connettere un'app ASP.NET al database SQL
+> * Distribuire l'app in Azure
+> * Aggiornare il modello di dati e ridistribuire l'app
+> * Eseguire lo streaming dei log da Azure al terminale
+> * Gestire l'app nel portale di Azure
+
+Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato.
+
+> [!div class="nextstepaction"]
+> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-domain.md)
+
