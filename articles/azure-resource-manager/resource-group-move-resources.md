@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -89,7 +89,7 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 * Analisi Data Lake
 * Archivio Data Lake
 * DNS
-* DocumentDB
+* Azure Cosmos DB
 * Hub eventi
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
 * Hub IoT
@@ -126,19 +126,20 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 
 * Servizio ibrido per l'integrità di AD
 * gateway applicazione
+* Set di disponibilità con macchine virtuali con Managed Disks
 * Servizi BizTalk
 * Servizio contenitore
 * Express Route
 * DevTest Labs: lo spostamento al nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento della sottoscrizione incrociato non è abilitato.
 * Dynamics LCS
+* Immagini create da Managed Disks
+* Managed Disks
+* Applicazioni gestite
 * Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino, vedere [Limitazioni dei servizi di ripristino](#recovery-services-limitations).
 * Sicurezza
+* Snapshot creati da Managed Disks
 * Macchine virtuali con certificato archiviato in insieme di credenziali delle chiavi
 * Macchine virtuali con Managed Disks
-* Set di disponibilità con macchine virtuali con Managed Disks
-* Managed Disks
-* Immagini create da Managed Disks
-* Snapshot creati da Managed Disks
 * Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Impossibile spostare le macchine virtuali create da risorse Marketplace fra sottoscrizioni. La risorsa deve essere sottoposta a deprovisioning nella sottoscrizione corrente e distribuita nuovamente nella nuova sottoscrizione
 
@@ -214,7 +215,7 @@ Quando si spostano risorse in una nuova sottoscrizione, sono valide le restrizio
 * La sottoscrizione di destinazione non deve contenere nessuna delle altre risorse classiche.
 * Lo spostamento può essere richiesto solo tramite un'API REST separata per gli spostamenti di risorse classiche. I comandi di spostamento standard di Resource Manager non funzionano quando si spostano risorse classiche a una nuova sottoscrizione.
 
-Per spostare le risorse classiche a una nuova sottoscrizione, usare il portale o le operazioni REST specifiche di risorse classiche. Per informazioni sullo spostamento di risorse classiche tramite il portale, vedere [Usare il portale](#use-portal). Per usare REST, seguire questa procedura:
+Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazioni REST specifiche per le risorse classiche. Per usare REST, seguire questa procedura:
 
 1. Controllare se la sottoscrizione di origine può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
 
