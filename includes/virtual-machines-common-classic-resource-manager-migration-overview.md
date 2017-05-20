@@ -76,7 +76,9 @@ Le seguenti funzionalità non sono attualmente supportate. È possibile rimuover
 | Calcolo |Dischi di macchine virtuali non associati. | La migrazione dei BLOB VHD dietro questi dischi verrà eseguita al momento della migrazione dell'account di archiviazione |
 | Calcolo |Immagini di macchine virtuali. | La migrazione dei BLOB VHD dietro questi dischi verrà eseguita al momento della migrazione dell'account di archiviazione |
 | Rete |ACL endpoint. | Rimuovere gli ACL endpoint e ripetere la migrazione. |
-| Rete |ExpressRoute con collegamenti per autorizzazioni (vedere le Domande frequenti), gateway applicazione | Rimuovere il gateway prima di iniziare la migrazione, quindi ricreare una volta completata la migrazione. |
+| Rete |Rete virtuale con gateway ExpressRoute e gateway VPN.  | Rimuovere il gateway VPN prima di iniziare la migrazione e quindi ricrearlo al termine. Per altre informazioni, vedere l'articolo relativo alla [migrazione di ExpressRoute](../articles/expressroute/expressroute-migration-classic-resource-manager.md).|
+| Rete |ExpressRoute con collegamenti di autorizzazione.  | Rimuovere il circuito ExpressRoute per la connessione di rete virtuale prima di iniziare la migrazione e quindi ricreare la connessione al termine. Per altre informazioni, vedere l'articolo relativo alla [migrazione di ExpressRoute](../articles/expressroute/expressroute-migration-classic-resource-manager.md). |
+| Rete |gateway applicazione | Rimuovere il gateway applicazione prima di iniziare la migrazione e quindi ricrearlo al termine. |
 | Rete |Reti virtuali usando il peering delle reti virtuali. | Eseguire la migrazione della rete virtuale in Resource Manager, quindi eseguire il peering. Altre informazioni sul [peering reti virtuali](../articles/virtual-network/virtual-network-peering-overview.md). | 
 
 ### <a name="unsupported-configurations"></a>Configurazioni non supportate
