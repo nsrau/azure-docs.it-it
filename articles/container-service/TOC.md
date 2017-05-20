@@ -29,6 +29,7 @@
 ### [Soluzione Orchestrator specifica per app/utente in DC/OS](container-service-application-specific-marathon.md)
 ### [Aggiungere una condivisione file](container-service-dcos-fileshare.md)
 ### [Usare un registro contenitori di Azure](container-service-dcos-acr.md)
+### [Versione canary con Vamp](container-service-dcos-vamp-canary-release.md)
 ### Monitorare DC/OS
 #### [Monitorare con ELK](container-service-monitoring-elk.md)
 #### [Monitorare con OMS](container-service-monitoring-oms.md)
