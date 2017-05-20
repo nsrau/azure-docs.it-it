@@ -18,13 +18,16 @@
 
 ## Distribuire
 ### Reti virtuali
-#### [Portale](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Modello](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portale (versione classica)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (versione classica)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [Interfaccia della riga di comando (versione classica)](virtual-networks-create-vnet-classic-cli.md)
+#### [Creare, modificare o eliminare reti virtuali](virtual-network-manage-network.md)
+#### [Creare, modificare o eliminare subnet](virtual-network-manage-subnet.md)
+#### [Creare una rete virtuale con più subnet](virtual-networks-create-vnet-arm-pportal.md) 
+##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+##### [CLI](virtual-networks-create-vnet-arm-cli.md)
+##### [Modello](virtual-networks-create-vnet-arm-template-click.md)
+#### Creare una rete virtuale con più subnet (versione classica)
+##### [Portale](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Gruppi di sicurezza di rete
 #### [Portale](virtual-networks-create-nsg-arm-pportal.md)
@@ -46,8 +49,8 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Modello](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Interfacce di rete
-#### [Aggiungere, modificare o eliminare](virtual-network-network-interface.md)
+### Interfacce di rete (NIC)
+#### [Creare, modificare o eliminare interfacce di rete](virtual-network-network-interface.md)
 #### [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md)
 
 ### [Indirizzi IP pubblici](virtual-network-public-ip-address.md)
@@ -81,6 +84,8 @@
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Modello](virtual-network-multiple-ip-addresses-template.md)
 
+#### [Creare una VM con rete accelerata](virtual-network-create-vm-accelerated-networking.md)
+
 ### Scenari di connettività
 #### [Da rete virtuale a rete virtuale](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Da rete virtuale (Resource Manager) a rete virtuale (versione classica)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -98,9 +103,6 @@
 ##### [Applicazione di esempio](virtual-networks-sample-app.md)
 
 ## Configurare
-### Rete accelerata per macchine virtuali
-#### [Portale di Azure](virtual-network-accelerated-networking-portal.md)
-#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
 ### [Ottimizzare la velocità della rete VM](virtual-network-optimize-network-bandwidth.md)
 ### Elenchi di controllo di accesso
 #### [Portale classico](virtual-networks-acl.md)

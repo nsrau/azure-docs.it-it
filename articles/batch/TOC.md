@@ -19,6 +19,7 @@
 ### [Query di elenco efficienti](batch-efficient-list-queries.md)
 ### [Attività di preparazione e completamento dei processi](batch-job-prep-release.md)
 ### [Nodi di calcolo Linux](batch-linux-nodes.md)
+### [Macchine virtuali con priorità bassa](batch-low-pri-vms.md)
 ### [Gestire gli account Batch con la gestione .NET per Batch](batch-management-dotnet.md)
 ### [Rendere persistente l'output di processi e attività](batch-task-output.md)
 ### [Eseguire processi MPI in Azure Batch](batch-mpi.md)
@@ -28,6 +29,10 @@
 ## Gestisci
 ### [Cmdlet di PowerShell per Batch](batch-powershell-cmdlets-get-started.md)
 ### [Interfaccia della riga di comando di Azure](batch-cli-get-started.md)
+#### [Creare un account Batch](./scripts/batch-cli-sample-create-account.md)
+#### [Aggiungere un'applicazione](./scripts/batch-cli-sample-add-application.md)
+#### [Gestire i pool](./scripts/batch-cli-sample-manage-pool.md)
+#### [Eseguire un processo e le attività](./scripts/batch-cli-sample-run-job.md)
 
 # Riferimento
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -62,7 +67,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Esempi di codice C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Esempi di codice Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Esempi dell'interfaccia della riga di comando](batch-cli-samples.md)
 ## [Risorse Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

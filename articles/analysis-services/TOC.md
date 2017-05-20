@@ -1,11 +1,10 @@
 # Panoramica
-
 ## [Che cos'è Azure Analysis Services?](analysis-services-overview.md)
 
-# Attività iniziali
-## [Creare un server](analysis-services-create-server.md)
-## [Eseguire la distribuzione in un server](analysis-services-deploy.md)
-## [Connettere](analysis-services-connect.md)
+# Guide introduttive
+## [Creare un server: portale](analysis-services-create-server.md)
+## [Distribuire un modello: SSDT](analysis-services-deploy.md)
+
 
 # Esercitazioni
 ## Creare e distribuire un modello
@@ -31,6 +30,7 @@
 ## [Gestire un server](analysis-services-manage.md)
 ## [Gestire gli utenti](analysis-services-manage-users.md)
 ## [Integrare il gateway dati locale](analysis-services-gateway.md)
+## [Connessione ai server](analysis-services-connect.md)
 ## [Stabilire la connessione con Excel](analysis-services-connect-excel.md)
 ## [Stabilire la connessione con Power BI](analysis-services-connect-pbi.md)
 ## [Ottenere le librerie client](analysis-services-data-providers.md)
