@@ -13,6 +13,7 @@
 ## Creare un modello
 ### [Informazioni sui modelli dei set di scalabilità](virtual-machine-scale-sets-mvss-start.md)
 ### [Aggiungere una rete virtuale](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Usare un'immagine personalizzata](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Distribuire
 ### [Creare con il portale](virtual-machine-scale-sets-portal-create.md)

@@ -11,6 +11,7 @@
 ## [Panoramica della soluzione di connected factory](iot-suite-connected-factory-overview.md)
 ## [Procedura dettagliata per la soluzione di monitoraggio remoto](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Procedura dettagliata per la soluzione di manutenzione predittiva](iot-suite-predictive-walkthrough.md)
+## [Procedura dettagliata per la soluzione di connected factory](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Connettere Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
 ### Usare C
 #### [Dati simulati](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
@@ -20,6 +21,9 @@
 #### [Dati simulati](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Usare sensori reali](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Implementare l'aggiornamento del firmware](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Connettere il gateway Intel NUC
+### [Dati simulati](iot-suite-gateway-kit-get-started-simulator.md)
+### [Usare un sensore reale](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # Procedure
 ## Connettere un dispositivo simulato
@@ -33,6 +37,7 @@
 ## [Creare una regola personalizata nella soluzione di monitoraggio remoto](iot-suite-custom-rule.md)
 ## [Informazioni sui dispositivi nella soluzione di monitoraggio remoto](iot-suite-remote-monitoring-device-info.md)
 ## [Distribuire un gateway per connected factory](iot-suite-connected-factory-gateway-deployment.md)
+## [Personalizzare la factory connessa](iot-suite-connected-factory-customize.md)
 
 # Riferimento
 ## [Architettura di sicurezza](iot-security-architecture.md)

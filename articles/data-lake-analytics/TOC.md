@@ -16,6 +16,9 @@
 # Procedure
 ## Sviluppare
 ### [Nozioni di base su U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Catalogo di U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Join U-SQL](data-lake-analytics-u-sql-combine-data-with-joins.md)
+### [Parametri di U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Funzioni finestra U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Operatori U-SQL definiti dagli utenti](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Estensioni Python U-SQL](data-lake-analytics-u-sql-python-extensions.md)
