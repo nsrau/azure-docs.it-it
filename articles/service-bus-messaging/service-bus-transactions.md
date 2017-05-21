@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 05/17/2017
 ms.author: clemensv;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: c39abad6c5e2a9e2ae7add9ecda48783f61bc736
-ms.openlocfilehash: 8d0f3818831a22550fb0eea9bcbc1f62b133003a
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Panoramica dell'elaborazione delle transazioni del bus di servizio
-Questo articolo descrive le funzionalità delle transazioni del bus di servizio. Gran parte della discussione si basa sull'[esempio delle transazioni atomiche con il bus di servizio](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions). Questo articolo si limita a una panoramica dell'elaborazione delle transazioni e della funzionalità *invia tramite* nel bus di servizio, invece l'esempio delle transazioni atomiche ha un ambito di riferimento più ampio e complesso.
+Questo articolo descrive le funzionalità delle transazioni del bus di servizio. Gran parte della discussione si basa sull'[esempio delle transazioni atomiche con il bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). Questo articolo si limita a una panoramica dell'elaborazione delle transazioni e della funzionalità *invia tramite* nel bus di servizio, invece l'esempio delle transazioni atomiche ha un ambito di riferimento più ampio e complesso.
 
 ## <a name="transactions-in-service-bus"></a>Transazioni nel bus di servizio
-Una [transazione](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions#what-are-transactions) raggruppa due o più operazioni in un *ambito di esecuzione*. Per natura, questo tipo di transazione deve garantire che tutte le operazioni appartenenti a un determinato gruppo di operazioni abbiano esito positivo o negativo. In questo contesto, le transazioni agiscono come unità, spesso definita *atomicità*. 
+Una [transazione](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions) raggruppa due o più operazioni in un *ambito di esecuzione*. Per natura, questo tipo di transazione deve garantire che tutte le operazioni appartenenti a un determinato gruppo di operazioni abbiano esito positivo o negativo. In questo contesto, le transazioni agiscono come unità, spesso definita *atomicità*. 
 
 Il bus di servizio è un gestore di messaggi transazionali e assicura l'integrità transazionale per tutte le operazioni interne eseguite in relazione agli archivi del messaggio. Tutti i trasferimenti di messaggi all'interno del bus di servizio, ad esempio lo spostamento di messaggi a una [coda dei messaggi non recapitabili](service-bus-dead-letter-queues.md) o all'[inoltro automatico](service-bus-auto-forwarding.md) dei messaggi tra entità, sono transazionali. Di conseguenza, se il bus di servizio accetta un messaggio, questo è già stato archiviato e contrassegnato con un numero di sequenza. Da questo momento, i trasferimenti di messaggi all'interno del bus di servizio sono operazioni coordinate tra le entità e non causeranno una perdita (l'origine ha esito positivo, mentre la destinazione ha esito negativo) o una duplicazione (l'origine ha esito negativo, mentre la destinazione ha esito positivo) del messaggio.
 
@@ -77,8 +78,8 @@ using (scope = new TransactionScope())
 Per altre informazioni sulle code del bus di servizio, vedere gli articoli seguenti:
 
 * [Concatenamento del bus di servizio con l'inoltro automatico](service-bus-auto-forwarding.md)
-* [Esempio di inoltro automatico](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
-* [Esempio di transazioni atomiche con il bus di servizio](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
+* [Esempio di inoltro automatico](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
+* [Esempio di transazioni atomiche con il bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 

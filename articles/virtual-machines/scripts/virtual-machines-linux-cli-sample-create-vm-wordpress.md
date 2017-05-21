@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 7a44184808dceae479837518bb07205c43fd2460
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 97e9c0f1e103a590d010e4c9862fa8e0e51c55a7
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +33,7 @@ Questo script crea una macchina virtuale e quindi usa l'estensione di script per
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.sh "Creazione rapida della macchina virtuale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.sh "Creazione rapida della macchina virtuale")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 

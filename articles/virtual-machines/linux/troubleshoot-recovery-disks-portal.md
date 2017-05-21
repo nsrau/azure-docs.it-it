@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d631813e8d821a8efe135f0b138dec544b455390
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -160,7 +161,7 @@ Dopo aver risolto gli errori, scollegare il disco rigido virtuale esistente dall
     Attendere che il disco dati sia completamente scollegato dalla macchina virtuale prima di continuare.
 
 ## <a name="create-vm-from-original-hard-disk"></a>Creare una macchina virtuale dal disco rigido originale
-Per creare una macchina virtuale dal disco rigido virtuale originale, usare [questo modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-specialized-vm-in-existing-vnet). Il modello distribuisce una macchina virtuale in una rete virtuale esistente, usando l'URL del disco rigido virtuale del comando precedente. Fare clic sul pulsante **Distribuisci in Azure** come indicato di seguito:
+Per creare una macchina virtuale dal disco rigido virtuale originale, usare [questo modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Il modello distribuisce una macchina virtuale in una rete virtuale esistente, usando l'URL del disco rigido virtuale del comando precedente. Fare clic sul pulsante **Distribuisci in Azure** come indicato di seguito:
 
 ![Distribuire una macchina virtuale da un modello di GitHub](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)
 
