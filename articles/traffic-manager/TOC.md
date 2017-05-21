@@ -2,6 +2,7 @@
 ## [Gestione traffico di Azure](traffic-manager-overview.md)
 ## [Metodi di routing](traffic-manager-routing-methods.md)
 ### [Gerarchia paese/area geografica usata da Gestione traffico](traffic-manager-geographic-regions.md)
+## [Profili annidati di Gestione traffico](traffic-manager-nested-profiles.md)
 ## [Tipi di endpoint](traffic-manager-endpoint-types.md)
 ## [Monitoraggio endpoint](traffic-manager-monitoring.md)
 ## [Domande frequenti](traffic-manager-FAQs.md)

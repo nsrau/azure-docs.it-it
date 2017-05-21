@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 5844540801a6f0ff593b3f404f6815473c65a52e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 66984bef9e82df80818eea31bd37de524b567b33
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -91,7 +91,7 @@ Un intero che contiene la somma dei parametri.
 <a id="copyindex" />
 
 ## <a name="copyindex"></a>copyIndex
-`copyIndex(offset)`
+`copyIndex(loopName, offset)`
 
 Restituisce l'indice di un ciclo di iterazione. 
 
@@ -99,11 +99,16 @@ Restituisce l'indice di un ciclo di iterazione.
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
+| loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
 | offset |No |int |Il numero da aggiungere al valore di iterazione in base zero. |
 
 ### <a name="remarks"></a>Osservazioni
 
-Questa funzione viene sempre usata con un oggetto **copy** . Se non viene specificato alcun valore per **offset**, viene restituito il valore di iterazione corrente. Il valore di iterazione inizia da zero. Per una descrizione completa dell'uso di **copyIndex**, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md).
+Questa funzione viene sempre usata con un oggetto **copy** . Se non viene specificato alcun valore per **offset**, viene restituito il valore di iterazione corrente. Il valore di iterazione inizia da zero.
+
+La proprietà **loopName** consente di specificare se copyIndex fa riferimento all'iterazione di una risorsa o all'iterazione di una proprietà. Se non viene specificato alcun valore per **loopName**, viene usata l'iterazione del tipo di risorsa corrente. Specificare un valore per **loopName** durante l'iterazione di una proprietà. 
+ 
+Per una descrizione completa dell'uso di **copyIndex**, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md).
 
 ### <a name="examples"></a>esempi
 
@@ -269,7 +274,7 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 ### <a name="examples"></a>esempi
 
-L'esempio seguente mostra come usare la funzione Min con una matrice e un elenco di numeri interi:
+L'esempio seguente mostra come usare la funzione min con una matrice e un elenco di numeri interi:
 
 ```json
 {
