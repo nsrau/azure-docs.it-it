@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6638d9f6c38fe25a99ae6d82eaae958edc3370f2
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f7ecb22ee46d83867453e035f8a639bc7f7f2d81
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
-La distribuzione della Reimpostazione self-service delle password (SSPR) richiede che siano presenti i dati di autenticazione. Alcune organizzazioni fanno immettere autonomamente agli utenti i dati di autenticazione, ma molte organizzazioni preferiscono sincronizzarsi con i dati esistenti in Active Directory. Se i dati sono stati formattati correttamente nella directory locale e si configura [Azure AD Connect tramite le impostazioni rapide](/connect/active-directory-aadconnect-get-started-express.md), quei dati vengono resi disponibili in Azure AD e SSPR senza che si richieda l'intervento dell'utente.
+La distribuzione della Reimpostazione self-service delle password (SSPR) richiede che siano presenti i dati di autenticazione. Alcune organizzazioni fanno immettere autonomamente agli utenti i dati di autenticazione, ma molte organizzazioni preferiscono sincronizzarsi con i dati esistenti in Active Directory. Se i dati sono stati formattati correttamente nella directory locale e si configura [Azure AD Connect tramite le impostazioni rapide](./connect/active-directory-aadconnect-get-started-express.md), quei dati vengono resi disponibili in Azure AD e SSPR senza che si richieda l'intervento dell'utente.
 
 Tutti i numeri di telefono devono essere nel formato +CountryCode PhoneNumber Esempio: + 1 4255551234 per funzionare correttamente.
 
@@ -137,15 +137,15 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione delle password con Azure AD
+I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
 
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - iniziare a usare la gestione self-service delle password di Azure AD 
+* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
 * [**Licenze**](active-directory-passwords-licensing.md) - configurare le licenze di Azure AD
 * [**Implementazione**](active-directory-passwords-best-practices.md) - pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
 * [**Personalizzazione**](active-directory-passwords-customize.md) - personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
 * [**Criteri**](active-directory-passwords-policy.md) - comprendere e impostare i criteri password di Azure AD
 * [**Creazione di report**](active-directory-passwords-reporting.md) - verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
-* [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md) - approfondimento sul funzionamento
-* [**Domande frequenti**](active-directory-passwords-faq.md) - come? Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande che si sarebbero sempre volute porre
-* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md) - informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
+* [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
+* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
 

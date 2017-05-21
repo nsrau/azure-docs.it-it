@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: ede96c450e1aa5e87d4dd2c1131cefec7cf3493c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -63,7 +64,7 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **rete CDN Standard di A
 | [Eliminazione veloce](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Precaricamento Asset](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Analisi del core](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [Supporto HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Supporto HTTP/2](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Report HTTP avanzati](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Statistiche in tempo reale](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Avvisi in tempo reale](cdn-real-time-alerts.md) | | |**&#x2713;** |
