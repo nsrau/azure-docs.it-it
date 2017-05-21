@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c2e21eefff3ce501ee5fc4003f60df25c4d7665d
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7be3471cd5cd22b5d05aed6e2cb51840a20bb89b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -87,7 +88,7 @@ Inserire commenti e domande nella parte inferiore di questo articolo oppure nel 
 
 1. Installare Windows Server 2012 R2 o versione successiva in una VM VMware.
 2. Verificare che la VM abbia accesso agli URL elencati in [Prerequisiti](#prerequisites).
-3. Installare [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0).
+3. Installare [VMware vSphere PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1).
 
 
 ## <a name="prepare-for-automatic-discovery-and-push-installation"></a>Preparare l'individuazione automatica e l'installazione push
@@ -306,7 +307,7 @@ Dopo aver completato la configurazione, eseguire un failover di test per verific
 >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 
-1. Per eseguire il failover di una singola macchina, in **Impostazioni** > **Elementi replicati** fare clic sulla VM > sull'icona **+Failover di test**.
+1. Per eseguire il failover di una singola macchina, in **Impostazioni** > **Elementi replicati** fare clic sulla VM > sull'icona  **+Failover di test**.
 
     ![Failover di test](./media/site-recovery-vmware-to-azure/TestFailover.png)
 
