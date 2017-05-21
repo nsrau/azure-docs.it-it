@@ -43,6 +43,24 @@
     href: sql-database-security-tutorial.md
   - name: "4 - Migliorare le prestazioni del database SQL"
     href: sql-database-performance-tutorial.md
+  - name: "5. Implementare un&quot;app multi-tenant"
+    href: sql-database-multi-tenant-application.md
+  - name: "6. Distribuire un&quot;app multi-tenant"
+    href: sql-database-saas-tutorial.md
+  - name: "7. Effettuare il provisioning/catalogare nuovi tenant"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8. Monitorare le prestazioni"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9. Ripristinare un tenant singolo"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10. Gestire schemi di tenant"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11. Eseguire analisi ad hoc"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12. Monitorare con Log Analytics"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13. Gestire l&quot;analisi di tenant"
+
 - name: "Esempi"
   items:
   - name: "Interfaccia della riga di comando di Azure"
@@ -144,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "Ripristino del database"
       href: sql-database-recovery-using-backups.md
-    - name: "Replica geografica"
+    - name: "Failover automatico e replica geografica"
       href: sql-database-geo-replication-overview.md
     - name: "Account di accesso"
       href: sql-database-geo-replication-security-config.md
