@@ -1,6 +1,6 @@
 ---
-title: Distribuire ed esplorare l&quot;applicazione Wingtip Tickets Platform (WTP) (applicazione SaaS di esempio con database SQL di Azure) | Microsoft Docs
-description: Distribuire ed esplorare un&quot;applicazione SaaS di esempio che usa il database di SQL Azure
+title: Distribuire ed esplorare un&quot;applicazione SaaS che usa il database SQL di Azure | Microsoft Docs
+description: Distribuire ed esplorare l&quot;app Wingtip Tickets (WTP) di esempio del database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,18 +17,20 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ff4dc19bb6e24ea9ceeed9721cfb3a85b4d10965
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 04859fb8a9f4a8bf04d92e7139d9202885c52503
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione SaaS multi-tenant di esempio che usa il database di SQL Azure
+# <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione SaaS multi-tenant che usa il database SQL di Azure
 
 Questa esercitazione illustra come distribuire ed esplorare l'applicazione SaaS Wingtip Tickets Platform (WTP). L'applicazione usa un database per ogni tenant, il modello di applicazione SaaS, per soddisfare le richieste di più tenant. L'applicazione è progettata per dimostrare le funzionalità del database SQL di Azure che supportano gli scenari SaaS e i modelli di progettazione e gestione SaaS.
 
 Cinque minuti dopo aver fatto clic sul pulsante *Deploy to Azure* (Distribuisci in Azure) riportato di seguito, si avrà a disposizione un'applicazione SaaS multi-tenant, che usa database SQL, in esecuzione nel cloud. L'applicazione viene distribuita con tre tenant di esempio, ognuno con un database proprio, tutti distribuiti in un pool elastico SQL. L'app viene distribuita nella sottoscrizione di Azure e consente l'accesso completo per esaminare e utilizzare i singoli componenti dell'applicazione.
+
+Gli script e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS).
 
 In questa esercitazione si apprenderà:
 

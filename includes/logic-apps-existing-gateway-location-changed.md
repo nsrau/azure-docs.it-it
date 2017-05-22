@@ -1,0 +1,2 @@
+**D**: perché la posizione del gateway esistente è cambiata? <br/>
+**R**: le risorse gateway create prima del 3 maggio 2017 sono state spostate nelle posizioni originali del tenant di Azure AD relativo all'account aziendale o dell'istituto di istruzione che ha creato i gateway. Queste modifiche non dovrebbero tuttavia interessare le app per la logica attualmente in esecuzione, che continueranno a funzionare come di consueto. Con la disponibilità generale del gateway nel mese di maggio, le posizioni delle risorse gateway possono differire da quelle delle app per la logica.

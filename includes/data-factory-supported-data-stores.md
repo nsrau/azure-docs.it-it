@@ -1,8 +1,8 @@
 | Categoria | Archivio dati | Supportato come origine | Supportato come sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Archivio BLOB di Azure](../articles/data-factory/data-factory-azure-blob-connector.md) |✓  |✓  |
+| &nbsp; |[Azure Cosmos DB (API di DocumentDB)](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓  |✓  |
 | &nbsp; |[Archivio Data Lake di Azure](../articles/data-factory/data-factory-azure-datalake-connector.md) |✓  |✓  |
-| &nbsp; |[Azure DocumentDB](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓ |✓  |
 | &nbsp; |[Database SQL di Azure](../articles/data-factory/data-factory-azure-sql-connector.md) |✓  |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/data-factory-azure-sql-data-warehouse-connector.md) |✓  |✓  |
 | &nbsp; |[Indice di Ricerca di Azure](../articles/data-factory/data-factory-azure-search-connector.md) | |✓  |
