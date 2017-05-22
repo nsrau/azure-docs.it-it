@@ -1,6 +1,6 @@
 ---
-title: "Eseguire query di analisi su più tenant (applicazione SaaS di esempio con database SQL di Azure) | Microsoft Docs"
-description: "Eseguire query di analisi su più tenant"
+title: "Eseguire query di analisi su più database SQL di Azure | Microsoft Docs"
+description: "Eseguire query distribuite su più database SQL di Azure"
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>Eseguire query di analisi su più tenant
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Eseguire query distribuite su più database SQL di Azure
 
 Questa esercitazione descrive come eseguire query di analisi su ogni tenant nel catalogo. Viene creato un processo elastico che esegue le query. Il processo recupera i dati e li carica in un database di analisi separato creato nel server di catalogo. È possibile eseguire query su questo database per estrarre informazioni dettagliate nascoste nei dati operativi quotidiani di tutti i tenant. Come output del processo, viene creata una tabella dalle query che restituiscono risultati all'interno del database di analisi tenant.
 

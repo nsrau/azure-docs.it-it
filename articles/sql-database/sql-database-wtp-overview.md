@@ -1,6 +1,6 @@
 ---
-title: Panoramica di SaaS (applicazione SaaS di esempio con database SQL di Azure) | Microsoft Docs
-description: Creare applicazioni SaaS con database SQL
+title: App multi-tenant di esempio del database SQL di Azure | Microsoft Docs
+description: Introduzione all&quot;app Wingtip Tickets (WTP) di esempio del database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bf5745a788cd9ab6bf2ea8d5d97b8c04f083fc5d
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 265eab8104d8af7c510a88dffb9d70a2b3b37631
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

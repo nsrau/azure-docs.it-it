@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio delle prestazioni dell&quot;applicazione WTP (applicazione SaaS di esempio con database SQL di Azure) | Microsoft Docs
-description: Monitorare le prestazioni di un&quot;applicazione SaaS di esempio che usa il database SQL di Azure
+title: Monitorare le prestazioni di un&quot;app SaaS del database SQL | Microsoft Docs
+description: Monitorare e gestire le prestazioni di un&quot;app Wingtip Tickets (WTP) di esempio del database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1698a06dc326b1d215bb635c40724f914ba82442
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: af9511978718af10c97bee6af3a2835c9d2c1ff4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

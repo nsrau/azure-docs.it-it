@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 04/25/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 93b3910ba2f95bb6f3228926a51f71f96ccd1e23
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e6cf8797d08609f847e33f88e78fbcd3f3743a08
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Creare una funzione attivata dall'archiviazione code di Azure
 
-Informazioni su come creare una funzione attivata nel momento in cui vengono inviati messaggi a una coda di archiviazione di Azure.  
+Informazioni su come creare una funzione attivata nel momento in cui vengono inviati messaggi a una coda di archiviazione di Azure.
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
@@ -33,61 +33,73 @@ Per completare tutti i passaggi di questo argomento, saranno sufficienti meno di
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
+Prima di eseguire questo esempio, è necessario effettuare queste operazioni:
 
-È necessario anche scaricare e installare [Esplora archivi di Microsoft Azure](http://storageexplorer.com/). 
+- Scaricare e installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-function"></a>Creare una funzione attivata da una coda
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-an-azure-function-app"></a>Creare un'app per le funzioni di Azure
+
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+
+![App per le funzioni creata correttamente.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+Si creerà ora una funzione nella nuova app per le funzioni.
+
+<a name="create-function"></a>
+
+## <a name="create-a-queue-triggered-function"></a>Creare una funzione attivata da una coda
 
 Espandere l'app per le funzioni, fare clic sul pulsante **+** accanto a **Funzioni** e fare clic sul modello **QueueTrigger** per il linguaggio desiderato. Usare quindi le impostazioni come indicato nella tabella e fare clic su **Crea**.
 
 ![Creare una funzione attivata da una coda di archiviazione.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
-    
-| Impostazione      |  Valore consigliato   | Descrizione                                        |
-| ------------ |  ----------------- | -------------------------------------------------- |
+
+| Impostazione | Valore consigliato | Descrizione |
+|---|---|---|
 | **Nome coda**   | myqueue-items    | Nome della coda a cui connettersi nell'account di archiviazione. |
 | **Connessione dell'account di archiviazione** | AzureWebJobStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
-| **Dare un nome alla funzione** | Univoco nell'app per le funzioni | Nome della funzione attivata dalla coda. |  
+| **Dare un nome alla funzione** | Univoco nell'app per le funzioni | Nome della funzione attivata dalla coda. |
 
 Connettersi quindi all'account di archiviazione di Azure e creare la coda di archiviazione **myqueue-items**.
 
 ## <a name="create-the-queue"></a>Creare la coda
 
 1. Nella funzione fare clic su **Integrazione**, espandere **Documentazione** e copiare sia **Nome account** sia **Chiave account**. Usare queste credenziali per connettersi all'account di archiviazione. Se si è già connessi all'account di archiviazione, andare al passaggio 4.
- 
+
     ![Ottenere le credenziali per la connessione all'account di archiviazione.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
 
-2. Eseguire lo strumento [Microsoft Azure Storage Explorer](http://storageexplorer.com/), fare clic sull'icona di connessione a sinistra, scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e fare clic su **Avanti**.
+1. Eseguire lo strumento [Microsoft Azure Storage Explorer](http://storageexplorer.com/), fare clic sull'icona di connessione a sinistra, scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e fare clic su **Avanti**.
 
     ![Eseguire lo strumento di esplorazione dell'account di archiviazione.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
-    
-3. Immettere i valori **Nome account** e **Chiave account** definiti nel passaggio 1, fare clic su **Avanti** e quindi su **Connetti**. 
-  
+
+1. Immettere i valori **Nome account** e **Chiave account** definiti nel passaggio 1, fare clic su **Avanti** e quindi su **Connetti**.
+
     ![Immettere le credenziali di archiviazione ed eseguire la connessione.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-4. Espandere l'account di archiviazione associato, fare doppio clic su **Code**, fare clic su **Crea coda**, digitare `myqueue-items` e quindi premere INVIO.
- 
+1. Espandere l'account di archiviazione associato, fare doppio clic su **Code**, fare clic su **Crea coda**, digitare `myqueue-items` e quindi premere INVIO.
+
     ![Creare una coda di archiviazione.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
-È possibile ora testare la funzione aggiungendo un messaggio alla coda.  
+È possibile ora testare la funzione aggiungendo un messaggio alla coda.
 
 ## <a name="test-the-function"></a>Testare la funzione
 
 1. Tornare al portale di Azure, selezionare la funzione, espandere i **log** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non sia stato interrotto.
 
-2. In Esplora archivi espandere l'account di archiviazione, **Code** e **myqueue-items** e quindi fare clic su **Aggiungi messaggio**. 
+1. In Esplora archivi espandere l'account di archiviazione, **Code** e **myqueue-items** e quindi fare clic su **Aggiungi messaggio**.
 
     ![Aggiungere un messaggio alla coda.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
-2. Digitare il proprio messaggio di benvenuto nel campo **Testo del messaggio** e fare clic su **OK**.
- 
-3. Attendere alcuni secondi, tornare ai log di funzione e verificare che il nuovo messaggio sia stato letto dalla coda. 
+1. Digitare il proprio messaggio di benvenuto nel campo **Testo del messaggio** e fare clic su **OK**.
+
+1. Attendere alcuni secondi, tornare ai log di funzione e verificare che il nuovo messaggio sia stato letto dalla coda.
 
     ![Visualizzare il messaggio nei log.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 
-4. Tornare a Esplora archivi, fare clic su **Aggiorna** e verificare che il messaggio sia stato elaborato e non sia più in coda.
+1. Tornare a Esplora archivi, fare clic su **Aggiorna** e verificare che il messaggio sia stato elaborato e non sia più in coda.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -95,12 +107,8 @@ Connettersi quindi all'account di archiviazione di Azure e creare la coda di arc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata creata una funzione che viene eseguita nel momento in cui un messaggio viene aggiunto a una coda di archiviazione. 
+È stata creata una funzione che viene eseguita nel momento in cui un messaggio viene aggiunto a una coda di archiviazione.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Per altre informazioni sui trigger dell'archiviazione code, vedere [Associazioni della coda dell'archiviazione di Funzioni di Azure](functions-bindings-storage-queue.md). 
-
-
-
-
+Per altre informazioni sui trigger dell'archiviazione code, vedere [Associazioni della coda dell'archiviazione di Funzioni di Azure](functions-bindings-storage-queue.md).

@@ -1,6 +1,6 @@
 ---
-title: "Gestire lo schema per più tenant (applicazione SaaS di esempio con database SQL di Azure) | Microsoft Docs"
-description: "Gestire lo schema per più tenant in un&quot;applicazione SaaS che usa database SQL di Azure"
+title: Gestire lo schema del database SQL di Azure in un&quot;app multi-tenant | Microsoft Docs
+description: "Gestire lo schema per più tenant in un&quot;applicazione multi-tenant che usa il database SQL di Azure"
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 226cda254934fae30410e54148d5cc527e1c7881
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 19d02229781186053a0063af1c7e1a3280179f46
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

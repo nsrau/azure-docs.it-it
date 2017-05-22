@@ -1,6 +1,6 @@
 ---
-title: Eseguire query di analisi ad-hoc su tutti i tenant (applicazione SaaS di esempio con database SQL di Azure) | Microsoft Docs
-description: Eseguire query di analisi ad-hoc su tutti i tenant
+title: "Eseguire query di analisi ad-hoc su più database SQL di Azure | Microsoft Docs"
+description: "Eseguire query di analisi ad-hoc su più database in un&quot;applicazione multi-tenant"
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c00c25116002c46fc94c5ea59acc101a2055b689
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: dd41e7f1f131f6c18e03d2434982c3d681342b8b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

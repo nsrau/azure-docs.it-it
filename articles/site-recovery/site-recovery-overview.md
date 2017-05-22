@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 89921997f68bd72ee6086d2b635361eeeaba1c28
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -33,7 +34,7 @@ I servizi di ripristino di Azure contribuiscono alla strategia BCDR. Il servizio
 
 - **Ripristino di emergenza nel cloud**: è possibile replicare i carichi di lavoro in esecuzione sulle macchine virtuali e sui server fisici in Azure, piuttosto che su un sito secondario. eliminando i costi e la complessità associati alla gestione di un data center secondario.
 - **Modalità di replica flessibile per gli ambienti ibridi**: è possibile replicare i carichi di lavoro in esecuzione nelle VM Hyper-V locali, in VMware e nei server fisici di Windows o Linux.
-- **Migrazione**: è possibile usare Site Recovery per eseguire la migrazione di istanze AWS locali su macchine virtuali di Azure oppure eseguire la migrazione di macchine virtuali di Azure tra aree di Azure.
+- **Migrazione**: è possibile usare Site Recovery per eseguire la migrazione di istanze AWS in macchine virtuali di Azure oppure eseguire la migrazione di macchine virtuali di Azure tra aree di Azure.
 - **BCDR semplificato**: è possibile distribuire la replica da un'unica posizione nel Portale di Azure.  È possibile eseguire semplici failover e failback di uno o più macchine.
 - **Resilienza**: Site Recovery gestisce la replica e il failover senza intercettare i dati delle applicazioni.
 I dati replicati vengono archiviati in Archiviazione di Azure grazie alla resilienza offerta. Le VM di Azure vengono create con i dati replicati in caso di failover.
