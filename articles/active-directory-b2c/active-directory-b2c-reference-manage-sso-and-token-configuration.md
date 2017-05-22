@@ -56,6 +56,7 @@ Per modificare le impostazioni delle durate dei token, è necessario aggiungere 
 ```XML
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```
+
 **Attestazione autorità di certificazione (iss)** Per cambiare l'attestazione autorità di certificazione (iss), modificare il valore nell'elemento `<Item>` con Key="IssuanceClaimPattern".  I valori applicabili sono `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
 
 **Impostazione dell'attestazione che rappresenta l'ID criteri** Le opzioni per impostare questo valore sono TFP (Trust Framework Policy) e ACR (Authentication Context Reference).  
@@ -88,5 +89,8 @@ Per modificare il comportamento della sessione e le configurazioni SSO, è neces
 </UserJourneyBehaviors>
 ```
 **Configurazione dell'accesso Single Sign-On** Per cambiare la configurazione dell'accesso Single Sign-On, è necessario modificare il valore di `<SingleSignOn>`.  I valori applicabili sono `Tenant`, `Application` `Policy` e `Disabled`. 
+
 **Durata della sessione dell'app Web (minuti)** Per cambiare la durata della sessione dell'app Web, è necessario modificare il valore dell'elemento `<SessionExpiryInSeconds>`.  Il valore predefinito nei criteri predefiniti è pari a 86400 secondi (1440 minuti).
+
 **Timeout della sessione dell'app Web** Per cambiare il timeout della sessione dell'app Web, è necessario modificare il valore di `<SessionExpiryType>`.  I valori applicabili sono `Absolute` e `Rolling`.
+
