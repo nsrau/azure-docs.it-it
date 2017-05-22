@@ -4,7 +4,7 @@ description: "Informazioni sulle tecniche e le funzionalità per proteggere il d
 services: sql-database
 documentationcenter: 
 author: DRediske
-manager: johammer
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,29 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/03/2017
+ms.date: 05/07/2017
 ms.author: daredis
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: eb2c8ec946a08ed3b538d613199706779b80bd1f
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 34815f5b716a38f957392d8955f924eeb6fe621e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteggere il database SQL di Azure
 
-In questa esercitazione vengono illustrati in dettaglio i concetti fondamentali della protezione del database SQL. Con pochi semplici passaggi, è possibile migliorare notevolmente la protezione di qualsiasi database contro utenti malintenzionati o accessi non autorizzati.
+Il database SQL protegge i dati limitando l'accesso al database usando regole del firewall, i meccanismi di autenticazione che richiedono agli utenti di dimostrare la propria identità e l'autorizzazione per i dati tramite le appartenenze basate sui ruoli e le autorizzazioni, oltre che tramite la sicurezza a livello di riga e la maschera dati dinamica.
 
-Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+È possibile migliorare la protezione del database contro utenti malintenzionati o accessi non autorizzati con pochi semplici passaggi. In questa esercitazione si apprenderà come: 
+
+> [!div class="checklist"]
+> * Configurare le regole del firewall per il server e/o il database
+> * Connettersi al database usando una stringa di connessione protetta
+> * Gestire l'accesso utente
+> * Proteggere i dati con la crittografia
+> * Abilitare il controllo del database SQL
+> * Abilitare il rilevamento delle minacce per il database SQL
 
 Per completare questa esercitazione, assicurarsi di aver installato Excel e la versione più recente di [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx), ovvero SSMS.
 
 
-
 ## <a name="set-up-firewall-rules-for-your-database"></a>Impostare le regole del firewall per il database
 
-I database SQL di Azure sono protetti da un firewall. Per impostazione predefinita, vengono rifiutate tutte le connessioni al server e ai database all'interno del server ad eccezione delle connessioni di altri servizi di Azure. L'impostazione più sicura consiste nell'impostare "Consenti l'accesso a Servizi di Azure" su NON ATTIVO. Se è necessario connettersi al database da un servizio cloud o da una macchina virtuale di Azure, è necessario creare un [indirizzo IP riservato](../virtual-network/virtual-networks-reserved-public-ip.md) e consentire solo a questo indirizzo l'accesso tramite firewall. 
+I database SQL sono protetti da un firewall in Azure. Per impostazione predefinita, vengono rifiutate tutte le connessioni al server e ai database all'interno del server ad eccezione delle connessioni di altri servizi di Azure. La configurazione più sicura consiste nell'impostare "Consenti l'accesso a Servizi di Azure" su NON ATTIVO. Se è necessario connettersi al database da un servizio cloud o da una macchina virtuale di Azure, è necessario creare un [indirizzo IP riservato](../virtual-network/virtual-networks-reserved-public-ip.md) e consentire solo a questo indirizzo l'accesso tramite firewall. 
 
 Seguire questa procedura per creare una [regola del firewall a livello di server del database SQL](sql-database-firewall-configure.md) per il server per consentire le connessioni dall'indirizzo IP specifico. 
 
@@ -61,7 +68,7 @@ Seguire questa procedura per creare una [regola del firewall a livello di server
 
 Se sono necessarie diverse impostazioni firewall per i vari database all'interno dello stesso server logico, è necessario creare una regola a livello di database per ogni database. Le regole del firewall a livello di database possono essere configurate solo usando le istruzioni Transact-SQL e solo dopo aver configurato la prima regola del firewall a livello di server. Per creare una regola del firewall specifiche del database seguire questa procedura.
 
-1. Connettersi al database, ad esempio mediante [SSMS](./sql-database-connect-query-ssms.md).
+1. Connettersi al database, ad esempio usando [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
 
 2. In Esplora oggetti fare clic con il tasto destro del mouse sul database a cui si desidera aggiungere una regola del firewall e fare clic su **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database.
 
@@ -73,9 +80,9 @@ Se sono necessarie diverse impostazioni firewall per i vari database all'interno
 
 4. Sulla barra degli strumenti fare clic su **Esegui** per creare la regola del firewall.
 
-## <a name="connect-to-the-database-using-a-secure-connection-string"></a>Connettersi al database usando una stringa di connessione protetta
+## <a name="connect-to-your-database-using-a-secure-connection-string"></a>Connettersi al database usando una stringa di connessione protetta
 
-Per garantire una connessione crittografata e protetta tra il client e il database SQL, la stringa di connessione deve essere configurato per 1) richiedere una connessione crittografata e 2) non considerare attendibile il certificato del server. Questo consente di stabilire una connessione tramite Transport Layer Security (TLS) e di ridurre il rischio di attacco man-in-the-middle . È possibile ottenere stringhe di connessione configurate correttamente per il database SQL di Azure per i driver di client supportati nel portale di Azure, come illustrato per ADO.net in questa schermata.
+Per garantire una connessione crittografata e protetta tra il client e il database SQL, la stringa di connessione deve essere configurata per 1) richiedere una connessione crittografata e 2) non considerare attendibile il certificato del server. Questo consente di stabilire una connessione tramite Transport Layer Security (TLS) e di ridurre il rischio di attacco man-in-the-middle . È possibile ottenere stringhe di connessione configurate correttamente per il database SQL per i driver di client supportati nel portale di Azure, come illustrato per ADO.net in questo screenshot.
 
 1. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**.
 
@@ -98,14 +105,14 @@ Se si desidera usare [Azure Active Directory](./sql-database-aad-authentication.
 
 Seguire questa procedura per creare un utente tramite l'autenticazione di SQL:
 
-1. Connettersi al database, ad esempio mediante [SSMS](./sql-database-connect-query-ssms.md) usando le credenziali di amministratore del server.
+1. Connettersi al database, ad esempio usando [SQL Server Management Studio](./sql-database-connect-query-ssms.md) con le credenziali di amministratore del server.
 
 2. In Esplora oggetti fare clic con il tasto destro del mouse sul database a cui si desidera aggiungere un nuovo utente e fare clic su **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database selezionato.
 
 3. Nella finestra delle query, immettere la query seguente:
 
     ```sql
-    CREATE USER ApplicationUserUser WITH PASSWORD = 'strong_password';
+    CREATE USER 'ApplicationUserUser' WITH PASSWORD = 'strong_password';
     ```
 
 4. Sulla barra degli strumenti fare clic su **Esegui** per creare l'utente.
@@ -113,8 +120,8 @@ Seguire questa procedura per creare un utente tramite l'autenticazione di SQL:
 5. Per impostazione predefinita, l'utente può connettersi al database, ma non dispone delle autorizzazioni per leggere o scrivere dati. Per concedere le autorizzazioni all'utente appena creato, eseguire i due comandi seguenti in una nuova finestra di query
 
     ```sql
-    ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
-    ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
+    ALTER ROLE db_datareader ADD MEMBER 'ApplicationUserUser';
+    ALTER ROLE db_datawriter ADD MEMBER 'ApplicationUserUser';
     ```
 
 È consigliabile creare gli account non amministratore a livello di database per la connessione al database, a meno che non sia necessario eseguire le attività di amministrazione quali la creazione di nuovi utenti. Rivedere l'[esercitazione di Azure Active Directory](./sql-database-aad-authentication-configure.md) su come eseguire l'autenticazione con Azure Active Directory.
@@ -132,15 +139,15 @@ Transparent Data Encryption, ovvero TDE, di database SQL di Azure consente di cr
 
 3. Impostare **Crittografia dati** su ON (ATTIVO) e fare clic su **Salva**.
 
-Il processo di crittografia viene avviato in background. È possibile monitorare lo stato di avanzamento tramite la connessione al database SQL, usando ad esempio [SSMS](./sql-database-connect-query-ssms.md) come database e eseguendo una query sulla colonna encryption_state della visualizzazione sys.dm_database_encryption_keys.
+Il processo di crittografia viene avviato in background. Per monitorare lo stato, connettersi al database SQL con [SQL Server Management Studio](./sql-database-connect-query-ssms.md) effettuando una query della colonna encryption_state nella visualizzazione `sys.dm_database_encryption_keys`.
 
 ## <a name="enable-sql-database-auditing"></a>Abilitare il controllo del database SQL
 
-Il controllo del database SQL di Azure tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza. Per creare una criterio di controllo predefinito per il database, seguire questa procedura:
+Il controllo del database SQL di Azure tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare potenziali violazioni della sicurezza. Per creare un criterio di controllo predefinito per il database SQL, seguire questa procedura:
 
 1. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**.
 
-2. Nel pannello Impostazioni selezionare **Controllo e rilevamento delle minacce**.
+2. Nel pannello Impostazioni selezionare **Controllo e rilevamento minacce**.
 
     ![Pannello di controllo](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
@@ -148,7 +155,7 @@ Il controllo del database SQL di Azure tiene traccia degli eventi che si verific
 
     ![Ereditare le impostazioni](./media/sql-database-security-tutorial/auditing-get-started-server-inherit.png)
 
-4. Se si vuole abilitare il controllo BLOB a livello di database, in aggiunta o al posto del controllo a livello di server, **deselezionare** l'opzione **Eredita impostazioni di controllo del server**, **attivare** Controllo e scegliere il tipo di controllo **BLOB**.
+4. Se si preferisce abilitare un tipo di controllo (o una posizione) diverso da quello specificato a livello di server, **deselezionare** l'opzione **Eredita impostazioni di controllo del server**, **attivare** Controllo e scegliere il tipo di controllo **BLOB**.
 
     > Se il controllo BLOB del server è abilitato, il controllo configurato del database coesisterà con il controllo BLOB del server.
 
@@ -212,8 +219,17 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+È possibile migliorare la protezione del database contro utenti malintenzionati o accessi non autorizzati con pochi semplici passaggi. In questa esercitazione si apprenderà come: 
 
-* Per una panoramica di tutte le funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza nel database SQL](sql-database-security-overview.md).
-* Per una crittografia aggiuntiva di colonne riservate nel database, è possibile usare la crittografia lato client con [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
-* Per la funzionalità di controllo di accesso aggiuntivo, la [sicurezza a livello di riga](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) consente di limitare l'accesso alle righe in un database in base all'appartenenza a un gruppo o al contesto di esecuzione, mentre la [maschera dati dinamica](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita l'esposizione dei dati sensibili mascherandoli agli utenti senza privilegi al livello dell'applicazione. 
+> [!div class="checklist"]
+> * Configurare le regole del firewall per il server e/o il database
+> * Connettersi al database usando una stringa di connessione protetta
+> * Gestire l'accesso utente
+> * Proteggere i dati con la crittografia
+> * Abilitare il controllo del database SQL
+> * Abilitare il rilevamento delle minacce per il database SQL
+
+> [!div class="nextstepaction"]
+>[Migliorare le prestazioni del database SQL](sql-database-performance-tutorial.md)
+
 
