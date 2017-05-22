@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d138f4135d008c746bd5501680392b80a51786fa
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -61,15 +61,15 @@ Questa guida presuppone che sia già disponibile un tenant di valutazione o con 
 **A questo punto è stata configurata la reimpostazione password self-service per il tenant di Azure AD**. È possibile interrompere la procedura o proseguire con la configurazione della sincronizzazione delle password con un dominio AD locale.
 
 > [!NOTE]
-> Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo di approfondimento](active-directory-passwords-how-it-works.md).
+> Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo sui criteri delle password](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>Configurare la sincronizzazione con un'origine delle identità esistente
 
-Per abilitare la sincronizzazione delle identità locali con Azure AD è necessario installare e configurare [Azure AD Connect](/connect/active-directory-aadconnect.md) in un server dell'organizzazione. Questa applicazione gestisce la sincronizzazione di utenti e gruppi dall'origine delle identità esistente al dominio di Azure AD.
+Per abilitare la sincronizzazione delle identità locali con Azure AD è necessario installare e configurare [Azure AD Connect](./connect/active-directory-aadconnect.md) in un server dell'organizzazione. Questa applicazione gestisce la sincronizzazione di utenti e gruppi dall'origine delle identità esistente al dominio di Azure AD.
 
-[Introduzione alle impostazioni rapide per Azure AD Connect](/connect/active-directory-aadconnect-get-started-express.md)
+[Introduzione alle impostazioni rapide per Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)
 
-[Eseguire l'aggiornamento da DirSync o Azure AD Sync ad Azure AD Connect](/connect/active-directory-aadconnect-dirsync-deprecated.md)
+[Eseguire l'aggiornamento da DirSync o Azure AD Sync ad Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 
 ## <a name="disabling-self-service-password-reset"></a>Disabilitazione della reimpostazione self-service della password
 
@@ -79,12 +79,12 @@ Per disabilitare la reimpostazione self-service della password è sufficiente ap
 I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
 
 * [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
-* [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
+* [**Dati**](active-directory-passwords-data.md) - Informazioni sui dati necessari e su come vengono usati per la gestione delle password
 * [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
-* [**Personalizzazione**](active-directory-passwords-customize.md): personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
-* [**Criteri**](active-directory-passwords-policy.md): comprendere e impostare i criteri password di Azure AD
-* [**Reporting** ](active-directory-passwords-reporting.md): verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
+* [**Personalizzazione**](active-directory-passwords-customize.md) - personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
+* [**Criteri**](active-directory-passwords-policy.md) - comprendere e impostare i criteri password di Azure AD
+* [**Creazione di report**](active-directory-passwords-reporting.md) - verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
 * [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
-* [**Domande frequenti**](active-directory-passwords-faq.md): come? Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
+* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
 

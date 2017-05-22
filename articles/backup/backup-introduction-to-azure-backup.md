@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -112,10 +113,10 @@ Le VM di Archiviazione Premium possono essere ripristinate in Archiviazione Prem
 Backup di Azure protegge le macchine virtuali con dischi gestiti. I dischi gestiti rendono superflua la gestione degli account di archiviazione delle macchine virtuali e semplificano notevolmente il provisioning delle VM.
 
 ### <a name="back-up-managed-disk-vms"></a>Eseguire il backup di macchine virtuali con dischi gestiti
-Il backup delle macchine virtuali nei dischi gestiti non presenta differenze rispetto al backup delle macchine virtuali di Resource Manager. Nel Portale di Azure è possibile configurare il processo di backup direttamente dalla visualizzazione della macchina virtuale o dalla visualizzazione dell'insieme di credenziali di Servizi di ripristino. È possibile eseguire il backup delle macchine virtuali nei dischi gestiti tramite raccolte RestorePoint basate su dischi gestiti. Backup di Azure non supporta attualmente il backup delle macchine virtuali con dischi gestiti crittografate tramite Crittografia dischi di Azure.
+Il backup delle macchine virtuali nei dischi gestiti non presenta differenze rispetto al backup delle macchine virtuali di Resource Manager. Nel Portale di Azure è possibile configurare il processo di backup direttamente dalla visualizzazione della macchina virtuale o dalla visualizzazione dell'insieme di credenziali di Servizi di ripristino. È possibile eseguire il backup delle macchine virtuali nei dischi gestiti tramite raccolte RestorePoint basate su dischi gestiti. Backup di Azure supporta anche il backup delle macchine virtuali con dischi gestiti crittografate con Crittografia dischi di Azure.
 
 ### <a name="restore-managed-disk-vms"></a>Ripristinare le macchine virtuali con dischi gestiti
-Backup di Azure consente di ripristinare una macchina virtuale completa con dischi gestiti o di ripristinare dischi gestiti in un account di archiviazione di Resource Manager. Azure gestisce i dischi gestiti durante il processo di ripristino. Il cliente gestisce l'account di archiviazione creato come parte del processo di ripristino.
+Backup di Azure consente di ripristinare una macchina virtuale completa con dischi gestiti o di ripristinare dischi gestiti in un account di archiviazione di Resource Manager. Azure gestisce i dischi gestiti durante il processo di ripristino. Il cliente gestisce l'account di archiviazione creato come parte del processo di ripristino. Per ripristinare una VM crittografata gestita, le chiavi e i segreti della VM devono esistere nell'insieme di credenziali delle chiavi già prima del ripristino.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Quali sono le funzionalità di ogni componente di Backup?
 Le sezioni seguenti indicano tabelle che riepilogano la disponibilità o il supporto di diverse funzionalità in ogni componente di Backup di Azure. Vedere le informazioni riportate dopo ogni tabella per altri dettagli.
