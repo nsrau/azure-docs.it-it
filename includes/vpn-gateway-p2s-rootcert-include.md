@@ -1,0 +1,8 @@
+È possibile usare un certificato radice generato tramite una soluzione aziendale (opzione consigliata) oppure generare un certificato autofirmato. Se si usa un certificato autofirmato, assicurarsi di seguire le indicazioni disponibili nell'articolo [Creare un certificato autofirmato per connessioni da punto a sito](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert). L'articolo include le impostazioni specifiche necessarie per generare un certificato compatibile con le connessioni da punto a sito.
+
+Dopo avere creato il certificato radice, esportare i dati del certificato pubblico, non la chiave privata, come file CER X.509 con codifica in base 64. Si caricano quindi i dati del certificato pubblico dal certificato radice ad Azure.
+
+* **Certificato aziendale:** se si tratta di una soluzione aziendale, è possibile usare la catena di certificati esistente. Ottenere il file con estensione cer per il certificato radice che si vuole usare.
+* **Certificato radice autofirmato:** se non si usa una soluzione aziendale per la creazione di certificati, è necessario creare un certificato radice autofirmato. Il certificato radice deve contenere valori specifici per consentirne l'uso con una connessione da punto a sito. Per istruzioni, vedere gli articoli seguenti:
+  * Per creare un certificato radice autofirmato, vedere [Creare un certificato autofirmato per connessioni da punto a sito](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert).
+  * Per esportare la chiave pubblica (file con estensione cer), vedere [Creare un certificato autofirmato per connessioni da punto a sito](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer).
