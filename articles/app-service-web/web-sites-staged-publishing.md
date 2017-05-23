@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a51be4038ef6f9890645a71cd10cc86cb58929f3
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: dd0382aaec0cdcbd6688d99f7bc0245fae5b963f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
 
-Quando si distribuisce l'app Web, il back-end per dispositivi mobili e l'App per le API al [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire la distribuzione in uno slot di distribuzione distinto, invece che in quello predefinito, se la modalità del piano di servizio app usata è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
+Quando si distribuisce l'app Web, il back-end per dispositivi mobili, l'app Web su Linux e l'App per le API al [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire la distribuzione in uno slot di distribuzione distinto, invece che in quello predefinito, se la modalità del piano di servizio app usata è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
 
 * È possibile convalidare le modifiche alle app in uno slot di distribuzione temporaneo prima di scambiarlo con quello di produzione.
 * La distribuzione preliminare di un'app in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](#Auto-Swap) quando non è necessario spazio di pre-swapping convalida.
@@ -119,6 +120,9 @@ Per configurare un'impostazione app o una stringa di connessione in modo da adat
 Lo scambio con anteprima o swap multifase semplifica la convalida degli elementi di configurazione di uno slot specifico, ad esempio le stringhe di connessione.
 Per i carichi di lavoro mission-critical, è possibile convalidare il comportamento previsto dell'app quando viene applicata la configurazione dello slot di produzione ed è necessario eseguire questa convalida *prima* dello scambio dell'app in produzione. Lo scambio con anteprima è ciò che serve.
 
+> [!NOTE]
+> Lo scambio con anteprima non è supportato nelle applicazioni Web in Linux.
+
 Quando si usa l'opzione **Scambio con anteprima** (vedere [Swap degli slot di distribuzione](#Swap)), il servizio app effettua le seguenti operazioni:
 
 - Mantiene invariato lo slot di destinazione in modo che non interessi il carico di lavoro esistente in questo slot, ad esempio, la produzione.
@@ -140,6 +144,9 @@ Lo scambio automatico semplifica gli scenari DevOps nei quali si vuole distribui
 > AZURE.IMPORTANTE Quando si abilita lo scambio automatico per uno slot, assicurarsi che la configurazione dello slot corrisponda esattamente alla configurazione dello slot desiderata per lo slot di destinazione (in genere lo slot di produzione).
 > 
 > 
+
+> [!NOTE]
+> Lo scambio automatico non è supportato nelle applicazioni Web in Linux.
 
 La configurazione dello scambio automatico per uno slot è semplice. Attenersi ai passaggi indicati di seguito:
 
@@ -277,7 +284,7 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Blocco dell'accesso Web agli slot di distribuzione non di produzione nell'app Web del servizio app di Azure](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
+[Introduzione al servizio app in Linux](./app-service-linux-intro.md)
 [Versione di valutazione gratuita di Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
