@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ Ora è disponibile un indice di ricerca su cui è possibile eseguire query. **Es
 
   Per visualizzare i singoli componenti, fare clic sul riquadro **Indice**, **Indicizzatore** oppure **Origini dati** nel dashboard per visualizzare un elenco di oggetti esistenti. Per altre informazioni sulle modifiche all'indice che non richiedono la ricompilazione, vedere [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) (API REST di Ricerca di Azure: aggiornare l'indice).
 
-+ Provare a usare strumenti e procedure con altre origini dati. Il set di dati di esempio, `realestate-us-sample`, proviene da un database SQL di Azure in cui Ricerca di Azure può eseguire ricerche per indicizzazione. Oltre che nel database SQL di Azure, Ricerca di Azure permette di eseguire ricerche per indicizzazione e dedurre un indice da strutture di dati flat nell'archivio tabelle di Azure, nell'archivio BLOB, in SQL Server in una macchina virtuale di Azure e in DocumentDB. Tutte queste origini dati sono supportate nella procedura guidata. Nel codice è possibile popolare facilmente un indice tramite un *indicizzatore*.
++ Provare a usare strumenti e procedure con altre origini dati. Il set di dati di esempio, `realestate-us-sample`, proviene da un database SQL di Azure in cui Ricerca di Azure può eseguire ricerche per indicizzazione. Oltre che nel database SQL di Azure, Ricerca di Azure permette di effettuare ricerche per indicizzazione e dedurre un indice da strutture di dati flat nell'archivio tabelle di Azure, nell'archivio BLOB, in SQL Server in una macchina virtuale di Azure e in Azure Cosmos DB. Tutte queste origini dati sono supportate nella procedura guidata. Nel codice è possibile popolare facilmente un indice tramite un *indicizzatore*.
 
 + Tutte le altre origini dati senza indicizzatore sono supportate tramite un modello push, in cui il codice effettua il push di set di righe nuovi e modificati in JSON nell'indice. Per altre informazioni, vedere [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Aggiungere, aggiornare o eliminare documenti da Ricerca di Azure).
 

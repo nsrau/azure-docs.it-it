@@ -56,7 +56,7 @@ Per usare `escapeChar` invece di `quoteChar`, sostituire la riga con `quoteChar`
 * Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non contengono né dati né un'intestazione. Specificare `skipLineCount` per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è anche possibile specificare `firstRowAsHeader`. Se sono specificati sia `skipLineCount` che `firstRowAsHeader`, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input.
 
 ### <a name="specifying-jsonformat"></a>Impostazione di JsonFormat
-Per **importare/esportare i file JSON senza modifiche in/da DocumentDB**, vedere la sezione [Importare/Esportare documenti JSON](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo sul connettore DocumentDB per ottenere informazioni dettagliate.
+Per **importare/esportare i file JSON senza modifiche in/da Azure Cosmos DB**, vedere la sezione [Importare/esportare documenti JSON](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo sul connettore di Azure Cosmos DB per ottenere informazioni dettagliate.
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `format` `type` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 

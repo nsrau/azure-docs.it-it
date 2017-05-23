@@ -1,27 +1,28 @@
 ---
-title: 'Esercitazione su NoSQL: DocumentDB .NET Core SDK | Documentazione Microsoft'
-description: "Esercitazione su NoSQL che crea un database online e un&quot;applicazione console in C# con DocumentDB .NET Core SDK. DocumentDB è un database NoSQL per JSON."
-services: documentdb
+title: 'Azure Cosmos DB: Introduzione all&quot;API DocumentDB con l&quot;esercitazione per .NET Core | Microsoft Docs'
+description: Esercitazione che consente di creare un database online e un&quot;applicazione console in C# usando Azure Cosmos DB DocumentDB API .NET Core SDK.
+services: cosmosdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: a2ebd1181535087dbd33c5088fc495ccebf76e4f
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 586951e546feacbf1f90580346be9c155ba231f9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="nosql-tutorial-build-a-documentdb-c-console-application-on-net-core"></a>Esercitazione su NoSQL: Compilare un'applicazione console C# di DocumentDB in .Net Core
+# <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB: Introduzione all'API DocumentDB e a .NET Core
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,11 +33,11 @@ ms.lasthandoff: 03/31/2017
 >  
 > 
 
-Esercitazione su NoSQL per Azure DocumentDB .NET Core SDK Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse DocumentDB.
+Questa è un'esercitazione introduttiva per Azure Cosmos DB. Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse DocumentDB.
 
 Tratteremo questo argomento:
 
-* Creazione e connessione a un account DocumentDB
+* Creazione e connessione a un account Azure Cosmos DB
 * Configurare una soluzione Visual Studio
 * Creazione di un database online
 * Creare una raccolta
@@ -61,14 +62,14 @@ Ecco come procedere.
 Assicurarsi di disporre di quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
-    * In alternativa, per questa esercitazione è possibile usare l'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md).
+    * In alternativa, per questa esercitazione è possibile usare l'[emulatore Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2017](https://www.visualstudio.com/vs/) 
     * Se si usa MacOS o Linux, è possibile sviluppare app .NET Core dalla riga di comando installando [.NET Core SDK](https://www.microsoft.com/net/core#macos) per la piattaforma scelta. 
     * Se si usa Windows, è possibile sviluppare app .NET Core dalla riga di comando installando [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
     * È possibile usare il proprio editor o scaricare [Visual Studio Code](https://code.visualstudio.com/), gratuito e utilizzabile in Windows, Linux e MacOS. 
 
 ## <a name="step-1-create-a-documentdb-account"></a>Passaggio 1: Creare un account DocumentDB
-Creare un account DocumentDB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS). Se si usa l'emulatore DocumentDB, seguire i passaggi descritti nell'articolo [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) (Emulatore DocumentDB di Azure) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS).
+Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS). Se si usa l'emulatore Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md) (Emulatore Azure Cosmos DB) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -89,7 +90,7 @@ Creare un account DocumentDB. Se si ha già un account, è possibile ignorare qu
 
 L'installazione è riuscita. Ora che abbiamo completato l'installazione, iniziamo a scrivere il codice. Un progetto di codice completo di questa esercitazione è disponibile in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
-## <a id="Connect"></a>Passaggio 3: Connettersi a un account DocumentDB
+## <a id="Connect"></a>Passaggio 3: Connettersi a un account Azure Cosmos DB
 In primo luogo, aggiungere questi riferimenti all'inizio dell'applicazione c#, nel file Program.cs:
 
 ```csharp
@@ -105,7 +106,7 @@ using Newtonsoft.Json;
 ```
 
 > [!IMPORTANT]
-> Per completare questa esercitazione su NoSQL, assicurarsi di aggiungere le dipendenze illustrate sopra.
+> Per completare questa esercitazione, assicurarsi di aggiungere le dipendenze illustrate sopra.
 
 Aggiungere ora queste due costanti e la variabile *client* sotto la classe pubblica *Program*.
 
@@ -120,9 +121,9 @@ class Program
 
 Passare quindi al [portale di Azure](https://portal.azure.com) per recuperare l'URI e la chiave primaria. L'URI e la chiave primaria di DocumentDB sono necessari all'applicazione per conoscere la destinazione della connessione e a DocumentDB per considerare attendibile la connessione dell'applicazione.
 
-Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chiavi**.
+Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su **Chiavi**.
 
-Copiare l'URI dal portale e incollarlo in `<your endpoint URI>` nel file program.cs. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `<your key>`. Se si usa l'emulatore DocumentDB di Azure, usare `https://localhost:8081` come endpoint e la chiave di autorizzazione ben definita di [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md) (Come sviluppare usando l'emulatore DocumentDB di Azure). Assicurarsi di rimuovere < e > lasciando le virgolette doppie che racchiudono l'endpoint e la chiave.
+Copiare l'URI dal portale e incollarlo in `<your endpoint URI>` nel file program.cs. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `<your key>`. Se si usa l'emulatore Azure Cosmos DB, usare `https://localhost:8081` come endpoint e la chiave di autorizzazione ben definita di [Come sviluppare usando l'emulatore Azure Cosmos DB](documentdb-nosql-local-emulator.md). Assicurarsi di rimuovere < e > lasciando le virgolette doppie che racchiudono l'endpoint e la chiave.
 
 ![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
 
@@ -172,7 +173,7 @@ static void Main(string[] args)
 
 Premere il pulsante **DocumentDBGettingStarted** per compilare ed eseguire l'applicazione.
 
-Congratulazioni. La connessione a un account DocumentDB è stata stabilita. Ora è possibile veder come utilizzare le risorse di DocumentDB.  
+Congratulazioni. La connessione a un account Azure Cosmos DB è stata stabilita. Ora è possibile esaminare l'uso delle risorse di Azure Cosmos DB.  
 
 ## <a name="step-4-create-a-database"></a>Passaggio 4: Creare un database
 Prima di aggiungere il codice per la creazione di un database, aggiungere un metodo helper per la scrittura nella console.
@@ -204,7 +205,7 @@ private async Task GetStartedDemo()
 
 Premere il pulsante **DocumentDBGettingStarted** per eseguire l'applicazione.
 
-Congratulazioni. La creazione di un database di DocumentDB è stata completata.  
+Congratulazioni. La creazione di un database di Azure Cosmos DB è stata completata.  
 
 ## <a id="CreateColl"></a>Passaggio 5: Creare una raccolta
 > [!WARNING]
@@ -225,12 +226,12 @@ Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il co
 
 Premere il pulsante **DocumentDBGettingStarted** per eseguire l'applicazione.
 
-Congratulazioni. La raccolta di documenti di DocumentDB è stata completata.  
+Congratulazioni. La creazione di una raccolta di documenti di Azure Cosmos DB è stata completata.  
 
 ## <a id="CreateDoc"></a>Passaggio 6: Creare documenti JSON
 È possibile creare un [documento](documentdb-resources.md#documents) usando il metodo [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente (arbitrario). Ora è possibile inserire uno o più documenti. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dei dati](documentdb-import-data.md)di DocumentDB.
 
-È necessario creare prima una classe **Family** che rappresenterà gli oggetti archiviati in DocumentDB in questo esempio. Verranno create anche le sottoclassi **Parent**, **Child**, **Pet** e **Address** da usare in **Family**. Si noti che i documenti devono avere una proprietà **Id** serializzata come **id** in JSON. Creare queste classi aggiungendo le classi secondarie interne seguenti dopo il metodo **GetStartedDemo** .
+È necessario creare prima di tutto una classe **Family** che rappresenterà gli oggetti archiviati in Azure Cosmos DB in questo esempio. Verranno create anche le sottoclassi **Parent**, **Child**, **Pet** e **Address** da usare in **Family**. Si noti che i documenti devono avere una proprietà **Id** serializzata come **id** in JSON. Creare queste classi aggiungendo le classi secondarie interne seguenti dopo il metodo **GetStartedDemo** .
 
 Copiare e incollare le classi **Family**, **Parent**, **Child**, **Pet** e **Address** sotto il metodo **WriteToConsoleAndPromptToContinue**.
 
@@ -390,12 +391,12 @@ await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa",
 
 Premere il pulsante **DocumentDBGettingStarted** per eseguire l'applicazione.
 
-Congratulazioni. La creazione di due documenti di DocumentDB è stata completata.  
+Congratulazioni. La creazione di due documenti di Azure Cosmos DB è stata completata.  
 
 ![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di DocumentDB
-DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra diverse query che usano la sintassi SQL di DocumentDB e LINQ e che è possibile eseguire sui documenti inseriti nel passaggio precedente.
+## <a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di Azure Cosmos DB
+Azure Cosmos DB supporta [query complesse](documentdb-sql-query.md) sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra diverse query che usano la sintassi SQL di Azure Cosmos DB e LINQ e che possono essere eseguite sui documenti inseriti nel passaggio precedente.
 
 Copiare e incollare il metodo **ExecuteSimpleQuery** sotto il metodo **CreateFamilyDocumentIfNotExists**.
 
@@ -446,16 +447,16 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Premere il pulsante **DocumentDBGettingStarted** per eseguire l'applicazione.
 
-Congratulazioni. L'esecuzione di una query in una raccolta di DocumentDB è stata completata.
+Congratulazioni. L'esecuzione di una query in una raccolta di Azure Cosmos DB è stata completata.
 
-Nel diagramma seguente viene illustrato come la sintassi di query di SQL DocumentDB viene chiamata sulla raccolta creata e la stessa logica viene applicata alla query di LINQ.
+Il diagramma seguente illustra il modo in cui la sintassi di query di SQL di Azure Cosmos DB viene chiamata sulla raccolta creata e la stessa logica viene applicata alla query di LINQ.
 
 ![Diagramma che illustra l'ambito e il significato della query usata nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 La parola chiave [FROM](documentdb-sql-query.md#FromClause) è facoltativa nella query perché le query di DocumentDB sono già limitate a una singola raccolta. Di conseguenza, "FROM Families f" può essere scambiata con "FROM root r" o con il nome di qualsiasi altra variabile scelta. DocumentDB dedurrà che Families, root o il nome della variabile scelta, si riferisce per impostazione predefinita alla raccolta attuale.
 
 ## <a id="ReplaceDocument"></a>Passaggio 8: Sostituire un documento JSON
-DocumentDB supporta la sostituzione di documenti JSON.  
+Azure Cosmos DB supporta la sostituzione di documenti JSON.  
 
 Copiare e incollare il metodo **ReplaceFamilyDocument** sotto il metodo **ExecuteSimpleQuery**.
 
@@ -496,7 +497,7 @@ Premere il pulsante **DocumentDBGettingStarted** per eseguire l'applicazione.
 Congratulazioni. La sostituzione di un documento di DocumentDB è stata completata.
 
 ## <a id="DeleteDocument"></a>Passaggio 9: Eliminare un documento JSON
-DocumentDB supporta l'eliminazione di documenti JSON.  
+Azure Cosmos DB supporta l'eliminazione di documenti JSON.  
 
 Copiare e incollare il metodo **DeleteFamilyDocument** sotto il metodo **ReplaceFamilyDocument**.
 
@@ -529,7 +530,7 @@ await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.
 
 Premere il pulsante **DocumentDBGettingStarted** per eseguire l'applicazione.
 
-Congratulazioni. L'eliminazione di un documento di DocumentDB è stata completata.
+Congratulazioni. L'eliminazione di un documento di Azure Cosmos DB è stata completata.
 
 ## <a id="DeleteDatabase"></a>Passaggio 10: Eliminare il database
 Se si elimina il database creato, verrà rimosso il database e tutte le risorse figlio (raccolte, documenti e così via).
@@ -548,7 +549,7 @@ await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"
 
 Premere il pulsante **DocumentDBGettingStarted** per eseguire l'applicazione.
 
-Congratulazioni. L'eliminazione di un database di DocumentDB è stata completata.
+Congratulazioni. L'eliminazione di un database di Azure Cosmos DB è stata completata.
 
 ## <a id="Run"></a>Passaggio 11: Eseguire l'intera applicazione console C#
 Premere il pulsante **DocumentDBGettingStarted** in Visual Studio per compilare l'applicazione in modalità di debug.
@@ -578,22 +579,22 @@ Deleted Family Andersen.1
 End of demo, press any key to exit.
 ```
 
-Congratulazioni. L'esercitazione su NoSQL è stata completata ed è stata creata un'applicazione console C# funzionante.
+Congratulazioni. L'esercitazione è stata completata ed è stata creata un'applicazione console C# funzionante.
 
-## <a id="GetSolution"></a> Ottenere la soluzione completa per l'esercitazione su NoSQL
+## <a id="GetSolution"></a> Ottenere la soluzione completa per l'esercitazione
 Per creare la soluzione GetStarted completa contenente tutti gli esempi riportati in questo articolo, è necessario avere:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Un [account DocumentDB][documentdb-create-account].
+* Un [account Azure Cosmos DB][documentdb-create-account].
 * La soluzione [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) disponibile su GitHub.
 
 Per ripristinare i riferimenti a DocumentDB .NET Core SDK in Visual Studio, fare clic con il pulsante destro del mouse sulla soluzione **GetStarted** in Esplora soluzioni e quindi scegliere **Abilita ripristino dei pacchetti NuGet**. Nel file Program.cs aggiornare quindi i valori EndpointUrl e AuthorizationKey come illustrato in [Connettersi a un account DocumentDB](#Connect).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Si preferisce un'esercitazione su NoSQL MVC ASP.NET più complessa? Vedere [Creare un'applicazione Web con MVC ASP.NET usando DocumentDB](documentdb-dotnet-application.md).
+* Per un'esercitazione su MVC ASP.NET più complessa, vedere [Creare un'applicazione Web con MVC ASP.NET usando DocumentDB](documentdb-dotnet-application.md).
 * Per sviluppare un'applicazione Xamarin iOS, Android o Forms usando DocumentDB .NET Core SDK, vedere [Creare applicazioni per dispositivi mobili con Xamarin e DocumentDB](documentdb-mobile-apps-with-xamarin.md).
-* Si vuole eseguire il test della scalabilità e delle prestazioni con DocumentDB? Vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md)
-* Informazioni su come [monitorare un account DocumentDB](documentdb-monitor-accounts.md).
+* Per la scalabilità e i test delle prestazioni con Azure Cosmos DB, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](documentdb-performance-testing.md).
+* Informazioni su come [monitorare un account Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Eseguire query sul set di dati di esempio illustrato nella pagina [Query Playground](https://www.documentdb.com/sql/demo).
 * Per altre informazioni sul modello di programmazione, vedere la sezione relativa allo sviluppo nella pagina [Documentazione di DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 

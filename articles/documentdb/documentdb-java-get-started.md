@@ -2,23 +2,24 @@
 title: 'Esercitazione su NoSQL: Azure DocumentDB Java SDK | Microsoft Docs'
 description: "Esercitazione su NoSQL che crea un database online e un&quot;applicazione console Java con DocumentDB Java SDK. Azure DocumentDB è un database NoSQL per JSON."
 keywords: esercitazione su nosql, database online, applicazione console java
-services: documentdb
+services: cosmosdb
 documentationcenter: Java
 author: arramac
 manager: jhubbard
 editor: monicar
 ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: da7907ffc515ea2e3040075c93bcd53840cf3ff5
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e54ca49e46b7e15e7adb306c5f578d8b53255010
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -37,7 +38,7 @@ Esercitazione su NoSQL per Azure DocumentDB Java SDK Dopo aver seguito questa es
 
 Argomenti trattati:
 
-* Creazione e connessione a un account DocumentDB
+* Creazione e connessione a un account Azure Cosmos DB
 * Configurare una soluzione Visual Studio
 * Creazione di un database online
 * Creare una raccolta
@@ -54,18 +55,18 @@ Ecco come procedere.
 ## <a name="prerequisites"></a>Prerequisiti
 Assicurarsi che sia disponibile quanto segue:
 
-* Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). In alternativa, per questa esercitazione è possibile usare l'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md).
+* Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). In alternativa, per questa esercitazione è possibile usare l'[emulatore Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Git](https://git-scm.com/downloads)
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Maven](http://maven.apache.org/download.cgi).
 
-## <a name="step-1-create-a-documentdb-account"></a>Passaggio 1: Creare un account DocumentDB
-Creare un account DocumentDB. Se è già disponibile un account da usare, è possibile andare direttamente al passaggio [Clonare il progetto GitHub](#GitClone). Se si usa l'emulatore DocumentDB, seguire la procedura illustrata nell'articolo relativo all'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md) per configurare l'emulatore e proseguire con il passaggio [Clonare il progetto GitHub](#GitClone).
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passaggio 1: Creare un account di Azure Cosmos DB
+Creare prima di tutto un account Azure Cosmos DB. Se è già disponibile un account da usare, è possibile andare direttamente al passaggio [Clonare il progetto GitHub](#GitClone). Se si usa l'emulatore Azure Cosmos DB, seguire la procedura illustrata nell'articolo relativo all'[emulatore Azure Cosmos DB](documentdb-nosql-local-emulator.md) per configurare l'emulatore e proseguire con il passaggio [Clonare il progetto GitHub](#GitClone).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## <a id="GitClone"></a>Passaggio 2: Clonare il progetto GitHub
-Per iniziare, è possibile clonare il repository GitHub per l'[introduzione a DocumentDB e Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Eseguire questo comando da una directory locale per recuperare il progetto di esempio in locale.
+Per iniziare, è possibile clonare il repository GitHub per l'[introduzione ad Azure Cosmos DB e Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Eseguire questo comando da una directory locale per recuperare il progetto di esempio in locale.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
 
@@ -79,10 +80,10 @@ La directory contiene un oggetto `pom.xml` per il progetto e una cartella `src` 
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>Passaggio 3: Connettersi a un account DocumentDB
-Tornare al [portale di Azure](https://portal.azure.com) per recuperare l'endpoint e la chiave master primaria. La chiave primaria e l'endpoint di DocumentDB sono necessari all'applicazione per conoscere la destinazione della connessione e a DocumentDB per considerare attendibile la connessione dell'applicazione.
+## <a id="Connect"></a>Passaggio 3: Connettersi a un account Azure Cosmos DB
+Tornare al [portale di Azure](https://portal.azure.com) per recuperare l'endpoint e la chiave master primaria. L'endpoint e la chiave primaria di Azure Cosmos DB sono necessari all'applicazione per conoscere la destinazione della connessione e ad Azure Cosmos DB per considerare attendibile la connessione dell'applicazione.
 
-Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chiavi**. Copiare l'URI dal portale e incollarlo in `<your endpoint URI>` nel file Program.java. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `<your key>`.
+Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su **Chiavi**. Copiare l'URI dal portale e incollarlo in `<your endpoint URI>` nel file Program.java. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `<your key>`.
 
     this.client = new DocumentClient(
         "<your endpoint URI>",
@@ -90,10 +91,10 @@ Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chia
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console Java. Mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
+![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console Java. Mostra un account Azure Cosmos DB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account Azure Cosmos DB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
 
 ## <a name="step-4-create-a-database"></a>Passaggio 4: Creare un database
-È possibile creare un [database](documentdb-resources.md#databases) di DocumentDB usando il metodo [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) della classe **DocumentClient**. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
+È possibile creare un [database](documentdb-resources.md#databases) di Azure Cosmos DB usando il metodo [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) della classe **DocumentClient**. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
 
     Database database = new Database();
     database.setId("familydb");
@@ -111,7 +112,7 @@ Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chia
     DocumentCollection collectionInfo = new DocumentCollection();
     collectionInfo.setId("familycoll");
 
-    // DocumentDB collections can be reserved with throughput specified in request units/second. 
+    // Azure Cosmos DB collections can be reserved with throughput specified in request units/second. 
     // Here we create a collection with 400 RU/s.
     RequestOptions requestOptions = new RequestOptions();
     requestOptions.setOfferThroughput(400);
@@ -141,8 +142,8 @@ Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chia
 
 ![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console Java](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di DocumentDB
-DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra come eseguire query su documenti in DocumentDB usando la sintassi SQL con il metodo [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
+## <a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di Azure Cosmos DB
+Azure Cosmos DB supporta [query complesse](documentdb-sql-query.md) sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra come eseguire query su documenti in Azure Cosmos DB usando la sintassi SQL con il metodo [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -155,7 +156,7 @@ DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSO
     }
 
 ## <a id="ReplaceDocument"></a>Passaggio 8: Sostituire un documento JSON
-DocumentDB supporta l'aggiornamento di documenti JSON con il metodo [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
+Azure Cosmos DB supporta l'aggiornamento di documenti JSON con il metodo [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -166,7 +167,7 @@ DocumentDB supporta l'aggiornamento di documenti JSON con il metodo [replaceDocu
         null);
 
 ## <a id="DeleteDocument"></a>Passaggio 9: Eliminare un documento JSON
-Analogamente, DocumentDB supporta l'eliminazione di documenti JSON con il metodo [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
+Analogamente, Azure Cosmos DB supporta l'eliminazione di documenti JSON con il metodo [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
@@ -180,17 +181,17 @@ Per eseguire l'applicazione dalla console, eseguire prima la compilazione con Ma
     
     mvn package
 
-L'esecuzione di `mvn package` scarica la libreria di DocumentDB più recente da Maven e produce `GetStarted-0.0.1-SNAPSHOT.jar`. Eseguire l'app usando quanto segue:
+L'esecuzione di `mvn package` scarica la libreria di Azure Cosmos DB più recente da Maven e produce `GetStarted-0.0.1-SNAPSHOT.jar`. Eseguire l'app usando quanto segue:
 
     mvn exec:java -D exec.mainClass=GetStarted.Program
 
 Congratulazioni. L'esercitazione su NoSQL è stata completata ed è stata creata un'applicazione console Java funzionante.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'esercitazione su app Web Java, vedere [Creazione di un'applicazione Web Java con DocumentDB](documentdb-java-application.md).
-* Informazioni su come [monitorare un account DocumentDB](documentdb-monitor-accounts.md).
+* Per un'esercitazione su app Web Java, vedere [Creazione di un'applicazione Web Java con Azure Cosmos DB](documentdb-java-application.md).
+* Informazioni su come [monitorare un account Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Eseguire query sul set di dati di esempio illustrato nella pagina [Query Playground](https://www.documentdb.com/sql/demo).
-* Per altre informazioni sul modello di programmazione, vedere la sezione relativa allo sviluppo nella pagina [Documentazione di DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Per altre informazioni sul modello di programmazione, vedere la sezione relativa allo sviluppo nella pagina [Documentazione di Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

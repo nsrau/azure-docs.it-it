@@ -1,6 +1,6 @@
 ---
 title: Indicizzatori in Ricerca di Azure | Documentazione Microsoft
-description: Effettuare una ricerca per indicizzazione in un database SQL, DocumentDB o Archiviazione di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
+description: Effettuare una ricerca per indicizzazione in un database SQL, in Azure Cosmos DB o in Archiviazione di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
-ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -27,9 +29,9 @@ ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
 > * [Panoramica](search-indexer-overview.md)
 > * [Portale](search-import-data-portal.md)
 > * [SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](search-howto-index-documentdb.md)
-> * [Archivio BLOB (anteprima)](search-howto-indexing-azure-blob-storage.md)
-> * [Archivio tabelle (anteprima)](search-howto-indexing-azure-tables.md)
+> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
+> * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -40,7 +42,7 @@ Un **indicizzatore** in Ricerca di Azure è un crawler che estrae dati e metadat
 È possibile eseguire gli indicizzatori su richiesta o in base a una pianificazione di aggiornamento dati ricorrente che viene eseguita ogni quindici minuti. Aggiornamenti più frequenti richiedono un modello push che aggiorna contemporaneamente i dati sia in Ricerca di Azure che nell'origine dati esterna.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Approcci per la creazione e la gestione degli indicizzatori
-Per gli indicizzatori disponibili a livello generale, come Azure SQL o DocumentDB, è possibile creare e gestire gli indicizzatori con gli approcci seguenti:
+Per creare e gestire gli indicizzatori disponibili a livello generale, come Azure SQL o Azure Cosmos DB, è possibile procedere nei modi seguenti:
 
 * [Portale > Importazione guidata dati](search-get-started-portal.md)
 * [API REST del servizio](https://msdn.microsoft.com/library/azure/dn946891.aspx)
@@ -56,7 +58,7 @@ Un indicizzatore consente di automatizzare alcune attività relative all'inserim
 Un indicizzatore effettua il pull dei dati da un' **origine dati** che contiene informazioni, ad esempio la stringa di connessione. Attualmente sono supportate le origini dati seguenti:
 
 * [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md), usata per estrarre il testo da PDF, documenti di Office, HTML o XML
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 
@@ -69,14 +71,9 @@ La definizione dell'indicizzatore è un costrutto che specifica l'indice, l'orig
 Dopo aver acquisito queste informazioni di base, il passaggio successivo prevede l'analisi dei requisiti e delle attività specifici per ogni tipo di origine dati.
 
 * [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md), usata per estrarre il testo da PDF, documenti di Office, HTML o XML
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
-* [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure (anteprima)](search-howto-index-csv-blobs.md)
-* [Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure (anteprima)](search-howto-index-json-blobs.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+* [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-csv-blobs.md)
+* [Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-json-blobs.md)
 
