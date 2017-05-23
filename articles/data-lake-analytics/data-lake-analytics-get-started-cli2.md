@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 109460cecc4e11c729203af97c9bf1c22b90e61a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 25278e621155e7c90b5bb870d08793d285f4edff
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20-preview"></a>Esercitazione: Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure 2.0 (anteprima)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Esercitazione: Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 per creare account Azure Data Lake Analytics, definire processi di Data Lake Analytics in [U-SQL](data-lake-analytics-u-sql-get-started.md) e inviare processi ad account Data Lake Analytics. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -32,12 +33,6 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Interfaccia della riga di comando di Azure 2.0**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* **Abilitare Data Lake Store e l'interfaccia della riga di comando di Data Lake Analytics 2.0 (anteprima)**. Data Lake Store e l'interfaccia della riga di comando di Data Lake Analytics 2.0 sono ancora in fase di anteprima. Per abilitare entrambi, eseguire questo comando:
-
-    ```azurecli
-    az component update --add dls
-    az component update --add dla 
-    ```
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 

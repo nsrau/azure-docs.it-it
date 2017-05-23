@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -39,7 +40,7 @@ Questo esempio richiede anche gli elementi seguenti:
     > [!TIP]
     > Se si ha un [account Microsoft](https://account.microsoft.com/account) personale, si ha un account Outlook.com. Se invece si una un account Azure aziendale o dell'istituto di istruzione, si ha un account **Office 365 Outlook**.
 
-* Un collegamento al feed RSS del sito Web. Questo esempio usa il feed RSS per il [sito Web MSDN Channel 9](https://channel9.msdn.com/): `https://s.ch9.ms/Feeds/RSS`
+* Un collegamento al feed RSS del sito Web. Questo esempio usa il [feed RSS delle notizie principali dal sito Web CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss): `http://rss.cnn.com/rss/cnn_topstories.rss`
 
 ## <a name="add-a-trigger-that-starts-your-workflow"></a>Aggiungere un trigger che avvia il flusso di lavoro
 
@@ -74,7 +75,7 @@ Un [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) è un eve
      È anche possibile cambiare i valori per **Frequenza** e **Intervallo**. 
      Queste impostazioni determinano la frequenza con cui l'app per la logica verifica la presenza di nuovi elementi e restituisce tutti gli elementi trovati durante tale periodo di tempo.
 
-     Per questo esempio la verifica viene eseguita ogni giorno, alla ricerca di nuovi elementi inseriti nel sito Web MSDN Channel 9.
+     Per questo esempio si controllano ogni giorno le notizie principali pubblicate nel sito Web della CNN.
 
      ![Configurare un trigger con feed RSS, frequenza e intervallo](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 

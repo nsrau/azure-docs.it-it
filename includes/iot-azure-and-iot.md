@@ -7,6 +7,7 @@ Azure IoT Hub è un componente essenziale quando si implementa questa architettu
 
 * La soluzione di *monitoraggio remoto* consente di monitorare lo stato dei dispositivi, ad esempio i distributori automatici.
 * La soluzione di *manutenzione predittiva* consente di prevedere le esigenze di manutenzione di dispositivi come le pompe nelle stazioni di pompaggio remote e di evitare tempi di inattività non pianificati.
+* La soluzione di *connected factory* consente di connettersi ai dispositivi industriali e di monitorarli.
 
 ## <a name="iot-solution-architecture"></a>Architettura della soluzione IoT
 

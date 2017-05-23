@@ -37,9 +37,11 @@ A partire dall'1 aprile 2017, tutti i record di processo presenti nell'account e
 >[!NOTE]
 > Se si utilizzano sempre gli stessi giorni, autorizzazioni di accesso e così via, è necessario utilizzare lo stesso ID criterio. Per informazioni e un esempio, vedere [questa](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) sezione.
 
-<sup>7</sup>Se si caricano contenuti in un asset in Servizi multimediali di Azure per elaborarli con uno dei processore di contenuti multimediali nel servizio, ad esempio codificatori come Media Encoder Standard e Media Encoder Premium Workflow oppure motori di analisi come Face Detector, è necessario essere consapevoli dei limiti seguenti. 
+<sup>7</sup>Se si caricano contenuti in un asset in Servizi multimediali di Azure per elaborarli con uno dei processori di contenuti multimediali del servizio, ad esempio codificatori come Media Encoder Standard e il flusso di lavoro Premium del codificatore multimediale oppure motori di analisi come Face Detector, è necessario essere consapevoli del vincolo relativo alle dimensioni massime. 
 
-| Unità riservata multimediale | Dimensione massima file (GB)| 
+A partire dal 15 maggio 2017, le dimensioni massime supportate per un singolo BLOB sono 195 TB. In caso di file di dimensioni superiori a tale limite, l'attività avrà esito negativo. Microsoft sta lavorando per trovare la soluzione a questo limite. Viene inoltre applicato il vincolo seguente relativo alle dimensioni massime dell'asset.
+
+| Unità riservata multimediale | Dimensioni massime input (GB)| 
 | --- | --- | 
 |S1    | 325|
 |S2    | 640|

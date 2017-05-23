@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 7c70129ebf4bacc28400cf68418bf898e4e646d2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -43,7 +44,7 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
 1. Accedere ad azureiotsuite.com con le credenziali dell'account Azure e fare clic su "**+**" per creare una soluzione.
 2. Fare clic su **Seleziona** e sul riquadro **Connected factory**.
-3. Immettere un valore in **Nome soluzione** per la soluzione preconfigurata di monitoraggio remoto.
+3. Immettere un valore in **Nome soluzione** per la soluzione preconfigurata di connected factory.
 4. Selezionare la **sottoscrizione** e l'**area** da usare per il provisioning della soluzione.
 5. Fare clic su **Crea soluzione** per iniziare il processo di provisioning. In genere il processo richiede alcuni minuti.
 
@@ -303,7 +304,7 @@ Dopo aver distribuito una soluzione preconfigurata è possibile proseguire con l
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 079cb3e69954a9b02e26e005ad4bb1b7ef14c909
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 46ee5a84219eeab8c0c6384632b52df9e5d6aee2
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -34,30 +35,41 @@ ms.lasthandoff: 04/12/2017
 > 
 > 
 
-Questa esercitazione illustra come creare e monitorare una data factory di Azure con il portale di Azure. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
+Questo articolo illustra l'uso del [portale di Azure](https://portal.azure.com) per creare una data factory con una pipeline che copia i dati da un archivio BLOB di Azure a un database SQL di Azure. Se non si ha familiarità con Azure Data Factory, prima di eseguire questa esercitazione vedere l'articolo [Introduzione ad Azure Data Factory](data-factory-introduction.md).   
 
-> [!NOTE]
-> La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Non trasforma i dati di input per produrre dati di output. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md).
-> 
-> È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
+La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Non trasforma i dati di input per produrre dati di output. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
-
-| Passaggio | Descrizione |
-| --- | --- |
-| [Creazione di un'istanza di Data factory di Azure](#create-data-factory) |In questo passaggio viene creata un'istanza di Azure Data Factory denominata **ADFTutorialDataFactory**. |
-| [Creazione di servizi collegati](#create-linked-services) |In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedService** e **AzureSqlLinkedService**. <br/><br/>AzureStorageLinkedService collega la risorsa di archiviazione di Azure e AzureSqlLinkedService collega il database SQL di Azure ad ADFTutorialDataFactory. I dati di input per la pipeline si trovano in un contenitore BLOB nell'archivio BLOB di Azure e i dati di output vengono archiviati in una tabella nel database SQL di Azure. Questi due archivi dati vengono quindi aggiunti alla data factory come servizi collegati. |
-| [Creare set di dati di input e di output](#create-datasets) |Nel passaggio precedente sono stati creati servizi collegati che fanno riferimento agli archivi dati che includono dati di input/output. Questo passaggio permette di definire due set di dati, **InputDataset** e **OutputDataset**, che rappresentano i dati di input/output memorizzati negli archivi dati. <br/><br/>Per InputDataset si specifica il contenitore BLOB che include un BLOB con i dati di origine, mentre per OutputDataset si specifica la tabella SQL contenente i dati di output. Specificare anche altre proprietà come struttura, disponibilità e criteri. |
-| [Creare una pipeline](#create-pipeline) |In questo passaggio viene creata una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactory. <br/><br/>Si aggiunge alla pipeline un'**attività di copia** che copia i dati di input dal BLOB di Azure nella tabella SQL di Azure di output. L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) . |
-| [Monitorare la pipeline](#monitor-pipeline) |In questo passaggio vengono monitorate sezioni delle tabelle di input e di output mediante il portale di Azure. |
+Questa esercitazione usa una sola attività di tipo copia. Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Pianificazione ed esecuzione in Data factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di eseguire questa esercitazione, completare i prerequisiti indicati nella [panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Prima di eseguire questa esercitazione, completare i prerequisiti indicati nell'articolo sui [prerequisiti dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+
+## <a name="steps"></a>Passi
+Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
+
+1. Creare una **data factory** di Azure. In questo passaggio viene creata una data factory denominata ADFTutorialDataFactory. 
+2. Creare **servizi collegati** nella data factory. In questo passaggio si creano due servizi collegati di tipo Archiviazione di Azure e database SQL di Azure. 
+    
+    AzureStorageLinkedService collega l'account di archiviazione di Azure alla data factory. Come parte dei [prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) è stato creato un contenitore e sono stati caricati i dati in questo account di archiviazione.   
+
+    AzureSqlLinkedService collega il database SQL di Azure alla data factory. I dati copiati dall'archivio BLOB vengono archiviati in questo database. Come parte dei [prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) è stata creata una tabella SQL in questo database.   
+3. Creare **set di dati** di input e di output nella data factory.  
+    
+    Il servizio collegato Archiviazione di Azure specifica la stringa di connessione usata dal servizio Data Factory in fase di esecuzione per connettersi all'account di archiviazione di Azure. Il set di dati del BLOB di input specifica il contenitore e la cartella che contiene i dati di input.  
+
+    Analogamente, il servizio collegato per il database SQL di Azure specifica la stringa di connessione usata dal servizio Data Factory in fase di esecuzione per connettersi al database SQL di Azure e il set di dati della tabella SQL di output specifica la tabella del database in cui vengono copiati i dati dell'archivio BLOB.
+4. Creare una **pipeline** nella data factory. In questo passaggio viene creata una pipeline con un'attività di copia.   
+    
+    L'attività di copia esegue la copia dei dati da un BLOB nell'archivio BLOB di Azure a una tabella nel database SQL di Azure. È possibile usare un'attività di copia in una pipeline per copiare i dati da qualsiasi origine supportata a qualsiasi destinazione supportata. Per un elenco degli archivi dati supportati, vedere l'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
+5. Monitorare la pipeline. In questo passaggio vengono **monitorate** le sezioni dei set di dati di input e di output usando il portale di Azure. 
 
 ## <a name="create-data-factory"></a>Creare un'istanza di Data Factory
-In questo passaggio viene usato il portale di Azure per creare un'istanza di Azure Data Factory denominata **ADFTutorialDataFactory**.
+> [!IMPORTANT]
+> Completare i [prerequisiti per l'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) se non è già stato fatto.   
 
-1. Dopo aver eseguito l'accesso al [portale di Azure](https://portal.azure.com/), fare clic su **Nuovo**, selezionare **Intelligence e analisi** e quindi scegliere **Data Factory**. 
+Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. In questo passaggio iniziale viene creata la data factory.
+
+1. Dopo aver eseguito l'accesso al [portale di Azure](https://portal.azure.com/), scegliere **Nuovo** dal menu a sinistra, fare clic su **Dati e analisi** e fare clic su **Data Factory**. 
    
    ![Nuovo->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. Nel pannello **Nuova data factory** :
@@ -71,15 +83,15 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
            Data factory name “ADFTutorialDataFactory” is not available  
       
        ![Nome di data factory non disponibile](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png)
-   2. Selezionare la **sottoscrizione**di Azure.
-   3. Per il gruppo di risorse, eseguire una di queste operazioni:
+   2. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
+   3. Per il **gruppo di risorse**, eseguire una di queste operazioni:
       
       - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
           Alcuni dei passaggi di questa esercitazione presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
    4. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono visualizzate solo le aree supportate dal servizio Data Factory.
-   5. Selezionare **Aggiungi alla Schermata iniziale**.     
+   5. Selezionare **Aggiungi al dashboard**.     
    6. Fare clic su **Crea**.
       
       > [!IMPORTANT]
@@ -88,23 +100,32 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
       > Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.                
       > 
       > 
-3. Per visualizzare i messaggi di stato o notifica, fare clic sull'icona a forma di campanello sulla barra degli strumenti. 
-   
-   ![Messaggi di notifica](./media/data-factory-copy-activity-tutorial-using-azure-portal/Notifications.png) 
+3. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
+
+    ![Riquadro Deploying data factory (Distribuzione della data factory)](media/data-factory-copy-activity-tutorial-using-azure-portal/deploying-data-factory.png)
 4. Al termine della creazione verrà visualizzato il pannello **Data Factory** , come illustrato nell'immagine.
    
    ![Home page di Data factory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## <a name="create-linked-services"></a>Creazione di servizi collegati
-I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) per tutte le origini e i sink supportati dall'attività di copia. Per l'elenco di servizi di calcolo supportati da Data Factory, vedere [Servizi collegati di calcolo](data-factory-compute-linked-services.md) . Questa esercitazione non prevede l'uso di servizi di calcolo. 
+Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa esercitazione non si usano servizi di calcolo come Azure HDInsight o Azure Data Lake Analytics, ma due archivi dati di tipo Archiviazione di Azure (origine) e database SQL di Azure (destinazione). 
 
-In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedService** e **AzureSqlLinkedService**. Il servizio collegato AzureStorageLinkedService collega un account di archiviazione di Azure e AzureSqlLinkedService collega un database SQL di Azure ad **ADFTutorialDataFactory**. Più avanti in questa esercitazione viene creata una pipeline che copia i dati da un contenitore BLOB di AzureStorageLinkedService e li inserisce in una tabella SQL di AzureSqlLinkedService.
+Si creano quindi due servizi collegati denominati AzureStorageLinkedService e AzureSqlLinkedService di tipo AzureStorage e AzureSqlDatabase.  
 
-### <a name="create-a-linked-service-for-the-azure-storage-account"></a>Creare un servizio collegato per l'account di archiviazione di Azure
-1. Nel pannello **Data Factory** fare clic sul riquadro **Creare e distribuire** per avviare l'**Editor** per la data factory.
+AzureStorageLinkedService collega l'account di archiviazione di Azure alla data factory. L'account di archiviazione è quello in cui, come parte dei [prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), è stato creato un contenitore e sono stati caricati i dati.   
+
+AzureSqlLinkedService collega il database SQL di Azure alla data factory. I dati copiati dall'archivio BLOB vengono archiviati in questo database. Come parte dei [prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) è stata creata la tabella emp in questo database.  
+
+### <a name="create-azure-storage-linked-service"></a>Creare il servizio collegato Archiviazione di Azure
+In questo passaggio l'account di archiviazione di Azure viene collegato alla data factory. 
+
+1. Nel pannello **Data Factory** fare clic sul riquadro **Creare e distribuire**.
    
    ![Riquadro Creare e distribuire](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png) 
-2. Nell'**Editor** fare clic sul pulsante **Nuovo archivio dati** sulla barra degli strumenti, quindi scegliere **Archiviazione di Azure** dal menu a discesa. Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato di archiviazione di Azure. 
+2. L'**editor di Data factory** viene visualizzato come nella figura seguente: 
+
+    ![Editor di Data factory](./media/data-factory-copy-activity-tutorial-using-azure-portal/data-factory-editor.png)
+3. Nell'editor fare clic sul pulsante **Nuovo archivio dati** sulla barra degli strumenti, quindi scegliere **Archiviazione di Azure** dal menu a discesa. Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato di archiviazione di Azure. 
    
     ![Pulsante Nuovo archivio dati dell'editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
 3. Sostituire `<accountname>` e `<accountkey>` con i valori del nome e della chiave dell'account di archiviazione di Azure. 
@@ -114,34 +135,34 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
    
     ![Distribuzione dell'archivio BLOB dell'editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
 
-> [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o in BLOB di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) .
-> 
-> 
+    Per altre informazioni sulle proprietà JSON nella definizione dei servizi collegati, vedere l'articolo relativo al [connettore di Archiviazione BLOB di Azure](data-factory-azure-blob-connector.md#linked-service-properties).
 
 ### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Creare un servizio collegato per il database SQL di Azure
+In questo passaggio il database SQL di Azure viene collegato alla data factory.
+
 1. Nell'**editor di Data Factory** fare clic sul pulsante **Nuovo archivio dati** sulla barra degli strumenti e scegliere **Database SQL di Azure** dal menu a discesa. Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato SQL di Azure.
 2. Sostituire `<servername>`, `<databasename>`, `<username>@<servername>` e `<password>` con i nomi del server di Azure SQL e del database, l'account utente e la password. 
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire **AzureSqlLinkedService**.
-4. Assicurarsi che **AzureSqlLinkedService** sia visibile nella visualizzazione albero. 
+4. Assicurarsi che **AzureSqlLinkedService** sia visibile nella visualizzazione albero in **Servizi collegati**.  
 
-> [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#linked-service-properties) .
-> 
-> 
+    Per altre informazioni su queste proprietà JSON, vedere l'articolo relativo al [connettore del database SQL di Azure](data-factory-azure-sql-connector.md#linked-service-properties).
 
 ## <a name="create-datasets"></a>Creare set di dati
-Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService** e **AzureSqlLinkedService** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactory**. In questo passaggio vengono definiti due set di dati, **InputDataset** e **OutputDataset**, che rappresentano i dati di input/output memorizzati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService e AzureSqlLinkedService. Per InputDataset si specifica il contenitore BLOB che include un BLOB con i dati di origine, mentre per OutputDataset si specifica la tabella SQL contenente i dati di output. 
+Nel passaggio precedente sono stati creati servizi collegati per collegare l'account di archiviazione di Azure e un database SQL di Azure alla data factory. In questo passaggio vengono definiti due set di dati denominati InputDataset e OutputDataset, che rappresentano i dati di input e di output memorizzati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService e AzureSqlLinkedService.
+
+Il servizio collegato Archiviazione di Azure specifica la stringa di connessione usata dal servizio Data Factory in fase di esecuzione per connettersi all'account di archiviazione di Azure. Il set di dati del BLOB di input (InputDataset) specifica il contenitore e la cartella che contiene i dati di input.  
+
+Analogamente, il servizio collegato per il database SQL di Azure specifica la stringa di connessione usata dal servizio Data Factory in fase di esecuzione per connettersi al database SQL di Azure e il set di dati della tabella SQL di output (OututDataset) specifica la tabella del database in cui vengono copiati i dati dell'archivio BLOB. 
 
 ### <a name="create-input-dataset"></a>Creare set di dati di input
-In questo passaggio viene creato un set di dati denominato **InputDataset** che punta a un contenitore BLOB in Archiviazione di Azure rappresentato dal servizio collegato **AzureStorageLinkedService**.
+In questo passaggio viene creato un set di dati denominato InputDataset che punta a un file BLOB (emp.txt) nella cartella radice di un contenitore BLOB (adftutorial) nella risorsa di archiviazione di Azure rappresentata dal servizio collegato AzureStorageLinkedService. Se non si specifica un valore per fileName (o lo si ignora), i dati di tutti i BLOB della cartella di input vengono copiati nella destinazione. In questa esercitazione si specifica un valore per fileName.    
 
 1. Nell'**editor** della data factory fare clic su **... Altro**, fare clic su **Nuovo set di dati** e quindi scegliere **Archivio BLOB di Azure** dal menu a discesa. 
    
     ![Menu Nuovo set di dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Sostituire il codice JSON nel riquadro a destra con il frammento di codice JSON seguente: 
    
-    ```JSON
+    ```json
     {
       "name": "InputDataset",
       "properties": {
@@ -173,38 +194,22 @@ In questo passaggio viene creato un set di dati denominato **InputDataset** che 
       }
     }
     ```   
-    Tenere presente quanto segue: 
-   
-    - Il set di dati **type** è impostato su **AzureBlob**.
-    - L'oggetto **linkedServiceName** è impostato su **AzureStorageLinkedService**. Questo servizio collegato è stato creato nel passaggio 2.
-    - L'oggetto **folderPath** è impostato sul contenitore **adftutorial**. È anche possibile specificare il nome di un BLOB all'interno della cartella usando la proprietà **fileName** . Poiché non si specifica il nome del BLOB, i dati da tutti i BLOB nel contenitore sono considerati come dati di input.
-    - L'oggetto **type** di format è impostato su **TextFormat**.
-    - Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola, **columnDelimiter**
-    - L'oggetto **availability** è impostato su **hourly**. L'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**. Quindi, il servizio Data Factory cerca i dati di input ogni ora nella cartella radice del contenitore BLOB**adftutorial**specificato. 
-     
-     Se non si specifica **fileName** per un set di dati di **input**, tutti i file e i BLOB della cartella di input **folderPath** vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input.
-     
-     Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.&lt;Guid&gt;.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
-     
-     Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà **partitionedBy**. Nell'esempio seguente folderPath usa Year, Month e Day dall'oggetto SliceStart (ora di inizio della sezione elaborata), mentre fileName usa Hour dall'oggetto SliceStart. Se viene generata una sezione per 2016-09-20T08:00:00, ad esempio, folderName è impostato su wikidatagateway/wikisampledataout/2016/09/20 e fileName è impostato su 08.csv. 
 
-    ```JSON     
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy": 
-    [
-       { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-       { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-       { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-       { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-    ],
-    ```
+    La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
+
+    | Proprietà | Descrizione |
+    |:--- |:--- |
+    | type | La proprietà type è impostata su **AzureBlob** perché i dati risiedono in un archivio BLOB di Azure. |
+    | linkedServiceName | Fa riferimento all'oggetto **AzureStorageLinkedService** creato in precedenza. |
+    | folderPath | Specifica il **contenitore** BLOB e la **cartella** che contiene i BLOB di input. In questa esercitazione adftutorial è il contenitore BLOB e la cartella è la cartella radice. | 
+    | fileName | Questa proprietà è facoltativa. Se si omette questa proprietà, vengono selezionati tutti i file da folderPath. In questa esercitazione come fileName si specifica **emp.txt** e viene quindi selezionato per l'elaborazione solo tale file. |
+    | format -> type |Il file di input è in formato testo, quindi viene usato **TextFormat**. |
+    | columnDelimiter | Le colonne nel file di input sono delimitate da **virgola (`,`)**. |
+    | frequenza/intervallo | La frequenza è impostata su **Hour** e l'intervallo è impostato su **1**, quindi le sezioni di input sono disponibili con cadenza **oraria**. In altre parole, il servizio Data Factory cerca i dati di input ogni ora nella cartella radice del contenitore BLOB specificato (**adftutorial**). Cerca i dati compresi tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
+    | external | Questa proprietà è impostata su **true** se i dati non vengono generati da questa pipeline. I dati di input in questa esercitazione sono nel file emp.txt, che non viene generato da questa pipeline, quindi questa proprietà viene impostata su true. |
+
+    Per altre informazioni su queste proprietà JSON, vedere l'articolo relativo al [connettore BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties).        
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire il set di dati **InputDataset**. Assicurarsi che **InputDataset** sia visibile nella visualizzazione albero.
-
-> [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o in BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties) .
-> 
-> 
 
 ### <a name="create-output-dataset"></a>Creare il set di dati di output
 In questa parte del passaggio si crea un set di dati di output denominato **OutputDataset**. Questo set di dati punta a una tabella SQL nel database SQL di Azure rappresentato da **AzureSqlLinkedService**. 
@@ -212,7 +217,7 @@ In questa parte del passaggio si crea un set di dati di output denominato **Outp
 1. Nell'**editor** della data factory fare clic su **... Altro**, fare clic su **Nuovo set di dati** e quindi scegliere **Azure SQL** dal menu a discesa. 
 2. Sostituire il codice JSON nel riquadro a destra con il frammento di codice JSON seguente:
 
-    ```JSON   
+    ```json   
     {
       "name": "OutputDataset",
       "properties": {
@@ -238,27 +243,30 @@ In questa parte del passaggio si crea un set di dati di output denominato **Outp
       }
     }
     ```       
-    Tenere presente quanto segue: 
-   
-    - Il set di dati **type** è impostato su **AzureSQLTable**.
-    - L'oggetto **linkedServiceName** è impostato su **AzureSqlLinkedService**. Questo servizio collegato è stato creato nel passaggio 2.
-    - L'oggetto **tablename** è impostato su **emp**.
-    - La tabella emp del database include tre colonne: **ID**, **FirstName** e **LastName**. ID è una colonna Identity, quindi in questo caso è necessario specificare solo **FirstName** e **LastName**.
-    - L'oggetto **availability** è impostato su **hourly**. L'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**.  Il servizio Data Factory genera una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
-3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire il set di dati **OutputDataset**. Assicurarsi che **OutputDataset** sia visibile nella visualizzazione albero. 
 
-> [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#linked-service-properties) .
-> 
-> 
+    La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
+
+    | Proprietà | Descrizione |
+    |:--- |:--- |
+    | type | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
+    | linkedServiceName | Fa riferimento all'oggetto **AzureSqlLinkedService** creato in precedenza. |
+    | tableName | Specifica la **tabella** in cui i dati vengono copiati. | 
+    | frequenza/intervallo | La frequenza viene impostata su **Hour** e l'intervallo è **1**, quindi le sezioni di output vengono generate **ogni ora** tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
+
+    La tabella emp del database include tre colonne: **ID**, **FirstName** e **LastName**. ID è una colonna Identity, quindi in questo caso è necessario specificare solo **FirstName** e **LastName**.
+
+    Per altre informazioni su queste proprietà JSON, vedere l'articolo relativo al [connettore SQL di Azure](data-factory-azure-sql-connector.md#dataset-properties).
+3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire il set di dati **OutputDataset**. Assicurarsi che **OutputDataset** sia visibile nella visualizzazione albero in **Datasets**. 
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 In questo passaggio viene creata una pipeline con un'**attività di copia** che usa **InputDataset** come input e **OutputDataset** come output.
 
+Attualmente, è il set di dati di output a determinare la pianificazione. In questa esercitazione il set di dati di output viene configurato per generare una sezione una volta ogni ora. La pipeline ha un'ora di inizio e un'ora di fine intervallate da un giorno, ovvero 24 ore. Vengono quindi generate dalla pipeline 24 sezioni di set di dati di output. 
+
 1. Nell'**editor** della data factory fare clic su **... Altro** e quindi su **Nuova pipeline**. In alternativa, è possibile fare clic con il pulsante destro del mouse su **Pipeline** nella visualizzazione ad albero e fare clic su **Nuova pipeline**.
 2. Sostituire il codice JSON nel riquadro a destra con il frammento di codice JSON seguente: 
 
-    ```JSON   
+    ```json   
     {
       "name": "ADFTutorialPipeline",
       "properties": {
@@ -295,17 +303,17 @@ In questo passaggio viene creata una pipeline con un'**attività di copia** che 
             }
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "start": "2017-05-11T00:00:00Z",
+        "end": "2017-05-12T00:00:00Z"
       }
     } 
     ```   
     
     Tenere presente quanto segue:
    
-    - Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **Copy**.
-    - L'input per l'attività è impostato su **InputDataset** e l'output è impostato su **OutputDataset**.
-    - Nella sezione **typeProperties** vengono specificati **BlobSource** come tipo di origine e **SqlSink** come tipo di sink.
+    - Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **Copy**. Per altre informazioni sull'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Nelle soluzioni Data Factory è anche possibile usare le [attività di trasformazione dei dati](data-factory-data-transformation-activities.md).
+    - L'input per l'attività è impostato su **InputDataset** e l'output è impostato su **OutputDataset**. 
+    - Nella sezione **typeProperties** vengono specificati **BlobSource** come tipo di origine e **SqlSink** come tipo di sink. Per un elenco completo degli archivi dati supportati dall'attività di copia come origini e sink, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Per informazioni su come usare uno specifico archivio dati supportato come origine/sink, fare clic sul collegamento nella tabella.  
      
     Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. È possibile specificare solo la parte relativa alla data e ignorare la parte relativa all'ora, ad esempio "2016-02-03", che equivale a "2016-02-03T00:00:00Z".
      
@@ -314,64 +322,69 @@ In questo passaggio viene creata una pipeline con un'**attività di copia** che 
     Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
      
     Nell'esempio precedente sono visualizzate 24 sezioni di dati, perché viene generata una sezione di dati ogni ora.
+
+    Per le descrizioni delle proprietà JSON nella definizione di una pipeline, vedere l'articolo su come [creare pipeline](data-factory-create-pipelines.md). Per le descrizioni delle proprietà JSON nella definizione di un'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Per le descrizioni delle proprietà JSON supportate da BlobSource, vedere l'articolo relativo al [connettore BLOB di Azure](data-factory-azure-blob-connector.md). Per le descrizioni delle proprietà JSON supportate da SqlSink, vedere l'articolo relativo al [connettore del database SQL di Azure](data-factory-azure-sql-connector.md).
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire **ADFTutorialPipeline**. Verificare che la pipeline sia visibile nella visualizzazione albero. 
 4. Chiudere quindi il pannello dell'**editor** facendo clic su **X**. Fare clic di nuovo su **X** per visualizzare la home page di **Data Factory** per **ADFTutorialDataFactory**.
 
-**Congratulazioni.** Azure Data Factory, i servizi collegati, le tabelle e una pipeline sono stati creati correttamente e la pipeline è stata pianificata.   
+**Congratulazioni.** È stata creata una data factory di Azure con una pipeline per copiare dati da un archivio BLOB di Azure a un database SQL di Azure. 
 
-### <a name="view-the-data-factory-in-a-diagram-view"></a>Visualizzare la data factory in una vista diagramma
+
+## <a name="monitor-pipeline"></a>Monitorare la pipeline
+In questo passaggio viene usato il portale di Azure per monitorare le attività in un'istanza di Azure Data Factory.    
+
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorare la pipeline con l'app Monitoraggio e gestione
+La procedura seguente illustra come monitorare le pipeline nella data factory usando l'applicazione Monitoraggio e gestione: 
+
+1. Fare clic sul riquadro **Monitoraggio e gestione** nella home page della data factory.
+   
+    ![Riquadro Monitoraggio e gestione](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
+2. L'**applicazione Monitoraggio e gestione** verrà visualizzata in una scheda separata. Modificare l'**ora di inizio** e l'**ora di fine** in modo da includere le ore di inizio (2016-07-12) e di fine (2016-07-13) della pipeline e quindi fare clic su **Applica**. 
+       
+    > [!NOTE]
+    > Se il Web browser è bloccato su "Concessione autorizzazioni in corso...", eseguire una di queste operazioni: deselezionare la casella di controllo **Block third-party cookies and site data** (Blocco dei cookie di terze parti e dei dati dei siti) oppure creare un'eccezione per **login.microsoftonline.com** e quindi provare di nuovo ad aprire l'app.
+
+    ![App Monitoraggio e gestione](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png) 
+3. Vengono visualizzate le **finestre attività** associate a ogni ora compresa tra l'ora di inizio e l'ora di fine della pipeline nell'elenco del riquadro centrale. 
+4. Per visualizzare i dettagli di una finestra attività, selezionarla nell'elenco **Activity Windows** (Finestre attività). 
+    ![Dettagli finestra attività](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
+
+    In Activity Window Explorer (Esplora finestre attività) sulla destra è possibile osservare che le sezioni fino all'ora UTC corrente (20:12) sono state tutte elaborate (in verde). Le sezioni 20-21, 21-22, 22-23, 23-00 non sono ancora state elaborate.
+
+    È possibile fare clic su una finestra attività nell'elenco oppure in questa immagine per visualizzarne i dettagli. 
+
+    La sezione **Tentativi** contiene informazioni sull'attività eseguita per la sezione di dati. Se si è verificato un errore, fornisce dettagli sull'errore. Se ad esempio la cartella o il contenitore di input non esiste e l'elaborazione della sezione non riesce, viene visualizzato un messaggio di errore che informa che il contenitore o la cartella non esiste.
+
+    ![Tentativi di esecuzione dell'attività](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-run-attempts.png) 
+4. Avviare **SQL Server Management Studio**, connettersi al database SQL di Azure e verificare che le righe vengano inserite nella tabella **emp** nel database.
+    
+    ![Risultati della query SQL](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
+
+Per informazioni dettagliate sull'uso di questa applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
+
+### <a name="monitor-pipeline-using-diagram-view"></a>Monitorare la pipeline con la vista diagramma
+È anche possibile monitorare le pipeline di dati usando la vista diagramma.  
+
 1. Nel pannello **Data Factory** fare clic su **Diagramma**.
    
     ![Pannello Data factory - Riquadro Diagramma](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
 2. Verrà visualizzato un diagramma simile all'immagine seguente: 
    
-    ![Vista diagramma](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)
-   
-    È possibile eseguire lo zoom avanti, lo zoom indietro e lo zoom al 100%, adattare alla finestra, posizionare automaticamente pipeline e tabelle e visualizzare le informazioni sulla derivazione, evidenziando gli elementi upstream e downstream degli elementi selezionati.  È possibile fare doppio clic su un oggetto (tabella di input/output o pipeline) per visualizzare le relative proprietà. 
-3. Fare clic con il pulsante destro del mouse su **ADFTutorialPipeline** nella vista diagramma e scegliere **Apri pipeline**. 
-   
-    ![Apri pipeline](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenPipeline.png)
-4. Dovrebbero essere visualizzate le attività della pipeline, oltre ai set di dati di input e output per le attività. In questa esercitazione la pipeline include una sola attività, ovvero l'attività di copia, con InputDataset come set di dati di input e OutputDataset come set di dati di output.   
-   
-    ![Visualizzazione della pipeline aperta](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenedPipeline.png)
-5. Fare clic su **Data factory** sulla barra di navigazione nell'angolo superiore sinistro per tornare alla vista diagramma in cui sono visualizzate tutte le pipeline. In questo esempio è stata creata una sola pipeline.   
-
-## <a name="monitor-pipeline"></a>Monitorare la pipeline
-In questo passaggio viene usato il portale di Azure per monitorare le attività in un'istanza di Azure Data Factory. 
-
-### <a name="monitor-pipeline-using-diagram-view"></a>Monitorare la pipeline con la vista diagramma
-1. Fare clic su **X** per chiudere la visualizzazione **Diagramma** e visualizzare la home page di Data Factory per la data factory. Se il Web browser è stato chiuso, seguire questa procedura: 
-   1. Passare al [portale di Azure](https://portal.azure.com/). 
-   2. Fare doppio clic su **ADFTutorialDataFactory** nella **schermata iniziale** oppure fare clic su **Data factory** nel menu a sinistra e cercare ADFTutorialDataFactory. 
-2. Viene visualizzato il numero e i nomi delle tabelle e delle pipeline create nel pannello.
-   
-    ![Home page con nomi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactory-home-page-pipeline-tables.png)
-3. A questo punto, fare clic sul riquadro **Set di dati** .
-4. Nel pannello **Set di dati** fare clic su **InputDataset**. Si tratta del set di dati di input per **ADFTutorialPipeline**.
+    ![Vista diagramma](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)  
+5. Nella vista diagramma fare doppio clic su **InputDataset** per visualizzare le sezioni per il set di dati.  
    
     ![Set di dati con InputDataset selezionato](./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithInputDatasetFromBlobSelected.png)   
-5. Fare clic sui puntini di sospensione **…** per visualizzare tutte le sezioni dati.
+5. Fare clic sul collegamento **Altre informazioni** per visualizzare tutte le sezioni dati. Vengono visualizzate 24 sezioni orarie tra l'ora di inizio e di fine della pipeline. 
    
     ![Tutte le sezioni dati di input](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)  
    
-    Si noti che le sezioni dati fino all'ora corrente sono nello stato **Pronto**, perché il file **emp.txt** è sempre presente nel contenitore BLOB **adftutorial\input**. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
-   
-    Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. 
-   
-    Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.  
-   
-    ![Filtrare le sezioni di input](./media/data-factory-copy-activity-tutorial-using-azure-portal/filter-input-slices.png)
-6. Chiudere i pannelli fino a visualizzare il pannello **Set di dati** . Fare clic su **OutputDataset**. Si tratta del set di dati di output per **ADFTutorialPipeline**.
-   
-    ![Pannello Set di dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datasets-blade.png)
-7. Il pannello **OutputDataset** visualizzato dovrebbe avere un aspetto simile al seguente:
-   
-    ![Pannello Tabella](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png) 
-8. Le sezioni di dati fino all'ora corrente sono state già generate e sono in stato **Pronto**. Non sono visualizzate sezioni in **Sezioni con errori** nella parte inferiore della pagina.
-9. Fare clic su **… (puntini di sospensione)** per visualizzare tutte le sezioni.
-   
-    ![Pannello Sezioni dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png)
-10. Fare clic su una qualsiasi sezione dati dell'elenco per visualizzare il pannello **Sezione dati** .
+    Si noti che le sezioni di dati fino all'ora UTC corrente sono nello stato **Pronto**, perché il file **emp.txt** è sempre presente nel contenitore BLOB **adftutorial\input**. Le sezioni per le ore successive non sono ancora nello stato Pronto. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
+6. Chiudere i pannelli fino a visualizzare la vista diagramma oppure scorrere verso sinistra per visualizzare la vista diagramma, quindi fare doppio clic su **OutputDataset**. 
+8. Fare clic sul collegamento **Altre informazioni** nel pannello **Tabella** per **OutputDataset** per visualizzare tutte le sezioni.
+
+    ![Pannello Sezioni dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png) 
+9. Si noti che tutte le sezioni fino all'ora UTC corrente passano dallo stato **L'esecuzione è in sospeso** allo stato => **In corso** ==> **Pronto**. Per impostazione predefinita, le sezioni precedenti (prima dell'ora corrente) vengono elaborate dalla più recente alla meno recente. Se ad esempio l'ora corrente è 20:12 UTC, la sezione 19 - 20 viene elaborata prima della sezione 18 - 19. Per impostazione predefinita, la sezione 20 - 21 viene elaborata alla fine dell'intervallo di tempo, ovvero dopo le 21.  
+10. Fare clic su una qualsiasi sezione dati dell'elenco per visualizzare il pannello **Sezione dati** . I dati associati a una finestra attività vengono chiamati sezione. Una sezione può essere costituita da uno o più file.  
     
      ![Pannello Sezione di dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)
     
@@ -379,23 +392,14 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 11. Nel pannello **SEZIONE DI DATI** è possibile visualizzare tutte le esecuzioni di attività nell'elenco in basso. Fare clic su un'**esecuzione di attività** per visualizzare il pannello **Dettagli esecuzione attività**. 
     
     ![Dettagli esecuzione attività](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
+
+    In questo pannello vengono visualizzati la durata dell'operazione di copia, la velocità effettiva, il numero di byte di dati letti e scritti, l'ora di inizio dell'esecuzione, l'ora di fine dell'esecuzione e così via.  
 12. Fare clic su **X** per chiudere tutti i pannelli finché non viene visualizzato il pannello iniziale per **ADFTutorialDataFactory**.
-13. (facoltativo) Fare clic su **Pipeline** nella home page di **ADFTutorialDataFactory**, quindi su **ADFTutorialPipeline** nel pannello **Pipeline** e infine eseguire il drill-through delle tabelle di input (**Utilizzate**) o di output (**Prodotte**).
+13. (Facoltativo) Fare clic sul riquadro **Set di dati** o sul riquadro **Pipeline** per ottenere i pannelli visualizzati nei passaggi precedenti. 
 14. Avviare **SQL Server Management Studio**, connettersi al database SQL di Azure e verificare che le righe vengano inserite nella tabella **emp** nel database.
     
     ![Risultati della query SQL](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorare la pipeline con l'app Monitoraggio e gestione
-È anche possibile usare l'applicazione Monitoraggio e gestione per monitorare le pipeline. Per informazioni dettagliate sull'uso di questa applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
-
-1. Fare clic sul riquadro **Monitoraggio e gestione** nella home page della data factory.
-   
-    ![Riquadro Monitoraggio e gestione](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
-2. Verrà visualizzata l'applicazione **Monitoraggio e gestione**. Modificare l'**ora di inizio** e l'**ora di fine** in modo da includere le ore di inizio (2016-07-12) e di fine (2016-07-13) della pipeline e quindi fare clic su **Applica**. 
-   
-    ![App Monitoraggio e gestione](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png) 
-3. Selezionare una finestra attività nell'elenco **Activity Windows** (Finestre attività) per visualizzare i relativi dettagli. 
-    ![Dettagli finestra attività](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
 ## <a name="summary"></a>Riepilogo
 In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato il portale di Azure per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
@@ -407,10 +411,9 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 3. Creare **set di dati** che descrivono dati di input e di output per le pipeline.
 4. Creare una **pipeline** con un'**attività di copia** con **BlobSource** come origine e **SqlSink** come sink.  
 
-## <a name="see-also"></a>Vedere anche
-| Argomento | Descrizione |
-|:--- |:--- |
-| [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e le attività in Azure Data Factory. |
-| [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
-| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
+## <a name="next-steps"></a>Passaggi successivi
+In questa esercitazione sono stati usati l'archivio BLOB di Azure come archivio dati di origine e un database SQL di Azure come archivio dati di destinazione in un'operazione di copia. La tabella seguente contiene un elenco degli archivi dati supportati come origini e come destinazioni dall'attività di copia: 
 
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+Per informazioni dettagliate sui campi o sulle proprietà visualizzate durante la copia guidata di un archivio dati, fare clic sul collegamento relativo all'archivio dati nella tabella.

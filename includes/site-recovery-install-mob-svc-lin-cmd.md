@@ -6,25 +6,38 @@
 2. Per installare il servizio Mobility, eseguire il comando seguente:
 
   ```
-  sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P MobSvc.passphrase
+  sudo ./install -d <Install Location> -r MS -v VmWare -q
+  ```
+3. Al termine dell'installazione è necessario registrare il servizio Mobility nel server di configurazione. Eseguire questo comando per registrare il servizio Mobility nel server di configurazione.
+
+  ```
+  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line-arguments"></a>Argomenti della riga di comando del programma di installazione del servizio Mobility
+#### <a name="mobility-service-installer-command-line"></a>Riga di comando del programma di installazione del servizio Mobility
+
+```
+Usage:
+./install -d <Install Location> -r <MS|MT> -v VmWare -q
+```
 
 |Parametro|Tipo|Descrizione|Valori possibili|
 |-|-|-|-|
-|-t |Mandatory|Tipo di agente<br>(deprecato in una versione presto disponibile)|*both*|
-|-a |Mandatory|Configurazione dell'agente<br>(deprecato in una versione presto disponibile) |*host*|
-|-R |Facoltativo|Ruolo dell'agente|Agente<br>MasterTarget|
+|-r |Mandatory|Specifica se installare il servizio Mobility (MS) o MasterTarget (MT)|MS </br> MT|
 |-d |Facoltativo|Percorso in cui verrà installato il servizio Mobility|/usr/local/ASR|
+|-v|Mandatory|Specifica la piattaforma in cui viene installato il servizio Mobility </br> </br>- **VMware**: usare questo valore se si installa il servizio Mobility in una macchina virtuale in esecuzione in *host VMware vSphere ESXi*, *host Hyper-V* o *server fisici* </br> - **Azure**: usare questo valore se si installa un agente in una macchina virtuale IaaS di Azure| VMware </br> Azure|
+|-q|Facoltativo|Specifica l'esecuzione del programma di installazione in modalità non interattiva| N/D |
+
+
+#### <a name="mobility-service-configuration-command-line"></a>Riga di comando di configurazione del servizio Mobility
+
+```
+Usage:
+cd /usr/local/ASR/Vx/bin
+UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
+```
+
+|Parametro|Tipo|Descrizione|Valori possibili|
+|-|-|-|-|
 |-i |Mandatory|Indirizzo IP del server di configurazione|Qualsiasi indirizzo IP valido|
-|-p |Mandatory|Porta su cui il server di configurazione è in ascolto per le connessioni in ingresso|443|
-|-s |Mandatory|Avvio del servizio al termine dell'installazione<br>(deprecato in una versione presto disponibile)|*y*|
-|-c |Mandatory|Modalità di comunicazione tra agente e server di elaborazione<br>(deprecato in una versione presto disponibile) |*https*|
-|-P |Mandatory|Passphrase del server di configurazione|Qualsiasi percorso file locale o UNC valido|
-
-
-#### <a name="example"></a>Esempio
-```
-sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i 192.168.2.53 -p 443 -s y -c https -P /tmp/MobSvc.passphrase
-```
+|-P |Mandatory|Percorso completo del file in cui viene salvata la passphrase di connessione|Qualsiasi cartella valida|

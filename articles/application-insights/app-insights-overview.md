@@ -3,7 +3,7 @@ title: "Che cos&quot;è Azure Application Insights? | Microsoft Docs"
 description: "Gestione delle prestazioni delle applicazioni e monitoraggio dell&quot;uso dell&quot;applicazione Web live.  Rilevare, valutare e diagnosticare i problemi e comprendere la modalità di uso dell&quot;app da parte degli utenti."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4c47041bb729a3ee1f3fb4c7baf7f988db226677
-ms.lasthandoff: 04/12/2017
-
+ms.date: 05/14/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: e57912a197394fbb8ea8bc374a1f3934ae0ff464
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
@@ -64,14 +64,17 @@ Application Insights è destinato al team di sviluppo, a cui consente di compren
 
 |  |  |
 | --- | --- |
+| [**Rilevamento intelligente e avvisi manuali**](app-insights-proactive-diagnostics.md)<br/>Gli avvisi automatici si adattano ai modelli normali di telemetria dell'app e si attivano quando i dati si discostano dal modello consueto. È anche possibile [impostare avvisi](app-insights-alerts.md) per determinati livelli di metriche standard o personalizzate. |![Esempio di avviso](./media/app-insights-overview/alerts-tn.png) |
 | [**Mappa delle applicazioni**](app-insights-app-map.md)<br/>I componenti dell'applicazione, con le metriche e gli avvisi chiave. |![Mappa delle applicazioni](./media/app-insights-overview/appmap-tn.png)  |
+| [**Profiler**](app-insights-profiler.md)<br/>Ispezionare i profili di esecuzione delle richieste campionate. |![Profiler](./media/app-insights-overview/profiler.png) |
+| [**Analisi dell'utilizzo**](app-insights-usage-overview.md)<br/>Analizzare la segmentazione e la conservazione degli utenti.|![Strumento Conservazione](./media/app-insights-overview/retention.png) |
 | [**Ricerca diagnostica dei dati dell'istanza**](app-insights-diagnostic-search.md)<br/>Cercare e filtrare eventi come richieste, eccezioni, chiamate a dipendenze, tracce di log e visualizzazioni di pagina.  |![Ricerca nella telemetria](./media/app-insights-overview/search-tn.png) |
 | [**Esplora metriche per i dati aggregati**](app-insights-metrics-explorer.md)<br/>Esaminare, filtrare e segmentare dati aggregati come frequenza delle richieste, errori, eccezioni, tempi di risposta e tempi di caricamento delle pagine. |![Metrica](./media/app-insights-overview/metrics-tn.png) |
 | [**Dashboard**](app-insights-dashboards.md#dashboards)<br/>Combinare dati di più risorse e condividerli con altri utenti. Ideale per le applicazioni multi-componente e per la visualizzazione continua negli spazi del team. |![Esempio di dashboard](./media/app-insights-overview/dashboard-tn.png) |
 | [**Flusso di metriche in tempo reale**](app-insights-live-stream.md)<br/>Quando si distribuisce una nuova build, controllare questi indicatori delle prestazioni in tempo quasi reale per verificare che tutto funzioni come previsto. |![Esempio di metriche live](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analisi**](app-insights-analytics.md)<br/>Questo avanzato linguaggio di query consente di trovare risposta a domande approfondite sull'utilizzo e sulle prestazioni dell'app. |![Esempio di analisi](./media/app-insights-overview/analytics-tn.png) |
-| [**Avvisi automatici e manuali**](app-insights-alerts.md)<br/>Gli avvisi automatici si adattano ai modelli normali di telemetria dell'app e si attivano quando i dati si discostano dal modello consueto. È anche possibile impostare avvisi su livelli particolari delle metriche standard o personalizzate. |![Esempio di avviso](./media/app-insights-overview/alerts-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>Vedere i dati sulle prestazioni nel codice. Passare al codice dall'analisi dello stack.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Debugger di snapshot**](app-insights-snapshot-debugger.md)<br/>Eseguire il debug di snapshot campionati da operazioni attive, con i valori dei parametri.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Integrare le metriche di uso con altra business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**API REST**](https://dev.applicationinsights.io/)<br/>Scrivere codice per eseguire query su metriche e dati non elaborati.| ![API REST](./media/app-insights-overview/rest-tn.png) |
 | [**Esportazione continua**](app-insights-export-telemetry.md)<br/>Eseguire l'esportazione bulk dei dati non elaborati nell'archivio non appena arrivano. |![Esporta](./media/app-insights-overview/export-tn.png) |
@@ -90,10 +93,10 @@ Quando si riceve un avviso o si individua un problema:
 
 * Individuare il numero di utenti interessati.
 * Correlare gli errori con eccezioni, chiamate alle dipendenze e tracce.
-* Esaminare dump dello stack e log di traccia.
+* Esaminare profiler, snapshot, dump dello stack e log di traccia.
 
 ### <a name="build-measure-learn"></a>Compilare, misurare, acquisire informazioni
-Misurare l'efficacia di ogni nuova funzionalità che si distribuisce.
+[Misurare l'efficacia](app-insights-usage-overview.md) di ogni nuova funzionalità che si distribuisce.
 
 * Pianificare la misurazione del modo in cui i clienti usano nuove funzionalità aziendali o per l'esperienza utente.
 * Scrivere dati di telemetria personalizzati nel codice.

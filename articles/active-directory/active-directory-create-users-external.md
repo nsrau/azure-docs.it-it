@@ -12,18 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/14/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
-ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Aggiungere utenti da altre directory o società partner in Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Portale di Azure](active-directory-users-create-external-azure-portal.md)
+> * [Portale di Azure](active-directory-users-create-external-azure-portal.md )
 > * [Portale di Azure classico](active-directory-create-users-external.md)
 >
 >
@@ -44,9 +45,8 @@ Questo articolo illustra come aggiungere utenti da altre directory in Azure Acti
 > [!IMPORTANT]
 > Se l'organizzazione usa più di un dominio, è opportuno essere a conoscenza dei problemi seguenti quando si aggiunge un account utente:
 >
-> * Per aggiungere account utente con lo stesso nome dell'entità utente (UPN) in tutti i domini, aggiungere **prima di tutto**, ad esempio, geoffgrisso@contoso.onmicrosoft.com, **seguito da** geoffgrisso@contoso.com.
-> * **Non** aggiungere geoffgrisso@contoso.com prima di aggiungere geoffgrisso@contoso.onmicrosoft.com. Quest'ordine è importante e può essere complesso da annullare.
->
+> * Per aggiungere account utente con lo stesso nome dell'entità utente (UPN) in tutti i domini, aggiungere **prima** geoffgrisso@contoso.onmicrosoft.com, ad esempio, **seguito da** geoffgrisso@contoso.com.
+> * **Non** aggiungere geoffgrisso@contoso.com prima di aggiungere geoffgrisso@contoso.onmicrosoft.com.
 >
 
 Se si modificano le informazioni per un utente la cui identità è sincronizzata con il servizio di Active Directory locale, non sarà possibile modificare le informazioni sull'utente nel portale di Azure classico. Per modificare le informazioni sull'utente, usare gli strumenti di gestione del servizio Active Directory locale.
@@ -74,15 +74,7 @@ Se un utente viene eliminato nella home directory o se viene annullato il relati
 * **Dynamics CRM**: se all'utente è stata concessa una licenza tramite PowerShell, consente a un utente esterno di accedere alle risorse autorizzate di Dynamics CRM.
 * **Dynamics AX**: se all'utente è stata concessa una licenza tramite PowerShell, consente a un utente esterno di accedere alle risorse autorizzate di Dynamics AX. Le limitazioni per gli [utenti esterni di Azure AD](#known-limitations-of-azure-ad-external-users) si applicano anche agli utenti esterni di Dynamics AX.
 
-### <a name="known-limitations-of-azure-ad-external-users"></a>Limitazioni note per gli utenti esterni di Azure AD
-* Gli utenti esterni che sono amministratori non possono aggiungere utenti da società partner a directory (collaborazione B2B) esterne alla relativa home directory.
-* Gli utenti esterni non possono autorizzare applicazioni multi-tenant in directory esterne alla relativa home directory.
-* PowerBI al momento non supporta l'accesso da parte di utenti esterni
-* Il portale di Office non supporta la concessione di licenze a utenti esterni
-* Per quanto riguarda Azure AD PowerShell, gli utenti esterni vengono registrati nella rispettiva home directory e non possono gestire directory in cui sono utenti esterni
-* Durante la configurazione del plug-in di Dynamics CRM per Outlook, è possibile che gli utenti esterni debbano inserire manualmente l'URL del tenant di Dynamics CRM Online invece di selezionare 'CRM Online'.
-
-## <a name="whats-next"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere o modificare utenti in Azure Active Directory](active-directory-create-users.md)
 * [Amministrazione di Azure AD](active-directory-administer.md)
 * [Gestire password in Azure AD](active-directory-manage-passwords.md)

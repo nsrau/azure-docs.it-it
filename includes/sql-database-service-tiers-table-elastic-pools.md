@@ -52,7 +52,7 @@ sql-database-service-tiers.md
 
 ### <a name="premium-elastic-pool-limits"></a>Limiti del pool elastico Premium
 
-| Dimensioni pool (eDTU)  | **125** | **250** | **500** | **1000** | **1500** | 
+| Dimensioni pool (eDTU)  | **125** | **250** | **500** | **1000** | **1500** **| 
 |:---|---:|---:|---:| ---: | ---: | 
 | Spazio di archiviazione dati massimo per pool* | 250 GB | 500 GB | 750 GB | 750 GB | 1,5 TB | 
 | Spazio di archiviazione OLTP in memoria massimo per pool | 1 GB| 2 GB| 4 GB| 10 GB| 12 GB| 
@@ -67,7 +67,7 @@ sql-database-service-tiers.md
 
 ### <a name="premium-elastic-pool-limits-continued"></a>Limiti del pool elastico Premium (continua) 
 
-| Dimensioni pool (eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
+| Dimensioni pool (eDTU)  |  **2000** **| **2500**  **| **3000**  **| **3500**  **| **4000**  **|
 |:---|---:|---:|---:| ---: | ---: | 
 | Spazio di archiviazione dati massimo per pool* | 2 TB | 2,5 TB | 3 TB | 3,5 TB | 4 TB |
 | Spazio di archiviazione OLTP in memoria massimo per pool | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
@@ -96,5 +96,7 @@ sql-database-service-tiers.md
 ||||||||
 
 > [!IMPORTANT]
->\* Poiché i database in pool condividono lo spazio di archiviazione del pool, lo spazio di archiviazione dei dati è limitato allo spazio di archiviazione del pool rimanente o allo spazio di archiviazione massimo per database. Lo spazio di archiviazione dati massimo predefinito per pool Premium con 1500 o più eDTU è 750 GB. Per ottenere dimensioni di archiviazione dati massime per pool superiori, è necessario selezionare esplicitamente tali dimensioni usando il portale di Azure o [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool). I pool Premium con spazio di archiviazione superiore a 750 GB sono attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Per tutte le altre aree, lo spazio di archiviazione massimo per pool è attualmente limitato a 750 GB.
+>\* Poiché i database in pool condividono lo spazio di archiviazione del pool, lo spazio di archiviazione dei dati è limitato allo spazio di archiviazione del pool rimanente o allo spazio di archiviazione massimo per database. 
+>
+>\*\* Lo spazio di archiviazione dati massimo predefinito per pool Premium con 1500 o più eDTU è 750 GB. Per ottenere dimensioni di archiviazione dati massime per pool superiori, è necessario selezionare esplicitamente tali dimensioni usando il portale di Azure o [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool). I pool Premium con spazio di archiviazione superiore a 750 GB sono attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia, Europa occidentale, Germania centrale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Per tutte le altre aree, lo spazio di archiviazione massimo per pool è attualmente limitato a 750 GB.
 >
