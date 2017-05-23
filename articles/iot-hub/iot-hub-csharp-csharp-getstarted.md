@@ -16,10 +16,10 @@ ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 33ddab887ade0d788129367eec4db7e70f35e0b9
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68d409c7c7ce14c988d8335f6ed54e9be69bcba7
 ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -244,7 +244,7 @@ Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare al
 
 * [Connessione del dispositivo][lnk-connect-device]
 * [Introduzione alla gestione dei dispositivi][lnk-device-management]
-* [Introduzione all'IoT SDK per gateway][lnk-gateway-SDK]
+* [Introduzione a IoT Edge][lnk-gateway-SDK]
 
 Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messaggi dispositivo a cloud su vasta scala, vedere l'esercitazione [Elaborare messaggi dispositivo a cloud][lnk-process-d2c-tutorial].
 

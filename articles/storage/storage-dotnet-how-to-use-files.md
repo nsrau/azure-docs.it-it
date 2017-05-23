@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e773fd4917c7a96201d94d31b2098a3486d27900
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4e2422e8651d6fd17df2670e78606d1caeaf64ce
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -676,14 +676,11 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     
     È anche possibile fare riferimento all'articolo sulla [risoluzione dei problemi di archiviazione file di Azure](storage-troubleshoot-file-connection-problems.md) per indicazioni sulla risoluzione dei problemi end-to-end.               
 
-18. **Come è possibile abilitare la crittografia lato server per File di Azure?**
-> [!NOTE]
-> La [crittografia lato server](storage-service-encryption.md) per File di Azure è attualmente in anteprima. È possibile contattare [SSEDiscussion](mailto:ssediscussions@microsoft.com) in caso di domande durante l'anteprima.
-
-    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
+18. **Come abilitare la crittografia lato server per l'archiviazione file di Azure**
     
-    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
-    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
+    La [crittografia lato server](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) per il servizio di archiviazione file di Azure è in genere disponibile in tutte le aree e nei cloud pubblici e nazionali. Per abilitare la crittografia lato server per il servizio di archiviazione file, è possibile usare il [portale di Azure](https://ms.portal.azure.com/), l'[API del provider di risorse di Archiviazione di Microsoft Azure](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) o l'[interfaccia della riga di comando di Azure](https://azure.microsoft.com/en-us/documentation/articles/storage-azure-cli/).
+    
+    Dopo aver abilitato la crittografia lato server nell'archiviazione file di Azure, i nuovi dati scritti nell'archiviazione file in tale account di archiviazione vengono crittografati automaticamente. Questa funzionalità è disponibile per tutti i nuovi dati scritti in condivisioni nuove o esistenti in un account di archiviazione nuovo o esistente. Non sono previsti costi aggiuntivi per questa funzionalità. Altre informazioni su [come abilitare la crittografia lato server nel servizio di archiviazione file di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione file di Azure.

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29e8639a6f1f0c2733d24dda78975ea7cfb6107a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -107,7 +108,7 @@ La funzionalità di gestione del dispositivo dell'hub IoT consente di gestire le
 ## <a name="azure-stream-analytics"></a>Analisi di flusso di Azure
 La soluzione preconfigurata usa tre processi di [Analisi di flusso di Azure][lnk-asa] per filtrare i flussi di dati di telemetria provenienti dai dispositivi:
 
-* *Processo DeviceInfo*: invia dati a un hub eventi che indirizza i messaggi specifici di registrazione del dispositivo al registro dei dispositivi della soluzione, un database DocumentDB. Questo messaggio viene inviato quando un dispositivo si connette per la prima volta o in risposta a un comando **Change device state** (Modifica lo stato del dispositivo).
+* *Processo DeviceInfo*: invia dati a un hub eventi che indirizza i messaggi specifici della registrazione del dispositivo al registro dei dispositivi della soluzione, un database Azure Cosmos DB. Questo messaggio viene inviato quando un dispositivo si connette per la prima volta o in risposta a un comando **Change device state** (Modifica lo stato del dispositivo).
 * *Processo Telemetria* : invia tutti i dati di telemetria non elaborati all'archivio BLOB di Azure per l'archiviazione offline sicura e calcola le aggregazioni dei dati di telemetria visualizzate nel dashboard della soluzione.
 * *Processo Regole* : filtra il flusso dei dati di telemetria in base ai valori che superano qualsiasi soglia delle regole e invia i dati a un hub eventi. Quando viene attivata una regola, la vista del dashboard del portale della soluzione mostra questo evento come una nuova riga nella tabella della cronologia di allarme. Queste regole possono inoltre attivare un'azione in base alle impostazioni definite nelle viste **Regole** e **Azioni** nel portale della soluzione.
 
@@ -117,10 +118,10 @@ In questa soluzione preconfigurata i processi di Analisi di flusso di Azure fann
 In questa soluzione preconfigurata il processore di eventi fa parte del **back-end della soluzione IoT** nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
 
 I processi **DeviceInfo** e **Rules** di Analisi di flusso di Azure inviano l'output agli hub eventi in modo che siano recapitati ad altri servizi back-end. La soluzione usa un'istanza di [EventPocessorHost][lnk-event-processor] in esecuzione in un [processo Web][lnk-web-job] per leggere i messaggi da questi hub eventi. **EventProcessorHost** usa:
-- I dati di **DeviceInfo** per aggiornare i dati del dispositivo nel database DocumentDB.
+- I dati di **DeviceInfo** per aggiornare i dati del dispositivo nel database Cosmos DB.
 - I dati delle **regole** per richiamare l'app per la logica e aggiornare gli avvisi visualizzati nel portale della soluzioni.
 
-## <a name="device-identity-registry-device-twin-and-documentdb"></a>Registro delle identità dei dispositivi, dispositivo gemello e DocumentDB
+## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Registro delle identità dei dispositivi, dispositivo gemello e Cosmos DB
 Ogni hub IoT include un [registro delle identità dei dispositivi][lnk-identity-registry] che archivia le chiavi del dispositivo. L'hub IoT usa queste informazioni per autenticare i dispositivi: un dispositivo deve essere registrato e deve avere una chiave valida per potersi connettere all'hub.
 
 Un [dispositivo gemello][lnk-device-twin] è un documento JSON gestito dall'hub IoT. Un gemello dispositivo di un dispositivo contiene:
@@ -129,9 +130,9 @@ Un [dispositivo gemello][lnk-device-twin] è un documento JSON gestito dall'hub 
 - Le proprietà che si desidera inviare al dispositivo desiderate. È possibile impostare queste proprietà nel portale della soluzione.
 - I tag che esistono solo nel dispositivo gemello e non sul dispositivo. È possibile utilizzare questi tag per filtrare gli elenchi di dispositivi nel portale della soluzione.
 
-Questa soluzione usa i dispositivi gemelli per gestire i metadati del dispositivo. La soluzione usa anche un database DocumentDB per archiviare i dati aggiuntivi del dispositivo specifici per la soluzione, ad esempio i comandi supportati da ogni dispositivo e la cronologia dei comandi.
+Questa soluzione usa i dispositivi gemelli per gestire i metadati del dispositivo. La soluzione usa anche un database Cosmos DB per archiviare i dati aggiuntivi del dispositivo specifici per la soluzione, ad esempio i comandi supportati da ogni dispositivo e la cronologia dei comandi.
 
-La soluzione deve anche mantenere sincronizzate le informazioni del registro delle identità dei dispositivi con il contenuto del database DocumentDB. **EventProcessorHost** usa i dati del processo di analisi di flusso **Informazioni sul dispositivo** per gestire la sincronizzazione.
+La soluzione deve anche mantenere sincronizzate le informazioni del registro delle identità dei dispositivi con il contenuto del database Cosmos DB. **EventProcessorHost** usa i dati del processo di analisi di flusso **Informazioni sul dispositivo** per gestire la sincronizzazione.
 
 ## <a name="solution-portal"></a>Portale della soluzione
 ![portale della soluzione][img-dashboard]
@@ -168,3 +169,4 @@ Dopo aver acquisito informazioni sulle soluzioni preconfigurate è possibile ini
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+
