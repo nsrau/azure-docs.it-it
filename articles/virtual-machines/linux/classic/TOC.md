@@ -51,7 +51,7 @@
 ### [Tomcat](setup-tomcat.md)
 ### [Applicazione Web con Visual Studio](web-app-visual-studio.md)
 ### [Cluster RDMA per eseguire applicazioni MPI](rdma-cluster.md)
-### [How to use the Azure slave plug-in with Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md) (Come usare il plug-in slave di Azure con una soluzione di integrazione continua Hudson)
+### [Come usare il plug-in slave di Azure con una soluzione di integrazione continua Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md) 
 
 
 ## HPC Pack
