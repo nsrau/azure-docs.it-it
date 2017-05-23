@@ -10,15 +10,16 @@ tags:
 ms.assetid: 83d7a29c-57ae-4aa0-8327-72dd8f00247d
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 05/16/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d1cb0751633f1a190d8ecfe1888ab6cdd8736480
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 89c19e9b64fc4e1fea68c717fd5f5e0e054ac10c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,27 +28,38 @@ ms.lasthandoff: 04/20/2017
 
 Basato sul collaudato motore analitico di Microsoft SQL Server Analysis Services, Azure Analysis Services offre funzionalità di modellazione dei dati di livello aziendale nel cloud. 
 
-Guardare il video seguente per saperne di più su come Azure Analysis Services si integra con le funzionalità BI generali di Microsoft e su come è possibile trarre vantaggio dai propri modelli semantici nel cloud.
+Guardare il video seguente per informazioni su come Azure Analysis Services si integra con le funzionalità BI generali di Microsoft e su come è possibile trarre vantaggio dai propri modelli di dati nel cloud.
 
->[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesGettingStarted/player]
+
+>
+>[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
 
 
 ## <a name="built-on-sql-server-analysis-services"></a>Compilare in SQL Server Analysis Services
-Azure Analysis Services è compatibile con SQL Server 2016 Analysis Services Enterprise Edition. Azure Analysis Services supporta i modelli tabulari a livello di compatibilità 1200. Sono supportati anche DirectQuery, partizioni, sicurezza a livello di riga, relazioni bidirezionali e traduzioni.
+Azure Analysis Services è compatibile con SQL Server Analysis Services Enterprise Edition, già noto agli utenti. Azure Analysis Services supporta modelli tabulari con livello di compatibilità 1200 o successivo. Sono supportati anche DirectQuery, partizioni, sicurezza a livello di riga, relazioni bidirezionali e traduzioni.
 
 ## <a name="use-the-tools-you-already-know"></a>Usare gli strumenti noti
 ![Strumenti di sviluppo di Business Intelligence](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-Durante la creazione di modelli dati per Azure Analysis Services, usare gli stessi strumenti di SQL Server Analysis Services. Creare e distribuire i modelli tabulari usando le versioni più recenti di [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) o i modelli di [Azure Powershell](/powershell/azureps-cmdlets-docs) e [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+Durante la creazione di modelli dati per Azure Analysis Services, usare gli stessi strumenti di SQL Server Analysis Services. Creare e distribuire i modelli con [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) oppure usando [Azure Powershell](/powershell/azureps-cmdlets-docs) e [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="connect-to-data-sources"></a>Connettersi alle origini dati
+## <a name="supports-the-latest-features"></a>Supporto delle funzionalità più recenti
+Azure Analysis Services supporta modelli tabulari con i livelli di compatibilità 1200 e 1400 (anteprima).
+
+**Tabulare 1200**: incluso per la prima volta in SQL Server 2016 Analysis Services, il livello 1200 ha introdotto il modello a oggetti tabulare per descrivere oggetti dei modelli come tabelle, colonne e relazioni. Il modello a oggetti tabulare viene esposto in JSON tramite [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) e nel linguaggio di definizione dati AMO tramite lo spazio dei nomi [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
+
+**Tabulare 1400 (anteprima)**: introduce il supporto per righe di dettaglio e gerarchie incomplete, la sicurezza a livello di oggetto, un'esperienza di recupero dati moderna per la connettività dei dati e molti altri miglioramenti. Per sfruttare tutte le funzionalità più recenti, è necessario usare l'ultima versione di [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx). Dato che Tabulare 1400 è ancora in anteprima, vengono apportate frequenti modifiche. Per informazioni aggiornate, vedere questo [post di blog](https://azure.microsoft.com/blog/1400-models-in-azure-as/).
+
+## <a name="data-sources"></a>Origini dati
 I modelli dati distribuiti ai server in Azure supportano la connessione alle origini dati locali nell'organizzazione o nel cloud. Combinare i dati provenienti dall'ambiente locale e dalle origini dati cloud per una soluzione di Business Intelligence ibrida.
 
 ![Origini dati](./media/analysis-services-overview/aas-overview-data-sources.png)
 
-Poiché il server è nel cloud, la connessione alle origini dati cloud è semplice. Quando ci si connette alle origini dati locali, il [gateway dati locale](analysis-services-gateway.md) garantisce connessioni veloci e sicure con il server Analysis Services nel cloud.  
+Poiché il server è nel cloud, la connessione alle origini dati cloud è semplice. Quando ci si connette alle origini dati locali, il [gateway dati locale](analysis-services-gateway.md) garantisce connessioni veloci e sicure con il server Analysis Services nel cloud.
+
+\* Solo modelli tabulari 1400.
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Esplorare i dati da qualsiasi luogo
@@ -58,14 +70,14 @@ Poiché il server è nel cloud, la connessione alle origini dati cloud è sempli
 
 ## <a name="secure"></a>Proteggere
 #### <a name="user-authentication"></a>Autenticazione utente
-L'autenticazione utente per Azure Analysis Services viene gestita da [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Quando si tenta di accedere a un database di Azure Analysis Services, gli utenti usano un'identità dell'account dell'organizzazione con accesso al database a cui si sta tentando di accedere. Queste identità utente devono essere membri dell'istanza predefinita di Azure Active Directory per la sottoscrizione in cui risiede il server Azure Analysis Services. [Integrazione di directory](https://technet.microsoft.com/library/jj573653.aspx) tra AAD e Active Directory locale è un ottimo modo per concedere agli utenti locali l'accesso a un database di Azure Analysis Services, ma non è obbligatorio per tutti gli scenari.
+L'autenticazione utente per Azure Analysis Services viene gestita da [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Quando si tenta di accedere a un database di Azure Analysis Services, gli utenti usano un'identità dell'account dell'organizzazione con accesso al database a cui si sta tentando di accedere. Queste identità utente devono essere membri dell'istanza predefinita di Azure Active Directory per la sottoscrizione in cui risiede il server Azure Analysis Services. L'[integrazione di directory](https://technet.microsoft.com/library/jj573653.aspx) tra AAD e l'istanza locale di Active Directory è un ottimo modo per concedere agli utenti l'accesso a un database di Azure Analysis Services, ma non è necessaria per tutti gli scenari.
 
 Gli utenti accedono con il nome dell'entità utente del proprio account e la password. Dopo la sincronizzazione con un'istanza locale di Active Directory, il nome dell'entità utente corrisponde in genere all'indirizzo di posta elettronica aziendale.
 
 Le autorizzazioni per la gestione delle risorse del server Azure Analysis Services sono gestite tramite l'assegnazione di utenti ai ruoli nell'ambito della sottoscrizione di Azure. Per impostazione predefinita, gli amministratori della sottoscrizione dispongono di autorizzazioni proprietario per l'accesso alla risorsa del server in Azure. È possibile aggiungere altri utenti tramite Azure Resource Manager.
 
 #### <a name="data-security"></a>Sicurezza dei dati
-Azure Analysis Services usa l'archiviazione BLOB di Azure per rendere persistenti i metadati e l'archiviazione per i database di Analysis Services. I file di dati nel BLOB vengono crittografati mediante crittografia sul lato server di BLOB di Azure. Quando si usa la modalità DirectQuery, vengono archiviati solo i metadati. Ai dati effettivi è possibile accedere dall'origine dati in fase di query.
+Azure Analysis Services usa l'archiviazione BLOB di Azure per rendere persistenti i metadati e l'archiviazione per i database di Analysis Services. I file di dati nel BLOB vengono crittografati mediante crittografia sul lato server di BLOB di Azure. Quando si usa la modalità di query diretta, vengono archiviati solo i metadati. L'accesso ai dati effettivi viene eseguito dall'origine dati in fase di query.
 
 #### <a name="on-premises-data-sources"></a>Origini dati locali
 È possibile ottenere la sicurezza dell'accesso ai dati in locale all'interno dell'organizzazione installando e configurando un [gateway dati locale](analysis-services-gateway.md). I gateway forniscono accesso ai dati per le modalità DirectQuery e in memoria. Quando un modello di Azure Analysis Services si connette a un'origine dati locale, viene creata una query con le credenziali crittografate per l'origine dati locale. Il servizio cloud del gateway analizza la query e inserisce la richiesta in un'istanza del bus di servizio di Azure. Il gateway locale esegue il polling del bus di servizio per le richieste in sospeso. Il gateway riceve quindi la query, decrittografa le credenziali e si connette all'origine dati per l'esecuzione. I risultati vengono inviati dall'origine dati al gateway e quindi al database Azure Analysis Services.
@@ -86,7 +98,7 @@ Analysis Services è costituito da una vivace community di utenti. È possibile 
 ## <a name="feedback"></a>Commenti e suggerimenti
 In caso di suggerimenti o richieste di funzionalità, assicurarsi di lasciare i propri commenti in [Commenti e suggerimenti su Azure Analysis Services](https://aka.ms/azureanalysisservicesfeedback).
 
-In caso di suggerimenti sulla documentazione, è possibile aggiungere i commenti usando Disqus nella parte inferiore di ogni articolo.
+In caso di suggerimenti sulla documentazione, è possibile aggiungere commenti usando Livefyre nella parte inferiore di ogni articolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver ottenuto alcune informazioni su Azure Analysis Services, è possibile iniziare a usarlo. Informazioni su come [creare un server](analysis-services-create-server.md) in Azure e [distribuire un modello tabulare](analysis-services-deploy.md) in tale server.

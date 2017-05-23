@@ -2,8 +2,8 @@
 
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| Reti virtuali per sottoscrizione |50 |100 |
-| Siti di reti locali per sottoscrizione |20 |Contattare il supporto tecnico |
+| Reti virtuali |50 |100 |
+| Siti di rete locale |20 |Contattare il supporto tecnico |
 | Server DNS per rete virtuale |20 |100 |
 | Indirizzi IP privati per rete virtuale |4096 |4096 |
 | Connessioni TCP simultanee per un'istanza del ruolo o della macchina virtuale |500K |500K |
@@ -22,7 +22,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| Reti virtuali per sottoscrizione |50 |500 |
+| Reti virtuali |50 |500 |
 | Subnet per rete virtuale |1.000 |contattare il supporto tecnico |
 | Server DNS per rete virtuale |9 |25 |
 | Indirizzi IP privati per rete virtuale |4096 |4096 |
@@ -41,7 +41,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | IP front-end privato per ogni di bilanciamento del carico |10 |Contattare il supporto tecnico |
 | Peering di reti virtuali per rete virtuale |10 |50 |
 | Certificati radice Point-to-Site per ogni gateway VPN |20 |20 |
-| Configurazioni IP secondarie per rete virtuale |1000 |contattare il supporto tecnico |
+| Configurazioni IP secondarie per rete virtuale |1000 |Contattare il supporto tecnico |
 
-Nel caso in cui sia necessario aumentare questi limiti rispetto all'impostazione predefinita, contattare il supporto tecnico.
+Se è necessario aumentare i limiti rispetto all'impostazione predefinita, [contattare il supporto tecnico](../articles/azure-supportability/how-to-create-azure-support-request.md).
 

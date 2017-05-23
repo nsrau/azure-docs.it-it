@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/13/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 45adf2accd3d9f43bc1d73b9ff93cc34d4d7c90a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d8a6a183d1acd7a06683ec2e402bd866cb5195f4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -96,27 +96,25 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-documentdb-dotnet/keys.png)
 
-2. Immettere le configurazioni per *endpoint*, *db*, *coll* e *authKey* nel file `app.js`:
+2. Copiare il valore dell'URI dal portale (usando il pulsante di copia) e impostarlo come valore della chiave config.endpoint in config.js.
 
-    ```nodejs
-    const client = Gremlin.createClient(
-        443, 
-        config.endpoint, 
-        { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
-        });
-    ```
+    `config.endpoint = "GRAPHENDPOINT";`
+
+3. Sostituire la parte "documents.azure.com" dell'URI con "graphs.azure.com".
+
+4. Copiare quindi il valore di CHIAVE PRIMARIA dal portale e impostarlo come valore di config.primaryKey in config.js. L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
+
+    `config.primaryKey = "PRIMARYKEY";`
 
 ## <a name="run-the-console-app"></a>Eseguire l'app console
 
-1. Eseguire `npm install` in un terminale per installare i moduli npm necessari
+1. Aprire una finestra del terminale e usare `cd` per passare alla directory di installazione del file package.json incluso nel progetto.  
 
-2. Sostituire il contenuto di `node_modules\gremlin` con il codice sorgente dal [fork Cosmos DB Gremlin](https://github.com/CosmosDB/gremlin-javascript), che include il supporto per SSL e SASL (necessari per Azure Cosmos DB), ma che non è attualmente supportato dal driver (comportamento temporaneo finché le modifiche non verranno accettate nel driver).
+2. Eseguire `npm install gremlin` per installare i moduli npm necessari.
 
-2. Eseguire `node app.js` in un terminale per avviare l'applicazione Node.js.
+3. Sostituire il contenuto della cartella `node_modules\gremlin` con il codice sorgente del [fork Cosmos DB Gremlin](https://github.com/CosmosDB/gremlin-javascript), che include il supporto per SSL e SASL (necessari per Azure Cosmos DB), ma che al momento non è supportato dal driver (temporaneamente, finché le modifiche non verranno accettate nel driver).
+
+4. Eseguire `node app.js` in un terminale per avviare l'applicazione Node.js.
 
 È ora possibile tornare a Esplora dati e visualizzare, modificare e usare questi nuovi dati, nonché eseguire query su di essi. 
 
@@ -145,5 +143,3 @@ In questa guida di avvio rapido si è appreso come creare un account Azure Cosmo
 
 > [!div class="nextstepaction"]
 > [Eseguire query con Gremlin](tutorial-query-graph.md)
-
-

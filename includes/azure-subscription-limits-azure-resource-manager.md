@@ -10,6 +10,7 @@
 | Letture API Gestione risorse |15000 all'ora |15000 all'ora |
 | Scritture API Gestione risorse |1200 all'ora |1200 all'ora |
 | Dimensioni delle richieste API di gestione delle risorse |4194304 byte |4194304 byte |
+| Tag per sottoscrizione |10000 |10000 |
 | [Servizi cloud](../articles/cloud-services/cloud-services-choose-me.md) per sottoscrizione |Non applicabile<sup>3</sup> |Non applicabile<sup>3</sup> |
 | [Gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione |Non applicabile<sup>3</sup> |Non applicabile<sup>3</sup> |
 

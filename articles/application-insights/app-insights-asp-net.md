@@ -3,7 +3,7 @@ title: Configurare l&quot;analisi di app Web per ASP.NET con Azure Application I
 description: "Configurare l&quot;analisi delle prestazioni, della disponibilità e dell&quot;utilizzo per un sito Web ASP.NET, ospitato in locale o in Azure."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 04bac05363f0f7468e41ccfd96a85e4bd7bf761c
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: af932e111ebc60ee86c823e65000d39fa6ea81cb
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -52,7 +52,12 @@ Passare alla pagina di configurazione di Application Insights:
 
 **a.** Selezionare l'account e la sottoscrizione usati per accedere ad Azure.
 
-**b.** Selezionare la risorsa in Azure in cui si vogliono visualizzare i dati dell'app. In genere si crea una risorsa separata per ogni app. Se si vuole impostare il gruppo di risorse o la località in cui verranno archiviati i dati, fare clic su **Configura impostazioni**. I gruppi di risorse vengono usati per controllare l'accesso ai dati. Se si hanno diverse app che fanno parte dello stesso sistema, ad esempio, è possibile inserire i relativi dati di Application Insights nello stesso gruppo di risorse.
+**b.** Selezionare la risorsa in Azure in cui si vogliono visualizzare i dati dell'app. In genere:
+
+* Usare un'[unica risorsa per diversi componenti](app-insights-monitor-multi-role-apps.md) di una singola applicazione. 
+* Creare risorse separate per applicazioni non correlate.
+ 
+Se si vuole impostare il gruppo di risorse o la località in cui verranno archiviati i dati, fare clic su **Configura impostazioni**. I gruppi di risorse vengono usati per controllare l'accesso ai dati. Se si hanno diverse app che fanno parte dello stesso sistema, ad esempio, è possibile inserire i relativi dati di Application Insights nello stesso gruppo di risorse.
 
 **c.** Impostare un tetto massimo al limite del volume di dati gratuito, per evitare eventuali addebiti. Application Insights è gratuito fino a un determinato volume di dati di telemetria. Dopo aver creato la risorsa, è possibile modificare la selezione nel portale aprendo **Funzionalità + prezzi** > **Gestione del volume dati** > **Limite di utilizzo volume giornaliero**.
 
