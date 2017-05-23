@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: anwestg
-translationtype: Human Translation
-ms.sourcegitcommit: 4d3b3096e42736fddd3bb5b9f39376271d193c58
-ms.openlocfilehash: 980eb9ff0990d532a77614be571e3f6d24a1dfee
-ms.lasthandoff: 12/07/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4d46654f42a3fd5c9b491f1b565c2acfa0dc52c4
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -112,7 +113,7 @@ Una volta considerati questi argomenti, l'applicazione Web dovrebbe essere pront
 
 I passaggi successivi del processo di migrazione consistono nel creare un sito Web di Azure e un Database SQL di Azure. Esistono più dimensioni di istanze di Siti Web di Microsoft Azure con un numero variabile di core CPU e di quantità di RAM disponibili da selezionare in base alle proprie esigenze di applicazioni Web. Per altre informazioni e per conoscere i prezzi, vedere [https://azure.microsoft.com/pricing/details/app-service/](https://azure.microsoft.com/pricing/details/app-service/). Analogamente, il Database SQL di Microsoft Azure risolve tutte le esigenze di un'azienda con vari livelli di servizio e livelli di prestazioni per soddisfare i requisiti. Per altre informazioni, vedere [https://azure.microsoft.com/pricing/details/sql-database/](https://azure.microsoft.com/pricing/details/sql-database/). Una volta creato, il sito/l'applicazione viene caricato nel sito Web di Azure tramite FTP o WebDeploy e quindi trasferito al database.
 
-In questa migrazione, la soluzione usa il Database SQL di Azure, che è non l'unico database supportato in Azure. Le aziende potranno usare anche MySQL, MongoDB, Azure DocumentDB e molte altre soluzioni acquistando componenti aggiuntivi in [Azure Store](/marketplace/partner-program/).
+In questa migrazione, la soluzione usa il Database SQL di Azure, che è non l'unico database supportato in Azure. Le aziende potranno usare anche MySQL, MongoDB, Azure Cosmos DB e molte altre soluzioni acquistando componenti aggiuntivi in [Azure Store](/marketplace/partner-program/).
 
 Durante la creazione di un Database SQL di Azure, è disponibile una serie di opzioni per importare un database esistente da un server locale: dalla generazione di uno script di un database esistente all'utilizzo delle operazioni di [esportazione e importazione di applicazioni livello dati](http://aka.ms/dacpac).
 
