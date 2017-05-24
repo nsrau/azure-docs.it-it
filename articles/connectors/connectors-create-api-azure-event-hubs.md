@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
 ms.openlocfilehash: e776d095356e10ef47ca49e2a8b9f97d63fb80be
+ms.contentlocale: it-it
 ms.lasthandoff: 04/04/2017
 
 ---
