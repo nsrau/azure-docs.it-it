@@ -3,7 +3,7 @@ title: Importare i dati in Analytics in Azure Application Insights | Microsoft D
 description: Importare i dati statici per creare un join con la telemetria dell&quot;app o importare un flusso di dati separato per eseguire query con Analytics.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,11 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 4f10e5a8200af870e0adb8977b9c68b9998a6de7
-ms.lasthandoff: 03/21/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: d649644959d907ff7fd6c1de360b091682f13d5b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -187,11 +188,11 @@ I dati sono disponibili in Analytics dopo alcuni minuti.
 * **400 richiesta non valida**: indica che il payload della richiesta non è valido. Controllare:
  * Chiave di strumentazione corretta.
  * Valore dell'ora valido. L'ora dovrebbe essere in formato UTC.
- * Dati conformi allo schema.
+ * Il codice JSON dell'evento è conforme allo schema.
 * **403 - Accesso negato**: non è possibile accedere al BLOB inviato. Assicurarsi che la chiave di accesso condiviso sia valida e non scaduta.
 * **404 - Pagina non trovata**:
  * Il BLOB non esiste.
- * Il nome dell'origine dati non è corretto.
+ * Il valore sourceId non è valido.
 
 Informazioni più dettagliate sono disponibili nel messaggio di errore della risposta.
 
@@ -203,8 +204,6 @@ Questo codice usa il pacchetto NuGet [Newtonsoft.Json](https://www.nuget.org/pac
 ### <a name="classes"></a>Classi
 
 ```C#
-
-
 namespace IngestionClient 
 { 
     using System; 
@@ -357,7 +356,6 @@ namespace IngestionClient
         #endregion Private 
     } 
 } 
-
 ```
 
 ### <a name="ingest-data"></a>Inserire dati
@@ -365,14 +363,11 @@ namespace IngestionClient
 Usare questo codice per ogni BLOB. 
 
 ```C#
-
-
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
-   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "tableId/sourceId", "blobUrlWithSas"); 
+   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
 
    bool success = await client.RequestBlobIngestion(ingestionRequest);
-
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
