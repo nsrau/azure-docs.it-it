@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: joroja;parahk;gsacavdm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: b72db6a0eb8a8621be5f05da6028615d5d24ba1e
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 42824fe10e635257681f62ab1fec9b47abd4294a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/12/2017
 
 ---
 # <a name="azure-active-directory-b2c-getting-started-with-custom-policies"></a>Azure Active Directory B2C: introduzione ai criteri personalizzati
@@ -35,7 +35,7 @@ Per accedere alle funzionalità di modifica dei criteri personalizzati è necess
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Aggiungere chiavi di firma e di crittografia al tenant di B2C per l'uso da parte dei criteri personalizzati
 
-1. Passare al pannello Framework dell'esperienza di gestione delle identità nelle impostazioni del tenant di Azure AD B2C.
+1. Passare al pannello **Framework dell'esperienza di gestione delle identità** nelle impostazioni del tenant di Azure AD B2C.
 2. Selezionare **Chiavi dei criteri** per visualizzare le chiavi disponibili nel tenant.
 3. Se non esiste, creare `B2C_1A_TokenSigningKeyContainer`:
  * Fare clic su **Aggiungi**
@@ -107,7 +107,7 @@ Ogni starter pack contiene gli elementi seguenti:
 
 * Il [file base](active-directory-b2c-overview-custom.md#policy-files) dei criteri. Alcune modifiche sono necessarie per la base.
 * Il [file di estensione](active-directory-b2c-overview-custom.md#policy-files) dei criteri.  Questo file è quello in cui viene eseguita la maggior parte delle modifiche di configurazione.
-* [File relying party](active-directory-b2c-overview-custom.md#policy-files). Si tratta di file specifici delle attività, chiamati dall'applicazione per una determinata attività.
+* [File relying party](active-directory-b2c-overview-custom.md#policy-files) Si tratta di file specifici delle attività, chiamati dall'applicazione.
 
 >[!NOTE]
 >Se l'editor XML supporta la convalida, si può voler convalidare i file rispetto al file dello schema XML `TrustFrameworkPolicy_0.3.0.0.xsd` che si trova nella cartella radice dello starter pack. La convalida dello schema XML identifica gli errori prima del caricamento.
@@ -139,7 +139,7 @@ Di seguito sono riportati i requisiti iniziali:
 5. Salvare il file.
 6. Aprire `TrustFrameworkExtensions.xml` e apportare le stesse due modifiche sostituendo `yourtenant.onmicrosoft.com` con il tenant di Azure AD B2C. Eseguire la stessa sostituzione nell'elemento `<TenantId>`, effettuando in totale 3 modifiche.  Salvare il file.
 7. Aprire `SignUpOrSignIn.xml` e apportare le stesse modifiche sostituendo `yourtenant.onmicrosoft.com` con il tenant di Azure AD B2C in tre posizioni. Salvare il file.
-8. Aprire i file di modifica dei profili e del segreto delle password e apportare le stesse modifiche sostituendo `yourtenant.onmicrosoft.com` con il tenant di Azure AD B2C in tre posizioni in ogni file. Salvare i file.
+8. Aprire i file di modifica dei profili e di reimpostazione delle password e apportare le stesse modifiche sostituendo `yourtenant.onmicrosoft.com` con il tenant di Azure AD B2C in tre posizioni in ogni file. Salvare i file.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Aggiungere le ID dell'applicazione al criterio personalizzato
 Aggiungere gli ID applicazione al file di estensioni (`TrustFrameworkExtensions.xml`).

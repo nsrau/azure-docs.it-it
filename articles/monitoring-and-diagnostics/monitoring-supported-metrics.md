@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 5/10/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: c0e7eb271b7ab19131c500e139ea3b1f6b2e7479
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ff47eaa27351f8d1685090edc54d90e5e91a1de0
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -623,6 +623,63 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |AMLCalloutRequests|Richieste di funzioni|Conteggio|Totale|Richieste di funzioni|
 |AMLCalloutFailedRequests|Richieste di funzioni non riuscite|Conteggio|Totale|Richieste di funzioni non riuscite|
 |AMLCalloutInputEvents|Eventi di funzioni|Conteggio|Totale|Eventi di funzioni|
+
+## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|CpuPercentage|Percentuale CPU|Percentuale|Media|Percentuale CPU|
+|MemoryPercentage|Percentuale memoria|Percentuale|Media|Percentuale memoria|
+|DiskQueueLength|Lunghezza coda disco|Numero|Totale|Lunghezza coda disco|
+|HttpQueueLength|Lunghezza coda HTTP|Numero|Totale|Lunghezza coda HTTP|
+|BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|
+|BytesSent|Dati in uscita|Byte|Totale|Dati in uscita|
+
+## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/siti (incluse le funzioni)
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|CpuTime|Tempo CPU|Secondi|Totale|Tempo CPU|
+|Requests|Requests|Numero|Totale|Requests|
+|BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|
+|BytesSent|Dati in uscita|Byte|Totale|Dati in uscita|
+|Http101|Http 101|Numero|Totale|Http 101|
+|Http2xx|Http 2xx|Numero|Totale|Http 2xx|
+|Http3xx|Http 3xx|Numero|Totale|Http 3xx|
+|Http401|Http 401|Numero|Totale|Http 401|
+|Http403|Http 403|Numero|Totale|Http 403|
+|Http404|Http 404|Numero|Totale|Http 404|
+|Http406|Http 406|Numero|Totale|Http 406|
+|Http4xx|Http 4xx|Numero|Totale|Http 4xx|
+|Http5xx|Errori server HTTP|Numero|Totale|Errori server HTTP|
+|MemoryWorkingSet|Working set della memoria|Byte|Media|Working set della memoria|
+|AverageMemoryWorkingSet|Working set della memoria medio|Byte|Media|Working set della memoria medio|
+|AverageResponseTime|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|
+|FunctionExecutionUnits|Unità di esecuzione della funzione|Numero|Media|Unità di esecuzione della funzione|
+|FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Numero|Media|Conteggio delle esecuzioni della funzione|
+
+## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|CpuTime|Tempo CPU|Secondi|Totale|Tempo CPU|
+|Requests|Requests|Numero|Totale|Requests|
+|BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|
+|BytesSent|Dati in uscita|Byte|Totale|Dati in uscita|
+|Http101|Http 101|Numero|Totale|Http 101|
+|Http2xx|Http 2xx|Numero|Totale|Http 2xx|
+|Http3xx|Http 3xx|Numero|Totale|Http 3xx|
+|Http401|Http 401|Numero|Totale|Http 401|
+|Http403|Http 403|Numero|Totale|Http 403|
+|Http404|Http 404|Numero|Totale|Http 404|
+|Http406|Http 406|Numero|Totale|Http 406|
+|Http4xx|Http 4xx|Numero|Totale|Http 4xx|
+|Http5xx|Errori server HTTP|Numero|Totale|Errori server HTTP|
+|MemoryWorkingSet|Working set della memoria|Byte|Media|Working set della memoria|
+|AverageMemoryWorkingSet|Working set della memoria medio|Byte|Media|Working set della memoria medio|
+|AverageResponseTime|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|
+|FunctionExecutionUnits|Unità di esecuzione della funzione|Numero|Media|Unità di esecuzione della funzione|
+|FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Numero|Media|Conteggio delle esecuzioni della funzione|
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Metriche in Azure Monitor](monitoring-overview-metrics.md)

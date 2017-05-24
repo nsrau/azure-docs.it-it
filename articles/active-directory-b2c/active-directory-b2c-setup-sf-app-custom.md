@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/30/2017
 ms.author: gsacavdm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: dee24deacbe69ada64519802c0eb1b83f565f57e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 1d97c75f3130ea6fdacbc6335b6e70677b4d226e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -57,30 +57,16 @@ Questa esercitazione presuppone che siano già state eseguite queste operazioni:
 1. Fare clic sul pulsante **Download Metadata** (Scarica metadati) ora disponibile e salvare il file di metadati che verrà usato in un passaggio successivo.
 
 ## <a name="add-a-saml-signing-certificate-to-azure-ad-b2c"></a>Aggiungere un certificato di firma SAML ad Azure AD B2C
-È necessario caricare e archiviare il certificato di Salesforce nel tenant di Azure AD B2C. A tale scopo, seguire questa procedura:
+È necessario archiviare tramite caricamento un certificato nel tenant di Azure AD B2C da usare durante la forma delle rispettive richieste SAML. A tale scopo, seguire questa procedura:
 
-1. Aprire PowerShell e passare alla directory di lavoro `active-directory-b2c-advanced-policies`.
-1. Passare alla cartella con lo strumento ExploreAdmin.
-
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
-
-1. Importare lo strumento ExploreAdmin in PowerShell.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. Nel comando seguente sostituire `tenantName` con il nome del proprio tenant di Azure AD B2C (ad esempio, fabrikamb2c.onmicrosoft.com), `certificateId` con il nome del certificato che verrà usato per farvi riferimento in seguito nei criteri (ad esempio, ContosoSalesforceCert) e infine `pathToCert` e `password` con il percorso e la password del certificato. Eseguire il comando.
-
-    ```PowerShell
-    Set-CpimCertificate -TenantId {tenantName} -CertificateId {certificateId} -CertificateFileName {pathToCert} - CertificatePassword {password}
-    ```
-
-    Quando si esegue il comando, assicurarsi di accedere con l'account amministratore onmicrosoft.com locale al tenant di Azure AD B2C. 
-
-1. Chiudere PowerShell.
+1. Passare al tenant di Azure AD B2C e aprire **B2C Settings (Impostazioni B2C) > Framework dell'esperienza di gestione delle identità > Chiavi dei criteri**
+1. Fare clic su **+Aggiungi**
+1. Opzioni:
+ * Selezionare **Opzioni > Carica**
+ * **Nome**: > `ContosoIdpSamlCert`.  Il prefisso B2C_1A_ verrà aggiunto automaticamente al nome della chiave. Annotare il nome completo (con B2C_1A_), perché verrà usato in seguito come riferimento nel criterio.
+ * Usare il **controllo di caricamento del file** per selezionare il certificato e fornire la password del certificato, se applicabile.
+1. Fare clic su **Crea**
+1. Confermare che sia stata creata la chiave: `B2C_1A_ContosoIdpSamlCert`
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>Creare il provider di attestazioni SAML Salesforce nei criteri di base
 
@@ -107,8 +93,8 @@ Per consentire agli utenti di accedere usando Salesforce, è necessario definire
             </Item>
           </Metadata>       
           <CryptographicKeys>
-            <Key Id="SamlAssertionSigning" StorageReferenceId="ContosoIdpSamlCert"/>
-            <Key Id="SamlMessageSigning" StorageReferenceId="ContosoIdpSamlCert "/>
+            <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert"/>
+            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert "/>
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userId"/>
@@ -219,12 +205,12 @@ La modifica del file di estensione è completata. Salvare e caricare il file e v
     1. Immettere l'URL seguente nel campo **Entity ID** (ID entità), assicurandosi di sostituire `tenantName`. 
     
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
         ```
 
     1. Immettere l'URL seguente nel campo **ACS URL** (URL ACS), assicurandosi di sostituire `tenantName`. 
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base/samlp/sso/assertionconsumer
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
         ```
 
     1. Per tutte le altre impostazioni lasciare i valori predefiniti.
