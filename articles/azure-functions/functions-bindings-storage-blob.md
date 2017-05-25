@@ -16,14 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b9cb2e6c15cbe217c57ddfe2910e8017bd61a67a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="azure-functions-storage-blob-bindings"></a>Associazioni del BLOB del servizio di archiviazione di Funzioni di Azure
+# <a name="azure-functions-blob-storage-bindings"></a>Binding dell'archiviazione BLOB di Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Questo articolo illustra come configurare e scrivere il codice delle associazioni del BLOB del servizio di archiviazione di Azure in Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per i BLOB del servizio di archiviazione di Azure.
@@ -175,7 +176,7 @@ Si supponga di avere il seguente function.json, che definisce un trigger del BLO
 Vedere l'esempio specifico del linguaggio che registra i contenuti di ogni BLOB aggiunto al contenitore monitorato.
 
 * [C#](#triggercsharp)
-* [Node.JS](#triggernodejs)
+* [Node.js](#triggernodejs)
 
 <a name="triggercsharp"></a>
 
@@ -286,7 +287,7 @@ Si supponga di avere il seguente function.json, che definisce un [trigger della 
 Vedere l'esempio specifico del linguaggio che copia il BLOB di input nel BLOB di output.
 
 * [C#](#incsharp)
-* [Node.JS](#innodejs)
+* [Node.js](#innodejs)
 
 <a name="incsharp"></a>
 

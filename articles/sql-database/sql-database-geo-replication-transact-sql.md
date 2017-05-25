@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/14/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1005f776ae85a7fc878315225c45f2270887771f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ Questo articolo illustra come configurare la replica geografica attiva per un da
 Per avviare il failover usando Transact-SQL, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 > [!NOTE]
-> La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura.
+> Quando si usa la replica geografica attiva (database secondari leggibili) per il ripristino di emergenza è necessario configurare un gruppo di failover per tutti i database all'interno di un'applicazione per consentire il failover automatico e trasparente. Questa funzionalità è in anteprima. Per altre informazioni vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md).
 > 
 > 
 
@@ -53,23 +54,6 @@ Dopo la creazione e il seeding del database secondario, inizierà la replica asi
 > [!NOTE]
 > Se nel server partner specificato è presente un database con lo stesso nome del database primario, il comando avrà esito negativo.
 > 
-> 
-
-### <a name="add-non-readable-secondary-single-database"></a>Aggiungere un database secondario non accessibile in lettura (database singolo)
-Usare la procedura seguente per creare un database secondario non accessibile in lettura come database singolo.
-
-1. Usare la versione di SQL Server Management Studio 13.0.600.65 o successiva.
-   
-   > [!IMPORTANT]
-   > Scaricare la versione [più recente](https://msdn.microsoft.com/library/mt238290.aspx) di SQL Server Management Studio. È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti del portale di Azure.
-   > 
-   > 
-2. Aprire la cartella Database, espandere la cartella **Database di sistema**, fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
-3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario non leggibile in MySecondaryServer1 dove MySecondaryServer1 è il nome descrittivo del server.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
-4. Fare clic su **Execute** per eseguire la query.
 
 ### <a name="add-readable-secondary-single-database"></a>Aggiungere un database secondario accessibile in lettura (database singolo)
 Usare la procedura seguente per creare un database secondario accessibile in lettura come database singolo.
@@ -80,18 +64,6 @@ Usare la procedura seguente per creare un database secondario accessibile in let
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
-4. Fare clic su **Execute** per eseguire la query.
-
-### <a name="add-non-readable-secondary-elastic-pool"></a>Aggiungere un database secondario non leggibile (pool elastico)
-Usare la procedura seguente per creare un database secondario non leggibile in un pool elastico.
-
-1. In Management Studio connettersi al server logico di database SQL di Azure.
-2. Aprire la cartella Database, espandere la cartella **Database di sistema**, fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
-3. Usare l'istruzione **ALTER DATABASE** seguente per convertire un database locale in un database primario con replica geografica con un database secondario non accessibile in lettura in un pool elastico.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
-           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. Fare clic su **Execute** per eseguire la query.
 
 ### <a name="add-readable-secondary-elastic-pool"></a>Aggiungere un database secondario leggibile (pool elastico)
@@ -141,22 +113,6 @@ Usare la procedura seguente per monitorare una relazione di replica geografica a
         SELECT * FROM sys.dm_operation_status where major_resource_id = 'MyDB'
         ORDER BY start_time DESC
 9. Fare clic su **Execute** per eseguire la query.
-
-## <a name="upgrade-a-non-readable-secondary-to-readable"></a>Aggiornare un database secondario da non leggibile a leggibile
-Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura. Se al momento si utilizzano database secondari non leggibili e si desidera aggiornarli per renderli leggibili, per ogni database secondario è possibile eseguire la semplice procedura descritta di seguito.
-
-> [!IMPORTANT]
-> Non esiste alcun metodo self-service per aggiornare sul posto un database secondario da non leggibile a leggibile. Se si elimina l'unico database secondario, il database primario non sarà più protetto fino alla completa sincronizzazione del nuovo database secondario. Se il contratto di servizio dell'applicazione richiede che il database primario sia sempre protetto, prima di applicare le operazioni di aggiornamento descritte in precedenza è consigliabile creare un database secondario parallelo in un altro server. Tenere presente che ogni database primario può avere fino a 4 database secondari.
-> 
-> 
-
-1. Per prima cosa, eseguire la connessione al server *secondario* ed eliminare il database secondario non leggibile:  
-   
-        DROP DATABASE <MyNonReadableSecondaryDB>;
-2. Dopodiché, stabilire la connessione al server *primario* e aggiungere un nuovo database secondario leggibile.
-   
-        ALTER DATABASE <MyDB>
-            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
