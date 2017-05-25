@@ -13,7 +13,7 @@ Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavo
 
 ACU: 210-250
 
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3,5 |7 |2 |4.000/32 (43) |3.200/48 |2 moderata |
 | Standard_DS2_v2 |2 |7 |14 |4 |8.000/64 (86) |6.400/96 |2/alta |

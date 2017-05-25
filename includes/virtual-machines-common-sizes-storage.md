@@ -5,7 +5,7 @@ La serie LS è ottimizzata per carichi di lavoro che richiedono l'archiviazione 
 
 ACU: 180-240
  
-| Dimensione          | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max | 
+| Dimensione          | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max | 
 |---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
 | Standard_L4s  | 4    | 32   | 678   | 8              | ND/ND (0)          | 5.000/125                               | 2/alta       | 
 | Standard_L8s  | 8    | 64   | 1,388 | 16             | ND/ND (0)          | 10.000/250                              | 4/molto alta  | 
