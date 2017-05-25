@@ -141,9 +141,9 @@
     href: web-sites-deploy.md
     items:
     - name: Eseguire la distribuzione tramite FTP
-      href: app-service-deploy-content-sync.md
+      href: app-service-deploy-ftp.md
     - name: Eseguire la distribuzione tramite la sincronizzazione con il cloud
-      href: web-sites-deploy.md
+      href: app-service-deploy-content-sync.md
     - name: Eseguire la distribuzione continua
       href: app-service-continuous-deployment.md
     - name: Eseguire la distribuzione per lo staging
