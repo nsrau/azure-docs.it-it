@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
 ms.openlocfilehash: 70918f2bea789edb2a4000847360e5c7e563951b
+ms.contentlocale: it-it
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -168,10 +171,5 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 [Proteggere un'API Web .NET con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
