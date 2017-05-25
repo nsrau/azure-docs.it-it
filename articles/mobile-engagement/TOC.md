@@ -76,7 +76,6 @@
 ### Copertura
 #### [Introduzione all'uso e alla gestione di push](mobile-engagement-how-tos.md)
 #### [Inviare emoji nelle notifiche](mobile-engagement-use-emoji-with-push.md)
-#### [Inviare notifiche personalizzate](mobile-engagement-send-personalized-notifications.md)
 
 ### Accedere alle API del servizio
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
