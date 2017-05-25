@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
 ms.openlocfilehash: 12370f2c3367b69217d17228723b26b6a14d09ce
+ms.contentlocale: it-it
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -269,8 +272,3 @@ Questo elemento asserisce che l'oggetto dell'asserzione è stato autenticato in 
       </AuthnContext>
 </AuthnStatement>
 ```
-
-
-<!--HONumber=Feb17_HO2-->
-
-

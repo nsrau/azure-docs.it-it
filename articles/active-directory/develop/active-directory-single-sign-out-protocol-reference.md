@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
 ms.openlocfilehash: 7be96ed59a148f7c622551eaa66279a94e2c83f1
+ms.contentlocale: it-it
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -72,8 +75,3 @@ Per valutare il valore dell'elemento `Issuer` usare il valore dell' **URI ID app
 
 ### <a name="status"></a>Stato
 Azure AD usa l'elemento `StatusCode` nell'elemento `Status` per indicare l'esito positivo o negativo della disconnessione. Quando il tentativo di disconnessione non riesce, l'elemento `StatusCode` può anche contenere messaggi di errore personalizzati.
-
-
-<!--HONumber=Feb17_HO2-->
-
-
