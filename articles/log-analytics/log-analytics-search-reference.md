@@ -3,7 +3,7 @@ title: Guida di riferimento alla ricerca in Log Analytics di Azure | Microsoft D
 description: "La Guida di riferimento alla ricerca in Log Analytics descrive il linguaggio di ricerca e fornisce le opzioni della sintassi di query generale che è possibile usare quando si cercano dati e si filtrano espressioni per restringere la ricerca."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
-ms.author: banders
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
@@ -613,7 +613,7 @@ Questo esempio restituisce un evento (l'ultimo) per ogni EventID.
 
 ### <a name="join"></a>Join
 Unisce i risultati di due query in modo da formare un unico set di risultati.  Supporta più tipi di join descritti nella tabella seguente.
-  
+
 | Tipo di join | Descrizione |
 |:--|:--|
 | interno | Consente di restituire solo i record con un valore corrispondente in entrambe le query. |
