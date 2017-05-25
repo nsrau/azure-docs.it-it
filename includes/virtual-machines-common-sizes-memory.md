@@ -46,7 +46,7 @@ ACU: 180 - 240
 
 ACU: 210 - 250
 
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2 |2 |14 |28 |4 |8.000/64 (72) |6.400/96 |2/alta |
 | Standard_DS12_v2 |4 |28 |56 |8 |16.000/128 (144) |12.800/192 |4/alta |
@@ -58,7 +58,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 *La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DS v2 può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
-* In alcune aree, per le dimensioni Standard_DS15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
+* In alcune aree, per le dimensioni Standard_DS15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-create-vm-accelerated-networking.md).
 
 ***L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
@@ -78,7 +78,7 @@ ACU: 210 - 250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32/32 x 500                       | 8/estremamente alta           |
 | Standard_D15_v2** | 20        | 140         | 1.000          | 60000 / 937 / 468                                        | 40/40 x 500                       | 8/estremamente alta*          |
 
-* In alcune aree, per le dimensioni Standard_D15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
+* In alcune aree, per le dimensioni Standard_D15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-create-vm-accelerated-networking.md).
 
 **L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 
@@ -88,7 +88,7 @@ ACU: 210 - 250
 
 ACU: 160
 
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |4 |8.000/64 (72) |6.400/64 |2/alta |
 | Standard_DS12 |4 |28 |56 |8 |16.000/128 (144) |12.800/128 |4/alta |
