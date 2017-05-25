@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 0a84e69f33ae30040c2365e6a5180e17e8df7539
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -74,7 +75,7 @@ Per i concetti relativi ai Servizi multimediali di Azure, vedere [Concetti su Se
 
 Per una serie di procedure che illustra tutti i componenti principali di Servizi multimediali di Azure, vedere la pagina relativa alle [esercitazioni dettagliate sui Servizi multimediali di Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Questa serie offre un'ottima panoramica dei concetti e usa lo strumento AMSE per illustrare le attività AMS. Si noti che AMSE è uno strumento di Windows. Supporta la maggior parte delle attività che è possibile eseguire a livello di codice con [AMS SDK per .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java) o [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure: scenari e attività comuni
+## <a id="vod_scenarios"></a>Distribuzione di contenuti multimediali su richiesta con Servizi multimediali di Azure: scenari e attività comuni
 Questa sezione descrive scenari comuni e offre collegamenti agli argomenti pertinenti. Il seguente diagramma illustra le parti principali della piattaforma di Servizi multimediali che riguardano la fornitura di contenuti su richiesta.
 
 ![Flusso di lavoro VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
@@ -126,7 +127,7 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
     Se si usa un localizzatore SAS, i contenuti vengono scaricati dall'archiviazione BLOB di Azure. In questo caso, non è necessario avere endpoint di streaming con stato avviato.
 4. Eseguire il download progressivo.
 
-## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Distribuzione di eventi Live Streaming con Servizi multimediali di Azure
+## <a id="live_scenarios"></a>Distribuzione di eventi Live Streaming con Servizi multimediali di Azure
 Quando si usa Live Streaming sono generalmente necessari i seguenti componenti:
 
 * Una fotocamera da usare per trasmettere un evento.
@@ -185,8 +186,7 @@ Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per infor
 È possibile ridimensionare **Servizi multimediali** specificando il numero di **unità riservate di streaming** e **unità riservate di codifica** di cui si vuole eseguire il provisioning nell'account in uso.
 
 È anche possibile ridimensionare l'account di Servizi multimediali aggiungendo account di archiviazione. Per ogni account di archiviazione è previsto un limite di 500 TB. Per espandere lo spazio di archiviazione oltre i limiti predefiniti, è possibile scegliere di collegare più account di archiviazione a un singolo account di Servizi Multimediali.
-I clienti di Servizi multimediali scelgono un endpoint di streaming **Standard** oppure uno o più endpoint di streaming **Premium**, in base alle esigenze. L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Include le stesse funzionalità delle unità di streaming Premium.
-L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Se il carico di lavoro è avanzato o i requisiti della capacità di streaming non rispondono alle destinazioni con la velocità effettiva degli endpoint di streaming Standard o si vuole controllare la capacità del servizio StreamingEndpoint per gestire le esigenze in crescita in termini di larghezza di banda regolando le unità di scala (note anche come unità di streaming Premium), è consigliabile allocare unità di scala.
+I clienti di Servizi multimediali scelgono un endpoint di streaming **Standard** oppure uno o più endpoint di streaming **Premium**, in base alle esigenze. L'endpoint di streaming Standard è adatto per la maggior parte dei carichi di lavoro di streaming. Include le stesse funzionalità delle unità di streaming Premium. Se il carico di lavoro è avanzato o i requisiti della capacità di streaming non rispondono alle destinazioni con la velocità effettiva degli endpoint di streaming Standard o si vuole controllare la capacità del servizio StreamingEndpoint per gestire le esigenze in crescita in termini di larghezza di banda regolando le unità di scala (note anche come unità di streaming Premium), è consigliabile allocare unità di scala.
 
 [Questo](media-services-portal-scale-streaming-endpoints.md) argomento include collegamenti agli argomenti rilevanti.
 

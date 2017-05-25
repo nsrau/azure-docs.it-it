@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 0ceba4142fd7b0e6edc1b7a6c14470d21806004a
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 95691b6e59f5e21e7c6cff9f4222bcffade57973
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -101,7 +102,6 @@ Con il servizio collegato HDInsight su richiesta, il cluster HDInsight viene cre
         "properties": {
         "type": "HDInsightOnDemand",
             "typeProperties": {
-                "version": "3.2",
                 "clusterSize": 1,
                 "timeToLive": "00:30:00",
                 "linkedServiceName": "AzureStorageLinkedService1"
@@ -114,7 +114,6 @@ Con il servizio collegato HDInsight su richiesta, il cluster HDInsight viene cre
 
     Proprietà | Descrizione
     -------- | ----------- 
-    Versione | Specifica la versione del cluster Hadoop HDInsight da creare.
     ClusterSize | Specifica le dimensioni del cluster Hadoop HDInsight.
     TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
     linkedServiceName | Specifica l'account di archiviazione usato per archiviare i log generati dal cluster Hadoop HDInsight. 

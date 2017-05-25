@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -53,7 +54,7 @@ L'installazione dei prerequisiti e la configurazione della crittografia per le m
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Ottenere ed eseguire lo script di configurazione dei prerequisiti di Crittografia dischi di Azure.
 Lo script di configurazione dei prerequisiti di Crittografia dischi di Azure configura tutti i prerequisiti necessari per la crittografia delle macchine virtuali di Azure.
 
-1. Lo [script di configurazione dei prerequisiti di Crittografia dischi di Azure](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)è disponibile in GitHub.
+1. Lo [script di configurazione dei prerequisiti di Crittografia dischi di Azure](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)è disponibile in GitHub.
 2. Nella pagina di GibHub, fare clic sul pulsante **Raw** .
 3. Premere **CTRL+A** per selezionare tutto il testo della pagina e quindi **CTRL+C** per copiarlo negli Appunti.
 4. Aprire il **Blocco note** e incollare il testo copiato.
