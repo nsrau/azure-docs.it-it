@@ -29,6 +29,8 @@ Questo esempio crea un set di scalabilità di macchine virtuali e applica un'est
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="sample-script"></a>Script di esempio
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Creare set di scalabilità di macchine virtuali con lo stack LAMP")]
