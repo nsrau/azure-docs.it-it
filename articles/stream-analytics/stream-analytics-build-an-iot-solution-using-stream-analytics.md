@@ -332,7 +332,7 @@ Questa cartella contiene i file seguenti:
 ## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Domanda 1: Numero di veicoli che entrano in un casello
 1. Aprire il portale di Azure e passare al processo di Analisi di flusso di Azure creato. Fare clic sulla scheda **QUERY** e incollare la query dalla sezione precedente.
 
-2. Per convalidare la query sui dati di esempio, caricare i dati nell'input EntryStream facendo clic sul simbolo ... e selezionando  **	Carica dati di esempio da file**.
+2. Per convalidare la query sui dati di esempio, caricare i dati nell'input EntryStream facendo clic sul simbolo ... e selezionando **Carica dati di esempio da file**.
 
     ![Screenshot del file Entry.json](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)
 3. Nel riquadro visualizzato selezionare il file (Entry.json) nel computer locale e fare clic su **OK**. L'icona di **test** diventerà luminosa e selezionabile.
