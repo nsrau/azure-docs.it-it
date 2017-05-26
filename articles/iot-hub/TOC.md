@@ -12,9 +12,9 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Usare un gateway simulato 
-#### [Simulazione in Linux](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Simulazione in Windows](iot-hub-windows-gateway-sdk-get-started.md)
+### Usare un gateway simulato
+#### [Simulazione in Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Simulazione in Windows](iot-hub-windows-iot-edge-get-started.md)
 
 ### Usare un dispositivo fisico
 #### [Raspberry Pi con Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -28,9 +28,9 @@
 #### [Adafruit Feather M0 con IDE Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Usare lo starter kit per il gateway IoT
-##### [Configurare Intel NUC come gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Connettere il gateway IoT all'hub IoT](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Usare il gateway IoT per la conversione dei dati](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Configurare Intel NUC come gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Connettere il gateway all'hub IoT](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Usare il gateway per la conversione dei dati](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 ## [Gestire la messaggistica dei dispositivi cloud con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Salvare i messaggi dell'hub IoT nell'archivio dati di Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -78,6 +78,7 @@
 ### Introduzione ai dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-getstarted.md)
+#### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Usare metodi diretti
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +86,7 @@
 ### Introduzione alla gestione dei dispositivi
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Back-end Java/Dispositivo Java](iot-hub-java-java-device-management-getstarted.md)
 ### Come usare le proprietà dei dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -118,9 +120,9 @@
 ### [Proteggere la distribuzione di IoT](iot-hub-security-deployment.md)
 ## IoT Edge
 ### Simulare un dispositivo
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Usare un dispositivo reale](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Usare un dispositivo reale](iot-hub-iot-edge-physical-device.md)
 
 # Riferimento
 ## [Anteprima dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/iot)
@@ -154,3 +156,4 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centro per sviluppatori Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Catalogo dei dispositivi Azure Certified per IoT](https://catalog.azureiotsuite.com/)
+## [Case study tecnici](https://microsoft.github.io/techcasestudies/#technology=IoT)

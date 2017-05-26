@@ -1,7 +1,7 @@
 # Panoramica
 ## [Informazioni su Azure Active Directory](active-directory-whatis.md)
 ## [Scegliere un'edizione](active-directory-editions.md)
-## [Informazioni sulla Gestione delle identità di Azure](fundamentals-identity.md)
+## [Informazioni sulla Gestione delle identità di Azure](identity-fundamentals.md)
 ## [Informazioni sulle soluzioni di gestione delle identità di Azure](understand-azure-identity-solutions.md)
 ## [Visualizzare in anteprima l'esperienza del Portale di Azure](active-directory-preview-explainer.md)
 
@@ -90,7 +90,7 @@
 ### Risoluzione dei problemi
 #### [Dati di controllo mancanti](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Dati mancanti nei download](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    Accesso a livello di codice
+###    [Accesso a livello di codice](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Informazioni di riferimento sul controllo](active-directory-reporting-api-audit-reference.md)
 #### [Informazioni di riferimento sull'accesso](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Prerequisiti](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +115,7 @@
 ##### [Origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Accessi con anomalie](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Gestire le password](active-directory-passwords.md)
+## [Gestire le password](active-directory-passwords-overview.md)
 ### Documenti degli utenti
 #### [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md)
 #### [Procedure consigliate per le password](active-directory-secure-passwords.md)
@@ -298,6 +298,7 @@
 ##### [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Elevare l'accesso al tenant con privilegi di amministratore](role-based-access-control-tenant-admin-access.md)
 #### [Risoluzione dei problemi](role-based-access-control-troubleshooting.md)
 #### [Operazioni del provider di risorse](role-based-access-control-resource-provider-operations.md)
 ### [Configurare la durata dei token](active-directory-configurable-token-lifetimes.md)
