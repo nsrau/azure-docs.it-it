@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/10/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: abd508631787ba5f839a4ae2ea82e76c4bfab425
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 0c7ef7004618966ae8c2d32027c460b2b643923e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -30,8 +30,6 @@ Funzioni di Azure consente di eseguire il codice in un ambiente senza server sen
 ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Per completare tutti i passaggi di questo argomento, saranno sufficienti meno di cinque minuti.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 

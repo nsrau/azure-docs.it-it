@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 7423ef26a4a1c49245a1f8df79bbcaabea222596
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: d79ce0e047e71d9f6af7ca55f55bea405c280b1d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,8 +28,6 @@ ms.lasthandoff: 05/12/2017
 Informazioni su come creare una funzione attivata da una richiesta di webhook HTTP con un payload specifico di GitHub.
 
 ![Funzione attivata da un webhook GitHub nel portale di Azure](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
-
-Per completare tutti i passaggi di questo argomento, saranno sufficienti meno di cinque minuti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

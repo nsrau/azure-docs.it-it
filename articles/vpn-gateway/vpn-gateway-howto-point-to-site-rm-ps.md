@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 2f0d321885781364de2bdf686264ea5952eafc5c
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: d28468adbfeb8af5b9c0a126c7cf337c428ad8ca
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -258,7 +258,7 @@ In caso di problemi di connessione, effettuare i controlli seguenti:
 
 È possibile aggiungere e rimuovere certificati radice attendibili da Azure. Quando si rimuove un certificato radice, i client con un certificato generato da tale radice non potranno eseguire l'autenticazione e quindi non potranno connettersi. Per consentire ai client di eseguire l'autenticazione e connettersi, è necessario installare un nuovo certificato client generato da un certificato radice considerato attendibile (caricato) in Azure.
 
-### <a name="to-add-a-root-certificate"></a>Per aggiungere un certificato radice
+### <a name="to-add-a-trusted-root-certificate"></a>Per aggiungere un certificato radice attendibile
 
 In Azure è possibile aggiungere fino a 20 file CER di certificato radice. La procedura seguente consente di aggiungere un certificato radice:
 

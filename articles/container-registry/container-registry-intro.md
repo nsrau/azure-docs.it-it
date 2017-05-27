@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: 5a5085416bff96c37fcde8a25deffe7dbd8f70d6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/20/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introduzione ai registri per contenitori Docker privati
@@ -69,6 +70,6 @@ Gli sviluppatori possono anche effettuare il push in un registro contenitori nel
 * [Creare un registro contenitori con il portale di Azure](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure)
 * [Effettuare il push della prima immagine con l'interfaccia della riga di comando di Docker](container-registry-get-started-docker-cli.md)
-* Per compilare un'integrazione continua e un flusso di lavoro di distribuzione usando Visual Studio Team Services, servizio contenitore di Azure e Registro di sistema del contenitore di Azure, vedere [questa esercitazione](../container-service/container-service-setup-ci-cd.md).
+* Per compilare un'integrazione continua e un flusso di lavoro di distribuzione usando Visual Studio Team Services, servizio contenitore di Azure e Registro di sistema del contenitore di Azure, vedere [questa esercitazione](../container-service/container-service-docker-swarm-setup-ci-cd.md).
 * Se si vuole impostare un registro Docker privato in Azure (senza un endpoint pubblico), vedere [Distribuzione del registro Docker privato in Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 

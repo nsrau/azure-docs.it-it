@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: dd53cbc0ec10700ebcd47f9d2f9d6cc358f68569
-ms.lasthandoff: 05/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c45695129c1795b44b933a6d60e2f21a98542f7d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -105,7 +106,7 @@ L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo ins
 >
 
 ## <a id="add"></a>Aggiungere una chiave o un segreto all'insieme di credenziali chiave
-Per usare l'insieme di credenziali delle chiavi di Azure per creare automaticamente una chiave protetta tramite software, eseguire il cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) digitando quanto segue:
+Per usare l'insieme di credenziali delle chiavi di Azure per creare automaticamente una chiave protetta tramite software, eseguire il cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) digitando quanto segue:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 

@@ -1,0 +1,73 @@
+> [!div class="op_single_selector"]
+> * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md)
+> * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-get-started.md)
+> 
+> 
+
+Questo articolo descrive la procedura dettagliata del [codice di esempio Hello World][lnk-helloworld-sample] per illustrare i componenti fondamentali dell'architettura di [Azure IoT Edge][lnk-iot-edge]. L'esempio usa Azure IoT Edge per creare un gateway semplice che registri un messaggio "hello world" in un file ogni cinque secondi.
+
+In questa procedura dettagliata verranno trattati i seguenti argomenti:
+
+* **Concetti**: panoramica concettuale dei componenti che costituiscono un gateway creato con IoT Edge.
+* **Architettura di esempio Hello World**: descrive in che modo si applicano i concetti all'esempio Hello World e come vengono assemblati i componenti.
+* **Come compilare l'esempio**: i passaggi richiesti per compilare l'esempio.
+* **Come eseguire l'esempio**: i passaggi richiesti per eseguire l'esempio. 
+* **Output tipico**: un esempio del possibile output risultante quando si esegue l'esempio.
+* **Frammenti di codice**: raccolta di frammenti di codice per mostrare come l'esempio Hello World implementa i componenti principali del gateway IoT Edge.
+
+## <a name="azure-iot-edge-concepts"></a>Concetti di Azure IoT Edge
+Prima di esaminare il codice di esempio o di creare un gateway sul campo usando IoT Edge, è necessario comprendere i concetti principali che supportano l'architettura di IoT Edge.
+
+### <a name="iot-edge-modules"></a>Moduli di IoT Edge
+Per compilare un gateway con Azure IoT Edge è necessario creare e assemblare dei *moduli di IoT Edge*. I moduli usano *messaggi* per scambiarsi dati tra loro. Un modulo riceve un messaggio, esegue un'azione su di esso, lo trasforma facoltativamente in un nuovo messaggio e quindi lo pubblica per l'elaborazione da parte di altri moduli. Alcuni moduli potrebbero produrre solo nuovi messaggi e non elaborare mai i messaggi in arrivo. Una catena di moduli crea una pipeline di elaborazione dei dati in cui ogni modulo esegue una trasformazione sui dati in un punto nella pipeline.
+
+![Catena di moduli nel gateway compilati con Azure IoT Edge][1]
+
+IoT Edge include quanto segue:
+
+* Moduli già scritti che eseguono funzioni di gateway comuni.
+* Le interfacce che uno sviluppatore può usare per scrivere i moduli personalizzati.
+* L'infrastruttura necessaria per distribuire ed eseguire un set di moduli.
+
+L'SDK fornisce un livello di astrazione che consente di creare i gateway da eseguire in una vasta gamma di sistemi operativi e piattaforme.
+
+![Livello di astrazione di Azure IoT Edge][2]
+
+### <a name="messages"></a>Messaggi
+Nonostante sia più semplice concettualizzare il funzionamento di un gateway come una trasmissione di messaggi tra moduli, ciò non lo riflette con precisione. I moduli di IoT Edge usano un broker per comunicare tra loro. I messaggi vengono pubblicati nel broker con bus, pub/sub o qualsiasi altro modello di messaggistica e quindi il broker indirizza i messaggi ai moduli connessi.
+
+Un modulo usa la funzione **Broker_Publish** per pubblicare un messaggio nel broker. Il broker recapita i messaggi a un modulo richiamando una funzione di callback. Un messaggio è costituito da un set di proprietà chiave/valore e contenuto passato come blocco di memoria.
+
+![Ruolo del broker in Azure IoT Edge][3]
+
+### <a name="message-routing-and-filtering"></a>Routing e filtro dei messaggi
+Per indirizzare i messaggi ai moduli di IoT Edge corretti è possibile procedere in due modi. È possibile passare un set di collegamenti al broker in modo che conosca l'origine e il sink di ogni modulo oppure il modulo può filtrare le proprietà del messaggio. Un modulo deve agire unicamente sui messaggi a esso destinati. I collegamenti e il filtro dei messaggi creano di fatto una pipeline dei messaggi.
+
+## <a name="hello-world-sample-architecture"></a>Architettura di esempio Hello World
+L'esempio Hello World illustra i concetti descritti nella sezione precedente. L'esempio Hello World implementa un gateway IoT Edge la cui pipeline è costituita da due moduli di IoT Edge:
+
+* Il modulo *hello world* crea un messaggio ogni cinque secondi e lo passa al modulo logger.
+* Il modulo *logger* scrive i messaggi che riceve in un file.
+
+![Architettura dell'esempio Hello World compilato con Azure IoT Edge][4]
+
+Come descritto nella sezione precedente, il modulo Hello World non passa i messaggi direttamente al modulo logger ogni cinque secondi, ma pubblica un messaggio nel broker ogni cinque secondi.
+
+Il modulo logger riceve il messaggio dal broker e interviene, scrivendo il contenuto del messaggio in un file.
+
+Il modulo logger utilizza solo i messaggi provenienti dal broker, senza mai pubblicare nuovi messaggi nel broker.
+
+![Modo in cui il broker indirizza i messaggi tra i moduli in Azure IoT Edge][5]
+
+La figura precedente illustra l'architettura dell'esempio Hello World e i percorsi relativi ai file di origine che implementano parti diverse dell'esempio nel [repository][lnk-iot-edge]. Esplorare il codice per conto proprio o usare i frammenti di codice seguente come guida.
+
+<!-- Images -->
+[1]: media/iot-hub-iot-edge-getstarted-selector/modules.png
+[2]: media/iot-hub-iot-edge-getstarted-selector/modules_2.png
+[3]: media/iot-hub-iot-edge-getstarted-selector/messages_1.png
+[4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png
+[5]: media/iot-hub-iot-edge-getstarted-selector/detailed_architecture.png
+
+<!-- Links -->
+[lnk-helloworld-sample]: https://github.com/Azure/iot-edge/tree/master/samples/hello_world
+[lnk-iot-edge]: https://github.com/Azure/iot-edge
