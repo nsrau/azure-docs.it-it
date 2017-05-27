@@ -12,21 +12,26 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: d5ef87e6e7092820a65c5736c1942fd5cec57462
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5fe1e3595d9459e60b2fd54d6f17f6822731f453
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 ---
 
 # <a name="running-jobs-on-azure-batch-with-azure-cli"></a>Eseguire processi in Azure Batch con l'interfaccia della riga di comando di Azure
 
-Questo script crea un processo Batch e aggiunge una serie di attività al processo. Dimostra inoltre come monitorare un processo e le relative attività.
-Per eseguire questo script è necessario che sia già stato configurato un account Batch e sia stato configurato sia un pool sia un'applicazione. Per altre informazioni, vedere gli [script di esempio](../batch-cli-samples.md) per ognuno di questi argomenti.
+Questo script crea un processo Batch e aggiunge una serie di attività al processo. Dimostra inoltre come monitorare un processo e le relative attività. Infine viene illustrato come eseguire query sul servizio Batch in modo efficiente per informazioni sulle attività del processo.
 
-Se necessario, installare l'interfaccia della riga di comando di Azure usando le istruzioni presenti nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per accedere ad Azure.
+## <a name="prerequisites"></a>Prerequisiti
+
+- Installare l'interfaccia della riga di comando di Azure usando le istruzioni presenti nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), se questa operazione non è stata ancora eseguita.
+- Creare un account Batch, se non è già disponibile. Vedere [Creare un account Batch con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) per uno script di esempio che crea un account.
+- Se questa operazione non è stata già eseguita, configurare un'applicazione in modo che venga eseguita da un'attività di avvio. Vedere [Aggiunta di applicazioni ad Azure Batch con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-add-application) per uno script di esempio che crea un'applicazione e carica un pacchetto dell'applicazione in Azure.
+- Configurare un pool in cui verrà eseguito il processo. Vedere [Gestione dei pool di Azure Batch con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/batch-cli-sample-manage-pool) per uno script di esempio che crea un pool con una configurazione del servizio cloud o della macchina virtuale.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -34,7 +39,7 @@ Se necessario, installare l'interfaccia della riga di comando di Azure usando le
 
 ## <a name="clean-up-job"></a>Pulire un processo
 
-Dopo aver eseguito lo script di esempio precedente, eseguire il comando seguente per rimuovere il processo e tutte le relative attività. Si noti che il pool dovrà essere eliminato separatamente; vedere l'[esercitazione sulla gestione dei pool](./batch-cli-sample-manage-pool.md).
+Dopo aver eseguito lo script di esempio precedente, eseguire il comando seguente per rimuovere il processo e tutte le relative attività. Si noti che il pool dovrà essere eliminato separatamente. Vedere [Gestione dei pool di Azure Batch con l'interfaccia della riga di comando di Azure](./batch-cli-sample-manage-pool.md) per altre informazioni sulla creazione e l'eliminazione di pool.
 
 ```azurecli
 az batch job delete --job-id myjob
@@ -52,6 +57,7 @@ Questo script usa i comandi seguenti per creare un processo Batch e le relative 
 | [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#show) | Recupera i dettagli di un processo Batch specificato.  |
 | [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#create) | Aggiunge un'attività al processo Batch specificato.  |
 | [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#show) | Recupera i dettagli di un'attività dal processo Batch specificato.  |
+| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#list) | Elenca le attività associate al processo specificato.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

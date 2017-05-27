@@ -1,6 +1,6 @@
 ---
-title: Istruzioni di accesso ad Azure per il Toolkit di Azure per IntelliJ | Microsoft Docs
-description: Informazioni su come accedere a Microsoft Azure con il Toolkit di Azure per IntelliJ.
+title: Istruzioni di accesso per Azure Toolkit for IntelliJ | Microsoft Docs
+description: Informazioni su come accedere a Microsoft Azure con Azure Toolkit for IntelliJ.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,143 +14,144 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d1be0432a54ed300bc135345b660b90f3efb3b39
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 4e2ed072bdaea0a71fef042c0c72b7656a42bbe8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
 
-# <a name="azure-sign-in-instructions-for-the-azure-toolkit-for-intellij"></a>Istruzioni di accesso ad Azure per il Toolkit di Azure per IntelliJ
+# <a name="sign-in-instructions-for-the-azure-toolkit-for-intellij"></a>Istruzioni di accesso per Azure Toolkit for IntelliJ
 
-Il Toolkit di Azure per IntelliJ consente di accedere all'account Azure in due metodi diversi:
+Azure Toolkit for IntelliJ consente di accedere all'account Azure in due metodi diversi:
 
-  * **Interattivo**: le credenziali di Azure vengono immesse ogni volta che si accede all'account Azure.
-  * **Automatico**: viene creato un file di credenziali che contiene i dati dell'entità servizio e in seguito è possibile usare tale file per accedere automaticamente all'account Azure.
+  * **Interactive** (Interattivo): immettere le credenziali di Azure ogni volta che si accede all'account Azure.
+  * **Automated** (Automatico): si crea un file di credenziali che è possibile usare per accedere automaticamente all'account Azure.
 
-I passaggi nelle sezioni seguenti descrivono come usare ogni metodo.
+Le sezioni seguenti descrivono come usare ogni metodo.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="signing-into-your-azure-account-interactively"></a>Accesso all'account Azure in modo interattivo
+## <a name="sign-in-to-your-azure-account-interactively"></a>Accedere all'account Azure in modo interattivo
 
-I passaggi seguenti illustrano come accedere ad Azure immettendo manualmente le credenziali.
+Per accedere ad Azure immettendo manualmente le credenziali, eseguire queste operazioni:
 
 1. Aprire il progetto con IntelliJ IDEA.
 
-1. Fare clic su **Tools** (Strumenti), su **Azure** e quindi fare clic su **Azure Sign In** (Accesso ad Azure).
+2. Fare clic su **Tools** (Strumenti), su **Azure** e quindi fare clic su **Azure Sign In** (Accesso ad Azure).
 
-   ![Menu IntelliJ per l'accesso ad Azure][I01]
+   ![Comando di accesso ad Azure in IntelliJ][I01]
 
-1. Quando viene visualizzata la finestra di dialogo **Azure Sign In** (Accesso ad Azure), selezionare **Interactive** (Interattivo) e quindi fare clic su **Sign In** (Accedi).
+3. Quando viene visualizzata la finestra **Azure Sign In** (Accesso ad Azure), selezionare **Interactive** (Interattivo) e quindi fare clic su **Sign In** (Accedi).
 
-   ![Finestra di dialogo di accesso][I02]
+   ![Finestra di accesso in Azure con opzione interattiva selezionata][I02]
 
-1. Quando viene visualizzata la finestra di dialogo **Azure Log In** (Accedi ad Azure), immettere le credenziali di Azure e quindi fare clic su **Sign In** (Accedi).
+4. Nella finestra di dialogo **Azure Log In** (Accedi ad Azure) immettere le credenziali di Azure e quindi fare clic su **Sign In** (Accedi).
 
    ![Finestra di dialogo di accesso ad Azure][I03]
 
-1. Quando viene selezionata la finestra di dialogo **Select Subscriptions** (Seleziona sottoscrizioni), selezionare le sottoscrizioni da usare e quindi fare clic su **OK**.
+5. Nella finestra di dialogo **Select Subscriptions** (Seleziona sottoscrizioni) selezionare le sottoscrizioni da usare e quindi fare clic su **OK**.
 
    ![Finestra di dialogo Seleziona sottoscrizioni][I04]
 
-## <a name="signing-out-of-your-azure-account-when-you-signed-in-interactively"></a>Disconnessione dell'account di Azure quando l'accesso è stato eseguito in modo interattivo
+## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>Disconnettersi dall'account di Azure dopo che l'accesso è stato eseguito in modo interattivo
 
-Dopo aver configurato i passaggi nella sezione precedente, la disconnessione dell'account Azure verrà eseguita automaticamente ogni riavvio di IntelliJ IDEA. Se tuttavia si vuole disconnettersi dall'account di Azure senza riavviare IntelliJ IDEA, eseguire queste operazioni.
+Dopo avere configurato l'account usando i passaggi precedenti, la disconnessione dall'account Azure verrà eseguita automaticamente a ogni riavvio di IntelliJ IDEA. Se tuttavia si vuole disconnettersi dall'account di Azure *senza* riavviare IntelliJ IDEA, eseguire queste operazioni.
 
-1. In IntelliJ IDEA fare clic su **Tools** (Strumenti), su **Azure** e quindi su **Azure Sign Out** (Disconnessione da Azure).
+1. In IntelliJ IDEA fare clic su **Tools** (Strumenti), puntare su **Azure** e quindi fare clic su **Azure Sign Out** (Disconnessione da Azure).
 
-   ![Menu IntelliJ per la disconnessione da Azure][L01]
+   ![Comando di disconnessione da Azure in IntelliJ][L01]
 
-1. Quando viene visualizzata la finestra di dialogo **Azure Sign Out** (Disconnessione da Azure), fare clic su **Yes** (Sì).
+2. Nella finestra di conferma **Azure Sign Out** (Disconnessione da Azure) fare clic su **Yes** (Sì).
 
-   ![Finestra di dialogo di disconnessione][L02]
+   ![Finestra di conferma della disconnessione da Azure][L02]
 
-## <a name="signing-into-your-azure-account-automatically-and-creating-a-credentials-file-to-use-in-the-future"></a>Accesso automatico all'account Azure e creazione di un file di credenziali da usare in seguito
+## <a name="sign-in-to-your-azure-account-automatically"></a>Accedere automaticamente all'account Azure
 
-I passaggi seguenti illustrano come creare un file di credenziali che contiene i dati dell'entità servizio. Dopo aver completato questi passaggi, IntelliJ userà automaticamente il file di credenziali per l'accesso ad Azure ogni volta che si apre il progetto.
+La sezione seguente illustra come creare un file di credenziali che contiene i dati dell'entità servizio. Dopo avere completato questo processo, Eclipse usa il file di credenziali per l'accesso ad Azure ogni volta che si apre il progetto.
 
 1. Aprire il progetto con IntelliJ IDEA.
 
-1. Fare clic su **Tools** (Strumenti), su **Azure** e quindi fare clic su **Azure Sign In** (Accesso ad Azure).
+2. Fare clic su **Tools** (Strumenti), puntare su **Azure** e quindi fare clic su **Azure Sign In** (Accesso ad Azure).
 
-   ![Menu IntelliJ per l'accesso ad Azure][A01]
+   ![Comando di accesso ad Azure in IntelliJ][A01]
 
-1. Quando viene visualizzata la finestra di dialogo **Azure Sign In** (Accesso ad Azure), selezionare **Automated** (Automatico) e quindi fare clic su **New** (Nuovo).
+3. Nella finestra **Azure Sign In** (Accesso ad Azure) selezionare **Automated** (Automatico) e quindi fare clic su **New** (Nuovo).
 
-   ![Finestra di dialogo di accesso][A02]
+   ![Finestra di accesso ad Azure con opzione automatica selezionata][A02]
 
-1. Quando viene visualizzata la finestra di dialogo **Azure Log In** (Accedi ad Azure), immettere le credenziali di Azure e quindi fare clic su **Sign In** (Accedi).
+4. Nella finestra **Azure Log In** (Accedi ad Azure) immettere le credenziali di Azure e quindi fare clic su **Sign In** (Accedi).
 
    ![Finestra di dialogo di accesso ad Azure][A03]
 
-1. Quando viene visualizzata la finestra di dialogo **Create authentication files** (Crea file di autenticazione), selezionare le sottoscrizioni da usare, scegliere la directory di destinazione e quindi fare cli su **Start** (Avvio).
+5. Nella finestra **Create authentication files** (Crea file di autenticazione) selezionare le sottoscrizioni da usare, scegliere la directory di destinazione e quindi fare cli su **Start** (Avvio).
 
-   ![Finestra di dialogo di accesso ad Azure][A04]
+   ![Finestra di creazione dei file di autenticazione][A04]
 
-1. Verrà visualizzata la finestra di dialogo **Service Principal Creatation Status** (Stato creazione entità servizio) e al termine della creazione dei file fare clic su **OK**.
+6. Nella finestra di dialogo **Service Principal Creation Status** (Stato creazione entità servizio) fare clic su **OK** al termine della creazione dei file.
 
-   ![Finestra di dialogo Stato creazione entità servizio][A05]
+   ![Finestra di dialogo sullo stato di creazione dell'entità servizio][A05]
 
-1. Quando viene visualizzata la finestra di dialogo **Azure Sign In** (Accesso ad Azure), fare clic su **Accedi**.
+7. Nella finestra **Azure Sign In** (Accesso ad Azure) fare clic su **Sign in** (Accedi).
 
    ![Finestra di dialogo di accesso ad Azure][A06]
 
-1. Quando viene selezionata la finestra di dialogo **Select Subscriptions** (Seleziona sottoscrizioni), selezionare le sottoscrizioni da usare e quindi fare clic su **OK**.
+8. Nella finestra di dialogo **Select Subscriptions** (Seleziona sottoscrizioni) selezionare le sottoscrizioni da usare e quindi fare clic su **OK**.
 
    ![Finestra di dialogo Seleziona sottoscrizioni][A07]
 
-## <a name="signing-out-of-your-azure-account-when-you-signed-in-automatically"></a>Disconnessione dell'account Azure quando l'accesso è stato eseguito in modo automatico
+## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-automatically"></a>Disconnettersi dall'account di Azure dopo che l'accesso è stato in modo automatico
 
-Dopo aver configurato i passaggi nella sezione precedente, l'accesso automatico ad Azure verrà eseguito a ogni riavvio di IntelliJ IDEA. Per disconnettersi dall'account Azure e impedire l'accesso automatico eseguito dal Toolkit di Azure, eseguire queste operazioni.
+Dopo avere configurato l'account usando i passaggi precedenti, Azure Toolkit esegue automaticamente la connessione all'account Azure a ogni riavvio di IntelliJ IDEA. Per disconnettersi dall'account Azure e impedire l'accesso automatico eseguito da Azure Toolkit, eseguire queste operazioni:
 
-1. In IntelliJ IDEA fare clic su **Tools** (Strumenti), su **Azure** e quindi su **Azure Sign Out** (Disconnessione da Azure).
+1. In IntelliJ IDEA fare clic su **Tools** (Strumenti), puntare su **Azure** e quindi fare clic su **Azure Sign Out** (Disconnessione da Azure).
 
-   ![Menu IntelliJ per la disconnessione da Azure][L01]
+   ![Comando di disconnessione da Azure in IntelliJ][L01]
 
-1. Quando viene visualizzata la finestra di dialogo **Azure Sign Out** (Disconnessione da Azure), fare clic su **Yes** (Sì).
+2. Nella finestra di conferma **Azure Sign Out** (Disconnessione da Azure) fare clic su **Yes** (Sì).
 
-   ![Finestra di dialogo di disconnessione][L03]
+   ![Finestra di conferma della disconnessione da Azure][L03]
 
-## <a name="signing-into-your-azure-account-automatically-using-a-credentials-file-which-you-have-already-created"></a>Accesso automatico all'account Azure usando un file di credenziali già creato
+## <a name="sign-in-to-your-azure-account-automatically-by-using-an-existing-credentials-file"></a>Accedere al proprio account Azure automaticamente usando un file di credenziali esistente
 
-Se ci si disconnette da Azure quando si usa IntelliJ IDEA, è necessario riconfigurare il Toolkit di Azure per Eclipse per usare un file di credenziali creato in precedenza per accedere automaticamente all'account Azure. I passaggi seguenti illustrano come configurare il Toolkit di Azure per usare un file di credenziali esistente.
+Se si esegue la disconnessione dall'account Azure quando si usa IntelliJ IDEA, è necessario usare un file esistente di credenziali per accedere di nuovo automaticamente all'account. Per configurare Azure Toolkit for Eclipse in modo da usare un file di credenziali esistente, eseguire queste operazioni:
 
 1. Aprire il progetto con IntelliJ IDEA.
 
-1. Fare clic su **Tools** (Strumenti), su **Azure** e quindi fare clic su **Azure Sign In** (Accesso ad Azure).
+2. Fare clic su **Tools** (Strumenti), puntare su **Azure** e quindi fare clic su **Azure Sign In** (Accesso ad Azure).
 
-   ![Menu IntelliJ per l'accesso ad Azure][A01]
+   ![Comando di accesso ad Azure in IntelliJ][A01]
 
-1. Quando viene visualizzata la finestra di dialogo **Azure Sign In** (Accesso ad Azure), selezionare **Automated** (Automatico) e quindi fare clic su **Browse** (Sfoglia).
+3. Nella finestra **Azure Sign In** (Accesso ad Azure) selezionare **Automated** (Automatico) e quindi fare clic su **Browse** (Sfoglia).
 
-   ![Finestra di dialogo di accesso][A02]
+   ![Finestra di accesso ad Azure con opzione automatica selezionata][A02]
 
-1. Quando viene visualizzata al finestra di dialogo **Select Authenticated File** (Seleziona file autenticazione), selezionare un file di credenziali creato in precedenza e quindi fare clic su **Select** (Seleziona).
+4. Nella finestra di dialogo **Select Authenticated File** (Seleziona file autenticazione) selezionare un file di credenziali creato in precedenza e quindi fare clic su **Select** (Seleziona).
 
-   ![Finestra di dialogo di accesso][A08]
+   ![Finestra di dialogo di selezione del file di autenticazione][A08]
 
-1. Quando viene visualizzata la finestra di dialogo **Azure Sign In** (Accesso ad Azure), fare clic su **Accedi**.
+5. Nella finestra **Azure Sign In** (Accesso ad Azure) fare clic su **Sign in** (Accedi).
 
-   ![Finestra di dialogo di accesso ad Azure][A06]
+   ![Finestra di accesso ad Azure con opzione automatica selezionata][A06]
 
-1. Quando viene selezionata la finestra di dialogo **Select Subscriptions** (Seleziona sottoscrizioni), selezionare le sottoscrizioni da usare e quindi fare clic su **OK**.
+6. Nella finestra di dialogo **Select Subscriptions** (Seleziona sottoscrizioni) selezionare le sottoscrizioni da usare e quindi fare clic su **OK**.
 
    ![Finestra di dialogo Seleziona sottoscrizioni][A07]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare i seguenti collegamenti:
 
 * [Toolkit di Azure per Eclipse]
-  * [Novità di Azure Toolkit per Eclipse]
+  * [Novità di Azure Toolkit for Eclipse]
   * [Installare il Toolkit di Azure per Eclipse.]
-  * [Istruzioni di accesso ad Azure per il Toolkit di Azure per Eclipse]
+  * [Istruzioni di accesso per Azure Toolkit for Eclipse]
   * [Creare un'app Web Hello World per Azure in Eclipse]
 * [Toolkit di Azure per IntelliJ]
-  * [Novità del Toolkit di Azure per IntelliJ]
+  * [Novità di Azure Toolkit for IntelliJ]
   * [Installazione del Toolkit di Azure per IntelliJ]
-  * *Istruzioni di accesso ad Azure per il Toolkit di Azure per IntelliJ (questo articolo)*
+  * *Istruzioni di accesso per Azure Toolkit for IntelliJ* (questo articolo)
   * [Creare un'App Web Hello World per Azure in IntelliJ]
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure] e gli [strumenti Java per Visual Studio Team Services].
@@ -163,10 +164,10 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Creare un'App Web Hello World per Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installare il Toolkit di Azure per Eclipse.]: ./azure-toolkit-for-eclipse-installation.md
 [Installazione del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Istruzioni di accesso ad Azure per il Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Novità di Azure Toolkit per Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Novità del Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Istruzioni di accesso per Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Novità di Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novità di Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [strumenti Java per Visual Studio Team Services]: https://java.visualstudio.com/

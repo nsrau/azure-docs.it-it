@@ -1,6 +1,6 @@
 ---
-title: Analizzare i dati di Twitter con Apache Hive in HDInsight | Microsoft Docs
-description: Informazioni su come utilizzare Python per archiviare i Tweet che contengono determinate parole chiave, quindi utilizzare Hive e Hadoop su HDInsight per trasformare i dati di Twitter non elaborati in una tabella Hive disponibile per la ricerca.
+title: 'Analizzare i dati di Twitter con Apache Hive: Azure HDInsight | Microsoft Docs'
+description: Informazioni su come usare Hive e Hadoop in HDInsight per trasformare i dati di Twitter non elaborati in una tabella Hive ricercabile.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,34 +13,26 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 05/16/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 75368be1bb5da28df8bc29ca2d8811a822c0816e
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 0abf1bcbc5a51b95342e2a535ae10b9c517afdd8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 ---
-# <a name="analyze-twitter-data-using-hive-on-linux-based-hdinsight"></a>Analizzare i dati di Twitter con Hive in HDInsight basato su Linux
+# <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analizzare i dati di Twitter mediante Hive e Hadoop in HDInsight
 
-Informazioni su come usare Apache Hive in un cluster HDInsight per elaborare i dati di Twitter. Il risultato è un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
+Informazioni su come usare Apache Hive per elaborare i dati di Twitter. Il risultato è un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento sono stati testati in un cluster HDInsight basato su Linux.
+> I passaggi descritti in questo documento sono stati testati in HDInsight 3.5.
 >
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-## <a name="prerequisites"></a>Prerequisiti
-
-* Un **cluster Azure HDInsight basato su Linux**. Per informazioni sulla creazione di un cluster, vedere l' [introduzione a HDInsight basato su Linux](hdinsight-hadoop-linux-tutorial-get-started.md) per la procedura di creazione di un cluster.
-* Un **client SSH**. Per altre informazioni sull'uso di SSH con HDInsight basato su Linux, vedere gli articoli seguenti:
-
-  * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* **Python** e [pip](https://pypi.python.org/pypi/pip)
-
-## <a name="get-a-twitter-feed"></a>Ricevere un feed Twitter
+## <a name="get-the-data"></a>Ottenere i dati
 
 Twitter consente di recuperare i [dati relativi ad ogni tweet](https://dev.twitter.com/docs/platform-objects/tweets) come documento JSON (JavaScript Object Notation) attraverso un'API REST. [OAuth](http://oauth.net) .
 
@@ -70,49 +62,33 @@ Twitter consente di recuperare i [dati relativi ad ogni tweet](https://dev.twitt
 
 9. Compilare i campi **Consumer key**, **Consumer secret**, **Access token** e **Access token secret**.
 
-> [!NOTE]
-> Quando si usa il comando curl in Windows, per i valori delle opzioni usare le virgolette doppie invece di quelle singole.
-
-
 ### <a name="download-tweets"></a>Scaricare tweet
 
 Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvarli in un file denominato **tweets.txt**.
 
 > [!NOTE]
 > I passaggi indicati di seguito vengono eseguiti nel cluster HDInsight, poiché Python è già installato.
->
->
 
 1. Connettersi al cluster HDInsight usando SSH:
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-    Se è stata usata una password per proteggere l'account utente SSH, viene richiesto di specificarla. Se è stata usata una chiave pubblica, può essere necessario usare il parametro `-i` per specificare la chiave privata corrispondente. Ad esempio: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    Per altre informazioni sull'uso di SSH con HDInsight basato su Linux, vedere gli articoli seguenti:
-
-   * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-2. Per impostazione predefinita, l'utilità **pip** non è installata nel nodo head di HDInsight. Per l'installazione, usare il codice seguente e quindi aggiornare l'utilità:
+3. Per installare i moduli [Tweepy](http://www.tweepy.org/) e [Progressbar](https://pypi.python.org/pypi/progressbar/2.2) e altri pacchetti obbligatori, usare i comandi seguenti:
 
    ```bash
-   sudo apt-get install python-pip
-   sudo pip install --upgrade pip
+   sudo apt install python-dev libffi-dev libssl-dev
+   sudo apt remove python-openssl
+   pip install virtualenv
+   mkdir gettweets
+   cd gettweets
+   virtualenv gettweets
+   source gettweets/bin/activate
+   pip install tweepy progressbar pyOpenSSL requests[security]
    ```
-
-3. Per installare i moduli [Tweepy](http://www.tweepy.org/) e [Progressbar](https://pypi.python.org/pypi/progressbar/2.2), usare i comandi seguenti:
-
-   ```bash
-   sudo apt-get install python-dev libffi-dev libssl-dev
-   sudo apt-get remove python-openssl
-   sudo pip install tweepy progressbar pyOpenSSL requests[security]
-   ```
-
-   > [!NOTE]
-   > I bit sulla rimozione di python-openssl, installando python-dev, libffi-dev, libssl-dev, pyOpenSSL e le richieste [sicurezza] consistono nell'evitare un'avvertenza InsecurePlatform durante la connessione a Twitter tramite SSL da Python.
-   >
-   > Tweepy 3.2.0 viene usato per evitare un [errore](https://github.com/tweepy/tweepy/issues/576) che può verificarsi durante l'elaborazione dei tweet.
 
 4. Usare il comando seguente per creare un file denominato **gettweets.py**:
 
@@ -320,12 +296,12 @@ Questi comandi archiviano i dati in un percorso accessibile a tutti i nodi del c
 3. Usare il comando riportato di seguito per eseguire lo script HiveQL contenuto nel file:
 
    ```bash
-   beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
+   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i twitter.hql
    ```
 
     Questo comando esegue il file **twitter.hql**. Dopo il completamento della query, viene visualizzato un prompt `jdbc:hive2//localhost:10001/>`.
 
-4. Dal prompt dei comandi di Beeline, usare il codice seguente per verificare la possibilità di selezionare i dati dalla tabella dei **tweet** creata da HiveQL nel file **twitter.hql**:
+4. Dal prompt dei comandi Beeline usare la query seguente per verificare che i dati siano stati importati:
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc

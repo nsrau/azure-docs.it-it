@@ -218,6 +218,8 @@ La pagina dei record DNS è simile alla seguente:
 
 ![Pagina dei record DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
+<a name="enable-a"></a>
+
 ### <a name="enable-the-a-record-mapping-in-your-app"></a>Abilitazione mapping dei record A nell’app
 
 È ora possibile aggiungere i nomi DNS configurati all'app.

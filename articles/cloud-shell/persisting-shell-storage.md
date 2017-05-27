@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9093bf30a67fd762b237faa61071137fd83d048f
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 540cd10066e055e2dc132445b9adba5a4112d63a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -35,11 +35,14 @@ Al primo avvio, Azure Cloud Shell richiede alla sottoscrizione di creare automat
 Questa condivisione file verrà montata come `clouddrive` nella directory $Home. La condivisione file viene anche usata per archiviare un'immagine da 5 GB creata per l'utente, che automaticamente aggiorna e rende persistente la directory $Home. Questa azione è occasionale e viene ripetuta automaticamente nelle sessioni successive.
 
 ### <a name="cloud-shell-persists-files-with-both-methods-below"></a>Cloud Shell rende persistenti i file con entrambi i metodi seguenti:
-1. Creare un'immagine del disco della directory $Home per rendere persistenti i file presenti in $Home. L'immagine del disco viene salvata nella condivisione file specificata come `<User>.img` in `fileshare.storage.windows.net/fileshare/.cloudconsole/<User>.img`
+1. Creare un'immagine del disco della directory $Home per rendere persistenti i file presenti in $Home. L'immagine del disco viene salvata nella condivisione file specificata come `acc_<User>.img` in `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`
 
 2. Montare la condivisione file specificata come `clouddrive` nella directory $Home per l'interazione diretta con la condivisione file. 
 Viene eseguito il mapping di `/Home/<User>/clouddrive` a `fileshare.storage.windows.net/fileshare`.
  
+> [!Note]
+> Tutti i file della directory $Home, come le chiavi SSH, vengono mantenuti nell'immagine del disco utente archiviato nella condivisione file montata. Applicare le procedure consigliate quando si rendono persistenti le informazioni nella directory $Home e nella condivisione file montata.
+
 ## <a name="using-clouddrive"></a>Uso di clouddrive
 Cloud Shell consente agli utenti di eseguire un comando denominato `clouddrive` che consente di aggiornare manualmente la condivisione file montata in Cloud Shell.
 ![](media/clouddrive-h.png)
@@ -110,26 +113,23 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-## <a name="upload-or-download-local-files"></a>Caricare o scaricare file locali
-Usare il portale di Azure per gestire il trasferimento di file locali verso o dalla condivisione file.
-L'aggiornamento dei file da Cloud Shell viene applicato nell'interfaccia utente grafica di archiviazione file quando il pannello viene aggiornato.
+## <a name="transfer-local-files-to-cloud-shell"></a>Trasferire file locali in Cloud Shell
+La directory `clouddrive` viene sincronizzata con il pannello di archiviazione del portale di Azure. Usarlo per trasferire file locali da e verso la condivisione file. L'aggiornamento dei file da Cloud Shell viene applicato nell'interfaccia utente grafica di archiviazione file quando il pannello viene aggiornato.
 
-1. Passare alla condivisione file montata ![](media/touch-txt-storage.png)
+### <a name="download-files"></a>Download dei file
+![](media/download.gif)
+1. Passare alla condivisione file montata
 2. Selezionare il file di destinazione nel portale
-3. Fare clic su "Scarica" ![](media/download-storage.png)
+3. Fare clic su "Scarica"
 
-Se è necessario scaricare un file esterno a `clouddrive`:
-1. Copiare il file in `/<User>/clouddrive` <br>
-2. Seguire i [passaggi precedenti](#upload-or-download-local-files) <br>
+### <a name="upload-files"></a>Caricare file
+![](media/upload.gif)
+1. Passare alla condivisione file montata
+2. Selezionare "Carica"
+3. Selezionare il file da caricare
+4. Confermare il caricamento
 
-## <a name="cloud-shell-tagging"></a>Assegnazione tag in Cloud Shell
-Cloud Shell aggiunge un "tag" agli account di archiviazione montati usando il formato: <br>
-
-| Chiave | Valore |
-|:-------------:|:-------------:|
-|cloud-console-files-for-user@domain.com|fileshareName|
-
-Usare questi tag per visualizzare il mapping tra gli utenti e le condivisioni file e la posizione delle immagini di $Home.
+Ora si dovrebbe vedere il file accessibile nella directory clouddrive in Cloud Shell.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Guida introduttiva a Cloud Shell](quickstart.md) 

@@ -1,6 +1,6 @@
 ---
-title: Monitorare e gestire Azure HDInsight con l&quot;API REST Ambari | Documentazione Microsoft
-description: "Informazioni sull&quot;uso di Ambari per monitorare e gestire cluster HDInsight basati su Linux. In questo documento si apprenderà come usare l&quot;API REST Ambari inclusa nei cluster HDInsight."
+title: Monitorare e gestire Hadoop con l&quot;API REST Ambari - Azure HDInsight | Microsoft Docs
+description: "Informazioni sull&quot;uso di Ambari per monitorare e gestire i cluster Hadoop in Azure HDInsight. In questo documento si apprenderà come usare l&quot;API REST Ambari inclusa nei cluster HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 05/16/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ce6d8301c9c9fc0b9ac6bc2e31023ebbbba8a67c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 7ac80a8521b48f43538ca06a054f8302eb32eea6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -27,7 +28,9 @@ ms.lasthandoff: 04/27/2017
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari semplifica la gestione e il monitoraggio di un cluster Hadoop grazie a un'interfaccia utente Web facile da usare e alle API REST. Ambari è incluso nei cluster HDInsight che usano i sistemi operativi Linux e viene usato per monitorare il cluster e modificare la configurazione. Questo documento consente di apprendere le nozioni di base sull'uso dell'API REST Ambari.
+Informazioni sull'uso dell'API REST per gestire e monitorare i cluster Hadoop in Azure HDInsight.
+
+Apache Ambari semplifica la gestione e il monitoraggio di un cluster Hadoop grazie a un'interfaccia utente Web facile da usare e alle API REST. Ambari è incluso nei cluster HDInsight che usano i sistemi operativi Linux e viene usato per monitorare il cluster e modificare la configurazione.
 
 ## <a id="whatis"></a>Informazioni su Ambari
 

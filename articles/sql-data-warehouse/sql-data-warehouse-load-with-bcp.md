@@ -3,7 +3,7 @@ title: Usare bcp per caricare i dati in SQL Data Warehouse | Documentazione Micr
 description: Informazioni su bcp e sul relativo uso per scenari di data warehousing.
 services: sql-data-warehouse
 documentationcenter: NA
-author: twounder
+author: ckarst
 manager: barbkess
 editor: 
 ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: mausher;barbkess
-translationtype: Human Translation
+ms.author: cakarst;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
+ms.contentlocale: it-it
 ms.lasthandoff: 01/30/2017
 
 

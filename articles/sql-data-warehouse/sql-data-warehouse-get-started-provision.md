@@ -3,7 +3,7 @@ title: Creare un&quot;istanza di SQL Data Warehouse nel portale di Azure | Docum
 description: Informazioni su come creare un&quot;istanza di SQL Data Warehouse nel portale di Azure
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 tags: azure-sql-data-warehouse
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
 ms.openlocfilehash: 75f4792ff2aa2b73ebc3ff976887a74ce09988f3
+ms.contentlocale: it-it
 ms.lasthandoff: 03/10/2017
 
 

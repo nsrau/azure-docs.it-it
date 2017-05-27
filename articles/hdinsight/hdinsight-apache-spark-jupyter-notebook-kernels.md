@@ -1,6 +1,7 @@
 ---
-title: Usare kernel diversi con Jupyter Notebook nei cluster Azure HDInsight Spark | Microsoft Docs
-description: "Informazioni sui kernel PySpark, PySpark3 e Spark che è possibile usare con i Jupyter Notebook disponibili con cluster Spark in HDInsight Linux."
+title: Kernel per il notebook di Jupyter nei cluster Spark in Azure HDInsight | Microsoft Docs
+description: Informazioni sui kernel PySpark, PySpark3 e Spark per i notebook di Jupyter disponibili con i cluster Spark in Azure HDInsight.
+keywords: notebook jupyter in spark, spark jupyter
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,24 +10,24 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/15/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 096fbc1d30e8c9df0c9008525e0fac3fd6e449cf
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: c5813341f0d70a3c04e915d243d2a9717cad1fc9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>Kernel di notebook di Jupyter con cluster Apache Spark in HDInsight 
+# <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernel per il notebook di Jupyter nei cluster Spark in Azure HDInsight 
 
-I cluster HDInsight Spark offrono kernel che è possibile usare con Jupyter Notebook per testare le applicazioni Spark. Un kernel è un programma che esegue e interpreta il codice. I due kernel sono:
+I cluster HDInsight Spark forniscono kernel che è possibile usare con il notebook di Jupyter in Spark per testare le applicazioni. Un kernel è un programma che esegue e interpreta il codice. I tre kernel sono:
 
 - **PySpark** per le applicazioni scritte in Python2
 - **PySpark3** per le applicazioni scritte in Python3
@@ -38,18 +39,18 @@ In questo articolo viene illustrato come usare questi kernel e i vantaggi che ne
 
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="create-a-jupyter-notebook"></a>Creare un notebook Jupyter
+## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Creare un notebook di Jupyter in HDInsight Spark
 
 1. Dal [Portale di Azure](https://portal.azure.com/), aprire il cluster.  Per le istruzioni vedere la sezione su come [elencare e visualizzare i cluster](hdinsight-administer-use-portal-linux.md#list-and-show-clusters). Il cluster viene aperto in un nuovo pannello del portale.
 
 2. Nella sezione **Collegamenti rapidi** fare clic su **Dashboard cluster** per aprire il pannello **Dashboard cluster**.  Se non viene visualizzato **Collegamenti rapidi**, fare clic su **Panoramica** dal menu a sinistra del pannello.
 
-    ![Dashboard cluster](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Dashboard cluster") 
+    ![Notebook di Jupyter in Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Notebook di Jupyter in Spark") 
 
 3. Fare clic su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
    
    > [!NOTE]
-   > È anche possibile raggiungere il notebook di Jupyter per il cluster aprendo l'URL seguente nel browser. Sostituire **CLUSTERNAME** con il nome del cluster:
+   > È anche possibile accedere al notebook di Jupyter nel cluster Spark aprendo l'URL seguente nel browser. Sostituire **CLUSTERNAME** con il nome del cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
@@ -57,13 +58,13 @@ In questo articolo viene illustrato come usare questi kernel e i vantaggi che ne
 
 3. Fare clic su **Nuovo** e quindi su **Pyspark**, **PySpark3** o **Spark** per creare un notebook. Usare il kernel Spark per applicazioni Scala, il kernel PySpark per applicazioni Python2 e il kernel PySpark3 per applicazioni Python3.
    
-    ![Creare un Jupyter Notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Creare un Jupyter Notebook") 
+    ![Kernel per il notebook di Jupyter in Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernel per il notebook di Jupyter in Spark") 
 
 4. Verrà aperto un notebook con il kernel selezionato.
 
-## <a name="benefits-of-using-these-kernels"></a>Vantaggi offerti dall'uso di questi kernel
+## <a name="benefits-of-using-the-kernels"></a>Vantaggi offerti dall'uso dei kernel
 
-L'uso dei nuovi kernel comporta alcuni vantaggi.
+Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyter nei cluster HDInsight Spark.
 
 - **Contesti predefiniti**. Con i kernel **PySpark**, **PySpark3** e **Spark** non è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare le applicazioni. I contesti sono disponibili per impostazione predefinita. Questi contesti sono:
    
@@ -149,7 +150,7 @@ In caso di problemi di accesso all'account di archiviazione per il cluster, anch
 
 ## <a name="supported-browser"></a>Browser supportati
 
-I notebook Jupyter in esecuzione su cluster HDInsight Spark sono supportati solo su Google Chrome.
+I notebook di Jupyter nei cluster HDInsight Spark sono supportati solo su Google Chrome.
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Questo potrebbe comportare un cambiamento delle API con l'evoluzione dei kernel. Sono graditi commenti e suggerimenti in merito all'uso di questi nuovi kernel. Saranno molto utili per la progettazione della versione finale di questi kernel. È possibile inserire commenti o suggerimenti nella sezione **Commenti** in fondo a questo articolo.

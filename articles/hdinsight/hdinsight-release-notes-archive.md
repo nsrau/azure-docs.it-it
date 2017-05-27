@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione in archivio per i componenti Hadoop in Azure HDInsight | Microsoft Docs
-description: Note sulla versione in archivio e versioni di componenti Hadoop per Azure HDInsight.
+title: Note sulla versione in archivio - Componenti Hadoop in Azure HDInsight | Microsoft Docs
+description: Note sulla versione in archivio per le vecchie versioni dei componenti Hadoop per Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 editor: cgronlun
@@ -8,7 +8,7 @@ manager: jhubbard
 author: nitinme
 tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 4/06/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5e1538ae0d4b1270040bd593cae66c1dd1046201
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 7d8b691905c07b11543505ed1961d908ff4de654
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -61,7 +62,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Spark, Hadoop, HBase o Storm) | JIRA (se applicabile) |
 | --- | --- | --- | --- | --- |
-| Modifiche apportate ai cluster HDInsight 3.4 |Il valore predefinito per le configurazioni Hive seguenti è stato modificato per ottenere prestazioni migliori  <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |Service |Tutti |N/D |
+| Modifiche apportate ai cluster HDInsight 3.4 |I valori predefiniti per le configurazioni Hive seguenti sono stati modificati per ottenere prestazioni migliori <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |Service |Tutti |N/D |
 | In questa versione sono incluse le correzioni seguenti |HIVE-13632, HIVE-12897, HIVE-12907, HIVE-12908, HIVE-12988, HIVE-13510, HIVE-13572, HIVE-13716, HIVE-13726, HIVE-12505, HIVE-13632, HIVE-13661, HIVE-13705, HIVE-13743, HIVE-13810, HIVE-13857, HIVE-13902, HIVE-13911, HIVE-13933 |Service |Tutti |N/D |
 
 ## <a name="notes-for-07142016-release-of-hdinsight"></a>Note sulla versione di HDInsight rilasciata il 14/07/2016
@@ -166,9 +167,9 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 | --- | --- | --- | --- | --- |
-| Problemi di aggiornamento metastore personalizzato per HDI 3.4 |La creazione del cluster non viene eseguita correttamente se si usa un metastore personalizzato già usato in una versione precedente di un altro cluster HDInsight. Ciò è dovuto a un errore nello script di aggiornamento, ora risolto |Creazione del cluster |Tutti |N/D |
+| Problemi di aggiornamento metastore personalizzato per HDI 3.4 |La creazione del cluster non viene eseguita correttamente se si usa un metastore personalizzato già usato in una versione precedente di un altro cluster HDInsight. Ciò è dovuto a un errore nello script di aggiornamento ora risolto |Creazione del cluster |Tutti |N/D |
 | Ripristino a seguito dell'arresto anomalo del sistema Livy |Fornisce resilienza dello stato del processo per qualsiasi processo inviato tramite Livy |Affidabilità |Spark su Linux |N/D |
-| Contenuto Jupyter a disponibilità elevata |Consente di salvare e caricare il contenuto di notebook Jupyter da e verso l'account di archiviazione associato al cluster. Per altre informazioni, vedere [Kernel disponibili per i Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md). |Notebook |Spark su Linux |N/D |
+| Contenuto Jupyter a disponibilità elevata |Consente di salvare e caricare il contenuto di notebook Jupyter da e verso l'account di archiviazione associato al cluster. Per altre informazioni, vedere [Kernel disponibili per i Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md). |Notebook |Spark su Linux |N/D  |
 | Rimozione di hiveContext nei notebook Jupyter |Usare l'oggetto `%%sql` invece di `%%hive`. SqlContext equivale a hiveContext. Per altre informazioni, vedere [Kernel disponibili per i Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md) |Notebook |Cluster Spark su Linux |N/D |
 | Rimozione di versioni precedenti di Spark |La versione meno recente Spark 1.3.1 verrà rimossa dal servizio il 31/05 |Service |Cluster Spark in Windows |N/D |
 
@@ -434,7 +435,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 <tr>
 <td>Problema di riproduzione casuale MapReduce intermittente per HDInsight 3.2</td>
-<td>Correzione di una rara race condition intermittente nella sequenza casuale MapReduce nei cluster di grandi dimensioni, che provoca occasionali errori delle attività. Per altre informazioni, vedere <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a>.</td>
+<td>Correzione di una rara race condition intermittente nella sequenza casuale MapReduce nei cluster di grandi dimensioni che provoca occasionali errori delle attività. Per altre informazioni, vedere <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a>.</td>
 <td>Funzionalità principale di Hadoop</td>
 <td>Tutti</td>
 <td><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a></td>
@@ -536,7 +537,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 <tr>
 <td>Passare alla configurazione di memoria predefinita del contenitore Yarn</td>
-<td>In questo aggiornamento la memoria predefinita disponibile per i contenitori YARN (yarn.nodemanager.resource.memory-mb e yarn.scheduler.maximum-allocation-mb), avviata dal Node Manager, è stata aumentata a 5632 MB. In precedenza era stato ridotto a 4608 MB, ma in base a varie esecuzioni del processo, il nuovo valore deve offrire affidabilità e prestazioni migliori per la maggior parte dei processi, pertanto è stato scelto questo valore predefinito superiore. Come consueto, in caso di dipendenza critica nella configurazione della memoria, impostare il valore in modo esplicito durante la creazione del cluster.</td>
+<td>In questo aggiornamento la memoria predefinita disponibile per i contenitori YARN (yarn.nodemanager.resource.memory-mb e yarn.scheduler.maximum-allocation-mb), avviata dal Node Manager, è stata aumentata a 5632 MB. In precedenza era stato ridotto a 4608 MB, ma in base a varie esecuzioni del processo, il nuovo valore deve offrire affidabilità e prestazioni migliori per la maggior parte dei processi, pertanto è stato scelto questo valore predefinito superiore. Come di consueto, in caso di dipendenza critica nella configurazione della memoria, impostare il valore in modo esplicito durante la creazione del cluster.</td>
 <td>HDP</td>
 <td>Tutti i tipi di cluster</td>
 <td>N/D</td>
@@ -571,7 +572,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 <tr>
 <td>Supporto dell'EventHub SCP.NET</td>
-<td>I pacchetti cluster aggiornati per HDInsight Storm introducono nuove funzionalità in SCP.NET. Sarà ora possibile accedere alle nuove API nel generatore di topologie che rendono più semplice utilizzare EventHubSpout o gli Spout Java. È necessario aggiornare l'SDK per il client SCP.NET in modo che sia compatibile con i nuovi cluster quando i contratti sono stati aggiornati. Per informazioni dettagliate sulle nuove API, note sulla versione e sull'utilizzo (correzioni di bug incluse), fare riferimento al file Leggimi incluso nel pacchetto NuGet di SCP.NET.</td>
+<td>I pacchetti cluster aggiornati per HDInsight Storm introducono nuove funzionalità in SCP.NET. Sarà ora possibile accedere alle nuove API nel generatore di topologie che rendono più semplice utilizzare EventHubSpout o gli Spout Java. È necessario aggiornare l'SDK per il client SCP.NET in modo che sia compatibile con i nuovi cluster quando i contratti sono stati aggiornati. Per informazioni dettagliate sulle nuove API, note sulla versione e sull'utilizzo (correzioni di bug incluse), consultare il file Leggimi incluso nel pacchetto NuGet di SCP.NET.</td>
 <td>Strumenti VS</td>
 <td>Cluster Storm HDInsight 3.2</td>
 <td>N/D</td>
@@ -834,10 +835,10 @@ Questa versione contiene gli aggiornamenti seguenti.
 <td>Hadoop 2.6/HDP2.2 è disponibile con cluster HDInsight 3.2. e contiene importanti aggiornamenti per tutti i componenti open source. Per altri dettagli, vedere le novità di HDInsight e <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 Release Notes</a> (Note sulla versione di HDP 2.2.0.0).</td>
 <td>Software open source</td>
 <td>Tutti</td>
-<td>N/D</td>
+<td>N/D </td>
 </tr>
 <tr>
-<td>HDinsight in Linux (anteprima)</td>
+<td>HDInsight in Linux (anteprima)</td>
 <td>È possibile distribuire cluster per l'esecuzione in Ubuntu Linux. Per altri dettagli, vedere Introduzione a HDInsight su Linux.</td>
 <td>Service</td>
 <td>Hadoop</td>
@@ -869,10 +870,10 @@ Questa versione contiene gli aggiornamenti seguenti.
 <td>Oltre a fornire gli strumenti completi per Apache Storm, Apache Hive in Visual Studio è stato aggiornato per includere funzionalità di completamento istruzioni, convalida locale e supporto per il debug migliorato. Per altre informazioni, vedere Introduzione all'uso di HDInsight Tools per Visual Studio.</td>
 <td>Strumenti</td>
 <td>Hadoop</td>
-<td>N/D</td>
+<td>N/D </td>
 </tr>
-<td>Connettore Hadoop per DocumentDB</td>
-<td>Il connettore Hadoop per DocumentDB consente di eseguire operazioni complesse di aggregazione, analisi e manipolazione sui documenti JSON senza schema archiviati in raccolte DocumentDB o in account di database. Per altre informazioni e per un'esercitazione, vedere Eseguire un processo Hadoop usando DocumentDB e HDInsight.</td>
+<td>Connettore Hadoop per Azure Cosmos DB</td>
+<td>Il connettore Hadoop per Azure Cosmos DB consente di eseguire operazioni complesse di aggregazione, analisi e manipolazione sui documenti JSON senza schema archiviati in raccolte Azure Cosmos DB o in account di database. Per altre informazioni e per un'esercitazione, vedere Eseguire un processo Hadoop usando Azure Cosmos DB e HDInsight.</td>
 <td>Service</td>
 <td>Hadoop</td>
 <td>N/D</td>
@@ -1249,7 +1250,7 @@ Per altre informazioni sulle impostazioni di configurazione di memoria usate da 
 Per quanto riguarda Azure PowerShell e il messaggio di errore HDInsight SDK: "*Cluster is not configured for HTTP services access*":
 
 * Questo errore è un [problema di compatibilità](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) noto che può verificarsi a causa di una differenza tra la versione di HDInsight SDK o Azure PowerShell e la versione del cluster. Per i cluster creati sulla versione 8/15 o successiva esiste il supporto della nuova funzionalità di provisioning nelle reti virtuali, che però non viene interpretata correttamente dalle versioni precedenti di HDInsight SDK o Azure PowerShell. Il risultato è un errore in alcune operazioni di invio dei processi. Se si usano le API di HDInsight SDK o i cmdlet di Azure PowerShell (**Use-AzureRmHDInsightCluster** o **Invoke-AzureRmHDInsightHiveJob**) per inviare i processi, è possibile che tali operazioni abbiano esito negativo e che venga generato il messaggio di errore "*Cluster <clustername> is not configured for HTTP services access*" (Il cluster <nomecluster> non è configurato per l'accesso ai servizi HTTP). In alternativa, a seconda dell'operazione, è possibile che venga generato un altro messaggio, ad esempio "*Cannot connect to cluster*" (Non è possibile connettersi al cluster).
-* Questi problemi di compatibilità sono stati risolti nelle versioni più recenti di SDK HDInsight e di Azure PowerShell. È consigliabile aggiornare HDInsight SDK alla versione 1.3.1.6 o successiva e gli strumenti di Azure PowerShell alla versione 0.8.8 o successiva. È possibile accedere alla versione più recente di HDInsight SDK da [Nuget](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e agli strumenti di Azure PowerShell in [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+* Questi problemi di compatibilità sono stati risolti nelle versioni più recenti di SDK HDInsight e di Azure PowerShell. È consigliabile aggiornare HDInsight SDK alla versione 1.3.1.6 o successiva e gli strumenti di Azure PowerShell alla versione 0.8.8 o successiva. È possibile accedere alla versione più recente di HDInsight SDK da [NugGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e agli strumenti di Azure PowerShell in [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>Note per la versione di HDInsight 3.1 rilasciata il 12/09/2014
 * Questa versione è basata su Hortonworks Data Platform (HDP) 2.1.5. Per un elenco dei bug corretti in questa versione, vedere la pagina relativa alle [correzioni disponibili in questa versione](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) nel sito Hortonworks.
@@ -1260,7 +1261,7 @@ Per quanto riguarda Azure PowerShell e il messaggio di errore HDInsight SDK: "*C
 
      templeton.mapper.memory.mb (=1024)
 
-  * Questa modifica risolve l'errore seguente che si verificava in alcune query Hive a causa dei limiti di memoria più bassi: "Container is running beyond physical memory limits" (Contenitore in esecuzione oltre i limiti di memoria fisica).
+  * Questa modifica risolve l'errore seguente che si verificava con alcune query Hive a causa dei limiti di memoria più bassi: "Container is running beyond physical memory limits" (Contenitore in esecuzione oltre i limiti di memoria fisica).
   * Per tornare alle impostazioni predefinite precedenti, è possibile impostare questo valore di configurazione su 512 mediante Azure PowerShell al momento della creazione del cluster usando il comando seguente:
 
       Add-AzureRmHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
@@ -1462,7 +1463,7 @@ Tra HDInsight 2.x (HDP1.x) e HDInsight 3.x (HDP2.x) sono state apportate le segu
 * 0.8.0.RELEASE']
 
 ### <a name="drivers"></a>Driver
-Il driver JDBC Java Database Connnectivity) per SQL Server viene usato internamente da HDInsight e non viene usato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC (Open Database Connectivity), usare Microsoft Hive ODBC Driver. Per altre informazioni, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
+Il driver JDBC (Java Database Connnectivity) per SQL Server viene usato internamente da HDInsight e non viene usato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC (Open Database Connectivity), usare Microsoft Hive ODBC Driver. Per altre informazioni, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 ### <a name="bug-fixes"></a>Correzioni di bug
 In questa versione le versioni seguenti di HDInsight sono state aggiornate con numerose correzioni di bug:
