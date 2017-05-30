@@ -27,7 +27,7 @@ ms.lasthandoff: 02/03/2017
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app Web con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione.  Nelle app Web ASP.NET, a questo scopo si usa il middleware OWIN di Microsoft incluso in .NET Framework 4.5.
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 >
 >
 
@@ -116,7 +116,7 @@ In questo caso, verrà configurato il middleware OWIN per l'uso del protocollo d
         ```
 
 ## <a name="send-authentication-requests"></a>Invio di richieste di autenticazione
-L'app ora è configurata correttamente per comunicare con l'endpoint&2;.0 mediante il protocollo di autenticazione OpenID Connect.  OWIN ha gestito tutte le difficoltà derivanti dalla creazione dei messaggi di autenticazione, dalla convalida dei token da Azure AD e dalla gestione della sessione utente.  Non resta che dare agli utenti un modo per accedere e disconnettersi.
+L'app ora è configurata correttamente per comunicare con l'endpoint 2.0 mediante il protocollo di autenticazione OpenID Connect.  OWIN ha gestito tutte le difficoltà derivanti dalla creazione dei messaggi di autenticazione, dalla convalida dei token da Azure AD e dalla gestione della sessione utente.  Non resta che dare agli utenti un modo per accedere e disconnettersi.
 
 - È possibile usare tag di autorizzazione nei controller per obbligare l'utente ad accedere prima di aprire una determinata pagina.  Aprire `Controllers\HomeController.cs` e aggiungere il tag `[Authorize]` al controller About.
         
@@ -210,7 +210,7 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 ## <a name="next-steps"></a>Passaggi successivi
 Ora è possibile passare ad argomenti più avanzati.  È possibile:
 
-[Proteggere un'API Web con l'endpoint&2;.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Proteggere un'API Web con l'endpoint 2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 Per altre risorse, vedere:
 
