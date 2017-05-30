@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/25/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e6cf8797d08609f847e33f88e78fbcd3f3743a08
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 42fabff59577db5feb98e5c03d7a2b6d3d2461c3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -29,15 +29,11 @@ Informazioni su come creare una funzione attivata nel momento in cui vengono inv
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-Per completare tutti i passaggi di questo argomento, saranno sufficienti meno di cinque minuti.
-
 ## <a name="prerequisites"></a>Prerequisiti
-
-Prima di eseguire questo esempio, è necessario effettuare queste operazioni:
 
 - Scaricare e installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+- È necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
