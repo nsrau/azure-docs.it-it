@@ -1,14 +1,14 @@
 ---
 title: Script di Azure PowerShell di Azure - Ottenere le chiavi di account per cosmosdb | Documentazione Microsoft
 description: Esempio di script di Azure PowerShell - Ottenere le chiavi di account per cosmosdb
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: PowerShell
 ms.topic: article

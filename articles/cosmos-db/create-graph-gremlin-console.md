@@ -1,12 +1,12 @@
 ---
 title: 'Esercitazione su Azure Cosmos DB: Creare, eseguire query e attraversare nella console Gremlin di Apache TinkerPop | Microsoft Docs'
 description: Guida di avvio rapido ad Azure Cosmos DB per creare vertici, archi e query usando l&quot;API Graph di Azure Cosmos DB.
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
@@ -41,11 +41,11 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>Aggiungere un grafo
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connettersi al servizio app
 1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione *remote-secure.yaml* nella directory *apache-tinkerpop-gremlin-console-3.2.4/conf*.
@@ -254,7 +254,7 @@ Congratulazioni. Questa esercitazione sull'API Graph di Azure Cosmos DB è stata
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

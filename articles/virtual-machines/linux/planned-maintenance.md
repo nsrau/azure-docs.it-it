@@ -3,7 +3,7 @@ title: Manutenzione pianificata per VM Linux in Azure | Microsoft Docs
 description: Informazioni sulla manutenzione pianificata di Azure e su come influisce sulle macchine virtuali Windows eseguite in Azure.
 services: virtual-machines-linux
 documentationcenter: 
-author: 
+author: zivr
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/27/2017
-ms.author: 
-translationtype: Human Translation
+ms.author: zivr
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 28c2fb5a67eca0c5ab2f0299bba7c11375e10558
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
 
 

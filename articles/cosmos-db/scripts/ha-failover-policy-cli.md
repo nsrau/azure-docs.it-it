@@ -1,14 +1,14 @@
 ---
 title: "Script dell&quot;interfaccia della riga di comando di Azure - Creare un criterio di failover per la disponibilità elevata | Documentazione Microsoft"
 description: "Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un criterio di failover per la disponibilità elevata"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

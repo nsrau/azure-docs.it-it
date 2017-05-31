@@ -1,14 +1,14 @@
 ---
 title: 'Script dell&quot;interfaccia della riga di comando di Azure: creare un firewall per Azure Cosmos DB | Microsoft Docs'
 description: 'Esempio di script dell&quot;interfaccia della riga di comando di Azure: creazione di un firewall per Azure Cosmos DB'
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

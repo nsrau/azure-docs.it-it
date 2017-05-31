@@ -1,13 +1,13 @@
 ---
 title: Esempi dell&quot;interfaccia della riga di comando di Azure Cosmos DB | Documentazione Microsoft
 description: Esempi dell&quot;interfaccia della riga di comando di Azure - Creare e gestire account, database, contenitori, aree e firewall di Azure Cosmos DB.
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: article
