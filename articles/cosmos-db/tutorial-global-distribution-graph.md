@@ -51,7 +51,7 @@ L'applicazione può verificare l'endpoint di scrittura e lettura corrente scelto
 
 ### <a name="using-the-sdk"></a>Uso dell'SDK
 
-Ad esempio, in .NET SDK il parametro `ConnectionPolicy` per il costruttore `DocumentClient` dispone di una proprietà denominata `PreferredLocations`. È possibile impostare questa proprietà su un elenco di nomi di aree. I nomi visualizzati per le [aree di Azure] [ regions] possono essere specificati come parte di `PreferredLocations`.
+Ad esempio, in .NET SDK il parametro `ConnectionPolicy` per il costruttore `DocumentClient` dispone di una proprietà denominata `PreferredLocations`. È possibile impostare questa proprietà su un elenco di nomi di aree. I nomi visualizzati per le [aree di Azure][regions] possono essere specificati come parte di `PreferredLocations`.
 
 > [!NOTE]
 > Gli URL per gli endpoint non devono essere considerati come costanti di lunga durata. Il servizio può aggiornare gli URL in qualsiasi momento. L'SDK gestisce la modifica in modo automatico.
