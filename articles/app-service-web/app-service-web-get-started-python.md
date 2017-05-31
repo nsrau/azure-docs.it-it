@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: df34052acc401fb5bb1e3f808c649c0ea0bcf33c
 ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -30,7 +30,7 @@ Questa esercitazione introduttiva illustra come sviluppare e distribuire un'app 
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux. Per completare tutte le procedure descritte di seguito saranno sufficienti circa 5 minuti.
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di eseguire l'esempio, installare in locale questi prerequisiti:
 
@@ -108,19 +108,11 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Creare un servizio app di Azure
 
-Creare un piano di servizio app basato su Linux con il comando [az appservice plan create](/cli/azure/appservice/plan#create).
+Creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan#create).
 
-> [!NOTE]
-> Un piano di servizio app rappresenta la raccolta delle risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono le risorse definite dal piano, in modo da consentire un risparmio sui costi quando si ospitano più app.
->
-> I piani di servizio app definiscono:
-> * Area (Europa settentrionale, Stati Uniti orientali, Asia sud-orientale)
-> * Dimensioni delle istanze (Small, Medium, Large)
-> * Numero di scala (una, due o tre istanze e così via)
-> * SKU (Gratuito, Condiviso, Basic, Standard, Premium)
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-L'esempio seguente crea un piano di servizio app denominato `quickStartPlan` in ruoli di lavoro Linux, con il piano tariffario **GRATUITO**.
+L'esempio seguente crea un piano di servizio app denominato `quickStartPlan` usando il piano tariffario **GRATUITO**.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -153,7 +145,7 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-Ora che è stato creato il piano di servizio app `quickStartPlan`, creare un'app Web in tale piano. L'app Web offre uno spazio di hosting per la distribuzione del codice e fornisce un URL per visualizzare l'applicazione distribuita. Usare il comando [az appservice web create](/cli/azure/appservice/web#create) per creare l'app Web.
+È stato creato un piano di servizio app`quickStartPlan` e ora occorre creare un'app Web al suo interno. L'app Web offre uno spazio di hosting per la distribuzione del codice e fornisce un URL per visualizzare l'applicazione distribuita. Usare il comando [az appservice web create](/cli/azure/appservice/web#create) per creare l'app Web.
 
 Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco della propria app. Dato che verrà usato come sito DNS predefinito per l'app Web, è necessario che `<app_name>` sia univoco tra tutte le app in Azure. In un secondo momento è possibile eseguire il mapping di qualsiasi voce DNS personalizzata all'app Web prima di esporla agli utenti.
 
@@ -161,7 +153,7 @@ Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco d
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
 ```
 
-Al termine della creazione dell'app Web, l'interfaccia della riga di comando di Azure visualizza informazioni simili all'esempio seguente.
+Dopo aver creato l'app Web, l'interfaccia della riga di comando di Azure mostra informazioni simili a quelle dell'esempio seguente.
 
 ```json
 {
@@ -291,7 +283,7 @@ http://<app_name>.azurewebsites.net
 
 La pagina in cui viene visualizzato il messaggio Hello World viene ora eseguita usando il codice Python eseguito come app Web del servizio app di Azure.
 
-![]()
+![Hello World nel browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>Aggiornamento e distribuzione del codice
 
@@ -310,7 +302,7 @@ git push azure master
 
 Al termine della distribuzione, tornare alla finestra del browser aperta nel passaggio "Passare all'app" e fare clic su Aggiorna.
 
-![Hello World nel browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Gestire la nuova app Web di Azure
 
@@ -320,13 +312,13 @@ A tale scopo, accedere a [https://portal.azure.com](https://portal.azure.com).
 
 Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
 
-![Passare all'app Web di Azure nel portale](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Passare all'app Web di Azure nel portale](./media/app-service-web-get-started-python/app-service-list.png)
 
 Si accede così al _pannello_, ovvero una pagina del portale visualizzata in orizzontale, dell'app Web.
 
 Per impostazione predefinita, nel pannello dell'app Web viene aperta la pagina **Panoramica**, che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare. Le schede sul lato sinistro del pannello mostrano le diverse pagine di configurazione che è possibile aprire.
 
-![Pannello del servizio app nel portale di Azure](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Pannello del servizio app nel portale di Azure](media/app-service-web-get-started-python/app-service-detail.png)
 
 Queste schede del pannello mostrano le numerose utili funzionalità che è possibile aggiungere all'app Web. Nell'elenco seguente sono riportate solo alcune delle possibilità:
 
@@ -342,4 +334,6 @@ Queste schede del pannello mostrano le numerose utili funzionalità che è possi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esplorare gli [script dell'interfaccia della riga di comando per le app Web](app-service-cli-samples.md) già creati.
+> [!div class="nextstepaction"]
+> [Esplorare gli script dell'interfaccia della riga di comando per App Web di esempio](app-service-cli-samples.md)
+

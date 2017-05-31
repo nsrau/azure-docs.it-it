@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/03/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d75088bd83b0b70c889388c95331bb56fe9ba15b
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 951a7849beb9653083ed0112dbbb6cf57175469d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -172,12 +173,15 @@ La condizione valuta se un **campo** soddisfa determinati criteri. Le condizioni
 
 * `"equals": "value"`
 * `"like": "value"`
+* `"match": "value"`
 * `"contains": "value"`
 * `"in": ["value1","value2"]`
 * `"containsKey": "keyName"`
 * `"exists": "bool"`
 
 Quando si usa la condizione **like**, è possibile inserire un carattere jolly (*) nel valore.
+
+Quando si usa la condizione **match**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Per gli esempi, vedere [Impostare la convenzione di denominazione](#set-naming-convention).
 
 ### <a name="fields"></a>Fields
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa.  
@@ -318,6 +322,36 @@ L'esempio seguente illustra l'uso dei caratteri jolly supportato dalla condizion
       "field": "name",
       "like": "namePrefix*nameSuffix"
     }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Per specificare che i nomi di risorsa corrispondono a un modello, usare la condizione match. Nell'esempio seguente i nomi devono iniziare con `contoso` e contenere altre sei lettere:
+
+```json
+{
+  "if": {
+    "not": {
+      "field": "name",
+      "match": "contoso??????"
+    }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Per imporre un modello di data di due cifre, trattino, tre lettere, trattino e quattro cifre, usare:
+
+```json
+{
+  "if": {
+    "field": "tags.date",
+    "match": "##-???-####"
   },
   "then": {
     "effect": "deny"

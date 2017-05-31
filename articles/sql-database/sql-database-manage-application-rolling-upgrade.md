@@ -15,16 +15,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 66c37501b053cd9a8b4487c34e8914b75f3058ee
-ms.openlocfilehash: a99d3f9b8df5cfff98e76fe3931304221b2ca6f4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 4b59c8aa3dea3e8fba692ab66420295a09210d3b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gestione degli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
 > [!NOTE]
 > La [replica geografica attiva](sql-database-geo-replication-overview.md) è ora disponibile per tutti i database in tutti i livelli.
-> 
 > 
 
 Informazioni su come usare la [replica geografica](sql-database-geo-replication-overview.md) nel database SQL per abilitare gli aggiornamenti in sequenza dell'applicazione cloud. L'aggiornamento dovrebbe far parte della pianificazione e della progettazione della continuità aziendale perché è un'operazione che comporta interruzioni. In questo articolo vengono esaminati due metodi diversi per orchestrare il processo di aggiornamento e vengono discussi vantaggi e compromessi relativi a ciascuna opzione. Ai fini di questo articolo viene usata una semplice applicazione costituita da un sito Web collegato a un database singolo come livello dati. L'obiettivo consiste nell'aggiornare la versione 1 dell'applicazione alla versione 2 senza effetti significativi sull'esperienza dell'utente finale. 
@@ -44,8 +45,7 @@ Se l'applicazione si basa sui backup automatici del database e usa il ripristino
 
 > [!NOTE]
 > Le operazioni di preparazione non avranno effetti sull'applicazione nello slot di produzione, che funzionerà in modalità di accesso completo.
-> 
-> 
+>  
 
 ![Configurazione della replica geografica del database SQL. Ripristino di emergenza cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
@@ -135,26 +135,10 @@ Il **vantaggio** principale di questa opzione è che è possibile aggiornare in 
 I due metodi di aggiornamento descritti nell'articolo differiscono in termini di complessità e di costo, ma entrambi si concentrano sulla riduzione dei tempi quando l'utente finale è limitato alle operazioni di sola lettura. Questo periodo di tempo viene definito direttamente dalla durata dello script di aggiornamento. Non dipende dalle dimensioni del database, dal livello di servizio scelto, dalla configurazione del sito Web e da altri fattori difficilmente controllabili. Ciò è possibile perché tutti i passaggi di preparazione sono separati dalle operazioni di aggiornamento e possono essere eseguiti senza alcun impatto sull'applicazione di produzione. L'efficienza dello script di aggiornamento è il fattore determinante per l'esperienza dell'utente finale durante gli aggiornamenti. Il modo ottimale per migliorarla, quindi, consiste nel concentrare gli sforzi sullo script di aggiornamento, per renderlo il più efficiente possibile.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
-* Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
-* Per informazioni sull'uso dei backup automatici per il ripristino, vedere [Ripristinare un database SQL di Azure mediante i backup automatici del database](sql-database-recovery-using-backups.md)
-* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)  
-* Per altre informazioni sull'uso di backup automatici per l'archiviazione, vedere [Copia del database](sql-database-copy.md)
+* Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
+* Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
+* Per informazioni sull'uso dei backup automatici per il ripristino, vedere [Ripristinare un database SQL di Azure mediante i backup automatici del database](sql-database-recovery-using-backups.md).
+* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md).
 
-## <a name="additionale-resources"></a>Risorse aggiuntive
-Le pagine seguenti forniscono informazioni sulle operazioni specifiche necessarie per implementare il flusso di lavoro dell'aggiornamento:
-
-* [Aggiungere un database secondario](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
-* [Eseguire il failover del database nell'area secondaria](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-* [Disconnettere il database secondario con replica geografica](https://msdn.microsoft.com/library/azure/mt603457.aspx)
-* [Eseguire il ripristino geografico del database](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
-* [Eliminare un database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
-* [Copiare un database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
-* [Impostare il database in modalità di sola lettura o lettura/scrittura](https://msdn.microsoft.com/library/bb522682.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

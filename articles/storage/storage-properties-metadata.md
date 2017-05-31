@@ -1,5 +1,5 @@
 ---
-title: "Impostare e recuperare proprietà e metadati per gli oggetti in Archiviazione di Azure | Microsoft Docs"
+title: "Impostare e recuperare proprietà e metadati degli oggetti in Archiviazione di Azure | Microsoft Docs"
 description: "Archiviare i metadati personalizzati per oggetti di archiviazione di Azure, impostare e recuperare le proprietà di sistema."
 services: storage
 documentationcenter: 
@@ -12,21 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/15/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 3868d36948342739eb78b013bb4b466df4381b4f
-ms.openlocfilehash: 7c1ca950c3ab1b8ffb754a74597d45b82777838c
-ms.lasthandoff: 02/15/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 6af66607478c58874f00bcf017a35abfc37888df
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Impostare e recuperare proprietà e metadati
-## <a name="overview"></a>Panoramica
-Oggetti nelle proprietà di sistema di supporto di archiviazione di Azure e i metadati definiti dall'utente, oltre ai dati che contengono:
 
-* **Proprietà di sistema.** Proprietà di sistema su ogni risorsa di archiviazione. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure gestisce tale funzionalità.
-* **Metadati definiti dall’utente.** I metadati definiti dall'utente sono metadati specificati in una determinata risorsa, sotto forma di coppia nome-valore. È possibile utilizzare i metadati per archiviare valori aggiuntivi con una risorsa di archiviazione; questi valori sono destinati esclusivamente all’utente e non influiscono sul comportamento della risorsa.
+Oggetti nelle proprietà di sistema di supporto di Archiviazione di Azure e metadati definiti dall'utente, oltre ai dati che contengono. Questo articolo illustra la gestione delle proprietà di sistema e i metadati definiti dall'utente con la [Libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
+
+* **Proprietà di sistema**: proprietà di sistema su ogni risorsa di archiviazione. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure gestisce tale funzionalità.
+
+* **Metadati definiti dall'utente**: i metadati definiti dall'utente sono metadati specificati in una determinata risorsa, sotto forma di coppia nome-valore. È possibile usare i metadati per archiviare valori aggiuntivi con una risorsa di archiviazione. Questi valori di metadati aggiuntivi sono solo per le proprie esigenze e non influiscono sul comportamento della risorsa.
 
 Il recupero dei valori di proprietà e dei metadati per una risorsa è un processo in due fasi. Prima di leggere questi valori, è necessario recuperarli in modo esplicito chiamando il metodo **FetchAttributes** .
 
@@ -41,7 +42,7 @@ Per recuperare i valori della proprietà, chiamare il metodo **FetchAttributes**
 
 Per impostare le proprietà di un oggetto, specificare il valore della proprietà, quindi chiamare il metodo **SetProperties** .
 
-L’esempio di codice seguente crea un contenitore e scrive alcuni dei valori delle proprietà in una finestra della console.
+L'esempio di codice seguente crea un contenitore e scrive alcuni dei valori delle proprietà in una finestra della console.
 
 ```csharp
 //Parse the connection string for the storage account.
@@ -105,8 +106,7 @@ public static void ListContainerMetadata(CloudBlobContainer container)
 }
 ```
 
-## <a name="see-also"></a>Vedere anche
-* [Informazioni di riferimento sulla libreria client di archiviazione di Azure per .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-* [Pacchetto sulla libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-
+## <a name="next-steps"></a>Passaggi successivi
+* [Informazioni di riferimento sulla libreria client di archiviazione di Azure per .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [Pacchetto NuGet per la libreria client di Archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 

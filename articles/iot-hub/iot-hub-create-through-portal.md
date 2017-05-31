@@ -1,5 +1,5 @@
 ---
-title: Usare il portale di Azure per creare un hub IoT | Documentazione Microsoft
+title: Usare il portale di Azure per creare un hub IoT | Microsoft Docs
 description: Come creare, gestire ed eliminare hub IoT di Azure con il portale di Azure. Include informazioni su piani tariffari, ridimensionamento, sicurezza e configurazione della messaggistica.
 services: iot-hub
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 7a68a2764d17b53164ded5096ddee68ab8c723ed
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -132,7 +133,7 @@ Fare clic su **Route** per gestire la modalità di invio dei messaggi da disposi
 
 ![][14]
 
-È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route***, inserendo le informazioni necessarie e facendo clic su* *OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Abilito* *su* *Off**. Fare clic su **OK** nella parte inferiore del pannello per salvare le modifiche.
+È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route***, inserendo le informazioni necessarie e facendo clic su **OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Enabled** su **Off**. Fare clic su **OK** nella parte inferiore del pannello per salvare le modifiche.
 
 ![][15]
 
@@ -159,7 +160,7 @@ Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare ques
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 * [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
-* [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
+* [Simulazione di un dispositivo con IoT Edge][lnk-iotedge]
 * [Proteggere la soluzione IoT sin dall'inizio][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -177,7 +178,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 

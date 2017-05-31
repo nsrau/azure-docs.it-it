@@ -1,0 +1,1 @@
+Questo argomento usa per iniziare le risorse create in [Creare la prima funzione nel portale di Azure](../articles/azure-functions/functions-create-first-azure-function.md). Se queste procedure non sono state ancora completate, completarle ora per creare l'app per le funzioni.

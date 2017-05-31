@@ -4,7 +4,7 @@ description: "Questo articolo fornisce informazioni sull&quot;installazione e l&
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
 ms.service: automation
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2017
+ms.date: 05/02/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3a958b790b4501153aad86310c3783d49733dd90
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a63778c300a3d215a2a0025824f6363e1d9e9675
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -56,7 +57,7 @@ Tenere presente quanto segue per i ruoli di lavoro ibridi:
 * Può essere opportuno usare un computer situato fisicamente all'interno o in prossimità dell'area dell'account di automazione, perché al termine di un processo i relativi dati vengono restituiti ad Automazione di Azure.
 
 ### <a name="configure-proxy-and-firewall-settings"></a>Configurare le impostazioni di proxy e firewall
-Per connettersi e registrarsi al servizio Microsoft Operations Management Suite (OMS), il ruolo di lavoro ibrido per runbook locale deve avere accesso al numero di porta e agli URL descritti di seguito,  in aggiunta alle [porte e agli URL necessari per la connessione di Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) a OMS. Se si usa un server proxy per la comunicazione tra l'agente e il servizio OMS, è necessario assicurarsi che le risorse appropriate siano accessibili. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso.
+Per connettersi e registrarsi al servizio Microsoft Operations Management Suite (OMS), il ruolo di lavoro ibrido per runbook locale deve avere accesso al numero di porta e agli URL descritti di seguito,  in aggiunta alle [porte e agli URL necessari per la connessione di Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md) a OMS. Se si usa un server proxy per la comunicazione tra l'agente e il servizio OMS, è necessario verificare che le risorse appropriate siano accessibili. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso.
 
 Di seguito sono elencati la porta e gli URL necessari affinché il ruolo di lavoro ibrido per runbook comunichi con Automazione.
 
@@ -69,6 +70,7 @@ Se si ha un account di automazione definito per un'area specifica e si vuole lim
 | --- | --- |
 | Stati Uniti centro-meridionali |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Stati Uniti orientali 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| Stati Uniti centro-occidentali | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | Europa occidentale |we-jobruntimedata-prod-su1.azure-automation.net |
 | Europa settentrionale |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Canada centrale |cc-jobruntimedata-prod-su1.azure-automation.net |
@@ -76,6 +78,14 @@ Se si ha un account di automazione definito per un'area specifica e si vuole lim
 | India centrale |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Giappone orientale |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Australia sud-orientale |ase-jobruntimedata-prod-su1.azure-automation.net |
+| Regno Unito meridionale | uks-jobruntimedata-prod-su1.azure-automation.net |
+| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Per un elenco di indirizzi IP invece dei nomi, scaricare il file XML degli [indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) dall'Area download Microsoft.
+
+> [!NOTE]
+> Questo file contiene gli intervalli di indirizzi IP, inclusi gli intervalli di Calcolo, SQL e Archiviazione, usati nei data center di Microsoft Azure. Ogni settimana viene pubblicato un file che riflette gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non verranno usati nei data center per almeno una settimana. Scaricare il nuovo file XML ogni settimana e apportare le modifiche necessarie nel sito per identificare correttamente i servizi in esecuzione in Azure. Gli utenti di ExpressRoute possono notare che questo file viene usato per aggiornare l'annuncio BGP dello spazio di Azure la prima settimana del mese.
+>
 
 ## <a name="installing-hybrid-runbook-worker"></a>Installazione di Hybrid Runbook Workers
 
@@ -91,20 +101,20 @@ Seguire questa procedura per automatizzare l'installazione e configurazione del 
 
   * *AutomationAccountName* (obbligatorio) - nome dell'account di Automazione.  
   * *ResourceGroupName* (obbligatorio) - nome del gruppo di risorse associato all'account di Automazione.  
-  * *HybridGroupName* (obbligatorio) - nome di un gruppo di ruoli di lavoro ibridi per runbook che si specifica come destinazione per i runbook che supportano questo scenario. 
+  * *HybridGroupName* (obbligatorio) - nome di un gruppo di ruoli di lavoro ibridi per runbook che si specifica come destinazione per i runbook che supportano questo scenario.
   *  *SubscriptionID* (obbligatorio) - ID della sottoscrizione di Azure in cui si trova l'account di Automazione.
   *  *WorkspaceName* (facoltativo) - nome dell'area di lavoro OMS.  Se non si ha un'area di lavoro OMS, lo script ne crea e configura una.  
 
      > [!NOTE]
      > Le uniche aree di Automazione supportate per l'integrazione con OMS sono attualmente: **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale** ed **Europa occidentale**.  Se l'account di Automazione non si trova in una di queste aree, lo script crea un'area di lavoro OMS ma avvisa l'utente che non sarà possibile eseguire il collegamento.
-     > 
+     >
 2. Nel computer in uso avviare **Windows PowerShell** dalla schermata **Start** in modalità amministratore.  
 3. Dalla shell della riga di comando di PowerShell passare alla cartella che contiene lo script scaricato ed eseguirlo modificando i valori per i parametri *-AutomationAccountName*, *-ResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* e *-WorkspaceName*.
 
-     > [!NOTE] 
+     > [!NOTE]
      > Verrà chiesto di eseguire l'autenticazione con Azure dopo aver eseguito lo script.  È **necessario** accedere con un account membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.  
      >  
-    
+
         .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
@@ -113,7 +123,7 @@ Seguire questa procedura per automatizzare l'installazione e configurazione del 
 
 5. Dopo il completamento dello script, il pannello Gruppi di ruoli di lavoro ibridi mostrerà il nuovo gruppo e il numero di membri oppure, nel caso di un gruppo esistente, il numero di membri verrà incrementato.  È possibile selezionare il gruppo nell'elenco nel pannello **Gruppi di ruoli di lavoro ibridi** e selezionare il riquadro **Ruoli di lavoro per runbook**.  Nel pannello **Ruoli di lavoro per runbook** sono elencati i membri del gruppo.  
 
-### <a name="manual-deployment"></a>Distribuzione manuale 
+### <a name="manual-deployment"></a>Distribuzione manuale
 Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi ripetere i passaggi rimanenti per ogni computer di lavoro.
 
 #### <a name="1-create-operations-management-suite-workspace"></a>1. Creare l'area di lavoro di Operations Management Suite
@@ -156,9 +166,9 @@ Usare l'opzione **-Verbose** con **Add-HybridRunbookWorker** per ricevere inform
 #### <a name="5-install-powershell-modules"></a>5. Installare i moduli di PowerShell
 I runbook possono usare tutte le attività e i cmdlet definiti nei moduli installati nell'ambiente di Automazione di Azure.  Questi moduli tuttavia non vengono distribuiti automaticamente nei computer locali, pertanto è necessario installarli manualmente.  L'unica eccezione è rappresentata dal modulo Azure, che viene installato per impostazione predefinita, garantendo l'accesso ai cmdlet per tutti i servizi e le attività di Azure per Automazione di Azure.
 
-Poiché lo scopo principale della funzionalità ruolo di lavoro ibrido per runbook è gestire le risorse locali, probabilmente sarà necessario installare i moduli che supportano queste risorse.  Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere il [relativo articolo](http://msdn.microsoft.com/library/dd878350.aspx) .  I moduli installati devono trovarsi in un percorso a cui fa riferimento la variabile di ambiente PSModulePath, in modo da venire importati automaticamente dal ruolo di lavoro ibrido.  Per altre informazioni, vedere [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx) (Modifica del percorso di installazione di PSModulePath). 
+Poiché lo scopo principale della funzionalità ruolo di lavoro ibrido per runbook è gestire le risorse locali, probabilmente sarà necessario installare i moduli che supportano queste risorse.  Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere il [relativo articolo](http://msdn.microsoft.com/library/dd878350.aspx) .  I moduli installati devono trovarsi in un percorso a cui fa riferimento la variabile di ambiente PSModulePath, in modo da venire importati automaticamente dal ruolo di lavoro ibrido.  Per altre informazioni, vedere [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx) (Modifica del percorso di installazione di PSModulePath).
 
-## <a name="removing-hybrid-runbook-worker"></a>Rimozione del ruolo di lavoro ibrido per runbook 
+## <a name="removing-hybrid-runbook-worker"></a>Rimozione del ruolo di lavoro ibrido per runbook
 È possibile rimuovere uno o più ruoli di lavoro ibrido per runbook da un gruppo o è possibile rimuovere il gruppo, a seconda dei requisiti.  Per rimuovere un ruolo di lavoro ibrido per runbook da un computer locale, seguire questa procedura.
 
 1. Nel portale di Azure passare all'account di Automazione.  
@@ -232,21 +242,21 @@ Il runbook di PowerShell seguente, *Export-RunAsCertificateToHybridWorker*, espo
     .GUID 3a796b9a-623d-499d-86c8-c249f10a6986
     .AUTHOR Azure Automation Team
     .COMPANYNAME Microsoft
-    .COPYRIGHT 
-    .TAGS Azure Automation 
-    .LICENSEURI 
-    .PROJECTURI 
-    .ICONURI 
-    .EXTERNALMODULEDEPENDENCIES 
-    .REQUIREDSCRIPTS 
-    .EXTERNALSCRIPTDEPENDENCIES 
+    .COPYRIGHT
+    .TAGS Azure Automation
+    .LICENSEURI
+    .PROJECTURI
+    .ICONURI
+    .EXTERNALMODULEDEPENDENCIES
+    .REQUIREDSCRIPTS
+    .EXTERNALSCRIPTDEPENDENCIES
     .RELEASENOTES
     #>
 
     <#  
     .SYNOPSIS  
-    Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account. 
-  
+    Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
+
     .DESCRIPTION  
     This runbook exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
     Run this runbook in the hybrid worker where you want the certificate installed.
@@ -256,11 +266,11 @@ Il runbook di PowerShell seguente, *Export-RunAsCertificateToHybridWorker*, espo
     .\Export-RunAsCertificateToHybridWorker
 
     .NOTES
-    AUTHOR: Azure Automation Team 
+    AUTHOR: Azure Automation Team
     LASTEDIT: 2016.10.13
     #>
 
-    [OutputType([string])] 
+    [OutputType([string])]
 
     # Set the password used for this certificate
     $Password = "YourStrongPasswordForTheCert"
@@ -270,21 +280,21 @@ Il runbook di PowerShell seguente, *Export-RunAsCertificateToHybridWorker*, espo
 
     # Get the management certificate that will be used to make calls into Azure Service Management resources
     $RunAsCert = Get-AutomationCertificate -Name "AzureRunAsCertificate"
-       
+
     # location to store temporary certificate in the Automation service host
     $CertPath = Join-Path $env:temp  "AzureRunAsCertificate.pfx"
-   
+
     # Save the certificate
     $Cert = $RunAsCert.Export("pfx",$Password)
-    Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose 
+    Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose
 
     Write-Output ("Importing certificate into local machine root store from " + $CertPath)
     $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
     Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
 
     # Test that authentication to Azure Resource Manager is working
-    $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection" 
-    
+    $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
+
     Add-AzureRmAccount `
       -ServicePrincipal `
       -TenantId $RunAsConnection.TenantId `

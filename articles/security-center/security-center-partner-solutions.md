@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 2d7ab8fbed1d4edb60416c7c6b7ae08ddbdec91a
-ms.lasthandoff: 02/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5ffc3253cf07018ad6fe9f0112c75c2e1495e5df
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,33 +35,30 @@ Il riquadro **Soluzioni partner** nel pannello **Centro sicurezza** permette di 
 
 ![Riquadro Soluzioni partner][1]
 
-Il riquadro **Soluzioni partner** mostra il numero di soluzioni dei partner e un riepilogo dello stato per tali soluzioni.
-
-La voce **STATO** di una soluzione di un partner può indicare uno degli stati seguenti:
-
-* Protetto (verde): nessun problema di integrità.
-* Danneggiato (rosso): è presente un problema di integrità che richiede attenzione immediata.
-* Segnalazione arrestata (arancione): la soluzione ha arrestato la segnalazione dello stato di integrità.
-* Sconosciuto (arancione): l'integrità della soluzione è attualmente sconosciuta, a causa di un processo di aggiunta di una nuova risorsa alla soluzione esistente non riuscito.
-* Non segnalato (grigio): la soluzione non ha ancora inviato alcuna segnalazione. Lo stato di una soluzione può essere non segnalato se la soluzione è appena stata connessa ed è ancora in fase di distribuzione.
-
-Se nella sottoscrizione non è integrata alcuna soluzione, il riquadro indica che non ci sono soluzioni. Selezionando il riquadro **Soluzioni partner**, è possibile aprire il pannello **Raccomandazioni** per distribuire soluzioni di sicurezza dei partner.
-
-![Nessuna soluzione partner][2]
+Il riquadro **Soluzioni partner** mostra il numero di soluzioni dei partner integrate con la sottoscrizione. Se non sono presenti soluzioni integrate, il riquadro visualizza il numero zero.
 
 Per visualizzare l'integrità delle soluzioni dei partner:
 
-1. Selezionare il riquadro **Soluzioni partner** . Viene visualizzato un pannello contenente un elenco di soluzioni dei partner connesse al Centro sicurezza.
+1. Selezionare il riquadro **Soluzioni partner** . Viene visualizzato il pannello **Soluzioni partner** con un elenco di soluzioni dei partner connesse al Centro sicurezza.
 
    ![Soluzioni partner][3]
-2. Selezionare una soluzione dei partner. In questo esempio viene selezionata la soluzione **F5-WAF2** .  Viene visualizzato un pannello che mostra che lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione.
+
+   Una soluzione partner può avere uno degli stati seguenti:
+
+   * Protetto (verde): nessun problema di integrità.
+   * Danneggiato (rosso): è presente un problema di integrità che richiede attenzione immediata.
+   * Segnalazione arrestata (arancione): la soluzione ha arrestato la segnalazione dello stato di integrità.
+   * Sconosciuto (arancione): l'integrità della soluzione è attualmente sconosciuta, a causa di un processo di aggiunta di una nuova risorsa alla soluzione esistente non riuscito.
+   * Non segnalato (grigio): la soluzione non ha ancora inviato alcuna segnalazione. Lo stato di una soluzione può essere non segnalato se la soluzione è appena stata connessa ed è ancora in fase di distribuzione.
+
+2. Selezionare una soluzione dei partner. In questo esempio viene selezionata la soluzione **Qualys**.  Viene visualizzato un pannello che mostra che lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione.
 
    ![Dettagli della soluzione di un partner][4]
-3. Tornare al pannello **F5-WAF2** e selezionare **Collega app**. Verrà visualizzato il pannello **Collega applicazioni** . In questo pannello è possibile connettere risorse alla soluzione del partner.
+3. Tornare al pannello **Qualys** e selezionare **Collega la macchina virtuale**. Verrà visualizzato il pannello **Collega applicazioni** . In questo pannello è possibile connettere risorse alla soluzione del partner.
 
    ![Collegare risorse alla soluzione di un partner][5]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 Questo documento ha presentato il riquadro **Soluzioni partner** del Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
@@ -72,7 +70,6 @@ Questo documento ha presentato il riquadro **Soluzioni partner** del Centro sicu
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
-[2]: ./media/security-center-partner-solutions/no-partner-solutions-to-display.png
 [3]: ./media/security-center-partner-solutions/partner-solutions.png
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png

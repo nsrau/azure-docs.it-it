@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
-Questo articolo contiene la guida dell'utente di Azure Site Recovery per distribuzioni di produzione da VMware ad Azure.
+Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
 
 ## <a name="overview"></a>Panoramica
 
@@ -36,7 +37,7 @@ Lo strumento indica i dettagli seguenti:
 
 **Valutazione della compatibilità**
 
-* Valutazione dell'idoneità delle VM in base al numero di dischi, dimensioni dei dischi, operazioni di I/O al secondo e varianza
+* Valutazione dell'idoneità delle VM in base a numero di dischi, dimensioni dei dischi, operazioni di I/O al secondo, varianza e tipo di avvio (EFI/BIOS)
 * Larghezza di banda stimata necessaria per la replica differenziale
 
 **Valutazione della larghezza di banda di rete necessaria rispetto al valore RPO**
@@ -204,6 +205,10 @@ Al termine della profilatura, è possibile eseguire lo strumento in modalità di
 | -StartDate | (Facoltativo) Data e ora di inizio in MM-GG-AAAA:HH:MM, in formato 24 ore. *StartDate* deve essere specificato con *EndDate*. Quando StartDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
 | -EndDate | (Facoltativo) Data e ora di fine in MM-GG-AAAA:HH:MM, in formato 24 ore. *EndDate* deve essere specificato con *StartDate*. Quando EndDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
 | -GrowthFactor | (Facoltativo) Fattore di crescita, espresso come percentuale. Il valore predefinito è 30%. |
+| -UseManagedDisks | (Facoltativo) UseManagedDisks: Yes/No. Il valore predefinito è Yes. Il calcolo del numero di macchine virtuali che può essere inserito in un singolo account di archiviazione dipende dalla selezione o meno di un disco gestito per il failover e il failover di test. |
+
+Per l'inserimento in un singolo account di archiviazione, il calcolo tiene conto del fatto che il failover e il failover di test delle macchine virtuali vengano eseguiti su un disco gestito anziché su un disco non gestito. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Esempio 1: Generare un report con valori predefiniti quando i dati profilati si trovano nell'unità locale
 ```
@@ -480,7 +485,7 @@ Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene al
 
 **NICs** (Schede di interfaccia di rete): numero di schede di interfaccia di rete della VM.
 
-**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI. Azure Site Recovery supporta attualmente solo il tipo di avvio BIOS. Tutte le macchine virtuali con tipo di avvio EFI sono elencate nel foglio di lavoro VM incompatibili. 
+**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI. Azure Site Recovery supporta attualmente solo il tipo di avvio BIOS. Tutte le macchine virtuali con tipo di avvio EFI sono elencate nel foglio di lavoro VM incompatibili.
 
 **OS Type** (Tipo di sistema operativo): tipo di sistema operativo della macchina virtuale. Può essere Windows, Linux o altro.
 
@@ -517,7 +522,7 @@ Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene al
 
 **NICs** (Schede di interfaccia di rete): numero di schede di interfaccia di rete della VM.
 
-**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI. Azure Site Recovery supporta attualmente solo il tipo di avvio BIOS. Tutte le macchine virtuali con tipo di avvio EFI sono elencate nel foglio di lavoro VM incompatibili. 
+**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI. Azure Site Recovery supporta attualmente solo il tipo di avvio BIOS. Tutte le macchine virtuali con tipo di avvio EFI sono elencate nel foglio di lavoro VM incompatibili.
 
 **OS Type** (Tipo di sistema operativo): tipo di sistema operativo della macchina virtuale. Può essere Windows, Linux o altro.
 
@@ -558,6 +563,15 @@ Per aggiornare Deployment Planner, seguire questa procedura:
 
 
 ## <a name="version-history"></a>Cronologia delle versioni
+
+### <a name="13"></a>1.3
+Ultimo aggiornamento: 9 maggio 2017
+
+È stata aggiunta la nuova funzionalità seguente:
+
+* Aggiunta del supporto di dischi gestiti nella generazione di report. Il calcolo del numero di macchine virtuali che può essere inserito in un singolo account di archiviazione dipende dalla selezione o meno di un disco gestito per il failover e il failover di test.        
+
+
 ### <a name="12"></a>1.2
 Ultimo aggiornamento: 7 aprile 2017
 

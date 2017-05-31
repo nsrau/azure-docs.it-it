@@ -13,21 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/21/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 2ce92b3f0a21f80eb4294161d6d3a5275c992600
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: de8ffb5ef81ac9ef4a9217f275f2c96973948eb1
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Creare un'immagine personalizzata di una macchina virtuale di Azure tramite l'interfaccia della riga di comando
 
-In questa esercitazione verrà spiegato come definire un'immagine personalizzata di una macchina virtuale di Azure. Le immagini personalizzate consentono di creare VM usando un'immagine che si è già configurata. Le immagini personalizzate possono essere usate per l'avvio del precaricamento di file binari e applicazioni, configurazioni di applicazioni, dati di VM e altre configurazioni del sistema operativo. Quando si crea un'immagine personalizzata, vengono inclusi nell'immagine la VM che si personalizza e tutti i dischi associati.
+Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per le configurazioni di avvio, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. In questa esercitazione viene creata un'immagine personalizzata di una macchina virtuale di Azure. Si apprenderà come:
 
-Le procedure descritte in questa esercitazione possono essere completate usando l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Eseguire il deprovisioning e generalizzare le macchine virtuali
+> * Creare un'immagine personalizzata
+> * Creare una VM da un'immagine personalizzata
+> * Elencare tutte le immagini nella sottoscrizione
+> * Eliminare un'immagine
+
+Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). È anche possibile usare [Cloud Shell](/azure/cloud-shell/quickstart) dal browser.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -35,9 +42,9 @@ La procedura riportata di seguito illustra come prendere una VM esistente e conv
 
 Per completare l'esempio contenuto in questa esercitazione è necessario disporre di una macchina virtuale esistente. Se necessario, questo [script di esempio](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) può crearne una appositamente. Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e delle macchine virtuali dove necessario.
 
-## <a name="prepare-vm"></a>Preparare la VM
+## <a name="create-a-custom-image"></a>Creare un'immagine personalizzata
 
-Per creare un'immagine di una macchina virtuale, è necessario preparare la macchina virtuale eseguendo il deprovisioning, la deallocazione e contrassegnare quindi la macchina virtuale di origine come generalizzata.
+Per creare un'immagine di una macchina virtuale, è necessario preparare la macchina virtuale eseguendo il deprovisioning, la deallocazione e contrassegnare quindi la macchina virtuale di origine come generalizzata. Dopo aver preparato la macchina virtuale, è possibile creare un'immagine.
 
 ### <a name="deprovision-the-vm"></a>Eseguire il deprovisioning della macchina virtuale 
 
@@ -67,22 +74,22 @@ exit
 Per creare un'immagine, è necessario deallocare la macchina virtuale. Deallocare la macchina virtuale con il comando [az vm deallocate](/cli//azure/vm#deallocate). 
    
 ```azurecli
-az vm deallocate --resource-group myRGCaptureImage --name myVM
+az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 Infine, impostare lo stato della macchina virtuale come generalizzato tramite [az vm generalize](/cli//azure/vm#generalize) in modo che la piattaforma Azure riconosca che la macchina virtuale è stata generalizzata. È possibile creare solo un'immagine da una VM generalizzata.
    
 ```azurecli
-az vm generalize --resource-group myResourceGroupImages --name myVM
+az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="create-the-image"></a>Creare l'immagine
+### <a name="create-the-image"></a>Creare l'immagine
 
 È ora possibile creare un'immagine della macchina virtuale con il comando [az image create](/cli//azure/image#create). Nell'esempio seguente viene creata un'immagine denominata *myImage* dalla VM denominata *myVM*.
    
 ```azurecli
 az image create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myImage \
     --source myVM
 ```
@@ -93,17 +100,46 @@ Ora che è stata creata un'immagine, è possibile creare una o più nuove VM dal
 
 ```azurecli
 az vm create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myVMfromImage \
     --image myImage \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
 
+## <a name="image-management"></a>Gestione delle immagini 
+
+Di seguito sono riportati alcuni esempi di attività comuni di gestione di immagini e la loro modalità di completamento tramite l'interfaccia della riga di comando di Azure.
+
+Elencare tutte le immagini per nome in formato tabella.
+
+```azurecli
+az image list \
+  --resource-group myResourceGroup
+```
+
+Eliminare un'immagine. Questo esempio elimina l'immagine denominata *myOldImage* da *myResourceGroup*.
+
+```azurecli
+az image delete \
+    --name myOldImage \
+    --resource-group myResourceGroup
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata descritta la creazione di immagini di macchine virtuali personalizzate. Passare all'esercitazione successiva per la descrizione delle macchine virtuali a disponibilità elevata.
+In questa esercitazione viene creata un'immagine di macchina virtuale personalizzata. Si è appreso come:
 
-[Creare macchine virtuali a disponibilità elevata](tutorial-availability-sets.md).
+> [!div class="checklist"]
+> * Eseguire il deprovisioning e generalizzare le macchine virtuali
+> * Creare un'immagine personalizzata
+> * Creare una VM da un'immagine personalizzata
+> * Elencare tutte le immagini nella sottoscrizione
+> * Eliminare un'immagine
+
+Passare all'esercitazione successiva per la descrizione delle macchine virtuali a disponibilità elevata.
+
+> [!div class="nextstepaction"]
+> [Creare macchine virtuali a disponibilità elevata](tutorial-availability-sets.md).
 
 

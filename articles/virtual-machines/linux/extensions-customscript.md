@@ -1,5 +1,5 @@
 ---
-title: Eseguire script personalizzati nelle macchine virtuali Linux | Documentazione Microsoft
+title: Eseguire script personalizzati nelle macchine virtuali Linux | Microsoft Docs
 description: "Automatizzare le attività di configurazione delle macchine virtuali Linux usando l&quot;estensione script personalizzata"
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 04/26/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f06ec73f2b03dcdf5ac4069f28ee8653537f72f8
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 89001404fa7255efc656b98983502d1f1d84fd73
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -33,6 +34,8 @@ La configurazione dell'estensione script personalizzata specifica informazioni c
 ### <a name="public-configuration"></a>Configurazione pubblica
 Schema:
 
+**Nota**: questi nomi di proprietà fanno distinzione tra maiuscole e minuscole. Usare i nomi come sono riportati sotto per evitare problemi di distribuzione.
+
 * **commandToExecute**: (obbligatorio, stringa) script del punto di ingresso da eseguire.
 * **fileUris**: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare.
 * **timestamp** : (facoltativo, intero) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.
@@ -46,6 +49,8 @@ Schema:
 
 ### <a name="protected-configuration"></a>Configurazione protetta
 Schema:
+
+**Nota**: questi nomi di proprietà fanno distinzione tra maiuscole e minuscole. Usare i nomi come sono riportati sotto per evitare problemi di distribuzione.
 
 * **commandToExecute**: (facoltativo, stringa) script del punto di ingresso da eseguire. Usare in alternativa questo campo se il comando contiene segreti, ad esempio password.
 * **storageAccountName**: (facoltativo, stringa) nome dell'account di archiviazione. Se si specificano credenziali di archiviazione, tutti i valori di fileUris devono essere URL relativi a BLOB di Azure.
@@ -63,33 +68,35 @@ Schema:
 Quando si usa l'interfaccia della riga di comando di Azure per eseguire l'estensione script personalizzata, creare uno o più file di configurazione contenenti almeno il relativo URI e il comando di esecuzione dello script.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /script-config.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-Facoltativamente, il comando può essere eseguito mediante le opzioni `--public-config` e `--private-config`, in modo che la configurazione possa essere specificata durante l'esecuzione e senza un file di configurazione separato.
+Le impostazioni possono essere specificate facoltativamente nel comando come una stringa in formato JSON. Ciò consente di specificare la configurazione durante l'esecuzione e senza un file di configurazione separato.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set '
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],"commandToExecute": "./test.sh"}'
 ```
 
 ### <a name="azure-cli-examples"></a>Esempi di interfaccia della riga di comando di Azure
+
 **Esempio 1** : configurazione pubblica con file di script.
 
 ```json
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
-  "commandToExecute": "./hello.sh"
+  "fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],
+  "commandToExecute": "./test.sh"
 }
 ```
 
 Comando dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /public.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
 **Esempio 2** : configurazione pubblica senza file di script.
@@ -103,8 +110,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
 Comando dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /public.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
 **Esempio 3** : vengono usati un file di configurazione pubblica per specificare l'URI del file di script e un file di configurazione protetta per specificare il comando da eseguire.
@@ -128,8 +134,7 @@ File di configurazione protetta:
 Comando dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings
 ```
 
 ## <a name="resource-manager-template"></a>Modello di Resource Manager
@@ -214,7 +219,7 @@ L'estensione script di Azure genera un log che è possibile trovare nella direct
 Lo stato dell'esecuzione dell'estensione script personalizzata può essere recuperato anche con l'interfaccia della riga di comando di Azure.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list -g myResourceGroup --vm-name myVM
 ```
 
 L'output ha un aspetto simile al testo seguente:

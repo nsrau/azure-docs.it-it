@@ -3,8 +3,8 @@ title: Monitoraggio dell&quot;utilizzo e delle prestazioni per le applicazioni d
 description: Analizzare l&quot;utilizzo e le prestazioni dell&quot;applicazione desktop di Windows con HockeyApp e Application Insights.
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
 ms.workload: tbd
@@ -12,10 +12,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
 ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
+ms.contentlocale: it-it
 ms.lasthandoff: 11/17/2016
 
 

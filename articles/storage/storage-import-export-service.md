@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 132c1cf6b06924b8d23d696ea732856886be975d
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1aebecdaacd3525bec07a9359e52d2bc3d1539de
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -76,7 +77,8 @@ Scaricare la versione più recente dello [strumento WAImportExport](http://downl
 >
 
 ### <a name="hard-disk-drives"></a>Unità disco rigido
-Con il servizio Importazione/Esportazione sono supportati solo le unità SSD da 2,5 pollici o i dischi rigidi interni SATA II/III da 2,5 o 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB.
+Con il servizio Importazione/Esportazione sono supportati solo le unità disco rigido da 2,5 pollici o i dischi rigidi interni SATA II/III da 2,5 o 3,5 pollici. Un singolo processo di importazione/esportazione può interessare un massimo di 10 unità disco rigido o SSD e ogni unità disco rigido o SSD può avere qualsiasi dimensione. Un numero elevato di unità può essere distribuito tra più processi e non esistono limiti al numero di processi che è possibile creare. 
+
 Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS.
 
 > [!IMPORTANT]
@@ -508,6 +510,14 @@ Vedere [Importare file PST o dati di SharePoint in Office 365](https://technet.m
 
 Vedere [Flusso di lavoro di Backup offline in Backup di Azure](../backup/backup-azure-backup-import-export.md).
 
+**Qual è il numero massimo di unità disco rigido per una spedizione?
+
+In una spedizione può essere presente un numero qualsiasi di unità disco rigido. Se i dischi appartengono a più processi, è consigliabile: a) Etichettare i dischi con i corrispondenti nomi dei processi. b) Aggiornare i processi con un numero di tracciabilità seguito da -1, -2 e così via.
+  
+**Qual è la dimensione massima dei BLOB in blocchi e dei BLOB di pagine supportata dalle operazioni di importazione/esportazione di dischi?
+
+La dimensione massima dei BLOB in blocchi è circa 4768 TB o 5.000.000 MB.
+La dimensione massima di un BLOB di pagine è 1 TB.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md) (Configurazione dello strumento WAImportExport)

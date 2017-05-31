@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: pratshar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e6d05d7a7595e17d026be6a448b2fa2cca9b816
 ms.openlocfilehash: a62fe406af18c9c7d9b58839bfa0d6e785b614ef
+ms.contentlocale: it-it
 ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>Progettazione della rete per il ripristino di emergenza
+
 Questo articolo si rivolge ai professionisti IT che sono responsabili dell'architettura, dell'implementazione e del supporto dell'infrastruttura di continuità aziendale e ripristino di emergenza (BCDR, Business Continuity and Disaster Recovery) e che vogliono sfruttare Microsoft Azure Site Recovery (ASR) per supportare e migliorare i servizi BCDR. Questo documento illustra le considerazioni pratiche per la distribuzione di server System Center Virtual Machine Manager, i pro e i contro delle subnet estese rispetto al failover su subnet e come strutturare il ripristino di emergenza per siti virtuali in Microsoft Azure.
 
 ## <a name="overview"></a>Overview

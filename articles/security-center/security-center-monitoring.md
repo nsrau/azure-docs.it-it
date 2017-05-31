@@ -4,7 +4,7 @@ description: "Questo articolo illustra come iniziare a usare le funzionalità di
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -28,18 +29,17 @@ Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro 
 Spesso si pensa al monitoraggio come l'osservazione e l'attesa di un evento al fine di reagire alla situazione verificatasi. Per monitoraggio della sicurezza si intende una strategia proattiva per il controllo delle risorse, al fine di identificare i sistemi non conformi agli standard o alle procedure consigliate della società.
 
 ## <a name="monitoring-security-health"></a>Monitoraggio dello stato di sicurezza
-Dopo avere abilitato i [criteri di sicurezza](security-center-policies.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità. Le informazioni sulla configurazione di rete sono disponibili immediatamente. Le informazioni sulla configurazione della macchina virtuale, ad esempio lo stato di aggiornamento della sicurezza e la configurazione del sistema operativo, potrebbero diventare disponibili dopo un'ora o più. Nel pannello **Integrità sicurezza delle risorse** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati. Anche nel pannello **Raccomandazioni** è disponibile l'elenco dei problemi riscontrati.
+Dopo avere abilitato i [criteri di sicurezza](security-center-policies.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità. Le informazioni sulla configurazione di rete sono disponibili immediatamente. Le informazioni sulla configurazione della macchina virtuale, ad esempio lo stato di aggiornamento della sicurezza e la configurazione del sistema operativo, potrebbero diventare disponibili dopo un'ora o più. Nella sezione **Prevenzione** è possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi rilevati. Anche nel riquadro **Raccomandazioni** è disponibile l'elenco dei problemi riscontrati.
 
 Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo sull'[implementazione delle raccomandazioni sulla sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
-Il riquadro **Integrità sicurezza delle risorse** consente di monitorare lo stato di sicurezza delle risorse. L'esempio seguente mostra alcuni problemi con livelli di gravità medio e alto che richiedono attenzione. I criteri di sicurezza abilitati influiranno sui tipi di controlli monitorati.
+Nella sezione **Prevenzione** è possibile monitorare lo stato di sicurezza delle risorse. Nell'esempio seguente, si noterà che il riquadro di ogni risorsa, ovvero Calcolo, Rete, Storage & data (Archiviazione e dati) e Applicazione indica il numero totale di problemi identificati.
 
-![Riquadro Integrità sicurezza delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
+![Riquadro Integrità sicurezza delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
-Se il Centro sicurezza identifica una vulnerabilità che deve essere risolta, ad esempio una macchina virtuale in cui mancano aggiornamenti della sicurezza o una subnet senza un [gruppo di sicurezza di rete](/virtual-network/virtual-networks-nsg.md), la vulnerabilità verrà riportata qui.
 
 ### <a name="monitor-compute"></a>Monitorare le risorse di calcolo
-Quando si fa clic su **Calcolo** nel riquadro **Integrità sicurezza delle risorse**, il pannello **Calcolo** visualizzato comprende tre schede:
+Quando si fa clic sul riquadro **Calcolo**, il pannello **Calcolo** visualizzato comprende tre schede:
 
 - **Panoramica**: consigli sul monitoraggio e sulle macchine virtuali.
 - **Macchine virtuali**: elenco di tutte le macchine virtuali e il rispettivo stato di sicurezza corrente.
@@ -119,7 +119,7 @@ Per visualizzare una spiegazione più esaustiva riguardante questa raccomandazio
 ![Raccomandazioni sui servizi cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Monitorare le reti virtuali
-Quando si fa clic su **Rete** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Rete** con altri dettagli, come illustrato nello screenshot seguente:
+Quando si fa clic sul riquadro **Rete**, si apre il pannello **Rete** con altri dettagli, come illustrato nello screenshot seguente:
 
 ![Pannello Rete](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -170,11 +170,11 @@ Nella visualizzazione della topologia il primo livello include [Reti virtuali](.
 
 La parte inferiore del pannello include le raccomandazioni per questa macchina virtuale, simili a quanto illustrato in precedenza. È possibile fare clic su una raccomandazione per ottenere altre informazioni o per applicare la configurazione o il controllo di sicurezza necessario.
 
-### <a name="monitor-data"></a>Monitorare di dati
+### <a name="monitor-storage--data"></a>Monitoraggio di archiviazione e dati
 
-Quando si fa clic su **SQL & Data** (SQL e dati) nel riquadro **Resources security health** (Integrità della sicurezza delle risorse) viene aperto il pannello **Risorse dati** con raccomandazioni relative a SQL e all'archiviazione. Il pannello include anche [raccomandazioni](security-center-sql-service-recommendations.md) sullo stato di integrità generale del database. Per altre informazioni sulla crittografia per l'archiviazione, vedere [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md) (Abilitare la crittografia per l'account di archiviazione di Azure nel Centro sicurezza di Azure).
+Quando si fa clic su **Storage & data** (Archiviazione e dati) nella sezione **Prevenzione**, si apre il pannello **Risorse dati** con raccomandazioni relative a SQL e all'archiviazione. Il pannello include anche [raccomandazioni](security-center-sql-service-recommendations.md) sullo stato di integrità generale del database. Per altre informazioni sulla crittografia per l'archiviazione, vedere [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md) (Abilitare la crittografia per l'account di archiviazione di Azure nel Centro sicurezza di Azure).
 
-![Risorse dati](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
+![Risorse dati](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
 In **Raccomandazioni su SQL** è possibile fare clic su qualsiasi raccomandazione e ottenere maggiori dettagli sulle ulteriori azioni per risolvere un problema. L'esempio seguente illustra l'espansione della raccomandazione **Database Auditing & Threat detection on SQL databases** (Controllo database e rilevamento minacce nei database SQL).
 

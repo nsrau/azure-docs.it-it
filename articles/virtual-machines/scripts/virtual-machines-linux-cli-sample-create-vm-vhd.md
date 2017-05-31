@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c654db0142df904acc5212b0f53991c54cbf2087
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9e62713be30a07ae00dac07de21009d2c379d609
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -34,11 +34,13 @@ Viene infine sostituita la chiave pubblica SSH con la chiave pubblica personale 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[principale](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "Creare una macchina virtuale usando un disco rigido virtuale")]
+[!code-azurecli-interactive[principale](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "Creare una macchina virtuale usando un disco rigido virtuale")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 

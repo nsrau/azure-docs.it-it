@@ -1,5 +1,5 @@
 ---
-title: Panoramica della sicurezza del database SQL di Azure | Documentazione Microsoft
+title: Panoramica della sicurezza del database SQL di Azure | Microsoft Docs
 description: "In questo argomento vengono fornite informazioni sulla sicurezza database SQL Azure e SQL Server, incluse le differenze tra il cloud e SQL Server locale per quanto riguarda l&quot;autenticazione, l&quot;autorizzazione, la sicurezza della connessione,  la crittografia e conformità."
 services: sql-database
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: thmullan;jackr
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3efb68c12cd05fc0c4ac68497f8c20d1c671df82
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 957644b81d373ce8d60a8c57c1ba6431bbdf83cb
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -71,7 +72,7 @@ Il database SQL protegge i dati fornendo funzionalità di controllo e di rilevam
 Il servizio di controllo del database SQL tiene traccia delle attività del database e consente di gestire la conformità alle normative, registrando gli eventi del database in un log di controllo nell'account di archiviazione di Azure. Il servizio di controllo consente di conoscere le attività del database in corso e di analizzare ed esaminare l'attività cronologica per identificare potenziali minacce o uso improprio sospetto e violazioni della sicurezza. Per altre informazioni, vedere [Introduzione al controllo del database SQL](sql-database-auditing.md).  
 
 ### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
-Il rilevamento delle minacce è complementare al controllo perché offre un livello aggiuntivo di informazioni sulla sicurezza integrato nel servizio del database SQL di Azure, oltre a riconoscere, profilare e rilevare attività anomale del database. L'utente verrà avvisato di attività sospette, vulnerabilità potenziali, attacchi SQL injection e modelli di accesso al database anomali. È possibile rispondere agli avvisi seguendo le informazioni fornite e le istruzioni operative. Per altre informazioni, vedere l' [Introduzione al rilevamento delle minacce nel database SQL](sql-database-threat-detection.md).  
+Il rilevamento delle minacce è complementare al controllo perché offre un livello aggiuntivo di informazioni sulla sicurezza integrata nel servizio database SQL di Azure, che rileva tentativi insoliti e potenzialmente dannosi di accedere ai database o di sfruttarli. L'utente verrà avvisato di attività sospette, vulnerabilità potenziali e attacchi SQL injection, nonché di modelli di accesso al database anomali. Gli avvisi di Rilevamento minacce sono disponibili nel [Centro sicurezza di Azure](https://azure.microsoft.com/en-us/services/security-center/), forniscono i dettagli delle attività sospette e raccomandano azioni per individuare e ridurre la minaccia. La funzionalità Rilevamento delle minacce ha un costo di $15/server/mese ed è gratuita per i primi 60 giorni. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce nel database SQL](sql-database-threat-detection.md).
  
 ### <a name="data-masking"></a>Maschera dati 
 Il mascheramento dei dati dinamici del database SQL limita l'esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi. La maschera dati dinamica individua automaticamente dati potenzialmente sensibili nel database SQL di Azure e fornisce indicazioni pratiche per il mascheramento di questi campi, con un impatto minimo sul livello applicazione. Questa funzionalità si basa sull'offuscamento dei dati sensibili nel set dei risultati di una query su campi designati del database, mentre i dati del database non subiscono modifiche. Per altre informazioni, vedere [Introduzione alla maschera dati dinamica del database SQL](sql-database-dynamic-data-masking-get-started.md)

@@ -1,6 +1,6 @@
 ---
-title: Distribuire in Azure Analysis Services | Microsoft Docs
-description: Informazioni su come distribuire un modello tabulare a un server Azure Analysis Services.
+title: Eseguire la distribuzione in Azure Analysis Services con SSDT | Microsoft Docs
+description: Informazioni su come distribuire un modello tabulare in un server Azure Analysis Services usando SSDT.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -10,35 +10,35 @@ tags:
 ms.assetid: 5f1f0ae7-11de-4923-a3da-888b13a3638c
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/17/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 766120913d419ec8090a4f25d304f2d3cf9b6693
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 04b809a6fdd7b993a048a67f66a9851c2a7bf3d2
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="deploy-to-azure-analysis-services"></a>Distribuire in Azure Analysis Services
-Dopo aver creato un server nella sottoscrizione di Azure, si è pronti per distribuire un database modello tabulare a tale server. È possibile usare SQL Server Data Tools (SSDT) per compilare e distribuire un progetto modello tabulare in uso. In alternativa, è possibile usare SQL Server Management Studio (SSMS) per distribuire un database modello tabulare esistente da un'istanza di Analysis Services.
+# <a name="deploy-a-model-from-ssdt"></a>Distribuire un modello da SSDT
+Dopo aver creato un server nella sottoscrizione di Azure, si è pronti per distribuire un database modello tabulare a tale server. È possibile usare SQL Server Data Tools (SSDT) per compilare e distribuire un progetto modello tabulare in uso. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per iniziare, è necessario:
 
 * Un **server Analysis Services** in Azure. Per altre informazioni, vedere [Create an Analysis Services in Azure](analysis-services-create-server.md) (Creare un'istanza di Analysis Services in Azure).
-* Un **progetto modello tabulare** in SSDT o in un modello tabulare esistente a livello di compatibilità 1200 in un'istanza di Analysis Services. Se non è mai stato creato un progetto simile, consultare [Esercitazione di AdventureWorks](https://msdn.microsoft.com/library/hh231691.aspx).
+* Un **progetto di modello tabulare** in SSDT o un modello tabulare esistente con livello di compatibilità 1200 o successivo in un'istanza di Analysis Services. Se non è mai stato creato un progetto simile, consultare [Esercitazione di AdventureWorks](https://msdn.microsoft.com/library/hh231691.aspx).
 * Un **gateway locale**: se una o più origini dati si trovano nella rete locale dell'organizzazione, è necessario installare un [gateway dati locale](analysis-services-gateway.md). Il gateway è necessario affinché il server nel cloud possa connettersi alle origini dati locali per elaborare e aggiornare i dati nel modello.
-
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Per distribuire un modello tabulare da SSDT
-Per distribuire da SSDT, assicurarsi di usare la [versione più recente](https://msdn.microsoft.com/library/mt204009.aspx).
 
 > [!TIP]
 > Prima di distribuire, assicurarsi che sia possibile elaborare i dati nelle tabelle. In SSDT fare clic su **Modello** > **Elabora** > **Elabora tutto**. Se l'elaborazione ha esito negativo, anche la distribuzione non potrà essere eseguita.
 > 
 > 
+
+## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Per distribuire un modello tabulare da SSDT
 
 1. Prima di distribuire, è necessario ottenere il nome del server. In **portale di Azure** > server > **Panoramica** > **Nome server** copiare il nome del server.
    
@@ -56,9 +56,6 @@ Per distribuire da SSDT, assicurarsi di usare la [versione più recente](https:/
 
 Questo è tutto ciò che occorre fare.
 
-## <a name="to-deploy-using-xmla-script"></a>Per distribuire usando script XMLA
-1. In SSMS fare clic sul database modello tabulare che si vuole distribuire, fare clic su **Script** > **Crea script per database** > **CREATE in** e quindi scegliere un percorso.
-2. Eseguire la query nell'istanza del server in cui si vuole distribuire. Se si distribuisce allo stesso server, è necessario modificare almeno la proprietà **name** nello script XMLA.  
 
 ## <a name="but-something-went-wrong"></a>Errori probabili
 Se la distribuzione non riesce durante la distribuzione dei metadati, probabilmente è dovuto al fatto che SSDT non può connettersi al server. Assicurarsi di potersi connettere al server usando SSMS. Verificare quindi che la proprietà del server di distribuzione per il progetto sia corretta.

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: mspnp
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 0ab00cc3455d4bff7bfe1dfb62bafa550d65dea8
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 617c24ea999aef78696ff08add4b9616e3dac589
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -175,136 +175,6 @@ Tuttavia, se si includono tutte le proprietà di un singolo oggetto, è molto pi
         }
     ]
 }
-```
-
-## <a name="use-with-sequential-copy"></a>Usare con una copia sequenziale
-
-Questo modello risulta ancora più utile in combinazione con il [modello di copia sequenziale](resource-manager-sequential-loop.md), in particolare per la distribuzione di risorse figlio. Il seguente modello di esempio distribuisce un gruppo di sicurezza di rete (NSG) con due regole di sicurezza. La prima risorsa denominata `NSG1` distribuisce il gruppo di sicurezza di rete. Il secondo gruppo di risorse denominato `loop-0` esegue due funzioni: prima di tutto, è `dependsOn` il NSG e pertanto la sua distribuzione non viene avviata fino a che `NSG1` non viene completato, ed è la prima iterazione del ciclo di sequenza. La terza risorsa è un modello annidato che distribuisce le regole di sicurezza usando un oggetto per i valori del parametro come illustrato nell'ultimo esempio.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "networkSecurityGroupsSettings": {"type":"object"}
-  },
-  "variables": {},
-  "resources": [
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "NSG1",
-      "location":"[resourceGroup().location]",
-      "properties": {
-          "securityRules":[]
-      }
-    },
-    {
-        "apiVersion": "2015-01-01",
-        "type": "Microsoft.Resources/deployments",
-        "name": "loop-0",
-        "dependsOn": [
-            "NSG1"
-        ],
-        "properties": {
-            "mode":"Incremental",
-            "parameters":{},
-            "template": {
-                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": {},
-                "variables": {},
-                "resources": [],
-                "outputs": {}
-            }
-        }       
-    },
-    {
-        "apiVersion": "2015-01-01",
-        "type": "Microsoft.Resources/deployments",
-        "name": "[concat('loop-', copyIndex(1))]",
-        "dependsOn": [
-          "[concat('loop-', copyIndex())]"
-        ],
-        "copy": {
-          "name": "iterator",
-          "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]"
-        },
-        "properties": {
-          "mode": "Incremental",
-          "template": {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-           "parameters": {},
-            "variables": {},
-            "resources": [
-                {
-                    "name": "[concat('NSG1/' , parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].name)]",
-                    "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-                    "apiVersion": "2016-09-01",
-                    "location":"[resourceGroup().location]",
-                    "properties":{
-                        "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].description]",
-                        "priority":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].priority]",
-                        "protocol":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].protocol]",
-                        "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourcePortRange]",
-                        "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationPortRange]",
-                        "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourceAddressPrefix]",
-                        "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationAddressPrefix]",
-                        "access":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].access]",
-                        "direction":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].direction]"
-                        }
-                  }
-            ],
-            "outputs": {}
-          }
-        }
-    }
-  ],          
-  "outputs": {}
-}
-
-```
-
-Il file di parametro corrispondente è simile a:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters":{ 
-      "networkSecurityGroupsSettings": {
-      "value": {
-          "securityRules": [
-            {
-              "name": "RDPAllow",
-              "description": "allow RDP connections",
-              "direction": "Inbound",
-              "priority": 100,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "10.0.0.0/24",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "access": "Allow",
-              "protocol": "Tcp"
-            },
-            {
-              "name": "HTTPAllow",
-              "description": "allow HTTP connections",
-              "direction": "Inbound",
-              "priority": 200,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "10.0.1.0/24",
-              "sourcePortRange": "*",
-              "destinationPortRange": "80",
-              "access": "Allow",
-              "protocol": "Tcp"
-            }
-          ]
-        }
-      }
-    }
-  }
 ```
 
 ## <a name="try-the-template"></a>Provare il modello

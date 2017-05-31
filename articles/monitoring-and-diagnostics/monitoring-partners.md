@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
+ms.date: 5/9/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: b2eb107d3d4279b5e2ac0612561f613fdb7ba006
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 18a45dd16e51e477758c3ba08f936a2e831dddb3
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/21/2017
 | --- | --- | --- |
 | [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
 | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |
-| [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
+| [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
 | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |
 | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
@@ -61,7 +61,7 @@ Cloudyn gestisce e ottimizza le distribuzioni di cloud ibrido multi-piattaforma 
 
 [Vai alla documentazione.][cloudyn-doc]
 
-## <a name="datadog"></a>DataDog
+## <a name="datadog"></a>Datadog
 Datadog è il servizio di monitoraggio numero uno al mondo per le applicazioni con scalabilità cloud, che raggruppa i dati da server, database, strumenti e servizi per offrire una visualizzazione unificata dell'intero stack. Queste funzionalità vengono fornite su una piattaforma di analisi dei dati basata su SaaS che consente ai team operativi e di sviluppo di collaborare tra loro per evitare tempi di inattività, risolvere i problemi di prestazione e garantire il completamento puntuale dei cicli di sviluppo e distribuzione. Grazie all'integrazione di Datadog e Azure, è possibile raccogliere e visualizzare le metriche nell'infrastruttura, correlare le metriche delle VM con le metriche a livello di applicazione e ripartire le metriche usando qualsiasi combinazione di proprietà e i tag personalizzati.
 
 [Vai alla documentazione.][datadog-doc]
@@ -115,7 +115,7 @@ Sumo Logic è un servizio protetto di analisi dei dati del computer nativo del c
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
-[datadog-anchor]: #datadog "DataDog"
+[datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
@@ -142,12 +142,12 @@ Sumo Logic è un servizio protetto di analisi dei dati del computer nativo del c
 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentazione di AlertLogic."
-[appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "Documentazione di AppDynamics."
+[appdynamics-doc]: https://www.appdynamics.com/net/azure/ "Documentazione di AppDynamics."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Documentazione di CloudMonix."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Documentazione di Cloudyn."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentazione di DataDog."
+[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentazione di Datadog."
 [dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Documentazione di Dynatrace."
 [newrelic-doc]: https://newrelic.com/azure "Documentazione di NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentazione di OpsGenie."

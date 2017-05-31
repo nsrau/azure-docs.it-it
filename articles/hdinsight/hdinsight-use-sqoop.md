@@ -1,5 +1,5 @@
 ---
-title: Eseguire processi Apache Sqoop con Azure HDInsight (Hadoop) | Documentazione Microsoft
+title: Eseguire processi Apache Sqoop con Azure HDInsight (Hadoop) | Microsoft Docs
 description: Informazioni su come usare Azure PowerShell da una workstation per eseguire importazioni ed esportazioni con Sqoop tra un cluster Hadoop e un database SQL di Azure.
 editor: cgronlun
 manager: jhubbard
@@ -17,10 +17,11 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 3f053d4c94d48630252f7c80fa8077c8ae5feb2d
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 1901613b3e0db19f86247ee78828eccd58fb026b
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +37,8 @@ Benché Hadoop rappresenti una scelta ottimale per l'elaborazione di dati non st
 Per informazioni sulle versioni di Sqoop supportate nei cluster HDInsight, vedere l'articolo relativo alle [novità delle versioni cluster incluse in HDInsight][hdinsight-versions].
 
 ## <a name="understand-the-scenario"></a>Informazioni sullo scenario
-Il cluster HDInsight include alcuni dati di esempio. In questa esercitazione si useranno i due gruppi di dati di esempio seguenti:
+
+Il cluster HDInsight include alcuni dati di esempio. Usare i due esempi seguenti:
 
 * Un file di log log4j presente in */example/data/sample.log*. Dal file verranno estratti i log seguenti:
   
@@ -60,7 +62,7 @@ Il cluster HDInsight include alcuni dati di esempio. In questa esercitazione si 
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-Sarà prima di tutto necessario esportare *sample.log* e *hivesampletable* nel database SQL di Azure o in SQL Server, quindi importare di nuovo in HDInsight la tabella contenente i dati del dispositivo mobile usando il percorso seguente:
+È prima di tutto necessario esportare *sample.log* e *hivesampletable* nel database SQL di Azure o in SQL Server, quindi importare di nuovo in HDInsight la tabella contenente i dati del dispositivo mobile usando il percorso seguente:
 
     /tutorials/usesqoop/importeddata
 
@@ -82,7 +84,7 @@ Se si preferisce usare Azure PowerShell per creare il cluster e il database SQL,
     - **Sottoscrizione**: immettere una sottoscrizione di Azure.
     - **Gruppo di risorse**: creare un nuovo gruppo di risorse di Azure o selezionarne uno esistente.  Un gruppo di risorse viene usato per finalità di gestione  come contenitore per gli oggetti.
     - **Località**: selezionare un'area.
-    - **ClusterName**: immettere un nome per il cluster Hadoop che verrà creato.
+    - **Nome del cluster**: immettere un nome per il cluster Hadoop.
     - **Nome utente e password di accesso del cluster**: il nome dell'account di accesso predefinito è admin.
     - **SSH user name and password**(Nome utente e password SSH).
     - **SQL database server login name and password**(Nome utente e password di accesso al server di database SQL).
@@ -97,7 +99,7 @@ Se si preferisce usare Azure PowerShell per creare il cluster e il database SQL,
      | Nome server del database SQL di Azure |<ClusterName>dbserver |
      | Nome del database SQL di Azure |<ClusterName>db |
      
-     Annotare questi valori.  Sarà necessario utilizzarli più avanti nell'esercitazione.
+     Annotare questi valori.  perché sarà necessario usarli più avanti nell'esercitazione.
 
 3. Fare clic su **OK** per salvare i parametri.
 
@@ -105,7 +107,7 @@ Se si preferisce usare Azure PowerShell per creare il cluster e il database SQL,
 
 5. Fare clic su **Note legali** e quindi su **Crea**.
 
-6. Fare clic su **Crea**. Verrà visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster e del database SQL richiede circa 20 minuti.
+6. Fare clic su **Crea**. Viene visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster e del database SQL richiede circa 20 minuti.
 
 Se si sceglie di utilizzare un database SQL di Azure esistente o un Server SQL di Microsoft
 
@@ -131,7 +133,7 @@ Se si sceglie di utilizzare un database SQL di Azure esistente o un Server SQL d
       > 
       > 
     * Quando si usa SQL Server in una macchina virtuale di Azure, sarà possibile usare qualsiasi configurazione di rete virtuale a condizione che la macchina virtuale sulla quale è ospitato SQL Server sia un membro della stessa rete virtuale di HDInsight.
-  * Per creare un cluster HDInsight in una rete virtuale, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md)
+  * Per creare un cluster HDInsight in una rete virtuale, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md)
     
     > [!NOTE]
     > SQL Server deve sempre consentire l'autenticazione. Per la procedura descritta in questo articolo è necessario usare un account di accesso di SQL Server.
@@ -197,12 +199,12 @@ L'esempio di PowerShell esegue questa procedura:
     Per esaminare il cluster, è possibile usare il portale di Azure o Azure PowerShell.
 5. Pre-elaborare i file dei dati di origine.
    
-    In questa esercitazione, verranno esportati nel database SQL di Azure un file di log log4j (un file con valori delimitati) e una tabella di Hive. Il file con valori delimitati è denominato */example/data/sample.log*. Alcuni esempi di file di log log4j sono stati visualizzati in precedenza in questa esercitazione. Nel file di log sono presenti alcune righe vuote e righe simili alle seguenti:
+    In questa esercitazione nel database SQL di Azure vengono esportati un file di log log4j (un file con valori delimitati) e una tabella di Hive. Il file con valori delimitati è denominato */example/data/sample.log*. Alcuni esempi di file di log log4j sono stati visualizzati in precedenza in questa esercitazione. Nel file di log sono presenti alcune righe vuote e righe simili alle seguenti:
    
         java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
             at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
    
-    Questa condizione può andar bene per altri esempi in cui vengono usati questi dati, ma è necessario rimuovere queste eccezioni prima di poterli importare nel database SQL di Azure o in SQL Server. In presenza di una stringa vuota o di una riga contenente un numero di elementi inferiore al numero dei campi definiti nella tabella del database SQL di Azure, non sarà possibile eseguire l'esportazione con Sqoop. La tabella log4jlogs comprende 7 campi tipo stringa.
+    Questa condizione può andar bene per altri esempi in cui vengono usati questi dati, ma è necessario rimuovere queste eccezioni prima di poterli importare nel database SQL di Azure o in SQL Server. In presenza di una stringa vuota o di una riga contenente un numero di elementi inferiore al numero dei campi definiti nella tabella del database SQL di Azure, non è possibile eseguire l'esportazione con Sqoop. La tabella log4jlogs comprende 7 campi tipo stringa.
    
     Questa procedura crea un nuovo file nel cluster: tutorials/usesqoop/data/sample.log. Per esaminare il file di dati modificato, è possibile usare il portale di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell. Nell'[introduzione a HDInsight][hdinsight-get-started] è riportato un esempio di codice per usare Azure PowerShell per scaricare un file e visualizzarne il contenuto.
 6. Esportare un file dei dati nel database SQL di Azure.
@@ -213,7 +215,7 @@ L'esempio di PowerShell esegue questa procedura:
    > Ad eccezione delle informazioni sulla stringa di connessione, la procedura descritta in questa sezione dovrebbe funzionare per il database SQL di Azure e per SQL Server. La procedura è stata verificata con la configurazione seguente:
    > 
    > * **Configurazione da punto a sito della rete virtuale di Azure**: una rete virtuale che connette il cluster HDInsight a un SQL Server in un data center privato. Per altre informazioni, vedere [Configurare una VPN da punto a sito nel portale di gestione](../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-   > * **Azure HDInsight 3.1**: per informazioni sulla creazione di un cluster in una rete virtuale, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-provision-clusters.md) .
+   > * **Azure HDInsight 3.1**: per informazioni sulla creazione di un cluster in una rete virtuale, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight con opzioni personalizzate](hdinsight-hadoop-provision-linux-clusters.md) .
    > * **SQL Server 2014**: configurato per consentire l'autenticazione SQL e l'esecuzione del pacchetto di configurazione del client VPN per eseguire la connessione sicura alla rete virtuale.
    > 
    > 
@@ -222,7 +224,7 @@ L'esempio di PowerShell esegue questa procedura:
    
     Per esaminare il file di dati modificato, è possibile usare il portale di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell.  Nell'[introduzione a HDInsight][hdinsight-get-started] è riportato un esempio di codice relativo all'uso di Azure PowerShell per scaricare un file e visualizzarne il contenuto.
 
-### <a name="the-powershell-sample"></a>L’esempio di PowerShell.
+### <a name="the-powershell-sample"></a>L'esempio di PowerShell.
     # Prepare an Azure SQL database to be used by the Sqoop tutorial
 
     #region - provide the following values
@@ -618,7 +620,7 @@ L'esempio di PowerShell esegue questa procedura:
 [azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md

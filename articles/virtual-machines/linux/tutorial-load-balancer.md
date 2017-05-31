@@ -13,20 +13,29 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 5ff735100132e8571871b41ac2309334662adb7f
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 079289f385266293ecfce7cd02b1673a774afbbe
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Come bilanciare il carico per le macchine virtuali di Linux in Azure per creare un'applicazione a disponibilità elevata
-In questa esercitazione vengono illustrati i diversi componenti di Azure Load Balancer che distribuiscono il traffico e garantiscono una disponibilità elevata. Per visualizzare il bilanciamento del carico in azione, è necessario compilare un app Node.js in esecuzione su tre macchine virtuali, VM, di Linux.
+Il bilanciamento del carico offre un livello più elevato di disponibilità distribuendo le richieste in ingresso tra più macchine virtuali. In questa esercitazione vengono illustrati i diversi componenti di Azure Load Balancer che distribuiscono il traffico e garantiscono una disponibilità elevata. Si apprenderà come:
 
-I passaggi descritti in questa esercitazione possono essere eseguiti usando la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Creare un servizio di bilanciamento del carico di Azure
+> * Creare un probe di integrità per il servizio di bilanciamento del carico
+> * Creare regole del traffico di bilanciamento del carico
+> * Usare cloud-init per creare un'applicazione di base Node.js
+> * Creare macchine virtuali e collegarsi a un bilanciamento del carico
+> * Visualizzare un bilanciamento del carico in azione
+> * Aggiungere e rimuovere macchine virtuali da un bilanciamento del carico
+
+Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="azure-load-balancer-overview"></a>Panoramica di Azure Load Balancer
@@ -42,18 +51,18 @@ Se è stata eseguita l'esercitazione precedente per [creare un set di scalabilit
 
 
 ## <a name="create-azure-load-balancer"></a>Creare un Azure Load Balancer
-Questa sezione descrive dettagliatamente come creare e configurare ogni componente del bilanciamento del carico. Per poter creare un servizio di bilanciamento del carico, è prima necessario creare un gruppo di risorse con [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myRGLoadBalancer* nella posizione *westus*:
+Questa sezione descrive dettagliatamente come creare e configurare ogni componente del bilanciamento del carico. Per poter creare un servizio di bilanciamento del carico, è prima necessario creare un gruppo di risorse con [az group create](/cli/azure/group#create). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupLoadBalancer* nella posizione *eastus*:
 
 ```azurecli
-az group create --name myRGLoadBalancer --location westus
+az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
-Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Creare un indirizzo IP pubblico con [az network public-ip create](/cli/azure/public-ip#create). L'esempio seguente crea un indirizzo IP pubblico denominato *myPublicIP* nel gruppo di risorse *myRGLoadBalancer*:
+Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Creare un indirizzo IP pubblico con [az network public-ip create](/cli/azure/public-ip#create). Nell'esempio seguente viene creato un indirizzo IP pubblico denominato *myPublicIP* nel gruppo di risorse *myResourceGroupLoadBalancer*:
 
 ```azurecli
 az network public-ip create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP
 ```
 
@@ -62,7 +71,7 @@ Creare un servizio di bilanciamento del carico con [az network lb create](/cli/a
 
 ```azurecli
 az network lb create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myLoadBalancer \
     --frontend-ip-name myFrontEndPool \
     --backend-pool-name myBackEndPool \
@@ -78,7 +87,7 @@ Per creare un probe di integrità TCP, usare con [az network lb probe create](/c
 
 ```azurecli
 az network lb probe create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -92,7 +101,7 @@ Creare una regola di bilanciamento del carico con [az network lb rule create](/c
 
 ```azurecli
 az network lb rule create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
     --name myLoadBalancerRule \
     --protocol tcp \
@@ -112,7 +121,7 @@ Creare una rete virtuale con [az network vnet create](/cli/azure/vnet#create). L
 
 ```azurecli
 az network vnet create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myVnet \
     --subnet-name mySubnet
 ```
@@ -121,7 +130,7 @@ Per aggiungere un gruppo di sicurezza di rete usare [az network nsg create](/cli
 
 ```azurecli
 az network nsg create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myNetworkSecurityGroup
 ```
 
@@ -129,7 +138,7 @@ Creare una regola del gruppo di sicurezza di rete con [az network nsg rule creat
 
 ```azurecli
 az network nsg rule create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nsg-name myNetworkSecurityGroup \
     --name myNetworkSecurityGroupRule \
     --priority 1001 \
@@ -142,7 +151,7 @@ Le schede di interfaccia di rete virtuale vengono create con [az network nic cre
 ```bash
 for i in `seq 1 3`; do
     az network nic create \
-        --resource-group myRGLoadBalancer \
+        --resource-group myResourceGroupLoadBalancer \
         --name myNic$i \
         --vnet-name myVnet \
         --subnet mySubnet \
@@ -206,7 +215,7 @@ Creare un set di disponibilità con [az vm availability-set create](/cli/azure/v
 
 ```azurecli
 az vm availability-set create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myAvailabilitySet \
     --platform-fault-domain-count 3 \
     --platform-update-domain-count 2
@@ -217,7 +226,7 @@ Ora è possibile creare le VM con [az vm create](/cli/azure/vm#create). L'esempi
 ```bash
 for i in `seq 1 3`; do
     az vm create \
-        --resource-group myRGLoadBalancer \
+        --resource-group myResourceGroupLoadBalancer \
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
@@ -237,7 +246,7 @@ Ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [a
 
 ```azurecli
 az network public-ip show \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -258,7 +267,7 @@ Potrebbe essere necessario eseguire attività di manutenzione sulle VM che esegu
 
 ```azurecli
 az network nic ip-config address-pool remove \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
     --ip-config-name ipConfig1 \
     --lb-name myLoadBalancer \
@@ -272,7 +281,7 @@ Al termine della manutenzione di una VM o se è necessario espandere la capacit�
 
 ```azurecli
 az network nic ip-config address-pool add \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
     --ip-config-name ipConfig1 \
     --lb-name myLoadBalancer \
@@ -281,7 +290,19 @@ az network nic ip-config address-pool add \
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato illustrato come creare un servizio di bilanciamento del carico per le macchine virtuali. Passare all'esercitazione successiva per altre informazioni sui componenti della rete virtuale di Azure.
+In questa esercitazione viene creato un bilanciamento del carico e vengono collegate le macchine virtuali. Si è appreso come:
 
-[Gestire la rete VM](tutorial-virtual-network.md)
+> [!div class="checklist"]
+> * Creare un servizio di bilanciamento del carico di Azure
+> * Creare un probe di integrità per il servizio di bilanciamento del carico
+> * Creare regole del traffico di bilanciamento del carico
+> * Usare cloud-init per creare un'applicazione di base Node.js
+> * Creare macchine virtuali e collegarsi a un bilanciamento del carico
+> * Visualizzare un bilanciamento del carico in azione
+> * Aggiungere e rimuovere macchine virtuali da un bilanciamento del carico
+
+Passare all'esercitazione successiva per altre informazioni sui componenti della rete virtuale di Azure.
+
+> [!div class="nextstepaction"]
+> [Gestire le VM e le reti virtuali](tutorial-virtual-network.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Service Fabric in Azure | Documentazione Microsoft
+title: Panoramica di Service Fabric in Azure | Microsoft Docs
 description: "Panoramica di Service Fabric, in cui le applicazioni sono costituite da numerosi microservizi per assicurare scalabilità e resilienza. Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud."
 services: service-fabric
 documentationcenter: .net
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 0e899225063e77ccef254e8aaacbf0390faa25e3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 81dae4c35fead96af8a8a2823952a0bd7f2e537e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,7 +42,7 @@ Perché l'approccio ai microservizi è importante? I due motivi principali sono:
 * Consentono di ridimensionare diverse parti dell'applicazione a seconda delle sue esigenze.
 * I team di sviluppo possono offrire una maggiore flessibilità nell'implementazione di modifiche e quindi di fornire funzionalità ai clienti più rapidamente e con maggiore frequenza.
 
-Service Fabric viene attualmente usato in numerosi servizi Microsoft, tra cui database SQL di Azure, Azure DocumentDB, Cortana, Microsoft Power BI, Microsoft Intune, Hub eventi di Azure, hub IoT di Azure, Skype for Business e molti servizi di base di Azure.
+Service Fabric viene attualmente usato in numerosi servizi Microsoft, tra cui database SQL di Azure, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Hub eventi di Azure, Hub IoT di Azure, Skype for Business e molti servizi di base di Azure.
 
 Service Fabric è stato sviluppato specificamente per la creazione di servizi cloud nativi che inizialmente possono essere di piccole dimensioni, ma che secondo le necessità possono espandersi su vasta scala con centinaia o migliaia di computer.
 
@@ -60,7 +62,7 @@ Per altre informazioni sulla creazione di cluster in locale, vedere gli articoli
 
 ![Piattaforma Service Fabric][Image1]
 
-## <a name="stateless-and-stateful-micrososervices-for-service-fabric"></a>Microservizi con e senza stato per Service Fabric
+## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microservizi con e senza stato per Service Fabric
 Service Fabric consente di compilare applicazioni costituite da microservizi. I microservizi senza stato, come i gateway di protocollo, i proxy Web e così via, non mantengono uno stato variabile al di fuori di una richiesta e della relativa risposta fornita dal servizio. I ruoli di lavoro di Servizi cloud di Azure sono un esempio di servizio senza stato. I microservizi con stato, come gli account utente, i database, i dispositivi, i carrelli acquisti e le code, mantengono invece uno stato variabile e autorevole anche all'esterno della richiesta e della relativa risposta. Le attuali applicazioni su scala Internet sono costituite da una combinazione di microservizi con e senza stato.
 
 Perché avere microservizi con stato insieme a quelli senza stato? I due motivi principali sono:
@@ -118,9 +120,4 @@ Usando Service Fabric è possibile:
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

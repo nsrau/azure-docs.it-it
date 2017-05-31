@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: dab476db32b2274049140144847fba24b55856b0
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 8f1f22d1609dc34369a131e79eb2a1c0be9fe552
 ms.contentlocale: it-it
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -34,7 +34,7 @@ Per informazioni sugli scenari di continuità aziendale e sulle funzionalità ch
 ### <a name="prepare-for-the-event-of-an-outage"></a>Prepararsi per un evento di interruzione del servizio
 Per completare correttamente il ripristino su un'altra area dati tramite la replica geografica attiva o i backup con ridondanza geografica, è necessario preparare un server in un altro data center perché diventi il nuovo server primario in caso di necessità, nonché procedure ben definite, documentate e testate per garantire un ripristino senza problemi. La procedura di preparazione comprende:
 
-* Identificare il server logico in un'altra area perché diventi il nuovo server primario. Con la replica geografica attiva, questo server sarà un server o forse ognuno dei server secondari. Per il ripristino geografico, questo sarà in genere un server di un' [area abbinata](../best-practices-availability-paired-regions.md) all'area in cui si trova il database.
+* Identificare il server logico in un'altra area perché diventi il nuovo server primario. Con la replica geografica attiva, questo sarà almeno uno o forse ognuno dei server secondari. Per il ripristino geografico, questo sarà in genere un server di un'[area abbinata](../best-practices-availability-paired-regions.md) all'area in cui si trova il database.
 * Identificare e definire, facoltativamente, le regole del firewall a livello di server necessarie agli utenti per accedere al nuovo database primario.
 * Determinare come si desidera reindirizzare gli utenti al nuovo server primario, ad esempio tramite modifica delle stringhe di connessione o delle voci del DNS.
 * Identificare e, facoltativamente, creare gli account di accesso presenti nel database master nel nuovo server primario e verificare che questi account di accesso dispongano delle autorizzazioni appropriate nel database master, se necessarie. Per altre informazioni, vedere [Come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md)
@@ -56,7 +56,7 @@ Usare [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.asp
 ## <a name="wait-for-service-recovery"></a>Attendere il ripristino del servizio
 I team di Azure puntano a ripristinare la disponibilità del servizio quanto più rapidamente possibile, ma questo può richiedere ore o giorni a seconda della causa radice.  Se l'applicazione può tollerare tempi di inattività significativi è possibile attendere semplicemente il completamento del ripristino. In tal caso, non è necessaria alcuna azione da parte dell'utente. È possibile vedere lo stato corrente del servizio nel [dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/). Dopo il ripristino dell'area verrà ripristinata la disponibilità dell'applicazione.
 
-## <a name="failover-to-geo-replicated-secondary-database"></a>Failover al database secondario con replica geografica
+## <a name="fail-over-to-geo-replicated-secondary-database"></a>Failover al database secondario con replica geografica
 Se i tempi di inattività dell'applicazione possono comportare una responsabilità aziendale, è consigliabile usare database con replica geografica nell'applicazione. Questo permette all'applicazione di ripristinare rapidamente la disponibilità in un'area diversa in caso di interruzione del servizio. Informazioni su [come configurare la replica geografica](sql-database-geo-replication-portal.md).
 
 Per ripristinare la disponibilità dei database è necessario avviare il failover nel database secondario con replica geografica usando uno dei metodi supportati.
@@ -82,7 +82,7 @@ Per altre informazioni sulla modifica delle stringhe di connessione, vedere il l
 Verificare che le regole firewall configurate nel server e nel database corrispondano a quelle configurate nel server primario e nel database primario. Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall (Database SQL di Azure)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Configurare gli account di accesso e gli utenti del database
-Verificare che tutti gli account di accesso usati dall'applicazione siano presenti nel server che ospita il database ripristinato. Per altre informazioni, vedere [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
+Verificare che tutti gli account di accesso usati dall'applicazione siano presenti nel server che ospita il database ripristinato. Per altre informazioni, vedere [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md).
 
 > [!NOTE]
 > È necessario configurare e testare le regole del firewall del server e gli account di accesso (con le relative autorizzazioni) durante un'analisi di ripristino di emergenza. Questi oggetti a livello di server e la relativa configurazione potrebbero non essere disponibili durante l'interruzione del servizio.

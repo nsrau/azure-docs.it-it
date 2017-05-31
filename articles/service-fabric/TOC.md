@@ -18,8 +18,10 @@
 ### [Java su Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# su Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Distribuire app in un cluster locale](service-fabric-get-started-with-a-local-cluster.md)
+## [Distribuire app .NET in un contenitore](service-fabric-host-app-in-a-container.md)
 ## [Creare il primo cluster in Azure](service-fabric-get-started-azure-cluster.md)
 ## [Creare il primo cluster autonomo](service-fabric-get-started-standalone-cluster.md)
+## [Creare la prima app contenitore](service-fabric-get-started-containers.md)
 
 # Procedure
 ## Creare un'applicazione
@@ -27,6 +29,7 @@
 ### Concetti
 #### [Modelli di programmazione supportati](service-fabric-choose-framework.md)
 #### [Modello di applicazione](service-fabric-application-model.md)
+#### [Modello di hosting](service-fabric-hosting-model.md)
 #### [Risorse del manifesto del servizio](service-fabric-service-manifest-resources.md)
 #### [Stato del servizio](service-fabric-concepts-state.md)
 #### [Partizionamento del servizio](service-fabric-concepts-partitioning.md)
@@ -44,20 +47,29 @@
 #### [Panoramica](service-fabric-containers-overview.md)
 #### [Distribuire un contenitore Windows](service-fabric-deploy-container.md)
 #### [Distribuire un contenitore Linux](service-fabric-deploy-container-linux.md)
+#### [Docker Compose (anteprima)](service-fabric-docker-compose.md)
+#### [Governance delle risorse per contenitori e servizi](service-fabric-resource-governance.md)
+#### [Driver di volume e registrazione](service-fabric-containers-volume-logging-drivers.md)
 
 ### Creare un servizio di Reliable Services
 #### [Panoramica](service-fabric-reliable-services-introduction.md)
 #### Concetti
 ##### [Ciclo di vita di Reliable Services: C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Ciclo di vita di Reliable Services: Java](service-fabric-reliable-services-lifecycle-java.md)
+
+#### Reliable Collections
 ##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+##### [Linee guida e indicazioni per Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
+##### [Lavorare con le raccolte Reliable Collections](service-fabric-work-with-reliable-collections.md)
+##### [Transazioni e blocchi](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Coda simultanea affidabile](service-fabric-reliable-services-reliable-concurrent-queue.md)
+##### [Serializzazione di raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections-serialization.md)
+##### [Elementi interni di Reliable Collections e Reliable State Manager](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Introduzione
 ##### [C# su Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java su Linux](service-fabric-reliable-services-quick-start-java.md)
 
-#### Ciclo di vita di Reliable Services
-#### [Usare Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Configurare](service-fabric-reliable-services-configuration.md)
 #### [Inviare notifiche](service-fabric-reliable-services-notifications.md)
 #### [Backup e ripristino](service-fabric-reliable-services-backup-restore.md)
@@ -75,12 +87,12 @@
 ### Creare un servizio di Reliable Actors
 #### [Panoramica](service-fabric-reliable-actors-introduction.md)
 #### Concetti
-#### [Architettura](service-fabric-reliable-actors-platform.md)
-#### [Ciclo di vita e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
-#### [Gestione dello stato](service-fabric-reliable-actors-state-management.md)
-#### [Polimorfismo](service-fabric-reliable-actors-polymorphism.md)
-#### [Rientranza](service-fabric-reliable-actors-reentrancy.md)
-#### [Serializzazione dei tipi](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Architettura](service-fabric-reliable-actors-platform.md)
+##### [Ciclo di vita e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
+##### [Gestione dello stato](service-fabric-reliable-actors-state-management.md)
+##### [Polimorfismo](service-fabric-reliable-actors-polymorphism.md)
+##### [Rientranza](service-fabric-reliable-actors-reentrancy.md)
+##### [Serializzazione dei tipi](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### Introduzione
 ##### [C# su Windows](service-fabric-reliable-actors-get-started.md)
@@ -94,7 +106,9 @@
 
 ### Comunicare con i servizi
 #### [Modello di comunicazione con i servizi](service-fabric-connect-and-communicate-with-services.md)
+#### [Servizio DNS](service-fabric-dnsservice.md)
 #### [Proxy inverso](service-fabric-reverseproxy.md)
+#### [Configurare il proxy inverso per le comunicazioni sicure](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Aggiungere un front-end Web](service-fabric-add-a-web-frontend.md)
 
@@ -202,6 +216,7 @@
 ### [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md)
 
 ### [Gestire un cluster con l'interfaccia della riga di comando di Azure](service-fabric-azure-cli.md)
+### [Applicare patch ai nodi del cluster](service-fabric-patch-orchestration-application.md)
 
 ### Gestire e orchestrare le risorse cluster
 #### [Panoramica di Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
@@ -236,11 +251,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Raccogliere log da un processo di servizio](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Monitorare contenitori Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Diagnostica in Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostica in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Risolvere i problemi del cluster locale](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Riferimento
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [API Java](/java/api/)
 ## [.NET](/dotnet/api/)

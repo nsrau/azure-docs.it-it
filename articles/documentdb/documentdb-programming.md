@@ -1,31 +1,32 @@
 ---
-title: Programmazione JavaScript lato server per Azure DocumentDB | Documentazione Microsoft
-description: Informazioni su come usare DocumentDB per scrivere stored procedure, trigger del database e funzioni definite dall&quot;utente (UDF) in JavaScript. Ottenere suggerimenti sulla programmazione di database e altro ancora.
+title: Programmazione JavaScript lato server per Azure Cosmos DB | Microsoft Docs
+description: Informazioni su come usare Azure Cosmos DB per scrivere stored procedure, trigger del database e funzioni definite dall&quot;utente in JavaScript. Ottenere suggerimenti sulla programmazione di database e altro ancora.
 keywords: Trigger di database, stored procedure, programma di database, sproc, documentdb, azure, Microsoft Azure
-services: documentdb
+services: cosmosdb
 documentationcenter: 
 author: aliuy
 manager: jhubbard
 editor: mimig
 ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d337114c123151f06a24e80b0208c6eafb1df487
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1c128d182da8245dd9a2aa8f0ce8fcca94aea0fa
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente
-Informazioni su come l'esecuzione integrata e transazionale di JavaScript con il linguaggio di DocumentDB consenta agli sviluppatori di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente (UDF)** in modo nativo in JavaScript. Ciò consente di scrivere la logica dell'applicazione del programma del database che può essere inserita ed eseguita direttamente nelle partizioni di archiviazione del database. 
+# <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmazione lato server per Azure Cosmos DB: stored procedure, trigger del database e funzioni definite dall'utente
+L'esecuzione integrata e transazionale di JavaScript con il linguaggio di Azure Cosmos DB permette agli sviluppatori di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente** in modo nativo in JavaScript. Ciò consente di scrivere la logica dell'applicazione del programma del database che può essere inserita ed eseguita direttamente nelle partizioni di archiviazione del database. 
 
-Si consiglia di iniziare guardando il video seguente, in cui Andrew Liu introduce brevemente il modello di programmazione lato server del database di DocumentDB. 
+Per iniziare, è consigliabile guardare il video seguente, in cui Andrew Liu introduce brevemente il modello di programmazione database lato server di Cosmos DB. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
@@ -34,27 +35,27 @@ Si consiglia di iniziare guardando il video seguente, in cui Andrew Liu introduc
 Tornare quindi a questo articolo, che fornisce risposte alle domande seguenti:  
 
 * Come è possibile scrivere una stored procedure, un trigger o una funzione definita dall'utente usando JavaScript?
-* In che modo DocumentDB garantisce proprietà ACID?
-* Come funzionano le transazioni in DocumentDB?
+* In che modo Cosmos DB garantisce proprietà ACID?
+* Come funzionano le transazioni in Cosmos DB?
 * Cosa sono i pre-trigger e i post-trigger e come si scrivono?
 * Come si registra e si esegue una stored procedure, un trigger o una funzione definita dall'utente in modalità RESTful usando HTTP?
-* Quali SDK di DocumentDB sono disponibili per la creazione e l'esecuzione di stored procedure, trigger e funzioni definite dall'utente?
+* Quali SDK di Cosmos DB sono disponibili per la creazione e l'esecuzione di stored procedure, trigger e funzioni definite dall'utente?
 
 ## <a name="introduction-to-stored-procedure-and-udf-programming"></a>Introduzione alle stored procedure e alla programmazione delle funzioni definite dall'utente
 Questo approccio di *"JavaScript come nuovo T-SQL"* libera gli sviluppatori di applicazioni dalle complessità delle mancate corrispondenze nel sistema dei tipi e delle tecnologie di mapping relazionale a oggetti. Comporta anche una serie di vantaggi intrinseci che possono essere utili per creare applicazioni avanzate:  
 
 * **Logica procedurale:** come linguaggio di programmazione di alto livello, JavaScript offre un'interfaccia completa e familiare per esprimere la logica di business. È possibile eseguire sequenze complesse di operazioni a ridosso dei dati.
-* **Transazioni atomiche:** DocumentDB garantisce che l'esecuzione di operazioni eseguite all'interno di una singola stored procedure o un trigger di database siano atomiche. Di conseguenza, un'applicazione potrà combinare le operazioni correlate in un unico batch, in modo che o tutte o nessuna di esse avranno esito positivo. 
-* **Prestazioni:** il fatto che JSON sia intrinsecamente mappato al sistema di tipi in linguaggio JavaScript e rappresenti anche l'unità di base di archiviazione in DocumentDB permette di eseguire una serie di ottimizzazioni, tra cui la materializzazione differita dei documenti JSON nel pool di buffer e la loro disponibilità su richiesta per il codice in esecuzione. Vi sono altri vantaggi associati all'integrazione della logica di business nel database:
+* **Transazioni atomiche:** Cosmos DB garantisce che le operazioni di database all'interno di una singola stored procedure o un trigger siano atomiche. Di conseguenza, un'applicazione potrà combinare le operazioni correlate in un unico batch, in modo che o tutte o nessuna di esse avranno esito positivo. 
+* **Prestazioni:** il mapping intrinseco di JSON al sistema di tipi del linguaggio JavaScript e il fatto che JSON rappresenta anche l'unità di base di archiviazione in Cosmos DB permette di eseguire una serie di ottimizzazioni, tra cui la materializzazione differita dei documenti JSON nel pool di buffer e la loro disponibilità su richiesta per il codice in esecuzione. Vi sono altri vantaggi associati all'integrazione della logica di business nel database:
   
   * Invio in batch: gli sviluppatori possono raggruppare le operazioni, come gli inserimenti, e inviarle in blocco. Ciò comporta una drastica riduzione del costo legato alla latenza del traffico di rete e dei costi generali di archiviazione per la creazione di transazioni separate. 
-  * Precompilazione: DocumentDB precompila stored procedure, trigger e funzioni definite dall'utente (UDF) per evitare il costo della compilazione JavaScript per ogni chiamata. I costi generali di compilazione del codice byte per la logica procedurale vengono ammortizzati a un valore minimo.
+  * Precompilazione: Cosmos DB precompila stored procedure, trigger e funzioni definite dall'utente per evitare il costo della compilazione JavaScript per ogni chiamata. I costi generali di compilazione del codice byte per la logica procedurale vengono ammortizzati a un valore minimo.
   * Sequenziazione: molte operazioni necessitano di un effetto collaterale ("trigger") che implica potenzialmente l'esecuzione di una o più operazioni di archiviazione secondarie. Atomicità a parte, offre prestazioni migliori quando viene passata al server. 
 * **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica di business in un solo posto. Ciò comporta due vantaggi:
   * Aggiunge un livello di astrazione al di sopra dei dati non elaborati, consentendo ai responsabili dell'architettura dati di far evolvere le proprie applicazioni indipendentemente dai dati. Si tratta di una caratteristica particolarmente vantaggiosa quando i dati sono privi di schema, a causa dei presupposti transitori che potrebbe essere necessario integrare nell'applicazione qualora fosse necessario gestire i dati direttamente.  
   * Questa astrazione consente alle grandi imprese di proteggere i propri dati semplificando l'accesso dagli script.  
 
-La creazione e l'esecuzione di trigger del database, stored procedure e operatori di query personalizzati sono supportate tramite l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e gli [SDK client](documentdb-sdk-dotnet.md) in molte piattaforme, tra cui .NET, Node.js e JavaScript.
+La creazione e l'esecuzione di trigger del database, stored procedure e operatori di query personalizzati sono supportate tramite l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), [Azure Cosmos DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e gli [SDK client](documentdb-sdk-dotnet.md) in molte piattaforme, tra cui .NET, Node.js e JavaScript.
 
 Questa esercitazione usa [Node.js SDK con promesse Q](http://azure.github.io/azure-documentdb-node-q/) per illustrare la sintassi e l'uso di stored procedure, trigger e funzioni definite dall'utente.   
 
@@ -97,12 +98,12 @@ Dopo aver registrato la stored procedure è possibile eseguirla a fronte della r
         });
 
 
-L'oggetto contesto offre l'accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di DocumentDB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, è stata usato l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di DocumentDB](http://azure.github.io/azure-documentdb-js-server/).  
+L'oggetto contesto offre accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di Cosmos DB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, è stata usato l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
 
 Elaborando ulteriormente questo esempio, è possibile aggiungere alla stored procedure altre funzionalità relative al database. Le stored procedure possono creare, aggiornare, eseguire query ed eliminare documenti e allegati all'interno della raccolta.    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Esempio: scrivere una stored procedure per creare un documento
-Il frammento successivo mostra come usare l'oggetto context per interagire con le risorse di DocumentDB.
+Il frammento successivo mostra come usare l'oggetto contesto per interagire con le risorse di Cosmos DB.
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
@@ -121,7 +122,7 @@ Il frammento successivo mostra come usare l'oggetto context per interagire con l
     }
 
 
-Questa stored procedure accetta come input documentToCreate, il corpo di un documento da creare nella raccolta corrente. Tutte queste operazioni sono asincrone e dipendono dai callback della funzione JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per l'oggetto creato. All'interno del callback, gli utenti possono gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di DocumentDB genera un errore.   
+Questa stored procedure accetta come input documentToCreate, il corpo di un documento da creare nella raccolta corrente. Tutte queste operazioni sono asincrone e dipendono dai callback della funzione JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per l'oggetto creato. All'interno del callback, gli utenti possono gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di Azure Cosmos DB genera un errore.   
 
 Nell'esempio precedente il callback genera un errore se l'operazione non è riuscita. In caso contrario, viene impostato l'ID del documento creato come corpo della risposta al client. Ecco come viene eseguita questa stored procedure con i parametri di input.
 
@@ -149,7 +150,7 @@ Nell'esempio precedente il callback genera un errore se l'operazione non è rius
     });
 
 
-Notare che è possibile modificare questa stored procedure in modo che accetti una matrice di corpi di documenti come input e possa crearli tutti nell'esecuzione della stessa stored procedure, invece di inviare più richieste di rete per crearle individualmente. Ciò permette di implementare un'efficiente utilità di importazione in blocco per DocumentDB (di cui si discuterà più avanti in questa esercitazione).   
+Notare che è possibile modificare questa stored procedure in modo che accetti una matrice di corpi di documenti come input e possa crearli tutti nell'esecuzione della stessa stored procedure, invece di inviare più richieste di rete per crearle individualmente. Questo permette di implementare un'efficiente utilità di importazione in blocco per Cosmos DB, di cui si discuterà più avanti in questa esercitazione.   
 
 L'esempio descritto ha dimostrato come usare le stored procedure. I trigger e le funzioni definite dall'utente (UDF) saranno trattati più avanti in questa esercitazione.
 
@@ -158,7 +159,7 @@ Una transazione in un tipico database può essere definita come una sequenza di 
 
 In breve, l'atomicità garantisce che tutte le operazioni eseguite nell'ambito di una transazione siano trattate come unità singola e che venga eseguito il commit di tutte le operazioni o di nessuna. La coerenza garantisce che i dati siano sempre in ottimo stato interno in tutte le transazioni. L'isolamento garantisce che non vi siano transazioni conflittuali; in generale, la maggior parte dei sistemi commerciali offre più livelli di isolamento utilizzabili in base alle esigenze dell'applicazione. La durabilità assicura che qualsiasi modifica di cui sia stato eseguito il commit nel database sia sempre presente.   
 
-In DocumentDB, JavaScript è ospitato nello stesso spazio di memoria del database. Di conseguenza, le richieste effettuate nell'ambito delle stored procedure e dei trigger vengono eseguite nello stesso ambito di una sessione di database. Ciò consente a DocumentDB di garantire proprietà ACID per tutte le transazioni che fanno parte di una singola stored procedure o un unico trigger. Considerare la definizione della stored procedure seguente:
+JavaScript in Cosmos DB è ospitato nello stesso spazio di memoria del database. Di conseguenza, le richieste effettuate nell'ambito delle stored procedure e dei trigger vengono eseguite nello stesso ambito di una sessione di database. In questo modo Cosmos DB può garantire proprietà ACID per tutte le transazioni che fanno parte di una singola stored procedure o un unico trigger. Considerare la definizione della stored procedure seguente:
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -225,22 +226,22 @@ In DocumentDB, JavaScript è ospitato nello stesso spazio di memoria del databas
 
 Questa stored procedure usa le transazioni in un'applicazione di gioco per scambiare elementi tra due giocatori in un'unica operazione. La stored procedure prova a leggere due documenti, ciascuno corrispondente all'ID del giocatore passato come argomento. Se vengono trovati i documenti di entrambi i giocatori, la stored procedure aggiorna i documenti scambiando gli elementi. Se si verificano errori lungo il percorso, viene generata un'eccezione JavaScript che interrompe implicitamente la transazione.
 
-Se la stored procedure della raccolta è registrata in una raccolta a partizione singola, la transazione ha come ambito tutti i documenti all'interno della raccolta. Se la raccolta è partizionata, le stored procedure vengono eseguite nell'ambito della transazione di una singola chiave di partizione. Ogni esecuzione di stored procedure deve quindi includere un valore di chiave di partizione corrispondente all'ambito in cui la transazione deve essere eseguita. Per altre informazioni, vedere l'articolo relativo al [partizionamento in DocumentDB](documentdb-partition-data.md).
+Se la stored procedure della raccolta è registrata in una raccolta a partizione singola, la transazione ha come ambito tutti i documenti all'interno della raccolta. Se la raccolta è partizionata, le stored procedure vengono eseguite nell'ambito della transazione di una singola chiave di partizione. Ogni esecuzione di stored procedure deve quindi includere un valore di chiave di partizione corrispondente all'ambito in cui la transazione deve essere eseguita. Per altri dettagli, vedere l'articolo relativo al [partizionamento di Azure Cosmos DB](documentdb-partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Commit e rollback
-Le transazioni sono integrate in maniera approfondita e nativa nel modello di programmazione JavaScript di DocumentDB. All'interno di una funzione JavaScript, viene eseguito il wrapping di tutte le operazioni in un'unica transazione. Se la funzione JavaScript viene completata senza eccezioni, viene eseguito il commit delle operazioni nel database. In effetti, le istruzioni "BEGIN TRANSACTION" e "COMMIT TRANSACTION" nei database relazionali sono implicite in DocumentDB.  
+Le transazioni sono integrate in maniera approfondita e nativa nel modello di programmazione JavaScript di Cosmos DB. All'interno di una funzione JavaScript, viene eseguito il wrapping di tutte le operazioni in un'unica transazione. Se la funzione JavaScript viene completata senza eccezioni, viene eseguito il commit delle operazioni nel database. Le istruzioni "BEGIN TRANSACTION" e "COMMIT TRANSACTION" nei database relazionali sono implicite in Cosmos DB.  
 
-Se si verifica un'eccezione qualsiasi che viene propagata dallo script, il runtime JavaScript di DocumentDB eseguirà il rollback dell'intera transazione. Come illustrato in un esempio precedente, la generazione di un'eccezione equivale effettivamente a una "ROLLBACK TRANSACTION" in DocumentDB.
+Se si verifica un'eccezione qualsiasi che viene propagata dallo script, il runtime JavaScript di Cosmos DB esegue il rollback dell'intera transazione. Come illustrato in un esempio precedente, la generazione di un'eccezione equivale effettivamente a un'istruzione "ROLLBACK TRANSACTION" in Cosmos DB.
 
 ### <a name="data-consistency"></a>Coerenza dei dati
 Le stored procedure e i trigger vengono sempre eseguiti sulla cartella di replica principale della raccolta di DocumentDB. In tal modo si garantisce la coerenza assoluta delle letture all'interno delle stored procedure. È possibile eseguire le query che usano funzioni definite dall'utente sulla replica principale o in qualsiasi replica secondaria, ma è necessario assicurarsi di soddisfare il livello di coerenza richiesto scegliendo la replica appropriata.
 
 ## <a name="bounded-execution"></a>Esecuzione vincolata
-È necessario che tutte le operazioni di DocumentDB siano completate entro la scadenza specificata dal server. Questo vincolo si applica anche alle funzioni JavaScript (stored procedure, trigger e funzioni definite dall'utente). Se un'operazione non viene completata entro questo limite di tempo, viene eseguito il rollback della transazione. Le funzioni JavaScript devono terminare entro il tempo limite oppure implementare un modello basato sulla continuazione in modo da riprendere l'esecuzione o eseguirla in batch.  
+Tutte le operazioni di Cosmos DB devono essere completate entro la scadenza specificata dal server. Questo vincolo si applica anche alle funzioni JavaScript (stored procedure, trigger e funzioni definite dall'utente). Se un'operazione non viene completata entro questo limite di tempo, viene eseguito il rollback della transazione. Le funzioni JavaScript devono terminare entro il tempo limite oppure implementare un modello basato sulla continuazione in modo da riprendere l'esecuzione o eseguirla in batch.  
 
 Per semplificare lo sviluppo delle stored procedure e dei trigger per la gestione dei limiti di tempo, tutte le funzioni nell'oggetto raccolta (per creare, leggere, sostituire ed eliminare i documenti e gli allegati) restituiscono un valore booleano che indica se l'operazione verrà completata. Se questo valore è falso, sarà indice che il tempo limite sta per scadere e che è necessario concludere l'esecuzione della procedura.  Il completamento delle operazioni inserite in coda precedentemente alla prima operazione di archiviazione non accettata è garantito se la stored procedure viene completata in tempo e non vengono inserite in coda altre richieste.  
 
-Anche le funzioni JavaScript sono vincolate al consumo di risorse. DocumentDB riserva una velocità effettiva per ogni raccolta in base alle dimensioni dell'account di database di cui è stato effettuato il provisioning. La velocità effettiva viene espressa in termini di un'unità normalizzata di consumo CPU, memoria e IO, denominata unità di richiesta, o RU. Le funzioni JavaScript possono potenzialmente usare un numero elevato di RU in breve tempo; per tale motivo, è possibile che venga limitata la frequenza del traffico di rete quando si raggiunge il limite della raccolta. È anche possibile che le stored procedure che richiedono un utilizzo elevato di risorse vengano messe in quarantena per assicurare la disponibilità delle operazioni di database primitive.  
+Anche le funzioni JavaScript sono vincolate al consumo di risorse. Cosmos DB riserva una velocità effettiva per ogni raccolta in base alle dimensioni dell'account di database di cui è stato effettuato il provisioning. La velocità effettiva viene espressa in termini di un'unità normalizzata di consumo CPU, memoria e IO, denominata unità di richiesta, o RU. Le funzioni JavaScript possono potenzialmente usare un numero elevato di RU in breve tempo; per tale motivo, è possibile che venga limitata la frequenza del traffico di rete quando si raggiunge il limite della raccolta. È anche possibile che le stored procedure che richiedono un utilizzo elevato di risorse vengano messe in quarantena per assicurare la disponibilità delle operazioni di database primitive.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Esempio: importazione in blocco dei dati in un programma di database
 Di seguito è riportato un esempio di stored procedure scritta per importare in blocco i documenti in una raccolta. Da notare il modo in cui la stored procedure gestisce l'esecuzione vincolata verificando il valore booleano restituito da createDocument e quindi usa il numero di documenti inseriti in ogni chiamata della stored procedure per tracciare e riprendere l'avanzamento nei vari batch.
@@ -296,7 +297,7 @@ Di seguito è riportato un esempio di stored procedure scritta per importare in 
 
 ## <a id="trigger"></a> Trigger del database
 ### <a name="database-pre-triggers"></a>Pre-trigger del database
-DocumentDB fornisce trigger che vengono eseguiti o attivati da un'operazione su un documento. Ad esempio, quando si crea un documento è possibile specificare un pre-trigger, che verrà eseguito prima della creazione. Di seguito è riportato un esempio di come è possibile usare i pre-trigger per convalidare le proprietà di un documento in corso di creazione:
+Cosmos DB include trigger che vengono eseguiti o attivati da un'operazione su un documento. Ad esempio, quando si crea un documento è possibile specificare un pre-trigger, che verrà eseguito prima della creazione. Di seguito è riportato un esempio di come è possibile usare i pre-trigger per convalidare le proprietà di un documento in corso di creazione:
 
     var validateDocumentContentsTrigger = {
         id: "validateDocumentContents",
@@ -435,10 +436,10 @@ Nell'esempio seguente vengono illustrati i post-trigger in azione:
 
 Il trigger esegue query sul documento dei metadati, aggiornandolo con le informazioni relative al documento appena creato.  
 
-Un aspetto importante da tenere presente è l'esecuzione **transazionale** dei trigger in DocumentDB. Questo post-trigger viene eseguito come parte della stessa transazione relativa alla creazione del documento originale. Pertanto, se si genera un'eccezione dal post-trigger (ad esempio se non è possibile aggiornare il documento dei metadati), l'intera transazione avrà esito negativo e verrà ripristinata allo stato precedente. Non verrà creato alcun documento e verrà restituita un'eccezione.  
+Un aspetto importante da tenere presente è l'esecuzione **transazionale** dei trigger in Cosmos DB. Questo post-trigger viene eseguito come parte della stessa transazione relativa alla creazione del documento originale. Pertanto, se si genera un'eccezione dal post-trigger (ad esempio se non è possibile aggiornare il documento dei metadati), l'intera transazione avrà esito negativo e verrà ripristinata allo stato precedente. Non verrà creato alcun documento e verrà restituita un'eccezione.  
 
 ## <a id="udf"></a>Funzioni definite dall'utente
-Le funzioni definite dall'utente, o UDF, consentono di estendere la grammatica del linguaggio di query SQL di DocumentDB e implementare la logica di business personalizzata. Possono essere richiamate solo dall'interno delle query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le UDF su repliche secondarie del servizio DocumentDB.  
+Le funzioni definite dall'utente permettono di estendere la grammatica del linguaggio di query SQL dell'API di DocumentDB e implementare la logica di business personalizzata. Possono essere richiamate solo dall'interno delle query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le funzioni definite dall'utente su repliche secondarie del servizio Cosmos DB.  
 
 L'esempio seguente consente di creare una funzione definita dall'utente per calcolare l'imposta sul reddito in base ai tassi relativi a varie fasce di reddito. La funzione viene quindi usata all'interno di una query per trovare tutte le persone che hanno pagato oltre 20.000 dollari di imposte.
 
@@ -706,7 +707,7 @@ Questo esempio illustra come usare [.NET SDK](https://msdn.microsoft.com/library
         });
 
 
-L'esempio seguente illustra come creare una funzione definita dall'utente (UDF) e usarla in una [query SQL di DocumentDB](documentdb-sql-query.md).
+L'esempio seguente illustra come creare una funzione definita dall'utente e usarla in una [query SQL dell'API di DocumentDB](documentdb-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {

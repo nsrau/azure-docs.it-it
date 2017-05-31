@@ -2,6 +2,5 @@
 2. Nella sezione **Modelli** della finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Web**.
 3. Selezionare **ASP.NET Core Web Application (.NET Core)**(applicazione Web ASP.NET Core (.NET Core).
 4. Assegnare un nome alla nuova applicazione (o accettare quello predefinito), quindi selezionare **OK**.
-5. In **ASP.NET Core Templates** (Modelli di ASP.NET Core) selezionare **Applicazione Web** e quindi **OK**.
-6. Deselezionare l'opzione **Host nel cloud**. Come soluzione di distribuzione verrà usato Docker.
+5. In **ASP.NET Core 1.1 Templates** (Modelli ASP.NET Core 1.1) selezionare **Applicazione Web** e quindi **OK**.
 

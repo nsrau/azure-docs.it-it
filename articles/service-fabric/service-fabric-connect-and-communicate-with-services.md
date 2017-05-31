@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 5/9/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c78f07cb780d5e7cd758fb782fc6ba37946f9537
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3e61ad19df34c6a57da43e26bd2ab9d7ecdbf98e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,8 +51,28 @@ La risoluzione e la connessione ai servizi prevedono l'esecuzione in ciclo dei p
 * **Connessione**: connettersi al servizio sul protocollo usato nell'endpoint.
 * **Ripetizione dei tentativi**: è possibile che un tentativo di connessione abbia esito negativo per svariati motivi, ad esempio se il servizio si è spostato dopo l'ultima risoluzione dell'indirizzo dell'endpoint. In questo caso, è necessario provare a ripetere i passaggi precedenti di risoluzione e connessione e il ciclo viene ripetuto finché la connessione non riesce.
 
+## <a name="connecting-to-other-services"></a>Connessione ad altri servizi
+I servizi che si connettono tra loro in un cluster possono in genere accedere direttamente agli endpoint di altri servizi perché i nodi di un cluster si trovano nella stessa rete locale. Per facilitare la connessione tra servizi, Service Fabric offre servizi aggiuntivi che usano Naming Service, un servizio DNS e un servizio di proxy inverso.
+
+
+### <a name="dns-service"></a>Servizio DNS
+Poiché molti servizi, in particolare quelli in contenitori, possono avere un nome di URL esistente, la possibilità di risolverli usando il protocollo DNS standard, anziché il protocollo Naming Service, è molto utile, in particolare negli scenari di applicazioni "lift-and-shift". Questo è esattamente ciò che fa il servizio DNS. Consente di eseguire il mapping di nomi DNS a nomi di servizi e di conseguenza di risolvere gli indirizzi IP degli endpoint. 
+
+Come mostrato nel diagramma seguente, il servizio DNS, in esecuzione sul cluster di Service Fabric, esegue il mapping dei nomi DNS ai nomi dei servizi, che vengono quindi risolti da Naming Service per restituire gli indirizzi degli endpoint a cui connettersi. Il nome DNS per il servizio viene fornito al momento della creazione. 
+
+![Endpoint del servizio][9]
+
+Per altre informazioni su come usare il servizio DNS, vedere l'articolo [DNS service in Azure Service Fabric](service-fabric-dnsservice.md) (Servizio DNS in Azure Service Fabric).
+
+### <a name="reverse-proxy-service"></a>Servizio di proxy inverso
+Il proxy inverso indirizza i servizi presenti nel cluster che espongono endpoint HTTP, incluso HTTPS. Il proxy inverso semplifica in misura significativa la chiamata di altri servizi e dei relativi metodi grazie alla disponibilità di un formato URI specifico. Gestisce inoltre i passaggi di risoluzione, connessione e ripetizione necessari per consentire a un servizio di comunicare con un altro servizio mediante Naming Serivce. In altri termini, durante la chiamata di altri servizi nasconde Naming Service all'utente, rendendo l'operazione semplice quanto la chiamata a un URL.
+
+![Endpoint del servizio][10]
+
+Per altre informazioni su come usare il servizio di proxy inverso, vedere l'articolo [Proxy inverso in Azure Service Fabric](service-fabric-reverseproxy.md).
+
 ## <a name="connections-from-external-clients"></a>Connessioni da client esterni
-I servizi che si connettono tra loro in un cluster possono in genere accedere direttamente agli endpoint di altri servizi, perché i nodi in un cluster si trovano in genere nella stessa rete locale. In alcuni ambienti, tuttavia, è possibile che un cluster si trovi dietro un servizio di bilanciamento del carico che indirizza il traffico esterno in ingresso attraverso un set limitato di porte. In questi casi, i servizi possono comunicare comunque tra di loro e risolvere gli indirizzi usando il servizio Naming, ma sono necessari passaggi aggiuntivi per consentire ai client esterni di connettersi ai servizi.
+I servizi che si connettono tra loro in un cluster possono in genere accedere direttamente agli endpoint di altri servizi perché i nodi di un cluster si trovano nella stessa rete locale. In alcuni ambienti, tuttavia, è possibile che un cluster si trovi dietro un servizio di bilanciamento del carico che indirizza il traffico esterno in ingresso attraverso un set limitato di porte. In questi casi, i servizi possono comunicare comunque tra di loro e risolvere gli indirizzi usando il servizio Naming, ma sono necessari passaggi aggiuntivi per consentire ai client esterni di connettersi ai servizi.
 
 ## <a name="service-fabric-in-azure"></a>Service Fabric in Azure
 Un cluster di Service Fabric in Azure viene posizionato dietro un servizio di bilanciamento del carico di Azure. Tutto il traffico esterno verso il cluster deve passare attraverso il servizio di bilanciamento del carico. Il servizio di bilanciamento del carico inoltrerà automaticamente il traffico in ingresso su una porta specifica verso un *nodo* casuale che ha la stessa porta aperta. Il servizio di bilanciamento del carico di Azure riconosce solo le porte aperte sui *nodi*, non le porte aperte dai singoli *servizi*.
@@ -152,7 +173,7 @@ Ad esempio, per accettare il traffico esterno sulla porta **80**, è necessario 
 
 È importante ricordare che il servizio di bilanciamento del carico di Azure e il probe riconoscono solo i *nodi*, non i *servizi* in esecuzione sui nodi. Il servizio di bilanciamento del carico di Azure invierà sempre il traffico ai nodi che rispondono al probe, quindi occorre assicurarsi che i servizi siano disponibili sui nodi che sono in grado di rispondere al probe.
 
-## <a name="built-in-communication-api-options"></a>Opzioni predefinite per l'API di comunicazione
+## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: opzioni predefinite per l'API di comunicazione
 Il framework Reliable Services include alcune opzioni di comunicazione predefinite. la cui scelta dipende dal modello di programmazione adottato, dal framework di comunicazione e dal linguaggio di programmazione usato per scrivere i servizi.
 
 * **Nessun protocollo specifico:** se non si ha una preferenza particolare per il framework di comunicazione, ma si vuole essere immediatamente operativi, l'opzione ideale è costituita dalle [comunicazioni remote del servizio](service-fabric-reliable-services-communication-remoting.md), che consentono chiamate a procedure remote fortemente tipizzate per Reliable Services e Reliable Actors. Questo è il modo più semplice e veloce per iniziare a comunicare con i servizi. Le comunicazioni remote del servizio gestiscono la risoluzione degli indirizzi del servizio, la connessione, la ripetizione dei tentativi e la gestione degli errori. Questo è disponibile sia per applicazioni C# che per applicazioni Java.
@@ -172,4 +193,6 @@ Per altre informazioni sui concetti e sulle API disponibili, vedere il [modello 
 [5]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerport.png
 [7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.png
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
+[9]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
+[10]: ./media/service-fabric-reverseproxy/internal-communication.png
 

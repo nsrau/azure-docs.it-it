@@ -3,8 +3,8 @@ title: Usare PowerShell per impostare gli avvisi in Application Insights | Micro
 description: Automatizzare la configurazione di Application Insights per ricevere messaggi di posta elettronica sulle modifiche delle metriche.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
@@ -12,10 +12,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 298e0218c51385caa2de6a684ac40503fc07f5fa
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione ai metadati OpenAPI in Funzioni di Azure | Documentazione Microsoft
+title: Introduzione ai metadati OpenAPI in Funzioni di Azure | Microsoft Docs
 description: Introduzione al supporto per OpenAPI in Funzioni di Azure
 services: functions
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ad82c1a552d9d77259c44b938975eebc44933b86
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 9fd5b63259c7771d8b1e346ba3a6c10a4399532a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -120,5 +121,5 @@ Esistono strumenti di test integrati nell'interfaccia utente dell'editor della d
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
   * Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 * [Repository GitHub di Funzioni di Azure](https://github.com/Azure/Azure-Functions/)
-  * In Github di Funzioni di Azure è possibile inviare commenti e suggerimenti relativi all'anteprima del supporto della definizione API. La pagina consente inoltre di inviare suggerimenti su eventuali elementi che si desidera vedere aggiornati.
+  * In GitHub di Funzioni di Azure è possibile inviare commenti e suggerimenti relativi all'anteprima del supporto della definizione API. La pagina consente inoltre di inviare suggerimenti su eventuali elementi che si vuole vedere aggiornati.
 

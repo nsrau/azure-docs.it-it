@@ -9,7 +9,7 @@
 
 # Attività iniziali
 ## [Replicare VM VMware in Azure](site-recovery-vmware-to-azure.md)
-## [Replicare i server fisici in Azure](site-recovery-physical-servers-to-azure.md) 
+## [Replicare i server fisici in Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicare VM Hyper-V in Azure con VMM](site-recovery-vmm-to-azure.md)
 ## [Replicare VM Hyper-V in Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replicare le VM Hyper-V in un sito secondario con VMM](site-recovery-vmm-to-vmm.md)
@@ -18,11 +18,13 @@
 
 # Procedure
 ## Pianificare
-### [Prerequisiti di distribuzione](site-recovery-prereq.md)
+### [Prerequisiti per la replica di Azure](site-recovery-prereq.md)
 ### [Pianificare l'infrastruttura di rete](site-recovery-network-design.md)
+### [Pianificare il mapping di rete](site-recovery-network-mapping.md)
 ### [Pianificare la capacità e ridimensionare la replica VMware in Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner per la replica VMware in Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner per la replica Hyper-V](site-recovery-capacity-planner.md)
+### [Gestire la replica delle VM con gli accessi in base al ruolo](site-recovery-role-based-linked-access-control.md)
 
 ## Configurare
 ### [Configurare l'ambiente di origine](site-recovery-set-up-vmware-to-azure.md)
@@ -52,6 +54,8 @@
 ### [Servizi Desktop remoto](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
+### [Applicazioni Web basate su IIS](site-recovery-iis.md)
+### [Citrix XenApp e XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Altri carichi di lavoro](site-recovery-workload.md#workload-summary)
 ## Automatizzare la replica
 ### [Automatizzare la replica Hyper-V in Azure senza VMM](site-recovery-deploy-with-powershell-resource-manager.md)

@@ -1,28 +1,29 @@
 ---
-title: Esercitazione su Node.js NoSQL per DocumentDB | Documentazione Microsoft
-description: "Esercitazione su Node.js NoSQL che crea un database NoSQL e un&quot;applicazione console con DocumentDB Node.js SDK. DocumentDB è un database NoSQL per JSON."
+title: Esercitazione su Node.js per l&quot;API DocumentDB per Azure Cosmos DB | Microsoft Docs
+description: Esercitazione su Node.js che crea un&quot;istanza di Cosmos DB con l&quot;API DocumentDB.
 keywords: esercitazione su node.js, database nodo
-services: documentdb
+services: cosmosdb
 documentationcenter: node.js
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 8e34fe6461683801ad6c0423567308b7b38d7a00
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="nosql-nodejs-tutorial-documentdb-nodejs-console-application"></a>Esercitazione su Node.js NoSQL: applicazione console Node.js di DocumentDB
+# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Esercitazione su Node.js: applicazione console Node.js di DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -33,11 +34,11 @@ ms.lasthandoff: 03/29/2017
 >  
 > 
 
-Esercitazione su Node.js per Azure DocumentDB Node.js SDK Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse DocumentDB.
+Esercitazione su Node.js per Azure Cosmos DB Node.js SDK. Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse Azure Cosmos DB.
 
 Tratteremo questo argomento:
 
-* Creazione e connessione a un account DocumentDB
+* Creazione e connessione a un account Azure Cosmos DB
 * Configurazione dell'applicazione
 * Creazione di un database nodo
 * Creare una raccolta
@@ -57,11 +58,11 @@ Ecco come procedere.
 Assicurarsi di disporre di quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-    * In alternativa, per questa esercitazione è possibile usare l'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md).
+    * In alternativa, per questa esercitazione è possibile usare l'[emulatore Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Node.js](https://nodejs.org/) v0.10.29 o versioni successive.
 
-## <a name="step-1-create-a-documentdb-account"></a>Passaggio 1: Creare un account DocumentDB
-Creare un account DocumentDB. Se è già disponibile un account da usare, è possibile passare a [Configurare un'applicazione Node.js](#SetupNode). Se si usa l'emulatore DocumentDB, seguire i passaggi descritti nell'articolo [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) (Emulatore DocumentDB di Azure) per configurare l'emulatore e proseguire con il passaggio [Configurare un'applicazione Node.js](#SetupNode).
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passaggio 1: Creare un account di Azure Cosmos DB
+Creare prima di tutto un account Azure Cosmos DB. Se è già disponibile un account da usare, è possibile passare a [Configurare un'applicazione Node.js](#SetupNode). Se si usa l'emulatore Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md) (Emulatore Azure Cosmos DB) per configurare l'emulatore e proseguire con il passaggio [Configurare l'applicazione Node.js](#SetupNode).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -85,7 +86,7 @@ Aprire il file ```config.js``` in un editor di testo.
 
 Quindi, copiare e incollare il frammento di codice riportato di seguito e impostare le proprietà ```config.endpoint``` e ```config.primaryKey``` sull'URI dell'endpoint DocumentDB e la chiave primaria. Entrambe le configurazioni sono disponibili nel [portale di Azure](https://portal.azure.com).
 
-![Esercitazione su Node.js - Schermata del portale di Azure che mostra un account DocumentDB con l'hub ATTIVO evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi - Database nodo][keys]
+![Esercitazione su Node.js - Screenshot del portale di Azure che mostra un account Azure Cosmos DB con l'hub ATTIVO evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account Azure Cosmos DB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi - Database nodo][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
@@ -93,7 +94,7 @@ Quindi, copiare e incollare il frammento di codice riportato di seguito e impost
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-Copiare e incollare ```database id```, ```collection id``` e ```JSON documents``` nell'oggetto ```config``` seguente in cui sono impostate le proprietà ```config.endpoint``` e ```config.authKey```. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB invece di aggiungere le definizioni dei documenti.
+Copiare e incollare ```database id```, ```collection id``` e ```JSON documents``` nell'oggetto ```config``` seguente in cui sono impostate le proprietà ```config.endpoint``` e ```config.authKey```. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di Azure Cosmos DB invece di aggiungere le definizioni dei documenti.
 
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -177,7 +178,7 @@ Esportare infine l'oggetto ```config``` per farvi riferimento nel file ```app.js
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a id="Connect"></a> Passaggio 4: Connettersi a un account DocumentDB
+## <a id="Connect"></a> Passaggio 4: Connettersi a un account Azure Cosmos DB
 Aprire il file ```app.js``` vuoto nell'editor di testo. Copiare e incollare il codice seguente per importare il modulo ```documentdb``` e il modulo ```config``` appena creato.
 
     // ADD THIS PART TO YOUR CODE
@@ -259,7 +260,7 @@ Copiare e incollare il codice seguente in cui viene impostata la funzione **getD
 
 Nel terminale trovare il file ```app.js``` ed eseguire il comando ```node app.js```.
 
-Congratulazioni. La creazione di un database di DocumentDB è stata completata.
+Congratulazioni. La creazione di un database di Azure Cosmos DB è stata completata.
 
 ## <a id="CreateColl"></a>Passaggio 6: Creare una raccolta
 > [!WARNING]
@@ -369,8 +370,8 @@ Congratulazioni. La creazione di un documento di DocumentDB è stata completata.
 
 ![Esercitazione su Node.js - Diagramma che illustra la relazione gerarchica tra l'account, il database, la raccolta e i documenti - Database nodo](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a id="Query"></a>Passaggio 8: Eseguire query sulle risorse di DocumentDB
-DocumentDB supporta [query complesse](documentdb-sql-query.md) sui documenti JSON archiviati in ogni raccolta. L'esempio di codice seguente illustra una query eseguibile nei documenti della raccolta.
+## <a id="Query"></a>Passaggio 8: Eseguire query sulle risorse di Azure Cosmos DB
+Azure Cosmos DB supporta [query complesse](documentdb-sql-query.md) sui documenti JSON archiviati in ogni raccolta. L'esempio di codice seguente illustra una query eseguibile nei documenti della raccolta.
 
 Copiare e incollare la funzione **queryCollection** sotto la funzione **getFamilyDocument** nel file app.js. DocumentDB supporta query simili a SQL, come illustrato di seguito. Per altre informazioni sulla creazione di query complesse, vedere la pagina [Query Playground](https://www.documentdb.com/sql/demo) e la [documentazione sulle query](documentdb-sql-query.md).
 
@@ -424,10 +425,10 @@ Copiare e incollare il codice sotto la chiamata a **getFamilyDocument** per eseg
 
 Nel terminale trovare il file ```app.js``` ed eseguire il comando ```node app.js```.
 
-Congratulazioni. La creazione di documenti di DocumentDB con query è stata completata.
+Congratulazioni. L'esecuzione di query sui documenti di Azure Cosmos DB è stata completata.
 
 ## <a id="ReplaceDocument"></a>Passaggio 9: Sostituire un documento
-DocumentDB supporta la sostituzione di documenti JSON.
+Azure Cosmos DB supporta la sostituzione di documenti JSON.
 
 Copiare e incollare la funzione **replaceFamilyDocument** sotto la funzione **queryCollection** nel file app.js.
 
@@ -471,10 +472,10 @@ Copiare e incollare il codice sotto la chiamata a **queryCollection** per esegui
 
 Nel terminale trovare il file ```app.js``` ed eseguire il comando ```node app.js```.
 
-Congratulazioni. La sostituzione di un documento di DocumentDB è stata completata.
+Congratulazioni. La sostituzione di un documento di Azure Cosmos DB è stata completata.
 
 ## <a id="DeleteDocument"></a>Passaggio 10: Eliminare un documento
-DocumentDB supporta l'eliminazione di documenti JSON.
+Azure Cosmos DB supporta l'eliminazione di documenti JSON.
 
 Copiare e incollare la funzione **deleteFamilyDocument** sotto la funzione **replaceFamilyDocument**.
 
@@ -515,7 +516,7 @@ Copiare e incollare il codice sotto la chiamata alla seconda funzione **queryCol
 
 Nel terminale trovare il file ```app.js``` ed eseguire il comando ```node app.js```.
 
-Congratulazioni. L'eliminazione di un documento di DocumentDB è stata completata.
+Congratulazioni. L'eliminazione di un documento di Azure Cosmos DB è stata completata.
 
 ## <a id="DeleteDatabase"></a>Passaggio 11: Eliminare il database Node
 Se si elimina il database creato, verrà rimosso il database e tutte le risorse figlio (raccolte, documenti e così via).
@@ -601,14 +602,14 @@ Verrà visualizzato l'output dell'app introduttiva. L'output dovrebbe essere ana
     Completed successfully
     Press any key to exit
 
-Congratulazioni. È stata completata l'esercitazione su Node.js ed stata creata la prima applicazione console DocumentDB.
+Congratulazioni. È stata completata l'esercitazione su Node.js ed stata creata la prima applicazione console di Azure Cosmos DB.
 
 ## <a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su Node.js
 Se non si ha tempo per completare le procedure dell'esercitazione o se si vogliono solo scaricare gli esempi di codice, è possibile ottenerli da [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Per eseguire la soluzione GetStarted completa contenente tutti gli esempi riportati in questo articolo, è necessario avere:
 
-* [Account DocumentDB][documentdb-create-account].
+* [Account Azure Cosmos DB][documentdb-create-account].
 * La soluzione [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) disponibile su GitHub.
 
 Installare il modulo **documentdb** tramite npm. Usare il comando seguente:
@@ -622,10 +623,10 @@ Nel terminale trovare quindi il file ```app.js``` ed eseguire il comando: ```nod
 Per completare la procedura, è sufficiente procedere alla compilazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un esempio più complesso relativo a Node.js, vedere [Creare un'applicazione Web Node.js con DocumentDB](documentdb-nodejs-application.md).
-* Informazioni su come [monitorare un account DocumentDB](documentdb-monitor-accounts.md).
+* Per un esempio più complesso relativo a Node.js, Vedere [Creare un'applicazione Web Node.js con Azure Cosmos DB](documentdb-nodejs-application.md).
+* Informazioni su come [monitorare un account Azure Cosmos DB](documentdb-monitor-accounts.md).
 * Eseguire query sul set di dati di esempio illustrato nella pagina [Query Playground](https://www.documentdb.com/sql/demo).
-* Per altre informazioni sul modello di programmazione, vedere la sezione relativa allo sviluppo nella pagina [Documentazione di DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Per altre informazioni sul modello di programmazione, vedere la sezione relativa allo sviluppo nella pagina [Documentazione di Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png

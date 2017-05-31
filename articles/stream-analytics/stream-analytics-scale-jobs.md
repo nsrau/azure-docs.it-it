@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c0a0959a5484111ee5426204e15434300cb6a438
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 66f4e43670ffe9c62e026eb1b56eea035a199d05
+ms.contentlocale: it-it
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -92,7 +93,7 @@ Input: Hub eventi con 8 partizioni. Output: Hub eventi con 8 partizioni
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Questa query contiene una chiave di raggruppamento e, di conseguenza, è necessario che la stessa chiave venga elaborata dalla stessa istanza di query. È possibile adottare la stessa strategia usata per la query precedente. La query è articolata in più passaggi. Per ogni passaggio è presente la clausola **Partition By** di **PartitionId**? Sì, quindi questo requisito è soddisfatto. A livello di output è necessario impostare il parametro **PartitionKey** su **PartitionId**, come illustrato in precedenza, ed è anche possibile osservare come sia presente lo stesso numero di partizioni dell'input. Questa topologia è perfettamente parallela.
+Questa query contiene una chiave di raggruppamento e, di conseguenza, è necessario che la stessa chiave venga elaborata dalla stessa istanza di query. È possibile adottare la stessa strategia usata per la query precedente. La query è articolata in più passaggi. Per ogni passaggio è presente la clausola **Partition By** di ** PartitionId**? Sì, quindi questo requisito è soddisfatto. A livello di output è necessario impostare il parametro **PartitionKey** su **PartitionId**, come illustrato in precedenza, ed è anche possibile osservare come sia presente lo stesso numero di partizioni dell'input. Questa topologia è perfettamente parallela.
 
 ## <a name="example-scenarios-that-are-not-embarrassingly-parallel"></a>Esempi di scenari NON perfettamente paralleli
 ### <a name="mismatched-partition-count"></a>Numero di partizioni non corrispondente
@@ -154,7 +155,7 @@ Il partizionamento di un passaggio richiede le condizioni seguenti:
 
 * L'origine di input deve essere partizionata. Per altre informazioni, vedere [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
 * L'istruzione **SELECT** della query deve leggere da un'origine di input partizionata.
-* Nella query all’interno del passaggio deve essere presente la parola chiave **Partition By**
+* Nella query all'interno del passaggio deve essere presente la parola chiave **Partition By**
 
 Quando una query è partizionata, gli eventi di input vengono elaborati e aggregati in gruppi di partizioni separati e vengono generati eventi di output per ognuno dei gruppi. Se è preferibile un aggregato combinato, è necessario creare un secondo passaggio non partizionato da aggregare.
 
@@ -259,7 +260,7 @@ Calcolare la velocità effettiva prevista del carico di lavoro in eventi al seco
 ## <a name="stream-analytics-throughput-at-scale---raspberry-pi-scenario"></a>Velocità effettiva di Analisi di flusso su larga scala - Scenario Raspberry Pi
 Per comprendere la scalabilità dei processi di Analisi di flusso in uno scenario tipico in termini di velocità effettiva di elaborazione tra più unità di streaming, viene riportato un esperimento nel corso del quale i dati del sensore (client) vengono inviati a Hub di eventi ed elaborati e, successivamente, vengono inviati avvisi o statistiche come output a un altro Hub eventi.
 
-Il client sta inviando i dati del sensore sintetizzati ad Hub eventi in formato JSON per Analisi di flusso e anche l'output dei dati è in formato JSON.  Di seguito viene mostrato l’aspetto che avranno i dati di esempio  
+Il client sta inviando i dati del sensore sintetizzati ad Hub eventi in formato JSON per Analisi di flusso e anche l'output dei dati è in formato JSON.  Di seguito viene mostrato l'aspetto che avranno i dati di esempio  
 
     {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
 
@@ -320,7 +321,7 @@ Di seguito sono riportati i risultati con un numero crescente di unità di strea
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)

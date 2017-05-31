@@ -3,7 +3,7 @@ title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft D
 description: "Analizzare l&quot;uso, la disponibilità e le prestazioni dell&quot;applicazione locale o Web di Microsoft Azure con Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
-ms.lasthandoff: 03/16/2017
+ms.date: 05/04/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c31abf49a05f7911d4ec82db59efa2724ab7b49b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -31,7 +32,7 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
   * Database SQL
   * Servizi Web ASP.NET e WCF che usano i binding basati su HTTP
   * Chiamate HTTP locali o remote
-  * Azure DocumentDB, tabelle, archivio BLOB e coda
+  * Azure Cosmos DB, tabelle, archiviazione BLOB e coda
 * Pagina Web
   * Chiamate AJAX
 
@@ -119,9 +120,9 @@ In un altro caso non ci sono chiamate a dipendenze particolarmente lunghe, ma, p
 
 Dopo la prima chiamata alla dipendenza si verifica una lunga pausa, quindi è opportuno esaminare il codice per capirne il motivo.
 
-### <a name="profiling-your-live-site"></a>Profilatura del sito live
+### <a name="profile-your-live-site"></a>Profilatura del sito live
 
-Se non si riesce a capire perché trascorre così tanto tempo, il profiler di Application Insights traccerà le chiamate HTTP al sito live e visualizzerà le funzioni del codice che richiedono più tempo. Il profiler è attualmente in anteprima limitata. È possibile [iscriversi per provarlo](https://aka.ms/AIProfilerPreview).
+Se non si riesce a capire perché trascorre così tanto tempo, il [profiler di Application Insights](app-insights-profiler.md) traccia le chiamate HTTP al sito live e mostra le funzioni del codice che richiedono più tempo.
 
 ## <a name="failed-requests"></a>Richieste non riuscite
 Le richieste non riuscite possono anche essere associate a chiamate non riuscite a dipendenze. Anche in questo caso è possibile fare clic per risalire al problema.

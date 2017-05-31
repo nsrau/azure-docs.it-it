@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -47,7 +48,7 @@ Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. P
    | **Impostazione** | **Valore** | **Dettagli** |
    |---|---|---|
    |**Nome**|contoso.com|Nome della zona DNS|
-   |**Sottoscrizione**|[Sottoscrizione]|Selezionare una sottoscrizione in cui creare il gateway applicazione.|
+   |**Sottoscrizione**|[Sottoscrizione]|Selezionare una sottoscrizione in cui creare la zona DNS.|
    |**Gruppo di risorse**|**Crea nuovo:** contosoDNSRG|Creare un gruppo di risorse. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione selezionata. Per altre informazioni sui gruppi di risorse, vedere l'articolo [Panoramica di Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Posizione**|Stati Uniti occidentali||
 
@@ -70,7 +71,7 @@ L'esempio seguente fornisce indicazioni dettagliate sul processo di creazione di
    |**Tipo**|Una | Tipo del record DNS da creare. I valori accettabili sono A, AAAA, CNAME, MX, NS, SRV, TXT e PTR.  Per altre informazioni sui tipi di record, vedere [Panoramica delle zone e dei record DNS](dns-zones-records.md)|
    |**TTL**|1|Durata (TTL) della richiesta DNS.|
    |**Unità TTL**|Ore|Misura di tempo per il valore TTL.|
-   |**Indirizzo IP**|{ipAddressValue| Questo valore indica l'indirizzo IP che viene risolto dal record DNS.|
+   |**Indirizzo IP**|ipAddressValue| Questo valore indica l'indirizzo IP che viene risolto dal record DNS.|
 
 ## <a name="view-records"></a>Visualizzare i record
 

@@ -1,4 +1,7 @@
 ## <a name="provision-the-solution"></a>Effettuare il provisioning della soluzione
+
+Se nel proprio account non è già stato effettuato il provisioning della soluzione preconfigurata per il monitoraggio remoto:
+
 1. Accedere a [azureiotsuite.com][lnk-azureiotsuite] con le credenziali dell'account Azure e fare clic su **+** per creare una soluzione.
 2. Fare clic su **Seleziona** nel riquadro **Remote monitoring** (Monitoraggio remoto).
 3. Immettere un valore in **Nome soluzione** per la soluzione preconfigurata di monitoraggio remoto.

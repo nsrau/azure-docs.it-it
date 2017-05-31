@@ -14,17 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/15/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: 0841744b806f3dba38dddee21fb7fe881e07134f
-ms.openlocfilehash: 51c9d9afb6c2ed460abd4c47a6afbc404b97a85e
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 54b8e16504e1170058dd021f7f7e2fba7b99bba7
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
 Il servizio Ricerca di Azure è un servizio di ricerca ospitato sul cloud che rende più semplice fornire un'esperienza di ricerca eccellente. Prima di poter eseguire ricerche, è necessario popolare un indice di Ricerca di Azure con i dati. Se i dati si trovano in un database SQL di Azure, il nuovo **Indicizzatore di Ricerca di Azure per il database SQL di Azure** (o in breve **Indicizzatore SQL di Azure**) è in grado di automatizzare il processo di indicizzazione. Ciò significa che è necessario scrivere meno codice e preoccuparsi di meno infrastruttura.
 
-In questo articolo vengono illustrati i meccanismi di uso degli indicizzatori, ma vengono anche descritte le funzionalità disponibili solo con i database SQL (ad esempio, il rilevamento delle modifiche integrato). Ricerca di Azure supporta anche altre origini dati, ad esempio Azure DocumentDB, Archiviazione BLOB e Archiviazione tabelle. Se si desidera visualizzare il supporto per altre origini dati, fornire commenti e suggerimenti nel [forum relativo a commenti e suggerimenti su Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
+In questo articolo vengono illustrati i meccanismi di uso degli indicizzatori, ma vengono anche descritte le funzionalità disponibili solo con i database SQL (ad esempio, il rilevamento delle modifiche integrato). Ricerca di Azure supporta anche altre origini dati, ad esempio Azure Cosmos DB, Archiviazione BLOB e Archiviazione tabelle. Se si desidera visualizzare il supporto per altre origini dati, fornire commenti e suggerimenti nel [forum relativo a commenti e suggerimenti su Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indicizzatori e origini dati
 È possibile impostare e configurare un indicizzatore SQL di Azure usando:

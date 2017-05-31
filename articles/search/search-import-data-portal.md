@@ -1,6 +1,6 @@
 ---
 title: Importare dati in Ricerca di Azure nel portale | Documentazione Microsoft
-description: Usare la procedura guidata Importa dati di Ricerca di Azure nel portale di Azure per effettuare una ricerca per indicizzazione nel database DocumentDB NoSQL, nell&quot;archivio BLOB, nell&quot;archivio tabelle, nel database SQL e in SQL Server in macchine virtuali di Azure.
+description: Usare la procedura guidata Importa dati di Ricerca di Azure nel portale di Azure per effettuare una ricerca per indicizzazione nel database Azure Cosmos DB NoSQL, nell&quot;archivio BLOB, nell&quot;archivio tabelle, nel database SQL e in SQL Server in macchine virtuali di Azure.
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
-ms.openlocfilehash: c03c26d0e5ea2529162262664412f4f8f7e854dc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,17 +34,17 @@ Internamente, la procedura guidata configurare e richiama un *indicizzatore*, au
 * Generare uno schema dell'indice modificabile basato sulla struttura dei dati di origine.
 * Caricare documenti JSON in un indice usando un set di righe recuperato dall'origine dati.
 
-È possibile provare questo flusso di lavoro con dati di esempio in DocumentDB. Per istruzioni, vedere [Introduzione a Ricerca di Azure nel portale](search-get-started-portal.md) .
+È possibile provare questo flusso di lavoro con dati di esempio in Azure Cosmos DB. Per istruzioni, vedere [Introduzione a Ricerca di Azure nel portale](search-get-started-portal.md) .
 
 > [!NOTE]
-> È possibile avviare la procedura guidata **Importa dati** dal dashboard di DocumentDB per semplificare l'indicizzazione dell'origine dati. Nel riquadro di spostamento a sinistra, passare a **Raccolte** > **Aggiungi Ricerca di Azure** per iniziare.
+> È possibile avviare la procedura guidata **Importa dati** dal dashboard di Azure Cosmos DB per semplificare l'indicizzazione dell'origine dati. Nel riquadro di spostamento a sinistra passare a **Raccolte** > **Aggiungi Ricerca di Azure** per iniziare.
 
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Origini dati supportate dalla procedura guidata Importa dati
 La procedura guidata Importa dati supporta le origini dati seguenti: 
 
 * Database SQL di Azure
 * Dati relazionali di SQL Server in una macchina virtuale di Azure
-* Azure DocumentDB
+* Azure Cosmos DB
 * Archivio BLOB di Azure
 * Archiviazione tabelle di Azure
 
@@ -58,7 +60,7 @@ Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'
 | **Origine dati esistente** |Se nel servizio di ricerca sono già definiti indicizzatori, è possibile selezionare una definizione esistente dell'origine dati per un'altra importazione. |
 | **Database SQL di Azure** |Il nome del servizio, le credenziali per un utente di database con autorizzazione di lettura e un nome di database possono essere specificati nella pagina o tramite una stringa di connessione ADO.NET. Per visualizzare o personalizzare le proprietà, scegliere l'opzione relativa alla stringa di connessione. <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
 | **Macchine virtuali SQL Server in Azure** |Specificare un nome completo del servizio, un ID utente, una password e un database come stringa di connessione. Per usare questa origine dati, è necessario avere già installato un certificato nell'archivio locale che esegue la crittografia della connessione. Per istruzioni, vedere [Connessione di una macchina virtuale SQL a Ricerca di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
-| **DocumentDB** |Tra i requisiti: l'account, il database e la raccolta. Tutti i documenti nella raccolta verranno inclusi nell'indice. È possibile definire una query per rendere flat o filtrare il set di righe oppure per rilevare i documenti modificati per operazioni successive di aggiornamento dei dati. |
+| **Azure Cosmos DB** |Tra i requisiti: l'account, il database e la raccolta. Tutti i documenti nella raccolta verranno inclusi nell'indice. È possibile definire una query per rendere flat o filtrare il set di righe oppure per rilevare i documenti modificati per operazioni successive di aggiornamento dei dati. |
 | **Archivio BLOB di Azure** |Tra i requisiti: l'account di archiviazione e un contenitore. Facoltativamente, se i nomi dei BLOB seguono una convenzione di denominazione virtuale a scopo di raggruppamento, è possibile specificare la porzione directory virtuale del nome come una cartella nel contenitore. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). |
 | **Archiviazione tabelle di Azure** |Tra i requisiti: l'account di archiviazione e un nome di tabella. Facoltativamente, è possibile specificare una query per recuperare un subset delle tabelle. Per altre informazioni, vedere [Indicizzazione nell'archivio tabelle di Azure con Ricerca di Azure](search-howto-indexing-azure-tables.md). |
 
@@ -113,16 +115,11 @@ Le modifiche che non richiedono la ricompilazione includono l'aggiunta di un nuo
 Per altre informazioni sugli indicizzatori, usare questi collegamenti:
 
 * [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori](search-howto-index-documentdb.md)
+* [Indicizzazione di Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indicizzazione nell'archivio tabelle di Azure con Ricerca di Azure](search-howto-indexing-azure-tables.md)
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

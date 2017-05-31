@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 642f9469722dfe701db8e353f4aa2b17edc00081
-ms.openlocfilehash: 67fdc8b9b4db5d311a8247995d7f8f626b90e5c5
-ms.lasthandoff: 02/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 8b7d2e7825fce74fad391e52dd423dec8f9a0e17
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 ---
 # <a name="cdn-documentation"></a>Documentazione relativa alla Rete di distribuzione dei contenuti
@@ -52,7 +53,7 @@ Informazioni su come usare la rete per la distribuzione di contenuti (CDN) per f
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Catalogo video di Azure Batch</h3>
+                        <h3>Catalogo video della rete CDN di Azure</h3>
                     </div>
                 </div>
             </div>

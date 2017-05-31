@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
-ms.openlocfilehash: 3a0db75612531ebf947c011e9e4545f7d9590e20
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0ea23f4f59737123f4400dafc7506e121f24ae34
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -37,10 +39,11 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nell'angolo in alto a sinistra della schermata fare clic su **Nuovo**. Nella finestra di dialogo **Nuovo** selezionare **Dati e archiviazione**, quindi fare clic su **Account di archiviazione**.
-   
-   Viene visualizzato il pannello **Crea account di archiviazione** .
-   
-   ![Crea account di archiviazione][create-new-storage-account]
+    
+    Viene visualizzato il pannello **Crea account di archiviazione** .   
+
+       ![Create Storage Account][create-new-storage-account]  
+
 3. Nel campo **Nome** digitare il nome di un sottodominio. Il nome può contenere tra 3 e 24 lettere minuscole e numeri.
    
     Questo valore diventa il nome host all'interno dell'URI usato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione. Per fare riferimento a una risorsa contenitore nel servizio BLOB, usare un URI con il formato seguente, dove *&lt;EtichettaAccountArchiviazione&gt;* corrisponde al valore immesso in **Immettere un URL**:
@@ -56,49 +59,42 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 7. Selezionare la località per l'account di archiviazione.
 8. Fare clic su **Crea**. Il completamento del processo di creazione dell'account di archiviazione potrebbe richiedere diversi minuti.
 
-## <a name="step-2-create-a-new-cdn-profile"></a>Passaggio 2: Creare un nuovo profilo di rete CDN
-Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo contiene uno o più endpoint della rete CDN.  Si consiglia di usare più profili per organizzare gli endpoint della rete CDN tramite il dominio internet, l’applicazione web o altri criteri.
+## <a name="step-2-enable-cdn-for-the-storage-account"></a>Passaggio 2: Abilitare la rete CDN per l'account di archiviazione
 
-> [!TIP]
-> Se si dispone già di un profilo di rete CDN che si desidera usare per questa esercitazione, passare a [Passaggio 3](#step-3-create-a-new-cdn-endpoint).
+Grazie all'integrazione più recente, è ora possibile abilitare la rete CDN per l'account di archiviazione senza lasciare l'estensione del portale di archiviazione. 
+
+1. Selezionare l'account di archiviazione, cercare "CDN" o scorrere verso il basso dal menu di navigazione a sinistra, quindi fare clic su "Rete CDN di Azure".
+    
+    Viene visualizzato il pannello **Rete CDN di Azure**.
+
+    ![spostamento per l'abilitazione della rete CDN][cdn-enable-navigation]
+    
+2. Creare un nuovo endpoint immettendo le informazioni necessarie
+    - **Profilo CDN**: è possibile creare un nuovo profilo o usarne uno esistente.
+    - **Piano tariffario**: è possibile selezionare un piano tariffario solo se si crea un nuovo profilo CDN.
+    - **Nome endpoint rete CDN** : immettere un nome dell'endpoint a scelta.
+
+    > [!TIP]
+       > L'endpoint della rete CDN creato utilizza il nome host dell'account di archiviazione come origine per impostazione predefinita.
+
+    ![cdn new endpoint creation][cdn-new-endpoint-creation]
+
+3. Dopo la creazione, il nuovo endpoint verrà visualizzato nell'elenco degli endpoint sopra riportato.
+
+    ![nuovo endpoint di archiviazione rete CDN][cdn-storage-new-endpoint]
+
+> [!NOTE]
+> È anche possibile andare all'estensione Rete CDN di Azure per abilitare CDN.[Esercitazione](#Tutorial-cdn-create-profile).
 > 
 > 
 
-[!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
+[!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]  
 
-## <a name="step-3-create-a-new-cdn-endpoint"></a>Passaggio 3: creare un nuovo endpoint della rete CDN
-**Per creare un nuovo endpoint della rete CDN per l'account di archiviazione**
+## <a name="step-3-enable-additional-cdn-features"></a>Passaggio 3: Abilitare funzionalità aggiuntive della rete CDN
 
-1. Nel [portale di gestione di Azure](https://portal.azure.com)passare al profilo di rete CDN.  Lo si potrebbe aver bloccato nel dashboard nel passaggio precedente.  Se così non fosse, è possibile trovarlo facendo clic su **Esplora**, quindi su **Profili rete CDN** e facendo clic sul profilo in cui si prevede di aggiungere l'endpoint.
-   
-    Viene visualizzato il pannello del profilo di rete CDN.
-   
-    ![Profilo di rete CDN][cdn-profile-settings]
-2. Fare clic sul pulsante **Aggiungi Endpoint** .
-   
-    ![Pulsante Aggiungi endpoint][cdn-new-endpoint-button]
-   
-    Viene visualizzato il pannello **Aggiungi un endpoint** .
-   
-    ![Pannello Aggiungi endpoint][cdn-add-endpoint]
-3. Immettere un **Nome** per questo endpoint della rete CDN.  Questo nome verrà usato per accedere alle risorse memorizzate nella cache nel dominio `<endpointname>.azureedge.net`.
-4. Nell'elenco a discesa **Tipo di origine** , selezionare *Archiviazione*.  
-5. Nell'elenco a discesa **nome host di origine** , selezionare l'account di archiviazione.
-6. Lasciare le impostazioni predefinite per **Percorso dell'origine**, **Intestazione host di origine** e **Protocollo/Porta dell'origine**.  È necessario specificare almeno un protocollo (HTTP o HTTPS).
-   
-   > [!NOTE]
-   > Questa configurazione abilita tutti i contenitori visibili pubblicamente nell'account di archiviazione alla memorizzazione nella cache nella rete CDN .  Se si desidera limitare l'ambito di un singolo contenitore, usare il **Percorso di origine**.  Si noti che il contenitore deve avere la visibilità impostata su pubblica.
-   > 
-   > 
-7. Per creare il nuovo endpoint, fare clic sul pulsante **Aggiungi** .
-8. Dopo la creazione, l'endpoint sarà visualizzato in un elenco di endpoint per il profilo. Nella visualizzazione elenco sono mostrati gli URL da usare per accedere a contenuti memorizzati nella cache, oltre al dominio di origine.
-   
-    ![Endpoint della rete CDN][cdn-endpoint-success]
-   
-   > [!NOTE]
-   > L'endpoint non sarà immediatamente disponibile per l'uso.  Ci possono volere fino a 90 minuti per far sì che la registrazione si propaghi attraverso la rete CDN. È possibile che gli utenti che provano a usare immediatamente il nome di dominio della rete CDN ricevano un errore con codice di stato 404 fino a quando il contenuto non risulterà disponibile tramite la rete CDN.
-   > 
-   > 
+Dal pannello "Rete CDN di Azure" dell'account di archiviazione fare clic sull'endpoint della rete CDN dall'elenco per aprire il pannello di configurazione della rete CDN. È possibile abilitare funzionalità aggiuntive della rete CDN per il recapito, ad esempio la compressione, la stringa di query, il filtro geografico. È inoltre possibile aggiungere mapping dominio personalizzato all'endpoint della rete CDN e abilitare HTTPS per il dominio personalizzato.
+    
+![configurazione CDN di archiviazione della rete CDN][cdn-storage-cdn-configuration]
 
 ## <a name="step-4-access-cdn-content"></a>Passaggio 4: Accedere al contenuto della rete CDN
 Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL della rete CDN specificato nel portale. L'indirizzo per un oggetto BLOB memorizzato nella cache sarà analogo al seguente:
@@ -106,7 +102,7 @@ Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL de
 http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
-> Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione o a un servizio ospitato, tutti gli oggetti disponibili pubblicamente saranno idonei per la memorizzazione nella cache perimetrale della rete CDN. Se si modifica un oggetto attualmente memorizzato nella cache nella rete CDN, il nuovo contenuto sarà disponibile tramite la rete CDN solo dopo l'aggiornamento dei contenuti della rete CDN alla scadenza della durata specificata per i contenuti memorizzati nella cache.
+> Dopo l'abilitazione dell'accesso della rete CDN a un account di archiviazione, tutti gli oggetti disponibili pubblicamente saranno idonei per la memorizzazione nella cache perimetrale della rete CDN. Se si modifica un oggetto attualmente memorizzato nella cache nella rete CDN, il nuovo contenuto sarà disponibile tramite la rete CDN solo dopo l'aggiornamento dei contenuti della rete CDN alla scadenza della durata specificata per i contenuti memorizzati nella cache.
 > 
 > 
 
@@ -121,16 +117,9 @@ Un oggetto già memorizzato nella cache della rete CDN rimarrà nella cache fino
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](cdn-map-content-to-custom-domain.md)
+* [Abilitare HTTPS per il dominio personalizzato](cdn-custom-ssl.md)
 
 [create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
-
-[cdn-profile-settings]: ./media/cdn-create-a-storage-account-with-cdn/cdn-profile-settings.png
-[cdn-new-endpoint-button]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-endpoint-button.png
-[cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-
+[cdn-enable-navigation]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png
+[cdn-storage-new-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png
+[cdn-storage-cdn-configuration]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png 

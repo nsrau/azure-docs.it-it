@@ -3,7 +3,7 @@ title: "Sfruttare al meglio le funzionalità di Azure Application Insights | Doc
 description: "Dopo l&quot;introduzione a Application Insights, ecco un riepilogo delle funzionalità che è possibile esplorare."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
 ms.service: application-insights
@@ -12,10 +12,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f9d586a140b27f672f8cff463ba0607e2bd844f
 ms.openlocfilehash: 6f2a184242f3f69bdc4a15ac02c095a45c723565
+ms.contentlocale: it-it
 ms.lasthandoff: 02/08/2017
 
 

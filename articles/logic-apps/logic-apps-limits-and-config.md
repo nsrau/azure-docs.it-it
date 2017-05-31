@@ -1,5 +1,5 @@
 ---
-title: Limiti e configurazione delle app per la logica | Documentazione Microsoft
+title: Limiti e configurazione delle app per la logica | Microsoft Docs
 description: Panoramica dei limiti del servizio e dei valori di configurazione disponibili per le app per la logica.
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f09c231baecf2452a6e3abd196748629f13885ff
-ms.lasthandoff: 03/29/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 859f9a1ca9dbe166fd514c8eba868b466dbc4d2c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -83,6 +84,10 @@ Di seguito sono riportati i limiti per una singola istanza di app per la logica.
 |Nome|Limite|Note|
 |----|----|----|
 |Esecuzioni di azioni per 5 minuti |100.000|Se necessario, è possibile distribuire il carico di lavoro tra più app|
+|Chiamate in uscita simultanee di azioni |~2.500|Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze|
+|Chiamate in ingresso simultanee di endpoint di runtime |~1,000|Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze|
+|L'endpoint di runtime legge le chiamate per cinque minuti |60.000|Se necessario, è possibile distribuire il carico di lavoro tra più app|
+|L'endpoint di runtime richiama le chiamate per cinque minuti |45,000|Se necessario, è possibile distribuire il carico di lavoro tra più app|
 
 Se si prevede di superare questo limite nella normale elaborazione o si vuole eseguire il test di carico che potrebbe superare questo limite per un periodo di tempo, [contattaci](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
 
@@ -111,6 +116,10 @@ Ecco i limiti per gli elementi aggiunti all'account di integrazione
 |----|----|----|
 |Schema|8 MB|È possibile usare l'[URI del BLOB](logic-apps-enterprise-integration-schemas.md) per caricare file di dimensioni superiori a 2 MB |
 |Mappa (file XSLT)|2 MB| |
+|L'endpoint di runtime legge le chiamate per cinque minuti |60.000|Se necessario, è possibile distribuire il carico di lavoro tra più account|
+|L'endpoint di runtime richiama le chiamate per cinque minuti |45,000|Se necessario, è possibile distribuire il carico di lavoro tra più account|
+|L'endpoint di runtime tiene traccia delle chiamate per 5 minuti |45,000|Se necessario, è possibile distribuire il carico di lavoro tra più account|
+|L'endpoint di runtime blocca le chiamate simultanee |~1,000|Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Dimensioni dei messaggi per i protocolli B2B (AS2, X12, EDIFACT)
 

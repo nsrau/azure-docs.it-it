@@ -63,7 +63,7 @@ La tabella seguente elenca i tipi di eccezioni di messaggistica, ne riporta le p
 ## <a name="quotaexceededexception"></a>QuotaExceededException
 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) indica che è stata superata la quota di un'entità specifica.
 
-Questa situazione può verificarsi se a livello di gruppo di consumer è già stato aperto il numero massimo di&5; ricevitori.
+Questa situazione può verificarsi se a livello di gruppo di consumer è già stato aperto il numero massimo di (5) ricevitori.
 
 ### <a name="event-hubs"></a>Hub eventi
 Hub eventi ha un limite di 20 gruppi di utenti per Hub eventi. Quando si tenta di creare più gruppi, si riceve un'eccezione di tipo [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 

@@ -1,5 +1,5 @@
 ---
-title: Esempi di query Lucene per Ricerca di Azure | Documentazione Microsoft
+title: Esempi di query Lucene per Ricerca di Azure | Microsoft Docs
 description: "Sintassi di query Lucene per ricerca fuzzy, ricerca per prossimità, l&quot;aumento della priorità dei termini, ricerca con espressioni regolari e ricerca con caratteri jolly."
 services: search
 documentationcenter: 
@@ -15,16 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 0f81ac0d19cd0f20c1f2214042eda391a3e68a7d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0740bc1f9e8b8be3c59518d9b23b8a1411c6d16a
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 ---
 
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Esempi di sintassi di query Lucene per la creazione di query in Ricerca di Azure
 Quando si creano query per Ricerca di Azure, è possibile usare la [sintassi di query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx) predefinita o il [parser di query Lucene in Ricerca di Azure](https://msdn.microsoft.com/library/azure/mt589323.aspx). Il parser di query Lucene supporta costrutti di query più complessi, ad esempio le query con ambito campo, ricerca fuzzy, ricerca di prossimità, aumento priorità dei termini e ricerca di espressioni regolari.
 
-Questo articolo consente di esaminare esempi che visualizzano la sintassi di query Lucene e i risultati corrispondenti affiancati. Gli esempi vengono eseguiti su un indice di ricerca precaricato in [JSFiddle](https://jsfiddle.net/), un editor di codice online per il test di script e HTML.
+Questo articolo consente di esaminare esempi che visualizzano la sintassi di query Lucene e i risultati corrispondenti affiancati. Gli esempi vengono eseguiti su un indice di ricerca precaricato in [JSFiddle](https://jsfiddle.net/), un editor di codice online per il test di script e HTML. Per informazioni di base sull'elaborazione di query, vedere [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md).
 
 Fare clic con il pulsante destro del mouse sugli URL degli esempi di query per aprire JSFiddle in una finestra del browser distinta.
 
@@ -120,9 +122,4 @@ Provare a specificare il parser di query Lucene nel codice. I collegamenti segue
 
 * [Eseguire query su un indice di Ricerca di Azure con .NET SDK](search-query-dotnet.md)
 * [Eseguire query su un indice di Ricerca di Azure con l'API REST](search-query-rest-api.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

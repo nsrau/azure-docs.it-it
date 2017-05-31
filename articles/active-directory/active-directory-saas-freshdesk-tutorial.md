@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: f35da063fc637f315b52ea38b63d2c8222cecd21
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 47609ab453cf3db3cb745f91ed23904ff90e7b41
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -130,11 +131,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 8. Nel menu in alto fare clic su **Admin**.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
+   ![Amministratore](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Amministratore")
 
 9. Nella scheda **General Settings** fare clic su **Security**.
    
-       ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
+   ![Sicurezza](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Sicurezza")
 
 10. Nella sezione **Security** seguire questa procedura:
    
@@ -197,29 +198,29 @@ Nel caso di FreshDesk, il provisioning è un'attività manuale.
 1. Accedere al tenant di **Freshdesk** .
 2. Nel menu in alto fare clic su **Admin**.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
+   ![Amministratore](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Amministratore")
 
 3. Nella scheda **General Settings** fare clic su **Agents**.
    
-       ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
+   ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
 
 4. Fare clic su **New Agent**.
    
-       ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
+    ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
 
 5. Nella finestra di dialogo Agent Information seguire questa procedura:
    
-       ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
+   ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
    
-       a. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
+   a. Nella casella di testo **Full Name** , digitare il nome dell'account Azure AD di cui si vuole eseguire il provisioning.
 
-       b. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+   b. Nella casella di testo **Email** , digitare l’indirizzo di posta elettronica dell'account Azure AD di cui si vuole eseguire il provisioning.
 
-       c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
+   c. Nella casella di testo **Title** , digitare il titolo dell'account Azure AD di cui si vuole eseguire il provisioning.
 
-       d. Select **Agents role**, and then click **Assign**.
+   d. Selezionare **Agents role** e quindi fare clic su **Assign**.
        
-       e. Click **Save**.     
+   e. Fare clic su **Salva**.     
    
     >[!NOTE]
     >Il titolare dell'account AD riceverà un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account. 

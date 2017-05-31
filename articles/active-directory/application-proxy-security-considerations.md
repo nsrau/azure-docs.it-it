@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
 ms.openlocfilehash: 52704b3259ddad85db12b8bb81c4992ece2f37a4
+ms.contentlocale: it-it
 ms.lasthandoff: 04/21/2017
 
 
@@ -45,7 +46,7 @@ Il proxy applicazione di Azure AD offre i vantaggi di sicurezza seguenti:
 
 **Tutti gli accessi sono in uscita:** non è necessario aprire alcuna connessione in ingresso alla rete aziendale.
 
-* I connettori di Azure AD mantengono le connessioni in uscita per il servizio proxy di applicazione di Azure AD, quindi non è necessario aprire porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedono una rete perimetrale ******e consentono l'accesso a connessioni non autenticate al perimetro della rete. Questo scenario determinava la necessità di molti altri investimenti in prodotti di Web application firewall (WAF) per analizzare il traffico e offrire protezione aggiunta all'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
+* I connettori di Azure AD mantengono le connessioni in uscita per il servizio proxy di applicazione di Azure AD, quindi non è necessario aprire porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedono una ***rete perimetrale***e consentono l'accesso a connessioni non autenticate al perimetro della rete. Questo scenario determinava la necessità di molti altri investimenti in prodotti di Web application firewall (WAF) per analizzare il traffico e offrire protezione aggiunta all'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
 
 **Analisi di sicurezza e intelligence basata su Machine Learning:** protezione all'avanguardia.
 

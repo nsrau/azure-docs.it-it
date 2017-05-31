@@ -1,6 +1,6 @@
 ---
 title: Gestire i cluster Hadoop tramite l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
-description: "Come utilizzare l’interfaccia della riga di comando di Azure per gestire i cluster Hadoop in HDInsight"
+description: Informazioni su come usare l&quot;interfaccia della riga di comando di Azure per gestire i cluster Hadoop in Azure HDInsight. L&quot;interfaccia della riga di comando di Azure funziona in Windows, Mac e Linux.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -9,17 +9,18 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e70e24951481c33525a852479c9c9647a45e71ac
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c8067e582dd7e20b4ca35771123303de6c4a4ef6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -46,12 +47,12 @@ Per eseguire le procedure descritte nell'articolo è necessario:
   
         azure config mode arm
 
-Per ottenere assistenza, utilizzare l’opzione **-h** .  Ad esempio:
+Per ottenere assistenza, utilizzare l’opzione **-h** .  ad esempio:
 
     azure hdinsight cluster create -h
 
-## <a name="create-clusters"></a>Creare i cluster
-Vedere [Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+## <a name="create-clusters-with-the-cli"></a>Creare cluster con l'interfaccia della riga di comando
+Vedere [Creare cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="list-and-show-cluster-details"></a>Elencare i cluster e visualizzarne i dettagli
 Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
@@ -59,7 +60,7 @@ Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
     azure hdinsight cluster list
     azure hdinsight cluster show <Cluster Name>
 
-![HDI.CLIListCluster][image-cli-clusterlisting]
+![Visualizzazione della riga di comando dell'elenco di cluster][image-cli-clusterlisting]
 
 ## <a name="delete-clusters"></a>Eliminare cluster
 Utilizzare il comando seguente per eliminare un cluster:
@@ -107,5 +108,5 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Elencare e visualizzare i cluster"
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "Elencare e visualizzare i cluster"
 

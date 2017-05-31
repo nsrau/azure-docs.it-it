@@ -14,11 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/25/2017
+ms.date: 5/18/2017
 ms.author: negat
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01983ac7b60f7fdb237fba27f22cb31fcb3c1b7b
 ms.openlocfilehash: cd1e67ce89a856f325b66087f003b1a9a1ac6f6a
+ms.contentlocale: it-it
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -148,10 +150,5 @@ Per altre informazioni sull'uso dei dischi dati con i set di scalabilità, veder
 Ad esempio, per i modelli di Resource Manager con set di scalabilità, cercare "vmss" nel [repository di GitHub dei modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Per informazioni generali, vedere la [pagina di destinazione principale per i set di scalabilità](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

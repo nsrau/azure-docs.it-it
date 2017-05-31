@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fe52ced5e4dc829b5d1421bf0edcd58cffcaad19
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -48,7 +49,7 @@ Per informazioni sulla creazione di una convenzione di denominazione, vedere le 
 
 <sup>1</sup> I nomi di account di archiviazione devono essere formati da lettere minuscole, un massimo di 24 caratteri e non devono includere alcun segno meno.
 
-Se si specifica un parametro per un nome di risorsa, è necessario indicare un nome univoco durante la distribuzione. In alternativa, è possibile creare una variabile che usi la funzione [uniqueString()](resource-group-template-functions.md#uniquestring) per generare un nome. 
+Se si specifica un parametro per un nome di risorsa, è necessario indicare un nome univoco durante la distribuzione. In alternativa, è possibile creare una variabile che usi la funzione [uniqueString()](resource-group-template-functions-string.md#uniquestring) per generare un nome. 
 
 È spesso opportuno aggiungere un prefisso o un suffisso al risultato di **uniqueString**. La modifica del nome univoco consente di identificare più facilmente il tipo di risorsa in base al nome. Ad esempio, è possibile generare un nome univoco per un account di archiviazione usando la variabile seguente:
 
@@ -174,7 +175,7 @@ Le informazioni seguenti possono essere utili quando si usano parametri:
 Le informazioni seguenti possono essere utili quando si usano variabili:
 
 * Usare le variabili per i valori da usare più volte in un modello. Se un valore viene usato una sola volta, un valore hardcoded facilita la lettura del modello.
-* Non è possibile usare la funzione [reference](resource-group-template-functions.md#reference) nella sezione **variables** del modello. La funzione **reference** deriva il proprio valore dallo stato di runtime della risorsa, ma le variabili vengono risolte durante l'analisi iniziale del modello. Costruire invece valori che richiedono la funzione **reference** direttamente nella sezione **resources** o **outputs** del modello.
+* Non è possibile usare la funzione [reference](resource-group-template-functions-resource.md#reference) nella sezione **variables** del modello. La funzione **reference** deriva il proprio valore dallo stato di runtime della risorsa, ma le variabili vengono risolte durante l'analisi iniziale del modello. Costruire invece valori che richiedono la funzione **reference** direttamente nella sezione **resources** o **outputs** del modello.
 * Includere le variabili per i nomi di risorse che devono essere univoci, come illustrato in [Nomi di risorse](#resource-names).
 * È possibile raggruppare le variabili in oggetti complessi. È possibile fare riferimento a un valore da un oggetto complesso nel formato **variable.subentry**. Il raggruppamento delle variabili consente di tenere traccia delle variabili correlate e migliora la leggibilità del modello. Ad esempio:
    

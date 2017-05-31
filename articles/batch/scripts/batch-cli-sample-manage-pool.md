@@ -12,12 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7cec2a8c66868c601c38dc2dea61dda38d3cd3b2
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2556b02459886390b803407c5cb828687229a44e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -25,14 +26,16 @@ ms.lasthandoff: 03/24/2017
 
 Questi script illustrano alcuni degli strumenti disponibili nell'interfaccia della riga di comando di Azure per creare e gestire pool di nodi di calcolo nel servizio Azure Batch.
 
-Per eseguire questi script è necessario che siano già stati configurati un account Batch e un'applicazione. Per altre informazioni, vedere gli [script di esempio](../batch-cli-samples.md) per ognuno di questi argomenti.
-
 > [!NOTE]
 > I comandi in questo esempio creano macchine virtuali di Azure. L'esecuzione di macchine virtuali comporterà addebiti all'account. Per ridurre al minimo tali addebiti, eliminare le macchine virtuali dopo aver eseguito l'esempio. Vedere [Eseguire la pulizia dei pool](#clean-up-pools).
 
-Se necessario, installare l'interfaccia della riga di comando di Azure usando le istruzioni presenti nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per accedere ad Azure.
+È possibile configurare i pool di Batch in due modi: con una configurazione Servizi cloud (solo Windows) o con una configurazoine Macchina virtuale (Windows e Linux). Gli script di esempio seguenti mostrano come creare pool con entrambe le configurazioni.
 
-È possibile configurare i pool di Batch in due modi: con una configurazione Servizi cloud (solo Windows) o con una configurazoine Macchina virtuale (Windows e Linux).
+## <a name="prerequisites"></a>Prerequisiti
+
+- Installare l'interfaccia della riga di comando di Azure usando le istruzioni presenti nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), se questa operazione non è stata ancora eseguita.
+- Creare un account Batch, se non è già disponibile. Vedere [Creare un account Batch con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) per uno script di esempio che crea un account.
+- Se questa operazione non è stata già eseguita, configurare un'applicazione in modo che venga eseguita da un'attività di avvio. Vedere [Aggiunta di applicazioni ad Azure Batch con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-add-application) per uno script di esempio che crea un'applicazione e carica un pacchetto dell'applicazione in Azure.
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>Script di esempio per un pool con configurazione Servizi cloud
 

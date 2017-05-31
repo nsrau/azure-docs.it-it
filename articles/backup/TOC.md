@@ -71,9 +71,11 @@
 ### [Rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Concetti
+## [Panoramica degli insiemi di credenziali dei servizi di ripristino](backup-azure-recovery-services-vault-overview.md)
+## [Aggiornamento di un insieme di credenziali di backup a insieme di credenziali dei servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Eliminare un insieme di credenziali di Backup di Azure](backup-azure-delete-vault.md)
 ## [Controllo degli accessi in base al ruolo](backup-rbac-rs-vault.md)
 ## [Sicurezza per i backup ibridi](backup-azure-security-feature.md)
-## [Eliminare un insieme di credenziali di Backup di Azure](backup-azure-delete-vault.md)
 ## [Configurare il backup offline](backup-azure-backup-import-export.md)
 ## [Sostituire la libreria di nastri](backup-azure-backup-cloud-as-tape.md)
 ## [Backup coerenti con l'applicazione di VM Linux](backup-azure-linux-app-consistent.md)

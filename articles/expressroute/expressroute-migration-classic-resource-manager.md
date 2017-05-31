@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 05/02/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 5cebc3c5f2bcfb89f939b98391ffd072263c3e08
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: f708e7d53983551c578486ded9c5481048c7ee8b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -28,7 +29,7 @@ Questo articolo illustra come eseguire la migrazione delle reti virtuali associa
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Verificare di avere la versione più recente dei moduli di Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Verificare di avere la versione più recente dei moduli di Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * Prima di procedere con la configurazione, assicurarsi di avere verificato i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 * Rivedere le informazioni disponibili in [Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](expressroute-move.md). Assicurarsi di aver compreso pienamente i limiti e le limitazioni.
 * Verificare che il circuito sia completamente operativo nel modello di distribuzione classica.
@@ -45,6 +46,7 @@ Questo articolo illustra come eseguire la migrazione delle reti virtuali associa
 * È possibile spostare un circuito ExpressRoute dal modello di distribuzione classica all'ambiente Resource Manager senza tempi di inattività. È possibile spostare qualsiasi circuito ExpressRoute dal modello di distribuzione classica all'ambiente Resource Manager senza tempi di inattività. Seguire le istruzioni disponibili in [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model using PowerShell](expressroute-howto-move-arm.md) (Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager usando PowerShell). Questo è un prerequisito per lo spostamento di risorse connesse alla rete virtuale.
 * È possibile eseguire la migrazione nell'ambiente Resource Manager di reti virtuali, gateway e distribuzioni associate che si trovano nella rete virtuale e sono associati al circuito ExpressRoute nella stessa sottoscrizione, senza tempi di inattività. È possibile seguire la procedura illustrata più avanti per eseguire la migrazione di risorse come reti virtuali, gateway e macchine virtuali distribuiti nella rete virtuale. È necessario assicurare che le reti virtuali siano configurate correttamente prima della migrazione. 
 * Le reti virtuali, i gateway e le distribuzioni associate che si trovano nella rete virtuale ma non sono inclusi nella stessa sottoscrizione del circuito ExpressRoute richiedono del tempo di inattività per il completamento della migrazione. L'ultima sezione del documento illustra la procedura da seguire per eseguire la migrazione delle risorse.
+* Non è possibile eseguire la migrazione di una rete virtuale con Gateway ExpressRoute e Gateway VPN.
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Spostare un circuito ExpressRoute dal modello di distribuzione classica a Resource Manager
 È necessario spostare un circuito ExpressRoute da una distribuzione classica a un ambiente Resource Manager prima di provare a eseguire la migrazione delle risorse associate al circuito ExpressRoute. Per ottenere questo risultato, vedere gli articoli seguenti:
@@ -64,7 +66,7 @@ Select-AzureSubscription -SubscriptionName <VNET Subscription>
 Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
 ```
       
-È necessario assicurarsi che tutti i riferimenti a <ConnectionsToLocalNetwork> vengano rimossi dalle reti virtuali da sottoporre a migrazione. Il frammento di codice seguente mostra una configurazione di rete di esempio:
+È necessario assicurarsi che tutti i riferimenti a &lt;ConnectionsToLocalNetwork&gt; vengano rimossi dalle reti virtuali da sottoporre a migrazione. Il frammento di codice seguente mostra una configurazione di rete di esempio:
 
 ```
     <VirtualNetworkSite name="MyVNet" Location="East US">
@@ -86,7 +88,7 @@ Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
     </VirtualNetworkSite>
 ```
  
-Se <ConnectionsToLocalNetwork> non è vuoto, eliminare i riferimenti sottostanti e inviare di nuovo la configurazione di rete. È possibile ottenere questo risultato eseguendo il cmdlet di PowerShell seguente:
+Se &lt;ConnectionsToLocalNetwork&gt; non è vuoto, eliminare i riferimenti sottostanti e inviare di nuovo la configurazione di rete. È possibile ottenere questo risultato eseguendo il cmdlet di PowerShell seguente:
 
 ```powershell
 Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml

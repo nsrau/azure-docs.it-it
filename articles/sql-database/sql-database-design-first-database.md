@@ -4,7 +4,7 @@ description: Informazioni su come progettare il primo database SQL di Azure.
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,19 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 03/30/2017
+ms.date: 05/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 0d02954829ebac9275c014f7dac7e1ec423b0fc1
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: a78284276b600172ad9fd6de2f30702a6f05e79b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="design-your-first-azure-sql-database"></a>Progettare il primo database SQL di Azure
 
-In questa esercitazione si compila un database per permettere a un'università di tenere traccia dei corsi e dei livelli di registrazione degli studenti. In questa esercitazione viene illustrato come usare il [Portale di Azure](https://portal.azure.com/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) per creare un database SQL di Azure in un server logico del Database SQL di Azure, aggiungere tabelle al database, caricare i dati nelle tabelle ed eseguire query sul database. Viene anche illustrato come usare le funzionalità [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) del Database SQL per ripristinare il database a un punto precedente nel tempo.
+Il database SQL di Azure è un database come servizio relazionale che usa il motore Microsoft SQL Server. Questa esercitazione illustra le attività di base che è possibile eseguire con i database, come creare database e tabelle, caricare dati, eseguire query sui dati e ripristinare un database a un momento precedente. Si apprenderà come: 
+
+> [!div class="checklist"]
+> * Creare un database
+> * Configurare una regola del firewall
+> * Connettersi al database con [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
+> * Creare tabelle
+> * Eseguire il caricamento bulk dei dati
+> * Eseguire query sui dati
+> * Ripristinare il database a un momento precedente usando le funzionalità di [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) del database SQL
 
 Per completare questa esercitazione, assicurarsi di aver installato la versione più recente di [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
 
@@ -280,7 +290,19 @@ Si supponga di aver eliminato accidentalmente una tabella. Si tratta di un eleme
 
 3. Fare clic su **OK** per ripristinare il database da ripristinare [ in un punto nel tempo ](sql-database-recovery-using-backups.md#point-in-time-restore) precedente all'aggiunta delle tabelle. Il ripristino di un database in un altro punto nel tempo crea un duplicato del database nello stesso server del database originale nel punto nel tempo specificato, purché sia entro il periodo di conservazione per il [livello di servizio](sql-database-service-tiers.md) applicato.
 
-## <a name="next-steps"></a>Passaggi successivi 
 
-Per esempi di attività comuni di PowerShell, vedere gli [esempi di PowerShell per Database SQL](sql-database-powershell-samples.md)
+
+## <a name="next-steps"></a>Passaggi successivi 
+Questa esercitazione ha illustrato le attività di base che è possibile eseguire con i database, come creare database e tabelle, caricare dati, eseguire query sui dati e ripristinare un database a un momento precedente. Si è appreso come:
+> [!div class="checklist"]
+> * Creare un database
+> * Configurare una regola del firewall
+> * Connettersi al database con [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
+> * Creare tabelle
+> * Eseguire il caricamento bulk dei dati
+> * Eseguire query sui dati
+> * Ripristinare il database a un momento precedente usando le funzionalità di [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) del database SQL. Passare all'esercitazione successiva per informazioni sulla migrazione dei dati.
+
+> [!div class="nextstepaction"]
+>[Eseguire la migrazione di un database SQL Server a un database SQL di Azure](sql-database-migrate-your-sql-server-database.md)
 

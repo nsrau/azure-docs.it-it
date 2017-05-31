@@ -12,13 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 05/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 0bd6fce848c6d174eb519f8ef8a14f9ead5fa5ce
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 1199840da725afdae3ee69a26db9ceedb2ab37e3
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -79,15 +80,27 @@ Quando si visualizza il cluster HDInsight nel Portale di Azure, selezionando la 
 
 Le informazioni di archiviazione non vengono mostrate perché lo script modifica solo la configurazione di core-site.xml per il cluster. Queste informazioni non vengono usate durante il recupero delle informazioni del cluster tramite le API di gestione di Azure.
 
-Per visualizzare le informazioni sull'account di archiviazione aggiunte al cluster tramite lo script, usare l'API REST Ambari. Il comando seguente illustra come usare [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) per recuperare e analizzare i dati JSON da Ambari:
+Per visualizzare le informazioni sull'account di archiviazione aggiunte al cluster tramite lo script, usare l'API REST Ambari. Usare i comandi seguenti per recuperare queste informazioni per il cluster:
 
-> [!div class="tabbedCodeSnippets" data-resources="OutlookServices.Calendar"]
-> ```PowerShell
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.windows.net"""] | select(. != null)'
-> ```
-> ```Bash
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.windows.net"] | select(. != null)'
-> ```
+```PowerShell
+$creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
+    -Credential $creds
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
+```
+
+> [!NOTE]
+> Impostare `$clusterName` sul nome del cluster HDInsight. Impostare `$storageAccountName` sul nome dell'account di archiviazione. Quando richiesto, immettere (admin) e password di accesso al cluster.
+
+```Bash
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
+```
+
+> [!NOTE]
+> Impostare `$PASSWORD` sulla password dell'account (admin) di accesso al cluster. Impostare `$CLUSTERNAME` sul nome del cluster HDInsight. Impostare `$STORAGEACCOUNTNAME` sul nome dell'account di archiviazione.
+>
+> Queste esempio usa [curl (http://curl.haxx.se/)](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) per recuperare e analizzare i dati JSON.
 
 Quando si usa questo comando, sostituire __CLUSTERNAME__ con il nome del cluster HDInsight. Sostituire __PASSWORD__ con la password di accesso HTTP per il cluster. Sostituire __STORAGEACCOUNT__ con il nome dell'account di archiviazione aggiunto usando l'azione script. Le informazioni restituite da questo comando sono simili al testo seguente:
 
@@ -124,9 +137,15 @@ Per risolvere il problema, è necessario rimuovere la voce esistente per l'accou
 
 Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che le prestazioni non siano ottimali. L'accesso ai dati in un'area diversa comporta l'invio di traffico di rete all'esterno del data center di Azure di un'area specifica e la trasmissione tramite Internet pubblico e ciò può introdurre latenza.
 
+> [!WARNING]
+> L'uso di un account di archiviazione in un'area diversa rispetto al cluster HDInsight non è supportato.
+
 ### <a name="additional-charges"></a>Costi aggiuntivi
 
 Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che la fatturazione di Azure includa addebiti di uscita aggiuntivi. Un addebito di uscita viene applicato quando i dati escono da un data center di un'area specifica, anche se il traffico è destinato per un altro data center di Azure in un'area diversa.
+
+> [!WARNING]
+> L'uso di un account di archiviazione in un'area diversa rispetto al cluster HDInsight non è supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

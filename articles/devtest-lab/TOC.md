@@ -9,10 +9,11 @@
 ## [Creare la prima VM](devtest-lab-create-first-vm.md)
 ## [Configurare i criteri di avvio](devtest-lab-get-started-with-lab-policies.md)
 
-# Procedure
+# Guide alle procedure
 ## Usare le VM in un lab
 ### [Creare VM](devtest-lab-add-vm.md)
 ### [Creare VM a disposizione degli utenti](devtest-lab-add-claimable-vm.md)
+### [Creare e gestire VM con l'interfaccia della riga di comando di Azure](devtest-lab-vmcli.md)
 
 ## Usare gli ambienti in un lab
 ### [Creare un ambiente](devtest-lab-create-environment-from-arm.md)
@@ -44,6 +45,8 @@
 ## Gestire le reti virtuali
 ### [Configurare reti virtuali](devtest-lab-configure-vnet.md)
 ### [Selezionare l'opzione di configurazione IP](devtest-lab-shared-ip.md)
+
+## [Ridimensionare il lab](devtest-lab-scale-lab.md)
 
 # Riferimento
 ## [Interfaccia della riga di comando 2.0](/cli/azure/lab)

@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="about-azure-storage-accounts"></a>Informazioni sugli account di archiviazione di Azure
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Panoramica
 Un account di archiviazione di Azure offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti. Tutti gli oggetti in un account di archiviazione vengono fatturati insieme come gruppo. Per impostazione predefinita, i dati nel proprio account sono accessibili solo all'utente, ovvero al proprietario dell'account.
@@ -153,15 +155,11 @@ Se l'account di archiviazione usa il modello di distribuzione classica, è possi
 Per altre informazioni, vedere [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="next-steps"></a>Passaggi successivi
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Livelli Frequente e Non frequente dell'archiviazione BLOB di Azure](storage-blob-storage-tiers.md)
 * [Replica di Archiviazione di Azure](storage-redundancy.md)
 * [Configurare le stringhe di connessione di archiviazione di Azure](storage-configure-connection-string.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -75,6 +76,7 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 
 * Gestione API
 * App del servizio app (app Web): vedere [Limitazioni del servizio app](#app-service-limitations)
+* Application Insights
 * Automazione
 * Batch
 * Bing Mappe
@@ -87,7 +89,7 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 * Analisi Data Lake
 * Archivio Data Lake
 * DNS
-* DocumentDB
+* Azure Cosmos DB
 * Hub eventi
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
 * Hub IoT
@@ -124,20 +126,20 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 
 * Servizio ibrido per l'integrità di AD
 * gateway applicazione
-* Application Insights
+* Set di disponibilità con macchine virtuali con Managed Disks
 * Servizi BizTalk
 * Servizio contenitore
 * Express Route
 * DevTest Labs: lo spostamento al nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento della sottoscrizione incrociato non è abilitato.
 * Dynamics LCS
+* Immagini create da Managed Disks
+* Managed Disks
+* Applicazioni gestite
 * Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino, vedere [Limitazioni dei servizi di ripristino](#recovery-services-limitations).
 * Sicurezza
+* Snapshot creati da Managed Disks
 * Macchine virtuali con certificato archiviato in insieme di credenziali delle chiavi
 * Macchine virtuali con Managed Disks
-* Set di disponibilità con macchine virtuali con Managed Disks
-* Managed Disks
-* Immagini create da Managed Disks
-* Snapshot creati da Managed Disks
 * Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Impossibile spostare le macchine virtuali create da risorse Marketplace fra sottoscrizioni. La risorsa deve essere sottoposta a deprovisioning nella sottoscrizione corrente e distribuita nuovamente nella nuova sottoscrizione
 
@@ -147,12 +149,12 @@ Quando si usano le app del servizio app non è possibile spostare solo un piano 
 * Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. In base a questo requisito è necessario spostare anche le risorse del servizio app non associate al piano di servizio app. 
 * Spostare le app in un gruppo di risorse diverso, ma mantenere tutti i piani di servizio app nel gruppo di risorse originale.
 
-Se il gruppo di risorse originale include anche una risorsa Application Insights non è possibile spostarla, perché attualmente Application Insights non abilita l'operazione di spostamento. Se si include la risorsa Application Insights quando si spostano le app del servizio app, l'intera operazione di spostamento non riesce. Tuttavia per il corretto funzionamento dell'app non è necessario che la risorsa Application Insights e il piano di servizio app risiedano nello stesso gruppo di risorse in cui si trova l'app stessa.
+Per il corretto funzionamento dell'app non è necessario che il piano di servizio app risieda nello stesso gruppo di risorse in cui si trova l'app stessa.
 
 Se ad esempio il gruppo di risorse contiene:
 
-* **web-a** associata a **plan-a** e **app-insights-a**
-* **web-b** associata a **plan-b** e **app-insights-b**
+* **web-a** che è associata a **plan-a**
+* **web-b** che è associata a **plan-b**
 
 Le opzioni possibili sono:
 
@@ -161,7 +163,7 @@ Le opzioni possibili sono:
 * Spostare **web-a**
 * Spostare **web-b**
 
-Con tutte le altre combinazioni si sposterebbe un tipo di risorsa non spostabile (Application Insights) o si lascerebbe dove si trova un tipo di risorsa che non può essere lasciato nella stessa posizione quando si sposta un piano di servizio app (qualsiasi tipo di risorsa del servizio app).
+Con tutte le altre combinazioni si lascerebbe dove si trova un tipo di risorsa che non può essere lasciato nella stessa posizione quando si sposta un piano di servizio app (qualsiasi tipo di risorsa del servizio app).
 
 Se l'app web si trova in un gruppo di risorse diverso rispetto al piano di servizio app corrispondente ma si vuole spostare entrambi gli elementi in un nuovo gruppo di risorse, è necessario eseguire lo spostamento in due fasi. Ad esempio:
 
@@ -213,7 +215,7 @@ Quando si spostano risorse in una nuova sottoscrizione, sono valide le restrizio
 * La sottoscrizione di destinazione non deve contenere nessuna delle altre risorse classiche.
 * Lo spostamento può essere richiesto solo tramite un'API REST separata per gli spostamenti di risorse classiche. I comandi di spostamento standard di Resource Manager non funzionano quando si spostano risorse classiche a una nuova sottoscrizione.
 
-Per spostare le risorse classiche a una nuova sottoscrizione, usare il portale o le operazioni REST specifiche di risorse classiche. Per informazioni sullo spostamento di risorse classiche tramite il portale, vedere [Usare il portale](#use-portal). Per usare REST, seguire questa procedura:
+Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazioni REST specifiche per le risorse classiche. Per usare REST, seguire questa procedura:
 
 1. Controllare se la sottoscrizione di origine può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
 

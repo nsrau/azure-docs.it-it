@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 04/14/2017
+wms.date: 05/14/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 884cd19bdfb1bf53d75cb27e840c448eff8bc991
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1811c325e240a6688b09f7260b33fbe19d022cea
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -49,13 +50,16 @@ Prima di tutto è necessario decidere se eseguire un database singolo con una qu
 | **Funzionalità del livello di servizio** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Dimensioni massime del database singolo | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Dimensioni massime dei database in un pool elastico | 156 GB | 2,9 TB | 500 GB | 500 GB |
+| Dimensioni massime di un pool elastico | 156 GB | 2,9 TB | 4 TB* | 750 GB |
+| Dimensioni massime dei database in un pool elastico | 2 GB | 250 GB | 500 GB | 500 GB |
 | Numero massimo di database per pool | 500  | 500 | 100 | 100 |
+| DTU massime del database singolo | 5 | 100 | 4000 | 1000 |
+| DTU massime per database in un pool elastico | 5 | 100 | 4000 | 1000 |
 | Periodo di conservazione dei backup dei database | 7 giorni | 35 giorni | 35 giorni | 35 giorni |
 ||||||
 
 > [!IMPORTANT]
-> Singoli database fino a 4 TB sono disponibili in anteprima pubblica senza alcun costo aggiuntivo per i clienti che usano i livelli di prestazioni P11 e P15. Sono anche attualmente disponibili pool Premium con oltre 750 GB di archiviazione. Queste opzioni di archiviazione aggiuntive sono attualmente disponibili nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Le opzioni di archiviazione aggiuntive sono attualmente disponibili nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia, Europa occidentale, Germania centrale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Dopo aver determinato il livello di servizio minimo, è possibile determinare il livello di prestazioni del database, ovvero il numero di DTU. I livelli di prestazioni Standard S2 e S3 sono in molti casi un valido punto di inizio. Per i database con requisiti elevati di CPU o I/O, i livelli di prestazioni Premium sono il punto di partenza ottimale. Premium offre più CPU e inizia a 10 volte più I/O rispetto al livello di prestazioni Standard massimo.
@@ -84,7 +88,7 @@ La durata dell'intero processo di scalabilità verticale dipende dalla dimension
 
 * Per effettuare il downgrade di un database, la dimensione di quest'ultimo deve essere inferiore alla dimensione massima consentita per il livello del servizio di destinazione. 
 * Quando si aggiorna un database con la [replica geografica](sql-database-geo-replication-portal.md) abilitata, è necessario aggiornare i database secondari al livello di prestazioni desiderato prima di aggiornare il database primario.
-* Quando si effettua il downgrade da un livello di servizio Premium, è necessario prima terminare tutte le relazioni di replica geografica. È possibile attenersi alla procedura descritta nell'argomento [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md) per arrestare il processo di replica tra il database primario e i database secondari attivi.
+* Quando si esegue il downgrade da un livello di servizio Premium, è necessario prima terminare tutte le relazioni di replica geografica. È possibile attenersi alla procedura descritta nell'argomento [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md) per arrestare il processo di replica tra il database primario e i database secondari attivi.
 * Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si effettua il downgrade è possibile che la capacità di eseguire un ripristino temporizzato o di disporre di un periodo di mantenimento del backup inferiore vengano perse. Per ulteriori informazioni, vedere [Backup e ripristino del database SQL di Azure](sql-database-business-continuity.md).
 * Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
 
@@ -92,11 +96,9 @@ La durata dell'intero processo di scalabilità verticale dipende dalla dimension
 
 I pool consentono ai database di condividere e usare risorse DTU senza dover assegnare un livello di prestazioni specifico a ogni database nel pool. Ad esempio, un database singolo in un pool Standard può passare dall'uso di 0 eDTU al valore eDTU massimo per il database impostato quando si configura il pool. I pool consentono a più database con carichi di lavoro diversi di usare in modo efficiente le risorse eDTU disponibili per l'intero pool. Per altre informazioni relative alle considerazioni su prezzi e prestazioni per un pool di database elastici, vedere [Quando usare un pool di database elastici](sql-database-elastic-pool.md) .
 
-La tabella seguente descrive le caratteristiche dei livelli di servizio del pool.
+Le tabelle seguenti descrivono i limiti delle risorse dei pool elastici.  I limiti delle risorse di database singoli nei pool elastici sono in genere identici a quelli di database singoli all'esterno dei pool in base alle DTU e al livello di servizio.  Ad esempio, il numero massimo di thread di lavoro simultanei per un database S2 è 120.  Pertanto, anche il numero massimo di thread di lavoro simultanei per un database in un pool Standard è 120 se il numero massimo di DTU per ogni database nel pool è 50 (equivalente a S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-Ciascun database all'interno di un pool è inoltre conforme alle caratteristiche di database singolo per il livello in questione. Ad esempio, il pool Basic ha un limite di 4800 - 28800 per il numero massimo di sessioni per pool. Un database singolo all'interno del pool Basic ha un limite di 300 sessioni.
 
 ## <a name="scaling-up-or-scaling-down-an-elastic-pool"></a>Ridimensionamento di un pool elastico
 
@@ -117,7 +119,7 @@ Quando si crea un database con un livello di prestazioni P11 o P15, l'opzione di
 
 ### <a name="creating-using-powershell-or-transact-sql"></a>Creazione tramite PowerShell o Transact-SQL
 
-Quando si crea un database con un livello di prestazioni P11 o P15, è possibile impostare il valore delle dimensioni massime su 1 TB, ovvero l'impostazione predefinita, o su 4 TB. Sono validi anche i valori "1024 GB" e "4096 GB". Se si sceglie l'opzione da 4 TB e viene effettuato il provisioning del database in un'area non supportata, il comando di creazione avrà esito negativo e restituirà un errore.
+Quando si crea un database con un livello di prestazioni P11 o P15, è possibile impostare il valore delle dimensioni massime su 1 TB, ovvero l'impostazione predefinita, o su 4 TB. Sono validi anche i valori "1024 GB" e "4096 GB". Se si sceglie l'opzione da 4 TB e viene eseguito il provisioning del database in un'area non supportata, il comando di creazione ha esito negativo e restituisce un errore.
 
 ### <a name="upgrading-to-4tb"></a>Aggiornamento a 4 TB 
 
@@ -128,18 +130,18 @@ ALTER DATABASE <myDatabaseName>
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-È possibile eseguire l'aggiornamento di un database P11 o P15 esistente solo tramite un accesso entità a livello del server o come membri del ruolo del database dbmanager. Se eseguita in un'area supportata, la configurazione verrà aggiornata immediatamente. È possibile verificarlo usando [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) o esaminando le dimensioni del database nel portale di Azure. Il database rimarrà online durante il processo di aggiornamento. Tuttavia, non sarà possibile usare tutti i 4 TB di memoria fino al completamento dell'aggiornamento dei file del database alle nuove dimensioni massime. Il tempo necessario dipende dalle dimensioni del database in corso di aggiornamento.  
+È possibile eseguire l'aggiornamento di un database P11 o P15 esistente solo tramite un accesso entità a livello del server o come membri del ruolo del database dbmanager. Se eseguita in un'area supportata, la configurazione viene aggiornata immediatamente. È possibile verificarlo usando [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) o esaminando le dimensioni del database nel portale di Azure. Il database rimane online durante il processo di aggiornamento. Tuttavia, non è possibile usare tutti i 4 TB di memoria fino al completamento dell'aggiornamento dei file del database alle nuove dimensioni massime. Il tempo necessario dipende dalle dimensioni del database in corso di aggiornamento.  
 
 ### <a name="error-messages"></a>messaggi di errore
-La creazione o l'aggiornamento di un database P11/P15 in un'area non supportata avranno esito negativo, con il seguente messaggio di errore: **P11 and P15 database with up to 4TB of storage are available in US East 2, West US, South East Asia, West Europe, Canada East, Canada Central, Japan East, and Australia East.** (I database P11 e P15 con memoria massima di 4 TB sono disponibili nelle aree Stati Uniti orientali 2, Stati Uniti occidentali, Asia sud-orientale, Europa occidentale, Canada orientale, Canada centrale, Giappone orientale e Australia orientale.)
+La creazione e l'aggiornamento di un database P11/P15 in un'area non supportata avranno esito negativo, con il seguente messaggio di errore: **P11 and P15 database with up to 4TB of storage are available in US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East.** (I database P11 e P15 con memoria massima di 4 TB sono disponibili nelle aree Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia, Europa occidentale, Germania centrale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale).
 
 ## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitazioni correnti dei database P11 e P15 con dimensioni massime di 4 TB
 
 - Durante la creazione o l'aggiornamento di un database P11 o P15, è possibile scegliere solamente 1 TB o 4 TB di dimensioni massime. Gli account di archiviazione intermedi non sono attualmente supportati.
-- Un database dalle dimensioni massime di 4 TB non potrà essere modificato a 1 TB, anche se la memoria usata non supera quest'ultimo valore. Pertanto, non è possibile eseguire il downgrade da P11 o P15 da 4 TB a P11 o P15 da 1 TB o a un livello di prestazioni minore, ad esempio P1-P6, fino a quando non verranno fornite opzioni di archiviazione aggiuntive per tutti gli altri livelli di prestazioni. Questa restrizione si applica anche agli scenari di ripristino e copia, inclusi gli scenari temporizzati, il ripristino geografico, la conservazione backup a lungo termine e la copia del database. Dopo avere configurato un database con l'opzione da 4 TB, tutte le operazioni di ripristino di tale database dovranno essere P11/P15 con dimensioni massime di 4 TB.
+- Un database dalle dimensioni massime di 4 TB non potrà essere modificato a 1 TB, anche se la memoria usata non supera quest'ultimo valore. Pertanto, non è possibile eseguire il downgrade da P11 o P15 da 4 TB a P11 o P15 da 1 TB o a un livello di prestazioni minore, ad esempio P1-P6, fino a quando non verranno fornite opzioni di archiviazione aggiuntive per tutti gli altri livelli di prestazioni. Questa restrizione si applica anche agli scenari di ripristino e copia, inclusi gli scenari temporizzati, il ripristino geografico, la conservazione backup a lungo termine e la copia del database. Dopo avere configurato un database con l'opzione da 4 TB, tutte le operazioni di ripristino di tale database devono essere eseguite in un database P11/P15 con dimensioni massime di 4 TB.
 - Per gli scenari di replica geografica attiva:
-   - Impostazione di una relazione di replica geografica: se il database primario è P11 o P15, devono esserlo anche i database secondari. I livelli di prestazioni inferiori non verranno accettati come database secondari in quanto non supportano l'opzione da 4 TB.
-   - Aggiornamento del database primario in una relazione di replica geografica: portando a 4 TB le dimensioni massime di un database primario, verranno portate a 4 TB anche le dimensioni del database secondario. Entrambi gli aggiornamenti devono avere esito positivo per applicare la modifica al database primario. Si applicano limitazioni per l'opzione da 4 TB (vedere sopra). Se il database secondario si trova in un'area che non supporta l'opzione da 4 TB, il database primario non verrà aggiornato.
+   - Impostazione di una relazione di replica geografica: se il database primario è P11 o P15, devono esserlo anche i database secondari. I livelli di prestazioni inferiori non vengono accettati come database secondari in quanto non supportano l'opzione da 4 TB.
+   - Aggiornamento del database primario in una relazione di replica geografica: portando a 4 TB le dimensioni massime di un database primario, viene attivata la stessa modifica nel database secondario. Entrambi gli aggiornamenti devono avere esito positivo per applicare la modifica al database primario. Si applicano limitazioni per l'opzione da 4 TB (vedere sopra). Se il database secondario si trova in un'area che non supporta l'opzione da 4 TB, il database primario non viene aggiornato.
 - Il servizio di importazione/esportazione per caricare i database P11 o P15 da 4 TB non è supportato. Usare SqlPackage.exe per [importare](sql-database-import.md) ed [esportare](sql-database-export.md) i dati.
 
 ## <a name="next-steps"></a>Passaggi successivi

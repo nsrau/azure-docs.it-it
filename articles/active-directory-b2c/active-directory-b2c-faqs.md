@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: bc0b0b652312f6bcc27a981da766e19cded7bd6c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -32,7 +34,7 @@ Non è possibile usare Azure AD B2C con Microsoft Office 365 e in generale per f
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Che cosa sono gli account locali in Azure AD B2C? In che cosa differiscono dagli account aziendali o dell'istituto di istruzione in Azure AD?
 In un tenant di Azure AD ogni utente del tenant, tranne quelli con account Microsoft esistenti, accede con un indirizzo di posta elettronica nel formato `<xyz>@<tenant domain>`, dove `<tenant domain>` è uno dei domini verificati nel tenant o il dominio `<...>.onmicrosoft.com` iniziale. Questo tipo di account è un account aziendale o dell'istituto di istruzione.
 
-In un tenant Azure AD B2C la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com, jim@live.com). Questo tipo di account è un account locale. Attualmente sono supportati anche nomi utente arbitrari (semplici stringhe) come account locali (ad esempio, joe, bob, sarah o jim). Nel servizio Azure AD B2C è possibile scegliere uno di questi due tipi di account locale.
+In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale. Attualmente sono supportati anche nomi utente arbitrari (semplici stringhe) come account locali (ad esempio, joe, bob, sarah o jim). Nel servizio Azure AD B2C è possibile scegliere uno di questi due tipi di account locale.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
 Sono attualmente supportati Facebook, Google+, LinkedIn e Amazon. Verrà aggiunto il supporto per altri provider di identità di social networking noti, in base alle esigenze dei clienti.
@@ -80,7 +82,7 @@ I criteri password di Azure AD B2C per gli account locali si basano su quelli di
 No, Azure AD Connect non è progettato per funzionare con Azure AD B2C. In futuro Microsoft fornirà vari strumenti e opzioni di migrazione pronti per l'uso.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>L'applicazione può aprire le pagine di Azure AD B2C all'interno di un iFrame?
-No, per motivi di sicurezza, le pagine di Azure AD B2C, che vengono gestite nel dominio `login.microsftonline.com`, non possono essere aperte in un iFrame. È necessario effettuare sempre il reindirizzamento ad Azure AD B2C per tutte le esperienze consumer.
+No. Per motivi di sicurezza, le pagine di Azure AD B2C non possono essere aperte in un iFrame.  Il servizio comunica con il browser per impedirlo.  L'uso di iFrame per le esperienze di gestione delle identità è sconsigliato dalla community della sicurezza in generale e dalla specifica OAUTH2 a causa del rischio di clickjacking.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C è compatibile con i sistemi CRM come Microsoft Dynamics?
 No, per il momento. L'integrazione di questi sistemi verrà implementata in futuro.
@@ -92,7 +94,10 @@ No, per il momento. Azure AD B2C non fornisce i token SAML 1.1 che i portali e l
 Per altre informazioni su come applicare le funzionalità appropriate agli scenari relativi alle identità esterne, vedere l'articolo sulle [identità esterne](../active-directory/active-directory-b2b-compare-external-identities.md) .
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Quali funzionalità di reporting e controllo offre Azure AD B2C? Offre le stesse funzionalità di Azure AD Premium?
-No, Azure AD B2C non supporta lo stesso set di report di Azure AD Premium. Per Azure AD B2C verranno presto rilasciate API di reporting e controllo.
+No, Azure AD B2C non supporta lo stesso set di report di Azure AD Premium. Esistono tuttavia molte caratteristiche comuni.  
+* I report degli accessi contengono un record per ogni accesso con dettagli ridotti.  
+* I report di controllo sono disponibili nel portale di Azure selezionando Azure Active Directory > ATTIVITÀ > Log di controllo > B2C e applicando i filtri desiderati. Sono incluse sia le attività amministrative che quelle delle applicazioni. 
+* Un report di utilizzo, che include il numero di utenti, il numero di accessi e il volume di autenticazioni MFA, è disponibile tramite l'[API per la creazione di report di utilizzo](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api).
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>È possibile localizzare l'interfaccia utente delle pagine servite da Azure AD B2C? Quali lingue sono supportate?
 Attualmente, Azure AD B2C è ottimizzato solo per l'inglese. Si prevede di implementare le funzionalità di localizzazione appena possibile.
@@ -123,10 +128,5 @@ Vedere [Azure Active Directory B2C: Inviare richieste di supporto](active-direct
 
 ## <a name="more-information"></a>Altre informazioni
 È consigliabile rivedere le informazioni correnti relative a [limitazioni del servizio, restrizioni e vincoli](active-directory-b2c-limitations.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

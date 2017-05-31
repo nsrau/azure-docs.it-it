@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 43b77cabdb2d8832bda8fd0b726ba27edb0a0602
 ms.openlocfilehash: 2992b074986a7b7f3244ce996f2b41269bff8bbd
+ms.contentlocale: it-it
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -24,7 +27,7 @@ ms.openlocfilehash: 2992b074986a7b7f3244ce996f2b41269bff8bbd
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app Web con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione.  Nelle app Web ASP.NET, a questo scopo si usa il middleware OWIN di Microsoft incluso in .NET Framework 4.5.
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 >
 >
 
@@ -95,7 +98,7 @@ In questo caso, verrà configurato il middleware OWIN per l'uso del protocollo d
                                              // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
         
                                              ClientId = clientId,
-                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
+                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
                                              RedirectUri = redirectUri,
                                              Scope = "openid email profile",
                                              ResponseType = "id_token",
@@ -113,7 +116,7 @@ In questo caso, verrà configurato il middleware OWIN per l'uso del protocollo d
         ```
 
 ## <a name="send-authentication-requests"></a>Invio di richieste di autenticazione
-L'app ora è configurata correttamente per comunicare con l'endpoint&2;.0 mediante il protocollo di autenticazione OpenID Connect.  OWIN ha gestito tutte le difficoltà derivanti dalla creazione dei messaggi di autenticazione, dalla convalida dei token da Azure AD e dalla gestione della sessione utente.  Non resta che dare agli utenti un modo per accedere e disconnettersi.
+L'app ora è configurata correttamente per comunicare con l'endpoint 2.0 mediante il protocollo di autenticazione OpenID Connect.  OWIN ha gestito tutte le difficoltà derivanti dalla creazione dei messaggi di autenticazione, dalla convalida dei token da Azure AD e dalla gestione della sessione utente.  Non resta che dare agli utenti un modo per accedere e disconnettersi.
 
 - È possibile usare tag di autorizzazione nei controller per obbligare l'utente ad accedere prima di aprire una determinata pagina.  Aprire `Controllers\HomeController.cs` e aggiungere il tag `[Authorize]` al controller About.
         
@@ -207,7 +210,7 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 ## <a name="next-steps"></a>Passaggi successivi
 Ora è possibile passare ad argomenti più avanzati.  È possibile:
 
-[Proteggere un'API Web con l'endpoint&2;.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Proteggere un'API Web con l'endpoint 2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 Per altre risorse, vedere:
 
@@ -216,9 +219,4 @@ Per altre risorse, vedere:
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

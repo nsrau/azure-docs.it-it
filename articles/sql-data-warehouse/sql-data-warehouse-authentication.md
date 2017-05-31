@@ -3,7 +3,7 @@ title: Autenticazione in Azure SQL Data Warehouse | Microsoft Docs
 description: Autenticazione di Azure Active Directory (AAD) e SQL Server in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: 
-author: byham
+author: ronortloff
 manager: jhubbard
 editor: 
 tags: 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.custom: security
 ms.date: 03/21/2017
-ms.author: rickbyh;barbkess
-translationtype: Human Translation
+ms.author: rortloff;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 9f38d57029e962d1bbe8adae68232baa8a4c575d
+ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
 
 

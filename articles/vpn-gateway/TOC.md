@@ -1,7 +1,7 @@
 # Panoramica
 ## [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md)
 ## [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md)
-## [Subscription and service limits](../azure-subscription-service-limits.md) (Sottoscrizione e limiti del servizio)
+## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json) (Sottoscrizione e limiti del servizio)
 
 # Attività iniziali
 ## [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md)
@@ -21,9 +21,13 @@
 ### [Portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Portale di Azure (classico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Generare certificati autofirmati per connessioni Point-to-Site
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## Configurare una connessione tra reti virtuali
 ### [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Configurare una connessione da rete virtuale a rete virtuale tra modelli di distribuzione
 ### [Portale di Azure](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -46,7 +50,6 @@
 ### [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md) (PowerShell (classico))
-## [Creare certificati autofirmati per connessioni da punto a sito](vpn-gateway-certificates-point-to-site.md)
 ## [Configurare un gateway VPN (versione classica)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Risoluzione dei problemi
 ### [Convalidare la velocità effettiva della VPN verso una rete virtuale](vpn-gateway-validate-throughput-to-vnet.md)
@@ -54,9 +57,9 @@
 # Riferimento
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [PowerShell (classic)](/powershell/module/azure/?view=azuresmps-3.7.0) (PowerShell (classico))
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (classico)](https://msdn.microsoft.com/library/jj154113)
-## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network)
+## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
 
 # Risorse correlate
 ## [Rete virtuale](/azure/virtual-network/)

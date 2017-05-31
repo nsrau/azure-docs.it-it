@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 681fac55bf16ff9294ec586bbd95a07fa090abb1
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: fb84ca46bdb02df315c078889f49db545fee1d64
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -26,7 +27,7 @@ Docker è una nota piattaforma di creazione dell'immagine e gestione di contenit
 
 Per altre informazioni sui diversi metodi di distribuzione, incluso l'uso di Docker Machine e i servizi contenitore di Azure, vedere gli articoli seguenti:
 
-* Per creare rapidamente il prototipo di un'applicazione, è possibile creare un singolo host di Docker usando [Docker Machine](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Per creare rapidamente il prototipo di un'applicazione, è possibile creare un singolo host di Docker usando [Docker Machine](docker-machine.md).
 * Per gli ambienti più stabili ed estesi è possibile usare l'estensione di VM Docker di Azure che supporta anche [Docker Compose](https://docs.docker.com/compose/overview/) per generare distribuzioni di contenitore coerenti. Questo articolo descrive come usare l'estensione di VM Docker di Azure.
 * Per creare ambienti scalabili e pronti per la produzione che offrono maggiori strumenti di pianificazione e gestione, è possibile distribuire un [cluster Docker Swarm nei servizi contenitore di Azure](../../container-service/container-service-deployment.md).
 
@@ -34,7 +35,7 @@ Per altre informazioni sui diversi metodi di distribuzione, incluso l'uso di Doc
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#azure-docker-vm-extension-overview): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa 
+- [Interfaccia della riga di comando di Azure 2.0](dockerextension.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa 
 
 ## <a name="azure-docker-vm-extension-overview"></a>Panoramica dell'estensione di VM Docker di Azure
 L'estensione di VM Docker di Azure installa e configura il daemon Docker, il client Docker e Docker Compose nella macchina virtuale (VM) Linux. L'uso dell'estensione di VM Docker di Azure permette di ottenere un livello di controllo superiore e un maggior numero di funzionalità rispetto a quanto offerto dal semplice uso di Docker Machine o dalla creazione di un host Docker. Questi funzionalità aggiuntive, come ad esempio [Docker Compose](https://docs.docker.com/compose/overview/), rendono l'estensione di VM Docker di Azure la soluzione ideale per ambienti di sviluppo o di produzione più solidi.
@@ -50,11 +51,13 @@ Usare un modello di avvio rapido esistente per creare una macchina virtuale Ubun
 azure config mode arm
 ```
 
-Distribuire il modello con l'interfaccia della riga di comando di Azure, specificando l'URI del modello. Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `WestUS`. Usare il nome e la posizione del gruppo di risorse nel modo seguente:
+Distribuire il modello con l'interfaccia della riga di comando di Azure, specificando l'URI del modello. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *westus*. Usare il nome e la posizione del gruppo di risorse nel modo seguente:
 
 ```azurecli
-azure group create --name myResourceGroup --location "West US" \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+azure group create \
+    --name myResourceGroup \
+    --location westus \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
 Rispondere ai prompt di richiesta di rinominare l'account di archiviazione, fornire il nome utente e la password e specificare il nome DNS. L'output è simile all'esempio seguente:
@@ -66,9 +69,9 @@ info:    Executing command group create
 info:    Updated resource group myResourceGroup
 info:    Supply values for the following parameters
 newStorageAccountName: mystorageaccount
-adminUsername: ops
+adminUsername: azureuser
 adminPassword: P@ssword!
-dnsNameForPublicIP: mypublicip
+dnsNameForPublicIP: mypublicidns
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment "azuredeploy"
@@ -83,10 +86,10 @@ info:    group create command OK
 
 L'interfaccia della riga di comando di Azure fa tornare l'utente al menu principale di prompt dopo alcuni secondi, ma l'host Docker viene comunque creato e configurato dall'estensione di VM Docker di Azure. L'operazione di distribuzione richiede alcuni minuti. È possibile visualizzare i dettagli sullo stato dell'host Docker con il comando `azure vm show`.
 
-Nell'esempio seguente viene eseguito il controllo dello stato della VM denominata `myDockerVM` (il nome predefinito del modello, non modificare questo nome) che appartiene al gruppo di risorse `myResourceGroup`. Immettere il nome del gruppo di risorse creato nel passaggio precedente:
+L'esempio seguente controlla lo stato della macchina virtuale denominata *myDockerVM* (il nome predefinito del modello, non modificare questo nome) che appartiene al gruppo di risorse *myResourceGroup*. Immettere il nome del gruppo di risorse creato nel passaggio precedente:
 
 ```azurecli
-azure vm show -g myResourceGroup -n myDockerVM
+azure vm show --resource-group myResourceGroup --name myDockerVM
 ```
 
 L'output del comando `azure vm show` sarà simile all'esempio seguente:
@@ -112,21 +115,21 @@ data:          Provisioning State        :Succeeded
 data:          Name                      :myVMNicD
 data:          Location                  :westus
 data:            Public IP address       :13.91.107.235
-data:            FQDN                    :mypublicip.westus.cloudapp.azure.com]
+data:            FQDN                    :mypublicdns.westus.cloudapp.azure.com
 data:
 data:    Diagnostics Instance View:
 info:    vm show command OK
 ```
 
-Nella parte superiore dell'output viene visualizzato il valore `ProvisioningState` della VM. Quando viene visualizzato `Succeeded`, la distribuzione è stata completata ed è possibile usare SSH per la VM.
+Nella parte superiore dell'output viene visualizzato il valore **ProvisioningState** della VM. Quando viene visualizzato *Succeeded*, la distribuzione è stata completata ed è possibile usare SSH per la VM.
 
-Verso la fine dell'output, `FQDN` visualizza il nome di dominio completo dell'host Docker. Questo è l'FQDN che si usa per accedere tramite SSH all'host Docker nei passaggi successivi.
+Verso la fine dell'output, *FQDN* visualizza il nome di dominio completo dell'host Docker. Questo è l'FQDN che si usa per accedere tramite SSH all'host Docker nei passaggi successivi.
 
 ## <a name="deploy-your-first-nginx-container"></a>Distribuire il primo contenitore nginx
 Al termine della distribuzione, accedere tramite SSH al nuovo host Docker dal computer locale. Immettere il nome utente e l'FQDN nel modo seguente:
 
 ```bash
-ssh ops@mypublicip.westus.cloudapp.azure.com
+ssh ops@mypublicdns.westus.cloudapp.azure.com
 ```
 
 Dopo aver effettuato l'accesso all'host Docker, eseguire un contenitore nginx:
@@ -167,7 +170,7 @@ Per vedere il contenitore in azione, aprire un Web browser e immettere il nome F
 ![Esecuzione di un contenitore ngnix](./media/dockerextension/nginxrunning.png)
 
 ## <a name="azure-docker-vm-extension-template-reference"></a>Riferimento al modello dell'estensione di VM Docker di Azure
-Nell'esempio precedente è stato usato un modello di avvio rapido esistente. È anche possibile distribuire l'estensione di VM Docker di Azure con i propri modelli di Resource Manager. Per farlo, aggiungere quanto segue ai modello di Resource Manager, definendo in modo appropriato `vmName` della VM:
+Nell'esempio precedente è stato usato un modello di avvio rapido esistente. È anche possibile distribuire l'estensione di VM Docker di Azure con i propri modelli di Resource Manager. Per questo scopo, aggiungere quanto segue ai modello di Resource Manager, definendo in modo appropriato il *vmName* della VM:
 
 ```json
 {
@@ -196,8 +199,8 @@ Se lo si desidera, [configurare la porta TCP del daemon Docker](https://docs.doc
 
 Per altre informazioni sulle opzioni di distribuzione di Docker aggiuntive in Azure, leggere:
 
-* [Usare Docker Machine con il driver di Azure](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
-* [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Usare Docker Machine con il driver di Azure](docker-machine.md)  
+* [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](docker-compose-quickstart.md).
 * [Distribuire un cluster del servizio contenitore di Azure](../../container-service/container-service-deployment.md)
 
 

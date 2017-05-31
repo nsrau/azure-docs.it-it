@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sulle app Web del Servizio app di Azure su Linux |Microsoft Docs
-description: Domande frequenti sulle app Web del Servizio app di Azure su Linux.
+title: Domande frequenti su App Web del Servizio app di Azure su Linux |Microsoft Docs
+description: Domande frequenti su App Web del Servizio app di Azure su Linux.
 keywords: Servizio app di Azure, app Web, domande frequenti, Linux, OSS
 services: app-service
 documentationCenter: 
@@ -13,19 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
-ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
-ms.lasthandoff: 04/22/2017
+ms.date: 05/04/2017
+ms.author: aelnably;wesmc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="azure-app-service-web-apps-on-linux-faq"></a>Domande frequenti sulle app Web del Servizio app di Azure su Linux
+# <a name="azure-app-service-web-app-on-linux-faq"></a>Domande frequenti su App Web del Servizio app di Azure su Linux
 
-Con il lancio del Servizio app di Azure su Linux (attualmente in anteprima), sono previsti nuovi miglioramenti e funzionalità alla piattaforma. Di seguito vengono riportate alcune domande frequenti (FAQ) poste dai clienti negli ultimi mesi.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+Con il lancio di App Web su Linux, sono previsti miglioramenti e nuove funzionalità per la piattaforma. Di seguito vengono riportate alcune domande frequenti (FAQ) poste dai clienti negli ultimi mesi.
 In caso di domande, scrivere un commento all'articolo; si riceverà una risposta il prima possibile.
 
 ## <a name="built-in-images"></a>Immagini predefinite
@@ -40,41 +44,43 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 ## <a name="management"></a>gestione
 
-**D:** Ho premuto il pulsante di riavvio nel Portale di Azure, ma l'app Web non si riavvia. Come mai?
+**D:** Cosa accade quando viene premuto il pulsante di riavvio nel portale di Azure?
 
-**R:** Il pulsante di riavvio sarà attivo a breve. In questo momento sono disponibili due opzioni:
-- Aggiungere o modificare un'impostazione per l'applicazione fittizia. Questa operazione forzerà il riavvio dell'app Web.
-- Arrestare e riavviare l'app Web.
+**R:** È l'equivalente del riavvio di Docker.
 
 **D:** È possibile usare Secure Shell (SSH) per connettersi alla macchina virtuale (VM) del contenitore dell'app?
 
-**R:** No. In una versione futura verrà fornito un modo per usare SSH per connettersi al contenitore dell'app.
+**R:** Sì, è possibile farlo tramite il sito SCM, consultare l'articolo seguente per altre informazioni sul [supporto SSH per App Web in Linux](./app-service-linux-ssh-support.md)
 
 ## <a name="continuous-integrationdeployment"></a>Integrazione/distribuzione continua
 
 **D:** L'app Web usa ancora un'immagine obsoleta del contenitore Docker dopo l'aggiornamento dell'immagine su DockerHub. È supportata l'integrazione/distribuzione continua di contenitori personalizzati?
 
-**R:** È possibile aggiornare il contenitore, arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore. Vogliamo produrre una funzione di integrazione e distribuzione continua per i contenitori personalizzati in una versione futura.
+**R:** Per configurare l'integrazione o la distribuzione continua per le immagini di DockerHub consultare l'articolo seguente [Distribuzione continua dell'hub Docker con App Web in Linux](./app-service-linux-ci-cd.md). Per registri privati, è possibile aggiornare il contenitore arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore.
+
+**D:** Gli ambienti di gestione temporanea sono supportati?
+
+**R:** Sì.
 
 ## <a name="language-support"></a>Supporto per le lingue
 
 **D:** È presente il supporto per le app .NET Core non compilate?
 
-**R:** No. È necessario distribuire le app .NET Core compilate con tutte le dipendenze. Desideriamo sviluppare una distribuzione completa e compilare l'esperienza in una versione futura.
+**R:** Sì.
 
 **R:** È previsto il supporto per lo strumento Composer come gestore delle dipendenze per le app PHP?
 
-**R:** No. È necessario distribuire le app PHP con tutte le dipendenze. Per il futuro, è prevista l'implementazione di un'esperienza di distribuzione completa.
+**R:** No. Le app PHP dovranno essere distribuite con tutte le dipendenze. Per il futuro, è prevista l'implementazione di un'esperienza di distribuzione completa.
 
 ## <a name="custom-containers"></a>Contenitori personalizzati
 
-**D:** Uso un contenitore personalizzato. L'app si trova nella directory \home\, ma riesco a trovare i file quando sfoglio i contenuti dal [sito SCM](https://github.com/projectkudu/kudu) o da un client FTP. Dove si trovano i file?
+**D:** Uso un contenitore personalizzato. L'app si trova nella directory `\home\`, ma riesco a trovare i file quando sfoglio i contenuti dal [sito SCM](https://github.com/projectkudu/kudu) o da un client FTP. Dove si trovano i file?
 
-**R:** Montiamo una condivisione SMB nella directory \home\. In questo modo si esegue l'override di qualsiasi contenuto presente.
+**R:** Viene montata una condivisione SMB nella directory `\home\`. In questo modo viene sostituito qualsiasi contenuto presente.
 
 **D:** Qual è il formato dell'URL del server del Registro di sistema privato?
 
-**R:** È necessario immettere l'URL completo del Registro, incluso "http://" o "https://".
+**R:** È necessario immettere l'URL completo del registro, incluso `http://` o `https://`.
 
 **D:** Qual è il formato per il nome dell'immagine nell'opzione del Registro di sistema privato?
 
@@ -94,7 +100,7 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **D:** Il contenitore personalizzato è in attesa su una porta diversa dalla porta 80. Come si può configurare l'app in modo da indirizzare le richieste a questa porta?
 
-**R:** È possibile specificare un'impostazione dell'applicazione denominata **PORTA** e assegnare a tale impostazione il valore del numero di porta previsto.
+**R:** È presente la rilevazione automatica della porta, ma è anche possibile specificare un'impostazione dell'applicazione denominata **PORTA** e assegnare a tale impostazione il valore del numero di porta previsto.
 
 **D:** È necessario implementare HTTPS nel contenitore personalizzato?
 
@@ -117,6 +123,9 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 **R:** È possibile inviare l'idea al [forum dei commenti App Web](https://aka.ms/webapps-uservoice). Aggiungere "[Linux]" al titolo dell'idea.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [What is App Service on Linux?](app-service-linux-intro.md) (Che cos'è Servizio app in Linux?)
-* [Creazione di app Web nel servizio app in Linux](app-service-linux-how-to-create-a-web-app.md)
+* [Definizione di App Web di Azure in Linux](app-service-linux-intro.md)
+* [Creazione di app Web in App Web di Azure in Linux](app-service-linux-how-to-create-web-app.md)
+* [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md) (Supporto SSH per App Web di Azure in Linux)
+* [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](./web-sites-staged-publishing.md)
+* [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md) (Distribuzione continua dell'hub Docker con App Web di Azure in Linux)
 

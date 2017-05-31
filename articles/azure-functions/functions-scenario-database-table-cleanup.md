@@ -40,7 +40,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. È consiglia
 
 1. Passare al [portale di Funzioni di Azure](https://functions.azure.com/signin) e accedere con l'account Azure.
 2. Se si dispone di un'app per le funzioni esistente da poter usare, selezionarla da **App per le funzioni** e fare clic su **Apri**. Per creare una nuova app per le funzioni, digitare un **Nome** univoco da assegnare o accettare quello generato automaticamente, selezionare l'**Area** preferita, quindi fare clic su **Creazione e introduzione**. 
-3. Nell'app per le funzioni fare clic su **Impostazioni dell'app per le funzioni** > **Passa a Impostazioni del servizio app **. 
+3. Nell'app per le funzioni fare clic su **Impostazioni dell'app per le funzioni** > **Passa a Impostazioni del servizio app**. 
    
     ![Pannello Impostazioni dell'app per le funzioni](./media/functions-create-an-event-processing-function/functions-app-service-settings.png)
 4. Nell'app per le funzioni fare clic su **Tutte le impostazioni**, scorrere verso il basso fino a **Impostazioni applicazione**, in **Stringhe di connessione** digitare `sqldb_connection` per **Nome**, incollare la stringa di connessione nel campo **Valore**, fare clic su **Salva** e chiudere il pannello dell'app per le funzioni per tornare al portale delle funzioni.
@@ -92,9 +92,9 @@ A questo punto, è possibile aggiungere il codice della funzione C# che si conne
 Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
 
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
-   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
+  Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
-   Descrive diversi strumenti e tecniche per il test delle funzioni.
+  Descrive diversi strumenti e tecniche per il test delle funzioni.
 * [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
   Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano a consumo, e spiega come scegliere quello più appropriato.  
 

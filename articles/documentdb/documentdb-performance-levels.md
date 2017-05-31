@@ -1,31 +1,32 @@
 ---
-title: Livelli di prestazioni in DocumentDB | Documentazione Microsoft
-description: "Informazioni sul modo in cui i livelli di prestazioni in DocumentDB consentono di riservare la velocità effettiva in base a ogni raccolta."
-services: documentdb
+title: Livelli di prestazioni dell&quot;API DocumentDB | Microsoft Docs
+description: "Informazioni sul modo in cui i livelli di prestazioni dell&quot;API DocumentDB consentono di riservare la velocità effettiva per singolo contenitore."
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 659d6bd63ea996af7b7b172f998884354e5d5858
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2f67166e95da9f47133f8856be4c7902da75b886
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="retiring-the-s1-s2-and-s3-performance-levels-in-documentdb"></a>Ritiro dei livelli di prestazioni S1, S2 e S3 in DocumentDB
+# <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
 
 > [!IMPORTANT] 
-> I livelli di prestazioni S1, S2 e S3 descritti in questo articolo sono in fase di ritiro e non sono più disponibili per le nuove raccolte di DocumentDB.
+> I livelli di prestazioni S1, S2 e S3 descritti in questo articolo sono in fase di ritiro e non sono più disponibili per i nuovi account API DocumentDB.
 >
 
 Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e descrive come, il 1° agosto 2017, verrà eseguita la migrazione delle raccolte che usano questi livelli di prestazioni a raccolte a partizione singola. Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
@@ -45,7 +46,7 @@ Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e de
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Perché i livelli di prestazioni S1, S2 e S3 sono in fase di ritiro?
 
-I livelli di prestazioni S1, S2 e S3 non offrono la stessa flessibilità delle raccolte a partizione singola di DocumentDB. Con i livelli di prestazioni S1, S2 e S3, la velocità effettiva e la capacità di archiviazione erano preimpostati. DocumentDB ora offre la possibilità di personalizzare questi valori offrendo una flessibilità decisamente superiore per ridimensionare in base alle proprie esigenze.
+I livelli di prestazioni S1, S2 e S3 non offrono la stessa flessibilità delle raccolte dell'API DocumentDB. Con i livelli di prestazioni S1, S2 e S3, la velocità effettiva e la capacità di archiviazione sono preimpostate e non offrono elasticità. Azure Cosmos DB offre ora la possibilità di personalizzare questi valori garantendo una flessibilità decisamente superiore per il ridimensionamento in base alle proprie esigenze.
 
 <a name="compare"></a>
 
@@ -58,7 +59,7 @@ Nella tabella seguente vengono confrontate le opzioni di archiviazione e di velo
 |Velocità effettiva massima|Illimitato|10.000 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
 |Velocità effettiva minima|2500 UR/sec|400 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
 |Spazio di archiviazione massimo|Illimitato|10 GB|10 GB|10 GB|10 GB|
-|Prezzo|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $&0;,25/GB|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $&0;,25/GB|$&25; USD|$&50; USD|$&100; USD|
+|Prezzo|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $ 0,25/GB|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $ 0,25/GB|$ 25 USD|$ 50 USD|$ 100 USD|
 
 Per i clienti EA, è consigliabile fare riferimento a [Quali sono le conseguenze per i clienti EA?](#ea-customer)
 
@@ -66,7 +67,7 @@ Per i clienti EA, è consigliabile fare riferimento a [Quali sono le conseguenze
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>Cosa bisogna fare per garantire l'accesso ininterrotto ai dati?
 
-Niente, perché DocumentDB gestisce automaticamente la migrazione. Per chi usa una raccolta S1, S2 o S3, il 31 luglio 2017 verrà eseguita la migrazione a una raccolta a partizione singola. 
+Niente, perché Cosmos DB gestisce automaticamente la migrazione. Per chi usa una raccolta S1, S2 o S3, il 31 luglio 2017 verrà eseguita la migrazione a una raccolta a partizione singola. 
 
 <a name="collection-change"></a>
 
@@ -78,7 +79,7 @@ Se si dispone di una raccolta S2, verrà eseguita la migrazione a una raccolta a
 
 Se si dispone di una raccolta S3, verrà eseguita la migrazione a una raccolta a partizione singola con una velocità effettiva di 2500 UR/sec. Non sarà percepita nessuna modifica al livello di velocità effettiva.
 
-In ognuno di questi casi dopo la migrazione della raccolta sarà possibile personalizzare il livello di velocità effettiva o aumentarla e ridurla in base alle proprie esigenze, per offrire agli utenti un accesso a bassa latenza. Per modificare il livello di velocità effettiva dopo la migrazione della raccolta, è sufficiente aprire il proprio account DocumentDB nel Portale di Azure, fare clic su Scale (Ridimensiona), scegliere la raccolta e modificare il livello di velocità effettiva, come illustrato nella schermata seguente:
+In ognuno di questi casi dopo la migrazione della raccolta sarà possibile personalizzare il livello di velocità effettiva o aumentarla e ridurla in base alle proprie esigenze, per offrire agli utenti un accesso a bassa latenza. Per modificare il livello di velocità effettiva dopo la migrazione della raccolta, è sufficiente aprire il proprio account Cosmos DB nel portale di Azure, fare clic su Piano, scegliere la raccolta e quindi modificare il livello di velocità effettiva come illustrato nello screenshot seguente:
 
 ![Come ridimensionare la velocità effettiva nel Portale di Azure](./media/documentdb-performance-levels/azure-documentdb-portal-scale-throughput.png)
 
@@ -94,7 +95,7 @@ Si supponga di avere a disposizione 10 raccolte S1, ciascuna con 1 GB di spazio 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Come bisogna comportarsi se sono necessari più di 10 GB di spazio di archiviazione?
 
-Se si usa una raccolta con un livello di prestazioni S1, S2 o S3 o una raccolta a partizione singola, ognuna delle quali dispone di 10 GB di spazio di archiviazione, è possibile usare l'Utilità di migrazione dati di DocumentDB per eseguire la migrazione dei dati a una raccolta partizionata con spazio di archiviazione virtualmente illimitato. Per altre informazioni sui vantaggi di una raccolta partizionata vedere [Partizionamento e scalabilità in Azure DocumentDB](documentdb-partition-data.md). Per informazioni su come eseguire la migrazione di una raccolta S1, S2, S3 o di una raccolta a partizione singola a una raccolta partizionata vedere [Migrazione da raccolte a partizione singola a raccolte partizionate](documentdb-partition-data.md#migrating-from-single-partition). 
+Se si ha una raccolta con livello di prestazioni S1, S2 o S3 o una raccolta a partizione singola con spazio di archiviazione disponibile di 10 GB, è possibile usare lo strumento di migrazione dati di Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con spazio di archiviazione quasi illimitato. Per informazioni sui vantaggi di una raccolta partizionata, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](documentdb-partition-data.md). Per informazioni su come eseguire la migrazione di una raccolta S1, S2, S3 o di una raccolta a partizione singola a una raccolta partizionata vedere [Migrazione da raccolte a partizione singola a raccolte partizionate](documentdb-partition-data.md#migrating-from-single-partition). 
 
 <a name="change-before"></a>
 
@@ -106,7 +107,7 @@ Solo gli account già esistenti con livelli di prestazioni S1, S2 e S3 potranno 
 
 ## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Come è possibile sapere quando sarà stata eseguita la migrazione di una raccolta?
 
-La migrazione verrà eseguita il 31 luglio 2017. Se si dispone di una raccolta che usa i livelli di prestazioni S1, S2 o S3, il team di DocumentDB contatterà l'utente tramite email prima che venga eseguita la migrazione. Al termine della migrazione, il 1° agosto 2017, sul Portale di Azure verrà mostrato che la raccolta usa il piano tariffario Standard.
+La migrazione verrà eseguita il 31 luglio 2017. Se l'utente ha una raccolta che usa i livelli di prestazioni S1, S2 o S3, verrà contattato per posta elettronica dal team di Cosmos DB prima della migrazione. Al termine della migrazione, il 1° agosto 2017, sul Portale di Azure verrà mostrato che la raccolta usa il piano tariffario Standard.
 
 ![Come verificare che è stata eseguita la migrazione della raccolta al piano tariffario Standard](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
 
@@ -118,11 +119,11 @@ La migrazione verrà eseguita il 31 luglio 2017. Se si dispone di una raccolta c
 
 **Per eseguire la migrazione delle raccolte a partizione singola tramite il Portale di Azure**
 
-1. Nel [**portale di Azure**](https://portal.azure.com) fare clic su **NoSQL (DocumentDB)** e quindi selezionare l'account DocumentDB da modificare. 
+1. Nel [**portale di Azure**](https://portal.azure.com) fare clic su **Azure Cosmos DB** e quindi selezionare l'account Cosmos DB da modificare. 
  
-    Se la voce **NoSQL (DocumentDB)** non è inclusa nell'indice, fare clic su >, scorrere fino a **Database** e selezionare **NoSQL (DocumentDB)**e quindi l'account DocumentDB.  
+    Se la voce **Azure Cosmos DB** non è inclusa nell'indice, fare clic su >, scorrere fino a **Database** e selezionare **Azure Cosmos DB** e quindi l'account DocumentDB.  
 
-2. Nel menu delle risorse fare clic su **Scale** (Ridimensiona) in **Raccolte**, scegliere la raccolta da modificare dall'elenco a discesa e quindi fare clic su **Piano tariffario**. Gli account che usano la velocità effettiva predefinita hanno un piano tariffario S1, S2 o S3.  Nel pannello **Scegliere il piano tariffario** fare clic su **Standard** per modificare la velocità effettiva definita dall'utente e quindi su **Seleziona** per salvare la modifica.
+2. Nel menu delle risorse fare clic su **Piano** in **Contenitori**, selezionare la raccolta da modificare nell'elenco a discesa e quindi fare clic su **Piano tariffario**. Gli account che usano la velocità effettiva predefinita hanno un piano tariffario S1, S2 o S3.  Nel pannello **Scegliere il piano tariffario** fare clic su **Standard** per modificare la velocità effettiva definita dall'utente e quindi su **Seleziona** per salvare la modifica.
 
     ![Screenshot del pannello Impostazioni che mostra dove modificare il valore della velocità effettiva](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
@@ -174,9 +175,9 @@ Visitare [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 Il prezzo resterà bloccato per i clienti EA fino alla scadenza del contratto in vigore.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sui prezzi e sulla gestione dei dati con Azure DocumentDB, esplorare queste risorse:
+Per altre informazioni sui prezzi e sulla gestione dei dati con Azure Cosmos DB, vedere le risorse seguenti:
 
-1.    [Partizionamento dei dati in DocumentDB](documentdb-partition-data.md). Spiegazione della differenza tra le raccolte a partizione singola e le raccolte partizionate e suggerimenti su come implementare una strategia di partizionamento per un perfetto ridimensionamento.
-2.    [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
+1.    [Partizionamento dei dati in Cosmos DB](documentdb-partition-data.md). Informazioni sulla differenza tra contenitore a partizione singola e contenitori partizionati e suggerimenti sull'implementazione di una strategia di partizionamento per eseguire facilmente il ridimensionamento.
+2.    [Prezzi di Cosmos DB](https://azure.microsoft.com/pricing/details/documentdb/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
 3.    [Unità richiesta](documentdb-request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.
-4.    [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md). Informazioni sulla modellazione dei dati per DocumentDB.
+

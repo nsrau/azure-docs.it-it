@@ -3,7 +3,7 @@ title: Domande frequenti su Azure Application Insights | Microsoft Docs
 description: Domande frequenti su Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 191d9e1197c3526d2f72b972b7fada76dee84447
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 8a6a8027b93d0d5b353c41c103d2c9ad5faa70c1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -103,7 +104,7 @@ Un'app desktop che è possibile usare nel server Web IIS per configurare Applica
 Da app Web del server:
 
 * Richieste HTTP
-* [Dipendenze](app-insights-asp-net-dependencies.md). Chiamate a: database SQL, chiamate HTTP a servizi esterni, Azure DocumentDB, tabelle, archiviazione BLOB e code. 
+* [Dipendenze](app-insights-asp-net-dependencies.md). Chiamate a: database SQL, chiamate HTTP a servizi esterni, Azure Cosmos DB, tabelle, archiviazione BLOB e code. 
 * [Eccezioni](app-insights-asp-net-exceptions.md) e analisi dello stack.
 * [Contatori delle prestazioni](app-insights-performance-counters.md): se si usa [Status Monitor](app-insights-monitor-performance-live-website-now.md), il monitoraggio di Azure (app-insights-azure-web-apps.md) o il [writer collectd di Application Insights](app-insights-java-collectd.md).
 * [Metrica ed eventi personalizzati](app-insights-api-custom-events-metrics.md) codificati.
@@ -171,6 +172,8 @@ Le ultime otto cifre dell'indirizzo Web del client vengono sempre impostate su 0
 I dati POST non vengono registrati automaticamente, ma è possibile usare una chiamata TrackTrace; inserire i dati nel parametro del messaggio, che ha limiti di dimensione più ampi rispetto alle proprietà della stringa, nonostante non sia possibile applicare filtri.
 
 ## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>È preferibile usare una o più risorse di Application Insights?
+
+Usare una singola risorsa per tutti i componenti o i ruoli in un singolo sistema aziendale. Usare risorse separate per sviluppo, test e versioni di rilascio e per applicazioni indipendenti.
 
 * [Vedere questo articolo](app-insights-separate-resources.md)
 * [Esempio: servizio cloud con ruoli di lavoro e Web](app-insights-cloudservices.md)

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
-translationtype: Human Translation
+ROBOTS: NOINDEX
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 1a0258e872449bf2f2f08345cbe86564e28d964e
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introduzione all'autenticazione in Automazione di Azure  

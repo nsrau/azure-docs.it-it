@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 844f42e61ba443a4b74a52f622113e87a7781913
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -130,7 +131,7 @@ Nel codice JSON evidenziato notare quando indicato di seguito:
 * Le risorse annidate in `“resources”: […]`, dove sono definite le regole di database e del firewall, includono un elemento `dependsOn` che specifica l'ID risorsa della risorsa SQLServer a livello di radice. Questo elemento indica a Gestione risorse di Azure che "prima di creare questa risorsa, deve esistere già l'altra risorsa e se l'altra risorsa è definita nel modello, dev'essere creata prima quella".
   
   > [!NOTE]
-  > Per altre informazioni sull'uso della funzione `resourceId()`, vedere [Funzioni del modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md).
+  > Per altre informazioni sull'uso della funzione `resourceId()`, vedere [Funzioni del modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
   > 
   > 
 * L'elemento `dependsOn` indica a Gestione risorse di Azure quali risorse possono essere create in parallelo e quali devono essere create in sequenza. 

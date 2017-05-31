@@ -1,6 +1,7 @@
 ---
-title: Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory, anteprima | Microsoft Docs
-description: Informazioni sul report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory, anteprima
+
+title: Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory | Microsoft Docs
+description: Informazioni sul report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,18 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 48c504a9ed5bc4ef9f0bff889df031962c5bf6e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal---preview"></a>Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory, anteprima
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory
 
-I report di sicurezza nell'[anteprima](active-directory-preview-explainer.md) di Azure Active Directory permettono di ottenere informazioni approfondite sulla probabile presenza di account utente compromessi nell'ambiente. 
+I report di sicurezza in Azure Active Directory (Azure AD) permettono di ottenere informazioni approfondite sulla probabile presenza di account utente compromessi nell'ambiente. 
 
 Azure Active Directory rileva le azioni sospette correlate agli account utente. Per ogni azione rilevati viene creato un record denominato *evento di rischio*. Per altre informazioni, vedere [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md) (Eventi di rischio di Azure Active Directory). 
 
@@ -31,7 +33,7 @@ Gli eventi di rischio rilevati vengono usati per calcolare:
 
 - **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per informazioni dettagliate, vedere [Utenti contrassegnati per il rischio](active-directory-identityprotection.md#users-flagged-for-risk).  
 
-Nel portale di Azure, è possibile trovare i report di sicurezza nel pannello di **Azure Active Directory** nella sezione **Sicurezza**.  
+Nel Portale di Azure, è possibile trovare i report di sicurezza nel pannello di **Azure Active Directory** nella sezione **Sicurezza**.  
 
 ![Accessi a rischio](./media/active-directory-reporting-security-user-at-risk/10.png)
 
@@ -64,13 +66,13 @@ Il report per gli utenti a rischio della versione Premium di Azure Active Direct
 
 Quando si seleziona un utente, si ottiene la visualizzazione di un report dettagliato per questo utente che consente di:
 
-- Aprire le visualizzazioni di tutti gli accessi
+- aprire le visualizzazioni di tutti gli accessi
 
 - Reimpostare la password dell'utente
 
-- Eliminare tutti gli eventi
+- eliminare tutti gli eventi
 
-- Ricercare la causa degli eventi a rischio segnalati per l'utente. 
+- ricercare la causa degli eventi a rischio segnalati per l'utente. 
 
 
 ![Accessi a rischio](./media/active-directory-reporting-security-user-at-risk/324.png)

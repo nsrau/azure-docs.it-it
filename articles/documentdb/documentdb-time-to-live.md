@@ -1,32 +1,34 @@
 ---
-title: Impostare come scaduti i dati in DocumentDB usando la durata (TTL) | Documentazione Microsoft
-description: "Con l&quot;impostazione TTL, Microsoft Azure DocumentDB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato."
-services: documentdb
+title: Impostare come scaduti i dati in Cosmos DB usando la durata (TTL) | Microsoft Docs
+description: "Con l&quot;impostazione TTL, Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato."
+services: cosmosdb
 documentationcenter: 
 keywords: Durata (TTL)
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 1ad5307054dbd860f9c65db4b82ea5f560a554c8
-ms.openlocfilehash: 14a06dd20547f2910b2321372b27d9f777e54cc7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7a1d4c722fdb926c43b23e333f9fa558ba163b65
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="expire-data-in-documentdb-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte DocumentDB usando la durata (TTL)
+# <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
 Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
 
-Con l'impostazione della durata (TTL), Microsoft Azure DocumentDB offre la possibilità di eliminare automaticamente i documenti dal database dopo un periodo di tempo determinato. La durata predefinita può essere impostata a livello di raccolta ed è possibile eseguirne l'override in base ai singoli documenti. Quando il valore di TTL è impostato, come impostazione predefinita di una raccolta o a livello di documento, DocumentDB rimuove automaticamente i documenti esistenti dopo un numero di secondi dall'ultima modifica pari a tale valore.
+Con l'impostazione della durata (TTL), Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal database dopo un periodo di tempo determinato. La durata predefinita può essere impostata a livello di raccolta ed è possibile eseguirne l'override in base ai singoli documenti. Quando il valore di TTL è impostato, come impostazione predefinita di una raccolta o a livello di documento, Cosmos DB rimuove automaticamente i documenti esistenti dopo un numero di secondi dall'ultima modifica pari a tale valore.
 
-In DocumentDB la durata usa la differenza dall'ora dell'ultima modifica al documento. A tale scopo usa il campo `_ts` che esiste in ogni documento. Il campo _ts è un timestamp Epoch di tipo Unix che rappresenta la data e l'ora e il campo `_ts` viene aggiornato ogni volta che si modifica un documento. 
+In Cosmos DB la durata usa la differenza dall'ora dell'ultima modifica al documento. A tale scopo usa il campo `_ts` che esiste in ogni documento. Il campo _ts è un timestamp Epoch di tipo Unix che rappresenta la data e l'ora e il campo `_ts` viene aggiornato ogni volta che si modifica un documento. 
 
 ## <a name="ttl-behavior"></a>Comportamento di TTL
 La funzionalità TTL è controllata dalle proprietà TTL a livello di raccolta e a livello di documento. I valori sono espressi in secondi e vengono trattati come differenziale dal `_ts` dell'ultima modifica al documento.
@@ -52,10 +54,10 @@ La logica precedente può essere illustrata in questa matrice:
 | TTL = n nel documento |Non viene eseguito l'override a livello di documento. L'impostazione TTL a livello di documento non viene interpretata dal sistema. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo -1 e non scadono. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo n dalla raccolta. |
 
 ## <a name="configuring-ttl"></a>Configurazione di TTL
-Per impostazione predefinita, la durata è disabilitata in tutte le raccolte DocumentDB e in tutti i documenti.
+Per impostazione predefinita, la durata è disabilitata in tutte le raccolte di Cosmos DB e in tutti i documenti.
 
 ## <a name="enabling-ttl"></a>Abilitazione di TTL
-Per abilitare la durata (TTL) in una raccolta o nei documenti all'interno di una raccolta, è necessario impostare la proprietà DefaultTTL della raccolta su -1 o su un numero positivo diverso da zero. Quando DefaultTTL = -1, per impostazione predefinita tutti i documenti nella raccolta hanno durata infinita. Il servizio DocumentDB deve tuttavia monitorare i documenti per cui viene eseguito l'override di questa impostazione predefinita nella raccolta.
+Per abilitare la durata (TTL) in una raccolta o nei documenti all'interno di una raccolta, è necessario impostare la proprietà DefaultTTL della raccolta su -1 o su un numero positivo diverso da zero. Quando DefaultTTL = -1, per impostazione predefinita tutti i documenti nella raccolta hanno durata infinita. Il servizio Cosmos DB deve tuttavia monitorare i documenti per cui viene eseguito l'override di questa impostazione predefinita nella raccolta.
 
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
@@ -161,7 +163,7 @@ I documenti scadono immediatamente dopo la scadenza e non sarà possibile accede
 
 **La durata (TTL) impostata per un documento influisce sugli addebiti delle unità richiesta?**
 
-No, gli addebiti delle unità richiesta non risentono delle eliminazioni di documenti scaduti con TTL in DocumentDB.
+No, gli addebiti delle unità richiesta non risentono delle eliminazioni di documenti scaduti con TTL in Cosmos DB.
 
 **La funzionalità TTL si applica solo all'intero documento o è possibile impostare come scaduti singoli valori delle proprietà di un documento?**
 
@@ -172,11 +174,6 @@ La funzionalità TTL si applica all'intero documento. Per impostare come scaduta
 Sì. I [criteri di indicizzazione](documentdb-indexing-policies.md) della raccolta devono essere impostati su Coerente o Differita. Il tentativo di impostare DefaultTTL in una raccolta la cui indicizzazione è impostata su None genera un errore, come anche il tentativo di disabilitare l'indicizzazione in una raccolta in cui la proprietà DefaultTTL è già impostata.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su Azure DocumentDB, vedere la pagina della [*documentazione*](https://azure.microsoft.com/documentation/services/documentdb/) del servizio.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+Per altre informazioni su Azure Cosmos DB, vedere la pagina della [*documentazione*](https://azure.microsoft.com/documentation/services/documentdb/) del servizio.
 
 

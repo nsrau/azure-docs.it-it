@@ -1,28 +1,29 @@
 ---
 
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 7023e7e7f5857db345c47c9a3aa00a816e027a96
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2bb9fa3c151b0e36f73ba0c1432529499ee7062b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 
 ---
-# <a name="how-to-partition-data-using-client-side-support-in-documentdb"></a>Come eseguire il partizionamento dei dati tramite il supporto lato client di DocumentDB
-Azure DocumentDB supporta [il partizionamento automatico delle raccolte](documentdb-partition-data.md). Tuttavia, esistono casi di utilizzo in cui risulta utile mantenere un controllo con granularità fine sul comportamento di partizionamento. Per ridurre il codice boilerplate per il partizionamento delle attività, negli SDK per .NET, Node.js e Java è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni per cui è stato aumentato il numero delle istanze in più raccolte.
+# <a name="how-to-partition-data-using-client-side-support-in-azure-cosmos-db"></a>Come eseguire il partizionamento dei dati usando il supporto lato client in Azure Cosmos DB
+Azure Cosmos DB supporta [il partizionamento automatico delle raccolte](documentdb-partition-data.md). Tuttavia, esistono casi di utilizzo in cui risulta utile mantenere un controllo con granularità fine sul comportamento di partizionamento. Per ridurre il codice boilerplate per il partizionamento delle attività, negli SDK per .NET, Node.js e Java è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni per cui è stato aumentato il numero delle istanze in più raccolte.
 
 In questo articolo, verranno esaminate le classi e le interfacce in .NET SDK e verrà spiegato come usarle per sviluppare le applicazioni partizionate. Altri SDK come Java, Node. js e Python supportano interfacce e metodi simili per il partizionamento lato client.
 
-## <a name="client-side-partitioning-with-the-documentdb-sdk"></a>Partizionamento lato client con l'SDK di DocumentDB
-Prima di esaminare più in dettaglio il partizionamento, è opportuno riepilogare alcuni concetti di base di DocumentDB correlati al partizionamento. Ogni account di database di DocumentDB è costituito da un insieme di database, ognuno dei quali include più raccolte, che possono contenere stored procedure, trigger, UDF, documenti e allegati correlati. Le raccolte possono essere partizionate singolarmente o autopartizionate con le seguenti proprietà:
+## <a name="client-side-partitioning-with-the-sdk"></a>Partizionamento lato client con l'SDK
+Prima di esaminare più in dettaglio il partizionamento, è opportuno riepilogare alcuni concetti di base di Cosmos DB correlati al partizionamento. Ogni account di database Cosmos DB è costituito da un set di database, ognuno dei quali include più raccolte, che possono contenere stored procedure, trigger, funzioni definite dall'utente, documenti e allegati correlati. Le raccolte possono essere partizionate singolarmente o autopartizionate con le seguenti proprietà:
 
 * Le raccolte offrono l’isolamento delle prestazioni. La collazione di documenti simili all'interno della stessa raccolta comporta quindi un miglioramento delle prestazioni. Ad esempio, per i dati relativi alle serie temporali, è possibile inserire i dati per l’ultimo mese, per cui viene spesso eseguita una query, all'interno di una raccolta con una velocità effettiva di provisioning più elevata, mentre i dati meno recenti vengono collocati all'interno di raccolte con bassa velocità effettiva di provisioning.
 * Le transazioni ACID, ovvero stored procedure e trigger, non possono estendersi a una raccolta. L’ambito delle transazioni è impostato all'interno di un valore della chiave di partizione singola in una raccolta.
 * Le raccolte non applicano uno schema e quindi possono essere usate per documenti JSON dello stesso tipo o di tipi diversi.
 
-A partire dalla versione [1.5 degli SDK di Azure DocumentDB](documentdb-sdk-dotnet.md) è possibile eseguire operazioni sui documenti direttamente in un database. Internamente [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) usa la classe PartitionResolver specificata per il database per instradare le richieste alla raccolta appropriata.
+A partire dalla versione [1.5 degli SDK di Azure Cosmos DB](documentdb-sdk-dotnet.md) è possibile eseguire operazioni sui documenti direttamente in un database. Internamente [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) usa la classe PartitionResolver specificata per il database per instradare le richieste alla raccolta appropriata.
 
 > [!NOTE]
 > Il [partizionamento lato server](documentdb-partition-data.md) introdotto in API REST 2015-12-16 e SDK 1.6.0 e versioni successive depreca l'approccio del resolver della partizione lato client per casi d'uso semplici. Il partizionamento lato client, tuttavia, è più flessibile e consente di controllare l'isolamento delle prestazioni tra le chiavi di partizione, controllare il livello di parallelismo durante la lettura dei risultati di più partizioni e usare approcci di partizionamento basati su intervallo/spazio e hash.
@@ -89,7 +90,7 @@ foreach (UserProfile activeUser in query)
 ```
 
 ## <a name="hash-partition-resolver"></a>Resolver della partizione hash
-Con il partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o usati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria IoT ("Internet of Things"). Il partizionamento hash viene anche usato dal supporto di partizionamento lato server di DocumentDB all'interno di una raccolta.
+Con il partizionamento hash le partizioni vengono assegnate in base al valore di una funzione hash, permettendo di distribuire uniformemente richieste e dati tra diverse partizioni. Questo approccio viene generalmente usato per il partizionamento dei dati prodotti o usati da un numero elevato di client distinti e risulta utile per l'archiviazione di profili utente, elementi del catalogo e dati di telemetria IoT ("Internet of Things"). Il partizionamento hash viene anche usato dal supporto di partizionamento lato server di Cosmos DB in una raccolta.
 
 **Partizionamento hash:**
 ![diagramma che illustra in che modo il partizionamento hash distribuisce in modo uniforme le richieste tra le partizioni](media/documentdb-sharding/partition-hash.png)
@@ -122,17 +123,17 @@ Esaminare il [progetto GitHub degli esempi di partizionamento di DocumentDB](htt
 * Come serializzare e deserializzare lo stato di PartitionResolver come JSON, in modo da poter eseguire una condivisione tra processi e negli arresti. È possibile renderli persistenti nei file config o anche in una raccolta DocumentDB.
 * Una classe [DocumentClientHashPartitioningManager](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Util/DocumentClientHashPartitioningManager.cs) per l'aggiunta e la rimozione dinamiche di partizioni in un database partizionato in base all'hashing coerente. Usa internamente [TransitionHashPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/TransitionHashPartitionResolver.cs) per instradare le operazioni di lettura e di scrittura durante la migrazione usando una di queste quattro modalità: lettura dal vecchio schema di partizionamento (ReadCurrent), da quello nuovo (ReadNext), unione dei risultati da entrambi (ReadBoth) o mancata disponibilità durante la migrazione (None).
 
-Gli esempi sono open source e si consiglia di inviare richieste pull con contributi che potrebbero essere utili ad altri sviluppatori DocumentDB. Per informazioni su come contribuire, fare riferimento alle [linee guida specifiche](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) .  
+Gli esempi sono open source e si consiglia di inviare richieste pull con contributi che potrebbero essere utili ad altri sviluppatori Cosmos DB. Per informazioni su come contribuire, fare riferimento alle [linee guida specifiche](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) .  
 
 > [!NOTE]
-> Le creazioni di raccolte sono soggette a limitazioni di frequenza da parte di DocumentDB e quindi il completamento di alcuni dei metodi di esempio mostrati qui potrebbe richiedere alcuni minuti.
+> Le creazioni di raccolte sono soggette a limitazioni di frequenza da parte di Cosmos DB e quindi il completamento di alcuni dei metodi di esempio illustrati qui potrebbe richiedere alcuni minuti.
 > 
 > 
 
-## <a name="faq"></a>Domande frequenti
-**DocumentDB supporta il partizionamento lato server?**
+## <a name="faq"></a>domande frequenti
+**Cosmos DB supporta il partizionamento lato server?**
 
-Sì, DocumentDB supporta il [partizionamento lato server](documentdb-partition-data.md). DocumentDB supporta anche il partizionamento lato client tramite resolver della partizione lato client per i casi di utilizzo più avanzati.
+Sì, Cosmos DB supporta il [partizionamento lato server](documentdb-partition-data.md). Cosmos DB supporta anche il partizionamento lato client tramite resolver della partizione lato client per i casi d'uso più avanzati.
 
 **Quando è opportuno utilizzare il partizionamento lato server rispetto al partizionamento lato client?**
 Per la maggior parte dei casi di utilizzo, è consigliabile l'utilizzo del partizionamento lato server, perché gestisce le attività amministrative di partizionamento dei dati e routing delle richieste. Tuttavia, se è necessario il partizionamento per intervalli o in un caso di utilizzo specializzato per l'isolamento delle prestazioni tra i diversi valori delle chiavi di partizione, il partizionamento lato client potrebbe essere l'approccio migliore.
@@ -150,8 +151,8 @@ Per un esempio di come implementare il ripartizionamento, esaminare l'implementa
 È possibile concatenare classi PartitionResolver implementando la propria interfaccia IPartitionResolver che usa internamente uno o più sistemi resolver esistenti. Per un esempio, esaminare TransitionHashPartitionResolver nel progetto degli esempi.
 
 ## <a name="references"></a>Riferimenti
-* [Partizionamento dei dati in DocumentDB lato server](documentdb-partition-data.md)
-* [Raccolte e livelli di prestazioni in DocumentDB](documentdb-performance-levels.md)
+* [Partizionamento lato server in Cosmos DB](documentdb-partition-data.md)
+* [Raccolte e livelli di prestazioni in Azure Cosmos DB](documentdb-performance-levels.md)
 * [Esempi di codici di partizionamento su GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [Documentazione di DocumentDB .NET SDK in MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net)

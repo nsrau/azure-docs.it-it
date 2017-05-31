@@ -1,85 +1,92 @@
 ---
-title: Proteggere le password in Azure AD e reimpostare le password bloccate da Smart Password Lockout | Microsoft Docs
-description: Illustra il significato di tenant di Azure AD e come gestire Azure con Azure Active Directory
+title: "Sicurezza delle password a più livelli di Azure AD | Microsoft Docs"
+description: Questo articolo spiega in che modo Azure AD applica le password complesse e protegge le password degli utenti dai criminali informatici.
 services: active-directory
 documentationcenter: 
-author: markvi
-writer: v-lorisc
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
-ms.workload: infrastructure-services
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/02/2017
-ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8e625a346c9495d436a99fcf9eadf8ffeffcfdff
-ms.lasthandoff: 03/28/2017
+ms.topic: article
+ms.date: 05/10/2017
+ms.author: joflore
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 32464307ccb082b25538eaa522c1cdedef1ca555
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="secure-passwords--in-azure-ad-and-reset-passwords-that-get-blocked-by-smart-password-lockout"></a>Proteggere le password in Azure AD e reimpostare le password bloccate da Smart Password Lockout
-Questo articolo illustra le procedure consigliate che è possibile seguire come utente o amministratore per proteggere gli account di Azure Active Directory (Azure AD) e del servizio account Microsoft. 
+# <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Approccio multilivello alla sicurezza delle password di Azure AD
 
- >[!NOTE]
- >Gli amministratori di Azure AD possono reimpostare le password utente facendo clic sul nome della directory. Nel [portale di gestione di Azure](https://manage.windowsazure.com) scegliere la pagina Utenti, fare clic sul nome dell'utente e reimpostare la password. 
+Questo articolo illustra alcune procedure consigliate che è possibile seguire come utente o amministratore per proteggere il proprio account Azure Active Directory (Azure AD) o Microsoft.
+
+ > [!NOTE]
+ > Gli amministratori di Azure Active Directory possono reimpostare le password degli utenti seguendo le indicazioni fornite nell'articolo [Reimpostare la password per un utente in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ >
+ > Gli utenti possono reimpostare la propria password seguendo le indicazioni fornite nell'articolo [Password di Azure AD dimenticata](active-directory-passwords-update-your-own-password.md).
  >
 
+## <a name="password-requirements"></a>Requisiti delle password
+
 Azure AD adotta i seguenti approcci comuni per la protezione delle password:
- *    Requisiti di lunghezza delle password
- *    Requisiti di complessità delle password
- *    Scadenza regolare e periodica delle password 
 
-Per informazioni sulle funzionalità di gestione delle password, vedere [Gestire password in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-manage-passwords). 
+* Requisiti di lunghezza delle password
+* Requisiti di complessità delle password
+* Scadenza regolare e periodica delle password
 
-## <a name="azure-ad-password-protection"></a>Protezione delle password di Azure AD
-Azure AD e il sistema di account Microsoft usano approcci di settore comprovati per assicurare la protezione delle password di utenti e amministratori. 
+Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](active-directory-passwords.md).
 
-Questa sezione descrive il modo in cui Azure AD protegge le password con i metodi seguenti:
- *    Password vietate in modo dinamico
- *    Smart Password Lockout
+## <a name="azure-ad-password-protections"></a>Protezione delle password di Azure AD
 
-Per informazioni sulla gestione delle password in base alla ricerca corrente, vedere il white paper [Password Guidance](http://aka.ms/passwordguidance) (Indicazioni sulle password). 
+Azure AD e il sistema di account Microsoft usano approcci di settore comprovati per assicurare la protezione delle password di utenti e amministratori, tra cui:
+
+* Password vietate in modo dinamico
+* Smart Password Lockout
+
+Per informazioni sulla gestione delle password in base alla ricerca corrente, vedere il white paper contenente le [indicazioni sulle password](http://aka.ms/passwordguidance).
 
 ### <a name="dynamically-banned-passwords"></a>Password vietate in modo dinamico
-Azure AD e il sistema di account Microsoft salvaguardano la protezione delle password vietando in modo dinamico tutte le password usate comunemente. Il team di Azure AD Identity Protection analizza periodicamente gli elenchi delle password vietate, impedendo agli utenti di selezionare le password usate comunemente. Questo servizio è disponibile in Azure AD e per i clienti del servizio account Microsoft. 
 
-Quando si creano password è importante che gli amministratori invitino gli utenti a scegliere password non comuni che includano una combinazione univoca di lettere, numeri e caratteri. In questo modo sarà pressoché impossibile compromettere le password degli utenti. 
+Azure AD e il sistema di account Microsoft salvaguardano la protezione delle password vietando in modo dinamico le password usate comunemente. Il team di Azure AD Identity Protection analizza periodicamente gli elenchi delle password vietate, impedendo agli utenti di selezionare le password usate comunemente. Questo servizio è disponibile in Azure AD e per i clienti del servizio account Microsoft.
 
-**Elenchi di violazioni**
+Quando si creano password, è importante che gli amministratori invitino gli utenti a scegliere passphrase che includano una combinazione univoca di lettere, numeri, caratteri o parole. Questo approccio contribuisce a rendere quasi impossibile il rischio di compromissione delle password degli utenti e allo stesso tempo le rende più facili da ricordare.
 
-Azure AD cerca sempre di anticipare le mosse dei criminali informatici. Un modo per conseguire questo obiettivo è impedire agli utenti di creare password presenti nell'elenco corrente degli attacchi.
+#### <a name="password-breaches"></a>Violazioni delle password
 
-Il team di Azure AD Identity Protection analizza costantemente le password più comuni. Anche i criminali informatici usano strategie simili per gli attacchi, ad esempio creando un [tabella arcobaleno](https://en.wikipedia.org/wiki/Rainbow_table) per violare gli hash delle password. 
+Microsoft cerca sempre di anticipare le mosse dei criminali informatici.
 
-Microsoft analizza continuamente le [violazioni di dati](https://www.privacyrights.org/data-breaches) per mantenere un elenco di password da vietare aggiornato in modo dinamico che assicura l'esclusione delle password vulnerabili prima che diventino una minaccia reale per i clienti di Azure AD. Per altre informazioni sulle attività volte a garantire la sicurezza, vedere il [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx). 
+Il team di Azure AD Identity Protection analizza costantemente le password più comuni. Anche i criminali informatici usano strategie simili per gli attacchi, ad esempio creando un [tabella arcobaleno](https://en.wikipedia.org/wiki/Rainbow_table) per violare gli hash delle password.
+
+Microsoft analizza continuamente le [violazioni di dati](https://www.privacyrights.org/data-breaches) per mantenere un elenco di password da vietare aggiornato in modo dinamico che assicura l'esclusione delle password vulnerabili prima che diventino una minaccia reale per i clienti di Azure AD. Per altre informazioni sulle attività volte a garantire la sicurezza, vedere il [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx).
 
 ### <a name="smart-password-lockout"></a>Smart Password Lockout
 
-Quando Azure AD rileva un potenziale criminale informatico che prova a violare una password utente, l'account utente viene bloccato con Smart Password Lockout. Azure AD è progettato per determinare i rischi associati a sessioni di accesso specifiche. 
-
-Usando i dati di sicurezza più aggiornati Microsoft applica la semantica di blocco alle minacce informatiche. In questo modo gli utenti non verranno bloccati se un criminale informatico viola le password nella rete.
+Quando Azure AD rileva un potenziale criminale informatico che prova a violare una password utente, l'account utente viene bloccato con Smart Password Lockout. Azure AD è progettato per determinare i rischi associati a sessioni di accesso specifiche. Usando i dati di sicurezza più aggiornati, Microsoft applica quindi la semantica di blocco alle minacce informatiche.
 
 Se un utente viene bloccato da Azure AD, la schermata sarà simile alla seguente:
 
   ![Bloccato da Azure AD](./media/active-directory-secure-passwords/locked-out-azuread.png)
-  
+
 Per altri account Microsoft, la schermata sarà simile alla seguente:
 
   ![Bloccato da un account Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Per informazioni sulla gestione delle password in Azure Active Directory, vedere [Funzionamento della gestione delle password](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-how-it-works).
+Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](active-directory-passwords.md).
 
-  >![NOTA] Se si è amministratori di Azure AD è consigliabile usare [Windows Hello](https://www.microsoft.com/en-us/windows/windows-hello) per evitare che gli utenti creino password tradizionali.
+  >[!NOTE]
+  >Se si è amministratori di Azure AD è consigliabile usare [Windows Hello](https://www.microsoft.com/windows/windows-hello) per evitare che gli utenti creino password tradizionali.
   >
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Come aggiornare la password](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-update-your-own-password)<br>
-[Concetti fondamentali sulla gestione delle identità di Azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
-[Come ottenere informazioni operative con i report di gestione delle password](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-get-insights#view-password-reset-activity)
+
+* [Come aggiornare la password](active-directory-passwords-update-your-own-password.md)
+* [Concetti fondamentali sulla gestione delle identità di Azure](fundamentals-identity.md)
+* [Rapporto sull'attività di reimpostazione password](active-directory-passwords-reporting.md)
 
 
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
-ms.openlocfilehash: 1072148f11052a643bdc70239029a651d9d71dda
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 22c0ee5090d67430fc63ad3f3c09076de0be067c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -61,9 +62,9 @@ Per la comunicazione in ingresso verso le risorse di Azure da Internet o la comu
 ## <a name="connect-on-premises"></a>Connettersi a una rete locale
 
 È possibile connettere la rete locale a una rete virtuale usando qualsiasi combinazione delle opzioni seguenti.
-- **Rete privata virtuale (VPN) da punto a sito:** viene stabilita tra un singolo PC connesso alla rete e la rete virtuale. Questo tipo di connessione è ideale se si sta appena iniziando a usare Azure o per gli sviluppatori, perché richiede modifiche minime o nessuna modifica alla rete esistente. La connessione usa il protocollo SSTP per fornire la comunicazione crittografata su Internet tra il PC e la rete virtuale. La latenza per una VPN da punto a sito è imprevedibile e soggetta alla crittografia, perché il traffico attraversa Internet.
+- **Rete privata virtuale (VPN) da punto a sito:** viene stabilita tra un singolo PC connesso alla rete e la rete virtuale. Questo tipo di connessione è ideale se si sta appena iniziando a usare Azure o per gli sviluppatori, perché richiede modifiche minime o nessuna modifica alla rete esistente. La connessione usa il protocollo SSTP per fornire la comunicazione crittografata su Internet tra il PC e la rete virtuale. La latenza per una VPN da punto a sito è imprevedibile, dal momento che il traffico attraversa Internet.
 - **VPN da sito a sito:** viene stabilita una connessione tra il dispositivo VPN e un gateway VPN di Azure. Questo tipo di connessione consente a qualsiasi risorsa locale autorizzata dall'utente di accedere a una rete virtuale. La connessione è una VPN IPSec/IKE che fornisce la comunicazione crittografata su Internet tra il dispositivo locale e il gateway VPN di Azure. La latenza per una connessione da sito a sito è imprevedibile, perché il traffico attraversa Internet.
-- **Azure ExpressRoute:** viene stabilita una connessione tra la rete e Azure tramite un partner ExpressRoute. La connessione è privata. Il traffico non attraversa Internet. La latenza per una connessione ExpressRoute è prevedibile, perché il traffico non attraversa Internet e non viene crittografato.
+- **Azure ExpressRoute:** viene stabilita una connessione tra la rete e Azure tramite un partner ExpressRoute. La connessione è privata. Il traffico non attraversa Internet. La latenza per una connessione ExpressRoute è prevedibile, perché il traffico non attraversa Internet.
 
 Per altre informazioni su tutte le opzioni di connessione riportate sopra, vedere [Diagrammi delle topologie di connessione](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams).
 
@@ -81,6 +82,10 @@ Per impostazione predefinita, Azure crea tabelle di route che consentono alle ri
 ## <a name="pricing"></a>Prezzi
 
 Per le reti virtuali, le subnet, le tabelle di route e i gruppi di sicurezza di rete non è previsto alcun addebito. All'utilizzo della larghezza di banda Internet in uscita, agli indirizzi IP pubblici, al peering reti virtuali, ai gateway VPN e a ExpressRoute vengono applicate specifiche strutture di prezzi. Per altre informazioni, vedere le pagine relative ai prezzi di [Rete virtuale](https://azure.microsoft.com/pricing/details/virtual-network), [Gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) ed [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
+
+## <a name="faq"></a>Domande frequenti
+
+Per esaminare le domande frequenti su Rete virtuale, vedere l'articolo [Domande frequenti sulla rete virtuale di Azure](virtual-networks-faq.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

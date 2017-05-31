@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8485fd9350672dd0f41e2d5dada57a1940c43f16
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6c8df6b9804d082c8044cdb2420cc5ea42b9774f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -123,6 +124,16 @@ Selezionare il tipo di diagramma desiderato:
 Se sono presenti più colonne dei tipi corretti, è possibile scegliere gli assi X e Y e una colonna di dimensioni in base alla quale dividere i risultati.
 
 Per impostazione predefinita, i risultati vengono inizialmente visualizzati in una tabella e si seleziona il diagramma manualmente. Per selezionare il diagramma, è possibile usare la [direttiva render](app-insights-analytics-reference.md#render-directive) alla fine di una query.
+
+### <a name="analytics-diagnostics"></a>Diagnostica di Analytics
+
+
+In un grafico del tempo, se si verifica un picco o una variazione improvvisa dei dati, sulla linea viene evidenziato un punto. Ciò indica che Diagnostica di Analytics ha identificato una combinazione di proprietà che filtrano le variazioni improvvise. Fare clic sul punto per ottenere maggiori dettagli sul filtro e per visualizzare la versione filtrata. Questa opzione consente di identificare la causa della variazione. 
+
+[Altre informazioni sulla Diagnostica di Analytics](app-insights-analytics-diagnostics.md)
+
+
+![Diagnostica di Analytics](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Aggiungi al dashboard
 Per aggiungere un diagramma o una tabella a uno dei [dashboard condivisi](app-insights-dashboards.md) , è sufficiente fare clic sulla puntina. Potrebbe essere necessario [aggiornare il pacchetto dei prezzi dell'app](app-insights-pricing.md) per attivare questa funzionalità. 

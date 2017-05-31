@@ -11,12 +11,12 @@ Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quan
 ## <a name="table-service-concepts"></a>Concetti del servizio tabelle
 Il servizio tabelle contiene i componenti seguenti:
 
-![Table1][Table1]
+![Diagramma dei componenti del servizio tabelle][Table1]
 
 * **Formato dell'URL**: il codice fa riferimento alle tabelle in un account usando il formato di indirizzo seguente:   
   http://`<storage account>`.table.core.windows.net/`<table>`  
   
-  È possibile fare riferimento direttamente alle tabelle di Azure utilizzando questo indirizzo con il protocollo OData. Per altre informazioni, vedere [OData.org][OData.org]
+  È possibile fare riferimento direttamente alle tabelle di Azure utilizzando questo indirizzo con il protocollo OData. Per altre informazioni, vedere [OData.org][OData.org].
 * **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md) .
 * **Tabella**: una tabella è una raccolta di entità. Le tabelle non impongono uno schema sulle entità, pertanto una singola tabella può contenere entità che presentano set di proprietà diversi. Il numero di tabelle che un account di archiviazione può contenere è limitato solo in base al limite di capacità dell'account di archiviazione.
 * **Entità**: un'entità è un set di proprietà, simile a una riga di database. Un'entità può avere una dimensione massima di 1 MB.

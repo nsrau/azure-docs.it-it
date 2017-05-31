@@ -4,7 +4,7 @@ description: Linguaggi, piattaforme e integrazioni disponibili per Application I
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
-manager: douge
+manager: carmonm
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
@@ -12,23 +12,25 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: awills
+ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c0ae2357d670a43547a9eb257c634b073cb5d325
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 7f9b886259c065627055f62a3636ab65434ca57b
 ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Developer Analytics: linguaggi, piattaforme e integrazioni
 Di seguito sono riportate implementazioni di [Application Insights](app-insights-overview.md) già illustrate, incluse alcune di terze parti.
 
-## <a name="languages"></a>Lingue
+## <a name="languages---officially-supported-by-application-insights-team"></a>Lingue: supportate ufficialmente dal team di Application Insights
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Pagine Web JavaScript](app-insights-javascript.md)
-* [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+## <a name="languages---community-supported"></a>Lingue: supportate dalla community
+* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -42,6 +44,7 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 * [App Web di Azure](app-insights-azure-web-apps.md)
 * [Servizi cloud di Azure](app-insights-cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
+* [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)

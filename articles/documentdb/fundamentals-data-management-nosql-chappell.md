@@ -1,9 +1,11 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: 48380d1fd5394cc32b4e868a82f456497bc4a915
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 28af0300f7027ccce8207d0f767490bddd4bf532
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 
@@ -18,13 +20,8 @@ In questo caso, sono disponibili due risorse:
   
   * Differenziazione tra dati operativi, letti e scritti dalle applicazioni, e dati analitici, usati per fornire business intelligence (BI) e determinare la tecnologia più adatta alle proprie esigenze.
   * Una breve analisi della tecnologia relazionale.
-  * Un'introduzione a ciascuna delle tecnologie NoSQL di Azure: DocumentDB, archiviazione tabelle, HBase e HDInsight.
+  * Un'introduzione a ciascuna delle tecnologie NoSQL di Azure: Azure Cosmos DB, archiviazione tabelle, HBase e HDInsight.
   * Un confronto delle tecnologie NoSQL e del database SQL di Azure. 
-  * Quando usare Azure DocumentDB di Visual Studio Archiviazione tabelle di Visual Studio HBase di Visual Studio HDInsight di Visual Studio database SQL.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+  * Quando usare Azure Cosmos DB di Visual Studio Archiviazione tabelle di Visual Studio HBase di Visual Studio HDInsight di Visual Studio database SQL.
 
 

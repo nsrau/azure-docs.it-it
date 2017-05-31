@@ -3,7 +3,7 @@ title: Esplorazione dei dati HockeyApp in Application Insights | Microsoft Docs
 description: Analizzare l&quot;utilizzo e le prestazioni dell&quot;app Azure con Application Insights.
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights
@@ -12,10 +12,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 7ea28b4989ad889ff0427e221cc26ac5ebc41f93
+ms.contentlocale: it-it
 ms.lasthandoff: 04/07/2017
 
 

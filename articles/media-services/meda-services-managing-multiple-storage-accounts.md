@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 1a074e54204ff8098bea09eb4aa2066ccee47608
-ms.openlocfilehash: ab9e952027dcaa5b43cdad8faf8005b063c01dce
-ms.lasthandoff: 01/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f813dc5f126386f9ad474e113183e7b5d4c8a71a
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare 
 * Bilanciamento del carico degli asset tra più account di archiviazione.
 * Ridimensionamento di Servizi multimediali per l'elaborazione di grandi quantità di contenuti (attualmente è previsto un limite massimo di 500 TB per ogni account di archiviazione). 
 
-Questo argomento illustra come collegare più account di archiviazione a un account Servizi multimediali mediante le [API di Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media). Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali. 
+Questo argomento illustra come collegare più account di archiviazione a un account Servizi multimediali mediante le [API di Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](/powershell/module/azurerm.media). Spiega inoltre come specificare diversi account di archiviazione durante la creazione di asset mediante l'SDK di Servizi multimediali. 
 
 ## <a name="considerations"></a>Considerazioni
 Quando si collegano più account di archiviazione a un account di Servizi multimediali, tenere presente quanto segue:
@@ -39,11 +40,11 @@ Quando si collegano più account di archiviazione a un account di Servizi multim
 
 Altre considerazioni:
 
-Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione di URL per i contenuti in streaming, ad esempio http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale seguenti](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione di URL per i contenuti in streaming, ad esempio http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
 ## <a name="to-attach-storage-accounts"></a>Per collegare account di archiviazione  
 
-Per collegare account di archiviazione all'account Servizi multimediali di Azure (AMS), usare le [API di Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media), come illustrato nell'esempio seguente.
+Per collegare account di archiviazione all'account Servizi multimediali di Azure (AMS), usare le [API di Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](/powershell/module/azurerm.media), come illustrato nell'esempio seguente.
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

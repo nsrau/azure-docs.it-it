@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: af7d5b03e1490ed8d90021980f14c47281e8a655
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -79,6 +80,7 @@ No, i dischi nelle macchine virtuali in un set di disponibilità devono essere o
 
 Non attualmente, ma diventerà l'impostazione predefinita in futuro.
 
+
 **È possibile creare un disco vuoto gestito?**
 
 Sì, è possibile creare un disco vuoto. Un disco gestito può essere creato indipendentemente da una macchina virtuale, ad esempio non collegandolo a una macchina virtuale.
@@ -126,6 +128,10 @@ No. Questa funzionalità non è attualmente supportata.
 
 **È possibile modificare la proprietà del nome del computer quando si usa un disco del sistema operativo specializzato (non preparato con Sysprep o generalizzato) per il provisioning di una VM?** No. Non è possibile aggiornare la proprietà del nome del computer. La nuova VM erediterà la proprietà dalla VM padre usata per creare il disco del sistema operativo. 
 
+**Dove posso trovare modelli di Azure Resource Manager di esempio per creare macchine virtuali con Managed Disks**
+* https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
+* https://github.com/chagarw/MDPP
+
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks e porta 8443
 
 **Perché i clienti devono sbloccare il traffico in uscita sulla porta 8443 per le macchine virtuali usando Managed Disks di Azure?**
@@ -144,7 +150,7 @@ Questo non influenzerà la distribuzione.
 
 L'estensione non verrà distribuita correttamente. Lo stato dell'estensione sarà sconosciuto. 
 
-**Cosa accade se viene usato un modello ARM per eseguire il provisioning su più macchine virtuali con la porta 8443 bloccata, una macchina virtuale con le estensioni e una seconda macchina virtuale che dipende dalla prima macchina virtuale?**
+**Cosa accade se viene usato un modello di Azure Resource Manager per eseguire il provisioning su più macchine virtuali con la porta 8443 bloccata, una macchina virtuale con le estensioni e una seconda macchina virtuale che dipende dalla prima macchina virtuale?**
 
 Per la prima macchina virtuale la distribuzione risulterà non riuscita perché le estensioni non vengono distribuite correttamente. La seconda macchina virtuale non verrà distribuita. 
 

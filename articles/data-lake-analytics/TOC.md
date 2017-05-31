@@ -15,12 +15,15 @@
 
 # Procedure
 ## Sviluppare
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Nozioni di base su U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Catalogo di U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Join U-SQL](data-lake-analytics-u-sql-combine-data-with-joins.md)
+### [Parametri di U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Funzioni finestra U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Operatori U-SQL definiti dagli utenti](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Estensioni Python U-SQL](data-lake-analytics-u-sql-python-extensions.md)
 ### [Estensioni R U-SQL](data-lake-analytics-u-sql-r-extensions.md)
-### [Funzionalità cognitive U-SQL](data-lake-analytics-u-sql-cognitive.md)
+### [Estensioni cognitive di U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Creare soluzioni
 ### [Analizzare i log dei siti Web](data-lake-analytics-analyze-weblogs.md)

@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: ba15ebc176ada48943fb6afa5f9c723e3d906099
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -68,9 +70,4 @@ La registrazione di un'origine dati in Data Catalog rende individuabili tali dat
 
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione ad Azure Data Catalog](data-catalog-get-started.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

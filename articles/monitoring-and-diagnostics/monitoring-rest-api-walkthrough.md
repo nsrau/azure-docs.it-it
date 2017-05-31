@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
-translationtype: Human Translation
-ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
-ms.openlocfilehash: 6d66a8fa6eac5bc0ecdddc12b67697045556bf46
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: fcf9cc661da0d8e65b385bfddeded0a3e5d0d3e2
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procedura dettagliata sull'API REST di monitoraggio di Azure
 In questo articolo viene illustrato come eseguire l'autenticazione in modo che il codice possa usare le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
 
-L'API di monitoraggio di Azure consente di recuperare in modo programmatico le definizioni della metrica predefinita disponibili (cioè il tipo di metrica come tempo di CPU, richieste e così via), la granularità e i valori della metrica. Una volta recuperati, i dati possono essere salvati in un archivio dati separato come il database SQL di Azure, DocumentDB o Azure Data Lake. Da qui, se necessario, è possibile svolgere ulteriori analisi.
+L'API di monitoraggio di Azure consente di recuperare in modo programmatico le definizioni della metrica predefinita disponibili (cioè il tipo di metrica come tempo di CPU, richieste e così via), la granularità e i valori della metrica. Dopo essere stati recuperati, i dati possono essere salvati in un archivio dati separato come il database SQL di Azure, Azure Cosmos DB o Azure Data Lake. Da qui, se necessario, è possibile svolgere ulteriori analisi.
 
 Oltre a essere compatibile con vari punti dati della metrica, come illustrato in questo articolo, l'API di monitoraggio consente di elencare le regole di avviso, di visualizzare i registri delle attività e molto altro ancora. Per un elenco completo delle operazioni disponibili, vedere le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -216,9 +218,4 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 * Visualizzare le [metriche supportate con il monitoraggio di Azure](monitoring-supported-metrics.md).
 * Esaminare le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Esaminare [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

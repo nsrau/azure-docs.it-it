@@ -1,5 +1,5 @@
 ---
-title: 'C#: creare e gestire un pool elastico di database SQL di Azure | Documentazione Microsoft'
+title: 'C#: creare e gestire un pool elastico di database SQL di Azure | Microsoft Docs'
 description: Usare tecniche di sviluppo di database in C# per gestire un pool elastico per database SQL di Microsoft Azure.
 services: sql-database
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9e038bfeee023b26aa80046fe877db007baa1816
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: b34cfe18ac3d03802173605f5483879217d1fe1f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -304,7 +305,7 @@ Lo script di PowerShell seguente permette di creare l'applicazione Active Direct
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
-* Un pool elastico. Per creare un pool elastico, vedere [Creare un pool elastico con C#](sql-database-elastic-pool-manage-csharp.md).
+* Un pool elastico. Per creare un pool elastico, vedere [Creare e gestire un pool elastico con C#](sql-database-elastic-pool-manage-csharp.md).
 * Visual Studio. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Spostare un database in un pool elastico

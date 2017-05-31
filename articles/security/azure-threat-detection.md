@@ -15,22 +15,22 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: c9b2ed2f480b0c100a3f838dac8d9652be3c0391
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 854ad17006b70dfbdaf680744320a87ffb654e13
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 
 # <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
-## <a name="10-introduction"></a>1.0 Introduzione
+## <a name="introduction"></a>Introduzione
 
-### <a name="11-overview"></a>1.1 Panoramica
+### <a name="overview"></a>Panoramica
 
 Microsoft ha sviluppato una serie di white paper, panoramiche sulla sicurezza, procedure consigliate ed elenchi di controllo per assistere i clienti di Azure con le diverse funzionalità correlate alla sicurezza disponibili nel contesto della piattaforma Azure. Gli argomenti variano per ampiezza e livello di approfondimento e vengono aggiornati periodicamente. Questo documento fa parte di tale serie come descritto nella sezione Sintesi di seguito.
 
-### <a name="12-azure-platform"></a>1.2 Piattaforma Azure
+### <a name="azure-platform"></a>Piattaforma Azure
 
 Azure è una piattaforma aperta e flessibile di servizi cloud che supporta la più ampia gamma di sistemi operativi, linguaggi di programmazione, framework, strumenti, database e dispositivi.
 Supporta i linguaggi di programmazione seguenti per:
@@ -44,7 +44,7 @@ Quando si esegue la migrazione a un cloud pubblico con un'organizzazione, quest'
 
 L'infrastruttura di Azure è stata progettata, dalla struttura fino alle applicazioni, per ospitare milioni di clienti contemporaneamente e fornisce alle aziende una solida base per poter soddisfare le esigenze di sicurezza. Azure offre una vasta gamma di opzioni per configurare e personalizzare la sicurezza e soddisfare i requisiti delle distribuzioni di app. Questo documento consente di soddisfare questi requisiti.
 
-### <a name="13-abstract"></a>1.3 Sunto
+### <a name="abstract"></a>Sunto
 
 Microsoft Azure offre funzionalità predefinite di rilevamento delle minacce avanzato attraverso servizi quali Azure Active Directory, Azure Operations Management Suite (OMS) e Centro sicurezza di Azure. Questa raccolta di servizi e funzionalità di sicurezza offre un modo semplice e veloce per comprendere ciò che accade all'interno delle distribuzioni di Azure.
 
@@ -52,7 +52,7 @@ Questo white paper illustra gli approcci di Microsoft Azure alla diagnostica del
 
 Questo white paper è incentrato sulla tecnologia della piattaforma Azure e sui controlli per i clienti e non tratta contratti di servizio, modelli tariffari e attività DevOps.
 
-## <a name="20-azure-active-directory-identity-protection"></a>2.0 Azure Active Directory Identity Protection
+## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
 ![Azure Active Directory Identity Protection](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 
@@ -65,7 +65,7 @@ Azure Active Directory Identity Protection è, del resto, ben più di un semplic
 
 I criteri basati sul rischio, insieme ad altri [controlli di accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) disponibili in Azure Active Directory ed [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), possono eseguire il blocco automatico o proporre azioni di correzione adattive, incluse la reimpostazione della password e l'applicazione dell'autenticazione a più fattori.
 
-### <a name="21-identity-protections-capabilities"></a>2.1 Funzionalità di Identity Protection
+### <a name="identity-protections-capabilities"></a>Funzionalità di Identity Protection
 
 Azure Active Directory Identity Protection è ben più di un semplice strumento di monitoraggio e reporting. Per proteggere le identità dell'organizzazione, è possibile configurare criteri basati sul rischio che rispondano automaticamente ai problemi rilevati quando viene raggiunto un livello di rischio specificato. Questi criteri, con altri controlli di accesso condizionale forniti da Azure Active Directory e da EMS, possono eseguire il blocco automatico o avviare azioni di correzione adattive, incluse la reimpostazione della password e l'applicazione dell'autenticazione a più fattori.
 
@@ -87,7 +87,7 @@ Di seguito sono riportati esempi di alcuni dei modi in cui Azure Identity Protec
 -    Criteri per bloccare o proteggere gli account utente rischiosi.
 -    Criteri per richiedere la registrazione degli utenti per l'autenticazione a più fattori
 
-### <a name="22-azure-ad-privileged-identity-management-pim"></a>2.2 Azure AD Privileged Identity Management (PIM)
+### <a name="azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM)
 
 Con [Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure),
 
@@ -103,13 +103,13 @@ Azure AD Privileged Identity Management consente di effettuare le operazioni seg
 
 -    Ricevere avvisi relativi all'accesso a un ruolo con privilegi
 
-## <a name="30-microsoft-operations-management-suite-oms"></a>3.0 Microsoft Operations Management Suite (OMS)
+## <a name="microsoft-operations-management-suite-oms"></a>Microsoft Operations Management Suite (OMS)
 
 [Microsoft Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. Poiché OMS viene implementato come servizio basato sul cloud, è possibile renderlo operativo rapidamente con un investimento minimo nei servizi di infrastruttura. Le nuove funzionalità di sicurezza sono disponibili automaticamente, evitando così i costi di manutenzione e aggiornamento continui.
 
 Oltre a offrire importanti servizi in sé, OMS può essere integrato con i componenti di System Center, come [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), per estendere al cloud gli investimenti per la gestione della sicurezza già esistenti. System Center e OMS possono essere usati insieme per offrire un'esperienza di gestione ibrida completa.
 
-### <a name="31-holistic-security-and-compliance-posture"></a>3.1 Approccio olistico a sicurezza e conformità
+### <a name="holistic-security-and-compliance-posture"></a>Approccio olistico a sicurezza e conformità
 
 Il [dashboard Sicurezza e controllo di OMS](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) consente di ottenere una panoramica completa dell'infrastruttura di sicurezza IT dell'organizzazione, grazie alla disponibilità di query di ricerca predefinite per i problemi rilevanti che richiedono l'attenzione dell'utente. Il dashboard Sicurezza e controllo è la schermata iniziale per tutti gli elementi correlati alla sicurezza in OMS. Fornire una visione generale lo stato di sicurezza dei computer. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
 
@@ -129,7 +129,7 @@ Il dashboard Sicurezza e controllo di OMS è organizzato in quattro categorie pr
 
 -    **Query comuni sulla sicurezza**: questa opzione fornisce un elenco delle query di sicurezza più comuni che è possibile usare per monitorare l'ambiente. Quando si fa clic in una di queste query, viene aperto il pannello Ricerca con i risultati della query.
 
-### <a name="32-insight-and-analytics"></a>3.2 Insight & Analytics
+### <a name="insight-and-analytics"></a>Insight & Analytics
 Al centro di [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) c'è l'archivio OMS, ospitato nel cloud di Azure.
 
 ![Insight & Analytics](./media/azure-threat-detection/azure-threat-detection-fig4.png)
@@ -150,7 +150,7 @@ Sicurezza e controllo è un esempio di questo tipo di soluzioni.
 
 
 
-### <a name="33-automation--control-alert-on-security-configuration-drifts"></a>3.3 Automation & Control: avvisi di deviazione dalla configurazione di sicurezza
+### <a name="automation--control-alert-on-security-configuration-drifts"></a>Automazione e controllo: avvisi di deviazione dalla configurazione di sicurezza
 
 Automazione di Azure consente di automatizzare i processi amministrativi con runbook basati su PowerShell ed eseguiti nel cloud di Azure. I runbook possono inoltre essere eseguiti in un server nel data center locale per gestire le risorse locali. Automazione di Azure consente la gestione della configurazione con PowerShell DSC (Desired State Configuration).
 
@@ -158,7 +158,7 @@ Automazione di Azure consente di automatizzare i processi amministrativi con run
 
 È possibile creare e gestire risorse DSC ospitate in Azure e applicarle a sistemi cloud e locali per definire e implementare automaticamente la loro configurazione o ricevere report sulle deviazioni per garantire il rispetto dei criteri nelle configurazioni di sicurezza.
 
-## <a name="40-azure-security-center"></a>4.0 Centro sicurezza di Azure
+## <a name="azure-security-center"></a>Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure consente di proteggere le risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni di Azure. Nell'ambito del servizio, è possibile definire criteri non solo per le sottoscrizioni di Azure, ma anche per i [gruppi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), in modo da ottenere una maggiore granularità.
 
@@ -175,7 +175,7 @@ Gli avvisi di sicurezza sono classificati in ordine di priorità nel Centro sicu
 
 Il Centro sicurezza si avvale di analisi della sicurezza avanzate, che vanno ben oltre gli approcci basati sulle firme. Le ultime innovazioni sul piano delle tecnologie per i Big Data e l'[apprendimento automatico](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) vengono usate per valutare gli eventi in tutta l'infrastruttura cloud, rilevando minacce impossibili da identificare con approcci manuali e prevedendo l'evoluzione degli attacchi. Le analisi della sicurezza includono quanto illustrato di seguito.
 
-### <a name="41-threat-intelligence"></a>4.1 Intelligence per le minacce
+### <a name="threat-intelligence"></a>Intelligence per le minacce
 
 Microsoft vanta un'enorme quantità di dati di intelligence per le minacce globali.
 Il flusso di dati di telemetria proviene da più origini, ad esempio Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC).
@@ -194,7 +194,7 @@ I ricercatori ricevono anche informazioni di intelligence per le minacce condivi
 
 -    **Rilevamento delle minacce per il database SQL Azure**: il rilevamento delle minacce per il database di SQL Azure identifica le attività di database anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere ai database o sfruttarli.
 
-### <a name="42-behavioral-analytics"></a>4.2 Analisi del comportamento
+### <a name="behavioral-analytics"></a>Analisi del comportamento
 
 L'analisi del comportamento è una tecnica che analizza e confronta i dati con una raccolta di modelli noti. Tuttavia, questi modelli non sono semplici firme. Sono determinati usando algoritmi di Machine Learning complessi applicati a set di dati di grandi dimensioni.
 
@@ -216,13 +216,13 @@ Di seguito sono riportati alcuni esempi:
 
 -    **Attacchi in uscita**: gli utenti malintenzionati attaccano spesso le risorse cloud con l'obiettivo di usarle per organizzare altri attacchi. Le macchine virtuali compromesse, ad esempio, possono essere usate per sferrare attacchi di forza bruta contro altre macchine virtuali, inviare posta indesiderata o analizzare le porte aperte e altri dispositivi su Internet. Applicando le tecniche di apprendimento automatico al traffico di rete, il Centro sicurezza può rilevare quando le comunicazioni di rete in uscita superano la norma. Nel caso di posta indesiderata, il Centro sicurezza correla anche il traffico di posta elettronica insolito con le informazioni di Office 365 per determinare se la posta elettronica è probabilmente dannosa o il risultato di una campagna di posta elettronica legittima.
 
-### <a name="43-anomaly-detection"></a>4.3 Rilevamento anomalie
+### <a name="anomaly-detection"></a>Anomaly Detection
 
 Il Centro sicurezza di Azure usa inoltre il rilevamento anomalie per identificare le minacce. A differenza dell'analisi del comportamento, che dipende da modelli noti derivati da set di dati di grandi dimensioni, il rilevamento anomalie è più "personalizzato" e incentrato sulle baseline specifiche delle distribuzioni. Le tecniche di apprendimento automatico vengono applicate per determinare la normale attività per le distribuzioni dei clienti e quindi vengono generate regole per definire le condizioni degli outlier che possono rappresentare un evento di sicurezza. Ecco un esempio:
 
 -    **Attacchi di forza bruta RDP/SSH in ingresso**: nelle distribuzioni dei clienti possono essere presenti macchine virtuali occupate da molti accessi ogni giorno e altre con pochi o nessun accesso. Il Centro sicurezza di Azure può determinare l'attività di accesso di base per queste macchine virtuali e usare le tecniche di apprendimento automatico per definire gli eventi attorno alle normali attività di accesso. In caso di discrepanza con la baseline definita per le caratteristiche relative all'accesso, potrebbe essere generato un avviso. Anche in questo caso, le tecniche di apprendimento automatico determinano gli eventi significativi.
 
-### <a name="44-continuous-threat-intelligence-monitoring"></a>4.4 Monitoraggio continuo dell'intelligence per le minacce
+### <a name="continuous-threat-intelligence-monitoring"></a>Monitoraggio continuo dell'intelligence per le minacce
 
 Il Centro sicurezza di Azure opera insieme a team dedicati alle ricerche sulla sicurezza e all'analisi scientifica dei dati a livello mondiale che monitorano costantemente le modifiche che avvengono nel panorama delle minacce. Sono incluse le iniziative seguenti:
 
@@ -236,15 +236,15 @@ Il Centro sicurezza di Azure opera insieme a team dedicati alle ricerche sulla s
 
 Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è possibile trarre vantaggio immediatamente, senza che sia richiesta alcuna azione.
 
-## <a name="50-advanced-threat-detection-features---other-azure-services"></a>5.0 Funzionalità di rilevamento delle minacce avanzato: altri servizi di Azure
+## <a name="advanced-threat-detection-features---other-azure-services"></a>Funzionalità di rilevamento delle minacce avanzato: altri servizi di Azure
 
-### <a name="51-virtual-machine-microsoft-antimalware"></a>5.1 Macchina virtuale: Microsoft Antimalware
+### <a name="virtual-machine-microsoft-antimalware"></a>Macchina virtuale: Microsoft Antimalware
 
 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. È possibile distribuire la protezione in base alle esigenze dei carichi di lavoro dell'applicazione, con una configurazione sicura per impostazione predefinita o avanzata personalizzata, incluso il monitoraggio antimalware. Antimalware Azure è un'opzione di sicurezza per macchine virtuali di Azure e viene installato automaticamente in tutte le macchine virtuali PaaS di Azure.
 
 **Funzionalità di Azure per distribuire e abilitare Microsoft Antimalware per le applicazioni**
 
-#### <a name="511-microsoft-antimalware-core-features"></a>5.1.1 Funzionalità principali di Microsoft Antimalware
+#### <a name="microsoft-antimalware-core-features"></a>Funzionalità principali di Microsoft Antimalware
 
 -    **Protezione in tempo reale**: monitora l'attività in Servizi cloud e Macchine virtuali per rilevare e bloccare l'esecuzione di malware.
 
@@ -266,7 +266,7 @@ Questi sforzi combinati convergono in rilevamenti nuovi e migliorati, da cui è 
 
 -    **Raccolta di eventi antimalware**: registra l'integrità del servizio antimalware, le attività sospette e le azioni di correzione eseguite nel registro eventi del sistema operativo e le raccoglie nell'account di archiviazione di Azure del cliente.
 
-### <a name="52-azure-sql-database-threat-detection"></a>5.2 Rilevamento delle minacce per il database SQL di Azure
+### <a name="azure-sql-database-threat-detection"></a>Rilevamento delle minacce per il database SQL di Azure
 
 Il [rilevamento delle minacce per il database SQL di Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/) è una nuova funzionalità di intelligence sulla sicurezza incorporata nel database SQL di Azure. Il rilevamento delle minacce per il database SQL di Azure è sempre in funzione per apprendere, profilare e rilevare attività di database anomale e identificare potenziali minacce per il database.
 
@@ -289,7 +289,7 @@ I rilevatori di minacce per il database SQL fanno uso di una delle metodologie d
 
 -    **Rilevamento del comportamento:** rileva le attività anomale, vale a dire comportamenti anomali per il database non rilevati negli ultimi 30 giorni.  Un esempio di attività anomala per il client SQL può essere un picco di accessi non riusciti/query, l'estrazione di un volume elevato di dati, query canoniche insolite e l'uso di indirizzi IP sconosciuti per accedere al database.
 
-### <a name="53-application-gateway-web-application-firewall"></a>5.3 Web application firewall del gateway applicazione
+### <a name="application-gateway-web-application-firewall"></a>Web application firewall del gateway applicazione
 
 [Web application firewall](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) è una funzionalità del [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) che consente di proteggere le applicazioni Web che usano il gateway applicazione per funzioni standard di [controller per la distribuzione di applicazioni](https://kemptechnologies.com/in/application-delivery-controllers). Web application firewall protegge infatti le applicazioni dalla maggior parte delle [10 vulnerabilità Web OWASP più diffuse](https://www.owasp.org/index.php/Top_10_2010-Main).
 
@@ -319,7 +319,7 @@ La configurazione del WAF nel gateway applicazione offre i vantaggi seguenti:
 
 -    Alcuni controlli di conformità richiedono che tutti gli endpoint comunicanti con Internet siano protetti da una soluzione WAF. Grazie al gateway applicazione con WAF abilitato è possibile soddisfare questi requisiti di conformità.
 
-### <a name="54-anomaly-detection--an-api-built-with-azure-machine-learning"></a>5.4 API di rilevamento delle anomalie integrata in Azure Machine Learning
+### <a name="anomaly-detection--an-api-built-with-azure-machine-learning"></a>API di rilevamento delle anomalie integrata in Azure Machine Learning
 
 L'API di rilevamento delle anomalie è integrata in Azure Machine Learning e permette di rilevare i diversi tipi di modelli anomali nei dati delle serie temporali. L'API assegna un punteggio di anomalia a ogni punto dati della serie temporale, che può essere usato per la creazione di avvisi, il monitoraggio tramite dashboard o la connessione con i sistemi di generazione dei ticket.
 
@@ -354,7 +354,7 @@ L'API rappresenta una soluzione efficace ed efficiente per un'ampia gamma di sce
 
 -    Gruppi di analisi business che vogliono monitorare in tempo reale i movimenti anomali dei KPI aziendali, ad esempio il volume delle vendite, il sentiment dei clienti o i prezzi.
 
-### <a name="55-cloud-app-security"></a>5.5 Cloud App Security
+### <a name="cloud-app-security"></a>Cloud App Security
 
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) è un componente fondamentale dello stack di sicurezza di Microsoft Cloud. Si tratta di una soluzione completa che consente all'organizzazione di sfruttare appieno il potenziale delle applicazioni cloud, mantenendo il controllo grazie a una maggiore visibilità nelle attività. Consente inoltre di migliorare la protezione dei dati critici nelle applicazioni cloud.
 
@@ -405,7 +405,7 @@ Cloud App Security integra la visibilità con il cloud tramite:
 
 Durante la raccolta di dati da queste origini, Cloud App Security esegue analisi complesse sui dati. Segnala immediatamente le attività anomale e offre una visibilità dettagliata nell'ambiente cloud. È possibile configurare criteri in Cloud App Security e usarli per proteggere tutti i dati nell'ambiente cloud.
 
-## <a name="60-third-party-atd-capabilities-through-azure-marketplace"></a>6.0 Funzionalità ATD di terze parti tramite Azure Marketplace
+## <a name="third-party-atd-capabilities-through-azure-marketplace"></a>Funzionalità ATD di terze parti tramite Azure Marketplace
 
 ### <a name="web-application-firewall"></a>Web application firewall
 

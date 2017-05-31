@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7729890157900d0211b3a7ec05096ca315018875
 ms.openlocfilehash: 23d79fb83c1c4b103407c001dcafb8b1f3cfa5a7
+ms.contentlocale: it-it
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -98,10 +100,5 @@ Per caricare una nuova mappa che sostituisce una mappa esistente, attenersi ai p
 * [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  
 * [Altre informazioni sui contratti](../logic-apps/logic-apps-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")  
 * [Altre informazioni sulle trasformazioni](logic-apps-enterprise-integration-transform.md "Informazioni sulle trasformazioni di Enterprise Integration")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

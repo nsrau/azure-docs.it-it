@@ -1,163 +1,87 @@
 ---
-title: 'Procedure ottimali: Gestione delle password di Azure AD | Microsoft Docs'
-description: Procedure ottimali per la distribuzione e l&quot;utilizzo, documentazione di esempio per l&quot;utente finale e guide di formazione per la gestione delle password in Azure Active Directory.
+title: 'Implementazione: Reimpostazione password self-service di Azure AD | Microsoft Docs'
+description: Consigli per l&quot;implementazione della reimpostazione password self-service di Azure AD
 services: active-directory
+keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: curtand
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2017
+ms.topic: get-started-article
+ms.date: 05/12/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 66d7b336e0e962069bd702b941b87d1127b86e40
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 6cc1589f2ebad9267334f70926be369b32c8e075
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="deploying-password-management-and-training-users-to-use-it"></a>Distribuzione di Gestione delle password e formazione degli utenti per l’uso
-> [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
->
->
+# <a name="roll-out-password-reset-for-users"></a>Implementare la reimpostazione della password per gli utenti
 
-Dopo aver abilitato la reimpostazione delle password, il passaggio successivo consiste nel fare in modo che gli utenti usino il servizio all'interno dell'organizzazione. A tale scopo, è necessario assicurarsi che gli utenti siano configurati per usare il servizio correttamente e, inoltre, che dispongano della formazione necessaria per la gestione corretta delle proprie password. In questo articolo vengono descritti i concetti seguenti:
+La maggior parte dei clienti segue questa procedura per garantire un'implementazione semplice della reimpostazione password self-service.
 
-* [**Come rendere gli utenti configurati per Gestione delle password**](#how-to-get-users-configured-for-password-reset)
-  * [Cosa rende un account configurato per la reimpostazione delle password](#what-makes-an-account-configured)
-  * [Metodi per inserire i dati di autenticazione autonomamente](#ways-to-populate-authentication-data)
-* [**Metodi ottimali per implementare la reimpostazione delle password nell'organizzazione**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
-  * [Implementazione basata sulla posta elettronica ed esempi di comunicazioni tramite posta elettronica](#email-based-rollout)
-  * [Creare un portale personalizzato per la gestione delle password per gli utenti](#creating-your-own-password-portal)
-  * [Come usare la registrazione applicata per forzare gli utenti a effettuare la registrazione al momento dell’accesso](#using-enforced-registration)
-  * [Come caricare i dati di autenticazione per gli account utente](#uploading-data-yourself)
-* [**Materiale di formazione di esempio per utenti e supporto (presto disponibile)**](#sample-training-materials)
+1. [Abilitare la reimpostazione della password nella directory](active-directory-passwords-getting-started.md)
+2. [Configurare le autorizzazioni AD locali per il writeback delle password](active-directory-passwords-how-it-works.md#active-directory-permissions)
+3. [Configurare il writeback delle password](active-directory-passwords-writeback.md#configuring-password-writeback) per riscrivere le password da Azure AD alla directory locale
+4. [Assegnare e verificare le licenze necessarie](active-directory-passwords-licensing.md)
+5. Per un'implementazione graduale nel tempo è possibile limitare la reimpostazione della password a un gruppo di utenti. A tale scopo impostare l'interruttore **Reimpostazione password self-service abilitata** da **Tutti** a **Un gruppo** e selezionare un gruppo di sicurezza da abilitare per la reimpostazione della password. I membri di questo gruppo devono tutti avere licenze assegnate ed è consigliabile abilitare le [licenze basate sui gruppi](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
+6. Popolare il set minimo di [dati di autenticazione](active-directory-passwords-data.md) in base ai criteri.
+7. Illustrare agli utenti l'uso della reimpostazione password self-service inviando istruzioni per la registrazione e la reimpostazione.
+    > [!NOTE]
+    > Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo di approfondimento](active-directory-passwords-how-it-works.md).
 
-## <a name="how-to-get-users-configured-for-password-reset"></a>Come rendere gli utenti configurati per la reimpostazione delle password
-In questa sezione vengono descritti vari metodi con cui è possibile garantire che ciascun utente dell'organizzazione possa usare la reimpostazione delle password self-service in modo efficace nel caso in cui dimentichi la password.
+8. È possibile scegliere di imporre la registrazione in qualsiasi momento e richiedere agli utenti di riconfermare le informazioni di autenticazione dopo un certo periodo di tempo. Se non si vuole che gli utenti eseguano la registrazione, è possibile [distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale](active-directory-passwords-data.md).
+9. Nel tempo, esaminare gli utenti che eseguono la registrazione e usano la funzionalità tramite i [report messi a disposizione da Azure AD](active-directory-passwords-reporting.md).
 
-### <a name="what-makes-an-account-configured"></a>Cosa rende un account configurato
-Perché un utente possa usare la reimpostazione delle password, devono essere soddisfatte **tutte** le condizioni seguenti:
+## <a name="email-based-rollout"></a>Implementazione basata sulla posta elettronica
 
-1. La reimpostazione delle password deve essere abilitata nella directory.  Per informazioni su come abilitare la reimpostazione delle password, consultare [Abilitare gli utenti alla reimpostazione delle password di Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) o [Abilitare gli utenti alla reimpostazione o alla modifica delle password di AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
-2. L'utente deve essere dotato di licenza.
-   * Agli utenti del cloud deve essere stata assegnata una **qualsiasi licenza Office 365 a pagamento**, una licenza **AAD Basic** o una **licenza AAD Premium**.
-   * Agli utenti locali (federati o con sincronizzazione hash) **deve essere stata assegnata una licenza AAD Premium**.
-3. L'utente deve disporre del **set minimo di dati di autenticazione definiti** , in conformità con i criteri di reimpostazione delle password correnti.
-   * I dati di autenticazione vengono considerati definiti se il campo corrispondente nella directory contiene i dati in formato corretto.
-   * Un set minimo di dati di autenticazione è definito con **almeno una** delle opzioni di autenticazione abilitate se è configurato un criterio a un gate o **almeno due** delle opzioni di autenticazione abilitate se è configurato un criterio a due gate.
-4. Se l'utente usa un account locale, [Writeback delle password](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) deve essere abilitato e attivato
+Molti clienti ritengono che una campagna di posta elettronica con istruzioni semplici sia il modo più facile per invitare gli utenti a usare la reimpostazione password self-service. Sono stati creati tre semplici messaggi di posta elettronica che possono essere usati come modelli per agevolare l'implementazione.
 
-### <a name="ways-to-populate-authentication-data"></a>Metodi per inserire i dati di autenticazione
-Esistono diverse opzioni su come specificare i dati che gli utenti dell'organizzazione useranno per la reimpostazione delle password.
+* Modello di messaggio **Presto disponibile** da usare nelle settimane o nei giorni precedenti l'implementazione per informare gli utenti che sarà necessario eseguire alcune operazioni.
+* Modello di messaggio **Ora disponibile** da usare il giorno del lancio per invitare gli utenti a eseguire la registrazione e verificare i dati di autenticazione per usare la reimpostazione password self-service quando necessario.
+* Modello di messaggio **Promemoria di registrazione** da usare per alcuni giorni o settimane dopo l'implementazione per ricordare agli utenti di eseguire la registrazione e verificare i dati di autenticazione.
 
-* Modificare gli utenti nel [portale di gestione di Azure](https://manage.windowsazure.com) o nel [portale di amministrazione di Office 365](https://portal.microsoftonline.com)
-* Usare Azure AD Sync per sincronizzare le proprietà utente in Azure AD da un dominio di Active Directory locale
-* Usare Windows PowerShell per modificare le proprietà utente [seguendo la procedura di seguito](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
-* Consentire agli utenti di registrare i propri dati indirizzandoli al portale di registrazione all'indirizzo [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
-* Richiedere agli utenti di registrarsi per la reimpostazione quando accedono al proprio account di Azure AD impostando l'opzione di configurazione [**Richiedere agli utenti di registrarsi all'accesso?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) su **Sì**.
+## <a name="creating-your-own-password-portal"></a>Creazione del portale delle password
 
-Affinché il sistema funzioni, non è necessario che gli utenti effettuino la registrazione per la reimpostazione delle password.  Ad esempio, se nella directory locale sono presenti numeri di telefono cellulare o di ufficio esistenti, è possibile sincronizzarli in Azure AD e tali numeri verranno usati per la reimpostazione delle password automaticamente.
+Molti dei nostri clienti più grandi scelgono di ospitare una pagina Web e creare una voce DNS radice, ad esempio https://passwords.contoso.com. Popolano questa pagina con collegamenti per la reimpostazione della password di Azure AD, la registrazione per la reimpostazione della password e i portali di modifica della password, oltre ad altre informazioni specifiche dell'organizzazione. In qualsiasi comunicazione cartacea o di posta elettronica inviata è possibile includere un URL personalizzato facile da ricordare al quale gli utenti possono accedere quando devono usare i servizi.
 
-È inoltre possibile leggere informazioni sull'[utilizzo dei dati per la reimpostazione della password](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) e su [come è possibile popolare i singoli campi di autenticazione con PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
+* Portale di reimpostazione della password: https://passwordreset.microsoftonline.com/
+* Portale di registrazione per la reimpostazione della password: http://aka.ms/ssprsetup
+* Portale di modifica della password: https://account.activedirectory.windowsazure.com/ChangePassword.aspx
 
-## <a name="what-is-the-best-way-to-roll-out-password-reset-for-users"></a>Metodo ottimale per implementare la reimpostazione delle password per gli utenti
-Di seguito sono riportati i passaggi di implementazione generali per la reimpostazione della password:
+## <a name="using-enforced-registration"></a>Uso della registrazione applicata
 
-1. Abilitare la reimpostazione delle password nella directory passando alla scheda **Configura** nel [portale di gestione di Azure](https://manage.windowsazure.com) e selezionando **Sì** per l'opzione **Utenti abilitati per la reimpostazione della password**.
-2. Assegnare le licenze appropriate a ciascun utente a cui si vuole offrire la reimpostazione delle password passando alla scheda **Licenze** nel [portale di gestione di Azure](https://manage.windowsazure.com).
-3. Facoltativamente, limitare la reimpostazione delle password a un gruppo di utenti per implementare la funzionalità lentamente nel tempo, impostando l'opzione **Limitare l'accesso alla reimpostazione delle password** su **Sì** e selezionando un gruppo di sicurezza da abilitare per la reimpostazione delle password (questi utenti devono disporre tutti di licenze assegnate).
-4. Indicare agli utenti di usare la reimpostazione delle password invitandoli, tramite un messaggio di posta elettronica, ad effettuare la registrazione, abilitando la registrazione applicata nel pannello di accesso oppure caricando i dati di autenticazione appropriati per tali utenti tramite DirSync, PowerShell o il [portale di gestione di Azure](https://manage.windowsazure.com).  Di seguito vengono fornite ulteriori informazioni su questo argomento.
-5. Nel tempo, esaminare gli utenti che hanno effettuato la registrazione passando alla scheda Report e visualizzando il report [**Attività di registrazione reimpostazione password**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity-in-the-classic-portal).
-6. Una volta che un buon numero di utenti ha effettuato la registrazione, esaminare gli utenti che usano la reimpostazione delle password, passando alla scheda Report e visualizzando il report [**Attività di reimpostazione password**](active-directory-passwords-get-insights.md#view-password-reset-activity-in-the-classic-portal).
+Se si vuole che gli utenti eseguano la registrazione per la reimpostazione della password, è possibile imporre la registrazione quando accedono usando Azure AD. È possibile abilitare questa opzione dal pannello **Reimpostazione password** della directory, selezionando l'opzione **Richiedere agli utenti di registrarsi all'accesso?** nella scheda **Registrazione**.
 
-Esistono diversi metodi per comunicare agli utenti che possono effettuare la registrazione per la reimpostazione delle password e usare la reimpostazione delle password all'interno dell'organizzazione.  Tali metodi sono descritti nei dettagli di seguito.
+Gli amministratori possono richiedere agli utenti di eseguire nuovamente la registrazione dopo un periodo di tempo impostando **Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione** su un valore compreso tra 0 e 730 giorni.
 
-### <a name="email-based-rollout"></a>Implementazione basata sulla posta elettronica
-Probabilmente, l'approccio più semplice per informare gli utenti sulla registrazione per la reimpostazione delle password e sull’uso della reimpostazione delle password è inviando un messaggio di posta elettronica.  Di seguito è riportato un modello che è possibile usare per eseguire questa operazione.  È possibile sostituire i colori e i logo con quelli desiderati per personalizzare il modello in base alle proprie esigenze.
+Dopo aver abilitato questa opzione, quando gli utenti accedono visualizzeranno un messaggio che li informa che l'amministratore ha richiesto loro di verificare le informazioni di autenticazione.
 
-  ![][001]
+## <a name="populate-authentication-data"></a>Popolare i dati di autenticazione
 
-È possibile [scaricare il modello di messaggio di posta elettronica qui](https://1drv.ms/f/s!AharQMeRmrWggcNnPlk_7xHInYJzow).
+Se si [popolano i dati di autenticazione per conto degli utenti](active-directory-passwords-data.md), questi non dovranno eseguire la registrazione per usare la reimpostazione password self-service. Se hanno dati di autenticazione che soddisfano i criteri di reimpostazione della password definiti, gli utenti potranno reimpostare le proprie password.
 
-### <a name="creating-your-own-password-portal"></a>Creazione del portale delle password
-Una strategia particolarmente adatta ai grandi clienti per la distribuzione delle funzionalità di gestione delle password è la creazione di un singolo "portale delle password" tramite il quale gli utenti possono gestire tutti gli aspetti riguardanti le password in un'unica posizione.  
+## <a name="disabling-self-service-password-reset"></a>Disabilitazione della reimpostazione self-service della password
 
-Molti dei maggiori clienti scelgono di creare una voce DNS radice come https://passwords.contoso.com con collegamenti al portale di reimpostazione delle password di Azure AD, al portale di registrazione per la reimpostazione delle password e alle pagine di modifica delle password.  In questo modo è possibile includere in qualsiasi comunicazione cartacea o tramite posta elettronica un singolo URL facile da ricordare al quale gli utenti possono accedere quando desiderano iniziare a usare il servizio.
-
-Per iniziare, è stata creata una pagina semplice che usa i paradigmi di progettazione dell'interfaccia utente reattiva più recenti e che funzionerà su tutti i browser e dispositivi mobili.
-
-  ![][007]
-
-È possibile [scaricare il modello di sito Web qui](https://github.com/kenhoff/password-reset-page).  Si consiglia di personalizzare il logo e i colori in base alle esigenze dell'organizzazione.
-
-### <a name="using-enforced-registration"></a>Uso della registrazione applicata
-Se si vuole che gli utenti effettuino autonomamente la registrazione per la reimpostazione delle password, è possibile anche forzarli a effettuare la registrazione quando accedono al pannello di accesso all’indirizzo [http://myapps.microsoft.com](http://myapps.microsoft.com).  È possibile abilitare questa opzione dalla scheda **Configura** della directory, abilitando l'opzione **Richiedere agli utenti di registrarsi al primo accesso al pannello?**.  
-
-È inoltre possibile definire se verrà o meno richiesto loro di effettuare nuovamente la registrazione dopo un periodo di tempo configurabile modificando l’opzione **Numero di giorni prima che gli utenti debbano confermare i dati di contatto** su un valore diverso da zero. Per altre informazioni vedere [Personalizzazione del comportamento di Gestione delle password utente](active-directory-passwords-customize.md#password-management-behavior) .
-
-  ![][002]
-
-Dopo aver abilitato questa opzione, quando gli utenti accedono al pannello di accesso, visualizzano una finestra popup che li informa che l'amministratore ha richiesto loro di verificare le informazioni di contatto. Gli utenti possono usare questa opzione per reimpostare la propria password, se perdono sempre l'accesso al proprio account.
-
-  ![][003]
-
-Facendo clic su **Verifica ora** viene visualizzato il **portale di registrazione per la reimpostazione della password** in [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) e viene richiesto di effettuare la registrazione.  La registrazione tramite questo metodo può essere chiusa scegliendo il pulsante **Annulla** o chiudendo la finestra ma, se non effettuano la registrazione, gli utenti ricevono un promemoria ogni volta che eseguono l'accesso.
-
-  ![][004]
-
-### <a name="uploading-data-yourself"></a>Caricamento autonomo dei dati
-Per caricare i dati di autenticazione autonomamente, non è necessario che gli utenti effettuino la registrazione per la reimpostazione delle password per poter reimpostare le proprie password.  Se gli utenti dispongono di dati di autenticazione definiti nel proprio account che soddisfano i criteri di reimpostazione delle password definiti, gli utenti saranno in grado di reimpostare le proprie password.
-
-Per informazioni sulle proprietà che è possibile impostare tramite AAD Connect o Windows PowerShell, vedere [Dati usati nella reimpostazione delle password](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
-
-È possibile caricare i dati di autenticazione tramite il [portale di gestione di Azure](https://manage.windowsazure.com) seguendo la procedura seguente:
-
-1. Passare alla propria directory nell’ **estensione di Active Directory** nel [portale di gestione di Azure](https://manage.windowsazure.com).
-2. Fare clic sulla scheda **Utenti** .
-3. Selezionare dall’elenco l'utente a cui si è interessati.
-4. Nella prima scheda la proprietà **Indirizzo di posta elettronica alternativo**può essere usata per abilitare la reimpostazione delle password.
-
-   ![][005]
-5. Fare clic sulla scheda **Informazioni sul lavoro** .
-6. In questa pagina sono disponibili le proprietà **Telefono ufficio**, **Telefono cellulare**, **Telefono per l'autenticazione** e **Indirizzo di posta elettronica per l'autenticazione**.  Anche queste proprietà possono essere impostate per consentire a un utente di reimpostare la propria password.
-
-   ![][006]
-
-Per informazioni sull’uso di queste proprietà, vedere [Dati usati per la reimpostazione delle password](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) .
-
-Vedere [Come accedere ai dati di reimpostazione della password per gli utenti da PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) per vedere come è possibile leggere e impostare questi dati con PowerShell.
-
-## <a name="sample-training-materials"></a>Materiale di formazione di esempio
-Microsoft sta attualmente lavorando al materiale di formazione di esempio che è possibile usare per fare in modo che l'organizzazione IT e gli utenti imparino rapidamente a distribuire e usare la reimpostazione delle password.  Non rimane che attendere.
-
-<br/>
-<br/>
-<br/>
+Per disabilitare la reimpostazione self-service della password è sufficiente aprire il tenant di Azure AD e passare a **Reimpostazione password**, **Proprietà** e scegliere **Nessuno** in **Reimpostazione password self-service abilitata**
 
 ## <a name="next-steps"></a>Passaggi successivi
-Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-my-password).
-    * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
-* [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
-* [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
-* [**Informazioni dettagliate**](active-directory-passwords-get-insights.md): informazioni sulle funzionalità di creazione report integrate
-* [**Domande frequenti**](active-directory-passwords-faq.md) : risposte alle domande frequenti
-* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
-* [**Altre informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
+I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
 
-[001]: ./media/active-directory-passwords-best-practices/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-best-practices/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-best-practices/003.jpg "Image_003.jpg"
-[004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
-[005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
-[006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
-[007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
-
+* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
+* [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
+* [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
+* [**Personalizzazione**](active-directory-passwords-customize.md): personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
+* [**Criteri**](active-directory-passwords-policy.md): comprendere e impostare i criteri password di Azure AD
+* [**Writeback delle password**](active-directory-passwords-writeback.md): funzionamento del writeback delle password con la directory locale
+* [**Creazione di report**](active-directory-passwords-reporting.md) - verificare se, quando e dove gli utenti accedono alla reimpostazione password self-service
+* [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
+* [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
+* [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service

@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: banders
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
 ms.openlocfilehash: cfdc507d5e45fc716940bd4607631ba500bf4c59
+ms.contentlocale: it-it
 ms.lasthandoff: 04/15/2017
 
 

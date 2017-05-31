@@ -3,7 +3,7 @@ title: "Utilizzo della funzionalità Ricerca in Azure Application Insights | Mic
 description: Ricercare e filtrare elementi di telemetria non elaborata inviata da App Web.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
@@ -12,10 +12,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 08390472c6480200751f37028fef594fb055f118
+ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
 
 

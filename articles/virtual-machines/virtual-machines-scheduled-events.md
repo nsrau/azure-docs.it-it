@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 18c7a013c01fee26c5455535af6d9fba2b98fac7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 627aa117ded0aaa519052d4ea1a1995ba2e363ee
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -50,7 +51,12 @@ Gli eventi pianificati vengono presentati per tutte le macchine virtuali in un s
 Nel caso in cui venga creata una macchina virtuale all'interno di una rete virtuale (VNet), il Servizio metadati è disponibile dall'indirizzo IP non instradabile 169.254.169.254. In caso contrario, nei casi predefiniti per i servizi cloud e le macchine virtuali classiche, sarà necessaria una logica aggiuntiva per individuare l'endpoint da usare. Fare riferimento a questo esempio per capire come [individuare l'endpoint dell'host] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### <a name="versioning"></a>Controllo delle versioni 
-Il Servizio metadati usa un'API con controllo delle versioni nel seguente formato: http://{ip}/metadata/{version}/scheduledevents È consigliabile che il servizio usi la versione più recente disponibile all'indirizzo: http://{ip}/metadata/latest/scheduledevents
+Il Servizio metadati dell'istanza è con versione. Le versioni sono obbligatorie e la versione corrente è 2017-03-01.
+
+> [!NOTE] 
+> Le versioni precedenti di anteprima di eventi pianificati {ultima} sono supportate come versione dell'API. Questo formato non è più supportato e verrà rimosso in futuro.
+>
+
 
 ### <a name="using-headers"></a>Uso delle intestazioni
 Quando si esegue una query al Servizio metadati, è necessario specificare l'intestazione seguente *Metadata: true*. 
@@ -65,9 +71,10 @@ In entrambi i casi l'operazione avviata dall'utente richiede più tempo per il c
 ## <a name="using-the-api"></a>Uso dell'API
 
 ### <a name="query-for-events"></a>Query per gli eventi
-È possibile eseguire query per gli eventi pianificati semplicemente effettuando la chiamata seguente
+È possibile eseguire query per gli eventi pianificati semplicemente eseguendo la chiamata seguente:
 
-    curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
+    curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+
 
 Una risposta contiene una serie di eventi pianificati. Una serie vuota indica che al momento non sono presenti eventi pianificati.
 Nel caso in cui siano presenti eventi pianificati, la risposta contiene una serie di eventi: 
@@ -85,13 +92,25 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una seri
          }
      ]
     }
+    
+### <a name="event-properties"></a>Proprietà dell'evento
+|Proprietà  |  Descrizione |
+| - | - |
+| EventId |Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> <i>Freeze</i>: è pianificata una sospensione della macchina virtuale per alcuni secondi. La memoria, i file aperti o le connessioni di rete non subiranno conseguenze. <li> <i>Reboot</i>: è pianificato un riavvio per la macchina virtuale. La memoria verrà svuotata.<li> <i>Redeploy</i>: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. |
+| ResourceType | Tipo di risorsa su cui l'evento influisce. <br><br> Valori: <ul><li>VirtualMachine|
+| Risorse| Elenco delle risorse su cui l'evento influisce. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Event Status | Stato dell'evento. <br><br> Valori: <ul><li><i>Scheduled</i>: l'evento è pianificato per iniziare dopo il tempo specificato nella proprietà <i>NotBefore</i>.<li><i>Started</i>: l'evento si è avviato.</i>
+| NotBefore| Tempo dopo il quale l'evento può essere avviato. <br><br> Esempio: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-EventType acquisisce l'impatto previsto nella macchina virtuale in cui:
-- Freeze: è pianificata una sospensione della macchina virtuale per alcuni secondi. La memoria, i file aperti o le connessioni di rete non subiranno conseguenze
-- Reboot: è pianificato un riavvio per la macchina virtuale. La memoria verrà svuotata.
-- Redeploy: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. 
+### <a name="event-scheduling"></a>Event Scheduling
+Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento. Questa volta si riflette in una proprietà <i>NotBefore</i> di un evento. 
 
-Quando è pianificato un evento (stato = Scheduled), Azure condivide l'ora dopo la quale l'evento può iniziare, specificata nel campo NotBefore.
+|EventType  | Minimum Notice |
+| - | - |
+| Freeze| 15 minuti |
+| Reboot | 15 minuti |
+| Ripetere la distribuzione | 10 minuti |
 
 ### <a name="starting-an-event-expedite"></a>Avvio di un evento (urgente)
 
@@ -113,11 +132,13 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $uri)
+function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create the Scheduled Events Approval Json
+    # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    
+    # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
     Write-Host "Approving with the following: `n" $approvalString
@@ -136,7 +157,7 @@ function HandleScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events uri for VNET enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/latest/scheduledevents' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
 
 # Get the document
@@ -154,7 +175,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-    ApproveScheduledEvent $event.EventId $scheduledEventURI 
+    ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
@@ -170,7 +191,7 @@ L'esempio seguente si riferisce a un client che presenta le API per comunicare c
 
         public ScheduledEventsClient()
         {
-            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
         }
         /// Retrieve Scheduled Events 
         public string GetDocument()
@@ -200,6 +221,7 @@ L'esempio seguente si riferisce a un client che presenta le API per comunicare c
 ```csharp
     public class ScheduledEventsDocument
     {
+        public string DocumentIncarnation;
         public List<CloudControlEvent> Events { get; set; }
     }
 
@@ -210,11 +232,12 @@ L'esempio seguente si riferisce a un client che presenta le API per comunicare c
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
     {
+        public string DocumentIncarnation;
         public List<StartRequest> StartRequests = new List<StartRequest>();
     }
 
@@ -252,7 +275,11 @@ public class Program
             Console.ReadLine();
 
             // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
+        {
+            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
+        };
+        
             foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));
@@ -293,7 +320,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+metadata_url="http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
 headers="{Metadata:true}"
 this_host=socket.gethostname()
 
@@ -329,4 +356,5 @@ if __name__ == '__main__':
 ```
 ## <a name="next-steps"></a>Passaggi successivi 
 [Manutenzione pianificata per macchine virtuali in Azure](linux/planned-maintenance.md)
+[Servizio metadati dell'istanza](virtual-machines-instancemetadataservice-overview.md)
 

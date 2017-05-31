@@ -3,7 +3,7 @@ title: Caricare dati da SQL Server in Azure SQL Data Warehouse (bcp) | Documenta
 description: "Per dimensioni ridotte dei dati è possibile usare bcp per esportare i dati da SQL Server a file flat e importare i dati direttamente in Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: f87d8d7c-8276-43c5-90e7-d4ccc0e3a224
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: cakarst;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 8dc7c2fb833c1c51ecef772ba1cbe5f0405fe494
+ms.contentlocale: it-it
 ms.lasthandoff: 01/30/2017
 
 

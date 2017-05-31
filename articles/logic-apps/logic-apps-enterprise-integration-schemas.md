@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7884032fd4b5a72ca7e2f2dc2830b0a7c2220e94
 ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
+ms.contentlocale: it-it
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -58,11 +60,11 @@ La procedura dipende dal livello di accesso del contenitore BLOB, ovvero **Pubbl
 
 **Per determinare il livello di accesso**
 
-1.  Aprire **Azure Storage Explorer** (Esplora archivi di Azure). 
+1.    Aprire **Azure Storage Explorer** (Esplora archivi di Azure). 
 
-2.  In **Contenitori Blob**, selezionare il contenitore di blob desiderato. 
+2.    In **Contenitori Blob**, selezionare il contenitore di blob desiderato. 
 
-3.  Selezionare **Sicurezza**, **Livello di accesso**.
+3.    Selezionare **Sicurezza**, **Livello di accesso**.
 
 Se il livello di accesso di sicurezza del BLOB è **Pubblico**, seguire questa procedura.
 
@@ -132,10 +134,5 @@ In Azure viene visualizzato il messaggio che lo schema è stato caricato corrett
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack").  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

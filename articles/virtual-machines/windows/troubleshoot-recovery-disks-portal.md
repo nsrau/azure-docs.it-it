@@ -4,7 +4,7 @@ title: Usare una macchina virtuale per la risoluzione dei problemi Windows nel p
 description: Informazioni su come risolvere i problemi delle macchine virtuali Windows in Azure connettendo il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
 services: virtual-machines-windows
 documentationCenter: 
-authors: iainfoulds
+authors: genlin
 manager: timlt
 editor: 
 ms.service: virtual-machines-windows
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/12/2016
-ms.author: iainfou
-translationtype: Human Translation
+ms.date: 05/26/2017
+ms.author: genli
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 5fbda281470de3d8215bccdb8c13fc68cb7df1c8
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
 
 

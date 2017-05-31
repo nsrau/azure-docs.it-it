@@ -1,5 +1,5 @@
 ---
-title: Usare le chiavi SSH con Windows per le VM Linux | Documentazione Microsoft
+title: Usare le chiavi SSH con Windows per le VM Linux | Microsoft Docs
 description: Informazioni su come generare e usare chiavi SSH in un computer Windows per connettersi a una macchina virtuale Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 59dc5340ca8ac02b1d99205ad8f1d44fa60148c0
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 7f572adf499dd1fcd0db19500c9049af1e31cdea
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,17 +45,15 @@ SSH è un protocollo per connessioni crittografate che consente accessi protetti
 Se non si desidera usare chiavi SSH, è possibile comunque accedere alle VM Linux mediante una password. Se la VM non è connessa a Internet, l'utilizzo di password può essere sufficiente. Tuttavia è comunque necessario gestire le password per ogni VM Linux e mantenere criteri e procedure relative alle password integre, quali una lunghezza minima delle password e aggiornamenti regolari. L'utilizzo delle chiavi SSH riduce la complessità di gestione delle credenziali individuali tra più VM.
 
 ## <a name="windows-packages-and-ssh-clients"></a>Pacchetti Windows e client SSH
-Per la connessione a VM Linux e la loro gestione in Azure si usa un client **SSH**. I computer Windows tipicamente non hanno un client SSH installato. Comuni client SSH Windows che è possibile installare sono inclusi nei pacchetti seguenti:
+Per la connessione a VM Linux e la loro gestione in Azure si usa un client **SSH**. I computer Windows tipicamente non hanno un client SSH installato. Nell'Aggiornamento dell'anniversario di Windows 10 è stato aggiunto Bash per Windows e l'aggiornamento Windows 10 Creators Update più recente offre aggiornamenti aggiuntivi. Questo sottosistema di Windows per Linux consente di eseguire e di accedere a utilità come un client SSH in modo nativo dall'interno della shell di Bash. È quindi possibile seguire uno dei documenti Linux, ad esempio [How to generate SSH key pairs for Linux](mac-create-ssh-keys.md) (Come generare coppie di chiavi SSH per Linux). Bash per Windows è ancora in fase di sviluppo e viene considerato una versione beta. Per altre informazioni su Bash per Windows, vedere [Bash in Ubuntu in Windows](https://msdn.microsoft.com/commandline/wsl/about).
+
+Se si intende usare una soluzione diversa da Bash per Windows, sono disponibili client SSH Windows comuni nei pacchetti seguenti:
 
 * [Git per Windows](https://git-for-windows.github.io/)
 * [puTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [MobaXterm](http://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
-> [!NOTE]
-> L'ultimo aggiornamento Windows 10 Anniversary Update include Bash per Windows. Questa funzionalità consente di eseguire il sottosistema Windows per Linux e di accedere a utilità come un client SSH. Bash per Windows è ancora in fase di sviluppo e viene considerato una versione beta. Per altre informazioni su Bash per Windows, vedere [Bash in Ubuntu in Windows](https://msdn.microsoft.com/commandline/wsl/about).
->
->
 
 ## <a name="which-key-files-do-you-need-to-create"></a>Quali file di chiavi è necessario creare?
 Azure richiede chiavi pubbliche e private nel formato **ssh-rsa** almeno a 2048 bit. Se si gestiscono risorse di Azure usando il modello di distribuzione classico, è necessario anche generare un PEM (file `.pem`).

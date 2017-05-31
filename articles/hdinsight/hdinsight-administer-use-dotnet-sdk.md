@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
 ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
+ms.contentlocale: it-it
 ms.lasthandoff: 12/20/2016
 
 
@@ -166,7 +167,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
     
     L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
     
-    ![Ribilanciamento di HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![Ribilanciamento di HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
     Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
     

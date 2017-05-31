@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 05/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 2aa5542dc095beaf951bad2b0361a3acc4468f2d
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 37211b961644fdc5567147cde946f86afb9b1aa9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -76,10 +77,9 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Data Lake Store
 
 4. Selezionare un account Data Lake Store esistente e immettere un percorso della cartella radice in cui archiviare i file specifici del cluster.
 
-    ![Aggiungere l'entità servizio al cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Aggiungere l'entità servizio al cluster HDInsight")
-
-
     Nella schermata precedente il percorso della cartella radice è /clusters/myhdiadlcluster, dove *myhdiadlcluster* è il nome del cluster da creare. In questo caso, assicurarsi che la cartella */cluster* esista già nell'account Data Lake Store. La cartella *myhdiadlcluster* verrà creata durante la creazione del cluster. Analogamente, se il percorso radice è stato impostato su */hdinsight/clusters/data/myhdiadlcluter*, assicurarsi che il percorso */hdinsight/cluster/data/* esista già nell'account Data Lake Store.
+
+    ![Aggiungere l'entità servizio al cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Aggiungere l'entità servizio al cluster HDInsight")
 
 5. Fare clic su **Accesso a Data Lake Store** per configurare l'accesso tra l'account Data Lake Store e i cluster HDInsight. Per istruzioni, vedere [Configurare l'accesso tra i cluster HDInsight e Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 
@@ -130,7 +130,7 @@ In questa sezione è possibile configurare l'accesso tra i cluster HDInsight e D
 
     ![Aggiungere l'entità servizio al cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Aggiungere l'entità servizio al cluster HDInsight")
 
-7. Nel pannello **Accesso a Data Lake Store** fare clic su **Accesso**. Per impostazione predefinita, verrà visualizzato il pannello per la** **selezione delle autorizzazioni per i file. Questo pannello elenca tutti gli account Data Lake Store nella sottoscrizione.
+7. Nel pannello **Accesso a Data Lake Store** fare clic su **Accesso**. Per impostazione predefinita, verrà visualizzato il pannello per la **selezione delle autorizzazioni per i file**. Questo pannello elenca tutti gli account Data Lake Store nella sottoscrizione.
 
 8. Selezionare l'account Data Lake Store che si vuole associare al cluster.
 

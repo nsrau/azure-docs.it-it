@@ -1,5 +1,6 @@
+
 ---
-title: Azure Data Factory - Casi di studio sui clienti | Documentazione Microsoft
+title: Azure Data Factory - Casi di studio sui clienti | Microsoft Docs
 description: Scopri come alcuni dei nostri clienti utilizzano Data Factory di Azure.
 services: data-factory
 documentationcenter: 
@@ -14,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
-ms.openlocfilehash: 12edabc12d499bc07315d1cf103e5cc2fa149cdb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 0850b42e15e2daf4868560a1518f7906c7ae0800
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -30,7 +33,7 @@ Data factory è un servizio di gestione delle informazioni basato sul cloud che 
 [La società di automazione industriale riduce i costi fino al 90% con le soluzioni Big Data](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
 ## <a name="ziosk"></a>Ziosk
-[Che strategia vuoi adottare per quest’hamburger? Probabilmente Ziosk conosce già la strategia giusta.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
+[Che strategia vuoi adottare per quest'hamburger? Probabilmente Ziosk conosce già la strategia giusta.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
 ## <a name="alaska-airlines"></a>Alaska Airlines
 [La compagnia aerea utilizza Tablet, servizi Cloud per offrire intrattenimenti più coinvolgenti durante il volo](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
@@ -44,9 +47,6 @@ Data factory è un servizio di gestione delle informazioni basato sul cloud che 
 ## <a name="pier-1-imports"></a>Pier 1 Imports
 [Ricerca una migliore connessione con i clienti tramite la formazione relativa al Cloud Machine](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+## <a name="microsoft-studio"></a>Microsoft Studio
+[Offrire esperienze Xbox incredibili grazie all'analisi di centinaia di miliardi di eventi di gioco ogni giorno](https://customers.microsoft.com/en-us/story/xboxunlimited)
 

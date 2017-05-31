@@ -3,7 +3,7 @@ title: Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse |
 description: Informazioni sulla gestione della concorrenza e del carico di lavoro nel Data Warehouse di SQL Azure per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: sqlmojo
 manager: jhubbard
 editor: 
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.author: joeyong;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: dd8c1b07262fc375678262a7617699c1f69c6090
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
 
 

@@ -3,7 +3,7 @@ title: Application Insights per Servizi cloud di Azure | Microsoft Docs
 description: Monitorare i ruoli Web e di lavoro in modo efficace con Application Insights
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: get-started-article
 ms.workload: tbd
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5ea258a8c790dd94e019243e77f2ff694c2515d7
-ms.lasthandoff: 03/16/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bfae0fcf992c38d7afef6140fdd79d87ab0ecb4f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -239,6 +240,7 @@ Se si ha un'app per dispositivi mobili client, inserire un codice per inviare ev
 * [Configurare l'invio di dati di Diagnostica di Azure ad Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizzare la creazione di risorse di Application Insights](app-insights-powershell.md)
 * [Automatizzare Diagnostica di Azure](app-insights-powershell-azure-diagnostics.md)
+* [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md

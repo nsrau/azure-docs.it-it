@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: bf4e400e30cc93ca8fa0cc727ada0f1b224b05cb
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 70a598c9a5bf514f62baa0c5275b2e44cd9776b8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -69,7 +70,7 @@ Servizi cloud (classico) può essere usato con altre risorse classiche. Le risor
 ## <a name="databases"></a>Database
 | Service | Gestione risorse abilitato | API REST | Formato del modello |
 | --- | --- | --- | --- | --- |
-| DocumentDB |Sì |[REST DocumentDB](/rest/api/documentdbresourceprovider) |[Risorse di DocumentDB](/azure/templates/microsoft.documentdb/databaseaccounts) |
+| Azure Cosmos DB |Sì |[API REST per Azure Cosmos DB](/rest/api/documentdbresourceprovider) |[Risorse di Azure Cosmos DB](/azure/templates/microsoft.documentdb/databaseaccounts) |
 | Cache Redis |Sì | [Redis Cache REST (REST di Cache Redis)](/rest/api/redis) |[Risorse di Redis](/azure/templates/microsoft.cache/redis) |
 | Database SQL |Sì |[REST di database SQL](/rest/api/sql) |[Risorse del database SQL](/azure/templates/microsoft.sql/servers) |
 | SQL Data Warehouse |Sì | | |

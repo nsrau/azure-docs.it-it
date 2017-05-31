@@ -3,8 +3,8 @@ title: Annotazioni sulla versione per Application Insights | Documentazione Micr
 description: Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
 ms.service: application-insights
 ms.workload: tbd
@@ -12,10 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2d568a38f66605da63054d1797ce23653e6204d4
 ms.openlocfilehash: ff5d64bc00bc5fb3617160db852c7d08f8b3677b
+ms.contentlocale: it-it
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -106,9 +108,4 @@ Fare clic su un marcatore di annotazione per visualizzare i dettagli sulla versi
 
 * [Creare elementi di lavoro](app-insights-diagnostic-search.md#create-work-item)
 * [Automazione con PowerShell](app-insights-powershell.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

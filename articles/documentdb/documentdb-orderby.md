@@ -1,15 +1,16 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0ca716857733290fad4278e3be5059408bb75393
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 51bed95b47f08cb9ba6c0785d9ac8bb1c9f1ad4c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="sorting-documentdb-data-using-order-by"></a>Ordinamento dei dati di DocumentDB tramite Order By
-Microsoft Azure DocumentDB supporta l'esecuzione di query di documenti mediante SQL su documenti JSON. È possibile ordinare i risultati della query utilizzando la clausola ORDER BY in istruzioni di query SQL.
+# <a name="sorting-azure-cosmos-db-data-using-order-by"></a>Ordinamento dei dati di Azure Cosmos DB con Order By
+Microsoft Azure Cosmos DB supporta l'esecuzione di query su documenti usando SQL su documenti JSON. È possibile ordinare i risultati della query utilizzando la clausola ORDER BY in istruzioni di query SQL.
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti: 
 
@@ -19,10 +20,10 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 Vengono anche forniti [esempi](#samples) e [domande frequenti](#faq).
 
-Per informazioni complete sull'esecuzione di query SQL, vedere l’ [esercitazione sulle query di DocumentDB](documentdb-sql-query.md).
+Per informazioni di riferimento complete sull'esecuzione di query SQL, vedere l'[esercitazione sulle query in Azure Cosmos DB](documentdb-sql-query.md).
 
 ## <a name="how-to-query-with-order-by"></a>Come eseguire query con Order By?
-Come in SQL ANSI, è ora possibile includere una clausola Order By facoltativa nelle istruzioni SQL quando si eseguono query di DocumentDB. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati. 
+Come in SQL ANSI, è ora possibile includere una clausola Order By facoltativa nelle istruzioni SQL quando si eseguono query su Cosmos DB. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati. 
 
 ### <a name="ordering-using-sql"></a>Ordinamento tramite SQL
 Ad esempio, la query seguente recupera i primi 10 libri in ordine decrescente per titolo. 
@@ -49,10 +50,10 @@ Utilizzando .NET SDK versione 1.2.0 e successive, è anche possibile utilizzare 
         // Iterate through books
     }
 
-DocumentDB supporta l'ordinamento con una singolo proprietà numerica, stringa o booleana per ogni query, e i tipi di query aggiuntive saranno disponibili a breve. Vedere [Novità successive](#Whats_coming_next) per ulteriori dettagli.
+Cosmos DB supporta l'ordinamento con una singola proprietà numerica, stringa o booleana per query. Tipi di query aggiuntivi saranno presto disponibili. Vedere [Novità successive](#Whats_coming_next) per ulteriori dettagli.
 
 ## <a name="configure-an-indexing-policy-for-order-by"></a>Configurare un criterio di indicizzazione per Order By
-È importante ricordare che DocumentDB supporta due tipi di indici Hash e intervallo, che possono essere impostati per proprietà/percorsi specifici, tipi di dati (stringhe o numeri) e valori di diversa precisione (precisione massima o un valore di precisione fissa). Poiché DocumentDB utilizza indicizzazione hash come impostazione predefinita, è necessario creare una nuova raccolta con un criterio di indicizzazione personalizzato con intervallo di numeri, stringhe o entrambi, per poter utilizzare Order By. 
+È importante ricordare che Cosmos DB supporta due tipi di indici, hash e intervallo, che possono essere impostati per proprietà/percorsi specifici, tipi di dati (stringhe o numeri) e valori di diversa precisione (precisione massima o valore di precisione fissa). Dato che Cosmos DB usa l'indicizzazione hash come impostazione predefinita, per usare Order By è necessario creare una nuova raccolta con criteri di indicizzazione personalizzati di tipo intervallo per numeri, stringhe o entrambi. 
 
 > [!NOTE]
 > Gli indici dell'intervallo stringa sono stati introdotti il 7 luglio 2015 con API REST versione 2015-06-03. Per creare criteri per Order By su stringhe, è necessario utilizzare SDK versione 1.2.0 di .NET SDK o versione 1.1.0 del Python, Node. js o Java SDK.
@@ -61,7 +62,7 @@ DocumentDB supporta l'ordinamento con una singolo proprietà numerica, stringa o
 > 
 > 
 
-Per ulteriori informazioni vedere [Criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md).
+Per altri dettagli, vedere l'articolo relativo ai [criteri di indicizzazione di Azure Cosmos DB](documentdb-indexing-policies.md).
 
 ### <a name="indexing-for-order-by-against-all-properties"></a>Indicizzazione per Order By su tutte le proprietà numeriche
 Ecco come creare una raccolta con "Tutto l’intervallo" che indicizza per Order By su ognuna/tutte le proprietà numerica o stringa visualizzate all'interno dei documenti JSON in esso contenuti. Di seguito viene eseguito l'override del tipo di indice predefinito dei valori stringa su Intervallo, alla precisione massima (-1).
@@ -96,13 +97,13 @@ Esaminare il [progetto di esempio GitHub](https://github.com/Azure/azure-documen
 ## <a name="faq"></a>domande frequenti
 **Qual è il consumo di richiesta di unità (RU)  previsto delle query Order By?**
 
-Poiché Order By utilizza l'indice di DocumentDB per le ricerche, il numero di unità di richiesta utilizzate dalle query Order By sarà simile alle query equivalenti senza Order By. Come qualsiasi altra operazione in DocumentDB, il numero di unità di richiesta dipende dalle dimensioni/forme dei documenti, nonché dalla complessità della query. 
+Dato che Order By usa l'indice di Cosmos DB per le ricerche, il numero delle unità richiesta utilizzate dalle query Order By sarà simile a quello delle query equivalenti senza Order By. Come per qualsiasi altra operazione in Cosmos DB, il numero di unità richiesta dipende dalle dimensioni/forme dei documenti, nonché dalla complessità della query. 
 
 **Qual è il sovraccarico di indicizzazione previsto per Order By?**
 
 Il sovraccarico di indicizzazione sarà proporzionale al numero di proprietà numeriche. Nel peggiore dei casi, il sovraccarico dell’indice sarà pari al 100% dei dati. Non esiste alcuna differenza di sovraccarico della velocità effettiva (unità di richiesta) tra indicizzazione di intervallo/Order By e indicizzazione hash predefinita.
 
-**Come si esegue una query sui dati esistenti in DocumentDB tramite Order By?**
+**Come si esegue una query sui dati esistenti in Cosmos DB con Order By?**
 
 Per ordinare i risultati della query tramite Order By, è necessario modificare il criterio di indicizzazione della raccolta per utilizzare un tipo di indice di intervallo rispetto alla proprietà utilizzata per ordinare. Vedere [Modifica dei criteri di indicizzazione](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection). 
 
@@ -127,9 +128,9 @@ Se si riceve un messaggio di errore in cui si comunica che Order By non è suppo
 Esaminare il [progetto di esempio GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) e iniziare a ordinare i dati. 
 
 ## <a name="references"></a>Riferimenti
-* [Nozioni di base sulle query di DocumentDB](documentdb-sql-query.md)
-* [Nozioni di base sui criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
-* [Riferimento SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
+* [Informazioni di riferimento sulle query in Azure Cosmos DB](documentdb-sql-query.md)
+* [Informazioni di riferimento sui criteri di indicizzazione di Azure Cosmos DB](documentdb-indexing-policies.md)
+* [Informazioni di riferimento su SQL in Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+* [Esempi di Order By in Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
 
 

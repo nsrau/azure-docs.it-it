@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Identity Protection | Documentazione Microsoft
+title: Azure Active Directory Identity Protection | Microsoft Docs
 description: "Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un&quot;identità o un dispositivo compromesso e di proteggere un&quot;identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso."
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 05/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 483e77f598beaeb924197e3eb301a26da33a3f1f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -70,6 +71,25 @@ Azure Active Directory Identity Protection è ben più di un semplice strumento 
 * Criteri per mitigare gli accessi rischiosi con il blocco degli accessi o le richieste di autenticazione a più fattori.
 * Criteri per bloccare o proteggere gli account utente rischiosi.
 * Criteri per richiedere la registrazione degli utenti per l'autenticazione a più fattori
+
+
+
+## <a name="identity-protection-roles"></a>Ruoli di Identity Protection
+
+Per bilanciare il carico delle attività di gestione per l'implementazione di Identity Protection, è possibile assegnare più ruoli. Azure AD Identity Protection supporta 3 ruoli di directory:
+
+| Ruolo                         | Operazione consentita                          | Operazione non consentita
+| :--                          | ---                                |  ---   |
+| Amministratore globale         | Accesso completo a Identity Protection, implementazione di Identity Protection| |
+| Amministratore della sicurezza       | Accesso completo a Identity Protection | Implementazione di Identity Protection, reimpostazione delle password per un utente |
+| Ruolo con autorizzazioni di lettura per la sicurezza              | Accesso in sola lettura a Identity Protection | Implementazione di Identity Protection, modiche agli utenti, configurazione dei criteri, reimpostazione delle password |
+
+
+
+
+Per altri dettagli, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+
+
 
 ## <a name="detection"></a>Rilevamento
 

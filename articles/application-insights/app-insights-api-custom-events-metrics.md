@@ -12,10 +12,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 64632e58330b8212be24b98f861a3a4f358e72df
+ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
 
 
@@ -138,7 +139,7 @@ Creare un'istanza di MetricManager e quindi usarla come una factory per le metri
     var manager = new Microsoft.ApplicationInsights.Extensibility.MetricManager(telemetryClient);
 
     // For each metric that you want to use:
-    var metric1 = mgr.CreateMetric("m1", dimensions);
+    var metric1 = manager.CreateMetric("m1", dimensions);
 
     // Each time you want to record a measurement:
     metric1.Track(value);

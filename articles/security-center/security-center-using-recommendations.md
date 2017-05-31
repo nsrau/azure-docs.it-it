@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 313801fc3b845cd30506b1a26918660e77d2a986
-ms.openlocfilehash: 67095e0d8752fb3a2bca692f65e77cde5fd1a966
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 36dd149812a0e8c8ca8ef2bac09c1920ec15d3ba
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -75,7 +77,7 @@ Jeff effettua l'accesso al [Portale di Azure](https://azure.microsoft.com/featur
 
 1. Jeff seleziona il riquadro **Raccomandazioni** per aprire il pannello **Raccomandazioni**.
    ![Selezionare il riquadro Raccomandazioni][3]
-2. Jeff esamina l'elenco delle raccomandazioni. Nota che il Centro sicurezza presenta l'elenco delle raccomandazioni in ordine di priorità, dalla priorità più alta a quella più bassa. Decide di risolvere la prima raccomandazioni con priorità alta nell'elenco. Nel pannello **Raccomandazioni** seleziona **Installa Endpoint Protection**.
+2. Jeff esamina l'elenco delle raccomandazioni. Nota che il Centro sicurezza presenta l'elenco delle raccomandazioni in ordine di priorità, dalla priorità più alta a quella più bassa. Decide di risolvere una raccomandazioni con priorità elevata nell'elenco. Nel pannello **Raccomandazioni** seleziona **Installa Endpoint Protection**.
 3. Viene visualizzato il pannello **Installa Endpoint Protection** che mostra un elenco di macchine virtuali per cui non è abilitato l'antimalware. Jeff controlla l'elenco delle macchine virtuali, seleziona tutte le macchine virtuali e quindi seleziona **Installa nelle VM 3**.
    ![Installare Endpoint Protection][4]
 4. Viene visualizzato il pannello **Select Endpoint Protection** (Seleziona Endpoint Protection) che offre a Jeff due soluzioni antimalware. Jeff seleziona la soluzione **Microsoft Antimalware**.
@@ -114,9 +116,4 @@ Il monitoraggio delle raccomandazioni nel Centro sicurezza PC può contribuire a
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

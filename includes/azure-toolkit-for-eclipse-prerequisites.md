@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Il Toolkit di Azure per Eclipse richiede i seguenti componenti software:
 
-* IDE Eclipse per sviluppatori Java EE, Mars o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
+* IDE Eclipse per sviluppatori Java EE, Mars o versione successiva. È possibile scaricarlo all'indirizzo <http://www.eclipse.org/downloads/>.
 
-* Un kit Java Developer Kit (JDK) v1.8 o versione successiva.
+* Java Developer Kit (JDK) versione 1.8 o successiva.
 
-* Sistemi operativi - il Toolkit di Azure per Eclipse è stato testato nei seguenti sistemi operativi:
+* Un sistema operativo. Azure Toolkit for Eclipse è stato testato nei seguenti sistemi operativi:
   
   * Windows 10, Windows 8 o Windows 8.1, Windows 7
   * Windows Server 2012 e 2012 R2, Windows Server 2008 e 2008 R2
   * [Mac OS X](http://www.apple.com/osx) versioni "Yosemite" e successive
   * [Ubuntu Linux](http://www.ubuntu.com) versioni 14, 15 e 16
 
-Altre informazioni sono reperibili nella pagina [Toolkit di Azure per Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) nel Marketplace di Eclipse.
+Per altre informazioni, vedere la pagina [Azure Toolkit for Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) nel Marketplace di Eclipse.
 
 <!--
 > [!IMPORTANT]
@@ -21,7 +21,7 @@ Altre informazioni sono reperibili nella pagina [Toolkit di Azure per Eclipse](h
 > * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838).
 > * If you do not have the Azure SDK installed when you create your first Azure deployment project, you will be prompted to automatically download install the requisite version of the Azure SDK.
 > 
-> Note that the Azure SDK is only required on Windows.
+> Note that the Azure SDK is required on Windows only.
 > 
 > 
 -->

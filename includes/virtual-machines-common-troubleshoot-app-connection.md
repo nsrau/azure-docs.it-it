@@ -2,27 +2,25 @@ Ci sono varie ragioni alla base dell'impossibilità di avviare o di connettersi 
 
 Se si sono verificati problemi durante la connessione alla VM tramite RDP o SSH, consultare prima uno dei seguenti articoli:
 
-* [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+* [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 > [!NOTE]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../articles/resource-manager-deployment-model.md). In questo articolo viene illustrato l'utilizzo di entrambi i modelli, ma Microsoft indica che le distribuzioni più nuove utilizzano il modello di gestione delle.
-> 
-> 
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
 
-## <a name="quick-start-troubleshooting-endpoint-connectivity-problems"></a>Risoluzione rapida dei problemi di connettività dell'Endpoint
+## <a name="quick-start-troubleshooting-steps"></a>Passaggi rapidi per la risoluzione dei problemi
 Nel caso di problemi di connessione a un'applicazione, provare con i seguenti passaggi generali per la risoluzione dei problemi. Dopo ogni passaggio, provare a connettersi nuovamente all'applicazione:
 
 * Riavviare la macchina virtuale
 * Ricreare l'endpoint/le regole del firewall/le regole del gruppo di sicurezza di rete
-  * [Modello Classico: Gestire gli endpoint dei servizi cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Modello di Resource Manager: Gestire gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modello Classico: Gestire gli endpoint dei servizi cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Connettersi da un percorso diverso, ad esempio da una diversa rete virtuale di Azure
 * Ridistribuire la macchina virtuale
-  * [Ridistribuire una VM Windows](../articles/virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-  * [Ridistribuire una VM Linux](../articles/virtual-machines/linux/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [Ridistribuire una VM Windows](../articles/virtual-machines/windows/redeploy-to-new-node.md)
+  * [Ridistribuire una VM Linux](../articles/virtual-machines/linux/redeploy-to-new-node.md)
 * Ricreare la macchina virtuale
 
 Per ulteriori informazioni, vedere [Risoluzione dei problemi di connettività dell’Endpoint (errori RDP/SSH/HTTP, ecc.)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
@@ -44,6 +42,7 @@ Esistono quattro aree principali per risolvere i problemi di accesso di un'appli
    * Le regole del firewall applicate impediscono al traffico di fluire in modo corretto?
 
 Per i computer client che accedono all'applicazione tramite una connessione site-to-site VPN o ExpressRoute, le principali aree che possono causare problemi sono l'applicazione e la macchina virtuale di Azure.
+
 Per determinare l'origine del problema e la sua risoluzione, attenersi alla seguente procedura.
 
 ## <a name="step-1-access-application-from-target-vm"></a>Passaggio 1: accedere all'applicazione dalla VM di destinazione
@@ -115,7 +114,7 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 * Il traffico di risposta dell’applicazione in ingresso dalla macchina virtuale di Azure.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-[Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
-[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
 

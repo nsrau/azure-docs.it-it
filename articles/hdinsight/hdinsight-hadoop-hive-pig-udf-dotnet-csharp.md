@@ -1,5 +1,5 @@
 ---
-title: Usare C# con Hive e Pig in Hadoop in HDInsight | Documentazione Microsoft
+title: Usare C# con Hive e Pig in Hadoop in HDInsight | Microsoft Docs
 description: Informazioni su come usare le funzioni definite dall&quot;utente C# con lo streaming Hive e Pig in Azure HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f141d4f58727696c5f493c9e8eb19feb518e8968
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: d5854a623f656f08c428cd2f6792f25582362990
+ms.contentlocale: it-it
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -53,6 +54,8 @@ Sia Hive sia Pig sono in grado di passare i dati alle applicazioni esterne per l
 * Cluster __HDInsight basati su Linux__ che usano [Mono (https://mono-project.com)](https://mono-project.com) per eseguire le applicazioni .NET. La versione mono 4.2.1 è inclusa nella versione 3.5 di HDInsight.
 
     Per altre informazioni sulla compatibilità Mono con le versioni di .NET Framework, vedere il documento relativo alla [compatibilità Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
+
+    Per usare una versione specifica di Mono, vedere il documento [Install or update Mono](hdinsight-hadoop-install-mono.md) (Installare o aggiornare Mono).
 
 * I cluster di __HDInsight basato su Windows__ usano Microsoft .NET Common Language Runtime per eseguire le applicazioni .NET.
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b3eebdd714b38ffd9432404944829d05ef3c3dc6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2601850f99188445cf63a6a4f185bdc4ebb92c29
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -44,6 +44,12 @@ Se una delle condizioni precedenti non è soddisfatta, all'utente verrà richies
 
 ![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
+Seamless SSO offre anche le altre funzionalità seguenti:
+
+- Se una richiesta di accesso ad Azure AD include il parametro `domain_hint` o `login_hint` (avviato da un'applicazione nel tenant), Seamless SSO sfrutterà tale parametro e l'utente eviterà di l'immissione del nome utente e della password.
+- Seamless SSO supporta il nome utente che corrisponde al nome utente predefinito locale, in genere "userPrincipalName", o un altro attributo configurato in Azure AD Connect, definito "ID alternativo".
+- Seamless SSO è una funzionalità opportunistica, il che significa che, se per qualche motivo ha esito negativo, l'esperienza di accesso dell'utente ritorna al comportamento normale, ovvero l'utente dovrà immettere la propria password nella pagina di accesso.
+
 ## <a name="whats-available-during-preview"></a>Cos'è disponibile durante l'anteprima?
 
 >[!NOTE]
@@ -63,8 +69,6 @@ La funzionalità Seamless Single Sign-On è supportata tramite i client basati s
 
 >[!NOTE]
 >Per Windows 10, si consiglia di usare l'[aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) per ottenere risultati ottimali con Azure AD.
-
-Se una richiesta di accesso ad Azure AD include il parametro `domain_hint` o `login_hint` (avviato da un'applicazione nel tenant), Seamless SSO sfrutterà tale parametro e l'utente eviterà di l'immissione del nome utente e della password.
 
 ## <a name="how-does-azure-ad-seamless-sso-work"></a>Come opera la funzionalità Seamless SSO di Azure AD?
 
@@ -102,8 +106,8 @@ Se si abilita la funzionalità Seamless Single Sign-On con l'autenticazione pass
 Se si abilita la funzionalità Seamless Single Sign-On con sincronizzazione password e se è presente un firewall tra Azure AD Connect e Azure AD, assicurarsi che:
 
 - Il server Azure AD Connect possa comunicare con gli URL `*.msappproxy.net`.
-- Azure AD Connect (versioni 1.1.484.0 o successive) può eseguire richieste HTTPS ad Azure AD sulla porta 443. Si usa solo per attivare la funzionalità e non per l'accesso effettivo degli utenti.
-- Azure AD Connect possa anche eseguire connessioni IP dirette agli [intervalli IP dei data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Anche in questo caso, ciò si usa solo per abilitare la funzionalità.
+- Azure AD Connect (versioni 1.1.484.0 o successive) può eseguire richieste HTTPS ad Azure AD sulla porta 443. Si usa solo per abilitare la funzionalità e non per l'accesso effettivo degli utenti.
+- Azure AD Connect possa anche eseguire connessioni IP dirette agli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Anche in questo caso, viene usato solo per abilitare la funzionalità.
 
 >[!NOTE]
 > Le versioni precedenti di Azure AD Connect (inferiori alla 1.1.484.0) devono poter comunicare con Azure AD sulla porta 9090.
@@ -120,9 +124,9 @@ Se si ha già un'installazione di Azure AD Connect, eseguire la configurazione u
 
 ![Azure AD Connect - Cambiare l'accesso utente](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
-Continuare con l'installazione guidata fino a quando si arriva alla pagina "Abilita Single Sign-On". È necessario fornire le credenziali di amministratore di dominio per ogni foresta AD che si sincronizza con Azure AD (tramite Azure AD Connect) e per i cui utenti si desidera abilitare la funzionalità Seamless SSO. Si noti che le credenziali di amministratore di dominio non sono archiviate in Azure AD Connect o in Azure AD, ma sono utilizzate solo per creare l'account computer e configurare gli SPN Kerberos come descritto in precedenza.
+Continuare la procedura guidata fino a quando si arriva alla pagina "Abilita Single Sign-On". È necessario fornire le credenziali di amministratore di dominio per ogni foresta AD che si sincronizza con Azure AD (tramite Azure AD Connect) e per i cui utenti si desidera abilitare la funzionalità Seamless SSO. Si noti che le credenziali di amministratore di dominio non sono archiviate in Azure AD Connect o in Azure AD, ma sono utilizzate solo per creare l'account computer e configurare gli SPN Kerberos come descritto in precedenza.
 
-A questo punto la funzionalità Seamless SSO è abilitata per il tenant. Si noti che è comunque necessario completare i passaggi della sezione successiva prima che gli utenti possono trarre vantaggio da questa funzionalità.
+Al termine della procedura guidata, Seamless SSO è abilitato nel tenant. Si noti che è comunque necessario completare i passaggi della sezione successiva prima che gli utenti possono trarre vantaggio da questa funzionalità.
 
 ## <a name="rolling-the-feature-out-to-your-users"></a>Distribuzione della funzionalità agli utenti
 
@@ -142,10 +146,10 @@ Poiché gli URL di Azure AD usati per la funzionalità Seamless SSO contengono u
 ![Single Sign-On](./media/active-directory-aadconnect-sso/sso6.png)  
 4. Abilitare i criteri e immettere i valori/dati seguenti nella finestra di dialogo. Questi sono gli URL di Azure AD in cui vengono inviati i ticket Kerberos.
 
-        Value: https://autologon.microsoftazuread-sso.com  
-        Data: 1  
-        Value: https://aadg.windows.net.nsatc.net  
-        Data: 1  
+        Value: https://autologon.microsoftazuread-sso.com
+        Data: 1
+        Value: https://aadg.windows.net.nsatc.net
+        Data: 1
 5. Fare clic su **OK**, quindi nuovamente su **OK**.
 
 L'aspetto dovrebbe risultare simile al seguente:
@@ -155,29 +159,26 @@ L'aspetto dovrebbe risultare simile al seguente:
 >[!NOTE]
 >Per impostazione predefinita, Chrome usa lo stesso insieme di URL di siti attendibili di Internet Explorer. Se per Chrome sono state configurate impostazioni diverse, sarà necessario aggiornare le impostazioni separatamente.
 
-## <a name="troubleshooting-seamless-sso"></a>Risoluzione dei problemi della funzionalità Seamless SSO
+## <a name="disabling-azure-ad-seamless-sso"></a>Disabilitazione della funzionalità Seamless SSO di Azure AD
 
-Per la risoluzione dei problemi della funzionalità Seamless SSO, attenersi alla procedura seguente:
+La funzionalità Seamless SSO di Azure AD può essere disabilitata tramite Azure AD Connect.
 
-1. Controllare se è abilitata la funzionalità Seamless SSO nel tenant nello strumento Azure AD Connect. Se non è possibile abilitare la funzionalità (ad esempio a causa di una porta bloccata), assicurarsi che tutti i [prerequisiti](#pre-requisites) siano soddisfatti. Se i problemi con l'abilitazione della funzionalità persistono, contattare il supporto Microsoft.
-2. Entrambi gli URL di assistenza, https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net, sono definiti all'interno dell'area Intranet.
-3. Assicurarsi che il desktop aziendale sia aggiunto al dominio AD.
-4. Assicurarsi che l'utente sia connesso al desktop mediante un account del dominio AD.
-5. Assicurarsi che l'account dell'utente sia presente in una foresta Active Directory in cui è stata configurata la funzionalità Seamless SSO.
-6. Assicurarsi che il computer sia connesso alla rete aziendale.
-7. Assicurarsi che l'ora del computer sia sincronizzata con quella di Active Directory e dei controller di dominio e che si discosti di un massimo di 5 minuti da esse.
-8. Eliminare i ticket Kerberos dal loro desktop. È possibile farlo eseguendo il comando **klist purge** al prompt dei comandi.
-9. Esaminare i log di console del browser (in "Strumenti di sviluppo") per determinare i potenziali problemi.
+Eseguire Azure AD Connect, scegliere la pagina "Cambia l'accesso utente" e fare clic su "Avanti". Deselezionare quindi l'opzione "Abilita Single Sign-On". Continuare la procedura guidata. Al termine della procedura guidata, Seamless SSO è disabilitato nel tenant. Verrà tuttavia visualizzato un messaggio con il testo seguente:
 
-### <a name="domain-controller-logs"></a>Log del controller di dominio
+"L'accesso Single Sign-On è ora disabilitato, ma è necessario eseguire altri passaggi manuali per completare la pulizia. Altre informazioni"
 
-Se il controllo delle operazioni non riuscite è abilitato sul controller di dominio, ogni volta che un utente esegue l'accesso utilizzando la funzionalità Seamless SSO una voce di sicurezza (evento 4769 associato con l'account computer **AzureADSSOAcc$**) viene registrata nel log eventi. È possibile trovare questi eventi di sicurezza usando la query seguente:
+Questa è la procedura manuale da eseguire:
 
-```
-    <QueryList>
-      <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
-      </Query>
-    </QueryList>
-```
+- Ottenere l'elenco di foreste di AD in cui è stato abilitato Seamless SSO.
+  - In PowerShell chiamare `New-AzureADSSOAuthenticationContext`. Dovrebbe essere visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore del tenant di Azure AD.
+  - Chiamare `Get-AzureADSSOStatus`. Verrà visualizzato l'elenco di foreste di AD, ovvero l'elenco "Domini", in cui è stata abilitata questa funzionalità.
+- Eliminare manualmente l'account AZUREADSSOACCT del computer da ogni foresta di AD elencata in precedenza.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Per informazioni su come risolvere i problemi comuni della funzionalità Seamless SSO di Azure AD, vedere la [guida alla risoluzione dei problemi](active-directory-aadconnect-troubleshoot-sso.md).
+
+## <a name="feedback"></a>Commenti e suggerimenti
+
+I commenti degli utenti sono importanti. Usare la sezione relativa ai commenti seguente in caso di domande. Per richieste sulla nuova funzionalità, vedere il [forum UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect).
 

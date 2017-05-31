@@ -1,5 +1,5 @@
 ---
-title: Creare un&quot;applicazione Scala Maven da eseguire nei cluster Azure Spark | Microsoft Docs
+title: Creare un&quot;applicazione Scala da eseguire nei cluster Azure HDInsight Spark | Microsoft Docs
 description: Informazioni su come usare Maven per creare un&quot;applicazione Spark autonoma da eseguire nei cluster HDInsight Spark.
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 3cc921bdd6c9b374bda7bbfc3781f7a1327ae438
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---

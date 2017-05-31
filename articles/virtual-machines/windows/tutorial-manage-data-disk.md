@@ -13,21 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d68fc54f3fd08b3d7d66a9cd1ddb91c340191468
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: a7511a35a7b186fc424088e7ff5cbc933d325712
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="manage-azure-disks-with-powershell"></a>Gestire i dischi di Azure con PowerShell
 
-Questa esercitazione contiene le informazioni sui diversi tipi di dischi della macchina virtuale, su come selezionare una configurazione del disco e creare e collegare i dischi alle macchine virtuali di Azure. Questa esercitazione descrive anche come acquisire istantanee del disco.  
+Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, applicazioni e dati di VM. Quando si crea una VM, è importante scegliere dimensione del disco e configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la distribuzione e la gestione dei dischi di VM. Vengono fornite informazioni su:
 
-La procedura descritta in questa esercitazione può essere completata usando il modulo [Azure PowerShell](/powershell/azure/overview) più recente.
+> [!div class="checklist"]
+> * Dischi del sistema operativo e dischi temporanei
+> * Dischi dati
+> * Dischi Standard e Premium
+> * Prestazioni dei dischi
+> * Collegamento e preparazione dei dischi dati
+
+Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installare il modulo di Azure PowerShell).
 
 ## <a name="default-azure-disks"></a>Dischi di Azure predefiniti
 
@@ -39,7 +46,7 @@ Quando viene creata una macchina virtuale di Azure, due dischi vengono automatic
 
 ### <a name="temporary-disk-sizes"></a>Dimensioni del disco temporaneo
 
-| Tipo | Dimensioni macchina virtuale | Dimensioni massime del disco temporaneo |
+| Tipo | Dimensioni macchina virtuale | Dimensioni massime del disco temporaneo (GB) |
 |----|----|----|
 | [Utilizzo generico](sizes-general.md) | Serie A e D | 800 |
 | [Ottimizzate per il calcolo](sizes-compute.md) | Serie F | 800 |
@@ -136,7 +143,17 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati descritti i dischi delle macchine virtuali. Passare all'esercitazione successiva per informazioni sull'automazione della configurazione delle macchine virtuali.
+In questa esercitazione sono stati descritti argomenti relativi ai dischi delle VM, ad esempio:
 
-[Automatizzare la configurazione delle macchine virtuali](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * Dischi del sistema operativo e dischi temporanei
+> * Dischi dati
+> * Dischi Standard e Premium
+> * Prestazioni dei dischi
+> * Collegamento e preparazione dei dischi dati
+
+Passare all'esercitazione successiva per informazioni sull'automazione della configurazione delle macchine virtuali.
+
+> [!div class="nextstepaction"]
+> [Automatizzare la configurazione delle macchine virtuali](./tutorial-automate-vm-deployment.md)
 

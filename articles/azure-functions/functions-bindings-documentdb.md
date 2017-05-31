@@ -1,6 +1,6 @@
 ---
-title: Associazioni di DocumentDB in Funzioni di Azure | Documentazione Microsoft
-description: Informazioni su come usare le associazioni Azure DocumentDB n Funzioni di Azure.
+title: Binding di Azure Cosmos DB in Funzioni di Azure | Documentazione Microsoft
+description: Informazioni su come usare i binding di Azure Cosmos DB in Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,49 +16,50 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/18/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: e38c9187be42946df1e8059ba44f10f76d32d984
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2c0cb8ee1690f9b36b76c87247e3c7223876b269
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="azure-functions-documentdb-bindings"></a>Associazioni di DocumentDB in Funzioni di Azure
+# <a name="azure-functions-cosmos-db-bindings"></a>Binding di Azure Cosmos DB in Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e scrivere il codice di associazioni di Azure DocumentDB in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per DocumentDB.
+Questo articolo illustra come configurare e scrivere il codice di associazioni di Azure Cosmos DB in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Per altre informazioni su DocumentDB, vedere [Introduzione a DocumentDB](../documentdb/documentdb-introduction.md) e [Compilare un'applicazione console di DocumentDB](../documentdb/documentdb-get-started.md).
+Per altre informazioni su Cosmos DB, vedere [Introduzione a Cosmos DB](../documentdb/documentdb-introduction.md) e [Compilare un'applicazione console Cosmos DB](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
 
-## <a name="documentdb-input-binding"></a>Associazione di input di DocumentDB
-L'associazione di input di DocumentDB recupera un documento di DocumentDB e lo passa al parametro di input denominato della funzione. L'ID documento può essere determinato in base al trigger che richiama la funzione. 
+## <a name="documentdb-api-input-binding"></a>Binding di input dell'API DocumentDB
+Il binding di input di DocumentDB recupera un documento di DocumentDB e lo passa al parametro di input denominato della funzione. L'ID documento può essere determinato in base al trigger che richiama la funzione. 
 
-L'associazione di input di DocumentDB presenta le seguenti proprietà *function.json*:
+Il binding di input di DocumentDB presenta le seguenti proprietà *function.json*:
 
 - `name`: nome dell'identificatore usato nel codice della funzione per il documento
 - `type`: deve essere impostato su "documentdb"
 - `databaseName`: database che contiene il documento
 - `collectionName`: raccolta che contiene il documento
 - `id` : ID del documento da recuperare. Questa proprietà supporta i parametri di associazione. Vedere [Associare le proprietà di input personalizzate in un'espressione di associazione](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) nell'articolo [Concetti di Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md).
-- `sqlQuery`: una query SQL di DocumentDB usata per il recupero di più documenti. La query supporta le associazioni di runtime. Ad esempio: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`: il nome dell'impostazione dell'app contenente la stringa di connessione di DocumentDB
+- `sqlQuery`: una query SQL di Cosmos DB utilizzata per il recupero di più documenti. La query supporta le associazioni di runtime. Ad esempio: `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection`: il nome dell'impostazione dell'app contenente la stringa di connessione di Cosmos DB
 - `direction`: deve essere impostato su `"in"`.
 
 Le proprietà `id` e `sqlQuery` non possono essere entrambe specificate. Se non si specifica `id` né `sqlQuery`, viene recuperata l'intera raccolta.
 
-## <a name="using-a-documentdb-input-binding"></a>Usare un binding di input di DocumentDB
+## <a name="using-a-documentdb-api-input-binding"></a>Usare un binding di input dell'API DocumentDB
 
-* Nelle funzioni C# e F#, quando la funzione termina correttamente, le modifiche apportate al documento di input, tramite i parametri di input denominati vengono eseguite automaticamente. 
+* Nelle funzioni C# e F#, quando la funzione termina correttamente, le modifiche apportate al documento di input tramite i parametri di input denominati vengono rese automaticamente persistenti. 
 * Nelle funzioni di JavaScript gli aggiornamenti non vengono eseguiti automaticamente al termine della funzione. Per eseguire gli aggiornamenti usare invece `context.bindings.<documentName>In` e `context.bindings.<documentName>Out`. Vedere l'[esempio di JavaScript](#injavascript).
 
 <a name="inputsample"></a>
 
 ## <a name="input-sample-for-single-document"></a>Esempio di input per il singolo documento
-Si supponga di avere la seguente associazione di input di DocumentDB nella matrice `bindings` di function.json:
+Si supponga di avere il seguente binding di input dell'API DocumentDB nella matrice `bindings` di function.json:
 
 ```json
 {
@@ -67,7 +68,7 @@ Si supponga di avere la seguente associazione di input di DocumentDB nella matri
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "id" : "{queueTrigger}",
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "in"
 }
 ```
@@ -82,7 +83,7 @@ Vedere l'esempio specifico del linguaggio che usa questa associazione di input p
 ### <a name="input-sample-in-c"></a>Esempio di input in C# #
 
 ```cs
-// Change input document contents using DocumentDB input binding 
+// Change input document contents using DocumentDB API input binding 
 public static void Run(string myQueueItem, dynamic inputDocument)
 {   
   inputDocument.text = "This has changed.";
@@ -93,7 +94,7 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 ### <a name="input-sample-in-f"></a>Esempio di input in F# #
 
 ```fsharp
-(* Change input document contents using DocumentDB input binding *)
+(* Change input document contents using DocumentDB API input binding *)
 open FSharp.Interop.Dynamic
 let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
@@ -121,7 +122,7 @@ Per aggiungere un file `project.json`, vedere l'argomento relativo alla [gestion
 ### <a name="input-sample-in-javascript"></a>Esempio di input in JavaScript
 
 ```javascript
-// Change input document contents using DocumentDB input binding, using context.bindings.inputDocumentOut
+// Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
 module.exports = function (context) {   
   context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
   context.bindings.inputDocumentOut.text = "This was updated!";
@@ -143,7 +144,7 @@ In questo esempio, il trigger di coda offre un parametro `departmentId`. Un mess
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
     "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
-    "connection": "DocumentDBConnection"
+    "connection": "CosmosDBConnection"
 }
 ```
 
@@ -177,19 +178,19 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a id="docdboutput"></a>Associazione di output di DocumentDB
-L'associazione di output di DocumentDB consente di scrivere un nuovo documento in un database di Azure DocumentDB. In *function.json* ha le proprietà seguenti:
+## <a id="docdboutput"></a>Binding di output dell'API DocumentDB
+Il binding di output dell'API DocumentDB consente di scrivere un nuovo documento in un database di Azure Cosmos DB. In *function.json* ha le proprietà seguenti:
 
 - `name`: nome dell'identificatore usato nel codice della funzione per il nuovo documento
 - `type`: deve essere impostato su `"documentdb"`
 - `databaseName` : database contenente la raccolta in cui verrà creato il nuovo documento.
 - `collectionName` : raccolta in cui verrà creato il nuovo documento.
 - `createIfNotExists`: valore booleano che indica se la raccolta viene creata quando non esiste. Il valore predefinito è *false*. Il motivo è che le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection`: il nome dell'impostazione dell'app contenente la stringa di connessione di DocumentDB
+- `connection`: il nome dell'impostazione dell'app contenente la stringa di connessione di Cosmos DB
 - `direction`: deve essere impostato su `"out"`
 
-## <a name="using-a-documentdb-output-binding"></a>Usare un binding di output di DocumentDB
-In questa sezione viene illustrato come usare l'associazione di output di DocumentDB nel codice di funzione.
+## <a name="using-a-documentdb-api-output-binding"></a>Usare un binding di output dell'API DocumentDB
+Questa sezione illustra come usare il binding di output dell'API DocumentDB nel codice di funzione.
 
 Quando si scrive per il parametro di output nella funzione, per impostazione predefinita viene generato un nuovo documento nel database con un GUID generato automaticamente come ID documento. È possibile specificare l'ID documento del documento di output specificando la proprietà JSON `id` nel parametro di output. 
 
@@ -200,8 +201,8 @@ Per visualizzare più documenti, è anche possibile definire l'associazione a `I
 
 <a name="outputsample"></a>
 
-## <a name="documentdb-output-binding-sample"></a>Esempio di associazione di output di DocumentDB
-Si supponga di avere la seguente associazione di output di DocumentDB nella matrice `bindings` di function.json:
+## <a name="documentdb-api-output-binding-sample"></a>Esempio di binding di output dell'API DocumentDB
+Si supponga di avere la seguente associazione di output dell'API DocumentDB nella matrice `bindings` di function.json:
 
 ```json
 {
@@ -210,7 +211,7 @@ Si supponga di avere la seguente associazione di output di DocumentDB nella matr
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "createIfNotExists": true,
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "out"
 }
 ```
@@ -225,7 +226,7 @@ Ed è disponibile un'associazione di input di coda per una coda che riceve JSON 
 }
 ```
 
-Si vogliono creare documenti di DocumentDB nel formato seguente per ogni record:
+Si vuole creare documenti di Cosmos DB nel formato seguente per ogni record:
 
 ```json
 {

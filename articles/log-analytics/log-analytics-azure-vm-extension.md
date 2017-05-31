@@ -4,7 +4,7 @@ description: "Nelle macchine virtuali Windows e Linux in esecuzione in Azure, pe
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: 
 ms.assetid: ca39e586-a6af-42fe-862e-80978a58d9b1
 ms.service: log-analytics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 87e888bf3d7355b36c42e8787abe9bf1cb191fcd
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 1cab9d2f814e0c36dadcdd7bbc3cdc736de0af49
+ms.contentlocale: it-it
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -36,7 +37,7 @@ Altre informazioni sulle [estensioni delle macchine virtuali](../virtual-machine
 Quando si usa la raccolta basata su agenti per i dati di log, è necessario configurare le [origini dati in Log Analytics](log-analytics-data-sources.md) per specificare i log e le metriche da raccogliere.
 
 > [!IMPORTANT]
-> Se si configura Log Analytics per indicizzare i dati di log usando [Diagnostica di Azure](log-analytics-azure-storage.md) e si configura l'agente per raccogliere gli stessi log, i log verranno raccolti due volte e verranno addebitati costi per entrambe le origini dati. Se è installato l'agente, è consigliabile raccogliere i dati di log usando solo l'agente e non configurare Log Analytics per raccogliere i dati di log da Diagnostica di Azure.
+> Se si configura Log Analytics per indicizzare i dati di log usando [Diagnostica di Azure](log-analytics-azure-storage.md) e si configura l'agente per raccogliere gli stessi log, i log verranno raccolti due volte e verranno addebitati costi per entrambe le origini dati. Se è installato l'agente, raccogliere i dati di log usando solo l'agente e non configurare Log Analytics per raccogliere i dati di log da Diagnostica di Azure.
 >
 >
 
@@ -64,7 +65,7 @@ Quando si usa la raccolta basata su agenti per i dati di log, è necessario conf
    ![Connessione effettuata](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## <a name="enable-the-vm-extension-using-powershell"></a>Abilitare l'estensione macchina virtuale con PowerShell
-Quando si configura la macchina virtuale con PowerShell, è necessario specificare il **workspaceId**e la **workspaceKey**. Si noti che i nomi di proprietà nella configurazione json fanno distinzione **tra maiuscole e minuscole**.
+Quando si configura la macchina virtuale con PowerShell, è necessario specificare il **workspaceId**e la **workspaceKey**. I nomi di proprietà nella configurazione json fanno distinzione **tra maiuscole e minuscole**.
 
 L'ID e la chiave sono riportati nella pagina **Impostazioni** del portale di OMS o sono reperibili usando PowerShell come illustrato nell'esempio precedente.
 
@@ -74,7 +75,7 @@ I comandi per le macchine virtuali classiche di Azure e per le macchine virtuali
 
 Per le macchine virtuali classiche usare l'esempio di PowerShell seguente:
 
-```
+```PowerShell
 Add-AzureAccount
 
 $workspaceId = "enter workspace ID here"
@@ -90,9 +91,14 @@ $vm = Get-AzureVM –ServiceName $hostedService
 # Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'OmsAgentForLinux' -Version '1.*' -PublicConfiguration "{'workspaceId': '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
 
+Per le macchine virtuali Linux di Resource Manager usando l'interfaccia della riga di comando seguente
+```azurecli
+az vm extension set --resource-group myRGMonitor --vm-name myMonitorVM --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --version 1.3 --protected-settings ‘{"workspaceKey": "<workspace-key>"}’ --settings ‘{"workspaceId": "<workspace-id>"}’ 
+```
+
 Per le macchine virtuali di Resource Manager usare l'esempio di PowerShell seguente:
 
-```
+```PowerShell
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
@@ -122,8 +128,9 @@ $location = $vm.Location
 
 ```
 
+
 ## <a name="deploy-the-vm-extension-using-a-template"></a>Distribuire l'estensione macchina virtuale usando un modello
-Azure Resource Manager consente di creare un modello semplice (in formato JSON) che definisce la distribuzione e la configurazione dell'applicazione. Questo modello è noto come modello di Resource Manager e permette di definire la distribuzione in modo dichiarativo. Usando un modello, è possibile distribuire ripetutamente l'applicazione in tutto il ciclo di vita dell'app avendo la certezza che le risorse verranno distribuite in uno stato coerente.
+Azure Resource Manager consente di creare un modello (in formato JSON) che definisce la distribuzione e la configurazione dell'applicazione. Questo modello è noto come modello di Resource Manager e permette di definire la distribuzione in modo dichiarativo. Usando un modello, è possibile distribuire ripetutamente l'applicazione in tutto il ciclo di vita dell'app avendo la certezza che le risorse verranno distribuite in uno stato coerente.
 
 Includendo l'agente di Log Analytics nel modello di Resource Manager è possibile accertarsi che ogni macchina virtuale sia preconfigurata per la segnalazione di dati all'area di lavoro di Log Analytics.
 
@@ -135,7 +142,7 @@ Di seguito è riportato un modello di Resource Manager di esempio usato per dist
 * Sezione di estensione di risorsa Microsoft.EnterpriseCloud.Monitoring
 * Output per la ricerca di workspaceId e workspaceSharedKey
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -362,12 +369,12 @@ Di seguito è riportato un modello di Resource Manager di esempio usato per dist
 
 È possibile distribuire un modello con il comando di PowerShell seguente:
 
-```
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
 ## <a name="troubleshooting-the-log-analytics-vm-extension"></a>Risoluzione dei problemi relativi all'estensione della VM di Log Analytics
-In genere si riceverà un messaggio quando si verifica un malfunzionamento dal portale Azure o da Azure PowerShell.
+Quando si verifica un malfunzionamento in genere si riceve un messaggio dal portale di Azure o da Azure PowerShell.
 
 1. Accedere al [portale di Azure](http://portal.azure.com).
 2. Individuare la VM e aprire i relativi dettagli.
@@ -394,7 +401,7 @@ Se l'estensione dell'agente di macchine virtuali *Microsoft Monitoring Agent* no
 3. Esaminare i file di log dell'estensione macchina virtuale Microsoft Monitoring Agent in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 4. Verificare che la macchina virtuale possa eseguire script di PowerShell
 5. Verificare che le autorizzazioni per C:\Windows\temp non siano state modificate
-6. Visualizzare lo stato di Microsoft Monitoring Agent digitando quanto riportato di seguito in una finestra di PowerShell con privilegi elevati nella macchina virtuale: `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. Visualizzare lo stato di Microsoft Monitoring Agent digitando il comando seguente in una finestra di PowerShell con privilegi elevati nella macchina virtuale `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Esaminare i file di log dell'installazione di Microsoft Monitoring Agent in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problemi delle estensioni Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

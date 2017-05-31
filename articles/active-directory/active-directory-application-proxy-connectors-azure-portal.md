@@ -1,5 +1,5 @@
 ---
-title: Pubblicare applicazioni in reti e posizioni separate tramite gruppi di connettori nel proxy di applicazione di Azure AD | Documentazione Microsoft
+title: Pubblicare applicazioni in reti e posizioni separate tramite gruppi di connettori nel proxy di applicazione di Azure AD | Microsoft Docs
 description: Illustra come creare e gestire i gruppi di connettori nel proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: 
@@ -11,17 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: 2a050e5817ab884c9d4337cc1cc76e298299dba3
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 39049c7a1e2a4d61ef62bd06cda9ef1bb2c50c0b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 ---
 
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups---public-preview"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori - Anteprima pubblica
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portale di Azure classico](active-directory-application-proxy-connectors.md)
@@ -29,7 +30,7 @@ ms.lasthandoff: 02/28/2017
 
 ## <a name="azure-ad-application-proxy-and-connector-groups"></a>Gruppi di connettori e proxy di applicazione di Azure AD
 
-Il proxy di applicazione di Azure AD viene usato per un numero crescente di scenari e applicazioni dei clienti. Per questo motivo, il proxy di applicazione è stato reso ancora più flessibile grazie all'abilitazione di altre topologie. Ora è possibile creare gruppi di connettori del proxy di applicazione. Questa nuova funzionalità permette di assegnare connettori specifici per la gestione di determinate applicazioni. La funzionalità consente molti nuovi casi d'uso per il proxy di applicazione che prima non erano possibili. Durante la fase di anteprima privata, i clienti di grandi dimensioni hanno abilitato i gruppi di connettori per migliorare le distribuzioni attive del proxy di applicazione. 
+Il proxy di applicazione di Azure AD viene usato per un numero crescente di scenari e applicazioni dei clienti. Per questo motivo, il proxy di applicazione è stato reso ancora più flessibile grazie all'abilitazione di altre topologie. Ora è possibile creare gruppi di connettori del proxy di applicazione. Questa nuova funzionalità permette di assegnare connettori specifici per la gestione di determinate applicazioni. La funzionalità consente molti nuovi casi d'uso per il proxy di applicazione che prima non erano possibili. 
 
 Il concetto di base è che ogni connettore del proxy di applicazione è assegnato a un gruppo di connettori. Tutti i connettori che appartengono allo stesso gruppo di connettori costituiscono un gruppo separato per la disponibilità elevata e il bilanciamento del carico. Per impostazione predefinita, tutti i connettori appartengono a un gruppo predefinito. L'amministratore può creare nuovi gruppi e modificare le assegnazioni nel portale di Azure. 
 
@@ -128,7 +129,7 @@ Nell'esempio seguente l'azienda ha due data center, A e B, con due connettori ch
 ![Azure AD senza gruppi di connettori](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
 ## <a name="next-steps"></a>Passaggi successivi
-* [Abilitare il proxy dell’applicazione](active-directory-application-proxy-enable.md)
+* [Abilitare il proxy dell'applicazione](active-directory-application-proxy-enable.md)
 * [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
 * [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 * [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)

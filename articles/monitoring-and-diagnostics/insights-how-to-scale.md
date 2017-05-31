@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.contentlocale: it-it
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,11 +35,9 @@ Prima di scalare in base al conteggio delle istanze, occorre tenere presente che
 > 
 
 ## <a name="scaling-manually"></a>Scalabilità manuale
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, quindi passare alla risorsa da scalare, ad esempio un **piano di servizio app**.
-2. Il riquadro **Scalabilità** in **Operazioni** indicherà lo stato della scalabilità: **Disattivato** nel caso in cui il ridimensionamento venga effettuato manualmente, **Attivato** nel caso in cui il ridimensionamento venga effettuato in base a una o più metriche delle prestazioni.
-   
-    ![Riquadro Scalabilità](./media/insights-how-to-scale/Insights_UsageLens.png)
-3. Facendo clic sul riquadro, verrà visualizzato il pannello **Scalabilità** . Nella parte superiore del pannello è possibile visualizzare una cronologia delle azioni di scalabilità automatica per il servizio.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia** e quindi passare alla risorsa cui applicare la scalabilità, ad esempio **piano di servizio app**.
+2. Fare clic su **Impostazioni > Scalabilità orizzontale (piano di servizio app).**
+3. Nella parte superiore del pannello **Scala** è possibile visualizzare una cronologia delle azioni di scalabilità automatica del servizio.
    
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -129,10 +129,5 @@ Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabil
 * [Monitorare le prestazioni dell'applicazione](../application-insights/app-insights-azure-web-apps.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
 * [Visualizzare eventi e registri attività](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
