@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-translationtype: Human Translation
-ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
-ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
-ms.lasthandoff: 02/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 0c192a9c5e738d92d02fb1a16a80569c9f80d732
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -68,13 +69,13 @@ I tipi di dati seguenti sono supportati nei modelli creati con la libreria **ser
 | Tipo | Descrizione |
 | --- | --- |
 | double |Numero a virgola mobile a precisione doppia |
-| int |Intero a&32; bit |
+| int |Intero a 32 bit |
 | float |Numero a virgola mobile a precisione singola |
 | long |Intero lungo |
-| int8\_t |Intero a&8; bit |
-| int16\_t |Intero a&16; bit |
-| int32\_t |Intero a&32; bit |
-| int64\_t |Intero a&64; bit |
+| int8\_t |Intero a 8 bit |
+| int16\_t |Intero a 16 bit |
+| int32\_t |Intero a 32 bit |
+| int64\_t |Intero a 64 bit |
 | bool |boolean |
 | ascii\_char\_ptr |Stringa ASCII |
 | EDM\_DATE\_TIME\_OFFSET |Offset data/ora |
@@ -672,9 +673,9 @@ Per altre informazioni sullo sviluppo dell'hub IoT, vedere gli [Azure IoT SDK][l
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
+* [Simulazione di un dispositivo con Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 
