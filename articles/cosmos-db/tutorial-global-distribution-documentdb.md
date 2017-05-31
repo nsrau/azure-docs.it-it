@@ -1,14 +1,14 @@
 ---
 title: Esercitazione sulla distribuzione globale in Azure Cosmos DB per l&quot;API di DocumentDB | Documentazione Microsoft
 description: Informazioni su come configurare la distribuzione globale in Azure Cosmos DB mediante l&quot;API di DocumentDB.
-services: cosmosdb
+services: cosmos-db
 keywords: distribuzione globale, documentdb
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e30283bc1510e363861137448684421f11e39199
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: f4d8efe9814bd28bb902567a23b541bc9b5414a1
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -31,14 +31,15 @@ Questo articolo illustra le attività seguenti:
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurare la distribuzione globale tramite le [API di DocumentDB](../documentdb/documentdb-introduction.md)
+> * Configurare la distribuzione globale tramite le [API di DocumentDB](documentdb-introduction.md)
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+<a id="portal"></a>
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>Connessione a un'area preferita tramite l'API di DocumentDB
 
-Per sfruttare la [distribuzione globale](../documentdb/documentdb-distribute-data-globally.md), le applicazioni client possono specificare un elenco di aree, nell'ordine preferito, da usare per eseguire operazioni sui documenti. Questa operazione può essere eseguita impostando il criterio di connessione. A seconda della configurazione dell'account Azure Cosmos DB, della disponibilità corrente delle aree e dell'elenco delle preferenze specificato, l'SDK DocumentDB sceglierà l'endpoint ottimale per eseguire le operazioni di scrittura e lettura.
+Per sfruttare la [distribuzione globale](distribute-data-globally.md), le applicazioni client possono specificare un elenco di aree, nell'ordine preferito, da usare per eseguire operazioni sui documenti. Questa operazione può essere eseguita impostando il criterio di connessione. A seconda della configurazione dell'account Azure Cosmos DB, della disponibilità corrente delle aree e dell'elenco delle preferenze specificato, l'SDK DocumentDB sceglierà l'endpoint ottimale per eseguire le operazioni di scrittura e lettura.
 
 L'elenco delle preferenze viene specificato nella fase di inizializzazione di una connessione usando gli SDK DocumentDB. Gli SDK accettano il parametro facoltativo "PreferredLocations", ovvero un elenco ordinato di aree di Azure.
 
@@ -161,7 +162,7 @@ Le richieste di scrittura per le aree di sola lettura avranno esito negativo con
 
 Se l'area di scrittura viene modificata dopo la fase di individuazione iniziale del client, le scritture successive all'area di scrittura precedente avranno esito negativo con codice di errore HTTP 403 ("Non consentito"). Il client deve quindi OTTENERE nuovamente l'elenco delle aree per aggiornare l'area di scrittura.
 
-L'esercitazione è terminata. Per informazioni su come gestire la coerenza dell'account con replica globale, vedere [Livelli di coerenza in Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). Per informazioni sul funzionamento della replica di database globale in Azure Cosmos DB, vedere [Distribuire i dati a livello globale con Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+L'esercitazione è terminata. Per informazioni su come gestire la coerenza dell'account con replica globale, vedere [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md). Per informazioni sul funzionamento della replica di database globale in Azure Cosmos DB, vedere [Distribuire i dati a livello globale con Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -174,7 +175,7 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 È ora possibile passare all'esercitazione successiva per imparare a sviluppare in locale usando l'emulatore locale di Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Sviluppare in locale con l'emulatore](../documentdb/documentdb-nosql-local-emulator.md)
+> [Sviluppare in locale con l'emulatore](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
