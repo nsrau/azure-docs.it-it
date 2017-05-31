@@ -14,12 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 05/09/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 67663af0913a03f2001b4cce6f9f49ee91195026
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bb58cd7a00bc8eb5eaf2ea5a7a8f7641b0502ed9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -354,7 +355,7 @@ Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede
    | Impostazione | Campo |
    | --- | --- |
    | **Nome** |Usare un nome in formato testo per il servizio di bilanciamento del carico, ad esempio **sqlLB**. |
-   | **Schema** |Interno |
+   | **Tipo** |Interno |
    | **Rete virtuale** |Usare il nome della rete virtuale di Azure. |
    | **Subnet** |Usare il nome della subnet in cui si trova la macchina virtuale.  |
    | **Assegnazione indirizzi IP** |Static |
@@ -381,6 +382,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Digitare un nome in formato testo | SQLLBBE
+   | **Associato a** | Selezionare dall'elenco | Set di disponibilità
    | **Set di disponibilità** | Usare un nome del set di disponibilità in cui si trovano le VM di SQL Server | sqlAvailabilitySet |
    | **Macchine virtuali** |I nomi delle due VM di SQL Server | sqlserver-0, sqlserver-1
 
@@ -390,9 +392,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Per il set di disponibilità, scegliere quello in cui si trovano le istanze di SQL Server.
 
-1. Per le macchine virtuali, includere entrambe le istanze di SQL Server. Non includere il server di controllo della condivisione file. La selezione dovrebbe essere simile all'immagine seguente:
-
-   ![Trovare il servizio di bilanciamento del carico nel gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/88-configurebepool.png)
+1. Per le macchine virtuali, includere entrambe le istanze di SQL Server. Non includere il server di controllo della condivisione file.
 
 1. Fare clic su **OK** per creare il pool back-end.
 
@@ -468,7 +468,7 @@ Per testare la connessione:
 1. Usare l'utilità **sqlcmd** per testare la connessione. Lo script seguente, ad esempio, stabilisce una connessione **sqlcmd** alla replica primaria tramite il listener con l'autenticazione di Windows:
 
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
 
     Se il listener usa una porta diversa da quella predefinita (1433), specificare la porta nella stringa di connessione. Il seguente comando sqlcmd, ad esempio, si connette a un listener nella porta 1435:

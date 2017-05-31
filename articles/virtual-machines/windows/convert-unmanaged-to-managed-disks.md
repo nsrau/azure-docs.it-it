@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6530da96cd6e6ccd90714a9d3c9f00f88afe853e
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b3a2bf688f1837a17312ec4bb5ca6b87209076cd
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/03/2017
 Se le macchine virtuali di Azure esistenti di cui si dispone usano i dischi non gestiti negli account di archiviazione e si desidera sfruttare i vantaggi dei [dischi gestiti](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), è possibile convertire le macchine virtuali. Il processo consente al disco del sistema operativo e a eventuali dischi di dati collegati di passare dall'uso di dischi non gestiti in un account di archiviazione all'uso di dischi gestiti. Per usare Powershell al fine di convertire le macchine virtuali all'uso dei dischi gestiti, le macchine virtuali vengono prima arrestate e deallocate. Dopo la conversione, è necessario riavviare la macchina virtuale che ora userà i dischi gestiti.
 
 Prima di iniziare, rivedere [Piano per la migrazione ai dischi gestiti](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
-Testare il processo di migrazione eseguendo la migrazione di una macchina virtuale di test prima di eseguire la migrazione nell'ambiente di produzione perché il processo di migrazione non è reversibile.
+Testare il processo di migrazione eseguendo la migrazione di una macchina virtuale di test prima di eseguire la migrazione nell'ambiente di produzione perché il processo di migrazione non è reversibile. La gestione della VM è bloccata durante la migrazione e non è quindi possibile avviare, arrestare o eliminare la VM fino al completamento.
 
 
 > [!IMPORTANT] 

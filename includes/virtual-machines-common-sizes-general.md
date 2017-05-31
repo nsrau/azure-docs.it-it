@@ -40,7 +40,7 @@ ACU: 210-250
 ## <a name="ds-series"></a>Serie DS*
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3,5 |7 |2 |4.000/32 (43) |3.200/32 |2^ / moderata |
+| Standard_DS1 |1 |3,5 |7 |2 |4.000/32 (43) |3.200/32 |2/moderata |
 | Standard_DS2 |2 |7 |14 |4 |8.000/64 (86) |6.400/64 |2/alta |
 | Standard_DS3 |4 |14 |28 |8 |16.000/128 (172) |12.800/128 |4/alta |
 | Standard_DS4 |8 |28 |56 |16 |32.000/256 (344) |25.600/256 |8/alta |

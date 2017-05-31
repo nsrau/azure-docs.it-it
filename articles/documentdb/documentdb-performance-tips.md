@@ -1,29 +1,30 @@
 ---
-title: Suggerimenti sulle prestazioni - Azure DocumentDB NoSQL | Documentazione Microsoft
-description: Informazioni sulle opzioni di configurazione del client per migliorare le prestazioni del database di Azure DocumentDB
+title: 'Suggerimenti sulle prestazioni: Azure Cosmos DB NoSQL | Microsoft Docs'
+description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni del database Azure Cosmos DB
 keywords: Come migliorare le prestazioni del database
-services: documentdb
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3124185a486335d978634281b63d2475981e57f8
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d37401d850e87e516e1fde7c9a4877792ed7858a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="performance-tips-for-documentdb"></a>Suggerimenti sulle prestazioni per DocumentDB
-Azure DocumentDB è un database distribuito rapido e flessibile, perfettamente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per ridimensionare il database con DocumentDB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API o una [chiamata al metodo SDK](documentdb-set-throughput.md#set-throughput-sdk). Poiché si accede a DocumentDB tramite chiamate di rete, è possibile apportare ottimizzazioni lato client per ottenere prestazioni ottimali.
+# <a name="performance-tips-for-azure-cosmos-db"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB
+Azure Cosmos DB è un database distribuito veloce e flessibile, facilmente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per ridimensionare il database con Cosmos DB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API o una [chiamata al metodo SDK](documentdb-set-throughput.md#set-throughput-sdk). Dato che si accede a Cosmos DB tramite chiamate di rete, tuttavia, è possibile apportare ottimizzazioni lato client per ottenere prestazioni ottimali.
 
 Se si vogliono migliorare le prestazioni del database, prendere in considerazione le opzioni seguenti:
 
@@ -32,12 +33,12 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
 1. **Criteri di connessione: usare la modalità di connessione diretta**
 
-    La modalità di connessione del client ad Azure DocumentDB influisce significativamente sulle prestazioni, in particolare a livello di latenza lato client osservata. Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la *modalità* di connessione e il [protocollo di *connessione*](#connection-protocol).  Le due modalità disponibili sono:
+    La modalità di connessione di un client a Cosmos DB influisce significativamente sulle prestazioni, in particolare in termini di latenza lato client osservata. Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la *modalità* di connessione e il [protocollo di *connessione*](#connection-protocol).  Le due modalità disponibili sono:
 
    1. Modalità gateway (predefinita)
    2. Modalità diretta
 
-      La modalità gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata.  Se l'applicazione è in esecuzione in una rete aziendale con limitazioni rigide del firewall, la modalità gateway è la scelta migliore, perché usa la porta HTTPS standard e un singolo endpoint. A livello di prestazioni, tuttavia, la modalità gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in DocumentDB. La modalità diretta offre quindi prestazioni migliori grazie al numero minore di hop di rete.
+      La modalità gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata.  Se l'applicazione è in esecuzione in una rete aziendale con limitazioni rigide del firewall, la modalità gateway è la scelta migliore, perché usa la porta HTTPS standard e un singolo endpoint. A livello di prestazioni, tuttavia, la modalità gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Cosmos DB. La modalità diretta offre quindi prestazioni migliori grazie al numero minore di hop di rete.
 <a id="use-tcp"></a>
 2. **Criteri di connessione: usare il protocollo TCP**
 
@@ -46,9 +47,9 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    * TCP
    * HTTPS
 
-     DocumentDB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Sia il protocollo TCP diretto che il protocollo HTTPS usano SSL per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
+     Cosmos DB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Sia il protocollo TCP diretto che il protocollo HTTPS usano SSL per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
 
-     Quando si usa TCP in modalità gateway, la porta TCP 443 è la porta di DocumentDB, mentre la porta 10250 è la porta dell'API MongoDB. Quando si usa TCP in modalità diretta, oltre alle porte gateway sarà necessario verificare che le porte nell'intervallo tra 10.000 e 20.000 siano aperte, perché DocumentDB usa porte TCP dinamiche. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore 503 (Servizio non disponibile).
+     Quando si usa TCP in modalità gateway, la porta TCP 443 è la porta di Cosmos DB, mentre la porta 10250 è la porta dell'API MongoDB. Quando si usa TCP in modalità diretta, oltre alle porte gateway è necessario verificare che le porte nell'intervallo tra 10000 e 20000 siano aperte perché Cosmos DB usa porte TCP dinamiche. Se queste porte non sono aperte e si tenta di usare TCP, si riceverà un errore 503 (Servizio non disponibile).
 
      La modalità di connessione viene configurata durante la creazione dell'istanza di DocumentClient con il parametro ConnectionPolicy. Se si usa la modalità diretta, è possibile configurare il protocollo entro il parametro ConnectionPolicy.
 
@@ -65,7 +66,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     Poiché TCP è supportato solo in modalità diretta, se si usa la modalità gateway viene usato sempre il protocollo HTTPS per comunicare con il gateway e il valore del protocollo in ConnectionPolicy viene ignorato.
 
-    ![Illustrazione dei criteri di connessione di DocumentDB](./media/documentdb-performance-tips/azure-documentdb-connection-policy.png)
+    ![Illustrazione dei criteri di connessione di Azure Cosmos DB](./media/documentdb-performance-tips/azure-documentdb-connection-policy.png)
 
 3. **Chiamare OpenAsync per evitare la latenza di avvio alla prima richiesta**
 
@@ -75,26 +76,26 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    <a id="same-region"></a>
 4. **Collocare i client nella stessa area di Azure per ottenere prestazioni migliori**
 
-    Quando possibile, posizionare eventuali applicazioni che chiamano DocumentDB nella stessa area del database di DocumentDB. Per un confronto approssimativo, le chiamate a DocumentDB eseguite nella stessa area vengono completate entro 1-2 ms, ma la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 ms. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di DocumentDB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
+    Quando possibile, posizionare eventuali applicazioni che chiamano Cosmos DB nella stessa area del database Cosmos DB. Per un confronto approssimativo, le chiamate a Cosmos DB eseguite nella stessa area vengono completate entro 1-2 millisecondi, mentre la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 millisecondi. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di Cosmos DB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
-    ![Illustrazione dei criteri di connessione di DocumentDB](./media/documentdb-performance-tips/azure-documentdb-same-region.png)
-    <a id="increase-threads"></a>
+    ![Illustrazione dei criteri di connessione di Azure Cosmos DB](./media/documentdb-performance-tips/azure-documentdb-same-region.png)
+   <a id="increase-threads"></a>
 5. **Aumentare il numero di thread/attività**
 
-    Poiché le chiamate a DocumentDB vengono eseguite sulla rete, può essere necessario modificare il grado di parallelismo delle richieste in modo che i tempi di attesa dell'applicazione client tra le richieste siano molto ridotti. Se ad esempio si usa la [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx)di .NET, creare centinaia di attività di lettura o scrittura in DocumentDB.
+    Dato che le chiamate ad Azure Cosmos DB vengono eseguite sulla rete, può essere necessario modificare il grado di parallelismo delle richieste in modo che i tempi di attesa dell'applicazione client tra le richieste siano molto ridotti. Se si usa [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx) di .NET, ad esempio, creare centinaia di attività di lettura o scrittura in Cosmos DB.
 
 ## <a name="sdk-usage"></a>Uso dell'SDK
 1. **Installare l'SDK più recente**
 
-    Vengono apportati continuamente miglioramenti ai DocumentDB SDK per offrire prestazioni ottimali. Per determinare la versione di SDK più recente e verificare i miglioramenti, vedere [DocumentDB SDK](documentdb-sdk-dotnet.md) .
-2. **Usare un client DocumentDB singleton per la durata dell'applicazione**
+    Agli SDK di Cosmos DB vengono apportati continui miglioramenti per offrire prestazioni ottimali. Per determinare la versione di SDK più recente e verificare i miglioramenti, vedere le pagine relative agli [SDK di Cosmos DB](documentdb-sdk-dotnet.md).
+2. **Usare un client Cosmos DB singleton per la durata dell'applicazione**
 
     Si noti che ogni istanza di DocumentClient è thread-safe ed esegue la gestione efficiente delle connessioni e la memorizzazione nella cache degli indirizzi quando viene usata la modalità diretta. Per consentire una gestione efficiente delle connessioni e prestazioni migliori da parte di DocumentClient, è consigliabile usare una singola istanza di DocumentClient per ogni AppDomain per la durata dell'applicazione.
 
    <a id="max-connection"></a>
 3. **Aumentare il valore di System.Net MaxConnections per host se si usa la modalità Gateway**.
 
-    Quando si usa la modalità Gateway, le richieste di DocumentDB vengono eseguite su HTTPS/REST per impostazione predefinita e sono soggette ai limiti di connessione predefiniti per ogni nome host o indirizzo IP. Può essere necessario impostare MaxConnections su un valore più alto (100-1000) in modo che la libreria client possa usare più connessioni DocumentDB contemporaneamente. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) è 50 e per modificare il valore è possibile impostare [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) su un valore più elevato.   
+    Quando si usa la modalità gateway, le richieste di Cosmos DB vengono eseguite su HTTPS/REST e sono soggette ai limiti di connessione predefiniti per ogni nome host o indirizzo IP. Può essere necessario impostare MaxConnections su un valore più alto (100-1000) in modo che la libreria client possa usare più connessioni simultanee a Cosmos DB. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) è 50 e per modificare il valore è possibile impostare [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) su un valore più elevato.   
 4. **Ottimizzazione delle query parallele per le raccolte partizionate**
 
      DocumentDB .NET SDK 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query in una raccolta partizionata in parallelo. Vedere [Uso degli SDK](documentdb-partition-data.md#working-with-the-documentdb-sdks) e i relativi [esempi di codice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) per maggiori dettagli. Le query parallele sono state concepite per migliorare la velocità e la latenza delle query sulle loro controparti seriali. Mettono a disposizione due parametri che gli utenti possono ottimizzare in funzione dei requisiti, ovvero (a) MaxDegreeOfParallelism per definire il numero massimo di partizioni sulle quali è possibile eseguire query in parallelo e (b) MaxBufferedItemCount per definire il numero di risultati di prelettura.
@@ -116,7 +117,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     Durante il test delle prestazioni, è necessario aumentare il carico fino a limitare un numero ridotto di richieste. Se limitata, l'applicazione client deve eseguire il backoff sulla limitazione per l'intervallo tra tentativi specificato dal server. Rispettando il backoff si garantiscono tempi di attesa minimi tra i tentativi. Il supporto dei criteri di ripetizione dei tentativi è incluso nella versione 1.8.0 e versioni successive degli SDK [.NET](documentdb-sdk-dotnet.md) e [Java](documentdb-sdk-java.md), nella versione 1.9.0 e versioni successive degli SDK [Node.js](documentdb-sdk-node.md) e [Python](documentdb-sdk-python.md) e in tutte le versioni supportate degli SDK [.NET Core](documentdb-sdk-dotnet-core.md) di DocumentDB. Per altre informazioni, vedere [Superamento dei limiti della velocità effettiva riservata](documentdb-request-units.md#RequestRateTooLarge) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Aumentare il carico di lavoro client**
 
-    Se si sta eseguendo il test a livelli di velocità effettiva elevati (> 50.000 UR/sec), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a eseguire il push dell'account di DocumentDB tramite l'aumento delle istanze delle applicazioni client su più server.
+    Se si sta eseguendo il test a livelli di velocità effettiva elevati (> 50.000 UR/sec), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a effettuare il push dell'account Cosmos DB aumentando il numero di istanze delle applicazioni client in più server.
 8. **Memorizzare nella cache gli URI dei documenti per una minore latenza di lettura**
 
     Memorizzare nella cache gli URI dei documenti quando possibile per ottenere prestazioni di lettura ottimali.
@@ -127,7 +128,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     Per ridurre il numero di round trip di rete necessari per recuperare tutti i risultati applicabili, è possibile aumentare le dimensioni di pagina usando l'intestazione di richiesta x-ms-max-item-count fino a 1000. Nei casi in cui è necessario visualizzare solo alcuni risultati, ad esempio se l'interfaccia utente o l'API dell'applicazione restituisce solo 10 risultati alla volta, è anche possibile ridurre le dimensioni di pagina a 10 in modo da ridurre la velocità effettiva usata per le letture e le query.
 
-    È anche possibile impostare le dimensioni di pagina usando i DocumentDB SDK disponibili.  ad esempio:
+    È anche possibile impostare le dimensioni di pagina usando gli SDK di Cosmos DB disponibili.  ad esempio:
 
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 10. **Aumentare il numero di thread/attività**
@@ -149,14 +150,14 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 ## <a name="indexing-policy"></a>Criterio di indicizzazione
 1. **Usare l'indicizzazione differita per frequenze di inserimento più veloci nei momenti di massima attività**
 
-    DocumentDB consente di specificare a livello di raccolta un criterio di indicizzazione, che permette di scegliere se i documenti di una raccolta devono essere indicizzati automaticamente o meno.  È anche possibile scegliere tra aggiornamenti sincroni (coerenti) e asincroni (differiti). Per impostazione predefinita, l'indice viene aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un documento nella raccolta. La modalità sincrona consente alle query di rispettare lo stesso [livello di coerenza](documentdb-consistency-levels.md) delle letture di documenti, senza che l'indice debba recuperare alcun ritardo.
+    Cosmos DB consente di specificare criteri di indicizzazione a livello di raccolta che permettono di scegliere se i documenti di una raccolta devono essere indicizzati automaticamente o meno.  È anche possibile scegliere tra aggiornamenti sincroni (coerenti) e asincroni (differiti). Per impostazione predefinita, l'indice viene aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un documento nella raccolta. La modalità sincrona consente alle query di rispettare lo stesso [livello di coerenza](documentdb-consistency-levels.md) delle letture di documenti, senza che l'indice debba recuperare alcun ritardo.
 
-    L'indicizzazione differita è consigliabile per gli scenari in cui i dati vengono scritti in burst e si vuole ammortizzare il lavoro necessario per indicizzare il contenuto dell'indice in un periodo di tempo più lungo. L'indicizzazione differita consente di usare in modo efficiente la velocità effettiva con provisioning e di gestire le richieste di scrittura nei momenti di massima attività con latenza minima. Con l'indicizzazione differita attivata, i risultati delle query sono comunque coerenti indipendentemente dal livello di coerenza configurato per l'account DocumentDB.
+    L'indicizzazione differita è consigliabile per gli scenari in cui i dati vengono scritti in burst e si vuole ammortizzare il lavoro necessario per indicizzare il contenuto dell'indice in un periodo di tempo più lungo. L'indicizzazione differita consente di usare in modo efficiente la velocità effettiva con provisioning e di gestire le richieste di scrittura nei momenti di massima attività con latenza minima. È importante notare, tuttavia, che con l'indicizzazione differita attivata i risultati delle query sono comunque coerenti indipendentemente dal livello di coerenza configurato per l'account Cosmos DB.
 
     La modalità di indicizzazione coerente (IndexingPolicy.IndexingMode impostato su Consistent) comporta gli addebiti più elevati per unità richiesta per ogni scrittura, mentre la modalità di indicizzazione differita (IndexingPolicy.IndexingMode impostato su Lazy) e l'assenza di indicizzazione (IndexingPolicy.Automatic impostato su False) non comportano alcun costo di indicizzazione al momento della scrittura.
 2. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 
-    I criteri di indicizzazione di DocumentDB consentono anche di specificare i percorsi dei documenti da includere o escludere dall'indicizzazione sfruttando i percorsi di indicizzazione (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). L'uso dei percorsi di indicizzazione può consentire di ottenere prestazioni migliori e di ridurre le risorse di archiviazione dell'indice per gli scenari in cui i modelli di query sono noti in anticipo, poiché i costi dell'indicizzazione sono correlati direttamente al numero di percorsi univoci indicizzati.  Ad esempio, il codice seguente illustra come escludere un'intera sezione dei documenti, detta anche sottoalbero, dall'indicizzazione usando il carattere jolly "*".
+    I criteri di indicizzazione di Cosmos DB consentono anche di specificare i percorsi dei documenti da includere o escludere dall'indicizzazione sfruttando i percorsi di indicizzazione (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). L'uso dei percorsi di indicizzazione può consentire di ottenere prestazioni migliori e di ridurre le risorse di archiviazione dell'indice per gli scenari in cui i modelli di query sono noti in anticipo, poiché i costi dell'indicizzazione sono correlati direttamente al numero di percorsi univoci indicizzati.  Ad esempio, il codice seguente illustra come escludere un'intera sezione dei documenti, detta anche sottoalbero, dall'indicizzazione usando il carattere jolly "*".
 
     ```C#
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -165,14 +166,14 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    Per altre informazioni, vedere [Criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md).
+    Per altre informazioni, vedere l'articolo relativo ai [criteri di indicizzazione di Azure Cosmos DB](documentdb-indexing-policies.md).
 
 ## <a name="throughput"></a>Velocità effettiva
 <a id="measure-rus"></a>
 
 1. **Misurare e ottimizzare per ottenere un utilizzo minore di unità richiesta al secondo**
 
-    DocumentDB offre un'ampia gamma di operazioni di database, incluse le query relazionali e gerarchiche con funzioni definite dall'utente, stored procedure e trigger operative nei documenti in una raccolta di database. Il costo associato a ognuna di queste operazioni dipende da CPU, I/O e memoria necessari per il completamento dell'operazione. Invece di occuparsi della pianificazione e della gestione delle risorse hardware, sarà possibile usare un'unità di richiesta come misura singola per le risorse necessarie per eseguire diverse operazioni di database e rispondere a una richiesta dell'applicazione.
+    Cosmos DB offre un'ampia gamma di operazioni di database, incluse le query relazionali e gerarchiche con funzioni definite dall'utente, stored procedure e trigger, operative nei documenti in una raccolta di database. Il costo associato a ognuna di queste operazioni dipende da CPU, I/O e memoria necessari per il completamento dell'operazione. Invece di occuparsi della pianificazione e della gestione delle risorse hardware, sarà possibile usare un'unità di richiesta come misura singola per le risorse necessarie per eseguire diverse operazioni di database e rispondere a una richiesta dell'applicazione.
 
     [unità richiesta](documentdb-request-units.md) viene eseguito per ogni account di database in base al numero di unità di capacità acquistato. Il consumo delle unità di richiesta è valutato in base alla frequenza al secondo. Le applicazioni che superano il livello di unità richiesta con provisioning previsto per il relativo account sono limitate fino al ritorno del livello sotto il valore riservato per l'account. Se l'applicazione necessita di un livello superiore di velocità effettiva, sarà possibile acquistare unità di capacità aggiuntive.
 
@@ -213,7 +214,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     L'addebito per le richieste, ovvero il costo di elaborazione delle richieste, per un'operazione specifica è correlato direttamente alle dimensioni del documento. Le operazioni sui documenti di grandi dimensioni sono più costose rispetto alle operazioni per i documenti di piccole dimensioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un'applicazione di esempio usata per valutare DocumentDB per scenari a prestazioni elevate su un numero ridotto di computer client, vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md).
+Per un'applicazione di esempio usata per valutare Cosmos DB per scenari a prestazioni elevate su un numero ridotto di computer client, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](documentdb-performance-testing.md).
 
-Per altre informazioni sulla progettazione dell'applicazione per scalabilità e prestazioni elevate, vedere [Partizionamento e scalabilità in Azure DocumentDB](documentdb-partition-data.md).
+Per altre informazioni sulla progettazione dell'applicazione per scalabilità e prestazioni elevate, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](documentdb-partition-data.md).
 

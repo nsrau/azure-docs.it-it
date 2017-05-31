@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 414c684c78314a92bbbe12e6164e2b10fb682b0f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 
@@ -51,7 +52,9 @@ Se il pannello delle funzionalità B2C è stato aggiunto a Schermata iniziale, v
 4. Attivare/Disattivare l'opzione **Includi app Web/API Web** impostandola su **Sì**. Gli **URL di risposta** sono gli endpoint a cui Azure AD B2C restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44316/`.
 5. Fare clic su **Crea** per registrare l'applicazione.
 6. Fare clic sull'applicazione appena creata e copiare l' **ID client applicazione** univoco globale che verrà usato in seguito nel codice. 
-7. Se l'applicazione Web chiamerà un'API Web protetta da Azure AD B2C, è opportuno creare anche un **Segreto dell'applicazione** passando al pannello **Chiavi** e facendo clic sul pulsante **Genera chiave**.
+7. Se l'applicazione Web chiamerà anche un'API Web protetta da Azure AD B2C, eseguire queste operazioni:
+   1. Creare un **Segreto dell'applicazione** passando al pannello **Chiavi** e facendo clic sul pulsante **Genera chiave**.
+   2. Fare clic su **Accesso all'API**, quindi su **Aggiungi** e infine selezionare l'API Web e gli ambiti (autorizzazioni).
 
 > [!NOTE]
 > Un **segreto dell'applicazione** è una credenziale di sicurezza importante e deve essere protetto in modo appropriato.
@@ -78,7 +81,9 @@ Se il pannello delle funzionalità B2C è stato aggiunto a Schermata iniziale, v
 5. Immettere un **URI di reindirizzamento** con uno schema personalizzato. Ad esempio, com.onmicrosoft.contoso.appname://redirect/path. Assicurarsi di scegliere un [URI di reindirizzamento valido](#choosing-a-redirect-uri).
 6. Fare clic su **Salva** per registrare l'applicazione.
 7. Fare clic sull'applicazione appena creata e copiare l' **ID client applicazione** univoco globale che verrà usato in seguito nel codice.
-8. Se l'applicazione nativa chiamerà un'API Web protetta da Azure AD B2C, è opportuno creare anche un **Segreto dell'applicazione** passando al pannello **Chiavi** e facendo clic sul pulsante **Genera chiave**.
+8. Se l'applicazione nativa chiamerà anche un'API Web protetta da Azure AD B2C, eseguire queste operazioni:
+   1. Creare un **Segreto dell'applicazione** passando al pannello **Chiavi** e facendo clic sul pulsante **Genera chiave**.
+   2. Fare clic su **Accesso all'API**, quindi su **Aggiungi** e infine selezionare l'API Web e gli ambiti (autorizzazioni).
 
 > [!NOTE]
 > Un **segreto dell'applicazione** è una credenziale di sicurezza importante e deve essere protetto in modo appropriato.
@@ -89,9 +94,7 @@ Quando si sceglie un URI di reindirizzamento per applicazioni per dispositivi mo
 * **Univocità**: lo schema dell'URI di reindirizzamento deve essere univoco per ogni applicazione. Nel nostro esempio (com.onmicrosoft.contoso.appname://redirect/path) viene usato com.onmicrosoft.contoso.appname come schema. È consigliabile seguire questo modello. Se due applicazioni condividono lo stesso schema, verrà visualizzata una finestra di dialogo di selezione dell'app. Se la scelta dell'utente non è corretta, non sarà possibile accedere. 
 * **Completezza**: l'URI di reindirizzamento deve avere uno schema e un percorso. Il percorso deve contenere almeno una barra rovesciata dopo il dominio, ad esempio, //contoso/ funzionerà e //contoso avrà esito negativo. 
 
-## <a name="build-a-quick-start-application"></a>Creare un'applicazione di avvio rapido
-Dopo aver creato un'applicazione registrata con Azure AD B2C, è possibile completare una delle esercitazioni di avvio rapido per essere subito operativi. Di seguito sono elencati alcuni suggerimenti:
-
-[!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
+## <a name="build-an-application"></a>Creare un'applicazione
+Dopo aver creato un'applicazione registrata con Azure AD B2C, è possibile completare una delle [esercitazioni di avvio rapido](active-directory-b2c-overview.md#get-started) per essere subito operativi.
 
 

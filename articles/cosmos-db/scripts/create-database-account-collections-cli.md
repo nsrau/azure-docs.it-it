@@ -1,14 +1,14 @@
 ---
 title: Creare un account API di Azure Cosmos DB DocumentDB, un database e una raccolta con lo script dell&quot;interfaccia della riga di comando di Azure | Microsoft Docs
 description: Creare un account API di Azure Cosmos DB DocumentDB, un database e una raccolta con un esempio di script dell&quot;interfaccia della riga di comando di Azure
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

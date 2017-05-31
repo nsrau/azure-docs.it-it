@@ -1,6 +1,6 @@
 ---
-title: Creare una funzione di Azure che si connette a un DocumentDB di Azure | Documentazione Microsoft
-description: Esempio di script dell&quot;interfaccia della riga di comando - Creare una funzione di Azure che si connette a un database DocumentDB di Azure
+title: Creare una funzione di Azure che si connette ad Archiviazione di Azure | Microsoft Docs
+description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una funzione di Azure che si connette ad Archiviazione di Azure
 services: functions
 documentationcenter: functions
 author: rachelappel
@@ -10,30 +10,29 @@ tags: functions
 ms.assetid: 
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a34793b6b16cce4031e9e871d8e3b143180593ae
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3925c1a3d2c5a9fc3a82e8823dbdeffabeb38a3a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
-
 # <a name="integrate-function-app-into-azure-storage-account"></a>Integrare l'app per le funzioni nell'account di archiviazione di Azure
 
-Questo script di esempio crea un'app per le funzioni e un'account di archiviazione con le relative risorse. 
+Questo script di esempio crea un'app per le funzioni e un account di archiviazione.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="sample-script"></a>Script di esempio 
+## <a name="sample-script"></a>Script di esempio
 
-Esempio di creazione di app
+In questo esempio si crea un'app per le funzioni di Azure e si aggiunge la stringa di connessione di archiviazione a un'impostazione dell'app.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrare un'app per le funzioni nell'account di archiviazione di Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrare un'app per le funzioni nell'account di archiviazione di Azure")]
 
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
@@ -59,3 +58,4 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Altri esempi di script dell'interfaccia della riga di comando di Funzioni di Azure sono disponibili nella [documentazione di Funzioni di Azure](../functions-cli-samples.md).
+

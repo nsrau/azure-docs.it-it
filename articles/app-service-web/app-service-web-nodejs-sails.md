@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 197e4c1873ecdc80c7eed3427449e2ea0d1605ba
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -47,7 +47,7 @@ Avere una conoscenza pratica di Sails.js. Questa esercitazione non fornisce info
 * [Node.JS](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Anteprima dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2)
+* [Interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2)
 * Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
@@ -118,13 +118,13 @@ Creare ora la risorsa del servizio app in Azure e distribuirvi l'app Sails.js.
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) con un nome. Per questa esercitazione su PHP, non è strettamente necessario conoscerne tutte le caratteristiche e funzioni.
+3. Creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) con un nome. Per questa esercitazione su Node.js, non è strettamente necessario conoscerne tutte le caratteristiche e funzioni.
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
     Per visualizzare i possibili valori utilizzabili per `<location>`, usare il comando `az appservice list-locations` nell'interfaccia della riga di comando.
 
-3. Creare un [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "GRATUITO" con un nome. Per questa esercitazione su PHP, è sufficiente sapere che non sono previsti costi per le app Web in questo piano.
+3. Creare un [piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "GRATUITO" con un nome. Per questa esercitazione su Node.js, è sufficiente sapere che non sono previsti costi per le app Web in questo piano.
 
         az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
 

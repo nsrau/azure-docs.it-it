@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 821be267a109bdcb1a1d22107f0ab4c469e6d6aa
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -37,32 +38,32 @@ A seconda della modalità di [progettazione dell’applicazione per la continuit
 Per evitare il rischio di perdita di dati durante l'esecuzione di un'esercitazione per il ripristino di emergenza, è consigliabile usare un ambiente di test creando una copia dell'ambiente di produzione e usandolo per verificare il flusso di lavoro di failover dell'applicazione.
 
 #### <a name="outage-simulation"></a>Simulazione dell'interruzione del servizio
-Per simulare l'interruzione è possibile eliminare o rinominare il database di origine. Ciò causerà un errore di connettività dell'applicazione.
+Per simulare l'interruzione è possibile eliminare o rinominare il database di origine. Ciò causa un errore di connettività dell'applicazione.
 
 #### <a name="recovery"></a>Ripristino
 * Eseguire il ripristino geografico del database in un server diverso, come descritto [qui](sql-database-disaster-recovery.md).
 * Modificare la configurazione dell'applicazione per connettersi ai database ripristinati e seguire la guida [Configurare un database dopo il ripristino](sql-database-disaster-recovery.md) per completare il ripristino.
 
 #### <a name="validation"></a>Convalida
-* Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (ad esempio, stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
+* Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (inclusi stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
 
 ## <a name="geo-replication"></a>Replica geografica
-Per un database protetto mediante la replica geografica l’esercitazione comporterà un failover pianificato per il database secondario. Il failover pianificato assicura che i database primario e secondario restino sincronizzati quando si invertono i ruoli. A differenza del failover non pianificato, questa operazione non comporterà la perdita di dati, quindi l’esercitazione può essere realizzata nell'ambiente di produzione.
+Per un database protetto mediante la replica geografica l'esercitazione comporta un failover pianificato per il database secondario. Il failover pianificato assicura che i database primario e secondario restino sincronizzati quando si invertono i ruoli. A differenza del failover non pianificato, questa operazione non comporta la perdita di dati, quindi l'esercitazione può essere realizzata nell'ambiente di produzione.
 
 #### <a name="outage-simulation"></a>Simulazione dell'interruzione del servizio
-Per simulare l'interruzione è possibile disabilitare l'applicazione web o la macchina virtuale connessa al database. Ciò genererà errori di connessione per i client web.
+Per simulare l'interruzione è possibile disabilitare l'applicazione web o la macchina virtuale connessa al database. Ciò genera errori di connessione per i client web.
 
 #### <a name="recovery"></a>Ripristino
-* Assicurarsi che la configurazione dell'applicazione nell'area DR punti al database secondario precedente, che diventerà un nuovo database primario completamente accessibile.
+* Assicurarsi che la configurazione dell'applicazione nell'area DR punti al database secondario precedente, che diventa un nuovo database primario completamente accessibile.
 * Eseguire [failover pianificato](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) per rendere il database secondario un nuovo database primario
 * Seguire la guida [Configurare un database dopo il ripristino](sql-database-disaster-recovery.md) per completare il ripristino.
 
 #### <a name="validation"></a>Convalida
-* Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (ad esempio, stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
+* Completare l'esercitazione verificando l'integrità dell'applicazione dopo il ripristino (inclusi stringhe di connessione, account di accesso, test di funzionalità di base o altre verifiche correlate alle procedure standard di convalida delle applicazioni).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni sugli scenari di continuità aziendale, vedere l'articolo relativo agli [scenari di continuità](sql-database-business-continuity.md)
 * Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
 * Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
-* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)  
+* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md).  
 

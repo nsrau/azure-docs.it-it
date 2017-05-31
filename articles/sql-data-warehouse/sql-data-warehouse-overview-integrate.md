@@ -3,7 +3,7 @@ title: Creare soluzioni integrate con SQL Data Warehouse | Documentazione Micros
 description: 'Strumenti e partner con soluzioni che interagiscono con SQL Data Warehouse. '
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: martinle;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: d1cd23eac464d48ebc6dd618c52c252444b47e21
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
 
 

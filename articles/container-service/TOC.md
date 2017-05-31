@@ -10,7 +10,6 @@
 ## [Distribuire un cluster - Portale](container-service-deployment.md)
 ## [Distribuire un cluster - Interfaccia della riga di comando di Azure](container-service-create-acs-cluster-cli.md)
 ## [Integrazione continua e distribuzione continua con Kubernetes e Jenkins](container-service-kubernetes-jenkins.md)
-## [Integrazione continua e distribuzione continua con DC/OS e VSTS](container-service-setup-ci-cd.md)
 ## [Integrazione continua e distribuzione continua con Docker Swarm e VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Concetti
@@ -44,6 +43,7 @@
 #### [Monitorare con OMS](container-service-kubernetes-oms.md)
 #### [Monitorare con Datadog](container-service-kubernetes-datadog.md)
 #### [Monitorare con Sysdig](container-service-kubernetes-sysdig.md)
+#### [Monitorare con CoScale](container-service-kubernetes-coscale.md)
 ## Gestire con Docker Swarm
 ### [Docker e Docker Compose](container-service-docker-swarm.md)
 

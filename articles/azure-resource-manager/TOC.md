@@ -24,7 +24,6 @@
 ### [Eseguire il collegamento ad altri modelli](resource-group-linked-templates.md)
 ### [Definire la dipendenza tra risorse](resource-group-define-dependencies.md)
 ### [Creare più istanze](resource-group-create-multiple.md)
-### [Ciclo sequenziale](resource-manager-sequential-loop.md)
 ### [Impostare la posizione](resource-manager-template-location.md)
 ### [Assegnare i tag](resource-manager-template-tags.md)
 ### [Impostare il nome e il tipo della risorsa figlio](resource-manager-template-child-resource.md)
@@ -44,7 +43,7 @@
 #### [Esportare il modello e ridistribuirlo](resource-manager-export-template-cli.md)
 ### [Portale](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
-### [Distribuzione di più gruppi di risorse](resource-manager-cross-resource-group-deployment.md)
+### [Distribuzione in più gruppi di risorse](resource-manager-cross-resource-group-deployment.md)
 ### [Integrazione continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 

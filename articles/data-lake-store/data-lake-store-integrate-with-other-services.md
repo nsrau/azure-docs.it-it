@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ce6a611db7be7f1ae5f5027a77727e54e5e538ae
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 750540d0866e69ce043133e9c668c8a2e09b9d1c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -29,37 +31,24 @@ Azure Data Lake Store può essere usato in combinazione con altri servizi di Azu
 Per istruzioni su come eseguire il provisioning di un cluster HDInsight con Data Lake Store, vedere:
 
 * [Effettuare il provisioning di un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Eseguire il provisioning di un cluster HDInsight con Data Lake Store mediante Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-
-**Se si preferiscono i video**  Usare i collegamenti seguenti per accedere a video con le istruzioni su come usare i cluster Archivio Data Lake con HDInsight.
-
-* [Creare un cluster HDInsight con accesso ad Archivio Data Lake](https://mix.office.com/watch/l93xri2yhtp2)
-* Una volta configurato il cluster, [accedere ai dati in Archivio Data Lake usando gli script Hive e Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
+* [Eseguire il provisioning di un cluster HDInsight con Data Lake Store come archivio predefinito mediante Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [Eseguire il provisioning di un cluster HDInsight con Data Lake Store come archivio aggiuntivo mediante Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 ## <a name="use-data-lake-store-with-azure-data-lake-analytics"></a>Usare Archivio Data Lake con Analisi Data Lake di Azure
 [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) consente di usare i Big Data a livello di cloud. Il servizio effettua il provisioning dinamico delle risorse e permette di svolgere analisi su terabyte e addirittura exabyte di dati che possono essere archiviati nelle numerose origini dati supportate, ad esempio Data Lake Store. Data Lake Analytics è ottimizzato in modo specifico per usare Azure Data Lake Store in modo da fornire il più elevato livello di prestazioni, velocità effettiva e parallelizzazione dei carichi di lavoro dei Big Data.
 
 Per istruzioni su come usare Data Lake Analytics con Data Lake Store, vedere [Introduzione a Data Lake Analytics mediante Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
-**Se si preferiscono i video**  Usare i collegamenti seguenti per accedere a video con le istruzioni su come usare i cluster Archivio Data Lake con HDInsight.
-
-* [Connettere Analisi Azure Data Lake ad Archivio Azure Data Lake](https://mix.office.com/watch/qwji0dc9rx9k)
-* [Accedere ad Archivio Azure Data Lake con Analisi Azure Data Lake](https://mix.office.com/watch/1n0s45up381a8)
-
 ## <a name="use-data-lake-store-with-azure-data-factory"></a>Usare Archivio Data Lake con Data factory di Azure
 È possibile usare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per inserire dati da tabelle di Azure, database SQL di Azure, data warehouse SQL di Azure, BLOB di archiviazione di Azure e database locali. Essendo un elemento di primo piano nell'ecosistema Azure, Data factory di Azure può essere usato per gestire l'inserimento di dati da queste origini nel servizio Data Lake Store di Azure.
 
 Per istruzioni su come usare Data factory di Azure con Data Lake Store, vedere [Spostare dati da e verso Data Lake Store mediante Data factory](../data-factory/data-factory-azure-datalake-connector.md).
-
-**Ancora video!** Vedere il video sull' [orchestrazione dei dati con Azure Data Factory per Archivio Azure Data Lake](https://mix.office.com/watch/1oa7le7t2u4ka). 
 
 ## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake
 Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, che consente di copiare dati da Archiviazione BLOB di Azure a un account di Archivio Data Lake. Per altre informazioni, vedere [Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake](data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="copy-data-between-azure-sql-database-and-data-lake-store"></a>Copiare i dati dal database SQL di Azure nell'Archivio Data Lake
 È possibile usare Apache Sqoop per importare ed esportare dati da un database SQL di Azure in un Archivio Data Lake. Per altre informazioni, vedere [Copiare i dati tra Archivio Data Lake e un database SQL di Azure usando Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
-
-**Guardare questo video** su come [usare Apache Sqoop per spostare i dati tra origini relazionali e Archivio Azure Data Lake](https://mix.office.com/watch/1butcdjxmu114).
 
 ## <a name="use-data-lake-store-with-stream-analytics"></a>Uso di Archivio Data Lake con l'analisi di flusso
 È possibile usare Archivio Data Lake come uno degli output per archiviare dati di flusso usando l'analisi di flusso di Azure. Per altre informazioni, vedere [Trasmettere i dati dal BLOB di archiviazione di Azure ad Archivio Data Lake usando l'analisi di flusso di Azure](data-lake-store-stream-analytics.md).
@@ -70,14 +59,15 @@ Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, 
 ## <a name="use-data-lake-store-with-data-catalog"></a>Uso di Archivio Data Lake con Catalogo dati di Azure
 È possibile registrare dati da Archivio Data Lake nel Catalogo dati di Azure per rendere i dati individuabili nell'intera organizzazione. Per altre informazioni, vedere [Registrazione i dati da Archivio Data Lake in Catalogo dati di Azure](data-lake-store-with-data-catalog.md).
 
+## <a name="use-data-lake-store-with-sql-server-integration-services-ssis"></a>Uso di Data Lake Store con SQL Server Integration Services (SSIS)
+È possibile usare la gestione connessioni di Azure Data Lake Store in SSIS per connettere un pacchetto SSIS con Azure Data Lake Store. Per altre informazioni, vedere [Usare Data Lake Store con SSIS](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
+
+## <a name="use-data-lake-store-with-sql-data-warehouse"></a>Uso di Data Lake Store con SQL Data Warehouse
+È possibile usare PolyBase per caricare dati da Azure Data Lake Store in SQL Data Warehouse. Per altre informazioni, vedere [Usare Data Lake Store con SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica di Data Lake Store di Azure](data-lake-store-overview.md)
 * [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
 * [Introduzione a Data Lake Store mediante PowerShell](data-lake-store-get-started-powershell.md)  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

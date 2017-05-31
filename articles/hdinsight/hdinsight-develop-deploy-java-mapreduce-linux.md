@@ -1,6 +1,6 @@
 ---
-title: Sviluppare programmi MapReduce Java per HDInsight basato su Linux | Documentazione Microsoft
-description: Informazioni su come sviluppare programmi MapReduce Java e distribuirli in HDInsight basati su Linux.
+title: Creare Java MapReduce per Hadoop - Azure HDInsight | Microsoft Docs
+description: Informazioni su come sviluppare programmi Java MapReduce e distribuirli in Hadoop su HDInsight.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -14,18 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 05/17/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: a8623991dda4192d700d35ef3970d416e315c5c6
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: ce5661febe502e9da9682166af1b601b1fc0b965
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight-linux"></a>Sviluppare programmi MapReduce Java per Hadoop in HDInsight Linux
+# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Sviluppare programmi Java MapReduce per Hadoop in HDInsight
 
-Informazioni sull'uso di Apache Maven per creare un'applicazione di MapReduce basata su Java, quindi per distribuirla ed eseguirla in un Hadoop basato su Linux nel cluster HDInsight.
+Informazioni sull'uso di Apache Maven per creare un'applicazione MapReduce basata su Java, quindi per eseguirla con Hadoop su Azure HDInsight.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,13 +37,8 @@ Informazioni sull'uso di Apache Maven per creare un'applicazione di MapReduce ba
 
 * [Apache Maven](http://maven.apache.org/)
 
-* **Una sottoscrizione di Azure**
+## <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
 
-* **Interfaccia della riga di comando di Azure**
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
-## <a name="configure-environment-variables"></a>Configurare le variabili di ambiente
 Quando si installa Java e JDK, è possibile impostare le variabili di ambiente indicate di seguito. È tuttavia necessario verificare che esistano e che contengano i valori corretti per il sistema in uso.
 
 * `JAVA_HOME`: deve puntare alla directory in cui è installato Java Runtime Environment (JRE). Ad esempio, in un sistema OS X, Unix o Linux, deve avere un valore simile a `/usr/lib/jvm/java-7-oracle`. In Windows, avrebbe un valore simile a `c:\Program Files (x86)\Java\jre1.7`
@@ -61,17 +57,17 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
 
 2. Usare il comando `mvn`, che viene installato con Maven, per generare lo scaffolding per il progetto.
 
-   ```
+   ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    Questo comando crea una directory con il nome specificato dal parametro **artifactID** (in questo esempio **wordcountjava**). La directory contiene gli elementi seguenti:
+    Questo comando crea una directory con il nome specificato dal parametro `artifactID` (in questo esempio **wordcountjava**). La directory contiene gli elementi seguenti:
 
    * `pom.xml`: il modello a oggetti dei progetti ([POM o Project Object Model](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) che contiene le informazioni e i dettagli di configurazione usati per compilare il progetto.
 
    * `src`: la directory che contiene l'applicazione.
 
-3. Eliminare il file `src/test/java/org/apache/hadoop/examples/apptest.java`, non viene usato in questo esempio.
+3. Eliminare il file `src/test/java/org/apache/hadoop/examples/apptest.java`. Non viene usato in questo esempio.
 
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 
@@ -81,19 +77,19 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-examples</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-client-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
    ```
@@ -101,6 +97,9 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
     Questa operazione definisce le librerie richieste (elencate in &lt;artifactId\>) con una versione specifica (elencata in &lt;version\>). In fase di compilazione, queste dipendenze vengono scaricata dal repository Maven predefinito. È possibile usare la [ricerca nel repository Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) per visualizzare più informazioni.
    
     `<scope>provided</scope>` indica a Maven che queste dipendenze non devono essere fornite con l'applicazione, perché vengono fornite dal cluster HDInsight in fase di esecuzione.
+
+    > [!IMPORTANT]
+    > La versione usata deve corrispondere alla versione di Hadoop presente nel cluster. Per altre informazioni sulle versioni, vedere il documento sulle [versioni dei componenti HDInsight](hdinsight-component-versioning.md).
 
 2. Aggiungere il testo seguente al file `pom.xml`. Nel file, il testo deve essere incluso tra i tag `<project>...</project>`, ad esempio tra `</dependencies>` e `</project>`.
 
@@ -129,9 +128,10 @@ Quando si installa Java e JDK, è possibile impostare le variabili di ambiente i
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
             <configuration>
-            <source>1.7</source>
-            <target>1.7</target>
+            <source>1.8</source>
+            <target>1.8</target>
             </configuration>
         </plugin>
         </plugins>
@@ -255,11 +255,7 @@ Usare il comando seguente per caricare il file jar nel nodo head di HDInsight.
 
     Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
 
-Questo comando copia i file dal sistema locale nel nodo head.
-
-> [!NOTE]
-> Se è stata usata una password per proteggere l'account SSH, viene richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata. Ad esempio: `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
-
+Questo comando copia i file dal sistema locale nel nodo head. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="run"></a>Eseguire il processo MapReduce
 
@@ -271,7 +267,7 @@ Questo comando copia i file dal sistema locale nel nodo head.
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
    
-    Questo comando avvia l'applicazione MapReduce WordCount. Il file di input è **/example/data/gutenberg/davinci.txt**, mentre l'output è archiviato in **/example/data/wordcountout**. I file di input e di output saranno archiviati nell'archiviazione predefinita del cluster.
+    Questo comando avvia l'applicazione MapReduce WordCount. Il file di input è `/example/data/gutenberg/davinci.txt` e la directory di output è `/example/data/wordcountout`. I file di input e di output saranno archiviati nell'archiviazione predefinita del cluster.
 
 3. Dopo il completamento del processo, usare il comando seguente per visualizzare i risultati:
    

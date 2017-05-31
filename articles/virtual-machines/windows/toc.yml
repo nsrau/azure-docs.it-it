@@ -55,7 +55,8 @@
     href: network-overview.md
   - name: Set di scalabilità delle VM
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Servizio metadati dell'istanza 
+  - name: Servizio metadati dell'istanza
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Contenitori
     href: containers.md
@@ -321,10 +322,7 @@
       href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
     - name: SharePoint
       href: sharepoint-farm.md
-    - name: >-
-        Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per
-        l'esecuzione di test
-
+    - name: Configurazione di un'applicazione LOB basata sul Web in un cloud ibrido per l'esecuzione di test
       href: ps-hybrid-cloud-test-env-lob.md
     - name: Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test
       href: ps-hybrid-cloud-test-env-sim.md
@@ -347,10 +345,7 @@
       href: upload-generalized-managed.md
     - name: Caricare e creare una VM da un disco rigido virtuale specializzato
       href: upload-specialized.md
-    - name: >-
-        Eseguire la migrazione dal modello di distribuzione classica ad Azure Resource
-        Manager
-
+    - name: Eseguire la migrazione dal modello di distribuzione classica ad Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
       - name: Approfondimento sulla migrazione
@@ -376,6 +371,9 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reimpostare la password RDP
       href: reset-rdp.md
+    - name: Diagnostica di avvio
+ 
+      href: boot-diagnostics.md
     - name: Creazione di una VM
       href: troubleshoot-deployment-new-vm.md
     - name: Riavvio o ridimensionamento di una VM
@@ -386,6 +384,8 @@
       href: allocation-failure.md
     - name: Ridistribuire una VM
       href: redeploy-to-new-node.md
+    - name: Messaggi di errore comuni
+      href: error-messages.md
     - name: Collegare un disco rigido virtuale alla VM di risoluzione dei problemi
       items:
       - name: Azure PowerShell

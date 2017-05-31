@@ -1,25 +1,25 @@
 ---
 title: Creare un&quot;applicazione .NET Azure Cosmos DB tramite l&quot;API Graph | Microsoft Docs
 description: Presenta un esempio di codice .NET che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 07a13c3e9e2baefe0be7ed417ba105dd23a3708d
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 597b12b98edb07e453fc3cd5a0884c584a5bfd14
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -37,23 +37,11 @@ Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare l
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>Aggiungere un grafo
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## <a name="add-sample-data"></a>Aggiungere dati di esempio
-
-È ora possibile aggiungere dati al grafo usando Esplora dati.
-
-1. In Esplora dati espandere **sample-database**, **sample-graph**, fare clic su **Graph** (Grafo) e quindi su **New Vertex** (Nuovo vertice) e **New Edge** (Nuovo arco) per aggiungere elementi al grafo. Esplora dati è anche lo strumento in cui è possibile ridimensionare la velocità effettiva e aggiungere stored procedure, funzioni definite dall'utente e trigger al contenitore.
-
-    ![Aggiungere vertici e archi a un grafo in Esplora dati](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Dopo aver aggiunto alcuni elementi, fare clic sul pulsante **Applica filtro** oppure fare clic con il pulsante destro del mouse su **Graph** (Grafo) e scegliere **New Graph Query** (Nuova query grafo) per visualizzare il grafo dei dati. È possibile modificare il modo in cui vengono applicate etichette e stili ai dati facendo clic sul pulsante **Stile** e modificando le impostazioni. Ecco un grafo di esempio in Esplora dati, in cui tutti i colori, le etichette e i dati visualizzati possono essere modificati.
-
-    ![Esplorazione del grafo in Esplora dati nel portale di Azure](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 
@@ -154,7 +142,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

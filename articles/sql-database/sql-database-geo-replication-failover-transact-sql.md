@@ -15,26 +15,28 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 6d5ee44b57ce3e60b72ff2a2d182f2b8a39ecf81
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6ea2cfcf41900ecbf4d254cc4a195848144a0fa0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Avviare un failover pianificato o non pianificato per il database SQL di Azure con Transact-SQL
 
-Questo articolo illustra come avviare il failover su un database SQL secondario con Transact-SQL. Per configurare la replica geografica, vedere [Configurare la replica geografica per il database SQL di Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md).
+Questo articolo illustra come avviare il failover su un database SQL secondario con Transact-SQL. Per configurare la replica geografica, vedere [Configurare la replica geografica per il database SQL di Azure con PowerShell](sql-database-geo-replication-transact-sql.md).
 
 Per avviare il failover, è necessario quanto segue:
 
-* Un account di accesso con il ruolo DBManager nel database primario e con db_ownership del database locale per il quale verrà eseguita la replica geografica, oltre al ruolo DBManager nei server partner in cui si configurerà la replica geografica.
-* SQL Server Management Studio (SSMS)
+* Un account di accesso DBManager nel server primario
+* Avere db_ownership del database locale di cui eseguire la replica geografica
+* Essere DBManager nel server partner verso cui si configurerà la replica geografica
+* La versione più recente di SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
 > È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
+>  
 
 ## <a name="initiate-a-planned-failover-promoting-a-secondary-database-to-become-the-new-primary"></a>Avviare un failover pianificato per alzare di livello un database secondario per diventare il nuovo database primario
 È possibile usare l'istruzione **ALTER DATABASE** per alzare di livello un database secondario a nuovo database primario in maniera pianificata, abbassando di livello il database primario esistente a database secondario. Questa istruzione viene eseguita sul database master nel server logico di database SQL di Azure in cui risiede il database secondario con replica geografica che viene alzato di livello. Questa funzionalità è progettata per il failover pianificato, ad esempio durante le esercitazioni sul ripristino di emergenza, e richiede che il database primario sia disponibile.
@@ -61,7 +63,7 @@ Usare la procedura seguente per avviare un failover pianificato.
 > 
 
 ## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Avviare un failover non pianificato dal database primario al database secondario
-È possibile usare l'istruzione **ALTER DATABASE** per alzare di livello un database secondario a nuovo database primario in maniera non pianificata, forzando l'abbassamento di livello del database primario esistente a database secondario in un momento in cui il database primario non è più disponibile. Questa istruzione viene eseguita sul database master nel server logico di database SQL di Azure in cui risiede il database secondario con replica geografica che viene alzato di livello.
+È possibile usare l'istruzione **ALTER DATABASE** per alzare di livello un database secondario in modo che diventi il nuovo database primario in nodo non pianificato, forzando l'abbassamento di livello del database primario esistente a database secondario in un momento in cui il database primario non è più disponibile. Questa istruzione viene eseguita sul database master nel server logico di database SQL di Azure in cui risiede il database secondario con replica geografica che viene alzato di livello.
 
 Questa funzionalità è progettata per il ripristino di emergenza quando il ripristino della disponibilità del database è critica ed è accettabile una perdita di dati. Quando si richiama il failover forzato, il database secondario specificato diventa immediatamente il database primario e inizia ad accettare le transazioni di scrittura. Non appena il database primario originale può riconnettersi a questo nuovo database primario, viene eseguito un backup incrementale nel database primario originale e il database primario precedente viene convertito in un database secondario per il nuovo database primario. In seguito si tratterà semplicemente di una replica di sincronizzazione del nuovo database.
 
@@ -85,8 +87,8 @@ Usare la procedura seguente per avviare un failover non pianificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo il failover, verificare che nel nuovo database primario siano configurati i requisiti di autenticazione relativi al server e al database. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
-* Per informazioni sul ripristino di emergenza tramite replica geografica attiva, comprensive delle procedure preliminari e successive a un ripristino e di un'esercitazione sul ripristino di emergenza, vedere le [esercitazioni per il ripristino di emergenza](sql-database-disaster-recovery.md)
-* Per un post del blog di Sasha Nosov sulla replica geografica attiva, vedere [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+* Per informazioni sul ripristino di emergenza tramite replica geografica attiva, incluse le procedure pre e post ripristino e un'esercitazione sul ripristino di emergenza, vedere [Ripristino di emergenza](sql-database-disaster-recovery.md)
+* Per un post di blog di Sasha Nosov sulla replica geografica attiva, vedere [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Le nuove capacità di replica geografica)
 * Per informazioni sulla progettazione di applicazioni cloud per l'uso della replica geografica attiva, vedere [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza con pool elastico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 * Per un quadro generale, vedere la [panoramica della continuità aziendale](sql-database-business-continuity.md)

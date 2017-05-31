@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 47627bc6df93db1d92aa29350fe6e48039dc6f1b
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 63f1c468b5f8f4b0bb298cb67adea8c01b065427
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Panoramica di Azure Cloud Shell (anteprima)
@@ -39,19 +39,22 @@ In Cloud Shell sono preinstallati i più diffusi strumenti da riga di comando e 
 Cloud Shell esegue automaticamente l'autenticazione sicura a ogni sessione per un accesso immediato alle risorse tramite l'interfaccia della riga di comando di Azure 2.0.
 
 ### <a name="connect-your-azure-file-storage"></a>Connettersi ad Archiviazione file di Azure
-I computer Cloud Shell sono temporanei e quindi è necessario montare una condivisione file di Azure per rendere persistente la directory $Home.
+I computer Cloud Shell sono temporanei e quindi è necessario montare una condivisione file di Azure come `clouddrive` per rendere persistente la directory $Home.
 Al primo avvio Cloud Shell chiede di creare un gruppo di risorse, un account di archiviazione e una condivisione file per conto dell'utente. Questo passaggio è occasionale e verrà automaticamente collegato per tutte le sessioni. 
 
 ![](media/storage-prompt.png)
 
-Viene creato per conto dell'utente un account di archiviazione con ridondanza locale con una condivisione file di Azure contenente un'immagine del disco da 5 GB.
-Questa immagine del disco viene usata per sincronizzare e rendere persistente la directory $Home. Vengono applicati i normali costi di archiviazione.
+Viene creato per conto dell'utente un account di archiviazione con ridondanza locale con una condivisione file di Azure contenente un'immagine del disco da 5 GB. La condivisione file viene montata come `clouddrive` per l'interazione della condivisione file stessa con l'immagine del disco utilizzata per sincronizzare e rendere persistente la directory $Home. Vengono applicati i normali costi di archiviazione.
+
 Verranno create tre risorse per conto dell'utente:
 1. Gruppo di risorse denominato: `cloud-shell-storage-<region>`
 2. Account di archiviazione denominato: `cs-uniqueGuid`
 3. Condivisione file denominata: `cs-<user>-<domain>-com-uniqueGuid`
 
-[Altre informazioni su come Cloud Shell rende persistenti i file] (persisting-shell-storage.md).
+> [!Note]
+> Tutti i file della directory $Home, come le chiavi SSH, vengono mantenuti nell'immagine del disco utente archiviato nella condivisione file montata. Applicare le procedure consigliate quando si salvano i file nella directory $Home e nella condivisione file montata.
+
+[Altre informazioni sull'archiviazione di Cloud Shell, l'aggiornamento delle condivisioni file e il caricamento e download di file.] (persisting-shell-storage.md).
 
 ## <a name="concepts"></a>Concetti
 * Cloud Shell viene eseguito in un computer temporaneo disponibile per ogni sessione e per ogni utente

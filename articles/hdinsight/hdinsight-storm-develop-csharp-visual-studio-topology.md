@@ -1,6 +1,6 @@
 ---
-title: Topologie di Apache Storm con Visual Studio e Visual C# | Documentazione Microsoft
-description: Informazioni su come creare topologie Storm in C# mediante la creazione di una semplice topologia di conteggio parole in Visual Studio usando HDInsight Tools per Visual Studio.
+title: Topologie di Apache Storm con Visual Studio e Visual C# - Azure | Microsoft Docs
+description: Informazioni su come creare topologie Storm in C# mediante la creazione di una semplice topologia di conteggio parole in Visual Studio usando gli strumenti Hadoop per Visual Studio.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: cc6b16b559c4d1eafc570d0361c710487021f175
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 7b267ba427da276f53326c9068417521c8976e63
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-on-hdinsight-using-hadoop-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm in HDInsight tramite gli strumenti Hadoop per Visual Studio
 
-Informazioni su come creare una topologia Storm C# usando HDInsight Tools per Visual Studio. Questo documento illustra il processo di creazione di un progetto Storm in Visual Studio, l'esecuzione del test in locale e la distribuzione in un cluster Apache Storm in HDInsight.
+Informazioni su come creare una topologia Storm C# usando gli strumenti Data Lake (Hadoop) per Visual Studio. Questo documento illustra il processo di creazione di un progetto Storm in Visual Studio, l'esecuzione del test in locale e la distribuzione in un cluster Apache Storm in HDInsight.
 
 Viene anche spiegato come creare topologie ibride che usano componenti C# e Java.
 
@@ -53,10 +54,10 @@ Viene anche spiegato come creare topologie ibride che usano componenti C# e Java
 
 * Azure SDK 2.9.5 o versione successiva
 
-* HDInsight Tools per Visual Studio: per installare e configurare gli strumenti HDInsight per Visual Studio, vedere [Introduzione all'uso di HDInsight Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) .
+* Strumenti Data Lake per Visual Studio: per installarli e configurarli, vedere [Introduzione all'uso di Data Lake Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
   > [!NOTE]
-  > Gli strumenti HDInsight per Visual Studio non sono supportati in Visual Studio Express
+  > Gli strumenti Data Lake per Visual Studio non sono supportati in Visual Studio Express
 
 * Apache Storm in cluster HDInsight: per la procedura relativa alla creazione di un cluster, vedere [Introduzione ad Apache Storm in HDInsight](hdinsight-apache-storm-tutorial-get-started.md) .
 
@@ -65,14 +66,14 @@ Viene anche spiegato come creare topologie ibride che usano componenti C# e Java
 
 ## <a name="templates"></a>Modelli
 
-Gli strumenti HDInsight per Visual Studio includono i modelli seguenti:
+Gli strumenti Data Lake per Visual Studio includono i modelli seguenti:
 
 | Tipo di progetto | Dimostra |
 | --- | --- |
 | Applicazione Storm |Un progetto di topologia Storm vuoto |
 | Esempio di writer SQL di Azure per Storm |Come scrivere nel database SQL di Azure |
-| Esempio di lettore DocumentDB per Storm |Come leggere da Azure DocumentDB |
-| Esempio di writer DocumentDB per Storm |Come scrivere in Azure DocumentDB |
+| Esempio di reader Storm per Azure Cosmos DB |Come leggere da Azure Cosmos DB |
+| Esempio di writer Storm per Azure Cosmos DB |Come scrivere in Azure Cosmos DB |
 | Esempio di lettore EventHub per Storm |Come leggere da Hub eventi di Azure |
 | Esempio di writer EventHub per Storm |Come scrivere in Hub eventi di Azure |
 | Esempio di lettore HBase per Storm |Come leggere da cluster HBase in HDInsight |
@@ -95,7 +96,7 @@ Per una topologia di esempio che usa questo componente e compatibile con Storm i
 
 ## <a name="create-a-c-topology"></a>Creare una topologia C#
 
-1. Se la versione più recente di HDInsight Tools per Visual Studio non è ancora installata, vedere [Introduzione all'uso di HDInsight Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. Se la versione più recente degli strumenti Data Lake per Visual Studio non è ancora installata, vedere [Introduzione all'uso di Data Lake Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Aprire Visual Studio, selezionare **File** > **Nuovo** e quindi **Progetto**.
 
@@ -420,9 +421,9 @@ Le topologie transazionali implementano le operazioni seguenti per supportare la
 
 Come dimostrato nel progetto **Storm Sample** , è possibile specificare in fase di esecuzione, in base alla configurazione, se un componente è transazionale o meno.
 
-## <a name="hybrid-topology"></a>Topologia ibrida
+## <a name="hybrid-topology-with-c-and-java"></a>Topologia ibrida con C# e Java
 
-HDInsight Tools per Visual Studio può essere usato anche per creare topologie ibride, dove alcuni componenti sono in C# e altri in Java.
+Gli strumenti Data Lake per Visual Studio possono essere usati anche per creare topologie ibride, dove alcuni componenti sono in C# e altri in Java.
 
 Per un esempio di topologia ibrida, creare un progetto e selezionare **Storm Hybrid Sample**. Questo tipo di esempio illustra i concetti seguenti:
 
@@ -514,7 +515,7 @@ Le versioni recenti di SCP.NET supportano l'aggiornamento del pacchetto tramite 
 > 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 > 2. Nel campo **Cerca** cercare **Microsoft.SCP.Net.SDK** e quindi aggiungerlo al progetto.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting-common-issues-with-topologies"></a>Risoluzione di problemi comuni con le topologie
 
 ### <a name="null-pointer-exceptions"></a>Eccezioni del puntatore null
 

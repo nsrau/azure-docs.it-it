@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 41d63ef88e9f0caf3d5f74841ec4670875fdaad1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analizzare i modelli di utilizzo della rete CDN di Azure
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)] La guida seguente riporta la procedura necessaria per visualizzare i report di base tramite il portale di gestione dei profili Verizon. È anche possibile esportare dati analitici nell'archiviazione, nell'hub eventi o nell'analisi log (oms) per i profili Verizon e Akamai [tramite il portale Azure](cdn-log-analysis.md).
 
 È possibile visualizzare i modelli di utilizzo per la rete CDN utilizzando i seguenti report:
 
@@ -32,8 +34,8 @@ ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
 * Percentuale riscontri cache
 * Dati trasferiti IPv4/IPV6
 
-## <a name="accessing-advanced-http-reports"></a>Accesso ai report HTTP avanzati
-1. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci** .
+## <a name="accessing-core-reports"></a>Accesso ai report di base
+1. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci** .
    
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-reports/cdn-manage-btn.png)
    
@@ -136,10 +138,5 @@ Questo report mostra la distribuzione dell’utilizzo del traffico in IPV4 e IPV
 
 ## <a name="considerations"></a>Considerazioni
 I report possono essere generati solo negli ultimi 18 mesi.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

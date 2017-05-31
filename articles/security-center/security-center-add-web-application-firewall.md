@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2286437f4ab13384f895e906ccda48ac1b4c553d
-ms.openlocfilehash: b44a0373ceca84b423984e01eee1e57a67d97cdd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d04a07237029953d8a9b20704d85e852ce45d867
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,7 +42,9 @@ Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentir
 3. È possibile scegliere di usare un Web application firewall esistente eventualmente disponibile o di crearne uno nuovo. In questo esempio non sono disponibili WAF esistenti ed è pertanto necessario creare un WAF.
 4. Per creare un WAF, selezionare una soluzione dall'elenco di partner integrati. In questo esempio viene selezionato **Barracuda Web Application Firewall**.
 5. Viene visualizzato il pannello **Barracuda Web Application Firewall** , dove sono disponibili informazioni sulla soluzione del partner. Selezionare **Crea** nel pannello informativo.
+
    ![Pannello di informazioni sul firewall][3]
+
 6. Viene visualizzato il pannello **Nuovo web application firewall**, in cui è possibile eseguire la procedura di **Configurazione macchina virtuale** e fornire i dati richiesti in **Informazioni sul web application firewall**. Selezionare **Configurazione macchina virtuale**.
 7. Nel pannello **Configurazione macchina virtuale** immettere le informazioni necessarie per avviare la macchina virtuale che esegue il WAF.
    ![VM configuration][4]
@@ -48,9 +52,12 @@ Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentir
 
 ## <a name="finalize-application-protection"></a>Finalizza la protezione dell'applicazione
 1. Tornare al pannello **Raccomandazioni** . Dopo la creazione del WAF viene aggiunta una nuova voce: **Finalizza la protezione dell'applicazione**. Questa raccomandazione informa l'utente che è necessario completare il processo di connessione effettiva del WAF all'interno della rete virtuale di Azure in modo da proteggere l'applicazione.
+
    ![Finalizza la protezione dell'applicazione][5]
+
 2. Selezionare **Finalizza la protezione dell'applicazione**. Viene visualizzato un nuovo pannello. Come si può vedere, è presente un'applicazione Web il cui traffico deve essere reindirizzato.
 3. Selezionare l'applicazione Web. Viene visualizzato un pannello in cui è possibile eseguire la procedura per finalizzare la configurazione del Web application firewall. Completare i passaggi e quindi selezionare **Limita il traffico**. Centro sicurezza completa l'operazione.
+
    ![Limita il traffico][6]
 
 > [!NOTE]
@@ -60,7 +67,7 @@ Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentir
 
 I log generati dal WAF sono ora completamente integrati. Il Centro sicurezza può avviare automaticamente la raccolta e l'analisi dei log, per mettere in evidenza eventuali avvisi di sicurezza importanti.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 In questo documento è stato illustrato come implementare la raccomandazione "Aggiungere un Web application firewall". Per altre informazioni sulla configurazione di un Web application firewall, vedere gli argomenti seguenti:
 
 * [Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
@@ -81,9 +88,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [4]: ./media/security-center-add-web-application-firewall/select-vm-config.png
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

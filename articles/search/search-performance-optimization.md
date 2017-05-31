@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/02/2017
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 56eeed7634fca840172ab828be5f202d80f3f4fb
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -80,7 +81,7 @@ L'obiettivo di un set di servizi di ricerca distribuito geograficamente consiste
 Sono disponibili due opzioni per mantenere sincronizzati i servizi di ricerca distribuiti: l'uso dell'[indicizzatore di Ricerca di Azure](search-indexer-overview.md) o l'API Push, conosciuta anche come [API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/).  
 
 ### <a name="azure-search-indexers"></a>Indicizzatori di Ricerca di Azure
-Se si usa l'indicizzatore di Ricerca di Azure, si importano le modifiche ai dati da un archivio dati centrale, ad esempio database SQL di Azure o DocumentDB. Quando si crea un nuovo servizio di Ricerca, è sufficiente creare un nuovo indicizzatore di Ricerca di Azure per il servizio creato, che punta allo stesso archivio dati. In questo modo, ogni volta che le nuove modifiche entrano nell'archivio dati, vengono indicizzate dai diversi indicizzatori.  
+Se si usa l'indicizzatore di Ricerca di Azure, si importano le modifiche ai dati da un archivio dati centrale, ad esempio database SQL di Azure o Azure Cosmos DB. Quando si crea un nuovo servizio di Ricerca, è sufficiente creare un nuovo indicizzatore di Ricerca di Azure per il servizio creato, che punta allo stesso archivio dati. In questo modo, ogni volta che le nuove modifiche entrano nell'archivio dati, vengono indicizzate dai diversi indicizzatori.  
 
 Di seguito è riportato un esempio dell'aspetto dell'architettura.
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 031fa71b8f5aac558569eea7001e16df4cae917c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: fefa78f7e0ba4bd40e6c0985080403237d6eb916
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -482,11 +483,7 @@ Per ulteriori informazioni sui comandi di Redis, vedere [http://redis.io/command
 È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **Console di Redis**disponibile per le cache Premium e Standard.
 
 > [!IMPORTANT]
-> La console Redis non funziona con la rete virtuale, il servizio cluster e i database diversi da 0. 
-> 
-> * [VNET](cache-how-to-premium-vnet.md) : quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache. Poiché la Console di Redis utilizza il client di redis cli.exe ospitato su macchine virtuali che non fanno parte di una rete virtuale, è impossibile connettersi alla cache.
-> * [Clustering](cache-how-to-premium-clustering.md): la Console di Redis usa il file client redis-cli.exe che al momento non supporta il clustering. L'utilità redis-cli nel ramo [non stabile](http://redis.io/download) del repository Redis in GitHub implementa il supporto di base se avviato con l'opzione `-c`. Per altre informazioni vedere [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Usare il cluster) all'indirizzo [http://redis.io](http://redis.io) nell'[esercitazione sul cluster Redis](http://redis.io/topics/cluster-tutorial).
-> * La console Redis effettua una nuova connessione al database 0 ogni volta che si invia un comando. Non è possibile usare il comando `SELECT` per selezionare un altro database poiché il database viene reimpostato su 0 con ogni comando. Per informazioni sull'esecuzione dei comandi di Redis, incluso il passaggio a un altro database, vedere [Come si eseguono i comandi Redis?](cache-faq.md#how-can-i-run-redis-commands)
+> La Console Redis non funziona con [VNET](cache-how-to-premium-vnet.md). Quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache. Poiché la Console Redis viene eseguita nel browser locale, che si trova esternamente alla rete virtuale, non può connettersi alla cache.
 > 
 > 
 

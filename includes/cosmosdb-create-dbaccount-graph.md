@@ -20,7 +20,6 @@
     Sottoscrizione|*Sottoscrizione in uso*|Sottoscrizione di Azure da usare per l'account Azure Cosmos DB. 
     Gruppo di risorse|*Stesso valore di ID*|Nome del nuovo gruppo di risorse per l'account. Per semplicità si può usare lo stesso nome usato come ID. 
     Località|*Area più vicina ai propri utenti*|Posizione geografica in cui ospitare l'account Azure Cosmos DB. Scegliere la posizione più vicina ai propri utenti per fornire loro l'accesso più rapido possibile ai dati.
-    Piano di servizio app per API Graph|Crea nuovo - Valore predefinito S1|Selezionare la risorsa di calcolo per eseguire le query di Gremlin Graph.
 
 4. Fare clic su **Crea** per creare l'account.
 5. Sulla barra degli strumenti fare clic su **Notifiche** per monitorare il processo di distribuzione.

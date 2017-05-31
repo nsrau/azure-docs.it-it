@@ -1,6 +1,6 @@
 ---
-title: Monitorare le prestazioni di un&quot;app SaaS del database SQL | Microsoft Docs
-description: Monitorare e gestire le prestazioni di un&quot;app Wingtip Tickets (WTP) di esempio del database SQL di Azure
+title: "Monitorare le prestazioni di più database SQL di Azure in un&quot;app SaaS multi-tenant | Microsoft Docs"
+description: Monitorare e gestire le prestazioni dell&quot;app SaaS Wingtip di esempio del database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,18 +17,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: af9511978718af10c97bee6af3a2835c9d2c1ff4
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 54f29cc816d356e22b425f3824ef89800c017e61
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="monitor-performance-of-the-wtp-sample-saas-application"></a>Monitorare le prestazioni dell'applicazione SaaS di esempio WTP
+# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Monitorare le prestazioni dell'applicazione SaaS Wingtip
 
 Questa esercitazione illustra le funzionalità predefinire per il monitoraggio e gli avvisi di database SQL e dei pool elastici. Vengono poi esplorati alcuni dei principali scenari di gestione delle prestazioni usati nelle applicazioni SaaS.
 
-L'app Wingtip Tickets usa un modello di dati a tenant singolo, in cui ogni sede di eventi (tenant) ha un database proprio. Come molte applicazioni SaaS, il modello di carico di lavoro tenant previsto è imprevedibile e sporadico. In altre parole, le vendite di biglietti possono verificarsi in qualsiasi momento. Per sfruttare i vantaggi di questo modello di utilizzo tipico dei database, i database tenant sono distribuiti in pool di database elastici. I pool elastici consentono di ottimizzare il costo di una soluzione condividendo le risorse tra molti database. Con questo tipo di modello, è importante monitorare l'utilizzo dei database e delle risorse del pool per assicurarsi che i carichi siano bilanciati in modo ragionevole tra i pool. È anche necessario assicurarsi che i singoli database dispongano delle risorse appropriate e che i pool non si avvicinino ai limiti di [eDTU](sql-database-what-is-a-dtu.md). Questa esercitazione illustra alcuni modi per monitorare e gestire i database e i pool, nonché come adottare misure correttive in risposta a variazioni del carico di lavoro.
+L'app SaaS Wingtip usa un modello di dati a tenant singolo, in cui ogni sede di eventi (tenant) ha un database proprio. Come molte applicazioni SaaS, il modello di carico di lavoro tenant previsto è imprevedibile e sporadico. In altre parole, le vendite di biglietti possono verificarsi in qualsiasi momento. Per sfruttare i vantaggi di questo modello di utilizzo tipico dei database, i database tenant sono distribuiti in pool di database elastici. I pool elastici consentono di ottimizzare il costo di una soluzione condividendo le risorse tra molti database. Con questo tipo di modello, è importante monitorare l'utilizzo dei database e delle risorse del pool per assicurarsi che i carichi siano bilanciati in modo ragionevole tra i pool. È anche necessario assicurarsi che i singoli database dispongano delle risorse appropriate e che i pool non si avvicinino ai limiti di [eDTU](sql-database-what-is-a-dtu.md). Questa esercitazione illustra alcuni modi per monitorare e gestire i database e i pool, nonché come adottare misure correttive in risposta a variazioni del carico di lavoro.
 
 In questa esercitazione si apprenderà come:
 
@@ -42,10 +42,10 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-* L'app WTP è stata distribuita. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare un'applicazione SaaS multi-tenant di esempio che usa il database di SQL Azure](sql-database-saas-tutorial.md)
+* L'app SaaS Wingtip viene distribuita. Per distribuire in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS Wingtip](sql-database-saas-tutorial.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-## <a name="introduction-to-saas-performance-management-patterns"></a>Introduzione ai modelli di gestione delle prestazioni di SaaS
+## <a name="introduction-to-saas-performance-management-patterns"></a>Introduzione ai modelli di gestione delle prestazioni SaaS
 
 La gestione delle prestazioni dei database comprende la compilazione e l'analisi dei dati sulle prestazioni, quindi l'adozione delle misure appropriate adattando i parametri in modo da mantenere tempi di risposta accettabili per l'applicazione. Quando si ospitano più tenant, i pool di database elastici rappresentano una soluzione conveniente per fornire e gestire le risorse per un gruppo di database con carichi di lavoro imprevedibili. Con determinati modelli di carico di lavoro, anche solo due database S3 possono trarre vantaggio dalla gestione in un pool. Un pool non solo consente di condividere il costo delle risorse, ma anche di eliminare la necessità di monitorare e controllare costantemente singoli database.
 
@@ -66,7 +66,7 @@ Per scenari con volumi elevati, è possibile usare Log Analytics (noto anche com
 
 ## <a name="get-the-wingtip-application-scripts"></a>Ottenere gli script dell'applicazione Wingtip
 
-Gli script di Wingtip Tickets e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). I file di script si trovano nella [cartella Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Scaricare la cartella **Learning Modules** nel computer locale, mantenendo la struttura delle cartelle.
+Gli script dell'app SaaS Wingtip e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procedura per scaricare gli script dell'app SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-additional-tenants"></a>Eseguire il provisioning di altri tenant
 
@@ -80,7 +80,7 @@ Se è già stato effettuato il provisioning di un batch di tenant in un'esercita
 
 Lo script distribuirà 17 tenant in meno di cinque minuti.
 
-Lo script *New-TenantBatch* usa un set annidato o collegato di modelli di [Resource Manager](../azure-resource-manager/index.md) che creano un batch di tenant, che copia per impostazione predefinita il database **baseTenantDb** nel server di catalogo per creare i nuovi database tenant, quindi li registra nel catalogo e infine li inizializza con il nome del tenant e il tipo di sede. Questo comportamento è coerente con il modo in cui l'app WTP esegue il provisioning di un nuovo tenant. Tutte le modifiche apportate a *baseTenantDB* vengono applicate agli eventuali nuovi tenant di cui viene eseguito il provisioning in seguito. Vedere l'[esercitazione sulla gestione dello schema](sql-database-saas-tutorial-schema-management.md) per informazioni su come apportare modifiche allo schema di database tenant *esistenti*, incluso il database *di riferimento*.
+Lo script *New-TenantBatch* usa un set annidato o collegato di modelli di [Resource Manager](../azure-resource-manager/index.md) che creano un batch di tenant, che copia per impostazione predefinita il database **baseTenantDb** nel server di catalogo per creare i nuovi database tenant, quindi li registra nel catalogo e infine li inizializza con il nome del tenant e il tipo di sede. Questo comportamento è coerente con il modo in cui l'app effettua il provisioning di un nuovo tenant. Tutte le modifiche apportate a *baseTenantDB* vengono applicate agli eventuali nuovi tenant di cui viene eseguito il provisioning in seguito. Vedere l'[esercitazione sulla gestione dello schema](sql-database-saas-tutorial-schema-management.md) per informazioni su come apportare modifiche allo schema di database tenant *esistenti*, incluso il database *di riferimento*.
 
 ## <a name="simulate-different-usage-patterns-by-generating-different-load-types"></a>Simulare modelli di utilizzo diversi generando tipi di carico diversi
 
@@ -222,7 +222,7 @@ Quando il carico maggiore del normale per il database contosoconcerthall diminui
 
 ## <a name="other-performance-management-patterns"></a>Altri modelli di gestione delle prestazioni
 
-**Scalabilità preventiva** Nell'esercizio 6 è stato illustrato come ridimensionare un database isolato quando si conosce il database su cui intervenire. Se il responsabile della gestione di Contoso Concert Hall avesse informato WTP dell'imminente vendita di biglietti, il database avrebbe potuto essere rimosso dal pool preventivamente. In caso contrario, sarebbe stato probabilmente necessario un avviso per il pool o il database per ricevere una segnalazione della situazione. È meglio evitare di venire a conoscenza di un problema di questo tipo quando gli altri tenant nel pool si lamentano del calo di prestazioni. Se il tenant può prevedere il tempo per cui saranno necessarie risorse aggiuntive, inoltre, è possibile configurare un runbook di Automazione di Azure per spostare il database fuori dal pool e reinserirlo in base a una pianificazione definita.
+**Scalabilità preventiva** Nell'esercizio 6 è stato illustrato come ridimensionare un database isolato quando si conosce il database su cui intervenire. Se il responsabile della gestione di Contoso Concert Hall avesse informato Wingtips dell'imminente vendita di biglietti, sarebbe stato possibile rimuovere preventivamente il database dal pool. In caso contrario, sarebbe stato probabilmente necessario un avviso per il pool o il database per ricevere una segnalazione della situazione. È meglio evitare di venire a conoscenza di un problema di questo tipo quando gli altri tenant nel pool si lamentano del calo di prestazioni. Se il tenant può prevedere il tempo per cui saranno necessarie risorse aggiuntive, inoltre, è possibile configurare un runbook di Automazione di Azure per spostare il database fuori dal pool e reinserirlo in base a una pianificazione definita.
 
 **Scalabilità self-service dei tenant** Dato che la scalabilità richiede attività facilmente richiamabili tramite l'API di gestione, è possibile integrare in modo semplice funzioni di scalabilità dei database tenant nell'applicazione che interagisce con i tenant e offrirle come funzionalità del servizio SaaS. Ad esempio, fare in modo che i tenant possano amministrare in autonomia l'aumento o la riduzione delle prestazioni, eventualmente collegando anche queste operazioni in modo diretto alla fatturazione.
 
@@ -247,7 +247,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Altre esercitazioni basate sulla distribuzione iniziale dell'applicazione Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Altre [esercitazioni basate sulla distribuzione dell'applicazione SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pool elastici SQL](sql-database-elastic-pool.md)
 * [Automazione di Azure](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Esercitazione sulla configurazione e l'uso di Log Analytics

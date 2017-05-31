@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 12bb5b1b5f5ec860de347c1ea806da29eda3f88f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 518b20b36fafa5fb8ca7a67f0a67880c76f2d8d1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -25,12 +27,7 @@ ms.openlocfilehash: 12bb5b1b5f5ec860de347c1ea806da29eda3f88f
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
+* [Simulazione di un dispositivo con Azure IoT Edge][lnk-iotedge]
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

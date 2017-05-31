@@ -11,12 +11,12 @@ ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/18/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 96856fe2a9ce869eb63b7c857de614202ae43064
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 801806056b745be5663c0a10241795947d1dd036
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -123,7 +123,7 @@ Gli esempi seguenti illustrano come connettersi al server MySQL tramite l'interf
 Usando l'interfaccia della riga di comando di MySQL, eseguire questo comando:
 
 ```dos
-mysql.exe -h yourserver. -uUsername@Servername -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
+mysql.exe -h mysqlserver4demo.mysql.database.azure.com -uUsername@mysqlserver4demo -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
 ```
 Eseguire il comando mysql **status** per verificare di essere connessi al server MySQL tramite SSL:
 
@@ -151,9 +151,13 @@ Threads: 4  Questions: 26082  Slow queries: 0  Opens: 112  Flush tables: 1  Open
 --------------
 ```
 
+> [!NOTE]
+> Attualmente esiste un problema noto: se si usa l'opzione "--ssl-mode=VERIFY_IDENTITY" nella connessione di mysql.exe al servizio, la connessione non riesce e mostra l'errore seguente: _ERROR 2026 (HY000): Errore di connessione SSL: Errore nella convalida del certificato SSL_ Eseguire il downgrade a "--ssl-mode=VERIFY_CA" o a [modalità SSL](https://dev.mysql.com/doc/refman/5.7/en/secure-connection-options.html#option_general_ssl-mode) inferiori. Se è necessario usare "--ssl-mode=VERIFY_IDENTITY", è possibile eseguire un ping al nome del server per risolvere il nome del server di area, ad esempio westeurope1-a.control.database.windows.net, e usare il nome del server di area nella connessione fino a quando il problema viene risolto. In futuro questa limitazione verrà rimossa. 
+
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Connessione al server con MySQL Workbench tramite SSL
 Per la configurazione di MySQL Workbench per connettersi in modo sicuro tramite SSL è necessario passare alla scheda **SSL** nella finestra di dialogo Setup New Connection (Configura nuova connessione) di MySQL Workbench, quindi immettere il percorso del file **MyServerCACert.pem** nel campo **SSL CA File** (File CA SSL).
 ![Salvare un riquadro personalizzato](./media/concepts-ssl-connection-security/mysql-workbench-ssl.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Esaminare varie opzioni di connettività dell'applicazione in [Raccolte di connessioni per Database di Azure per MySQL](concepts-connection-libraries.md)
+

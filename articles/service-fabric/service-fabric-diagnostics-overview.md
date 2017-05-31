@@ -12,75 +12,112 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/9/2017
+ms.date: 05/10/2017
 ms.author: dekapur
-translationtype: Human Translation
-ms.sourcegitcommit: ebbb29ee031fb477ce284f7a0d27c1522317f4f0
-ms.openlocfilehash: 46a35fa4ec341561ab234f7ec19fb20658fcb2c4
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 9c1a3bb6de8756c37903e5f1b9dcf3fdc1ef6a11
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="monitor-and-diagnose-azure-service-fabric-applications"></a>Monitorare e diagnosticare le applicazioni di Azure Service Fabric
+# <a name="monitoring-and-diagnostics-in-azure-service-fabric"></a>Monitoraggio e diagnostica in Azure Service Fabric
 
-Il monitoraggio e la diagnostica sono essenziali in un ambiente di produzione live. Azure Service Fabric consente di implementare il monitoraggio e la diagnostica durante lo sviluppo del servizio, per assicurare il funzionamento perfetto del servizio in un ambiente di sviluppo locale con computer singolo e in un'installazione cluster di produzione reale.
+Il monitoraggio e la diagnostica sono essenziali per lo sviluppo, il test e la distribuzione negli ambienti di produzione. Le soluzioni Service Fabric offrono i risultati migliori quando si implementano il monitoraggio e la diagnostica fin dall'inizio, per assicurare il perfetto funzionamento dei servizi negli ambienti di sviluppo locali e in configurazioni dei cluster di produzione reali.
 
-Il monitoraggio e la diagnostica offrono i vantaggi seguenti durante lo sviluppo dei servizi:
-* Riduzione al minimo dei disagi per i clienti.
-* Approfondimenti professionali.
-* Monitoraggio dell'uso delle risorse.
-* Rilevamento di errori hardware e software o dei problemi di prestazioni.
-* Diagnosi dei potenziali problemi per i servizi.
+Gli obiettivi principali di monitoraggio e diagnostica sono:
+* Rilevare e diagnosticare i problemi di hardware e infrastruttura
+* Rilevare i problemi di software e app, ridurre i tempi di inattività del servizio
+* Comprendere l'utilizzo delle risorse e supportare le decisioni operative
+* Ottimizzare le prestazioni delle applicazioni, dei servizi e delle infrastrutture
+* Generare informazioni aziendali dettagliate e identificare le aree di miglioramento
 
-Il monitoraggio è un termine ampio che include le attività seguenti:
-* Strumentazione del codice
-* Raccolta di log di strumentazione
-* Analisi dei log
-* Visualizzazione degli approfondimenti in base ai dati dei log
-* Configurazione degli avvisi in base ai valori dei log e agli approfondimenti
-* Monitoraggio dell'infrastruttura
-* Rilevamento e diagnosi dei problemi che interessano i clienti
 
-Questo articolo offre una panoramica del monitoraggio per cluster di Service Fabric ospitati in Azure, in locale, distribuiti in Windows o Linux oppure tramite Microsoft .NET Framework. Vengono esaminati tre aspetti importanti del monitoraggio e della diagnostica:
-- Strumentazione di codice o di infrastruttura
-- Raccolta di eventi generati
-- Archiviazione, aggregazione, visualizzazione e analisi
+Il monitoraggio e la diagnostica sono importanti per garantire che tutto funzioni come previsto e consentono di rispondere alle situazioni con un'interruzione minima del servizio. 
 
-Anche se sono disponibili molti prodotti che comprendono tutte e tre le aree, molti clienti scelgono tecnologie diverse per ogni aspetto del monitoraggio. Per offrire una soluzione di monitoraggio end-to-end per l'applicazione, è importante l'interazione tra ogni elemento.
+Il flusso di lavoro generale di monitoraggio e diagnostica è costituito da tre passaggi: 
+1. **Generazione di eventi**: sono inclusi eventi (log, tracce, eventi personalizzati) sia a livello di infrastruttura (cluster) che a livello di applicazione/servizio 
+2. **Aggregazione di eventi**: gli eventi generati devono essere raccolti e aggregati prima di poter essere visualizzati. A tale scopo, è possibile usare le tabelle di archiviazione configurate da Diagnostica di Azure oppure creare una pipeline EventFlow
+3. **Analisi**: gli eventi devono essere visualizzati e devono essere accessibili in un formato, per consentirne l'analisi e la visualizzazione in base alle esigenze specifiche. È possibile scegliere di usare strumenti come Application Insights, Operations Management Suite, Kibana e molti altri
 
-## <a name="monitoring-infrastructure"></a>Monitoraggio dell'infrastruttura
+Anche se sono disponibili molti prodotti che coprono tutte e tre le aree, molti clienti scelgono tecnologie diverse per ognuno degli aspetti. Per disporre di una soluzione di monitoraggio end-to-end per l'applicazione, è importante che queste tecnologie funzionino in combinazione.
 
-Service Fabric consente di mantenere un'applicazione in esecuzione in caso di errori di infrastruttura, ma è necessario capire se un errore si verifica nell'applicazione o nell'infrastruttura sottostante. È anche necessario monitorare l'infrastruttura per la pianificazione della capacità, in modo da sapere quando è necessario aggiungere o rimuovere infrastruttura. È importante monitorare e risolvere i problemi dell'infrastruttura e dell'applicazione che compongono una distribuzione di Service Fabric. Anche se un'applicazione è disponibile per i clienti, è possibile che si verifichino ancora problemi per l'infrastruttura.
+A seconda delle esigenze, è possibile estendere ulteriormente la diagnostica e il monitoraggio per includere avvisi automatizzati e mitigazione, funzionalità spesso integrate negli strumenti di analisi che è possibile scegliere di usare. 
 
-### <a name="azure-monitor"></a>Monitoraggio di Azure
+## <a name="event-generation"></a>Generazione di eventi
 
-È possibile usare [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md) per monitorare molte risorse di Azure in cui viene creato un cluster di Service Fabric. Un set di metriche per il [set di scalabilità di macchine virtuali](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) e per le singole [macchine virtuali](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines) viene raccolto automaticamente e visualizzato nel portale di Azure. Per visualizzare le informazioni raccolte, nel portale di Azure selezionare il gruppo di risorse che contiene il cluster di Service Fabric. Selezionare quindi il set di scalabilità di macchine virtuali da visualizzare. Nella sezione **Monitoraggio** selezionare **Metriche** per visualizzare un grafico dei valori.
+Eventi, log e tracce possono essere generati dal livello dell'infrastruttura (elementi del cluster, computer o azioni di Service Fabric) o dal livello dell'applicazione (qualsiasi strumentazione aggiunta alle app e ai servizi distribuiti nel cluster).
 
-![Visualizzazione del portale di Azure dei dati di metrica raccolti](./media/service-fabric-diagnostics-overview/azure-monitoring-metrics.PNG)
+### <a name="infrastructure-monitoring-the-cluster"></a>Infrastruttura: monitoraggio del cluster
 
-Per personalizzare i grafici, seguire le istruzioni disponibili in [Metriche in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). È anche possibile creare avvisi in base a queste metriche, come illustrato in [Creare avvisi in Monitoraggio di Azure per servizi di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). È possibile inviare avvisi a un servizio di notifica usando webhook, come illustrato in [Configurare un webhook in un avviso relativo alle metriche di Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Monitoraggio di Azure supporta solo una sottoscrizione. Se è necessario monitorare più sottoscrizioni o se sono necessarie funzionalità aggiuntive, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), incluso in Microsoft Operations Management Suite, fornisce una soluzione olistica di gestione IT per infrastrutture locali e basate sul cloud. È possibile indirizzare i dati di Monitoraggio di Azure direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
+Service Fabric consente di mantenere un'applicazione in esecuzione in caso di errori dell'infrastruttura, ma è comunque necessario capire se un errore si verifica nell'applicazione o nell'infrastruttura sottostante. È anche necessario monitorare l'infrastruttura per la pianificazione della capacità, in modo da sapere quando è necessario aggiungere o rimuovere infrastruttura. È importante monitorare e risolvere i problemi dell'infrastruttura e dell'applicazione che compongono una distribuzione di Service Fabric. Anche se un'applicazione è disponibile per i clienti, l'infrastruttura potrebbe provocare ancora problemi. Per assicurarsi che il cluster funzioni come previsto, Service Fabric fornisce cinque diversi canali di registrazione predefiniti:
 
-È consigliabile usare Operations Management Suite per monitorare l'infrastruttura locale, ma è possibile usare qualsiasi soluzione esistente usata dall'organizzazione per il monitoraggio dell'infrastruttura.
+1. Canale operativo: operazioni generali eseguite da Service Fabric e dal cluster, inclusi eventi per un nodo, una nuova applicazione distribuita, il ripristino dello stato precedente a un aggiornamento di Service Fabric e così via. 
+2. Canale di informazioni per i clienti: report di integrità e decisioni di bilanciamento del carico
+3. Eventi di Reliable Services: eventi specifici del modello di programmazione
+4. Eventi di Reliable Actors: eventi specifici del modello di programmazione e contatori delle prestazioni
+5. Log di supporto: log di sistema generati da Service Fabric solo per l'uso da parte di Microsoft per fornire supporto
 
-### <a name="service-fabric-support-logs"></a>Log di supporto di Service Fabric
+È consigliabile abilitare il servizio "Diagnostica" al momento della creazione del cluster. Questa operazione può essere eseguita nel portale, come illustrato di seguito, o mediante un modello di Azure Resource Manager che include la diagnostica. 
+
+![Creazione di un cluster dal portale di Azure con la diagnostica abilitata](./media/service-fabric-diagnostics-overview/azure-enable-diagnostics.png)
+
+Come illustrato sopra, c'è anche un campo facoltativo per aggiungere una chiave di strumentazione di Application Insights (AppInsights). Se si sceglie di usare AppInsights per l'analisi degli eventi (AppInsights è una delle soluzioni consigliate), includere qui la risorsa instrumentationKey (GUID) di AppInsights.
+
+#### <a name="service-fabric-support-logs"></a>Log di supporto di Service Fabric
 
 Se è necessario contattare il supporto Microsoft per assistenza con il cluster di Azure Service Fabric, saranno quasi sempre richiesti i log di supporto. Se il cluster è ospitato in Azure, questi log vengono automaticamente configurati e raccolti in fase di creazione di un cluster. I log vengono archiviati in un account di archiviazione dedicato nel gruppo di risorse del cluster. L'account di archiviazione non ha un nome predefinito, ma nell'account vengono visualizzati contenitori BLOB e tabelle con nomi che iniziano con *fabric*. Per informazioni sulla configurazione di raccolte di log per un cluster autonomo, vedere [Creare un cluster autonomo di Azure Service Fabric](service-fabric-cluster-creation-for-windows-server.md) e [Impostazioni di configurazione per un cluster autonomo in Windows](service-fabric-cluster-manifest.md). Per istanze autonome di Service Fabric, i log devono essere inviati a una condivisione file locale. È **obbligatorio** disporre di questi log per ottenere assistenza. I log devono essere usati solo dal team di assistenza clienti Microsoft.
 
-## <a name="instrument-your-code"></a>Instrumentare il codice
+#### <a name="azure-service-fabric-health-and-load-reporting"></a>Creazione di report su integrità e carico di Azure Service Fabric
 
-La strumentazione del codice è la base di molti altri aspetti di monitoraggio dei servizi. La strumentazione è l'unico modo per rilevare eventuali problemi e individuare le correzioni necessarie. Anche se è tecnicamente possibile connettere un debugger a un servizio di produzione, questa non è una procedura comune. I dati dettagliati di strumentazione sono quindi importanti. Quando si crea questo volume di informazioni, trasferire tutti gli eventi nel nodo locale può essere oneroso. Molti servizi usano una strategia in due parti per gestire il volume dei dati di strumentazione:
-1.  Tutti gli eventi vengono mantenuti nel file di log in sequenza locale per un breve intervallo e vengono raccolti solo quando necessario per il debug. In genere gli eventi necessari per la diagnostica dettagliata vengono lasciati nel nodo in modo da ridurre i costi e l'utilizzo delle risorse.
-2.  Eventuali eventi relativi all'integrità del servizio vengono inviati a un repository centrale, dove possono essere usati per generare avvisi relativi a un servizio non integro. Gli eventi relativi all'integrità del servizio includono eventi di errore, eventi heartbeat ed eventi relativi alle prestazioni.
+Service Fabric offre un modello di integrità specifico, descritto in dettaglio in questi articoli:
+- [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
+- [Creare report e verificare l'integrità dei servizi](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+- [Aggiungere report sull'integrità di Service Fabric personalizzati](service-fabric-report-health.md)
+- [Come visualizzare i report sull'integrità di Service Fabric](service-fabric-view-entities-aggregated-health.md)
+
+Il monitoraggio dell'integrità è fondamentale per vari aspetti dell'uso di un servizio. Il monitoraggio dell'integrità è particolarmente importante quando Service Fabric esegue l'aggiornamento di un'applicazione denominata. Dopo l'aggiornamento di ogni dominio di aggiornamento del servizio, quando il dominio è disponibile per i clienti, è necessario che superi controlli di integrità prima che la distribuzione passi al dominio di aggiornamento successivo. Se non è possibile ottenere uno stato di integrità ottimale, viene eseguito il rollback della distribuzione, in modo che l'applicazione raggiunga uno stato positivo noto. Anche se è possibile che alcuni clienti subiscano interruzioni prima del rollback del servizio, la maggior parte dei clienti non riscontra problemi. La risoluzione è inoltre relativamente veloce, senza dovere attendere l'intervento di un tecnico. Con un numero maggiore di controlli di integrità inclusi nel codice, il servizio sarà più resistente alle problematiche di distribuzione.
+
+Un altro aspetto dell'integrità del servizio è dato dalla creazione di report sulle metriche del servizio. Le metriche sono importanti in Service Fabric perché vengono usate per bilanciare l'uso delle risorse. Possono anche essere usate come un indicatore dell'integrità del sistema. È ad esempio possibile che sia presente un'applicazione con molti servizi e che ogni istanza segnali una metrica relativa alle richieste al secondo. Se uno dei servizi usa più risorse rispetto a un altro, Service Fabric sposta le istanze del servizio nel cluster, provando a mantenere un uso bilanciato delle risorse stesse. Per una spiegazione più dettagliata del funzionamento dell'utilizzo delle risorse, vedere [Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche](service-fabric-cluster-resource-manager-metrics.md).
+
+Le metriche consentono anche di ottenere informazioni approfondite sulle prestazioni del servizio. Nel corso del tempo, è possibile usare le metriche per assicurarsi che il servizio stia operando entro i parametri previsti. Se, ad esempio, le tendenze indicano che alle 9:00 del lunedì mattina la media delle richieste al secondo è pari a 1.000, è possibile configurare un report di integrità che genera un avviso se le richieste al secondo sono inferiori a 500 o superiori a 1.500. È possibile che non si verifichino problemi, ma è comunque consigliabile controllare per assicurare la migliore esperienza possibile per i clienti. Il servizio può definire una serie di metriche di cui eseguire il report per l'integrità. Questo comunque non influirà sul bilanciamento delle risorse del cluster. Per ottenere questo risultato, impostare il peso delle metriche su zero. È consigliabile avviare tutte le metriche con un peso di zero e di non aumentare il peso fino a quando non si è sicuri di avere compreso l'impatto della ponderazione sul bilanciamento delle risorse nel cluster.
+
+> [!TIP]
+> Non usare un numero eccessivo di metriche ponderate. Potrebbe essere difficile comprendere i motivi dello spostamento delle istanze del servizio per il bilanciamento del carico. Anche un numero ridotto di metriche può essere molto utile.
+
+Tutte le informazioni che possono indicare l'integrità e le prestazioni dell'applicazione possono essere usate per report relativi alle metriche e all'integrità. Un contatore delle prestazioni della CPU può indicare l'uso di un nodo ma non consente di capire se un servizio specifico sia integro, poiché su quel nodo potrebbero essere in esecuzione più servizi. Le metriche relative alle richieste al secondo, agli elementi elaborati e alla latenza delle richieste, tuttavia, possono indicare l'integrità di un servizio specifico.
+
+Per segnalare l'integrità, usare codice analogo al seguente:
+
+  ```csharp
+    if (!result.HasValue)
+    {
+        HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
+        this.Partition.ReportInstanceHealth(healthInformation);
+    }
+  ```
+
+Per segnalare una metrica, usare codice analogo al seguente:
+
+  ```csharp
+    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+  ```
+
+
+### <a name="application-instrumenting-code-for-custom-events"></a>Applicazione: strumentazione del codice per eventi personalizzati
+
+La strumentazione del codice è la base di molti altri aspetti di monitoraggio dei servizi. La strumentazione è l'unico modo per rilevare eventuali problemi e individuare le correzioni necessarie. Anche se è tecnicamente possibile connettere un debugger a un servizio di produzione, questa non è una procedura comune. I dati dettagliati di strumentazione sono quindi importanti. 
 
 Alcuni prodotti instrumentano automaticamente il codice. Benché queste soluzioni siano efficaci, è quasi sempre necessaria una strumentazione manuale. Alla fine, è necessario disporre di informazioni sufficienti per eseguire un debug accurato dell'applicazione. Le sezioni successive illustrano diversi approcci per la strumentazione del codice e indicano quando è consigliabile scegliere un approccio rispetto a un altro.
 
-### <a name="eventsource"></a>EventSource
+#### <a name="eventsource"></a>EventSource
 
 Quando si crea una soluzione di Azure Service Fabric da un modello in Visual Studio, viene generata una classe derivata da **EventSource** (**ServiceEventSource** o **ActorEventSource**). Viene creato un modello in cui è possibile aggiungere eventi per l'applicazione o il servizio. Il nome di **EventSource** **deve** essere univoco e deve essere rinominato dalla stringa del modello predefinito MyCompany-&lt;soluzione&gt;-&lt;progetto&gt;. Se esistono più definizioni di **EventSource** con lo stesso nome, potranno verificarsi errori di runtime. Ogni evento definito deve avere un identificatore univoco. Se un identificatore non è univoco, si verificherà un errore di runtime. Alcune organizzazioni preassegnano intervalli di valori per gli identificatori, in modo da evitare conflitti tra team di sviluppo separati. Per altre informazioni, vedere il [blog di Vance](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) o la [documentazione di MSDN](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
 
-#### <a name="using-structured-eventsource-events"></a>Uso di eventi EventSource strutturati
+##### <a name="using-structured-eventsource-events"></a>Uso di eventi EventSource strutturati
 
-Ogni evento negli esempi di codice di questa sezione è definito per un caso specifico, ad esempio, quando viene registrato un tipo di servizio. Quando si definiscono i messaggi in base al caso di utilizzo, è possibile creare pacchetti dei dati e con il testo dell'errore, quindi eseguire ricerche e applicare filtri con maggiore facilità in base ai nomi o ai valori delle proprietà specificate. Strutturando l'output della strumentazione è possibile usarlo con più facilità, ma ciò richiede sforzi maggiori per definire un nuovo evento per ciascun caso d'uso. Alcune definizioni di evento possono essere condivise nell'intera applicazione. Un evento di avvio o arresto di un metodo, ad esempio, può essere riutilizzato in molti servizi in un'applicazione. Un servizio specifico per un dominio, ad esempio un sistema di ordine, può avere un evento **CreateOrder**, che ha un proprio evento univoco. Questo approccio può generare un numero elevato di eventi e può potenzialmente richiedere il coordinamento degli identificatori tra i team di progetto. Per un esempio completo della struttura degli eventi **EventSource** in Service Fabric, vedere l'evento **PartyCluster.ApplicationDeployService** nell'esempio Party Cluster.
+Ogni evento negli esempi di codice di questa sezione è definito per un caso specifico, ad esempio, quando viene registrato un tipo di servizio. Quando si definiscono i messaggi in base al caso di utilizzo, è possibile creare pacchetti dei dati e con il testo dell'errore, quindi eseguire ricerche e applicare filtri con maggiore facilità in base ai nomi o ai valori delle proprietà specificate. Strutturando l'output della strumentazione è possibile usarlo con più facilità, ma ciò richiede sforzi maggiori per definire un nuovo evento per ciascun caso d'uso. Alcune definizioni di evento possono essere condivise nell'intera applicazione. Un evento di avvio o arresto di un metodo, ad esempio, può essere riutilizzato in molti servizi in un'applicazione. Un servizio specifico per un dominio, ad esempio un sistema di ordine, può avere un evento **CreateOrder**, che ha un proprio evento univoco. Questo approccio può generare un numero elevato di eventi e può potenzialmente richiedere il coordinamento degli identificatori tra i team di progetto. 
 
 ```csharp
     [EventSource(Name = "MyCompany-VotingState-VotingStateService")]
@@ -110,7 +147,7 @@ Ogni evento negli esempi di codice di questa sezione è definito per un caso spe
         }
 ```
 
-#### <a name="using-eventsource-generically"></a>Uso generico di EventSource
+##### <a name="using-eventsource-generically"></a>Uso generico di EventSource
 
 Poiché può essere difficile definire eventi specifici, molti utenti ne definiscono pochi con un set di parametri in comune che generalmente genera le informazioni sotto forma di stringa. Gran parte dell'aspetto strutturato viene persa, rendendo più difficili le ricerche e i filtri dei risultati. In questo approccio vengono definiti alcuni eventi, in genere corrispondenti ai livelli di registrazione. Il frammento seguente definisce un messaggio di debug e di errore:
 
@@ -142,11 +179,11 @@ Poiché può essere difficile definire eventi specifici, molti utenti ne definis
 
 Anche un ibrido di strumentazione strutturata e generica può essere una soluzione ideale. La strumentazione strutturata viene usata per la segnalazione degli errori e per le metriche. Gli eventi generici possono essere usati per la registrazione dettagliata utilizzata dai tecnici per la risoluzione dei problemi.
 
-### <a name="aspnet-core-logging"></a>Registrazione di ASP.NET Core
+#### <a name="aspnet-core-logging"></a>Registrazione di ASP.NET Core
 
 È importante pianificare con attenzione la strumentazione del codice. Il piano di strumentazione corretto può consentire di evitare la potenziale destabilizzazione della codebase e la conseguente necessità di ripetere la strumentazione del codice. Per ridurre il rischio, è possibile scegliere una libreria di strumentazione come [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), inclusa in Microsoft ASP.NET Core. ASP.NET Core ha un'interfaccia [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) che può essere usata con il provider preferito, riducendo al minimo l'effetto sul codice esistente. È possibile usare il codice in ASP.NET Core in Windows e Linux e in .NET Framework completo, in modo da standardizzare la strumentazione del codice.
 
-#### <a name="using-microsoftextensionslogging-in-service-fabric"></a>Uso di Microsoft.Extensions.Logging in Service Fabric
+##### <a name="using-microsoftextensionslogging-in-service-fabric"></a>Uso di Microsoft.Extensions.Logging in Service Fabric
 
 1. Aggiungere il pacchetto Microsoft.Extensions.Logging NuGet al progetto da strumentare. Aggiungere anche eventuali pacchetti del provider. Per un pacchetto di terze parti, vedere l'esempio seguente. Per altre informazioni, vedere [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) (Registrazione in ASP.NET Core).
 2. Aggiungere una direttiva **using** per Microsoft.Extensions.Logging al file del servizio.
@@ -216,20 +253,20 @@ Alcuni provider di terze parti usano l'approccio descritto nella sezione precede
   > [!NOTE]
   > È consigliabile non usare Log.Logger statico con l'esempio precedente. Service Fabric può ospitare più istanze dello stesso tipo di servizio in un singolo processo. Se si usa Log.Logger statico, l'ultimo writer degli enricher delle proprietà mostrerà i valori per tutte le istanze in esecuzione. Questo è un motivo per cui la variabile _logger è una variabile di membro privata della classe di servizio. È anche necessario rendere disponibile _logger al codice comune, che potrebbe essere usato nei servizi.
 
-### <a name="choosing-a-logging-provider"></a>Scelta di un provider di registrazione
+#### <a name="choosing-a-logging-provider"></a>Scelta di un provider di registrazione
 
-Se l'applicazione si basa sulle prestazioni elevate, **EventSource** è l'approccio ottimale. **EventSource** usa *in genere* un numero minore di risorse e offre prestazioni migliori rispetto alla registrazione di ASP.NET Core o di eventuali soluzioni di terze parti disponibili.  Non è un problema per molti servizi, ma se il servizio è orientato alle prestazioni **EventSource** si rivela la scelta più indicata. Per ottenere gli stessi vantaggi della registrazione strutturata, **EventSource** richiede un investimento notevole da parte del team di progettazione. Per determinare quale approccio usare per il progetto, creare un prototipo rapido degli scenari relativi a ogni opzione, quindi scegliere quello più appropriato per le esigenze specifiche.
+Se l'applicazione si basa sulle prestazioni elevate, **EventSource** è l'approccio ottimale. **EventSource** usa *in genere* un numero minore di risorse e offre prestazioni migliori rispetto alla registrazione di ASP.NET Core o di eventuali soluzioni di terze parti disponibili.  Non è un problema per molti servizi, ma se il servizio è orientato alle prestazioni **EventSource** si rivela la scelta più indicata. Per ottenere gli stessi vantaggi della registrazione strutturata, **EventSource** richiede un investimento maggiore da parte del team tecnico. Per determinare quale approccio usare per il progetto, creare un prototipo rapido degli scenari relativi a ogni opzione, quindi scegliere quello più appropriato per le esigenze specifiche.
 
-## <a name="event-and-log-collection"></a>Raccolta di eventi e log
+## <a name="event-aggregation-and-collection"></a>Aggregazione e raccolta di eventi
 
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 
 Oltre alle informazioni fornite da Monitoraggio di Azure, Azure raccoglie eventi da ogni servizio in una posizione centrale. Per altre informazioni, vedere le procedure di configurazione della raccolta di eventi per [Windows](service-fabric-diagnostics-how-to-setup-wad.md) e [Linux](service-fabric-diagnostics-how-to-setup-lad.md). Questi articoli illustrano la procedura di raccolta dei dati degli eventi e di invio dei dati all'Archiviazione di Azure. È possibile eseguire queste operazioni nel portale di Azure o nel modello di Azure Resource Manager abilitando la diagnostica. Diagnostica di Azure raccoglia alcune origini evento prodotte automaticamente da Service Fabric:
 
+- Eventi **ETW** emessi come parte del canale operativo
 - Eventi **EventSource** e contatori di prestazioni, quando si usa il modello di programmazione Reliable Actor. Gli eventi vengono enumerati in [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md).
 - Eventi **EventSource** quando si usa il modello di programmazione Reliable Services. Gli eventi vengono enumerati in [Funzionalità di diagnostica per Reliable Services con stato](service-fabric-reliable-services-diagnostics.md).
-- Gli eventi di sistema vengono generati come eventi di Event Tracing for Windows (ETW). Molti eventi vengono generati da Service Fabric come parte di questa categoria, inclusi gli eventi di posizionamento ed eventi di avvio/arresto del servizio. Il modo migliore per visualizzare gli eventi generati è usare il [Visualizzatore eventi di diagnostica di Visual Studio](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) nel computer locale. Poiché questi eventi sono eventi ETW nativi, esistono alcune limitazioni per le relative modalità di raccolta.
-- Dalla versione 5.4 di Service Fabric sono disponibili gli eventi di metrica di integrità e caricamento. È quindi possibile usare la raccolta di esempi per la creazione di report cronologici e per la creazione di avvisi. Questi eventi sono anche eventi ETW nativi e sono previste alcune limitazioni per le relative modalità di raccolta.
+
 
 Dopo la configurazione, gli eventi vengono visualizzati in un account di archiviazione di Azure creato durante la creazione del cluster, presupponendo che sia stata abilitata la diagnostica. Le tabelle sono denominate WADServiceFabricReliableActorEventTable, WADServiceFabricReliableServiceEventTable e WADServiceFabricSystemEventTable. Gli eventi di integrità non vengono aggiunti per impostazione predefinita. È necessario modificare il modello di Resource Manager per aggiungerli. Per altre informazioni, vedere [Raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md).
 
@@ -352,7 +389,7 @@ Per usare EventFlow:
 
 Per visualizzare gli eventi in Azure Application Insights, nel portale di Azure passare alla risorsa Application Insights. Per visualizzare gli eventi, selezionare la casella **Cerca**.
 
-![Visualizzazione di ricerca eventi in Application Insights](./media/service-fabric-diagnostics-overview/ai-search-events.PNG)
+![Visualizzazione di ricerca eventi in Application Insights](./media/service-fabric-diagnostics-overview/ai-search-events.png)
 
 È possibile visualizzare le tracce nella parte inferiore della schermata precedente. Vengono mostrati solo due eventi, perché l'evento a livello di debug è stato eliminato da EventFlow. La voce relativa alla richiesta precedente alla traccia è la terza riga di strumentazione di `_logger`. La riga indica che l'evento è stato convertito in una metrica di richiesta in Application Insights.
 
@@ -360,48 +397,44 @@ Nella definizione del filtro il tipo è **metadata**. Questo codice dichiara che
 
 Se è presente un cluster autonomo che non può essere connesso a una soluzione basata sul cloud a causa dei criteri, è possibile usare Elasticsearch come output. È tuttavia possibile scrivere altri output e sono consigliate le richieste pull. Alcuni dei provider di terze parti per la registrazione di ASP.NET Core offrono anche soluzioni che supportano le installazioni locali.
 
-## <a name="azure-service-fabric-health-and-load-reporting"></a>Creazione di report su integrità e carico di Azure Service Fabric
-
-Service Fabric offre un modello di integrità specifico, descritto in dettaglio in questi articoli:
-- [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
-- [Creare report e verificare l'integrità dei servizi](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-- [Aggiungere report sull'integrità di Service Fabric personalizzati](service-fabric-report-health.md)
-- [Come visualizzare i report sull'integrità di Service Fabric](service-fabric-view-entities-aggregated-health.md)
-
-Il monitoraggio dell'integrità è fondamentale per vari aspetti dell'uso di un servizio. Il monitoraggio dell'integrità è particolarmente importante quando Service Fabric esegue l'aggiornamento di un'applicazione denominata. Dopo l'aggiornamento di ogni dominio di aggiornamento del servizio, quando il dominio è disponibile per i clienti, è necessario che superi controlli di integrità prima che la distribuzione passi al dominio di aggiornamento successivo. Se non è possibile ottenere uno stato di integrità ottimale, viene eseguito il rollback della distribuzione, in modo che l'applicazione raggiunga uno stato positivo noto. Anche se è possibile che alcuni clienti subiscano interruzioni prima del rollback del servizio, la maggior parte dei clienti non riscontra problemi. La risoluzione è inoltre relativamente veloce, senza dovere attendere l'intervento di un tecnico. Con un numero maggiore di controlli di integrità inclusi nel codice, il servizio sarà più resistente alle problematiche di distribuzione.
-
-Un altro aspetto dell'integrità del servizio è dato dalla creazione di report sulle metriche del servizio. Le metriche sono importanti in Service Fabric perché vengono usate per bilanciare l'uso delle risorse. Possono anche essere usate come un indicatore dell'integrità del sistema. È ad esempio possibile che sia presente un'applicazione con molti servizi e che ogni istanza segnali una metrica relativa alle richieste al secondo. Se uno dei servizi usa più risorse rispetto a un altro, Service Fabric sposta le istanze del servizio nel cluster, provando a mantenere un uso bilanciato delle risorse stesse. Per una spiegazione più dettagliata del funzionamento dell'utilizzo delle risorse, vedere [Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche](service-fabric-cluster-resource-manager-metrics.md).
-
-Le metriche consentono anche di ottenere informazioni approfondite sulle prestazioni del servizio. Nel corso del tempo, è possibile usare le metriche per assicurarsi che il servizio stia operando entro i parametri previsti. Se, ad esempio, le tendenze indicano che alle 9:00 del lunedì mattina la media delle richieste al secondo è pari a 1.000, è possibile configurare un report di integrità che genera un avviso se le richieste al secondo sono inferiori a 500 o superiori a 1.500. È possibile che non si verifichino problemi, ma è comunque consigliabile controllare per assicurare la migliore esperienza possibile per i clienti. Il servizio può definire una serie di metriche di cui eseguire il report per l'integrità. Questo comunque non influirà sul bilanciamento delle risorse del cluster. Per ottenere questo risultato, impostare il peso delle metriche su zero. È consigliabile avviare tutte le metriche con un peso di zero e di non aumentare il peso fino a quando non si è sicuri di avere compreso l'impatto della ponderazione sul bilanciamento delle risorse nel cluster.
-
-> [!TIP]
-> Non usare un numero eccessivo di metriche ponderate. Potrebbe essere difficile comprendere i motivi dello spostamento delle istanze del servizio per il bilanciamento del carico. Anche un numero ridotto di metriche può essere molto utile.
-
-Tutte le informazioni che possono indicare l'integrità e le prestazioni dell'applicazione possono essere usate per report relativi alle metriche e all'integrità. Un contatore delle prestazioni della CPU può indicare l'uso di un nodo ma non consente di capire se un servizio specifico sia integro, poiché su quel nodo potrebbero essere in esecuzione più servizi. Le metriche relative alle richieste al secondo, agli elementi elaborati e alla latenza delle richieste, tuttavia, possono indicare l'integrità di un servizio specifico.
-
-Per segnalare l'integrità, usare codice analogo al seguente:
-
-  ```csharp
-    if (!result.HasValue)
-    {
-        HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
-        this.Partition.ReportInstanceHealth(healthInformation);
-    }
-  ```
-
-Per segnalare una metrica, usare codice analogo al seguente:
-
-  ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
-  ```
-
-## <a name="watchdogs"></a>Watchdog
-
-Un watchdog è un servizio separato che può controllare l'integrità e il carico tra servizi e creare report di integrità per l'intera gerarchia di modello. Questo consente di evitare errori che non verrebbero rilevati visualizzando un singolo servizio. I watchdog sono una buona posizione in cui ospitare codice in grado di eseguire interventi correttivi per condizioni note senza bisogno di azioni da parte degli utenti.
-
 ## <a name="visualization-analysis-and-alerts"></a>Visualizzazione, analisi e avvisi
 
-L'ultima parte del monitoraggio consiste nel visualizzare il flusso di eventi, creare report sulle prestazioni dei servizi e avvisare in caso di problemi. È possibile usare soluzioni diverse per questo aspetto del monitoraggio. È possibile usare Azure Application Insights e Operations Management Suite per creare avvisi basati sul flusso di eventi. È possibile usare Microsoft Power BI o una soluzione di terze parti come [Kibana](https://www.elastic.co/products/kibana) o [Splunk](https://www.splunk.com/) per visualizzare i dati.
+L'ultima parte del monitoraggio consiste nel visualizzare il flusso di eventi, creare report sulle prestazioni dei servizi e avvisare in caso di problemi. È possibile usare soluzioni diverse per questo aspetto del monitoraggio. È possibile usare AppInsights e Operations Management Suite (OMS) per creare avvisi basati sul flusso di eventi. È possibile usare Microsoft Power BI o una soluzione di terze parti come [Kibana](https://www.elastic.co/products/kibana) o [Splunk](https://www.splunk.com/) per visualizzare i dati.
+
+### <a name="appinsights"></a>AppInsights
+
+AppInsights è uno degli strumenti consigliati per il monitoraggio di applicazioni e servizi. La versione aggiornata di AI.SDK funziona molto bene con gli eventi di Service Fabric e, oltre a fornire buoni strumenti di visualizzazione dei dati e query (tramite AppInsights Analytics), consente anche di creare un oggetto AppMap accurato, utile per tenere traccia delle dipendenze tra i processi in un'applicazione o un cluster.
+
+Configurare una risorsa AppInsights cercando"Application Insights" in Azure Marketplace. Dopo la creazione, passare a *Proprietà* per trovare la chiave di strumentazione di Application Insights (sotto forma di un GUID). La chiave viene usata per:
+* Integrare AppInsights per la ricezione di eventi a livello di infrastruttura da un cluster di Service Fabric direttamente tramite un modello di Azure Resource Manager o tramite il portale di Azure durante la creazione di un cluster, presupponendo che il servizio Diagnostica sia stato abilitato
+* Configurare EventFlow (eventFlowConfig.json) per restituire i dati ad Application Insights, come illustrato nella sezione precedente
+
+### <a name="oms"></a>OMS
+
+OMS è un altro strumento consigliato per la diagnostica e il monitoraggio dei cluster di Service Fabric. La soluzione Service Fabric può essere aggiunta a qualsiasi area di lavoro e ha un dashboard che mostra i diversi tipi di eventi di Service Fabric. Le aree di lavoro di OMS hanno anche un potente strumento di query dei log in Log Analytics.
+
+Per configurare un'area di lavoro di OMS, verificare che il servizio Diagnostica sia stato abilitato per il cluster. Aggiungere "Analisi Service Fabric" da Azure Marketplace a un'area di lavoro di OMS esistente oppure creare una nuova area. Configurare le origini dati dell'area di lavoro per la connessione alle tabelle di Archiviazione di Azure in cui il cluster scrive gli eventi. 
+
+Affinché OMS possa rilevare eventi personalizzati, è anche necessario assicurarsi che la strumentazione aggiunta alle applicazioni scriva nelle stesse tabelle di Archiviazione o in altre tabelle configurate come origini per l'area di lavoro. 
+
+OMS attualmente è anche la soluzione consigliata per la visualizzazione e l'analisi dei dati se sono necessari monitoraggio e diagnostica per i contenitori, poiché è possibile aggiungere una soluzione Contenitori nell'area di lavoro che funziona bene con i contenitori orchestrati da Service Fabric. Per una breve guida per questa operazione, vedere [qui](service-fabric-diagnostics-containers-windowsserver.md).
+
+### <a name="azure-monitor"></a>Monitoraggio di Azure
+
+È possibile usare [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md) per monitorare molte risorse di Azure in cui viene creato un cluster di Service Fabric. Un set di metriche per il [set di scalabilità di macchine virtuali](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) e per le singole [macchine virtuali](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines) viene raccolto automaticamente e visualizzato nel portale di Azure. Per visualizzare le informazioni raccolte, nel portale di Azure selezionare il gruppo di risorse che contiene il cluster di Service Fabric. Selezionare quindi il set di scalabilità di macchine virtuali da visualizzare. Nella sezione **Monitoraggio** selezionare **Metriche** per visualizzare un grafico dei valori.
+
+![Visualizzazione del portale di Azure dei dati di metrica raccolti](./media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
+
+Per personalizzare i grafici, seguire le istruzioni disponibili in [Metriche in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). È anche possibile creare avvisi in base a queste metriche, come illustrato in [Creare avvisi in Monitoraggio di Azure per servizi di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). È possibile inviare avvisi a un servizio di notifica usando webhook, come illustrato in [Configurare un webhook in un avviso relativo alle metriche di Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Monitoraggio di Azure supporta solo una sottoscrizione. Se è necessario monitorare più sottoscrizioni o se sono necessarie funzionalità aggiuntive, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), incluso in Microsoft Operations Management Suite, fornisce una soluzione olistica di gestione IT per infrastrutture locali e basate sul cloud. È possibile indirizzare i dati di Monitoraggio di Azure direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
+
+È consigliabile usare Operations Management Suite per monitorare l'infrastruttura locale, ma è possibile usare qualsiasi soluzione esistente usata dall'organizzazione per il monitoraggio dell'infrastruttura.
+
+## <a name="additional-steps"></a>Passaggi aggiuntivi
+
+### <a name="watchdogs"></a>Watchdog
+
+Un watchdog è un servizio separato che può controllare l'integrità e il carico tra servizi e creare report di integrità per l'intera gerarchia di modello. Questo consente di evitare errori che non verrebbero rilevati visualizzando un singolo servizio. I watchdog sono una buona posizione in cui ospitare codice in grado di eseguire interventi correttivi per condizioni note senza bisogno di azioni da parte degli utenti. È possibile trovare un'implementazione di esempio del servizio watchdog [qui](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

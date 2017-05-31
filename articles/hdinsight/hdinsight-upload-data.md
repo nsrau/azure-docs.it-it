@@ -1,6 +1,7 @@
 ---
 title: Caricare dati per processi Hadoop in HDInsight | Documentazione Microsoft
 description: Informazioni su come caricare i dati per processi Hadoop e accedervi in HDInsight con Interfaccia della riga di comando di Azure, Azure Storage Explorer, Azure PowerShell, la riga di comando di Hadoop o Sqoop.
+keywords: hadoop etl, recupero dati in hadoop, caricare dati in hadoop
 services: hdinsight,storage
 documentationcenter: 
 tags: azure-portal
@@ -9,17 +10,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/12/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0caac0c7ad76df7e7fa657227339d1df8b4a3c77
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 134afd3495c555f85e8838cbe0344a3a48534950
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -187,7 +189,7 @@ Prima di usare lo strumento è necessario conoscere il nome e la chiave dell'acc
 
 1. Eseguire Azure Storage Explorer. Se è la prima volta che si esegue Storage Explorer, sarà necessario specificare il **nome account di archiviazione** e la **chiave account di archiviazione**. Se questo strumento è stato eseguito prima, usare il pulsante **Aggiungi** per aggiungere un nuovo nome e una nuova chiave dell'account di archiviazione.
 
-    Immettere il nome e la chiave dell'account di archiviazione usati dal cluster HDinsight e quindi selezionare **SALVA E APRI**.
+    Immettere il nome e la chiave dell'account di archiviazione usati dal cluster HDInsight e quindi selezionare **SALVA E APRI**.
 
     ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. Nell'elenco dei contenitori a sinistra dell'interfaccia, fare clic sul nome del contenitore associato al cluster HDInsight. Per impostazione predefinita, questo è il nome del cluster HDInsight, ma potrebbe essere diverso se è stato immesso un nome specifico durante la creazione del cluster.

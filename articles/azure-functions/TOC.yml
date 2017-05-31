@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Concetti
   items:
-  - name: Piani di hosting
+  - name: Piani a consumo e piani di servizio app
     href: functions-scale.md
   - name: Trigger e associazioni
     href: functions-triggers-bindings.md
+  - name: Lingue
+    items:
+    - name: 'Concetti relativi alle funzioni C#'
+      href: functions-reference-csharp.md
+    - name: 'Concetti relativi alle funzioni F#'
+      href: functions-reference-fsharp.md
+    - name: Concetti relativi alle funzioni JavaScript
+      href: functions-reference-node.md    
 - name: Guide alle procedure
   items:
+  - name: Guida per sviluppatori
+    href: functions-reference.md
   - name: Test di Funzioni di Azure
     href: functions-test-a-function.md
   - name: Sviluppare ed eseguire il debug in locale
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Installare il runtime di Funzioni
     href: functions-runtime-install.md
+  - name: Connessione al database SQL
+    href: functions-scenario-database-table-cleanup.md
+  - name: Creare una definizione OpenAPI 2.0
+    href: functions-api-definition-getting-started.md     
+  - name: Procedure consigliate per Funzioni di Azure
+    href: functions-best-practices.md     
 - name: Riferimento
   items:
-  - name: Sviluppare app per le funzioni
-    href: functions-reference.md
-    items:
-    - name: OpenAPI 2.0
-      href: functions-api-definition.md
-  - name: Procedure consigliate per Funzioni di Azure
-    href: functions-best-practices.md
   - name: Associazioni
     items:
     - name: Associazioni di Cosmos DB
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Associazione output di Twilio
       href: functions-bindings-twilio.md
-  - name: Framework
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: Informazioni di riferimento su OpenAPI
+    href: functions-api-definition.md     
 - name: Risorse
   items:
   - name: Prezzi

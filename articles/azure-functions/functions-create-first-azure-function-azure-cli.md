@@ -12,10 +12,10 @@ ms.service: functions
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ef9d65ae5ad0792230e1b8c0d7ed123c129f0f59
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 3dc0e1b26c95ac6583dd3b1068b36deb54f7ac5a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 05/10/2017
 
 Questa esercitazione di avvio rapido illustra come usare Funzioni di Azure per creare la prima funzione. Si userà l'interfaccia della riga di comando di Azure per creare un'app per le funzioni, ovvero l'infrastruttura senza server che ospita la funzione. Il codice della funzione viene distribuito da un repository GitHub di esempio.    
 
-È possibile eseguire queste procedure con un computer Mac, Windows o Linux. Per completare tutti i passaggi di questo argomento, saranno sufficienti solo cinque minuti.
+È possibile eseguire queste procedure con un computer Mac, Windows o Linux. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 

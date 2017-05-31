@@ -11,19 +11,19 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 05/17/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c09a6fa947d235189ab0137b074b6d7d9c925827
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c0029e025cf6d0af478d1f21dc6acc7860905a81
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
-Questo articolo illustra due modi comuni per eseguire il backup e ripristino dei database nel database di Azure per MySQL
-- Backup e ripristino dalla riga di comando (tramite mysqldump) 
-- Backup e ripristino con PHPMyAdmin 
+Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL
+- Backup e ripristino dalla riga di comando tramite mysqldump 
+- Eseguire il backup e il ripristino con PHPMyAdmin 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per proseguire con questa guida è necessario:
@@ -35,7 +35,7 @@ Per proseguire con questa guida è necessario:
 Usare strumenti comuni, come ad esempio MySQL Workbench, mysqldump, Toad o Navicat per connettersi in modalità remota e ripristinare i dati nel database di Azure per MySQL. Usare tali strumenti sul computer client con una connessione internet per connettersi al database di Azure per MySQL. Usare una connessione SSL crittografata per le procedure di sicurezza consigliate. Vedere anche [Configure SSL connectivity in Azure Database for MySQL](concepts-ssl-connection-security.md) (Configurare la connettività SSL nel database di Azure per MySQL). Durante la migrazione al database di Azure per MySQL non è necessario spostare i file di dump in alcun percorso cloud speciale. 
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Creare un file di backup dalla riga di comando tramite mysqldump
-Per eseguire il backup di un database MySQL in locale o su una macchina virtuale, eseguire questo comando: 
+Per eseguire il backup di un database MySQL in locale o su una VM, eseguire questo comando: 
 ```bash
 $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
@@ -66,11 +66,8 @@ Per eseguire il backup di tutti i database del server contemporaneamente è nece
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## <a name="upload-files"></a>Caricamento di file
-Con WinSCP è possibile caricare e gestire facilmente l'importazione o il dump dei file di un ambiente MySQL Azure o non Azure sul computer locale tramite protocollo SFTP o FTPS a scopo di esportazione.
-
 ## <a name="create-a-database-on-the-target-azure-mysql-server"></a>Creare un database sul server MySQL di Azure di destinazione
-È necessario creare un database vuoto nel database di Azure per il server MySQL di destinazione in cui si desidera migrare i dati con MySQL Workbench, Toad, Navicat o qualsiasi altro strumento di terze parti per MySQL. Il database può avere lo stesso nome del database che contiene i dati di dump; in alternativa, è possibile creare un database con un nome diverso.
+È necessario creare un database vuoto nel database di Azure per il server MySQL di destinazione in cui si vuole migrare i dati con MySQL Workbench, Toad, Navicat o qualsiasi altro strumento di terze parti per MySQL. Il database può avere lo stesso nome del database che contiene i dati di dump; in alternativa, è possibile creare un database con un nome diverso.
 
 ![Stringa di connessione del database di Azure per MySQL](./media/concepts-migrate-import-export/p5.png)
 

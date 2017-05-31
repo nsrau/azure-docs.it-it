@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e14da5fa10533d922a6263e8f52a53c0eaa23393
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: faa6d403aa130738ae0b58ba1ffc828a1e37e9f4
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -341,7 +342,7 @@ L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di
 ## <a name="indexing-documents-along-with-related-data"></a>Indicizzazione di documenti con dati correlati
 
 I documenti possono avere metadati associati, ad esempio il reparto che ha creato il documento, che vengono archiviati come dati strutturati in una delle posizioni seguenti.
--   In un archivio dati separato, ad esempio il database SQL o DocumentDB.
+-   In un archivio dati separato, ad esempio il database SQL o Azure Cosmos DB.
 -   Associati direttamente a ogni documento nell'Archiviazione BLOB di Azure come metadati personalizzati. Per altre informazioni, vedere [Impostazione e recupero di proprietà e metadati per le risorse BLOB](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).
 
 È possibile indicizzare i documenti e i relativi metadati assegnando lo stesso valore chiave univoco a ogni documento e ai relativi metadati e specificando l'azione `mergeOrUpload` per ogni indicizzatore. Per una descrizione dettagliata di questa soluzione, vedere l'articolo esterno: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinare documenti con altri dati in Ricerca di Azure).

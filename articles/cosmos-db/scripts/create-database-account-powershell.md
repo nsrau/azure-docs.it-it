@@ -1,14 +1,14 @@
 ---
 title: 'Script di Azure PowerShell: creare un account API di Azure Cosmos DB DocumentDB | Microsoft Docs'
 description: 'Esempio di script di Azure PowerShell: creare un account API di Azure Cosmos DB DocumentDB'
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: PowerShell
 ms.topic: article

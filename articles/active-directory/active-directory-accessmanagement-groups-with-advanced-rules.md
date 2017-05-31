@@ -1,6 +1,6 @@
 ---
-title: Uso di attributi per la creazione di regole avanzate | Microsoft Docs
-description: Procedura per creare regole avanzate per un gruppo inclusi gli operatori delle regole di espressione e i parametri.
+title: Compilare i gruppi in modo dinamico in base agli attributi utente in Azure Active Directory | Microsoft Docs
+description: Procedura per creare regole avanzate per l&quot;appartenenza ai gruppi, inclusi i parametri e gli operatori supportati per le regole delle espressioni.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/14/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: d00375d9bc696b41a074eebe6d205e6907a54c4b
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="using-attributes-to-create-advanced-rules"></a>Uso di attributi per la creazione di regole avanzate
-Il portale di Azure classico offre la possibilità di creare regole avanzate per consentire appartenenze dinamiche basate su attributi più complesse ai gruppi di Azure Active Directory (Azure AD).  
+# <a name="populate-groups-dynamically-based-on-user-attributes"></a>Compilare i gruppi in modo dinamico in base agli attributi utente 
+Il portale di Azure classico offre la possibilità di consentire appartenenze dinamiche basate su attributi più complesse ai gruppi di Azure Active Directory, ovvero Azure AD.  
 
 Quando gli attributi di un utente cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica degli attributi dell'utente attiverà aggiunte o rimozioni nel gruppo. Se un utente soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfa più la regola di un gruppo di cui è membro, viene rimosso come membro da tale gruppo.
 

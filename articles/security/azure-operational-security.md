@@ -15,30 +15,30 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 6a0fa55e19c50ea2218949632d1bf941739f2a79
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 47e3c9f35cb8d58d77226f7efa2bbe70e0683afe
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
-## <a name="10-introduction"></a>1.0 Introduzione
+## <a name="introduction"></a>Introduzione
 
-### <a name="11-overview"></a>1.1 Panoramica
+### <a name="overview"></a>Panoramica
 La sicurezza è la priorità principale nel cloud ed è importante che l'utente trovi informazioni accurate e tempestive sulla sicurezza di Azure. Uno dei motivi migliori per usare Azure per le applicazioni e i servizi consiste nella possibilità di sfruttare la vasta gamma di strumenti e funzionalità per la sicurezza disponibili. Questi strumenti e queste funzionalità consentono di creare soluzioni sicure sulla piattaforma Azure protetta. Windows Azure deve garantire riservatezza, integrità e disponibilità dei dati dei clienti, mantenendo allo stesso tempo la totale trasparenza nella rendicontazione.
 
 Per consentire ai clienti una migliore comprensione della gamma di controlli di sicurezza implementati all'interno di Microsoft Azure dal punto di vista operativo sia del cliente che di Microsoft, è stato redatto questo white paper, "Sicurezza operativa di Azure", che offre una panoramica completa della sicurezza operativa garantita da Windows Azure.
 
-### <a name="12-azure-platform"></a>1.2 Piattaforma Azure
+### <a name="azure-platform"></a>Piattaforma Azure
 Azure è una piattaforma di servizio cloud pubblico che supporta un'ampia gamma di sistemi operativi, linguaggi di programmazione, framework, strumenti, database e dispositivi. Azure può eseguire contenitori Linux con integrazione Docker, compilare app con JavaScript, Python, .NET, PHP, Java e Node.js e creare back-end per dispositivi iOS, Android e Windows. Il servizio cloud di Azure supporta le stesse tecnologie che milioni di sviluppatori e professionisti IT considerano attendibili e su cui già fanno affidamento.
 
 Quando si compilano asset IT o se ne esegue la migrazione in un provider di servizi cloud pubblici, si dipende dalla capacità di tale organizzazione di proteggere le applicazioni e i dati con i servizi e i controlli offerti per gestire la sicurezza degli asset basati sul cloud.
 
 L'infrastruttura di Azure è stata progettata, dalla struttura fino alle applicazioni, per ospitare milioni di clienti contemporaneamente e offre alle aziende una solida base per poter soddisfare le loro esigenze di sicurezza. Azure offre anche un'ampia gamma di opzioni di sicurezza configurabili, con la possibilità di controllarle per poter personalizzare il livello di sicurezza e soddisfare così i requisiti univoci di distribuzione dell'organizzazione. Questo documento offre informazioni sulle modalità con cui le funzionalità di sicurezza di Azure consentono di soddisfare questi requisiti.
 
-### <a name="13-abstract"></a>1.3 Sunto
+### <a name="abstract"></a>Sunto
 La soluzione di sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti ai clienti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. Questa soluzione si basa su un framework che incorpora le conoscenze acquisite tramite varie funzionalità univoche di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
 
 Questo white paper delinea l'approccio di Microsoft alla sicurezza operativa di Azure all'interno della piattaforma cloud di Microsoft Azure e descrive i servizi seguenti:
@@ -55,7 +55,7 @@ Questo white paper delinea l'approccio di Microsoft alla sicurezza operativa di 
 6.    [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="20-microsoft-operations-management-suite"></a>2.0 Microsoft Operations Management Suite
+## <a name="microsoft-operations-management-suite"></a>Microsoft Operations Management Suite
 
 
 Microsoft Operations Management Suite (OMS) è la soluzione di gestione IT per il cloud ibrido. Usato autonomamente o come estensione per la distribuzione esistente di System Center, OMS offre la massima flessibilità e il massimo controllo per la gestione basata su cloud dell'infrastruttura.
@@ -64,7 +64,7 @@ Microsoft Operations Management Suite (OMS) è la soluzione di gestione IT per i
 
 Con OMS, è possibile gestire qualsiasi istanza di qualsiasi cloud, inclusi i cloud locali, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a un costo inferiore rispetto alle soluzioni della concorrenza. OMS, realizzato per le realtà orientate principalmente al cloud, offre un nuovo approccio alla gestione dell'azienda, vale a dire il modo più veloce e più economico per affrontare nuove problematiche aziendali e gestire nuovi carichi di lavoro, applicazioni e ambienti cloud.
 
-### <a name="21-oms-services"></a>2.1 Servizi di OMS
+### <a name="oms-services"></a>Servizi OMS
 
 Le funzionalità principali di OMS vengono fornite da un set di servizi eseguiti in Azure. Ogni servizio fornisce una funzione di gestione specifica ed è possibile combinare i servizi per realizzare scenari di gestione diversi.
 
@@ -75,7 +75,7 @@ Le funzionalità principali di OMS vengono fornite da un set di servizi eseguiti
 | Backup | Backup e ripristino dei dati critici. |
 | Site Recovery | Offre disponibilità elevata per le applicazioni critiche. |
 
-### <a name="22-log-analytics"></a>2.2 Log Analytics
+### <a name="log-analytics"></a>Log Analytics
 
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione.
 
@@ -94,7 +94,7 @@ Il servizio Log Analytics gestisce i dati basati sul cloud in modo sicuro usando
 -    certificazioni degli standard di sicurezza
 
 
-### <a name="23-azure-backup"></a>2.3 Backup di Azure
+### <a name="azure-backup"></a>Backup di Azure
 
 Il [Backup di Azure](http://azure.microsoft.com/documentation/services/backup) offre un servizio di backup e ripristino dei dati e fa parte della suite di prodotti e servizi OMS.
 Protegge i dati delle applicazioni e li conserva per anni, senza investimenti di capitali e con costi operativi minimi. Consente di eseguire il backup dei dati da server Windows fisici e virtuali, oltre che dei carichi di lavoro di applicazioni come SQL Server e SharePoint. Può inoltre essere usato da [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) per replicare i dati protetti in Azure per la ridondanza e l'archiviazione a lungo termine.
@@ -102,7 +102,7 @@ Protegge i dati delle applicazioni e li conserva per anni, senza investimenti di
 
 I dati protetti in Backup di Azure vengono archiviati in un insieme di credenziali di backup che si trova in una determinata area geografica. I dati vengono replicati nella stessa area e, a seconda del tipo di insieme di credenziali, possono anche essere replicati in un'altra area per ottenere una maggiore resilienza.
 
-### <a name="24-management-solutions"></a>2.4 Soluzioni di gestione
+### <a name="management-solutions"></a>Soluzioni di gestione
 [Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud.
 
 
@@ -115,11 +115,11 @@ Un valido esempio di soluzione che sfrutta più servizi per offrire funzionalit�
 
 Quando si crea una distribuzione, vengono usati i runbook dell'[Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) per installare gli aggiornamenti necessari. L'intero processo viene gestito nel portale, non è necessario preoccuparsi dei dettagli sottostanti.
 
-## <a name="30-azure-security-center"></a>3.0 Centro sicurezza di Azure
+## <a name="azure-security-center"></a>Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure consente di proteggere le risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni di Azure. Nell'ambito del servizio, è possibile definire criteri non solo per le sottoscrizioni di Azure, ma anche per i [gruppi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups), in modo da ottenere una maggiore granularità.
 
-### <a name="31-security-policies-and-recommendations"></a>3.1 Criteri e consigli di sicurezza
+### <a name="security-policies-and-recommendations"></a>Criteri di sicurezza e raccomandazioni
 
 I criteri di sicurezza definiscono il set di controlli consigliati per le risorse all'interno della sottoscrizione o del gruppo di risorse specificato.
 
@@ -131,11 +131,11 @@ Nel Centro sicurezza è possibile definire i criteri in base ai requisiti di sic
 I criteri abilitati nel livello di sottoscrizione vengono propagati automaticamente a tutti i gruppi di risorse all'interno della sottoscrizione, come illustrato nel diagramma a destra:
 
 
-### <a name="32-data-collection"></a>3.2 Raccolta di dati
+### <a name="data-collection"></a>Raccolta dei dati
 
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, indicare raccomandazioni sulla sicurezza e segnalare le minacce. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente disattivandola nei criteri del Centro sicurezza.
 
-### <a name="33-data-sources"></a>3.3 Origini dati
+### <a name="data-sources"></a>Origini dati
 
 - Il Centro sicurezza di Azure analizza i dati provenienti dalle origini seguenti per offrire visibilità sullo stato della sicurezza, identificare le vulnerabilità e suggerire le mitigazioni e rilevare minacce attive:
 
@@ -147,7 +147,7 @@ Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo st
 
 -    Macchine virtuali: usa informazioni sulla configurazione e informazioni sugli eventi di sicurezza, ad esempio registri eventi di Windows e log di controllo, log di IIS, messaggi syslog e file di dump di arresto anomalo del sistema dalle macchine virtuali.
 
-### <a name="34-data-protection"></a>3.4 Protezione dati
+### <a name="data-protection"></a>Protezione dati
 
 Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati correlati alla sicurezza, tra cui informazioni di configurazione, metadati, registri eventi, file di dump di arresto anomalo del sistema e altro. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
 
@@ -157,7 +157,7 @@ Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Ce
 
 -    **Uso dei dati**: Microsoft usa modelli e intelligence per le minacce trovati in più tenant per migliorare le funzionalità di prevenzione e rilevamento, in base alle garanzie relative alla privacy descritte nell'[Informativa sulla privacy](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 
-### <a name="35-data-location"></a>3.5 Posizione dei dati
+### <a name="data-location"></a>Posizione dei dati
 
 Il Centro sicurezza di Azure raccoglie copie temporanee dei file di dump di arresto anomalo del sistema e le analizza per cercare le prove di tentativi di exploit e compromissioni riuscite. Il Centro sicurezza di Azure esegue questa analisi nella stessa area geografica dell'area di lavoro ed elimina le copie temporanee al termine dell'analisi. Gli elementi del computer vengono archiviati centralmente nella stessa area della VM.
 
@@ -166,7 +166,7 @@ Il Centro sicurezza di Azure raccoglie copie temporanee dei file di dump di arre
 -    **Archiviazione in Centro sicurezza di Azure**: le informazioni sugli avvisi di sicurezza, inclusi gli avvisi dei partner, le raccomandazioni e lo stato integrità della sicurezza, vengono archiviate a livello centrale, attualmente negli Stati Uniti. Queste informazioni possono includere informazioni sulla configurazione correlate ed eventi di sicurezza raccolti dalle macchine virtuali, necessari per conoscere l'avviso di sicurezza, la raccomandazione o lo stato integrità della sicurezza.
 
 
-## <a name="40-azure-monitor"></a>4.0 Monitoraggio di Azure
+## <a name="azure-monitor"></a>Monitoraggio di Azure
 
 La soluzione [OMS Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit consente all'IT di monitorare attivamente tutte le risorse, per ridurre l'impatto degli eventuali problemi di sicurezza. OMS Security and Audit prevede domini di sicurezza che possono essere usati per il monitoraggio delle risorse. I domini di sicurezza consentono di accedere rapidamente alle opzioni per il monitoraggio della sicurezza. Verranno analizzati in modo più approfondito i domini seguenti:
 
@@ -183,7 +183,7 @@ Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio
 
 Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
 
-### <a name="41-azure-activity-log"></a>4.1 Log attività di Azure
+### <a name="azure-activity-log"></a>Azure Activity Log
 
 
 Questo log offre informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. Il log attività era noto in precedenza come "log di controllo" o "log operativo", perché segnala eventi del piano di controllo per le sottoscrizioni.
@@ -192,7 +192,7 @@ Questo log offre informazioni approfondite sulle operazioni eseguite sulle risor
 
 L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET) o quelle per le risorse che usano il modello classico.
 
-### <a name="42-azure-diagnostic-logs"></a>4.2 Log di diagnostica di Azure
+### <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
 I log di diagnostica vengono generati da una risorsa e contengono informazioni approfondite e frequenti sul funzionamento di tale risorsa. Il contenuto di questi log varia in base al tipo di risorsa.
 
@@ -200,7 +200,7 @@ Ad esempio, i log del sistema eventi di Windows sono una categoria di log di dia
 
 I log di diagnostica sono diversi dai [log attività (precedentemente conosciuti come log di controllo o log operativi)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
 
-### <a name="43-metrics"></a>4.3 Metriche
+### <a name="metrics"></a>Metriche
 
 Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria Azure più importante è rappresentato dalle metriche (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il Monitoraggio di Azure offre svariati modi per configurare e usare queste [metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) per il monitoraggio e la risoluzione dei problemi. Le metriche sono un'importante fonte di dati di telemetria e consentono di eseguire le attività seguenti:
 
@@ -214,11 +214,11 @@ Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilit�
 
 -    **Archiviare** la cronologia relativa alle prestazioni o all'integrità della risorsa a scopo di conformità o verifica.
 
-### <a name="44-azure-diagnostics"></a>4.4 Diagnostica di Azure
+### <a name="azure-diagnostics"></a>Diagnostica Azure
 
 È la funzionalità di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati [ruoli Web e di lavoro del servizio cloud di Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/overview) che eseguono Microsoft Windows e [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics). Altri servizi di Azure dispongono di propri strumenti di diagnostica separati.
 
-## <a name="50-azure-network-watcher"></a>5.0 Azure Network Watcher
+## <a name="azure-network-watcher"></a>Azure Network Watcher
 
 Il controllo della sicurezza della rete è fondamentale per rilevare le vulnerabilità e garantire la conformità con il modello di governance normativo e della sicurezza IT. Con la visualizzazione Gruppo di sicurezza, è possibile recuperare il gruppo di sicurezza di rete e le regole di sicurezza configurate, ma anche le regole di sicurezza efficaci. Con l'elenco delle regole applicate, è possibile determinare le porte aperte e valutare la vulnerabilità di rete.
 
@@ -239,7 +239,7 @@ Di seguito sono elencate le funzionalità attualmente disponibili in Network Wat
 
 -    **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Registrazione dei flussi dei gruppi di sicurezza di rete</a>**: la registrazione dei flussi dei gruppi di sicurezza di rete permette di acquisire i log relativi al traffico consentito o negato dalle regole di sicurezza nel gruppo. Il flusso è definito da informazioni a 5 tuple, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo.
 
-##  <a name="60-azure-storage-analytics"></a>6.0 Analisi archiviazione di Azure
+## <a name="azure-storage-analytics"></a>Analisi archiviazione di Azure
 
 [Analisi archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) è in grado di archiviare le metriche che includono le statistiche delle transazioni aggregate e i dati di capacità relativi alle richieste in un servizio di archiviazione. Le transazioni vengono segnalate sia a livello di operazione API, sia a livello di servizio di archiviazione, mentre la capacità viene segnalata a livello di servizio di archiviazione. I dati delle metriche possono essere utilizzati per analizzare l'uso del servizio di archiviazione, diagnosticare i problemi relativi alle richieste effettuate al servizio di archiviazione e per migliorare le prestazioni delle applicazioni che usano un servizio.
 
@@ -275,7 +275,7 @@ Vengono registrati i tipi seguenti di richieste autenticate e anonime.
 | Richieste tramite una firma di accesso condiviso (SAS), incluse le richieste riuscite e non riuscite |Errori di timeout per client e server |
 |     Richieste ai dati di analisi |     Richieste GET non riuscite con codice di errore 304 (non modificate) |
 | Le richieste eseguite dalla stessa Analisi archiviazione, ad esempio, la creazione oppure l'eliminazione di log, non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) e [Formato log Analisi archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). | Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) (Operazioni registrate e messaggi di stato nell'Analisi archiviazione ) e [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) (Formato dei registri di Analisi archiviazione). |
-## <a name="70-azure-active-directory"></a>7.0 Azure Active Directory
+## <a name="azure-active-directory"></a>Azure Active Directory
 
 Azure AD include anche una suite completa di funzionalità per la gestione delle identità, tra cui la Multi-Factor Authentication, la registrazione dei dispositivi, la gestione self-service delle password e dei gruppi, la gestione degli account con privilegi, il controllo degli accessi in base al ruolo, il monitoraggio dell'utilizzo dell'applicazione, il controllo avanzato e il monitoraggio e gli avvisi relativi alla sicurezza.
 
@@ -310,7 +310,7 @@ Gli eventi nel report di controllo di Azure Active Directory vengono conservati 
 
 Per i clienti interessati alla conservazione degli [eventi di controllo](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) per periodi più lunghi, l'API di creazione report consente di eseguire regolarmente il pull degli eventi di controllo in un archivio dati separato.
 
-## <a name="80-summary"></a>8.0 Riepilogo
+## <a name="summary"></a>Riepilogo
 
 Questo articolo riassume le caratteristiche di protezione della privacy e dei dati degli utenti, mettendo a disposizione software e servizi che aiutino a gestire l'infrastruttura IT dell'organizzazione. Microsoft è a conoscenza della necessità di applicare rigorose misure di sicurezza quando si affidano i dati a terzi. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio. La sicurezza e la protezione dei dati sono altamente prioritarie per Microsoft.
 

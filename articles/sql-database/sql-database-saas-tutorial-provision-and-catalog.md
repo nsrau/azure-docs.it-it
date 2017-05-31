@@ -1,6 +1,6 @@
 ---
 title: Effettuare il provisioning di nuovi tenant in un&quot;app multi-tenant che usa il database SQL di Azure | Microsoft Docs
-description: Effettuare il provisioning di nuovi tenant e catalogarli nell&quot;app SaaS Wingtip Tickets (WTP) di esempio del database SQL
+description: Effettuare il provisioning di nuovi tenant e catalogarli nell&quot;app SaaS Wingtip
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
+ms.date: 05/24/2017
+ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: aae5d85a18f93b7821a6ef8fc7161dd9a6ebe533
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: cf2fa0950f9f9df833051979b02355236214c4ea
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 
-Questa esercitazione illustra come effettuare il provisioning di nuovi tenant nell'applicazione SaaS Wingtip Tickets Platform (WTP). Vengono descritte le procedure per creare i tenant e i database tenant, quindi per registrare i tenant nel catalogo. Il *catalogo* è un database che gestisce il mapping tra molti tenant di applicazioni SaaS e i relativi dati. Usare questi script per esplorare i modelli di provisioning e catalogazione usati, nonché per scoprire come funziona la registrazione di nuovi tenant nel catalogo. Il catalogo svolge un ruolo importante nell'indirizzamento delle richieste delle applicazioni ai database corretti.
+Questa esercitazione illustra come effettuare il provisioning di nuovi tenant nell'applicazione SaaS Wingtip. Vengono descritte le procedure per creare i tenant e i database tenant, quindi per registrare i tenant nel catalogo. Il *catalogo* è un database che gestisce il mapping tra molti tenant di applicazioni SaaS e i relativi dati. Usare questi script per esplorare i modelli di provisioning e catalogazione usati, nonché per scoprire come funziona la registrazione di nuovi tenant nel catalogo. Il catalogo svolge un ruolo importante nell'indirizzamento delle richieste delle applicazioni ai database corretti.
 
 In questa esercitazione si apprenderà come:
 
@@ -39,16 +39,16 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-* L'app WTP è stata distribuita. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare un'applicazione SaaS multi-tenant di esempio che usa il database di SQL Azure](sql-database-saas-tutorial.md)
+* L'app SaaS Wingtip viene distribuita. Per distribuire in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS Wingtip](sql-database-saas-tutorial.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Introduzione al modello di catalogazione SaaS
 
-In un'applicazione SaaS multi-tenant supportata da database è importante sapere dove sono archiviate le informazioni per ogni tenant. Nel modello di catalogo SaaS, viene usato un database di catalogo per contenere il mapping tra tenant e la posizione in cui sono archiviati i relativi dati. L'app WTP usa un'architettura di database single-tenant, ma viene applicato il modello di base che prevede l'archiviazione del mapping tenant-database in un catalogo, indipendentemente dal fatto che venga usato un database multi-tenant o a tenant singolo.
+In un'applicazione SaaS multi-tenant supportata da database è importante sapere dove sono archiviate le informazioni per ogni tenant. Nel modello di catalogo SaaS, viene usato un database di catalogo per contenere il mapping tra tenant e la posizione in cui sono archiviati i relativi dati. L'app SaaS Wingtip usa un'architettura di database single-tenant, ma viene applicato il modello di base che prevede l'archiviazione del mapping tenant-database in un catalogo, indipendentemente dal fatto che venga usato un database multi-tenant o a tenant singolo.
 
-A ogni tenant viene assegnata una chiave per distinguere i relativi dati nel catalogo. Nell'applicazione WTP la chiave viene formata da un hash del nome del tenant. Questo modello consente di usare la parte del nome del tenant dell'URL dell'applicazione per comporre la chiave e recuperare la connessione di un tenant specifico. Si potrebbero usare altri schemi di identificazione senza effetti sul modello nel suo complesso.
+A ogni tenant viene assegnata una chiave per distinguere i relativi dati nel catalogo. Nell'applicazione SaaS Wingtip la chiave viene formata da un hash del nome del tenant. Questo modello consente di usare la parte del nome del tenant dell'URL dell'applicazione per comporre la chiave e recuperare la connessione di un tenant specifico. Si potrebbero usare altri schemi di identificazione senza effetti sul modello nel suo complesso.
 
-Il catalogo nell'app WTP viene implementato mediante la tecnologia di gestione delle partizioni nella [libreria client di database elastici](sql-database-elastic-database-client-library.md). La libreria client di database elastici è responsabile della creazione e gestione di un _catalogo_ supportato da database in cui viene mantenuta aggiornata una _mappa partizioni_. Il catalogo contiene il mapping tra le chiavi (tenant) e i relativi database (partizioni).
+Il catalogo nell'app viene implementato usando la tecnologia di gestione delle partizioni nella [libreria client di database elastici](sql-database-elastic-database-client-library.md). La libreria client di database elastici è responsabile della creazione e gestione di un _catalogo_ supportato da database in cui viene mantenuta aggiornata una _mappa partizioni_. Il catalogo contiene il mapping tra le chiavi (tenant) e i relativi database (partizioni).
 
 > [!IMPORTANT]
 > I dati di mapping sono accessibili nel database del catalogo, ma *non modificarli*. Modificare i dati di mapping solo tramite le API della libreria client dei database elastici. La modifica diretta dei dati di mapping comporta il rischio di danneggiare il catalogo e non è supportata.
@@ -57,16 +57,16 @@ L'app SaaS Wingtip effettua il provisioning dei nuovi tenant copiando un databas
 
 ## <a name="get-the-wingtip-application-scripts"></a>Ottenere gli script dell'applicazione Wingtip
 
-Gli script di Wingtip Tickets e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). I file di script si trovano nella [cartella Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Scaricare la cartella **Learning Modules** nel computer locale, mantenendo la struttura delle cartelle.
+Gli script dell'app SaaS Wingtip e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procedura per scaricare gli script dell'app SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-a-new-tenant"></a>Effettuare il provisioning di un nuovo tenant
 
-Se è già stato creato un tenant nella prima esercitazione WTP, è possibile passare alla sezione successiva dedicata al [provisioning di un batch di tenant](#provision-a-batch-of-tenants).
+Se è già stato creato un tenant nella prima [esercitazione relativa all'app SaaS Wingtip](sql-database-saas-tutorial.md), è possibile passare alla sezione successiva dedicata al [provisioning di un batch di tenant](#provision-a-batch-of-tenants).
 
 Eseguire lo script *Demo-ProvisionAndCatalog* per creare velocemente un tenant e registrarlo nel catalogo:
 
 1. Aprire **Demo-ProvisionAndCatalog.ps1** in PowerShell ISE e impostare i valori seguenti:
-   * **$TenantName** = nome della nuova sede di eventi, ad esempio *Bushwillow Blues*. 
+   * **$TenantName** = nome della nuova sede di eventi, ad esempio *Bushwillow Blues*.
    * **$VenueType** = uno dei tipi di sedi predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
    * **$DemoScenario** = 1, lasciare il valore impostato su _1_ per **effettuare il provisioning di un singolo tenant**.
 
@@ -79,7 +79,7 @@ Dopo il completamento dello script, viene effettuato il provisioning del nuovo t
 
 ## <a name="provision-a-batch-of-tenants"></a>Effettuare il provisioning di un batch di tenant
 
-Questo esercizio descrive come effettuare il provisioning di un batch di altri tenant. È consigliabile farlo prima di completare altre esercitazioni relative all'app WTP.
+Questo esercizio descrive come effettuare il provisioning di un batch di altri tenant. È consigliabile farlo prima di completare altre esercitazioni relative all'app SaaS Wingtip.
 
 1. Aprire ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in *PowerShell ISE* e impostare il valore seguente:
    * **$DemoScenario** = **3**, impostare su **3** per **effettuare il provisioning di un batch di tenant**.
@@ -156,9 +156,9 @@ Gli altri modelli di provisioning non inclusi in questa esercitazione includono:
 
 ## <a name="stopping-wingtip-saas-application-related-billing"></a>Interruzione della fatturazione correlata all'applicazione SaaS Wingtip
 
-Se non si prevede di continuare con un'altra esercitazione, si consiglia di eliminare tutte le risorse per sospendere la fatturazione. Eliminare il gruppo di risorse in cui è stata distribuita l'applicazione WTP. Verranno eliminate anche tutte le risorse corrispondenti.
+Se non si prevede di continuare con un'altra esercitazione, si consiglia di eliminare tutte le risorse per sospendere la fatturazione. Eliminare il gruppo di risorse in cui è stata distribuita l'applicazione Wingtip. Verranno eliminate anche tutte le risorse corrispondenti.
 
-* Passare al gruppo di risorse dell'applicazione nel portale ed eliminarlo per interrompere la fatturazione correlata a questa distribuzione dell'applicazione WTP.
+* Passare al gruppo di risorse dell'applicazione nel portale ed eliminarlo per interrompere la fatturazione correlata a questa distribuzione dell'applicazione Wingtip.
 
 ## <a name="tips"></a>Suggerimenti
 
@@ -180,7 +180,7 @@ In questa esercitazione si è appreso come:
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Altre esercitazioni basate sulla distribuzione iniziale dell'applicazione Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Altre [esercitazioni basate sull'applicazione SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Libreria client dei database elastici](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Modalità di esecuzione del debug degli script in Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 

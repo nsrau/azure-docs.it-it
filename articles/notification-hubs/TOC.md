@@ -44,6 +44,7 @@
 
 ## Gestire
 ### [Registrazioni](notification-hubs-push-notification-registration-management.md)
+### [Autenticazione basata su token del servizio APN](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Proteggere](notification-hubs-push-notification-security.md)
 ### Push sicuro

@@ -17,16 +17,16 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 364038c11f13bcb72b259618b1d7d433f48a33c1
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Progettazione di servizi a disponibilità elevata con database SQL di Azure
 
-Durante la compilazione e distribuzione di servizi a disponibilità elevata in un database SQL di Azure è necessario usare [Gruppi di failover e replica geografica attiva](sql-database-geo-replication-overview.md). Offre resilienza agli errori a livello di area e alle interruzioni irreversibili e consente di eseguire un ripristino rapido tramite il failover nei database secondari. Questo articolo illustra i modelli di applicazione comuni e discute i vantaggi e i compromessi di ogni opzione in base ai requisiti di distribuzione dell'applicazione, il contratto di servizio di destinazione, la latenza del traffico e i costi. Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Durante la compilazione e distribuzione di servizi a disponibilità elevata in un database SQL Azure, usare [gruppi di failover e la replica geografica attiva](sql-database-geo-replication-overview.md) per ottenere la resilienza agli errori di area e alle interruzioni irreversibili e consentire un rapido ripristino sui database secondari. Questo articolo illustra i modelli di applicazione comuni e tratta i vantaggi e i compromessi di ogni opzione in base ai requisiti di distribuzione dell'applicazione, il contratto di servizio di destinazione, la latenza del traffico e i costi. Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="design-pattern-1-active-passive-deployment-for-cloud-disaster-recovery-with-a-co-located-database"></a>Modello di progettazione 1: distribuzione attiva/passiva per il ripristino di emergenza cloud mediante un database con percorso condiviso
 Questa opzione è particolarmente indicata per le applicazioni con le caratteristiche seguenti:
@@ -45,7 +45,7 @@ Il diagramma seguente mostra questa configurazione prima di un'interruzione.
 
 ![Configurazione della replica geografica del database SQL. Ripristino di emergenza cloud.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
-Dopo un'interruzione del servizio nell'area primaria, il servizio di database SQL rileva che il database primario non è accessibile e attiva un failover nel database secondario in base ai parametri dei criteri di failover automatico. A seconda del contratto di servizio dell'applicazione, è possibile decidere di configurare un periodo di tolleranza tra il rilevamento dell'interruzione e il failover stesso. La configurazione di un periodo di tolleranza riduce il rischio di perdita di dati nei casi in cui l'interruzione del servizio è irreversibile e non è possibile ripristinare rapidamente la disponibilità nell'area. Se il failover dell'endpoint viene avviato da Gestione traffico prima che il gruppo di failover attivi il failover del database, l'applicazione Web non sarà in grado di riconnettersi al database. Il tentativo dell'applicazione di ristabilire la connessione avrà esito positivo automaticamente non appena verrà completato il failover del database. 
+Dopo un'interruzione del servizio nell'area primaria, il servizio di database SQL rileva che il database primario non è accessibile e attiva un failover nel database secondario in base ai parametri dei criteri di failover automatico. A seconda del contratto di servizio dell'applicazione, è possibile decidere di configurare un periodo di tolleranza tra il rilevamento dell'interruzione e il failover stesso. La configurazione di un periodo di tolleranza riduce il rischio di perdita di dati nei casi in cui l'interruzione del servizio è irreversibile e non è possibile ripristinare rapidamente la disponibilità nell'area. Se il failover dell'endpoint viene avviato da Gestione traffico prima che il gruppo di failover attivi il failover del database, l'applicazione Web non è in grado di riconnettersi al database. Il tentativo dell'applicazione di ristabilire la connessione ha esito positivo automaticamente non appena verrà completato il failover del database. 
 
 > [!NOTE]
 > Per ottenere il failover completamente coordinato di applicazione e database, si deve definire il proprio metodo di monitoraggio e usare il failover manuale degli endpoint dell'applicazione Web e dei database.
@@ -58,7 +58,7 @@ Al termine dell'esecuzione del failover degli endpoint dell'applicazione e del d
 Se si verifica un'interruzione nell'area secondaria, il collegamento di replica tra il database primario e quello secondario è sospeso, ma il failover non viene attivato perché il database primario non è interessato. In questo caso la disponibilità dell'applicazione non viene modificata, ma l'applicazione risulta esposta a un rischio maggiore se entrambe le aree hanno esito negativo una dopo l'altra.
 
 > [!NOTE]
->Si consigliano solo configurazioni di distribuzione con un'unica area DR. Infatti la maggior parte delle geografie di Azure ha due aree. Queste configurazioni non proteggeranno l'applicazione da un errore irreparabile di entrambe le aree. Nell'improbabile eventualità di un errore di questo genere, è possibile recuperare i database in una terza area con un'[operazione di ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Si consigliano solo configurazioni di distribuzione con un'unica area DR. Infatti la maggior parte delle geografie di Azure ha due aree. Queste configurazioni non proteggeranno l'applicazione da un errore irreparabile di entrambe le aree. Nell'improbabile eventualità di un errore di questo genere, è possibile recuperare i database in una terza area con un'[operazione di ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
 Dopo che è stata ridotta l'entità dell'interruzione, il database secondario viene automaticamente risincronizzato con quello primario. Durante la sincronizzazione, le prestazioni di quello primario potrebbero essere leggermente rallentate a seconda della quantità di dati da sincronizzare. Il diagramma seguente illustra un'interruzione nell'area secondaria.
@@ -145,7 +145,7 @@ Il **compromesso** è:
 * L'applicazione deve poter funzionare in modalità di sola lettura.
 
 > [!NOTE]
-> In caso in interruzione permanente del servizio nell'area, è necessario attivare manualmente il failover del database e accettare la perdita dei dati. L'applicazione sarà funzionale nell'area secondaria con l'accesso in lettura/scrittura al database.
+> In caso in interruzione permanente del servizio nell'area, attivare manualmente il failover del database e accettare la perdita dei dati. L'applicazione sarà funzionale nell'area secondaria con l'accesso in lettura/scrittura al database.
 >
 
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Pianificazione della continuità aziendale: Scegliere una progettazione di applicazioni per il ripristino di emergenza cloud
@@ -163,7 +163,7 @@ La strategia di ripristino di emergenza cloud specifica può combinare o estende
 * Per informazioni sui backup automatici del database SQL di Azure, vedere [Panoramica: Backup automatici del database SQL](sql-database-automated-backups.md)
 * Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
 * Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
-* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)  
+* Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md).  
 * Per altre informazioni sull'uso di backup automatici per l'archiviazione, vedere [Copia del database](sql-database-copy.md)
 * Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 

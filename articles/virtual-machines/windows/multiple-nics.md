@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f04ac382521c7268d0eb03d1b3bfc78ee0b07d40
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6918b206c637e1e0ad99b472c6a45a4fc343dc6d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -130,7 +131,7 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "West
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Aggiungere una scheda di interfaccia di rete a una VM esistente
 
-È ora possibile aggiungere una scheda di interfaccia di rete a una VM esistente. Per usare questa funzionalità, è necessario prima di tutto deallocare la VM usando il cmdlet Stop-AzureRmVM seguente:
+È ora possibile aggiungere una scheda di interfaccia di rete a una VM esistente. Per usare questa funzionalità, è necessario prima di tutto deallocare la VM usando il cmdlet Stop-AzureRmVM seguente.
 
 ```powershell
 Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -168,7 +169,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Rimuovere una scheda di interfaccia di rete da una VM esistente
 
-È possibile rimuovere una scheda di interfaccia di rete da una VM. Per usare questa funzionalità, è necessario prima di tutto deallocare la VM usando il cmdlet Stop-AzureRmVM seguente:
+È possibile rimuovere una scheda di interfaccia di rete da una VM. Per usare questa funzionalità, è necessario prima di tutto deallocare la VM usando il cmdlet Stop-AzureRmVM seguente.
 
 ```powershell
 Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -184,8 +185,8 @@ $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
 
 ```powershell
 $vm.NetworkProfile.NetworkInterfaces
-
-Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
+Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
+    Update-AzureRmVm -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Creazione di più schede di rete utilizzando i modelli di Resource Manager

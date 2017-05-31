@@ -13,32 +13,50 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/08/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d082b37a2e070136178259c54ada8dc141f81e13
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: b3bb7d9d14293aae78c3a1c2ac6badcc48dcbe2c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
 
 # <a name="how-to-use-availability-sets"></a>Come usare i set di disponibilità
 
-In questa esercitazione sarà descritto come aumentare la disponibilità delle macchine virtuali (VM), inserendole in un raggruppamento logico denominato set di disponibilità. Quando si creano macchine virtuali in un set di disponibilità, la piattaforma Azure ne distribuirà il posizionamento nell'infrastruttura sottostante. Se si verifica un errore dell'hardware o viene effettuata la manutenzione pianificata della piattaforma, l'uso dei set di disponibilità garantisce che almeno una macchina virtuale rimanga in esecuzione.
 
-I passaggi descritti in questa esercitazione possono essere eseguiti usando la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+In questa esercitazione si apprenderà come aumentare la disponibilità e l'affidabilità delle soluzioni delle proprie macchine virtuali in Azure tramite una funzionalità denominata set di disponibilità. I set di disponibilità assicurano che le macchine virtuali distribuite in Azure vengano distribuite tra più cluster hardware isolati. Questa operazione assicura che, se si verifica un errore hardware o software all'interno di Azure, solo un sottoinsieme delle macchine virtuali verrà interessato e la soluzione complessiva rimarrà disponibile e operativa dal punto di vista dei clienti che la usano.
+
+In questa esercitazione si apprenderà come:
+
+> [!div class="checklist"]
+> * Creare un set di disponibilità
+> * Creare una macchina virtuale in un set di disponibilità
+> * Controllare le dimensioni delle macchine virtuali disponibili
+
+Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). È anche possibile usare [Cloud Shell](/azure/cloud-shell/quickstart) dal browser.
 
 ## <a name="availability-set-overview"></a>Informazioni generali sui set di disponibilità
 
-È possibile creare macchine virtuali in raggruppamenti logici di hardware nel data center di Azure sottostante. Quando si creano due o più macchine virtuali, le risorse di calcolo e di archiviazione vengono distribuite sull'hardware, cioè tra server, commutatori di rete e risorse di archiviazione. Questa distribuzione assicura la disponibilità dell'app in caso di manutenzione di un componente hardware. I set di disponibilità consentono di definire questo raggruppamento logico.
+Un set di disponibilità è una funzionalità di raggruppamento logico che è possibile usare in Azure per garantire che le risorse delle macchine virtuali inserite dall'utente siano isolate tra loro quando vengono distribuite all'interno di un data center di Azure. Azure garantisce che le macchine virtuali inserite all'interno di un set di disponibilità vengano eseguite tra più server fisici, rack di calcolo, unità di archiviazione e commutatori di rete. Ciò garantisce che in caso di errore hardware o software in Azure, verrà interessato solo un sottoinsieme delle macchine virtuali e l'applicazione complessiva si manterrà aggiornata e continuerà a essere disponibile per i clienti. L'uso dei set di disponibilità è una funzionalità essenziale da sfruttare quando si desidera creare soluzioni di cloud affidabili.
 
-I set di disponibilità garantiscono un'elevata disponibilità per le macchine virtuali. Verificare anche che le applicazioni siano progettate per tollerare interruzioni o eventi di manutenzione.
+Si consideri una soluzione tipica basata su macchine virtuali, in cui si dispone di 4 server Web front-end e vengono usate 2 macchine virtuali di back-end che ospitano un database. Con Azure si desidera definire due set di disponibilità prima di distribuire le macchine virtuali: un set di disponibilità per il livello "Web" e un set di disponibilità per il livello "database". Quando si crea una nuova macchina virtuale, è quindi possibile specificare il set di disponibilità come parametro per il comando az vm create. Azure automaticamente garantirà che le macchine virtuali create all'interno del set di disponibilità vengano isolate su più risorse hardware fisiche. Ciò significa che, se l'hardware fisico su cui è in esecuzione una delle macchine virtuali dei server di database o dei server Web presenta un problema, le altre istanze delle macchine virtuali dei server Web e di database rimarranno in esecuzione correttamente perché si trovano su un hardware diverso.
+
+Usare sempre i set di disponibilità quando si desidera distribuire soluzioni affidabili basate su macchine virtuali all'interno di Azure.
+
 
 ## <a name="create-an-availability-set"></a>Creare un set di disponibilità
 
 È possibile creare un set di disponibilità usando il comando [az vm availability-set create](/cli/azure/availability-set#create). In questo esempio sia il numero di domini di aggiornamento che quello di domini di errore viene impostato a *2* per il set di disponibilità denominato *myAvailabilitySet* nel gruppo di risorse *myResourceGroupAvailability*.
+
+Creare un gruppo di risorse.
+
+```azurecli
+az group create --name myResourceGroupAvailability --location eastus
+```
+
 
 ```azurecli
 az vm availability-set create \
@@ -48,11 +66,11 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
+I set di disponibilità consentono di isolare le risorse su "domini di errore" e "domini di aggiornamento". Un **dominio di errore** rappresenta una raccolta isolata di server + rete + risorse di archiviazione. Nell'esempio precedente viene indicato che si desidera distribuire il set di disponibilità su almeno due domini di errore quando vengono distribuite le macchine virtuali. Viene anche indicato che si desidera distribuire il set di disponibilità su due **domini di aggiornamento**.  Due domini di aggiornamento assicurano che, quando Azure esegue gli aggiornamenti software, le risorse delle macchine virtuali siano isolate, impedendo che tutto il software in esecuzione nelle macchine virtuali venga aggiornato contemporaneamente.
+
 ## <a name="create-vms-inside-an-availability-set"></a>Creare macchine virtuali in un set di disponibilità
 
 Per garantire la corretta distribuzione delle macchine virtuali in tutto l'hardware, le VM devono essere create all'interno del set di disponibilità. Non è possibile aggiungere una macchina virtuale esistente a un set di disponibilità dopo la sua creazione. 
-
-L'hardware in un percorso è suddiviso in più domini di aggiornamento e domini di errore. I **domini di aggiornamento** sono gruppi di macchine virtuali con il relativo hardware fisico sottostante che è possibile riavviare nello stesso momento. Le macchine virtuali nello stesso **dominio di errore** condividono risorse di archiviazione comuni, nonché un alimentatore e un commutatore di rete comune. 
 
 Quando si crea una macchina virtuale usando il comando [az vm create](/cli/azure/vm#create) si specifica il set di disponibilità usando il parametro `--availability-set` per indicare il nome del set di disponibilità.
 
@@ -70,7 +88,9 @@ for i in `seq 1 2`; do
 done 
 ```
 
-Sono ora presenti 2 macchine virtuali distribuite tra l'hardware sottostante. 
+Sono ora disponibili due macchine virtuali all'interno del set di disponibilità appena creato. Poiché sono nello stesso set di disponibilità, Azure assicura che le macchine virtuali e tutte le relative risorse (inclusi i dischi di dati) siano distribuite su un hardware fisico isolato. Questa distribuzione consente di garantire una disponibilità molto maggiore della soluzione complessiva delle macchine virtuali.
+
+Quando si aggiungono macchine virtuali, potrebbe verificarsi che una determinata dimensione di macchina virtuale non sia più disponibile per l'uso all'interno del set di disponibilità. Questo problema può verificarsi se non è più disponibile una capacità sufficiente per aggiungerla, mentre vengono mantenute le regole di isolamento che il set di disponibilità applica. È possibile verificare quali dimensioni di macchina virtuale sono disponibili per l'uso all'interno di un set di disponibilità esistente tramite il parametro `--availability-set list-sizes`.
 
 ## <a name="check-for-available-vm-sizes"></a>Controllare le dimensioni delle macchine virtuali disponibili 
 
@@ -85,8 +105,16 @@ az vm availability-set list-sizes \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto l'uso dei set di disponibilità. Passare all'esercitazione successiva per informazioni sui set di scalabilità di macchine virtuali.
+In questa esercitazione si è appreso come:
 
-[Creare un set di scalabilità di macchine virtuali](tutorial-create-vmss.md)
+> [!div class="checklist"]
+> * Creare un set di disponibilità
+> * Creare una macchina virtuale in un set di disponibilità
+> * Controllare le dimensioni delle macchine virtuali disponibili
+
+Passare all'esercitazione successiva per informazioni sui set di scalabilità di macchine virtuali.
+
+> [!div class="nextstepaction"]
+> [Creare un set di scalabilità di macchine virtuali](tutorial-create-vmss.md)
 
 

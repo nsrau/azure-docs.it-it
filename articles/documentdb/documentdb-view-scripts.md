@@ -1,34 +1,35 @@
 ---
-title: 'Strumento del portale di Azure DocumentDB: Esplora script | Documentazione Microsoft'
-description: Informazioni su Esplora script di DocumentDB, uno strumento del portale di Azure che consente di gestire elementi di programmazione sul lato server di DocumentDB quali stored procedure di JavaScript, trigger e funzioni definite dall&quot;utente.
+title: 'Strumento del portale per Azure Cosmos DB: Esplora script | Microsoft Docs'
+description: Informazioni su Esplora script di Cosmos DB, uno strumento del portale di Azure che consente di gestire elementi di programmazione sul lato server di Cosmos DB quali stored procedure di JavaScript, trigger e funzioni definite dall&quot;utente.
 keywords: Editor JavaScript
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 9d0620da-2449-4c17-82a4-24aaa46e9b3e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
-ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e9c3e92dd1c35ff6893565e61f7e7b940b6ede7e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-documentdb-script-explorer"></a>Creare ed eseguire stored procedure, trigger e funzioni definite dall'utente usando Esplora script di DocumentDB
-Questo articolo fornisce una panoramica di Esplora script di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) , un editor JavaScript del portale di Azure che consente di visualizzare ed eseguire elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Per altre informazioni sulla programmazione sul lato server di DocumentDB, vedere l'articolo relativo alla [programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md) .
+# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-azure-cosmos-db-script-explorer"></a>Creare ed eseguire stored procedure, trigger e funzioni definite dall'utente usando Esplora script di Cosmos DB
+Questo articolo fornisce una panoramica di Esplora script di [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), un editor JavaScript del portale di Azure che consente di visualizzare ed eseguire elementi di programmazione sul lato server di Cosmos DB quali stored procedure, trigger e funzioni definite dall'utente. Per altre informazioni sulla programmazione sul lato server di Cosmos DB, vedere l'articolo [Stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md).
 
 ## <a name="launch-script-explorer"></a>Avviare Esplora script
-1. Nel [portale di Azure](https://portal.azure.com) nel riquadro di navigazione a sinistra, fare clic sull'![icona di Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+1. Nel [portale di Azure](https://portal.azure.com) fare clic sull'![icona di Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB** nel riquadro di spostamento sinistro. 
 
-    Se **NoSQL (DocumentDB)** non è visibile, fare clic su **Altri servizi** nella parte inferiore, quindi fare clic sull'![icona di Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
+    Se **Azure Cosmos DB** non è visibile, fare clic su **Altri servizi** nella parte inferiore e quindi sull'![icona di Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. Nel menu delle risorse fare clic su **Esplora script**.
    
     ![Schermata del comando Esplora script](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -47,7 +48,7 @@ Questo articolo fornisce una panoramica di Esplora script di [Microsoft Azure Do
     ![Schermata del comando di aggiornamento di Esplora script](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 ## <a name="create-view-and-edit-stored-procedures-triggers-and-user-defined-functions"></a>Creare, visualizzare e modificare stored procedure, trigger e funzioni definite dall'utente
-Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di programmazione lato server di DocumentDB.  
+Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di programmazione lato server di Cosmos DB.  
 
 * Per creare uno script, è sufficiente fare clic sul comando di creazione applicabile all'interno di Esplora script, fornire un ID, immettere il contenuto dello script e fare clic su **Salva**.
   
@@ -109,6 +110,5 @@ Esplora script del portale di Azure è solo uno dei modi per utilizzare stored p
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla programmazione lato server di DocumentDB, vedere l'articolo relativo a [Stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md) .
 
-Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB.  
 
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 16d04d0f470dde3917f5a12f527ecceb493b2a57
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 89001404fa7255efc656b98983502d1f1d84fd73
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -34,6 +34,8 @@ La configurazione dell'estensione script personalizzata specifica informazioni c
 ### <a name="public-configuration"></a>Configurazione pubblica
 Schema:
 
+**Nota**: questi nomi di proprietà fanno distinzione tra maiuscole e minuscole. Usare i nomi come sono riportati sotto per evitare problemi di distribuzione.
+
 * **commandToExecute**: (obbligatorio, stringa) script del punto di ingresso da eseguire.
 * **fileUris**: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare.
 * **timestamp** : (facoltativo, intero) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.
@@ -47,6 +49,8 @@ Schema:
 
 ### <a name="protected-configuration"></a>Configurazione protetta
 Schema:
+
+**Nota**: questi nomi di proprietà fanno distinzione tra maiuscole e minuscole. Usare i nomi come sono riportati sotto per evitare problemi di distribuzione.
 
 * **commandToExecute**: (facoltativo, stringa) script del punto di ingresso da eseguire. Usare in alternativa questo campo se il comando contiene segreti, ad esempio password.
 * **storageAccountName**: (facoltativo, stringa) nome dell'account di archiviazione. Se si specificano credenziali di archiviazione, tutti i valori di fileUris devono essere URL relativi a BLOB di Azure.

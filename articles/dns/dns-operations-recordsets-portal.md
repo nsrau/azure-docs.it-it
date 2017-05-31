@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 850bf9ef5300c72a9e7903be5bf991301d4b574f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -89,7 +91,7 @@ Dopo aver salvato il record, i valori per il set di record nel pannello **Zona D
 3. Fare clic su **Salva** nella parte superiore del pannello per salvare le impostazioni.
 4. Dopo aver rimosso il record, i valori per il set di record nel pannello **Zona DNS** rifletteranno la rimozione.
 
-## <a name="a-namedeleteadelete-a-record-set"></a><a name="delete"></a>Eliminare un set di record
+## <a name="delete"></a>Eliminare un set di record
 
 1. Fare clic su **Elimina** nel pannello **Proprietà del set di record** per il set di record.
 
@@ -109,20 +111,19 @@ Non è possibile aggiungere o rimuovere record dal set di record SOA creato auto
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificare i record NS al vertice della zona
 
-Non è possibile aggiungere, rimuovere o modificare i record nel set di record NS creato automaticamente al vertice della zona (name = "@"). L'unica modifica consentita consiste nel modificare la durata (TTL) del set di record.
+Il set di record NS al vertice della zona viene creato automaticamente con ogni zona DNS. Contiene i nomi dei server dei nomi DNS di Azure assegnati alla zona.
+
+È possibile aggiungere ulteriori server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati.
+
+Notare che questo si applica solo al set di record NS al vertice della zona. Gli altri set di record NS nella zona (usati per delegare le zone figlio) possono essere modificati senza vincoli.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Eliminare set di record SOA o NS
 
-Non è possibile eliminare i set di record SOA e NS al vertice della zona (name = "@")) che vengono creati automaticamente quando viene creata la zona. Vengono eliminate automaticamente quando si elimina la zona.
+Non è possibile eliminare i set di record SOA e NS al vertice della zona (name = "@") che vengono creati automaticamente quando viene creata la zona. Vengono eliminate automaticamente quando si elimina la zona.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md).
 * Per altre informazioni sull'automazione di DNS, vedere [Creazione di zone e set di record DNS con .NET SDK](dns-sdk.md).
 * Per altre informazioni sui record DNS inversi, vedere [Come gestire i record DNS inversi per i servizi tramite PowerShell](dns-reverse-dns-record-operations-ps.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -3,7 +3,7 @@ title: Cmdlet di PowerShell per Azure SQL Data Warehouse
 description: I cmdlet principali di PowerShell per Azure SQL Data Warehouse, compresi quelli per sospendere e riavviare un database.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 6f0d5772-f05f-4cc8-9749-4adb153dfd50
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: kevin;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: d30a49a79e74c575dd6daba9a260c18822a26462
+ms.contentlocale: it-it
 ms.lasthandoff: 04/07/2017
 
 

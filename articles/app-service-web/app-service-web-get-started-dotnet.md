@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 018a46452c13886b9519ed5d2311bc65649c3c69
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -87,26 +87,14 @@ Assegnare al gruppo di risorse il nome **myResourceGroup** e fare clic su **OK**
 
 ## <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
-Per l'app Web di Azure è necessario anche un _piano di servizio app_. 
-
-> [!NOTE]
-> Un piano di servizio app rappresenta la raccolta delle risorse fisiche usate per ospitare le app. Tutte le app assegnate a un piano di servizio app condividono le risorse definite dal piano, che consente di risparmiare sui costi quando si ospitano più app. 
->
-> I piani di servizio app definiscono:
->
-> - Area (Europa settentrionale, Stati Uniti orientali, Asia sud-orientale)
-> - Dimensioni delle istanze (Small, Medium, Large)
-> - Numero di scala (una, due o tre istanze e così via) 
-> - SKU (Gratuito, Condiviso, Basic, Standard, Premium)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 Accanto a **Piano di servizio app** fare clic su **Nuovo**. 
 
 Nella finestra di dialogo **Configura piano di servizio app** configurare il nuovo piano di servizio app con le impostazioni seguenti:
 
 - **Piano di servizio app**: digitare **myAppServicePlan**. 
-- **Località**: scegliere **Europa occidentale** o un'altra area.
+- **Località**: scegliere **Europa occidentale** o un'area vicino alla propria località.
 - **Dimensioni**: scegliere **Gratuito** o un altro [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/).
 
 Fare clic su **OK**.
