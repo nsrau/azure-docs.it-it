@@ -1,13 +1,13 @@
 ---
-title: Architetture di database multimaster con Azure DocumentDB | Documentazione Microsoft
-description: "Informazioni su come progettare architetture di applicazioni con operazioni di lettura e scrittura locali in più aree geografiche con Azure DocumentDB."
-services: documentdb
+title: Architetture di database multimaster con Azure Cosmos DB | Microsoft Docs
+description: "Informazioni su come progettare architetture di applicazioni con operazioni di lettura e scrittura locali in più aree geografiche con Azure Cosmos DB."
+services: cosmosdb
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,20 +15,21 @@ ms.workload: na
 ms.date: 01/25/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: d6292567bbf7afd71b21be3b236537c609c63644
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: e0648e80d4bef0a98854a85e36bc48dcc209eb47
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="multi-master-globally-replicated-database-architectures-with-documentdb"></a>Architetture di database multimaster replicate a livello globale con DocumentDB
-DocumentDB supporta la [replica globale](documentdb-distribute-data-globally.md) chiavi in mano, che consente di distribuire i dati in più aree con accesso a bassa latenza in qualsiasi punto del carico di lavoro. Questo modello viene usato in genere per carichi di lavoro di pubblicazione/consumer in cui è presente un writer in una singola area geografica e con lettori distribuiti a livello globale in altre aree (lettura). 
+# <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Architetture di database multimaster replicate a livello globale con Cosmos DB
+Cosmos DB di Azure supporta la [replica globale](documentdb-distribute-data-globally.md) chiavi in mano, che consente di distribuire i dati in più aree con accesso a bassa latenza in qualsiasi punto del carico di lavoro. Questo modello viene usato in genere per carichi di lavoro di pubblicazione/consumer in cui è presente un writer in una singola area geografica e con lettori distribuiti a livello globale in altre aree (lettura). 
 
-È anche possibile usare il supporto per la replica globale di DocumentDB per creare applicazioni in cui i writer e i lettori sono distribuiti in modo globale. Questo documento illustra un modello che consente di ottenere l'accesso in scrittura e lettura locale per i writer distribuiti mediante Azure DocumentDB.
+È anche possibile usare il supporto per la replica globale di Azure Cosmos DB per creare applicazioni in cui i writer e i lettori sono distribuiti in modo globale. Questo documento illustra un modello che consente di ottenere l'accesso in scrittura e lettura locale per i writer distribuiti mediante Azure Cosmos DB.
 
 ## <a id="ExampleScenario"></a>Pubblicazione del contenuto: scenario di esempio
-È possibile esaminare uno scenario concreto per illustrare il modo in cui possono essere usati i modelli di lettura e scrittura in più aree e multimaster distribuiti a livello globale con DocumentDB. Esaminare una piattaforma di pubblicazione di contenuti creata in DocumentDB. Ecco alcuni requisiti che devono essere rispettati da questa piattaforma per offrire un'esperienza utente ottimale per server di pubblicazione e consumer.
+È possibile esaminare uno scenario concreto per illustrare il modo in cui possono essere usati i modelli di lettura e scrittura in più aree e multimaster distribuiti a livello globale con Cosmos DB. Esaminare una piattaforma di pubblicazione di contenuti creata in Cosmos DB. Ecco alcuni requisiti che devono essere rispettati da questa piattaforma per offrire un'esperienza utente ottimale per server di pubblicazione e consumer.
 
 * Gli autori e i sottoscrittori sono distribuiti in tutto il mondo. 
 * Gli autori devono pubblicare (scrivere) articoli nella rispettiva area locale (più vicina).
@@ -37,9 +38,9 @@ DocumentDB supporta la [replica globale](documentdb-distribute-data-globally.md)
 * I sottoscrittori devono essere in grado di leggere articoli dalla rispettiva area locale. Devono anche potere aggiungere revisioni per questi articoli. 
 * Qualunque utente, incluso l'autore degli articoli, deve potere visualizzare tutte le revisioni allegate agli articoli da un'area locale. 
 
-Supponendo che siano presenti milioni di consumer e server di pubblicazione con miliardi di articoli, sarà presto necessario affrontare i problemi relativi alla scalabilità, oltre a garantire l'accesso locale. Analogamente alla maggior parte dei problemi di scalabilità, la soluzione è basata su una strategia di partizionamento ottimale. Ecco come modellare gli articoli, le revisioni e le notifiche come documenti, configurare gli account DocumentDB e implementare un livello di accesso ai dati. 
+Supponendo che siano presenti milioni di consumer e server di pubblicazione con miliardi di articoli, sarà presto necessario affrontare i problemi relativi alla scalabilità, oltre a garantire l'accesso locale. Analogamente alla maggior parte dei problemi di scalabilità, la soluzione è basata su una strategia di partizionamento ottimale. Ecco come modellare gli articoli, le revisioni e le notifiche come documenti, configurare gli account Cosmos DB e implementare un livello di accesso ai dati. 
 
-Per altre informazioni sul partizionamento e sulle chiavi di partizione, vedere [Partizionamento e scalabilità in Azure DocumentDB](documentdb-partition-data.md).
+Per altre informazioni sul partizionamento e sulle chiavi di partizione, vedere [Partizionamento e scalabilità in Azure Cosmos DB](documentdb-partition-data.md).
 
 ## <a id="ModelingNotifications"></a>Modellazione delle notifiche
 Le notifiche sono feed di dati specifici per un utente. I modelli di accesso per i documenti di notifica sono quindi sempre nel contesto di un singolo utente. È ad esempio possibile "inserire una notifica per un utente" o "recuperare tutte le notifiche per un utente specifico". La scelta ottimale di chiave di partizionamento per questo tipo sarebbe quindi `UserId`.
@@ -92,11 +93,13 @@ Le sottoscrizioni possono essere create per diversi criteri, ad esempio per una 
     }
 
 ## <a id="ModelingArticles"></a>Modellazione degli articoli
-Dopo l'identificazione di un articolo tramite le notifiche, le query successive sono in genere basate su `ArticleId`. Scegliendo `ArticleID` come chiave di partizione si ottiene quindi la distribuzione ottimale per l'archiviazione di articoli all'interno di una raccolta di DocumentDB. 
+Dopo l'identificazione di un articolo tramite le notifiche, le query successive sono in genere basate su `Article.Id`. Scegliendo `Article.Id` come chiave di partizione si ottiene quindi la distribuzione ottimale per l'archiviazione di articoli all'interno di una raccolta di Cosmos DB. 
 
     class Article 
     { 
-        // Unique ID for Article public string Id { get; set; }
+        // Unique ID for Article 
+        public string Id { get; set; }
+        
         public string PartitionKey 
         { 
             get 
@@ -162,8 +165,8 @@ Analogamente agli articoli, le revisioni vengono in genere scritte e lette nel c
         public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
     }
 
-## <a id="Architecture"></a>Configurazione dell'account DocumentDB
-Per assicurare operazioni di lettura e scrittura locali, è necessario partizionare i dati non solo nella chiave di partizione, ma anche in base al modello di accesso geografico nelle aree. Il modello si basa sulla presenza di un account di database di Azure DocumentDB con replica geografica per ogni area. Ad esempio, con due aree si può ottenere uno scenario come il seguente per le operazioni di scrittura in più aree:
+## <a id="Architecture"></a>Configurazione dell'account Azure Cosmos DB
+Per assicurare operazioni di lettura e scrittura locali, è necessario partizionare i dati non solo nella chiave di partizione, ma anche in base al modello di accesso geografico nelle aree. Il modello si basa sulla presenza di un account di database di Azure Cosmos DB con replica geografica per ogni area. Ad esempio, con due aree si può ottenere uno scenario come il seguente per le operazioni di scrittura in più aree:
 
 | Nome account | Area di scrittura | Area di lettura |
 | --- | --- | --- |
@@ -172,7 +175,7 @@ Per assicurare operazioni di lettura e scrittura locali, è necessario partizion
 
 Il diagramma seguente mostra il modo in cui le operazioni di lettura e scrittura vengono eseguite in un'applicazione tipica con questa configurazione:
 
-![Architettura multimaster di Azure DocumentDB](./media/documentdb-multi-region-writers/documentdb-multi-master.png)
+![Architettura multimaster di Azure Cosmos DB](./media/documentdb-multi-region-writers/documentdb-multi-master.png)
 
 Ecco un frammento di codice che illustra come inizializzare i client in un livello di accesso ai dati in esecuzione nell'area `West US`.
     
@@ -309,12 +312,15 @@ Per le notifiche e le revisioni di lettura, è necessario leggere da entrambe le
         return reviews;
     }
 
-Se si sceglie una chiave di partizione ottimale e un partizionamento basato su account statici, è possibile ottenere operazioni di scrittura e lettura locali in più aree usando Azure DocumentDB.
+Se si sceglie una chiave di partizione ottimale e un partizionamento basato su account statici, è possibile ottenere operazioni di scrittura e lettura locali in più aree usando Azure Cosmos DB.
 
 ## <a id="NextSteps"></a>Passaggi successivi
-In questo articolo è stato illustrato come è possibile usare modelli di lettura e scrittura in più aree con distribuzione globale con DocumentDB usando la pubblicazione di contenuti come scenario di esempio.
+In questo articolo è stato illustrato come è possibile usare modelli di lettura e scrittura in più aree con distribuzione globale con Cosmos DB usando la pubblicazione di contenuti come scenario di esempio.
 
-* Altre informazioni sul modo in cui DocumentDB supporta la [distribuzione globale](documentdb-distribute-data-globally.md)
-* Altre informazioni sui [failover automatici o manuali in Azure DocumentDB](documentdb-regional-failovers.md)
-* Altre informazioni sulla [coerenza globale con DocumentDB](documentdb-consistency-levels.md)
-* Sviluppare in più aree usando [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
+* Altre informazioni sul modo in cui Cosmos DB supporta la [distribuzione globale](documentdb-distribute-data-globally.md)
+* Altre informazioni sui [failover automatici o manuali in Azure Cosmos DB](documentdb-regional-failovers.md)
+* Altre informazioni sulla [coerenza globale con Cosmos DB di Azure](documentdb-consistency-levels.md)
+* Sviluppare in più aree usando [Azure Cosmos DB: API di DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md)
+* Sviluppare in più aree usando [Azure Cosmos DB: API di MongoDB](../cosmos-db/tutorial-global-distribution-MongoDB.md)
+* Sviluppare in più aree usando [Azure Cosmos DB: API della tabella](../cosmos-db/tutorial-global-distribution-table.md)
+

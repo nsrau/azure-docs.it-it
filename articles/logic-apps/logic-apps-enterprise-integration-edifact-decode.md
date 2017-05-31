@@ -1,6 +1,6 @@
 ---
 title: Decodificare messaggi EDIFACT - App per la logica di Azure | Documentazione Microsoft
-description: "Convalidare le proprietà EDI e generare codice XML per set di transazioni con il decodificatore di messaggi EDIFACT in Enterprise Integration Pack in App per la logica di Azure"
+description: "Convalidare le proprietà EDI e generare i riconoscimenti con il decodificatore di messaggi EDIFACT in Enterprise Integration Pack in App per la logica di Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 176963837f4f3fc8b89e31000ef8722ef3258b11
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 39d9661adc90e6113e2152d844473f9f4caa755a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
 
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode EDIFACT in App per la logica di Azure con Enterprise Integration Pack
 
-Il connettore di messaggi EDIFACT convalida le proprietà EDI e specifiche del partner e genera un documento XML per ogni set di transazioni e un riconoscimento per le transazioni elaborate. Per usare questo connettore, è necessario aggiungerlo a un trigger esistente nell'app per la logica.
+Il connettore di messaggi EDIFACT convalida le proprietà EDI e specifiche del partner, suddivide gli interscambi in set di transazioni o mantiene gli interscambi interi, nonché genera riconoscimenti per le transazioni elaborate. Per usare questo connettore, è necessario aggiungerlo a un trigger esistente nell'app per la logica.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -72,28 +73,34 @@ Sono necessari gli elementi seguenti:
 
 Il connettore Decode EDIFACT esegue queste attività: 
 
-* Risolve il contratto associando qualificatore del mittente e identificatore e qualificatore del ricevitore e identificatore.
-* Suddivide più interscambi in un singolo messaggio in messaggi separati.
 * Convalida la busta in base all'accordo tra partner commerciali.
+* Risolve il contratto associando qualificatore del mittente e identificatore e qualificatore del ricevitore e identificatore.
+* Suddivide un interscambio in più transazioni quando l'interscambio ha più di una transazione basata sulla configurazione delle impostazioni di ricezione dell'accordo.
 * Disassembla l'interscambio.
-* Convalida le proprietà EDI e specifiche del partner, incluse
-  * Convalida della struttura della busta dell'interscambio.
-  * Convalida dello schema della busta in base allo schema di controllo.
-  * Convalida dello schema degli elementi dati del set di transazioni rispetto allo schema del messaggio.
+* Convalida le proprietà EDI e specifiche del partner, comprese:
+  * Convalida della struttura della busta dell'interscambio
+  * Convalida dello schema della busta in base allo schema di controllo
+  * Convalida dello schema degli elementi dati del set di transazioni rispetto allo schema del messaggio
   * Convalida EDI eseguita sugli elementi dati del set di transazioni.
 * Verifica che i numeri di controllo di un set di interscambio, gruppo e di transazioni non siano duplicati (se configurata). 
   * Controlla il numero di controllo dell'interscambio rispetto agli interscambi ricevuti in precedenza. 
   * Controlla il numero di controllo del gruppo con gli altri numeri di controllo del gruppo dell'interscambio. 
   * Controlla il numero di controllo del set di transazioni con gli altri numeri di controllo del set transazioni in tale gruppo.
-* Genera un documento XML per ogni set di transazioni.
-* Converte l'intero interscambio in XML. 
-  * Suddivide l'interscambio in set di transazioni - Sospende i set di transazioni in caso di errore: analizza ogni set di transazioni di un interscambio in un documento XML separato. Se la convalida di uno o più set di transazioni dell'interscambio non riesce, EDIFACT Decode sospende solo i set di transazioni interessati. 
-  * Suddivide l'interscambio in set di transazioni - Sospende l'interscambio in caso di errore: analizza ogni set di transazioni di un interscambio in un documento XML separato.  Se la convalida di uno o più set di transazioni dell'interscambio non riesce, EDIFACT Decode sospende l'intero interscambio.
-  * Mantiene l'interscambio - Sospende i set transazioni in caso di errore: crea un documento XML per l'intero interscambio in batch. EDIFACT Decode sospende solo i set di transazioni che non superano la convalida, pur continuando a elaborare tutti gli altri set di transazioni.
-  * Mantiene l'interscambio - Sospende l'interscambio in caso di errore: crea un documento XML per l'intero interscambio in batch. Se la convalida di uno o più set di transazioni dell'interscambio non riesce, EDIFACT Decode sospende l'intero interscambio. 
+* Suddivide l'interscambio in set di transazioni o mantiene l'intero interscambio:
+  * Suddivide l'interscambio in set di transazioni - sospende i set di transazioni in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
+  L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
+  * Suddivide l'interscambio in set di transazioni - sospende l'interscambio in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
+  Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
+  * Mantiene l'interscambio - sospende i set transazioni in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
+  L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
+  * Mantiene l'interscambio - sospende l'interscambio in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
+  Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
 * Genera un riconoscimento tecnico (controllo) e/o funzionale (se configurata).
   * Un riconoscimento tecnico o CONTRL ACK segnala i risultati di un controllo sintattico dell'interscambio completo ricevuto.
   * Un riconoscimento funzionale riconosce l'accettazione o il rifiuto di un interscambio o un gruppo ricevuto.
+
+## <a name="view-swagger-file"></a>Visualizzare il file Swagger
+Per visualizzare i dettagli di Swagger per il connettore EDIFACT, vedere [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") 

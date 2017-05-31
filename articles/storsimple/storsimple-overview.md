@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 27231cef19e7f624c2c09b0aae2ea3d503fb8e3d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 8824568e9e4204a567cc08a10608cf835aa7164b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -188,13 +189,19 @@ Il processo di suddivisione in livelli di archiviazione avviene nel modo seguent
 6. Microsoft Azure crea più repliche dei dati nel data center e in un data center remoto, assicurando che i dati possono essere recuperati in caso di emergenza. 
 7. Quando il file server richiede i dati archiviati nel cloud, StorSimple li restituisce facilmente e ne archivia una copia nel livello SSD del dispositivo StorSimple.
 
+#### <a name="how-storsimple-manages-cloud-data"></a>In che modo StorSimple gestisce i dati del cloud
+
+StorSimple deduplica i dati dei clienti in tutte le snapshot e i dati primari (dati scritti dall'host). La deduplicazione è ideale per l'efficienza di archiviazione, ma può impedire la comprensione di ciò che è presente nel cloud. I dati primari e i dati della snapshot sono disposti su più livelli e si sovrappongono tra loro. Un singolo blocco di dati nel cloud può essere usato come dati primari a più livelli e anche usato come riferimento da più snapshot. Ogni snapshot cloud garantisce che una copia di tutti i dati temporizzati sia bloccata nel cloud fino a quando tale snapshot viene eliminata.
+
+I dati vengono eliminati dal cloud solo quando non sono più presenti riferimenti a tali dati. Ad esempio, se si prende una snapshot cloud di tutti i dati nel dispositivo StorSimple e quindi si eliminano alcuni dati primari, i _dati primari_ verranno eliminati immediatamente. I _dati cloud_, che includono i dati a più livelli e i backup restano invariati. Ciò accade perché esiste ancora una snapshot che fa riferimento ai dati cloud. Dopo l'eliminazione della snapshot cloud e di qualsiasi altra snapshot che fa riferimento agli stessi dati, il consumo del cloud si riduce. Prima di rimuovere i dati cloud, è necessario controllare che non esistano altre snapshot che ancora fanno riferimento a tali dati. Questo processo è denominato _Garbage Collection_; si tratta di un servizio in background in esecuzione sul dispositivo. La rimozione dei dati cloud non è immediata, poiché il servizio Garbage Collection controlla la presenza di altri riferimenti a tali dati prima dell'eliminazione. La velocità del servizio dipende dal numero totale di snapshot e dai dati complessivi. In genere, i dati cloud vengono eliminati in meno di una settimana.
+
+
 ### <a name="thin-provisioning"></a>Thin provisioning
-Il thin provisioning è una tecnologia di virtualizzazione in cui le risorse di archiviazione disponibili risultano maggiori delle risorse fisiche. Anziché riservare in anticipo risorse di archiviazione sufficienti, StorSimple usa il thin provisioning per allocare esattamente la quantità di spazio necessaria per soddisfare i requisiti correnti. La natura elastica dell'archiviazione cloud facilita questo approccio, consentendo a StorSimple di aumentare o diminuire lo spazio cloud in base alle variazioni della domanda. 
+Il thin provisioning è una tecnologia di virtualizzazione in cui le risorse di archiviazione disponibili risultano maggiori delle risorse fisiche. Anziché riservare in anticipo risorse di archiviazione sufficienti, StorSimple usa il thin provisioning per allocare esattamente la quantità di spazio necessaria per soddisfare i requisiti correnti. La natura elastica dell'archiviazione cloud facilita questo approccio, consentendo a StorSimple di aumentare o diminuire lo spazio cloud in base alle variazioni della domanda.
 
 > [!NOTE]
 > Non viene eseguito il thin provisioning dei volumi aggiunti in locale. Per l'archiviazione allocata a un volume solo locale, viene eseguito il provisioning completo quando viene creato il volume.
-> 
-> 
+
 
 ### <a name="deduplication-and-compression"></a>Deduplicazione e compressione
 Microsoft Azure StorSimple usa tecniche di deduplicazione e compressione dei dati per ridurre ulteriormente i requisiti di archiviazione.
@@ -203,8 +210,7 @@ La deduplicazione riduce la quantità complessiva di dati archiviati eliminando 
 
 > [!NOTE]
 > I dati sui volumi aggiunti in locale non sono deduplicati o compressi. Tuttavia, i backup dei volumi aggiunti in locale sono deduplicati e compressi.
-> 
-> 
+
 
 ## <a name="storsimple-workload-summary"></a>Riepilogo dei carichi di lavoro di StorSimple
 Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati.

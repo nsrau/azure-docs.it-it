@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 5b7e2d8df2723f77aa8283d9faab22656198ed47
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3f9fb86a5bf63d24432c1ba9945a4da6cf794f13
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -66,7 +67,7 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
 
 ### <a name="microsoft-peering"></a>Peering Microsoft
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* La maggior parte dei servizi di Dynamics 365 (noti in precedenza come CRM Online)
+* Dynamics 365 (precedentemente noto come CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
@@ -193,7 +194,7 @@ ExpressRoute Premium include le funzionalità seguenti.
 * Aumento del limite delle tabelle di routing da 4000 a 10.000 route per il peering privato.
 * Incremento del numero di VNet che possono essere connesse al circuito ExpressRoute (il valore predefinito è 10). Per informazioni dettagliate, vedere la tabella seguente.
 * Connettività globale sulla rete di base Microsoft. È ora possibile collegare una VNet in un'area geopolitica a un circuito ExpressRoute in un'altra area. **Esempio:** è possibile collegare una VNet creata in Europa occidentale a un circuito ExpressRoute creato a Silicon Valley. **Altro esempio:** sul peering pubblico, i prefissi di altre aree geopolitiche vengono annunciati in modo che sia ad esempio possibile connettersi a SQL Azure in Europa occidentale da un circuito di Silicon Valley.
-* Connettività ai servizi di Office 365 e a CRM Online.
+* Connettività a Office 365 e Dynamics 365.
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a>Quante VNet possono essere collegate a un circuito ExpressRoute se è stato abilitato ExpressRoute Premium?
 Le tabelle seguenti illustrano i limiti di ExpressRoute e il numero di reti virtuali per ogni circuito ExpressRoute.
@@ -215,31 +216,31 @@ Per informazioni sui costi, vedere [Dettagli prezzi](https://azure.microsoft.com
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>È necessario un pagamento aggiuntivo per ExpressRoute Premium, oltre agli addebiti per la versione standard di ExpressRoute?
 Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per ExpressRoute e agli addebiti richiesti dal provider di connettività.
 
-## <a name="expressroute-and-office-365-services-and-crm-online"></a>ExpressRoute e servizi di Office 365 e CRM Online
+## <a name="expressroute-for-office-365-and-dynamics-365"></a>ExpressRoute per Office 365 e Dynamics 365
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-crm-online"></a>Come si crea un circuito di ExpressRoute per la connessione ai servizi di Office 365 e a CRM Online?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-dynamics-365"></a>Come si crea un circuito di ExpressRoute per la connessione ai servizi di Office 365 e a Dynamics 365?
 1. Per assicurarsi di soddisfare i requisiti previsti, vedere la pagina sui [prerequisiti di ExpressRoute](expressroute-prerequisites.md).
 2. Per assicurarsi di soddisfare le esigenze specifiche a livello di connettività, vedere l'elenco di provider di servizi e località in [Partner e località per ExpressRoute](expressroute-locations.md) .
 3. Per pianificare i requisiti relativi alla capacità, vedere la pagina relativa alla [pianificazione e al perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/).
 4. Seguire la procedura indicata nei flussi di lavoro sotto per configurare la connettività dei [flussi di lavoro ExpressRoute per provisioning e stati di un circuito](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Assicurarsi che sia stato abilitato il componente aggiuntivo ExpressRoute Premium quando si configura la connettività ai servizi di Office 365 e a CRM Online.
+> Assicurarsi che sia stato abilitato il componente aggiuntivo ExpressRoute Premium quando si configura la connettività ai servizi di Office 365 e a Dynamics 365.
 > 
 > 
 
-### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-crm-online"></a>È necessario abilitare il peering pubblico di Azure per connettersi ai servizi Office 365 e CRM Online?
+### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-dynamics-365"></a>È necessario abilitare il peering pubblico di Azure per connettersi ai servizi Office 365 e a Dynamics 365?
 No, è sufficiente abilitare il peering Microsoft. Il traffico di autenticazione verrà inviato ad Azure AD attraverso il peering Microsoft. 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-crm-online"></a>I circuiti ExpressRoute esistenti possono supportare la connettività ai servizi di Office 365 e a CRM Online?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>I circuiti di ExpressRoute esistenti possono supportare la connettività ai servizi di Office 365 e a Dynamics 365?
 Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare la connettività ai servizi di Office 365. Assicurarsi di avere una capacità sufficiente a connettersi ai servizi di Office 365 e verificare che sia stato abilitato il componente aggiuntivo Premium. [pianificazione e al perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/) . Vedere inoltre [Creare e modificare un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>A quali servizi di Office 365 è possibile accedere tramite una connessione ExpressRoute?
 Per un elenco aggiornato dei servizi supportati con ExpressRoute, vedere la pagina [URL e intervalli di indirizzi IP per Office 365](http://aka.ms/o365endpoints).
 
-### <a name="how-much-does-expressroute-for-office-365-services-and-crm-online-cost"></a>Quanto costa ExpressRoute per i servizi di Office 365 e CRM Online?
-Per i servizi di Office 365 e CRM Online deve essere abilitato il componente aggiuntivo Premium. Per informazioni dettagliate sui costi di ExpressRoute, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/expressroute/) .
+### <a name="how-much-does-expressroute-for-office-365-services-and-dynamics-365-cost"></a>Quanto costa ExpressRoute per i servizi di Office 365 e Dynamics 365?
+Per i servizi di Office 365 e Dynamics 365 è necessario abilitare il componente aggiuntivo Premium. Per informazioni dettagliate sui costi di ExpressRoute, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/expressroute/) .
 
 ### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>In quali aree è supportato ExpressRoute per Office 365?
 Per altre informazioni sull'elenco di partner e località in cui è supportato ExpressRoute, vedere [Partner e località per ExpressRoute](expressroute-locations.md) .

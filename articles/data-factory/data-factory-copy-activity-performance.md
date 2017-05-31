@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 05/16/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 0637fb4d7c6cb8c3cfd4aab5d06571bd83f59683
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -113,7 +114,7 @@ Per impostazione predefinita, Data Factory usa una singola unità di spostamento
 I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono 1 (valore predefinito), 2, 4, 8, 16, 32. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati.
 
 > [!NOTE]
-> Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la **copia di più file da Archiviazione BLOB/Data Lake Store/Amazon S3/FTP cloud in Archiviazione BLOB/Data Lake Store/database SQL di Azure**.
+> Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la **copia di più file da Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP in Blob storage/Data Lake Store/Azure SQL Database**.
 >
 >
 
@@ -307,15 +308,15 @@ Se si copiano dati da un **archivio BLOB** a **SQL Data Warehouse**, valutare l'
 * Per i **database relazionali locali** come SQL Server e Oracle, in cui è necessario usare **Gateway di gestione dati**, vedere la sezione [Considerazioni su Gateway di gestione dati](#considerations-for-data-management-gateway).
 
 ### <a name="nosql-stores"></a>Archivi NoSQL
-*Inclusi gli archivi tabelle e Azure DocumentDB*
+*Inclusi gli archivi tabelle e Azure Cosmos DB*
 
 * Per gli **archivi tabelle**:
   * **Partizione**: scrivere i dati nelle partizioni con interleave riduce drasticamente le prestazioni. Ordinare i dati di origine per chiave di partizione in modo che i dati vengano inseriti in modo efficiente in una partizione dopo l'altra, oppure è possibile modificare la logica e scrivere i dati in una sola partizione.
-* Per **DocumentDB**:
-  * **Dimensioni batch**: la proprietà **writeBatchSize** permette di impostare il numero di richieste parallele per la creazione di documenti al servizio DocumentDB. Aumentando **writeBatchSize** è possibile prevedere prestazioni migliori, perché vengono inviate più richieste parallele a DocumentDB. Tuttavia, quando si scrive in DocumentDB è opportuno tenere sotto controllo le limitazioni. Il messaggio di errore è: "La frequenza delle richieste è troppo elevata". Le limitazioni possono essere dovute a vari fattori, incluse le dimensioni dei documenti, il numero di termini nei documenti e i criteri di indicizzazione della raccolta di destinazione. Per ottenere una maggiore velocità effettiva di copia, valutare la possibilità di usare una raccolta più avanzata, ad esempio S3.
+* Per **Azure Cosmos DB**:
+  * **Dimensioni batch**: la proprietà **writeBatchSize** permette di impostare il numero di richieste parallele per la creazione di documenti del servizio Cosmos DB. Aumentando **writeBatchSize** è possibile prevedere prestazioni migliori, perché vengono inviate più richieste parallele ad Azure Cosmos DB. Tuttavia, quando si scrive in Azure Cosmos DB è opportuno tenere sotto controllo le limitazioni. Il messaggio di errore è: "La frequenza delle richieste è troppo elevata". Le limitazioni possono essere dovute a vari fattori, incluse le dimensioni dei documenti, il numero di termini nei documenti e i criteri di indicizzazione della raccolta di destinazione. Per ottenere una maggiore velocità effettiva di copia, valutare la possibilità di usare una raccolta più avanzata, ad esempio S3.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Considerazioni sulla serializzazione e deserializzazione
-Serializzazione e deserializzazione possono verificarsi quando il set di dati di input o il set di dati di output è costituito da un file. L'attività di copia supporta attualmente i formati di dati Avro e Testo, ad esempio CSV e TSV.
+Serializzazione e deserializzazione possono verificarsi quando il set di dati di input o il set di dati di output è costituito da un file. Per informazioni dettagliate sui formati di file supportati dall'attività di copia vedere [File supportati e formati di compressione](data-factory-supported-file-and-compression-formats.md).
 
 **Comportamento di copia**:
 
@@ -339,7 +340,7 @@ Quando il set di dati di input o di output è un file, è possibile impostare l'
 ## <a name="considerations-for-column-mapping"></a>Considerazioni sul mapping di colonne
 È possibile impostare la proprietà **columnMappings** nell'attività di copia perché venga eseguito il mapping di tutte o di un subset delle colonne di input alle colonne di output. Dopo aver letto i dati dall'origine, il servizio di spostamento dati deve eseguire il mapping delle colonne sui dati prima di scriverli nel sink. Questa ulteriore elaborazione riduce la velocità effettiva di copia.
 
-Se l'archivio dati di origine è disponibile per query, ad esempio nel caso di un archivio relazionale come il database SQL o SQL Server o nel caso di un archivio NoSQL come un archivio tabelle o DocumentDB, è consigliabile eseguire il push della logica di filtro e riordinamento colonne per la proprietà **query** anziché usare il mapping colonne. In questo modo la proiezione si verifica quando il servizio di spostamento dati legge i dati dall'archivio dati di origine, in cui è molto più efficiente.
+Se l'archivio dati di origine è disponibile per query, ad esempio nel caso di un archivio relazionale come il database SQL o SQL Server, oppure nel caso di un archivio NoSQL come un archivio tabelle o Azure Cosmos DB, è consigliabile eseguire il push della logica di filtro e riordinamento colonne per la proprietà **query** anziché usare il mapping colonne. In questo modo la proiezione si verifica quando il servizio di spostamento dati legge i dati dall'archivio dati di origine, in cui è molto più efficiente.
 
 ## <a name="considerations-for-data-management-gateway"></a>Considerazioni su Gateway di gestione dati
 Per le raccomandazioni sulla configurazione del gateway, vedere le [considerazioni per l'uso di Gateway di gestione dati](data-factory-data-management-gateway.md#considerations-for-using-gateway).
@@ -406,7 +407,7 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 * Archiviazione di Azure, inclusi archivi BLOB e archivi tabelle: [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage/storage-scalability-targets.md) ed [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../storage/storage-performance-checklist.md)
 * Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di DTU (Database Transaction Unit).
 * Azure SQL Data Warehouse: la funzionalità viene misurata in unità data warehouse (DWU). Vedere in proposito [Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure DocumentDB: [Livelli di prestazioni in DocumentDB](../documentdb/documentdb-performance-levels.md)
+* Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../documentdb/documentdb-performance-levels.md)
 * SQL Server locale: [Monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx)
 * File server locale: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 

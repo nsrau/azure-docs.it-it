@@ -12,18 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/6/2017
+ms.date: 5/16/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
-ms.openlocfilehash: abf5e4bc69aa32ca9af8998ef81de20baae24560
-ms.lasthandoff: 02/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: b8334d0ca0d1460edad9b0ef399e9b3428b1ef8d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="preview-service-fabric-and-containers"></a>Anteprima: Service Fabric e contenitori
+# <a name="service-fabric-and-containers"></a>Service Fabric e contenitori
 > [!NOTE]
-> Questa funzionalità è disponibile in anteprima per Linux e Windows Server 2016. 
+> Questa funzionalità è disponibile in anteprima per Linux. 
 >   
 
 ## <a name="introduction"></a>Introduzione

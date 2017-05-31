@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 84f5d5cb1696a911e8c5ef197f22f16d6341bfc8
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 635e44a7ec6f9244f5fe75eb5ad947cdd8ae59a4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="createuidefinition-elements"></a>Elementi di CreateUiDefinition
-Questo articolo illustra lo schema e le proprietà per tutti gli elementi supportati di CreateUiDefinition. Lo schema per la maggior parte degli elementi è il seguente:
+Questo articolo illustra lo schema e le proprietà per tutti gli elementi supportati di CreateUiDefinition. Usare questi elementi quando si [crea un'applicazione Azure gestita](managed-application-publishing.md). Lo schema per la maggior parte degli elementi è il seguente:
 
 ```json
 {
@@ -66,5 +66,6 @@ La documentazione per ogni elemento include un esempio di interfaccia utente, un
 - [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
+* Per un'introduzione alle applicazioni gestite, vedere [Panoramica di Applicazione gestita di Azure](managed-application-overview.md).
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](managed-application-createuidefinition-overview.md).
 

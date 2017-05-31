@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 06ac75a40ed1dc97046836388bb7938dabd2b9ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: f78a857a795031f6188635091c76431cd5440d1c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -37,8 +38,9 @@ Nell'articolo si presuppone che le seguenti procedure siano già state eseguite
 
 ## <a name="enable-replication"></a>Abilitare la replica
 #### <a name="before-you-start"></a>Prima di iniziare
-Se si esegue la replica di macchine virtuali VMware, tenere presente quanto segue:
+Quando si esegue la replica di macchine virtuali VMware, tenere presente quanto segue:
 
+* L'account utente di Azure deve disporre di determinate [autorizzazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) per abilitare la replica di una nuova macchina virtuale in Azure.
 * Le VM VMware vengono rilevate ogni 15 minuti. Possono essere necessari più di 15 minuti perché vengano visualizzate nel portale dopo l'individuazione. Allo stesso modo, l'individuazione può richiedere anche più di 15 minuti quando si aggiunge un nuovo host vSphere o un server vCenter.
 * Anche per le modifiche dell'ambiente nella macchina virtuale, ad esempio l'installazione degli strumenti VMware, possono essere necessari oltre 15 minuti per l'aggiornamento nel portale.
 * È possibile controllare l'ora dell'ultima individuazione di VM VMware nel campo **Ora ultimo contatto** relativo al server vCenter o all'host vSphere del pannello **Server di configurazione**.
@@ -105,19 +107,20 @@ Se si esegue la replica di macchine virtuali VMware, tenere presente quanto segu
 ![Abilitare la replica](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
 
 *Gruppo di risorse*
-   
-  * È possibile selezionare un [gruppo di risorse](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) il cui computer andrà a fare parte del post-failover. Questa impostazione può essere modificata in qualsiasi momento prima del failover. 
-  
+
+  * È possibile selezionare un [gruppo di risorse](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) il cui computer andrà a fare parte del post-failover. Questa impostazione può essere modificata in qualsiasi momento prima del failover.
+
 > [!NOTE]
 > Dopo il failover, se si esegue la migrazione del computer a un gruppo di risorse diverso, le impostazioni di protezione di un computer vengono interrotte.
- 
+
 *Set di disponibilità*
 
-È possibile selezionare un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se il computer deve essere una parte di un post-failover. Mentre si seleziona il set di disponibilità, tenere presente che:
+È possibile selezionare un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se il computer deve essere una parte di un post-failover.
+Mentre si seleziona il set di disponibilità, tenere presente che:
 
 * Verranno elencati solo i set di disponibilità che appartengono al gruppo di risorse specificato  
-* I computer con reti virtuali diverse non possono fare parte dello stesso set di disponibilità 
-* Solo le macchine virtuali della stessa dimensione possono fare parte della stesso set di disponibilità 
+* I computer con reti virtuali diverse non possono fare parte dello stesso set di disponibilità
+* Solo le macchine virtuali della stessa dimensione possono fare parte della stesso set di disponibilità
 
 *Proprietà di rete*
 

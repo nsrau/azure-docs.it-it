@@ -1,5 +1,5 @@
 ---
-title: Service Fabric e distribuzione di contenitori | Documentazione Microsoft
+title: Service Fabric e distribuzione di contenitori | Microsoft Docs
 description: "Service Fabric e l&quot;uso di contenitori per la distribuzione di applicazioni di microservizi. Questo articolo illustra le funzionalità offerte da Service Fabric per i contenitori e la modalità di distribuzione di un&quot;immagine contenitore Windows in un cluster."
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 5/16/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
-ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 17e9f4f81c60d86f804d1d9e6df2014dd4568d75
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="preview-deploy-a-windows-container-to-service-fabric"></a>Anteprima: Distribuire un contenitore Windows in Service Fabric
+# <a name="deploy-a-windows-container-to-service-fabric"></a>Distribuire un contenitore Windows in Service Fabric
 > [!div class="op_single_selector"]
 > * [Distribuire un contenitore Windows](service-fabric-deploy-container.md)
 > * [Distribuire un contenitore Docker](service-fabric-deploy-container-linux.md)
@@ -29,10 +30,6 @@ ms.lasthandoff: 02/21/2017
 > 
 
 Questo articolo descrive in dettaglio il processo di creazione di servizi in contenitori Windows.
-
-> [!NOTE]
-> Questa funzionalità è disponibile in anteprima per Windows Server 2016.
->  
 
 Service Fabric offre diverse funzionalità relative ai contenitori che consentono di creare applicazioni costituite da microservizi inseriti in contenitori, 
 
@@ -54,7 +51,7 @@ Quando si crea il pacchetto di un contenitore, si può scegliere di usare un mod
 > Il modo più semplice per creare il pacchetto di un'immagine contenitore esistente in un servizio consiste nell'usare Visual Studio.
 
 ## <a name="use-visual-studio-to-package-an-existing-container-image"></a>Usare Visual Studio per creare il pacchetto di un'immagine contenitore esistente
-Visual Studio include un modello di servizio di Service Fabric che consente di distribuire un contenitore in un cluster di Service Fabric.
+Visual Studio include un modello di servizio Service Fabric che consente di distribuire un contenitore in un cluster di Service Fabric.
 
 1. Scegliere **File** > **Nuovo progetto** e creare un'applicazione di Service Fabric.
 2. Scegliere **Guest Container (Contenitore guest)** come modello del servizio.
@@ -83,7 +80,7 @@ Per distribuire un cluster con ARM, scegliere l'opzione di immagine **Windows Se
 "vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
 "vmImageVersion": { "defaultValue": "latest","type": "string"     },  
 ```
-È inoltre possibile usare il [modello ARM a&5; nodi presente qui](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) per creare un cluster. In alternativa leggere [qui il post di blog di Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sull'uso di Service Fabric e dei contenitori di Windows.
+È inoltre possibile usare il [modello ARM a 5 nodi presente qui](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) per creare un cluster. In alternativa leggere [qui il post di blog di Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sull'uso di Service Fabric e dei contenitori di Windows.
 
 <a id="manually"></a>
 
