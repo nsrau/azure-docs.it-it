@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 05/11/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -48,7 +49,7 @@ A livello generale, le funzionalità seguenti sono supportate dalla versione cor
 Prima di usare il connettore, verificare che nel server di sincronizzazione sia disponibile quanto segue:
 
 * Microsoft .NET 4.5.2 Framework o versione successiva
-* Driver client ODBC a&64; bit
+* Driver client ODBC a 64 bit
 
 ### <a name="permissions-in-connected-data-source"></a>Autorizzazioni nell'origine dati connessa
 Per creare o eseguire una delle operazioni supportate nel connettore Generic SQL, è necessario avere:
@@ -121,6 +122,7 @@ Questa pagina consente di configurare l'attributo di ancoraggio e DN per ogni ti
 * Non sono elencati gli attributi multivalore e booleani.
 * Lo stesso attributo non può essere usato per DN e ancoraggio, a meno che nella pagina Connectivity non sia selezionata l'opzione **DN is Anchor** .
 * Se **DN is Anchor** è selezionata nella pagina Connectivity, questa pagina richiede solo l'attributo DN. Questo attributo verrà usato anche come attributo di ancoraggio.
+
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Schema 4 (definire tipo di attributo, riferimento e direzione)
@@ -130,7 +132,8 @@ Questa pagina consente di configurare il tipo di attributo, ad esempio valore in
 
 * **DataType**: usato per associare il tipo di attributo ai tipi noti al motore di sincronizzazione. Per impostazione predefinita, viene usato lo stesso tipo, come rilevato in SQL schema, ma DateTime e il Reference non sono facilmente rilevabili. Per questi è necessario specificare **DateTime** o **Reference**.
 * **Direction**: è possibile impostare la direzione dell'attributo su Import, Export o ImportExport. ImportExport è il valore predefinito.
-  ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
+
+![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 Note:
 
@@ -150,6 +153,12 @@ A partire dall'aggiornamento di marzo 2017 è disponibile un'opzione per "*" Qua
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
+>[!IMPORTANT]
+ A partire da maggio 2017 l'asterisco "*", ovvero **qualsiasi opzione**, è stato modificato per supportare il flusso di importazione ed esportazione. Se si desidera usare questa opzione, la tabella/vista multivalore deve avere un attributo contenente il tipo di oggetto.
+
+![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+
+ </br> Se si seleziona "*", è necessario specificare anche il nome della colonna con il tipo di oggetto.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
 Dopo l'importazione verrà visualizzato qualcosa di simile all'immagine riportata di seguito:
 
@@ -162,8 +171,7 @@ La pagina Global Parameters viene usata per configurare l'importazione delta, il
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
->[!IMPORTANT]
- Non è possibile usare "*" ovvero**qualsiasi opzione** durante le operazioni di esportazione/eliminazione.
+
 
 Il connettore Generic SQL supporta i seguenti metodi per l'importazione delta:
 

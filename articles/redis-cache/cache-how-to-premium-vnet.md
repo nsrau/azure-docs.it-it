@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/11/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: cf3c1a3c669e0da810c32939492cb262e76492c7
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 945da7ce2ab5f2d479d96a6ed2896a0ba7e0747e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -90,20 +91,51 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
 * [Tutte le funzionalità della cache funzionano quando si ospita una cache in una rete virtuale?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 ## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Quali sono alcuni problemi comuni di configurazione errata per Cache Redis di Azure e le reti virtuali?
-Quando Cache Redis di Azure è ospitata in una rete virtuale, vengono usate le porte indicate nella tabella seguente. Se le porte sono bloccate, la cache potrebbe non funzionare correttamente. Il blocco di una o più di queste porte è il problema di configurazione più comune nell'uso di Cache Redis di Azure in una rete virtuale.
+Quando Cache Redis di Azure è ospitata in una rete virtuale, vengono usate le porte indicate nelle tabelle seguenti. 
+
+>[!IMPORTANT]
+>Se le porte nelle tabelle seguenti sono bloccate, la cache potrebbe non funzionare correttamente. Il blocco di una o più di queste porte è il problema di configurazione più comune nell'uso di Cache Redis di Azure in una rete virtuale.
+> 
+> 
+
+- [Requisiti delle porte in uscita](#outbound-port-requirements)
+- [Requisiti delle porte in ingresso](#inbound-port-requirements)
+
+### <a name="outbound-port-requirements"></a>Requisiti delle porte in uscita
+
+Vi sono sette requisiti delle porte in uscita.
+
+- Se lo si desidera, tutte le connessioni a Internet in uscita possono essere effettuate tramite un dispositivo di controllo locale del cliente.
+- Tre delle porte instradano il traffico a endpoint di Azure che servono Archiviazione di Azure e Azure DNS.
+- Gli intervalli di porte rimanenti sono destinati alle comunicazioni interne subnet di Redis. Per le comunicazioni subnet interne di Redis non è richiesta alcuna regola NSG subnet.
 
 | Porte | Direzione | Protocollo di trasporto | Scopo | IP remoto |
 | --- | --- | --- | --- | --- |
 | 80, 443 |In uscita |TCP |Dipendenze Redis in Archiviazione di Azure/PKI (Internet) |* |
 | 53 |In uscita |TCP/UDP |Dipendenze Redis nel DNS (Internet/rete virtuale) |* |
-| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 8443 |In ingresso/In uscita |TCP |Dettaglio di implementazione per Redis |VIRTUAL_NETWORK |
-| 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure |AZURE_LOADBALANCER |
-| 10221-10231 |In ingresso/In uscita |TCP |Dettaglio di implementazione per Redis, è possibile limitare l'endpoint remoto a VIRTUAL_NETWORK |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 13000-13999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure |AZURE_LOADBALANCER |
-| 20226 |In ingresso + In uscita |TCP |Dettaglio di implementazione per cluster Redis |VIRTUAL_NETWORK |
+| 8443 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |
+| 10221-10231 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |
+| 20226 |In uscita |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
+| 13000-13999 |In uscita |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
+| 15000-15999 |In uscita |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
+
+
+### <a name="inbound-port-requirements"></a>Requisiti delle porte in ingresso
+
+Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in questi intervalli provengono da altri servizi ospitati nella stessa VNET o sono interne alle comunicazioni subnet di Redis.
+
+| Porte | Direzione | Protocollo di trasporto | Scopo | IP remoto |
+| --- | --- | --- | --- | --- |
+| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure |Rete virtuale, Bilanciamento carico di Azure |
+| 8443 |In ingresso |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
+| 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure |Azure Load Balancer |
+| 10221-10231 |In ingresso |TCP |Comunicazioni interne per Redis |(Subnet Redis), bilanciamento del carico di Azure |
+| 13000-13999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure |Rete virtuale, Bilanciamento carico di Azure |
+| 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure |Rete virtuale, Bilanciamento carico di Azure |
+| 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure |Azure Load Balancer |
+| 20226 |In ingresso |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
+
+### <a name="additional-vnet-network-connectivity-requirements"></a>Ulteriori requisiti di connettività della rete VNET
 
 Esistono requisiti di connettività di rete per Cache Redis di Azure che potrebbero non essere inizialmente soddisfatti in una rete virtuale. Per il corretto funzionamento se usato all'interno di una rete virtuale, Cache Redis di Azure richiede tutti gli elementi seguenti.
 

@@ -1,5 +1,5 @@
 ---
-title: Connettersi a una macchina virtuale di SQL Server (Classica) | Microsoft Docs
+title: Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica) | Microsoft Docs
 description: Informazioni su come connettersi a SQL Server in esecuzione su una macchina virtuale di Azure. In questo argomento viene usato il modello di distribuzione classica. Gli scenari variano a seconda della configurazione di rete e della posizione del client.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,10 +14,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: edc013dee657cbda7c0d9020b6ff4ccda0580dcd
-ms.lasthandoff: 03/25/2017
+experimental: true
+experimental_id: d51f3cc6-753b-4e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---

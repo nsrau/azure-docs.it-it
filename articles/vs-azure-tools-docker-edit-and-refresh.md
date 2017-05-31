@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: 202134cd03bf776c1d646ae24c09a79e14fdc5d3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Debug delle applicazioni in un contenitore Docker locale
 ## <a name="overview"></a>Panoramica
-Gli Strumenti di Visual Studio per Docker consentono di sviluppare e convalidare l'applicazione in locale in un contenitore Docker.
+Visual Studio Tools per Docker consente di sviluppare e convalidare l'applicazione in locale in un contenitore Docker. di Linux.
 Non è necessario riavviare il contenitore ogni volta che si esegue una modifica del codice.
-Questo articolo illustra come usare la funzionalità di modifica e aggiornamento per avviare un'App Web ASP.NET Core in un contenitore Docker locale, apportare le modifiche necessarie e quindi aggiornare il browser per visualizzare le modifiche.
-Illustra anche come impostare i punti di interruzione per il debug.
+Questo articolo illustra come usare la funzionalità di modifica e aggiornamento per avviare un'app Web ASP.NET Core in un contenitore Docker locale, apportare le modifiche necessarie e quindi aggiornare il browser per visualizzare tali modifiche.
+Illustra inoltre come impostare i punti di interruzione per il debug.
 
 > [!NOTE]
 > Il supporto del contenitore di Windows sarà disponibile nelle versioni future
@@ -33,14 +35,13 @@ Illustra anche come impostare i punti di interruzione per il debug.
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
-È necessario installare gli strumenti seguenti.
+È necessario che siano installati gli strumenti seguenti.
 
-* [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-* Installare [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+* [Ultima versione di Visual Studio](https://www.visualstudio.com/downloads/)
 * [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 Per eseguire i contenitori Docker in locale, è necessario un client di Docker locale.
-È possibile usare la [casella degli strumenti di Docker](https://www.docker.com/products/overview#/docker_toolbox) che richiede la disabilitazione di Hyper-V o in alternativa è possibile usare [Docker per la versione beta di Windows](https://beta.docker.com) che usa Hyper-V e richiede Windows 10.
+È possibile usare la [casella degli strumenti di Docker](https://www.docker.com/products/docker-toolbox), che richiede la disabilitazione di Hyper-V, o in alternativa [Docker per Windows](https://www.docker.com/get-docker), che usa Hyper-V e richiede Windows 10.
 
 Nella casella degli strumenti di Docker è necessario [configurare il client di Docker](vs-azure-tools-docker-setup.md)
 
@@ -111,13 +112,8 @@ Con [Docker Tools for Visual Studio 2015](https://aka.ms/DockerToolsForVS)si ott
 
 ## <a name="presentations"></a>Presentazioni
 * [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e (Presentazione dal vivo a Las Vegas nel 2016: e2e di Docker)](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
-* [Introduction to ASP.NET Core @ build 2016 - Where You At Demo (Introduzione ad ASP.NET Core build 2016 - Demo)](https://channel9.msdn.com/Events/Build/2016/B810)
+* [Introduction to ASP.NET Core @ Build 2016 - Where You At Demo (Introduzione ad ASP.NET Core in Build 2016 - Demo)](https://channel9.msdn.com/Events/Build/2016/B810)
 * [Developing .NET apps in containers, Channel 9 (Sviluppo di applicazioni .NET in contenitori, Channel 9)](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
