@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/05/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 7899df8a09b6f5c8bc916bb6ad872afa3844e425
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 00fb88afe9ee107543aa7557ff0953d066d05bfd
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -69,7 +70,7 @@ Azure Marketplace contiene l'elenco di [soluzioni di gestione per Log Analytics]
 
 ## <a name="offers-and-pricing-tiers"></a>Offerte e piani tariffari
 
-La tabella seguente indica le soluzioni di gestione relative a ogni offerta per la sicurezza e la gestione delle operazioni.
+La tabella seguente indica le soluzioni di gestione pertinenti a ogni offerta di Operations Management Suite.
 La tabella indica anche i piani tariffari disponibili per ogni soluzione di gestione.
 Tutte le soluzioni della tabella seguente sono disponibili nel portale di Azure e nella raccolta di soluzioni nel portale di Log Analytics.
 

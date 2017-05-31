@@ -1,5 +1,5 @@
 ---
-title: Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni | Documentazione Microsoft
+title: Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni | Microsoft Docs
 description: "Azure Active Directory può effettuare automaticamente il provisioning di utenti e gruppi in qualsiasi applicazione o archivio identità gestito da un servizio Web con interfaccia definita nella specifica del protocollo SCIM."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
+ms.date: 05/04/2017
 ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3349f890391aec7fc6361b149d148d828cbe3b97
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c4e482e9f985553938ce132c617ba0b1a2128106
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -32,7 +34,7 @@ Questa funzione può essere usata insieme alla funzionalità "[bring your own ap
 Esistono due casi di utilizzo per SCIM in Azure Active Directory:
 
 * **Provisioning di utenti e gruppi per applicazioni che supportano SCIM** : le applicazioni che supportano SCIM 2.0 e usano i token di connessione OAuth per l'autenticazione possono essere subito usate con Azure AD.
-* **Compilazione di una soluzione di provisioning per le applicazioni che supportano il provisioning basato su altre API** : per le applicazioni non SCIM, è possibile creare un endpoint SCIM da convertire tra l'endpoint SCIM di Azure AD e qualsiasi API supportata dall'applicazione per il provisioning utente.  Per facilitare lo sviluppo di un endpoint SCIM, vengono fornite librerie CLI ed esempi di codice che illustrano come creare un endpoint SCIM e convertire messaggi SCIM.  
+* **Compilazione di una soluzione di provisioning per le applicazioni che supportano il provisioning basato su altre API**: per le applicazioni non SCIM, è possibile creare un endpoint SCIM da convertire tra l'endpoint SCIM di Azure AD e qualsiasi API supportata dall'applicazione per il provisioning utente.  Per facilitare lo sviluppo di un endpoint SCIM, vengono fornite librerie CLI ed esempi di codice che illustrano come creare un endpoint SCIM e convertire messaggi SCIM.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Provisioning di utenti e gruppi per applicazioni che supportano SCIM
 Azure Active Directory può essere configurato in modo da effettuare automaticamente il provisioning di determinati utenti e gruppi per le applicazioni che implementano un servizio Web [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) e accettano token di connessione OAuth per l'autenticazione. Nell'ambito della specifica SCIM 2.0, le applicazioni devono soddisfare i requisiti seguenti:
@@ -116,16 +118,16 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 2. Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
 3. Selezionare la scheda **Personalizzata** a sinistra, immettere un nome quale "App di test SCIM", quindi fare clic sull'icona del segno di spunta per creare un oggetto app. Si noti che l'oggetto applicazione creato deve rappresentare l'app di destinazione in cui verrà effettuato il provisioning e per cui verrà implementato l'accesso Single Sign-On, non solo l'endpoint SCIM.
 
-![][2]
+  ![][2]
 
-1. Nella schermata risultante selezionare il secondo pulsante **Configura provisioning account** .
+4. Nella schermata risultante selezionare il secondo pulsante **Configura provisioning account** .
 2. Nella finestra di dialogo immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questi valori saranno simili a http://testmachine.contoso.com:9000 o http://<indirizzo-IP>:9000/, dove <indirizzo-IP> è l'indirizzo IP esposto a Internet.  
-3. Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.  
-4. Se i tentativi di connessione al servizio Web hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
-5. Nella schermata risultante selezionare il terzo pulsante **Assegna account** . Nella sezione Utenti e gruppi risultante assegnare gli utenti o i gruppi di cui si vuole effettuare il provisioning nell'applicazione.
-6. Dopo l'assegnazione di utenti e gruppi, fare clic sulla scheda **Configura** nella parte superiore della schermata.
-7. In **Provisioning account**verificare che lo stato sia attivo. 
-8. In **Strumenti** fare clic su **Restart account provisioning** (Riavvia provisioning account) per avviare il processo di provisioning.
+5. Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.  
+6. Se i tentativi di connessione al servizio Web hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
+7. Nella schermata risultante selezionare il terzo pulsante **Assegna account** . Nella sezione Utenti e gruppi risultante assegnare gli utenti o i gruppi di cui si vuole effettuare il provisioning nell'applicazione.
+8. Dopo l'assegnazione di utenti e gruppi, fare clic sulla scheda **Configura** nella parte superiore della schermata.
+9. In **Provisioning account**verificare che lo stato sia attivo. 
+10. In **Strumenti** fare clic su **Restart account provisioning** (Riavvia provisioning account) per avviare il processo di provisioning.
 
 Si noti che è possibile che trascorrano 5-10 minuti prima che il processo di provisioning inizi ad avviare richieste all'endpoint SCIM.  Un riepilogo dei tentativi di connessione viene fornito nella scheda Dashboard dell'applicazione ed è possibile scaricare un report delle attività di provisioning ed eventuali errori di provisioning dalla scheda Reports della directory.
 
@@ -678,9 +680,4 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 [3]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

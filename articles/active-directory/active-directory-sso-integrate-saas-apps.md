@@ -1,5 +1,6 @@
 ---
-title: Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS | Documentazione Microsoft
+
+title: Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS | Microsoft Docs
 description: "Abilitare l&quot;autenticazione Single Sign-On e la gestione dell’accesso centralizzata per il provisioning degli utenti delle app SaaS in Azure Active Directory. Cenni preliminari sull&quot;integrazione di Azure Active Directory alle App SaaS."
 services: active-directory
 keywords: Integrare Azure AD con app SaaS
@@ -13,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
-ms.lasthandoff: 02/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -73,6 +75,5 @@ Se l'app non è presente nella raccolta, è possibile [aggiungerla alla raccolta
 
 La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="next-steps"></a>Passaggi successivi
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+Vedere anche [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md).
 

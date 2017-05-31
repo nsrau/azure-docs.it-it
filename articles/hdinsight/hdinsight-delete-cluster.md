@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 05/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: fbb561f4bfda27c74ffdc08c1b07f4adb83286ab
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 8095f8ae45efbee75a3f298a1994b42d6a2763cb
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Eliminare un cluster HDInsight tramite browser, PowerShell o l'interfaccia della riga di comando di Azure
 
-La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si interrompe solo quando questo viene eliminato. La fatturazione avviene con tariffa oraria, perciò si deve sempre eliminare il cluster in uso quando non lo si usa più. Questo documento spiega come eliminare un cluster tramite il portale di Azure, Azure PowerShell e l'interfaccia della riga di comando di Azure.
+La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si interrompe solo quando questo viene eliminato. La fatturazione avviene con tariffa oraria, perciò si deve sempre eliminare il cluster in uso quando non lo si usa più. Questo documento spiega come eliminare un cluster tramite il portale di Azure, Azure PowerShell e l'interfaccia della riga di comando di Azure 1.0.
 
 > [!IMPORTANT]
-> L'eliminazione di un cluster HDInsight non comporta l'eliminazione degli account di archiviazione di Azure associati al cluster. Poiché l'account di archiviazione non viene eliminato, i dati vengono mantenuti e possono essere usati di nuovo in futuro.
+> L'eliminazione di un cluster HDInsight non comporta l'eliminazione degli account di archiviazione di Azure associati al cluster. In questo modo è possibile riusare i dati in futuro.
 
 ## <a name="azure-portal"></a>Portale di Azure
 

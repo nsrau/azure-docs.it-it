@@ -14,10 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f18b8ef62c82e2b307173971a7251a3aa8f84d69
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -355,9 +356,9 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite Azure Sto
 
     f. In **Generated Shared Access Signature URI of this container**verificare quanto segue, come evidenziato sopra.
 
-        - Assicurarsi che il nome del file di immagine e del file con estensione **"vhd"** siano nell'URI.
-        - Assicurarsi che **"=rl"** sia presente alla fine della firma. Questo indica che le autorizzazioni Read e List sono state fornite correttamente.
-        - Assicurarsi che **"sr=c"** sia presente al centro della firma. Questo dimostra che l'utente dispone dell'accesso al livello contenitore
+       - Assicurarsi che il nome del file di immagine e del file con estensione **"vhd"** siano nell'URI.
+       - Assicurarsi che **"=rl"** sia presente alla fine della firma. Questo indica che le autorizzazioni Read e List sono state fornite correttamente.
+       - Assicurarsi che **"sr=c"** sia presente al centro della firma. Questo dimostra che l'utente dispone dell'accesso al livello contenitore
 
 11.    Per verificare il corretto funzionamento dell'URI di firma di accesso condiviso generato, fare clic su **Test in Browser**. Verrà avviato il processo di download.
 
@@ -463,7 +464,7 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite l'interfa
 
 6.    A questo punto viene visualizzato l'URL SAS del livello contenitore. È necessario aggiungere il nome del file con estensione vhd.
 
-    URL SAS livello contenitore #
+    URL SAS a livello di contenitore
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

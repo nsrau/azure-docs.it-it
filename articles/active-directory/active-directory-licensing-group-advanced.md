@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2017
+ms.date: 05/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7240c52e9351a60e3cf577d8112862c7dc8d913
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d4c509c43ff647f3d9b96ffd136073312a81049b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -115,8 +116,7 @@ Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per poter a
 Per l'assegnazione di licenze ai gruppi, eventuali utenti per cui non è specificata una località d'uso ereditano la località della directory. Se gli utenti si trovano in località diverse, assicurarsi che questo sia rispecchiato correttamente negli oggetti utente prima di aggiungere utenti ai gruppi con licenze.
 
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Usare PowerShell per determinare gli utenti con licenze ereditate e dirette
-
-Durante l'anteprima di una versione di Azure AD, PowerShell non può essere usato per controllare completamente le assegnazioni di licenze ai gruppi. Può essere tuttavia usato per individuare le informazioni di base sullo stato dell'utente e per determinare se le licenze sono state ereditate da un gruppo o assegnate direttamente. L'esempio di codice seguente illustra come un amministratore può produrre un report di base sulle assegnazioni delle licenze.
+Sebbene la funzionalità di concessione delle licenze basata su gruppi sia disponibile nell'anteprima pubblica, PowerShell non può essere usato per controllare completamente le assegnazioni di licenze basate su gruppi. Può essere tuttavia usato per individuare le informazioni di base sullo stato dell'utente e per determinare se le licenze sono state ereditate da un gruppo o assegnate direttamente. L'esempio di codice seguente illustra come un amministratore può produrre un report di base sulle assegnazioni delle licenze.
 
 1. Eseguire il cmdlet `connect-msolservice` per l'autenticazione e la connessione al tenant.
 

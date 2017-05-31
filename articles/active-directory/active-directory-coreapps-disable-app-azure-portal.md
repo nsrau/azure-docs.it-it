@@ -1,5 +1,5 @@
 ---
-title: Disabilitare gli accessi utente per un&quot;app aziendale nell&quot;anteprima di Azure Active Directory | Documentazione Microsoft
+title: Disabilitare gli accessi degli utenti per un&quot;app aziendale in Azure Active Directory | Microsoft Docs
 description: Come disabilitare un&quot;applicazione aziendale in modo che gli utenti non possano accedervi in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: c57505d037d991f3c0d720a481393ec2ae6b8069
-ms.openlocfilehash: ef6ae32c1d9b2e417d2a766207575f19aa06feaa
-ms.lasthandoff: 01/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 5d27046370eada0c371c94fb573fa1bcf536f7cf
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory-preview"></a>Disabilitare gli accessi utente per un'app aziendale in anteprima di Azure Active Directory
-Disabilitare un'applicazione aziendale in modo da impedire l'accesso degli utenti in anteprima di Azure Active Directory (Azure AD) è un'operazione semplice. [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale. Nell'anteprima corrente è necessario essere amministratore globale della directory.
+# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory
+Disabilitare un'applicazione aziendale in modo da impedirne l'accesso da parte degli utenti in Azure Active Directory (Azure AD) è un'operazione facile. È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale ed essere amministratore globale della directory.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Come è possibile disabilitare l'accesso degli utenti?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.

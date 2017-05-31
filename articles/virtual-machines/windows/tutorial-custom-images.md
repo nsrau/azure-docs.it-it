@@ -13,21 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/08/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: ab19073735816ebb32a9840ec03b31b358ccb565
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 773b37ec8f775d68f1faca0d252f3064c7de0317
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Creare un'immagine personalizzata di una VM di Azure con PowerShell
 
-In questa esercitazione verrà spiegato come definire un'immagine personalizzata di una macchina virtuale di Azure. Le immagini personalizzate consentono di creare VM usando un'immagine che si è già configurata. Le immagini personalizzate possono essere usate per l'avvio del precaricamento di file binari e applicazioni, configurazioni di applicazioni, dati di VM e altre configurazioni del sistema operativo. Quando si crea un'immagine personalizzata, vengono inclusi nell'immagine la VM che si personalizza e tutti i dischi associati.
+Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per le configurazioni di avvio, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. In questa esercitazione viene creata un'immagine personalizzata di una macchina virtuale di Azure. Si apprenderà come:
 
-La procedura descritta in questa esercitazione può essere completata usando il modulo [Azure PowerShell](/powershell/azure/overview) più recente.
+> [!div class="checklist"]
+> * Eseguire Sysprep e generalizzare le macchine virtuali
+> * Creare un'immagine personalizzata
+> * Creare una VM da un'immagine personalizzata
+> * Elencare tutte le immagini nella sottoscrizione
+> * Eliminare un'immagine
+
+Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -169,11 +176,40 @@ New-AzureRmVM `
     -VM $vmConfig
 ```
 
+## <a name="image-management"></a>Gestione delle immagini 
+
+Di seguito sono riportati alcuni esempi di attività comuni di gestione delle immagini e della relativa modalità di completamento tramite PowerShell.
+
+Elencare tutte le immagini per nome.
+
+```powershell
+$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images.name
+```
+
+Eliminare un'immagine. Questo esempio elimina l'immagine denominata *myOldImage* da *myResourceGroup*.
+
+```powershell
+Remove-AzureRmImage `
+    -ImageName myOldImage `
+    -ResourceGroupName myResourceGroup
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata descritta la creazione di immagini di VM personalizzate. Passare all'esercitazione successiva per la descrizione delle macchine virtuali a disponibilità elevata.
+In questa esercitazione è stata creata un'immagine di macchina virtuale personalizzata. Si è appreso come:
 
-[Creare VM a disponibilità elevata](tutorial-availability-sets.md)
+> [!div class="checklist"]
+> * Eseguire Sysprep e generalizzare le macchine virtuali
+> * Creare un'immagine personalizzata
+> * Creare una VM da un'immagine personalizzata
+> * Elencare tutte le immagini nella sottoscrizione
+> * Eliminare un'immagine
+
+Passare all'esercitazione successiva per la descrizione delle macchine virtuali a disponibilità elevata.
+
+> [!div class="nextstepaction"]
+> [Creare VM a disponibilità elevata](tutorial-availability-sets.md)
 
 
 

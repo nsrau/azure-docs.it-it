@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: fd52bd8e14ca9bdcd06fc820e5e03fb5feccc72f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -112,10 +113,10 @@ Fare clic sul riquadro **Suggerimenti** per visualizzarne un elenco. Fare clic s
 
 ![Raccomandazioni di sicurezza nel Centro sicurezza di Azure][5]
 
-### <a name="resource-health"></a>Integrità delle risorse
-Il riquadro **Integrità sicurezza delle risorse** visualizza il comportamento di sicurezza complessivo dell'ambiente per tipo di risorsa, ad esempio VM, applicazioni Web e altre risorse.   
+### <a name="security-state-of-azure-resources"></a>Stato di sicurezza delle risorse di Azure
+La sezione **Prevenzione** del dashboard mostra il comportamento di sicurezza complessivo dell'ambiente per ogni tipo di risorsa, tra cui VM, applicazioni Web e altre risorse.   
 
-Selezionare un tipo di risorsa nel riquadro **Integrità sicurezza delle risorse** per visualizzare altre informazioni, incluso un elenco delle potenziali vulnerabilità di sicurezza identificate. Nell'esempio seguente è selezionata la risorsa**Calcolo**.
+Selezionare un tipo di risorsa in **Prevenzione** per visualizzare altre informazioni, incluso un elenco delle potenziali vulnerabilità della sicurezza identificate. Nell'esempio seguente è selezionata la risorsa**Calcolo**.
 
 ![Riquadro Integrità delle risorse][6]
 

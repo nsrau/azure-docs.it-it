@@ -1,6 +1,6 @@
 ---
 
-title: Appartenenza al gruppo dinamica in base agli attributi in anteprima di Azure Active Directory | Documentazione Microsoft
+title: Appartenenza dinamica ai gruppi basata su attributi in Azure Active Directory | Microsoft Docs
 description: Procedura per creare regole avanzate per l&quot;appartenenza dinamica ai gruppi, inclusi i parametri e gli operatori supportati per le regole delle espressioni.
 services: active-directory
 documentationcenter: 
@@ -13,20 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6ef550047a28a6070cad5da2e00cf18fbca3f9fa
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: da03dc8afa58ddfe97301dabed186ed325410937
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory-preview"></a>Creare regole basate su attributi per l'appartenenza dinamica al gruppo in anteprima di Azure Active Directory
-Il portale di Azure offre la possibilità di creare regole avanzate per consentire appartenenze dinamiche basate su attributi più complesse per i gruppi in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md). 
-
-Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica.
+# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
+In Azure Active Directory (Azure AD) è possibile creare regole avanzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica.
 
 ## <a name="to-create-the-advanced-rule"></a>Per creare la regola avanzata
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.

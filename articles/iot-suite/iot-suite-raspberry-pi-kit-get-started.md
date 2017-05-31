@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/26/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 0235058d17a55562271c0a98c47b9b12f8d27be6
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 5efb78c2c514bd0b21be842ddee5465fe4e4dcf9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -30,9 +30,9 @@ Le esercitazioni di questa sezione consentono di imparare a connettere un dispos
 
 | Esercitazione | Note | Lingue |
 | -------- | ----- | --------- |
-| Telemetria simulata (Base)| Consente di simulare i dati del sensore. Usa un computer autonomo Raspberry Pi. | [C][lnk-c-simulator] [Node.js][lnk-node-simulator] |
-| Sensore reale (Intermedio) | Usa i dati di un sensore BME280 connesso a Raspberry Pi. | [C][lnk-c-basic] [Node.js][lnk-node-basic] |
-| Implementazione dell'aggiornamento del firmware (Avanzato)| Usa i dati di un sensore BME280 connesso a Raspberry Pi. Consente di eseguire aggiornamenti del firmware remoto su Raspberry Pi. | [C][lnk-c-advanced] [Node.js][lnk-node-advanced] |
+| Telemetria simulata (Base)| Consente di simulare i dati del sensore. Usa un computer autonomo Raspberry Pi. | [C][lnk-c-simulator], [Node.js][lnk-node-simulator] |
+| Sensore reale (Intermedio) | Usa i dati di un sensore BME280 connesso a Raspberry Pi. | [C][lnk-c-basic], [Node.js][lnk-node-basic] |
+| Implementazione dell'aggiornamento del firmware (Avanzato)| Usa i dati di un sensore BME280 connesso a Raspberry Pi. Consente di eseguire aggiornamenti del firmware remoto su Raspberry Pi. | [C][lnk-c-advanced], [Node.js][lnk-node-advanced] |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

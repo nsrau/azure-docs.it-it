@@ -1,5 +1,6 @@
 ---
-title: Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory | Microsoft Docs
+
+title: Assegnare un utente ai ruoli di amministratore in Azure Active Directory | Microsoft Docs
 description: Illustra come cambiare le informazioni amministrative in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
-ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: ebbadff39c736ec7364999f7644694e8a177073f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory-preview"></a>Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory
-Questo articolo illustra come assegnare un ruolo amministrativo a un utente in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](active-directory-users-create-azure-portal.md). Gli utenti aggiunti non hanno autorizzazioni di amministratore per impostazione predefinita, ma è possibile assegnare loro dei ruoli in qualsiasi momento.
+# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Assegnare un utente ai ruoli di amministratore in Azure Active Directory
+Questo articolo descrive come assegnare un ruolo di amministratore a un utente in Azure Active Directory (Azure AD). Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](active-directory-users-create-azure-portal.md). Gli utenti aggiunti non hanno autorizzazioni di amministratore per impostazione predefinita, ma è possibile assegnare loro dei ruoli in qualsiasi momento.
 
 ## <a name="assign-a-role-to-a-user"></a>Assegnare un ruolo a un utente
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.

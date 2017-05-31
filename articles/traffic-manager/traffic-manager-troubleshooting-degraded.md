@@ -11,23 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 05/03/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 179dc3fa0c1ab534cb1116269832f3bc81c4c434
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
-In questo articolo viene descritto come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato. Si supponga di aver configurato un profilo di Gestione traffico che punta ad alcuni dei servizi ospitati cloudapp.net. Dopo un controllo, lo stato risulta Danneggiato.
+In questo articolo viene descritto come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato. Si supponga di aver configurato un profilo di Gestione traffico che punta ad alcuni dei servizi ospitati cloudapp.net. Se lo stato di integrità di Gestione traffico è **Danneggiato**, anche lo stato di uno o più endpoint può essere **Danneggiato**:
 
-![Stato Danneggiato](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
+![Stato degli endpoint Danneggiato](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-Accedendo alla scheda Endpoint del profilo, uno o più endpoint risulteranno con stato Offline:
+Se lo stato di integrità di Gestione traffico è **Inattivo**, entrambi gli endpoint possono avere stato **Disattivato**:
 
-![Offline](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
+![Stato Inattivo di Gestione traffico](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
 ## <a name="understanding-traffic-manager-probes"></a>Informazioni sui probe di Gestione traffico
 
@@ -94,9 +96,4 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [Cmdlet di Gestione traffico di Azure][1]
 
 [1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 05/04/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a51fb6e5a10e09205822e055659794aea2f6a4fb
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 0b63c7d15ca7570033a889dc1b57ebd202f4627b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/17/2017
 
 Dopo aver configurato il provisioning automatico per un'applicazione (e dopo aver verificato la validità delle credenziali fornite ad Azure AD per connettersi all'app), gli utenti e/o i gruppi verranno sottoposti a provisioning per l'app in base a quanto segue:
 
--   Utenti e gruppi **assegnati** all'applicazione. Per altre informazioni sull'assegnazione, vedere [Assegnare un utente o un gruppo a un'app aziendale in anteprima di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+-   Utenti e gruppi **assegnati** all'applicazione. Per altre informazioni sull'assegnazione, vedere [Assegnare un utente o un gruppo a un'app aziendale di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 -   Abilitazione o meno dei **mapping degli attributi** ed eventuale configurazione per la sincronizzazione degli attributi validi da Azure AD all'app. Per altre informazioni sui mapping degli attributi, vedere [Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings).
 

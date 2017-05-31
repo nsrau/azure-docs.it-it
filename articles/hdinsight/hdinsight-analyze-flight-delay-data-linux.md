@@ -13,13 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 05/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6c92292a67d14ac43c0fe5dbe7e14672c74b216b
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: cf460eed4bd290fbdcb9670a4ec4999f4c96c275
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight basato su Linux
@@ -76,7 +77,7 @@ Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDIns
     unzip FILENAME.zip
     ```
 
-    Questo comando estrae un file con estensione CSV con una dimensione di circa 60 MB.
+    Questo comando estrae un file con estensione CSV di circa 60 MB.
 
 4. Usare il comando seguente per creare una directory nell'archivio di HDInsight e quindi copiare il file nella directory:
 
@@ -157,9 +158,9 @@ Usare la procedura seguente per importare dati dal file con estensione csv in un
     FROM delays_raw;
     ```
 
-2. Usare **Ctrl + X**, quindi premere **Y** per salvare il file.
+2. Per salvare il file, usare **Ctrl + X** e quindi premere **Y**.
 
-3. Usare il comando seguente per avviare Hive ed eseguire il file **flightdelays.hql** :
+3. Per avviare Hive ed eseguire il file **flightdelays.hql**, usare il comando seguente:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -194,7 +195,7 @@ Usare la procedura seguente per importare dati dal file con estensione csv in un
 
 Se si dispone già di un database SQL, è necessario ottenere il nome del server. È possibile trovare il nome del server nel [Portale di Azure](https://portal.azure.com) selezionando **Database SQL**e quindi filtrando il nome del database che si desidera usare. Il nome del server è elencato nella colonna **SERVER** .
 
-Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure](../sql-database/sql-database-get-started.md) per crearne uno. È necessario salvare il nome del server usato per il database.
+Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure](../sql-database/sql-database-get-started.md) per crearne uno. Salvare il nome del server usato per il database.
 
 ## <a name="create-a-sql-database-table"></a>Creare una tabella del database SQL
 
@@ -237,16 +238,16 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
     GO
     ```
 
-    Dopo aver immesso l'istruzione `GO`, vengono valutate le istruzioni precedenti. Si crea una tabella denominata **Ritardi**, con un indice cluster.
+    Dopo aver immesso l'istruzione `GO`, vengono valutate le istruzioni precedenti. Questa query crea una tabella denominata **delays**, con un indice cluster.
 
-    Per verificare la corretta creazione della tabella, usare il comando seguente:
+    Per verificare la corretta creazione della tabella, usare la query seguente:
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    L'output è simile al seguente:
+    L'output è simile al testo seguente:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE

@@ -11,12 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 05/08/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: eb92706201760c2682d7b45a51a518c40aba3bd4
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: a6a87bb3d13f5d9acea7cd84fe7eea901ab263e5
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -77,7 +78,7 @@ Per creare un Archivio Data Lake, seguire questa procedura.
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
    > [!NOTE]
-   > Se si riceve un errore simile a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` quando si registra il provider di risorse Archivio Data Lake, è possibile che la sottoscrizione non sia abilitata per Archivio Data Lake di Azure. Assicurarsi di abilitare la sottoscrizione di Azure per l'anteprima pubblica di Archivio Data Lake seguendo queste [istruzioni](data-lake-store-get-started-portal.md).
+   > Se si riceve un errore simile a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` quando si registra il provider di risorse Data Lake Store, è possibile che la sottoscrizione non sia abilitata per Azure Data Lake Store. Assicurarsi di abilitare la sottoscrizione di Azure per l'anteprima pubblica di Archivio Data Lake seguendo queste [istruzioni](data-lake-store-get-started-portal.md).
    >
    >
 2. Un account di Archivio Azure Data Lake è associato a un gruppo di risorse di Azure. Per iniziare, creare un gruppo di risorse di Azure.
@@ -85,18 +86,36 @@ Per creare un Archivio Data Lake, seguire questa procedura.
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    ![Creare un gruppo di risorse di Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
+    Verrà visualizzato un output simile al seguente:
+
+        ResourceGroupName : hdiadlgrp
+        Location          : eastus2
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
+
 3. Creare un account Archivio Azure Data Lake. Il nome dell'account specificato deve contenere solo lettere minuscole e numeri.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Creare un account Azure Data Lake](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Creare un account Azure Data Lake")
-4. Verificare che l'account sia stato creato correttamente.
+    Verrà visualizzato un output simile al seguente:
 
-        Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
+        ...
+        ProvisioningState           : Succeeded
+        State                       : Active
+        CreationTime                : 5/5/2017 10:53:56 PM
+        EncryptionState             : Enabled
+        ...
+        LastModifiedTime            : 5/5/2017 10:53:56 PM
+        Endpoint                    : hdiadlstore.azuredatalakestore.net
+        DefaultGroup                :
+        Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
+        Name                        : hdiadlstore
+        Type                        : Microsoft.DataLakeStore/accounts
+        Location                    : East US 2
+        Tags                        : {}
 
-    L'output di questa operazione deve essere **True**.
 5. Caricare alcuni dati di esempio in Azure Data Lake. Questi dati saranno usati più avanti in questo articolo per verificare che siano accessibili da un cluster HDInsight. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
         $myrootdir = "/"

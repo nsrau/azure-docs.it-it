@@ -13,30 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 59d6d646d4ab236d1fffad0cd0ec3e9f3ae4c342
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a26f33247710431d433f3309ecdaca20e605c75a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell
 
-Questa esercitazione illustra gli elementi di base della creazione di una macchina virtuale di Azure, ad esempio la selezione delle dimensioni di una VM, la selezione dell'immagine di una VM e la distribuzione di una VM. Questa esercitazione illustra anche le operazioni di gestione di base, ad esempio la gestione dello stato, l'eliminazione il ridimensionamento di una VM.
+Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente configurabile e flessibile. Questa esercitazione illustra gli elementi di base della distribuzione di una macchina virtuale di Azure, ad esempio la selezione delle dimensioni di una VM, la selezione dell'immagine di una VM e la distribuzione di una VM. Si apprenderà come:
 
-La procedura descritta in questa esercitazione può essere completata usando il modulo [Azure PowerShell](/powershell/azure/overview) più recente.
+> [!div class="checklist"]
+> * Creare e connettersi a una macchina virtuale
+> * Selezionare e usare le immagini di una macchina virtuale
+> * Visualizzare e usare macchine virtuali di dimensioni specifiche
+> * Ridimensionare una VM
+> * Visualizzare e comprendere lo stato di una macchina virtuale
+
+Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse con comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroupVM* nell'area *westus*. 
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroupVM* nell'area *EastUS*. 
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location westeurope
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location EastUS
 ```
 
 Il gruppo di risorse viene specificato quando si crea o si modifica una VM, come viene illustrato in questa esercitazione.
@@ -60,7 +67,7 @@ Creare una rete virtuale con [New-AzureRmVirtualNetwork](/powershell/module/azur
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupVM `
-  -Location westeurope `
+  -Location EastUS `
   -Name myVnet `
   -AddressPrefix 192.168.0.0/16 ` 
   -Subnet $subnetConfig
@@ -72,7 +79,7 @@ Creare un indirizzo IP pubblico con [New-AzureRmPublicIpAddress](/powershell/mod
 ```powershell
 $pip = New-AzureRmPublicIpAddress ` 
   -ResourceGroupName myResourceGroupVM `
-  -Location westeurope ` 
+  -Location EastUS ` 
   -AllocationMethod Static `
   -Name myPublicIPAddress
 ```
@@ -84,7 +91,7 @@ Creare una scheda di interfaccia di rete con [New-AzureRmNetworkInterface](/powe
 ```powershell
 $nic = New-AzureRmNetworkInterface `
   -ResourceGroupName myResourceGroupVM  `
-  -Location westeurope `
+  -Location EastUS `
   -Name myNic `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id
@@ -114,7 +121,7 @@ Creare un gruppo di sicurezza di rete usando *myNSGRule* con [New-AzureRmNetwork
 ```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
     -ResourceGroupName myResourceGroupVM `
-    -Location westeurope `
+    -Location EastUS `
     -Name myNetworkSecurityGroup `
     -SecurityRules $nsgRule
 ```
@@ -193,7 +200,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 Creare la macchina virtuale con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location westeurope -VM $vm
+New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location EastUS -VM $vm
 ```
 
 ## <a name="connect-to-vm"></a>Connettersi alla macchina virtuale
@@ -219,42 +226,42 @@ Azure Marketplace include diverse immagini di macchine virtuali che possono esse
 Usare il comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) per restituire un elenco di server di pubblicazione di immagini.  
 
 ```powersehll
-Get-AzureRmVMImagePublisher -Location "westus"
+Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
 Usare [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) per restituire un elenco di offerte delle immagini. Con questo comando, l'elenco restituito viene filtrato nel server di pubblicazione specificato. 
 
 ```powershell
-Get-AzureRmVMImageOffer -Location "westus" -PublisherName "MicrosoftWindowsServer"
+Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
 ```
 
 ```powershell
 Offer             PublisherName          Location
 -----             -------------          -------- 
-Windows-HUB       MicrosoftWindowsServer westus 
-WindowsServer     MicrosoftWindowsServer westus   
-WindowsServer-HUB MicrosoftWindowsServer westus   
+Windows-HUB       MicrosoftWindowsServer EastUS 
+WindowsServer     MicrosoftWindowsServer EastUS   
+WindowsServer-HUB MicrosoftWindowsServer EastUS   
 ```
 
 Il comando [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) verrà quindi filtrato in base al nome del server di pubblicazione e dell'offerta per restituire un elenco di nomi di immagini.
 
 ```powershell
-Get-AzureRmVMImageSku -Location "westus" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
+Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
 ```
 
 ```powershell
 Skus                            Offer         PublisherName          Location
 ----                            -----         -------------          --------
-2008-R2-SP1                     WindowsServer MicrosoftWindowsServer westus  
-2008-R2-SP1-BYOL                WindowsServer MicrosoftWindowsServer westus  
-2012-Datacenter                 WindowsServer MicrosoftWindowsServer westus  
-2012-Datacenter-BYOL            WindowsServer MicrosoftWindowsServer westus  
-2012-R2-Datacenter              WindowsServer MicrosoftWindowsServer westus  
-2012-R2-Datacenter-BYOL         WindowsServer MicrosoftWindowsServer westus  
-2016-Datacenter                 WindowsServer MicrosoftWindowsServer westus  
-2016-Datacenter-Server-Core     WindowsServer MicrosoftWindowsServer westus  
-2016-Datacenter-with-Containers WindowsServer MicrosoftWindowsServer westus  
-2016-Nano-Server                WindowsServer MicrosoftWindowsServer westus
+2008-R2-SP1                     WindowsServer MicrosoftWindowsServer EastUS  
+2008-R2-SP1-BYOL                WindowsServer MicrosoftWindowsServer EastUS  
+2012-Datacenter                 WindowsServer MicrosoftWindowsServer EastUS  
+2012-Datacenter-BYOL            WindowsServer MicrosoftWindowsServer EastUS  
+2012-R2-Datacenter              WindowsServer MicrosoftWindowsServer EastUS  
+2012-R2-Datacenter-BYOL         WindowsServer MicrosoftWindowsServer EastUS  
+2016-Datacenter                 WindowsServer MicrosoftWindowsServer EastUS  
+2016-Datacenter-Server-Core     WindowsServer MicrosoftWindowsServer EastUS  
+2016-Datacenter-with-Containers WindowsServer MicrosoftWindowsServer EastUS  
+2016-Nano-Server                WindowsServer MicrosoftWindowsServer EastUS
 ```
 
 È possibile usare queste informazioni per distribuire una macchina virtuale con un'immagine specifica. In questo esempio viene impostato il nome dell'immagine per l'oggetto della macchina virtuale. Fare riferimento agli esempi precedenti in questa esercitazione per la procedura di distribuzione completa.
@@ -291,7 +298,7 @@ La tabella seguente classifica le dimensioni a seconda dei casi d'uso.
 Per visualizzare un elenco delle dimensioni delle VM disponibili in una determinata area, usare il comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize).
 
 ```powershell
-Get-AzureRmVMSize -Location westus
+Get-AzureRmVMSize -Location EastUS
 ```
 
 ## <a name="resize-a-vm"></a>Ridimensionare una VM
@@ -387,7 +394,17 @@ Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state descritte la creazione e la gestione di VM di base. Passare all'esercitazione successiva per informazioni sui dischi di macchine virtuali.  
+In questa esercitazione sono illustrate la creazione e la gestione di VM di base, ad esempio:
 
-[Creare e gestire dischi di macchine virtuali](./tutorial-manage-data-disk.md)
+> [!div class="checklist"]
+> * Creare e connettersi a una macchina virtuale
+> * Selezionare e usare le immagini di una macchina virtuale
+> * Visualizzare e usare macchine virtuali di dimensioni specifiche
+> * Ridimensionare una VM
+> * Visualizzare e comprendere lo stato di una macchina virtuale
+
+Passare all'esercitazione successiva per informazioni sui dischi di macchine virtuali.  
+
+> [!div class="nextstepaction"]
+> [Creare e gestire dischi di macchine virtuali](./tutorial-manage-data-disk.md)
 

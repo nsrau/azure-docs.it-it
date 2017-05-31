@@ -1,5 +1,5 @@
 ---
-title: Esempi per sviluppatori del Catalogo dati | Documentazione Microsoft
+title: Esempi per sviluppatori del Catalogo dati | Microsoft Docs
 description: Questo articolo fornisce una panoramica degli esempi per sviluppatori disponibili per l&quot;API REST di Azure Data Catalog.
 services: data-catalog
 documentationcenter: 
@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/03/2017
+ms.date: 05/05/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2e84eb020b46fe89426e547b389715d6190fc03c
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0c76287232e578df695f73e5d9792ee457266db9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -27,14 +28,18 @@ Introduzione allo sviluppo delle app del catalogo dati mediante l'API REST del c
 
 Di seguito vi sono gli esempi presenti in GitHub:
 
-* [Introduzione al Catalogo dati di Azure](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-get-started/)
+* [Introduzione al Catalogo dati di Azure](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-get-started/)
   
   Un esempio che illustra come eseguire l'autenticazione con Azure AD per la registrazione, cercare ed eliminare un asset di dati tramite l'API REST del catalogo dati.
-* [Registrare e annotare in blocco](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
+* [Registrare e annotare in blocco](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
   
   Un esempio che illustra come registrare in blocco gli asset di dati da una cartella di lavoro di Excel usando l'API REST del catalogo dati e Open XML.
-* [Strumento di importazione/esportazione](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
+* [Strumento di importazione/esportazione](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-import-export/)
   
   Un esempio che illustra come usare l'API REST del catalogo dati per recuperare asset da Catalogo dati di Azure e serializzarli in un file. Mostra anche come prelevare un set di asset serializzato come JSON ed eseguirne il push nel catalogo. Supporta l'esportazione di un subset del catalogo usando una query di ricerca.
+
+* [Importazione in massa dei termini di glossario](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
+
+    In questo esempio viene illustrato come importare i termini di glossario da un file CSV in un glossario ADC.
 
 

@@ -1,6 +1,7 @@
 ---
-title: Visualizzare tutti i gruppi esistenti in anteprima di Azure Active Directory | Documentazione Microsoft
-description: 'Procedura: Visualizzare o cercare i gruppi in anteprima di Azure Active Directory'
+
+title: Visualizzare tutti i gruppi esistenti in Azure Active Directory | Microsoft Docs
+description: Informazioni su come visualizzare o cercare i gruppi in Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 3546ae6951a514108e62f8840a601930aa1ac4c2
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1cc8b9194433840df9ce16baf1a0ec2c3dd08ad9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Visualizzare o cercare i gruppi di utenti in Azure Active Directory
-Questo articolo illustra come visualizzare tutti i gruppi in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Una delle funzionalità di Gestione utenti di Azure Active Directory (Azure AD) è la possibilità di creare gruppi di utenti popolabili con gli utenti. I gruppi vengono usati per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti contemporaneamente.
+Questo articolo descrive come visualizzare tutti i gruppi in Azure Active Directory (Azure AD). Una delle funzionalità di gestione degli utenti di Azure AD è che è possibile usare gruppi per eseguire attività di gestione, ad esempio l'assegnazione di licenze o di autorizzazioni per un numero di utenti contemporaneamente.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Come è possibile visualizzare tutti i gruppi?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.

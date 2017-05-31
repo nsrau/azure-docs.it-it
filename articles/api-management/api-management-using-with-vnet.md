@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 21cdfbbc457aad1cd3b1a5b20745eee4286a78bb
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: cf2a063acb2a36af2ff71f45159b2e23c9971b32
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -94,8 +94,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 * **Installazione di server DNS personalizzata**: il servizio Gestione API dipende da vari servizi di Azure. Quando Gestione API è ospitata in una rete virtuale con un server DNS personalizzato, deve risolvere i nomi host dei servizi di Azure. Vedere [queste](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) informazioni aggiuntive sulla configurazione del DNS personalizzato. Vedere la tabella delle porte e altri requisiti di rete per riferimento.
 
 > [!IMPORTANT]
-> Se si utilizza un Server DNS personalizzato per la rete virtuale, è consigliabile impostarlo **prima** di distribuirvi un servizio Gestione API. In caso contrario, è necessario riavviare il servizio cloud che ospita il servizio in modo che rilevi le nuove impostazioni del server DNS.
->
+> Se si usa un server DNS personalizzato per la rete virtuale, è consigliabile impostarlo **prima** di distribuirvi un servizio Gestione API. In caso contrario è necessario aggiornare il servizio Gestione API ogni volta che si modifica il server DNS eseguendo [l'operazione di applicazione della configurazione di rete](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservices#ApiManagementServices_ApplyNetworkConfigurationUpdates)
 
 * **Porte necessarie per il servizio Gestione API**: il traffico in ingresso e in uscita nella subnet in cui viene distribuita la gestione delle API può essere controllato usando il [gruppo di sicurezza di rete][Network Security Group]. Se una qualsiasi di queste porte non è disponibile, Gestione API potrebbe non funzionare correttamente e potrebbe diventare inaccessibile. Il blocco di una o più di tali porte è un problema di configurazione comune nell'uso di Gestione API in una rete virtuale.
 
@@ -109,13 +108,14 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 | * / 1433 |In uscita |TCP |Dipendenza da SQL di Azure |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
 | * / 11000 - 11999 |In uscita |TCP |Dipendenza da Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
 | * / 14000 - 14999 |In uscita |TCP |Dipendenza da Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
-| * / 9350 - 9354 |In uscita |TCP |Dipendenza dal bus di servizio |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
 | * / 5671 |In uscita |AMQP |Dipendenza per il criterio Registra a Hub eventi |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
 | 6381 - 6383/6381 - 6383 |In ingresso e in uscita |UDP |Dipendenza dalla cache Redis |VIRTUAL_NETWORK / VIRTUAL_NETWORK |Esterno e interno |-
 | * / 445 |In uscita |TCP |Dipendenza dalla condivisione file di Azure per GIT |VIRTUAL_NETWORK / INTERNET |Esterno e interno |
 | * / * | In ingresso |TCP |Bilanciamento del carico di infrastruttura di Azure | VIRTUAL_NETWORK/AZURE_LOADBALANCER |Esterno e interno |
 
 * **Funzionalità SSL**: per abilitare la creazione e la convalida della catena di certificati SSL, il servizio Gestione API richiede la connettività di rete in uscita a ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com.
+
+* **Le metriche e il monitoraggio dell'integrità**: la connettività di rete in uscita agli endpoint di Monitoraggio di Azure, che si risolve nei domini seguenti: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
 
 * **Installazione di Express Route**: secondo una diffusa configurazione, i clienti definiscono la propria route predefinita (0.0.0.0/0) verso la quale viene forzato il traffico Internet in uscita invece di far passare il flusso localmente. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. La soluzione consiste nel definire una o più route definite dall'utente ([UDR][UDRs], User Defined Routes) o nella subnet contenente il servizio Gestione API di Azure. Una route UDR definisce le route specifiche della subnet che verranno accettate invece della route predefinita.
   Se possibile, è consigliabile utilizzare la seguente configurazione:

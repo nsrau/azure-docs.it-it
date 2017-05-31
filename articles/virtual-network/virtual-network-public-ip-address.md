@@ -1,6 +1,6 @@
 ---
-title: Indirizzi IP pubblici di Azure | Documentazione Microsoft
-description: Informazioni su come creare, modificare ed eliminare indirizzi IP pubblici.
+title: Creare, modificare o eliminare indirizzi IP pubblici di Azure | Microsoft Docs
+description: Informazioni su come creare, modificare o eliminare indirizzi IP pubblici.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -13,61 +13,63 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 05/05/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9e65a61b2b156611e998f266068ab5e1e306143d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 430a68ff6a01a53774c1b7843ed774b2ec0d0d36
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
-# <a name="public-ip-addresses"></a>Indirizzi IP pubblici
+# <a name="create-change-or-delete-public-ip-addresses"></a>Creare, modificare o eliminare indirizzi IP pubblici
 
 Informazioni sugli indirizzi IP pubblici e su come crearli, modificarli ed eliminarli. Un indirizzo IP pubblico è una risorsa con impostazioni proprie configurabili. L'assegnazione di un indirizzo IP pubblico ad altre risorse di Azure abilita le funzionalità seguenti:
 - Connettività Internet in ingresso a risorse quali macchine virtuali di Azure, set di scalabilità di macchine virtuali di Azure, gateway VPN di Azure e servizi di bilanciamento del carico di Azure con connessione Internet.
 - Connettività in uscita a Internet non NAT (con indirizzi di rete convertiti). Una macchina virtuale può ad esempio comunicare in uscita con Internet senza avere un indirizzo IP pubblico assegnato: il relativo indirizzo sarà l'indirizzo di rete convertito da Azure. Per altre informazioni sulle connessioni in uscita dalle risorse di Azure, leggere l'articolo [Informazioni sulle connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Questo articolo illustra come operare con gli indirizzi IP pubblici, e si applica alle risorse distribuite tramite il modello di distribuzione Azure Resource Manager. Sebbene gli indirizzi IP pubblici possano essere assegnati alle risorse distribuite tramite il modello di distribuzione classica, gli indirizzi vengono applicati in modo diverso rispetto a quanto accade con Azure Resource Manager. Per altre informazioni sulle differenze tra i due modelli, leggere l'articolo [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informazioni sui modelli di distribuzione di Azure).
+Questo articolo descrive come usare indirizzi IP pubblici distribuiti tramite il modello di distribuzione Azure Resource Manager.
 
-Le sezioni seguenti di questo articolo illustrano come completare tutte le attività correlate agli indirizzi IP pubblici. Ogni sezione elenca:
-- La procedura per completare l'attività nel portale di Azure. Per completare la procedura è necessario accedere al [portale di Azure](http://portal.azure.com). È possibile iscriversi per [ottenere un account di valutazione gratuito](https://azure.microsoft.com/free), se non se ne ha già uno.
-- Comandi per completare l'attività usando Azure PowerShell con collegamenti al riferimento per il comando. Installare e configurare Azure PowerShell eseguendo i passaggi descritti nell'articolo sull'[installazione e la configurazione di Azure PowerShell](/powershell/azure/overview). Per informazioni ed esempi relativi ai comandi di PowerShell, digitare `get-help <command> -full`.
-- Comandi per completare l'attività usando l'interfaccia della riga di comando di Azure con collegamenti al riferimento per il comando. Per installare l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo sull'[installazione e la configurazione dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Per informazioni sui comandi dell'interfaccia della riga di comando, digitare `az <command> -h`.
+## <a name="before"></a>Prima di iniziare
 
-Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare i prezzi, consultare la pagina [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses). È previsto un limite al numero di indirizzi IP pubblici che possono essere usati in una sottoscrizione. Per informazioni su tali limiti, vedere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+Prima di completare qualsiasi passaggio nelle altre sezioni di questo articolo, eseguire le operazioni seguenti:
 
-Completare le procedure delle sezioni seguenti per creare, modificare o eliminare gli indirizzi IP pubblici.
+- Leggere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) per informazioni sui limiti per gli indirizzi IP pubblici.
+- Accedere al portale di Azure, all'interfaccia della riga di comando di Azure o ad Azure PowerShell con un account Azure. Se non si possiede già un account Azure, iscriversi per ottenere un [account di valutazione gratuito](https://azure.microsoft.com/free).
+- Se si sceglie di usare i comandi di PowerShell per completare le attività indicate in questo articolo, installare e configurare Azure PowerShell seguendo i passaggi riportati nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Assicurarsi che sia installata la versione più recente dei cmdlet di Azure PowerShell. Per informazioni ed esempi relativi ai comandi di PowerShell, digitare `get-help <command> -full`.
+- Se si sceglie di usare i comandi dell'interfaccia della riga di comando di Azure per completare le attività indicate in questo articolo, installare e configurare l'interfaccia della riga di comando di Azure seguendo i passaggi riportati nell'articolo [Come installare e configurare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Assicurarsi che sia installata la versione più recente dell'interfaccia della riga di comando di Azure. Per informazioni sui comandi dell'interfaccia della riga di comando, digitare `az <command> --help`.
+
+Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare i prezzi, consultare la pagina [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses). 
 
 ## <a name="create"></a>Creare un indirizzo IP pubblico
 
-Per creare un indirizzo IP pubblico, attenersi alla procedura seguente:
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account che disponga almeno delle autorizzazioni per il ruolo di Collaboratore rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
 2. Nella finestra che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *indirizzo ip pubblico*. Selezionare la voce **Indirizzi IP pubblici** visualizzata nei risultati della ricerca.
 3. Fare clic su **+ Aggiungi** nel pannello **Indirizzi IP pubblici** visualizzato.
 4. Immettere o selezionare i valori delle impostazioni seguenti nel pannello **Crea indirizzo IP pubblico**, quindi fare clic su **Crea**:
 
-    |**Impostazione**|Obbligatorio?|**Dettagli**|
+    |Impostazione|Obbligatorio?|Dettagli|
     |---|---|---|
-    |**Nome**|Sì|Il nome deve essere univoco all'interno del gruppo di risorse selezionato.|
-    |**Assegnazione indirizzi IP**|Sì|**Dinamico**: gli indirizzi dinamici vengono assegnati solo dopo che l'indirizzo IP pubblico è stato associato a una scheda di interfaccia di rete collegata a una macchina virtuale e che tale macchina virtuale è stata avviata per la prima volta. Gli indirizzi dinamici possono cambiare se la scheda di interfaccia di rete alla quale è collegata la macchina virtuale viene arrestata (deallocata). L'indirizzo rimane invariato se la macchina virtuale viene riavviata o arrestata, ma non deallocata. **Statico**: gli indirizzi statici vengono assegnati al momento della creazione dell'indirizzo IP pubblico. Non cambiano anche se la macchina virtuale viene arrestata (deallocata). L'indirizzo viene rilasciato solo quando viene eliminata la scheda di interfaccia di rete. Dopo aver creato la scheda di rete, è possibile modificare il metodo di assegnazione.|
-    |**Timeout di inattività (minuti)**|No|Il numero di minuti in cui la connessione TCP o HTTP resta aperta senza affidarsi ai client per l'invio di messaggi Keep-Alive.|
-    |**Etichetta del nome DNS**|No|Deve essere univoca all'interno della località di Azure nella quale viene creato il nome (incluse tutte le sottoscrizioni e tutti i clienti). Il servizio DNS pubblico di Azure registra automaticamente il nome e l'indirizzo IP, consentendo la connessione a una risorsa con tale nome. Per creare il nome DNS completo, Azure aggiunge al nome specificato *location.cloudapp.azure.com*, in cui location indica la località selezionata. |
-    |**Sottoscrizione**|Sì|Deve esistere nella stessa sottoscrizione della risorsa alla quale si vuole associare l'indirizzo IP pubblico.|
-    |**Gruppo di risorse**|Sì|Può esistere nello stesso o in un altro gruppo di risorse della risorsa alla quale si vuole associare l'indirizzo IP pubblico.|
-    |**Posizione**|Sì|Deve esistere nella stessa località della risorsa alla quale si vuole associare l'indirizzo IP pubblico.|
+    |Nome|Sì|Il nome deve essere univoco all'interno del gruppo di risorse selezionato.|
+    |Assegnazione indirizzi IP|Sì|**Dinamico**: gli indirizzi dinamici vengono assegnati solo dopo che l'indirizzo IP pubblico è stato associato a una scheda di interfaccia di rete collegata a una macchina virtuale e che tale macchina virtuale è stata avviata per la prima volta. Gli indirizzi dinamici possono cambiare se la scheda di interfaccia di rete alla quale è collegata la macchina virtuale viene arrestata (deallocata). L'indirizzo rimane invariato se la macchina virtuale viene riavviata o arrestata, ma non deallocata. **Statico**: gli indirizzi statici vengono assegnati al momento della creazione dell'indirizzo IP pubblico. Non cambiano anche se la macchina virtuale viene arrestata (deallocata). L'indirizzo viene rilasciato solo quando viene eliminata la scheda di interfaccia di rete. È possibile modificare il metodo di assegnazione dopo aver creato la l'interfaccia di rete.|
+    |Timeout di inattività (minuti)|No|Il numero di minuti in cui la connessione TCP o HTTP resta aperta senza affidarsi ai client per l'invio di messaggi Keep-Alive.|
+    |Etichetta del nome DNS|No|Deve essere univoca all'interno della località di Azure nella quale viene creato il nome (incluse tutte le sottoscrizioni e tutti i clienti). Il servizio DNS pubblico di Azure registra automaticamente il nome e l'indirizzo IP, consentendo la connessione a una risorsa con tale nome. Per creare il nome DNS completo, Azure aggiunge *location.cloudapp.azure.com* al nome specificato, dove location è la località selezionata.|
+    |Sottoscrizione|Sì|Deve essere inclusa nella stessa [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) della risorsa cui si vuole associare l'indirizzo IP pubblico.|
+    |Gruppo di risorse|Sì|Può trovarsi nello stesso [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) della risorsa cui si vuole associare l'indirizzo IP pubblico oppure in un gruppo di risorse diverso.|
+    |Località|Sì|Deve trovarsi nella stessa [località](https://azure.microsoft.com/regions), chiamata anche area, di quella della risorsa cui si vuole associare l'indirizzo IP pubblico.|
 
-|**Strumento**|**Comando**|
+**Comandi**
+
+|Strumento|Comando|
 |---|---|
-|**CLI**|[az network public-ip-create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
+|CLI|[az network public-ip-create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
-## <a name="change"></a>Modificare le impostazioni o eliminare un indirizzo IP pubblico
+## <a name="change"></a>Modificare le impostazioni per un indirizzo IP pubblico o eliminarne uno
 
-Per modificare o eliminare un indirizzo IP pubblico, attenersi alla procedura seguente:
-
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account che disponga almeno delle autorizzazioni per il ruolo di Collaboratore rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
 2. Nella finestra che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *indirizzo ip pubblico*. Selezionare la voce **Indirizzi IP pubblici** visualizzata nei risultati della ricerca.
 3. Nel pannello **Indirizzi IP pubblici**, fare clic sul nome dell'indirizzo IP pubblico del quale modificare o eliminare le impostazioni.
 4. Nel pannello dell'indirizzo IP pubblico visualizzato, completare l'opzione pertinente in base alla necessità di eliminare o modificare l'indirizzo IP pubblico.
@@ -77,10 +79,12 @@ Per modificare o eliminare un indirizzo IP pubblico, attenersi alla procedura se
 >[!WARNING]
 >Quando si modifica il metodo di assegnazione da statico a dinamico, l'indirizzo IP assegnato all'indirizzo IP pubblico viene perso. Mentre i server DNS pubblici Azure mantengono l'associazione tra gli indirizzi statici o dinamici e qualsiasi etichetta del nome DNS (se ne è stato definito uno), un indirizzo IP dinamico può essere modificato quando la macchina virtuale viene avviata dopo essere stata arrestata (deallocata). Per evitare la modifica dell'indirizzo, assegnare un indirizzo IP statico.
 
-|**Strumento**|**Comando**|
+**Comandi**
+
+|Strumento|Comando|
 |---|---|
-|**CLI**|[az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) per aggiornare; [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) per eliminare|
-|**PowerShell**|[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) per aggiornare; [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) per eliminare|
+|CLI|[az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) per aggiornare; [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) per eliminare|
+|PowerShell|[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) per aggiornare; [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) per eliminare|
 
 ## <a name="next-steps"></a>Passaggi successivi
 Assegnare gli indirizzi IP pubblici durante la creazione delle risorse di Azure seguenti:

@@ -1,5 +1,5 @@
 ---
-title: Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake| Documentazione Microsoft
+title: Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake| Microsoft Docs
 description: Usare lo strumento AdlCopy per copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake
 services: data-lake-store
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
-ms.openlocfilehash: 9f8635cd028d7d0d6a69faf6c2dc1de05dc5bb36
-ms.lasthandoff: 12/02/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c7ccd172440ae36844c7a5863a9f9d55a05411f9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -93,7 +94,7 @@ I parametri nella sintassi sono descritti di seguito:
 
 ### <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
-Quando si esegue una copia da un account di Archiviazione BLOB di Azure, alcune operazioni possono essere limitate nell'ambito dell'archiviazione BLOB. In questo modo le prestazioni del processo di copia diminuiranno. Per altre informazioni sui limiti di Archiviazione BLOB di Azure, vedere i limiti di Archiviazione di Azure in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+Quando si esegue una copia da un account di Archiviazione BLOB di Azure, è possibile che alcune operazioni siano limitate nell'ambito dell'archiviazione BLOB. In questo caso le prestazioni del processo di copia diminuiranno. Per altre informazioni sui limiti di Archiviazione BLOB di Azure, vedere i limiti di Archiviazione di Azure in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-store-account"></a>Usare AdlCopy (come file autonomo) per copiare i dati da un altro account di Data Lake Store
 È anche possibile usare AdlCopy per copiare dati tra due account Data Lake Store.
@@ -151,7 +152,7 @@ Analogamente, eseguire il comando seguente per copiare da un BLOB di Archiviazio
 
 ### <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
-Quando si copiano dati nell'intervallo di terabyte, l'uso di AdlCopy con il proprio account di Azure Data Lake Analytics consente di ottenere prestazioni migliori e più prevedibili. Il parametro da impostare è il numero di unità di Azure Data Lake Analytics da usare per il processo di copia. L'aumento del numero di unità si traduce in un aumento delle prestazioni del processo di copia. Per ogni file da copiare, è possibile usare al massimo un'unità. Se si specificano più unità rispetto al numero di file da copiare, le prestazioni non aumentano.
+Quando si copiano dati nell'ordine di terabyte, l'uso di AdlCopy con il proprio account di Azure Data Lake Analytics consente di ottenere prestazioni migliori e più prevedibili. Il parametro da impostare è il numero di unità di Azure Data Lake Analytics da usare per il processo di copia. L'aumento del numero di unità si traduce in un aumento delle prestazioni del processo di copia. Per ogni file da copiare, è possibile usare al massimo un'unità. Se si specificano più unità rispetto al numero di file da copiare, le prestazioni non aumentano.
 
 ## <a name="use-adlcopy-to-copy-data-using-pattern-matching"></a>Usare AdlCopy per copiare i dati usando la corrispondenza dei modelli
 Questa sezione descrive come usare AdlCopy per copiare i dati da un'origine (nell'esempio di seguito un BLOB di Archiviazione di Azure) a un account Data Lake Store di destinazione tramite la corrispondenza dei modelli. Ad esempio, è possibile usare la procedura seguente per copiare tutti i file con estensione csv dal BLOB di origine alla destinazione.
@@ -175,6 +176,9 @@ Questa sezione descrive come usare AdlCopy per copiare i dati da un'origine (nel
 ## <a name="performance-considerations-for-using-adlcopy"></a>Considerazioni sulle prestazioni per l'uso di AdlCopy
 
 AdlCopy supporta la copia dei dati che contengono migliaia di file e cartelle. Se si verificano problemi con la copia di un set di dati di grandi dimensioni, è comunque possibile distribuire file e cartelle in sottocartelle più piccole. AdlCopy è stato creato per copie ad hoc. Se si tenta di copiare dati su base periodica, è consigliabile usare [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) che consente gestire completamente le operazioni di copia.
+
+## <a name="release-notes"></a>Note sulla versione
+* 1.0.13 - Se si copiano dati nello stesso account Azure Data Lake Store tramite più comandi adlcopy, non è più necessario immettere di nuovo le credenziali per ogni esecuzione. Adlcopy memorizza ora nella cache queste informazioni tra le diverse esecuzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)

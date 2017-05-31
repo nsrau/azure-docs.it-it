@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/09/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e72fcd696a4f21aa4b2cff7ae7178dbc372f1929
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5bda9ce182c93d23bf29fd211ccdeb6facacbb7e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -161,6 +162,45 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
         }
 3. **Sostituzione di proprietà desiderate**. Questa operazione consente al back-end della soluzione di sovrascrivere completamente tutte le proprietà desiderate esistenti e di sostituirle con un nuovo documento JSON `properties/desired`.
 4. **Sostituzione di tag**. Questa operazione consente al back-end della soluzione di sovrascrivere completamente tutti i tag esistenti e di sostituirli con un nuovo documento JSON `tags`.
+5. **Ricezione di notifiche relative al dispositivo gemello**. Questa operazione invia notifiche al back-end della soluzione a ogni modifica del dispositivo gemello. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *twinChangeEvents*. Per impostazione predefinita, non viene inviata alcuna notifica, ovvero queste route non sono preesistenti. Se la frequenza delle modifiche è troppo elevata o per altri motivi, come un errore interno, l'hub IoT potrebbe inviare solo una notifica che contiene tutte le modifiche. Di conseguenza, se l'applicazione ha bisogno di controllo e registrazione affidabili di tutti gli stati intermedi, è consigliabile continuare a usare i messaggi D2C. Il messaggio di notifica relativo al dispositivo gemello include le proprietà e il corpo.
+
+    - Proprietà
+
+    | Nome | Valore |
+    | --- | --- |
+    $content-type | application/json |
+    $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
+    deviceId | ID del dispositivo |
+    hubName | Nome dell'hub IoT |
+    operationTimestamp | Timestamp ISO8601 dell'operazione |
+    iothub-message-schema | deviceLifecycleNotification |
+    opType | "replaceTwin" o "updateTwin" |
+
+    Le proprietà di sistema del messaggio hanno come prefisso il simbolo `'$'`.
+
+    - Corpo
+        
+    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. Usa lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni, ovvero tag, properties.reported e properties.desired, e che contiene gli elementi "$metadata". Ad esempio,
+    ```
+    {
+        "properties": {
+            "desired": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            },
+            "reported": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            }
+        }
+    }
+    ``` 
 
 Tutte le operazioni precedenti supportano la [concorrenza ottimistica][lnk-concurrency] e richiedono l'autorizzazione **ServiceConnect**, come indicato nell'articolo [Sicurezza][lnk-security].
 

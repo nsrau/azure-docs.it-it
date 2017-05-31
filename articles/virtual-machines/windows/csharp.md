@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f4c63af2d873fb11c8503a30b104b9b7db7f74f0
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 7f708087dda4cfb7e998b42ce36632d5764c6c0e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c"></a>Distribuire una macchina virtuale di Azure tramite C## #
+# <a name="deploy-an-azure-virtual-machine-using-c"></a>Distribuire una macchina virtuale di Azure tramite C# #
 
 In questo articolo viene illustrato come usare c# per creare una macchina virtuale di Azure e le relative risorse di supporto.
 
@@ -34,15 +35,15 @@ In questo passaggio, ci si assicura che Visual Studio sia installato e si crea u
 
 1. Se non è già installato, installare [Visual Studio](https://www.visualstudio.com/).
 2. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
-3. In **Modelli** > **Visual C#** selezionare **Applicazione console**, immettere il nome e il percorso del progetto e fare clic su **OK**.
+3. In **Modelli** > **Visual C#** selezionare **App console (.NET Framework)**, immettere il nome e il percorso del progetto e quindi fare clic su **OK**.
 
 ## <a name="step-2-install-libraries"></a>Passaggio 2: installare le librerie
 
 I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare questi passaggi. Per ottenere le librerie necessarie in Visual Studio, eseguire questa procedura:
 
 
-1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni, scegliere **Gestisci pacchetti NuGet** e fare clic su **Sfoglia**.
-2. Digitare *Microsoft.IdentityModel.Clients.ActiveDirectory* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
+1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni, scegliere **Gestisci pacchetti NuGet per la soluzione** e quindi fare clic su **Sfoglia**.
+2. Digitare *Microsoft.IdentityModel.Clients.ActiveDirectory* nella casella di ricerca, selezionare il progetto, fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
 3. Nella parte superiore della pagina selezionare **Includi versione preliminare**. Digitare *Microsoft.Azure.Management.Compute* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
 4. Digitare *Microsoft.Azure.Management.Network* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
 5. Digitare *Microsoft.Azure.Management.Storage* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
@@ -54,7 +55,7 @@ I pacchetti NuGet sono il modo più semplice per installare le librerie necessar
 
 Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità servizio Active Directory](../../resource-group-authenticate-service-principal.md). Dall'entità servizio si acquisisce un token per autenticare le richieste ad Azure Resource Manager.
 
-1. Aprire il file Program.cs per il progetto creato e quindi aggiungere le istruzioni using seguenti all'inizio del file:
+1. Aprire il file Program.cs per il progetto creato e quindi aggiungere le istruzioni using seguenti alle istruzioni esistenti all'inizio del file:
    
     ```
     using Microsoft.Azure;
@@ -75,8 +76,8 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
     ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -88,9 +89,9 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
 
     Sostituire questi valori:
     
-    - *{client-id}* con l'identificatore dell'applicazione Azure Active Directory. È possibile trovare questo identificatore nel pannello Proprietà dell'applicazione AD. Per individuare l'applicazione AD nel Portale di Azure, fare clic su **Azure Active Directory** nel menu di risorse e quindi fare clic su **Registrazioni per l'app**.
-    - *{client-secret}* con la chiave di accesso dell'applicazione AD. È possibile trovare questo identificatore nel pannello Proprietà dell'applicazione AD.
-    - *{tenant-id}* con l'identificatore del tenant della sottoscrizione. È possibile trovare l'identificatore del tenant nel pannello Proprietà di Azure Active Directory nel Portale di Azure. È indicato come *ID directory*.
+    - *client-id* con l'identificatore dell'applicazione Azure Active Directory. È possibile trovare questo identificatore nel pannello Proprietà dell'applicazione AD. Per individuare l'applicazione AD nel Portale di Azure, fare clic su **Azure Active Directory** nel menu di risorse e quindi fare clic su **Registrazioni per l'app**.
+    - *client-secret* con la chiave di accesso dell'applicazione AD. È possibile trovare questo identificatore nel pannello Proprietà dell'applicazione AD.
+    - *tenant-id* con l'identificatore del tenant della sottoscrizione. È possibile trovare l'identificatore del tenant nel pannello Proprietà di Azure Active Directory nel Portale di Azure. È indicato come *ID directory*.
 
 3. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main nel file Program.cs:
    
@@ -101,7 +102,7 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
 
 4. Salvare il file Program.cs.
 
-## <a name="step-3-create-the-resources"></a>Passaggio 3: creare le risorse
+## <a name="step-4-create-the-resources"></a>Passaggio 4: creare le risorse
 
 ### <a name="register-the-providers-and-create-a-resource-group"></a>Registrare i provider e creare un gruppo di risorse
 
@@ -360,8 +361,8 @@ Una macchina virtuale richiede un'interfaccia di rete per comunicare nella rete 
                 new NetworkInterfaceIPConfiguration
                   {
                     Name = nicName,
-                    PublicIPAddress = pubipResponse,
-                    Subnet = subnetResponse
+                    PublicIPAddress = publicIP,
+                    Subnet = subnet
                   }
               }
           }

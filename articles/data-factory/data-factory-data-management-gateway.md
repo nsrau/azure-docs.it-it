@@ -1,5 +1,5 @@
 ---
-title: Gateway di gestione dati per Data Factory | Documentazione Microsoft
+title: Gateway di gestione dati per Data Factory | Microsoft Docs
 description: Configurare un gateway dati per spostare dati tra origini locali e il cloud. Usare Gateway di gestione dati in Azure Data Factory per spostare dati.
 services: data-factory
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/04/2017
 ms.author: abnarain
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: dfa78d1773afd0094ff98a5761a771101016ee13
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01f3ef6d0e8e43e702b8292a7c215d3df58817f2
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -138,7 +139,7 @@ A livello di firewall aziendale è necessario configurare le porte in uscita e i
 | --- | --- | --- |
 | *.servicebus.windows.net |443, 80 |Utilizzato per la comunicazione con il backend Data Movement Service |
 | *.core.windows.net |443 |Utilizzato per la copia di staging mediante il BLOB di Azure (se configurata)|
-| *frontend.clouddatahub.net |443 |Utilizzato per la comunicazione con il backend Data Movement Service |
+| *.frontend.clouddatahub.net |443 |Utilizzato per la comunicazione con il backend Data Movement Service |
 
 
 A livello di Windows Firewall queste porte in uscita sono generalmente abilitate. In caso contrario, è possibile configurare le porte e i domini nel modo appropriato nel computer gateway.
@@ -425,7 +426,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. In Azure PowerShell, passare alla cartella: **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Eseguire**RegisterGateway.ps1**associato alla variabile locale**$Key** come illustrato nel comando seguente. Lo script registra l'agente client installato nel computer con il gateway logico creato in precedenza.
+1. In Azure PowerShell, passare alla cartella: **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Eseguire **RegisterGateway.ps1** associato alla variabile locale **$Key** come illustrato nel comando seguente. Lo script registra l'agente client installato nel computer con il gateway logico creato in precedenza.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

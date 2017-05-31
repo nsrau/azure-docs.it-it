@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2016
+ms.date: 05/08/2017
 ms.author: kyliel
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2d44a2d9a247ffce8bcf35152170562ac0b86710
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -31,8 +32,8 @@ Questo articolo descrive come creare e caricare un disco rigido virtuale (VHD) c
 ## <a name="prerequisites"></a>Prerequisiti
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
-* **Una sottoscrizione Azure**: se non è già disponibile un account, è possibile crearne uno in pochi minuti. Se si ha una sottoscrizione MSDN, vedere [Crediti mensili di Azure per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Altrimenti, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).  
-* **Strumenti di Azure PowerShell**: è necessario che il modulo Microsoft Azure PowerShell sia installato e configurato per usare la sottoscrizione di Azure. Per scaricare il modulo, vedere la pagina dei [download di Azure](https://azure.microsoft.com/downloads/). Un'esercitazione per installare e configurare in modulo è disponibile qui. Per caricare il disco rigido virtuale usare il cmdlet nella pagina [Download di Azure](https://azure.microsoft.com/downloads/) .
+* **Una sottoscrizione Azure**: se non è già disponibile un account, è possibile crearne uno in pochi minuti. Se si ha un abbonamento a MSDN, vedere [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Altrimenti, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).  
+* **Strumenti di Azure PowerShell**: è necessario che il modulo Microsoft Azure PowerShell sia installato e configurato per usare la sottoscrizione di Azure. Per scaricare il modulo, vedere la pagina dei [download di Azure](https://azure.microsoft.com/downloads/). Qui è disponibile un'esercitazione che descrive come installare e configurare il modulo. Per caricare il disco rigido virtuale usare il cmdlet nella pagina [Download di Azure](https://azure.microsoft.com/downloads/) .
 * **Sistema operativo FreeBSD installato in un file VHD**: è necessario installare un sistema operativo FreeBSD supportato in un disco rigido virtuale. Sono disponibili vari strumenti per la creazione di file VHD. Ad esempio, per creare il file VHD e installare il sistema operativo, è possibile usare soluzioni di virtualizzazione come Hyper-V. Per istruzioni, vedere su come installare e usare Hyper-V, vedere [Installare Hyper-V e creare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
@@ -40,7 +41,7 @@ In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 >
 >
 
-Questa attività include i cinque passaggi illustrati di seguito.
+Questa attività include i cinque passaggi seguenti:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Passaggio 1: preparare l'immagine da caricare
 Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD, completare le procedure seguenti:
@@ -51,12 +52,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
         # service netif restart
 2. Abilitare SSH.
 
-    SSH è abilitato per impostazione predefinita dopo l'installazione dal disco. Se non lo è per qualche motivo o se si usa direttamente un VHD FreeBSD, digitare quanto segue:
-
-        # echo 'sshd_enable="YES"' >> /etc/rc.conf
-        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-        # service sshd restart
+    Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. SSH è abilitato per impostazione predefinita dopo l'installazione dal disco FreeBSD. 
 3. Configurare la console seriale.
 
         # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
@@ -66,16 +62,16 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
     L'account radice è disabilitato in Azure. Ciò significa che per eseguire comandi con privilegi elevati da un account utente senza privilegi è necessario usare sudo.
 
         # pkg install sudo
-   ;
+   
 5. Prerequisiti per l'agente di Azure.
 
         # pkg install python27  
-        # pkg install Py27-setuptools27   
+        # pkg install Py27-setuptools  
         # ln -s /usr/local/bin/python2.7 /usr/bin/python   
         # pkg install git
 6. Installare l'agente di Azure.
 
-    L'ultima versione dell'agente di Azure è sempre disponibile in [github](https://github.com/Azure/WALinuxAgent/releases). La versione 2.0.10 + supporta ufficialmente FreeBSD 10 e 10.1 e la versione 2.1.4 supporta ufficialmente FreeBSD 10.2 e versioni successive.
+    L'ultima versione dell'agente di Azure è sempre disponibile in [github](https://github.com/Azure/WALinuxAgent/releases). La versione 2.0.10+ supporta ufficialmente FreeBSD 10 e 10.1, mentre la versione 2.1.4+ (inclusa la 2.2.x) supporta ufficialmente FreeBSD 10.2 e versioni successive.
 
         # git clone https://github.com/Azure/WALinuxAgent.git  
         # cd WALinuxAgent  
@@ -108,8 +104,8 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
         # waagent -version
         WALinuxAgent-2.1.4 running on freebsd 10.3
         Python: 2.7.11
-        # service –e | grep waagent
-        /etc/rc.d/waagent
+        # ps auxw | grep waagent
+        root   639   0.0  0.5 104620 17520 u0- I    05:17    0:00.20 python /usr/local/sbin/waagent -daemon (python2.7)
         # cat /var/log/waagent.log
 7. Eseguire il deprovisioning del sistema.
 
@@ -154,7 +150,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
    >
 
 ## <a name="step-3-prepare-the-connection-to-azure"></a>Passaggio 3: preparare la connessione a Microsoft Azure
-Prima di poter caricare un file VHD, è necessario stabilire una connessione sicura tra il computer e la sottoscrizione di Azure. Per eseguire questa operazione è possibile usare il metodo basato su Azure Active Directory (Azure AD) o sul certificato.
+Prima di poter caricare un file VHD, è necessario stabilire una connessione sicura tra il computer e la sottoscrizione di Azure. A questo scopo, è possibile usare il metodo basato su Azure Active Directory (Azure AD) o sul certificato.
 
 ### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>Usare il metodo Azure AD per caricare un file VHD
 1. Aprire la console di Azure PowerShell.
@@ -169,7 +165,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Usare il metodo basato sul certificato per caricare un file VHD
 1. Aprire la console di Azure PowerShell.
 2. Digitare:  `Get-AzurePublishSettingsFile`.
-3. Viene aperta una finestra del browser in cui viene chiesto di scaricare un file con estensione publishsettings, che contiene informazioni e un certificato per la sottoscrizione di Azure.
+3. Viene aperta una finestra del browser in cui viene chiesto se scaricare il file con estensione publishsettings, che contiene informazioni e un certificato per la sottoscrizione di Azure.
 
     ![Pagina di download del browser](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Salvare il file .publishsettings.
@@ -180,7 +176,7 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
    Per altre informazioni sull'installazione e la configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Passaggio 4: caricare il file VHD
-È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archivio BLOB. Di seguito sono riportati alcuni termini che saranno quando si carica il file:
+È possibile caricare il file VHD in qualsiasi posizione all'interno dell'archivio BLOB. Di seguito sono riportati alcuni termini che verranno usati durante il caricamento del file:
 
 * **BlobStorageURL** è l'URL dell'account di archiviazione creato nel passaggio 2.
 * **YourImagesFolder** è il contenitore all'interno dell'archivio BLOB in cui si vogliono archiviare le immagini.
