@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 04/26/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 1f59558d69993907bc2c37eaba03ad23e5ef8543
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 034b61fdeb34c03bb4b58145f04138410e0d6fc6
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -252,7 +252,7 @@ Per altri articoli correlati, vedere
 * [Usare Hive e HiveQL con Hadoop in HDInsight per analizzare un file Apache log4j di esempio](hdinsight-use-hive.md)
 * [Analizzare i dati sui ritardi dei voli mediante Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 * [Analizzare i dati Twitter mediante Hive in HDInsight](hdinsight-analyze-twitter-data.md)
-* [Eseguire un processo Hadoop usando DocumentDB e HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
+* [Eseguire un processo Hadoop usando Azure Cosmos DB e HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]: hdinsight-python.md
 

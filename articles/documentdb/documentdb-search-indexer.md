@@ -1,13 +1,13 @@
 ---
-title: Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori | Microsoft Docs
-description: Questo articolo illustra come usare l&quot;indicizzatore di Ricerca di Azure con DocumentDB come origine dati.
-services: documentdb
+title: Connessione di Azure Cosmos DB con Ricerca di Azure tramite indicizzatori | Microsoft Docs
+description: Questo articolo illustra come usare l&quot;indicizzatore di Ricerca di Azure con Cosmos DB come origine dati.
+services: cosmosdb
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,21 +16,23 @@ ms.date: 01/10/2017
 ms.author: mimig
 redirect_url: https://docs.microsoft.com/azure/search/search-howto-index-documentdb
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 9a5416b1c26d1e8eaecec0ada79d357f32ca5ab1
-ms.openlocfilehash: c318d7133e26ec3a39d6fc97b0693b44d742d456
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b3a62c693ff672458955789cde9d5be96cac9c58
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="connecting-documentdb-with-azure-search-using-indexers"></a>Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori
-Chi desidera implementare esperienze di ricerca straordinarie nei dati di DocumentDB, può usare l'indicizzatore di Ricerca di Azure per DocumentDB. Questo articolo illustra come integrare Azure DocumentDB con Ricerca di Azure senza dover scrivere codice per gestire l'infrastruttura di indicizzazione.
+# <a name="connecting-azure-cosmos-db-with-azure-search-using-indexers"></a>Connessione di Azure Cosmos DB con Ricerca di Azure tramite indicizzatori
+Se l'obiettivo è l'implementazione di esperienze di ricerca ottimizzate per i dati di Cosmos DB, usare l'indicizzatore di Ricerca di Azure per Cosmos DB. Questo articolo illustrerà come integrare Azure Cosmos DB con Ricerca di Azure senza dover scrivere codice per gestire l'infrastruttura di indicizzazione.
 
-Per impostare questa funzionalità è necessario [configurare un account di Ricerca di Azure](../search/search-create-service-portal.md) (non occorre eseguire l'aggiornamento alla ricerca standard), quindi chiamare l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) per creare un'**origine dati** di DocumentDB e un **indicizzatore** per l'origine dati.
+Per impostare questa funzionalità, è necessario [configurare un account di Ricerca di Azure](../search/search-create-service-portal.md) (non occorre eseguire l'aggiornamento alla ricerca standard), quindi chiamare l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) per creare un'**origine dati** di Cosmos DB e un **indicizzatore** per l'origine dati.
 
 Per inviare le richieste di interazione con le API REST, è possibile usare [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler), o qualsiasi strumento a scelta.
 
-## <a name="a-idconceptsaazure-search-indexer-concepts"></a><a id="Concepts"></a>Concetti relativi all'indicizzatore di Ricerca di Azure
-Ricerca di Azure supporta la creazione e la gestione di origini dati (incluso DocumentDB) e di indicizzatori che operano su tali origini dati.
+## <a id="Concepts"></a>Concetti relativi all'indicizzatore di Ricerca di Azure
+Ricerca di Azure supporta la creazione e la gestione di origini dati (incluso Cosmos DB) e di indicizzatori che operano su tali origini dati.
 
 Un' **origine dati** specifica quali dati devono essere indicizzati, le credenziali per accedere ai dati e i criteri per consentire a Ricerca di Azure di identificare in modo efficace le modifiche nei dati, ad esempio documenti modificati o eliminati nella raccolta. L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
@@ -40,7 +42,7 @@ Un **indicizzatore** descrive la modalità di flusso dei dati dall'origine dati 
 * Sincronizzare un indice con le modifiche nell'origine dati in base a una pianificazione. La pianificazione fa parte della definizione dell'indicizzatore.
 * Richiamare aggiornamenti su richiesta in un indice in base alle necessità.
 
-## <a name="a-idcreatedatasourceastep-1-create-a-data-source"></a><a id="CreateDataSource"></a>Passaggio 1: Creare un'origine dati
+## <a id="CreateDataSource"></a>Passaggio 1: Creare un'origine dati
 Inviare una richiesta HTTP POST per creare una nuova origine dati nel servizio Ricerca di Azure, includendo le intestazioni di richiesta seguenti.
 
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
@@ -51,22 +53,22 @@ L'elemento `api-version` è obbligatorio. I valori validi includono `2015-02-28`
 
 Il corpo della richiesta contiene la definizione dell'origine dati, che deve includere i campi seguenti:
 
-* **name**: scegliere qualsiasi nome per rappresentare il database di DocumentDB.
+* **name**: scegliere qualsiasi nome per rappresentare il database di Cosmos DB.
 * **tipo**: usare `documentdb`.
 * **Credenziali**
   
-  * **connectionString**: obbligatorio. Specificare le informazioni di connessione al database di Azure DocumentDB nel formato seguente: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+  * **connectionString**: obbligatorio. Specificare le informazioni di connessione al database di Azure Cosmos DB nel formato seguente: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
 * **contenitore**:
   
-  * **name**: obbligatorio. Specificare l'ID della raccolta di DocumentDB da indicizzare.
+  * **name**: obbligatorio. Specificare l'ID della raccolta di API di DocumentDB da indicizzare.
   * **query**: facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.
 * **dataChangeDetectionPolicy**: facoltativa. Vedere la sezione relativa ai [criteri di rilevamento delle modifiche dei dati](#DataChangeDetectionPolicy) di seguito.
 * **dataDeletionDetectionPolicy**: facoltativo. Di seguito vedere [Criteri di rilevamento dell'eliminazione dei dati](#DataDeletionDetectionPolicy).
 
 Vedere di seguito un [corpo della richiesta di esempio](#CreateDataSourceExample).
 
-### <a name="a-iddatachangedetectionpolicyacapturing-changed-documents"></a><a id="DataChangeDetectionPolicy"></a>Acquisizione di documenti modificati
-Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di identificare in modo efficace gli elementi di dati modificati. Attualmente, l'unico criterio supportato è il criterio che usa la proprietà `High Water Mark` del timestamp dell'ultima modifica fornita `_ts` da DocumentDB, specificato come indicato sotto:
+### <a id="DataChangeDetectionPolicy"></a>Acquisizione di documenti modificati
+Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di identificare in modo efficace gli elementi di dati modificati. L'unico tipo di criteri attualmente supportato è `High Water Mark` che usa la proprietà `_ts`, relativa al timestamp dell'ultima modifica, fornita da Cosmos DB, specificato come indicato di seguito:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -77,7 +79,7 @@ Sarà anche necessario aggiungere `_ts` nella proiezione e la clausola `WHERE` p
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
-### <a name="a-iddatadeletiondetectionpolicyacapturing-deleted-documents"></a><a id="DataDeletionDetectionPolicy"></a>Acquisizione di documenti eliminati
+### <a id="DataDeletionDetectionPolicy"></a>Acquisizione di documenti eliminati
 Quando le righe vengono eliminate dalla tabella di origine, devono essere eliminate anche dall'indice di ricerca. Scopo dei criteri di rilevamento dell'eliminazione dei dati è quello di identificare in modo efficace gli elementi di dati eliminati. Attualmente, l'unico criterio supportato è il criterio `Soft Delete` (l'eliminazione è contrassegnata da un tipo di flag), specificato come indicato sotto:
 
     {
@@ -91,8 +93,8 @@ Quando le righe vengono eliminate dalla tabella di origine, devono essere elimin
 > 
 > 
 
-### <a name="a-idleveagingqueriesaleveraging-queries"></a><a id="LeveagingQueries"></a>Uso delle query
-Oltre ad acquisire i documenti modificati ed eliminati, è possibile specificare una query di DocumentDB per appiattire le proprietà annidate, rimuovere gli array, progettare le proprietà json e filtrare i dati da indicizzare. La modifica dei dati da indicizzare può migliorare le prestazioni dell'indicizzatore di Ricerca di Azure.
+### <a id="LeveagingQueries"></a>Uso delle query
+Oltre ad acquisire i documenti modificati ed eliminati, è possibile specificare una query dell'API di DocumentDB per rendere flat le proprietà annidate, rimuovere le matrici, progettare le proprietà JSON e filtrare i dati da indicizzare. La modifica dei dati da indicizzare può migliorare le prestazioni dell'indicizzatore di Ricerca di Azure.
 
 Documento di esempio:
 
@@ -127,7 +129,7 @@ Query di filtro:
     SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
 
 
-### <a name="a-idcreatedatasourceexamplearequest-body-example"></a><a id="CreateDataSourceExample"></a>Esempio di corpo della richiesta
+### <a id="CreateDataSourceExample"></a>Esempio di corpo della richiesta
 L'esempio seguente crea un'origine dati con una query personalizzata e hint di criteri:
 
     {
@@ -154,7 +156,7 @@ L'esempio seguente crea un'origine dati con una query personalizzata e hint di c
 ### <a name="response"></a>Response
 Se l'origine dati è stata creata correttamente, si riceve una risposta HTTP 201 - Creato.
 
-## <a name="a-idcreateindexastep-2-create-an-index"></a><a id="CreateIndex"></a>Passaggio 2: Creare un indice
+## <a id="CreateIndex"></a>Passaggio 2: Creare un indice
 Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile farlo dall'[interfaccia utente del portale di Azure](../search/search-create-index-portal.md) o usando l'[API di creazione dell'indice](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
     POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
@@ -181,7 +183,7 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 | Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [ long, lat ] } |Edm.GeographyPoint |
 | Altri oggetti JSON |N/D |
 
-### <a name="a-idcreateindexexamplearequest-body-example"></a><a id="CreateIndexExample"></a>Esempio di corpo della richiesta
+### <a id="CreateIndexExample"></a>Esempio di corpo della richiesta
 L'esempio seguente crea un indice con campo descrizione e ID:
 
     {
@@ -204,7 +206,7 @@ L'esempio seguente crea un indice con campo descrizione e ID:
 ### <a name="response"></a>Response
 Se l'indice è stato creato correttamente, si riceve una risposta HTTP 201 - Creato.
 
-## <a name="a-idcreateindexerastep-3-create-an-indexer"></a><a id="CreateIndexer"></a>Passaggio 3: Creare un indicizzatore
+## <a id="CreateIndexer"></a>Passaggio 3: Creare un indicizzatore
 È possibile creare un nuovo indicizzatore in un servizio Ricerca di Azure usando una richiesta HTTP POST con le intestazioni seguenti.
 
     POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
@@ -218,13 +220,13 @@ Il corpo della richiesta contiene la definizione dell'indicizzatore, che deve in
 * **targetIndexName**: obbligatorio. Nome di un indice esistente.
 * **pianificazione**: facoltativa. Vedere la sezione relativa alla [pianificazione dell'indicizzazione](#IndexingSchedule) di seguito.
 
-### <a name="a-idindexingschedulearunning-indexers-on-a-schedule"></a><a id="IndexingSchedule"></a>Esecuzione di indicizzatori in base a una pianificazione
+### <a id="IndexingSchedule"></a>Esecuzione di indicizzatori in base a una pianificazione
 Facoltativamente, un indicizzatore può specificare una pianificazione. Se è presente una pianificazione, l'indicizzatore verrà eseguito periodicamente in base alla pianificazione. La pianificazione ha gli attributi seguenti:
 
 * **interval**: obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` ogni 15 minuti, `PT2H` ogni due ore.
 * **startTime**: obbligatorio. Valore datetime UTC che specifica quando deve iniziare l'esecuzione dell'indicizzatore.
 
-### <a name="a-idcreateindexerexamplearequest-body-example"></a><a id="CreateIndexerExample"></a>Esempio di corpo della richiesta
+### <a id="CreateIndexerExample"></a>Esempio di corpo della richiesta
 L'esempio seguente crea un indicizzatore che copia i dati dalla raccolta a cui fa riferimento l'origine dati `myDocDbDataSource` all'indice `mySearchIndex` in base a una pianificazione che inizia l'1 gennaio 2015 UTC e viene eseguita ogni ora.
 
     {
@@ -237,7 +239,7 @@ L'esempio seguente crea un indicizzatore che copia i dati dalla raccolta a cui f
 ### <a name="response"></a>Response
 Se l'indicizzatore è stato creato correttamente, si riceve una risposta HTTP 201 - Creato.
 
-## <a name="a-idrunindexerastep-4-run-an-indexer"></a><a id="RunIndexer"></a>Passaggio 4: Eseguire un indicizzatore
+## <a id="RunIndexer"></a>Passaggio 4: Eseguire un indicizzatore
 Oltre a essere eseguito periodicamente in base a una pianificazione, un indicizzatore può anche essere richiamato su richiesta inviando la richiesta HTTP POST seguente:
 
     POST https://[Search service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
@@ -246,7 +248,7 @@ Oltre a essere eseguito periodicamente in base a una pianificazione, un indicizz
 ### <a name="response"></a>Response
 Se l'indicizzatore è stato richiamato correttamente, si riceve una risposta HTTP 202 - Accettato.
 
-## <a name="a-namegetindexerstatusastep-5-get-indexer-status"></a><a name="GetIndexerStatus"></a>Passaggio 5: Ottenere lo stato dell'indicizzatore
+## <a name="GetIndexerStatus"></a>Passaggio 5: Ottenere lo stato dell'indicizzatore
 È possibile inviare una richiesta HTTP GET per recuperare lo stato corrente e la cronologia di esecuzione di un indicizzatore:
 
     GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
@@ -285,15 +287,10 @@ La risposta sarà simile alla seguente:
 
 La cronologia di esecuzione contiene fino alle 50 più recenti esecuzioni completate, in ordine cronologico inverso (in modo che l'esecuzione più recente venga visualizzata per prima nella risposta).
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Passaggi successivi
-Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerca di Azure usando l'indicizzatore per DocumentDB.
+## <a name="NextSteps"></a>Passaggi successivi
+Congratulazioni. Si è appena appreso come integrare Azure Cosmos DB con Ricerca di Azure usando l'indicizzatore per Cosmos DB.
 
-* Per ulteriori informazioni su Azure DocumentDB, vedere la [pagina del servizio DocumentDB](https://azure.microsoft.com/services/documentdb/).
+* Per altre informazioni su Cosmos DB, vedere la [pagina del servizio Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 * Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio Ricerca](https://azure.microsoft.com/services/search/).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -1,27 +1,29 @@
 ---
-title: Esempi di Python NoSQL per DocumentDB | Microsoft Docs
-description: "Trovare esempi di Python NoSQL su GitHub per attività comuni in DocumentDB, incluse operazioni CRUD per documenti JSON in database NoSQL."
+title: Esempi Python dell&quot;API DocumentDB per Azure Cosmos DB | Microsoft Docs
+description: "Esempi Python in GitHub per attività comuni in Azure Cosmos DB, tra cui operazioni CRUD."
 keywords: Esempi di Python
-services: documentdb
+services: cosmosdb
 author: moderakh
 manager: jhubbard
 editor: monicar
 documentationcenter: python
 ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2016
 ms.author: moderakh
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7b555732bad08c86c33ee78344ae9c4e6af7c7b8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 06272744be5bd0b86dbbd1c94dcbd922d125118f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-python-examples"></a>Esempi di Python di DocumentDB
+# <a name="azure-cosmos-db-python-examples"></a>Esempi Python per Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [Esempi di .NET](documentdb-dotnet-samples.md)
 > * [Esempi di Node.js](documentdb-nodejs-samples.md)
@@ -30,7 +32,7 @@ ms.openlocfilehash: 7b555732bad08c86c33ee78344ae9c4e6af7c7b8
 > 
 > 
 
-Il repository [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) di GitHub include soluzioni di esempio che eseguono operazioni CRUD e altre operazioni comuni su risorse di Azure DocumentDB. Questo articolo include:
+Il repository [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) di GitHub include soluzioni di esempio che eseguono operazioni CRUD e altre operazioni comuni su risorse di Azure Cosmos DB. Questo articolo include:
 
 * Collegamenti alle attività in ogni file di progetto Python di esempio. 
 * Collegamenti al contenuto di riferimento sulle API correlato.
@@ -69,10 +71,5 @@ Il file [Program.py](https://github.com/Azure/azure-documentdb-python/tree/maste
 | [Ottenere il livello di prestazioni di una raccolta](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L139-L161) |[DocumentQueryable.QueryOffers](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Cambiare il livello di prestazioni di una raccolta](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) |[document_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Eliminare una raccolta](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) |[document_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

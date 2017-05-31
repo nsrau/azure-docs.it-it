@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: f2c67bb0629c8a37e557d4813e3efa459f3c82ad
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 693a4a0dbe7e067492040a12c6cb3b003bbcc54e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -301,15 +302,15 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Codifica |Se il formato è CSV o JSON, è necessario specificare un formato di codifica. Al momento UTF-8 è l'unico formato di codifica supportato |
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 
-## <a name="documentdb"></a>DocumentDB
-[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è un servizio di database di documenti NoSQL completamente gestito che offre query e transazioni su dati senza schema, prestazioni prevedibili e affidabili e sviluppo rapido.
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) è un servizio di database di documenti NoSQL completamente gestito che offre query e transazioni su dati senza schema, prestazioni prevedibili e affidabili e sviluppo rapido.
 
-L'elenco seguente illustra i nomi delle proprietà e la relativa descrizione per la creazione di un output DocumentDB.
+L'elenco seguente illustra i nomi delle proprietà e la relativa descrizione per la creazione di un output Azure Cosmos DB.
 
 * **Alias di output** : alias per fare riferimento a questo output nella query ASA.  
-* **Nome account** : nome o URI endpoint dell'account DocumentDB.  
-* **Chiave account** : chiave di accesso condiviso per l'account DocumentDB.  
-* **Database** : nome del database DocumentDB.  
+* **Nome account**: nome o URI endpoint dell'account Cosmos DB.  
+* **Chiave account** : chiave di accesso condiviso per l'account Cosmos DB.  
+* **Database**: nome del database Cosmos DB.  
 * **Modello del nome di raccolta**: nome della raccolta o modello per le raccolte da usare. Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0. Di seguito sono riportati input di esempio validi:  
   1\) MyCollection: deve essere presente una raccolta denominata "MyCollection".  
   2\) MyCollection{partizione}: devono essere presenti le raccolte "MyCollection0", "MyCollection1", "MyCollection2" e così via.  

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5b5aa75756d2a7061d531d50a59a2c52dfb75cbe
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -333,7 +334,7 @@ Un processo di streaming potrebbe avere più output. Output supportati: Hub even
             </td>
             <td width="246" valign="top">
                 <p>
-Supporto per più output in una topologia. Ogni output può avere una logica personalizzata per l'elaborazione downstream. Storm include connettori predefiniti per PowerBI, Hub eventi di Azure, Archivio Blob di Azure, Azure DocumentDB, SQL e HBase. I connettori non supportati possono essere implementati tramite codice personalizzato.
+Supporto per più output in una topologia. Ogni output può avere una logica personalizzata per l'elaborazione downstream. Storm include connettori predefiniti per PowerBI, Hub eventi di Azure, Archivio Blob di Azure, Azure Cosmos DB, SQL e HBase. I connettori non supportati possono essere implementati tramite codice personalizzato.
                 </p>
             </td>
         </tr>
@@ -569,7 +570,7 @@ Dati di riferimento disponibili nei BLOB di Azure con dimensione massima di 100 
             </td>
             <td width="246" valign="top">
                 <p>
-Nessun limite alle dimensioni dei dati. Connettori disponibili per HBase, DocumentDB, SQL Server e Azure. I connettori non supportati possono essere implementati tramite codice personalizzato.
+Nessun limite alle dimensioni dei dati. Connettori disponibili per HBase, Azure Cosmos DB, SQL Server e Azure. I connettori non supportati possono essere implementati tramite codice personalizzato.
                 </p>
                 <p>
 L'aggiornamento dei dati di riferimento deve essere gestito dal codice personalizzato.

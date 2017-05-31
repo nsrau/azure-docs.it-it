@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -85,7 +85,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 | --- | --- |
 | Anteprima pubblica di Azure IoT Suite |L'analisi di flusso è inclusa nell'anteprima pubblica di Azure IoT Suite. |
 | Integrazione del portale di Azure |Oltre a essere sempre presente nel portale di gestione di Azure, Analisi di flusso è ora integrata nel [portale di Azure](https://azure.microsoft.com/overview/preview-portal/). Si noti che le funzionalità di analisi di flusso nel portale di anteprima sono attualmente un sottoinsieme delle funzionalità offerte nel portale di gestione di Azure, senza il supporto per il test di query nel browser, la configurazione di output Power BI e l'esplorazione o la creazione di nuove risorse di input e output nelle sottoscrizioni a cui si ha accesso. |
-| Supporto per l'output di DocumentDB |I processi di Analisi di flusso ora possono inviare output a [DocumentDB](https://azure.microsoft.com/services/documentdb/). |
+| Supporto per l'output Cosmos DB |I processi dell'analisi di flusso ora possono inviare output a [Cosmos DB](https://azure.microsoft.com/services/documentdb/). |
 | Supporto per l'input dell'hub IoT |I processi di analisi di flusso sono ora in grado di acquisire dati dagli hub IoT. |
 | TIMESTAMP BY per eventi eterogenei |Quando un unico flusso di dati contiene più tipi di evento con timestamp in campi diversi, è ora possibile usare [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con espressioni per specificare i campi di timestamp diversi per ogni caso. |
 

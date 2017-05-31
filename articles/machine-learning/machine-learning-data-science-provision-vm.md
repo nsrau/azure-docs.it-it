@@ -9,16 +9,15 @@ editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
 ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -160,7 +159,7 @@ Diversi strumenti di Azure vengono installati nella macchina virtuale:
 * **AzCopy**: consente di spostare i dati da e verso l'account di archiviazione di Microsoft Azure. Per visualizzare l'utilizzo, digitare **Azcopy** al prompt dei comandi. 
 * **Microsoft Azure Storage Explorer**: consente di esplorare gli oggetti archiviati nell'account di archiviazione di Azure e di trasferire dati da e verso Archiviazione di Azure. È possibile digitare **Esplora archivi** nella casella di ricerca oppure individuarlo e selezionarlo dal menu Start di Windows per accedere allo strumento. 
 * **Adlcopy**: consente di spostare i dati in Azure Data Lake. Per visualizzare l'utilizzo, digitare **adlcopy** nel prompt dei comandi. 
-* **dtui**: consente di spostare dati da e verso Azure DocumentDB, un database NoSQL nel cloud. Digitare **dtui** al prompt dei comandi. 
+* **dtui**: consente di spostare dati da e verso Azure Cosmos DB, un database NoSQL nel cloud. Digitare **dtui** al prompt dei comandi. 
 * **Gateway di gestione dati di Microsoft**: consente lo spostamento di dati tra origini dati locali e il cloud. Viene usato all'interno di strumenti come Data Factory di Azure. 
 * **Microsoft Azure Powershell**: nella VM viene installato anche uno strumento che consente di amministrare le risorse di Azure nel linguaggio di scripting di PowerShell. 
 

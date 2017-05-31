@@ -1,40 +1,44 @@
 ---
-title: Indicizzazione di un&quot;origine dati DocumentDB per Ricerca di Azure | Microsoft Docs
-description: Questo articolo illustra come creare l&quot;indicizzatore di Ricerca di Azure con DocumentDB come origine dati.
+title: Indicizzazione di un&quot;origine dati Cosmos DB per Ricerca di Azure | Microsoft Docs
+description: Questo articolo illustra come creare l&quot;indicizzatore di Ricerca di Azure con Cosmos DB come origine dati.
 services: search
 documentationcenter: 
 author: chaosrealm
 manager: pablocas
 editor: 
 ms.assetid: 
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 04/11/2017
+ms.date: 05/01/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 5f657ed128103d4bf1304dfc5fae8d86ef950d87
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 333f8320820a1729a14ffc2e29446e7452aa768e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="connecting-documentdb-with-azure-search-using-indexers"></a>Connessione di DocumentDB con Ricerca di Azure tramite indicizzatori
+# <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connessione di Cosmos DB con Ricerca di Azure tramite indicizzatori
 
-Se si desidera eseguire ottime esperienze di ricerca nei dati di DocumentDB, è possibile configurare ed eseguire un indicizzatore di Ricerca di Azure che estragga i dati e li inserisca in un indice di ricerca di Azure. Questo articolo illustra come integrare Azure DocumentDB con Ricerca di Azure senza dover scrivere un codice per gestire l'infrastruttura di indicizzazione.
+Per ottenere un'esperienza di ricerca ottimale sui dati di Cosmos DB, è possibile usare un indicizzatore di Ricerca di Azure per inserire dati in un indice di Ricerca di Azure. Questo articolo illustra come integrare Azure Cosmos DB con Ricerca di Azure senza dover scrivere codice per gestire l'infrastruttura di indicizzazione.
 
-Per configurare un indicizzatore di DocumentDB, è necessario disporre di un [servizio Ricerca di Azure](search-create-service-portal.md), creare un indice, l'origine dati e infine l'indicizzatore. È possibile creare questi oggetti usando il [portale](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search) o l'[API REST](/rest/api/searchservice/) per tutti i linguaggi diversi da .NET. 
+Per configurare un indicizzatore di Cosmos DB, è necessario avere un [servizio Ricerca di Azure](search-create-service-portal.md), creare un indice, l'origine dati e infine l'indicizzatore. È possibile creare questi oggetti usando il [portale](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search) o l'[API REST](/rest/api/searchservice/) per tutti i linguaggi diversi da .NET. 
 
 Se si sceglie di usare il portale, l'[Importazione guidata dati](search-import-data-portal.md) consente di creare tutte queste risorse.
 
 > [!NOTE]
-> È possibile avviare la procedura guidata **Importa dati** dal dashboard di DocumentDB per semplificare l'indicizzazione dell'origine dati. Nel riquadro di spostamento a sinistra passare a **Raccolte** > **Aggiungi Ricerca di Azure** per iniziare.
+> Cosmos DB è la nuova generazione di DocumentDB. Anche se il nome del prodotto è cambiato, la sintassi è immutata. Continuare a specificare `documentdb` come indicato in questo articolo sull'indicizzatore. 
+
+> [!TIP]
+> È possibile avviare la procedura guidata **Importa dati** dal dashboard di Cosmos DB per semplificare l'indicizzazione dell'origine dati. Nel riquadro di spostamento a sinistra passare a **Raccolte** > **Aggiungi Ricerca di Azure** per iniziare.
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Concetti relativi all'indicizzatore di Ricerca di Azure
-Ricerca di Azure supporta la creazione e la gestione di origini dati (incluso DocumentDB) e di indicizzatori che operano su tali origini dati.
+Ricerca di Azure supporta la creazione e la gestione di origini dati (incluso Cosmos DB) e di indicizzatori che operano su tali origini dati.
 
 Un'**origine dati** specifica i dati per l'indice, le credenziali e i criteri per l'identificazione delle modifiche apportate ai dati (ad esempio documenti modificati o eliminati nella raccolta). L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
@@ -67,20 +71,20 @@ Per creare un'origine dati, creare un POST:
 
 Il corpo della richiesta contiene la definizione dell'origine dati, che deve includere i campi seguenti:
 
-* **name**: scegliere qualsiasi nome per rappresentare il database di DocumentDB.
+* **name**: scegliere qualsiasi nome per rappresentare il database di Cosmos DB.
 * **type**: deve essere `documentdb`.
 * **Credenziali**
   
-  * **connectionString**: obbligatorio. Specificare le informazioni di connessione al database di Azure DocumentDB nel formato seguente: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+  * **connectionString**: obbligatorio. Specificare le informazioni di connessione al database di Azure Cosmos DB nel formato seguente: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
 * **contenitore**:
   
-  * **name**: obbligatorio. Specificare l'ID della raccolta di DocumentDB da indicizzare.
+  * **name**: obbligatorio. Specificare l'ID della raccolta di Cosmos DB da indicizzare.
   * **query**: facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.
 * **dataChangeDetectionPolicy**: consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).
 * **dataDeletionDetectionPolicy**: facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Utilizzo di query per formare dati indicizzati
-È possibile specificare una query di DocumentDB per appiattire le matrici o le proprietà annidate, progettare le proprietà JSON e filtrare i dati da indicizzare. 
+È possibile specificare una query di Cosmos DB per appiattire le matrici o le proprietà annidate, progettare le proprietà JSON e filtrare i dati da indicizzare. 
 
 Documento di esempio:
 
@@ -142,7 +146,7 @@ L'esempio seguente crea un indice con campo descrizione e ID:
 Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema dei documenti JSON di origine oppure con l'output della proiezione di query personalizzata.
 
 > [!NOTE]
-> Per le raccolte partizionate, la chiave di documento predefinita è la proprietà `_rid` di DocumentDB, che viene rinominata `rid` in Ricerca di Azure. Inoltre, i valori `_rid` di DocumentDB contengono caratteri non validi per le chiavi di Ricerca di Azure. Per questo motivo, i valori `_rid` presentano la codificata Base64.
+> Per le raccolte partizionate, la chiave di documento predefinita è la proprietà `_rid` di Cosmos DB, che viene rinominata `rid` in Ricerca di Azure. I valori `_rid` di Cosmos DB contengono inoltre caratteri non validi per le chiavi di Ricerca di Azure. Per questo motivo, i valori `_rid` presentano la codificata Base64.
 > 
 > 
 
@@ -229,7 +233,7 @@ La cronologia di esecuzione contiene fino alle 50 più recenti esecuzioni comple
 
 <a name="DataChangeDetectionPolicy"></a>
 ## <a name="indexing-changed-documents"></a>Indicizzazione di documenti modificati
-Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di identificare in modo efficace gli elementi di dati modificati. Attualmente, l'unico tipo di criteri supportato è `High Water Mark` che usa la proprietà `_ts` (timestamp) fornita da DocumentDB, specificato come indicato di seguito:
+Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di identificare in modo efficace gli elementi di dati modificati. L'unico tipo di criteri attualmente supportato è `High Water Mark` che usa la proprietà `_ts` (timestamp) fornita da Cosmos DB, specificato come indicato di seguito:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -277,7 +281,7 @@ L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
     }
 
 ## <a name="NextSteps"></a>Passaggi successivi
-Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerca di Azure usando l'indicizzatore per DocumentDB.
+Congratulazioni. Si è appena appreso come integrare Azure Cosmos DB con Ricerca di Azure usando l'indicizzatore per Cosmos DB.
 
-* Per ulteriori informazioni su Azure DocumentDB, vedere la [pagina del servizio DocumentDB](https://azure.microsoft.com/services/documentdb/).
+* Per altre informazioni su Azure Cosmos DB, vedere la [pagina del servizio Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 * Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio Ricerca](https://azure.microsoft.com/services/search/).

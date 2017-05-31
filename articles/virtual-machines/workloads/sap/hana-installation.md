@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: b791be369016dd52d95ec727e46fd8b554c09047
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 89356670737ed7b9adc5df51466ce71eb73b3cd4
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,7 +28,7 @@ L'installazione di SAP HANA è responsabilità dell'utente. È possibile avviare
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Procedura da adottare subito dopo aver ricevuto le unità di istanza HANA di grandi dimensioni
 
-**Primo passaggio** dopo aver ricevuto l'istanza di grandi dimensioni HANA e aver stabilito che l'accesso e la connettività alle istanze consiste nel registrare il sistema operativo dell'istanza con il provider del sistema operativo. Ciò include la registrazione del sistema operativo Linux SUSE in un'istanza di SMT SUSE che è stata distribuita. Oppure è necessario registrare il sistema operativo Red Hat con la gestione sottoscrizione di RedHat a cui è necessario connettersi. Vedere anche le osservazioni in questo [documento](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questo passaggio è necessario anche per consentire di inserire le patch nel sistema operativo in futuro. Un'attività che rientra tra le responsabilità del cliente. 
+**Primo passaggio** dopo aver ricevuto l'istanza di grandi dimensioni HANA e aver stabilito che l'accesso e la connettività alle istanze consiste nel registrare il sistema operativo dell'istanza con il provider del sistema operativo. Questo include la registrazione del sistema operativo Linux SUSE in un'istanza di SMT SUSE che è necessario aver distribuito in una Cosmos DB offre l'elaborazione ad alte prestazioni e velocità, indicizzazione dei dati senza schema e una ricca interfaccia di query SQL. in Azure a cui l'unità Istanza Large di SAP Hana può connettersi. Oppure è necessario registrare il sistema operativo Red Hat con la gestione sottoscrizione di RedHat a cui è necessario connettersi. Vedere anche le osservazioni in questo [documento](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questo passaggio è necessario anche per consentire di inserire le patch nel sistema operativo in futuro. Un'attività che rientra tra le responsabilità del cliente. Per quanto riguarda SUSE, la documentazione relativa all'installazione e alla configurazione di SMT è disponibile [qui](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 Il **secondo passaggio** consiste nel verificare la presenza di nuove patch e consente di correggere le versioni del sistema operativo specifiche. Verificare che il livello di patch dell'istanza di grandi dimensioni HANA sia allo stato più recente. In base all'intervallo delle patch/rilasci del sistema operativo e alle modifiche in base all'immagine che Microsoft può distribuire potrebbero esserci casi in cui le patch potrebbero non essere incluse. Di conseguenza è un passaggio obbligatorio in seguito alla sostituzione di un'unità di istanza di grandi dimensioni HANA e all'installazione del sistema operativo registrato con il distributore di Linux, per controllare se le patch relative a sicurezza, funzionalità, prestazioni e disponibilità sono state rilasciate nel frattempo dal fornitore specifico di Linux e devono essere applicate.
 

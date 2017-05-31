@@ -12,21 +12,23 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/01/2016
+ms.date: 05/01/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
-ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)
 > [!NOTE]
-> Questo articolo descrive gli indicizzatori nell' [API REST&2015;-02-28-Preview](search-api-2015-02-28-preview.md). Questa versione dell'API aggiunge le versioni di anteprima dell'indicizzatore di archiviazione BLOB di Azure con estrazione di documenti, l'indicizzatore di archiviazione tabelle e altri miglioramenti. L'API supporta anche indicizzatori disponibili a livello generale (GA), compresi gli indicizzatori per il Database di SQL Azure, SQL Server in VM di Azure e Azure DocumentDB.
+> Questo articolo descrive gli indicizzatori nell' [API REST 2015-02-28-Preview](search-api-2015-02-28-preview.md). Questa versione dell'API aggiunge le versioni di anteprima dell'indicizzatore di archiviazione BLOB di Azure con estrazione di documenti, l'indicizzatore di archiviazione tabelle e altri miglioramenti. L'API supporta anche indicizzatori disponibili a livello generale (GA), compresi gli indicizzatori per il Database di SQL Azure, SQL Server in VM di Azure e Azure Cosmos DB.
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Ricerca di Azure può integrarsi direttamente con alcune origini dati comuni, eliminando la necessità di scrivere codice per l'indicizzazione dei dati. Per impostare questo servizio, è possibile chiamare l'API di Ricerca di Azure in modo da creare e gestire **indicizzatori** e **origini dati**. 
 
 Un **indicizzatore** è una risorsa che connette le origini dati agli indici di ricerca di destinazione. Un indicizzatore viene usato nei modi seguenti: 
@@ -42,7 +44,7 @@ Un' **origine dati** specifica i dati da indicizzare, le credenziali per acceder
 Sono attualmente supportate le origini dati seguenti:
 
 * **Database SQL di Azure** e **SQL Server in Macchine virtuali di Azure**. Per una procedura dettagliata, vedere [questo articolo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
-* **Azure DocumentDB**. Per una procedura dettagliata, vedere [questo articolo](search-howto-index-documentdb.md). 
+* **Azure Cosmos DB**. Per una procedura dettagliata, vedere [questo articolo](search-howto-index-documentdb.md). 
 * **Archiviazione BLOB di Azure**, inclusi i seguenti formati di documenti: PDF, Microsoft Office (DOCX/DOC, XLS/XSLX, PPTX/PPT, MSG), HTML, XML, ZIP e file di testo normale (incluso JSON). Per una procedura dettagliata, vedere [questo articolo](search-howto-indexing-azure-blob-storage.md).
 * **Archivio tabelle di Azure**. Per una procedura dettagliata, vedere [questo articolo](search-howto-indexing-azure-tables.md).
 
@@ -123,13 +125,13 @@ La richiesta contiene le proprietà seguenti:
 * `description`: descrizione facoltativa. 
 * `type`: richiesto. Deve essere uno dei tipi di origine dati supportati:
   * `azuresql` - database SQL di Azure e SQL Server in macchine virtuali di Azure
-  * `documentdb` - Azure DocumentDB
+  * `documentdb` - Azure Cosmos DB
   * `azureblob` - Archiviazione BLOB di Azure
   * `azuretable` - Archivio tabelle di Azure
 * `credentials`:
   * La proprietà `connectionString` obbligatoria specifica la stringa di connessione per l'origine dati. Il formato della stringa di connessione dipende dal tipo di origine dati: 
     * Per SQL Azure, si tratta della solita stringa di connessione di SQL Server. Se si usa il portale di Azure per recuperare la stringa di connessione, usare l'opzione `ADO.NET connection string`.
-    * Per DocumentDB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori e sono reperibili nel [portale di Azure](https://portal.azure.com/).  
+    * Per Azure Cosmos DB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori e sono reperibili nel [portale di Azure](https://portal.azure.com/).  
     * Per l'archiviazione BLOB e l'archiviazione tabelle di Azure, questa è la stringa di connessione dell'account di archiviazione. Il formato è descritto [qui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). È richiesto un protocollo HTTPS per l'endpoint.  
 * `container`, elemento obbligatorio: specifica i dati da indicizzare mediante le proprietà `name` e `query`: 
   * `name`, elemento obbligatorio:
@@ -167,7 +169,7 @@ Questi criteri possono essere specificati come indicato di seguito:
         "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
     } 
 
-Quando si usano origini dati di DocumentDB, è necessario usare la proprietà `_ts` specificata da DocumentDB. 
+Quando si usano origini dati di Azure Cosmos DB, è necessario usare la proprietà `_ts` specificata da Azure Cosmos DB. 
 
 Quando si usano le origini dati BLOB di Azure, Ricerca di Azure usa automaticamente criteri di rilevamento modifiche con limite massimo basati sull'ultimo timestamp modificato del BLOB. L'utente non deve quindi specificare personalmente questi criteri.   
 
@@ -411,8 +413,8 @@ Un indicizzatore può facoltativamente specificare diversi parametri che ne infl
 
 * `maxFailedItems` : numero di elementi per cui l'indicizzazione può avere esito negativo prima che l'indicizzatore venga considerato in errore. Il valore predefinito è 0. Le informazioni sugli elementi non riusciti vengono restituite dall'operazione per [ottenere lo stato di un indicizzatore](#GetIndexerStatus) . 
 * `maxFailedItemsPerBatch` : numero di elementi per cui l'indicizzazione può avere esito negativo in ogni batch prima che l'indicizzatore venga considerato in errore. Il valore predefinito è 0.
-* `base64EncodeKeys`: specifica se le chiavi del documento saranno codificate in base&64;. Ricerca di Azure impone restrizioni sui caratteri che possono essere presenti in una chiave del documento. Tuttavia, i valori nei dati di origine possono contenere caratteri non validi. Se è necessario indicizzare questi valori come chiavi del documento, questo contrassegno può essere impostato su true. Il valore predefinito è `false`.
-* `batchSize`: specifica il numero di elementi che vengono letti dall'origine dati e indicizzati in un batch unico per migliorare le prestazioni. Il valore predefinito dipende dal tipo di origine dati: 1000 per SQL Azure e DocumentDB e 10 per archiviazione BLOB di Azure.
+* `base64EncodeKeys`: specifica se le chiavi del documento saranno codificate in base 64. Ricerca di Azure impone restrizioni sui caratteri che possono essere presenti in una chiave del documento. Tuttavia, i valori nei dati di origine possono contenere caratteri non validi. Se è necessario indicizzare questi valori come chiavi del documento, questo contrassegno può essere impostato su true. Il valore predefinito è `false`.
+* `batchSize`: specifica il numero di elementi che vengono letti dall'origine dati e indicizzati in un batch unico per migliorare le prestazioni. Il valore predefinito dipende dal tipo di origine dati: 1000 per SQL Azure e Azure Cosmos DB e 10 per archiviazione BLOB di Azure.
 
 **Mapping dei campi**
 
@@ -458,7 +460,7 @@ L'esempio seguente crea un indicizzatore che copia i dati dalla tabella a cui fa
 
 **Risposta**
 
-Se la richiesta ha esito positivo, viene restituito il codice di stato&201; - Creato.
+Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Creato.
 
 <a name="UpdateIndexer"></a>
 
@@ -796,9 +798,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 <td>Non supportati. Ricerca di Azure attualmente supporta solo tipi primitivi e raccolte di stringhe</td>
 </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.date: 04/24/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 25f4ef15390ed5b97bd2927126f5ecf250d2daf9
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: db227bfea10255322c090e68b197cfb2dd1cf15b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
-Ricerca di Azure è una soluzione di ricerca distribuita come servizio cloud che delega la gestione di server e infrastruttura a Microsoft, offrendo un servizio pronto per l'uso che consente di inserire dati e di aggiungere ricerche sulle applicazioni Web o mobili. Ricerca di Azure consente di implementare facilmente un'esperienza di ricerca affidabile nelle applicazioni usando una semplice [API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) o [.NET SDK](search-howto-dotnet-sdk.md) senza dover gestire l'infrastruttura di ricerca o diventare esperti di ricerca.
+Ricerca di Azure è una soluzione di ricerca distribuita come servizio cloud che delega la gestione di server e infrastruttura a Microsoft, offrendo un servizio pronto per l'uso che consente di inserire dati e di aggiungere ricerche sulle applicazioni Web o mobili. Ricerca di Azure consente di implementare facilmente un'esperienza di ricerca affidabile nelle applicazioni usando una semplice [API REST](/rest/api/searchservice/) o [.NET SDK](search-howto-dotnet-sdk.md) senza dover gestire l'infrastruttura di ricerca o diventare esperti di ricerca.
 
 <a name="feature-drilldown"></a>
 
@@ -39,7 +39,7 @@ La Ricerca di Azure supporta analizzatori lessicali per [56 lingue diverse](http
 
 ### <a name="data-integration"></a>Integrazione dei dati
 
-È possibile inserire strutture di dati JSON per popolare un indice di Ricerca di Azure. Inoltre, per le origini dati supportate, è possibile usare gli [indicizzatori](search-indexer-overview.md) per eseguire automaticamente una ricerca per indicizzazione nel database SQL di Azure, in Azure DocumentDB o nell'[archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md) per sincronizzare il contenuto dell'indice di ricerca con l'archivio dati primario.
+È possibile inserire strutture di dati JSON per popolare un indice di Ricerca di Azure. Per le origini dati supportate è anche possibile usare gli [indicizzatori](search-indexer-overview.md) per eseguire automaticamente una ricerca per indicizzazione nel [database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), in [Azure Cosmos DB](search-howto-index-documentdb.md) o nell'[archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md) per sincronizzare il contenuto dell'indice di ricerca con l'archivio dati primario.
 
 È disponibile la *decifrazione del documento* per [leggere e indicizzare i principali formati di file](search-howto-indexing-azure-blob-storage.md) inclusi Microsoft Office, nonché i documenti PDF e HTML.
 
@@ -53,7 +53,7 @@ La Ricerca di Azure supporta analizzatori lessicali per [56 lingue diverse](http
 
 + L'**evidenziazione dei risultati** [applica la formattazione visiva a una parola chiave corrispondente nei risultati della ricerca](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). È possibile scegliere i campi che devono restituire i frammenti evidenziati.
 
-+ **semplicità di assegnazione dei punteggi** . I [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) vengono usati per modellare la rilevanza in funzione dei valori nei documenti stessi. Ad esempio, si potrebbe decidere che prodotti più recenti o prodotti scontati compaiano prima tra i risultati della ricerca. È inoltre possibile compilare profili di puntaggio utilizzando tag per il punteggio personalizzati in base alle preferenze di ricerca cliente che sono stati rilevati e archiviati separatamente.
++ **semplicità di assegnazione dei punteggi** . I [profili di punteggio](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) vengono usati per modellare la rilevanza in funzione dei valori nei documenti stessi. Ad esempio, si potrebbe decidere che prodotti più recenti o prodotti scontati compaiano prima tra i risultati della ricerca. È inoltre possibile compilare profili di puntaggio utilizzando tag per il punteggio personalizzati in base alle preferenze di ricerca cliente che sono stati rilevati e archiviati separatamente.
 
 + **ordinamento** è disponibile per più campi tramite lo schema dell'indice e viene attivato o disattivato in fase di query con un solo parametro di ricerca.
 
@@ -83,7 +83,7 @@ Nel portale è possibile usare la procedura guidata di **importazione dei dati**
 
 ## <a name="how-it-works"></a>Funzionamento
 ### <a name="step-1-provision-service"></a>Passaggio 1: Effettuare il provisioning del servizio
-È possibile attivare un servizio Ricerca di Azure nel [Portale di Azure](https://portal.azure.com/) o attraverso l'[API Azure Resource Management](https://msdn.microsoft.com/library/azure/dn832684.aspx). È possibile scegliere il servizio gratuito condiviso con altri sottoscrittori, o un [livello a pagamento](https://azure.microsoft.com/pricing/details/search/) che dedica risorse usate solo dal proprio servizio.
+È possibile attivare un servizio Ricerca di Azure nel [Portale di Azure](https://portal.azure.com/) o attraverso l'[API Azure Resource Management](/rest/api/searchmanagement/). È possibile scegliere il servizio gratuito condiviso con altri sottoscrittori, o un [livello a pagamento](https://azure.microsoft.com/pricing/details/search/) che dedica risorse usate solo dal proprio servizio.
 
 Per i livelli a pagamento, è possibile scalare il servizio in due dimensioni: 
 
@@ -95,14 +95,14 @@ Tramite la gestione separata della risorsa di archiviazione del documento e dell
 ### <a name="step-2-create-index"></a>Passaggio 2: Creare un indice
 Per poter caricare il contenuto ricercabile, è innanzitutto necessario definire un indice di Ricerca di Azure. Un indice è simile a una tabella di database che contiene i dati e può accettare query di ricerca. È necessario definire lo schema di indice per riflettere la struttura dei documenti in cui si desidera eseguire la ricerca, in modo analogo ai campi in un database.
 
-È possibile creare uno schema nel portale di Azure o a livello di codice usando [.NET SDK](search-howto-dotnet-sdk.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+È possibile creare uno schema nel portale di Azure o a livello di codice usando [.NET SDK](search-howto-dotnet-sdk.md) o l'[API REST](/rest/api/searchservice/).
 
 ### <a name="step-3-index-data"></a>Passaggio 3: Indicizzare i dati
 Dopo aver definito un indice, si è pronti per caricare il contenuto. È possibile usare un modello push o pull.
 
-Il modello pull recupera i dati da origini dati esterne. È supportato tramite *indicizzatori* che semplificano e automatizzano degli aspetti dell'operazione di inserimento di dati, ad esempio la connessione, la lettura e la serializzazione dei dati. Gli [indicizzatori](/rest/api/searchservice/Indexer-ope) sono disponibili per DocumentDB di Azure, Database SQL di Azure, Archiviazione BLOB di Azure e SQL Server ospitato in una macchina virtuale di Azure. È possibile configurare un indicizzatore per l'aggiornamento dati su richiesta o pianificato.
+Il modello pull recupera i dati da origini dati esterne. È supportato tramite *indicizzatori* che semplificano e automatizzano degli aspetti dell'operazione di inserimento di dati, ad esempio la connessione, la lettura e la serializzazione dei dati. Gli [indicizzatori](/rest/api/searchservice/Indexer-operations) sono disponibili per Azure Cosmos DB, Database SQL di Azure, Archiviazione BLOB di Azure e SQL Server ospitato in una macchina virtuale di Azure. È possibile configurare un indicizzatore per l'aggiornamento dati su richiesta o pianificato.
 
-Il modello push viene fornito tramite il componente SDK o l'API REST per l'invio di documenti aggiornati a un indice. È possibile eseguire il push dei dati da qualsiasi set di dati usando il formato JSON. Per informazioni sul caricamento dei dati, vedere [Aggiungere, aggiornare o eliminare documenti](https://msdn.microsoft.com/library/azure/dn798930.aspx) oppure [Come usare .NET SDK](search-howto-dotnet-sdk.md).
+Il modello push viene fornito tramite il componente SDK o l'API REST per l'invio di documenti aggiornati a un indice. È possibile eseguire il push dei dati da qualsiasi set di dati usando il formato JSON. Per informazioni sul caricamento dei dati, vedere [Aggiungere, aggiornare o eliminare documenti](/rest/api/searchservice/addupdate-or-delete-documents) oppure [Come usare .NET SDK](search-howto-dotnet-sdk.md).
 
 ### <a name="step-4-search"></a>Passaggio 4: Eseguire la ricerca
 Dopo avere compilato un indice, è possibile [eseguire query di ricerca](/rest/api/searchservice/Search-Documents) nell'endpoint di servizio tramite semplici richieste HTTP con l'API REST o .NET SDK.
@@ -140,7 +140,7 @@ Mentre è possibile eseguire nel portale molte attività, la Ricerca di Azure è
 
 |Piattaforma |Descrizione |
 |-----|------------|
-|[REST](https://docs.microsoft.com/rest/api/searchservice/) | Comandi HTTP supportati da qualsiasi piattaforma e linguaggio di programmazione, inclusi Xamarin, Java e JavaScript|
+|[REST](/rest/api/searchservice/) | Comandi HTTP supportati da qualsiasi piattaforma e linguaggio di programmazione, inclusi Xamarin, Java e JavaScript|
 |[.NET SDK](search-howto-dotnet-sdk.md) | Il wrapper .NET per l'API REST offre una codifica efficiente in C# e altri linguaggi di codice destinati a .NET Framework |
 
 ## <a name="free-trial"></a>Versione di prova gratuita
