@@ -1,5 +1,5 @@
 ---
-title: Gestione dei nomi di dominio personalizzati in Azure Active Directory | Documentazione Microsoft
+title: Gestione dei nomi di dominio personalizzati in Azure Active Directory | Microsoft Docs
 description: Concetti relativi alla gestione e procedure dettagliate per gestire un dominio personalizzato in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 77d857e8d692f8bf47e00d655071a825533290b6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: b1ea25a3ec4c10d1821ea876055b15e38d269432
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -58,7 +60,7 @@ Per eliminare un nome di dominio personalizzato, è prima necessario assicurarsi
 È necessario modificare o eliminare tali risorse dalla directory di Azure AD prima di poter eliminare il nome di dominio personalizzato.
 
 ## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Usare API Graph o PowerShell per gestire i nomi di dominio
-La maggior parte delle attività di gestione relative ai nomi di dominio in Azure Active Directory può anche essere eseguita usando Microsoft PowerShell oppure a livello di codice usando l'API Graph (versione di anteprima pubblica).
+La maggior parte delle attività di gestione per i nomi di dominio in Azure Active Directory può anche essere completata usando Microsoft PowerShell oppure a livello di codice usando l'API Graph di Azure AD.
 
 * [Uso di PowerShell per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Uso dell'API Graph per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
@@ -66,10 +68,5 @@ La maggior parte delle attività di gestione relative ai nomi di dominio in Azur
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni sui nomi di dominio in Azure AD](active-directory-add-domain-concepts.md)
 * [Gestire i nomi di dominio personalizzati](active-directory-add-manage-domain-names.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

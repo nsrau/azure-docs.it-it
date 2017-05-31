@@ -14,19 +14,20 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: 05/02/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 088f9fc332f04edfd154450726c4e175ccaf3db3
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: e9a2c3230ec5081a0cfb57ef1dbf311a87bb26b5
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
 
-# <a name="configure-a-sql-server-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurare un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure
+# <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurare un gruppo di disponibilità AlwaysOn in macchine virtuali di Azure in aree diverse
 
-Questo articolo illustra come configurare la replica di un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure in una località di Azure remota. Usare questa configurazione per supportare il ripristino di emergenza.
+Questo articolo descrive come configurare la replica di un gruppo di disponibilità SQL Server AlwaysOn in macchine virtuali di Azure in una località di Azure remota. Usare questa configurazione per supportare il ripristino di emergenza.
 
 Questo articolo si applica a Macchine virtuali di Azure in modalità Resource Manager.
 
@@ -81,7 +82,7 @@ Per creare una replica in un data center remoto, seguire questa procedura:
    Questo servizio di bilanciamento del carico deve:
 
    - Essere nella stessa rete e subnet della nuova macchina virtuale.
-   - Avere un indirizzo IP per il listener del gruppo di disponibilità.
+   - Avere un indirizzo IP statico per il listener del gruppo di disponibilità.
    - Includere un pool back-end costituito solo dalle macchine virtuali nella stessa area del servizio di bilanciamento del carico.
    - Usare il probe di una porta TCP specifico dell'indirizzo IP.
    - Avere una regola di bilanciamento del carico specifica dell'istanza di SQL Server nella stessa area.  

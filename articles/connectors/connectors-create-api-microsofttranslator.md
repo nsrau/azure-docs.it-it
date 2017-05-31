@@ -15,10 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: add307420b9e16a60b0e57b0ba08188b2509978e
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 6ec025e4abddde1a850dc3b8d0711dc620864f15
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -28,113 +30,16 @@ Connettersi a Microsoft Translator per tradurre il testo, individuare una lingua
 * Creare il flusso aziendale in base ai dati ottenuti da Microsoft Translator. 
 * Usare le azioni per tradurre il testo, individuare una lingua e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene creato un nuovo file in Dropbox, è possibile tradurre il testo nel file in un'altra lingua tramite Microsoft Translator.
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
-
-## <a name="triggers-and-actions"></a>Trigger e azioni
-Microsoft Translator include le azioni seguenti. Non sono disponibili trigger.
-
-| Trigger | Azioni |
-| --- | --- |
-| Nessuno |<ul><li>Rileva lingua</li><li>Testo di cui eseguire il riconoscimento vocale</li><li>Traduci testo</li><li>Recupera lingue</li><li>Recupera lingue per il riconoscimento vocale</li></ul> |
-
-Tutti i connettori supportano dati nei formati JSON e XML.
+Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="create-a-connection-to-microsoft-translator"></a>Creare una connessione a Microsoft Translator
 > [!INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
 > 
 > 
 
-## <a name="swagger-rest-api-reference"></a>Riferimento all'API REST di Swagger
-Si applica alla versione 1.0.
+## <a name="view-the-swagger"></a>Visualizzare il file Swagger
 
-### <a name="detect-language"></a>Rileva lingua
-Rileva la lingua di origine di un testo specificato.  
-```GET: /Detect```
+Vedere i [dettagli del file Swagger](/connectors/microsofttranslator/).
 
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |Nessuno |Testo di cui verrà identificata la lingua |
-
-#### <a name="response"></a>Risposta
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| default |Operazione non riuscita. |
-
-### <a name="text-to-speech"></a>Testo di cui eseguire il riconoscimento vocale
-Converte un testo specificato in parlato come flusso audio in formato wave.  
-```GET: /Speak```
-
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |Nessuno |Testo da convertire |
-| Lingua |string |yes |query |nessuno |Codice della lingua in cui generare il riconoscimento vocale, ad esempio 'it-IT' |
-
-#### <a name="response"></a>Response
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| default |Operazione non riuscita. |
-
-### <a name="translate-text"></a>Traduci testo
-Traduce il testo in una lingua specificata tramite Microsoft Translator.  
-```GET: /Translate```
-
-| Nome | Tipo di dati | Obbligatorio | Posizione | Valore predefinito | Descrizione |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |Nessuno |Testo da tradurre |
-| languageTo |string |yes |query |Nessuno |Codice lingua di destinazione, ad esempio 'fr' |
-| languageFrom |string |no |query |Nessuno |Codice lingua di origine, ad esempio 'it'. Se non viene specificato, Microsoft Translator tenterà di rilevarlo automaticamente. |
-| category |string |no |query |generale |Categoria di traduzione (valore predefinito: 'generale') |
-
-#### <a name="response"></a>Risposta
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| default |Operazione non riuscita. |
-
-### <a name="get-languages"></a>Recupera lingue
-Recupera tutte le lingue supportate da Microsoft Translator.  
-```GET: /TranslatableLanguages```
-
-Non sono disponibili parametri per questa chiamata. 
-
-#### <a name="response"></a>Risposta
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| default |Operazione non riuscita. |
-
-### <a name="get-speech-languages"></a>Recupera lingue per il riconoscimento vocale
-Recupera le lingue disponibili per la sintesi vocale.  
-```GET: /SpeakLanguages``` 
-
-Non sono disponibili parametri per questa chiamata.
-
-#### <a name="response"></a>Risposta
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| default |Operazione non riuscita. |
-
-## <a name="object-definitions"></a>Definizioni oggetto
-#### <a name="language-language-model-for-microsoft-translator-translatable-languages"></a>Language: modello di lingua per le lingue traducibili di Microsoft Translator
-| Nome proprietà | Tipo di dati | Obbligatorio |
-| --- | --- | --- |
-| Codice |string |no |
-| Nome |string |no |
-
-## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
-
+## <a name="more-connectors"></a>Altri connettori
 Tornare all' [elenco di API](apis-list.md).
-
-<!--References-->
-[5]: https://datamarket.azure.com/developer/applications/
-[6]: ./media/connectors-create-api-microsofttranslator/register-your-application.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

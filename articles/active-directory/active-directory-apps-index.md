@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 564dd782834898709f89f85e10627d07b17138ce
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3f6ae31f577eb1bc70a06e183518aadbc6279159
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -138,7 +139,7 @@ Automatizzazione delle operazioni di creazione, gestione e rimozione delle ident
 | Altre informazioni sul funzionamento e risposte alle domande comuni. |[Automatizzare il provisioning e il deprovisioning utenti in app SaaS](active-directory-saas-app-provisioning.md) |
 | Configurare il mapping delle informazioni tra Azure AD e l'app SaaS. |[Personalizzazione dei mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Scrittura di espressioni per i mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Come abilitare il provisioning automatico per le app che supportano il protocollo SCIM. |[Configurare il provisioning utenti automatico per le app abilitate a SCIM](active-directory-scim-provisioning.md) |
-| Ottenere notifiche per gli errori di provisioning. |[Notifiche relative al provisioning](active-directory-saas-account-provisioning-notifications.md) |
+| Come creare report e risolvere i problemi di provisioning utenti |[Creazione di report sul provisioning utenti automatico](active-directory-saas-provisioning-reporting.md)<br><br>[Notifiche relative al provisioning](active-directory-saas-account-provisioning-notifications.md)<br><br>[Risoluzione dei problemi relativi al provisioning utenti](active-directory-application-provisioning-content-map.md) |
 | Limitare gli utenti sottoposti a provisioning per un'applicazione in base ai valori dei rispettivi attributi. |[Filtri per la definizione dell'ambito](active-directory-saas-scoping-filters.md) |
 
 Il provisioning utenti automatico è disponibile per tutte le edizioni di Azure AD fino a un massimo di dieci app per utente. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supporta un numero illimitato di applicazioni. Se nell'organizzazione è disponibile [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), è possibile [usare i gruppi per gestire gli utenti da sottoporre a provisioning](#managing-access-to-applications).
@@ -168,16 +169,16 @@ Per semplificare la gestione degli utenti autorizzati ad accedere a risorse spec
 La gestione dell'accesso alle applicazioni basata sui gruppi è disponibile per [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) e [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). La gestione self-service dei gruppi, la gestione self-service delle applicazioni e i gruppi dinamici sono funzionalità di [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="b2b-collaboration-enable-partner-access-to-applications"></a>Collaborazione B2B: abilitare l'accesso partner alle applicazioni
-Se la propria azienda collabora con altre aziende partner, è probabile che sia necessario gestire l'accesso partner alle applicazioni aziendali. Collaborazione B2B di Azure Active Directory offre un modo semplice e sicuro per condividere le app con i partner. Questa funzionalità è attualmente in anteprima.
+Se la propria azienda collabora con altre aziende partner, è probabile che sia necessario gestire l'accesso partner alle applicazioni aziendali. Collaborazione B2B di Azure Active Directory offre un modo semplice e sicuro per condividere le app con i partner.
 
 | Guida agli articoli |  |
 |:---:| --- |
 | Panoramica delle diverse funzionalità di Azure AD utili per gestire utenti esterni quali partner, clienti e così via. |[Confronto tra le funzionalità per la gestione di identità esterne con Azure AD](active-directory-b2b-compare-external-identities.md) |
-| Introduzione all'anteprima di Collaborazione B2B e attività iniziali. |[Integrazione cloud dei partner semplice e sicura con Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Collaborazione B2B di Azure Active Directory](active-directory-b2b-collaboration-overview.md) |
-| Approfondimento su Collaborazione B2B di Azure AD e su come usare questo servizio. |[Collaborazione B2B: funzionamento](active-directory-b2b-how-it-works.md)<br /><br />[Limitazioni correnti della versione di anteprima di Collaborazione B2B di Azure AD](active-directory-b2b-current-preview-limitations.md)<br /><br />[Procedura dettagliata di uso della versione di anteprima di Collaborazione B2B di Azure AD](active-directory-b2b-detailed-walkthrough.md) |
+| Introduzione alla Collaborazione B2B e attività iniziali |[Integrazione cloud dei partner semplice e sicura con Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Collaborazione B2B di Azure Active Directory](active-directory-b2b-collaboration-overview.md) |
+| Approfondimento su Collaborazione B2B di Azure AD e su come usare questo servizio. |[Collaborazione B2B: funzionamento](active-directory-b2b-how-it-works.md)<br /><br />[Limitazioni correnti della Collaborazione B2B di Azure AD](active-directory-b2b-current-limitations.md)<br /><br />[Procedura dettagliata di uso della Collaborazione B2B di Azure AD](active-directory-b2b-detailed-walkthrough.md) |
 | Articoli di riferimento con dettagli tecnici sul funzionamento di Collaborazione B2B di Azure AD. |[Formato file CSV per l'aggiunta di utenti partner](active-directory-b2b-references-csv-file-format.md)<br /><br />[Attributi utente interessati da Collaborazione B2B di Azure AD](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[Formato del token utente per utenti partner](active-directory-b2b-references-external-user-token-format.md) |
 
-L'anteprima di Collaborazione B2B è attualmente disponibile per [tutte le edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+La Collaborazione B2B è attualmente disponibile per [tutte le edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>Pannello di accesso: un portale per l'accesso alle app e alle funzionalità self-service
 Il pannello di accesso di Azure AD consente agli utenti finali di avviare le proprie app e di accedere alle funzionalità self-service per la gestione delle proprie app e delle proprie appartenenze a gruppi. Oltre al pannello di accesso, l'elenco seguente include altre opzioni per l'accesso alle app abilitate per Single Sign-On.

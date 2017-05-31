@@ -1,6 +1,6 @@
 ---
 
-title: Introduzione alle licenze nell&quot;anteprima di Azure Active Directory | Documentazione Microsoft
+title: Introduzione alla concessione di licenze in Azure Active Directory | Microsoft Docs
 description: Descrizione delle licenze di Azure Active Directory, del loro funzionamento, di come iniziare a usarle e delle procedure consigliate, anche per Office 365, Microsoft Intune e le edizioni di base e Premium di Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 05/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3bad24f35cf7867f1e02e8470c602a7f6a9ce8fb
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 8e9d6900910f45b5f17600fc5608191871c5ab21
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
-# <a name="license-yourself-and-your-users-in-azure-active-directory-preview"></a>Concessione di licenze a se stessi e agli utenti in anteprima di Azure Active Directory
+# <a name="license-yourself-and-your-users-in-azure-active-directory"></a>Concessione di licenze a se stessi e agli utenti in Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-licensing-get-started-azure-portal.md)
@@ -59,7 +60,7 @@ Ogni sottoscrizione è costituita da uno o più piani di servizio, ognuno associ
 
 Anche se per configurare le funzionalità a pagamento è sufficiente ottenere una sottoscrizione, l'uso delle funzionalità a pagamento di Azure AD richiede la distribuzione delle licenze agli utenti giusti. In generale, a tutti gli utenti che devono accedere a una funzionalità a pagamento di Azure AD o gestiti tramite tale funzionalità, deve essere assegnata una licenza. Un'assegnazione di licenze è un mapping tra un utente e un servizio acquistato, ad esempio Azure AD Premium, Basic o Enterprise Mobility Suite.
 
-Gestire quali utenti nella directory devono disporre di una licenza è semplice. Questo è possibile assegnando le licenze a gruppi nel Portale di Azure o assegnando le licenze direttamente agli utenti giusti tramite il portale, PowerShell o le API. Quando si assegnano le licenze a un gruppo, a tutti i membri del gruppo verrà assegnata una licenza. Quando gli utenti vengono aggiunti al gruppo oppure rimossi dal gruppo, anche la licenza appropriata verrà assegnata o rimossa. L’opzione di assegnazione al gruppo può utilizzare qualsiasi tipo di gestione del gruppo disponibile ed è coerente con l’assegnazione alle applicazioni in base al gruppo. Utilizzando questo approccio, è possibile impostare regole che prevedano l’assegnazione automatica a tutti gli utenti nella directory, assicurarsi che tutti gli utenti con la posizione appropriata dispongano di una licenza o anche delegare la decisione ad altri responsabili dell'organizzazione. 
+Gestire quali utenti nella directory devono disporre di una licenza è semplice. Questo è possibile assegnando le licenze a gruppi nel portale di Azure (la funzionalità è disponibile nell'anteprima pubblica) o assegnando le licenze direttamente agli utenti giusti tramite il portale, PowerShell o le API. Quando si assegnano le licenze a un gruppo, a tutti i membri del gruppo verrà assegnata una licenza. Quando gli utenti vengono aggiunti al gruppo oppure rimossi dal gruppo, anche la licenza appropriata verrà assegnata o rimossa. L’opzione di assegnazione al gruppo può utilizzare qualsiasi tipo di gestione del gruppo disponibile ed è coerente con l’assegnazione alle applicazioni in base al gruppo. Utilizzando questo approccio, è possibile impostare regole che prevedano l’assegnazione automatica a tutti gli utenti nella directory, assicurarsi che tutti gli utenti con la posizione appropriata dispongano di una licenza o anche delegare la decisione ad altri responsabili dell'organizzazione. 
 
 Per una discussione dettagliata sull'assegnazione delle licenze ai gruppi, inclusi scenari di gestione licenze di Office 365 e scenari avanzati, vedere [questo articolo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 

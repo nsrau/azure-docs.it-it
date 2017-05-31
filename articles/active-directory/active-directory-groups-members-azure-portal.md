@@ -1,5 +1,6 @@
 ---
-title: Gestire i membri per un gruppo nell&quot;anteprima di Azure Active Directory | Documentazione Microsoft
+
+title: Gestire i membri per un gruppo in Azure Active Directory | Microsoft Docs
 description: 'Procedura: Aggiungere o rimuovere gli utenti e i dispositivi da un gruppo in Azure Active Directory'
 services: active-directory
 documentationcenter: 
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 3373af848720c7c04e679d7fd4b075c5571fb417
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 044e88f95712e1cc5b5532f5492c78d711a8d858
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Gestire l'appartenenza al gruppo per gli utenti nel tenant di Azure Active Directory
-Questo articolo illustra come gestire i membri per un gruppo in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)
+Questo articolo descrive come gestire i membri di un gruppo in Azure Active Directory (Azure AD).
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>Come è possibile trovare i membri e gestirli?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
@@ -34,7 +36,7 @@ Questo articolo illustra come gestire i membri per un gruppo in anteprima di Azu
 
    ![Apertura del pannello Gruppi](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
 4. Nel pannello **Utenti e gruppi - Tutti i gruppi** selezionare un gruppo.
-5. Nel pannello **Gruppo - *nome gruppo*** selezionare **Membri**.
+5. Nel pannello **Gruppo - *nomegruppo*** selezionare **Membri**.
 
    ![Apertura del pannello Membri](./media/active-directory-groups-members-azure-portal/view-group-members.png)
 6. Per aggiungere membri al gruppo, nel pannello **Gruppo - Membri** selezionare **Aggiungi membri**.

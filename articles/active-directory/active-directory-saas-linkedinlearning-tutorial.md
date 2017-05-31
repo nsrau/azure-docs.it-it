@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con LinkedIn Learning| Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con LinkedIn Learning| Microsoft Docs'
 description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e LinkedIn Learning.
 services: active-directory
 documentationCenter: na
@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3482d50b19f8ad9a4db041abe67942e9e7d1931b
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a61cf0ffce8bede930744d445df88dde22061a59
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -137,13 +138,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | --- | --- |    
     | department| user.department |
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
 
-       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+   a. Fare clic sull'attributo di aggiunta per aprire la pagine dei dettagli dell'attributo e aggiungere l'attributo department come mostrato di seguito.
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
+   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
    
-       b. Click on **Ok** to save the attribute.
+   b. Fare clic su **OK** per salvare l'attributo.
 
 10. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
@@ -253,3 +254,4 @@ Quando si fa clic sul riquadro LinkedIn Learning nel Pannello di accesso, viene 
 [201]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_203.png
+

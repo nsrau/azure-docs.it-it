@@ -14,23 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 0fbe1af87594aacd2eee4f706429e3674548d3fd
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 0b402602ed80d9eef5313fb29ba2bd05644f11f8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
 
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
-Il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) consente di [creare e aggiungere una macchina virtuale a un lab](./devtest-lab-add-vm-with-artifacts.md). Ciò vale per la creazione di una macchina virtuale alla volta. Tuttavia, se l'ambiente contiene più macchine virtuali, ogni macchina deve essere creata individualmente. Per scenari quali app Web multilivello o farm di SharePoint, è necessario un meccanismo che consenta la creazione di più macchine virtuali in un unico passaggio. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di distribuire ripetutamente più macchine virtuali in modo coerente. Ciò offre i vantaggi seguenti:
+Il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) consente di [creare e aggiungere una macchina virtuale a un lab](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Ciò vale per la creazione di una macchina virtuale alla volta. Tuttavia, se l'ambiente contiene più macchine virtuali, ogni macchina deve essere creata individualmente. Per scenari quali app Web multilivello o farm di SharePoint, è necessario un meccanismo che consenta la creazione di più macchine virtuali in un unico passaggio. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di distribuire ripetutamente più macchine virtuali in modo coerente. Ciò offre i vantaggi seguenti:
 
 - I modelli di Azure Resource Manager vengono caricati direttamente dal repository di controllo del codice sorgente (GitHub o Team Services Git).
 - Una volta configurato, gli utenti possono creare un ambiente scegliendo un modello di Azure Resource Manager dal portale di Azure, così come avviene con altri tipi di [basi per VM](./devtest-lab-comparing-vm-base-image-types.md).
 - Il provisioning delle risorse Azure PaaS può essere eseguito in un ambiente da un modello di Azure Resource Manager, oltre che da VM IaaS.
 - È possibile tenere traccia del costo dell'ambiente insieme alle singole VM create da altri tipi di base.
 - Gli utenti dispongono degli stessi criteri di controllo della VM per gli ambienti di quelle che hanno per le VM dei singoli laboratori.
+
+> [!NOTE]
+> La distribuzione del tipo di risorsa Microsoft.DevTestLab/labs, o dei tipi di risorse annidate, ad esempio Microsoft.DevTestLab/labs/virtualmachines, tramite i modelli ARM non è ancora supportata in questa esperienza. Per distribuire una macchina virtuale, assicurarsi di usare Microsoft.Compute/virtualmachines. Altri esempi di modelli ARM sono reperibili nella [raccolta di Modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-customdata/azuredeploy.json).
+>
+>
 
 ## <a name="configure-azure-resource-manager-template-repositories"></a>Configurare i repository del modello di Azure Resource Manager
 

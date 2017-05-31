@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/11/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 942e3b4fbc9a954eae0cc609e800d0fe0b882475
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -30,7 +30,7 @@ Il gruppo di risorse è il contenitore del ciclo di vita per l'applicazione e la
 
 ## <a name="example-template"></a>Modello di esempio
 
-Per specificare come destinazione una risorsa diversa, è necessario usare un modello annidato o collegato durante la distribuzione. Il tipo di risorsa `Microsoft.Resources/deployments` fornisce un parametro `resourceGroup` che consente di specificare un gruppo di risorse diverso da quello usato dal modello padre. Tutti i gruppi di risorse devono esistere prima di eseguire la distribuzione. L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di risorse specificato durante la distribuzione e uno in un gruppo di risorse denominato `crossResourceGroupDeployment`:
+Per specificare come destinazione una risorsa diversa, è necessario usare un modello annidato o collegato durante la distribuzione. Il tipo di risorsa `Microsoft.Resources/deployments` fornisce un parametro `resourceGroup` che consente di specificare un gruppo di risorse diverso per la distribuzione annidata. Tutti i gruppi di risorse devono esistere prima di eseguire la distribuzione. L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di risorse specificato durante la distribuzione e uno in un gruppo di risorse denominato `crossResourceGroupDeployment`:
 
 ```json
 {
@@ -123,3 +123,4 @@ Al termine della distribuzione, vengono visualizzati due gruppi di risorse. Ogni
 * Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 * Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md).
+

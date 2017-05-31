@@ -14,20 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: c491e8c8ac994ff5c303499a100f0a5307760f8e
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 02c5b7c8932a08bac4bc9e89bd7df3b3e5c57f94
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="move-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso Azure SQL Data Warehouse. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.  
 
-È possibile copiare i dati da qualsiasi archivio dati di origine supportato da Azure SQL Data Warehouse o dal database SQL Warehouse di Azure a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-
 > [!TIP]
 > Per ottenere prestazioni ottimali, usare PolyBase per caricare i dati in Azure SQL Data Warehouse. Vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) per i dettagli. Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+
+## <a name="supported-scenarios"></a>Scenari supportati
+È possibile copiare i dati **da Azure SQL Data Warehouse** negli archivi di dati seguenti:
+
+[!INCLUDE [data-factory-supported-sinks](../../includes/data-factory-supported-sinks.md)]
+
+È possibile copiare i dati dagli archivi dati seguenti **ad Azure SQL Data Warehouse**:
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
+
+> [!TIP]
+> Quando si copiano dati da SQL Server o da Database SQL di Azure in SQL Data Warehouse, se la tabella non esiste nell'archivio di destinazione, Data Factory la crea automaticamente in SQL Data Warehouse usando lo schema della tabella nell'archivio dati di origine. Per informazioni dettagliate vedere [Creazione automatica della tabella](#auto-table-creation).
 
 ## <a name="supported-authentication-type"></a>Tipo di autenticazione supportato
 È supportato il connettore Azure SQL Data Warehouse per l'autenticazione di base.
@@ -37,18 +48,16 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Il modo più semplice di creare una pipeline che copia i dati in/da Azure SQL Data Warehouse consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Caricare i dati in SQL Data Warehouse con Data Factory](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) per una procedura dettagliata rapida per creare una pipeline usando la procedura guidata Copia dati.
 
-> [!TIP]
-> Quando si copiano dati da SQL Server o da Database SQL di Azure in SQL Data Warehouse, se la tabella non esiste nell'archivio di destinazione, Data Factory la crea automaticamente in SQL Data Warehouse usando lo schema della tabella nell'archivio dati di origine. Per informazioni dettagliate vedere [Creazione automatica della tabella](#auto-table-creation).
-
 È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
-1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
+1. Creare una **data factory**. Una data factory può contenere una o più pipeline. 
+2. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory. Ad esempio, se si copiano i dati da un'archiviazione BLOB di Azure in Azure SQL Data Warehouse si creano due servizi collegati per collegare l'account di archiviazione di Azure e Azure SQL Data Warehouse alla data factory. Per le proprietà del servizio collegato specifiche per Azure SQL Data Warehouse, vedere la sezione sulle [proprietà del servizio collegato](#linked-service-properties). 
+3. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. Nell'esempio citato nel passaggio precedente, si crea un set di dati per specificare un contenitore BLOB e la cartella che contiene i dati di input. Si crea anche un altro set di dati per specificare la tabella SQL in Azure SQL Data Warehouse che contiene i dati copiati dall'archiviazione BLOB. Per le proprietà del set di dati specifiche per Azure SQL Data Warehouse, vedere la sezione sulle [proprietà del set di dati](#dataset-properties).
+4. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa BlobSource come origine e SqlDWSink come sink per l'attività di copia. Analogamente, se si esegue la copia da Azure SQL Data Warehouse nell'archiviazione BLOB di Azure, si usa SqlDWSource e BlobSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche per Azure SQL Data Warehouse, vedere la sezione sulle [proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un Azure SQL Data Warehouse, vedere la sezione degli [esempi JSON](#json-examples) in questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un Azure SQL Data Warehouse, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) in questo articolo.
 
 Le sezioni seguenti riportano le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di un Azure SQL Data Warehouse:
 
@@ -244,7 +253,7 @@ Per usare questa funzionalità, creare un [servizio collegato Archiviazione di A
 ```
 
 ## <a name="best-practices-when-using-polybase"></a>Procedure consigliate per l'uso di PolyBase
-Le informazioni seguenti sono complementari alle informazioni generali delle [Procedure consigliate per Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Le sezioni seguenti forniscono procedure consigliate aggiuntive a quelle descritte in [Procedure consigliate per Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 ### <a name="required-database-permission"></a>Autorizzazione database obbligatoria
 Per usare PolyBase, è necessario che l'utente che è solito caricare i dati in SQL Data Warehouse disponga dell'[autorizzazione "CONTROL"](https://msdn.microsoft.com/library/ms191291.aspx) nel database di destinazione. Un modo per ottenere questo risultato consiste nell'aggiungere tale utente come membro del ruolo "db_owner". Informazioni su come eseguire questa operazione sono disponibili nella [sezione](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) seguente.
@@ -366,10 +375,10 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 
 È anche possibile eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati sink nella definizione dell'attività di copia. Per altre informazioni, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="json-examples"></a>Esempi JSON
+## <a name="json-examples-for-copying-data-to-and-from-sql-data-warehouse"></a>Esempi JSON per la copia dei dati da e verso SQL Data Warehouse
 Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati in e da Azure SQL Data Warehouse e in e dall'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Data factory di Azure.
 
-## <a name="example-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>Esempio: Copiare i dati da Azure SQL Data Warehouse al BLOB di Azure
+### <a name="example-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>Esempio: Copiare i dati da Azure SQL Data Warehouse al BLOB di Azure
 L'esempio definisce le entità di Data Factory seguenti:
 
 1. Un servizio collegato di tipo [AzureSqlDW](#linked-service-properties).
@@ -555,7 +564,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 >
 >
 
-## <a name="example-copy-data-from-azure-blob-to-azure-sql-data-warehouse"></a>Esempio: Copiare i dati dal BLOB di Azure ad Azure SQL Data Warehouse
+### <a name="example-copy-data-from-azure-blob-to-azure-sql-data-warehouse"></a>Esempio: Copiare i dati dal BLOB di Azure ad Azure SQL Data Warehouse
 L'esempio definisce le entità di Data Factory seguenti:
 
 1. Un servizio collegato di tipo [AzureSqlDW](#linked-service-properties).

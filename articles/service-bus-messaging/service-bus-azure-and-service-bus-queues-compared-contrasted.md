@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 04/26/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b7bcf6de0c8306492d7f7745cc5c091f9ddb76db
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: b9421e4d899982af5e4caf9d23eebb73188a8db1
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -133,7 +133,7 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
-| Dimensioni massime della coda |**200 TB**<br/><br/>(limitate alla capacità di un singolo account di archiviazione) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
+| Dimensioni massime della coda |**500 TB**<br/><br/>(limitate alla [capacità di un singolo account di archiviazione](../storage/storage-introduction.md#queue-storage)) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
 | Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Poiché Azure supporta messaggi di grandi dimensioni combinando code e BLOB, è possibile accodare fino a 200 GB per un singolo elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
 | Durata TTL massima del messaggio |**7 giorni** |**`TimeSpan.Max`** |
 | Numero massimo di code |**Illimitato** |**10.000**<br/><br/>(per spazio dei nomi del servizio, può essere aumentato) |

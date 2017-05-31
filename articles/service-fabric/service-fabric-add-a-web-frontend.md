@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/28/2017
 ms.author: vturecek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 68ca454aebbad30d5ea2511b030f260a6a18b1ca
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 182c3d02883ceae83c9ba12c0f27085d133ac47a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -79,7 +79,7 @@ Si inizierà creando l'interfaccia da usare come contratto tra il servizio con s
     ![Creazione di un progetto interfaccia per il servizio con stato][vs-add-class-library-project]
 
 3. Per poter essere usata da `ServiceProxy`, un'interfaccia deve derivare dall'interfaccia IService, inclusa in uno dei pacchetti NuGet di Service Fabric. Per aggiungere il pacchetto, fare clic con il pulsante destro del mouse sul progetto della nuova libreria di classi e scegliere **Gestisci pacchetti NuGet**.
-4. Cercare il pacchetto **Microsoft.ServiceFabric.Services** e installarlo.
+4. Cercare il pacchetto **Microsoft.ServiceFabric.Services.Remoting** e installarlo.
    
     ![Aggiunta del pacchetto NuGet dei servizi][vs-services-nuget-package]
 
@@ -163,12 +163,13 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi e qui
 
 1. Nel progetto ASP.NET aggiungere un riferimento alla libreria di classi contenente l'interfaccia `ICounter` .
 
-2. Aggiungere il pacchetto Microsoft.ServiceFabric.Services al progetto ASP.NET, come è stato fatto prima per il progetto della libreria di classi. Si otterrà così la classe `ServiceProxy` .
+2. Aggiungere il pacchetto Microsoft.ServiceFabric.Services.Remoting al progetto ASP.NET, come è stato fatto in precedenza per il progetto della libreria di classi. Si otterrà così la classe `ServiceProxy` .
 
 4. Nella cartella **Controller** aprire la classe `ValuesController`. Si noti che il metodo `Get` restituisce attualmente solo una matrice di stringhe hardcoded con "value1" e "value2", che corrisponde a quanto visto in precedenza nel browser. Sostituire l'implementazione con il codice seguente:
    
     ```c#
     using MyStatefulService.Interface;
+    using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...

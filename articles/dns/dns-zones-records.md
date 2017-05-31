@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f15654f621bafb2617bdb456bbda0233db656be5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -66,9 +67,11 @@ Questi vincoli derivano dagli standard DNS e non sono limitazioni di DNS di Azur
 
 ### <a name="ns-records"></a>Record NS
 
-Un set di record NS viene creato automaticamente in corrispondenza del vertice di ogni zona (nome = '@') e viene eliminato automaticamente quando viene eliminata la zona; non può essere eliminato separatamente.  È possibile modificare il valore TTL di questo set di record, ma non i record, che sono preconfigurati in modo da fare riferimento ai server dei nomi DNS di Azure assegnati alla zona.
+Un set di record NS viene creato automaticamente in corrispondenza del vertice di ogni zona DNS (nome = "@") e viene eliminato automaticamente quando viene eliminata la zona; non può essere eliminato separatamente.
 
-È possibile creare ed eliminare altri record NS nella zona, ma non nel vertice della zona.  In questo modo, è possibile configurare zone figlio. Vedere [Delegare un dominio al servizio DNS di Azure](dns-domain-delegation.md).
+Questo set contiene i nomi dei server dei nomi DNS di Azure assegnati alla zona. È possibile aggiungere altri server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati. 
+
+Notare che questo si applica solo al set di record NS al vertice della zona. Gli altri set di record NS nella zona, usati per delegare le zone figlio, possono essere creati, modificati ed eliminati senza vincoli.
 
 ### <a name="soa-records"></a>Record SOA
 

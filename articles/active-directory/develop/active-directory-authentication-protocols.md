@@ -1,5 +1,5 @@
 ---
-title: Protocolli di autenticazione di Azure Active Directory | Documentazione Microsoft
+title: Protocolli di autenticazione di Azure Active Directory | Microsoft Docs
 description: Panoramica dei protocolli di autenticazione supportati da Azure Active Directory (Azure AD).
 documentationcenter: dev-center-name
 author: bryanla
@@ -14,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 51c6a8ae17821d4eb00bf26612bc6e1e434ebbd9
-ms.lasthandoff: 04/17/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 27c582436bd57adfb5e8edb0f63c0f206db66c89
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -30,7 +32,8 @@ Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazi
 * [Metadati di federazione](active-directory-federation-metadata.md) : informazioni su come trovare e interpretare i documenti dei metadati generati da Azure AD.
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md) : informazioni sull'implementazione di OAuth 2.0 in Azure AD.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) : Informazioni su come usare OAuth 2.0, un protocollo di autenticazione, per l'autenticazione.
-* [Chiamate da servizio a servizio](active-directory-protocols-oauth-service-to-service.md): informazioni su come usare il flusso di concessione delle credenziali client OAuth 2.0 per le chiamate da servizio a servizio.
+* [Chiamate da servizio a servizio con credenziali client](active-directory-protocols-oauth-service-to-service.md): informazioni su come usare il flusso di concessione delle credenziali client di OAuth 2.0 per le chiamate da servizio a servizio.
+* [Chiamate da servizio a servizio con flusso on-behalf-of](active-directory-protocols-oauth-on-behalf-of.md): informazioni su come usare il flusso on-behalf-of di OAuth 2.0 per le chiamate da servizio a servizio.
 * [Informazioni di riferimento sul protocollo SAML](active-directory-saml-protocol-reference.md) : informazioni sui profili SAML Single Sign-On e Single Sign-Out di Azure AD.
 
 ## <a name="see-also"></a>Vedere anche
@@ -39,5 +42,4 @@ Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazi
 [Uso di Azure AD per l'autenticazione](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Esempi di codice di Active Directory](active-directory-code-samples.md)
-
 

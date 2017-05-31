@@ -1,5 +1,5 @@
 ---
-title: Gruppi dinamici e Collaborazione B2B di Azure Active Directory | Documentazione Microsoft
+title: Gruppi dinamici e Collaborazione B2B di Azure Active Directory | Microsoft Docs
 description: "Collaborazione B2B di Azure Active Directory può essere usato con i gruppi dinamici di Azure AD"
 services: active-directory
 documentationcenter: 
@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/04/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9519719a63387cb8c341c72e262c2aeaacc3cd4a
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: a694d01281cfdc4559f779f18b92d0412d59cf45
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---

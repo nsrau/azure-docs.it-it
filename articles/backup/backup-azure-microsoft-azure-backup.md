@@ -16,9 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: e8838095d621957fe6b4ee50464154617e1c4740
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -65,12 +67,15 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 | Windows Storage Server 2012 R2 e versioni più recenti di SP |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 e versioni più recenti di SP |64 bit |Standard, Workgroup |
 
-È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sulla combinazione di [DPM e deduplicazione](https://technet.microsoft.com/library/dn891438.aspx) in caso di distribuzione in VM Hyper-V.
+È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](https://technet.microsoft.com/library/dn891438.aspx) in caso di distribuzione in macchine virtuali Hyper-V.
 
 > [!NOTE]
-> Il server di Backup di Azure non può essere installato in un computer in esecuzione come controller di dominio.
->
->
+> Il server di Backup di Azure è progettato per essere eseguito su un server dedicato, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
+> - Un computer in esecuzione come controller di dominio
+> - Un computer in cui è installato il ruolo di server applicazioni
+> - Un computer che sia un server di gestione di System Center Operations Manager
+> - Un computer su cui è in esecuzione Exchange Server
+> - Un computer che sia un nodo di un cluster
 
 È necessario aggiungere il server di backup di Azure a un dominio. Se si prevede di spostare il server in un dominio diverso, è consigliabile aggiungere il server al nuovo dominio prima di installare il server di backup di Azure. Lo spostamento di un server di Backup di Azure esistente in un nuovo dominio dopo la distribuzione *non è supportato*.
 
@@ -275,9 +280,4 @@ Per informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://
 * [Backup di SQL Server](backup-azure-backup-sql.md)
 * [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
 * [Backup del server alternativo](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

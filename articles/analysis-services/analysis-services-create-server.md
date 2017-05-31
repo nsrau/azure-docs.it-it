@@ -13,16 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 05/16/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 466595773663d43ad8e25fa9ec0ec0163a3f5962
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1782c7e5f7cd710d6e17a26197f9fcc84c967902
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="create-an-analysis-services-server"></a>Creare un server Analysis Services
+# <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Creare un server Azure Analysis Services nel portale di Azure
 Questo articolo illustra la creazione di una risorsa server Analysis Services nella sottoscrizione di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -33,11 +34,11 @@ Per iniziare, è necessario:
 * **Gruppo di risorse**: usare un gruppo di risorse già esistente o [crearne uno nuovo](../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
-> La creazione di un server Analysis Services può dare luogo a un nuovo servizio fatturabile. Per altre informazioni, vedere [Azure Analysis Services Prezzi](https://azure.microsoft.com/pricing/details/analysis-services/).
+> La creazione di un server può avere come risultato un nuovo servizio fatturabile. Per altre informazioni, vedere [Azure Analysis Services Prezzi](https://azure.microsoft.com/pricing/details/analysis-services/).
 > 
 > 
 
-## <a name="create-an-analysis-services-server"></a>Creare un server Analysis Services
+## <a name="to-create-a-server-in-azure-portal"></a>Per creare un server nel portale di Azure
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **+ Nuovo** > **Intelligence e analisi** > **Analysis Services**.
 3. Nel pannello **Analysis Services** compilare i campi obbligatori e quindi fare clic su **Crea**.
@@ -48,19 +49,12 @@ Per iniziare, è necessario:
    * **Sottoscrizione**: selezionare la sottoscrizione a cui il server addebita le fatture.
    * **Gruppo di risorse**: si tratta di contenitori progettati per facilitare la gestione di una raccolta di risorse di Azure. Per altre informazioni, vedere [Gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
    * **Località**: località del data center di Azure che ospita il server. Selezionare una località vicina alla base di utenti più estesa.
-   * **Piano tariffario**: selezionare un piano tariffario. Sono supportati modelli tabulari fino a 100 GB. Per altre informazioni, vedere [Prezzi di Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+   * **Piano tariffario**: selezionare un piano tariffario. Sono supportati modelli tabulari fino a 400 GB. Per altre informazioni, vedere [Prezzi di Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Fare clic su **Crea**.
 
 La creazione richiede in genere meno di un minuto e spesso solo alcuni secondi. Se si seleziona **Add to Portal** (Aggiungi al portale), spostarsi nel portale per vedere il nuovo server. In alternativa, passare a **More services** (Altri servizi) > **Analysis Services** per vedere se il server è pronto.
 
  ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
-
-## <a name="automate-server-creation"></a>Automatizzare la creazione di server
-È possibile automatizzare il provisioning immediato del server grazie ai file modello di Azure Resource Manager. Per altre informazioni, guardare questo utile video.
-
->[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation/player]
->
->
 
 
 ## <a name="next-steps"></a>Passaggi successivi

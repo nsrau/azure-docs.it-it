@@ -1,24 +1,25 @@
 ---
 title: API Node.js, risorse e SDK per Azure DocumentDB | Microsoft Docs
 description: Tutte le informazioni sull&quot;SDK e sull&quot;API di Node.js, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB Node.js SDK.
-services: documentdb
+services: cosmosdb
 documentationcenter: nodejs
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: dd6e6184dd755ea356cae1c4d50a2b7ba39da9fb
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d7cbebf9864c21c21ba14c0d45eb20d42e3732dc
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/17/2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -56,6 +57,12 @@ ms.lasthandoff: 03/17/2017
 
 ## <a name="release-notes"></a>Note sulla versione
 
+### <a name="1.12.0"/>1.12.0</a>
+* Aggiunta del supporto per la funzionalità [unità di richiesta al minuto (RU/m)](../cosmos-db/request-units-per-minute.md).
+* Aggiunta del supporto per nuovi [livelli di coerenza](documentdb-consistency-levels.md) denominati ConsistentPrefix.
+* Aggiunta del supporto per UriFactory.
+* Risolto un bug di supporto unicode. Problema GitHub #171
+
 ### <a name="1.11.0"/>1.11.0</a>
 * Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
 * Aggiunta dell'opzione per il controllo del grado di parallelismo per query nella partizione.
@@ -78,7 +85,7 @@ ms.lasthandoff: 03/17/2017
 
 ### <a name="1.9.0"/>1.9.0</a>
 * Aggiunta del supporto per il criterio di ripetizione dei tentativi delle richieste limitate (le richieste limitate ricevano un'eccezione troppo grande per la frequenza delle richieste, con codice di errore 429). Per impostazione predefinita, DocumentDB esegue nove tentativi per ogni richiesta quando viene rilevato il codice di errore 429, rispettando il tempo di RetryAfter nell'intestazione della risposta. Adesso è possibile impostare un intervallo di tempo fisso per i tentativi come parte della proprietà RetryOptions nell'oggetto ConnectionPolicy se si desidera ignorare il tempo di retryAfter restituito dal server tra i tentativi. Ora, DocumentDB attende al massimo 30 secondi per ciascuna richiesta che viene limitata (indipendentemente dal numero di tentativi) e restituisce la risposta con il codice di errore 429. Questo tempo può essere sottoposto a override nella proprietà RetryOptions dell'oggetto ConnectionPolicy.
-* DocumentDB restituisce ora i parametri x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms come intestazioni di risposta in ogni richiesta per indicare il conteggio dei tentativi di limitazione di ripetere conteggio e il tempo cumulativo di attesa della richiesta tra i tentativi.
+* Cosmos DB restituisce ora i parametri x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms come intestazioni di risposta in ogni richiesta per indicare il numero di nuovi tentativi di limitazione e il tempo cumulativo di attesa della richiesta tra i tentativi.
 * La classe RetryOptions è stata aggiunta, esponendo la proprietà RetryOptions nella classe ConnectionPolicy che può essere utilizzata per eseguire l'override di alcune opzioni di ripetizione dei tentativi predefinite.
 
 ### <a name="1.8.0"/>1.8.0</a>
@@ -152,12 +159,13 @@ Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK pe
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
-Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata dal servizio.
+Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
 
 <br/>
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |10 maggio 2017 |--- |
 | [1.11.0](#1.11.0) |16 marzo 2017 |--- |
 | [1.10.2](#1.10.2) |27 gennaio 2017 |--- |
 | [1.10.1](#1.10.1) |22 dicembre 2016 |--- |
@@ -188,6 +196,6 @@ Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata da
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>Vedere anche
-Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) .
+Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 
 

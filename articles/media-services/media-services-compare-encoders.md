@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 5cbe0b7f71f8dfd6f3a41fa6ff4b0c6ab5e6985d
-ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 1c3118bc66afe7ef4f04d86d9b598128d1aadf82
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -25,7 +27,7 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 Questo argomento mette a confronto le funzionalità di codifica di **Media Encoder Standard** e di **Flusso di lavoro Premium del codificatore multimediale**.
 
-### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Metro di fatturazione usato da ogni codificatore
+### <a id="billing"></a>Metro di fatturazione usato da ogni codificatore
 | Nome del processore multimediale | Prezzi applicabili | Note |
 | --- | --- | --- |
 | **Codificatore multimediale standard** |CODIFICATORE |Le attività di codifica verranno addebitate le attività in base alla durata totale, espressa in minuti, di tutti i file multimediali generati come output, alla tariffa specificata [qui][1], nella colonna CODIFICATORE. |
@@ -105,7 +107,9 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 | MPEG-2 (fino a 4:2:2 Profile e High Level; incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |No |Sì |
 | MPEG-1 |No |Sì |
 | Windows Media Video/VC-1 |No |Sì |
-| Creazione anteprime JPEG |No |Sì |
+| Creazione anteprime JPEG |Sì |Sì |
+| Creazione di anteprime PNG |Sì |Sì |
+| Creazione di anteprime BMP |Sì |No |
 
 ### <a name="output-audio-codecs"></a>Codec audio di output
 | Codec audio di output | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
@@ -133,9 +137,4 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

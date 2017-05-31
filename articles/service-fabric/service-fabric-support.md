@@ -3,7 +3,7 @@ title: Informazioni sulle opzioni di supporto di Azure Service Fabric | Document
 description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
-ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 44e95f78b5fe592713570e53f2469c88202a02aa
-ms.lasthandoff: 03/11/2017
+ms.date: 05/05/2017
+ms.author: pkc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f87aec3698addae135d4c934bb7217d9fae0e571
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -82,8 +83,14 @@ Di seguito è riportato un elenco delle versioni di Service Fabric supportate co
 | Tutte le versioni di cluster precedenti alla 5.3.121 |20 gennaio 2017 |
 | 5.3.* |24 febbraio 2017 |
 | 5.4.* |10 maggio 2017     |
-| 5.5.* |Versione corrente, nessuna data di fine supporto
+| 5.5.* |10 luglio 2017    |
+| 5.6.* |Versione corrente, nessuna data di fine supporto
 
+<a id="previewversion"></a>
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versioni di anteprima di Service Fabric non supportate per l'uso in produzione
+Periodicamente vengono rilasciate in anteprima versioni che includono funzionalità significative per cui è richiesto il feedback degli utenti. Queste versioni di anteprima devono essere usate solo a scopo di test. In un cluster di produzione deve essere sempre in esecuzione una versione di Service Fabric supportata e stabile. Una versione di anteprima inizia sempre con un numero di versione principale e secondario uguale a 255. Ad esempio, la versione di Service Fabric 255.255.5703.949 è una versione di anteprima e dovrà essere usata solo in cluster di test. Queste versioni di anteprima vengono annunciate anche nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) e includono informazioni dettagliate sulle funzionalità incluse.
+
+Non esiste alcuna opzione di supporto a pagamento per queste versioni di anteprima. Usare una delle opzioni elencate in [Segnalare problemi di Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) per eventuali domande o commenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

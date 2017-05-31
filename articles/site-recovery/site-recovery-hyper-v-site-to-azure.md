@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 2254b06d37b9090e1ca5e4e7db83e35e732e01a3
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0ef782a7bb7a98da2ec63c91732b3d5ddd959848
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -188,7 +189,7 @@ Specificare l'account di archiviazione di Azure per la replica e la rete di Azur
 
     ![Archiviazione](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 
-    
+
 
 
 ## <a name="configure-replication-settings"></a>Configurare le impostazioni di replica
@@ -234,6 +235,8 @@ Ulteriori informazioni sul [controllo della larghezza di banda di rete](#network
 
 
 ## <a name="enable-replication"></a>Abilitare la replica
+
+Prima di iniziare, verificare che l'account utente di Azure disponga delle [autorizzazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) necessarie per abilitare la replica di una nuova macchina virtuale in Azure.
 
 Abilitare la replica per le macchine virtuali nel modo seguente:          
 
@@ -301,7 +304,21 @@ Abilitare la replica per le macchine virtuali nel modo seguente:
 
 4. In **Dischi** è possibile visualizzare il sistema operativo e i dischi dati della VM che verranno replicati.
 
+#### <a name="managed-disks"></a>Dischi gestiti
 
+In **Calcolo e rete** > **Proprietà di calcolo** è possibile impostare l'opzione "Usa dischi gestiti" della macchina virtuale su "Sì" per collegare i dischi gestiti al computer in uso al momento della migrazione in Azure. Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS di Azure grazie alla gestione degli account di archiviazione associati ai dischi delle macchine virtuali. [Altre informazioni su Managed Disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
+
+   - I dischi gestiti vengono creati e collegati alla macchina virtuale solo in caso di failover in Azure. Abilitando la protezione, i dati verranno comunque replicati dai computer locali agli account di archiviazione.
+   È possibile creare dischi gestiti solo per le macchine virtuali distribuite tramite il modello di distribuzione di Resource Manager.
+
+  > [!NOTE]
+  > Il failback da Azure all'ambiente Hyper-V locale non è al momento supportato per i computer con dischi gestiti. Impostare l'opzione "Usa dischi gestiti" su "Sì" solo se si prevede di eseguire la migrazione della macchina in Azure.
+
+   - Quando l'opzione "Usa dischi gestiti" viene impostata su "Sì", nel gruppo di risorse è possibile selezionare solo i set di disponibilità con l'opzione "Usa dischi gestiti" impostata su "Sì". Infatti, le macchine virtuali con dischi gestiti possono solo far parte di set di disponibilità la cui proprietà "Usa dischi gestiti" è impostata su "Sì". Verificare di creare set di disponibilità con la proprietà "Usa dischi gestiti" impostata in funzione dell'intenzione di usare i dischi gestiti in caso di failover. Allo stesso modo, quando l'opzione "Usa dischi gestiti" è impostata su "No", nel gruppo di risorse è possibile selezionare solo i set di disponibilità con la proprietà "Usa dischi gestiti" impostata su "No". [Altre informazioni sui dischi gestiti e i set di disponibilità](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Se l'account di archiviazione usato per la replica è stato crittografato con Crittografia del servizio di archiviazione in un qualsiasi momento, la creazione dei dischi gestiti durante il failover non avrà esito positivo. È possibile impostare "Usa dischi gestiti" su "No" e ripetere il failover oppure disabilitare la protezione per la macchina virtuale e proteggerla in un account di archiviazione per il quale non sia attivata la Crittografia del servizio di archiviazione in qualsiasi momento.
+  > [Altre informazioni su Crittografia del servizio di archiviazione e dischi gestiti](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
 ## <a name="test-the-deployment"></a>Test della distribuzione

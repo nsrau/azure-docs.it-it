@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3d32ded77382fe852682d63c96a66aacd141fdf6
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -162,7 +162,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 |/service/authorizationServers/write|Crea un nuovo server di autorizzazione o aggiorna i dettagli di un server di autorizzazione esistente.|
 |/service/authorizationServers/delete|Rimuove il server di autorizzazione esistente.|
 |/service/reports/bySubscription/read|Ottiene un report aggregato in base alla sottoscrizione.|
-|/service/reports/byRequest/read|Ottiene i dati di report delle richieste.|
+|/service/reports/byRequest/read|Ottiene i dati dei report sulle richieste|
 |/service/reports/byOperation/read|Ottiene un report aggregato per operazioni.|
 |/service/reports/byGeo/read|Ottenere il report aggregato per area geografica.|
 |/service/reports/byUser/read|Ottiene un report aggregato per sviluppatori.|

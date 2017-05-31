@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 6d878b00094f573adc440d2384c426506fea0a40
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 9ea3896f73e0e97b89743d8b17c8fd1e723153c3
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -120,6 +121,52 @@ Nell'esempio seguente vengono descritti i dati di output:
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
+Se un dispositivo contiene dati gemelli, allora anche i dati gemelli vengono esportati con i dati del dispositivo. Questo formato è illustrato nell'esempio seguente. Tutti i dati dalla riga di "twinETag" fino alla fine sono dati gemelli.
+```
+{
+   "id":"export-6d84f075-0",
+   "eTag":"MQ==",
+   "status":"enabled",
+   "statusReason":"firstUpdate",
+   "authentication":null,
+   "twinETag":"AAAAAAAAAAI=",
+   "tags":{
+      "Location":"LivingRoom"
+   },
+   "properties":{
+      "desired":{
+         "Thermostat":{
+            "Temperature":75.1,
+            "Unit":"F"
+         },
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+            "$lastUpdatedVersion":2,
+            "Thermostat":{
+               "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+               "$lastUpdatedVersion":2,
+               "Temperature":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               },
+               "Unit":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               }
+            }
+         },
+         "$version":2
+      },
+      "reported":{
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:51.1309437Z"
+         },
+         "$version":1
+      }
+   }
+}
+```
+
 Se è necessario accedere ai dati nel codice, è possibile deserializzarli facilmente con la classe **ExportImportDevice** . Il frammento di codice C# seguente mostra come leggere le informazioni sul dispositivo esportate precedentemente in un BLOB in blocchi:
 
 ```csharp
@@ -170,6 +217,8 @@ Il frammento di codice C# seguente mostra come avviare un processo di importazio
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
+Questo metodo può essere usato anche per importare i dati per il dispositivo gemello. Il formato per i dati di input è uguale a quello visualizzato nella sezione relativa al **ExportDevicesAsync**. In questo modo, i dati esportati possono anche essere reimportati. Il $metadata è facoltativo.
+
 ## <a name="import-behavior"></a>Importare il comportamento
 
 È possibile usare il metodo **ImportDevicesAsync** per eseguire le operazioni in blocco seguenti nel registro delle identità:
@@ -179,18 +228,21 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 * Modifiche dello stato in blocco (abilitare o disabilitare dispositivi)
 * Assegnazione in blocco di nuove chiavi di autenticazione del dispositivo
 * Rigenerazione automatica in blocco di chiavi di autenticazione del dispositivo
+* Aggiornamento bulk dei dati gemelli
 
 È possibile eseguire una combinazione qualsiasi delle operazioni precedenti in un'unica chiamata **ImportDevicesAsync** . Ad esempio, è possibile registrare nuovi dispositivi ed eliminare o aggiornare contemporaneamente quelli esistenti. Insieme con il metodo **ExportDevicesAsync** , è possibile eseguire la migrazione completa di tutti i dispositivi da un hub IoT all'altro.
+
+Se il file di importazione specifica metadati gemelli, questi metadati sovrascrivono i metadati esistenti del gemello. In caso contrario, allora solo i metadati `lastUpdateTime` vengono aggiornati con l'ora corrente. 
 
 Usare la proprietà facoltativa **importMode** nei dati di serializzazione dell'importazione per ogni dispositivo per controllare il processo di importazione per dispositivo. La proprietà **importMode** include le opzioni seguenti:
 
 | importMode | Descrizione |
 | --- | --- |
-| **createOrUpdate** |Se non esiste un dispositivo con l' **ID**specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag** . |
-| **create** |Se non esiste un dispositivo con l' **ID**specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. |
+| **createOrUpdate** |Se non esiste un dispositivo con l' **ID**specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag** . <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
+| **create** |Se non esiste un dispositivo con l' **ID**specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
 | **update** |Se esiste già un dispositivo con l'**ID** specificato, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag**. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
 | **updateIfMatchETag** |Se esiste già un dispositivo con l'**ID** specificato, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se viene rilevata una corrispondenza con **ETag**. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. |
-| **createOrUpdateIfMatchETag** |Se non esiste un dispositivo con l' **ID**specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se viene rilevata una corrispondenza con **ETag** . <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. |
+| **createOrUpdateIfMatchETag** |Se non esiste un dispositivo con l' **ID**specificato, viene registrato di nuovo. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se viene rilevata una corrispondenza con **ETag** . <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'ETag del gemello, se specificato, viene elaborato in modo indipendente dal valore etag del dispositivo. Se è presente una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
 | **delete** |Se esiste già un dispositivo con l'**ID** specificato, viene eliminato senza tener conto del valore **ETag**. <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
 | **deleteIfMatchETag** |Se esiste già un dispositivo con l'**ID** specificato, viene eliminato solo se viene rilevata una corrispondenza con **ETag**. Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con ETag, viene scritto un errore nel file di log. |
 
@@ -355,11 +407,11 @@ In questo articolo si è appreso come eseguire operazioni in blocco sul registro
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 * [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
-* [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
+* [Simulazione di un dispositivo con IoT Edge][lnk-iotedge]
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

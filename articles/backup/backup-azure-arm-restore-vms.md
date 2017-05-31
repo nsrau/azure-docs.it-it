@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 61f09a6f103b9cedaf19f1128a21fa8d5df974a1
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: ff505246bef15d180e3844558d68a425df60c35f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -102,7 +103,7 @@ Dopo aver selezionato il punto di ripristino, scegliere una configurazione per l
    * Ripristinare la macchina virtuale completa
    * Ripristinare i dischi di cui è stato eseguito il backup
 
-Il portale offre un'opzione di creazione rapida per la macchina virtuale ripristinata. Se si desidera personalizzare la configurazione della macchina virtuale o i nomi delle risorse create come parte dell'opzione di creazione di una nuova macchina virtuale, usare PowerShell o il portale per ripristinare i dischi su cui è stato eseguito il backup e i comandi di PowerShell per collegarli alla scelta della configurazione della macchina virtuale. Oppure usare il modello di cui sono dotati i dischi di ripristino per personalizzare la macchina virtuale ripristinata. Vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](#restoring-vms-with-special-network-configurations) per informazioni dettagliate su come ripristinare una macchina virtuale che dispone di più schede di interfaccia di rete o nel bilanciamento del carico. 
+Il portale offre un'opzione di creazione rapida per la macchina virtuale ripristinata. Se si desidera personalizzare la configurazione della macchina virtuale o i nomi delle risorse create come parte dell'opzione di creazione di una nuova macchina virtuale, usare PowerShell o il portale per ripristinare i dischi su cui è stato eseguito il backup e i comandi di PowerShell per collegarli alla scelta della configurazione della macchina virtuale. Oppure usare il modello di cui sono dotati i dischi di ripristino per personalizzare la macchina virtuale ripristinata. Vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](#restoring-vms-with-special-network-configurations) per informazioni dettagliate su come ripristinare una macchina virtuale che dispone di più schede di interfaccia di rete o nel bilanciamento del carico. Se la macchina virtuale Windows usa le [licenze HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), è necessario ripristinare i dischi e usare PowerShell o il modello come specificato di seguito per creare la macchina virtuale e assicurarsi di specificare LicenseType come "Windows_Server" durante la creazione della macchina virtuale per sfruttare i vantaggi HUB sulla macchina virtuale ripristinata. 
  
 ## <a name="create-a-new-vm-from-restore-point"></a>Creare una nuova macchina virtuale dal punto di ripristino
 Se non lo si è già fatto, [selezionare un punto di ripristino](#restoring-vms-with-special-network-configurations) prima di passare alla creazione di una nuova macchina virtuale dal punto di ripristino. Dopo aver selezionato il punto di ripristino, nel pannello **Configurazione di ripristino** specificare o selezionare i valori per ciascuno dei campi seguenti:
@@ -194,6 +195,7 @@ Dopo aver immesso i valori richiesti, accettare le *Condizioni per l'utilizzo* e
 * Le estensioni presenti durante la configurazione di backup verranno installate, ma non attivate. In caso di problemi, reinstallare le estensioni. 
 * Se la macchina virtuale di backup dispone di indirizzo IP statico, dopo il ripristino, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti durante la creazione della macchina virtuale ripristinata. Altre informazioni su come [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * La macchina virtuale ripristinata non avrà set di disponibilità. È consigliabile usare l'opzione di ripristino dei dischi e [aggiungere il set di disponibilità](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) durante la creazione di una macchina virtuale da PowerShell o dei modelli tramite i dischi ripristinati. 
+
 
 ## <a name="backup-for-restored-vms"></a>Backup per le macchine virtuali ripristinate
 Se la macchina virtuale è stata ripristinata nello stesso gruppo di risorse con lo stesso nome della macchina virtuale di cui è stato originariamente eseguito il backup, l'operazione di backup continua nella macchina virtuale dopo il ripristino. Se la macchina virtuale è stata ripristinata in un gruppo di risorse diverso o se è stato specificato un nome diverso per la macchina virtuale ripristinata, quest'ultima verrà considerata come nuova ed è necessario configurare il backup per la macchina virtuale ripristinata.

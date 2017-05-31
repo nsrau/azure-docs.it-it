@@ -13,20 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: bbd4f044d85f2e22f27edc44b91fd42aef304ed2
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 8a5f6e8bf01c8bc38f3fd327acd0ddc8f9cdd7de
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Windows
-Questa esercitazione spiega come un set di scalabilità di macchine virtuali in Azure consenta di adattare rapidamente il numero di macchine virtuali (VM) che eseguono l'app. Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile adattare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo della CPU, alla richiesta di memoria o al traffico di rete. Per verificare il funzionamento di un set di scalabilità di macchine virtuali, si compila un sito IIS di base che si esegue tra più VM Windows.
+Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile adattare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo della CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure. Si apprenderà come:
 
-La procedura descritta in questa esercitazione può essere completata usando il modulo [Azure PowerShell](/powershell/azureps-cmdlets-docs/) più recente.
+> [!div class="checklist"]
+> * Usare l'estensione dello script personalizzata per definire un sito IIS da ridimensionare
+> * Creare un bilanciamento del carico per il set di scalabilità
+> * Creare un set di scalabilità di macchine virtuali
+> * Aumentare o diminuire il numero di istanze in un set di scalabilità
+> * Creare regole di scalabilità automatica
+
+Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="scale-set-overview"></a>Informazioni generali sui set di scalabilità
@@ -38,10 +45,10 @@ I set di scalabilità supportano fino a 1.000 VM quando si usa un'immagine della
 
 
 ## <a name="create-an-app-to-scale"></a>Creare un'app per la scalabilità
-Per poter creare un set di scalabilità è prima necessario creare un gruppo di risorse con il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupAutomate* nella posizione *westus*:
+Per poter creare un set di scalabilità è prima necessario creare un gruppo di risorse con il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupAutomate* nella posizione *EastUS*:
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location EastUS
 ```
 
 In un'esercitazione precedente si è appreso come [automatizzare la configurazione della VM](tutorial-automate-vm-deployment.md) usando l'estensione dello script personalizzata. Creare una configurazione del set di scalabilità e quindi applicare un'estensione dello script personalizzata per installare e configurare IIS:
@@ -49,7 +56,7 @@ In un'esercitazione precedente si è appreso come [automatizzare la configurazio
 ```powershell
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig `
-    -Location WestUS `
+    -Location EastUS `
     -SkuCapacity 2 `
     -SkuName Standard_DS2 `
     -UpgradePolicyMode Automatic
@@ -78,7 +85,7 @@ Creare un bilanciamento del carico con un indirizzo IP pubblico che distribuisce
 # Create a public IP address
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupScaleSet `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIP
 
@@ -92,7 +99,7 @@ $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPo
 $lb = New-AzureRmLoadBalancer `
   -ResourceGroupName myResourceGroupScaleSet `
   -Name myLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool
 
@@ -142,7 +149,7 @@ $subnet = New-AzureRmVirtualNetworkSubnetConfig `
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName "myResourceGroupScaleSet" `
   -Name "myVnet" `
-  -Location "westus" `
+  -Location "EastUS" `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $subnet
 $ipConfig = New-AzureRmVmssIpConfig `
@@ -194,7 +201,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Loop through the instanaces in your scale set
-for ($i=0; $i -le ($set.Sku.Capacity - 1); $i++) {
+for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
       -InstanceId $i
@@ -284,6 +291,17 @@ Add-AzureRmAutoscaleSetting `
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato descritto come creare un set di scalabilità di macchine virtuali. Passare all'esercitazione successiva per maggiori informazioni sui concetti di bilanciamento del carico per le macchine virtuali.
+In questa esercitazione è stato creato un set di scalabilità di macchine virtuali. Si è appreso come:
 
-[Bilanciare il carico delle macchine virtuali](tutorial-load-balancer.md)
+> [!div class="checklist"]
+> * Usare l'estensione dello script personalizzata per definire un sito IIS da ridimensionare
+> * Creare un bilanciamento del carico per il set di scalabilità
+> * Creare un set di scalabilità di macchine virtuali
+> * Aumentare o diminuire il numero di istanze in un set di scalabilità
+> * Creare regole di scalabilità automatica
+
+Passare all'esercitazione successiva per maggiori informazioni sui concetti di bilanciamento del carico per le macchine virtuali.
+
+> [!div class="nextstepaction"]
+> [Bilanciare il carico delle macchine virtuali](tutorial-load-balancer.md)
+

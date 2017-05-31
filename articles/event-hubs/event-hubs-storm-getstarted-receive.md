@@ -12,19 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/03/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 35bf064fdf2a766b8f699bed5c32d30c6c4dcd3c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 195f5b7453a2ca576cfdbf39acd1f644c9edad33
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ricevere eventi da Hub eventi di Azure usando Apache Storm
+
 [Apache Storm](https://storm.incubator.apache.org) è un sistema distribuito di calcolo in tempo reale che semplifica l'elaborazione affidabile di flussi di dati non associati. Questa sezione illustra come usare uno Storm Spout di Hub eventi per ricevere eventi da Hub eventi stesso. Usando Apache Storm, è possibile dividere gli eventi tra più processi ospitati in nodi diversi. L'integrazione di Hub eventi con Storm semplifica l'uso degli eventi eseguendo il checkpoint trasparente dello stato di avanzamento grazie all'installazione di Zookeeper di Storm e alla gestione dei checkpoint persistenti e delle ricezioni parallele dagli hub eventi.
 
 Per altre informazioni sui modelli di ricezione di Hub eventi, vedere [Panoramica di Hub eventi][Event Hubs overview].
+
+## <a name="create-project-and-add-code"></a>Creare il progetto e aggiungere il codice
 
 Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm] , fornita con lo Spout di Hub eventi già disponibile.
 
@@ -32,9 +36,9 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm] 
 2. Copiare il file `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` nell'ambiente di sviluppo locale. Il file contiene il componente events-storm-spout.
 3. Usare il comando seguente per installare il pacchetto nell'archivio Maven locale. Ciò consentirà di aggiungerlo come riferimento nel progetto Storm in un passaggio successivo.
 
-```shell
-        mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
-```
+    ```shell
+    mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+    ```
 4. In Eclipse creare un nuovo progetto Maven, fare clic su **File**, **New** (Nuovo) e infine su **Project** (Progetto).
    
     ![][12]
@@ -42,35 +46,37 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm] 
 6. Selezionare l'archetipo **maven-archetype-quickstart** e quindi fare clic su **Next** (Avanti)
 7. Inserire un valore per **GroupId** e **ArtifactId** e quindi fare clic su **Finish** (Fine)
 8. In **pom.xml** aggiungere le dipendenze seguenti nel nodo `<dependency>`.
-```xml  
-        <dependency>
-            <groupId>org.apache.storm</groupId>
-            <artifactId>storm-core</artifactId>
-            <version>0.9.2-incubating</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.microsoft.eventhubs</groupId>
-            <artifactId>eventhubs-storm-spout</artifactId>
-            <version>0.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.netflix.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>1.3.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>provided</scope>
-        </dependency>
-```
+
+    ```xml  
+    <dependency>
+        <groupId>org.apache.storm</groupId>
+        <artifactId>storm-core</artifactId>
+        <version>0.9.2-incubating</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.eventhubs</groupId>
+        <artifactId>eventhubs-storm-spout</artifactId>
+        <version>0.9</version>
+    </dependency>
+    <dependency>
+        <groupId>com.netflix.curator</groupId>
+        <artifactId>curator-framework</artifactId>
+        <version>1.3.3</version>
+        <exclusions>
+            <exclusion>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+            </exclusion>
+        </exclusions>
+        <scope>provided</scope>
+    </dependency>
+    ```
+
 9. Nella cartella **src** creare un file denominato **Config.properties** e copiarvi il contenuto seguente, sostituendo questi valori:
 
     ```java
@@ -236,12 +242,12 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm] 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
+* [Panoramica di Hub eventi][Event Hubs overview]
 * [Creare un hub eventi](event-hubs-create.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
 [esercitazione di analisi dei sensori con HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
