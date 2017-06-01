@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 05/14/2017
+wms.date: 05/31/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1811c325e240a6688b09f7260b33fbe19d022cea
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9ea73d39a8fcee82e749d20accdd3a3c30cba94e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -54,7 +54,7 @@ Prima di tutto è necessario decidere se eseguire un database singolo con una qu
 | Dimensioni massime dei database in un pool elastico | 2 GB | 250 GB | 500 GB | 500 GB |
 | Numero massimo di database per pool | 500  | 500 | 100 | 100 |
 | DTU massime del database singolo | 5 | 100 | 4000 | 1000 |
-| DTU massime per database in un pool elastico | 5 | 100 | 4000 | 1000 |
+| DTU massime per database in un pool elastico | 5 | 3000 | 4000 | 1000 |
 | Periodo di conservazione dei backup dei database | 7 giorni | 35 giorni | 35 giorni | 35 giorni |
 ||||||
 

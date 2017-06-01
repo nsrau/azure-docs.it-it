@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/24/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 56f1b57798b073622d273b16975981b23a0ad55d
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2d1092af00c1bce3e47d980a512a25eff1f0d9b6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,10 +28,13 @@ ms.lasthandoff: 05/09/2017
 
 Questa guida introduttiva illustra come usare [Ruby](https://Ruby.org) per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database da piattaforme Mac OS e Ubuntu Linux.
 
+## <a name="prerequisites"></a>Prerequisiti
+
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
 - [Creare un database: portale](sql-database-get-started-portal.md)
 - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+- [Creare un database: PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-ruby-and-database-communication-libraries"></a>Installare le librerie di comunicazione Ruby e del database
 
