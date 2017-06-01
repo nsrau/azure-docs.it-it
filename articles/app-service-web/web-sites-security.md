@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
-ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3071bf565b14966de2293205026c4524d7b0f0c5
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -35,7 +36,7 @@ Poiché il servizio app gestisce le VM di Azure, l'archiviazione, le connessioni
 * Le app del servizio app sono isolate sia da Internet che dalle risorse di Azure di altri clienti.
 * La comunicazione di segreti (ad esempio, stringhe di connessione) tra l'app del servizio app e altre risorse di Azure (ad esempio, database SQL) in un gruppo di risorse rimanga all'interno di Azure e non superi i limiti di rete. I segreti siano sempre crittografati.
 * Tutte le comunicazioni tra l'app del servizio app e le risorse esterne, ad esempio gestione di PowerShell, interfaccia della riga di comando, Azure SDK, API REST e connessioni ibride, siano crittografate correttamente.
-* La gestione delle minacce&24; ore su&24; protegge le risorse del servizio app da malware, attacchi Distributed Denial of Service (DDoS), attacchi man-in-the-middle (MITM) e altre minacce. 
+* La gestione delle minacce 24 ore su 24 protegge le risorse del servizio app da malware, attacchi Distributed Denial of Service (DDoS), attacchi man-in-the-middle (MITM) e altre minacce. 
 
 Per altre informazioni sulla sicurezza della piattaforma e dell'infrastruttura in Azure, vedere [Centro protezione di Azure](/support/trust-center/security/).
 
@@ -56,7 +57,7 @@ Uno dei modi più semplici per iniziare a eseguire test di vulnerabilità per le
 Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo o fornitore di strumenti di scansione, è necessario seguire il [processo di approvazione dei test di penetrazione di Azure](https://security-forms.azure.com/penetration-testing/terms) e ottenere l'approvazione preventiva per eseguire i test di penetrazione desiderati.
 
 ## <a name="https"></a> Garantire la sicurezza delle comunicazioni con i clienti
-Se si usa il nome di dominio **\*.azurewebsites.net** creato per l'app del servizio app, è possibile usare immediatamente HTTPS, in quanto viene reso disponibile un certificato SSL per tutti i nomi di dominio **\*.azurewebsites.net**. Se il sito usa un [nome di dominio personalizzato](web-sites-custom-domain-name.md) è possibile caricare un certificato SSL per [abilitare HTTPS](web-sites-configure-ssl-certificate.md) per il dominio personalizzato.
+Se si usa il nome di dominio **\*.azurewebsites.net** creato per l'app del servizio app, è possibile usare immediatamente HTTPS, in quanto viene reso disponibile un certificato SSL per tutti i nomi di dominio **\*.azurewebsites.net**. Se il sito usa un [nome di dominio personalizzato](app-service-web-tutorial-custom-domain.md) è possibile caricare un certificato SSL per [abilitare HTTPS](app-service-web-tutorial-custom-ssl.md) per il dominio personalizzato.
 
 L'abilitazione di [HTTPS](https://en.wikipedia.org/wiki/HTTPS) aumenta la protezione da attacchi MITM nelle comunicazioni tra l'app e gli utenti.
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
-translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 50630084a3df9bc1fed27efb41bc557d0e03916f
-ms.lasthandoff: 12/06/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 08a84ace63465e7c058add69a25687fe46c7ea07
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -45,8 +46,8 @@ Utilizzare il [portale di Azure](https://portal.azure.com/) per impostare varie 
 
 Oltre a tali impostazioni di configurazione di base, può essere opportuno configurare quanto segue:
 
-* **Secure Socket Layer (SSL)** . Per utilizzare SSL con un nome di dominio personalizzato, è necessario ottenere un certificato SSL e configurare il sito Web in modo tale che lo utilizzi. Vedere [Abilitazione di HTTPS per un'app Web nel servizio app di Azure](web-sites-configure-ssl-certificate.md).
-* **Nome di dominio personalizzato.**  L'applicazione web dispone automaticamente un sottodominio in azurewebsites.net. È possibile associare un nome di dominio personalizzato, ad esempio contoso.com. Vedere [Configurazione di un nome di dominio personalizzato nel servizio app di Azure](web-sites-custom-domain-name.md).
+* **Secure Socket Layer (SSL)** . Per utilizzare SSL con un nome di dominio personalizzato, è necessario ottenere un certificato SSL e configurare il sito Web in modo tale che lo utilizzi. Vedere [Abilitazione di HTTPS per un'app Web nel servizio app di Azure](app-service-web-tutorial-custom-ssl.md).
+* **Nome di dominio personalizzato.** L'applicazione web dispone automaticamente un sottodominio in azurewebsites.net. È possibile associare un nome di dominio personalizzato, ad esempio contoso.com. Vedere [Configurazione di un nome di dominio personalizzato nel servizio app di Azure](app-service-web-tutorial-custom-domain.md).
 
 Configurazione specifica per ciascun linguaggio:
 
