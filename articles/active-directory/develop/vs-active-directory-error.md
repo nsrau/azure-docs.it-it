@@ -14,10 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 76a60d16d975efa18da27fda87cf447bd1223acb
-ms.lasthandoff: 03/21/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: fef47d27bc68e5b11b06dc6b67d7afdb088bad15
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -56,38 +58,39 @@ La procedura guidata prova infine a rilevare le versioni del codice di autentica
 Per individuare Autenticazione di Windows in un progetto MVC, la procedura guidata cerca l'elemento `authentication` nel file **web.config** .
 
 <pre>
-    &lt;configurazione&gt;
+    &lt;configuration&gt;
         &lt;system.web&gt;
-            <span style="background-color: yellow">&lt;modalità di autenticazione="Windows" /&gt;</span>
+            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
         &lt;/system.web&gt;
-    &lt;/configurazione&gt;
+    &lt;/configuration&gt;
 </pre>
 
 Per individuare Autenticazione di Windows in un progetto API Web, la procedura guidata cerca l'elemento `IISExpressWindowsAuthentication` nel file con estensione **csproj** del progetto:
 
 <pre>
-    &lt;Progetto&gt;
-        &lt;GruppoProprietà&gt;
+    &lt;Project&gt;
+        &lt;PropertyGroup&gt;
             <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/GruppoProprietà> &lt;/Progetto&gt;
+        &lt;/PropertyGroup>
+    &lt;/Project&gt;
 </pre>
 
 Per individuare l'autenticazione per singoli account utente, la procedura guidata cerca l'elemento package dal file **Packages.config** .
 
 <pre>
-    &lt;pacchetti&gt;
-        <span style="background-color: yellow">&lt;ID pacchetto="Microsoft.AspNet.Identity.EntityFramework" versione="2.1.0" targetFramework="net45" /&gt;</span>
-    &lt;/pacchetti&gt;
+    &lt;packages&gt;
+        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
+    &lt;/packages&gt;
 </pre>
 
 Per individuare una precedente forma di autenticazione di tipo account aziendale, la procedura guidata cerca il seguente elemento dal file **web.config**:
 
 <pre>
-    &lt;configurazione&gt;
-        &lt;ImpostazioniApp&gt;
-            <span style="background-color: yellow">&lt;aggiungi chiave key="ida:Realm" valore="***" /&gt;</span>
-        &lt;/ImpostazioniApp&gt;
-    &lt;/configurazione&gt;
+    &lt;configuration&gt;
+        &lt;appSettings&gt;
+            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
+        &lt;/appSettings&gt;
+    &lt;/configuration&gt;
 </pre>
 
 Per cambiare il tipo di autenticazione, rimuovere il tipo non compatibile ed eseguire di nuovo la procedura guidata.
