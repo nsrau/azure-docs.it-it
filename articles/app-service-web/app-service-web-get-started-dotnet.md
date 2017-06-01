@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/05/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 018a46452c13886b9519ed5d2311bc65649c3c69
 ms.contentlocale: it-it
 ms.lasthandoff: 05/25/2017
-
 
 ---
 # <a name="create-your-first-aspnet-web-app-in-azure-in-five-minutes"></a>Creare la prima app Web ASP.NET in Azure in cinque minuti
