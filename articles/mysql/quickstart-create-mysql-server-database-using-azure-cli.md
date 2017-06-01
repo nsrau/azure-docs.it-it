@@ -51,7 +51,7 @@ Creare un database di Azure per il server MySQL con il comando **az mysql server
 L'esempio seguente crea un database di Azure per il server MySQL disponibile in `westus` nel gruppo di risorse `mycliresource` con nome `mycliserver`. Il server ha un account di accesso amministratore chiamato `myadmin` e la password `Password01!`. Il server viene creato con livello di prestazioni **Basic** e **50** unità di calcolo condivise tra tutti i database nel server. È possibile aumentare o ridurre la capacità di calcolo e quella di archiviazione a seconda delle esigenze dell'applicazione.
 
 ```azurecli
-az mysql server create --resource-group mycliresource --name mycliserver--location westus --user myadmin --password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group mycliresource --name mycliserver --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
 ![Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)
