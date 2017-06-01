@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 4db7d45678c592749831c6b12d38363134da9e93
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: eeaa5641a4bcea0e8b46e85e40ff5b92113446c1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -35,41 +36,41 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 * **Interfaccia della riga di comando di Azure**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
   * Scaricare e installare gli **Strumenti di Azure CLI** [pre-release](https://github.com/MicrosoftBigData/AzureDataLake/releases) per completare questa demo.
 * **Autenticazione**, utilizzando il comando seguente:
-  
+
         azure login
     Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 * **Passare alla modalità Gestione risorse di Azure**, usando il comando seguente:
-  
+
         azure config mode arm
 
 ## <a name="create-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
 È necessario disporre di un account di Data Lake Analytics prima di poter eseguire qualsiasi processo. Per creare un account di Data Lake Analytics, è necessario specificare quanto segue:
 
 * **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
-  
+
     Per elencare i gruppi di risorse nella sottoscrizione:
-  
-        azure group list 
-  
+
+        azure group list
+
     Per creare un nuovo gruppo di risorse:
-  
+
         azure group create -n "<Resource Group Name>" -l "<Azure Location>"
 * **Nome dell'account di Data Lake Analytics**
 * **Posizione**: uno dei data center di Azure che supporta Data Lake Analytics.
 * **Account di Data Lake predefinito**: ogni account di Data Lake dispone di un account di Data Lake predefinito.
-  
+
     Per elencare gli account Data Lake esistenti:
-  
+
         azure datalake store account list
-  
+
     Per creare un nuovo account di Data Lake:
-  
+
         azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
-  
+
   > [!NOTE]
   > Il nome dell'account di Data Lake deve contenere solo lettere minuscole e numeri.
-  > 
-  > 
+  >
+  >
 
 **Per creare un account di Analisi Data Lake**
 
@@ -82,13 +83,13 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 > [!NOTE]
 > Il nome dell'account di Data Lake Analytics deve contenere solo lettere minuscole e numeri.
-> 
-> 
+>
+>
 
 ## <a name="upload-data-to-data-lake-store"></a>Caricare dati nell’Archivio Data Lake
-In questa esercitazione si eseguirà l'elaborazione di alcuni log di ricerca.  Il log di ricerca può essere archiviato in Data Lake Store o in un archivio BLOB di Azure. 
+In questa esercitazione si eseguirà l'elaborazione di alcuni log di ricerca.  Il log di ricerca può essere archiviato in Data Lake Store o in un archivio BLOB di Azure.
 
-Il portale di Azure fornisce un’interfaccia utente per copiare alcuni file di dati di esempio nell'account di Data Lake predefinito, tra cui anche un file di log di ricerca. Vedere [Preparare i dati di origine](data-lake-analytics-get-started-portal.md#prepare-source-data) per caricare i dati nell'account Archivio Data Lake predefinito.
+Il portale di Azure fornisce un’interfaccia utente per copiare alcuni file di dati di esempio nell'account di Data Lake predefinito, tra cui anche un file di log di ricerca. Vedere [Preparare i dati di origine](data-lake-analytics-get-started-portal.md) per caricare i dati nell'account Archivio Data Lake predefinito.
 
 Per caricare i file utilizzando cli, utilizzare il comando seguente:
 
@@ -103,7 +104,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 **Per creare uno script per il processo di Data Lake Analytics**
 
 * Creare un file di testo contenente il seguente script U-SQL e salvare il file di testo nella workstation in uso:
-  
+
         @searchlog =
             EXTRACT UserId          int,
                     Start           DateTime,
@@ -114,27 +115,27 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
                     ClickedUrls     string
             FROM "/Samples/Data/SearchLog.tsv"
             USING Extractors.Tsv();
-  
+
         OUTPUT @searchlog   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
-  
-    Questo script U-SQL legge il file di dati di origine con **Extractors.Tsv()** e quindi crea un file CSV con **Outputters.Csv()**. 
-  
+
+    Questo script U-SQL legge il file di dati di origine con **Extractors.Tsv()** e quindi crea un file CSV con **Outputters.Csv()**.
+
     Non modificare i due percorsi, a meno che il file di origine non sia stato copiato in una posizione diversa.  Data Lake Analytics creerà la cartella di output, se non esiste già.
-  
-    Risulta più semplice usare i percorsi relativi dei file archiviati negli account predefiniti di Data Lake, è possibile usare anche percorsi assoluti.  Ad esempio 
-  
+
+    Risulta più semplice usare i percorsi relativi dei file archiviati negli account predefiniti di Data Lake, è possibile usare anche percorsi assoluti.  Ad esempio
+
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-  
+
     È necessario usare percorsi assoluti per accedere ai file presenti negli account di archiviazione collegati.  La sintassi dei file presenti in un account di Archiviazione di Azure collegato è:
-  
+
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-  
+
   > [!NOTE]
   > Non sono attualmente supportate autorizzazioni di accesso a contenitori pubblici o a contenitori BLOB di Azure con BLOB pubblici.      
-  > 
-  > 
+  >
+  >
 
 **Per inviare il processo**
 
@@ -162,5 +163,4 @@ Dopo il completamento del processo, è possibile usare i cmdlet seguenti per vis
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-manage-use-portal.md).
 * Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
 
