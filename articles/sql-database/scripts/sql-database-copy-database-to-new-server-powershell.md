@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 05/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 826a5213b5b64529df60d9b9ce8433d5c6b3a522
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: cb3412398e566cc16dadc8348241a603e78a098c
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -32,7 +32,7 @@ Questo script di PowerShell di esempio crea una copia di un database esistente i
 
 ## <a name="copy-a-database-to-a-new-server"></a>Copiare un database in un nuovo server
 
-[!code-powershell[principale](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1 "Copiare un database in un nuovo server")]
+[!code-powershell[principale](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1?highlight=18-21 "Copiare un database in un nuovo server")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

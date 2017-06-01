@@ -1,13 +1,13 @@
 ---
 title: "Azure CosmosDB: unità richiesta al minuto (UR/m) | Microsoft Docs"
 description: "Informazioni su come ridurre i costi utilizzando le unità richiesta al minuto."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: arnomicrosoft
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: acomet
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 878b7335fb5e09bc8704f7211cc6293ad6ea4bea
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: ea63b988a72801ae4c288048021a915b20a34794
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -112,7 +112,7 @@ await client.ReplaceOfferAsync(offerV2);
 
 In questa sezione è disponibile una panoramica degli scenari ideali per abilitare le unità richiesta al minuto.
 
-**Ambiente di sviluppo e test:** ideale. Durante la fase di sviluppo, se si testa l'applicazione con carichi di lavoro diversi, UR/m può offrire la flessibilità necessaria. L'[emulatore](../documentdb/documentdb-nosql-local-emulator.md) è invece un ottimo strumento gratuito per testare Azure Cosmos DB. Se tuttavia si preferisce iniziare in un ambiente cloud, UR/m offrirà una flessibilità elevata in termini di prestazioni ad hoc. Sarà possibile dedicare più tempo allo sviluppo, non essendo più necessario preoccuparsi in primo luogo delle prestazioni. È consigliabile iniziare con il provisioning di UR/s minimo e abilitare UR/m.
+**Ambiente di sviluppo e test:** ideale. Durante la fase di sviluppo, se si testa l'applicazione con carichi di lavoro diversi, UR/m può offrire la flessibilità necessaria. L'[emulatore](local-emulator.md) è invece un ottimo strumento gratuito per testare Azure Cosmos DB. Se tuttavia si preferisce iniziare in un ambiente cloud, UR/m offrirà una flessibilità elevata in termini di prestazioni ad hoc. Sarà possibile dedicare più tempo allo sviluppo, non essendo più necessario preoccuparsi in primo luogo delle prestazioni. È consigliabile iniziare con il provisioning di UR/s minimo e abilitare UR/m.
 
 **Esigenze di granularità al minuto non prevedibili e di picco:** ideale. Risparmio: dal 25 al 75%. Grazie alle UR/m sono stati osservati notevoli miglioramenti per la maggior parte degli scenari di produzione. Se è presente un carico di lavoro IoT in cui si verifica uno spike alcune volte in un minuto, se sono in esecuzione query quando il sistema esegue un inserimento di massa nello stesso momento, sarà necessaria capacità aggiuntiva per gestire le esigenze di picco. È consigliabile ottimizzare le esigenze delle risorse applicando l'approccio graduale indicato più avanti.
 
@@ -175,8 +175,8 @@ var query = client.CreateDocumentQuery<Book>(
 
 Questo articolo descrive come funziona il partizionamento in Azure Cosmos DB, come creare raccolte partizionate e come scegliere una chiave di partizione efficace per l'applicazione.
 
-* Eseguire il test delle prestazioni e della scalabilità con Azure Cosmos DB. Per un esempio, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](../documentdb/documentdb-performance-testing.md).
-* Introduzione alla programmazione con gli [SDK](../documentdb/documentdb-sdk-dotnet.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
-* Informazioni sulla [velocità effettiva di provisioning in Azure Cosmos DB](../documentdb/documentdb-request-units.md). 
+* Eseguire il test delle prestazioni e della scalabilità con Azure Cosmos DB. Per un esempio, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
+* Introduzione alla programmazione con gli [SDK](documentdb-sdk-dotnet.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+* Informazioni sulla [velocità effettiva di provisioning in Azure Cosmos DB](request-units.md). 
 
 

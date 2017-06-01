@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7b1bfcc8163d7166831123524f3ec53f4a3dfe09
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 6bab6cbd84c55e668f2caf9b9f94621eec982203
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -38,9 +38,6 @@ Non è possibile convertire un disco non gestito in un disco gestito se il disco
 
 ## <a name="convert-vm-to-azure-managed-disks"></a>Convertire una macchina virtuale ad Azure Managed Disks
 In questa sezione viene descritto come convertire le macchine virtuali di Azure esistenti da dischi non gestiti a dischi gestiti. È possibile usare questo processo per passare dai dischi non gestiti Premium (SDD) ai dischi gestiti o dai dischi non gestiti standard (HDD) ai dischi gestiti standard.
-
-> [!IMPORTANT]
-> Dopo aver eseguito la procedura seguente, un solo BLOB in blocchi rimane nel contenitore predefinito/VHDS. Il nome del file è "VMName.xxxxxxx.status". Non eliminare questo oggetto di stato rimanente. Le prossime procedure mirano a risolvere questo problema.
 
 1. Deallocare la macchina virtuale con [az vm deallocate](/cli/azure/vm#deallocate). L'esempio seguente dealloca la macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`:
 

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/22/2017
 ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: f31625783aa03dd01a73b5e5b39dd899e109b3b9
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: ea928ba4d13970a32123a8ada8575658cecde5d8
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -119,7 +119,7 @@ Esistono quattro aspetti da considerare per il proxy in uscita:
 Consentire l'accesso agli endpoint seguenti per l'accesso al servizio connettore:
 
 * *.msappproxy.net
-* *.servicebus.microsoft.net
+* *.servicebus.windows.net
 
 Per la registrazione iniziale consentire l'accesso agli endpoint seguenti:
 
