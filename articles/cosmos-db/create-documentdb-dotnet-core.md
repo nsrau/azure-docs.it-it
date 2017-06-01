@@ -1,13 +1,13 @@
 ---
 title: 'Azure CosmosDB: Creare un&quot;app Web con .NET Core e l&quot;API DocumentDB | Microsoft Docs'
 description: Presenta un esempio di codice .NET Core che permette di connettersi all&quot;API DocumentDB di Azure Cosmos DB e di eseguire query su di essa
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52cf1a729e4e86f764f9ded3712eaba558f1fc7f
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 9c0806a9edb52f0c05cced55edbda6b207398e3c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB è il servizio di database multimodello distribuito a livello globale di Microsoft. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave/valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida di avvio rapido mostra come creare un account, un database di documenti e una raccolta di Azure Cosmos DB tramite il portale di Azure. Si creerà e distribuirà quindi l'app Web elenco attività basata sull'[API .NET Core DocumentDB](../documentdb/documentdb-introduction.md), come mostrato nello screenshot seguente. 
+Questa guida di avvio rapido mostra come creare un account, un database di documenti e una raccolta di Azure Cosmos DB tramite il portale di Azure. Si creerà e distribuirà quindi l'app Web elenco attività basata sull'[API .NET Core DocumentDB](documentdb-introduction.md), come mostrato nello screenshot seguente. 
 
 ![App elenco attività con dati di esempio](./media/create-documentdb-dotnet-core/azure-cosmosdb-todo-app-list.png)
 
@@ -43,15 +43,15 @@ Installare .NET Core seguendo le istruzioni disponibili nella pagina [.NET Core 
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Aggiungere una raccolta
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="add-sample-data"></a>Aggiungere dati di esempio
 
-[!INCLUDE [cosmosdb-create-sample-data](../../includes/cosmosdb-create-sample-data.md)]
+[!INCLUDE [cosmos-db-create-sample-data](../../includes/cosmos-db-create-sample-data.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 
@@ -69,7 +69,7 @@ Clonare ora un'app per le API DocumentDB da GitHub, impostare la stringa di conn
     
 ## <a name="review-the-code"></a>Esaminare il codice
 
-[!INCLUDE [cosmosdb-tutorial-review-code-dotnet](../../includes/cosmosdb-tutorial-review-code-dotnet.md)]
+[!INCLUDE [cosmos-db-tutorial-review-code-dotnet](../../includes/cosmos-db-tutorial-review-code-dotnet.md)]
 
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 
@@ -109,7 +109,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -123,5 +123,5 @@ Se non si intende continuare a usare l'app, eliminare tutte le risorse create tr
 In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una raccolta con Esplora dati e come eseguire un'app Web. È ora possibile importare dati aggiuntivi nell'account Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importare dati in Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importare dati in Azure Cosmos DB](import-data.md)
 

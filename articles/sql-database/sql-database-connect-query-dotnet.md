@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/23/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4faa029062fef6495debd5d787a1d86f4747453b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,14 +27,17 @@ ms.lasthandoff: 05/09/2017
 
 Questa guida introduttiva illustra come usare [C# e ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) per connettersi a un database SQL di Azure. Usare quindi istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database da piattaforme Windows, Mac OS e Ubuntu Linux.
 
+## <a name="prerequisites"></a>Prerequisiti
+
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
 - [Creare un database: portale](sql-database-get-started-portal.md)
 - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+- [Creare un database: PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-net"></a>Installare .NET
 
-Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo con .NET, ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con .NET, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server) e selezionare **C#** e quindi il sistema operativo in uso.
+Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo con .NET, ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con .NET, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Creare un'app con SQL Server) e selezionare **C#** e quindi il sistema operativo in uso.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework e .NET Core**
 
