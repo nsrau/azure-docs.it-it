@@ -130,6 +130,8 @@
     items:
     - name: Panoramica della creazione di VM
       href: creation-choices.md
+    - name: Creare una VM da un disco rigido virtuale specializzato
+      href: create-vm-specialized.md
     - name: Creare una VM con un modello
       href: ps-template.md
     - name: 'Creare una VM con C#'
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: Usare D come disco dati
       href: change-drive-letter.md
-    - name: Creare VM con dischi non gestiti
-      items:
-      - name: Caricare il VHD
-        href: upload-image.md
-      - name: Creare un'immagine non gestita
-        href: capture-image.md
-      - name: Creare una VM non gestita da un disco rigido virtuale generalizzato
-        href: create-vm-generalized.md
-      - name: Copiare una VM
-        href: vhd-copy.md
-      - name: Creare una VM da un disco rigido virtuale specializzato
-        href: create-vm-specialized.md
-      - name: Collegare un disco dati non gestito
-        href: attach-disk-portal.md
   - name: Rete VM
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: Eseguire la migrazione da Amazon Web Services (AWS) ad Azure
         href: aws-to-azure.md
-    - name: Caricare e creare una VM da un disco rigido virtuale generalizzato
-      href: upload-generalized-managed.md
-    - name: Caricare e creare una VM da un disco rigido virtuale specializzato
-      href: upload-specialized.md
+      - name: Caricare e creare una VM da un disco rigido virtuale generalizzato
+        href: upload-generalized-managed.md
     - name: Eseguire la migrazione dal modello di distribuzione classica ad Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
