@@ -11,10 +11,12 @@
     href: quickstart-create-server-database-portal.md
   - name: 'Creare un database: interfaccia della riga di comando di Azure'
     href: quickstart-create-server-database-azure-cli.md
-- name: Script di esempio
-  items:
-  - name: Interfaccia della riga di comando di Azure
-    href: sample-scripts-azure-cli.md
+  - name: Connettere
+    items:
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Python
+      href: connect-python.md
 - name: Esercitazioni
   items:
   - name: 1. Progettare un database
@@ -55,7 +57,11 @@
     items:
     - name: Raccolte di connessioni
       href: concepts-connection-libraries.md
-- name: Guide pratiche
+- name: Esempi
+  items:
+  - name: Interfaccia della riga di comando di Azure
+    href: sample-scripts-azure-cli.md
+- name: Guide alle procedure
   items:
   - name: Regole del firewall
     items:

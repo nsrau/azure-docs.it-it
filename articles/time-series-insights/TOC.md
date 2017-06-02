@@ -12,7 +12,9 @@
 ## [Creare un'origine evento dell'hub IoT](time-series-insights-how-to-add-an-event-source-iothub.md)
 ## [Ridimensionare l'ambiente](time-series-insights-how-to-scale-your-environment.md)
 ## [Diagnostica e risoluzione dei problemi](time-series-insights-diagnose-and-solve-problems.md)
-## [Eseguire query sui dati con C#](time-series-insights-query-data-csharp.md)
+## Sviluppare
+### [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md)
+### [Eseguire query sui dati con C#](time-series-insights-query-data-csharp.md)
 
 # Riferimento
 ## [API di query](/rest/api/time-series-insights/time-series-insights-reference-queryapi)

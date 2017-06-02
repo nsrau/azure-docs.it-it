@@ -64,7 +64,6 @@
 #### [Portale](resource-group-create-service-principal-portal.md)
 ### [API di autenticazione per accedere alle sottoscrizioni](resource-manager-api-authentication.md)
 ### [Bloccare le risorse](resource-group-lock-resources.md)
-### [Considerazioni relative alla sicurezza](best-practices-resource-manager-security.md)
 
 ## Impostare i criteri delle risorse
 ### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
