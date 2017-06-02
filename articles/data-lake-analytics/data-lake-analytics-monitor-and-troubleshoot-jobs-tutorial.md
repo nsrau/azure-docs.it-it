@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: b2b19a6f2ea20c414119e9dfbf84fda92dd93402
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +33,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Conoscenza di base dell'elaborazione dei processi di Data Lake Analytics**. Vedere [Introduzione ad Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md).
 * **Un account di Data Lake Analytics**. Vedere [Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-* **Copiare i dati di esempio nell'account di Data Lake Store predefinito**.  Vedere [Preparare i dati di origine](data-lake-analytics-get-started-portal.md#prepare-source-data)
+* **Copiare i dati di esempio nell'account di Data Lake Store predefinito**.  Vedere [Preparare i dati di origine](data-lake-analytics-get-started-portal.md)
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Inviare un processo di Data Lake Analytics
 A questo punto verrà creato un processo di U-SQL con un nome di file di origine non valido.  
@@ -40,7 +42,7 @@ A questo punto verrà creato un processo di U-SQL con un nome di file di origine
 
 1. Nel portale di Azure fare clic su **Microsoft Azure** nell'angolo superiore sinistro.
 2. Fare clic nel riquadro contenente il nome dell'account di Analisi Data Lake personale.  È stato aggiunto qui durante la creazione dell'account.
-   Se l'account non è stato aggiunto, vedere [Aprire un account di Analytics dal portale](data-lake-analytics-manage-use-portal.md#access-adla-account).
+   Se l'account non è stato aggiunto, vedere [Aprire un account di Analytics dal portale](data-lake-analytics-manage-use-portal.md#manage-data-sources).
 3. Fare clic su **Nuovo processo** nel menu in alto.
 4. Immettere un nome per il processo e lo script U-SQL seguente:
 
@@ -102,9 +104,4 @@ Nella sezione precedente il processo è stato inviato e la sua esecuzione ha avu
 * [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introduzione ad Azure Data Lake Analytics e U-SQL con Visual Studio](data-lake-analytics-u-sql-get-started.md)
 * [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

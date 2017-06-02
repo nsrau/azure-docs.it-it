@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 9f0eb5a265777bdf249c46c41a065ef427fac920
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: b649bab171770b1edb3ed4b4e345375d948e6a97
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,38 +31,13 @@ Questa guida illustra come usare le code del bus di servizio. Gli esempi sono sc
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
-## <a name="create-a-ruby-application"></a>Creare un'applicazione Ruby
-Creare un'applicazione Ruby. Per istruzioni, vedere [Creare un'applicazione Ruby in Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
-
-## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Ruby di Azure, che comprende un set di pratiche librerie che comunicano con i servizi REST di archiviazione.
-
-### <a name="use-rubygems-to-obtain-the-package"></a>Utilizzare RubyGems per ottenere il pacchetto
-1. Usare un'interfaccia della riga di comando, ad esempio **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix).
-2. Digitare "gem install azure" nella finestra di comando per installare la gemma e le dipendenze.
-
-### <a name="import-the-package"></a>Importare il pacchetto
-Usando l'editor di testo preferito aggiungere quanto segue alla parte superiore del file Ruby dove si intende usare l'archiviazione:
-
-```
-require "azure"
-```
-
-## <a name="set-up-an-azure-service-bus-connection"></a>Configurare una connessione del bus di servizio di Azure
-Il modulo di Azure legge le variabili di ambiente **AZURE\_SERVICEBUS\_NAMESPACE** e **AZURE\_SERVICEBUS\_ACCESS_KEY** per informazioni necessarie per la connessione allo spazio dei nomi del bus di servizio. Se queste variabili di ambiente non sono impostate, è necessario specificare le informazioni relative allo spazio dei nomi prima di usare **Azure::ServiceBusService** con il codice seguente:
-
-```ruby
-Azure.config.sb_namespace = "<your azure service bus namespace>"
-Azure.config.sb_access_key = "<your azure service bus access key>"
-```
-
-Impostare il valore dello spazio dei nomi sul valore creato invece che sull'intero URL. Ad esempio, usare **"yourexamplenamespace"** e non "yourexamplenamespace.servicebus.windows.net".
+[!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>Come creare una coda
 L'oggetto **Azure::ServiceBusService** consente di usare le code. Per creare una coda, usare il metodo **create_queue()**. Nel seguente esempio viene creata una coda o stampato l'eventuale errore.
 
 ```ruby
-azure_service_bus_service = Azure::ServiceBusService.new
+azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
 begin
   queue = azure_service_bus_service.create_queue("test-queue")
 rescue

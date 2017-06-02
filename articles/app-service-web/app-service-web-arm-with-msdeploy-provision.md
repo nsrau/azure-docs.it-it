@@ -13,9 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 071be50ff7f72ecd711b2c3036f39b70df01a6ba
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -123,7 +125,7 @@ Si noterà ora che la risorsa MSDeploy include una proprietà **packageUri** def
 
 Questo **packageUri** include l'URI dell'account di archiviazione che punta all'account di archiviazione in cui si caricherà il file zip del pacchetto. Gestione risorse di Azure userà le [firme di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) per effettuare il pull del pacchetto in locale verso il basso dall'account di archiviazione quando si distribuisce il modello. Questo processo verrà automatizzato con uno script PowerShell che caricherà il pacchetto e chiamerà l'API Gestione di Azure per creare le chiavi necessarie e passarle nel modello come parametri (*_artifactsLocation* e *_artifactsLocationSasToken*). Sarà necessario definire i parametri per la cartella e il nome file in cui il pacchetto viene caricato nel contenitore di archiviazione.
 
-Ora è necessario aggiungere un'altra risorsa annidata per configurare le associazioni nome host per sfruttare un dominio personalizzato. Sarà prima di tutto necessario assicurarsi di essere proprietari del nome host e configurarlo in modo che Azure ne verifichi il proprietario. Vedere [Configurare un nome di dominio personalizzato nel servizio app di Azure](web-sites-custom-domain-name.md). A questo punto è possibile aggiungere il codice seguente al modello nella sezione della risorsa Microsoft.Web/sites:
+Ora è necessario aggiungere un'altra risorsa annidata per configurare le associazioni nome host per sfruttare un dominio personalizzato. Sarà prima di tutto necessario assicurarsi di essere proprietari del nome host e configurarlo in modo che Azure ne verifichi il proprietario. Vedere [Configurare un nome di dominio personalizzato nel servizio app di Azure](app-service-web-tutorial-custom-domain.md). A questo punto è possibile aggiungere il codice seguente al modello nella sezione della risorsa Microsoft.Web/sites:
 
     {
         "apiVersion": "2015-08-01",
@@ -196,10 +198,5 @@ Lo script PowerShell seguente illustra la distribuzione completa chiamando Deplo
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
 A questo punto l'applicazione è stata distribuita ed è possibile accedervi tramite https://www.yourcustomdomain.com
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

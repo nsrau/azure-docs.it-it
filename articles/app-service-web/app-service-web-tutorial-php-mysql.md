@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/05/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ae0b63bc338cb3e96eae4593b96265aafbcbc029
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3ad716fab4f5084c38c83f4bc90a616856666b38
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Creare un'app Web PHP e MySQL in Azure
@@ -328,16 +328,7 @@ In questo passaggio si distribuisce l'applicazione PHP connessa a MySQL nel Serv
 
 Creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Un piano di servizio app rappresenta la raccolta delle risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono le risorse definite dal piano, in modo da consentire un risparmio sui costi quando si ospitano più app. 
-> 
-> I piani di servizio app definiscono: 
-> 
-> * Area (Europa settentrionale, Stati Uniti orientali, Asia sud-orientale) 
-> * Dimensioni delle istanze (Small, Medium, Large) 
-> * Numero di scala (una, due o tre istanze e così via) 
-> * SKU (Gratuito, Condiviso, Basic, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 L'esempio seguente crea un piano di servizio app denominato _myAppServicePlan_ usando il piano tariffario **GRATUITO**:
 
@@ -768,9 +759,9 @@ Queste schede del pannello mostrano le numerose utili funzionalità che è possi
 * Aumentare le prestazioni e il numero di istanze
 * Aggiungere l'autenticazione utente
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
  
-Se queste risorse non sono necessarie per un'altra esercitazione (vedere [Passaggi successivi](#next)), è possibile eliminarle eseguendo il comando seguente: 
+Se queste risorse non sono necessarie per un'altra esercitazione (vedere [Passaggi successivi](#next)), è possibile eliminarle eseguendo questo comando: 
   
 ```azurecli 
 az group delete --name myResourceGroup 
@@ -790,8 +781,8 @@ In questa esercitazione si è appreso come:
 > * Eseguire lo streaming dei log di diagnostica in Azure
 > * Gestire l'app nel portale di Azure
 
-Passare all'esercitazione successiva per imparare come eseguire il mapping di un nome DNS personalizzato.
+Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato.
 
 > [!div class="nextstepaction"] 
-> [Esecuzione del mapping di un nome DNS personalizzato esistente con un app Web di Azure](app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-domain.md)
 

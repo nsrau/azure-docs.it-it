@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 215f9baeda7cd0bcf3fd66893919575647849e7d
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9de6a57671cf65c4aa5d8695d21e0932175b1183
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/22/2017
 
 ---
 # <a name="azure-active-directory-b2c-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: personalizzazione dell'interfaccia utente in un criterio personalizzato
@@ -30,14 +30,6 @@ Dopo aver completato questo articolo, si disporrà di un criterio personalizzato
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di procedere, è necessario completare [Getting started with custom policies](active-directory-b2c-get-started-custom.md) (Introduzione ai criteri personalizzati).  È necessario disporre di un criterio personalizzato di lavoro per l'iscrizione e l'accesso con account locali.
-
-### <a name="confirming-your-b2c-tenant"></a>Conferma del tenant B2C
-
-Poiché i criteri personalizzati sono ancora in anteprima privata, confermare che il tenant di Azure AD B2C sia abilitato per il caricamento dei criteri personalizzati:
-
-1. Nel [portale di Azure](https://portal.azure.com) [passare al contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e aprire il pannello Azure AD B2C.
-1. Fare clic su **Tutti i criteri**.
-1. Assicurarsi che **Carica il criterio** sia disponibile.  Se il pulsante è disabilitato, inviare tramite posta elettronica AADB2CPreview@microsoft.com.
 
 ## <a name="the-page-ui-customization-feature"></a>Funzionalità di personalizzazione dell'interfaccia utente della pagina
 

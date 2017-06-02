@@ -3,7 +3,7 @@ title: Risoluzione dettagliata dei problemi di Desktop remoto in Azure | Documen
 description: "Rivedere i passaggi dettagliati della procedura di risoluzione dei problemi riguardo all&quot;impossibilità di Desktop remoto di connettersi a una macchina virtuale di Windows in Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -14,12 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 12/20/2016
-ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2e84a7f8d0f8d15a808092deab8cc7a9bca1541d
-ms.lasthandoff: 04/27/2017
+ms.date: 05/26/2017
+ms.author: genli
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3ba81282cd7b58cc118497c14e911fc89815d6d4
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,9 +28,9 @@ ms.lasthandoff: 04/27/2017
 Questo articolo contiene una procedura dettagliata sulla risoluzione dei problemi per diagnosticare e risolvere errori di Desktop remoto complessi per le macchine virtuali di Azure basate su Windows.
 
 > [!IMPORTANT]
-> Per eliminare gli errori più comuni di Desktop remoto, verificare di aver letto l'articolo relativo alla [risoluzione dei problemi di base di Desktop remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) prima di procedere.
+> Per eliminare gli errori più comuni di Desktop remoto, verificare di aver letto l'articolo relativo alla [risoluzione dei problemi di base di Desktop remoto](troubleshoot-rdp-connection.md) prima di procedere.
 
-È possibile che vanga visualizzato un messaggio di errore di Desktop remoto che non corrisponde a uno dei messaggi di errore specifici descritti nella [guida alla risoluzione dei problemi di base di Desktop remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Seguire questa procedura per capire il motivo per cui il client Desktop remoto (o RDP) non riesce a connettersi al servizio RDP nella VM di Azure.
+È possibile che vanga visualizzato un messaggio di errore di Desktop remoto che non corrisponde a uno dei messaggi di errore specifici descritti nella [guida alla risoluzione dei problemi di base di Desktop remoto](troubleshoot-rdp-connection.md). Seguire questa procedura per capire il motivo per cui il client Desktop remoto (o RDP) non riesce a connettersi al servizio RDP nella VM di Azure.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -81,7 +82,7 @@ Verificare che un computer connesso direttamente a Internet possa eseguire conne
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-Se non si ha un computer connesso direttamente a Internet, creare una nuova macchina virtuale di Azure in un gruppo di risorse o servizio cloud per eseguire un test. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Dopo aver completato il test, eliminare la macchina virtuale e il gruppo di risorse o il servizio cloud.
+Se non si ha un computer connesso direttamente a Internet, creare una nuova macchina virtuale di Azure in un gruppo di risorse o servizio cloud per eseguire un test. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](../virtual-machines-windows-hero-tutorial.md). Dopo aver completato il test, eliminare la macchina virtuale e il gruppo di risorse o il servizio cloud.
 
 Se è possibile creare una connessione Desktop remoto con un computer collegato direttamente a Internet, controllare se nel dispositivo periferico dell’Intranet dell’organizzazione si verificano le seguenti condizioni:
 
@@ -98,10 +99,8 @@ Per le VM create mediante il modello di distribuzione classico, verificare che u
 
 > [!NOTE]
 > Per le macchine virtuali create in Gestione risorse, andare su [Origine 4: gruppi di sicurezza di rete](#source-4-network-security-groups).
-> 
-> 
 
-Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, crearne una. Seguire la procedura riportata in [Creazione rapida di una macchina virtuale che esegue Linux in Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Eliminare la macchina virtuale di test al completamento del test.
+Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud o rete virtuale, crearne una. Seguire la procedura riportata in [Creazione rapida di una macchina virtuale che esegue Linux in Azure](../virtual-machines-windows-hero-tutorial.md). Eliminare la macchina virtuale di test al completamento del test.
 
 Se è possibile connettersi tramite Desktop remoto a una macchina virtuale nello stesso servizio cloud o rete virtuale, verificare le impostazioni seguenti:
 
@@ -125,7 +124,7 @@ Per ulteriori informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](.
 ## <a name="source-5-windows-based-azure-vm"></a>Origine 5: Macchina virtuale di Azure basata su Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Seguire le istruzioni disponibili in [questo articolo](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). per reimpostare il servizio Desktop remoto nella macchina virtuale:
+Seguire le istruzioni disponibili in [questo articolo](reset-rdp.md). per reimpostare il servizio Desktop remoto nella macchina virtuale:
 
 * Verrà abilitata la regola predefinita "Desktop remoto" di Windows Firewall (porta TCP 3389).
 * Verranno abilitate le connessioni Desktop remoto impostando il valore del Registro di sistema HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections su 0.
@@ -145,10 +144,12 @@ Successivamente, aprire un prompt dei comandi di Azure PowerShell e modificare l
 
 Immettere quindi il nome della sottoscrizione di Azure, il nome del servizio cloud e il nome della macchina virtuale (rimuovendo i caratteri < e >) e infine eseguire questi comandi.
 
-    $subscr="<Name of your Azure subscription>"
-    $serviceName="<Name of the cloud service that contains the target virtual machine>"
-    $vmName="<Name of the target virtual machine>"
-    .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+```powershell
+$subscr="<Name of your Azure subscription>"
+$serviceName="<Name of the cloud service that contains the target virtual machine>"
+$vmName="<Name of the target virtual machine>"
+.\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+```
 
 È possibile ottenere il nome della sottoscrizione corretto dalla proprietà *SubscriptionName* della visualizzazione del comando **Get-AzureSubscription**. È possibile ottenere il nome del servizio cloud per la macchina virtuale dalla colonna *ServiceName* della visualizzazione del comando **Get-AzureVM**.
 
@@ -156,37 +157,49 @@ Verificare di avere il nuovo certificato. Aprire uno snap-in Certificati per l'u
 
 Successivamente, avviare una sessione remota di Azure PowerShell utilizzando questi comandi.
 
-    $uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
-    $creds = Get-Credential
-    Enter-PSSession -ConnectionUri $uri -Credential $creds
+```powershell
+$uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
+$creds = Get-Credential
+Enter-PSSession -ConnectionUri $uri -Credential $creds
+```
 
 Dopo aver immesso le credenziali di amministratore valide, verrà visualizzato un prompt di Azure PowerShell simile al seguente:
 
-    [cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
+```powershell
+[cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
+```
 
 La prima parte di questo prompt è il nome del servizio cloud che contiene la VM di destinazione, che può essere diverso da "cloudservice4testing.cloudapp.net". È ora possibile inviare comandi di Azure PowerShell per questo servizio cloud, per analizzare i problemi menzionati in precedenza e apportare correzioni alla configurazione.
 
 ### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>Per correggere manualmente Servizi Desktop remoto in ascolto sulla porta TCP
 Al prompt della sessione remota di Azure PowerShell, eseguire questo comando.
 
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```powershell
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```
 
 La proprietà PortNumber indica il numero di porta corrente. Se necessario, modificare il numero di porta Desktop remoto nuovamente al valore predefinito (3389) utilizzando questo comando.
 
-    Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+```powershell
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+```
 
 Verificare che la porta sia stata modificata in 3389 utilizzando questo comando.
 
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```powershell
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```
 
 Chiudere la sessione remota di Azure PowerShell utilizzando questo comando.
 
-    Exit-PSSession
+```powershell
+Exit-PSSession
+```
 
 Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta TCP 3398 come porta interna. Riavviare la VM di Azure e tentare nuovamente la connessione Desktop remoto.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-[Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali di Windows](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali di Windows](reset-rdp.md)
 
 [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
 

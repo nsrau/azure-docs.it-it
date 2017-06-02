@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 09ececc567c09ea4e0b77d4d37445b7c232de23c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -188,7 +188,7 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
 
 1. [Creare un account Cosmos DB con supporto del protocollo per MongoDB](../documentdb/documentdb-create-mongodb-account.md).
 2. [Creare una raccolta e un database Cosmos DB](../documentdb/documentdb-create-collection.md). Il nome della raccolta non è importante, ma il nome del database è necessario quando ci si connette da Sails.js.
-3. [Trovare le informazioni di connessione per il database Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+3. [Trovare le informazioni di connessione per il database Cosmos DB](../cosmos-db/connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. Dal terminale della riga di comando installare l'adattatore di MongoDB:
 
         npm install sails-mongo --save
@@ -206,7 +206,7 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
         },
 
     > [!NOTE] 
-    > L'opzione `ssl: true` è importante perché [è necessaria per Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > L'opzione `ssl: true` è importante perché [è necessaria per Cosmos DB](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 
