@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 05/17/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 997c8623b9bc99074723f77237fbbbdba031d577
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 85d241d7c81d1c40abb6f98b84983aca8240463d
 ms.contentlocale: it-it
 ms.lasthandoff: 05/18/2017
 
@@ -33,7 +33,7 @@ Informazioni su come creare un cluster HDInsight tramite un modello di Azure Res
 L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospitati nella piattaforma Azure, inclusa la creazione di nuove risorse, ad esempio cluster HDInsight.
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [Deprecazione di HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 > [!NOTE]
 > La procedura descritta in questo documento usa l'utilità [curl (https://curl.haxx.se/)](https://curl.haxx.se/) per comunicare con l'API REST di Azure.

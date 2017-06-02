@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 18b98300ee103e3f3118f6db4e1c1a0e169eecad
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 6d3ce00a7d4f9c0cd57fa8815625a1065b03b5b5
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,8 +27,10 @@ ms.lasthandoff: 03/04/2017
 > [!div class="op_single_selector"]
 > - [Portale di Azure](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-> - [CLI](network-watcher-check-ip-flow-verify-cli.md)
+> - [Interfaccia della riga di comando 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+> - [Interfaccia della riga di comando 2.0](network-watcher-check-ip-flow-verify-cli.md)
 > - [API REST di Azure](network-watcher-check-ip-flow-verify-rest.md)
+
 
 La verifica del flusso IP è una funzionalità di Network Watcher che consente di verificare se il traffico da o verso una macchina virtuale è consentito o negato. La convalida può essere eseguita per il traffico in ingresso o in uscita. Questo scenario è utile per stabilire se una macchina virtuale può comunicare con una risorsa esterna o back-end. La funzionalità può essere usata per verificare se le regole del gruppo di sicurezza di rete sono configurate correttamente e per risolvere i problemi dei flussi bloccati da tali regole. La verifica del flusso IP consente inoltre di verificare che il traffico che si vuole bloccare sia correttamente bloccato dal gruppo di sicurezza di rete.
 

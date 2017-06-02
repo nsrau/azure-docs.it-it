@@ -1,13 +1,13 @@
 ---
 title: Partizionamento e aumento del numero di istanze in Azure Cosmos DB | Microsoft Docs
 description: Informazioni sul funzionamento del partizionamento in Azure Cosmos DB, sulla configurazione del partizionamento e delle chiavi di partizione e su come scegliere la chiave di partizione corretta per l&quot;applicazione.
-services: cosmosdb
+services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 920c6f810e723712b72f642b783f093bb5d4f7d4
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cd3b13b9988f51fd3755ced48714fdc18cf1ea3c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -66,7 +66,7 @@ Cosmos DB usa il partizionamento basato su hash. Quando si scrive un elemento, C
 I contenitori di Azure Cosmos DB possono essere creati come "fissi" o "illimitati". I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Alcune API consentono di omettere la chiave di partizione per i contenitori a dimensione fissa. Per creare un contenitore illimitato è necessario specificare una velocità effettiva minima di 2500 UR/s.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Partizionamento e velocità effettiva con provisioning
-Cosmos DB è progettato per prestazioni prevedibili. Quando si crea un contenitore, la velocità effettiva viene riservata in termini di **[unità richiesta](../documentdb/documentdb-request-units.md) (UR) al secondo, con un potenziale add-on per UR al minuto**. A ogni richiesta viene assegnato un addebito delle unità richiesta proporzionato alla quantità di risorse di sistema, come CPU, memoria e I/O usati dall'operazione. La lettura di un documento di 1 KB con coerenza di sessione usa un'unità richiesta. Un'operazione di lettura corrisponde a 1 RU indipendentemente dal numero di elementi archiviati o dal numero di richieste simultanee in esecuzione contemporaneamente. Elementi di dimensioni maggiori richiedono più unità richiesta a seconda delle dimensioni. Se si conoscono le dimensioni delle entità e il numero di letture che è necessario supportare per l'applicazione, è possibile eseguire il provisioning della quantità esatta di velocità effettiva necessaria per le esigenze di lettura dell'applicazione. 
+Cosmos DB è progettato per prestazioni prevedibili. Quando si crea un contenitore, la velocità effettiva viene riservata in termini di **[unità richiesta](request-units.md) (UR) al secondo, con un potenziale add-on per UR al minuto**. A ogni richiesta viene assegnato un addebito delle unità richiesta proporzionato alla quantità di risorse di sistema, come CPU, memoria e I/O usati dall'operazione. La lettura di un documento di 1 KB con coerenza di sessione usa un'unità richiesta. Un'operazione di lettura corrisponde a 1 RU indipendentemente dal numero di elementi archiviati o dal numero di richieste simultanee in esecuzione contemporaneamente. Elementi di dimensioni maggiori richiedono più unità richiesta a seconda delle dimensioni. Se si conoscono le dimensioni delle entità e il numero di letture che è necessario supportare per l'applicazione, è possibile eseguire il provisioning della quantità esatta di velocità effettiva necessaria per le esigenze di lettura dell'applicazione. 
 
 > [!NOTE]
 > Per ottenere la velocità effettiva totale del contenitore è necessario scegliere una chiave di partizione che consenta di distribuire in modo uniforme le richieste tra alcuni valori distinti della chiave di partizione.
@@ -78,7 +78,7 @@ Cosmos DB è progettato per prestazioni prevedibili. Quando si crea un contenito
 È possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per creare contenitori e ridimensionarli in qualsiasi momento. Questa sezione illustra come creare contenitori e specificare la definizione di velocità effettiva e chiave di partizione in ognuna delle API supportate.
 
 ### <a name="documentdb-api"></a>API di DocumentDB
-L'esempio seguente illustra come creare un contenitore (raccolta) usando l'API di DocumentDB. Per informazioni più dettagliate, vedere [Partizionamento con l'API di DocumentDB](../documentdb/documentdb-partition-data.md).
+L'esempio seguente illustra come creare un contenitore (raccolta) usando l'API di DocumentDB. Per informazioni più dettagliate, vedere [Partizionamento con l'API di DocumentDB](partition-data.md).
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -207,8 +207,8 @@ Se si implementa un'applicazione multi-tenant usando Cosmos DB, sono disponibili
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stata illustrata una panoramica di concetti e procedure consigliate per il partizionamento con qualsiasi API di Azure Cosmos DB. 
 
-* Informazioni sulla [velocità effettiva con provisioning in Azure Cosmos DB](../documentdb/documentdb-request-units.md)
-* Informazioni sulla [distribuzione globale in Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md)
+* Informazioni sulla [velocità effettiva con provisioning in Azure Cosmos DB](request-units.md)
+* Informazioni sulla [distribuzione globale in Azure Cosmos DB](distribute-data-globally.md)
 
 
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 896bf83de9095007e4f189f50a5e13c216e6ebd2
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 0ee19b46a0e882571f6193471be69fa097d98936
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -140,7 +140,26 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
 
     Per consentire a MSBuild di generare i numeri di versione, in AssemblyReference.cs impostare la versione come, ad esempio, `1.0.*` .
 
+## <a name="version-and-release-tracking"></a>Verifica della versione
+Per tenere traccia della versione dell'applicazione, assicurarsi che il processo di Microsoft Build Engine generi `buildinfo.config`. Nel file con estensione csproj, aggiungere:  
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+```
+
+Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](app-insights-diagnostic-search.md) o quando si [esaminano le metriche](app-insights-metrics-explorer.md).
+
+Si noti tuttavia che il numero di versione della build viene generato solo da Microsoft Build Engine, non dalla build dello sviluppatore in Visual Studio.
+
+### <a name="release-annotations"></a>Annotazioni sulle versioni
+Se si usa Visual Studio Team Services, è possibile [aggiungere un marcatore di annotazione](app-insights-annotations.md) ai grafici quando si rilascia una nuova versione. L'immagine seguente illustra come viene visualizzato il marcatore.
+
+![Screenshot di annotazione sulla versione di esempio in un grafico](./media/app-insights-asp-net/release-annotation.png)
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Risorse condivise da più ruoli](app-insights-monitor-multi-role-apps.md)
 * [Creare un inizializzatore di telemetria per distinguere le varianti A|B](app-insights-api-filtering-sampling.md#add-properties)
+

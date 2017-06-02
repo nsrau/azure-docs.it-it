@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8928581d9636f571008f965185eeb61b414a16e7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: da9e5f015f93090f4efb00f6c3af07ba2f5503bc
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -252,7 +253,7 @@ Accedere all'istanza di Atlassian Cloud con diritti di amministratore e seguire 
  
 4. Fare clic su **Create user** (Crea utente). L'invito tramite posta elettronica verrà inviato all'utente. Dopo l'accettazione dell'invito, l'utente sarà attivo nel sistema. 
 
-### <a name="assig-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso SSO di Azure, concedendole l'accesso ad Atlassian Cloud.
 

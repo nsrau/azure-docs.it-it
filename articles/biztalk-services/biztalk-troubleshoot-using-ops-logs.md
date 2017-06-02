@@ -14,19 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: c4a8ea0612ab4792f2fccb2295bdf365b742111d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Servizi BizTalk: Risoluzione dei problemi mediante i log operazioni
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 ## <a name="what-are-the-operation-logs"></a>Cosa sono i log operazioni
 I log operazioni costituiscono una funzionalità dei servizi di gestione disponibile sul portale di Azure classico che consente di visualizzare log cronologici delle operazioni eseguite nei servizi di Azure, inclusi i servizi BizTalk. La funzionalità consente di visualizzare i dati cronologici relativi alle operazioni di gestione nella sottoscrizione del servizio BizTalk eseguite negli ultimi 180 giorni.
 
 > [!NOTE]
 > Si tratta di una funzionalità che acquisisce i log unicamente per operazioni di gestione sui Servizi BizTalk, ad esempio quando il servizio è stato avviato, sottoposto a backup e così via. Viene tenuta traccia di queste operazioni a prescindere dal fatto che vengano eseguite dal portale di Azure classico o mediante le [API REST del servizio BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Per un elenco completo delle operazioni di cui viene tenuta traccia tramite i servizi di gestione, vedere [Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure](#bizops).<br/><br/>
->  Non vengono acquisiti log delle attività correlate al runtime del servizio BizTalk (ad esempio un messaggio elaborato da bridge e così via). Per visualizzare tali log, è utilizzare la visualizzazione Rilevamento del portale di Servizi BizTalk. Per ulteriori informazioni, vedere [Rilevamento di messaggi](http://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Non vengono acquisiti log delle attività correlate al runtime del servizio BizTalk (ad esempio un messaggio elaborato da bridge e così via). Per visualizzare tali log, è utilizzare la visualizzazione Rilevamento del portale di Servizi BizTalk. Per ulteriori informazioni, vedere [Rilevamento di messaggi](http://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
@@ -36,7 +41,7 @@ I log operazioni costituiscono una funzionalità dei servizi di gestione disponi
 3. Fare clic sul segno di spunta per visualizzare l'elenco filtrato. L'immagine seguente illustra le attività correlate a testbiztalkservice:  ![Visualizzare i log delle operazioni][ViewLogs] 
 4. Per visualizzare informazioni più dettagliate su una specifica operazione, selezionare la riga e fare clic su **Dettagli** nella barra delle attività nella parte inferiore.
 
-## <a name="a-namebizopsaoperations-tracked-using-azure-management-services"></a><a name="bizops"></a>Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure
+## <a name="bizops"></a>Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure
 Nella tabella seguente sono elencate le operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure:
 
 | Nome operazione | Attività |
@@ -69,10 +74,5 @@ Nella tabella seguente sono elencate le operazioni di cui viene tenuta traccia t
 * [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

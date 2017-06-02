@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7b55e3949cf8406f7c62e9dfd6cc1567d3a5996
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 52b7360230efd0a63e411339fe32f929a905391d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -49,8 +50,6 @@ Per eseguire il backup di file e cartelle da un server o un client è necessario
 
 ## <a name="download-the-vault-credential-file"></a>Scaricare il file delle credenziali di insieme
 Per eseguire il backup dei dati in Azure è necessario autenticare il computer locale con un insieme di credenziali di backup. L'autenticazione viene eseguita tramite le *credenziali dell'insieme di credenziali*. Il file delle credenziali di insieme delle credenziali viene scaricato dal portale classico tramite un canale sicuro. La chiave privata del certificato non viene conservata nel portale o nel servizio.
-
-Vedere altre informazioni sull' [uso delle credenziali dell'insieme di credenziali per l'autenticazione con il servizio Backup](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
 ### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>Per scaricare le credenziali dell'insieme di credenziali in un computer locale
 1. Fare clic su **Servizi di ripristino**nel riquadro di spostamento sinistro e selezionare l'insieme di credenziali per il backup creato.

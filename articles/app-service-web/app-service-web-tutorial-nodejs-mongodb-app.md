@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 25fec75615d2376f3e566b509536eadd03590c0e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 2a3d63b3829e750b62658d720522ae1abf89cd86
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Creare un'app Web Node.js e MongoDB in Azure
@@ -221,7 +221,7 @@ db: {
 ```
 
 > [!NOTE] 
-> L'opzione `ssl=true` è importante perché [Cosmos DB richiede l'SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> L'opzione `ssl=true` è importante perché [Cosmos DB richiede l'SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -269,16 +269,7 @@ In questo passaggio si distribuisce l'applicazione Node.js connessa a MongoDB ne
 
 Creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Un piano di servizio app rappresenta la raccolta delle risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono le risorse definite dal piano, in modo da consentire un risparmio sui costi quando si ospitano più app. 
-> 
-> I piani di servizio app definiscono: 
-> 
-> * Area (Europa settentrionale, Stati Uniti orientali, Asia sud-orientale) 
-> * Dimensioni delle istanze (Small, Medium, Large) 
-> * Numero di scala (una, due o tre istanze e così via) 
-> * SKU (Gratuito, Condiviso, Basic, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 L'esempio seguente crea un piano di servizio app denominato _myAppServicePlan_ usando il piano tariffario **GRATUITO**:
 
@@ -641,9 +632,9 @@ Queste schede del pannello mostrano le numerose utili funzionalità che è possi
 * Aumentare le prestazioni e il numero di istanze
 * Aggiungere l'autenticazione utente
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
  
-Se queste risorse non sono necessarie per un'altra esercitazione (vedere [Passaggi successivi](#next)), è possibile eliminarle eseguendo il comando seguente: 
+Se queste risorse non sono necessarie per un'altra esercitazione (vedere [Passaggi successivi](#next)), è possibile eliminarle eseguendo questo comando: 
   
 ```azurecli 
 az group delete --name myResourceGroup 
@@ -660,11 +651,11 @@ In questa esercitazione si è appreso come:
 > * Connettere un'app Node.js a MongoDB
 > * Distribuire l'app in Azure
 > * Aggiornare il modello di dati e ridistribuire l'app
-> * Eseguire lo streaming dei log di Azure al terminale
+> * Eseguire lo streaming dei log da Azure al terminale
 > * Gestire l'app nel portale di Azure
 
-Passare all'esercitazione successiva per imparare come eseguire il mapping di un nome DNS personalizzato.
+Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato.
 
 > [!div class="nextstepaction"] 
-> [Esecuzione del mapping di un nome DNS personalizzato esistente con un app Web di Azure](app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-domain.md)
 

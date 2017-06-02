@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 4dc44ee33c7eee5baa3990ccbd754d3197d164e2
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4dd1ba30101d364fa52738a4e1c3e07874c5ed1f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -253,26 +253,6 @@ Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice
         -Account $adlAnalyticsAccountName `
         -ItemType Database `
         -Path "master"
-
-### <a name="create-catalog-secret"></a>Creare il segreto del catalogo
-    New-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master" `
-            -Secret (Get-Credential -UserName "username" -Message "Enter the password")
-
-### <a name="modify-catalog-secret"></a>Modificare il segreto del catalogo
-    Set-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master" `
-            -Secret (Get-Credential -UserName "username" -Message "Enter the password")
-
-
-
-### <a name="delete-catalog-secret"></a>Eliminare il segreto del catalogo
-    Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master"
-
 
 ## <a name="use-azure-resource-manager-groups"></a>Usare i gruppi Gestione risorse di Azure
 Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging  e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md). 
