@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: quick start create, mvc
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
@@ -38,7 +38,7 @@ Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 
 
 Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login) e seguire le istruzioni visualizzate.
 
-```azure-cli
+```azurecli-interactive
 az login
 ```
 
@@ -46,7 +46,7 @@ az login
 
 Definire le variabili da usare negli script di questa guida introduttiva.
 
-```azure-cli
+```azurecli-interactive
 # The data center and resource name for your resources
 export resourcegroupname = myResourceGroup
 export location = westeurope
@@ -66,14 +66,14 @@ export databasename = mySampleDatabase
 
 Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con il comando [az group create](/cli/azure/group#create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `westeurope`.
 
-```azurazure-cliecli
+```azurecli-interactive
 az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>Creare un server logico
 
 Creare un [server logico del database SQL di Azure](sql-database-features.md) con il comando [az sql server create](/cli/azure/sql/server#create). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un account di accesso amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
 
-```azure-cli
+```azurecli-interactive
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
     --admin-user $adminlogin --admin-password $password
 ```
@@ -82,7 +82,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 Creare una [regola del firewall del server del database SQL di Azure](sql-database-firewall-configure.md) con il comando [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utility SQLCMD, di connettersi a un database SQL tramite il firewall del servizio di database SQL. Nell'esempio seguente, il firewall è aperto solo per altre risorse di Azure. Per abilitare la connettività esterna, modificare l'indirizzo IP in un indirizzo appropriato per l'ambiente. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.  
 
-```azure-cli
+```azurecli-interactive
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
     -n AllowYourIp --start-ip-address $startip --end-ip-address $endip
 ```
@@ -95,7 +95,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 Creare nel server un database con [livello di prestazioni S0](sql-database-service-tiers.md) con il comando [az sql db create](/cli/azure/sql/db#create). L'esempio seguente crea un database denominato `mySampleDatabase` e carica i dati di esempio di AdventureWorksLT in questo database. Sostituire questi valori predefiniti con quelli desiderati. Altre guide introduttive di questa raccolta si basano sui valori di questa guida introduttiva.
 
-```azure-cli
+```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
     --name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```
@@ -108,7 +108,7 @@ Altre guide introduttive di questa raccolta si basano sui valori di questa guida
 > Se si prevede di continuare a usare le guide introduttive successive, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questa guida introduttiva nel portale di Azure.
 >
 
-```azurecli
+```azurecli-interactive
 az group delete --name $resourcegroupname
 ```
 

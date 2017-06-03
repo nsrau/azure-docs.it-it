@@ -12,9 +12,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/16/2017
 ms.author: rachelap
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: 0cd7e7c55e77863c142800cdc11d6ea144c38293
+ms.contentlocale: it-it
 ms.lasthandoff: 03/18/2017
 
 
@@ -98,7 +99,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-        to: "recipient@contoso.com",
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: "sender@contoso.com",        
         subject: "Azure news",
         content: [{
@@ -119,3 +120,4 @@ Per informazioni sulle altre associazioni e i trigger per Funzioni di Azure, ved
 - L'articolo [Procedure consigliate per le funzioni di Azure](functions-best-practices.md) elenca alcune procedure consigliate da usare durante la creazione di Funzioni di Azure.
 
 - La [guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) contiene informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
+

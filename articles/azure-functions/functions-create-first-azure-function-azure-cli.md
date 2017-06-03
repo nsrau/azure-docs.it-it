@@ -9,6 +9,7 @@ ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 05/02/2017
 ms.topic: hero-article
 ms.service: functions
+ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
@@ -35,11 +36,13 @@ Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
 Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login) e seguire le istruzioni visualizzate. 
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -49,7 +52,7 @@ Creare un gruppo di risorse con [az group create](/cli/azure/group#create). Un g
 
 Nell'esempio seguente viene creato il gruppo di risorse denominato `myResourceGroup`:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 ## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
@@ -58,7 +61,7 @@ Funzioni usa un account di archiviazione di Azure per gestire lo stato e altre i
 
 Nel comando seguente sostituire il segnaposto `<storage_name>` con il nome globalmente univoco dell'account di archiviazione. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole.
 
-```azurecli
+```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
@@ -88,7 +91,7 @@ Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. L
 
 Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco dell'app per le funzioni e il nome dell'account di archiviazione con `<storage_name>`. Dato che verrà usato come dominio DNS predefinito per l'app per le funzioni, è necessario che `<app_name>` sia univoco tra tutte le app in Azure. 
 
-```azurecli
+```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
 Per impostazione predefinita, viene creata un'app per le funzioni con il piano di hosting a consumo, in base al quale le risorse vengono aggiunte dinamicamente in base alle esigenze delle funzioni e si paga solo quando le funzioni sono in esecuzione. Per altre informazioni, vedere [Scegliere il piano di hosting corretto](functions-scale.md). 
@@ -119,7 +122,7 @@ Dopo aver creato l'app per le funzioni, è possibile ora distribuire il codice d
 
 Esistono diversi modi per creare il codice di funzione nella nuova app per le funzioni. In questo argomento viene effettuata la connessione a un repository di esempio in GitHub. Come in precedenza, nel codice seguente sostituire il segnaposto `<app_name>` con il nome dell'app per le funzioni creata. 
 
-```azurecli
+```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
 ```
 Dopo aver impostato l'origine di distribuzione, l'interfaccia della riga di comando di Azure visualizza informazioni simili all'esempio seguente (i valori null sono stati rimossi per una migliore leggibilità):
@@ -159,7 +162,7 @@ Se nella riga di comando non è disponibile un cURL, immettere lo stesso URL nel
 
 Altre guide di avvio rapido di questa raccolta si basano sulla presente guida di avvio rapido. Se si prevede di continuare a usare le guide di avvio rapido successive o le esercitazioni, non pulire le risorse create in questa guida di avvio rapido. Se non si prevede di continuare, usare il comando seguente per eliminare tutte le risorse create da questa guida di avvio rapido:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 Quando richiesto, digitare `y`.

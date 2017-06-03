@@ -9,7 +9,7 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
@@ -42,7 +42,7 @@ Questo script dell'interfaccia della riga di comando di esempio crea un database
 
 Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 06/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b902d2e79633959a6f76ddd45b1193177b0e8465
 ms.openlocfilehash: 1ac5a78c8d9419e4c641bf66f8dac7aa8cbcd179
+ms.contentlocale: it-it
 ms.lasthandoff: 02/14/2017
 
 
@@ -42,10 +43,10 @@ Esempio:
     New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
     -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
     -VpnType RouteBased
-
-
+    
 ## <a name="gwsku"></a>SKU del gateway
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-original-include.md)]
 
 ### <a name="configuring-the-gateway-sku"></a>Configurazione dello SKU del gateway
 ####<a name="specifying-the-gateway-sku-in-the-azure-portal"></a>Specificare lo SKU del gateway nel portale di Azure

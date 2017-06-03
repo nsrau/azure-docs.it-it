@@ -29,6 +29,8 @@ Questo script consente di creare una macchina virtuale di Azure, installare l'ag
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script di esempio
@@ -39,7 +41,7 @@ Questo script consente di creare una macchina virtuale di Azure, installare l'ag
 
 Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 
