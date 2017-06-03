@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 9cfdb94d1e030fe9d467389acf8894d79efd17d1
+ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
 
 
@@ -99,7 +100,7 @@ Il protocollo HTTPS fornisce l’autenticazione del server e viene anche usato p
 
 Di seguito è riportato un esempio ApplicationManifest che è necessario impostare per il protocollo HTTPS. È necessario fornire l'identificazione personale per il certificato. EndpointRef è un riferimento a EndpointResource in ServiceManifest per cui si imposta il protocollo HTTPS. È possibile aggiungere più Endpointcertificate.  
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest ApplicationTypeName="Application1Type"
                      ApplicationTypeVersion="1.0.0"

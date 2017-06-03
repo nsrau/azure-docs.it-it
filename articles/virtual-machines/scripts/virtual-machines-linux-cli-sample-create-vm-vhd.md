@@ -47,7 +47,7 @@ Viene infine sostituita la chiave pubblica SSH con la chiave pubblica personale 
 
 Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n az-cli-vhd
 ```
 

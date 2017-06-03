@@ -80,7 +80,7 @@ Questo script riavvia tutte le VM nel gruppo di risorse e quindi riavvia solo le
 
 Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere i gruppi di risorse, le macchine virtuali e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 

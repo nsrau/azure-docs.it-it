@@ -46,7 +46,7 @@ Usare questo codice per vedere come connettersi alle macchine virtuali e al set 
 
 Eseguire il comando seguente per rimuovere il gruppo di risorse, il set di scalabilità, le macchine virtuali e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 
