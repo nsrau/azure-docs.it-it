@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
-ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: c558bd5f2b7fae91483cc2c6724c40442bb65045
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
