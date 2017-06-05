@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Caricare un'app esistente
         href: web-sites-java-add-app.md
-      - name: Eseguire il debug remoto di Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Eseguire il debug remoto di IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: App Django con MySQL
@@ -162,8 +158,6 @@
       items:
       - name: Acquistare un dominio
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Eseguire il mapping di un dominio di terze parti
-        href: web-sites-custom-domain-name.md
       - name: Eseguire il mapping di domini con Gestione traffico
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Eseguire il mapping di domini GoDaddy
@@ -204,10 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: App con database multi-tenant
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Assegnare SSL personalizzato
-      items:
-      - name: Configurare un certificato SSL di terze parti
-        href: web-sites-configure-ssl-certificate.md
     - name: Applicare HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Configurare l'autenticazione reciproca TLS
@@ -278,6 +268,16 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Risolvere i problemi di prestazioni
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: Domande frequenti
+      items:
+      - name: 'Domande frequenti su disponibilità, prestazioni e applicazioni'
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Domande frequenti sullo sviluppo
+        href: app-service-web-deployment-faq.md
+      - name: Domande frequenti sulle tecnologie open source
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Domande frequenti su configurazione e gestione
+        href: app-service-web-configuration-and-management-faq.md
   - name: Prezzi
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Informazioni sulle quote

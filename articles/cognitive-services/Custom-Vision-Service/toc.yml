@@ -1,25 +1,32 @@
-- name: "Custom Vision Documentation"
+
+- name: Documentazione di Custom Vision
   href: ../index.md
-- name: "Overview"
+- name: Panoramica
   href: home.md
-- name: "Quickstarts"
+- name: Guide introduttive
   expanded: true
   items: 
-  - name: "Build a classifier"
+  - name: Creare un classificatore
     href: getting-started-build-a-classifier.md
-  - name: "Improve your classifier"
+  - name: Migliorare il classificatore
     href: getting-started-improving-your-classifier.md
-  - name: "Test your model"
+  - name: Testare il modello
     href: test-your-model.md
-  - name: "Use the prediction API"
+  - name: Usare l'API Prediction
     href: use-prediction-api.md
-- name: "Tutorials"
+- name: Esercitazioni
   items:
-  - name: "C# Tutorial"
+  - name: 'Esercitazione per C#'
     href: csharp-tutorial.md
-- name: "Reference"
+- name: Riferimento
   items:
-  - name: "Glossary"
+  - name: Informazioni di riferimento per l'API Prediction di Custom Vision
+ 
+    href: https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814 
+  - name: Informazioni di riferimento per l'API Training di Custom Vision
+  
+    href: https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3
+  - name: Glossario
     href: glossary-of-terms.md
-  - name: "SDK"
+  - name: SDK
     href: http://github.com/Microsoft/Cognitive-CustomVision-Windows/

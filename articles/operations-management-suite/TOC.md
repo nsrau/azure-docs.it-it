@@ -59,7 +59,10 @@
 ### [Risorse di Automazione](operations-management-suite-solutions-resources-automation.md)
 ### [Avvisi e ricerche nei log](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Visualizzazioni](operations-management-suite-solutions-resources-views.md)
-### [procedure consigliate](operations-management-suite-solutions-best-practices.md)
+### [Procedure consigliate](operations-management-suite-solutions-best-practices.md)
+
+## Scenari di gestione
+### [Raccogliere dati di analisi dal runbook](operations-management-suite-runbook-datacollect.md)
 
 ## [Eseguire l'integrazione con OMS](operations-management-suite-integration.md)
 

@@ -140,6 +140,14 @@
       href: move-vm.md
     - name: Creare VM a disponibilità elevata
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Installare e configurare
+        href: ansible-install-configure.md
+      - name: Creare una VM di base
+        href: ansible-create-vm.md
+      - name: Creare una VM completa
+        href: ansible-create-complete-vm.md
     - name: Distribuire un'app con un modello di VM
       items:
       - name: Panoramica dell'esercitazione
@@ -194,7 +202,7 @@
       href: upload-vhd.md
     - name: Acquisire una VM esistente in un'immagine
       href: capture-image.md
-    - name: Creare immagini approvate per Azure
+    - name: Creare immagini di Azure
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -206,6 +214,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Gestire le risorse di archiviazione delle VM
     items:
     - name: Azure Managed Disks

@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: 'Creare un database: PowerShell'
     href: sql-database-get-started-powershell.md
-  - name: Gestire
+  - name: Connessione ed esecuzione di query
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: Visual Studio Code
       href: sql-database-connect-query-vscode.md
-  - name: Connettere
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1 - Creare/progettare un nuovo database SQL
     href: sql-database-design-first-database.md
-  - name: 2 - Eseguire la migrazione di un database SQL Server esistente
+  - name: 2 - Eseguire la migrazione del database SQL Server
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Proteggere il database SQL
     href: sql-database-security-tutorial.md
@@ -45,26 +43,8 @@
     href: sql-database-performance-tutorial.md
   - name: 5. Implementare un'app multi-tenant
     href: sql-database-multi-tenant-application.md
-  - name: Esercitazioni per l'applicazione SaaS Wingtip
-    items:
-    - name: Introduzione all'applicazione SaaS Wingtip
-      href: sql-database-wtp-overview.md
-    - name: Distribuire l'esempio di applicazione SaaS Wingtip
-      href: sql-database-saas-tutorial.md
-    - name: Effettuare il provisioning/catalogare nuovi tenant
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: Monitorare le prestazioni
-      href: sql-database-saas-tutorial-performance-monitoring.md
-    - name: Ripristinare un tenant singolo
-      href: sql-database-saas-tutorial-restore-single-tenant.md
-    - name: Gestire schemi di tenant
-      href: sql-database-saas-tutorial-schema-management.md
-    - name: Eseguire analisi ad hoc
-      href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Monitorare con Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Gestire l'analisi di tenant
-      href: sql-database-saas-tutorial-tenant-analytics.md
+  - name: 6 - Implementare un database con distribuzione geografica
+    href: sql-database-implement-geo-distributed-database.md 
 - name: Esempi
   items:
   - name: Interfaccia della riga di comando di Azure
@@ -145,7 +125,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Controllo
       href: sql-database-auditing.md
-    - name: Controllo e TDS
+    - name: Controllo Tabella e TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Introduzione al rilevamento delle minacce
       href: sql-database-threat-detection.md
@@ -175,25 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: Aggiornamenti di app
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: Sviluppo.
+  - name: Sviluppo di database
     items:
     - name: Panoramica
       href: sql-database-develop-overview.md
     - name: Connettività
       href: sql-database-libraries.md
-    - name: 'Progettazione di app: SaaS'
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: 'Sicurezza: SaaS'
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: 'Porte: ADO.NET'
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: Autenticare l'app
- 
-      href: sql-database-client-id-keys.md
-    - name: messaggi di errore
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: Dati JSON
       href: sql-database-json-features.md
     - name: In memoria
@@ -231,8 +198,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: Informazioni aggiuntive sulle prestazioni
       href: sql-database-performance-guidance.md
-    - name: Creazione di batch
-      href: sql-database-use-batching-to-improve-performance.md
     - name: Eventi estesi
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Livelli di compatibilità
@@ -355,7 +320,9 @@
       href: sql-database-xevent-code-event-file.md
     - name: 'Eventi estesi: buffer circolare'
       href: sql-database-xevent-code-ring-buffer.md
-  - name: Gestire
+    - name: Registrazione diagnostica
+      href: sql-database-metrics-diag-logging.md
+  - name: Gestisci
     items:
     - name: Automazione di Azure
       href: sql-database-manage-automation.md
@@ -363,6 +330,25 @@
       href: sql-database-ssms-remoteapp.md
     - name: 'SSMS: MFA'
       href: sql-database-ssms-mfa-authentication-configure.md
+  - name: Sviluppo di applicazioni
+    items:
+    - name: 'Porte: ADO.NET'
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: Autenticare l'app
+ 
+      href: sql-database-client-id-keys.md
+    - name: messaggi di errore
+      href: sql-database-develop-error-messages.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
+    - name: Invio in batch per perf
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: Progettazione di app SaaS
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: Sicurezza delle app SaaS
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: Esercitazione sulle app SaaS
+      href: sql-database-wtp-overview.md
 - name: Riferimento
   items:
   - name: PowerShell
@@ -442,5 +428,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Dashboard personalizzato dei pool elastici
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-

@@ -32,6 +32,7 @@
 ### [Opzioni di accesso utente](active-directory-aadconnect-user-signin.md)
 ### [Supporto di più domini per la federazione](active-directory-aadconnect-multiple-domains.md)
 ### [Aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md)
+### [Usare un provider di identità SAML 2.0 per l'accesso Single Sign-On](active-directory-aadconnect-federation-saml-idp.md)
 
 
 

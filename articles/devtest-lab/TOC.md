@@ -2,6 +2,7 @@
 ## [Informazioni su Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concetti](devtest-lab-concepts.md)
 ## Scenari
+### [Usare i lab per gli sviluppatori](devtest-lab-developer-lab.md)
 ### [Usare i lab per la formazione](devtest-lab-training-lab.md)
 
 # Attività iniziali

@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Distribuzione continua per Funzioni di Azure
     href: functions-continuous-deployment.md
-  - name: Distribuire Funzioni usando l'infrastruttura come codice
+  - name: Automatizzare la distribuzione delle risorse
     href: functions-infrastructure-as-code.md
   - name: Monitoraggio di Funzioni di Azure
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: Associazioni
     items:
-    - name: Associazioni di Cosmos DB
+    - name: Archiviazione BLOB
+      href: functions-bindings-storage-blob.md
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Associazioni di Hub eventi di Azure
+    - name: Hub eventi
       href: functions-bindings-event-hubs.md
-    - name: Associazioni di webhook e HTTP
+    - name: File esterno
+      href: functions-bindings-external-file.md
+    - name: HTTP e webhook
       href: functions-bindings-http-webhook.md
-    - name: Associazioni di app per dispositivi mobili
+    - name: App per dispositivi mobili
       href: functions-bindings-mobile-apps.md
-    - name: Associazione di output di Hub di notifica di Azure
+    - name: Hub di notifica
       href: functions-bindings-notification-hubs.md
-    - name: Trigger e associazioni del bus di servizio per code e argomenti
+    - name: Archiviazione code
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Bus di servizio
       href: functions-bindings-service-bus.md
-    - name: Associazioni di SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Associazioni di archiviazione
-      items:
-      - name: Associazioni di BLOB
-        href: functions-bindings-storage-blob.md
-      - name: Associazioni di code
-        href: functions-bindings-storage-queue.md
-      - name: Associazioni di tabelle
-        href: functions-bindings-storage-table.md
-      - name: Associazioni di file esterni
-        href: functions-bindings-external-file.md
-    - name: Associazioni di SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Trigger timer
+    - name: Archiviazione tabelle
+      href: functions-bindings-storage-table.md
+    - name: Timer
       href: functions-bindings-timer.md
-    - name: Associazione output di Twilio
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: Informazioni di riferimento su OpenAPI
     href: functions-api-definition.md     
