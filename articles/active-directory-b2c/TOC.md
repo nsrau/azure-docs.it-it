@@ -3,6 +3,7 @@
 # Introduzione
 ## [Creare una directory Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Registrare l'applicazione](active-directory-b2c-app-registration.md)
+## [Criteri predefiniti](active-directory-b2c-reference-policies.md)
 ## App per dispositivi mobili e desktop
 ### [Panoramica](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -63,6 +64,7 @@
 #### [Ottenere attestazioni aggiuntive](active-directory-b2c-rest-api-step-custom.md)
 ### Personalizzare l'accesso
 #### [Configurare l'input utente](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Attributi personalizzati](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personalizzare l'interfaccia utente](active-directory-b2c-ui-customization-custom.md)
 #### [Personalizzare i token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Risoluzione dei problemi
@@ -74,7 +76,6 @@
 ## Glossario
 ### [Tipi di applicazioni](active-directory-b2c-apps.md)
 ### [Protocolli di autenticazione](active-directory-b2c-reference-protocols.md)
-### [Criteri predefiniti](active-directory-b2c-reference-policies.md)
 ### [Token](active-directory-b2c-reference-tokens.md)
 ## [Aree di disponibilità e residenza dei dati](active-directory-b2c-reference-tenant-type.md)
 ## [Abilitare la fatturazione](active-directory-b2c-how-to-enable-billing.md)

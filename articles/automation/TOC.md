@@ -41,6 +41,7 @@
 ### [Onboarding di computer per la gestione](automation-dsc-onboarding.md)
 ### [Compilazione di configurazioni DSC](automation-dsc-compile.md)
 ### [Distribuzione continua tramite Chocolatey](automation-dsc-cd-chocolatey.md)
+### [Inoltrare i dati dei report di Automation DSC per Azure a Log Analytics di OMS](automation-dsc-diagnostics.md)
 ## Gestire asset di automazione
 ### [Certificati](automation-certificates.md)
 ### [Connessioni](automation-connections.md)

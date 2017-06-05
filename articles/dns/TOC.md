@@ -1,4 +1,5 @@
 # Panoramica
+
 ## [Che cos'è DNS di Azure?](dns-overview.md)
 ## [Zone e record DNS](dns-zones-records.md)
 ## [Delega DNS con DNS di Azure](dns-domain-delegation.md)
@@ -18,17 +19,21 @@
 # Procedure
 
 ## Gestire le zone DNS
+### [Portale](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
+### [Interfaccia della riga di comando di Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
+### [Interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md)
 
-
-## [Gestire i record DNS](dns-operations-recordsets-portal.md)
+## Gestire i record DNS
+### [Portale](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
+### [Interfaccia della riga di comando di Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md)
 
-## [Gestire record DNS inversi](dns-reverse-dns-record-operations-ps.md)
-### [Interfaccia della riga di comando di Azure](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## Gestire il DNS inverso
+### [Panoramica](dns-reverse-dns-overview.md)
+### [Ospitare zone di ricerca inverse in DNS Azure](dns-reverse-dns-hosting.md)
+### [Gestire i record DNS inversi per i servizi di Azure](dns-reverse-dns-for-azure-services.md)
 
 ## [Importare ed esportare un file di zona DNS](dns-import-export.md)
 ## [Integrare DNS con altri servizi di Azure](dns-for-azure-services.md)

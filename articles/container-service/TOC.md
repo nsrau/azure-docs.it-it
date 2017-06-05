@@ -11,6 +11,7 @@
 ## [Distribuire un cluster - Interfaccia della riga di comando di Azure](container-service-create-acs-cluster-cli.md)
 ## [Integrazione continua e distribuzione continua con Kubernetes e Jenkins](container-service-kubernetes-jenkins.md)
 ## [Integrazione continua e distribuzione continua con Docker Swarm e VSTS](container-service-docker-swarm-setup-ci-cd.md)
+## [CI/CD con la modalità Docker Swarm e VSTS con il motore ACS](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md)
 
 # Concetti
 ## [Proteggere i contenitori](container-service-security.md)

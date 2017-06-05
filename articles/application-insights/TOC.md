@@ -116,7 +116,7 @@
 ### [Campionamento](app-insights-sampling.md)
 
 ## Gestisci
-### [Gestire prezzi e quote](app-insights-pricing.md)
+### [Gestire i prezzi e il volume dati](app-insights-pricing.md)
 ### [Application Performance Monitoring con Application Insights per SCOM](app-insights-scom.md)
 
 ## Esporta
