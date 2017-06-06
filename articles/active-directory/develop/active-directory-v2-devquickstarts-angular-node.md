@@ -29,7 +29,7 @@ In questo articolo si aggiungerà l'accesso con account Microsoft a un'app Angul
 Questo esempio è una semplice app a pagina singola To-Do List che archivia le attività in un'API REST back-end, scritta in NodeJS e protetta con i token di connessione OAuth di Azure AD.  L'app AngularJS userà la libreria di autenticazione JavaScript open source [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) per gestire l'intero processo di accesso e acquisire i token per chiamare l'API REST.  Lo stesso modello può essere applicato per l'autenticazione in altre API REST, ad esempio [Microsoft Graph](https://graph.microsoft.com) o le API di Gestione risorse di Azure.
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -240,7 +240,7 @@ node server.js
 
 In un browser passare a `http://localhost:8080`.  Accedere con un account Microsoft personale o un account aziendale o dell'istituto di istruzione.  Aggiungere attività all'elenco attività dell'utente e disconnettersi.  Provare ad accedere con l'altro tipo di account. Se è necessario un tenant di Azure AD per creare utenti aziendali o dell'istituto di istruzione, [qui sono disponibili informazioni per ottenerne uno](active-directory-howto-tenant.md) (è gratuito).
 
-Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori versione&2;.0](active-directory-appmodel-v2-overview.md).  Per altre risorse, vedere:
+Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori versione 2.0](active-directory-appmodel-v2-overview.md).  Per altre risorse, vedere:
 
 * [Esempi di Azure in GitHub >>](https://github.com/Azure-Samples)
 * [Azure AD in Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
