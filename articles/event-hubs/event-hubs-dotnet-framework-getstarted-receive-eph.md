@@ -3,7 +3,7 @@ title: Ricevere eventi da Hub eventi di Azure usando .NET Framework | Documentaz
 description: Seguire questa esercitazione per ricevere eventi da Hub eventi di Azure usando .NET Framework.
 services: event-hubs
 documentationcenter: 
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
+ms.author: sethm
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.contentlocale: it-it
 ms.lasthandoff: 04/18/2017
 
 

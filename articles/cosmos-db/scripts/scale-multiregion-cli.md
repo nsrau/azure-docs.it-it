@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 05/10/2017
+ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
@@ -30,6 +30,8 @@ Questo esempio replica qualsiasi tipo di database di Azure Cosmos DB in più are
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="sample-script"></a>Script di esempio
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-replicate-multiple-regions/scale-cosmosdb-replicate-multiple-regions.sh?highlight=21-31 "Scalare Azure Cosmos DB in più aree")]
@@ -38,7 +40,7 @@ Questo esempio replica qualsiasi tipo di database di Azure Cosmos DB in più are
 
 Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

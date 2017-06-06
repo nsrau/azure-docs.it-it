@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
-ms.author: jotaub;sethm
+ms.author: sethm
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
 ms.openlocfilehash: 41435316adaee5c66de503571184fce8937d38ee
@@ -22,6 +22,7 @@ ms.lasthandoff: 05/04/2017
 
 
 ---
+
 # <a name="event-hubs-net-framework-api-overview"></a>Panoramica dell'API .NET Framework di Hub eventi
 In questo articolo vengono riepilogati alcune delle principali API client .NET Framework di Hub eventi. Esistono due categorie: API di runtime e gestione. Le API di runtime si compongono di tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
 

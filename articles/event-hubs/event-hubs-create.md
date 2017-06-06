@@ -3,7 +3,7 @@ title: Creare un hub eventi di Azure | Documentazione Microsoft
 description: Creare uno spazio dei nomi di Hub eventi di Azure e un hub eventi usando il Portale di Azure
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: ff99e327-c8db-4354-9040-9c60c51a2191
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
-ms.author: jotaub
+ms.author: sethm
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
 ms.openlocfilehash: 2ef14fccda5c38ebdbf9d64b4766b45503755af0
 ms.contentlocale: it-it
 ms.lasthandoff: 05/04/2017
+
 
 ---
 
