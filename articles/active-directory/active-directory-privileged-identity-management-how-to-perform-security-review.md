@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 06/06/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.custom: pim
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5b5dabe301fae4000112aa467a22cc5c37b9b592
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/28/2016
 
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Come eseguire una verifica dell'accesso in Azure AD Privileged Identity Management
@@ -52,9 +54,4 @@ Seguire questa procedura per trovare e completare la verifica dell'accesso:
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
