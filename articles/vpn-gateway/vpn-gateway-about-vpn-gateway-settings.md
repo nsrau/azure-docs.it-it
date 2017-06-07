@@ -46,7 +46,7 @@ Esempio:
     
 ## <a name="gwsku"></a>SKU del gateway
 
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-original-include.md)]
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
 ### <a name="configuring-the-gateway-sku"></a>Configurazione dello SKU del gateway
 ####<a name="specifying-the-gateway-sku-in-the-azure-portal"></a>Specificare lo SKU del gateway nel portale di Azure

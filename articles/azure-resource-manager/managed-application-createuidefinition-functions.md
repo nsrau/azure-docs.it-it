@@ -641,7 +641,7 @@ Decodifica il parametro da una stringa con codifica URL. Questa funzione support
 L'esempio seguente restituisce `"https://portal.azure.com/"`:
 
 ```json
-"[encodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
+"[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
 ## <a name="math-functions"></a>Funzioni matematiche
