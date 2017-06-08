@@ -8,16 +8,18 @@ author: ddove
 editor: 
 ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 2420d31c73fcb43e680edf2a95995e4ed4969236
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -50,10 +52,5 @@ Sì, una partizione è un database a sé, per cui è possibile che una partizion
 No. Per le operazioni di **divisione** è necessario che il database di destinazione sia dotato dello schema appropriato e sia registrato nel Gestore mappe partizioni.  Per le operazioni di **unione** è necessario eliminare la partizione dal Gestore mappe partizioni e quindi eliminare il database.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
