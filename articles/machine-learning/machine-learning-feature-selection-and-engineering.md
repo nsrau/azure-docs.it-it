@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: deprecated
+ms.topic: article
 ms.date: 01/18/2017
 ms.author: zhangya;bradsev
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: machine-learning-data-science-create-features
-translationtype: Human Translation
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: c6b88355df430e78594fc1283c9df01ad6e27e20
+ms.contentlocale: it-it
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -78,7 +81,7 @@ La tabella seguente riepiloga il confronto dei risultati delle prestazioni dei q
 
 ![Confronto dei risultati delle prestazioni](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="a-nameexample2a-example-2-creating-features-in-text-mining"></a><a name="example2"></a> Esempio 2: Creazione di funzioni per il data mining del testo
+### <a name="example2"></a> Esempio 2: Creazione di funzioni per il data mining del testo
 La progettazione di funzioni viene ampiamente applicata nelle attività correlate al data mining del testo, ad esempio la classificazione di documenti e l'analisi del sentiment. Ad esempio, quando si vogliono classificare documenti in diverse categorie, un tipico presupposto è il fatto che le parole o le frasi incluse in una categoria di documenti sono presenti con minore probabilità in un'altra categoria di documenti. In altre parole, la frequenza di distribuzione di parole o frasi è in grado di caratterizzare diverse categorie di documenti. Nelle applicazioni di data mining del testo per creare le funzioni che comportano frequenze di parole o frasi è necessario usare il processo di progettazione delle funzioni, poiché singole parti del contenuto di testo vengono in genere usate come dati di input.
 
 Per completare questa attività, si applica una tecnica definita *hashing di funzioni* per trasformare in modo efficiente le funzioni di testo arbitrarie in indici. Anziché associare ogni funzione di testo (parole o frasi) a un indice particolare, questo metodo applica una funzione hash alle funzioni e usa direttamente i relativi valori hash come indici.
@@ -133,9 +136,4 @@ Non sempre è necessario eseguire la progettazione o la selezione delle funzioni
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,11 +1,27 @@
 ---
-
-ROBOTS: NOINDEX, NOFOLLOW
+title: (Deprecato) Analisi di sopravvivenza con Azure Machine Learning | Documentazione Microsoft
+description: "(Deprecato) Probabilità che si verifichino eventi di analisi di sopravvivenza"
+services: machine-learning
+documentationcenter: 
+author: zhangya
+manager: jhubbard
+editor: cgronlun
+ms.assetid: a142fc45-cdfb-4971-910e-05dab8bc699e
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+ms.author: zhangya
+ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 38a086281ec9a93961caf492036aeed27091a462
-ms.lasthandoff: 05/03/2017
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 32ae345bb1d4bc364440543ea5c273e9b358ae40
+ms.contentlocale: it-it
+ms.lasthandoff: 01/11/2017
 
 
 ---
