@@ -3,7 +3,7 @@ title: Ripristino di emergenza di Azure Service Fabric | Documentazione Microsof
 description: "Azure Service Fabric offre le funzionalità necessarie per affrontare tutti i tipi di emergenze. L&quot;articolo descrive i tipi di emergenze che si possono verificare e come affrontarli."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: masnider
 manager: timlt
 editor: 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
-ms.author: seanmck
-translationtype: Human Translation
+ms.author: masnider
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
 ms.openlocfilehash: 73f5413fb7dd0ca179bf5012478a453963e996a1
+ms.contentlocale: it-it
 ms.lasthandoff: 12/14/2016
 
 
