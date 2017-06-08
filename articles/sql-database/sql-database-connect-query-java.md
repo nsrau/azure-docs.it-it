@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start connect, mvc
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
@@ -73,7 +73,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
 6. Esaminare la stringa di connessione **JDBC**completa.
 
-    ![Stringa di connessione JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)    
+    ![Stringa di connessione JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)   
 
 ### <a name="create-maven-project"></a>**Creare un progetto Maven**
 Creare un nuovo progetto Maven nel terminale. 
@@ -295,7 +295,7 @@ public class App {
                         int count = prep.executeUpdate();
                         System.out.println("Deleted: " + count + " row(s)");
                 }
-        }        
+        }       
         catch (Exception e) {
                 e.printStackTrace();
         }
