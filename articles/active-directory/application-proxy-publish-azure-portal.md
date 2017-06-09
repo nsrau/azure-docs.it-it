@@ -79,7 +79,6 @@ Per verificare l'avvenuta pubblicazione dell'app, aggiungere un account utente a
 
 1. Nel pannello di avvio rapido selezionare **Assign a user for testing** (Assegna utente per il test).
 
-
   ![Assegna utente per il test](./media/application-proxy-publish-azure-portal/assign-user.png)
 
 2. Nel pannello Utenti e gruppi selezionare **Aggiungi**.
