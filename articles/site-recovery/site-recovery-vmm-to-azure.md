@@ -11,7 +11,7 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-=article
+ms.topic: hero-article
 ms.date: 04/05/2017
 ms.author: raynew
 ms.translationtype: Human Translation
@@ -210,7 +210,7 @@ Specificare l'account di archiviazione di Azure da usare per la replica e la ret
 
 2. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili.
 
-      ![Archiviazione](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+    ![Archiviazione](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
 3. Per creare un account di archiviazione con Resource Manager, se non è già stato fatto, fare clic su **+ Account di archiviazione** per eseguire l'operazione inline.  Nel pannello **Crea account di archiviazione** specificare il nome, il tipo, la sottoscrizione e la località dell'account. L'account deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
 
