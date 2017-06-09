@@ -1,5 +1,5 @@
 ---
-title: "Aggiornamenti dello schema del&1;° agosto&2015; in anteprima: App per la logica di Azure | Microsoft Docs"
+title: "Aggiornamenti dello schema del 1° agosto 2015 in anteprima: App per la logica di Azure | Microsoft Docs"
 description: Creare definizioni JSON per App per la logica di Azure con la versione dello schema 2015-08-01-preview
 author: stepsic-microsoft-com
 manager: anneta

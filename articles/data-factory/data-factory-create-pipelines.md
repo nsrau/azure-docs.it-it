@@ -117,7 +117,7 @@ Nella sezione delle **attività** possono essere definite una o più attività. 
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }
