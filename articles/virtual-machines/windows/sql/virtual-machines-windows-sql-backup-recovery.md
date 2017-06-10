@@ -3,7 +3,7 @@ title: Backup e ripristino per SQL Server | Documentazione Microsoft
 description: Vengono descritte considerazioni sul backup e sul ripristino per i database di SQL Server in esecuzione in macchine virtuali di Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MikeRayMSFT
 manager: jhubbard
 editor: 
 tags: azure-resource-management
@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
-ms.author: jroth
-translationtype: Human Translation
+ms.author: mikeray
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: f05ef18fb33942883ba164985721ce2d4f79d3fa
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
 
 
