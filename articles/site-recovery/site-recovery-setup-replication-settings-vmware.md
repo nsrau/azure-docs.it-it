@@ -56,7 +56,7 @@ ms.lasthandoff: 02/21/2017
 ![Associare i server di configurazione](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
 3. Selezionare il server di configurazione nell'elenco dei server.
-4. Fare clic su **OK**. L'associazione del server di configurazione dovrebbe richiedere da&1; a&2; minuti.
+4. Fare clic su **OK**. L'associazione del server di configurazione dovrebbe richiedere da 1 a 2 minuti.
 
 ![Associazione del server di configurazione](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 02/21/2017
 ![Modificare le impostazioni dei criteri di replica](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. Modificare le impostazioni in base alle esigenze.
-4. Fare clic su **Save**. Il salvataggio del criterio dovrebbe richiedere approssimativamente&5; minuti, a seconda del numero di macchine virtuali che usano il criterio di replica.
+4. Fare clic su **Save**. Il salvataggio del criterio dovrebbe richiedere approssimativamente 5 minuti, a seconda del numero di macchine virtuali che usano il criterio di replica.
 
 ![Salvare i criteri di replica](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/21/2017
 1. Scegliere il criterio di replica a cui si desidera associare il server di configurazione.
 2. Fare clic su **Annulla associazione**.
 3. Selezionare il server di configurazione nell'elenco dei server.
-4. Fare clic su **OK**. L'annullamento dell'associazione del server di configurazione dovrebbe richiedere&2; minuti.
+4. Fare clic su **OK**. L'annullamento dell'associazione del server di configurazione dovrebbe richiedere 2 minuti.
 
     > [!NOTE]
     > Non è possibile annullare l'associazione di un server di configurazione se i criteri vengono usati da almeno un elemento replicato. Prima di annullare l'associazione del server di configurazione, verificare che nessun elemento replicato usi i criteri.
@@ -87,5 +87,5 @@ ms.lasthandoff: 02/21/2017
 2. Fare clic su **Elimina**. L'eliminazione del criterio dovrebbe richiedere dai 30 secondi ai 60 secondi.
 
     > [!NOTE]
-    > Non è possibile eliminare criteri di replica a cui è associato almeno&1; server di configurazione. Prima di eliminare i criteri, verificare che nessun elemento replicato li usi ed eliminare tutti server di configurazione associati.
+    > Non è possibile eliminare criteri di replica a cui è associato almeno 1 server di configurazione. Prima di eliminare i criteri, verificare che nessun elemento replicato li usi ed eliminare tutti server di configurazione associati.
 
