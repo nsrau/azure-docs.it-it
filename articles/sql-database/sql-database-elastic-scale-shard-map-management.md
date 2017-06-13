@@ -82,10 +82,10 @@ Ad esempio, **[0, 100)** include tutti i numeri interi superiori o uguali a 0 e 
 
 | Chiave | Percorso della partizione |
 | --- | --- |
-| [1,&50;) |Database_A |
-| [50,&100;) |Database_B |
-| [100,&200;) |Database_C |
-| [400,&600;) |Database_C |
+| [1, 50) |Database_A |
+| [50, 100) |Database_B |
+| [100, 200) |Database_C |
+| [400, 600) |Database_C |
 | ... |... |
 
 Ognuna delle tabelle precedenti è un esempio concettuale di un oggetto **ShardMap** . Ogni riga costituisce un esempio semplificato di un singolo oggetto **PointMapping** (per la mappa partizioni di tipo elenco) o **RangeMapping** (per la mappa partizioni di tipo intervallo).
