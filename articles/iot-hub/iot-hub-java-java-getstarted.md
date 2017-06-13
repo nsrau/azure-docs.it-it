@@ -153,7 +153,7 @@ In questa sezione si crea un'app console di Java che legge i messaggi da disposi
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.14.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
 
