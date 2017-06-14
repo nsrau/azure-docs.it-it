@@ -14,11 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: cjiang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0c1ce4284bc058096387986c8706ddc7317ee724
 ms.openlocfilehash: c2fd2a8f9eac4ef4d6f67ed924c77daa86cb81a8
+ms.contentlocale: it-it
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -41,9 +43,4 @@ Dopo l'iscrizione, [gestire le informazioni di pagamento](billing-how-to-change-
 
 ## <a name="need-more-help-contact-support"></a>Ulteriore assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
