@@ -3,7 +3,7 @@ title: 'Azure AD B2C: proteggere un&quot;API Web usando Node.js | Microsoft Docs
 description: Come compilare un&quot;API Web Node.js che accetta token da un tenant B2C
 services: active-directory-b2c
 documentationcenter: 
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a

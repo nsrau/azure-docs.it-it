@@ -4,7 +4,7 @@ description: Fornisce indicazioni sulla risoluzione dei problemi per diagnostica
 services: backup
 documentationcenter: 
 author: genlin
-manager: jimpark
+manager: cshepard
 editor: 
 ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
@@ -12,11 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: ac68ae449a03b6d9e77e6093531a47c905654f16
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -87,9 +89,4 @@ Gli indicatori seguenti possono risultare utili per individuare il collo di bott
 
 * **L'interfaccia utente visualizza lo stato di avanzamento per il trasferimento dei dati**. I dati sono ancora in fase di trasferimento. La larghezza di banda di rete o le dimensioni dei dati potrebbero causare ritardi.
 * **L'interfaccia utente non visualizza lo stato di avanzamento per il trasferimento dei dati**. Aprire i log disponibili in "C:\Agente di Servizi di ripristino di Microsoft Azure\Temp" e quindi cercare la voce FileProvider::EndData nei log. Questa voce indica che il trasferimento dei dati è stato completato e che l'operazione di catalogo è in corso. Non annullare i processi di backup. Al contrario, attendere ancora qualche istante che l'operazione di catalogo venga completata. Se il problema persiste, contattare il [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

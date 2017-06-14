@@ -3,7 +3,7 @@ title: Aggiungere l&quot;accesso a un&quot;app Web Node.js per Azure AD B2C | Do
 description: Come compilare un&quot;app Web Node.js che esegua l&quot;accesso degli utenti usando un tenant B2C.
 services: active-directory-b2c
 documentationcenter: 
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
@@ -14,9 +14,10 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 03/10/2017
 ms.author: xerners
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: a4d9394983539da52105bda6cf06273205f8b0ad
+ms.contentlocale: it-it
 ms.lasthandoff: 04/18/2017
 
 
@@ -24,7 +25,7 @@ ms.lasthandoff: 04/18/2017
 
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: aggiungere l'accesso a un'app Web Node.js
 
-**Passport** è il middleware di autenticazione per Node.js. Passport, estremamente flessibile e modulare, può essere installato in modo non invadente in qualsiasi applicazione Web basata su Express o Restify. Un set completo di strategie supporta l'autenticazione tramite nome utente e password, Facebook, Twitter e altro ancora. 
+**Passport** è il middleware di autenticazione per Node.js. Passport, estremamente flessibile e modulare, può essere installato in modo non invadente in qualsiasi applicazione Web basata su Express o Restify. Un set completo di strategie supporta l'autenticazione tramite nome utente e password, Facebook, Twitter e altro ancora.
 
 È stata sviluppata una strategia per Azure Active Directory (Azure AD). Dopo l'installazione di questo modulo, aggiungere il plug-in `passport-azure-ad` di Azure AD.
 
