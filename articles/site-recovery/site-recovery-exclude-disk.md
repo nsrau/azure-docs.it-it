@@ -8,7 +8,7 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -108,8 +108,8 @@ Di seguito sono elencati i dischi presenti nella macchina virtuale di Azure dopo
 
 **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | ---
-DISK0 |    C:\ | Disco del sistema operativo
-Disk1 |    E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
+DISK0 | C:\ | Disco del sistema operativo
+Disk1 | E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
 Disk2 | D:\ | Database di sistema SQL e Database1 dell'utente
 Disk3 | G:\ | Database2 dell'utente
 
@@ -141,13 +141,13 @@ Per creare questo percorso, è possibile procedere in due modi:
 3. Eseguire il comando sqlcmd seguente per sostituire il percorso del tempdb con il nuovo percorso.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -173,9 +173,9 @@ Di seguito è illustrata la configurazione dei dischi della macchina virtuale di
 **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 |    E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
-Disk2 |    D:\ | Database di sistema SQL e Database1 dell'utente
-Disk3 |    G:\ | Database2 dell'utente
+Disk1 | E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
+Disk2 | D:\ | Database di sistema SQL e Database1 dell'utente
+Disk3 | G:\ | Database2 dell'utente
 
 
 #### <a name="vmware-to-azure"></a>Da VMware ad Azure
@@ -186,8 +186,8 @@ Dopo il failover pianificato da Azure a VMware in locale, i dischi della macchin
 **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 |    D:\ | Database di sistema SQL e Database1 dell'utente
-Disk2 |    G:\ | Database2 dell'utente
+Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente
+Disk2 | G:\ | Database2 dell'utente
 
 #### <a name="hyper-v-to-azure"></a>Da Hyper-V ad Azure
 Quando il failback viene eseguito nella posizione originale, la configurazione dei dischi della macchina virtuale di failback rimane identica a quella della macchina virtuale originale per Hyper-V. Nella macchina virtuale di failback non saranno quindi disponibili i dischi esclusi dalla replica dal sito Hyper-V ad Azure.
@@ -196,7 +196,7 @@ Dopo il failover pianificato da Azure a Hyper-V in locale, i dischi della macchi
 
 **Nome del disco** | **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | Disco del sistema operativo
+DB-Disk0-OS | DISK0 |   C:\ | Disco del sistema operativo
 DB-Disk1 | Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente
 DB-Disk2 (disco escluso) | Disk2 | E:\ | File temporanei
 DB-Disk3 (disco escluso) | Disk3 | F:\ | Database tempdb SQL (percorso della cartella, F:\MSSQL\Data\)

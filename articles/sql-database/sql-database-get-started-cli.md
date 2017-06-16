@@ -38,7 +38,7 @@ Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 
 
 Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login) e seguire le istruzioni visualizzate.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
