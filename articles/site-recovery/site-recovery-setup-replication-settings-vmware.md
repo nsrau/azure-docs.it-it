@@ -8,7 +8,7 @@ manager: rochakm
 editor: rayne-wiselman
 ms.assetid: 8e7d868e-00f3-4e8b-9a9e-f23365abf6ac
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/21/2017
 2. Selezionare **Criteri di replica** in **For VMware and Physical machines** (Per VMware e computer fisici).
 3. Selezionare **+Replication policy** (+Criteri di replica).
 
-      ![Creare criteri di replica](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+    ![Creare criteri di replica](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. Immettere il nome del criterio.
 

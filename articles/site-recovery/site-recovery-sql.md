@@ -8,7 +8,7 @@ manager: gauravd
 editor: 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -101,18 +101,18 @@ Per garantire la corretta esecuzione di SQL Server, configurare Active Directory
 Le istruzioni in questo articolo presuppongono che sia disponibile un controller di dominio nella posizione secondaria. [Altre informazioni](site-recovery-active-directory.md) sulla protezione di Active Directory con Site Recovery.
 
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>Eseguire l'integrazione con SQL Server AlwaysOn per la replica in Azure 
+## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>Eseguire l'integrazione con SQL Server AlwaysOn per la replica in Azure
 
 È necessario eseguire queste operazioni:
 
-1. Importare gli script nell'account di Automazione di Azure. Sono inclusi gli script per il failover del gruppo di disponibilità SQL in una [macchina virtuale di Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) e una [macchina virtuale classica](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). 
+1. Importare gli script nell'account di Automazione di Azure. Sono inclusi gli script per il failover del gruppo di disponibilità SQL in una [macchina virtuale di Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) e una [macchina virtuale classica](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
     [![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Aggiungere ASR-SQL-FailoverAG come azione preliminare del primo gruppo del piano di ripristino.
 
-1. Seguire le istruzioni disponibili nello script per creare una variabile di automazione in modo da specificare il nome dei gruppi di disponibilità. 
+1. Seguire le istruzioni disponibili nello script per creare una variabile di automazione in modo da specificare il nome dei gruppi di disponibilità.
 
 ### <a name="steps-to-do-a-test-failover"></a>Passaggi per eseguire un failover di test
 
@@ -124,13 +124,13 @@ SQL AlwaysOn non supporta il failover di test in modo nativo. È quindi consigli
 
     ![Eseguire il ripristino da Backup di Azure ](./media/site-recovery-sql/restore-from-backup.png)
 
-1. [Forzare un quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) nella macchina virtuale ripristinata dal backup. 
+1. [Forzare un quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) nella macchina virtuale ripristinata dal backup.
 
-1. Aggiornare l'indirizzo IP del listener a un indirizzo IP disponibile nella rete di failover di test. 
- 
+1. Aggiornare l'indirizzo IP del listener a un indirizzo IP disponibile nella rete di failover di test.
+
     ![Aggiornare l'indirizzo IP del listener](./media/site-recovery-sql/update-listener-ip.png)
 
-1. Portare online il listener. 
+1. Portare online il listener.
 
     ![Portare online il listener](./media/site-recovery-sql/bring-listener-online.png)
 
@@ -144,7 +144,7 @@ SQL AlwaysOn non supporta il failover di test in modo nativo. È quindi consigli
 
 ### <a name="steps-to-do-a-failover"></a>Passaggi per eseguire un failover
 
-Dopo aver aggiunto lo script nel piano di ripristino e aver convalidato il piano di ripristino tramite un failover di test, è possibile eseguire il failover del piano di ripristino. 
+Dopo aver aggiunto lo script nel piano di ripristino e aver convalidato il piano di ripristino tramite un failover di test, è possibile eseguire il failover del piano di ripristino.
 
 
 ## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>Eseguire l'integrazione con SQL Server AlwaysOn per la replica in un sito secondario locale
@@ -155,7 +155,7 @@ Se SQL Server usa gruppi di disponibilità per la disponibilità elevata o un'is
 1. Creare una rete virtuale nel sito secondario.
 1. Configurare una connessione VPN da sito a sito tra la rete virtuale e il sito primario.
 1. Creare una macchina virtuale nel sito di ripristino e installarvi SQL Server.
-1. Estendere i gruppi di disponibilità AlwaysOn esistenti alla nuova VM di SQL Server. Configurare l'istanza di SQL Server come una copia di replica asincrona. 
+1. Estendere i gruppi di disponibilità AlwaysOn esistenti alla nuova VM di SQL Server. Configurare l'istanza di SQL Server come una copia di replica asincrona.
 1. Creare un listener del gruppo di disponibilità o aggiornare il listener esistente per includere la macchina virtuale di replica asincrona.
 1. Verificare che la farm dell'applicazione sia configurata con il listener. Se è configurata con il nome del server di database, aggiornarla per usare il listener in modo che non debba essere riconfigurata dopo il failover.
 
