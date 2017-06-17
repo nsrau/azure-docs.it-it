@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
+ms.contentlocale: it-it
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -30,8 +32,8 @@ Di seguito viene illustrato come richiedere un credito o un rimborso per conto d
 
 > [!NOTE]
 > Se un cliente o un rivenditore di Azure contatta Microsoft per richiedere un rimborso o un credito, Microsoft applicherà le stesse politiche usate per la fornitura dei servizi di Azure. Se tali politiche stabiliscono che è dovuto un rimborso o un credito, Microsoft emetterà in modo proattivo, e l'utente autorizza Microsoft all'emissione per suo conto, un rimborso o un credito per il cliente o il rivenditore di Azure, come applicabile. Se le politiche non stabiliscono che è dovuto un rimborso o un credito, Microsoft potrà invitare il cliente o il rivenditore di Azure a contattare direttamente l'utente.
-> 
-> 
+>
+>
 
   ![1_RequestRefund][1]
 
@@ -39,12 +41,12 @@ Di seguito viene illustrato come richiedere un credito o un rimborso per conto d
 2. Nella casella **Tipo di problema** selezionare **Gestione dei clienti**.
 3. Nella casella **Categoria** selezionare **Approvare o richiedere un rimborso per un cliente**.
 4. Fare clic su **Avvio richiesta**.
-   
+
    ![2_RequestRefund][2]
 
 1. Fornire informazioni di contatto.
 2. Nella casella **Tipo di problema** immettere le informazioni seguenti:
-   
+
    * ID sottoscrizione del cliente interessato
    * Nome del cliente
    * Quantità del credito
@@ -83,8 +85,8 @@ Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 
 > [!NOTE]
 > È possibile usare un numero di telefono o un indirizzo di posta elettronica per la verifica.
-> 
-> 
+>
+>
 
 ![protectacct][6]
 
@@ -121,9 +123,4 @@ Per i problemi seguenti, creare una richiesta di supporto all'indirizzo [http://
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/22/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
@@ -155,7 +155,7 @@ La disattivazione di una topologia comporta la sua sospensione finché non viene
 
 Una volta avviate, le topologie Storm continueranno a rimanere in esecuzione finché non vengono arrestate. Per arrestare una topologia, usare il comando seguente:
 
-    storm stop TOPOLOGYNAME
+    storm kill TOPOLOGYNAME
 
 ### <a name="rebalance"></a>Ribilanciare
 

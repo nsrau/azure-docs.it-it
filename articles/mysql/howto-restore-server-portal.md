@@ -5,12 +5,9 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
@@ -40,7 +37,7 @@ La procedura seguente consente di ripristinare il server di esempio ad un punto 
 
 2. Individuare il Database di Azure per il server MySQL. Nel riquadro a sinistra selezionare **All resources** (Tutte le risorse) e il server dall'elenco.
 
-3.    Nella parte superiore del pannello Panoramica server, fare clic su **Ripristina** nella barra degli strumenti. Viene aperto il pannello Ripristina.
+3.  Nella parte superiore del pannello Panoramica server, fare clic su **Ripristina** nella barra degli strumenti. Viene aperto il pannello Ripristina.
 ![fare clic sul pulsante Ripristina](./media/howto-restore-server-portal/click-restore-button.png)
 
 4. Compilare il modulo Ripristina con le informazioni obbligatorie:

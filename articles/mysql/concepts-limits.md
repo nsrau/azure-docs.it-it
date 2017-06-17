@@ -5,10 +5,8 @@ services: mysql
 author: jasonh
 ms.author: kamathsun
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
@@ -47,9 +45,9 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 
 ## <a name="preview-functional-limitations"></a>Limiti funzionali dell'anteprima:
 ### <a name="scale-operations"></a>Operazioni di scalabilità:
-1.    La scalabilità dinamica dei server tra i livelli di servizio non è attualmente supportata, vale a dire il passaggio tra i livelli di servizio Base e Standard.
-2.    L'aumento dinamico su richiesta dell'archiviazione sul server creato in precedenza non è attualmente supportato.
-3.    La riduzione delle dimensioni di archiviazione del server non è supportato.
+1.  La scalabilità dinamica dei server tra i livelli di servizio non è attualmente supportata, vale a dire il passaggio tra i livelli di servizio Base e Standard.
+2.  L'aumento dinamico su richiesta dell'archiviazione sul server creato in precedenza non è attualmente supportato.
+3.  La riduzione delle dimensioni di archiviazione del server non è supportato.
 
 ### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server:
 - La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata.
@@ -58,8 +56,8 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 - Lo spostamento dinamico di server creati in precedenza tra le sottoscrizioni e il gruppo di risorse non è attualmente supportato.
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato:
-1.    Il ripristino a un livello di servizio diverso e/o a dimensioni delle unità di calcolo e di archiviazione diverse non è consentito.
-2.    Il ripristino di un server eliminato non è supportato.
+1.  Il ripristino a un livello di servizio diverso e/o a dimensioni delle unità di calcolo e di archiviazione diverse non è consentito.
+2.  Il ripristino di un server eliminato non è supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi:
 [Opzioni disponibili in ogni livello di servizio](concepts-service-tiers.md)
