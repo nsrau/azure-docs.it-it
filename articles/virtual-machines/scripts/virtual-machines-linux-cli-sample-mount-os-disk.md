@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo
+title: Esempio di script dell'interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -29,8 +29,6 @@ ms.lasthandoff: 05/15/2017
 Questo script consente di montare il disco del sistema operativo di una macchina virtuale in cui si è verificato un errore o un problema come disco dati in una seconda macchina virtuale. Può essere utile quando si esegue la risoluzione dei problemi del disco o il ripristino di dati. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

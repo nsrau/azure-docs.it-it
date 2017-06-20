@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con bilanciamento del carico di rete | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con bilanciamento del carico di rete
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con bilanciamento del carico di rete | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con bilanciamento del carico di rete
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -28,8 +28,6 @@ ms.lasthandoff: 05/15/2017
 Questo script di esempio crea tutti gli elementi necessari per eseguire più macchine virtuali Ubuntu configurate in una configurazione a disponibilità elevata e con bilanciamento del carico. Dopo aver eseguito lo script, si disporrà di tre macchine virtuali, aggiunte a un set di disponibilità di Azure e accessibili tramite Azure Load Balancer.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un host Docker | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un host Docker
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un host Docker | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un host Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -29,8 +29,6 @@ ms.lasthandoff: 05/15/2017
 Questo script crea una macchina virtuale con Docker abilitato e avvia un contenitore Docker che esegue NGINX. Dopo aver eseguito lo script, è possibile accedere al server Web NGINX tramite il nome di dominio completo della macchina virtuale di Azure. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Installare IIS | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Installare IIS
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Installare IIS | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Installare IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -28,8 +28,6 @@ ms.lasthandoff: 05/15/2017
 Questo script crea una macchina virtuale di Azure con Windows Server 2016 e usa l'estensione dello script personalizzato di Macchina virtuale di Azure per installare IIS. Dopo l'esecuzione dello script, è possibile accedere al sito Web IIS predefinito tramite l'indirizzo IP pubblico della macchina virtuale.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

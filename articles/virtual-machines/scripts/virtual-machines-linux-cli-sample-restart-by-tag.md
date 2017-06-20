@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Riavviare macchine virtuali | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Riavviare macchine virtuali in base al tag e all&quot;ID
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Riavviare macchine virtuali | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Riavviare macchine virtuali in base al tag e all'ID
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
@@ -27,8 +27,6 @@ ms.lasthandoff: 05/15/2017
 # <a name="restart-vms"></a>Riavviare le VM
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

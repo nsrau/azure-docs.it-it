@@ -1,6 +1,6 @@
 ---
-title: Creare un hub IoT usando l&quot;interfaccia della riga di comando di Azure (az.py) | Documentazione Microsoft
-description: Come creare un hub IoT di Azure usando l&quot;interfaccia della riga di comando di Azure 2.0 multipiattaforma (az.py).
+title: Creare un hub IoT usando l'interfaccia della riga di comando di Azure (az.py) | Documentazione Microsoft
+description: Come creare un hub IoT di Azure usando l'interfaccia della riga di comando di Azure 2.0 multipiattaforma (az.py).
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,11 +12,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/16/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
 ms.openlocfilehash: 159aed19b4c5e381ef15c40c15cf6bd7694d2fa3
+ms.contentlocale: it-it
 ms.lasthandoff: 03/24/2017
 
 

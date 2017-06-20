@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -28,8 +28,6 @@ ms.lasthandoff: 05/15/2017
 Questo script crea una macchina virtuale di Azure che esegue Windows Server 2016. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite una connessione Desktop remoto.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

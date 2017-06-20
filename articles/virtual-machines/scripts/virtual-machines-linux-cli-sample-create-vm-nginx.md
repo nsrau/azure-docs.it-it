@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -29,8 +29,6 @@ ms.lasthandoff: 05/15/2017
 Questo script crea una macchina virtuale di Azure e quindi usa l'estensione dello script personalizzato della macchina virtuale di Azure per installare NGINX. Dopo aver eseguito lo script, è possibile accedere a un sito Web demo sull'indirizzo IP pubblico della macchina virtuale.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
