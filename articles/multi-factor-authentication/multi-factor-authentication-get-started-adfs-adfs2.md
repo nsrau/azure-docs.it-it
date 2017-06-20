@@ -1,23 +1,24 @@
 ---
 title: Usare Azure MFA Server con ADFS 2.0 | Documentazione Microsoft
-description: "Questa è la pagina di autenticazione a più fattori di Azure che descrive come iniziare a utilizzare l&quot;autenticazione a più fattori Azure e AD FS 2.0."
+description: "Questa è la pagina di autenticazione a più fattori di Azure che descrive come iniziare a utilizzare l'autenticazione a più fattori Azure e AD FS 2.0."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 96168849-241a-4499-a224-d829913caa7e
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 06/14/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017, it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
 ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
+ms.contentlocale: it-it
 ms.lasthandoff: 02/28/2017
 
 ---
@@ -37,9 +38,9 @@ Per proteggere AD FS 2.0 con un proxy, installare il server Azure Multi-Factor A
    <center>![Configurazione](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
 
 4. Per rilevare automaticamente le variabili di nome utente, password e dominio, immettere l'URL di accesso (ad esempio https://sso.contoso.com/adfs/ls) nella finestra di dialogo Configura automaticamente sito Web basato su form e fare clic su **OK**.
-5. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella. 
+5. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella.
 6. Se le variabili di pagina non possono essere rilevate automaticamente, fare clic su **Specifica manualmente...** pulsante nella finestra di dialogo Configura automaticamente sito Web.
-7. Nella finestra di dialogo Aggiungi sito Web basato su form immettere l'URL alla pagina di accesso AD FS nel campo URL di invio (ad esempio https://sso.contoso.com/adfs/ls) e immettere un nome di applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS. 
+7. Nella finestra di dialogo Aggiungi sito Web basato su form immettere l'URL alla pagina di accesso AD FS nel campo URL di invio (ad esempio https://sso.contoso.com/adfs/ls) e immettere un nome di applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
 8. Impostare il formato della richiesta su **POST o GET**.
 9. Immettere la variabile di nome utente (ctl00$ ContentPlaceHolder1$ UsernameTextBox) e la variabile Password (ctl00$ ContentPlaceHolder1$ PasswordTextBox). Se la pagina di accesso basata su form viene visualizzata una casella di testo di dominio, immettere anche la variabile di dominio. Per individuare i nomi delle caselle di input nella pagina di accesso, passare alla pagina di accesso in un Web browser, fare clic con il pulsante destro del mouse nella pagina e quindi scegliere **Visualizza origine**.
 10. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella.
@@ -51,7 +52,7 @@ Per proteggere AD FS 2.0 con un proxy, installare il server Azure Multi-Factor A
     - Selezionare la modalità di autenticazione delle credenziali primarie
 
 12. Poiché il server proxy AD FS non è destinato a essere aggiunto al dominio, è possibile usare LDAP per connettersi al controller di dominio per l'importazione utente e la preautenticazione. Nella finestra di dialogo Sito Web avanzato basato su form fare clic sulla scheda **Autenticazione primaria** e selezionare **Binding LDA** per il tipo di autenticazione preautenticazione.
-13. Al termine, fare clic su **OK** per tornare alla finestra di dialogo Aggiungi sito Web basato su form. 
+13. Al termine, fare clic su **OK** per tornare alla finestra di dialogo Aggiungi sito Web basato su form.
 14. Fare clic su **OK** per chiudere la finestra di dialogo.
 15. Dopo aver rilevato o immesso le variabili di pagina e URL, i dati del sito Web vengono visualizzati nel pannello Basata su form.
 16. Fare clic sulla scheda **Modulo nativo** e selezionare il server, il sito Web in cui è in esecuzione il proxy AD FS (ad esempio "Sito Web predefinito") o l'applicazione proxy AD FS (ad esempio "ls" in "adfs") per abilitare il plug-in di IIS al livello desiderato.
@@ -93,14 +94,14 @@ Assicurarsi che gli utenti siano stati importati da Active Directory nel Server.
 3. Fare clic su **Aggiungi**.
 4. Nella finestra di dialogo Aggiungi URL di base immettere l'URL per il sito Web AD FS in cui viene eseguita l'autenticazione HTTP (ad esempio https://sso.domain.com/adfs/ls/auth/integrated) nel campo URL di base. e immettere un nome di applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
 5. Se si desidera, modificare il timeout di inattività e massimo per i tempi di sessione.
-6. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella. 
+6. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella.
 7. Se lo si desidera, selezionare la casella di cache di cookie.
 
    <center>![Configurazione](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
 
 8. Fare clic su **OK**.
 9. Fare clic sulla scheda **Modulo nativo** e selezionare il server, il sito Web (ad esempio "Sito Web predefinito") o l'applicazione AD FS (ad esempio "ls" in "adfs") per abilitare il plug-in di IIS al livello desiderato.
-10. Scegliere la casella **Abilita autenticazione IIS** nella parte superiore della schermata. 
+10. Scegliere la casella **Abilita autenticazione IIS** nella parte superiore della schermata.
 
 AD FS è protetto da Azure Multi-Factor Authentication.
 

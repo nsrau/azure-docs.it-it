@@ -1,24 +1,25 @@
 ---
 title: Integrazione di directory tra il server Azure Multi-Factor Authentication e Active Directory
-description: Pagina relativa ad Azure Multi-Factor Authentication che illustra come eseguire l&quot;integrazione tra il server Azure Multi-Factor Authentication e Active Directory, in modo da consentire la sincronizzazione delle directory.
+description: Pagina relativa ad Azure Multi-Factor Authentication che illustra come eseguire l'integrazione tra il server Azure Multi-Factor Authentication e Active Directory, in modo da consentire la sincronizzazione delle directory.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
 ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
+ms.contentlocale: it-it
 ms.lasthandoff: 02/17/2017
-
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrazione di directory tra il server Azure MFA e Active Directory
@@ -95,7 +96,7 @@ Gli attributi possono essere immessi manualmente e non devono corrispondere nece
 | Estensione |Immettere il nome dell'attributo che contiene l'interno telefonico in un record utente.  Il valore di questo campo viene usato come interno solo per il numero di telefono principale.  Il valore predefinito è blank. <br><br>Se l'attributo Estensione non è specificato, è possibile includere l'interno come parte dell'attributo del telefono. In questo caso, anteporre una "x" all'interno in modo che venga analizzato correttamente.  Ad esempio, 555-123-4567 x890 indica che 555-123-4567 è il numero di telefono e 890 è l'interno. |
 | Pulsante Ripristina impostazioni predefinite |Fare clic su **Ripristina impostazioni predefinite** per ripristinare il valore predefinito di tutti gli attributi.  Le impostazioni predefinite dovrebbero funzionare correttamente con lo schema normale di Active Directory o ADAM. |
 
-Per modificare gli attributi, fare clic su **Modifica** nella scheda Attributi.  Verrà visualizzata una finestra in cui è possibile modificare gli attributi. Selezionare i puntini **...** accanto a un attributo per aprire una finestra in cui è possibile scegliere gli attributi da visualizzare. 
+Per modificare gli attributi, fare clic su **Modifica** nella scheda Attributi.  Verrà visualizzata una finestra in cui è possibile modificare gli attributi. Selezionare i puntini **...** accanto a un attributo per aprire una finestra in cui è possibile scegliere gli attributi da visualizzare.
 
 ![Modifica attributi](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -138,5 +139,4 @@ I pulsanti Sposta su e Sposta giù consentono all'amministratore di modificare l
 È possibile impostare server Multi-Factor Authentication aggiuntivi da usare come proxy RADIUS di backup, proxy LDAP o per l'autenticazione IIS. La configurazione di sincronizzazione è condivisa tra tutti gli agenti, ma solo uno di essi può eseguire il servizio del server Multi-Factor Authentication. Questa scheda consente di selezionare il server Multi-Factor Authentication da abilitare per la sincronizzazione.
 
 ![Server Multi-Factor Authentication](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-
 

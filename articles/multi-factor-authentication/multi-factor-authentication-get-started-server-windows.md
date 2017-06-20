@@ -1,23 +1,25 @@
 ---
 title: Autenticazione di Windows e server Azure MFA | Documentazione Microsoft
-description: "Questa è la pagina di autenticazione a più fattori di Azure che sarà utile per distribuire l&quot;autenticazione di Windows e Server Azure Multi-Factor Authentication."
+description: "Questa è la pagina di autenticazione a più fattori di Azure che sarà utile per distribuire l'autenticazione di Windows e Server Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 06/06/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
 ms.openlocfilehash: e3ad33dd12b4fb831ba43738bc5af4e5561a0682
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/07/2017
 
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>L'autenticazione di Windows e Azure il Server Multi-Factor Authentication
@@ -49,9 +51,4 @@ Usare la sezione Autenticazione di Windows del server Azure Multi-Factor Authent
 - [Configurare dispositivi VPN di terze parti per il server Azure MFA](multi-factor-authentication-advanced-vpn-configurations.md)
 
 - [Ampliare l'infrastruttura di autenticazione esistente con l'estensione NPS per Azure MFA](multi-factor-authentication-nps-extension.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
