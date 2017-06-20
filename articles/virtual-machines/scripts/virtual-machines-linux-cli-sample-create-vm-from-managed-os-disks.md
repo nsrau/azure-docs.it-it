@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM collegando un disco gestito come disco del sistema operativo | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM collegando un disco gestito come disco del sistema operativo
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM collegando un disco gestito come disco del sistema operativo | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM collegando un disco gestito come disco del sistema operativo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: ramankum
@@ -32,8 +32,6 @@ Questo script crea una macchina virtuale collegando un disco gestito esistente c
 * Creare una VM da un disco del sistema operativo gestito esistente che è stato creato da uno snapshot 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

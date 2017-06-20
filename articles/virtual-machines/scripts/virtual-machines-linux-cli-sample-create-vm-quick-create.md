@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare rapidamente una VM Linux | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare rapidamente una VM Linux
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare rapidamente una VM Linux | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare rapidamente una VM Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -29,8 +29,6 @@ ms.lasthandoff: 05/15/2017
 Questo script crea una macchina virtuale di Azure con sistema operativo Ubuntu e le relative risorse di rete. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite SSH.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

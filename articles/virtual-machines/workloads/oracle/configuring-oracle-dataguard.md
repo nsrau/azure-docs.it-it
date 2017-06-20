@@ -1,6 +1,6 @@
 ---
 title: Implementare Oracle Data Guard nella VM Linux di Azure | Microsoft Docs
-description: Attivare e mettere in funzione rapidamente Oracle Data Guard nell&quot;ambiente Azure.
+description: Attivare e mettere in funzione rapidamente Oracle Data Guard nell'ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
@@ -23,7 +23,7 @@ ms.lasthandoff: 05/16/2017
 
 ---
 
-# <a name="implement-oracle-data-guard-on-azure-linux-vm"></a>Implementare Oracle Data Guard nella VM Linux di Azure
+# <a name="implement-oracle-data-guard-on-azure-linux-vm"></a>Implementare Oracle Data Guard nella VM Linux di Azure 
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida descrive nei dettagli l'uso dell'interfaccia della riga di comando di Azure per distribuire un database Oracle 12c dall'immagine della raccolta Marketplace. Dopo la creazione del database Oracle questo documento descrive in modo dettagliato come installare e configurare Data Guard nella VM Azure.
 

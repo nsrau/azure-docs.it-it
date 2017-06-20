@@ -1,5 +1,5 @@
 ---
-title: 'Connettere una rete virtuale di Azure a un&quot;altra rete virtuale: PowerShell | Documentazione Microsoft'
+title: 'Connettere una rete virtuale di Azure a un''altra rete virtuale: PowerShell | Documentazione Microsoft'
 description: In questo articolo viene illustrata la connessione tra reti virtuali utilizzando Gestione risorse di Azure e PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -189,7 +189,7 @@ Negli esempi vengono usati i valori seguenti:
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Passaggio 3 - Creare e configurare TestVNet4
@@ -251,7 +251,7 @@ Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguent
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
   -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-4---create-the-connections"></a>Passaggio 4: Creare le connessioni
@@ -383,7 +383,7 @@ Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione. Q
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
-  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
+  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-8---create-the-connections"></a>Passaggio 8: Creare le connessioni

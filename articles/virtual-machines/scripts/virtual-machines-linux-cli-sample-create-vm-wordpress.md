@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con WordPress | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con WordPress
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con WordPress | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -29,8 +29,6 @@ ms.lasthandoff: 05/15/2017
 Questo script crea una macchina virtuale e quindi usa l'estensione di script personalizzata della macchina virtuale di Azure per installare WordPress. Dopo aver eseguito lo script, è possibile accedere al sito di configurazione di WordPress in `http://<public IP of VM>/wordpress`. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

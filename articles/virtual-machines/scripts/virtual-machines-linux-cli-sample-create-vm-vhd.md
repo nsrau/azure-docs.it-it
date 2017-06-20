@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale con un disco rigido virtuale | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Linux usando un disco rigido virtuale.
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale con un disco rigido virtuale | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale Linux usando un disco rigido virtuale.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
@@ -34,8 +34,6 @@ Viene infine sostituita la chiave pubblica SSH con la chiave pubblica personale 
 È possibile scaricare il disco rigido virtuale usato nell'esempio da https://azclisamples.blob.core.windows.net/vhds/sample.vhd oppure usare il proprio disco rigido virtuale. Lo script cerca `~/sample.vhd`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

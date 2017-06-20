@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 06/16/2017
 ms.author: corywink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.contentlocale: it-it
 ms.lasthandoff: 03/10/2017
 
 
@@ -53,7 +54,7 @@ Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigu
 6. Selezionare **Richiesta**. Questa azione specifica che una richiesta HTTP in ingresso con uno specifico payload in formato JSON agisce come trigger.
 7. Incollare il codice seguente nello schema JSON del corpo della richiesta:
    
-    ```
+    ```json
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "id": "/",
@@ -109,14 +110,14 @@ In questa sezione si esegue la connessione della soluzione preconfigurata all'Ap
 
 1. Usare il client git per clonare la versione più recente del [repository GitHub azure-iot-remote-monitoring][lnk-rmgithub]. Ad esempio:
    
-    ```
+    ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 2. In Visual Studio aprire il file **RemoteMonitoring.sln** dalla copia locale del repository.
 3. Aprire il file **ActionRepository.cs** nella cartella **Infrastruttura\\Repository** cartella.
 4. Aggiornare il dizionario degli **ID azione** con l'informazione **HTTP POST in questo URL** annotato dall'app per la logica come indicato di seguito:
    
-    ```
+    ```csharp
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
         { "Send Message", "<Http Post to this URL>" },
@@ -132,9 +133,9 @@ In questa sezione verrà distribuita la versione aggiornata della soluzione per 
 2. Per istruzioni sulla distribuzione in locale, fare clic [qui][lnk-localdeploy].
 3. Per istruzioni su come eseguire la distribuzione nel cloud e aggiornare la distribuzione nel cloud esistente, fare clic [qui][lnk-clouddeploy]. Come nome della distribuzione usare quello della distribuzione originale. Se, ad esempio, la distribuzione originale era denominata **demologicapp**, usare il comando seguente:
    
-   ``
+   ```cmd
    build.cmd cloud release demologicapp
-   ``
+   ```
    
    Quando si esegue lo script di compilazione, assicurarsi di usare gli stessi account, sottoscrizione e area di Azure nonché la stessa istanza di Active Directory usati per il provisioning della soluzione.
 

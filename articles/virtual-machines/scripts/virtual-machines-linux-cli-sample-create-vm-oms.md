@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con il monitoraggio di OMS | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con il monitoraggio di OMS
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con il monitoraggio di OMS | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con il monitoraggio di OMS
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -29,8 +29,6 @@ ms.lasthandoff: 05/15/2017
 Questo script consente di creare una macchina virtuale di Azure, installare l'agente Operations Management Suite (OMS) e registrare il sistema in un'area di lavoro OMS. Dopo l'esecuzione dello script, la macchina virtuale sarà visibile nella console di OMS.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

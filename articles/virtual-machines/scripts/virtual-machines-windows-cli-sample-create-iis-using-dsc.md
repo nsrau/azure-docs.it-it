@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con IIS usando DSC | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con IIS usando DSC
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con IIS usando DSC | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con IIS usando DSC
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -29,8 +29,6 @@ ms.lasthandoff: 05/15/2017
 Questo script crea una macchina virtuale e usa l'estensione dello script personalizzato DSC di Macchina virtuale di Azure per installare e configurare IIS. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

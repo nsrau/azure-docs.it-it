@@ -1,6 +1,6 @@
 ---
-title: "Esempio di script dell&quot;interfaccia della riga di comando di Azure: distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato | Microsoft Docs"
-description: "Usare un&quot;estensione di script personalizzato per distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato in Azure."
+title: "Esempio di script dell'interfaccia della riga di comando di Azure: distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato | Microsoft Docs"
+description: "Usare un'estensione di script personalizzato per distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato in Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
@@ -29,8 +29,6 @@ ms.lasthandoff: 05/15/2017
 Questo esempio crea un set di scalabilità di macchine virtuali e applica un'estensione che esegue uno script personalizzato per distribuire lo stack LAMP in ogni macchina virtuale del set di scalabilità.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 
