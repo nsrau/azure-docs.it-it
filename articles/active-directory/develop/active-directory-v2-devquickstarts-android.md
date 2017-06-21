@@ -1,9 +1,9 @@
 ---
 title: App Android v2.0 di Azure Active Directory | Documentazione Microsoft
-description: Come compilare un&quot;app per Android che consente agli utenti di accedere con un account Microsoft personale, aziendale o dell&quot;istituto di istruzione e chiama l&quot;API Graph usando librerie di terze parti.
+description: Come compilare un'app per Android che consente agli utenti di accedere con un account Microsoft personale, aziendale o dell'istituto di istruzione e chiama l'API Graph usando librerie di terze parti.
 services: active-directory
 documentationcenter: 
-author: brandwe
+author: danieldobalian
 manager: mbaldwin
 editor: 
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: brandwe
+ms.author: dadobali
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6

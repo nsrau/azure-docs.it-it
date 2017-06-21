@@ -1,9 +1,9 @@
 ---
-title: Introduzione all&quot;app a pagina singola Azure AD v2.0 NodeJS AngularJS | Documentazione Microsoft
-description: Come creare un&quot;app a pagina singola AngularJS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell&quot;istituto di istruzione.
+title: Introduzione all'app a pagina singola Azure AD v2.0 NodeJS AngularJS | Documentazione Microsoft
+description: Come creare un'app a pagina singola AngularJS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione.
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b

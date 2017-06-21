@@ -1,9 +1,9 @@
 ---
 title: Introduzione a Xamarin per Azure AD | Microsoft Docs
-description: Compilare un&quot;applicazione Xamarin che si integra con Azure AD per l&quot;accesso e chiama le API protette da Azure AD usando OAuth.
+description: Compilare un'applicazione Xamarin che si integra con Azure AD per l'accesso e chiama le API protette da Azure AD usando OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9c40d273f102339fac8ea633c870b869d10106a7

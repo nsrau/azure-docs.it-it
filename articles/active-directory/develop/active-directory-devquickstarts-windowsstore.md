@@ -3,7 +3,7 @@ title: Introduzione a Windows Store per Azure AD | Microsoft Docs
 description: Compilare app di Windows Store che si integrano con Azure AD per la registrazione e per chiamare le API protette di Azure AD tramite il protocollo OAuth.
 services: active-directory
 documentationcenter: windows
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 3b96a6d1-270b-4ac1-b9b5-58070c896a68
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3a78fe76119d1c748b5b75c00148a3e2a6f4a2b8
