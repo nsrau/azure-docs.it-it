@@ -43,5 +43,5 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Certificati radice Point-to-Site per ogni gateway VPN |20 |20 |
 | Configurazioni IP secondarie per rete virtuale |1000 |Contattare il supporto tecnico |
 
-Se è necessario aumentare i limiti rispetto all'impostazione predefinita, [contattare il supporto tecnico](../articles/azure-supportability/how-to-create-azure-support-request.md).
+Se è necessario aumentare i limiti rispetto all'impostazione predefinita, [contattare il supporto tecnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

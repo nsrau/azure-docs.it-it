@@ -9,7 +9,7 @@
 | Dimensione massima di un BLOB in blocchi |50.000 x 100 MB (circa 4,75 TB) |
 | Dimensione massima di un blocco in un BLOB di aggiunta |4 MB |
 | Dimensione massima di un BLOB di aggiunta |50.000 x 4 MB (circa 195 GB) |
-| Dimensione massima di un BLOB di pagine |1 TB |
+| Dimensione massima di un BLOB di pagine |8 TB |
 | Dimensione massima di un'entità di tabella |1 MB |
 | Numero massimo di proprietà di un'entità di tabella |252 |
 | Dimensione massima di un messaggio in una coda |64 KB |
