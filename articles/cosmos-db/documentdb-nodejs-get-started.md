@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/23/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e8369e624f0c39bf4871aaac5da694decf4fbe18
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: fef21c512aa8a6af32cec20e2e44cf4e20ac24ae
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -264,7 +264,7 @@ Congratulazioni. La creazione di un database di Azure Cosmos DB è stata complet
 
 ## <a id="CreateColl"></a>Passaggio 6: Creare una raccolta
 > [!WARNING]
-> **CreateDocumentCollectionAsync** crea una nuova raccolta, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
+> **CreateDocumentCollectionAsync** crea una nuova raccolta, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 

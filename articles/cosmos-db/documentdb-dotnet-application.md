@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione su ASP.NET MVC per Azure Cosmos DB: sviluppo di un&quot;applicazione Web | Microsoft Docs'
-description: "Esercitazione su MVC ASP.NET per creare un&quot;applicazione Web MVC con Azure Cosmos DB. Si archivieranno documenti JSON e si accederà ai dati da un&quot;app todo ospitata in siti Web di Azure - Esercitazione dettagliata su MVC ASP.NET."
+title: 'Esercitazione su ASP.NET MVC per Azure Cosmos DB: sviluppo di un''applicazione Web | Microsoft Docs'
+description: "Esercitazione su MVC ASP.NET per creare un'applicazione Web MVC con Azure Cosmos DB. Si archivieranno documenti JSON e si accederà ai dati da un'app todo ospitata in siti Web di Azure - Esercitazione dettagliata su MVC ASP.NET."
 keywords: esercitazione su mvc asp.net, sviluppo di applicazioni web, applicazione web mvc, esercitazione dettagliata su mvc asp net
 services: cosmos-db
 documentationcenter: .net
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a685c74ff6c36a5ca8320f3c69fc4b60c0236a6b
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 6623265ea98370db74fd9e2061d1128c44e9cd0e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -567,7 +567,7 @@ Se viene restituito il messaggio "Errore durante l'elaborazione della richiesta"
 ## <a name="_Toc395637775"></a>Passaggi successivi
 Congratulazioni. È stata creata la prima applicazione Web MVC ASP.NET con Azure Cosmos DB che è stata quindi pubblicata in Siti Web di Azure. Il codice sorgente per l'applicazione completa, insieme alle funzionalità di eliminazione e relative ai dettagli non incluse in questa esercitazione, può essere scaricato o clonato da [GitHub][GitHub]. Per aggiungere queste funzionalità all'app, recuperare il codice e aggiungerlo all'app.
 
-Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [DocumentDB .NET Library](https://msdn.microsoft.com/library/azure/dn948556.aspx) (Libreria .NET per DocumentDB), in cui è anche possibile aggiungere il proprio contributo in [GitHub][GitHub]. 
+Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [DocumentDB .NET Library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) (Libreria .NET per DocumentDB), in cui è anche possibile aggiungere il proprio contributo in [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

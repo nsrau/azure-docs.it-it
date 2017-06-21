@@ -2,9 +2,11 @@
 ## [Informazioni su Operations Management Suite](operations-management-suite-overview.md)
 ## [Architettura di OMS](operations-management-suite-architecture.md)
 
-# Introduzione
-## Procedure dettagliate
-### [Elenco dei servizi](operations-management-suite-walkthrough-servicemap.md)
+# Attività iniziali
+## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Automazione](../automation/automation-offering-get-started.md)
+## [Backup](../backup/backup-introduction-to-azure-backup.md)
+## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
 
 # Procedure
@@ -35,13 +37,15 @@
 #### [Valutazione di AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Stato della replica di AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Gestione degli avvisi](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Elenco dei servizi](operations-management-suite-service-map.md)
-##### [Configura](operations-management-suite-service-map-configure.md)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Contenitori](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Analisi dell'insieme di credenziali delle chiavi](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Monitoraggio delle prestazioni di rete](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Analisi di Service Fabric](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### Elenco dei servizi
+##### [Procedura dettagliata](operations-management-suite-walkthrough-servicemap.md)
+##### [Uso](operations-management-suite-service-map.md)
+##### [Configurare](operations-management-suite-service-map-configure.md)
 #### [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
