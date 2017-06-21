@@ -22,7 +22,7 @@
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Modello](virtual-networks-create-vnet-arm-template-click.md)
 #### [Portale (versione classica)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (classic)](virtual-networks-create-vnet-classic-netcfg-ps.md) (PowerShell (classico))
+#### [PowerShell (classico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 #### [Interfaccia della riga di comando (versione classica)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Gruppi di sicurezza di rete
@@ -40,12 +40,7 @@
 #### [PowerShell (versione classica)](virtual-network-create-udr-classic-ps.md)
 #### [Interfaccia della riga di comando (versione classica)](virtual-network-create-udr-classic-cli.md)
 
-### Peering di rete virtuale
-#### [Portale](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Modello](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Indirizzi IP pubblici](virtual-network-public-ip-address.md)
+### [Peering di rete virtuale](virtual-network-create-peering.md)
 
 ### Macchine virtuali
 #### Creare una VM con un indirizzo IP pubblico statico
@@ -118,8 +113,9 @@
 #### [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md)
 ### Macchine virtuali
 #### [Spostare una macchina virtuale in una subnet diversa](virtual-networks-move-vm-role-to-subnet.md)
+### [Indirizzi IP pubblici](virtual-network-public-ip-address.md)
 
-## Risolvere problemi
+## Risoluzione dei problemi
 ### Gruppi di sicurezza di rete
 #### [Portale](virtual-network-nsg-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
@@ -130,7 +126,7 @@
 
 # Riferimento
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
-## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0) (PowerShell (classico))
+## [PowerShell (classico)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
