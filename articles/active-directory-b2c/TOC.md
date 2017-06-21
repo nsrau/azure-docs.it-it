@@ -25,6 +25,7 @@
 ### [JavaScript con Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## API Web
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Chiamare un'API Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 

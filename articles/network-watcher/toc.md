@@ -34,6 +34,7 @@
 ### [Interfaccia della riga di comando 2.0](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Risolvere i problemi relativi a gateway e connessioni VPN
+### [Portale](network-watcher-troubleshoot-manage-portal.md)
 ### [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [Interfaccia della riga di comando 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [Interfaccia della riga di comando 2.0](network-watcher-troubleshoot-manage-cli.md)

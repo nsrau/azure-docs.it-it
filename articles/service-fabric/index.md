@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: b519761229e1d19e31ff40a87720aa496586114b
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 8300bb8883917519d27c5c31c17b0ba3eaf973af
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 #<a name="service-fabric-documentation"></a>Documentazione di Service Fabric
@@ -141,8 +141,9 @@ Informazioni su come usare Service Fabric per creare pacchetti di microservizi s
                 <div class="card">
                     <div class="cardText">
                         <h3>Lingue</h3>
-                        <p><a href="/java/api">API Java</a></p>
-                        <p><a href="/dotnet/api">.NET</a></p>
+                        <p><a href="/cli/azure/sf">Interfaccia della riga di comando di Azure</a></p>
+                        <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p>
+                        <p><a href="/dotnet/api/overview/azure/servicefabric?view=azure-dotnet">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -160,7 +161,7 @@ Informazioni su come usare Service Fabric per creare pacchetti di microservizi s
             </div>
         </div>
     </li>
-</ul>    
+</ul>   
 
 
 
