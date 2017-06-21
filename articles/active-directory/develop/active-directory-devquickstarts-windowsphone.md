@@ -1,9 +1,9 @@
 ---
 title: Introduzione a Windows Phone per Azure AD | Microsoft Docs
-description: Come compilare un&quot;applicazione di Windows Phone che si integra con Azure AD per l&quot;accesso e chiama le API protette di Azure AD usando OAuth.
+description: Come compilare un'applicazione di Windows Phone che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
 documentationcenter: windows
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
