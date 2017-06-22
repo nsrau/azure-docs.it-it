@@ -1,5 +1,5 @@
 ---
-title: Assegnare un utente o un gruppo a un&quot;app aziendale nell&quot;anteprima di Azure Active Directory | Documentazione Microsoft
+title: Assegnare un utente o un gruppo a un&quot;app aziendale in Azure Active Directory | Microsoft Docs
 description: Come selezionare un&quot;app aziendale a cui assegnare un utente o gruppo in anteprima di Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18330aa5e0fe8e3bbad6c266f823a4969b9b8b6c
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: ee784704ada9238b5cd048f99aaa4cb192ec7d57
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory-preview"></a>Assegnare un utente o un gruppo a un'app aziendale in anteprima di Azure Active Directory
-È facile assegnare un utente o un gruppo alle applicazioni aziendali in anteprima di Azure Active Directory (Azure AD). [Cosa c'è nell'anteprima?](active-directory-preview-explainer.md)  È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale. Nell'anteprima corrente è necessario essere amministratore globale della directory.
+# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory
+Assegnare un utente o un gruppo alle applicazioni aziendali in Azure Active Directory (Azure AD) è un'operazione facile. È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale ed essere amministratore globale della directory.
 
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app"></a>Come si assegna l'accesso utente a un'app aziendale?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.

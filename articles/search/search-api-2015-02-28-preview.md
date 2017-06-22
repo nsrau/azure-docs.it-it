@@ -12,11 +12,13 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 524d3300e621d8e383833198c14c2e2e8461683b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ea3fc801074bb6d7e7c32574bc94702c79a61185
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -1119,7 +1121,7 @@ Il corpo della risposta è nel formato seguente:
 ## <a name="document-operations"></a>Operazioni sui documenti
 In Ricerca di Azure un indice viene archiviato nel cloud e popolato usando i documenti JSON che vengono caricati nel servizio. Tutti i documenti caricati costituiscono l'insieme dei dati di ricerca. I documenti includono campi, alcuni dei quali sono stati suddivisi in token corrispondenti a termini di ricerca durante il caricamento. Il segmento `/docs` dell'URL nell'API di Ricerca di Azure rappresenta la raccolta di documenti in un indice. Tutte le operazioni sulla raccolta, ad esempio caricamento, unione, eliminazione o query nei documenti, vengono eseguite nel contesto di un singolo indice e quindi gli URL per queste operazioni inizieranno sempre con `/indexes/[index name]/docs` per un nome di indice specifico.
 
-Il codice dell'applicazione deve generare documenti JSON da caricare in Ricerca di Azure oppure è possibile usare un [indicizzatore](https://msdn.microsoft.com/library/dn946891.aspx) per caricare documenti se l'origine dati è il database SQL di Azure o DocumentDB. In genere, gli indici vengono popolati da un singolo set di dati specificato dall'utente.
+Il codice dell'applicazione deve generare documenti JSON da caricare in Ricerca di Azure oppure è possibile usare un [indicizzatore](https://msdn.microsoft.com/library/dn946891.aspx) per caricare documenti se l'origine dati è il database SQL di Azure o Azure Cosmos DB. In genere, gli indici vengono popolati da un singolo set di dati specificato dall'utente.
 
 È consigliabile avere a disposizione un documento per ogni elemento da cercare. Un'applicazione per il noleggio di film può avere un documento per ogni film, un'applicazione di tipo vetrina può avere un documento per ogni SKU, un'applicazione per corsi online può avere un documento per ogni corso oppure una società di ricerche può avere un documento per ogni articolo accademico disponibile nel proprio archivio e così via.
 
@@ -1968,9 +1970,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "top": 5,
       "suggesterName": "sg"
     }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

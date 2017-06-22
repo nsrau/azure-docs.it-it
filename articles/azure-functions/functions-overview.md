@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 045ec40811468eeffb25ed28ec5bfc84f074c19d
-ms.lasthandoff: 03/01/2017
+ms.custom: H1Hack27Feb2017, mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7fcf35b99cc410655f2a3b9b6961f5e3bef3aeb5
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -60,7 +61,7 @@ Funzioni di Azure supporta i *trigger*, che permettono di avviare l'esecuzione d
 ## <a name="integrations"></a>Integrazioni
 Funzioni di Azure si integra con un'ampia gamma di servizi di Azure e di terze parti. Questi servizi consentono di attivare la funzione e avviare l'esecuzione o possono essere usati come input e output per il codice. Funzioni di Azure supporta le integrazioni di servizi seguenti. 
 
-* Azure DocumentDB
+* Azure Cosmos DB
 * Hub eventi di Azure 
 * App per dispositivi mobili di Azure (tabelle)
 * Hub di notifica di Azure

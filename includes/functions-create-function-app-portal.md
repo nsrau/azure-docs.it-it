@@ -1,14 +1,15 @@
-
 1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 
-2. Fare clic su **Calcolo** > **App per le funzioni**, selezionare la **sottoscrizione**, immettere un **nome** univoco per identificare l'app per le funzioni e quindi specificare le impostazioni seguenti:
-   
-   * **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md)**: selezionare **Crea nuovo** e immettere un nome per il nuovo gruppo di risorse. 
-   * **[Piano di hosting](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** può essere uno dei piani seguenti: 
-     * **Piano a consumo**: tipo di piano predefinito per Funzioni di Azure. Quando si sceglie un piano a consumo, occorre anche scegliere la **località**.  
-     * **Piano di Servizio app**: se si sceglie un piano di servizio app è necessario creare un **piano di servizio app/località** o selezionarne uno esistente. Queste impostazioni determinano [località, funzionalità, costi e risorse di calcolo](https://azure.microsoft.com/pricing/details/app-service/) associati all'app.  
-   * **Account di archiviazione**: ogni app per le funzioni richiede un account di archiviazione. È possibile [creare un account di archiviazione](../articles/storage/storage-create-storage-account.md#create-a-storage-account) oppure sceglierne uno esistente. 
-     
+1. Fare clic su **Calcolo** > **App per le funzioni** e selezionare **Sottoscrizione**. Usare quindi le impostazioni dell'app per le funzioni come indicato nella tabella.
+
     ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-3. Fare clic su **Crea** per effettuare il provisioning della nuova app per le funzioni e distribuirla.  
+    | Impostazione      | Valore consigliato  | Descrizione                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Nome app** | Nome globalmente univoco | Nome che identifica la nuova app per le funzioni. | 
+    | **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. | 
+    | **[Piano di hosting](../articles/azure-functions/functions-scale.md)** |   Piano a consumo | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. Nel **piano a consumo** predefinito le risorse vengono aggiunte dinamicamente in base alle esigenze delle funzioni. Si paga solo per il periodo in cui le funzioni sono in esecuzione.   |
+    | **Posizione** | Europa occidentale | Scegliere una località nelle vicinanze o vicino ad altri servizi a cui accederanno le funzioni. |
+    | **[Account di archiviazione](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** |  Nome globalmente univoco |  Nome del nuovo account di archiviazione usato dall'app per le funzioni. È possibile anche usare un account esistente. |
+
+1. Fare clic su **Crea** per effettuare il provisioning della nuova app per le funzioni e distribuirla.

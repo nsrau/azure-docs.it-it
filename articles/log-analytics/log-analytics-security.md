@@ -3,7 +3,7 @@ title: Sicurezza dei dati di Log Analytics | Documentazione Microsoft
 description: Informazioni su come Log Analytics garantisce la privacy degli utenti e ne protegge i dati.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: d0f4323c22858300d95af7407cdb14995507ee60
-ms.openlocfilehash: 952697dff7dca2779a6eb5375afa41c0b130aad4
-ms.lasthandoff: 11/23/2016
+ms.date: 05/03/2017
+ms.author: magoedte
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: fa33a031a9e05f3079f1ed68d2ac0902b3070fa6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
 Microsoft si impegna a proteggere la privacy e i dati degli utenti, mettendo a disposizione software e servizi che aiutino a gestire l'infrastruttura IT dell'organizzazione. Microsoft è a conoscenza della necessità di applicare rigorose misure di sicurezza quando si affidano i dati a terzi. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
 
- La sicurezza e la protezione dei dati sono altamente prioritarie per Microsoft. Contattare Microsoft per qualsiasi domanda, suggerimento o problema riguardo a qualsiasi aspetto delle informazioni riportate in questo articolo, compresi i criteri di sicurezza. A questo scopo, visitare la pagina relativa alle [opzioni di supporto di Azure](http://azure.microsoft.com/support/options/).
+La sicurezza e la protezione dei dati sono altamente prioritarie per Microsoft. Contattare Microsoft per qualsiasi domanda, suggerimento o problema riguardo a qualsiasi aspetto delle informazioni riportate in questo articolo, compresi i criteri di sicurezza. A questo scopo, visitare la pagina relativa alle [opzioni di supporto di Azure](http://azure.microsoft.com/support/options/).
 
 Questo articolo illustra il modo in cui i dati vengono raccolti, elaborati e protetti da Log Analytics in Operations Management Suite (OMS). È possibile usare gli agenti per connettersi al servizio Web, usare System Center Operations Manager per raccogliere dati operativi o recuperare dati da Diagnostica di Azure per usarli in Log Analytics. I dati raccolti vengono inviati tramite Internet al servizio Log Analytics, che è ospitato in Microsoft Azure, usando l'autenticazione basata sul certificato e SSL 3. I dati vengono compressi dall'agente prima che di essere inviati.
 
@@ -109,7 +110,9 @@ Il team dedicato allo sviluppo software e al servizio OMS è impegnato attivamen
 ## <a name="certifications-and-attestations"></a>Certificazioni e attestazioni
 OMS Log Analytics soddisfa i requisiti seguenti:
 
-* Conformità con [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm) e [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
+* [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO 22301](https://azure.microsoft.com/en-us/blog/iso22301/)
 * Conformità al [Payment Card Industry Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) del PCI Security Standard Council
 * [Service Organization Controls (SOC) 1 di tipo 1 e SOC 2 di tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2)
 * [HIPAA e HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) per le società che hanno un contratto di società in affari HIPAA

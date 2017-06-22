@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 4ef0118435020edc3a922c88a5a55400992cbc09
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 366c2c43ec50b0b6c47a25ea9b0e9d7109827429
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -66,7 +67,7 @@ L' [account](#active-directory-account) creato per la lettura e la scrittura in 
 | Reimpostazione delle password |Preparazione per l'abilitazione del writeback delle password |
 
 ## <a name="custom-settings-installation"></a>Installazione mediante le impostazioni personalizzate
-Quando si usano le impostazioni personalizzate, l'account usato per connettersi ad Active Directory deve essere creato prima dell'installazione. Per le autorizzazioni da concedere a questo account, vedere [Creare l'account di Servizi di dominio Active Directory](#create-the-ad-ds-account).
+In precedenza, quando si usavano le impostazioni personalizzate, l'account usato per connettersi ad Active Directory doveva essere creato prima dell'installazione. Per le autorizzazioni da concedere a questo account, vedere [Creare l'account di Servizi di dominio Active Directory](#create-the-ad-ds-account). Con Azure AD Connect versione 1.1.524.0 e successive, è possibile fare in modo che sia la procedura guidata di Azure AD Connect a creare l'account.
 
 | Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie | Utilizzo |
 | --- | --- | --- | --- |
@@ -86,9 +87,11 @@ Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate
 
 | Funzionalità | Autorizzazioni |
 | --- | --- |
+| Funzionalità msDS-ConsistencyGuid |Autorizzazioni di scrittura per l'attributo msDS-ConsistencyGuid documentato in [Concetti di progettazione - Uso di msDS-ConsistencyGuid come sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
 | Sincronizzazione delle password |<li>Replica modifiche directory</li>  <li>Replica modifiche directory - Tutto |
 | Distribuzione ibrida di Exchange |Autorizzazioni di scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
-| Writeback delle password |Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) per gli utenti. |
+| Cartelle pubbliche della posta di Exchange |Autorizzazioni di lettura per gli attributi documentati in [Cartelle pubbliche della posta di Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) per le cartelle pubbliche. | 
+| Writeback delle password |Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../active-directory-passwords.md) per gli utenti. |
 | Writeback dispositivi |Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md). |
 | Writeback dei gruppi |Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo nell'unità organizzativa in cui devono trovarsi i gruppi di distribuzione. |
 
@@ -179,11 +182,13 @@ In Azure AD viene creato un account per l'uso con il servizio di sincronizzazion
 
 ![Account AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
-Il nome del server in cui viene usato l'account può essere identificato nella seconda parte del nome utente. Nell'immagine, il nome del server è FABRIKAMCON. Se si dispone di server di gestione temporanea, ogni server avrà il proprio account. In Azure AD esiste un limite di 10 account del servizio di sincronizzazione.
+Il nome del server in cui viene usato l'account può essere identificato nella seconda parte del nome utente. Nell'immagine, il nome del server è FABRIKAMCON. Se si dispone di server di gestione temporanea, ogni server avrà il proprio account.
 
 L'account del servizio viene creato con una password lunga e complessa priva di scadenza. Viene concesso un ruolo speciale per gli **account di sincronizzazione della directory** che dispone solo delle autorizzazioni per eseguire attività di sincronizzazione della directory. Questo specifico ruolo integrato non può essere concesso all'esterno della procedura di Azure AD Connect e il portale di Azure mostra questo account con il ruolo **utente**.
 
-![Ruolo dell'account AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
+In Azure AD esiste un limite di 20 account del servizio di sincronizzazione. Per ottenere l'elenco degli account del servizio Azure AD esistenti in Azure AD, eseguire il cmdlet di PowerShell per Azure AD seguente:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+
+Per rimuovere gli account del servizio Azure AD inutilizzati, eseguire il cmdlet di PowerShell per Azure AD seguente:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md).

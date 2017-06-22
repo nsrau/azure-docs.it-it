@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f5e6d100effee99b1a1576c0e21f1a311f8131b
-ms.lasthandoff: 12/08/2016
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 17289f6401b36ff6e6a201564aa387f42c712699
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud
@@ -51,7 +52,7 @@ Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di
 | Supporto integrato di MySQL distribuito come servizio |X |X |X | |Servizi cloud può integrare MySQL distribuito come servizio tramite le offerte di ClearDB, ma non come parte del flusso di lavoro del portale di Azure. |
 | Supporto per ASP.NET, ASP classico, Node.js, PHP, Python |X |X |X |X |Service Fabric supporta la creazione di un front-end Web con [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) oppure consente di distribuire qualsiasi tipo di applicazione (Node.js, Java e così via) come [eseguibile guest](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Scalabilità orizzontale a più istanze senza ridistribuzione |X |X |X |X |Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware. |
-| Supporto per SSL |X |X |X |X |Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](web-sites-configure-ssl-certificate.md). |
+| Supporto per SSL |X |X |X |X |Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](app-service-web-tutorial-custom-ssl.md). |
 | Integrazione di Visual Studio |X |X |X |X | |
 | Debug remoto |X |X |X | | |
 | Distribuzione codice con TFS |X |X |X |X | |

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/7/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 157f8db0f0f7ac751b03b39e504bf0a5ec25effc
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: e308b75581ca5372a4de168895f2eeb140a69a78
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -185,6 +186,6 @@ Al termine, la VM appena creata dovrebbe essere visualizzata nel [portale di Azu
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Creare e gestire VM di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

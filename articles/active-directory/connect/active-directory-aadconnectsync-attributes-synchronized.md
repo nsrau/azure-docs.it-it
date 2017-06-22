@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: markvi;andkjell
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 9238141fc56abcb618d71e4bfd1eccb77f282c71
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 08df9939eb31c224d62d96a0d034d1cda10ba270
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -102,6 +103,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | msExchAuditOwner |X | | | |
 | msExchBlockedSendersHash |X |X | | |
 | msExchBypassAudit |X | | | |
+| msExchBypassModerationLink | | |X |Disponibile in Azure AD Connect versione 1.1.524.0 |
 | msExchCoManagedByLink | | |X | |
 | msExchDelegateListLink |X | | | |
 | msExchELCExpirySuspensionEnd |X | | | |
@@ -431,6 +433,18 @@ Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi a
 | msExchUserHoldPolicies |X | | |Blocco per controversia legale: consente ai servizi cloud di determinare gli utenti per i quali è attivato un blocco per controversia legale. |
 | proxyAddresses |X |X |X |Viene inserito solo l'indirizzo x500 da Exchange Online. |
 
+## <a name="exchange-mail-public-folder"></a>Cartelle pubbliche della posta di Exchange
+Questi attributi vengono sincronizzati da Active Directory locale ad Azure AD quando si sceglie di abilitare **Cartelle pubbliche della posta di Exchange**.
+
+| Nome attributo | Cartella pubblica | Commento |
+| --- | :---:| --- |
+| displayName | X |  |
+| mail | X |  |
+| msExchRecipientTypeDetails | X |  |
+| objectGUID | X |  |
+| proxyAddresses | X |  |
+| targetAddress | X |  |
+
 ## <a name="device-writeback"></a>Writeback dispositivi
 Gli oggetti dispositivo vengono creati in Active Directory. Questi oggetti possono essere dispositivi aggiunti ad Azure AD o computer Windows 10 aggiunti al dominio.
 
@@ -456,7 +470,7 @@ Gli oggetti dispositivo vengono creati in Active Directory. Questi oggetti posso
 * Negli elenchi sopra il tipo di oggetto **Utente** si applica anche al tipo di oggetto **iNetOrgPerson**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 

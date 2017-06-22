@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/22/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 53092b0cfcf2bf9a09b36f6425724669f770e7fb
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 7db9f78641d1604b3804f9a3d1cac484b58b334d
 ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/12/2017
 In questo documento sono illustrati i concetti di gestione e monitoraggio delle topologie Storm in esecuzione su Storm in cluster HDInsight.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo articolo richiedono una versione di Storm basata su Linux nel cluster HDInsight. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+> I passaggi descritti in questo articolo richiedono una versione di Storm basata su Linux nel cluster HDInsight. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
 >
 > Per informazioni sulla distribuzione e sul monitoraggio di topologie in HDInsight basato su Windows, vedere [Distribuire e gestire le topologie di Apache Storm in HDInsight basato su Windows](hdinsight-storm-deploy-monitor-topology.md)
 
@@ -155,7 +155,7 @@ La disattivazione di una topologia comporta la sua sospensione finché non viene
 
 Una volta avviate, le topologie Storm continueranno a rimanere in esecuzione finché non vengono arrestate. Per arrestare una topologia, usare il comando seguente:
 
-    storm stop TOPOLOGYNAME
+    storm kill TOPOLOGYNAME
 
 ### <a name="rebalance"></a>Ribilanciare
 

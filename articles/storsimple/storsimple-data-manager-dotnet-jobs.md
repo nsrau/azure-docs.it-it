@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
-ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
-ms.lasthandoff: 12/23/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 270f890b5ec58ffd009ff913a6df9d941889a6dc
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 ---
 
@@ -30,12 +31,12 @@ Questo articolo illustra come usare la funzione di trasformazione dei dati all'i
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di disporre di:
-*   Un sistema con Visual Studio 2012, 2013 o 2015 installato.
-*   Azure Powershell installato. [Scaricare Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*   Impostazioni di configurazione per l'inizializzazione del processo di trasformazione dei dati (le istruzioni per ottenere queste impostazioni sono incluse qui).
-*   Una definizione di processo configurata correttamente in una risorsa dati ibridi all'interno di un gruppo di risorse.
-*   Tutte le DLL necessarie. Scaricare le DLL dal [repository GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*   [Script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) `Get-ConfigurationParams.ps1` dal repository GitHub.
+*    Un sistema con Visual Studio 2012, 2013 o 2015 installato.
+*    Azure Powershell installato. [Scaricare Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*    Impostazioni di configurazione per l'inizializzazione del processo di trasformazione dei dati (le istruzioni per ottenere queste impostazioni sono incluse qui).
+*    Una definizione di processo configurata correttamente in una risorsa dati ibridi all'interno di un gruppo di risorse.
+*    Tutte le DLL necessarie. Scaricare le DLL dal [repository GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*    [Script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) `Get-ConfigurationParams.ps1` dal repository GitHub.
 
 ## <a name="step-by-step"></a>Procedura dettagliata
 
@@ -51,7 +52,11 @@ Eseguire la procedura seguente per usare .NET allo scopo di avviare un processo 
         È possibile trasmettere qualsiasi valore per ActiveDirectoryKey e AppName.
 
 
-2. Questo script restituisce i valori seguenti:      - ID client      - ID tenant      - Chiave di Active Directory (simile a quella immessa in precedenza)      - ID sottoscrizione
+2. Questo script restituisce i valori seguenti:
+    * ID Client
+    * ID tenant
+    * Chiave di Active Directory (uguale a quella immessa in precedenza)
+    * ID sottoscrizione
 
 3. Usando Visual Studio 2012, 2013 o 2015, creare un'applicazione console .NET in C#.
 
@@ -63,7 +68,7 @@ Eseguire la procedura seguente per usare .NET allo scopo di avviare un processo 
     5. Selezionare **C:\DataTransformation** per il **Percorso**.
     6. Fare clic su **OK** per creare il progetto.
 
-4.  Aggiungere quindi tutte le DLL presenti nella cartella [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) come **Riferimenti** nel progetto creato. Per scaricare i file DLL, eseguire le operazioni seguenti:
+4.    Aggiungere quindi tutte le DLL presenti nella cartella [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) come **Riferimenti** nel progetto creato. Per scaricare i file DLL, eseguire le operazioni seguenti:
 
     1. In Visual Studio passare a **Visualizza > Esplora soluzioni**.
     1. Fare clic sulla freccia a sinistra del progetto Data Transformation App. Fare clic su **Riferimenti** e quindi fare clic con il pulsante destro del mouse su **Aggiungi riferimento**.

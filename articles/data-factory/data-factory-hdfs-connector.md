@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/20/2017
 ms.author: jingwang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: dc501a1c7c0d6a1d70ce368f86a967f889394dc7
+ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
 
 
@@ -356,7 +357,7 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 
 **Nel computer del gateway:**
 
-1.    Eseguire l'utilità **Ksetup** per configurare il server e l'area didi autenticazione di Kerberos KDC.
+1.  Eseguire l'utilità **Ksetup** per configurare il server e l'area didi autenticazione di Kerberos KDC.
 
     Il computer deve essere configurato come membro di un gruppo di lavoro poiché un'area di autenticazione di Kerberos è diversa da un dominio di Windows. È possibile farlo configurando l'area di autenticazione di Kerberos e aggiungendo un server KDC come indicato di seguito. Sostituire *REALM.COM* con la propria area di autenticazione.
 
@@ -365,7 +366,7 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 
     **Riavviare** il computer dopo aver eseguito questi 2 comandi.
 
-2.    Verificare la configurazione con il comando **Ksetup**. L'output dovrebbe essere simile al seguente:
+2.  Verificare la configurazione con il comando **Ksetup**. L'output dovrebbe essere simile al seguente:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -379,8 +380,8 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 ### <a name="kerberos-mutual-trust"></a>Opzione 2: Abilitare il trust reciproco tra il dominio di Windows e l'area di autenticazione di Kerberos
 
 #### <a name="requirement"></a>Requisito:
-*    Il computer del gateway deve essere aggiunto a un dominio di Windows.
-*    È necessaria l'autorizzazione per aggiornare le impostazioni del controller di dominio.
+*   Il computer del gateway deve essere aggiunto a un dominio di Windows.
+*   È necessaria l'autorizzazione per aggiornare le impostazioni del controller di dominio.
 
 #### <a name="how-to-configure"></a>Come configurare:
 
@@ -389,7 +390,7 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 
 **Nel server KDC:**
 
-1.    Modificare la configurazione KDC nel file **krb5.conf** per far considerare attendibile a KDC il dominio di Windows che fa riferimento al modello di configurazione di seguito. Per impostazione predefinita, la configurazione si trova in **/etc/krb5.conf**.
+1.  Modificare la configurazione KDC nel file **krb5.conf** per far considerare attendibile a KDC il dominio di Windows che fa riferimento al modello di configurazione di seguito. Per impostazione predefinita, la configurazione si trova in **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -425,26 +426,26 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
               REALM.COM = .
              }
 
-        **Riavviare** il servizio KDC dopo la configurazione.
+  **Riavviare** il servizio KDC dopo la configurazione.
 
-2.    Preparare un'entità denominata **krbtgt/REALM.COM@AD.COM** nel server KDC con il comando seguente:
+2.  Preparare un'entità denominata **krbtgt/REALM.COM@AD.COM** nel server KDC con il comando seguente:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.    Nel file di configurazione del servizio HDFS **hadoop.security.auth_to_local** aggiungere `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.  Nel file di configurazione del servizio HDFS **hadoop.security.auth_to_local** aggiungere `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **Nel controller di dominio:**
 
-1.    Eseguire i comandi **Ksetup** seguenti per aggiungere una voce di area di autenticazione:
+1.  Eseguire i comandi **Ksetup** seguenti per aggiungere una voce di area di autenticazione:
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.    Stabilire una relazione di trust dal dominio di Windows all'area di autenticazione di Kerberos. [password] è la password per l'entità **krbtgt/REALM.COM@AD.COM**.
+2.  Stabilire una relazione di trust dal dominio di Windows all'area di autenticazione di Kerberos. [password] è la password per l'entità **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.    Selezionare l'algoritmo di crittografia usato in Kerberos.
+3.  Selezionare l'algoritmo di crittografia usato in Kerberos.
 
     1. Passare a Server Manager > Gestione Criteri di gruppo > Dominio > Oggetti Criteri di gruppo > Criteri dominio attivi o predefiniti e selezionare Modifica.
 
@@ -458,7 +459,7 @@ Sono disponibili due opzioni per configurare l'ambiente locale in modo da poter 
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.    Creare il mapping tra l'account di dominio e l'entità Kerberos per poter usare quest'ultima nel dominio di Windows.
+4.  Creare il mapping tra l'account di dominio e l'entità Kerberos per poter usare quest'ultima nel dominio di Windows.
 
     1. Avviare Strumenti di amministrazione > **Utenti e computer di Active Directory**.
 

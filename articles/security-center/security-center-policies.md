@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -66,7 +67,7 @@ Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti d
    >
 9. Nel pannello **Criteri di sicurezza** fare clic su **Sì** per abilitare le raccomandazioni sulla sicurezza da usare per la sottoscrizione. Fare clic su **Criteri di prevenzione** per visualizzare opzioni simili a quelle illustrate nello screenshot seguente:
 
-    ![Selezione dei criteri di sicurezza](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Selezione dei criteri di sicurezza](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 Usare la tabella seguente come riferimento per comprendere ogni opzione:
 
@@ -82,6 +83,7 @@ Usare la tabella seguente come riferimento per comprendere ogni opzione:
 | Servizio di controllo SQL e rilevamento delle minacce |Consiglia l'abilitazione del controllo dell'accesso al database di Azure per la conformità e il rilevamento avanzato delle minacce, per scopi di analisi. |
 | SQL Transparent Data Encryption |Consiglia l'abilitazione della crittografia dati inattivi per il database SQL di Azure, i backup associati e file di log delle transazioni. Anche se i dati vengono violati, non saranno leggibili. |
 | Valutazione della vulnerabilità |Consiglia di installare una soluzione di valutazione della vulnerabilità nella VM. |
+| Crittografia di archiviazione |Questa funzionalità è attualmente disponibile per BLOB di Azure e File di Azure. Si noti che dopo l'abilitazione della Crittografia del servizio di archiviazione verranno crittografati solo i nuovi dati, mentre i file già esistenti nell'account di archiviazione rimarranno non crittografati. |
 
 Dopo avere configurato tutte le opzioni, fare clic su **OK** nel pannello **Criteri di sicurezza** contenente le raccomandazioni e quindi su **Salva** nel pannello **Criteri di sicurezza** contenente le impostazioni iniziali.
 

@@ -13,21 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 188c4758843a49ca38a151835d561c5f2d58d3a0
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 5b6c65ec8431c3a55e7cbccec3db5d08974982b5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Personalizzare una macchina virtuale al primo avvio
-Per creare macchine virtuali (VM) in modo rapido e coerente, di norma è consigliabile una qualche forma di automazione. Un approccio comune per personalizzare una macchina virtuale al primo avvio consiste nell'usare [cloud-init](https://cloudinit.readthedocs.io). Questa esercitazione illustra come usare cloud-init per installare un pacchetto, configurare il server Web NGINX e distribuire un'applicazione Node.js automaticamente.
+In un'esercitazione precedente si è appreso come eseguire una connessione SSH a una macchina virtuale (VM) e come installare manualmente NGINX. Per creare macchine virtuali in modo rapido e coerente, di norma è consigliabile una qualche forma di automazione. Un approccio comune per personalizzare una macchina virtuale al primo avvio consiste nell'usare [cloud-init](https://cloudinit.readthedocs.io). In questa esercitazione si apprenderà come:
 
-I passaggi descritti in questa esercitazione possono essere eseguiti usando la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Creare un file di configurazione cloud-init
+> * Creare una macchina virtuale che usa un file cloud-init
+> * Visualizzare un'esecuzione dell'app Node.js dopo aver creato la macchina virtuale
+> * Usare Key Vault per archiviare in modo sicuro i certificati
+> * Automatizzare le distribuzioni sicure di NGINX con cloud-init
 
+Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). È anche possibile usare [Cloud Shell](/azure/cloud-shell/quickstart) dal browser.
 
 ## <a name="cloud-init-overview"></a>Panoramica di cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io) è un approccio diffuso per personalizzare una macchina virtuale Linux al primo avvio. Cloud-init consente di installare pacchetti e scrivere file o configurare utenti e impostazioni di sicurezza. Quando cloud-init viene eseguito durante il processo di avvio iniziale non vi sono altri passaggi o agenti necessari per applicare la configurazione.
@@ -92,10 +98,10 @@ runcmd:
 Per altre informazioni sulle opzioni di configurazione di cloud-init, vedere gli [esempi di configurazione di cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
-Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupAutomate* nella posizione *westus*:
+Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupAutomate* nella posizione *eastus*:
 
 ```azurecli
-az group create --name myResourceGroupAutomate --location westus
+az group create --name myResourceGroupAutomate --location eastus
 ```
 
 Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#create). Usare il parametro `--custom-data` per specificare il file di configurazione di cloud-init. Se il file è stato salvato all'esterno della directory di lavoro corrente, specificare il percorso completo della configurazione *cloud-init.txt* . L'esempio seguente crea una macchina virtuale denominata *myAutomatedVM*:
@@ -260,7 +266,17 @@ Il sito protetto NGINX e la app Node.js sono visualizzati come illustrato nell'e
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come personalizzare una macchina virtuale al primo avvio. Passare all'esercitazione successiva per imparare a creare immagini di macchine virtuali personalizzate.
+In questa esercitazione vengono configurate macchine virtuali al primo avvio con cloud-init. Si è appreso come:
 
-[Creare un'immagine di VM personalizzata](./tutorial-custom-images.md)
+> [!div class="checklist"]
+> * Creare un file di configurazione cloud-init
+> * Creare una macchina virtuale che usa un file cloud-init
+> * Visualizzare un'esecuzione dell'app Node.js dopo aver creato la macchina virtuale
+> * Usare Key Vault per archiviare in modo sicuro i certificati
+> * Automatizzare le distribuzioni sicure di NGINX con cloud-init
+
+Passare all'esercitazione successiva per imparare a creare immagini di macchine virtuali personalizzate.
+
+> [!div class="nextstepaction"]
+> [Creare un'immagine di VM personalizzata](./tutorial-custom-images.md)
 

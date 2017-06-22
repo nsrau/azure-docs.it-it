@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 42f77fbea2ac9572940e8c428999c79d6b4b6e23
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -39,7 +40,7 @@ Al giorno d'oggi, vi sono quantità enormi di dati trasferite ad alta velocità 
 * **Costo ridotto:** essendo un servizio cloud, Analisi di flusso è ottimizzato per consentire agli utenti di creare e gestire soluzioni di analisi in tempo reale a costi estremamente contenuti. Il servizio viene impostato in modo che l'utente possa pagare in base all'utilizzo dell'unità di streaming e alla quantità di dati elaborati dal sistema. L'utilizzo viene dedotto in base al volume di eventi elaborati e alla quantità di potenza di calcolo fornita all'interno del cluster per gestire i rispettivi processi di Analisi di flusso.  
 * **Dati di riferimento:** Analisi di flusso fornisce agli utenti la possibilità di specificare e usare dati di riferimento. Può trattarsi di dati cronologici o semplicemente di dati non di streaming che cambiano meno frequentemente nel tempo. Il sistema semplifica l'uso dei dati di riferimento in modo che vengano trattati come qualsiasi altro flusso di eventi in ingresso da unire ad altri flussi di eventi acquisiti in tempo reale per eseguire le trasformazioni.  
 * **Funzioni definite dall'utente:** Analisi di flusso include funzionalità di integrazione con Azure Machine Learning per definire chiamate di funzione nel servizio Machine Learning come parte di una query di Analisi di flusso. Ciò consente di espandere le funzionalità di Analisi di flusso per sfruttare le soluzioni di Azure Machine Learning esistenti. Per alte informazioni, vedere l' [esercitazione sull'integrazione di Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* **Connettività:** Analisi di flusso si connette direttamente a Hub eventi di Azure e Azure IoT Hub per l'inserimento dei flussi, nonché al servizio BLOB di Azure per inserire dati cronologici. Analisi di flusso può quindi scrivere i risultati in BLOB del servizio di archiviazione di Azure o tabelle di archiviazione di Azure, database SQL di Azure, Azure Data Lake Store, DocumentDB, Hub eventi, argomenti del bus di servizio o code di Azure e in Power BI, dove potranno essere visualizzati, ulteriormente elaborati dai flussi di lavoro, usati nell'analisi batch tramite [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) oppure rielaborati come serie di eventi. Quando si usano gli Hub eventi è possibile comporre più Analisi di flusso con altre origini dati e motori di elaborazione senza perdere la natura di streaming dei calcoli.  
+* **Connettività:** Analisi di flusso si connette direttamente a Hub eventi di Azure e Azure IoT Hub per l'inserimento dei flussi, nonché al servizio BLOB di Azure per inserire dati cronologici. L'analisi di flusso può quindi scrivere i risultati in BLOB o tabelle del servizio di archiviazione di Azure, database SQL di Azure, Azure Data Lake Store, Azure Cosmos DB, Hub eventi, argomenti o code del bus di servizio di Azure e in Power BI, dove potranno essere visualizzati, ulteriormente elaborati dai flussi di lavoro, usati nell'analisi batch tramite [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) oppure rielaborati come serie di eventi. Quando si usano gli Hub eventi è possibile comporre più Analisi di flusso con altre origini dati e motori di elaborazione senza perdere la natura di streaming dei calcoli.  
 
 ## <a name="get-help"></a>Ottenere aiuto
 Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

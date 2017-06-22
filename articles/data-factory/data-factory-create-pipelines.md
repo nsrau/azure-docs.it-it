@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 6926b0a594b29cb3b3fff7a76a258d11bd82ded8
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b11a729d935936c3abf34649c34a27b2ce7a7c45
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -117,7 +117,7 @@ Nella sezione delle **attività** possono essere definite una o più attività. 
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }
@@ -281,7 +281,7 @@ In questo esempio, la pipeline ha due attività: Activity1 e Activity2. Activity
 
 In questo esempio, Pipeline1 ha una sola attività che accetta come input Dataset1 e genera come output Dataset2. Pipeline2 ha una sola attività che accetta come input Dataset2 e genera come output Dataset3. 
 
-Per altre informazioni, vedere [Pianificazione ed esecuzione](#chaining-activities). 
+Per altre informazioni, vedere [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## <a name="create-and-monitor-pipelines"></a>Creare e monitorare le pipeline
 È possibile creare pipeline usando uno di questi strumenti o SDK. 

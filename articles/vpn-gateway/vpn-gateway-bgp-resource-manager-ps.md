@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 12df0d2afeb4abef4d22f7341c9b25ce504121c0
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d1f1852d720ebf51df9ec3207b070510b08a6483
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -112,7 +113,7 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subn
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Creare il gateway VPN con il numero AS
-Creare il gateway di rete virtuale per TestVNet1. Si noti che BGP richiede un Gateway VPN basato su route e anche il parametro aggiuntivo, -Asn, per impostare ASN (numero AS) per TestVNet1. La creazione di un gateway può richiedere un po' di tempo (30 minuti o più).
+Creare il gateway di rete virtuale per TestVNet1. Si noti che BGP richiede un Gateway VPN basato su route e anche il parametro aggiuntivo, -Asn, per impostare ASN (numero AS) per TestVNet1. Se non si imposta il parametro ASN, verrà assegnato ASN 65515. La creazione di un gateway può richiedere un po' di tempo (30 minuti o più).
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN

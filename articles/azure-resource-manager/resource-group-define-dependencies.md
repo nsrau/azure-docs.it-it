@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 006d8e10acd6b4b756c0b78988176f71c3802080
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5617f6453cb5dbb1c86ec41d7b9649356a3d9c78
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -108,7 +109,7 @@ Nell'esempio seguente sono illustrati un server SQL e un database SQL. Si noti c
 ```
 
 ## <a name="reference-function"></a>funzione di riferimento
-La [funzione di riferimento](resource-group-template-functions.md#reference) consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le Espressioni di riferimento in modo implicito dichiarano che una risorsa dipende da un altro. Il formato generale è il seguente:
+La [funzione di riferimento](resource-group-template-functions-resource.md#reference) consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le Espressioni di riferimento in modo implicito dichiarano che una risorsa dipende da un altro. Il formato generale è il seguente:
 
 ```json
 reference('resourceName').propertyPath
@@ -133,7 +134,7 @@ Nell'esempio seguente, un endpoint della rete CDN dipende in modo esplicito dal 
 
 È possibile utilizzare questo elemento o l'elemento dependsOn per specificare le dipendenze, ma non è necessario utilizzare entrambi per la stessa risorsa dipendente. Quando possibile, usare un riferimento implicito per evitare di aggiungere una dipendenza non necessaria.
 
-Per altre informazioni, vedere la [funzione del riferimento](resource-group-template-functions.md#reference).
+Per altre informazioni, vedere la [funzione del riferimento](resource-group-template-functions-resource.md#reference).
 
 ## <a name="recommendations-for-setting-dependencies"></a>Raccomandazioni per l'impostazione delle dipendenze
 
@@ -148,10 +149,10 @@ Quando si decidono le dipendenze da impostare, usare le linee guida seguenti:
 
 Resource Manager identifica le dipendenze circolari durante la convalida del modello. Se viene visualizzato un errore che indica la presenza di una dipendenza circolare, valutare il modello per verificare se esistono dipendenze non necessarie che possono essere rimosse. Se la rimozione delle dipendenze non è applicabile, è possibile evitare le dipendenze circolari spostando alcune operazioni di distribuzione in risorse figlio distribuite dopo le risorse che hanno la dipendenza circolare. Si supponga, ad esempio, di distribuire due macchine virtuali e che sia necessario impostare in ognuna proprietà che fanno riferimento all'altra. È possibile eseguire la distribuzione nell'ordine seguente:
 
-1. VM&1;
-2. VM&2;
-3. L'estensione in VM&1; dipende da VM&1; e VM&2;. L'estensione imposta in VM&1; valori ottenuti da VM&2;.
-4. L'estensione in VM&2; dipende da VM&1; e VM&2;. L'estensione imposta in VM&2; valori ottenuti da VM&1;.
+1. VM 1
+2. VM 2
+3. L'estensione in VM 1 dipende da VM 1 e VM 2. L'estensione imposta in VM 1 valori ottenuti da VM 2.
+4. L'estensione in VM 2 dipende da VM 1 e VM 2. L'estensione imposta in VM 2 valori ottenuti da VM 1.
 
 Per informazioni sulla valutazione dell'ordine di distribuzione e la risoluzione degli errori relativi alle dipendenze, vedere [Controllare la sequenza di distribuzione](resource-manager-common-deployment-errors.md#check-deployment-sequence).
 

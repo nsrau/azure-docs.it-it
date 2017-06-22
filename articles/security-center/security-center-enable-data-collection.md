@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: b942f934ecb25083d779096dc628e342870edc26
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 360073c0ed75552e62e69ce72b225ba35a2a3e09
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,19 +31,17 @@ Per aiutare i clienti a impedire, rilevare e rispondere alle minacce, il Centro 
 >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
-1. Selezionare il riquadro **Raccomandazioni** del pannello **Centro sicurezza**.  Verrà visualizzato il pannello **Raccomandazioni** .
-   ![Pannello Centro sicurezza][1]
-2. Nel pannello **Raccomandazioni** selezionare **Abilita la raccolta di dati per le sottoscrizioni**.  Verrà visualizzato il pannello **Attiva la raccolta di dati** .
+1. Nel pannello **Raccomandazioni** selezionare **Abilita la raccolta di dati per le sottoscrizioni**.  Verrà visualizzato il pannello **Attiva la raccolta di dati** .
    ![Pannello Raccomandazioni][2]
-3. Nel pannello **Attiva la raccolta di dati** selezionare la sottoscrizione. Verrà visualizzato il pannello **Criteri di sicurezza** per la sottoscrizione.
-4. Nel pannello **Criteri di sicurezza** selezionare **Sì** in **Raccolta di dati** per raccogliere automaticamente i log. Attivando la raccolta dati verrà eseguito il provisioning dell'estensione di monitoraggio per tutte le VM correnti e nuove supportate nella sottoscrizione.
+2. Nel pannello **Attiva la raccolta di dati** selezionare la sottoscrizione. Verrà visualizzato il pannello **Criteri di sicurezza** per la sottoscrizione.
+3. Nel pannello **Criteri di sicurezza** selezionare **Sì** in **Raccolta di dati** per raccogliere automaticamente i log. Attivando la raccolta dati verrà eseguito il provisioning dell'estensione di monitoraggio per tutte le VM correnti e nuove supportate nella sottoscrizione.
 
    ![Pannello Criteri di sicurezza][3]
 
-5. Selezionare **Salva**.
-6. Selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, viene creato un account di archiviazione per il gruppo di risorse securitydata e inserito in esso. In questo esempio si sceglie **newstoracct**. È possibile modificare l'account di archiviazione in un secondo momento tornando ai criteri di sicurezza della sottoscrizione e scegliendo un account di archiviazione diverso.
+4. Selezionare **Salva**.
+5. Selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, viene creato un account di archiviazione per il gruppo di risorse securitydata e inserito in esso. In questo esempio si sceglie **newstoracct**. È possibile modificare l'account di archiviazione in un secondo momento tornando ai criteri di sicurezza della sottoscrizione e scegliendo un account di archiviazione diverso.
    ![Scegliere un account di archiviazione][4]
-7. Selezionare **OK**.
+6. Selezionare **OK**.
 
 > [!NOTE]
 > È consigliabile attivare la raccolta dati e scegliere prima un account di archiviazione a livello di sottoscrizione. I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dati e dell'account di archiviazione viene eseguita solo a livello di sottoscrizione.
@@ -80,7 +79,6 @@ Questo documento illustra come implementare la raccomandazione "Abilita raccolta
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/security-center-blade.png
 [2]: ./media/security-center-enable-data-collection/recommendations.png
 [3]: ./media/security-center-enable-data-collection/data-collection.png
 [4]: ./media/security-center-enable-data-collection/storage-account.png

@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 72e07c4fd686feee5045ef3b9a504d2ea41f8675
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 6a5ba89d8b17e0646cd8a6185da6d1094fd64d12
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
-I dati nell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne la durabilità e la disponibilità elevata. La replica copia i dati nello stesso data center o in uno secondario, a seconda dell'opzione di replica scelta. Consente di proteggere i dati e mantiene operativa l'applicazione in caso di errori hardware temporanei. Se i dati vengono replicati in un secondo data center, la replica li protegge anche in caso di un errore irreversibile nella posizione primaria.
+
+I dati nell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne la durabilità e la disponibilità elevata. La replica copia i dati nello stesso data center o in uno secondario, a seconda dell'opzione di replica scelta. Consente di proteggere i dati e mantiene operativa l'applicazione in caso di errori hardware temporanei. Se i dati vengono replicati in un secondo data center, la replica li protegge da un errore irreversibile nella posizione primaria.
 
 Garantisce infine che l'account di archiviazione soddisfi il [Contratto di servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori. Altre informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure sono reperibili nel Contratto di servizio.
 
@@ -33,14 +34,14 @@ Quando si crea un account di archiviazione, è possibile selezionare una delle o
 * [Archiviazione con ridondanza geografica (GRS)](#geo-redundant-storage)
 * [Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).](#read-access-geo-redundant-storage)
 
-L'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) è l'opzione predefinita quando si crea un nuovo account di archiviazione.
+L'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) è l'opzione predefinita quando si crea un account di archiviazione.
 
 Nella tabella seguente è riportata una breve panoramica delle differenze tra i vari tipi di archiviazione, mentre nelle sezioni successive verranno forniti altri dettagli su ogni tipo di replica.
 
 | Strategia di replica | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | I dati vengono replicati in più data center. |No |Sì |Sì |Sì |
-| I dati possono essere letti dalla posizione secondaria oltre che da quella primaria |No |No |No |Sì |
+| I dati possono essere letti da una posizione secondaria oltre che da quella primaria. |No |No |No |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
 Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
@@ -48,10 +49,9 @@ Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di
 > [!NOTE]
 > Archiviazione Premium supporta solo l'archiviazione con ridondanza locale. Per informazioni su Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
 >
->
 
 ## <a name="locally-redundant-storage"></a>Archiviazione con ridondanza locale
-L'archiviazione con ridondanza locale (LRS) replica i dati tre volte all'interno di un'unità di scala di archiviazione che è ospitata in un data center nell'area in cui è stato creato l'account di archiviazione. Una richiesta di scrittura viene restituita correttamente dopo che è stata scritta in tutte e tre le repliche. Queste tre repliche risiedono ognuna in domini di errore e domini di aggiornamento distinti all'interno di un'unità di scala di archiviazione.
+L'archiviazione con ridondanza locale (LRS) replica i dati tre volte all'interno di un'unità di scala di archiviazione, che è ospitata in un data center nell'area in cui è stato creato l'account di archiviazione. Una richiesta di scrittura viene restituita correttamente dopo che è stata scritta in tutte e tre le repliche. Queste tre repliche risiedono ognuna in domini di errore e domini di aggiornamento distinti all'interno di un'unità di scala di archiviazione.
 
 Un'unità di scala di archiviazione è una raccolta di rack di nodi di archiviazione. Un dominio di errore è un gruppo di nodi che rappresentano un'unità di errore fisica e possono essere considerati come nodi appartenenti allo stesso rack fisico. Un dominio di aggiornamento è un gruppo di nodi che vengono aggiornati contemporaneamente durante il processo di aggiornamento del servizio (implementazione). Le tre repliche vengono distribuite tra domini di aggiornamento e domini di errore all'interno di un'unità di scala di archiviazione per assicurare la disponibilità dei dati anche in caso di errori hardware che influiscono su un singolo rack o quando i nodi vengono aggiornati durante un'implementazione.
 
@@ -61,7 +61,7 @@ L'archiviazione con ridondanza locale potrebbe comunque essere utile in determin
 
 * Fornisce la larghezza di banda massima più alta delle opzioni di replica di Archiviazione di Azure.
 * Se l'applicazione archivia dati che possono essere ricostruiti facilmente, è consigliabile scegliere l'archiviazione con ridondanza locale.
-* Per alcune applicazioni è necessario replicare i dati solo all'interno di un paese a causa di requisiti di governance dei dati. È possibile che un'area abbinata si trovi in un altro paese. Per informazioni sulle combinazioni di aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
+* Per alcune applicazioni è necessario replicare i dati solo all'interno di un paese a causa di requisiti di governance dei dati. Un'area abbinata può trovarsi in un altro paese. Per altre informazioni sulle coppie di aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
 ## <a name="zone-redundant-storage"></a>Archiviazione con ridondanza della zona
 L'archiviazione con ridondanza della zona (ZRS) replica i dati in modo asincrono nei data center all'interno di uno o due aree oltre a memorizzare tre repliche come nell'archiviazione con ridondanza locale, fornendo così una durabilità maggiore rispetto a quest'ultima. I dati archiviati nell'archiviazione con ridondanza della zona sono assicurati anche se il data center principale non è disponibile o recuperabile.
@@ -140,7 +140,7 @@ Considerazioni:
 * [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/)
 * [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md)
 * [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md)
-* [Opzioni di ridondanza di Archiviazione di Microsoft Azure e Archiviazione con ridondanza geografica e accesso in lettura ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-* [Paper SOSP - Archiviazione di Microsoft Azure: Un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* [Opzioni di ridondanza di Archiviazione di Microsoft Azure e archiviazione con ridondanza geografica e accesso in lettura ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+* [Paper SOSP - Archiviazione di Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 

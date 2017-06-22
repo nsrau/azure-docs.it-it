@@ -13,20 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/27/2017
+ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 54920f3b6665ce5d74bf8025d44d5e16bd8a54b4
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 014d282daffdbfc03e7f3495f8e59bfda4cdb396
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Come personalizzare una macchina virtuale Windows in Azure
-Per configurare macchine virtuali (VM) in modo rapido e coerente, di norma è consigliabile una qualche forma di automazione. Un approccio comune per personalizzare una macchina virtuale Windows consiste nell'usare l'[estensione script personalizzata per Windows](extensions-customscript.md). Questa esercitazione illustra come usare l'estensione script personalizzata per installare e configurare IIS per l'esecuzione di un sito Web di base.
+Per configurare macchine virtuali (VM) in modo rapido e coerente, di norma è consigliabile una qualche forma di automazione. Un approccio comune per personalizzare una macchina virtuale Windows consiste nell'usare l'[estensione script personalizzata per Windows](extensions-customscript.md). In questa esercitazione si apprenderà come:
 
-La procedura descritta in questa esercitazione può essere completata usando il modulo [Azure PowerShell](/powershell/azure/overview) più recente.
+> [!div class="checklist"]
+> * Usare l'estensione dello script personalizzata per installare IIS
+> * Creare una macchina virtuale che usi l'estensione dello script personalizzata
+> * Visualizzare un sito IIS in esecuzione dopo l'applicazione dell'estensione
+
+Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="custom-script-extension-overview"></a>Panoramica dell'estensione script personalizzata
@@ -38,10 +44,10 @@ L'estensione script personalizzata è integrabile nei modelli di Azure Resource 
 
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
-Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupAutomate* nella posizione *westus*:
+Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupAutomate* nella posizione *EastUS*:
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
 ```
 
 Impostare nome utente e password dell'amministratore delle macchine virtuali con il comando [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
@@ -61,7 +67,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
@@ -69,7 +75,7 @@ $vnet = New-AzureRmVirtualNetwork `
 # Create a public IP address and specify a DNS name
 $publicIP = New-AzureRmPublicIpAddress `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -AllocationMethod Static `
     -IdleTimeoutInMinutes 4 `
     -Name "myPublicIP"
@@ -101,7 +107,7 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
 # Create a network security group
 $nsg = New-AzureRmNetworkSecurityGroup `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -Name myNetworkSecurityGroup `
     -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 
@@ -109,7 +115,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 $nic = New-AzureRmNetworkInterface `
     -Name myNic `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -SubnetId $vnet.Subnets[0].Id `
     -PublicIpAddressId $publicIP.Id `
     -NetworkSecurityGroupId $nsg.Id
@@ -121,7 +127,7 @@ Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location westus -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
 ```
 
 Per creare le risorse e la macchina virtuale sono necessari alcuni minuti.
@@ -138,7 +144,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location westus
+    -Location EastUS
 ```
 
 
@@ -158,7 +164,15 @@ Sarà quindi possibile immettere l'indirizzo IP pubblico in un Web browser. Verr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come personalizzare una macchina virtuale al primo avvio. Passare all'esercitazione successiva per imparare a creare immagini di macchine virtuali personalizzate.
+In questa esercitazione è stata automatizzata l'installazione di IIS in una macchina virtuale. Si è appreso come:
 
-[Creare un'immagine di VM personalizzata](./tutorial-custom-images.md)
+> [!div class="checklist"]
+> * Usare l'estensione dello script personalizzata per installare IIS
+> * Creare una macchina virtuale che usi l'estensione dello script personalizzata
+> * Visualizzare un sito IIS in esecuzione dopo l'applicazione dell'estensione
+
+Passare all'esercitazione successiva per imparare a creare immagini di macchine virtuali personalizzate.
+
+> [!div class="nextstepaction"]
+> [Creare un'immagine di VM personalizzata](./tutorial-custom-images.md)
 

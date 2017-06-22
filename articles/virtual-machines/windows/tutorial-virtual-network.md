@@ -13,30 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: davidmu
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: e1b3e9756e149c5cba67f8b5c37e1d153dbf81ab
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7fd0ace35cfe0286c874e4a75b733053aa945d39
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Gestire reti virtuali di Azure e macchine virtuali Windows con Azure PowerShell
 
-Questa esercitazione illustra la creazione di più macchine virtuali (VM) in una rete virtuale e la configurazione della connettività di rete tra di esse. Al termine, una VM "front-end" sarà accessibile da Internet sulla porta 80 per connessioni HTTP. Una VM "back-end" con un database SQL Server sarà isolata e accessibile solo dalla VM front-end sulla porta 1433.
+Le macchine virtuali di Azure usano la rete di Azure per la comunicazione di rete interna ed esterna. In questa esercitazione vengono create più macchine virtuali (VM) in una rete virtuale e viene configurata la connettività di rete tra di esse. Si apprenderà come:
 
-La procedura descritta in questa esercitazione può essere completata usando il modulo [Azure PowerShell](/powershell/azure/overview) più recente.
+> [!div class="checklist"]
+> * Crea rete virtuale
+> * Creare subnet di reti virtuali
+> * Controllare il traffico di rete con gruppi di sicurezza di rete
+> * Visualizzare le regole del traffico applicate
+
+Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-vnet"></a>Creare la rete virtuale
 
 Una rete virtuale è una rappresentazione della propria rete nel cloud. È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. All'interno di una rete virtuale si trovano subnet, regole per la connettività a tali subnet e connessioni dalle VM alle subnet.
 
-Per poter creare qualsiasi altra risorsa di Azure, è necessario prima creare un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myRGNetwork* nella posizione *westus*:
+Per poter creare qualsiasi altra risorsa di Azure, è necessario prima creare un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myRGNetwork* nella posizione *EastUS*:
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
 Una subnet è una risorsa figlio di una rete virtuale e consente di definire i segmenti degli spazi di indirizzi all'interno di un blocco CIDR, usando i prefissi degli indirizzi IP. Le NIC possono essere aggiunte alle subnet e connesse alle macchine virtuali, fornendo connettività per diversi carichi di lavoro.
@@ -54,7 +61,7 @@ Creare una rete virtuale denominata *myVNet* che usa *myFrontendSubnet* con [New
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $frontendSubnet
@@ -69,7 +76,7 @@ Creare un indirizzo IP pubblico con [New-AzureRmPublicIpAddress](/powershell/mod
 ```powershell
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIPAddress
 ```
@@ -80,7 +87,7 @@ Creare un'interfaccia di rete con [New AzureRmNetworkInterface](/powershell/modu
 ```powershell
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myFrontendNic `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id
@@ -122,7 +129,7 @@ $frontendVM = Add-AzureRmVMNetworkInterface `
     -Id $frontendNic.Id
 New-AzureRmVM `
     -ResourceGroupName myRGNetwork `
-    -Location westus `
+    -Location EastUS `
     -VM $frontendVM
 ```
 
@@ -184,7 +191,7 @@ Aggiungere un gruppo di sicurezza di rete denominato *myBackendNSG* con [New-Azu
 ```powershell
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myBackendNSG `
   -SecurityRules $nsgBackendRule
 ```
@@ -213,7 +220,7 @@ Creare *myBackendNic*:
 ```powershell
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myBackendNic `
   -SubnetId $vnet.Subnets[1].Id
 ```
@@ -254,7 +261,7 @@ $backendVM = Add-AzureRmVMNetworkInterface `
   -Id $backendNic.Id
 New-AzureRmVM `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -VM $backendVM
 ```
 
@@ -262,6 +269,16 @@ L'immagine, in cui è installato SQL Server, non viene usata in questa esercitaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come creare e proteggere le reti di Azure in relazione alle macchine virtuali. Passare all'esercitazione successiva per informazioni sul monitoraggio della sicurezza delle VM con Centro sicurezza di Azure.
+In questa esercitazione sono state create e protette reti di Azure in relazione a macchine virtuali. 
 
-[Gestire la sicurezza delle macchine virtuali](./tutorial-azure-security.md)
+> [!div class="checklist"]
+> * Crea rete virtuale
+> * Creare subnet di reti virtuali
+> * Controllare il traffico di rete con gruppi di sicurezza di rete
+> * Visualizzare le regole del traffico applicate
+
+Passare all'esercitazione successiva per informazioni sul monitoraggio della protezione dei dati nelle macchine virtuali con Backup di Azure. .
+
+> [!div class="nextstepaction"]
+> [Eseguire il backup di macchine virtuali Windows in Azure](./tutorial-backup-vms.md)
+

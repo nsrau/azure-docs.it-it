@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
+ms.date: 05/11/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 3c91cb00d6535a4bc01a3b95547ef940cbff7fcb
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -38,11 +39,35 @@ Collegamenti correlati:
 * [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
 * [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
+## <a name="115220"></a>1.1.522.0
+
+### <a name="enhancements"></a>Miglioramenti:
+
+* Generic SQL:
+  * **Scenario:** reimplementata la funzionalità "*"
+  * **Descrizione della soluzione:** modificato l'approccio per la [gestione degli attributi di riferimento multivalore](active-directory-aadconnectsync-connector-genericsql.md).
+
+
+### <a name="fixed-issues"></a>Problemi risolti:
+
+* Servizi Web generici:
+  * Impossibile importare la configurazione del server in presenza di Web Service Connector
+  * Web Service Connector non funziona con più servizi Web
+
+* Generic SQL:
+  * Nessun tipo di oggetto elencato per l'attributo a valore singolo a cui si fa riferimento
+  * L'importazione delta per la strategia Rilevamento modifiche elimina l'oggetto quando il valore viene rimosso alla tabella multivalore
+  * OverflowException nel connettore GSQL con DB2 su AS/400
+
+Lotus:
+  * Aggiunta l'opzione per abilitare/disabilitare la ricerca delle unità organizzative prima dell'apertura della pagina GlobalParameters
+
 ## <a name="114430"></a>1.1.443.0
 
 Data di rilascio: marzo 2017
 
 ### <a name="enhancements"></a>Miglioramenti
+
 * Generic SQL:</br>
   **Sintomi dello scenario:** è un limite noto del connettore SQL quando si consente il riferimento a un solo tipo di oggetto e si richiede un riferimento incrociato con i membri. </br>
   **Descrizione della soluzione:** nella fase di elaborazione per i riferimenti in cui si sceglie l'opzione "*", TUTTI i tipi di oggetto saranno restituiti al motore di sincronizzazione.
@@ -151,7 +176,7 @@ Prima di marzo 2016, i connettori venivano rilasciati come argomenti relativi al
 * [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534, agosto 2013
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 

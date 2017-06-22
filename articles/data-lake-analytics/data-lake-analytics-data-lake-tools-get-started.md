@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca, yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9be337c3e04959a1ad2152c989c8532383362521
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -41,7 +42,7 @@ Per comodità, uno script di PowerShell per la creazione di un servizio Data Lak
     Facoltativamente è possibile eseguire le procedure descritte nelle due sezioni seguenti, disponibili nell'articolo [Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md) per creare l'account e caricare i dati manualmente:
 
     1. [Creare un account di Analisi Data Lake di Azure](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-    2. [Caricare SearchLog.tsv nell'account di archiviazione predefinito di Data Lake](data-lake-analytics-get-started-portal.md#prepare-source-data).
+    2. [Caricare SearchLog.tsv nell'account di archiviazione predefinito di Data Lake](data-lake-analytics-get-started-portal.md).
 
 ## <a name="connect-to-azure"></a>Connettersi ad Azure
 **Connettersi a Data Lake Analytics**
@@ -128,7 +129,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
        Per le entità seguenti vengono visualizzati il nome completato in modo automatico e i membri: Rowset, Classes, Databases, Schemas e User Defined Objects (UDO).
 
        IntelliSense per le entità di catalogo (Databases, Schemas, Tables, UDO, e così via) è correlato all'account di calcolo personale. È possibile controllare l'account di calcolo, il database e lo schema attualmente attivi nella barra degli strumenti superiore e sostituirli tramite gli elenchi a discesa.
-   * **Espandere le colonne con il simbolo *** 
+   * **Espandere * le colonne con il simbolo**
 
        Facendo clic a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto *. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia verso il basso.
        ![Espansione di * in Data Lake Tools per Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
@@ -198,7 +199,7 @@ Strumenti di Data Lake per Visual Studio applica alla visualizzazione del proces
 
 ## <a name="run-u-sql-locally"></a>Eseguire U-SQL in locale
 
-È possibile usare Strumenti di Azure Data Lake per Visual Studio e l'SDK U-SQL di Azure Data Lake per eseguire i processi di U-SQL nella workstation, esattamente come nel servizio Azure Data Lake. Queste due funzionalità eseguite localmente permettono di risparmiare tempo per le operazioni di test e debug dei processi di U-SQL. 
+È possibile usare Strumenti di Azure Data Lake per Visual Studio e l'SDK U-SQL di Azure Data Lake per eseguire i processi di U-SQL nella workstation, esattamente come nel servizio Azure Data Lake. Queste due funzionalità eseguite localmente permettono di risparmiare tempo per le operazioni di test e debug dei processi di U-SQL.
 
 * [Eseguire test e debug di processi U-SQL tramite l'esecuzione locale e l'SDK U-SQL di Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
 

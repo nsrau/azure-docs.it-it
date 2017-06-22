@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 849fd1871d0f19883f25b0f211a09831931a752b
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 8300bb8883917519d27c5c31c17b0ba3eaf973af
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 ---
 #<a name="service-fabric-documentation"></a>Documentazione di Service Fabric
@@ -127,7 +128,8 @@ Informazioni su come usare Service Fabric per creare pacchetti di microservizi s
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/powershell/module/ServiceFabric">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p>
+                        <p><a href="/powershell/azure/overview?view=azureservicefabricps">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -139,8 +141,9 @@ Informazioni su come usare Service Fabric per creare pacchetti di microservizi s
                 <div class="card">
                     <div class="cardText">
                         <h3>Lingue</h3>
-                        <p><a href="/java/api">API Java</a></p>
-                        <p><a href="/dotnet/api">.NET</a></p>
+                        <p><a href="/cli/azure/sf">Interfaccia della riga di comando di Azure</a></p>
+                        <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p>
+                        <p><a href="/dotnet/api/overview/azure/servicefabric?view=azure-dotnet">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -158,7 +161,7 @@ Informazioni su come usare Service Fabric per creare pacchetti di microservizi s
             </div>
         </div>
     </li>
-</ul>    
+</ul>   
 
 
 

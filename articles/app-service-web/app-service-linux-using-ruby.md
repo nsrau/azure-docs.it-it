@@ -1,6 +1,6 @@
 ---
-title: Uso di Ruby nelle app Web del servizio App di Azure in Linux | Documentazione Microsoft
-description: Uso di Ruby nelle app Web del servizio app di Azure in Linux.
+title: Uso di Ruby in App Web del Servizio app di Azure in Linux | Microsoft Docs
+description: Uso di Ruby in App Web del Servizio app di Azure in Linux.
 keywords: Servizio app di Azure, app Web, domande frequenti, Linux, OSS, Ruby
 services: app-service
 documentationCenter: 
@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 8427034e5229000faf134bcd5b7174b0f7046321
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5aeef6f31dacb1b27c605d39a35a81bd0211e06a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-ruby-in-web-apps-on-linux"></a>Uso di Ruby nelle app Web in Linux #
+# <a name="using-ruby-in-web-app-on-linux"></a>Uso di Ruby in App Web in Linux #
 
 Con l'aggiornamento più recente al back-end è stato aggiunto il supporto per Ruby v.2.3. Definendo la configurazione dell'app Web Linux è possibile modificare lo stack di applicazioni.
 
@@ -45,10 +46,10 @@ Viene quindi aperto il **pannello Crea**, come illustrato nell'immagine seguente
 Dopo aver creato un'applicazione Web Ruby, è possibile distribuirla tramite Git o FTP.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [What is App Service on Linux?](app-service-linux-intro.md) (Che cos'è Servizio app in Linux?)
-* [Creating Apps in an App Service on Linux](app-service-linux-how-to-create-a-web-app.md) (Creazione di app Web nel servizio app in Linux)
+* [Definizione di App Web in Linux](app-service-linux-intro.md)
+* [Creazione di app Web in App Web in Linux](app-service-linux-how-to-create-web-app.md)
 * [Distribuzione dell'archivio Git locale nel servizio app di Azure](app-service-deploy-local-git.md)
-* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md) (App Web del Servizio app di Azure nelle domande frequenti su Linux)
+* [Domande frequenti su App Web del Servizio app di Azure su Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

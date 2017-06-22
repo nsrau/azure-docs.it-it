@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 05/17/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: e89ec01cb47a87a45378f73d138224095bcbebed
-ms.openlocfilehash: 201d98c4f4ff29393ad308824ed0575f1ff602ee
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9046879158a4617d478bcf1157d5ead3c1054fd8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="load-balance-containers-in-a-kubernetes-cluster-in-azure-container-service"></a>Bilanciare il carico dei contenitori in un cluster Kubernetes nel servizio contenitore di Azure 
 In questo articolo viene presentato come bilanciare il carico in un cluster Kubernetes nel servizio contenitore di Azure. Il bilanciamento del carico offre un indirizzo IP accessibile dall'esterno per il servizio e distribuisce il traffico di rete tra i pod in esecuzione nelle macchine virtuali dell'agente.
 
-È possibile configurare un servizio Kubernetes in modo che usi [Azure Load Balancer](../load-balancer/load-balancer-overview.md) per gestire il traffico di rete esterno (TCP o UDP). Con una configurazione aggiuntiva, è possibile eseguire il bilanciamento del carico e il routing del traffico HTTP o HTTPS o anche scenari più avanzati.
+È possibile configurare un servizio Kubernetes in modo che usi [Azure Load Balancer](../load-balancer/load-balancer-overview.md) per gestire il traffico di rete esterno, TCP. Con una configurazione aggiuntiva, è possibile eseguire il bilanciamento del carico e il routing del traffico HTTP o HTTPS o anche scenari più avanzati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Distribuire un cluster Kubernetes](container-service-kubernetes-walkthrough.md) nel servizio contenitore di Azure
@@ -34,7 +35,7 @@ In questo articolo viene presentato come bilanciare il carico in un cluster Kube
 
 ## <a name="azure-load-balancer"></a>Servizio di bilanciamento del carico di Azure
 
-Per impostazione predefinita, un cluster Kubernetes distribuito nel servizio contenitore di Azure include un servizio di bilanciamento del carico di Azure con connessione Internet per le macchine virtuali dell'agente. Per le macchine virtuali master viene configurata una risorsa separata del servizio di bilanciamento del carico. Il servizio di bilanciamento del carico di Azure è di livello 4 (TCP, UDP).
+Per impostazione predefinita, un cluster Kubernetes distribuito nel servizio contenitore di Azure include un servizio di bilanciamento del carico di Azure con connessione Internet per le macchine virtuali dell'agente. Per le macchine virtuali master viene configurata una risorsa separata del servizio di bilanciamento del carico. Il servizio di bilanciamento del carico di Azure è di livello 4. Attualmente, il bilanciamento del carico supporta solo il traffico TCP in Kubernetes.
 
 Quando si crea un servizio Kubernetes, è possibile configurare automaticamente il servizio di bilanciamento del carico di Azure per consentire l'accesso al servizio. Per configurare il servizio di bilanciamento del carico, impostare `type` per il servizio su `LoadBalancer`. Il servizio di bilanciamento del carico crea una regola per il mapping di un indirizzo IP pubblico e del numero di porta del traffico in ingresso agli indirizzi IP privati e ai numeri di porta dei pod delle macchine virtuali dell'agente (e viceversa per il traffico di risposta). 
 

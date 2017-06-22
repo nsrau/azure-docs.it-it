@@ -11,8 +11,8 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 2/2/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3

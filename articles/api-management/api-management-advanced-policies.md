@@ -3,7 +3,7 @@ title: Criteri avanzati di Gestione API di Azure | Microsoft Docs
 description: Informazioni sui criteri avanzati disponibili per l&quot;uso in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: bfadac7b34eca2ef1f9bcabc6e267ca9572990b8
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f9272946fe4a03a732aa686680bba054c8ef1688
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
@@ -35,18 +36,20 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   [Riprova](#Retry) : riprova l'esecuzione delle istruzioni dei criteri, se e fino a quando non viene soddisfatta la condizione. L'esecuzione verrà ripetuta a specifici intervalli di tempo e per il numero di tentativi indicato.  
   
--   [Restituisci risposta](#ReturnResponse) : l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante.  
+-   [Restituisci risposta](#ReturnResponse) : l’esecuzione nella pipeline viene interrotta e viene restituita la risposta specificata direttamente al chiamante. 
   
 -   [Invia richiesta unidirezionale](#SendOneWayRequest) : invia una richiesta all'URL specificato senza attendere una risposta.  
   
 -   [Invia richiesta](#SendRequest) : invia una richiesta all'URL specificato.  
-  
--   [Imposta variabile](api-management-advanced-policies.md#set-variable): rende persistente un valore in una variabile di [contesto](api-management-policy-expressions.md#ContextVariables) denominata e consente di accedervi in un momento successivo.  
-  
+
+-   [Imposta proxy HTTP](#SetHttpProxy): consente di indirizzare le richieste inoltrate tramite un proxy HTTP.  
+
 -   [Imposta metodo di richiesta](#SetRequestMethod) : consente di modificare il metodo HTTP per una richiesta.  
   
 -   [Imposta codice di stato](#SetStatus): modifica il codice di stato HTTP per il valore specificato.  
   
+-   [Imposta variabile](api-management-advanced-policies.md#set-variable): rende persistente un valore in una variabile di [contesto](api-management-policy-expressions.md#ContextVariables) denominata e consente di accedervi in un momento successivo.  
+
 -   [Traccia](#Trace): aggiunge una stringa nell'output di [Controllo API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
   
 -   [Attendi](#Wait): attende il completamento dei criteri inclusi per l'[invio della richiesta](api-management-advanced-policies.md#SendRequest), il [recupero del valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) o il [flusso di controllo](api-management-advanced-policies.md#choose) prima di procedere.  
@@ -620,6 +623,144 @@ status code and media type. If no example or schema found, the content is empty.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
+##  <a name="SetHttpProxy"></a>Impostare il proxy HTTP  
+ Il criterio `proxy` consente di indirizzare le richieste inoltrate ai back-end tramite un proxy HTTP. È supportato solo HTTP (non HTTPS) tra il gateway e il proxy. Solo autenticazione Basic e NTLM.
+  
+### <a name="policy-statement"></a>Istruzione del criterio  
+  
+```xml  
+<proxy url="http://hostname-or-ip:port" username="username" password="password" />  
+  
+```  
+  
+### <a name="example"></a>Esempio  
+Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valori di nome utente e password per evitare di archiviare informazioni riservate nel documento dei criteri.  
+  
+```xml  
+<proxy url="http://192.168.1.1:8080" username={{username}} password={{password}} />
+  
+```  
+  
+### <a name="elements"></a>Elementi  
+  
+|Elemento|Descrizione|Obbligatorio|  
+|-------------|-----------------|--------------|  
+|proxy|Elemento radice|Sì|  
+
+### <a name="attributes"></a>Attributi  
+  
+|Attributo|Descrizione|Obbligatorio|Default|  
+|---------------|-----------------|--------------|-------------|  
+|url="string"|URL del proxy nel formato http://host:port.|Sì|N/D |  
+|username="string"|Nome utente da usare per l'autenticazione con il proxy.|No|N/D |  
+|password="string"|Password da usare per l'autenticazione con il proxy.|No|N/D |  
+
+### <a name="usage"></a>Utilizzo  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+  
+-   **Sezioni del criterio:** inbound  
+  
+-   **Ambiti del criterio:** tutti gli ambiti  
+
+##  <a name="SetRequestMethod"></a> Impostare il metodo di richiesta  
+ Il criterio `set-method` consente di modificare il metodo di richiesta HTTP per una richiesta.  
+  
+### <a name="policy-statement"></a>Istruzione del criterio  
+  
+```xml  
+<set-method>METHOD</set-method>  
+  
+```  
+  
+### <a name="example"></a>Esempio  
+ Questo criterio di esempio che usa il criterio `set-method` mostra un esempio di invio di un messaggio a una chat di Slack, se il codice della risposta HTTP è maggiore o uguale a 500. Per altre informazioni relative a questo esempio, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
+  
+```xml  
+<choose>  
+    <when condition="@(context.Response.StatusCode >= 500)">  
+      <send-one-way-request mode="new">  
+        <set-url>https://hooks.slack.com/services/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</set-url>  
+        <set-method>POST</set-method>  
+        <set-body>@{  
+                return new JObject(  
+                        new JProperty("username","APIM Alert"),  
+                        new JProperty("icon_emoji", ":ghost:"),  
+                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
+                                                context.Request.Method,  
+                                                context.Request.Url.Path + context.Request.Url.QueryString,  
+                                                context.Request.Url.Host,  
+                                                context.Response.StatusCode,  
+                                                context.Response.StatusReason,  
+                                                context.User.Email  
+                                                ))  
+                        ).ToString();  
+            }</set-body>  
+      </send-one-way-request>  
+    </when>  
+</choose>  
+  
+```  
+  
+### <a name="elements"></a>Elementi  
+  
+|Elemento|Descrizione|Obbligatorio|  
+|-------------|-----------------|--------------|  
+|set-method|Elemento radice. Il valore dell'elemento specifica il metodo HTTP.|Sì|  
+  
+### <a name="usage"></a>Utilizzo  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+  
+-   **Sezioni del criterio:** inbound, on-error  
+  
+-   **Ambiti del criterio:** tutti gli ambiti  
+  
+##  <a name="SetStatus"></a> Impostare il codice di stato  
+ Il criterio `set-status` modifica il codice di stato HTTP sul valore specificato.  
+  
+### <a name="policy-statement"></a>Istruzione del criterio  
+  
+```xml  
+<set-status code="" reason=""/>  
+  
+```  
+  
+### <a name="example"></a>Esempio  
+ Questo esempio illustra come restituire una risposta 401 se il token di autorizzazione non è valido. Per altre informazioni, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
+  
+```xml  
+<choose>  
+  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
+    <return-response response-variable-name="existing response variable">  
+      <set-status code="401" reason="Unauthorized" />  
+      <set-header name="WWW-Authenticate" exists-action="override">  
+        <value>Bearer error="invalid_token"</value>  
+      </set-header>  
+    </return-response>  
+  </when>  
+</choose>  
+  
+```  
+  
+### <a name="elements"></a>Elementi  
+  
+|Elemento|Descrizione|Obbligatorio|  
+|-------------|-----------------|--------------|  
+|set-status|Elemento radice.|Sì|  
+  
+### <a name="attributes"></a>Attributi  
+  
+|Attributo|Descrizione|Obbligatorio|Default|  
+|---------------|-----------------|--------------|-------------|  
+|code="integer"|Il codice di stato HTTP da restituire.|Sì|N/D|  
+|reason="string"|Descrizione del motivo per la restituzione del codice di stato.|Sì|N/D|  
+  
+### <a name="usage"></a>Utilizzo  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+  
+-   **Sezioni del criterio:** outbound, backend, on-error  
+  
+-   **Ambiti del criterio:** tutti gli ambiti  
+
 ##  <a name="set-variable"></a>Impostare una variabile  
  Il criterio `set-variable` dichiara una variabile di [contesto](api-management-policy-expressions.md#ContextVariables) e assegna a essa un valore specificato tramite un'[espressione](api-management-policy-expressions.md) o un valore letterale di stringa. Se l'espressione contiene un valore letterale, questo verrà convertito in una stringa e il tipo di valore sarà `System.String`.  
   
@@ -720,106 +861,7 @@ status code and media type. If no example or schema found, the content is empty.
 -   System.Char?  
   
 -   System.DateTime?  
-  
-##  <a name="SetRequestMethod"></a> Impostare il metodo di richiesta  
- Il criterio `set-method` consente di modificare il metodo di richiesta HTTP per una richiesta.  
-  
-### <a name="policy-statement"></a>Istruzione del criterio  
-  
-```xml  
-<set-method>METHOD</set-method>  
-  
-```  
-  
-### <a name="example"></a>Esempio  
- Questo criterio di esempio che usa il criterio `set-method` mostra un esempio di invio di un messaggio a una chat di Slack, se il codice della risposta HTTP è maggiore o uguale a 500. Per altre informazioni relative a questo esempio, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
-  
-```xml  
-<choose>  
-    <when condition="@(context.Response.StatusCode >= 500)">  
-      <send-one-way-request mode="new">  
-        <set-url>https://hooks.slack.com/services/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</set-url>  
-        <set-method>POST</set-method>  
-        <set-body>@{  
-                return new JObject(  
-                        new JProperty("username","APIM Alert"),  
-                        new JProperty("icon_emoji", ":ghost:"),  
-                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
-                                                context.Request.Method,  
-                                                context.Request.Url.Path + context.Request.Url.QueryString,  
-                                                context.Request.Url.Host,  
-                                                context.Response.StatusCode,  
-                                                context.Response.StatusReason,  
-                                                context.User.Email  
-                                                ))  
-                        ).ToString();  
-            }</set-body>  
-      </send-one-way-request>  
-    </when>  
-</choose>  
-  
-```  
-  
-### <a name="elements"></a>Elementi  
-  
-|Elemento|Descrizione|Obbligatorio|  
-|-------------|-----------------|--------------|  
-|set-method|Elemento radice. Il valore dell'elemento specifica il metodo HTTP.|Sì|  
-  
-### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
-  
--   **Sezioni del criterio:** inbound, on-error  
-  
--   **Ambiti del criterio:** tutti gli ambiti  
-  
-##  <a name="SetStatus"></a> Impostare il codice di stato  
- Il criterio `set-status` modifica il codice di stato HTTP sul valore specificato.  
-  
-### <a name="policy-statement"></a>Istruzione del criterio  
-  
-```xml  
-<set-status code="" reason=""/>  
-  
-```  
-  
-### <a name="example"></a>Esempio  
- Questo esempio illustra come restituire una risposta 401 se il token di autorizzazione non è valido. Per altre informazioni, vedere [Uso di servizi esterni dal servizio Gestione API di Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
-  
-```xml  
-<choose>  
-  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
-    <return-response response-variable-name="existing response variable">  
-      <set-status code="401" reason="Unauthorized" />  
-      <set-header name="WWW-Authenticate" exists-action="override">  
-        <value>Bearer error="invalid_token"</value>  
-      </set-header>  
-    </return-response>  
-  </when>  
-</choose>  
-  
-```  
-  
-### <a name="elements"></a>Elementi  
-  
-|Elemento|Descrizione|Obbligatorio|  
-|-------------|-----------------|--------------|  
-|set-status|Elemento radice.|Sì|  
-  
-### <a name="attributes"></a>Attributi  
-  
-|Attributo|Descrizione|Obbligatorio|Default|  
-|---------------|-----------------|--------------|-------------|  
-|code="integer"|Il codice di stato HTTP da restituire.|Sì|N/D|  
-|reason="string"|Descrizione del motivo per la restituzione del codice di stato.|Sì|N/D|  
-  
-### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
-  
--   **Sezioni del criterio:** outbound, backend, on-error  
-  
--   **Ambiti del criterio:** tutti gli ambiti  
-  
+
 ##  <a name="Trace"></a> Traccia  
  Il criterio `trace` aggiunge una stringa nell'output di [Controllo API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/). Il criterio verrà eseguito solo quando la traccia è attivata, ad esempio quando è presente l'intestazione della richiesta `Ocp-Apim-Trace` ed è impostata su `true` e quando è presente l'intestazione della richiesta `Ocp-Apim-Subscription-Key` e contiene una chiave valida associata all'account amministratore.  
   

@@ -1,6 +1,8 @@
 1. Eseguire il file di installazione per l'Installazione unificata.
-2. In **Prima di iniziare** selezionare l'opzione **Installare il server di configurazione e il server di elaborazione**.
+2. In **Before you begin** (Prima di iniziare) selezionare **Install the configuration server and process server** (Installare il server di configurazione e il server di elaborazione).
+
     ![Prima di iniziare](./media/site-recovery-add-configuration-server/combined-wiz1.png)
+
 3. In **Licenza software di terze parti** fare clic su **Accetto** per scaricare e installare MySQL.
 
     ![Software di terze parti](./media/site-recovery-add-configuration-server/combined-wiz2.png)
@@ -9,9 +11,11 @@
     ![Registrazione](./media/site-recovery-add-configuration-server/combined-wiz3.png)
 5. In **Impostazioni Internet** specificare in che modo il provider in esecuzione nel server di configurazione si connette ad Azure Site Recovery tramite Internet.
 
-   * Per connettersi al proxy attualmente configurato nel computer, selezionare **Connetti con le impostazioni proxy esistenti**.
-   * Per fare in modo che il provider si connetta direttamente, selezionare **Connetti direttamente senza un proxy**.
-   * Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connect with custom proxy settings** (Connetti con le impostazioni proxy personalizzate).
+   a. Per connettersi al proxy attualmente configurato nel computer, selezionare **Connetti ad Azure Site Recovery usando un server proxy**.
+
+   b. Per fare in modo che il provider si connetta direttamente, selezionare **Connetti direttamente ad Azure Site Recovery senza server proxy**.
+
+   c. Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connect with custom proxy settings** (Connetti con le impostazioni proxy personalizzate).
 
      * Se si usa un proxy personalizzato è necessario specificare l'indirizzo, la porta e le credenziali.
      * Se si usa un proxy, è necessario che gli URL descritti nei [prerequisiti](#prerequisites) siano già consentiti.

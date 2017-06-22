@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/05/2017
+ms.date: 05/01/2017
 ms.author: betorres
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: ab273c56fe9818ea65979376ec829032f67f04ed
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 16cb5a1e16a59200f0e731622398efcf24c3f777
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -62,11 +63,11 @@ La sezione Utilizzo include un indicatore che indica la quantità di risorse dis
 >
 
 ### <a name="using-the-rest-api"></a>Utilizzo dell'API REST
-L'API REST di Ricerca di Azure e .NET SDK forniscono l'accesso a livello di codice alle metriche di servizio.  Se si utilizzano [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx) per caricare un indice dal database SQL di Azure o da DocumentDB, è disponibile un'API aggiuntiva per ottenere i numeri necessari.
+L'API REST di Ricerca di Azure e .NET SDK forniscono l'accesso a livello di codice alle metriche di servizio.  Se si usano [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx) per caricare un indice dal database SQL di Azure o da Azure Cosmos DB, è disponibile un'API aggiuntiva per ottenere i numeri necessari.
 
-* [Ottenere le statistiche di indice](https://msdn.microsoft.com/library/azure/dn798942.aspx)
-* [Conteggio documenti](https://msdn.microsoft.com/library/azure/dn798924.aspx)
-* [Ottenere lo stato dell'indicizzatore](https://msdn.microsoft.com/library/azure/dn946884.aspx)
+* [Ottenere le statistiche di indice](/rest/api/searchservice/get-index-statistics)
+* [Conteggio documenti](/rest/api/searchservice/count-documents)
+* [Ottenere lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status)
 
 ## <a name="how-to-export-logs-and-metrics"></a>Come esportare i log e le metriche
 

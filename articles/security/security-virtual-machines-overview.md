@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/04/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 70d22ae8d7f67f1e12a233e004f1eb749927e7d8
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 9307b1688ed9e3dc412d044e72bdf88b7bb4d1ec
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -48,7 +49,7 @@ L'articolo descrive queste funzionalità di sicurezza principali di Macchine vir
 * Conformità
 
 ## <a name="antimalware"></a>Antimalware
-Con Azure è possibile usare software antimalware di fornitori di soluzioni di sicurezza, come Microsoft, Symantec, Trend Micro, McAfee e Kaspersky, per proteggere le macchine virtuali da file dannosi, adware e altre minacce. Vedere la sezione Altre informazioni di seguito per gli articoli sulle soluzioni dei partner.
+Con Azure è possibile usare software antimalware di fornitori di soluzioni di sicurezza, come Microsoft, Symantec, Trend Micro e Kaspersky, per proteggere le macchine virtuali da file dannosi, adware e altre minacce. Vedere la sezione Altre informazioni di seguito per gli articoli sulle soluzioni dei partner.
 
 Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure è una funzionalità di protezione in tempo reale che aiuta a identificare e rimuovere virus, spyware e altro software dannoso.  Microsoft Antimalware offre avvisi configurabili quando software dannoso o indesiderato tenta l'installazione o l'esecuzione nei sistemi di Azure.
 
@@ -73,7 +74,6 @@ Altre informazioni: per altre informazioni sul software antimalware per la prote
 * [Distribuzione di soluzioni antimalware in macchine virtuali di Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows](../virtual-machines/windows/classic/install-trend.md)
 * [Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows](../virtual-machines/windows/classic/install-symantec.md)
-* [Nuove opzioni antimalware per la protezione di macchine virtuali di Azure: McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 * [Soluzioni di sicurezza in Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
 ## <a name="hardware-security-module"></a>Modulo di protezione hardware

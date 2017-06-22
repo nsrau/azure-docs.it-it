@@ -1,9 +1,9 @@
 ---
 title: App .NET nativa 2.0 di Azure Active Directory | Documentazione Microsoft
-description: Come creare un&quot;app .NET nativa che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell&quot;istituto di istruzione.
+description: Come creare un'app .NET nativa che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione.
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 46d81e09-bad0-44ce-9026-881805976e72
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
-ms.author: dastrock; vittorib
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 52a4c326c7618b9a31df539c8b0eb0ced44ce609
+ms.author: jmprieur
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: d0602a61b0335ef2bb92e27051c286852bc08d35
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -259,10 +262,5 @@ Per altre risorse, vedere:
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

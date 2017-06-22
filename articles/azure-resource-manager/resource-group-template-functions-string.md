@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 9b75d0ede3ec1b291936ee0a53778afe10ba91db
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 9932ac04699f49b7a3ea3dabe4d380fdc4d05ec1
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -358,18 +358,18 @@ Stringa o matrice di valori concatenati.
 ## <a name="contains"></a>contains
 `contains (container, itemToFind)`
 
-Controlla se una matrice contiene un valore, se un oggetto contiene una chiave o se una stringa contiene una sottostringa.
+Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o se una stringa contiene una sottostringa.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| Contenitore |Sì |Matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
-| itemToFind |Sì |Stringa o numero intero |Valore da trovare. |
+| Contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
+| itemToFind |Sì |stringa o numero intero |Valore da trovare. |
 
 ### <a name="examples"></a>esempi
 
-L'esempio seguente illustra come usare il parametro contains con tipi differenti:
+L'esempio seguente mostra come usare la funzione contains con tipi diversi:
 
 ```json
 {
@@ -527,13 +527,13 @@ Stringa contenente il valore convertito.
 ## <a name="empty"></a>empty
 `empty(itemToTest)`
 
-Determina se una matrice, un oggetto o una stringa è vuota.
+Determina se una matrice, un oggetto o una stringa sono vuoti.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sì |Matrice, oggetto o stringa |Valore da verificare se l'elemento è vuoto. |
+| itemToTest |Sì |matrice, oggetto o stringa |Valore da controllare per verificare se è vuoto. |
 
 ### <a name="examples"></a>esempi
 
@@ -647,7 +647,7 @@ Restituisce il primo carattere della stringa o il primo elemento della matrice.
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Stringa o matrice |Valore per recuperare il primo elemento o carattere. |
+| arg1 |Sì |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
 
 ### <a name="examples"></a>esempi
 
@@ -746,7 +746,7 @@ Restituisce il primo carattere della stringa o l'ultimo elemento della matrice.
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
+| arg1 |Sì |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
 
 ### <a name="examples"></a>esempi
 
@@ -845,7 +845,7 @@ Restituisce il numero di caratteri in una stringa o di elementi in una matrice.
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Stringa o matrice |Matrice da usare per ottenere il numero di elementi oppure stringa da usare per ottenere il numero di caratteri. |
+| arg1 |Sì |stringa o matrice |Matrice da usare per ottenere il numero di elementi oppure stringa da usare per ottenere il numero di caratteri. |
 
 ### <a name="examples"></a>esempi
 
@@ -939,21 +939,21 @@ Stringa contenente come minimo il numero di caratteri specificati.
 <a id="replace" />
 
 ## <a name="replace"></a>replace
-`replace(originalString, oldCharacter, newCharacter)`
+`replace(originalString, oldString, newString)`
 
-Restituisce una nuova stringa con tutte le istanze di un carattere della stringa specificata sostituito con un altro carattere.
+Restituisce una nuova stringa con tutte le istanze di una stringa sostituita con un'altra stringa.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| originalString |Sì |string |Il valore in cui tutte le istanze di un carattere vengono sostituite con un altro carattere. |
-| oldCharacter |Sì |string |Carattere da rimuovere dalla stringa originale. |
-| newCharacter |Sì |string |Carattere da aggiungere al posto del carattere rimosso. |
+| originalString |Sì |string |Valore che contiene tutte le istanze di una stringa sostituita con un'altra stringa. |
+| oldString |Sì |string |Stringa da rimuovere dalla stringa originale. |
+| newString |Sì |string |Stringa da aggiungere al posto della stringa rimossa. |
 
 ### <a name="examples"></a>esempi
 
-Nell'esempio seguente viene illustrato come rimuovere tutti i trattini dalla stringa fornita dall'utente.
+L'esempio seguente illustra come rimuovere tutti i trattini dalla stringa fornita dall'utente e come sostituire parte della stringa con un'altra stringa.
 
 ```json
 {
@@ -967,9 +967,13 @@ Nell'esempio seguente viene illustrato come rimuovere tutti i trattini dalla str
     },
     "resources": [],
     "outputs": {
-        "stringOutput": {
+        "firstOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
+        },
+        "secodeOutput": {
+            "type": "string",
+            "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
     }
 }
@@ -990,12 +994,12 @@ Restituisce una stringa con tutti i caratteri dopo il numero specificato di cara
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |Stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
+| originalValue |Sì |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
 | numberToSkip |Sì |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
 
 ### <a name="examples"></a>esempi
 
-L'esempio seguente ignora il numero specificato di elementi in una matrice e il numero specificato di caratteri in una stringa.
+L'esempio seguente ignora il numero di elementi specificato nella matrice e il numero di caratteri specificato in una stringa.
 
 ```json
 {
@@ -1276,7 +1280,7 @@ Restituisce una stringa con il numero specificato di caratteri dall'inizio della
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |Stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
+| originalValue |Sì |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
 | numberToTake |Sì |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
 
 ### <a name="examples"></a>esempi
@@ -1657,7 +1661,7 @@ L'esempio seguente mostra come usare uri, uriComponent e uriComponentToString:
 Stringa decodificata del valore URI codificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per una descrizione delle sezioni in un modello Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 * Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
 * Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](resource-group-template-deploy.md).

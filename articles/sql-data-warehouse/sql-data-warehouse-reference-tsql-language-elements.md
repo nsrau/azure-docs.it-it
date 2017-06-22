@@ -3,7 +3,7 @@ title: Elementi del linguaggio Transact-SQL per SQL Data Warehouse | Documentazi
 description: Elenco di collegamenti a contenuto di riferimento per gli elementi del linguaggio Transact-SQL usati per SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: kevin;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 604cc41e2a7e0858c6926ef3a2199dfd6ca2943f
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
 
 

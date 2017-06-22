@@ -1,6 +1,6 @@
 ---
-title: "Chiamare una stored procedure da un&quot;attività di copia di Azure Data Factory | Documentazione Microsoft"
-description: "Informazioni su come chiamare una stored procedure nel Database SQL di Azure o in SQL Server da un&quot;attività di copia di Azure Data Factory."
+title: "Chiamare una stored procedure da un'attività di copia di Azure Data Factory | Documentazione Microsoft"
+description: "Informazioni su come chiamare una stored procedure nel Database SQL di Azure o in SQL Server da un'attività di copia di Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,11 +11,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 06/20/2017
 ms.author: jingwang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
 ms.openlocfilehash: 8824990ca10f8a0f83162768557bcb2f4008b514
+ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
 
 

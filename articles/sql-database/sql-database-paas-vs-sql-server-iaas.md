@@ -9,17 +9,18 @@ manager: jhubbard
 editor: cjgronlund
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
-ms.custom: compare
+ms.custom: DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 48e95d51cb9414fb5ff50e587645ee6fd46abd5b
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: d7506c8abb6eca7e2681764b2bedc2f4755b768a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---

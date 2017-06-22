@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e42ad1b62d4f953e23624841ddec70b1fac28058
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: ca5ee2733df51faa5025c4d8eb687c81df4a3b4f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -96,7 +97,7 @@ In questa sezione si crea un'app console Node.js che si connette all'hub come **
    
     L'oggetto **Client** espone tutti i metodi necessari per interagire con i dispositivi gemelli dal dispositivo. Questo codice inizializza l'oggetto **Client**, recupera il dispositivo gemello per **myDeviceId** e quindi collega un gestore per l'aggiornamento nelle *proprietà desiderate*. Il gestore verifica che esista una richiesta di modifica della configurazione effettiva confrontando gli elementi configId, quindi richiama un metodo che avvia la modifica della configurazione.
    
-    Si noti che per semplicità il codice usa un valore predefinito hardcoded per la configurazione iniziale. Una vera app probabilmente caricherebbe tale configurazione da una risorsa di archiviazione locale.
+    Per motivi di semplicità, questo codice usa un valore predefinito hardcoded per la configurazione iniziale. Una vera app probabilmente caricherebbe tale configurazione da una risorsa di archiviazione locale.
    
    > [!IMPORTANT]
    > Gli eventi di modifica delle proprietà desiderate vengono inviati sempre una volta sola alla connessione al dispositivo. Assicurarsi di verificare che vi sia un'effettiva modifica nelle proprietà desiderate prima di eseguire qualsiasi azione.
@@ -195,18 +196,25 @@ In questa sezione si creerà un'app console .NET che aggiorna le *proprietà des
             await registryManager.UpdateTwinAsync(twin.DeviceId, JsonConvert.SerializeObject(patch), twin.ETag);
             Console.WriteLine("Updated desired configuration");
    
-            while (true)
+            try
             {
-                var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
-                var results = await query.GetNextAsTwinAsync();
-                foreach (var result in results)
+                while (true)
                 {
-                    Console.WriteLine("Config report for: {0}", result.DeviceId);
-                    Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
-                    Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
-                    Console.WriteLine();
+                    var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
+                    var results = await query.GetNextAsTwinAsync();
+                    foreach (var result in results)
+                    {
+                        Console.WriteLine("Config report for: {0}", result.DeviceId);
+                        Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
+                        Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
+                        Console.WriteLine();
+                    }
+                    Thread.Sleep(10000);
                 }
-                Thread.Sleep(10000);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception: {ex.Message}");
             }
         }
    
@@ -214,13 +222,13 @@ In questa sezione si creerà un'app console .NET che aggiorna le *proprietà des
     Ogni 10 secondi esegue una query dei dispositivi gemelli archiviati nell'hub IoT e stampa le configurazioni dei dati di telemetria desiderate e segnalate. Vedere il [linguaggio di query dell'hub IoT][lnk-query] per informazioni su come generare report avanzati in tutti i dispositivi.
    
    > [!IMPORTANT]
-   > Questa applicazione effettua una query dell'hub IoT ogni 10 secondi a scopo illustrativo. Usare le query per generare i report destinati all'utente in più dispositivi e non per rilevare le modifiche. Se la soluzione richiede notifiche in tempo reale degli eventi del dispositivo, usare [messaggi da dispositivo a cloud][lnk-d2c].
+   > Questa applicazione effettua una query dell'hub IoT ogni 10 secondi a scopo illustrativo. Usare le query per generare i report destinati all'utente in più dispositivi e non per rilevare le modifiche. Se la soluzione richiede notifiche in tempo reale degli eventi del dispositivo, usare le [notifiche relative al dispositivo gemello][lnk-twin-notifications].
    > 
    > 
 1. Aggiungere infine le righe seguenti al metodo **Main** :
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
-        SetDesiredConfigurationAndQuery();
+        SetDesiredConfigurationAndQuery().Wait();
         Console.WriteLine("Press any key to quit.");
         Console.ReadLine();
 1. In Esplora soluzioni aprire **Imposta progetti di avvio** e assicurarsi che **Azione** per il progetto **SetDesiredConfigurationAndQuery** sia impostata su **Avvio**. Compilare la soluzione.
@@ -254,7 +262,7 @@ Per altre informazioni, vedere le risorse seguenti:
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
@@ -262,7 +270,6 @@ Per altre informazioni, vedere le risorse seguenti:
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 

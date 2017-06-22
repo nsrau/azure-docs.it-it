@@ -1,5 +1,5 @@
 ---
-title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: definire la strategia di protezione dati | Documentazione Microsoft"
+title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: definire la strategia di protezione dati | Microsoft Docs"
 description: "Verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti."
 documentationcenter: 
 services: active-directory
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 05/04/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 82bc44b20158a22dfae0d6c8fbf5f1c1f4577c91
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 3d0508c5cc31ab9fda728596895aaab8e4cb7814
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -115,22 +116,22 @@ Una volta autenticato l'utente tramite Azure AD, è importante valutare il livel
 
 Ogni interazione nel diagramma illustrato nella figura X rappresenta uno scenario di controllo di accesso che può essere gestito da Azure AD. Di seguito è mostrata una descrizione di ogni scenario:
 
-1.Accesso condizionale alle applicazioni ospitate in locale: è possibile usare i dispositivi registrati con criteri di accesso per le applicazioni configurate per l'uso di AD FS con Windows Server 2012 R2. Per altre informazioni su come configurare l'accesso condizionale in locale, vedere [Configurazione dell'accesso condizionale in locale usando il servizio Registrazione del dispositivo di Azure Active Directory](active-directory-conditional-access.md).
+1. Accesso condizionale alle applicazioni ospitate in locale: è possibile usare i dispositivi registrati con criteri di accesso per le applicazioni configurate per l'uso di AD FS con Windows Server 2012 R2. Per altre informazioni su come configurare l'accesso condizionale in locale, vedere [Configurazione dell'accesso condizionale in locale usando il servizio Registrazione del dispositivo di Azure Active Directory](active-directory-conditional-access.md).
 
-2.Controllo di accesso al portale di gestione di Azure: Azure consente anche di controllare l'accesso al portale di gestione tramite il controllo degli accessi in base al ruolo. Questo metodo permette alla società di limitare la quantità di operazioni che possono essere eseguite da un soggetto una volta effettuato l'accesso al portale di gestione di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
+2. Controllo di accesso al portale di Azure: Azure consente inoltre di controllare l'accesso al portale tramite il controllo di accesso basato sui ruoli (RBAC)). Questo metodo permette all'azienda di limitare la quantità di operazioni che possono essere eseguite da un soggetto nel portale di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
 
 * Assegnazione di ruolo basata su gruppo: è possibile assegnare l'accesso ai gruppi di Azure AD che possono essere sincronizzati dall'istanza di Active Directory locale. Questo consente di sfruttare gli investimenti esistenti dell'organizzazione in termini di strumenti e processi per la gestione dei gruppi. È anche possibile usare la funzionalità di delega della gestione dei gruppi disponibile in Azure AD Premium.
 * Uso dei ruoli predefiniti in Azure: Sono disponibili tre ruoli, proprietario, collaboratore e lettore, per garantire che utenti e gruppi siano autorizzati a eseguire solo le attività necessarie per svolgere il proprio lavoro.
 * Accesso granulare alle risorse: è possibile assegnare ruoli a utenti e gruppi per una sottoscrizione, un gruppo di risorse o una singola risorsa di Azure specifica, ad esempio un sito Web o un database. In questo modo, è possibile fare in modo che gli utenti possano accedere a tutte le risorse necessarie e non abbiano accesso alle risorse che invece non devono gestire.
 
 > [!NOTE]
-> Per informazioni dettagliate su questa funzionalità, vedere [Role-based access control in Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) (Controllo di accessi in base al ruolo in Azure). Gli sviluppatori che creano applicazioni e che vogliono personalizzare il controllo di accesso per tali applicazioni, possono usare i ruoli applicazione di Azure AD per l'autorizzazione. Per informazioni su come progettare l'app per usare questa funzionalità, vedere l' [esempio WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) .
+> Gli sviluppatori che creano applicazioni e che vogliono personalizzare il controllo di accesso per tali applicazioni, possono usare i ruoli applicazione di Azure AD per l'autorizzazione. Per informazioni su come progettare l'app per usare questa funzionalità, vedere l' [esempio WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) .
 >
 >
 
-3.Accesso condizionale per applicazioni di Office 365 con Microsoft Intune: gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli operatori dei sistemi informativi che usano dispositivi compatibili di accedere ai servizi. Per altre informazioni, vedere [Criteri di accesso condizionale dei dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md).
+3. Accesso condizionale per applicazioni di Office 365 con Microsoft Intune: gli amministratori IT possono eseguire il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli operatori dei sistemi informativi che usano dispositivi conformi di accedere ai servizi. Per altre informazioni, vedere [Criteri di accesso condizionale dei dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md).
 
-4.Accesso condizionale per app SaaS: [questa funzionalità](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) consente di configurare regole di accesso con autenticazione a più fattori per ogni applicazione e di bloccare l'accesso agli utenti di reti non attendibili. La regola di autenticazione a più fattori può essere applicata a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specificati. Gli utenti possono essere esclusi dal requisito di autenticazione a più fattori se accedono all'applicazione da un indirizzo IP all'interno della rete dell'organizzazione.
+4. Accesso condizionale per app SaaS: [questa funzionalità](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) consente di configurare regole di accesso con autenticazione a più fattori per ogni applicazione e di bloccare l'accesso agli utenti di reti non attendibili. La regola di autenticazione a più fattori può essere applicata a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specificati. Gli utenti possono essere esclusi dal requisito di autenticazione a più fattori se accedono all'applicazione da un indirizzo IP all'interno della rete dell'organizzazione.
 
 Poiché le opzioni per il controllo di accesso usano un approccio multilivello, il confronto tra tali opzioni non è applicabile per questa attività. Assicurarsi di usare tutte le opzioni disponibili per ogni scenario che richiede di controllare l'accesso alle risorse.
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-translationtype: Human Translation
-ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
-ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e4c1c2b956b2cae673e60223ce777ba1096dce33
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -32,7 +33,7 @@ Il portale di Microsoft Azure è una posizione centrale in cui è possibile eseg
   ![Orientamento dell'interfaccia utente del portale di Azure][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Prima di iniziare
-Per eseguire questa esercitazione, è necessaria una sottoscrizione di Azure valida.  Se non si ha una sottoscrizione, [iscriversi per una versione di prova gratuita](https://azure.microsoft.com/pricing/free-trial/) .  Dopo avere creato una sottoscrizione, sarà possibile accedere al portale all'indirizzo [https://portal.azure.com].
+Per eseguire questa esercitazione, è necessaria una sottoscrizione di Azure valida.  Se non si ha una sottoscrizione, [iscriversi per una versione di prova gratuita](https://azure.microsoft.com/pricing/free-trial/) .  Dopo avere creato una sottoscrizione, sarà possibile accedere al portale all'indirizzo <https://portal.azure.com>.
 
 ## <a name="how-to-create-a-resource"></a>Come creare un gruppo di risorse
 Il Marketplace di Azure offre migliaia di elementi che possono essere creati da un'unica posizione.  Si supponga di volere creare una nuova macchina virtuale Windows Server 2012.  L'hub +NUOVO è il punto di partenza per accedere a un set predefinito di categorie disponibili nel Marketplace.  Ogni categoria include un piccolo set di elementi disponibili, oltre a un collegamento al Marketplace completo che mostra tutte le categorie e permette di eseguire la ricerca. Per creare una nuova macchina virtuale Windows Server 2012, eseguire le operazioni seguenti:  

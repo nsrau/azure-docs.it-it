@@ -1,6 +1,6 @@
 ---
 title: Soluzioni di Azure per Internet delle cose (IoT Suite) | Documentazione Microsoft
-description: Panoramica di un&quot;architettura di soluzione IoT di esempio e di come si leghi a dispositivi, al servizio hub IoT di Azure, ad Azure IoT SDK per dispositivi, ad Azure IoT SDK per servizi e ad altri servizi di Azure.
+description: Panoramica di un'architettura di soluzione IoT di esempio e di come si leghi a dispositivi, al servizio hub IoT di Azure, ad Azure IoT SDK per dispositivi, ad Azure IoT SDK per servizi e ad altri servizi di Azure.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/16/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
+ms.contentlocale: it-it
 ms.lasthandoff: 02/16/2017
 
 

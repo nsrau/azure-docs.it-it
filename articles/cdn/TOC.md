@@ -6,7 +6,7 @@
 
 # Procedure
 ## Integrare
-### [App Web](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [App Web](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Servizi cloud](cdn-cloud-service-with-cdn.md)
 ### [Archiviazione](cdn-create-a-storage-account-with-cdn.md)
 ### [Condivisione di risorse tra le origini](cdn-cors.md)
@@ -36,6 +36,7 @@
 ### [Generare report HTTP avanzati](cdn-advanced-http-reports.md)
 ### [Visualizzare statistiche in tempo reale](cdn-real-time-stats.md)
 ### [Analizzare le prestazioni del nodo perimetrale](cdn-edge-performance.md)
+### [Esportare le metriche con i log di diagnostica](cdn-log-analysis.md)
 
 ## Sviluppare
 ### [.NET](cdn-app-dev-net.md)

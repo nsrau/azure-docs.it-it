@@ -3,8 +3,8 @@ title: Introduzione ad Azure Data Lake Analytics con Azure PowerShell | Document
 description: 'Usare Azure PowerShell per creare un account di Data Lake Analytics, definire un processo di Data Lake Analytics con U-SQL e inviare il processo. '
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.service: data-lake-analytics
@@ -12,199 +12,142 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2bc3e4573ff4f202c3c8492e8110dc35c7e8ff2a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 6985dff332928d704f30e167c3bddb62bcc6cac1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Esercitazione: Introduzione ad Azure Data Lake Analytics con Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Informazioni su come usare Azure PowerShell per creare gli account di Analisi Azure Data Lake, definire i processi di Analisi Data Lake in [U-SQL](data-lake-analytics-u-sql-get-started.md)e inviare processi agli account di Analisi Data Lake. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-In questa esercitazione si svilupperà un processo che legge un file di valori separati da tabulazioni (TSV) e lo converte in un file di valori separati da virgole (CSV). Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede disponibili nella parte superiore di questa sezione.
+Questo articolo illustra come usare Azure PowerShell per creare account Azure Data Lake Analytics e quindi inviare ed eseguire processi U-SQL. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
+Prima di iniziare questa esercitazione sono necessari le informazioni seguenti:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Workstation con Azure PowerShell**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-## <a name="create-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
-È necessario disporre di un account di Data Lake Analytics prima di poter eseguire qualsiasi processo. Per creare un account di Data Lake Analytics, è necessario specificare quanto segue:
+## <a name="preparing-for-the-tutorial"></a>Preparazione dell'esercitazione
+Per creare un account Data Lake Analytics, prima è necessario definire:
 
-* **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
-
-    Per elencare i gruppi di risorse nella sottoscrizione:
-
-        Get-AzureRmResourceGroup
-
-    Per creare un nuovo gruppo di risorse:
-
-        New-AzureRmResourceGroup `
-            -Name "<Your resource group name>" `
-            -Location "<Azure Data Center>" # For example, "East US 2"
-* **Nome dell'account di Data Lake Analytics**
+* **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure.
+* **Nome dell'account Data Lake Analytics**: il nome dell'account Data Lake deve contenere solo lettere minuscole e numeri.
 * **Posizione**: uno dei data center di Azure che supporta Data Lake Analytics.
-* **Account di Data Lake predefinito**: ogni account di Data Lake dispone di un account di Data Lake predefinito.
+* **Account Data Lake Store predefinito**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito. Questi account devono essere nello stesso percorso.
 
-    Per creare un nuovo account di Data Lake:
+I frammenti di codice di PowerShell in questa esercitazione usano le variabili seguenti per archiviare queste informazioni.
 
-        New-AzureRmDataLakeStoreAccount `
-            -ResourceGroupName "<Your Azure resource group name>" `
-            -Name "<Your Data Lake account name>" `
-            -Location "<Azure Data Center>"  # For example, "East US 2"
+```
+$rg = "<ResourceGroupName>"
+$adls = "<DataLakeAccountName>"
+$adla = "<DataLakeAnalyticsAccountName>"
+$location = "East US 2"
+```
 
-  > [!NOTE]
-  > Il nome dell'account di Data Lake deve contenere solo lettere minuscole e numeri.
-  >
-  >
+## <a name="create-a-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
 
-**Per creare un account di Data Lake Analytics**
+Se non si ha già un gruppo di risorse da usare, crearne uno. 
 
-1. Dalla workstation Windows aprire Windows PowerShell ISE.
-2. Eseguire lo script seguente:
+```
+New-AzureRmResourceGroup -Name  $rg -Location $location
+```
 
-        $resourceGroupName = "<ResourceGroupName>"
-        $dataLakeStoreName = "<DataLakeAccountName>"
-        $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-        $location = "East US 2"
+Per ogni account Data Lake Analytics deve essere configurato un account Data Lake Store che viene usato per l'archiviazione dei log. È possibile usare un account esistente o creare un nuovo account. 
 
-        Write-Host "Create a resource group ..." -ForegroundColor Green
-        New-AzureRmResourceGroup `
-            -Name  $resourceGroupName `
-            -Location $location
+```
+New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
+```
 
-        Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
-        New-AzureRmDataLakeStoreAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeStoreName `
-            -Location $location
+Quando sono disponibili un gruppo di risorse e un account Data Lake Store, creare un account Data Lake Analytics.
 
-        Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
-        New-AzureRmDataLakeAnalyticsAccount `
-            -Name $dataLakeAnalyticsName `
-            -ResourceGroupName $resourceGroupName `
-            -Location $location `
-            -DefaultDataLake $dataLakeStoreName
+```
+New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
+```
 
-        Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
-        Get-AzureRmDataLakeAnalyticsAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeAnalyticsName  
+## <a name="get-information-about-a-data-lake-analytics-account"></a>Ottenere informazioni su un account Data Lake Analytics account
 
-## <a name="upload-data-to-data-lake"></a>Caricare dati in Data Lake
-In questa esercitazione verranno elaborati alcuni log di ricerca.  Il log di ricerca può essere archiviato in Data Lake Store o in un archivio BLOB di Azure.
+```
+Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
+```
 
-Un file del log di ricerca di esempio è stato copiato in un contenitore BLOB di Azure pubblico. Usare il seguente script di PowerShell per scaricare il file nella workstation in uso e quindi caricare il file nell'account di Data Lake Store predefinito dell'account di Data Lake Analytics.
+## <a name="submit-a-u-sql-job"></a>Inviare un processo U-SQL
 
-    $dataLakeStoreName = "<The default Data Lake Store account name>"
+Creare un file di testo con lo script U-SQL seguente.
 
-    $localFolder = "C:\Tutorials\Downloads\" # A temp location for the file.
-    $storageAccount = "adltutorials"  # Don't modify this value.
-    $container = "adls-sample-data"  #Don't modify this value.
+```
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
+    USING Outputters.Csv();
+```
 
-    # Create the temp location    
-    New-Item -Path $localFolder -ItemType Directory -Force
+Inviare lo script.
 
-    # Download the sample file from Azure Blob storage
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
-    $$blobs = Get-AzureStorageBlob -Container $container -Context $context
-    $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
+```
+Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
+```
 
-    # Upload the file to the default Data Lake Store account    
-    Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
+## <a name="monitor-u-sql-jobs"></a>Monitorare i processi U-SQL
 
-Lo script di PowerShell seguente mostra come ottenere il nome dell'archivio predefinito di Data Lake per un account di Data Lake Analytics:
+Elencare tutti i processi nell'account. L'output include i processi attualmente in esecuzione e quelli completati di recente.
 
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeStoreAccount
-    echo $dataLakeStoreName
+```
+Get-AdlJob -Account $adla
+```
 
-> [!NOTE]
-> Il portale di Azure fornisce un'interfaccia utente per copiare i file di dati di esempio nell'account di Data Lake Store predefinito. Per istruzioni, vedere [Introduzione ad Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-get-started-portal.md#prepare-source-data).
->
->
+Ottenere lo stato di un processo specifico.
 
-Data Lake Analytics può inoltre accedere all'archivio BLOB di Azure.  Per caricare i dati nell'archivio BLOB di Azure, vedere [Uso di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md).
+```
+Get-AdlJob -AccountName $adla -JobId $job.JobId
+```
 
-## <a name="submit-data-lake-analytics-jobs"></a>Inviare processi di Data Lake Analytics
-I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altre informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL](data-lake-analytics-u-sql-get-started.md) e [U-SQL Language Reference](http://go.microsoft.com/fwlink/?LinkId=691348) (Riferimenti al linguaggio U-SQL).
+Invece di continuare a chiamare Get-AdlAnalyticsJob fino al termine di un processo, è possibile usare il cmdlet Wait-AdlJob.
 
-**Per creare uno script per il processo di Data Lake Analytics**
+```
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
 
-* Creare un file di testo contenente il seguente script U-SQL e salvare il file di testo nella workstation in uso:
+Al termine del processo, controllare se il file di output esiste elencando i file in una cartella.
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
+```
+Get-AdlStoreChildItem -Account $adls -Path "/"
+```
 
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
+Verificare l'esistenza di un file.
 
-    Questo script U-SQL legge il file di dati di origine con **Extractors.Tsv()** e quindi crea un file CSV con **Outputters.Csv()**.
+```
+Test-AdlStoreItem -Account $adls -Path "/data.csv"
+```
 
-    Non modificare i due percorsi, a meno che il file di origine non sia stato copiato in una posizione diversa.  Data Lake Analytics creerà la cartella di output, se non esiste già.
+## <a name="uploading-and-downloading-files"></a>Caricamento e download dei file
 
-    Risulta più semplice usare i percorsi relativi dei file archiviati negli account predefiniti di Data Lake, è possibile usare anche percorsi assoluti.  Ad esempio
+Scaricare l'output dello script U-SQL.
 
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+```
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
+```
 
-    È necessario usare percorsi assoluti per accedere ai file presenti negli account di archiviazione collegati.  La sintassi dei file presenti in un account di Archiviazione di Azure collegato è:
 
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+Caricare un file da usare come input per uno script U-SQL.
 
-  > [!NOTE]
-  > Non sono attualmente supportate autorizzazioni di accesso a contenitori pubblici o a contenitori BLOB di Azure con BLOB pubblici.    
-  >
-  >
-
-**Per inviare il processo**
-
-1. Dalla workstation Windows aprire Windows PowerShell ISE.
-2. Eseguire lo script seguente:
-
-        $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-        $usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
-
-        $job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript
-
-        Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
-
-        Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
-
-    Nello script il file di script U-SQL viene archiviato in c:\tutorials\data-lake-analytics\copyFile.usql. Aggiornare il percorso del file di conseguenza.
-
-Dopo il completamento del processo, è possibile usare i cmdlet seguenti per visualizzare l'elenco di file e scaricare il file:
-
-    $resourceGroupName = "<Resource Group Name>"
-    $dataLakeAnalyticName = "<Data Lake Analytic Account Name>"
-    $destFile = "C:\tutorials\data-lake-analytics\SearchLog-from-Data-Lake.csv"
-
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
-
-    Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -path "/Output"
-
-    Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "/Output/SearchLog-from-Data-Lake.csv" -Destination $destFile
+```
+Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
+```
 
 ## <a name="see-also"></a>Vedere anche
 * Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
-* Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Analisi Data Lake di Azure](data-lake-analytics-analyze-weblogs.md).
-* Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-* Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-manage-use-portal.md).
-* Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
+* Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 

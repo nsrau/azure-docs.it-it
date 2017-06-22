@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: c9f2e3beafd19e0d4d62e409a80da336be17b90b
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c54a1ed648022875f489179a3321dedf2d290d7e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
+
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Esercitazione: Creare la prima data factory di Azure con il portale di Azure
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
@@ -31,12 +33,14 @@ ms.lasthandoff: 02/03/2017
 > * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com/) per creare la prima data factory di Azure. Per eseguire l'esercitazione usando altri strumenti/SDK, selezionare una delle opzioni dall'elenco a discesa. 
+Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com/) per creare la prima istanza di Azure Data Factory. Per eseguire l'esercitazione usando altri strumenti/SDK, selezionare una delle opzioni dall'elenco a discesa. 
+
+La pipeline in questa esercitazione include un'attività, l'**attività Hive di HDInsight**, che esegue uno script Hive in un cluster Azure HDInsight per trasformare i dati di input e generare i dati di output. L'esecuzione della pipeline è pianificata una volta al mese tra le ore di inizio e di fine specificate. 
 
 > [!NOTE]
-> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Non copia dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Copiare dati da un archivio BLOB al database SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Copiare dati da un archivio BLOB al database SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
+> Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Pianificazione ed esecuzione in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="prerequisites"></a>Prerequisiti
 1. Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi relativi ai **prerequisiti** .
@@ -61,13 +65,15 @@ Una data factory può comprendere una o più pipeline. Una pipeline può compren
    >
 4. Selezionare la **sottoscrizione di Azure** in cui creare la data factory.
 5. Selezionare un **gruppo di risorse** esistente o crearne uno. Per l'esercitazione creare un gruppo di risorse denominato **ADFGetStartedRG**.
-6. Fare clic su **Crea** nel pannello **Nuova data factory**.
+6. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono visualizzate solo le aree supportate dal servizio Data Factory.
+7. Selezionare **Aggiungi al dashboard**. 
+8. Fare clic su **Crea** nel pannello **Nuova data factory**.
 
    > [!IMPORTANT]
    > Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
    >
    >
-7. Nella **Schermata iniziale** del portale di Azure verrà visualizzata la data factory in fase di creazione:   
+7. Nel dashboard viene visualizzato il riquadro seguente con lo stato: Deploying data factory (Distribuzione della data factory).    
 
    ![Stato creazione della data factory](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 8. Congratulazioni. La creazione della prima data factory è così completata. Dopo la creazione della data factory, viene visualizzata la pagina corrispondente con elencato il contenuto della data factory.     
@@ -114,7 +120,6 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "AzureStorageLinkedService"
@@ -127,7 +132,6 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
    | Proprietà | Descrizione |
    |:--- |:--- |
-   | Versione |Specifica che la versione di HDInsight creata è 3.2. |
    | ClusterSize |Specifica le dimensioni del cluster HDInsight. |
    | TimeToLive |Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato. |
    | linkedServiceName |Specifica l'account di archiviazione che viene usato per archiviare i log generati da HDInsight. |
@@ -184,13 +188,16 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 
    | Proprietà | Descrizione |
    |:--- |:--- |
-   | type |La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |
-   | linkedServiceName |Fa riferimento all'oggetto AzureStorageLinkedService creato in precedenza. |
-   | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log. |
-   | type |I file di log sono in formato testo, quindi viene usato TextFormat. |
-   | columnDelimiter |Le colonne nei file di log sono delimitate da virgola (,). |
-   | frequenza/intervallo |La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
-   | external |Questa proprietà è impostata su true se i dati di input non vengono generati dal servizio Data factory. |
+   | type |La proprietà type è impostata su **AzureBlob** perché i dati risiedono in un archivio BLOB di Azure. |
+   | linkedServiceName |Fa riferimento all'oggetto **AzureStorageLinkedService** creato in precedenza. |
+   | folderPath | Specifica il **contenitore** BLOB e la **cartella** che contiene i BLOB di input. | 
+   | fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In questo tutorial viene elaborato solo il file **input.log**. |
+   | type |I file di log sono in formato testo, quindi viene usato **TextFormat**. |
+   | columnDelimiter |Le colonne nei file di log sono delimitate da **virgola (`,`)**. |
+   | frequenza/intervallo |La frequenza è impostata su **Month** e l'intervallo è **1**; ciò significa che le sezioni di input sono disponibili con cadenza mensile. |
+   | external | Questa proprietà è impostata su **true** se i dati di input non vengono generati dalla pipeline. In questa esercitazione il file input.log non viene generato dalla pipeline, quindi questa proprietà viene impostata su true. |
+
+    Per altre informazioni su queste proprietà JSON, vedere l'articolo relativo al [connettore BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties).
 3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il set di dati appena creato. Il set di dati viene visualizzato nella visualizzazione albero a sinistra.
 
 ### <a name="create-output-dataset"></a>Creare il set di dati di output

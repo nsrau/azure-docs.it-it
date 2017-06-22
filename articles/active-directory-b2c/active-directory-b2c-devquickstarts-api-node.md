@@ -3,7 +3,7 @@ title: 'Azure AD B2C: proteggere un&quot;API Web usando Node.js | Microsoft Docs
 description: Come compilare un&quot;API Web Node.js che accetta token da un tenant B2C
 services: active-directory-b2c
 documentationcenter: 
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
@@ -14,9 +14,10 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
 ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
+ms.contentlocale: it-it
 ms.lasthandoff: 02/14/2017
 
 
@@ -549,7 +550,7 @@ Restify ed Express offrono un livello elevato di personalizzazione per un server
 
 ```Javascript
 
-**
+/**
  * Our Server
  */
 

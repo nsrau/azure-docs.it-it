@@ -3,8 +3,8 @@ title: Come usare l&quot;archiviazione BLOB di Azure da iOS | Microsoft Docs
 description: Archiviare i dati non strutturati nel cloud con l&quot;archivio BLOB (archivio di oggetti) di Azure.
 services: storage
 documentationcenter: ios
-author: seguler
-manager: jahogg
+author: michaelhauss
+manager: vamshik
 editor: tysonn
 ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
 ms.service: storage
@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: b6e5d2dce97c2f10d0e440a0bde05d50d8965833
-ms.lasthandoff: 04/06/2017
+ms.date: 05/11/2017
+ms.author: michaelhauss
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: d5c004f3123c203a665fb421f81f4a14cfbeb26c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -34,49 +35,67 @@ Questa guida illustra i diversi scenari comuni di uso del servizio di archiviazi
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Importare la libreria iOS di Archiviazione di Azure nell'applicazione
-È possibile importare la libreria iOS di archiviazione di Azure nell'applicazione tramite l'uso del [CocoaPod di Archiviazione di Azure](https://cocoapods.org/pods/AZSClient) o importando il file **Framework** .
+È possibile importare la libreria iOS di archiviazione di Azure nell'applicazione tramite l'uso del [CocoaPod di Archiviazione di Azure](https://cocoapods.org/pods/AZSClient) o importando il file **Framework** . CocoaPod è lo strumento consigliato, in quanto semplifica l'integrazione della libreria. Tuttavia, l'importazione dal file del framework è meno impegnativa per il progetto esistente.
+
+Per usare questa libreria, sono necessari i componenti seguenti:
+- iOS 8+
+- Xcode 7+
 
 ## <a name="cocoapod"></a>CocoaPod
 1. Se non ancora installato, [installare CocoaPod](https://guides.cocoapods.org/using/getting-started.html#toc_3) nel computer aprendo una finestra del terminale ed eseguendo il comando seguente
-   
+    
+    ```shell   
     sudo gem install cocoapods
+    ```
 
 2. Successivamente, nella directory del progetto (la directory contenente il file con estensione xcodeproj), creare un nuovo file denominato _Podfile_ (senza estensione). Aggiungere il codice seguente a _Podfile_ e salvare.
-   
-    pod 'AZSClient'
+
+    ```ruby
+    platform :ios, '8.0'
+
+    target 'TargetName' do
+      pod 'AZSClient'
+    end
+    ```
 
 3. Nella finestra del terminale passare alla directory del progetto ed eseguire il comando seguente
-   
+
+    ```shell    
     pod install
+    ```
 
 4. Se il file con estensione xcodeproj è aperto in Xcode, chiuderlo. Nella directory del progetto aprire il file di progetto appena creato che avrà l'estensione xcworkspace. Si tratta del file che verrà usato d'ora in poi.
 
 ## <a name="framework"></a>Framework
-Per usare la libreria iOS di Archiviazione di Azure, innanzitutto sarà necessario compilare il file del framework.
+L'altro modo per usare la libreria consiste nel creare il framework manualmente:
 
 1. Per prima cosa, scaricare o clonare il [repository azure-storage-ios](https://github.com/azure/azure-storage-ios).
-2. Passare a *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library* e aprire AZSClient.xcodeproj in Xcode.
+2. Andare ad *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library* e aprire `AZSClient.xcodeproj` in Xcode.
 3. In alto a sinistra in Xcode cambiare lo schema attivo da "Azure Storage Client Library" a "Framework".
-4. Compilare il progetto (⌘+B). Verrà creato un file AZSClient.framework file sulla scrivania.
+4. Compilare il progetto (⌘+B). Verrà creato un file `AZSClient.framework` sulla scrivania.
 
 È quindi possibile importare il file framework nell'applicazione eseguendo le seguenti operazioni:
 
 1. Creare un nuovo progetto o aprire il progetto esistente in Xcode.
-2. Fare clic sul progetto nel riquadro di spostamento a sinistra e fare clic sulla scheda *General* nella parte superiore dell'editor del progetto.
-3. Nella sezione *Linked Frameworks and Libraries* fare clic sul pulsante Add (+).
-4. Fare clic su *Add Other*. Passare al file `AZSClient.framework` appena creato e aggiungerlo.
-5. Nella sezione *Linked Frameworks and Libraries* fare nuovamente clic sul pulsante Add (+).
-6. Nell'elenco di librerie già fornito cercare `libxml2.2.dylib` e aggiungerla al progetto.
-7. Fare clic sulla scheda *Build Settings* (Impostazioni di compilazione) nella parte superiore dell'editor di progetto.
-8. Nella sezione *Search Paths* (Percorsi di ricerca) fare doppio clic su *Framework Search Paths* (Percorsi di ricerca framework) e aggiungere il percorso al file `AZSClient.framework`.
+2. Trascinare `AZSClient.framework` nella struttura del progetto Xcode.
+3. Selezionare *Copy items if needed* (Copia elementi se necessario) e fare clic su *Add* (Aggiungi).
+4. Fare clic sul progetto nel riquadro di spostamento a sinistra e fare clic sulla scheda *General* nella parte superiore dell'editor del progetto.
+5. Nella sezione *Linked Frameworks and Libraries* fare clic sul pulsante Add (+).
+6. Nell'elenco di librerie già fornito cercare `libxml2.2.tbd` e aggiungerla al progetto.
 
-## <a name="import-statement"></a>Istruzione import
-Sarà necessario includere l'istruzione import seguente nel file in cui si vuole richiamare l'API di archiviazione di Azure.
-
+## <a name="import-the-library"></a>Importare la libreria 
 ```objc
 // Include the following import statement to use blob APIs.
 #import <AZSClient/AZSClient.h>
 ```
+
+Se si usa Swift, è necessario creare un'intestazione provvisoria e importare <AZSClient/AZSClient.h> qui:
+
+1. Creare un file di intestazione `Bridging-Header.h` e aggiungere l'istruzione di importazione precedente.
+2. Passare alla scheda *Build Settings* (Impostazioni compilazione) e cercare *Objective-C Bridging Header* (Intestazione provvisoria Objective-C).
+3. Fare doppio clic nel campo di *Objective-C Bridging Header* (Intestazione provvisoria Objective-C) e aggiungere il percorso al file di intestazione: `ProjectName/Bridging-Header.h`
+4. Creare il progetto (⌘+B) per verificare che l'intestazione provvisoria sia stata prelevata da Xcode.
+5. È possibile iniziare a usare la libreria direttamente in qualsiasi file Swift, in quanto non è necessario importare istruzioni.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
@@ -124,7 +143,7 @@ Per impostazione predefinita, le autorizzazioni di un contenitore vengono config
 * **BLOB**: i dati BLOB all'interno di questo contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client non possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima.
 * **Contenitore**: dati BLOB e contenitore possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
 
-L'esempio seguente mostra come creare un contenitore con le autorizzazioni di accesso **Contenitore** che consentiranno l'accesso pubblico di sola lettura per tutti gli utenti in Internet:
+L'esempio seguente mostra come creare un contenitore con autorizzazioni di accesso **Contenitore**, che consentono l'accesso pubblico in sola lettura a tutti gli utenti in Internet:
 
 ```objc
 -(void)createContainerWithPublicAccess{
@@ -153,7 +172,7 @@ L'esempio seguente mostra come creare un contenitore con le autorizzazioni di ac
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Caricare un BLOB in un contenitore
-Come accennato nella sezione [Concetti del servizio BLOB](#blob-service-concepts) , l'archiviazione BLOB offre tre diversi tipi di BLOB: BLOB in blocchi, BLOB di accodamento e BLOB di pagine. Per il momento, la libreria iOS di Archiviazione di Azure supporta solo i BLOB in blocchi. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.
+Come accennato nella sezione [Concetti del servizio BLOB](#blob-service-concepts) , l'archiviazione BLOB offre tre diversi tipi di BLOB: BLOB in blocchi, BLOB di accodamento e BLOB di pagine. La libreria iOS di Archiviazione di Azure supporta tutti e tre i tipi di BLOB. Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi.
 
 L'esempio seguente mostra come caricare un BLOB in blocchi da NSString. Se in questo contenitore esiste già un BLOB con lo stesso nome, i contenuti del BLOB verranno sovrascritti.
 
@@ -194,18 +213,18 @@ L'esempio seguente mostra come caricare un BLOB in blocchi da NSString. Se in qu
 }
 ```
 
-È possibile verificarne il funzionamento controllando [Esplora archivi di Microsoft Azure](http://storageexplorer.com) e accertandosi che il contenitore *containerpublic* contenga il BLOB *sampleblob*. Poiché in questo esempio è stato usato un contenitore pubblico, per verificarne il funzionamento è possibile andare all'URI dei BLOB:
+È possibile verificarne il funzionamento controllando [Esplora archivi di Microsoft Azure](http://storageexplorer.com) e accertandosi che il contenitore *containerpublic* contenga il BLOB *sampleblob*. Poiché in questo esempio è stato usato un contenitore pubblico, per verificarne il funzionamento è anche possibile passare all'URI dei BLOB:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
-Oltre a caricare un BLOB in blocchi da NSString, esistono metodi simili per NSData, NSInputStream o un file locale.
+Oltre che per caricare un BLOB in blocchi da NSString, esistono metodi simili per NSData, NSInputStream o un file locale.
 
 ## <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
 L'esempio seguente mostra come elencare tutti i BLOB in un contenitore. Quando si esegue questa operazione, tenere presenti i parametri seguenti:     
 
 * **continuationToken** : il token di continuazione indica dove deve iniziare l'operazione di elenco. Se non viene specificato alcun token, i BLOB verranno elencati dall'inizio. È possibile elencare qualsiasi numero di BLOB, da zero a un massimo impostato. Anche se questo metodo restituisce zero risultati, se `results.continuationToken` non è nil, il servizio potrebbe includere altri BLOB che non sono stati elencati.
 * **prefix** : è possibile specificare il prefisso da usare per l'elenco di BLOB. Verranno elencati solo i BLOB che iniziano con questo prefisso.
-* **useFlatBlobListing** : come accennato nella sezione [Assegnazione di nome e riferimento a contenitori e BLOB](#naming-and-referencing-containers-and-blobs) , anche se il servizio BLOB è uno schema di Archiviazione semplice, è possibile creare una gerarchia virtuale assegnando ai BLOB un nome con le informazioni sul percorso. Gli elenchi non semplici, tuttavia, non sono attualmente supportati, ma lo saranno a breve. Per ora, questo valore dovrebbe essere **YES** (Sì).
+* **useFlatBlobListing** : come accennato nella sezione [Assegnazione di nome e riferimento a contenitori e BLOB](#naming-and-referencing-containers-and-blobs) , anche se il servizio BLOB è uno schema di Archiviazione semplice, è possibile creare una gerarchia virtuale assegnando ai BLOB un nome con le informazioni sul percorso. Gli elenchi non semplici, tuttavia, non sono attualmente supportati. Questa funzionalità sarà disponibile a breve. Per ora, questo valore dovrebbe essere **YES** (Sì).
 * **blobListingDetails** : è possibile specificare quali elementi includere quando si elencano i BLOB
   * _AZSBlobListingDetailsNone_: elenca solo i BLOB di cui è stato eseguito il commit e non restituisce i metadati dei BLOB.
   * _AZSBlobListingDetailsSnapshots_: elenca i BLOB di cui è stato eseguito il commit e gli snapshot dei BLOB.
@@ -373,7 +392,7 @@ A questo punto, dopo avere appreso a usare l'archiviazione BLOB da iOS, seguire 
 * [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage)
 
-In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+In caso di domande sulla libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).
 
 

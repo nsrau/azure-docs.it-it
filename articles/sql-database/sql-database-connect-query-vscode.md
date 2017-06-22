@@ -10,17 +10,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: quick start manage, mvc
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/24/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 82c8a34fcccb6d19dc82110a6d95a80d748835f0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,10 +29,13 @@ ms.lasthandoff: 04/20/2017
 
 [Visual Studio Code](https://code.visualstudio.com/docs) è un editor grafico di codice per Linux, macOS e Windows che supporta le estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace), per le query di Microsoft SQL Server, database SQL di Azure e SQL Data Warehouse. Questa guida introduttiva illustra come usare Visual Studio Code per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.
 
+## <a name="prerequisites"></a>Prerequisiti
+
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
 - [Creare un database: portale](sql-database-get-started-portal.md)
 - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+- [Creare un database: PowerShell](sql-database-get-started-powershell.md)
 
 Prima di iniziare, assicurarsi di avere installato la versione più recente di [Visual Studio Code](https://code.visualstudio.com/Download) e di aver caricato l'[estensione mssql](https://aka.ms/mssql-marketplace). Per istruzioni sull'installazione dell'estensione mssql, vedere [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) (Installare Visual Studio Code) e [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (mssql per Visual Studio Code). 
 
@@ -96,17 +100,15 @@ Usare Visual Studio Code per stabilire una connessione al server del database SQ
 
 4. Seguire le istruzioni per specificare le proprietà di connessione per il nuovo profilo di connessione. Dopo aver specificato ogni valore, premere **INVIO** per continuare. 
 
-   La tabella seguente descrive le proprietà del profilo di connessione.
-
-   | Impostazione | Descrizione |
-   |-----|-----|
-   | **Server name** (Nome server) | Immettere il nome completo del server, ad esempio **mynewserver20170313.database.windows.net** |
-   | **Database name** (Nome database) | Immettere il nome del database, ad esempio **mySampleDatabase** |
-   | **Autenticazione** | Selezionare SQL Login (Account di accesso SQL) |
-   | **Nome utente** | Immettere l'account dell'amministratore del server |
-   | **Password (SQL Login)** (Password - Account di accesso SQL) | Immettere la password per l'account dell'amministratore del server | 
-   | **Save Password?** (Salvare la password?) | Selezionare **Yes** o **No** |
-   | **[Optional] Enter a name for this profile** (Facoltativo - Immettere un nome per il profilo) | Immettere il nome del profilo di connessione, ad esempio **mySampleDatabase**. 
+   | Impostazione       | Valore consigliato | Descrizione |
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver20170313.database.windows.net**. |
+   | **Database name** (Nome database) | mySampleDatabase | Nome del database a cui connettersi. |
+   | **Autenticazione** | Account di accesso SQL| L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
+   | **Nome utente** | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
+   | **Password (SQL Login)** (Password - Account di accesso SQL) | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
+   | **Save Password?** (Salvare la password?) | Sì o No | Selezionare Sì se non si vuole immettere la password ogni volta. |
+   | **Immettere un nome per questo profilo** | Nome del profilo, ad esempio **mySampleDatabase** | Un nome del profilo salvato velocizza la connessione agli accessi successivi. | 
 
 5. Premere il tasto **ESC** per chiudere il messaggio che informa che il profilo è stato creato e connesso.
 

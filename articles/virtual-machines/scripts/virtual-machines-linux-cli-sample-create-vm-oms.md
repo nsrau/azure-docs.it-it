@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con il monitoraggio di OMS | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con il monitoraggio di OMS
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con il monitoraggio di OMS | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con il monitoraggio di OMS
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: ea72236877203a59bb4c7fda830ba7bc87f458e0
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9646183fe11f30fc5749bd3052af09f4268b7c6f
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,13 +34,13 @@ Questo script consente di creare una macchina virtuale di Azure, installare l'ag
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh "Creazione rapida della macchina virtuale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh "Creazione rapida della macchina virtuale")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
 Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 488b16623300d80a53a61badee420de106c418b0
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c7fb1c796556baf09a34c4bc6ed71964071d5874
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -42,9 +43,6 @@ Prima di configurare la scalabilità per l'applicazione, tenere presente quanto 
 * È possibile scalare le risorse collegate al servizio cloud. Per altre informazioni sul collegamento di risorse, vedere [Procedura: Collegare una risorsa a un servizio cloud](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
 * Per abilitare la disponibilità elevata dell'applicazione, è necessario accertarsi che sia distribuita con due o più istanze del ruolo. Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
-
-> [!WARNING]
-> La scalabilità automatica funziona solo con gli account di archiviazione di Azure classico. Non funziona con gli account di archiviazione di Azure Resource Manager.
 
 ## <a name="schedule-scaling"></a>Pianificazione della scalabilità
 Per impostazione predefinita, i ruoli non seguono una pianificazione specifica. Per questo motivo, tutte le impostazioni modificate vengono applicate in qualsiasi momento e tutti i giorni dell'anno. Se lo si desidera, è possibile configurare la scalabilità manuale o automatica per le modalità seguenti:

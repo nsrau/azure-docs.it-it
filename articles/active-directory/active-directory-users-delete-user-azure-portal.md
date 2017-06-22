@@ -1,5 +1,6 @@
 ---
-title: Eliminare un utente da una directory in anteprima di Azure Active Directory | Documentazione Microsoft
+
+title: Eliminare un utente da una directory in Azure Active Directory | Microsoft Docs
 description: Descrive come eliminare un utente e tutte le informazioni da Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d33da5ca6cf1768fc7ca6d9f2035be7edbb8ad36
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f4d12e8a8e2710879c8748b120ab63179b3a4be2
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="delete-a-user-from-a-directory-in-azure-active-directory-preview"></a>Eliminare un utente da una directory in anteprima di Azure Active Directory
-Questo articolo illustra come eliminare un utente da una directory in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad anteprima di Azure Active Directory](active-directory-users-create-azure-portal.md).
+# <a name="delete-a-user-from-a-directory-in-azure-active-directory"></a>Eliminare un utente da una directory in Azure Active Directory
+Questo articolo descrive come eliminare un utente da una directory in Azure Active Directory (Azure AD). Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="to-delete-a-user"></a>Per eliminare un utente
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
@@ -38,9 +40,9 @@ Questo articolo illustra come eliminare un utente da una directory in anteprima 
     ![Selezione del comando Elimina](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Aggiungere nuovi utenti ad anteprima di Azure Active Directory](active-directory-users-create-azure-portal.md)
-* [Reimpostare la password per un utente in anteprima di Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
-* [Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Aggiungere o modificare informazioni sul profilo per un utente in anteprima di Azure Active Directory](active-directory-users-work-info-azure-portal.md)
-* [Eliminare un utente da una directory in anteprima di Azure Active Directory](active-directory-users-profile-azure-portal.md)
+* [Aggiungere o modificare utenti in Azure Active Directory](active-directory-users-create-azure-portal.md)
+* [Reimpostare la password per un utente in Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
+* [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+* [Aggiungere o modificare informazioni sul profilo per un utente in Azure Active Directory](active-directory-users-work-info-azure-portal.md)
+* [Eliminare un utente da una directory in Azure Active Directory](active-directory-users-profile-azure-portal.md)
 

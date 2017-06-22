@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 762af7e09342f1bb51352e6c3d104bd4d8944e65
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -30,7 +32,7 @@ Ogni app che usa Azure AD B2C deve essere registrata nella [directory B2C](activ
 * Un **URI di reindirizzamento** che può essere usato per indirizzare le risposte all'app.
 * Altri valori specifici dello scenario. Per altri dettagli, vedere [Azure Active Directory B2C: registrare l'applicazione](active-directory-b2c-app-registration.md).
 
-Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint Azure AD&2;.0:
+Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint Azure AD 2.0:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -39,11 +41,11 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 Ogni richiesta inviata ad Azure AD B2C specifica un **criterio**. Il comportamento di Azure AD è regolato da criteri. Gli endpoint possono anche essere usati per creare un set personalizzabile di esperienze utente. Tra i criteri comuni sono inclusi quelli per l'iscrizione, l'accesso e la modifica del profilo. Se non si ha familiarità con i criteri, prima di continuare, vedere [Azure Active Directory B2C: framework di criteri estendibile](active-directory-b2c-reference-policies.md).
 
-Ogni interazione di app con l'endpoint&2;.0 segue un modello generale simile al seguente:
+Ogni interazione di app con l'endpoint 2.0 segue un modello generale simile al seguente:
 
-1. L'app indirizza l'utente all'endpoint&2;.0 per l'esecuzione dei [criteri](active-directory-b2c-reference-policies.md).
+1. L'app indirizza l'utente all'endpoint 2.0 per l'esecuzione dei [criteri](active-directory-b2c-reference-policies.md).
 2. L'utente completa i criteri in base alla relativa definizione.
-3. L'app riceve un token di sicurezza dall'endpoint&2;.0.
+3. L'app riceve un token di sicurezza dall'endpoint 2.0.
 4. L'app usa il token di sicurezza per accedere a informazioni protette o a una risorsa protetta.
 5. Il server delle risorse convalida il token di sicurezza per verificare che sia possibile concedere l'accesso.
 6. L'app aggiorna periodicamente il token di sicurezza.
@@ -120,7 +122,7 @@ In questo flusso l'app esegue i [criteri](active-directory-b2c-reference-policie
 ![Immagine di corsie di app native](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Limitazioni correnti
-Azure AD B2C attualmente non supporta i tipi di app seguenti, ma tale supporto è in programma. Altre limitazioni e restrizioni relative ad Azure AD B2C sono descritte nell'articolo [Azure Active Directory B2C: limitazioni e restrizioni](active-directory-b2c-limitations.md).
+Azure AD B2C attualmente non supporta i tipi di app seguenti, ma tale supporto è in programma. 
 
 ### <a name="daemonsserver-side-apps"></a>App sul lato server o daemon
 Anche le app che contengono processi a esecuzione prolungata o che funzionano senza la presenza di un utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Tali app possono autenticarsi e ottenere i token usando l'identità dell'app, anziché un'identità delegata dell'utente, e il flusso delle credenziali client di OAuth 2.0.
@@ -131,9 +133,4 @@ Questo flusso non è attualmente supportato da Azure AD B2C. Le app possono otte
 Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client nativi che hanno un back-end dell'API Web. Quest'ultimo chiama a sua volta un servizio online Microsoft, ad esempio l'API Graph di Azure AD.
 
 Questo scenario di API Web concatenata può essere supportato usando la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of.  Il flusso On-Behalf-Of, tuttavia, non è attualmente implementato in Azure AD B2C.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Gestione dei nomi di dominio personalizzati nell&quot;anteprima di Azure Active Directory | Documentazione Microsoft
+title: Gestione dei nomi di dominio personalizzati in Azure Active Directory | Microsoft Docs
 description: Concetti relativi alla gestione e procedure dettagliate per gestire un nome di dominio in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9dd64868be0899ebfc6414e0dc9e6e62d864e88e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: b483dcce0bec933e5dab6c990f4912cb596ebda0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="managing-custom-domain-names-in-your-azure-active-directory-preview"></a>Gestione dei nomi di dominio personalizzati in anteprima di Azure Active Directory
-Un nome di dominio è una parte importante dell'identificatore per numerose risorse directory: è parte di un nome utente o di un indirizzo di posta elettronica per un utente, parte dell'indirizzo per un gruppo e può essere parte dell'URI dell'ID app per un'applicazione. Una risorsa in anteprima di Azure Active Directory (Azure AD) può includere un nome di dominio già verificato come di proprietà della directory contenente il servizio. [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)  Solo un amministratore globale può eseguire attività di gestione del dominio in Azure AD.
+# <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
+Un nome di dominio è una parte importante dell'identificatore per numerose risorse directory: è parte di un nome utente o di un indirizzo di posta elettronica per un utente, parte dell'indirizzo per un gruppo e può essere parte dell'URI dell'ID app per un'applicazione. Una risorsa in Azure Active Directory (Azure AD) può includere un nome di dominio già verificato come di proprietà della directory contenente il servizio. Solo un amministratore globale può eseguire attività di gestione del dominio in Azure AD.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Impostare il nome di dominio primario per la directory di Azure AD
 Quando viene creata la directory, il nome di dominio iniziale, ad esempio "contoso.onmicrosoft.com", è anche il nome di dominio primario. Il dominio primario è il nome di dominio predefinito per un nuovo utente quando si crea un nuovo utente. Questo contribuisce a semplificare il processo di creazione dei nuovi utenti per gli amministratori. Per cambiare il nome di dominio primario:
@@ -59,17 +61,12 @@ Per eliminare un nome di dominio personalizzato, è prima necessario assicurarsi
 È necessario modificare o eliminare tali risorse dalla directory di Azure AD prima di poter eliminare il nome di dominio personalizzato.
 
 ## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Usare API Graph o PowerShell per gestire i nomi di dominio
-La maggior parte delle attività di gestione relative ai nomi di dominio in Azure Active Directory può anche essere eseguita usando Microsoft PowerShell oppure a livello di codice usando l'API Graph (versione di anteprima pubblica).
+La maggior parte delle attività di gestione per i nomi di dominio in Azure Active Directory può anche essere completata usando Microsoft PowerShell oppure a livello di codice usando l'API Graph di Azure AD.
 
 * [Uso di PowerShell per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Uso dell'API Graph per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere nomi di dominio personalizzati](active-directory-domains-add-azure-portal.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

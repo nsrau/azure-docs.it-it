@@ -15,10 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cb2d789a53ee2fa16db8d2553086a18043d4976e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 
@@ -161,7 +162,7 @@ La creazione di una tabella esterna è semplice, ma esistono alcuni aspetti da c
 Il caricamento dei dati con PolyBase è fortemente tipizzato. Ciò significa che ogni riga di dati inserita deve soddisfare la definizione dello schema tabella.
 Il caricamento di una riga non corrispondente alla definizione dello schema verrà rifiutato.
 
-Il tipo rifiutato e il valore rifiutato consentono di definire il numero di righe o la percentuale dei dati che dovranno essere presenti nella tabella finale.
+Le opzioni REJECT_TYPE e REJECT_VALUE permettono di definire il numero di righe o la percentuale dei dati che dovranno essere presenti nella tabella finale.
 Se durante il caricamento viene raggiunto il valore rifiutato, il caricamento avrà esito negativo. La causa più comune del rifiuto delle righe è una mancata corrispondenza con la definizione dello schema.
 Se ad esempio a una colonna viene erroneamente assegnato lo schema di int quando i dati nel file sono in formato stringa, il caricamento di tutte le righe avrà esito negativo.
 

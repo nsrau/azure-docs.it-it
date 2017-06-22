@@ -8,15 +8,16 @@ manager: rochakm
 editor: raynew
 ms.assetid: 6ac509ad-5024-43d8-b621-d8fec019b9a9
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/05/2017
 ms.author: rajanaki
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 933cb8692abea1f66192605208ddd9c0b9057235
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 

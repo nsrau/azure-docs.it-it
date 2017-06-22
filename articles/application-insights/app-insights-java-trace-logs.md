@@ -3,7 +3,7 @@ title: Esaminare i log di traccia Java in Azure Application Insights | Documenta
 description: Eseguire la ricerca di tracce Log4J o Logback in Application Insights
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
 ms.service: application-insights

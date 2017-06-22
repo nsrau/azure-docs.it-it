@@ -8,16 +8,17 @@ author: torsteng
 editor: 
 ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: torsteng
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 2a7229c9658cbbab676801f5c532a50bc0adedce
+ms.contentlocale: it-it
 ms.lasthandoff: 03/07/2017
 
 
@@ -172,7 +173,7 @@ L'esempio di codice seguente illustra il possibile uso di un criterio di ripetiz
             } 
         }); 
 
-**SqlDatabaseUtils.SqlRetryPolicy** nel codice precedente viene definito come **SqlDatabaseTransientErrorDetectionStrategy** con un numero di tentativi pari a 10 e un tempo di attesa tra i tentativi pari a 5 secondi. Questo approccio corrisponde alle informazioni aggiuntive per le transazioni di Entity Framework e avviate dall'utente; vedere l'argomento relativo alle limitazioni per le strategie di esecuzione con ripetizione dei tentativi (vedere [Entity Framework&6; e versioni successive)](http://msdn.microsoft.com/data/dn307226). Entrambe le situazioni richiedono che il programma applicativo controlli l'ambito in cui viene restituita l'eccezione temporanea: per riaprire la transazione o (come mostrato) ricreare il contesto dal costruttore corretto che usa la libreria client dei database elastici.
+**SqlDatabaseUtils.SqlRetryPolicy** nel codice precedente viene definito come **SqlDatabaseTransientErrorDetectionStrategy** con un numero di tentativi pari a 10 e un tempo di attesa tra i tentativi pari a 5 secondi. Questo approccio corrisponde alle informazioni aggiuntive per le transazioni di Entity Framework e avviate dall'utente; vedere l'argomento relativo alle limitazioni per le strategie di esecuzione con ripetizione dei tentativi (vedere [Entity Framework 6 e versioni successive)](http://msdn.microsoft.com/data/dn307226). Entrambe le situazioni richiedono che il programma applicativo controlli l'ambito in cui viene restituita l'eccezione temporanea: per riaprire la transazione o (come mostrato) ricreare il contesto dal costruttore corretto che usa la libreria client dei database elastici.
 
 La necessità di controllare la posizione a cui si viene riportati dalle eccezioni temporanee all'interno dell'ambito preclude anche l'uso dell'oggetto **SqlAzureExecutionStrategy** in dotazione con Entity Framework. **SqlAzureExecutionStrategy** riaprirebbe una connessione, ma non userebbe **OpenConnectionForKey**, di conseguenza verrebbe ignorata qualsiasi forma di convalida eseguita come parte della chiamata **OpenConnectionForKey**. L'esempio di codice usa invece l'oggetto **DefaultExecutionStrategy** , anch'esso incluso in Entity Framework. A differenza di **SqlAzureExecutionStrategy**, funziona correttamente con i criteri di ripetizione derivanti dalla gestione degli errori temporanei. I criteri di esecuzione vengono impostati nella classe **ElasticScaleDbConfiguration** . Si noti che si è deciso di non usare **DefaultSqlExecutionStrategy** perché suggerisce l'uso di **SqlAzureExecutionStrategy** in caso di eccezioni temporanee, situazione che causerebbe un comportamento errato, come spiegato in precedenza. Per altre informazioni sui diversi criteri di ripetizione ed Entity Framework, vedere l'articolo relativo alla [resilienza delle connessioni in Entity Framework](http://msdn.microsoft.com/data/dn456835.aspx).     
 

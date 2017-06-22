@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
 ms.openlocfilehash: 6c85df6bbcf25e687881380fd68bb3ee861098e3
+ms.contentlocale: it-it
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -39,14 +41,14 @@ La procedura seguente illustra come creare un'immagine personalizzata da un file
     Login-AzureRmAccount
     ```
 
-1.  Selezionare la sottoscrizione di Azure desiderata mediante una chiamata al cmdlet **Select-AzureRmSubscription**. Sostituire il segnaposto riportato di seguito per la variabile **$subscriptionId** con un ID sottoscrizione di Azure valido. 
+1.    Selezionare la sottoscrizione di Azure desiderata mediante una chiamata al cmdlet **Select-AzureRmSubscription**. Sostituire il segnaposto riportato di seguito per la variabile **$subscriptionId** con un ID sottoscrizione di Azure valido. 
 
     ```PowerShell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzureRmSubscription -SubscriptionId $subscriptionId
     ```
 
-1.  Ottenere l'oggetto lab mediante una chiamata al cmdlet **Get-AzureRmResource**. Sostituire i segnaposto riportati di seguito per le variabili **$labRg** e **$labName** con i valori appropriati per l'ambiente in uso. 
+1.    Ottenere l'oggetto lab mediante una chiamata al cmdlet **Get-AzureRmResource**. Sostituire i segnaposto riportati di seguito per le variabili **$labRg** e **$labName** con i valori appropriati per l'ambiente in uso. 
 
     ```PowerShell
     $labRg = '<Specify your lab resource group name here>'
@@ -54,20 +56,20 @@ La procedura seguente illustra come creare un'immagine personalizzata da un file
     $lab = Get-AzureRmResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
     ```
  
-1.  Ottenere l'account di archiviazione lab e i relativi valori chiave dall'oggetto lab. 
+1.    Ottenere l'account di archiviazione lab e i relativi valori chiave dall'oggetto lab. 
 
     ```PowerShell
     $labStorageAccount = Get-AzureRmResource -ResourceId $lab.Properties.defaultStorageAccount 
     $labStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
-1.  Sostituire il segnaposto riportato di seguito per la variabile **$vhdUri** con l'URI al file VHD caricato. È possibile ottenere l'URI del file VHD dal pannello del BLOB dell'account di archiviazione nel portale di Azure.
+1.    Sostituire il segnaposto riportato di seguito per la variabile **$vhdUri** con l'URI al file VHD caricato. È possibile ottenere l'URI del file VHD dal pannello del BLOB dell'account di archiviazione nel portale di Azure.
 
     ```PowerShell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
-1.  Creare l'immagine personalizzata usando il cmdlet **New-AzureRmResourceGroupDeployment**. Sostituire i segnaposto riportati di seguito per le variabili **$customImageName** e **$customImageDescription** con nomi significativi per l'ambiente in uso.
+1.    Creare l'immagine personalizzata usando il cmdlet **New-AzureRmResourceGroupDeployment**. Sostituire i segnaposto riportati di seguito per le variabili **$customImageName** e **$customImageDescription** con nomi significativi per l'ambiente in uso.
 
     ```PowerShell
     $customImageName = '<Specify the custom image name>'
@@ -75,7 +77,7 @@ La procedura seguente illustra come creare un'immagine personalizzata da un file
 
     $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/ARMTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
+    New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Samples/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
     ```
 
 ## <a name="powershell-script-to-create-a-custom-image-from-a-vhd-file"></a>Script di PowerShell per creare un'immagine personalizzata da un file VHD
@@ -99,7 +101,7 @@ $lab = Get-AzureRmResource -ResourceId ('/subscriptions/' + $subscriptionId + '/
 $labStorageAccount = Get-AzureRmResource -ResourceId $lab.Properties.defaultStorageAccount 
 $labStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
 
-# Set the URI of the VHD file.  
+# Set the URI of the VHD file.    
 $vhdUri = '<Specify the VHD URI here>'
 
 # Set the custom image name and description values.
@@ -110,7 +112,7 @@ $customImageDescription = '<Specify the custom image description>'
 $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
 # Create the custom image. 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/ARMTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
+New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Samples/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
 ```
 
 ## <a name="related-blog-posts"></a>Post di blog correlati
@@ -121,9 +123,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Na
 ##<a name="next-steps"></a>Passaggi successivi
 
 - [Aggiungere una macchina virtuale all'ambiente lab](./devtest-lab-add-vm-with-artifacts.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

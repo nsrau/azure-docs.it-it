@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 05/10/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 2bfbb3b8f7282ec8ae8abe9597230a3485221ecf
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -44,13 +45,13 @@ In futuro Microsoft supporterà un criterio di aggiornamento del sistema operati
 
 Nel frattempo è stato [messo a disposizione uno script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) che un amministratore del cluster può usare per avviare manualmente l'applicazione sicura di patch di ogni nodo.
 
-### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>È possibile usare set di scalabilità di macchine virtuali di grandi dimensioni nel cluster di Service Fabric? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>È possibile usare set di scalabilità di macchine virtuali di grandi dimensioni nel cluster di Service Fabric? 
 
 **Risposta breve**: no. 
 
-**Risposta lunga**: anche se è possibile ridimensionare un set di scalabilità di macchine virtuali di grandi dimensioni fino a 1000 istanze di VM, per farlo, è necessario usare i gruppi di posizionamento. I domini di errore e i domini di aggiornamento sono coerenti solo in un gruppo di posizionamento. Service Fabric usa i domini di errore e i domini di aggiornamento per prendere decisioni relative al posizionamento delle repliche del servizio/istanze del servizio. Poiché i domini di errore e i domini di aggiornamento sono confrontabili solo in un gruppo di posizionamento, Service Fabric non può usarli. Se, ad esempio, VM1 nel gruppo di posizionamento 1 ha una topologia di dominio di errore 0 e VM9 nel gruppo di posizionamento 2 ha una topologia di domini di errore 4, non significa che VM1 e VM2 siano in due diversi rack hardware, quindi Service Fabric in questo caso non può usare i valori dei domini di errore per prendere decisioni relative al posizionamento.
+**Risposta lunga**: anche se con i set di scalabilità di macchine virtuali di grandi dimensioni è possibile arrivare fino a 1000 istanze di VM, per farlo è necessario usare i gruppi di posizionamento. I domini di errore e i domini di aggiornamento sono coerenti solo in un gruppo di posizionamento. Service Fabric usa i domini di errore e i domini di aggiornamento per prendere decisioni relative al posizionamento delle repliche del servizio/istanze del servizio. Poiché i domini di errore e i domini di aggiornamento sono confrontabili solo in un gruppo di posizionamento, Service Fabric non può usarli. Se, ad esempio, VM1 nel gruppo di posizionamento 1 ha una topologia di dominio di errore 0 e VM9 nel gruppo di posizionamento 2 ha una topologia di domini di errore 4, non significa che VM1 e VM2 siano in due diversi rack hardware, quindi Service Fabric in questo caso non può usare i valori dei domini di errore per prendere decisioni relative al posizionamento.
 
-Esistono attualmente altri problemi relativi ai set di scalabilità di macchine virtuali di grandi dimensioni, ad esempio la mancanza di supporto per il bilanciamento del carico di livello 4. Per altre informazioni, vedere i [dettagli sui set di scalabilità di macchine virtuali di grandi dimensioni](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+I set di scalabilità di macchine virtuali di grandi dimensioni attualmente presentano altri problemi, ad esempio la mancanza di supporto per il bilanciamento del carico di livello 4. Per altre informazioni, vedere i [dettagli sui set di scalabilità di grandi dimensioni](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
 
@@ -76,6 +77,17 @@ Generalmente, no. Service Fabric archivia lo stato su dischi locali e temporanei
 
 Se si desidera creare cluster per testare l'applicazione prima di distribuirla, è consigliabile crearli in maniera dinamica come parte della [pipeline integrazione costante/distribuzione costante](service-fabric-set-up-continuous-integration.md).
 
+## <a name="container-support"></a>Supporto dei contenitori
+
+### <a name="why-are-my-containers-that-are-deployed-to-sf-are-unable-to-resolve-dns-addresses"></a>Perché i contenitori distribuiti in Service Fabric non riescono a risolvere gli indirizzi DNS?
+
+Il problema è stato segnalato nei cluster versione 5.6.204.9494 
+
+**Mitigazione**: seguire [questo documento](service-fabric-dnsservice.md) per abilitare il servizio DNS di Service Fabric nel cluster.
+
+**Correzione**: eseguire l'aggiornamento a una versione del cluster supportata superiore a 5.6.204.9494, se disponibile. Se il cluster è impostato per gli aggiornamenti automatici, verrà aggiornato automaticamente alla versione in cui questo problema è stato risolto.
+
+  
 ## <a name="application-design"></a>Progettazione di applicazioni
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Qual è il modo migliore per eseguire query sui dati in partizioni di una raccolta Reliable Collections?
@@ -104,7 +116,7 @@ Tenendo presente che ciascun oggetto deve essere archiviato tre volte (una prima
 
 Si noti che questo calcolo presuppone inoltre:
 
-- Che la distribuzione dei dati in tutte le partizioni sia approssimativamente uniforme o che si indichino le metriche di caricamento a Cluster Resource Manager. Per impostazione predefinita, Service Fabric bilancia il carico in base al numero di repliche. Nell'esempio precedente, vengono inserite 10 repliche primarie e 20 repliche secondarie su ciascun nodo nel cluster. Quanto descritto in precedenza è ideale per carichi distribuiti in modo uniforme tra le partizioni. Se i carichi non sono uniformi, è necessario riportarli in modo che il gestore delle risorse possa raggruppare più repliche di piccole dimensioni e consentire alle repliche di dimensioni maggiori di consumare più memoria su un singolo nodo.
+- Che la distribuzione dei dati nelle partizioni sia approssimativamente uniforme o che si indichino le metriche di caricamento a Resource Manager nel cluster. Per impostazione predefinita, Service Fabric bilancia il carico in base al numero di repliche. Nell'esempio precedente, vengono inserite 10 repliche primarie e 20 repliche secondarie su ciascun nodo nel cluster. Quanto descritto in precedenza è ideale per carichi distribuiti in modo uniforme tra le partizioni. Se i carichi non sono uniformi, è necessario segnalarli in modo che Resource Manager possa raggruppare più repliche di piccole dimensioni e consentire alle repliche di dimensioni maggiori di utilizzare più memoria su un singolo nodo.
 
 - Che il servizio Reliable in questione sia l'unico ad archiviare stato nel cluster. Poiché è possibile distribuire più servizi in un cluster, è necessario tenere conto delle risorse di esecuzione e gestione dello stato richieste da ciascun servizio.
 

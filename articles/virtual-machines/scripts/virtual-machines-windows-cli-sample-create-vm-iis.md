@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Installare IIS | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Installare IIS
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Installare IIS | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Installare IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: ab824eca29dd0957199b708be818a451e94bdbbc
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 77e17011e2f3764b70f17604337e0fcbcfd22ede
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,13 +33,13 @@ Questo script crea una macchina virtuale di Azure con Windows Server 2016 e usa 
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "Creazione rapida della macchina virtuale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-windows-iis/create-vm-windows-iis.sh "Creazione rapida della macchina virtuale")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
 Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 

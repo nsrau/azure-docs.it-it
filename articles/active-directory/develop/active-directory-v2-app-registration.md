@@ -1,9 +1,9 @@
 ---
-title: Registrare un&quot;applicazione con l&quot;endpoint&2;.0 di Azure AD usando il portale | Documentazione Microsoft
-description: Come registrare un&quot;app in Microsoft per abilitare l&quot;accesso ai servizi Microsoft tramite l&quot;endpoint v2.0
+title: Registrare un'applicazione con l'endpoint 2.0 di Azure AD usando il portale | Documentazione Microsoft
+description: Come registrare un'app in Microsoft per abilitare l'accesso ai servizi Microsoft tramite l'endpoint v2.0
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: lnalepa
 manager: mbaldwin
 editor: 
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: lenalepa
+ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
 ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
@@ -26,7 +27,7 @@ ms.lasthandoff: 01/24/2017
 Per creare un'app che consente di accedere tramite account Microsoft e Azure AD, è innanzitutto necessario registrare un'app con Microsoft.  Con gli account Azure AD o Microsoft non sarà possibile usare un'app esistente, ma è necessario crearne una nuova.
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 > 
 > 
 

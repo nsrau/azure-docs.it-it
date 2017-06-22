@@ -77,7 +77,7 @@ Per impostazione predefinita, solo gli attributi cloud Telefono ufficio e Cellul
 
 Gli utenti potranno solo reimpostare la password se e solo se sono presenti dati nei metodi di autenticazione abilitati e richiesti dall'amministratore.
 
-Se gli utenti desiderano che il proprio numero di cellulare non sia visibile nella directory, desiderano usarlo per la reimpostazione della password, gli amministratori non devono inserirlo nella directory e l'utente deve compilare l'attributo **	Telefono per autenticazione** tramite il [portale di registrazione della reimpostazione della password](http://aka.ms/ssprsetup). Gli amministratori saranno comunque in grado di visualizzare queste informazioni nel profilo dell'utente, ma non verranno pubblicate altrove. Se un account amministratore di Azure registra il numero di telefono di autenticazione, questo viene inserito nel campo Cellulare ed è visibile.
+Se gli utenti desiderano che il proprio numero di cellulare non sia visibile nella directory, desiderano usarlo per la reimpostazione della password, gli amministratori non devono inserirlo nella directory e l'utente deve compilare l'attributo **Telefono per autenticazione** tramite il [portale di registrazione della reimpostazione della password](http://aka.ms/ssprsetup). Gli amministratori saranno comunque in grado di visualizzare queste informazioni nel profilo dell'utente, ma non verranno pubblicate altrove. Se un account amministratore di Azure registra il numero di telefono di autenticazione, questo viene inserito nel campo Cellulare ed è visibile.
 
 ### <a name="number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
 

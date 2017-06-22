@@ -17,12 +17,22 @@
 ### [Windows Server nel portale classico](backup-client-automation-classic.md)
 
 ## Server di backup di Azure
-### [Preparare i carichi di lavoro del server di Backup di Azure nel portale di Azure](backup-azure-microsoft-azure-backup.md)
-### [Preparare i carichi di lavoro del server di Backup di Azure nel portale classico](backup-azure-microsoft-azure-backup-classic.md)
-### [Usare il server di Backup di Azure per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md)
-### [Usare il server di Backup di Azure per eseguire il backup di Exchange](backup-azure-exchange-mabs.md)
-### [Usare il server di Backup di Azure per eseguire il backup di una farm di SharePoint](backup-azure-backup-sharepoint-mabs.md)
-### [Usare il server di Backup di Azure per eseguire il backup di SQL](backup-azure-sql-mabs.md)
+### [Matrice di protezione del server di Backup di Azure](backup-mabs-protection-matrix.md)
+### Installare o aggiornare
+#### [Preparare i carichi di lavoro del server di Backup di Azure nel portale di Azure](backup-azure-microsoft-azure-backup.md)
+#### [Preparare i carichi di lavoro del server di Backup di Azure nel portale classico](backup-azure-microsoft-azure-backup-classic.md)
+#### [Aggiungere risorse di archiviazione al server di Backup di Azure](backup-mabs-add-storage.md)
+#### [Aggiornare il server di Backup di Azure alla versione 2](backup-mabs-upgrade-to-v2.md)
+#### [Installazione automatica del server di Backup di Azure](backup-mabs-unattended-install.md)
+### Proteggere i carichi di lavoro
+#### [Usare il server di Backup di Azure per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md)
+#### [Usare il server di Backup di Azure per eseguire il backup di Exchange](backup-azure-exchange-mabs.md)
+#### [Usare il server di Backup di Azure per eseguire il backup di una farm di SharePoint](backup-azure-backup-sharepoint-mabs.md)
+#### [Usare il server di Backup di Azure per eseguire il backup di SQL](backup-azure-sql-mabs.md)
+#### [Proteggere lo stato del sistema e il ripristino bare metal](backup-mabs-system-state-and-bmr.md)
+### Risoluzione dei problemi
+#### [Risolvere i problemi del server di Backup di Azure](backup-azure-mabs-troubleshoot.md)
+
 
 ## Data Protection Manager
 ### [Preparare carichi di lavoro DPM nel portale di Azure](backup-azure-dpm-introduction.md)
@@ -33,24 +43,30 @@
 ### [Usare DPM per eseguire il backup di una farm di SharePoint](backup-azure-backup-sharepoint.md)
 
 ## Macchine virtuali di Azure
-### [Preparare le macchine virtuali di Azure](backup-azure-vms-prepare.md)
-### [Preparare le macchine virtuali distribuite da Resource Manager](backup-azure-arm-vms-prepare.md)
-### [Pianificare l'infrastruttura di backup delle macchine virtuali](backup-azure-vms-introduction.md)
-### [Backup di macchine virtuali di Azure nell'insieme di credenziali per il backup](backup-azure-vms.md)
-### [Backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](backup-azure-arm-vms.md)
-### [Backup e ripristino delle macchine virtuali crittografate](backup-azure-vms-encryption.md)
-### [Gestire e monitorare i backup delle macchine virtuali di Azure nel portale classico](backup-azure-manage-vms-classic.md)
-### [Gestire i backup delle macchine virtuali di Azure nel portale di Azure](backup-azure-manage-vms.md)
-### [Monitorare gli avvisi per i backup delle macchine virtuali di Azure nel portale di Azure](backup-azure-monitor-vms.md)
-### [Ripristinare i file da backup di macchine virtuali di Azure](backup-azure-restore-files-from-vm.md)
-### [Ripristinare macchine virtuali in Azure](backup-azure-restore-vms.md)
-### [Ripristinare macchine virtuali distribuite con Resource Manager nel portale di Azure](backup-azure-arm-restore-vms.md)
-### [Ripristinare la chiave di Key Vault e il segreto per le macchine virtuali crittografate con Backup di Azure](backup-azure-restore-key-secret.md)
+### Preparare la macchina virtuale
+#### [Preparare le macchine virtuali di Azure](backup-azure-vms-prepare.md)
+#### [Preparare le macchine virtuali distribuite da Resource Manager](backup-azure-arm-vms-prepare.md)
+### Pianificare l'ambiente
+#### [Pianificare l'infrastruttura di backup delle macchine virtuali](backup-azure-vms-introduction.md)
+### Eseguire il backup di server e carichi di lavoro
+#### [Backup di macchine virtuali di Azure nell'insieme di credenziali di backup](backup-azure-vms.md)
+#### [Backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](backup-azure-arm-vms.md)
+#### [Backup delle macchine virtuali crittografate](backup-azure-vms-encryption.md)
+### Gestire e monitorare le VM
+#### [Gestire e monitorare i backup delle macchine virtuali di Azure nel portale classico](backup-azure-manage-vms-classic.md)
+#### [Gestire i backup delle macchine virtuali di Azure nel portale di Azure](backup-azure-manage-vms.md)
+#### [Monitorare gli avvisi per i backup delle macchine virtuali di Azure nel portale di Azure](backup-azure-monitor-vms.md)
+### Ripristinare i dati dalle VM
+#### [Ripristinare i file da backup di macchine virtuali di Azure](backup-azure-restore-files-from-vm.md)
+#### [Ripristinare macchine virtuali in Azure](backup-azure-restore-vms.md)
+#### [Ripristinare macchine virtuali distribuite con Resource Manager nel portale di Azure](backup-azure-arm-restore-vms.md)
+#### [Ripristinare la chiave di Key Vault e il segreto per le macchine virtuali crittografate con Backup di Azure](backup-azure-restore-key-secret.md)
+#### [Ripristinare le macchine virtuali crittografate](backup-azure-vms-encryption.md)
 
 ## Database SQL di Azure
-### [Configure long-term backup retention](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json) (Configurare la conservazione del backup a lungo termine)
-### [View backups in a Recovery Services vault](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json) (Visualizzare i backup in un insieme di credenziali dei Servizi di ripristino)
-### [Restore from long-term backup retention](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json) (Ripristinare dalla conservazione del backup a lungo termine)
+### [Configurare la conservazione del backup a lungo termine](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Visualizzare i backup in un insieme di credenziali dei Servizi di ripristino](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Ripristinare dalla conservazione del backup a lungo termine](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
 ### [Eliminare i backup di Azure SQL a lungo termine](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
 
 ## File e cartelle di Windows
@@ -66,14 +82,15 @@
 ## Risoluzione dei problemi
 ### [Problemi relativi al backup delle macchine virtuali di Azure nel portale di Azure](backup-azure-vms-troubleshoot.md)
 ### [Problemi relativi al backup delle macchine virtuali di Azure nel portale classico](backup-azure-vms-troubleshoot-classic.md)
-### [Server di backup di Azure](backup-azure-mabs-troubleshoot.md)
 ### [Errore di backup delle VM di Azure: non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot a causa del timeout della sottoattività di creazione snapshot della macchina virtuale](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Concetti
+## [Panoramica degli insiemi di credenziali dei servizi di ripristino](backup-azure-recovery-services-vault-overview.md)
+## [Aggiornamento di un insieme di credenziali di backup a insieme di credenziali dei servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Eliminare un insieme di credenziali di Backup di Azure](backup-azure-delete-vault.md)
 ## [Controllo degli accessi in base al ruolo](backup-rbac-rs-vault.md)
 ## [Sicurezza per i backup ibridi](backup-azure-security-feature.md)
-## [Eliminare un insieme di credenziali di Backup di Azure](backup-azure-delete-vault.md)
 ## [Configurare il backup offline](backup-azure-backup-import-export.md)
 ## [Sostituire la libreria di nastri](backup-azure-backup-cloud-as-tape.md)
 ## [Backup coerenti con l'applicazione di VM Linux](backup-azure-linux-app-consistent.md)

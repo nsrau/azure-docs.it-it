@@ -11,17 +11,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/15/2017
+ms.date: 5/10/2017
 ms.author: chackdan;maburlik
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: a09ee1955717d7e042c1df3382c4cecd40069e3a
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 54fa2a5ea9bd54add6df68db6ce492299ca94207
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
 
-# <a name="package-contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenuto del pacchetto autonomo di Service Fabric per Windows Server
+# <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenuto del pacchetto autonomo di Service Fabric per Windows Server
 Nel pacchetto autonomo di Service Fabric [scaricato](http://go.microsoft.com/fwlink/?LinkId=730690) sono disponibili i seguenti file:
 
 | **Nome file** | **Descrizione breve** |
@@ -37,6 +38,8 @@ Nel pacchetto autonomo di Service Fabric [scaricato](http://go.microsoft.com/fwl
 | EULA_ENU.txt |Condizioni di licenza per l'uso del pacchetto autonomo Microsoft Azure Service Fabric per Windows Server. È possibile [scaricare una copia del contratto di licenza](http://go.microsoft.com/fwlink/?LinkID=733084) ora. |
 | Readme.txt |Collegamento alle note sulla versione e alle istruzioni di installazione base. Si tratta di un sottoinsieme delle istruzioni disponibili in questo documento. |
 | ThirdPartyNotice.rtf |Informativa sul software di terze parti presente nel pacchetto. |
+| Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |File StandaloneLogCollector.exe, eseguito on demand per raccogliere e caricare i log di analisi per Microsoft a scopo di supporto. |
+| Tools\ServiceFabricUpdateService.zip |Strumento usato per abilitare l'aggiornamento del codice automatico per i cluster che non hanno accesso a Internet. Altri dettagli sono disponibili [qui](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Modelli** 
 | **Nome file** | **Descrizione breve** |
@@ -49,7 +52,7 @@ Nel pacchetto autonomo di Service Fabric [scaricato](http://go.microsoft.com/fwl
 | ClusterConfig.x509.MultiMachine.json |File di configurazione del cluster di esempio contenente tutte le impostazioni per un cluster sicuro con più computer o macchine virtuali, con le informazioni per ogni nodo del cluster sicuro. Il cluster è protetto tramite certificati X.509 di Windows. |
 | ClusterConfig.gMSA.Windows.MultiMachine.json |File di configurazione del cluster di esempio contenente tutte le impostazioni per un cluster sicuro con più computer o macchine virtuali, con le informazioni per ogni nodo del cluster sicuro. Il cluster è protetto usando gli [account del servizio gestito del gruppo](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
 
-# <a name="cluster-configuration-samples"></a>Esempi di configurazione del cluster
+## <a name="cluster-configuration-samples"></a>Esempi di configurazione del cluster
 Le versioni più recenti dei modelli di configurazione del cluster sono disponibili nella pagina di GitHub: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## <a name="related"></a>Risorse correlate

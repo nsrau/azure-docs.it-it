@@ -14,22 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 71d07e64480d4b4eaff7fdef53c8f5ff7a97a944
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 49aa35a42e4f6dab2f8d556f7b1b10bfdef7b7db
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="restore-an-app-in-azure"></a>Ripristinare un'app in Azure
-Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) in precedenza sottoposta a un backup. Vedere [Eseguire il backup di un'app Web del Servizio app di Azure](web-sites-backup.md). È possibile ripristinare su richiesta uno stato precedente dell'app con i relativi database collegati (database SQL o MySQL) oppure creare una nuova app basata su uno dei backup dell'applicazione originale. Creare una nuova app eseguita in parallelo con l'ultima versione può essere utile per l'esecuzione di test A/B.
+Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) in precedenza sottoposta a un backup. Vedere [Eseguire il backup di un'app Web del Servizio app di Azure](web-sites-backup.md). È possibile ripristinare su richiesta a uno stato precedente l'app con i relativi database collegati oppure creare una nuova app basata su uno dei backup dell'applicazione originale. Servizio app di Azure supporta il backup e il ripristino dei seguenti database:
+- [Database SQL](https://azure.microsoft.com/en-us/services/sql-database/)
+- [Database di Azure per MySQL (anteprima)](https://azure.microsoft.com/en-us/services/mysql)
+- [Database di Azure per PostgreSQL (anteprima)](https://azure.microsoft.com/en-us/services/postgres)
+- [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
+- [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Il ripristino da backup è disponibile per le app in esecuzione a livello **Standard** e **Premium**. Per informazioni sul passaggio dell'app a un piano superiore, vedere [Scalare un'app Web in Servizio app di Azure](web-sites-scale.md). Il livello **Premium** consente un maggior numero di backup giornalieri rispetto al livello **Standard**.
 
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Ripristinare un'app da un backup esistente
-1. Nel pannello **Impostazioni** dell'app nel Portale di Azure fare clic su **Backup** per visualizzare il pannello **Backup**. Quindi fare clic su **Ripristina ora** nella barra dei comandi.
+1. Nel pannello **Impostazioni** dell'app nel portale di Azure fare clic su **Backup** per visualizzare il pannello **Backup**. Quindi fare clic su **Ripristina ora** nella barra dei comandi.
    
     ![Scegliere Ripristina][ChooseRestoreNow]
 2. Nel pannello **Ripristina** , selezionare l'origine di backup.
@@ -44,22 +50,19 @@ Il ripristino da backup è disponibile per le app in esecuzione a livello **Stan
     ![](./media/web-sites-restore/022ChooseDestination.png)
    
    > [!WARNING]
-   > Se si sceglie **Sovrascrivi**, tutti i dati esistenti nell'app corrente verranno cancellati. Prima di scegliere **OK**, assicurarsi che sia esattamente ciò che si desidera eseguire.
+   > Se si sceglie **Sovrascrivi**, tutti i dati esistenti nell'app corrente verranno cancellati e sovrascritti. Prima di scegliere **OK**, assicurarsi che sia esattamente ciò che si desidera eseguire.
    > 
    > 
    
-    È possibile selezionare **App esistente** per ripristinare il backup dell’app in un'altra applicazione nello stesso gruppo di risorse. Prima di utilizzare questa opzione, deve già essere stata creata un'altra app nel gruppo di risorse con mirroring della configurazione del database in quello definito nel backup dell’app.
+    È possibile selezionare **App esistente** per ripristinare il backup dell’app in un'altra applicazione nello stesso gruppo di risorse. Prima di usare questa opzione, deve già essere stata creata un'altra app nel gruppo di risorse con mirroring della configurazione in quello definito nel backup dell’app.
+
 4. Fare clic su **OK**.
 
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Scaricare o eliminare un backup da un account di archiviazione
-1. Dal pannello principale **Sfoglia** del portale di Azure selezionare **Account di archiviazione**.
-   
-    Verrà visualizzato un elenco degli account di archiviazione esistenti.
-2. Selezionare l'account di archiviazione che contiene il backup che si desidera scaricare o eliminare.
-   
-    Verrà visualizzato il pannello per l'account di archiviazione.
+1. Dal pannello principale **Sfoglia** del portale di Azure selezionare **Account di archiviazione**. Verrà visualizzato un elenco degli account di archiviazione esistenti.
+2. Selezionare l'account di archiviazione che contiene il backup che si intende scaricare o eliminare. Verrà visualizzato il pannello dell'account di archiviazione.
 3. Nel pannello dell'account di archiviazione selezionare il contenitore desiderato.
    
     ![Contenitori di visualizzazione][ViewContainers]
@@ -71,20 +74,16 @@ Il ripristino da backup è disponibile per le app in esecuzione a livello **Stan
 <a name="OperationLogs"></a>
 
 ## <a name="monitor-a-restore-operation"></a>Monitorare un'operazione di ripristino
-1. Per visualizzare i dettagli sul successo o sulla mancata riuscita dell'operazione di ripristino dell'app, passare al pannello **Log attività** nel portale di Azure.
-   
-    Nel pannello **Log attività** vengono visualizzate tutte le operazioni, insieme ai dettagli relativi a livello, stato, risorsa e tempo.
-2. Scorrere verso il basso per trovare l'operazione di ripristino desiderata e fare clic su di essa per selezionarla.
+Per visualizzare i dettagli sul successo o sulla mancata riuscita dell'operazione di ripristino dell'app, passare al pannello **Log attività** nel portale di Azure.  
+ 
+
+Scorrere verso il basso per trovare l'operazione di ripristino desiderata e fare clic su di essa per selezionarla.
 
 Nel pannello dei dettagli verranno visualizzate le informazioni disponibili correlate all'operazione di ripristino.
 
 ## <a name="next-steps"></a>Passaggi successivi
-È anche possibile eseguire il backup e il ripristino delle applicazioni del servizio app mediante l'API REST (vedere [Usare REST per eseguire il backup e il ripristino di app del servizio App](websites-csm-backup.md)).
+È possibile eseguire il backup e il ripristino delle applicazioni del servizio app usando l'API REST (vedere [Usare REST per eseguire il backup e il ripristino di app del servizio App](websites-csm-backup.md)).
 
-> [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-> 
-> 
 
 <!-- IMAGES -->
 [ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png

@@ -15,10 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5d74f8216edd46fcd36d2b7f8763ec8a69ccad42
-ms.lasthandoff: 03/31/2017
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5c995ca118676935f4f9b0c72c266b9d52c181cb
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -44,7 +46,7 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 | [Collegare un'App Web a un database SQL](./scripts/app-service-cli-app-service-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'App Web di Azure e un database SQL, quindi aggiunge la stringa di connessione del database alle impostazioni dell'app. |
 | [Connettere un'App Web a un account di archiviazione](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'App Web e un account di archiviazione di Azure, quindi aggiunge la stringa di connessione della risorsa di archiviazione alle impostazioni dell'app. |
 | [Connettere un'App Web a una cache Redis](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'App Web di Azure e una cache Redis, quindi aggiunge i dettagli della connessione Redis alle impostazioni dell'app. |
-| [Connettere un'App Web a un DocumentDB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'App Web di Azure e un DocumentDB, quindi aggiunge i dettagli della connessione DocumentDB alle impostazioni dell'app. |
+| [Connettere un'app Web a Cosmos DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app Web di Azure e per Cosmos DB, quindi aggiunge i dettagli della connessione di Cosmos DB alle impostazioni dell'app. |
 |**Monitorare un'app**||
 | [Monitorare un'App Web con i log del server Web](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'App Web di Azure, consente la creazione di log per essa e scarica i log nel computer locale. |
 | | |

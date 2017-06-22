@@ -1,6 +1,6 @@
 
 ---
-title: Usare Azure AD&2;.0 per accedere a risorse sicure senza interazione dell&quot;utente | Documentazione Microsoft
+title: Usare Azure AD 2.0 per accedere a risorse sicure senza interazione dell&quot;utente | Documentazione Microsoft
 description: Creare applicazioni Web usando l&quot;implementazione del protocollo di autenticazione OAuth 2.0 definita in Azure AD.
 services: active-directory
 documentationcenter: 
@@ -15,9 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08e2e561b6b939de4d829c816c1948361e16f6c4
 ms.openlocfilehash: 2bbfed6e14a77964a32b84ae3f78f3529f13043c
+ms.contentlocale: it-it
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -25,7 +28,7 @@ ms.openlocfilehash: 2bbfed6e14a77964a32b84ae3f78f3529f13043c
 La [concessione di credenziali client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), anche detta *OAuth a due vie*, può essere usata per accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Viene comunemente impiegata per le interazioni di tutti i server in esecuzione in background senza l'interazione immediata con un utente finale. Questo tipo di applicazioni vengono spesso definite *daemon* o *account di servizio*.
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint&2;.0, vedere l'articolo relativo alle [limitazioni della versione&2;.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint 2.0, vedere l'articolo relativo alle [limitazioni della versione 2.0](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -40,9 +43,9 @@ L'intero flusso di credenziali client ha un aspetto simile a quello illustrato n
 Esistono due metodi tramite i quali l'applicazione riceve generalmente autorizzazione diretta per l'accesso alla risorsa: tramite un elenco di controllo di accesso (ACL) alla risorsa o per mezzo dell'assegnazione dell'autorizzazione a un'applicazione in Azure Active Directory (Azure AD). Questi due metodi sono i più comuni in Azure AD e sono consigliati per i client e le risorse che eseguono il flusso di credenziali client. Una risorsa può comunque scegliere di autorizzare i client in altri modi. Ciascun server di risorse può scegliere il metodo più adatto all'applicazione.
 
 ### <a name="access-control-lists"></a>Elenchi di controllo di accesso
-Un provider di risorse potrebbe imporre un controllo delle autorizzazioni in base a un elenco di ID applicazione che riconosce e concedere uno specifico livello di accesso. Quando la risorsa riceve un token dall'endpoint&2;.0, può decodificare il token ed estrarre l'ID dell'applicazione client dalle attestazioni `appid` e `iss`. A quel punto, la risorsa verifica la presenza dell'applicazione nell'elenco di controllo di accesso esistente. La granularità e il metodo relativi all'elenco possono variare in maniera sostanziale da risorsa a risorsa.
+Un provider di risorse potrebbe imporre un controllo delle autorizzazioni in base a un elenco di ID applicazione che riconosce e concedere uno specifico livello di accesso. Quando la risorsa riceve un token dall'endpoint 2.0, può decodificare il token ed estrarre l'ID dell'applicazione client dalle attestazioni `appid` e `iss`. A quel punto, la risorsa verifica la presenza dell'applicazione nell'elenco di controllo di accesso esistente. La granularità e il metodo relativi all'elenco possono variare in maniera sostanziale da risorsa a risorsa.
 
-Un caso di utilizzo comune vede l'uso di un elenco di controllo di accesso per eseguire test per un'applicazione Web o per un'API Web. L'API Web potrebbe fornire solo un sottoinsieme delle autorizzazioni complete a un client specifico. Per eseguire test end-to-end sull'API, è necessario creare un client di prova che acquisisce i token dall'endpoint&2;.0 e li invia all'API. A quel punto, l'API verifica gli elenchi di controllo di accesso all'ID dell'applicazione del client di prova per concedere accesso completo alle funzionalità dell'API. Se si utilizza questo tipo di elenco, assicurarsi di convalidare non solo il valore `appid` del chiamante, ma di verificare anche l'attendibilità del token del valore `iss`.
+Un caso di utilizzo comune vede l'uso di un elenco di controllo di accesso per eseguire test per un'applicazione Web o per un'API Web. L'API Web potrebbe fornire solo un sottoinsieme delle autorizzazioni complete a un client specifico. Per eseguire test end-to-end sull'API, è necessario creare un client di prova che acquisisce i token dall'endpoint 2.0 e li invia all'API. A quel punto, l'API verifica gli elenchi di controllo di accesso all'ID dell'applicazione del client di prova per concedere accesso completo alle funzionalità dell'API. Se si utilizza questo tipo di elenco, assicurarsi di convalidare non solo il valore `appid` del chiamante, ma di verificare anche l'attendibilità del token del valore `iss`.
 
 Questo tipo di autorizzazione è comune per gli account daemon e di servizio che devono accedere ai dati di proprietà di utenti che dispongono di account Microsoft personale. Per i dati appartenenti a organizzazioni, è consigliabile acquisire l'autorizzazione necessaria tramite le autorizzazioni dell'applicazione.
 
@@ -66,10 +69,10 @@ Per utilizzare autorizzazioni per le applicazioni nell'app, effettuare i passagg
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Consigliato: connettere l'utente dall'applicazione
 In genere, durante la compilazione di un'applicazione che usa le autorizzazioni, l'app necessita di una pagina o vista che consenta all'amministratore di approvare le autorizzazioni dell'applicazione. Questa pagina può essere parte del flusso di accesso all'app, delle impostazioni dell'applicazione o di un flusso di "connessione" dedicato. In molti casi, è utile per l'applicazione visualizzare la pagina di "connessione" solo dopo che un utente ha eseguito l'accesso con un account di lavoro o dell'istituto di istruzione Microsoft.
 
-L'accesso dell'utente nell'app consente di identificarne l'organizzazione di appartenenza prima di richiedere l'approvazione delle autorizzazioni dell'applicazione. Sebbene non sia strettamente necessario, questo consente di creare un'esperienza più intuitiva per gli utenti. Per l'accesso utente, seguire le [esercitazioni sui protocolli&2;.0](active-directory-v2-protocols.md).
+L'accesso dell'utente nell'app consente di identificarne l'organizzazione di appartenenza prima di richiedere l'approvazione delle autorizzazioni dell'applicazione. Sebbene non sia strettamente necessario, questo consente di creare un'esperienza più intuitiva per gli utenti. Per l'accesso utente, seguire le [esercitazioni sui protocolli 2.0](active-directory-v2-protocols.md).
 
 #### <a name="request-the-permissions-from-a-directory-admin"></a>Richiedere le autorizzazioni da un amministratore di directory
-Quando si è pronti per richiedere le autorizzazioni dall'amministratore dell'azienda, è possibile reindirizzare l'utente sull'*endpoint di consenso dell'amministratore*&2;.0.
+Quando si è pronti per richiedere le autorizzazioni dall'amministratore dell'azienda, è possibile reindirizzare l'utente sull'*endpoint di consenso dell'amministratore* 2.0.
 
 ```
 // Line breaks are for legibility only.
@@ -125,7 +128,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 Dopo aver ricevuto una risposta con esito positivo dall'endpoint di provisioning dell'app, l'applicazione ha ottenuto le autorizzazioni dirette dell'applicazione richieste. Successivamente, è possibile richiedere un token per la risorsa desiderata.
 
 ## <a name="get-a-token"></a>Acquisizione di un token
-Dopo aver acquisito l'autorizzazione necessaria per l'applicazione, è possibile procedere con l'acquisizione dei token di accesso per le API. Per ottenere un token con concessione delle credenziali client, inviare una richiesta POST all'endpoint `/token`&2;.0:
+Dopo aver acquisito l'autorizzazione necessaria per l'applicazione, è possibile procedere con l'acquisizione dei token di accesso per le API. Per ottenere un token con concessione delle credenziali client, inviare una richiesta POST all'endpoint `/token` 2.0:
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -142,7 +145,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | client_id |Obbligatorio |ID applicazione che il [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ha assegnato all'app. |
-| scope |Obbligatorio |Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID Applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. Questo valore indica all'endpoint&2;.0 che, per tutte le autorizzazioni dirette dell'applicazione configurate per l'app, è necessario emettere un token per le autorizzazioni riguardanti la risorsa da usare. |
+| scope |Obbligatorio |Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID Applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. Questo valore indica all'endpoint 2.0 che, per tutte le autorizzazioni dirette dell'applicazione configurate per l'app, è necessario emettere un token per le autorizzazioni riguardanti la risorsa da usare. |
 | client_secret |Obbligatorio |Segreto dell'applicazione generato per l'app nel portale di registrazione. |
 | grant_type |Obbligatorio |Deve essere `client_credentials`. |
 
@@ -206,11 +209,6 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 ```
 
 ## <a name="code-sample"></a>Esempio di codice
-Per un esempio di un'applicazione che implementa la concessione delle credenziali client tramite l'endpoint di consenso dell'amministratore, vedere l'[esempio di codice daemon&2;.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
+Per un esempio di un'applicazione che implementa la concessione delle credenziali client tramite l'endpoint di consenso dell'amministratore, vedere l'[esempio di codice daemon 2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
 
 

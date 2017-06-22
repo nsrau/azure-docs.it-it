@@ -3,7 +3,7 @@ title: Monitorare le prestazioni dell&quot;app Web di Azure | Microsoft Docs
 description: Monitoraggio delle prestazioni applicative per le app Web di Azure. Tempo di caricamento e risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
@@ -11,12 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,9 +41,19 @@ Se si esegue già un'App Web in Azure, vengono già visualizzati alcuni dati di 
 2. **Instrumentare l'App Web** dopo l'installazione di Application Insights. 
    
     ![Instrumentazione dell'App Web](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+
+   **Abilitare il monitoraggio lato client** per la visualizzazione delle pagine e la telemetria utente.
+
+   * Selezionare Impostazioni > Impostazioni applicazione
+   * In Impostazioni app aggiungere una nuova coppia chiave-valore: 
+   
+    Chiave: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Valore: `true`
+   * Salvare le impostazioni scegliendo **Salva** e quindi fare clic su **Riavvia** per riavviare l'app.
 3. **Monitorare l'app**.  [Esplorare i dati](#explore-the-data).
 
-In un secondo momento, se si desidera è possibile compilare e ridistribuire l'app con Application Insights.
+In seguito, se necessario, sarà possibile creare l'app con Application Insights.
 
 *Come è possibile rimuovere Application Insights o passare all'invio di un'altra risorsa?*
 
@@ -104,6 +115,7 @@ Per le ricerche più avanzate nei dati di telemetria, usare il [linguaggio di qu
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire il profiler sull'app live](app-insights-profiler.md).
+* [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample): monitorare Funzioni di Azure con Application Insights
 * [Abilitare l'invio dei dati di diagnostica di Azure](app-insights-azure-diagnostics.md) ad Application Insights.
 * [Monitorare le metriche di integrità del servizio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.

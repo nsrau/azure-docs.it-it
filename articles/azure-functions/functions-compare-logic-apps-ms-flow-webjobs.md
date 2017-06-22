@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: ee94e074c574bc2e6e1a52dbfd6bd0ae102cb342
-ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
-ms.lasthandoff: 01/20/2017
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0f35d79870301bcba9f009f7dbc00696ce426458
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Scegliere tra Flow, App per la logica, Funzioni e Processi Web
@@ -80,7 +81,7 @@ La tabella seguente riepiloga le differenze tra Funzioni e Processi Web:
 | Ridimensionamento |Ridimensionamento senza configurazione |Ridimensionamento con il piano di servizio app |
 | Prezzi |Pagamento a consumo o parte del piano di servizio app |Parte del piano di servizio app |
 | Tipo di esecuzione |Attivata, pianificata (da trigger timer) |Attivata, continua, pianificata |
-| Eventi di attivazione |[Timer](functions-bindings-timer.md), [Azure DocumentDB](functions-bindings-documentdb.md), [Hub eventi di Azure](functions-bindings-event-hubs.md), [HTTP/webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [App per dispositivi mobili del Servizio app di Azure](functions-bindings-mobile-apps.md), [Hub di notifica di Azure](functions-bindings-notification-hubs.md), [Bus di servizio di Azure](functions-bindings-service-bus.md), [Archiviazione di Azure](functions-bindings-storage.md) |[Archiviazione di Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Bus di servizio di Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| Eventi di attivazione |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Hub eventi di Azure](functions-bindings-event-hubs.md), [HTTP/webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [App per dispositivi mobili del Servizio app di Azure](functions-bindings-mobile-apps.md), [Hub di notifica di Azure](functions-bindings-notification-hubs.md), [Bus di servizio di Azure](functions-bindings-service-bus.md), [Archiviazione di Azure](functions-bindings-storage.md) |[Archiviazione di Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Bus di servizio di Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
 | Sviluppo nel browser |x | |
 | Windows Scripting |sperimentale |x |
 | PowerShell |sperimentale |x |

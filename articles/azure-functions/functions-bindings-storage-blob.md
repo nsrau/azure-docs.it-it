@@ -16,14 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 198a8421636945bdf60c4ed519d065617a7fc287
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="azure-functions-storage-blob-bindings"></a>Associazioni del BLOB del servizio di archiviazione di Funzioni di Azure
+# <a name="azure-functions-blob-storage-bindings"></a>Binding dell'archiviazione BLOB di Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Questo articolo illustra come configurare e scrivere il codice delle associazioni del BLOB del servizio di archiviazione di Azure in Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per i BLOB del servizio di archiviazione di Azure.
@@ -57,7 +58,7 @@ Tenere presente quanto segue:
 * Per `path`, vedere [Modelli di nome](#pattern) per scoprire come formattare i modelli di nome dei BLOB.
 * `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. Per creare manualmente questa impostazione app, vedere la sezione relativa alla [configurazione manuale dell'impostazione app](functions-how-to-use-azure-function-app-settings.md). 
 
-Quando si esegue un piano a consumo, se un'app per le funzioni è inattiva, possono essere necessari fino a 10 minuti al giorno per l'elaborazione di nuovi BLOB. Se l'app per le funzioni è in esecuzione, i BLOB vengono elaborati più rapidamente. Per evitare questo ritardo iniziale, usare un normale piano di servizio app con l'opzione Always On abilitata o usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio in coda che contiene il nome del BLOB. 
+Quando si esegue un piano a consumo, se un'app per le funzioni è inattiva è possibile che si verifichi un ritardo fino a 10 minuti per l'elaborazione di nuovi BLOB. Se l'app per le funzioni è in esecuzione, i BLOB vengono elaborati più rapidamente. Per evitare questo ritardo iniziale, usare un normale piano di servizio app con l'opzione Always On abilitata o usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio in coda che contiene il nome del BLOB. 
 
 Per altre informazioni vedere anche una delle sezioni seguenti:
 
@@ -175,7 +176,7 @@ Si supponga di avere il seguente function.json, che definisce un trigger del BLO
 Vedere l'esempio specifico del linguaggio che registra i contenuti di ogni BLOB aggiunto al contenitore monitorato.
 
 * [C#](#triggercsharp)
-* [Node.JS](#triggernodejs)
+* [Node.js](#triggernodejs)
 
 <a name="triggercsharp"></a>
 
@@ -286,7 +287,7 @@ Si supponga di avere il seguente function.json, che definisce un [trigger della 
 Vedere l'esempio specifico del linguaggio che copia il BLOB di input nel BLOB di output.
 
 * [C#](#incsharp)
-* [Node.JS](#innodejs)
+* [Node.js](#innodejs)
 
 <a name="incsharp"></a>
 

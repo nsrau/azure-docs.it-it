@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 0ca7382ed64fd548f8a086893ea2e3187dd26929
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -80,8 +81,8 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
    ![Raccomandazioni nel Centro sicurezza di Azure][5]
 2. Selezionare una raccomandazione nel pannello **Raccomandazioni** per visualizzare altre informazioni e/o intervenire per risolvere il problema.
 
-### <a name="view-the-health-and-security-state-of-your-resources"></a>Visualizzare lo stato di integrità e di sicurezza delle risorse
-1. Tornare al pannello **Centro sicurezza PC** . Il riquadro **Integrità sicurezza delle risorse** contiene indicatori dello stato di sicurezza per macchine virtuali, rete, dati e applicazioni.
+### <a name="view-the-security-state-of-your-resources"></a>Visualizzare lo stato di sicurezza delle risorse
+1. Tornare al pannello **Centro sicurezza PC** . La sezione **Prevenzione** del dashboard contiene indicatori dello stato di sicurezza per macchine virtuali, rete, dati e applicazioni.
 2. Selezionare **Calcolo** per visualizzare altre informazioni. Viene visualizzato il pannello **Calcolo** con tre schede:
 
   - **Panoramica**: fornisce consigli sul monitoraggio e sulle macchine virtuali.

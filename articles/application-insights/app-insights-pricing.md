@@ -3,7 +3,7 @@ title: Gestire i prezzi e il volume di dati per Azure Application Insights | Mic
 description: Gestire volumi di dati di telemetria e monitorare i costi in Application Insights.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
+ms.date: 05/10/2017
+ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6f84365acb9a1cc1fc31fa5f3c04cd112f68087b
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0a66567d7381f38787f9aa7652c944e4bb3aef82
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -148,10 +148,7 @@ Per impostare il campionamento per inserimento, impostare il controllo nel panne
 ![Dal pannello Quota + prezzi, fare clic sul riquadro degli esempi e selezionare una frazione di campionamento.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> Il valore visualizzato nel riquadro Campioni mantenuti indica solo il valore impostato per il campionamento per inserimento. Non visualizza la frequenza di campionamento che opera nell'SDK all'interno dell'app. 
-> 
-> Se i dati di telemetria in ingresso sono già stati campionati nell'SDK, il campionamento per inserimento non verrà applicato.
-> 
+> Il pannello Campionamento dei dati controlla solo il valore del campionamento per inserimento. Non riflette la frequenza di campionamento applicata da Application Insights SDK nell'app. Se i dati di telemetria in ingresso sono già stati campionati nell'SDK, il campionamento per inserimento non verrà applicato.
 > 
 
 Per individuare la frequenza di campionamento effettiva indipendentemente dal punto in cui è stata applicata, usare una [query di Analisi](app-insights-analytics.md) simile alla seguente:

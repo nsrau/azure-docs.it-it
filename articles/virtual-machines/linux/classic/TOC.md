@@ -16,7 +16,8 @@
 ### [Usare Desktop remoto con una VM Linux](remote-desktop.md)
 ### [Gestire le estensioni di VM](manage-extensions.md)
 ### [Gestire VM con Visual Studio](manage-visual-studio.md)
-### [Monitorare VM con l'estensione di VM diagnostica](diagnostic-extension.md)
+### [Monitorare VM con l'estensione di VM diagnostica](../diagnostic-extension.md)
+### [Monitorare VM con l'estensione di macchina virtuale Diagnostica v2.x](diagnostic-extension-v2.md)
 ### [Inserire dati personalizzati](inject-custom-data.md)
 ### [Reimpostare password o chiavi di Linux, correggere errori SSH e controllare dischi](reset-access.md)
 ### [Creare un host Docker con l'interfaccia della riga di comando](cli-use-docker.md)
@@ -51,7 +52,7 @@
 ### [Tomcat](setup-tomcat.md)
 ### [Applicazione Web con Visual Studio](web-app-visual-studio.md)
 ### [Cluster RDMA per eseguire applicazioni MPI](rdma-cluster.md)
-### [How to use the Azure slave plug-in with Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md) (Come usare il plug-in slave di Azure con una soluzione di integrazione continua Hudson)
+### [Come usare il plug-in slave di Azure con una soluzione di integrazione continua Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md) 
 
 
 ## HPC Pack

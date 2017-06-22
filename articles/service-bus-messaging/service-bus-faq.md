@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
-ms.author: sethm;jotaub
+ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 7f3ddc2d7036b9951d4796cf4664f870a0c5f4b6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 612fb681ab0c8fe77652041f8a1fc23ad0d3428a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -92,9 +92,16 @@ Le firme di accesso condiviso sono un meccanismo di autenticazione basato su has
 
 ## <a name="subscription-and-namespace-management"></a>Gestione di sottoscrizioni e spazi dei nomi
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Come si esegue la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure?
-Tramite il portale di Azure è possibile migrare gli spazi dei nomi del bus di servizio in un'altra sottoscrizione seguendo le istruzioni disponibili [qui](../azure-resource-manager/resource-group-move-resources.md#use-portal). Se si preferisce usare PowerShell, seguire le istruzioni seguenti: 
 
-La sequenza di comandi seguente sposta uno spazio dei nomi da una sottoscrizione di Azure a un'altra. Per eseguire questa operazione, lo spazio dei nomi deve essere già attivo e l'utente che esegue i comandi di PowerShell deve essere un amministratore nella sottoscrizione di origine e in quella di destinazione.
+È possibile spostare uno spazio dei nomi da una sottoscrizione di Azure a un'altra usando il [portale di Azure](https://portal.azure.com) o i comandi di PowerShell. Per eseguire l'operazione, lo spazio dei nomi deve essere già attivo. L'utente che esegue i comandi deve essere un amministratore delle sottoscrizioni di origine e di destinazione.
+
+#### <a name="portal"></a>Portale
+
+Per usare il portale di Azure per eseguire la migrazione degli spazi dei nomi del bus di servizio a un'altra sottoscrizione, seguire le istruzioni riportate [qui](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+
+#### <a name="powershell"></a>PowerShell
+
+La sequenza di comandi PowerShell seguente sposta uno spazio dei nomi da una sottoscrizione di Azure a un'altra. Per eseguire questa operazione, lo spazio dei nomi deve essere già attivo e l'utente che esegue i comandi di PowerShell deve essere un amministratore nella sottoscrizione di origine e in quella di destinazione.
 
 ```powershell
 # Create a new resource group in target subscription

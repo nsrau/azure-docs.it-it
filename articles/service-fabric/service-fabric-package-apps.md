@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 15b6f6c85c5a5accbd31225c277de87346a2e16f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f47fbe0e9c6cb4d09e6233f6d26211969a5c1f00
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/27/2017
 L'articolo descrive come inserire un'applicazione di Service Fabric in un pacchetto e prepararla per la distribuzione.
 
 ## <a name="package-layout"></a>Layout del pacchetto
-Il manifesto dell'applicazione, i manifesti dei servizi e gli altri file del pacchetto necessari devono essere organizzati in un layout specifico per la distribuzione in un cluster di Service Fabric. I manifesti di esempio di questo articolo dovrebbero essere organizzati nella struttura di directory seguente:
+Il manifesto dell'applicazione, uno o più manifesti dei servizi e gli altri file del pacchetto necessari devono essere organizzati in un layout specifico per la distribuzione in un cluster di Service Fabric. I manifesti di esempio di questo articolo dovrebbero essere organizzati nella struttura di directory seguente:
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -54,7 +55,7 @@ Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessar
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
 
-Per altre informazioni su come configurare **SetupEntryPoint**, vedere [Configurare i criteri per il punto di ingresso dell'installazione del servizio](service-fabric-application-runas-security.md)  
+Per altre informazioni su come configurare **SetupEntryPoint**, vedere [Configurare i criteri per il punto di ingresso dell'installazione del servizio](service-fabric-application-runas-security.md)
 
 ## <a name="configure"></a>Configurare 
 ### <a name="build-a-package-by-using-visual-studio"></a>Creare un pacchetto mediante Visual Studio
@@ -67,7 +68,7 @@ Per creare un pacchetto, fare clic con il pulsante destro sul progetto dell'appl
 Dopo avere completato la creazione del pacchetto, è possibile vedere la posizione del pacchetto nella finestra **Output** . Il passaggio di creazione del pacchetto viene eseguito automaticamente con la distribuzione o il debug di un'applicazione in Visual Studio.
 
 ### <a name="build-a-package-by-command-line"></a>Creare un pacchetto dalla riga di comando
-È anche possibile creare un pacchetto dell'applicazione a livello di codice usando `msbuild.exe`. Si tratta dell'operazione eseguita da Visual Studio, pertanto l'output è lo stesso.
+È anche possibile creare un pacchetto dell'applicazione a livello di codice usando `msbuild.exe`. Tale operazione viene eseguita da Visual Studio e quindi l'output è lo stesso.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -113,15 +114,15 @@ PS D:\temp>
 
 Se l'applicazione include [parametri applicazione](service-fabric-manage-multiple-environment-app-configuration.md) definiti, è possibile passarli in [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) per una convalida appropriata.
 
-Se si conosce il cluster in cui verrà distribuita l'applicazione, si consiglia di passarlo nella stringa di connessione dell'archivio immagini. In questo caso, il pacchetto viene convalidato rispetto alle versioni precedenti dell'applicazione già in esecuzione nel cluster. Ad esempio, la convalida può rilevare se sia già stato distribuito un pacchetto con la stessa versione ma con contenuti differenti.  
+Se si conosce il cluster in cui verrà distribuita l'applicazione, si consiglia di passarlo nel parametro `ImageStoreConnectionString`. In questo caso, il pacchetto viene convalidato rispetto alle versioni precedenti dell'applicazione già in esecuzione nel cluster. Ad esempio, la convalida può rilevare se sia già stato distribuito un pacchetto con la stessa versione ma con contenuti differenti.  
 
 Una volta che l'applicazione viene inserita correttamente in un pacchetto e passa la convalida, valutare se sia necessaria la compressione in base alle dimensioni e al numero dei file. 
 
 ## <a name="compress-a-package"></a>Comprimere un pacchetto
 Quando un pacchetto è di grandi dimensioni o dispone di molti file, è possibile comprimerlo per velocizzare la distribuzione. La compressione riduce il numero di file e le dimensioni del pacchetto.
-Il [caricamento del pacchetto dell'applicazione](service-fabric-deploy-remove-applications.md#upload-the-application-package) potrebbe impiegare più tempo rispetto al caricamento del pacchetto non compresso, tuttavia sarà possibile [registrare](service-fabric-deploy-remove-applications.md#register-the-application-package) e [rimuovere la registrazione](service-fabric-deploy-remove-applications.md#unregister-an-application-type) del tipo di applicazione con maggiore rapidità.
+Per un pacchetto dell'applicazione compresso, l'operazione di [caricamento](service-fabric-deploy-remove-applications.md#upload-the-application-package) potrebbe richiedere più tempo rispetto al caricamento del pacchetto non compresso, in particolare se è stato eseguito il factoring del tempo di compressione. Tuttavia, le operazioni di [registrazione](service-fabric-deploy-remove-applications.md#register-the-application-package) e [annullamento della registrazione del tipo di applicazione](service-fabric-deploy-remove-applications.md#unregister-an-application-type) sono più veloci per un pacchetto dell'applicazione compresso.
 
-Il meccanismo di distribuzione è lo stesso per i pacchetti compressi e non. Se il pacchetto è compresso, viene archiviato come tale nell'archivio immagini del cluster e viene decompresso nel nodo prima dell'esecuzione dell'applicazione.
+Il meccanismo di distribuzione è lo stesso per i pacchetti compressi e per quelli non compressi. Se il pacchetto è compresso, viene archiviato come tale nell'archivio immagini del cluster e viene decompresso nel nodo prima dell'esecuzione dell'applicazione.
 La compressione sostituisce il pacchetto di Service Fabric valido con la versione compressa. La cartella deve fornire le autorizzazioni di scrittura. La compressione di un pacchetto già compresso non apporta modifiche. 
 
 È possibile comprimere un pacchetto eseguendo il comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) con lo switch `CompressPackage`. È possibile decomprimere il pacchetto con lo stesso comando, usando lo switch `UncompressPackage`.

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/14/2016
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c29a6627f712b9d89ac65e845f3ccb4fb87bf8fb
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 6457b7d30b12a7bb138f9912e21418742814be09
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -34,7 +35,7 @@ Le applicazioni client di Microsoft, come ad esempio Power BI Desktop ed Excel, 
 Le librerie client per le connessioni client sono diverse dai provider di dati necessari per connettersi da un server di Azure Analysis Services a un'origine dati. Per ulteriori informazioni sulle connessioni alle origini dati, vedere [Connessioni alle origini dati](analysis-services-datasource.md).
 
 ## <a name="download-the-latest-preview-client-libraries"></a>Scaricare le librerie client **in anteprima** più recenti  
-Usare le librerie client seguenti per ottenere le correzioni di bug e gli aggiornamenti più recenti. Queste librerie sono consigliate per la connessione ad Azure Analysis Services o a SQL Server vNext Analysis Services.
+Usare le librerie client seguenti per ottenere le correzioni di bug e gli aggiornamenti più recenti. Queste librerie sono consigliate per la connessione ad Azure Analysis Services o a SQL Server 2017 Analysis Services.
 
 [Anteprima di MSOLAP (amd64)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
 [Anteprima di MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>

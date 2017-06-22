@@ -8,12 +8,12 @@ manager: jhubbard
 editor: v-romcal
 ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
-ms.custom: security-protect
+ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 05/01/2017
+ms.date: 06/19/2017
 ms.author: ronmat; ronitr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3

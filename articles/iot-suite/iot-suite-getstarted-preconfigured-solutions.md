@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2364ab79ec4091d41e4d340e13033181df05b507
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Esercitazione: Introduzione alle soluzioni preconfigurate
-## <a name="introduction"></a>Introduzione
+# <a name="get-started-with-the-preconfigured-solutions"></a>Introduzione alle soluzioni preconfigurate
+
 Le [soluzioni preconfigurate][lnk-preconfigured-solutions] di Azure IoT Suite combinano più servizi IoT di Azure per fornire soluzioni end-to-end che implementano scenari aziendali IoT comuni. La soluzione preconfigurata per il *monitoraggio remoto* si connette ai dispositivi e li monitora. È possibile usare la soluzione per analizzare il flusso di dati dai dispositivi e di migliorare i risultati aziendali facendo in modo che i processi rispondano automaticamente a quel flusso di dati.
 
 Questa esercitazione illustra come effettuare il provisioning della soluzione preconfigurata per il monitoraggio remoto. Ne descrive anche le funzionalità di base. È possibile accedere a molte di queste funzionalità dal *dashboard* distribuito come parte della soluzione preconfigurata:
@@ -34,8 +35,6 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
 > [!NOTE]
 > Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
-> 
-> 
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 

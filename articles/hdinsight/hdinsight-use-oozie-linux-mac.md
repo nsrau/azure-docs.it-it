@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 05/10/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4502ac63428446f61b5876c73ed9a6f5065159cd
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 3ca1184bfbd6af3a63e62bce9dfe1baf1729b4ac
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,25 +28,17 @@ ms.lasthandoff: 04/12/2017
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Informazioni su come usare Apache Oozie per definire un flusso di lavoro che usa Hive e Sqoop e quindi eseguire il flusso di lavoro in un cluster HDInsight basato su Linux.
-
-Apache Oozie è un sistema di flusso di lavoro/coordinamento che consente di gestire i processi Hadoop. È integrato nello stack di Hadoop e supporta i processi Hadoop per Apache MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Può anche essere usato per pianificare processi specifici di un sistema, come i programmi Java o gli script della shell.
+Informazioni su come usare Apache Oozie con Hadoop in HDInsight. Apache Oozie è un sistema di flusso di lavoro/coordinamento che consente di gestire i processi Hadoop. È integrato nello stack di Hadoop e supporta i processi Hadoop per Apache MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Può anche essere usato per pianificare processi specifici di un sistema, come i programmi Java o gli script della shell.
 
 > [!NOTE]
 > Un'altra opzione per definire i flussi di lavoro con HDInsight è Azure Data Factory. Per altre informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data Factory][azure-data-factory-pig-hive].
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
-
-* **Interfaccia della riga di comando di Azure**: vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
-
 * **Un cluster di HDInsight**: vedere [Introduzione a HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
   > [!IMPORTANT]
-  > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
-
-* **Un database SQL di Azure**: viene creato usando la procedura descritta in questo documento.
+  > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="example-workflow"></a>Esempio di flusso di lavoro
 
@@ -53,7 +46,7 @@ Il flusso di lavoro usato in questo documento prevede due azioni. Le azioni sono
 
 ![Diagramma del flusso di lavoro][img-workflow-diagram]
 
-1. Un'azione di Hive esegue uno script HiveQL per estrarre i record da **hivesampletable** inclusa in HDInsight. Ogni riga di dati descrive una visita da un dispositivo mobile specifico. Il formato del record risulterà simile al seguente:
+1. Un'azione di Hive esegue uno script HiveQL per estrarre i record da **hivesampletable** inclusa in HDInsight. Ogni riga di dati descrive una visita da un dispositivo mobile specifico. Il formato del record risulterà simile al testo seguente:
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
@@ -77,7 +70,7 @@ hdfs dfs -mkdir -p /tutorials/useoozie/data
 ```
 
 > [!NOTE]
-> La directory `-p` causa la creazione di tutte le directory nel percorso, se non esistono già. La directory **data** viene usata per contenere i dati usati dallo script **useooziewf.hql**.
+> Il parametro `-p` provoca la creazione di tutte le directory nel percorso. La directory **data** viene usata per contenere i dati usati dallo script **useooziewf.hql**.
 
 Eseguire anche il comando seguente, per assicurare che Oozie possa rappresentare l'account utente durante l'esecuzione di processi Hive e Sqoop. Sostituire **USERNAME** con il proprio nome di accesso:
 
@@ -85,7 +78,8 @@ Eseguire anche il comando seguente, per assicurare che Oozie possa rappresentare
 sudo adduser USERNAME users
 ```
 
-Se viene visualizzato errore che indica che l'utente è già membro del gruppo utenti, è possibile ignorarlo.
+> [!NOTE]
+> È possibile ignorare gli errori che indicano che l'utente è già un membro del gruppo `users`.
 
 ## <a name="add-a-database-driver"></a>Aggiungere un driver di database
 
@@ -95,7 +89,7 @@ Poiché questo flusso di lavoro usa Sqoop per esportare dati nel database SQL, �
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
-Se il flusso di lavoro usa altre risorse, ad esempio un file jar contenente un'applicazione MapReduce, è necessario aggiungere anche questi elementi.
+Se il flusso di lavoro usa altre risorse, ad esempio un file JAR contenente un'applicazione MapReduce, è necessario aggiungere anche queste risorse.
 
 ## <a name="define-the-hive-query"></a>Definire la query Hive
 
@@ -109,13 +103,13 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisce la query us
 
     Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Dalla connessione SSH, usare il comando seguente per creare un nuovo file:
+2. Dalla connessione SSH, usare il comando seguente per creare un file:
 
     ```
     nano useooziewf.hql
     ```
 
-3. All'apertura dell'editor nano, usare quanto segue come contenuto del file:
+3. All'apertura dell'editor nano, usare la query seguente come contenuto del file:
 
     ```hiveql
     DROP TABLE ${hiveTableName};
@@ -132,14 +126,15 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisce la query us
 
     Il file di definizione del flusso di lavoro (workflow.xml in questa esercitazione) passa questi valori allo script HiveQL in fase di esecuzione.
 
-4. Premere CTRL+X per uscire dall'editor. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome di file **useooziewf.hql**.
+4. Per uscire dall'editor, premere CTRL-X. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome di file **useooziewf.hql**.
+
 5. Usare i comandi seguenti per copiare **useooziewf.hql** in **wasbs:///tutorials/useoozie/useooziewf.hql**:
 
     ```
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    Questi comandi consentono di archiviare il file **useooziewf.hql** nell'account di archiviazione di Azure associato al cluster, che conserva il file anche se il cluster viene eliminato. In questo modo è possibile risparmiare denaro eliminando i cluster quando non sono in uso, ma mantenendo i processi e i flussi di lavoro.
+    Questi comandi consentono di archiviare il file **useooziewf.hql** nell'account di archiviazione di Azure associato al cluster, che conserva il file anche se il cluster viene eliminato.
 
 ## <a name="define-the-workflow"></a>Definire il flusso di lavoro
 
@@ -151,7 +146,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
     nano workflow.xml
     ```
 
-2. All'apertura dell'editor nano, immettere il codice seguente come contenuto del file:
+2. All'apertura dell'editor nano, immettere il codice XML seguente come contenuto del file:
 
     ```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
@@ -208,16 +203,13 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
     Nel flusso di lavoro vengono definite due azioni:
 
-   * **RunHiveScript**: è l'azione di avvio ed esegue lo script **Hive useooziewf.hql**
+   * **RunHiveScript**: questa azione è l'azione di avvio ed esegue lo script **useooziewf.hql** di Hive.
 
-   * **RunSqoopExport**: esporta i dati creati dallo script Hive nel database SQL tramite Sqoop. Viene eseguita solo se l'azione **RunHiveScript** ha esito positivo.
+   * **RunSqoopExport**: questa azione esporta i dati creati dallo script Hive nel database SQL tramite Sqoop. Questa azione viene eseguita solo se l'azione **RunHiveScript** ha esito positivo.
 
-     > [!NOTE]
-     > Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
+     Il flusso di lavoro include molte voci, ad esempio `${jobTracker}`. Queste voci vengono sostituite dai valori usati nella definizione del processo, che viene creata più avanti in questo documento.
 
-     Si noti che il flusso di lavoro include diverse voci, ad esempio `${jobTracker}`, che vengono sostituite dai valori usati nella definizione del processo più avanti in questo documento.
-
-     Notare anche la voce `<archive>sqljdbc4.jar</arcive>` nella sezione Sqoop. Indica a Oozie di rendere disponibile questo archivio per Sqoop quando l'azione viene eseguita.
+     Notare anche la voce `<archive>sqljdbc4.jar</arcive>` nella sezione Sqoop. Questa voce indica a Oozie di rendere disponibile questo archivio per Sqoop quando l'azione viene eseguita.
 
 3. Usare CTRL+X, quindi **S** e **INVIO** per salvare il file.
 
@@ -229,7 +221,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 ## <a name="create-the-database"></a>Creare il database
 
-Usare la procedura indicata nel documento [Creare un database SQL](../sql-database/sql-database-get-started.md) per creare un nuovo database. Quando si crea il database, impostare **oozietest** come nome del database. Annotare il nome usato per il server del database da usare nella sezione successiva.
+Per creare un database SQL di Azure, seguire la procedura illustrata nel documento [Creare un database SQL](../sql-database/sql-database-get-started.md). Quando si crea il database, usare `oozietest` come nome del database. Annotare anche il nome del server di database.
 
 ### <a name="create-the-table"></a>Creare la tabella
 
@@ -249,7 +241,7 @@ Usare la procedura indicata nel documento [Creare un database SQL](../sql-databa
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
     ```
 
-    L'output è simile al seguente:
+    L'output che si riceve è simile al testo seguente:
 
         locale is "en_US.UTF-8"
         locale charset is "UTF-8"
@@ -268,7 +260,7 @@ Usare la procedura indicata nel documento [Creare un database SQL](../sql-databa
     GO
     ```
 
-    Dopo aver immesso l'istruzione `GO`, vengono valutate le istruzioni precedenti. Viene creata una nuova tabella denominata **mobiledata**, in cui Sqoop eseguirà la scrittura.
+    Dopo aver immesso l'istruzione `GO`, vengono valutate le istruzioni precedenti. Queste istruzioni creano una tabella denominata **mobiledata**, usata dal flusso di lavoro.
 
     Per verificare la corretta creazione della tabella, usare il comando seguente:
 
@@ -277,7 +269,7 @@ Usare la procedura indicata nel documento [Creare un database SQL](../sql-databa
     GO
     ```
 
-    L'output dovrebbe essere simile al seguente:
+    L'output sarà simile al seguente testo:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
@@ -288,15 +280,15 @@ Usare la procedura indicata nel documento [Creare un database SQL](../sql-databa
 
 ## <a name="create-the-job-definition"></a>Creare la definizione del processo
 
-La definizione del processo descrive dove trovare il file workflow.xml e altri file usati dal flusso di lavoro (ad esempio useooziewf.hql). Definisce inoltre i valori delle proprietà usate nel flusso di lavoro e nei file associati.
+La definizione del processo descrive dove trovare il file workflow.xml. Descrive inoltre dove trovare altri file usati dal flusso di lavoro, ad esempio useooziewf.hql. Definisce inoltre i valori delle proprietà usate nel flusso di lavoro e nei file associati.
 
-1. Usare il comando seguente per ottenere l'indirizzo WASB completo della risorsa di archiviazione predefinita. L'indirizzo viene usato nel file di configurazione più avanti:
+1. Usare il comando seguente per ottenere l'indirizzo completo della risorsa di archiviazione predefinita. L'indirizzo viene usato nel file di configurazione più avanti:
 
     ```
     sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
     ```
 
-    Dovrebbero essere restituiti informazioni simili alle seguenti:
+    Questo comando restituisce informazioni simili al codice XML seguente:
 
     ```xml
     <name>fs.defaultFS</name>
@@ -308,13 +300,13 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 
     Salvare il contenuto dell'elemento `<value>`, necessario nei passaggi successivi.
 
-2. Usare il comando seguente per ottenere l'FQDN del nodo head del cluster. Viene usato per l'indirizzo di JobTracker del cluster. L'indirizzo viene usato nel file di configurazione più avanti:
+2. Usare il comando seguente per ottenere l'FQDN del nodo head del cluster. Queste informazioni vengono usate per l'indirizzo di JobTracker del cluster.
 
     ```
     hostname -f
     ```
 
-    Le informazioni restituite sono simili alle seguenti:
+    Verranno restituite informazioni simili al testo seguente:
 
     ```hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net```
 
@@ -326,7 +318,7 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
     nano job.xml
     ```
 
-4. All'apertura dell'editor nano, usare quanto segue come contenuto del file:
+4. All'apertura dell'editor nano, usare il codice XML seguente come contenuto del file:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -419,7 +411,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
     sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
     ```
 
-    Le informazioni restituite sono simili alle seguenti:
+    Le informazioni restituite sono simili al codice XML seguente:
 
     ```xml
     <name>oozie.base.url</name>
@@ -441,17 +433,20 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
     oozie job -config job.xml -submit
     ```
 
-    Carica le informazioni sul processo da **job.xml** e le invia a Oozie, ma senza eseguirle.
+    Questo comando carica le informazioni sul processo da **job.xml** e le invia a Oozie, ma senza eseguirle.
 
-    Dopo il completamento, il comando dovrebbe restituire l'ID del processo, Ad esempio, `0000005-150622124850154-oozie-oozi-W`. Viene usato per gestire il processo.
+    Dopo il completamento, il comando dovrebbe restituire l'ID del processo, Ad esempio, `0000005-150622124850154-oozie-oozi-W`. L'ID viene usato per gestire il processo.
 
-4. Visualizzare lo stato del processo tramite il seguente comando seguente. Immettere l'ID processo restituito dal comando precedente:
+4. Visualizzare lo stato del processo tramite il comando seguente:
 
     ```
     oozie job -info <JOBID>
     ```
 
-    Le informazioni restituite sono simili alle seguenti.
+    > [!NOTE]
+    > Sostituire `<JOBID>` con l'ID restituito nel passaggio precedente.
+
+    Verranno restituite informazioni simili al testo seguente:
 
     ```
     Job ID : 0000005-150622124850154-oozie-oozi-W
@@ -470,13 +465,16 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
     ------------------------------------------------------------------------------------------------------------------------------------
     ```
 
-    Lo stato di questo processo è `PREP`, che indica che è stato inviato, ma non ancora avviato.
+    Lo stato del processo è `PREP`. Indica che il processo è stato inviato, ma non ancora avviato.
 
-5. Usare quanto segue per avviare il processo:
+5. Usare il comando seguente per avviare il processo.
 
     ```
     oozie job -start JOBID
     ```
+
+    > [!NOTE]
+    > Sostituire `<JOBID>` con l'ID restituito in precedenza.
 
     Se lo stato viene controllato dopo questo comando, risulterà in esecuzione e verranno restituite informazioni relative alle azioni all'interno del processo.
 
@@ -486,14 +484,14 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
     ```
 
-    Al prompt di `1>` , immettere il codice seguente:
+    Al prompt di `1>` immettere la query seguente:
 
     ```
     SELECT * FROM mobiledata
     GO
     ```
 
-    Le informazioni restituite sono simili alle seguenti:
+    Le informazioni restituite sono simili al testo seguente:
 
         deviceplatform  count
         Android 31591
@@ -512,7 +510,7 @@ L'API REST di Oozie consente di compilare strumenti personalizzati che funzionan
 
 * **URI**: è possibile accedere all'API REST all'esterno del cluster in `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticazione**: è necessario autenticarsi all'API con l'account (admin) e la password HTTP del cluster. Ad esempio:
+* **Autenticazione**: eseguire l'autenticazione all'API con l'account (admin) e la password HTTP del cluster. ad esempio:
 
     ```
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -522,11 +520,19 @@ Per altre informazioni sull'uso dell'API REST di Oozie, vedere la pagina relativ
 
 ## <a name="oozie-web-ui"></a>Interfaccia utente Web di Oozie
 
-L'interfaccia utente Web di Oozie fornisce una visualizzazione basata sul Web dello stato dei processi Oozie nel cluster. Consente di visualizzare lo stato del processo, la definizione del processo, la configurazione, un grafico delle azioni nel processo e i log del processo. È anche possibile visualizzare i dettagli delle azioni all'interno di un processo.
+L'interfaccia utente Web di Oozie fornisce una visualizzazione basata sul Web dello stato dei processi Oozie nel cluster. L'interfaccia utente Web consente di visualizzare le informazioni seguenti:
+
+* Stato processo
+* Definizione del processo
+* Configurazione
+* Grafico delle azioni nel processo
+* Log per il processo
+
+È anche possibile visualizzare i dettagli delle azioni all'interno di un processo.
 
 Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura seguente:
 
-1. Creare un tunnel SSH per il cluster HDInsight. Per altre informazioni su come eseguire questa operazione, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md).
+1. Creare un tunnel SSH per il cluster HDInsight. Per informazioni, vedere il documento [Usare il tunneling SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambari nel Web browser. L'URI del sito Ambari è **https://CLUSTERNAME.azurehdinsight.NET**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight basato su Linux.
 
@@ -542,7 +548,7 @@ Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura segue
 
     ![Job Info](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
-6. Nella scheda Job Info è possibile visualizzare informazioni di base sul processo, oltre a singole azioni all'interno del processo. Usando le schede nella parte superiore è possibile visualizzare la definizione, la configurazione, il log del processo o un grafo aciclico diretto (DAG) del processo.
+6. Nella scheda relativa alle informazioni del processo è possibile visualizzare informazioni di base sul processo e le singole azioni all'interno del processo. Usando le schede nella parte superiore è possibile visualizzare la definizione, la configurazione, il log del processo o un grafo aciclico diretto (DAG) del processo.
 
    * **Job Log**: selezionare il pulsante **GetLogs** per recuperare tutti i log relativi al processo o usare il campo **Enter Search Filter** per filtrare i log.
 
@@ -556,7 +562,7 @@ Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura segue
 
     ![Informazioni sull'azione](./media/hdinsight-use-oozie-linux-mac/action.png)
 
-8. È possibile visualizzare i dettagli relativi all'azione, incluso un collegamento in **Console URL**, che è possibile usare per visualizzare le informazioni su JobTracker per il processo.
+8. È possibile visualizzare i dettagli per l'azione, ad esempio un collegamento a **Console URL** (URL della console). Questo collegamento può essere usato per visualizzare le informazioni di JobTracker per il processo.
 
 ## <a name="scheduling-jobs"></a>Pianificazione di processi
 
@@ -564,13 +570,13 @@ Il coordinatore consente di specificare inizio, fine e frequenza dei processi, i
 
 Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura seguente:
 
-1. Usare quanto segue per creare un nuovo file denominato **coordinator.xml**:
+1. Usare quanto segue per creare un file denominato **coordinator.xml**:
 
     ```
     nano coordinator.xml
     ```
 
-    Usare quanto segue come contenuto del file:
+    Usare il codice XML seguente come contenuto del file:
 
     ```xml
     <coordinator-app name="my_coord_app" frequency="${coordFrequency}" start="${coordStart}" end="${coordEnd}" timezone="${coordTimezone}" xmlns="uri:oozie:coordinator:0.4">
@@ -582,19 +588,16 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
     </coordinator-app>
     ```
 
-    Si noti che le variabili `${...}` vengono sostituite da valori nella definizione del processo al momento dell'esecuzione. Le variabili sono:
+    > [!NOTE]
+    > Le variabili `${...}` vengono sostituite dai valori nella definizione del processo in fase di esecuzione. Le variabili sono:
+    >
+    > * `${coordFrequency}`: tempo trascorso tra l'esecuzione di istanze del processo.
+    > ** `${coordStart}`: ora di inizio del processo.
+    > * `${coordEnd}`: ora di fine del processo.
+    > * `${coordTimezone}`: i processi del coordinatore si trovano in un fuso orario predefinito che non tiene conto dell'ora legale (in genere rappresentato dall'acronimo UTC). Questo fuso orario viene definito "Fuso orario di elaborazione Oozie".
+    > * `${wfPath}`: percorso del file workflow.xml.
 
-   * **${coordFrequency}**: tempo che intercorre tra l'esecuzione delle istanze del processo.
-
-   * **${coordStart}**: ora di inizio del processo.
-
-   * **${coordEnd}**: ora di fine del processo.
-
-   * **${coordTimezone}**: i processi del coordinatore si trovano in un fuso orario predefinito che non tiene conto dell'ora legale (in genere rappresentato dall'acronimo UTC). Questo fuso orario è definito "fuso orario di elaborazione di Oozie".
-
-   * **${wfPath}**: il percorso del file workflow.xml.
-
-2. Usare CTRL+X, quindi **S** e **INVIO** per salvare il file.
+2. Per salvare il file, usare CTRL-X, **Y** e **INVIO**.
 
 3. Usare il comando seguente per copiare il file nella directory di lavoro del processo:
 
@@ -610,9 +613,9 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
 
     Apportare le modifiche seguenti:
 
-   * Cambiare `<name>oozie.wf.application.path</name>` in `<name>oozie.coord.application.path</name>`. Indica a Oozie di eseguire il file del coordinatore invece del file del flusso di lavoro.
+   * Cambiare `<name>oozie.wf.application.path</name>` in `<name>oozie.coord.application.path</name>`. Questo valore indica a Oozie di eseguire il file del coordinatore invece del file del flusso di lavoro.
 
-   * Aggiungere il comando seguente che viene impostato come variabile usata nel file coordinator.xml per puntare al percorso del file workflow.xml:
+   * Aggiungere il codice XML seguente. Questo codice imposta una variabile usata nel file coordinator.xml per fare riferimento al percorso del file workflow.xml:
 
         ```xml
         <property>
@@ -623,17 +626,17 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
 
        Sostituire il testo `wasbs://mycontainer@mystorageaccount.blob.core.windows` con il valore usato nelle altre voci del file job.xlm.
 
-   * Aggiungere quanto segue per definire l'inizio, la fine e la frequenza da usare per il file coordinator.xml:
+   * Aggiungere il codice XML seguente. Questo codice definisce l'inizio, la fine e la frequenza da usare per il file coordinator.xml:
 
         ```xml
         <property>
             <name>coordStart</name>
-            <value>2017-02-07T12:00Z</value>
+            <value>2017-05-10T12:00Z</value>
         </property>
 
         <property>
             <name>coordEnd</name>
-            <value>2017-02-09T12:00Z</value>
+            <value>2017-05-12T12:00Z</value>
         </property>
 
         <property>
@@ -647,7 +650,7 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
         </property>
         ```
 
-       Questi valori impostano l'ora di inizio alle 12:00 del 7 febbraio 2017, l'ora di fine al 9 febbraio 2017 e l'intervallo per l'esecuzione di questo processo ogni giorno. La frequenza è espressa in minuti, quindi 24 ore x 60 minuti = 1440 minuti. Infine, il fuso orario è impostato su UTC.
+       Questi valori impostano l'ora di inizio sulle 12:00 del 10 maggio 2017 e la fine sul 12 maggio 2017. L'intervallo per l'esecuzione del processo viene impostato su ogni giorno. La frequenza è espressa in minuti, quindi 24 ore x 60 minuti = 1440 minuti. Infine, il fuso orario è impostato su UTC.
 
 5. Usare CTRL+X, quindi **S** e **INVIO** per salvare il file.
 
@@ -659,23 +662,24 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
 
     Il comando invia e avvia il processo.
 
-7. Visitando l'interfaccia utente Web di Oozie e selezionando la scheda **Coordinator Jobs**, si ottengono informazioni simili alle seguenti:
+7. Visitando l'interfaccia utente Web di Oozie e selezionando la scheda **Coordinator Jobs** (Processi del coordinatore), si ottengono informazioni simili all'immagine seguente:
 
     ![scheda coordinator jobs](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
-    Notare la voce **Next Materialization** che indica la successiva esecuzione del processo.
+    La voce **Next Materialization** (Materializzazione successiva) contiene l'orario per l'esecuzione successiva del processo.
 
 8. Come per il processo del flusso di lavoro precedente, selezionando la voce del processo nell'interfaccia utente Web vengono visualizzate informazioni sul processo:
 
     ![Informazioni sui processi coordinatore](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
-    Si noti che sono visualizzate solo le esecuzioni riuscite del processo, non le singole azioni all'interno del flusso di lavoro pianificato. Per visualizzarle, selezionare una delle voci in **Action** . Vengono visualizzate informazioni simili a quelle recuperate per il processo del flusso di lavoro precedente.
+    > [!NOTE]
+    > Sono visualizzate solo le esecuzioni riuscite del processo, non le singole azioni all'interno del flusso di lavoro pianificato. Per visualizzarle, selezionare una delle voci in **Action** .
 
     ![Informazioni sull'azione](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Durante la risoluzione dei problemi relativi ai processi Oozie, l'interfaccia utente di Oozie risulta molto utile perché consente di visualizzare facilmente entrambi i log di Oozie, oltre ai collegamenti ai log di JobTracker per le attività di MapReduce, ad esempio le query Hive. In generale, il modello per la risoluzione dei problemi deve essere il seguente:
+L'interfaccia utente di Oozie consente di visualizzare i log di Oozie. Contiene anche collegamenti ai log di JobTracker per le attività di MapReduce avviate dal flusso di lavoro. Il modello per la risoluzione dei problemi deve essere il seguente:
 
 1. Visualizzare il processo nell'interfaccia utente Web di Oozie.
 
@@ -718,9 +722,7 @@ Di seguito sono riportati errori specifici che possono verificarsi e come risolv
 
 **Causa**: Sqoop non è in grado di caricare il driver del database necessario per accedere al database.
 
-**Risoluzione**: quando si usa Sqoop da un processo Oozie, è necessario includere il driver del database con le altre risorse (ad esempio, workflow.xml) usate dal processo.
-
-È anche necessario fare riferimento all'archivio contenente il driver del database dalla sezione `<sqoop>...</sqoop>` di workflow.xml.
+**Risoluzione**: quando si usa Sqoop da un processo Oozie, è necessario includere il driver del database con le altre risorse (ad esempio, workflow.xml) usate dal processo. È anche necessario fare riferimento all'archivio contenente il driver del database dalla sezione `<sqoop>...</sqoop>` di workflow.xml.
 
 Ad esempio, per il processo in questo documento si useranno i passaggi seguenti:
 
@@ -730,7 +732,7 @@ Ad esempio, per il processo in questo documento si useranno i passaggi seguenti:
     hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
     ```
 
-2. Modificare il file workflow.xml per aggiungere il codice seguente in una nuova riga sopra `</sqoop>`:
+2. Modificare il file workflow.xml per aggiungere il codice XML seguente in una nuova riga sopra `</sqoop>`:
 
     ```xml
     <archive>sqljdbc41.jar</archive>

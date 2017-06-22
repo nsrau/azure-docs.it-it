@@ -3,7 +3,7 @@ title: Informazioni sull&quot;architettura di Azure Active Directory | Microsoft
 description: Illustra il significato di tenant di Azure AD e come gestire Azure con Azure Active Directory
 services: active-directory
 documentationcenter: 
-author: markvi
+author: MarkusVi
 writer: v-lorisc
 manager: femila
 ms.assetid: 
@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
+ms.contentlocale: it-it
 ms.lasthandoff: 03/28/2017
 
 

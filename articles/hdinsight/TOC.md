@@ -1,5 +1,5 @@
 # Panoramica
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [Informazioni su HDInsight e Hadoop](hdinsight-hadoop-introduction.md)
 ## [Componenti Hadoop in HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -133,6 +133,7 @@
 ### [Personalizzare i cluster usando bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Personalizzare i cluster con l'azione script](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Sviluppare azioni di script](hdinsight-hadoop-script-actions-linux.md)
+### [Installare e usare Presto](hdinsight-hadoop-install-presto.md)
 ### [Installare o aggiornare Mono](hdinsight-hadoop-install-mono.md)
 ### [Aggiungere le librerie Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Usare Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -221,5 +222,6 @@
 ### [Monitorare i cluster con l'API Ambari](hdinsight-monitor-use-ambari-api.md)
 
 # Risorse
+## [Strumenti Windows per HDInsight](hdinsight-hadoop-windows-tools.md)
 ## [Ottenere informazioni sui forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare rapidamente una VM Linux | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare rapidamente una VM Linux
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare rapidamente una VM Linux | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare rapidamente una VM Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: a566755ada800890db2ad3352def14f526094e72
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: cecda8930a15a3b1f65dd1f170d411b83278506b
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,13 +34,13 @@ Questo script crea una macchina virtuale di Azure con sistema operativo Ubuntu e
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-quick/create-vm-quick.sh "Creazione rapida della macchina virtuale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-quick/create-vm-quick.sh "Creazione rapida della macchina virtuale")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
 Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

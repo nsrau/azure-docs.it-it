@@ -1,6 +1,6 @@
 ---
-title: Gestione del provisioning utenti per app aziendali nell&quot;anteprima di Azure Active Directory | Documentazione Microsoft
-description: Informazioni su come gestire il provisioning degli account utente per app aziendali usando l&quot;anteprima di Azure Active Directory
+title: Gestione del provisioning di utenti per le app aziendali con Azure Active Directory | Microsoft Docs
+description: Informazioni su come gestire il provisioning degli account utente per le app aziendali usando Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: asmalser
@@ -12,23 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/12/2016
+ms.date: 05/04/2017
 ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 103eade46452d979705e06dd77441f42d7a514b8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 6cb0269e87f7ecffe7030b86237fb88fd58ef77b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="preview-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Anteprima: gestione del provisioning degli account utenti per app aziendali nel nuovo portale di Azure
-Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per gestire il provisioning e il deprovisioning automatici degli account per le applicazioni che li supportano, in particolare per le applicazioni aggiunte dalla categoria "In primo piano" della [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Questa esperienza di gestione nel portale di Azure è attualmente disponibile in anteprima pubblica e questo articolo illustra le nuove funzionalità, oltre ad alcune limitazioni temporanee applicate nel periodo di anteprima. [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)
+# <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
+Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per gestire il provisioning e il deprovisioning automatici degli account per le applicazioni che li supportano, in particolare per le applicazioni aggiunte dalla categoria "In primo piano" della [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
 
-Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
-
-## <a name="finding-your-apps-in-the-new-portal"></a>Individuazione delle app nel nuovo portale
-A partire dal mese di settembre 2016, tutte le applicazioni configurate per l'accesso Single Sign-On in una directory da un amministratore di directory che usa la [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) nel [portale di Azure classico](https://manage.windowsazure.com) possono essere visualizzate e gestite nel nuovo portale di Azure.
-
-Queste applicazioni sono disponibili nella sezione **Applicazioni aziendali** del nuovo portale di Azure, a cui è possibile accedere tramite il menu **More Services** (Altri servizi) nell'area di navigazione a sinistra. Le app aziendali sono app distribuite e usate da utenti all'interno dell'organizzazione.
+## <a name="finding-your-apps-in-the-portal"></a>Individuazione delle app nel portale
+Tutte le applicazioni configurate per l'accesso Single Sign-On in una directory da un amministratore di directory che usa la [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) possono essere visualizzate e gestite nel [portale di Azure](https://portal.azure.com). Le applicazioni sono disponibili nella sezione **More Services** (Altri servizi) &gt; **Applicazioni aziendali** del portale. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione.
 
 ![Pannello Applicazioni aziendali][0]
 
@@ -59,11 +57,11 @@ Esiste un set preconfigurato di mapping tra gli oggetti utente di Azure AD e gli
 
 ![Pannello Risorsa applicazione][2]
 
-Ecco le personalizzazioni supportate durante la prima anteprima:
+Le personalizzazioni supportate includono:
 
 * Abilitazione e disabilitazione dei mapping per oggetti specifici, ad esempio l'oggetto utente di Azure AD all'oggetto utente dell'app SaaS.
 * Modifica degli attributi che devono essere trasmessi dall'oggetto utente di Azure AD all'oggetto utente dell'app. Per altre informazioni sul mapping degli attributi, vedere [Informazioni sui tipi di mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
-* Filtro delle azioni di provisioning che devono essere eseguite da Azure AD sull'applicazione di destinazione. Questa è una nuova funzionalità del portale di Azure. Invece di fare in modo che Azure AD esegua la sincronizzazione completa degli oggetti, è possibile limitare le azioni eseguite. Se si seleziona solo **Aggiorna**, ad esempio, Azure AD aggiorna solo gli account utente esistenti in un'applicazione e non crea nuovi account utente. Se si seleziona solo **Crea**, Azure crea solo nuovi account utente, ma non aggiorna gli account utente esistenti. Questa funzionalità consente agli amministratori di creare diversi mapping per i flussi di lavoro di creazione e aggiornamento degli account. La funzionalità completa per la creazione di più mapping per ogni app sarà disponibile più avanti nel periodo di anteprima.
+* Filtrare le azioni di provisioning che Azure AD esegue nell'applicazione di destinazione. Invece di fare in modo che Azure AD esegua la sincronizzazione completa degli oggetti, è possibile limitare le azioni eseguite. Se si seleziona solo **Aggiorna**, ad esempio, Azure AD aggiorna solo gli account utente esistenti in un'applicazione e non crea nuovi account utente. Se si seleziona solo **Crea**, Azure crea solo nuovi account utente, ma non aggiorna gli account utente esistenti. Questa funzionalità consente agli amministratori di creare diversi mapping per i flussi di lavoro di creazione e aggiornamento degli account.
 
 ### <a name="settings"></a>Impostazioni
 Questa sezione consente agli amministratori di avviare e arrestare il servizio di provisioning di Azure AD per l'applicazione selezionata, oltre a cancellare facoltativamente la cache di provisioning e riavviare il servizio.
@@ -79,12 +77,12 @@ Questa sezione fornisce dettagli aggiuntivi sul funzionamento del servizio di pr
 
 Sono disponibili collegamenti al **report dell'attività di provisioning**, che fornisce un log di tutti gli utenti e di tutti i gruppi creati, aggiornati e rimossi tra Azure AD e l'applicazione di destinazione, e al **report degli errori di provisioning**, che fornisce messaggi di errore più dettagliati per oggetti utente e gruppo che non è stato possibile leggere, creare, aggiornare o rimuovere. 
 
+##<a name="feedback"></a>Commenti e suggerimenti
+
+Speriamo che gli utenti apprezzino Azure AD e inviino commenti e suggerimenti. È possibile inviare commenti e idee per apportare miglioramenti nella sezione **Portale di amministrazione** del [forum dei commenti](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Microsoft accoglie i suggerimenti degli utenti per definire nuove funzionalità ogni giorno.
+
+
 [0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

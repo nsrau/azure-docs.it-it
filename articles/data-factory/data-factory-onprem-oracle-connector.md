@@ -12,19 +12,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 06/04/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 750dfb2ff8b4d82b2f42518c3873a32d6be0bc20
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 18fffb6cae9107b9301ff702d483b598836ac180
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Spostare i dati da/verso Oracle locale con Azure Data Factory
 In questo articolo viene illustrato come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso un database Oracle locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
-È possibile copiare i dati da qualsiasi archivio dati di origine supportato al database di Oracle o dal database di Oracle a qualsiasi archivio di dati sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+## <a name="supported-scenarios"></a>Scenari supportati
+È possibile copiare i dati **da un database di Oracle** negli archivi di dati seguenti:
+
+[!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
+
+È possibile copiare i dati dagli archivi dati seguenti **in un database di Oracle**:
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 Data Factory supporta la connessione a origini Oracle locali mediante il gateway di gestione dati. Vedere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per informazioni sul Gateway di gestione dati e l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) per istruzioni dettagliate su come configurare un gateway e una pipeline di dati per spostare i dati.
@@ -37,11 +45,16 @@ Il gateway è necessario anche se il database Oracle è ospitato in una macchina
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
 Il connettore Oracle supporta due versioni di driver:
 
-- **Driver Microsoft per Oracle (scelta consigliata)**: a partire dal Gateway di gestione dati versione 2.7, un driver Microsoft per Oracle viene installato automaticamente con il gateway, quindi non è necessario di gestire ulteriormente i driver per stabilire la connettività a Oracle ed è possibile inoltre ottenere migliori prestazioni di copia usando questo driver. È supportato Oracle Database 10g Release 2 o versioni successive.
+- **Driver Microsoft per Oracle (scelta consigliata)**: a partire dal Gateway di gestione dati versione 2.7, un driver Microsoft per Oracle viene installato automaticamente con il gateway, quindi non è necessario di gestire ulteriormente i driver per stabilire la connettività a Oracle ed è possibile inoltre ottenere migliori prestazioni di copia usando questo driver. Di seguito sono indicate le versioni dei database di Oracle supportate:
+    - Oracle 12c R1 (12.1)
+    - Oracle 11g R1, R2 (11.1, 11.2)
+    - Oracle 10g R1, R2 (10.1, 10.2)
+    - Oracle 9i R1, R2 (9.0.1, 9.2)
+    - Oracle 8i R3 (8.1.7)
 
-    > [!IMPORTANT]
-    > Il driver Microsoft per Oracle supporta attualmente solo la copia dei dati da Oracle ma non la scrittura in Oracle. Si noti che la funzionalità di connessione di test nella scheda Diagnostica del Gateway di gestione dati supporta questo driver. In alternativa, è possibile usare la procedura guidata di copia per convalidare la connettività.
-    >
+> [!IMPORTANT]
+> Il driver Microsoft per Oracle supporta attualmente solo la copia dei dati da Oracle ma non la scrittura in Oracle. Si noti che la funzionalità di connessione di test nella scheda Diagnostica del Gateway di gestione dati supporta questo driver. In alternativa, è possibile usare la procedura guidata di copia per convalidare la connettività.
+>
 
 - **Provider di dati Oracle per .NET:** è possibile scegliere di usare il Provider di dati Oracle per copiare i dati da/in Oracle. Questo componente è incluso in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installare la versione appropriata (32/64 bit) nel computer in cui è installato il gateway. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) può accedere a Oracle Database 10g Release 2 o versione successiva.
 
@@ -60,11 +73,12 @@ Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Ved
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
-1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
+1. Creare una **data factory**. Una data factory può contenere una o più pipeline. 
+2. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory. Ad esempio, se si copiano i dati da un database di Oralce in un archivio BLOB di Azure, creare due servizi collegati per collegare il database di Oracle e l'account di archiviazione di Azure alla data factory. Per le proprietà del servizio collegato specifiche per Oracle, vedere la sezione sulle [proprietà del servizio collegato](#linked-service-properties).
+3. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. Nell'esempio citato nel passaggio precedente si crea un set di dati per specificare la tabella nel database di Oracle che contiene i dati di input. Si crea anche un altro set di dati per specificare il contenitore BLOB e la cartella che contiene i dati copiati dal database di Oracle. Per le proprietà del set di dati specifiche per Oracle, vedere la sezione sulle [proprietà del set di dati](#dataset-properties).
+4. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa OracleSource come origine e BlobSink come sink per l'attività di copia. Analogamente, se si effettua la copia dall'archivio BLOB di Azure al database di Oracle, usare BlobSource e OracleSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche per il database di Oracle, vedere la sezione sulle [proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati. 
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per le entità di Data Factory che vengono usate per copiare i dati verso e dal database di Oracle locale, vedere la sezione degli [esempi JSON](#json-examples) in questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per le entità di Data Factory che vengono usate per copiare i dati verso e dal database di Oracle locale, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-oracle-database) in questo articolo.
 
 Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory:
 
@@ -145,7 +159,7 @@ Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le
 | sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. |Istruzione di query. |No |
 | sliceIdentifierColumnName |Specificare il nome della colonna per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che viene usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. |Nome di colonna di una colonna con tipo di dati binario (32). |No |
 
-## <a name="json-examples"></a>Esempi JSON
+## <a name="json-examples-for-copying-data-to-and-from-oracle-database"></a>Esempi JSON per la copia dei dati da e verso un database di Oracle
 L'esempio seguente fornisce le definizioni JSON campione da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un database Oracle in un archivio BLOB di Azure e viceversa. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.   
 
 ## <a name="example-copy-data-from-oracle-to-azure-blob"></a>Esempio: Copiare i dati da Oracle a BLOB di Azure
@@ -541,7 +555,7 @@ Potrebbe essere necessario modificare la stringa di query nell'attività di copi
     "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
-### <a name="type-mapping-for-oracle"></a>Mapping dei tipi per Oracle
+## <a name="type-mapping-for-oracle"></a>Mapping dei tipi per Oracle
 Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET

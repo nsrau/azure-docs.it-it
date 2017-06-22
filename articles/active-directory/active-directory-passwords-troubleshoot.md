@@ -6,6 +6,7 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 4dae8b87904fff2f2f8665d235bf790fb1e073d0
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 6d1cfd588ad60cbdf69a432b4f4baa0b13fed0d3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -76,7 +78,6 @@ Se si verificano problemi di reimpostazione della password self-service, gli ele
 | Il registro eventi del computer che esegue Azure AD Connect contiene l'errore 32002 generato da PasswordResetService. <br> <br> L'errore indica: "Errore di connessione al bus di servizio. Il provider del token non è stato in grado di fornire un token di sicurezza". | L'ambiente locale non è in grado di connettersi all'endpoint del bus di servizio nel cloud. Questo errore è in genere causato da una regola del firewall che blocca la connessione in uscita a una porta o a un indirizzo Web specifico. Per altre informazioni vedere [Network requirements](active-directory-passwords-how-it-works.md#network-requirements) (Requisiti di rete). Dopo aver aggiornato queste regole, riavviare il computer che esegue Azure AD Connect. Il writeback della password dovrebbe funzionare di nuovo. |
 | Dopo un certo periodo di tempo, gli utenti federati o con sincronizzazione di hash della password non possono reimpostare le password. | In rari casi, è possibile che il servizio di writeback delle password non venga riavviato quando si riavvia Azure AD Connect. In questi casi, controllare innanzitutto se il writeback della password risulta abilitato in locale. A tale scopo, è possibile usare la procedura guidata di Azure AD Connect o PowerShell (vedere la sezione precedente relativa alle procedure). Se la funzionalità appare abilitata, provare ad abilitarla o a disabilitarla di nuovo tramite l'interfaccia utente o PowerShell. Se il problema persiste, provare a disinstallare completamente e a reinstallare Azure AD Connect. |
 | Gli utenti federati o con sincronizzazione di hash della password che tentano di reimpostare le password visualizzano un errore, dopo l'invio della password, che indica che si è verificato un problema del servizio. <br ><br> Inoltre, durante le operazioni di reimpostazione della password è possibile che nei registri eventi locali venga visualizzato un errore di accesso negato per l'agente di gestione. | Se nel registro eventi sono presenti errori di questo tipo, verificare che l'account AD MA, specificato nella procedura guidata al momento della configurazione, disponga delle autorizzazioni necessarie per il writeback delle password. <br> <br> **Dopo aver concesso l'autorizzazione, la relativa propagazione nel controller di dominio tramite l'attività in background sdprop può richiedere fino a un'ora.** <br> <br> Per il funzionamento della reimpostazione della password, è necessario che l'autorizzazione sia indicata nel descrittore di sicurezza dell'oggetto utente per il quale viene reimpostata la password. Finché l'autorizzazione non sarà indicata nell'oggetto utente, per la reimpostazione della password continuerà a verificarsi un errore di accesso negato. |
-| Non è possibile reimpostare la password per gli utenti di gruppi speciali, ad esempio Domain Admins ed Enterprise Admins | Gli utenti con privilegi in Active Directory sono protetti mediante AdminSDHolder. Per altre informazioni, vedere [http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx](http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx). <br> <br> Ciò significa che i descrittori di sicurezza di questi oggetti vengono verificati periodicamente per controllare se corrispondono a quello specificato in AdminSDHolder e, se sono diversi, vengono reimpostati. Le autorizzazioni aggiuntive necessarie per il writeback della password non vengono perciò propagate a questi utenti. Ciò può comportare un mancato funzionamento del writeback delle password per tali utenti. Di conseguenza, **la gestione delle password per gli utenti appartenenti a questi gruppi non è supportata, in quanto non rispetta il modello di sicurezza di AD.**
 | Gli utenti federati o con sincronizzazione di hash della password che tentano di reimpostare le password visualizzano un errore, dopo l'invio della password, che indica che si è verificato un problema del servizio. <br> <br> Inoltre, durante le operazioni di reimpostazione della password, è possibile che venga visualizzato un errore nei registri eventi del servizio Azure AD Connect che indica che non è stato possibile trovare l'oggetto. | Questo errore indica di solito che il motore di sincronizzazione non è in grado di trovare l'oggetto utente nello spazio connettore AAD o nell'oggetto spazio connettore AD o MV collegato. <br> <br> Per risolvere il problema, assicurarsi che l'utente sia effettivamente sincronizzato dall'ambiente locale ad AAD tramite l'istanza corrente di Azure AD Connect e controllare lo stato degli oggetti negli spazi connettore e nell'oggetto MV. Verificare che l'oggetto Servizi certificati Active Directory sia connesso all'oggetto MV tramite la regola "Microsoft.InfromADUserAccountEnabled.xxx".|
 | Gli utenti federati o con sincronizzazione di hash della password che tentano di reimpostare le password visualizzano un errore, dopo l'invio della password, che indica che si è verificato un problema del servizio. <br> <br> Inoltre, durante le operazioni di reimpostazione della password, è possibile che venga visualizzato un errore nei registri degli eventi del servizio Azure AD Connect che indica che sono state trovate più corrispondenze. | Ciò indica che il motore di sincronizzazione ha rilevato che l'oggetto MV è connesso a più oggetti Servizi certificati Active Directory tramite "Microsoft.InfromADUserAccountEnabled.xxx". Questo significa che l'utente dispone di un account abilitato in più foreste. **Questo scenario non è attualmente supportato per il writeback delle password.** |
 | Le operazioni con le password non riescono a causa di un errore di configurazione. Il log eventi dell'applicazione contiene <br> <br> l'errore 6329 di Azure AD Connect con il testo: 0x8023061f - The operation failed because password synchronization is not enabled on this Management Agent (Operazione non riuscita perché la sincronizzazione della password non è abilitata in questo agente di gestione). | Ciò si verifica se si modifica la configurazione di Azure AD Connect per aggiungere una nuova foresta AD, o per rimuovere e aggiungere nuovamente una foresta esistente, dopo aver abilitato la funzionalità di writeback delle password. Le operazioni con le password per gli utenti in queste foreste appena aggiunte hanno esito negativo. Per risolvere il problema, disabilitare e riabilitare la funzionalità di writeback della password dopo avere completato le modifiche di configurazione della foresta. |
@@ -211,10 +212,11 @@ Per garantire un supporto adeguato, verranno richiesti il maggior numero di dett
 
 * **Descrizione generale dell'errore**: indicare il tipo di errore, il comportamento notato, e le modalità in cui è possibile riprodurre l'errore. Indicare il maggior numero di dettagli possibili.
 * **Pagina**: indicare la pagina che si stava consultando quando è stato visualizzato l'errore. Includere l'URL, se possibile, e una schermata.
-* **Data, ora e fuso orario**: includere la data e l'ora precisa **con il fuso orario** a cui si è verificato l'errore.
 * **Codice di supporto**: il codice di supporto generato quando è stato visualizzato l'errore. 
     * Per trovalo, riprodurre l'errore, quindi fare clic sul collegamento Codice di supporto nella parte inferiore della schermo e inviare al personale del supporto tecnico il GUID risultante.
+    ![Trovare il codice di supporto nella parte inferiore della schermata][Support Code]
     * Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
+* **Data, ora e fuso orario**: includere la data e l'ora precisa **con il fuso orario** a cui si è verificato l'errore.
 * **ID utente**: ID dell'utente che ha visualizzato l'errore. (user@contoso.com)
     * Indicare se si tratta di un utente federato,
     * di un utente con sincronizzazione di hash della password
@@ -222,7 +224,10 @@ Per garantire un supporto adeguato, verranno richiesti il maggior numero di dett
 * **Licenze**: indicare se all'utente è stata assegnata una licenza Azure AD Premium o Azure AD Basic.
 * **Registro eventi dell'applicazione**: indicare se si usa il writeback delle password e se l'errore si verifica nell'infrastruttura locale, allegare una copia compressa del registro eventi dell'applicazione dal server Azure AD Connect e inviarla quando si richiede assistenza.
 
+    
+
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Riavviare il servizio Azure AD Sync"
+[Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Il codice di supporto si trova in basso a destra nella finestra"
 
 ## <a name="next-steps"></a>Passaggi successivi
 

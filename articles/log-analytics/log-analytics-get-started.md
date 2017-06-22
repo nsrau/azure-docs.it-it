@@ -3,7 +3,7 @@ title: Introduzione a un&quot;area di lavoro di Azure Log Analytics | Documentaz
 description: "È possibile iniziare a usare un&quot;area di lavoro di Log Analytics in pochi minuti."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 508716de-72d3-4c06-9218-1ede631f23a6
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/12/2017
-ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
-ms.lasthandoff: 03/28/2017
+ms.author: magoedte
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -55,7 +56,7 @@ Il passaggio successivo consiste nella creazione di un'area di lavoro.
    * **Piano tariffario**  
        ![Creazione rapida](./media/log-analytics-get-started/oms-onboard-quick-create.png)
 3. Fare clic su **OK** per visualizzare l'elenco delle aree di lavoro.
-4. Selezionare un'area di lavoro per visualizzare i dettagli corrispondenti nel portale di Azure.       
+4. Selezionare un'area di lavoro per visualizzare i relativi dettagli nel portale di Azure.       
     ![Dettagli dell'area di lavoro](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
 ## <a name="3-add-solutions-and-solution-offerings"></a>3 Aggiungere soluzioni e offerte di soluzioni

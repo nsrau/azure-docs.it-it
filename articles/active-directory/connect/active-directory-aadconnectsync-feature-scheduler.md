@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/28/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
-ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: fe7f508ed1c4eb57663f7e252d286719af03dbb1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -45,7 +46,7 @@ Per visualizzare le impostazioni attuali della configurazione, passare a PowerSh
 
 Se quando si esegue questo cmdlet viene visualizzato il messaggio **Non è disponibile il comando o il cmdlet di sincronizzazione** , il modulo PowerShell non viene caricato. Questo problema può verificarsi se si esegue Azure AD Connect in un controller di dominio o in un server con livelli di restrizione di PowerShell più elevati rispetto alle impostazioni predefinite. Se si visualizza questo errore, eseguire `Import-Module ADSync` per rendere disponibile il cmdlet.
 
-* **AllowedSyncCycleInterval**. Intervallo più frequente consentita da Azure AD per l'esecuzione della sincronizzazione. La sincronizzazione con una frequenza superiore a quella di questa impostazione non è supportata.
+* **AllowedSyncCycleInterval**. L'intervallo di tempo più breve tra i cicli di sincronizzazione consentito da Azure AD. La sincronizzazione con una frequenza superiore a quella di questa impostazione non è supportata.
 * **CurrentlyEffectiveSyncCycleInterval**. pianificazione attualmente applicata. Ha lo stesso valore di CustomizedSyncInterval (se impostato), se non ha una frequenza superiore ad AllowedSyncInterval. Se si usa una build precedente alla 1.1.281 e si modifica il valore di CustomizedSyncCycleInterval, la modifica viene applicata dopo il ciclo di sincronizzazione successivo. Con la build 1.1.281 la modifica viene applicata immediatamente.
 * **CustomizedSyncCycleInterval**. Se si vuole che l'utilità di pianificazione sia eseguita con una frequenza diversa dal valore predefinito di 30 minuti, configurare questa impostazione. Nell'immagine precedente l'utilità di pianificazione è stata impostata per essere eseguita ogni ora. Se si configura questa impostazione su un valore inferiore a quello di AllowedSyncInterval, viene usato quest'ultimo valore.
 * **NextSyncCyclePolicyType**. differenziale o iniziale. Definisce se l'esecuzione successiva deve elaborare solo le modifiche differenziali o se deve eseguire un'importazione e una sincronizzazione complete, per poter rielaborare anche eventuali regole nuove o modificate.
@@ -170,7 +171,7 @@ Nella figura precedente, la prima riga proviene da uno stato in cui il motore di
 Se si avvia l'installazione guidata, l'utilità di pianificazione viene sospesa temporaneamente. Si presuppone infatti che vengano apportate modifiche alla configurazione e queste impostazioni non possono essere applicate se il motore di sincronizzazione è attivamente in esecuzione. Non lasciare quindi aperta l'installazione guidata, perché impedisce al motore di sincronizzazione di eseguire azioni di sincronizzazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 

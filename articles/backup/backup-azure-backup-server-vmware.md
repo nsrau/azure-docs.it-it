@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 04/20/2017
 ms.author: markgal;
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 34146bd110661c12c4ec1e11d34d7bdfa3cac688
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: faa3c9d5de759e4d8c0589153ea93e83a580f983
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -261,7 +261,7 @@ Prima di aggiungere il server VMware al server di Backup di Azure, installare l'
 
 ## <a name="add-the-vcenter-server-to-azure-backup-server"></a>Aggiunta del server VMware al server di Backup di Azure
 
-Per aprire l’Aggiunta guidata server di produzione
+Per aprire la procedura guidata Aggiunta del server di produzione:
 
 1. Nella console del server di Backup di Azure fare clic su **Gestione**, quindi su **Server di produzione**, e infine su **Aggiungi**.
 

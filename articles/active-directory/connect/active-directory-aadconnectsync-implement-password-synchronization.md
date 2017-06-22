@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 06/07/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 0cb1b04bcfab1f1864ae0ce867be02a8bf8c827c
+ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
 
 
@@ -80,12 +81,12 @@ Di seguito viene descritto in dettaglio il funzionamento della sincronizzazione 
 
 1. Ogni due minuti, l'agente di sincronizzazione password nel server di AD Connect richiede gli hash delle password archiviate (attributo unicodePwd) da un controller di dominio tramite il protocollo di replica [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) standard usato per sincronizzare i dati tra i controller di dominio. L'account di servizio deve disporre delle autorizzazioni di Azure AD Replica modifiche directory e Replica modifiche directory - Tutto (concesse per impostazione predefinita in fase di installazione) per ottenere gli hash delle password.
 2. Prima dell'invio, il controller di dominio crittografa l'hash della password MD4 tramite una chiave corrispondente a un hash [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) della chiave di sessione RPC e a un valore salt. Invia quindi il risultato dell'agente di sincronizzazione password tramite RPC. Il controller di dominio passa inoltre il valore salt all'agente di sincronizzazione usando il protocollo di replica del controller di dominio, in modo che l'agente sia in grado di decrittografare la busta.
-3.    Dopo che l'agente di sincronizzazione password ha ottenuto la busta crittografata, usa [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) e il valore salt per generare una chiave per decrittografare i dati ricevuti riportandoli nel formato MD4 originale. In nessun momento l'agente di sincronizzazione password ha accesso alla password non crittografata. L'uso di MD5 da parte dell'agente di sincronizzazione password è esclusivamente per la compatibilità del protocollo di replica con il controller di dominio e viene usato solo in locale tra il controller di dominio e l'agente di sincronizzazione password.
-4.    L'agente di sincronizzazione password espande l'hash della password binario a 16 byte in 64 byte convertendo per prima cosa l'hash in una stringa esadecimale a 32 byte e quindi riconvertendo questa stessa stringa in formato binario con la codifica UTF-16.
-5.    L'agente di sincronizzazione password aggiunge un valore salt lungo 10 byte al file binario a 64 byte per proteggere ulteriormente l'hash originale.
-6.    L'agente di sincronizzazione password combina quindi l'hash MD4 con il valore salt e li inserisce nella funzione [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Vengono usate 1000 iterazioni dell'algoritmo di hash con chiave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx). 
-7.    L'agente di sincronizzazione password concatena all'hash a 32 byte risultante sia il valore salt sia il numero di iterazioni SHA256 (per l'uso con Azure AD) e quindi trasmette la stringa da Azure AD Connect ad Azure AD tramite SSL.</br> 
-8.    Quando un utente prova ad accedere ad Azure AD e immette la password, la password viene eseguita tramite lo stesso processo MD4 + valore salt + PBKDF2 + HMAC-SHA256. Se l'hash risultante corrisponde all'hash archiviato in Azure AD, l'utente ha immesso la password corretta e viene autenticato. 
+3.  Dopo che l'agente di sincronizzazione password ha ottenuto la busta crittografata, usa [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) e il valore salt per generare una chiave per decrittografare i dati ricevuti riportandoli nel formato MD4 originale. In nessun momento l'agente di sincronizzazione password ha accesso alla password non crittografata. L'uso di MD5 da parte dell'agente di sincronizzazione password è esclusivamente per la compatibilità del protocollo di replica con il controller di dominio e viene usato solo in locale tra il controller di dominio e l'agente di sincronizzazione password.
+4.  L'agente di sincronizzazione password espande l'hash della password binario a 16 byte in 64 byte convertendo per prima cosa l'hash in una stringa esadecimale a 32 byte e quindi riconvertendo questa stessa stringa in formato binario con la codifica UTF-16.
+5.  L'agente di sincronizzazione password aggiunge un valore salt lungo 10 byte al file binario a 64 byte per proteggere ulteriormente l'hash originale.
+6.  L'agente di sincronizzazione password combina quindi l'hash MD4 con il valore salt e li inserisce nella funzione [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt). Vengono usate 1000 iterazioni dell'algoritmo di hash con chiave [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx). 
+7.  L'agente di sincronizzazione password concatena all'hash a 32 byte risultante sia il valore salt sia il numero di iterazioni SHA256 (per l'uso con Azure AD) e quindi trasmette la stringa da Azure AD Connect ad Azure AD tramite SSL.</br> 
+8.  Quando un utente prova ad accedere ad Azure AD e immette la password, la password viene eseguita tramite lo stesso processo MD4 + valore salt + PBKDF2 + HMAC-SHA256. Se l'hash risultante corrisponde all'hash archiviato in Azure AD, l'utente ha immesso la password corretta e viene autenticato. 
 
 >[!Note] 
 >L'hash MD4 originale non viene trasmesso ad Azure AD. Viene invece trasmesso l'hash SHA256 dell'hash MD4 originale. Di conseguenza, se si riesce a ottenere l'hash archiviato in Azure AD, questo non può essere usato in un attacco di tipo Pass-the-Hash locale.

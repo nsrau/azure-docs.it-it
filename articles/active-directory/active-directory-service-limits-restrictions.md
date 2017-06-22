@@ -1,6 +1,6 @@
 ---
 title: Restrizioni e limiti del servizio Azure AD
-description: Limitazioni d&quot;utilizzo e altri limiti di servizio per il servizio Azure Active Directory.
+description: Limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,11 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
-ms.openlocfilehash: ed2f15550626dc030733214564f7c9fa6da38d1c
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2ec65409287bf55f2892e573131739cfca49dd9d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -28,9 +31,4 @@ Questo articolo descrive i vincoli di utilizzo e altri limiti del servizio per i
 ## <a name="whats-next"></a>Passaggi successivi
 * [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 * [Come vengono associate le sottoscrizioni di Azure e Azure AD](active-directory-how-subscriptions-associated-directory.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -8,17 +8,19 @@ manager: jwhit
 editor: 
 ms.assetid: dab98aa5-9c41-4475-b7dc-2e07ab1cfd18
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 06/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c2e21eefff3ce501ee5fc4003f60df25c4d7665d
-ms.lasthandoff: 03/22/2017
-
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: vmware-walkthrough-overview
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: de45957d4531202005d6b38e8b218ffe023fa0b2
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="replicate-vmware-virtual-machines-to-azure-with-site-recovery"></a>Replicare macchine virtuali VMware in Azure con Site Recovery
@@ -87,7 +89,7 @@ Inserire commenti e domande nella parte inferiore di questo articolo oppure nel 
 
 1. Installare Windows Server 2012 R2 o versione successiva in una VM VMware.
 2. Verificare che la VM abbia accesso agli URL elencati in [Prerequisiti](#prerequisites).
-3. Installare [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0).
+3. Installare [VMware vSphere PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1).
 
 
 ## <a name="prepare-for-automatic-discovery-and-push-installation"></a>Preparare l'individuazione automatica e l'installazione push
@@ -223,10 +225,11 @@ Il servizio Mobility deve essere installato in tutte le VM VMware da replicare. 
 
 Prima di iniziare:
 
+- L'account utente di Azure deve disporre di determinate [autorizzazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) per abilitare la replica di una nuova macchina virtuale in Azure.
 - Quando si aggiungono o si modificano VM, possono trascorrere 15 minuti o più prima che le modifiche diventino effettive e vengano visualizzate nel portale.
 - È possibile controllare l'ora dell'ultima individuazione di VM in **Server di configurazione** > **Ora ultimo contatto**.
 - Per aggiungere VM senza attendere l'individuazione pianificata, evidenziare il server di configurazione, senza selezionarlo, e fare clic su **Aggiorna**.
-* Se una VM è pronta per l'installazione push, il server di elaborazione installa automaticamente il servizio Mobility quando si abilita la replica.
+- Se una VM è pronta per l'installazione push, il server di elaborazione installa automaticamente il servizio Mobility quando si abilita la replica.
 
 
 ### <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
@@ -271,10 +274,6 @@ Prima di iniziare, guardare una rapida panoramica video
     ![Abilitare la replica](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 13. Fare clic su **Abilita la replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
-Se si configura l'installazione push, dopo l'abilitazione della replica verrà installato il servizio Mobility. Dopo l'installazione push del servizio Mobility in una VM, verrà avviato un processo di protezione che avrà esito negativo. Dopo l'errore, è necessario riavviare manualmente tutti i computer. Il processo di protezione verrà quindi avviato nuovamente e verrà eseguita la replica iniziale.
-
-
-
 ### <a name="view-and-manage-vm-properties"></a>Visualizzare e gestire le proprietà della macchina virtuale
 
 È consigliabile verificare le proprietà delle VM e apportare tutte le modifiche eventualmente necessarie.
@@ -297,7 +296,20 @@ Se si configura l'installazione push, dopo l'abilitazione della replica verrà i
      - Ad esempio, se una macchina di origine ha due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.     
    - Se la macchina virtuale ha più schede di rete, si connetteranno tutte alla stessa rete.
    - Se la macchina virtuale ha più schede di rete, la prima nell'elenco diventa la scheda di rete *predefinita* nella macchina virtuale di Azure.
-5. In **Dischi** vengono visualizzati il sistema operativo della VM e i dischi dati che verranno replicati.
+4. In **Dischi** vengono visualizzati il sistema operativo della VM e i dischi dati che verranno replicati.
+
+#### <a name="managed-disks"></a>Dischi gestiti
+
+In **Calcolo e rete** > **Proprietà di calcolo** è possibile impostare l'opzione "Usa dischi gestiti" della macchina virtuale su "Sì" per collegare i dischi gestiti al computer in uso al momento del failover in Azure. Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS di Azure grazie alla gestione degli account di archiviazione associati ai dischi delle macchine virtuali. Altre informazioni su [Managed Disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview)
+
+   - I dischi gestiti vengono creati e collegati alla macchina virtuale solo in caso di failover in Azure. Abilitando la protezione, i dati verranno comunque replicati dai computer locali agli account di archiviazione.  È possibile creare dischi gestiti solo per le macchine virtuali distribuite tramite il modello di distribuzione di Resource Manager.  
+
+   - Quando l'opzione "Usa dischi gestiti" viene impostata su "Sì", nel gruppo di risorse è possibile selezionare solo i set di disponibilità con l'opzione "Usa dischi gestiti" impostata su "Sì". Infatti, le macchine virtuali con dischi gestiti possono solo far parte di set di disponibilità la cui proprietà "Usa dischi gestiti" è impostata su "Sì". Verificare di creare set di disponibilità con la proprietà "Usa dischi gestiti" impostata in funzione dell'intenzione di usare i dischi gestiti in caso di failover.  Allo stesso modo, quando l'opzione "Usa dischi gestiti" è impostata su "No", nel gruppo di risorse è possibile selezionare solo i set di disponibilità con la proprietà "Usa dischi gestiti" impostata su "No". [Altre informazioni sui dischi gestiti e i set di disponibilità](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Se l'account di archiviazione usato per la replica è stato crittografato con Crittografia del servizio di archiviazione in un qualsiasi momento, la creazione dei dischi gestiti durante il failover non avrà esito positivo. È possibile impostare "Usa dischi gestiti" su "No" e ripetere il failover oppure disabilitare la protezione per la macchina virtuale e proteggerla in un account di archiviazione per il quale non sia attivata la Crittografia del servizio di archiviazione in qualsiasi momento.
+  > [Altre informazioni su Crittografia del servizio di archiviazione e dischi gestiti](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
 
@@ -306,7 +318,7 @@ Dopo aver completato la configurazione, eseguire un failover di test per verific
 >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 
-1. Per eseguire il failover di una singola macchina, in **Impostazioni** > **Elementi replicati** fare clic sulla VM > sull'icona **+Failover di test**.
+1. Per eseguire il failover di una singola macchina, in **Impostazioni** > **Elementi replicati** fare clic sulla VM > sull'icona  **+Failover di test**.
 
     ![Failover di test](./media/site-recovery-vmware-to-azure/TestFailover.png)
 

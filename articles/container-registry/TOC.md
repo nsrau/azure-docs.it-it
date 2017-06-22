@@ -17,6 +17,7 @@
 
 ## [Interfaccia della riga di comando di Azure 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
+## [Intestazioni di telemetria](container-registry-headers.md)
 
 # Risorse correlate
 

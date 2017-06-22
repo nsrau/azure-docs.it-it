@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d716f11818bc0ad6dd9e5f93951b011dd6774c7b
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: bbea08798a601989d06774475cb25ee67e99add6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +28,8 @@ ms.lasthandoff: 03/22/2017
 > [!div class="op_single_selector"]
 > - [Portale di Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [Interfaccia della riga di comando 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
+> - [Interfaccia della riga di comando 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base a regole, scheda di rete a cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo), e se il traffico è consentito o meno.
@@ -35,6 +37,12 @@ I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Networ
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher. Lo scenario presuppone inoltre che esista e possa essere usato un gruppo di risorse con una macchina virtuale valida.
+
+## <a name="register-insights-provider"></a>Registrare il provider Insights
+
+Per il corretto funzionamento della registrazione dei flussi, è necessario registrare il provider **Microsoft.Insights**. Per registrare il provider, passare a **Sottoscrizioni** e selezionare la sottoscrizione per la quale si vuole abilitare i log dei flussi. Nel pannello **Sottoscrizione** selezionare **Provider di risorse**. Spostarsi nell'elenco di provider e verificare che il provider **microsoft.insights** sia registrato. Se non lo è, fare clic su **Registra**.
+
+![visualizzare i provider][providers]
 
 ## <a name="enable-flow-logs"></a>Abilitare i log di flusso
 
@@ -93,4 +101,4 @@ Informazioni su come [visualizzare i log di flusso con Power BI](network-watcher
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-
+[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png

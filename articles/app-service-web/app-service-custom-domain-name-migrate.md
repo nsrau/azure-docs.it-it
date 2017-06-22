@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d6d506eef720488969c5b33fe4b94c02752c6b58
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 6adc34f208c6c4363b73f6e42b4a4d6ae2e4483f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,7 +31,7 @@ Quando si esegue la migrazione di un sito live e del relativo nome di dominio al
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-In questo articolo si presuppone che l'utente conosca già le procedure per [eseguire manualmente il mapping di un dominio personalizzato al servizio app](web-sites-custom-domain-name.md).
+In questo articolo si presuppone che l'utente conosca già le procedure per [eseguire manualmente il mapping di un dominio personalizzato al servizio app](app-service-web-tutorial-custom-domain.md).
 
 ## <a name="bind-the-domain-name-preemptively"></a>Associare preventivamente il nome del dominio
 
@@ -43,7 +44,7 @@ Quando infine si modifica il record DNS in modo che punti all'app del servizio a
 
 Attenersi ai passaggi indicati di seguito:
 
-1. Creare innanzitutto un record TXT di verifica con il registro di sistema DNS seguendo i passaggi descritti in [Passaggio 2. Creare i record DNS](web-sites-custom-domain-name.md#createdns).
+1. Creare innanzitutto un record TXT di verifica con il registro di sistema DNS seguendo i passaggi descritti in [Passaggio 2. Creare i record DNS](app-service-web-tutorial-custom-domain.md#create-a).
 Il record TXT aggiuntivo segue la convenzione che esegue il mapping da &lt;*sottodominio*>.&lt;*dominioradice*> a &lt;*nomeapp*>.azurewebsites.net.
 Vedere la tabella seguente per alcuni esempi:  
  
@@ -56,30 +57,30 @@ Vedere la tabella seguente per alcuni esempi:
     <tr>
     <td>contoso.com (radice)</td>
     <td>awverify.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
     </tr>
     <tr>
     <td>www.contoso.com (sottodominio)</td>
     <td>awverify.www.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
     </tr>
     <tr>
     <td>\*.contoso.com (carattere jolly)</td>
     <td>awverify\*.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
     </tr>
     </table>
 
-2. Aggiungere quindi il nome di dominio personalizzato all'app di Azure seguendo i passaggi descritti in [Passaggio 3. Abilitare il nome di dominio personalizzato per l'app](web-sites-custom-domain-name.md#enable).
+2. Aggiungere quindi il nome di dominio personalizzato all'app di Azure seguendo i passaggi descritti in [Passaggio 3. Abilitare il nome di dominio personalizzato per l'app](app-service-web-tutorial-custom-domain.md#enable-a).
 
     Il dominio personalizzato è abilitato nell'app di Azure. È ora necessario aggiornare il record DNS presso il registrar.
 
-3. Aggiornare infine il record DNS del dominio in modo che punti all'app di Azure, come illustrato in [Passaggio 2. Creare i record DNS](web-sites-custom-domain-name.md#createdns). 
+3. Aggiornare infine il record DNS del dominio in modo che punti all'app di Azure, come illustrato in [Passaggio 2. Creare i record DNS](app-service-web-tutorial-custom-domain.md#create-a). 
 
     Il traffico utente verrà reindirizzato all'app di Azure immediatamente dopo la propagazione del DNS.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS [acquistando un certificato SSL in Azure](web-sites-purchase-ssl-web-site.md) o [usando un certificato SSL per un dominio personalizzato](web-sites-configure-ssl-certificate.md).
+Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS [acquistando un certificato SSL in Azure](web-sites-purchase-ssl-web-site.md) o [usando un certificato SSL per un dominio personalizzato](app-service-web-tutorial-custom-ssl.md).
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.

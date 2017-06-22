@@ -1,9 +1,9 @@
 ---
-title: Introduzione all&quot;app a pagina singola Azure AD v2.0 NodeJS AngularJS | Documentazione Microsoft
-description: Come creare un&quot;app a pagina singola AngularJS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell&quot;istituto di istruzione.
+title: Introduzione all'app a pagina singola Azure AD v2.0 NodeJS AngularJS | Documentazione Microsoft
+description: Come creare un'app a pagina singola AngularJS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione.
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
-translationtype: Human Translation
+ms.author: nacanuma
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
 ms.openlocfilehash: 3f2e856b71a42fe677d92c9c020236b8f0da9c1e
+ms.contentlocale: it-it
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -26,7 +29,7 @@ In questo articolo si aggiungerà l'accesso con account Microsoft a un'app Angul
 Questo esempio è una semplice app a pagina singola To-Do List che archivia le attività in un'API REST back-end, scritta in NodeJS e protetta con i token di connessione OAuth di Azure AD.  L'app AngularJS userà la libreria di autenticazione JavaScript open source [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) per gestire l'intero processo di accesso e acquisire i token per chiamare l'API REST.  Lo stesso modello può essere applicato per l'autenticazione in altre API REST, ad esempio [Microsoft Graph](https://graph.microsoft.com) o le API di Gestione risorse di Azure.
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -237,7 +240,7 @@ node server.js
 
 In un browser passare a `http://localhost:8080`.  Accedere con un account Microsoft personale o un account aziendale o dell'istituto di istruzione.  Aggiungere attività all'elenco attività dell'utente e disconnettersi.  Provare ad accedere con l'altro tipo di account. Se è necessario un tenant di Azure AD per creare utenti aziendali o dell'istituto di istruzione, [qui sono disponibili informazioni per ottenerne uno](active-directory-howto-tenant.md) (è gratuito).
 
-Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori versione&2;.0](active-directory-appmodel-v2-overview.md).  Per altre risorse, vedere:
+Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori versione 2.0](active-directory-appmodel-v2-overview.md).  Per altre risorse, vedere:
 
 * [Esempi di Azure in GitHub >>](https://github.com/Azure-Samples)
 * [Azure AD in Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
@@ -245,10 +248,5 @@ Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori 
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

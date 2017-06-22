@@ -7,22 +7,22 @@ Le istanze NC sono basate sulla scheda NVIDIA Tesla K80. Gli utenti possono ora 
 
 ## <a name="nv-instances"></a>Istanze NV
 
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 |
-| Standard_NV24 |24 |224 |1.440 | 4 |
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | GPU | Numero massimo di dischi dati |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 8 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 |
+| Standard_NV24 |24 |224 |1.440 | 4 | 32 |
 
 1 GPU = Pari a metà scheda M60.
 
 ## <a name="nc-instances"></a>Istanze NC
 
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 |
-| Standard_NC24 |24 |224 | 1.440 | 4 |
-| Standard_NC24r* |24 |224 | 1.440 | 4 |
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | GPU | Numero massimo di dischi dati |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NC6 |6 |56 | 380 | 1 | 8 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 |
+| Standard_NC24 |24 |224 | 1.440 | 4 | 32 |
+| Standard_NC24r* |24 |224 | 1.440 | 4 | 32 |
 
 1 GPU = Pari a metà scheda K80.
 

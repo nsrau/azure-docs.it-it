@@ -15,10 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: d8acfd6e0206e8e97b7d49e280a7e72e0acadb6d
-ms.openlocfilehash: 9ce5278e66afb81c5cbfe3662c6654d39bbc9a54
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a5bc3a72eccc48ec26ef5f029d780175d66080c0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
@@ -74,7 +75,7 @@ Prima di distribuire un array virtuale, è necessario:
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning dell'array virtuale:
   
   * Un minimo di 4 memorie centrali.
-  * Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano 2 milioni di file. Sono necessari 16 GB di RAM per supportare un piano da 2-4 milioni di file.
+  * Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano 2 milioni di file. Sono necessari 16 GB di RAM per supportare 2-4 milioni di file.
   * Un'interfaccia di rete.
   * Un disco virtuale da 500 GB per i dati di sistema.
 

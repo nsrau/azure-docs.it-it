@@ -13,17 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
-ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: bb4d64f799027c9af74fd50ab724449bdede7804
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning: fatturazione, funzionalità, limitazioni e supporto
 Di seguito sono riportate alcune domande frequenti e le corrispondenti risposte su Azure Machine Learning, un servizio cloud che consente di sviluppare modelli predittivi e rendere operative le soluzioni tramite servizi Web. Questo articolo contiene domande sull'uso del servizio, includendo il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
+
+**Non è possibile trovare la risposta a una domanda?**
+
+È disponibile un forum della community di Azure Machine Learning su MSDN in cui i membri che si occupano di analisi scientifica dei dati possono porre domande su Azure Machine Learning. Il forum è monitorato dal team di Azure Machine Learning. Per cercare risposte o pubblicare una nuova domanda, accedere al [Forum di Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="general-questions"></a>Domande generali
 **Cos'è Azure Machine Learning?**

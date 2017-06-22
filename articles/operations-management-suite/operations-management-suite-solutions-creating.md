@@ -15,10 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e391dc0f88bd7e065f968a490b3c1ddb1fa75978
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 312f84fe2aaf3f63fe2b8d818786ef1c570ccfe1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -51,7 +52,7 @@ Se si richiedono dati non accessibili tramite una delle origini dati disponibili
 ### <a name="log-searches"></a>Ricerche log
 Le [ricerche nei log](../log-analytics/log-analytics-log-searches.md) vengono usate per estrarre e analizzare i dati nel repository di Log Analytics.  Vengono usate da visualizzazioni e avvisi, oltre a consentire all'utente di eseguire analisi ad hoc dei dati nel repository.  
 
-È necessario definire le query che si ritiene risulteranno utili all'utente, anche se non vengono usate da tutte le visualizzazioni o gli avvisi.  Saranno disponibili come ricerche salvate nel portale ed è possibile anche includerle in una [parte della visualizzazione di elenco di query](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) nella visualizzazione personalizzata.
+È necessario definire le query che si ritiene risulteranno utili all'utente, anche se non vengono usate da tutte le visualizzazioni o gli avvisi.  Queste saranno disponibili come ricerche salvate nel portale ed è possibile anche includerle in una [parte della visualizzazione Elenco di query](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) nella visualizzazione personalizzata.
 
 ### <a name="alerts"></a>Avvisi
 [Gli avvisi in Log Analytics](../log-analytics/log-analytics-alerts.md) identificano i problemi tramite le [ricerche nei log](#log-searches) a fronte dei dati nel repository.  Inviano una notifica all'utente o eseguono automaticamente un'azione in risposta. Occorre identificare le diverse condizioni di avviso per l'applicazione e includere le regole di avviso corrispondenti nel file della soluzione.

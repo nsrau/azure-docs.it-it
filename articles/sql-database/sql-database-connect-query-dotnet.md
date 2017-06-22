@@ -8,39 +8,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/17/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/23/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4faa029062fef6495debd5d787a1d86f4747453b
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Database SQL di Azure: usare .NET (C#) per connettersi ai dati ed eseguire query
 
-Questa guida introduttiva illustra come usare [C# e ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database da piattaforme Windows, Mac OS e Ubuntu Linux.
+Questa guida introduttiva illustra come usare [C# e ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) per connettersi a un database SQL di Azure. Usare quindi istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database da piattaforme Windows, Mac OS e Ubuntu Linux.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
 - [Creare un database: portale](sql-database-get-started-portal.md)
 - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+- [Creare un database: PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-net"></a>Installare .NET
 
-Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo con .NET ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con .NET, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server) e selezionare **C#** e quindi il sistema operativo in uso.
+Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo con .NET, ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con .NET, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Creare un'app con SQL Server) e selezionare **C#** e quindi il sistema operativo in uso.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework e .NET Core**
 
 Visual Studio 2017 Community è un IDE gratuito, con funzionalità complete ed estendibile per creare applicazioni moderne per Android, iOS, Windows, oltre ad applicazioni Web e database e servizi cloud. È possibile installare solo la versione completa di .NET Framework o solamente .NET Core. I frammenti di codice nella guida introduttiva sono compatibili con entrambe le versioni. Se Visual Studio è già installato nel computer, ignorare i passaggi successivi.
 
-1. Scaricare il [programma di installazione](https://go.microsoft.com/fwlink/?LinkId=691978). 
+1. Scaricare il [programma di installazione di Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Eseguire il programma di installazione e seguire le richieste di installazione per completare l'operazione.
 
 ### <a name="mac-os"></a>**Mac OS**
@@ -55,7 +58,7 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-Installare .NET Core in macOS. Scaricare il [programma di installazione ufficiale](https://go.microsoft.com/fwlink/?linkid=843444). Il programma di installazione installerà gli strumenti e li inserirà nella posizione specificata da PATH, per consentire di eseguire dotnet dalla console.
+Installare .NET Core in macOS. Scaricare il [programma di installazione ufficiale](https://go.microsoft.com/fwlink/?linkid=843444). Il programma di installazione installa gli strumenti e li inserisce nella posizione specificata da PATH, per consentire di eseguire dotnet dalla console.
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Aprire il terminale in uso e passare alla directory in cui si prevede di creare il progetto .NET Core. Immettere i comandi seguenti per installare **.NET Core**.
@@ -77,7 +80,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.
+4. Se si dimenticano le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.
 
 5. Fare clic su **Mostra stringhe di connessione del database**.
 
@@ -309,13 +312,9 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+- [Progettare il primo database SQL di Azure](sql-database-design-first-database.md)
+- [Documentazione di .NET](https://docs.microsoft.com/dotnet/)
+- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
+- [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md)
 
-- Per la documentazione di .NET, vedere la [pagina corrispondente](https://docs.microsoft.com/dotnet/).
-- Per connettersi ed effettuare una query usando SQL Server Management Studio, vedere [Connettersi ed eseguire una query con SSMS](sql-database-connect-query-ssms.md)
-- Per connettersi ed eseguire query usando Visual Studio, vedere [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Per connettersi ed eseguire query usando PHP, vedere [Connettersi ed eseguire query con PHP](sql-database-connect-query-php.md).
-- Per connettersi ed eseguire query usando Node.js, vedere [Connettersi ed eseguire query con Node.js](sql-database-connect-query-nodejs.md).
-- Per connettersi ed eseguire query usando Java, vedere [Connettersi ed eseguire query con Java](sql-database-connect-query-java.md).
-- Per connettersi ed eseguire query usando Python, vedere [Connettersi ed eseguire query con Python](sql-database-connect-query-python.md).
-- Per connettersi ed eseguire query usando Ruby, vedere [Connettersi ed eseguire query con Ruby](sql-database-connect-query-ruby.md).
 

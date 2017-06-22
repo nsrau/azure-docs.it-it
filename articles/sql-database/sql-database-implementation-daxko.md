@@ -8,17 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
-ms.custom: customer implementations
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
-ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
-ms.lasthandoff: 02/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 61d62cde5311c8e447acf8890e0a32339585bb42
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -67,8 +68,8 @@ Numerose funzionalità di Azure sono risultate utili a CSI Software per spostare
 
 Al momento, CSI Software fornisce ai clienti circa 550 database. Prima dei pool elastici, era difficile gestire i numerosi database all'interno della struttura di un livello. I responsabili delle operazioni dovevano assegnare livelli di prestazioni in base alle esigenze di picco dei clienti, che richiedeva notevole dispendio di risorse IT. Grazie ai pool elastici, i responsabili possono assegnare ai tenant pool Premium o Standard, a seconda delle esigenze, e quindi spostare i clienti in base alle dimensioni e alle esigenze. I clienti hanno avvertito gli effetti dei pool elastici quasi immediatamente. Prima di adoperare i pool elastici, i clienti registravano timeout e altri problemi durante i picchi. Con i pool elastici, gli utenti possono eseguire picchi di attività in base alle esigenze e continuare a usare SpectrumNG senza problemi.
 
-## <a name="azure-active-geo-replication-accelerates-reporting"></a>La replica geografica attiva di Azure accelera la creazione di report
-Numerosi clienti CSI Software stanno traendo vantaggio dalla replica geografica attiva di Azure. La replica geografica attiva consente di configurare fino a quattro database secondari accessibili in lettura nella stessa area del datacenter o in aree diverse. CSI Software usa la replica geografica attiva in due modi: innanzitutto, i database secondari sono disponibili nel caso di un'interruzione del datacenter o di impossibilità di connettersi al database primario. In secondo luogo, i database secondari sono leggibili e possono essere usati per l'offload dei carichi di lavoro di sola lettura, come ad esempio i processi di creazione di report. Alcuni clienti CSI Software usano la replica per accelerare i flussi di lavoro per la creazione di report.
+## <a name="azure-active-geo-replication-accelerates-reporting"></a>La replica geografica attiva di Azure accelera la creazione di rapporti
+Numerosi clienti CSI Software stanno traendo vantaggio dalla replica geografica attiva di Azure. La replica geografica attiva consente di configurare fino a quattro database secondari accessibili in lettura nella stessa area del data center o in aree diverse. CSI Software usa la replica geografica attiva in due modi: innanzitutto, i database secondari sono disponibili nel caso di un'interruzione del data center o di impossibilità di connettersi al database primario. In secondo luogo, i database secondari sono leggibili e possono essere usati per l'offload dei carichi di lavoro di sola lettura, come ad esempio i processi di creazione di rapporti. Alcuni clienti CSI Software usano la replica per accelerare i flussi di lavoro per la creazione di report.
 
 ## <a name="csi-software-application-logic-and-architecture"></a>Architettura e logica dell'applicazione CSI Software
 SpectrumNG usa i ruoli Web. Poiché l'applicazione è multi-tenant, viene usato un servizio WCF per gestire la richiesta di connessione iniziale dai clienti. Come dichiarato da Molina, "la richiesta identifica ogni cliente, che ci consente quindi di compilare una stringa di connessione nei relativi database per eseguire qualsiasi azione necessaria".
@@ -91,7 +92,7 @@ Il database SQL di Azure non rappresenta solo un enorme vantaggio per i clienti 
 * Per altre informazioni sui pool elastici, vedere [pool elastici](sql-database-elastic-pool.md).
 * Per altre informazioni sugli strumenti del database e sulla scalabilità elastica, vedere [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 * Per altre informazioni sulla migrazione di un database SQL Server, vedere [Migrare un database SQL Server in Azure](sql-database-cloud-migrate.md).
-* Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
+* Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md).
 * Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
 * Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md).

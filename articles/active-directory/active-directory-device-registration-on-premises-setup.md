@@ -1,5 +1,5 @@
 ---
-title: Configurazione dell&quot;accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory | Documentazione Microsoft
+title: Configurazione dell&quot;accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory | Microsoft Docs
 description: Guida dettagliata per abilitare l&quot;accesso condizionale alle applicazioni locali tramite Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 services: active-directory
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: fbc3807351a9d83e4bcc5ba0661001754621f430
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 7a9ec95348f4aa8a14a716a758fb362c1ede61b3
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -112,10 +113,7 @@ Questa procedura permette di integrare il tenant di Azure AD con l'istanza di Ac
    2. Installare ed eseguire Azure AD Connect. Installare Azure AD Connect seguendo le istruzioni riportate di seguito in [Installazione personalizzata di Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
    3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio.
    
-   > [!NOTE]
-   > Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente. Non è necessario configurare le funzionalità di anteprima.
-   > 
-   > 
+   Configurare anche Federazione tramite ADFS come indicato in [Installazione personalizzata di Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Aggiornare lo schema di Servizi di dominio Active Directory
 > [!NOTE]
@@ -130,13 +128,13 @@ Questa procedura permette di integrare il tenant di Azure AD con l'istanza di Ac
 
 ## <a name="prepare-your-active-directory-to-support-devices"></a>Preparare Active Directory per supportare i dispositivi
 > [!NOTE]
-> Questa è un'operazione da eseguire una sola volta per preparare la foresta Active Directory per supportare i dispositivi. Per completare questa procedura è necessario accedere con autorizzazioni di amministratore dell'organizzazione e la foresta Active Directory deve avere lo schema di Windows Server 2012 R2..
+> Questa è un'operazione da eseguire una sola volta per preparare la foresta Active Directory per supportare i dispositivi. Per completare questa procedura è necessario accedere con autorizzazioni di amministratore dell'organizzazione e la foresta Active Directory deve avere lo schema di Windows Server 2012 R2.
 > 
 > 
 
 ## <a name="prepare-your-active-directory-forest-to-support-devices"></a>Preparare la foresta Active Directory per supportare i dispositivi
 > [!NOTE]
-> Questa è un'operazione da eseguire una sola volta per preparare la foresta Active Directory per supportare i dispositivi. Per completare questa procedura è necessario accedere con autorizzazioni di amministratore dell'organizzazione e la foresta Active Directory deve avere lo schema di Windows Server 2012 R2..
+> Questa è un'operazione da eseguire una sola volta per preparare la foresta Active Directory per supportare i dispositivi. Per completare questa procedura è necessario accedere con autorizzazioni di amministratore dell'organizzazione e la foresta Active Directory deve avere lo schema di Windows Server 2012 R2.
 > 
 > 
 
@@ -207,7 +205,7 @@ Nei passaggi seguenti viene mostrato come implementare questo scenario.
 
 L'applicazione ora è configurata per consentire l'accesso solo quando l'utente opera da un dispositivo registrato e aggiunto all'area di lavoro. Per criteri di accesso più avanzati, vedere [Gestire i rischi con il controllo di accesso a più fattori](https://technet.microsoft.com/library/dn280949.aspx).
 
-A questo punto è necessario configurare un messaggio di errore personalizzato per l'applicazione. Tale messaggio indicherà agli utenti che devono aggiungere il dispositivo all'area di lavoro prima di poter accedere all'applicazione.. È possibile creare un messaggio personalizzato di accesso all'applicazione negato usando codice HTML personalizzato e Windows PowerShell.
+A questo punto è necessario configurare un messaggio di errore personalizzato per l'applicazione. Tale messaggio indicherà agli utenti che devono aggiungere il dispositivo all'area di lavoro prima di poter accedere all'applicazione. È possibile creare un messaggio personalizzato di accesso all'applicazione negato usando codice HTML personalizzato e Windows PowerShell.
 
 Nel server federativo aprire una finestra di comando di Windows PowerShell e digitare il comando seguente. Sostituire alcune parti del comando con gli elementi specifici del proprio sistema:
 
@@ -220,7 +218,7 @@ Prima di poter accedere all'applicazione, è necessario registrare il dispositiv
 
 Aggiungere questo dispositivo iOS alla propria area di lavoro.
 
-**Se si usa un dispositivo Windows 8.1** è possibile aggiungere il dispositivo selezionando **Impostazioni PC**> **Rete** > **Area di lavoro**.
+**Se si usa un dispositivo Windows 8.1**, è possibile aggiungere il dispositivo selezionando **Impostazioni PC **> **rete** > **Area di lavoro**.
 
 Dove "**relying party trust name**" è il nome dell'oggetto trust della relying party dell'applicazione in AD FS.
 Dove **yourdomain.com** è il nome di dominio configurato con Azure Active Directory. Ad esempio, contoso.com.

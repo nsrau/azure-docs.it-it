@@ -1,4 +1,10 @@
-Alcune risposte di Bing includono gli URL delle immagini di anteprima servite da Bing. È possibile ridimensionare e ritagliare le immagini di anteprima. Per ridimensionare un'immagine, includere i parametri di query w (larghezza) e h (altezza) nell'URL dell'anteprima. Specificare la larghezza e l'altezza in pixel. Ad esempio:  
+Alcune risposte di Bing includono gli URL delle immagini di anteprima servite da Bing. È possibile ridimensionare e ritagliare le immagini di anteprima. 
+
+> [!NOTE]
+> Verificare che le dimensioni e il ritaglio dell'anteprima forniscano uno scenario di ricerca e rispettino i diritti di terze parti, come richiesto dai [requisiti di uso e visualizzazione dell'API di ricerca](/useanddisplayrequirements.md).
+
+
+Per ridimensionare un'immagine, includere i parametri di query w (larghezza) e h (altezza) nell'URL dell'anteprima. Specificare la larghezza e l'altezza in pixel. Ad esempio:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   

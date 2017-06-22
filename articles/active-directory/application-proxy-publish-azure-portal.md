@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 5acfbfbe7327fc28fa909e6ef7e0f9b6ce8b0e54
-ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: a6dc6148c3307d41801a4c1112397f3e63006ae8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 ---
 
 
-# <a name="publish-applications-using-azure-ad-application-proxy---public-preview"></a>Pubblicare applicazioni mediante il proxy dell'applicazione AD Azure: anteprima pubblica
+# <a name="publish-applications-using-azure-ad-application-proxy"></a>Pubblicare applicazioni mediante il proxy di applicazione AD Azure
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-proxy-publish-azure-portal.md)
@@ -41,7 +43,7 @@ Se non si ha familiarità con le funzionalità offerte dal proxy dell'applicazio
 > Se è la prima volta che si usa il proxy dell'applicazione, scegliere un'applicazione già configurata per l'autenticazione basata su password. Il proxy dell'applicazione supporta altri tipi di autenticazione, ma le app basate su password sono le più facili da configurare ed eseguire con rapidità. 
 
 1. Accedere come amministratore al [portale di Azure](https://portal.azure.com/).
-2. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Aggiungi**.
+2. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Nuova applicazione**.
 
   ![Aggiungere un'applicazione aziendale](./media/application-proxy-publish-azure-portal/add-app.png)
 
@@ -77,7 +79,6 @@ Per verificare l'avvenuta pubblicazione dell'app, aggiungere un account utente a
 
 1. Nel pannello di avvio rapido selezionare **Assign a user for testing** (Assegna utente per il test).
 
-
   ![Assegna utente per il test](./media/application-proxy-publish-azure-portal/assign-user.png)
 
 2. Nel pannello Utenti e gruppi selezionare **Aggiungi**.
@@ -98,9 +99,4 @@ Nel browser passare all'URL esterno configurato durante la fase di pubblicazione
 - [Scaricare connettori](active-directory-application-proxy-enable.md) e [creare gruppi di connettori](active-directory-application-proxy-connectors-azure-portal.md) per pubblicare applicazioni in reti e posizioni separate.
 
 - [Configurare l'accesso Single Sign-On](application-proxy-sso-azure-portal.md) per l'app appena pubblicata
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

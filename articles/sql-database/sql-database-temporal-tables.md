@@ -8,16 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 01/10/2017
 ms.author: bonova
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
 ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
+ms.contentlocale: it-it
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -197,10 +199,5 @@ Con le tabelle temporali con controllo delle versioni di sistema, la tabella del
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni dettagliate sulle tabelle temporali, vedere la [documentazione MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
 Visitare Channel 9 per ascoltare un [vero caso di successo di implementazione temporale](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale dal vivo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

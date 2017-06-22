@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3874cba5f0e09145a29159690fd740eeddad209a
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: bbf0f4868a95d21c3aaa31109c4c5a8083efc6db
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -43,7 +44,7 @@ Attività:
 * Creare il set di gruppi di risorse usando la usando la convenzione di denominazione scelta. È possibile usare l'interfaccia della riga di comando o il portale di Azure.
 
 ## <a name="resource-groups"></a>Gruppi di risorse
-Azure consente di raggruppare in modo logico risorse correlate, ad esempio account di archiviazione, reti virtuali e macchine virtuali per distribuirle, gestirle ed eseguirne la manutenzione come una singola entità. Questo approccio semplifica la distribuzione delle applicazioni e al contempo mantiene insieme tutte le risorse correlate per facilitarne la gestione o per consentire altri accessi al gruppo di risorse. Per informazioni complete sui gruppi di risorse, leggere la [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Azure consente di raggruppare in modo logico risorse correlate, ad esempio account di archiviazione, reti virtuali e macchine virtuali per distribuirle, gestirle ed eseguirne la manutenzione come una singola entità. Questo approccio semplifica la distribuzione delle applicazioni e al contempo mantiene insieme tutte le risorse correlate per facilitarne la gestione o per consentire altri accessi al gruppo di risorse. I nomi dei gruppi di risorse non possono contenere più di 90 caratteri. Per informazioni complete sui gruppi di risorse, leggere la [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 Una funzionalità chiave dei gruppi di risorse è la possibilità di creare l'ambiente tramite un file JSON che dichiara le risorse di archiviazione, rete e calcolo. È anche possibile definire qualsiasi script personalizzato o configurazioni correlati da applicare. Tramite i modelli JSON è possibile creare distribuzioni coerenti e riproducibili delle applicazioni. Ciò consente la compilazione di un ambiente nella fase di sviluppo e l'uso dello stesso modello per creare una distribuzione di produzione, o viceversa. Per altre informazioni sull'uso dei modelli, leggere [la procedura dettagliata sui modelli](../../azure-resource-manager/resource-manager-template-walkthrough.md) che descrive i passaggi per la compilazione di un modello JSON.
 

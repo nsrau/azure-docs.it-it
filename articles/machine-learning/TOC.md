@@ -155,7 +155,7 @@
 #### [Ripetere il training di un servizio Web esistente](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [Risolvere i problemi](machine-learning-troubleshooting-retraining-models.md)
 ### Utilizzare i modelli
-#### [Panoramica](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Panoramica](machine-learning-consume-web-services.md)
 #### [Usare Excel](machine-learning-consuming-from-excel.md)
 #### [Usare il componente aggiuntivo di Excel](machine-learning-excel-add-in-for-web-services.md)
 #### [Usare un modello di app Web](machine-learning-consume-web-service-with-web-app-template.md)

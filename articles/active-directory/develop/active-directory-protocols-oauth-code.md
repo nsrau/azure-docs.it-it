@@ -1,9 +1,9 @@
 ---
 title: Informazioni sul flusso del codice di autorizzazione OAuth 2.0 in Azure AD | Documentazione Microsoft
-description: Questo articolo descrive come usare messaggi HTTP per autorizzare l&quot;accesso ad applicazioni Web e API Web nel proprio tenant con Azure Active Directory e OAuth 2.0.
+description: Questo articolo descrive come usare messaggi HTTP per autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant con Azure Active Directory e OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: priyamo
-translationtype: Human Translation
+ms.author: dastrock
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
 ms.openlocfilehash: a3e21d5af43562afde927bb623b910c96ad48158
+ms.contentlocale: it-it
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -377,8 +380,3 @@ Una risposta di errore di esempio può avere un aspetto simile al seguente:
 | correlation_id |Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 
 Per una descrizione dei codici di errore e l'azione consigliata per il client, vedere [Codici per gli errori degli endpoint di token](#error-codes-for-token-endpoint-errors).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

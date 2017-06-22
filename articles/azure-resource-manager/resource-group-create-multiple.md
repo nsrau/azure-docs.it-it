@@ -12,143 +12,247 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 05/12/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 8ecf7c058b90fd18e41fd4e1cbc29e22dfeb0883
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: a8e35456af8c9f2cf1bf9e9c364e33641f29a477
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Distribuire più istanze delle risorse nei modelli di Azure Resource Manager
+# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager
 In questo argomento viene illustrato come eseguire un'iterazione del modello di Gestione risorse di Azure per creare più istanze di una risorsa.
 
-## <a name="copy-and-copyindex"></a>copy e copyIndex
+## <a name="resource-iteration"></a>Iterazione delle risorse
+Per creare più istanze di un tipo di risorsa, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento copy si specifica il numero di iterazioni e un nome per questo ciclo. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800. Resource Manager crea le risorse in parallelo. Pertanto l'ordine di creazione non è garantito. Per creare risorse iterate in sequenza, vedere [Copia seriale](#serial-copy). 
+
 La risorsa da ricreare più volte assume il formato seguente:
 
 ```json
-"resources": [ 
-  { 
-      "name": "[concat('examplecopy-', copyIndex())", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
-      "copy": { 
-         "name": "websitescopy", 
-         "count": "[parameters('count')]" 
-      }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
-  } 
-]
-```
-
-Si noti che il numero di iterazioni da eseguire è specificato nell'oggetto copia:
-
-```json
-"copy": { 
-    "name": "websitescopy", 
-    "count": "[parameters('count')]" 
-} 
-```
-
-Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800.
-
-Si noti che il nome di ogni risorsa include la funzione `copyIndex()` che restituisce l'iterazione corrente nel ciclo.
-
-```json
-"name": "[concat('examplecopy-', copyIndex())]",
-```
-
-Se si distribuiscono tre siti Web, essi sono denominati:
-
-* examplecopy-0
-* examplecopy-1
-* examplecopy-2.
-
-Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(), ad esempio `copyIndex(1)`. Il numero di iterazioni da eseguire viene comunque specificato nell'elemento copia, ma il valore di copyIndex è compensato dal valore specificato. Quindi, usando lo stesso modello dell'esempio precedente, ma specificando copyIndex(1), si distribuirebbero tre siti Web denominati:
-
-* examplecopy-1
-* examplecopy-2
-* examplecopy-3
-
-Resource Manager crea le risorse in parallelo. Pertanto l'ordine di creazione non è garantito. Per creare risorse iterate in sequenza, vedere [Sequential looping for Azure Resource Manager templates](resource-manager-sequential-loop.md) (Ciclo sequenziale per i modelli di Azure Resource Manager). 
-
-L'oggetto copia può essere applicato solo a una risorsa di livello principale, mentre non è possibile applicarlo a una proprietà su un tipo di risorsa o a una risorsa figlio. L'esempio di codice seguente mostra in che modo è possibile applicare la copia:
-
-```json
-"resources": [
-  {
-    "type": "{provider-namespace-and-type}",
-    "name": "parentResource",
-    "copy": {  
-      /* Yes, copy can be applied here */
-    },
-    "properties": {
-      "exampleProperty": {
-        /* No, copy cannot be applied here */
-      }
-    },
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
     "resources": [
-      {
-        "type": "{provider-type}",
-        "name": "childResource",
-        /* No, copy cannot be applied here. The resource must be promoted to top-level. */ 
-      }
-    ]
-  }
-] 
+        {
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": 3
+            }
+        }
+    ],
+    "outputs": {}
+}
 ```
 
-Per eseguire l'iterazione di una risorsa figlio, vedere [Create multiple instances of a child resource](#create-multiple-instances-of-a-child-resource) (Creare più istanze di una risorsa figlio).
+Si noti che il nome di ogni risorsa include la funzione `copyIndex()` che restituisce l'iterazione corrente nel ciclo. `copyIndex()` è in base zero. Quindi l'esempio seguente:
 
-Anche se non è possibile applicare la funzione copy a una proprietà, tale proprietà rimane parte delle iterazioni della risorsa che la contiene. Pertanto, è possibile usare copyIndex() all'interno della proprietà per specificare i valori. Per creare più valori per una proprietà, vedere [Create multiple instances of property on resource type](resource-manager-property-copy.md) (Creare più istanze di proprietà sul tipo di risorsa).
+```json
+"name": "[concat('storage', copyIndex())]",
+```
 
-## <a name="use-copy-with-array"></a>Usare l'oggetto copy con matrice
-L'operazione di copia è utile quando si lavora con le matrici in quanto è possibile iterare ogni elemento della matrice. Per distribuire tre siti Web denominati:
+Crea questi nomi:
 
-* examplecopy-Contoso
-* examplecopy-Fabrikam
-* examplecopy-Coho
+* storage0
+* storage1
+* storage2
 
-Usare il modello seguente:
+Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(). Il numero di iterazioni da eseguire viene comunque specificato nell'elemento copia, ma il valore di copyIndex è compensato dal valore specificato. Quindi l'esempio seguente:
+
+```json
+"name": "[concat('storage', copyIndex(1))]",
+```
+
+Crea questi nomi:
+
+* storage1
+* storage2
+* storage3
+
+L'operazione di copia è utile quando si lavora con le matrici in quanto è possibile iterare ogni elemento della matrice. Usare la funzione `length` nella matrice per specificare il conteggio per le iterazioni e `copyIndex` per recuperare l'indice corrente nella matrice. Quindi l'esempio seguente:
 
 ```json
 "parameters": { 
   "org": { 
      "type": "array", 
      "defaultValue": [ 
-         "Contoso", 
-         "Fabrikam", 
-         "Coho" 
+         "contoso", 
+         "fabrikam", 
+         "coho" 
       ] 
   }
 }, 
 "resources": [ 
   { 
-      "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
+      "name": "[concat('storage', parameters('org')[copyIndex()])]", 
       "copy": { 
-         "name": "websitescopy", 
+         "name": "storagecopy", 
          "count": "[length(parameters('org'))]" 
       }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
+      ...
   } 
 ]
 ```
 
-Si noti che la funzione `length` viene usata per specificare il numero. Fornire la matrice come parametro alla funzione length.
+Crea questi nomi:
+
+* storagecontoso
+* storagefabrikam
+* storagecoho
+
+## <a name="serial-copy"></a>Copia seriale
+
+Quando si usa l'elemento di copia per creare più istanze di un tipo di risorsa, Resource Manager distribuisce queste istanze in parallelo per impostazione predefinita. Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento.
+
+Resource Manager fornisce proprietà sull'elemento di copia che consentono di distribuire più istanze in modo seriale. Nell'elemento di copia impostare `mode` su **serial** e `batchSize` sul numero di istanze da distribuire contemporaneamente. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
 
 ```json
 "copy": {
-    "name": "websitescopy",
-    "count": "[length(parameters('siteNames'))]"
+    "name": "iterator",
+    "count": "[parameters('numberToDeploy')]",
+    "mode": "serial",
+    "batchSize": 2
+},
+```
+
+La proprietà mode accetta anche **parallel**, che è il valore predefinito.
+
+Per testare la copia seriale senza creare risorse effettive, usare il modello seguente che distribuisce i modelli annidati vuoti:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "numberToDeploy": {
+      "type": "int",
+      "minValue": 2,
+      "defaultValue": 5
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-01-01",
+      "type": "Microsoft.Resources/deployments",
+      "name": "[concat('loop-', copyIndex())]",
+      "copy": {
+        "name": "iterator",
+        "count": "[parameters('numberToDeploy')]",
+        "mode": "serial",
+        "batchSize": 1
+      },
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [],
+          "outputs": {
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
+```
+
+Nella cronologia di distribuzione notare che le distribuzioni annidate vengono elaborate in sequenza.
+
+![distribuzione seriale](./media/resource-group-create-multiple/serial-copy.png)
+
+Per uno scenario più realistico, l'esempio seguente consente di distribuire due istanze alla volta di una VM Linux da un modello annidato:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "User name for the Virtual Machine."
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Password for the Virtual Machine."
+            }
+        },
+        "dnsLabelPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+            }
+        },
+        "ubuntuOSVersion": {
+            "type": "string",
+            "defaultValue": "16.04.0-LTS",
+            "allowedValues": [
+                "12.04.5-LTS",
+                "14.04.5-LTS",
+                "15.10",
+                "16.04.0-LTS"
+            ],
+            "metadata": {
+                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
+            }
+        }
+    },
+    "variables": {
+        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "[concat('nestedDeployment',copyIndex())]",
+            "type": "Microsoft.Resources/deployments",
+            "copy": {
+                "name": "myCopySet",
+                "count": 4,
+                "mode": "serial",
+                "batchSize": 2
+            },
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('templatelink')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "adminUsername": {
+                        "value": "[parameters('adminUsername')]"
+                    },
+                    "adminPassword": {
+                        "value": "[parameters('adminPassword')]"
+                    },
+                    "dnsLabelPrefix": {
+                        "value": "[parameters('dnsLabelPrefix')]"
+                    },
+                    "ubuntuOSVersion": {
+                        "value": "[parameters('ubuntuOSVersion')]"
+                    },
+                    "index":{
+                        "value": "[copyIndex()]"
+                    }
+                }
+            }
+        }
+    ]
 }
 ```
 
@@ -162,16 +266,18 @@ L'elemento `dependsOn` consente di specificare che una risorsa sia distribuita d
     "parameters": {},
     "resources": [
         {
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2016-01-01",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
             "location": "[resourceGroup().location]",
-            "properties": {
-                "accountType": "Standard_LRS"
+            "sku": {
+                "name": "Standard_LRS"
             },
-            "copy": { 
-                "name": "storagecopy", 
-                "count": 3 
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": 3
             }
         },
         {
@@ -238,7 +344,6 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulle sezioni di un modello, vedere [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md) (Creazione di modelli di Azure Resource Manager).
-* Per creare risorse iterate in sequenza, vedere [Sequential looping for Azure Resource Manager templates](resource-manager-sequential-loop.md) (Ciclo sequenziale per i modelli di Azure Resource Manager).
 * Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
 

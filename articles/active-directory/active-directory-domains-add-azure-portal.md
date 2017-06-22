@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un nome di dominio personalizzato ad anteprima di Azure Active Directory | Documentazione Microsoft
+title: Aggiungere un nome di dominio personalizzato ad Azure Active Directory | Microsoft Docs
 description: Informazioni su come aggiungere i nomi di dominio dell&quot;azienda ad Azure Active Directory e come verificare il nome di dominio.
 services: active-directory
 documentationcenter: 
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
-ms.openlocfilehash: 5153926f34961a397ef9632ca1f8ac868ba1986e
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 8f61e947d9667f5047729ac19dc2bf1e03a48c6b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="add-a-custom-domain-name-to-azure-active-directory-preview"></a>Aggiungere un nome di dominio personalizzato ad anteprima di Azure Active Directory
+# <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Aggiungere un nome di dominio personalizzato ad Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-domains-add-azure-portal.md)
 > * [portale di Azure classico](active-directory-add-domain.md)
 > 
-> 
 
-L'organizzazione usa uno o più nomi di dominio per svolgere attività commerciali e gli utenti accedono alla rete aziendale con il nome di dominio aziendale. Usando l'anteprima di Azure Active Directory (Azure AD), è possibile aggiungere il nome di dominio aziendale anche ad Azure AD. [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Nella directory si potranno così assegnare nomi utente familiari, ad esempio "alice@contoso.com". Il processo è semplice:
+L'organizzazione usa uno o più nomi di dominio per svolgere attività commerciali e gli utenti accedono alla rete aziendale con il nome di dominio aziendale. Tramite Azure Active Directory (Azure AD) è possibile anche aggiungere il nome di dominio aziendale ad Azure AD. Nella directory si potranno così assegnare nomi utente familiari, ad esempio "alice@contoso.com". Il processo è semplice:
 
 1. Aggiungere il nome di dominio personalizzato alla directory
 2. Aggiungere una voce DNS per il nome di dominio nel registrar
@@ -56,7 +56,7 @@ Il passaggio successivo per potere usare il nome di dominio personalizzato con A
 1. Accedere al registrar per il dominio. Se le autorizzazioni di accesso non sono sufficienti per aggiornare la voce DNS, chiedere a un altro utente o team autorizzato ad accedere di completare il passaggio 2 e di segnalarne il completamento.
 2. Per aggiornare il file di zona DNS per il dominio, aggiungere la voce DNS fornita da Azure AD. Questa voce DNS consente ad Azure AD di verificare la proprietà del dominio. La voce DNS non modifica alcun comportamento, ad esempio il routing della posta elettronica o l'hosting Web.
 
-Per informazioni sull'aggiunta della voce DNS, vedere [Creare record DNS per Office&365; quando si gestiscono i record DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
+Per informazioni sull'aggiunta della voce DNS, vedere [Creare record DNS per Office 365 quando si gestiscono i record DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
 
 ## <a name="verify-the-domain-name-with-azure-ad"></a>Verificare il nome di dominio con Azure AD
 Dopo aver aggiunto la voce DNS, è possibile verificare il nome di dominio con Azure AD.

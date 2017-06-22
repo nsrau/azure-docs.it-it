@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: 84cd0c3eb2753a209d0aebda405f0b98a487140d
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2c967d759806b47862179ecf9e9a89801134192a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -98,7 +99,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Litmos, è ne
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD classico e configurare l'accesso Single Sign-On nell'applicazione Litmos.  
 
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base&64;.  
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
 
 Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -149,12 +150,12 @@ La procedura di configurazione prevede la personalizzazione degli **Attributi to
     
      1. Fare clic su **Enable SAML**.
     
-     2. Creare un file con **codifica Base&64;** dal certificato scaricato.  
+     2. Creare un file con **codifica Base 64** dal certificato scaricato.  
     >[!TIP]
     >Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
      >
 
-     3. Aprire il certificato con codifica Base&64; nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **SAML X.509 Certificate** .
+     3. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **SAML X.509 Certificate** .
     
      4. Fare clic su **Salva modifiche**.
 11. Nel portale di Azure AD classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. 
@@ -174,7 +175,7 @@ La procedura di configurazione prevede la personalizzazione degli **Attributi to
     | --- | --- |
     | Email |user.mail |
     | FirstName |user.givenname |
-    | Lastname |user.surname |
+    | LastName |user.surname |
     
     Per ogni riga di dati nella tabella precedente, seguire questa procedura:
     

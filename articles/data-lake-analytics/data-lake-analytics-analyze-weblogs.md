@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ad0610c1aed8e21f322516a4b7ea41bf55cc200e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -43,7 +45,7 @@ Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in par
 * **Account Analisi Data Lake.**  Vedere la sezione relativa alla [creazione di un account di Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
 
     Data Lake Tools non supporta la creazione degli account Analisi Data Lake.  Sarà quindi necessario creare questi account tramite il portale di Azure, Azure PowerShell, .NET SDK o l'interfaccia della riga di comando di Azure.
-* **Caricare i dati di esempio nell'account Analisi Data Lake.** Vedere [Per copiare file di dati di esempio](data-lake-analytics-get-started-portal.md#prepare-source-data).
+* **Caricare i dati di esempio nell'account Analisi Data Lake.** Vedere [Per copiare file di dati di esempio](data-lake-analytics-get-started-portal.md).
 
     Per eseguire un processo di Analisi Data Lake, sanno necessari alcuni dati. Anche se Data Lake Tools supporta il caricamento di dati, si userà il portale per caricare i dati di esempio e seguire più facilmente questa esercitazione.
 
@@ -200,9 +202,4 @@ Per vedere altri argomenti relativi allo sviluppo:
 * [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 * [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

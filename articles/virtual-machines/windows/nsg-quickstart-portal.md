@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7b7c0251c0b2616f82b03b7288cbfe3b3b22c9c4
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 20aa8247a16195310a8cb03c13c34186456fd7af
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="opening-ports-to-a-vm-in-azure-using-the-azure-portal"></a>Apertura di porte su una VM tramite il portale di Azure
+# <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Comandi rapidi
-È possibile [eseguire questi passaggi anche tramite Azure PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+È possibile [eseguire questi passaggi anche tramite Azure PowerShell](nsg-quickstart-powershell.md).
 
 Come prima operazione, creare il gruppo di sicurezza di rete. Selezionare un gruppo di risorse nel portale, fare clic su **Aggiungi**, quindi cercare e selezionare "Gruppo di sicurezza di rete":
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 98e5764f84f23ec586ebd823634b9024e4689c5c
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: c78b69188136d6df7887e92600984c4fa269d355
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -163,9 +164,9 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [portale di Azure]: https://portal.azure.com/
-[Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./web-sites-custom-domain-name.md
+[Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./app-service-web-tutorial-custom-domain.md
 [Configurare ambienti di staging per le app Web nel servizio app di Azure]: ./web-sites-staged-publishing.md
-[Abilitare HTTPS per un'app in Azure App Service]: ./web-sites-configure-ssl-certificate.md
+[Abilitare HTTPS per un'app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [Procedura: monitorare lo stato degli endpoint]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Informazioni di base sul monitoraggio di App Web nel servizio app di Azure]: ./web-sites-monitor.md
 [modalità pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application

@@ -1,5 +1,5 @@
 ---
-title: Applicazioni e browser che usano regole di accesso condizionale in Azure Active Directory | Documentazione Microsoft
+title: Applicazioni e browser che usano regole di accesso condizionale in Azure Active Directory | Microsoft Docs
 description: Grazie al controllo di accesso condizionale, Azure Active Directory verifica condizioni specifiche quando esegue l&quot;autenticazione di un utente e consente l&quot;accesso all&quot;applicazione.
 services: active-directory
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 569777b7034ebeccddf6d9ef89ee2f9fb667cc3f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -69,7 +70,7 @@ Exchange offre due categorie principali di protocolli. Esaminare le opzioni segu
   **Protocolli legacy**.</seg> È possibile bloccare protocolli legacy con AD FS. In questo modo viene bloccato l'accesso ai client di Office meno recenti, ad esempio Office 2013 senza l'autenticazione moderna abilitata e le versioni precedenti di Office.
 
 ### <a name="use-ad-fs-to-block-legacy-protocol"></a>Usare AD FS per bloccare protocolli legacy
-È possibile usare le regole di esempio seguenti per bloccare l'accesso da parte di protocolli legacy a livello di AD FS. Scegliere una delle due configurazioni più comuni.
+È possibile usare le regole di autorizzazione emissione di esempio seguenti per bloccare l'accesso da parte di protocolli legacy a livello di AD FS. Scegliere una delle due configurazioni più comuni.
 
 #### <a name="option-1-allow-exchange-activesync-and-allow-legacy-apps-but-only-on-the-intranet"></a>Opzione 1: consentire l'accesso a Exchange ActiveSync e alle app legacy, ma solo nella rete Intranet
 Applicando le tre regole seguenti al trust della relying party di AD FS per la piattaforma di identità di Microsoft Office 365, hanno accesso il traffico di Exchange ActiveSync e il traffico di autenticazione moderna e del browser. Le applicazioni legacy vengono bloccate dalla rete Extranet.

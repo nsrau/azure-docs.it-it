@@ -16,10 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 15c08413afe2985270b1de8128a18a9eddd326c4
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 0ff59627fe0e8db409f1404ee8397f3da3a56569
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/12/2017
 In questo articolo si apprenderà come connettersi a un cluster HDInsight tramite Desktop remoto e quindi eseguire query Hive usando l'interfaccia della riga di comando di Hive.
 
 > [!IMPORTANT]
-> Desktop remoto è disponibile solo nei cluster HDInsight che usano Windows come sistema operativo. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Desktop remoto è disponibile solo nei cluster HDInsight che usano Windows come sistema operativo. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 > Per HDInsight 3.4 o versione successiva, vedere [Usare Hive con HDInsight e Beeline](hdinsight-hadoop-use-hive-beeline.md) per informazioni sull'esecuzione di query Hive direttamente sul cluster dalla riga di comando.
 

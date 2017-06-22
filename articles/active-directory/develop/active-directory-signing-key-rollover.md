@@ -3,7 +3,7 @@ title: Rollover della chiave di firma in Azure AD | Microsoft Docs
 description: Questo articolo illustra le procedure consigliate di rollover della chiave di firma per Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: gsacavdm
+author: dstrockis
 manager: krassk
 editor: 
 ms.assetid: ed964056-0723-42fe-bb69-e57323b9407f
@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
-ms.author: gsacavdm
-translationtype: Human Translation
+ms.author: dastrock
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a13bedc2ad31e45f3525a87655b6c46e653cee16
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
 
 

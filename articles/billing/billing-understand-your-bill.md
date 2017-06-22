@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: erihur;genli
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6db1fedad08ee33f3468fb98f59071a1521921db
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: b5268239fb4c50e6bdea77323267a42e267268db
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -140,7 +141,9 @@ La sezione del file sull'utilizzo giornaliero indica i dettagli di utilizzo che 
 Per altre informazioni, vedere [Getting started with Azure billing and cost management](billing-getting-started.md) (Introduzione alla gestione dei costi e alla fatturazione di Azure).
 
 ## <a name="how-do-i-make-a-payment"></a>Come si effettua un pagamento?
-Se il metodo di pagamento è impostato su carta di credito o carta di debito, il pagamento viene eseguito automaticamente. Se si usa un [metodo di pagamento con fattura](https://azure.microsoft.com/pricing/invoicing/), inviare il pagamento al destinatario elencato nella parte inferiore della fattura. Per altre informazioni, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se il metodo di pagamento è impostato su carta di credito o carta di debito, il pagamento viene eseguito automaticamente. Nell'estratto conto della carta di credito la voce sarà **MSFT Azure**.
+
+Se si usa un [metodo di pagamento con fattura](https://azure.microsoft.com/pricing/invoicing/), inviare il pagamento al destinatario elencato nella parte inferiore della fattura. Per altre informazioni, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Come si controlla lo stato di un pagamento effettuato con carta di credito?
 [Creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per richiedere lo stato del pagamento. 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 0fb4cc7b3c071eeb0bff15f9a57fc7e2106d7ca7
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 81dae4c35fead96af8a8a2823952a0bd7f2e537e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Perché l'approccio ai microservizi è importante? I due motivi principali sono:
 * Consentono di ridimensionare diverse parti dell'applicazione a seconda delle sue esigenze.
 * I team di sviluppo possono offrire una maggiore flessibilità nell'implementazione di modifiche e quindi di fornire funzionalità ai clienti più rapidamente e con maggiore frequenza.
 
-Service Fabric viene attualmente usato in numerosi servizi Microsoft, tra cui database SQL di Azure, Azure DocumentDB, Cortana, Microsoft Power BI, Microsoft Intune, Hub eventi di Azure, hub IoT di Azure, Skype for Business e molti servizi di base di Azure.
+Service Fabric viene attualmente usato in numerosi servizi Microsoft, tra cui database SQL di Azure, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Hub eventi di Azure, Hub IoT di Azure, Skype for Business e molti servizi di base di Azure.
 
 Service Fabric è stato sviluppato specificamente per la creazione di servizi cloud nativi che inizialmente possono essere di piccole dimensioni, ma che secondo le necessità possono espandersi su vasta scala con centinaia o migliaia di computer.
 

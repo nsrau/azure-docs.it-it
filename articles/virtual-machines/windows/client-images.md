@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b53bd4d9db9c1ca030a770e56427f35204b90ab3
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 61054d9e118a3c90dec3330004625a25102a08cc
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,10 +28,10 @@ A condizione di disporre di una sottoscrizione appropriata di Visual Studio (in 
 ## <a name="subscription-eligibility"></a>Idoneità della sottoscrizione
 I sottoscrittori di Visual Studio attivi (ovvero le persone che hanno acquistato una licenza di sottoscrizione per Visual Studio) possono usare client Windows per le finalità di sviluppo e test. Il client Windows può essere usato nel proprio hardware e nelle proprie macchine virtuali di Azure in esecuzione in qualsiasi tipo di sottoscrizione di Azure. Potrebbe non essere possibile distribuire o usare il client Windows in Azure per normali finalità di produzione oppure da parte degli utenti che non possiedono una sottoscrizione a Visual Studio attiva.
 
-Per comodità, sono state rese disponibili alcune immagini di Windows 10 nella raccolta di Azure in [eligible dev/test offers](#eligible-offers). I sottoscrittori di Visual Studio per qualsiasi tipo di offerta possono anche [preparare e creare](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). L'utilizzo rimane limitato alle attività di sviluppo e test da parte dei sottoscrittori di Visual Studio attivi.
+Per comodità, sono state rese disponibili alcune immagini di Windows 10 nella raccolta di Azure in [eligible dev/test offers](#eligible-offers). I sottoscrittori di Visual Studio per qualsiasi tipo di offerta possono anche [preparare e creare](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](upload-generalized-managed.md). L'utilizzo rimane limitato alle attività di sviluppo e test da parte dei sottoscrittori di Visual Studio attivi.
 
 ## <a name="eligible-offers"></a>Offerte idonee
-La tabella seguente descrive gli ID idonei per la distribuzione di Windows 10 tramite la raccolta di Azure. Le immagini di Windows 10 sono visibili solo per le offerte seguenti. I sottoscrittori di Visual Studio che intendono eseguire il client Windows in un altro tipo di offerta devono [preparare e creare](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+La tabella seguente descrive gli ID idonei per la distribuzione di Windows 10 tramite la raccolta di Azure. Le immagini di Windows 10 sono visibili solo per le offerte seguenti. I sottoscrittori di Visual Studio che intendono eseguire il client Windows in un altro tipo di offerta devono [preparare e creare](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](upload-generalized-managed.md).
 
 | Nome offerta | Numero offerta | Immagini client disponibili |
 |:--- |:---:|:---:|
@@ -44,15 +45,17 @@ La tabella seguente descrive gli ID idonei per la distribuzione di Windows 10 tr
 | [Sviluppo/test Enterprise](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Controllare la sottoscrizione di Azure
-Se non si conosce l'ID offerta, è possibile risalirvi mediante il portale di Azure o il portale degli account.
+Se non si conosce l'ID offerta, è possibile risalirvi mediante il portale di Azure in uno dei due modi seguenti:  
 
-L'ID offerta relativo alla sottoscrizione è indicato nel portale di Azure nel pannello delle sottoscrizioni:
+- Nel pannello "Sottoscrizioni":
 
-![Dettagli dell'ID offerta sul portale di Azure](./media/client-images/offer_id_azure_portal.png) 
+  ![Dettagli dell'ID offerta sul portale di Azure](./media/client-images/offer-id-azure-portal.png) 
+
+- Fare clic su **Fatturazione** e quindi sull'ID sottoscrizione. L'ID offerta viene visualizzato nel pannello Fatturazione.
 
 È inoltre possibile visualizzare l'ID offerta nella [scheda delle sottoscrizioni](http://account.windowsazure.com/Subscriptions) del portale degli account di Azure:
 
-![Dettagli dell'ID offerta sul portale degli account di Azure](./media/client-images/offer_id_azure_account_portal.png) 
+![Dettagli dell'ID offerta sul portale degli account di Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile distribuire le VM usando [PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), i [modelli di Resource Manager](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).

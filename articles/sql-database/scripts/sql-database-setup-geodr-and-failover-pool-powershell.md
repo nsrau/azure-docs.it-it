@@ -9,17 +9,18 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: business continuity
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 05/23/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0971209e69917db492d19afd6708f5a2dc3463c7
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3f62371eb84df1ba0f29ef2c6fe0da82674ed069
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -31,7 +32,7 @@ Questo esempio di script di PowerShell configura la replica geografica attiva pe
 
 ## <a name="sample-scripts"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Configurare la replica geografica attiva per pool elastici")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1?highlight=16-19 "Configurare la replica geografica attiva per pool elastici")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

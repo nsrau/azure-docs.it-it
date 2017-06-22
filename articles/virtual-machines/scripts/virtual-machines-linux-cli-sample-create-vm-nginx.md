@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: fc97b01c04be81b89cadf1f16c87dcb2069d7b64
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 12b4fda8a8805d49ad1318af3367a53e97ddf48b
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +34,7 @@ Questo script crea una macchina virtuale di Azure e quindi usa l'estensione dell
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Creazione rapida della macchina virtuale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Creazione rapida della macchina virtuale")]
 
 ## <a name="custom-script-extension"></a>Estensione di script personalizzati
 
@@ -53,7 +54,7 @@ apt-get -y install nginx
 
 Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

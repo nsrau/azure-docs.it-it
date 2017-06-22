@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: ba842028ecda47b8011cba948d7c92417214c2d0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -85,7 +86,12 @@ Usare il cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-serv
 ## <a name="restore"></a>Ripristino
 Durante il ripristino, il file di backup deve essere nell'account di archiviazione configurato per il server. Se è necessario spostare un file di backup da un percorso locale all'account di archiviazione, usare [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o l'utilità della riga di comando [AzCopy](../storage/storage-use-azcopy.md). 
 
-Se si sta ripristinando un database di modello tabulare con livello di compatibilità 1200 da un server SQL Server Analysis Services locale, è innanzitutto necessario rimuovere tutti gli utenti di dominio dai ruoli del modello e aggiungerli nuovamente ai ruoli come utenti di Azure Active Directory. I ruoli saranno gli stessi.
+
+
+> [!NOTE]
+> Se si sta ripristinando un database di modello tabulare da un server SQL Server Analysis Services locale, è innanzitutto necessario rimuovere tutti gli utenti di dominio dai ruoli del modello e aggiungerli nuovamente ai ruoli come utenti di Azure Active Directory. I ruoli saranno gli stessi.
+> 
+> 
 
 ### <a name="to-restore-by-using-ssms"></a>Per eseguire il ripristino usando SSMS
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/062/2016
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 78dbbaa272d9889add5bc833c7557618f41056db
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c9376b95e4686f804d34f648e15cfcc0f2847718
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -29,7 +30,7 @@ Questo articolo illustra come configurare la replica geografica attiva per il da
 Per avviare un failover con il portale di Azure, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-portal.md).
 
 > [!NOTE]
-> La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e i database non leggibili esistenti verranno aggiornati automaticamente a database secondari accessibili in lettura.
+> La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile è stato ritirato e i database non leggibili esistenti sono stati automaticamente aggiornati a database secondari accessibili in lettura.
 > 
 > 
 
@@ -53,7 +54,7 @@ Dopo aver creato ed eseguito il seeding del database secondario, inizia la repli
 > 
 
 1. Nel [portale di Azure](http://portal.azure.com) passare al database per cui si vuole installare la replica geografica.
-2. Nella pagina del database SQL, selezionare **Replica geografica** e selezionare l'area per creare il database secondario. Sebbene sia possibile selezionare qualsiasi area diversa dall'area che ospita il database primario, si consiglia di scegliere l'[area abbinata](../best-practices-availability-paired-regions.md).
+2. Nella pagina del database SQL selezionare **Replica geografica** e quindi selezionare l'area per creare il database secondario. Sebbene sia possibile selezionare qualsiasi area diversa dall'area che ospita il database primario, si consiglia di scegliere l'[area abbinata](../best-practices-availability-paired-regions.md).
    
     ![Configurare la replica geografica](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. Selezionare o configurare il server e il piano tariffario per il database secondario.
@@ -84,7 +85,7 @@ Il comando passa immediatamente il database secondario al ruolo di database prim
 Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Se il database primario ha più database secondari, il comando riconfigura automaticamente gli altri database secondari per la connessione al nuovo database primario. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali. 
 
 > [!NOTE]
-> Se il database primario è online sta eseguendo il commit di transazioni al momento dell'esecuzione del comando, può verificarsi la perdita di dati.
+> Questo comando è progettato per il ripristino rapido del database in caso di interruzione del servizio e attiva il failover senza sincronizzazione dei dati (failover forzato).  Se il database primario è online sta eseguendo il commit di transazioni al momento dell'esecuzione del comando, può verificarsi la perdita di dati. 
 > 
 > 
 
@@ -92,7 +93,7 @@ Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibil
 Questa operazione interrompe in modo permanente la replica al database secondario e modifica il ruolo del database secondario in un database di lettura/scrittura normale. Se la connettività al database secondario viene interrotta il comando ha esito positivo ma il database secondario non diventa un database di lettura-scrittura fino a quando la connettività non verrà ripristinata.  
 
 1. Nel [portale di Azure](http://portal.azure.com) passare al database primario nella relazione di replica geografica.
-2. Nella pagina database SQL, selezionare **Replica geografica**.
+2. Nella pagina del database SQL selezionare **Replica geografica**.
 3. Nell'elenco **SECONDARI** passare al database da rimuovere dalla relazione di replica geografica.
 4. Fare clic su **Arresta replica**.
    

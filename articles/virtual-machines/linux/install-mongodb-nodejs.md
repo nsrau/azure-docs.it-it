@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/20/2016
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ec6b94eec9364f25a630f290316048c8ac838b62
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -33,14 +34,16 @@ ms.lasthandoff: 04/03/2017
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - Interfaccia della riga di comando di Azure 1.0: interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
+- [Interfaccia della riga di comando di Azure 2.0](create-cli-complete-nodejs.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Installare e configurare manualmente MongoDB su una VM
-MongoDB [fornisce le istruzioni di installazione](https://docs.mongodb.com/manual/administration/install-on-linux/) per i sistemi operativi Linux Red Hat/CentOS, SUSE, Ubuntu e Debian. L'esempio seguente crea una VM `CentOS` usando la chiave SSH archiviata in `~/.ssh/id_rsa.pub`. Rispondere ai messaggi per l'inserimento delle informazioni su nome dell'account di archiviazione, nome DNS e credenziali di amministratore:
+MongoDB [fornisce le istruzioni di installazione](https://docs.mongodb.com/manual/administration/install-on-linux/) per i sistemi operativi Linux Red Hat/CentOS, SUSE, Ubuntu e Debian. L'esempio seguente crea una macchina virtuale *CentOS* usando una chiave SSH archiviata in *~/.ssh/id_rsa.pub*. Rispondere ai messaggi per l'inserimento delle informazioni su nome dell'account di archiviazione, nome DNS e credenziali di amministratore:
 
 ```azurecli
-azure vm quick-create --ssh-publickey-file ~/.ssh/id_rsa.pub --image-urn CentOS
+azure vm quick-create \
+    --image-urn CentOS \
+    --ssh-publickey-file ~/.ssh/id_rsa.pub 
 ```
 
 Accedere alla VM usando l'indirizzo IP pubblico visualizzato alla fine del precedente passaggio per la creazione della VM:
@@ -49,24 +52,24 @@ Accedere alla VM usando l'indirizzo IP pubblico visualizzato alla fine del prece
 ssh azureuser@40.78.23.145
 ```
 
-Per aggiungere le origini di installazione di MongoDB, creare un file di archivio `yum` come di seguito:
+Per aggiungere le origini di installazione di MongoDB, creare un file di archivio **yum** come illustrato di seguito:
 
 ```bash
-sudo touch /etc/yum.repos.d/mongodb-org-3.2.repo
+sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
 ```
 
 Aprire il file di archivio di MongoDB da modificare. Aggiungere le righe seguenti:
 
 ```sh
-[mongodb-org-3.2]
+[mongodb-org-3.4]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
 ```
 
-Installare MongoDB usando `yum` come di seguito:
+Installare MongoDB usando **yum** come illustrato di seguito:
 
 ```bash
 sudo yum install -y mongodb-org
@@ -114,17 +117,17 @@ Per creare un'istanza di MongoDB di base in una singola VM CentOS, è possibile 
 
 * [Istanza di MongoDB di base su CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos): https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nell'area `WestUS`. Immettere valori personalizzati come di seguito:
+Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nell'area `eastus`. Immettere valori personalizzati come di seguito:
 
 ```azurecli
-azure group create --name myResourceGroup --location WestUS \
+azure group create \
+    --name myResourceGroup \
+    --location eastus \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
 > [!NOTE]
-> L'interfaccia della riga di comando di Azure restituisce un avviso a pochi secondi dalla creazione della distribuzione, ma per completare l'installazione e la configurazione serve qualche minuto. Controllare lo stato della distribuzione con `azure group deployment show myResourceGroup`, immettendo il nome del gruppo di risorse appropriato. Attendere che `ProvisioningState` indichi l'operazione come riuscita, prima di tentare la connessione SSH alla VM.
-> 
-> 
+> L'interfaccia della riga di comando di Azure restituisce un avviso a pochi secondi dalla creazione della distribuzione, ma per completare l'installazione e la configurazione serve qualche minuto. Controllare lo stato della distribuzione con `azure group deployment show myResourceGroup`, immettendo il nome del gruppo di risorse appropriato. Attendere che **ProvisioningState** indichi *Succeeded* prima di provare la connessione SSH alla macchina virtuale.
 
 Al termine della distribuzione, effettuare la connessione SSH alla VM. Ottenere l'indirizzo IP della VM usando il comando `azure vm show` come nell'esempio seguente:
 
@@ -132,7 +135,7 @@ Al termine della distribuzione, effettuare la connessione SSH alla VM. Ottenere 
 azure vm show --resource-group myResourceGroup --name myLinuxVM
 ```
 
-Verso la fine dell'output, viene visualizzato il valore `Public IP address`. Effettuare la connessione SSH alla VM con l'indirizzo IP di quest'ultima:
+Verso la fine dell'output, viene visualizzato l'indirizzo IP pubblico. Effettuare la connessione SSH alla VM con l'indirizzo IP di quest'ultima:
 
 ```bash
 ssh azureuser@138.91.149.74
@@ -157,32 +160,31 @@ test
 
 
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Creare un cluster complesso di MongoDB partizionato in CentOS usando un modello
-Per creare un cluster complesso di MongoDB partizionato, è possibile usare il seguente modello di avvio rapido in GitHub. Questo modello segue le [procedure consigliate per cluster MongoDB partizionati](https://docs.mongodb.com/manual/core/sharded-cluster-components/) per garantire ridondanza e disponibilità elevata. Il modello crea due partizioni, con tre nodi in ogni set di repliche. Inoltre, nel server di configurazione viene creato un set di repliche con tre nodi, più due server router `mongos` per garantire coerenza tra le applicazioni delle varie partizioni.
+Per creare un cluster complesso di MongoDB partizionato, è possibile usare il seguente modello di avvio rapido in GitHub. Questo modello segue le [procedure consigliate per cluster MongoDB partizionati](https://docs.mongodb.com/manual/core/sharded-cluster-components/) per garantire ridondanza e disponibilità elevata. Il modello crea due partizioni, con tre nodi in ogni set di repliche. Inoltre, nel server di configurazione viene creato un set di repliche con tre nodi, più due server router **mongos** per garantire coerenza tra le applicazioni delle varie partizioni.
 
 * [Cluster di partizionamento di MongoDB su CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos): https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
 > La distribuzione di questo cluster complesso di MongoDB partizionato richiede più di 20 core, che in genere è il numero di core predefinito per ogni area di una sottoscrizione. Per aumentare il numero di core, aprire una richiesta di supporto tecnico di Azure.
-> 
-> 
 
-Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nell'area `WestUS`. Immettere valori personalizzati come di seguito:
+L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*. Immettere valori personalizzati come di seguito:
 
 ```azurecli
-azure group create --name myResourceGroup --location WestUS \
+azure group create \
+    --name myResourceGroup \
+    --location eastus \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 ```
 
 > [!NOTE]
-> L'interfaccia della riga di comando di Azure restituisce un avviso a pochi secondi dalla creazione della distribuzione, ma per completare l'installazione e la configurazione può servire più di un'ora. Controllare lo stato della distribuzione con `azure group deployment show myResourceGroup`, adeguando il nome del gruppo di risorse di conseguenza. Attendere che `ProvisioningState` indichi l'operazione come riuscita, prima di connettersi alle VM.
-> 
-> 
+> L'interfaccia della riga di comando di Azure restituisce un avviso a pochi secondi dalla creazione della distribuzione, ma per completare l'installazione e la configurazione può servire più di un'ora. Controllare lo stato della distribuzione con `azure group deployment show myResourceGroup`, adeguando il nome del gruppo di risorse di conseguenza. Attendere che **ProvisioningState** indichi *Succeeded* prima di eseguire la connessione alla macchina virtuale.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questi esempi si effettua la connessione all'istanza di MongoDB locale dalla VM. Se si desidera connettersi all'istanza di MongoDB da un'altra VM o un'altra rete, accertarsi di [creare le regole del gruppo di sicurezza di rete](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) appropriate.
+In questi esempi si effettua la connessione all'istanza di MongoDB locale dalla VM. Se si desidera connettersi all'istanza di MongoDB da un'altra VM o un'altra rete, accertarsi di [creare le regole del gruppo di sicurezza di rete](nsg-quickstart.md) appropriate.
 
 Per altre informazioni sulla creazione tramite modelli, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-I modelli di Azure Resource Manager usano l'estensione dello script personalizzata per scaricare ed eseguire script nelle VM. Per altre informazioni, vedere [Using the Azure Custom Script Extension with Linux Virtual Machines](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Usare l'estensione dello script personalizzata di Azure con macchine virtuali Linux).
+I modelli di Azure Resource Manager usano l'estensione dello script personalizzata per scaricare ed eseguire script nelle VM. Per altre informazioni, vedere [Using the Azure Custom Script Extension with Linux Virtual Machines](extensions-customscript.md) (Usare l'estensione dello script personalizzata di Azure con macchine virtuali Linux).
 
 

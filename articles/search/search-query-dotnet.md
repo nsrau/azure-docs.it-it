@@ -11,11 +11,13 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 05/19/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
-ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: ffc27db4de5bd699dbd8175930a597fb85947140
+ms.contentlocale: it-it
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -51,13 +53,17 @@ Ai fini di una query su un indice, è possibile usare una delle chiavi di query.
 ## <a name="create-an-instance-of-the-searchindexclient-class"></a>Creare un'istanza della classe SearchIndexClient
 Per eseguire query con Azure Search .NET SDK, è necessario creare un'istanza della classe `SearchIndexClient` . Questa classe ha diversi costruttori. Quello appropriato accetta il nome del servizio di ricerca, il nome dell'indice e un oggetto `SearchCredentials` come parametri. `SearchCredentials` esegue il wrapping della chiave API.
 
-Il codice seguente crea un nuovo oggetto `SearchIndexClient` per l'indice "hotels" (creato in [Creare un indice di Ricerca di Azure con .NET SDK](search-create-index-dotnet.md)) usando i valori archiviati nel file di configurazione dell'applicazione (`app.config` o `web.config`) per il nome del servizio di ricerca e la chiave API:
+Il codice seguente crea un nuovo oggetto `SearchIndexClient` per l'indice "hotels" creato in [Creare un indice di Ricerca di Azure con .NET SDK](search-create-index-dotnet.md), usando i valori archiviati nel file di configurazione dell'applicazione, `appsettings.json` nel caso dell'[applicazione di esempio](http://aka.ms/search-dotnet-howto), per il nome del servizio di ricerca e la chiave API:
 
 ```csharp
-string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-string queryApiKey = ConfigurationManager.AppSettings["SearchServiceQueryApiKey"];
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+    string searchServiceName = configuration["SearchServiceName"];
+    string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
-SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+    return indexClient;
+}
 ```
 
 `SearchIndexClient` include una proprietà `Documents`. Questa proprietà fornisce tutti i metodi necessari per eseguire query sugli indici di Ricerca di Azure.
@@ -165,10 +171,5 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 ```
 
 Il codice di esempio precedente usa la console per restituire i risultati della ricerca. Analogamente, sarà necessario visualizzare i risultati della ricerca nella propria applicazione. Per un esempio di rendering dei risultati di ricerca in un'applicazione Web basata su ASP.NET MVC, vedere [questo esempio su GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) .
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

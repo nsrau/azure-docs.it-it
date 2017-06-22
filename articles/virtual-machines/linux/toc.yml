@@ -57,7 +57,8 @@
     href: azure-vm-network-overview.md
   - name: Set di scalabilità delle VM
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-  - name: Servizio metadati dell'istanza 
+  - name: Servizio metadati dell'istanza
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Contenitori
     href: containers.md
@@ -139,6 +140,14 @@
       href: move-vm.md
     - name: Creare VM a disponibilità elevata
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Installare e configurare
+        href: ansible-install-configure.md
+      - name: Creare una VM di base
+        href: ansible-create-vm.md
+      - name: Creare una VM completa
+        href: ansible-create-complete-vm.md
     - name: Distribuire un'app con un modello di VM
       items:
       - name: Panoramica dell'esercitazione
@@ -170,10 +179,7 @@
       href: update-agent.md
     - name: Eseguire il backup con Servizi di ripristino
       href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: >-
-        Aggiungere una VM RedHat a un'istanza di Azure Active Directory Domain
-        Services
-
+    - name: Aggiungere una VM RedHat a un'istanza di Azure Active Directory Domain Services
       href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
   - name: Connettersi tramite SSH
     items:
@@ -196,7 +202,7 @@
       href: upload-vhd.md
     - name: Acquisire una VM esistente in un'immagine
       href: capture-image.md
-    - name: Creare immagini approvate per Azure
+    - name: Creare immagini di Azure
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -208,6 +214,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Gestire le risorse di archiviazione delle VM
     items:
     - name: Azure Managed Disks
@@ -299,6 +307,8 @@
       href: extensions-customscript.md
     - name: Estensione agente OMS
       href: extensions-oms.md
+    - name: Estensione di diagnostica Linux
+      href: diagnostic-extension.md
   - name: Eseguire le applicazioni
     items:
     - name: Cloud Foundry
@@ -356,19 +366,24 @@
       href: migration-classic-resource-manager-faq.md
   - name: Risoluzione dei problemi
     items:
-    - name: Risolvere i problemi relativi alle connessioni SSH
+    - name: Connessioni SSH
       href: troubleshoot-ssh-connection.md
       items:
       - name: Procedura di risoluzione dei problemi dettagliata
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Risolvere i problemi relativi all'accesso alle applicazioni
+    - name: Diagnostica di avvio
+ 
+      href: boot-diagnostics.md
+    - name: Accesso alle applicazioni
       href: troubleshoot-app-connection.md
-    - name: Risolvere i problemi relativi agli errori di allocazione
+    - name: Errori di allocazione
       href: allocation-failure.md
-    - name: Risolvere i problemi relativi alla distribuzione
+    - name: Problemi di distribuzione
       href: troubleshoot-deployment-new-vm.md
     - name: Ridistribuire la macchina virtuale in un nuovo nodo di Azure
       href: redeploy-to-new-node.md
+    - name: Messaggi di errore comuni
+      href: error-messages.md
     - name: Collegare un disco rigido virtuale per la risoluzione dei problemi
       items:
       - name: Interfaccia della riga di comando di Azure

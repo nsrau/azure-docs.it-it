@@ -9,17 +9,18 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: load & move data
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 05/23/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5234b7ee73dee8348a5354ba354ae459a82492b9
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: cd6c53b7e4cc13920f1ed99934e10a38a9b3e4ed
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -31,7 +32,7 @@ Questo esempio di script di PowerShell importa un database da un file **BACPAC**
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1 "Creare database SQL")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1?highlight=18-19 "Creare database SQL")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

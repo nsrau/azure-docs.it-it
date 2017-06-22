@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 873a3b83bf85c7e2d6d299bd25ebb135c300aacb
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,13 +28,13 @@ Per connettersi ai servizi di Microsoft Cloud usando ExpressRoute sarà necessar
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Account Azure
-* Un account Microsoft Azure valido e attivo. Questo account è necessario per configurare il circuito ExpressRoute. I circuiti ExpressRoute sono risorse all'interno di sottoscrizioni di Azure. Una sottoscrizione di Azure è un requisito, anche se la connettività è limitata a servizi cloud non Microsoft Azure, ad esempio servizi di Office 365 e CRM Online.
+* Un account Microsoft Azure valido e attivo. Questo account è necessario per configurare il circuito ExpressRoute. I circuiti ExpressRoute sono risorse all'interno di sottoscrizioni di Azure. Una sottoscrizione di Azure è un requisito, anche se la connettività è limitata a servizi cloud non Microsoft Azure, ad esempio servizi di Office 365 e Dynamics 365.
 * Una sottoscrizione di Office 365 attiva (se si usano servizi di Office 365). Per altre informazioni, vedere la sezione sui [requisiti specifici di Office 365](#office-365-specific-requirements) in questo articolo.
 
 ## <a name="connectivity-provider"></a>Provider di connettività
 
-* È possibile collaborare con un [partner per la connettività ExpressRoute](expressroute-locations.md#partners) per connettersi a Microsoft Cloud. È possibile configurare una connessione tra la rete locale e Microsoft in [tre modi](expressroute-introduction.md)diversi. 
-* Se il provider non è un partner per la connettività ExpressRoute, è comunque possibile connettersi a Microsoft Cloud tramite un [provider Cloud Exchange](expressroute-locations.md#c1partners).
+* È possibile collaborare con un [partner per la connettività ExpressRoute](expressroute-locations.md#partners) per connettersi a Microsoft Cloud. È possibile configurare una connessione tra la rete locale e Microsoft in [tre modi](expressroute-introduction.md)diversi.
+* Se il provider non è un partner per la connettività ExpressRoute, è comunque possibile connettersi a Microsoft Cloud tramite un [provider Cloud Exchange](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisiti di rete
 * **Connettività ridondante**: non è stato definito alcun requisito di ridondanza per la connettività fisica con il provider. Microsoft richiede la configurazione di sessioni BGP ridondanti tra i router di Microsoft e i router di peering, anche in presenza di [una sola connessione fisica a un'infrastruttura Cloud Exchange](expressroute-faqs.md#onep2plink).
@@ -53,10 +54,10 @@ Se si prevede di abilitare Office 365 in ExpressRoute, esaminare i documenti seg
 * [Integrazione di Office 365 con ambienti locali](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Video di training avanzato su ExpressRoute in Office 365](https://channel9.msdn.com/series/aer/)
 
-## <a name="crm-online"></a>CRM Online
-Se si prevede di abilitare CRM Online in ExpressRoute, esaminare i documenti seguenti per altre informazioni su CRM Online
+## <a name="dynamics-365"></a>Dynamics 365
+Se si prevede di abilitare Dynamics 365 in ExpressRoute, esaminare i documenti seguenti per altre informazioni su Dynamics 365
 
-* [CRM Online URLs](https://support.microsoft.com/kb/2655102) (URL di CRM Online) e [IP address ranges](https://support.microsoft.com/kb/2728473) (Intervalli di indirizzi IP)
+* [URL](https://support.microsoft.com/kb/2655102) e [intervalli di indirizzi IP per Dynamics 365](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).

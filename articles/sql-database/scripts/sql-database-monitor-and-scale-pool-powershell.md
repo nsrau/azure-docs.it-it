@@ -9,17 +9,18 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & tune
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 05/23/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: da96cf25d155c1aec42bd6d4bd1813d9bf8241f7
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 5231f5b13c3502a5a45ceea0b329f30a2e1c311c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -31,7 +32,7 @@ Questo esempio di script di PowerShell consente di monitorare le metriche delle 
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1 "Monitorare e ridimensionare database SQL singoli")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitorare e ridimensionare database SQL singoli")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

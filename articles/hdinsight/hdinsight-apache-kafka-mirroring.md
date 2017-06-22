@@ -1,6 +1,6 @@
 ---
-title: Eseguire il mirroring di cluster Apache Kafka in HDInsight | Documentazione Microsoft
-description: "Informazioni su come usare la funzionalità di mirroring di Kafka per mantenere una replica di un cluster Kafka in HDInsight eseguendo il mirroring di argomenti in un cluster secondario."
+title: 'Eseguire il mirroring degli argomenti di Apache Kafka: Azure HDInsight| Microsoft Docs'
+description: "Informazioni su come usare la funzionalità di mirroring di Apache Kafka per gestire una replica di un cluster Kafka in HDInsight eseguendo il mirroring degli argomenti in un cluster secondario."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,32 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 05/15/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c7517f61944b9fdb02a3589d7c9cd83355dae6d8
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0b8de346d8209dcfd665baf18ce054e5556a883b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 ---
-# <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>Usare MirrorMaker per creare una replica di un cluster Kafka in HDInsight (anteprima)
+# <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>Usare MirrorMaker per replicare gli argomenti di Apache Kafka con Kafka in HDInsight (anteprima)
 
-Apache Kafka include una funzionalità di mirroring che consente di replicare gli argomenti da un cluster Kafka all'altro, ad esempio la replica dei record tra cluster Kafka in aree differenti di Azure.
+Informazioni su come usare la funzionalità di mirroring di Apache Kafka per replicare gli argomenti in un cluster secondario. Il mirroring può essere eseguito come processo continuo o usato in modo intermittente come metodo di migrazione dei dati da un cluster all'altro.
 
-Il mirroring può essere eseguito come processo continuo o usato in modo intermittente come metodo di migrazione dei dati da un cluster all'altro.
+In questo esempio il mirroring viene usato per replicare argomenti tra due cluster HDInsight. Entrambi i cluster si trovano in una rete virtuale di Azure nella stessa area.
 
 > [!WARNING]
 > Il mirroring non deve essere considerato un mezzo per ottenere la tolleranza di errore. Gli offset per gli elementi all'interno di un argomento sono diversi nei cluster di origine e di destinazione, quindi i client non possono usarli in modo intercambiabile.
-> 
+>
 > Per preservare la tolleranza di errore è necessario impostare la replica per gli argomenti all'interno del cluster. Per altre informazioni, vedere [Introduzione a Kafka in HDInsight](hdinsight-apache-kafka-get-started.md).
 
-## <a name="prerequisites"></a>Prerequisiti
-
-* Una rete virtuale di Azure: i cluster Kafka di origine e destinazione devono poter comunicare direttamente tra loro. HDInsight non espone le API Kafka pubblicamente in Internet, quindi i cluster di origine e di destinazione devono trovarsi nella stessa rete virtuale di Azure.
-
-* Due cluster Kafka: in questo documento viene usato un modello di Azure Resource Manager per creare due cluster Kafka in HDInsight in una rete virtuale di Azure.
-
-## <a name="how-does-mirroring-work"></a>Funzionamento del mirroring
+## <a name="how-kafka-mirroring-works"></a>Funzionamento del mirroring di Kafka
 
 Il mirroring usa lo strumento MirrorMaker (componente di Apache Kafka) per utilizzare i record degli argomenti nel cluster di origine e creare una copia locale nel cluster di destinazione. MirrorMaker usa uno o più *consumer* che leggono dal cluster di origine e un *producer* che scrive nel cluster locale (destinazione).
 
@@ -46,18 +41,22 @@ Il diagramma seguente illustra il processo di mirroring:
 
 ![Diagramma del processo di mirroring](./media/hdinsight-apache-kafka-mirroring/kafka-mirroring.png)
 
+Apache Kafka in HDInsight non fornisce l'accesso al servizio Kafka tramite Internet pubblico. I producer o i consumer di Kafka devono trovarsi nella stessa rete virtuale di Azure in cui sono presenti i nodi del cluster Kafka. Per questo esempio, i cluster Kafka di origine e destinazione si trovano entrambi in una rete virtuale di Azure. Il diagramma seguente illustra il flusso delle comunicazioni tra i cluster:
+
+![Diagramma dei cluster Kafka di origine e destinazione in una rete virtuale di Azure](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
+
 I cluster di origine e destinazione possono differire per numero di nodi e partizioni. Anche gli offset negli argomenti differiscono. Il mirroring mantiene il valore della chiave usato per il partizionamento, quindi l'ordine dei record viene conservato in base alla chiave.
 
-### <a name="mirroring-between-networks"></a>Mirroring tra reti
+### <a name="mirroring-across-network-boundaries"></a>Mirroring tra i limiti di rete
 
 Se è necessario eseguire il mirroring di cluster Kafka in reti diverse, si notino le seguenti considerazioni aggiuntive:
 
 * **Gateway**: le reti devono poter comunicare a livello di TCP/IP.
 
-* **Risoluzione dei nomi**: i cluster Kafka in ogni rete devono potersi connettere tra loro usando nomi host. Potrebbe essere necessario un server DNS (Domain Name System) in ogni rete configurato per l'inoltro delle richieste ad altre reti. 
-  
+* **Risoluzione dei nomi**: i cluster Kafka in ogni rete devono potersi connettere tra loro usando nomi host. Potrebbe essere necessario un server DNS (Domain Name System) in ogni rete configurato per l'inoltro delle richieste ad altre reti.
+
     Quando si crea una rete virtuale di Azure, invece di usare il DNS automatico fornito con la rete è necessario specificare un server DNS personalizzato con il relativo indirizzo IP. Dopo aver creato la rete virtuale è necessario creare una macchina virtuale di Azure che usi quell'indirizzo IP, quindi installare e configurare il software DNS sulla macchina stessa.
-  
+
     > [!WARNING]
     > Creare e configurare il server DNS personalizzato prima di installare HDInsight nella rete virtuale. Non sono necessarie altre operazioni di configurazione per far sì che HDInsight usi il server DNS configurato per la rete virtuale.
 
@@ -65,20 +64,13 @@ Per altre informazioni sulla connessione di due reti virtuali di Azure, vedere [
 
 ## <a name="create-kafka-clusters"></a>Creare cluster Kafka
 
-Apache Kafka in HDInsight non fornisce l'accesso al servizio Kafka tramite Internet pubblico. Tutto ciò che comunica con Kafka deve trovarsi nella stessa rete virtuale di Azure dei nodi del cluster Kafka. Per questo esempio, i cluster Kafka di origine e destinazione si trovano entrambi in una rete virtuale di Azure. Il diagramma seguente illustra il flusso delle comunicazioni tra i cluster:
-
-![Diagramma dei cluster Kafka di origine e destinazione in una rete virtuale di Azure](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
-
-> [!NOTE]
-> Anche se Kafka è limitato alle comunicazioni all'interno della rete virtuale, è possibile accedere ad altri servizi del cluster tramite Internet, ad esempio SSH e Ambari. Per altre informazioni sulle porte pubbliche disponibili con HDInsight, vedere [Porte e URI usati da HDInsight](hdinsight-hadoop-port-settings-for-services.md).
-
 Anche se è possibile creare manualmente cluster Kafka e una rete virtuale di Azure, è più semplice usare un modello di Azure Resource Manager. Seguire questa procedura per distribuire una rete virtuale di Azure e due cluster Kafka e nella sottoscrizione di Azure.
 
 1. Usare il pulsante seguente per accedere ad Azure e aprire il modello nel portale di Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Il modello di Azure Resource Manager è disponibile all'indirizzo **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet.json**.
+    Il modello di Azure Resource Manager è disponibile all'indirizzo **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.json**.
 
 2. Usare le informazioni seguenti per popolare le voci nel pannello **Distribuzione personalizzata**:
     
@@ -86,7 +78,7 @@ Anche se è possibile creare manualmente cluster Kafka e una rete virtuale di Az
     
     * **Gruppo di risorse**: creare un gruppo o selezionarne uno esistente. Questo gruppo contiene il cluster HDInsight.
 
-    * **Località**: scegliere una località geograficamente vicina. La località deve corrispondere a quella indicata nella sezione __IMPOSTAZIONI__.
+    * **Località**: scegliere una località geograficamente vicina.
      
     * **Base Cluster Name** (Nome di base del cluster): questo valore viene usato come nome di base per i cluster Kafka. Se ad esempio si immette **hdi** verranno creati cluster denominati **source-hdi** e **dest-hdi**.
 
@@ -97,8 +89,6 @@ Anche se è possibile creare manualmente cluster Kafka e una rete virtuale di Az
     * **SSH User Name** (Nome utente SSH): utente SSH da creare per i cluster Kafka di origine e destinazione.
 
     * **SSH Password** (Password SSH): password dell'utente SSH per i cluster Kafka di origine e destinazione.
-
-    * **Location** (Località): area in cui vengono creati i cluster.
 
 3. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 
@@ -141,12 +131,12 @@ Dopo aver creato le risorse, si viene reindirizzati a un pannello del gruppo di 
     ```bash
     echo $SOURCE_ZKHOSTS
     ```
-   
- Verranno restituite informazioni simili al testo seguente:
-   
-       zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
-   
- Salvare queste informazioni. Verranno usate nella sezione successiva.
+
+    Verranno restituite informazioni simili al testo seguente:
+
+    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
+
+    Salvare queste informazioni. Verranno usate nella sezione successiva.
 
 ## <a name="configure-mirroring"></a>Configurare il mirroring
 
@@ -173,7 +163,7 @@ Dopo aver creato le risorse, si viene reindirizzati a un pannello del gruppo di 
    
     Questo file descrive le informazioni sui consumer da usare durante la lettura dal cluster Kafka di origine. Per altre informazioni sulla configurazione dei consumer, vedere [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) (Configurazione di consumer) in kafka.apache.org.
    
-    Usare **Ctrl + X**, **Y** e INVIO per salvare il file.
+    Per salvare il file, usare **Ctrl + X**, **Y** e **INVIO**.
 
 3. Prima di configurare il producer che comunica con il cluster di destinazione è necessario trovare gli host broker per il cluster di **destinazione** stesso. Usare i comandi seguenti per recuperare queste informazioni:
    

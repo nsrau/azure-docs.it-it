@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/11/2017
+ms.date: 5/1/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 51b5c32eb73dc70b4019e60342db659959cc93bb
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: f084e9cbb4a14308e1e9d7a62c9f800b8c965d91
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="april-guest-os"></a>Sistema operativo guest di aprile
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-04 |  [4015217]  |Miglioramenti alla qualità del sistema operativo WS 2016 | 5.6 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]  |Solo sicurezza di Windows |2.61 | 11 aprile 2017 |
+| Rel 17-04 |  [4015547]  |Solo sicurezza di Windows |4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4015548]  |Solo sicurezza di Windows |3.48 | 11 aprile 2017 |
+| Rel 17-04 |  [4014661]  |Internet Explorer |2.61, 3.48, 4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |Sicurezza .NET |4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4014564]; [4014572]; [4014549] |Sicurezza .NET |3.48 | 11 aprile 2017 |
+| Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |Sicurezza .NET |2.61 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 11 aprile 2017 |
+| Rel 17-04 |  [4015193]  |Modifiche dell'ora legale in Windows per Magallanes (Cile) |2.61, 3.48, 4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4012215]  |Rollup di qualità mensile per la sicurezza di marzo 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.61 | 11 aprile 2017 |
+| Rel 17-04 |  [4012217]  |Rollup di qualità mensile per la sicurezza di marzo 2017 per Windows Server 2012 |3.48 | 11 aprile 2017 |
+| Rel 17-04 |  [4012216]  |Rollup di qualità mensile per la sicurezza di marzo 2017 per Windows 8.1 e Windows Server 2012 R2 |4.41 | 11 aprile 2017 |
 
 ## <a name="march-guest-os"></a>Sistema operativo guest di marzo
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -37,8 +58,6 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |  [3205409] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows Server 2012 |3.47 |14 marzo 2017 |
 | N/D |  [3205401] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
 | N/D |  [3211320] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 e Windows Server 2016 - 24 ottobre 2017 |5.5 |14 marzo 2017 |
-
-
 
 ## <a name="january-guest-os"></a>Sistema operativo guest di gennaio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -420,6 +439,30 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3007054] |L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
+
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015546]: http://support.microsoft.com/kb/4015546
+[4015547]: http://support.microsoft.com/kb/4015547
+[4015548]: http://support.microsoft.com/kb/4015548
+[4014661]: http://support.microsoft.com/kb/4014661
+[4014550]: http://support.microsoft.com/kb/4014550
+[4014560]: http://support.microsoft.com/kb/4014560
+[4014562]: http://support.microsoft.com/kb/4014562
+[4014556]: http://support.microsoft.com/kb/4014556
+[4014574]: http://support.microsoft.com/kb/4014574
+[4014564]: http://support.microsoft.com/kb/4014564
+[4014572]: http://support.microsoft.com/kb/4014572
+[4014549]: http://support.microsoft.com/kb/4014549
+[4014566]: http://support.microsoft.com/kb/4014566
+[4014552]: http://support.microsoft.com/kb/4014552
+[4014573]: http://support.microsoft.com/kb/4014573
+[4014558]: http://support.microsoft.com/kb/4014558
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015193]: http://support.microsoft.com/kb/4015193
+[4012215]: http://support.microsoft.com/kb/4012215
+[4012217]: http://support.microsoft.com/kb/4012217
+[4012216]: http://support.microsoft.com/kb/4012216
+
 
 [4013429]: http://support.microsoft.com/kb/4013429 
 [4012212]: http://support.microsoft.com/kb/4012212 

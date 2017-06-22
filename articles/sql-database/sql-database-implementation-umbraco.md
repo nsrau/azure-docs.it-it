@@ -8,17 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
-ms.custom: customer implementations
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
-ms.lasthandoff: 01/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c22cb3a5436daf0296451f1f05a52d315ebc0416
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -69,11 +70,11 @@ Con il database SQL di Azure e altri servizi di Azure, i clienti Umbraco possono
    Umbraco monitora l'attività dei database tramite i dashboard del portale di Azure e agli avvisi di posta elettronica personalizzati.
 4. Ripristino di emergenza
    
-   Azure offre due opzioni di ripristino di emergenza: il ripristino a livello geografico e la replica geografica attiva. L'opzione adatta ad ogni azienda dipende dagli [obiettivi di continuità aziendale](sql-database-business-continuity.md)specifici.
+   Azure offre due opzioni di ripristino di emergenza (DR): la replica geografica attiva e il ripristino geografico. L'opzione adatta ad ogni azienda dipende dagli [obiettivi di continuità aziendale](sql-database-business-continuity.md)specifici.
    
-   La replica geografica attiva assicura il livello di risposta più veloce in caso di tempi di inattività. Con la replica geografica attiva è possibile creare fino a quattro database secondari leggibili su server in aree diverse e quindi avviare il failover in uno qualsiasi dei database secondari in caso di errore.
+   la replica geografica attiva assicura il livello di risposta più veloce in caso di tempi di inattività. Con la replica geografica attiva è possibile creare fino a quattro database secondari leggibili su server in aree diverse e quindi avviare il failover in uno qualsiasi dei database secondari in caso di errore.
    
-   Umbraco non richiede la replica geografica, tuttavia la replica geografica di Azure offre il vantaggio di tempi di inattività minimi in caso di interruzione. Il ripristino geografico si basa sui backup di database nell'archiviazione di Azure con ridondanza geografica. Gli utenti possono quindi eseguire il ripristino da una copia di backup in caso di interruzione del servizio nell'area primaria.
+   Umbraco non richiede la replica geografica, tuttavia il ripristino geografico di Azure offre il vantaggio di tempi di inattività minimi in caso di interruzione. il ripristino geografico si basa sui backup di database nell'archiviazione di Azure con ridondanza geografica. Gli utenti possono quindi eseguire il ripristino da una copia di backup in caso di interruzione del servizio nell'area primaria.
 5. Deprovisioning
    
    Quando viene eliminato l'ambiente di un progetto, tutti i database associati (di sviluppo, di gestione temporanea o live) vengono rimossi durante la pulizia della coda del bus di servizio. Questo processo automatizzato ripristina i database inutilizzati nel pool di disponibilità di database elastici Umbraco, rendendoli disponibili per attività di provisioning future ottimizzando il livello di utilizzo.

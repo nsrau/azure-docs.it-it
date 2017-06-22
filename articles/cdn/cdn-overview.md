@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 299e55e095ac323ed0ded7c7844d7cd103174af2
+ms.contentlocale: it-it
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -50,7 +51,7 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **rete CDN Standard di A
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| Semplice integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service-web/cdn-websites-with-cdn.md) e [Servizi multimediali](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Semplice integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service-web/app-service-web-tutorial-content-delivery-network.md) e [Servizi multimediali](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gestione tramite [API REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) oppure [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Supporto per HTTPS con endpoint della rete CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | HTTPS dominio personalizzato | |**&#x2713;** |**&#x2713;** |
@@ -63,7 +64,7 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **rete CDN Standard di A
 | [Eliminazione veloce](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Precaricamento Asset](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Analisi del core](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [Supporto HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Supporto HTTP/2](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Report HTTP avanzati](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Statistiche in tempo reale](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Avvisi in tempo reale](cdn-real-time-alerts.md) | | |**&#x2713;** |

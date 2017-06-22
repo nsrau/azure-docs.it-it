@@ -12,15 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 0e59d117bd9a1355b5b58c76cf9b39ec3005b122
-ms.lasthandoff: 02/02/2017
+ms.date: 05/03/2017
+ms.author: sethm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 41435316adaee5c66de503571184fce8937d38ee
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 
 ---
+
 # <a name="event-hubs-net-framework-api-overview"></a>Panoramica dell'API .NET Framework di Hub eventi
 In questo articolo vengono riepilogati alcune delle principali API client .NET Framework di Hub eventi. Esistono due categorie: API di runtime e gestione. Le API di runtime si compongono di tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
 
@@ -127,7 +129,7 @@ await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await host.UnregisterEventProcessorAsync();
 ```
 
-L'interfaccia [IEventProcessor](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) è definita come segue:
+L'interfaccia [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) è definita come segue:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -178,5 +180,5 @@ Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti segu
 I riferimenti API .NET sono qui:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-* [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+* [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)
 

@@ -15,22 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/14/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
-ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
-ms.lasthandoff: 01/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: aebabd15e781e726def545960ce3c1ec7674c530
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="datasource-connections"></a>Connessioni alle origini dati
 Durante la connessione a particolari origini dati, i modelli di dati di Azure Analysis Services possono richiedere provider di dati differenti. In alcuni casi, i modelli tabulari che si connettono alle origini dati usando provider nativi quali SQL Server Native Client (SQLNCLI11) possono restituire un errore.
 
-Si supponga, ad esempio, di avere un modello di dati In-memory o DirectQuery che si connette a un'origine dati cloud come un database SQL di Azure. Se si usano provider nativi diversi da SQLOLEDB, è possibile che venga visualizzato un messaggio di errore simile al seguente: **"Il provider 'SQLNCLI11.1' non è registrato"**.
-
-Se invece si dispone di un modello DirectQuery che si connette a origini dati locali, se si usano provider nativi è possibile che venga visualizzato un messaggio di errore simile al seguente: **"Errore durante la creazione del set di righe OLE DB. Sintassi errata vicino a 'LIMIT'"**.
+Per modelli di dati in memoria o DirectQuery che si connettono a un'origine dati cloud come un database SQL di Azure, se si usano provider nativi diversi da SQLOLEDB, è possibile che venga visualizzato un messaggio di errore simile al seguente: **"Il provider 'SQLNCLI11.1' non è registrato"**. Se invece si dispone di un modello DirectQuery che si connette a origini dati locali, se si usano provider nativi è possibile che venga visualizzato un messaggio di errore simile al seguente: **"Errore durante la creazione del set di righe OLE DB. Sintassi errata vicino a 'LIMIT'"**.
 
 ## <a name="data-source-providers"></a>Provider di origini dati
-I seguenti provider di origini dati sono supportati per i modelli di dati DirectQuery o in memoria nella connessione a origini dati nel cloud o in locale:
+I provider di origine dati seguenti sono supportati per i modelli di dati DirectQuery o in memoria nella connessione a origini dati nel cloud o in locale:
 
 ### <a name="cloud"></a>Cloud
 | **Origine dati** | **In-memory** | **DirectQuery** |
@@ -76,6 +75,7 @@ Per le origini dati cloud:
 * Se si usa l'autenticazione SQL, la rappresentazione deve essere l'account del servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si dispone di origini dati locali, verificare di installare il [gateway locale](analysis-services-gateway.md). Per altre informazioni sulla gestione del server in SSDT o SSMS, vedere [Manage your server](analysis-services-manage.md) (Gestione del server).
+Se si dispone di origini dati locali, verificare di installare il [gateway locale](analysis-services-gateway.md).   
+Per altre informazioni sulla gestione del server in SSDT o SSMS, vedere [Manage your server](analysis-services-manage.md) (Gestione del server).
 
 

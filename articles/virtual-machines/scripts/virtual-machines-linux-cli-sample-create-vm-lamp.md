@@ -1,6 +1,6 @@
 ---
-title: "Esempio di script dell&quot;interfaccia della riga di comando di Azure: distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato | Microsoft Docs"
-description: "Usare un&quot;estensione di script personalizzato per distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato in Azure."
+title: "Esempio di script dell'interfaccia della riga di comando di Azure: distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato | Microsoft Docs"
+description: "Usare un'estensione di script personalizzato per distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato in Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 68cb08a8b40220639f880c83a44014b81598d45a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: a95c534d8f2ad5e8e2c7bdfc2b11405c70312727
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -31,7 +32,7 @@ Questo esempio crea un set di scalabilità di macchine virtuali e applica un'est
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Creare set di scalabilità di macchine virtuali con lo stack LAMP")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Creare set di scalabilità di macchine virtuali con lo stack LAMP")]
 
 ## <a name="connect"></a>Connettere
 
@@ -43,7 +44,7 @@ Usare questo codice per vedere come connettersi alle macchine virtuali e al set 
 
 Eseguire il comando seguente per rimuovere il gruppo di risorse, il set di scalabilità, le macchine virtuali e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 95ecd8d4ef3dd7a956206e7c3e07c793db0111f7
-ms.openlocfilehash: 5fb85551d3c5fb8d1c63a965d89bae788000afe8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5434b7972346821985c459fc4620805adb88676b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +28,8 @@ ms.lasthandoff: 03/31/2017
 > [!div class="op_single_selector"]
 > - [Portale di Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
-> - [CLI](network-watcher-check-next-hop-cli.md)
+> - [Interfaccia della riga di comando 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+> - [Interfaccia della riga di comando 2.0](network-watcher-check-next-hop-cli.md)
 > - [API REST di Azure](network-watcher-check-next-hop-rest.md)
 
 Hop successivo è una funzionalità di Network Watcher che consente di recuperare il tipo di hop successivo e l'indirizzo IP in base a una macchina virtuale specificata. La funzionalità è utile per determinare se il traffico in uscita da una macchina virtuale attraversa gateway, Internet o reti virtuali per arrivare alla propria destinazione.

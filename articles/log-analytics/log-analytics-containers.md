@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 05/08/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: f5c5abc988cd363cafe8c07f83eb2686a83ee1a2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 05dfdc3491e6c7f838f5e7e2c16951bc1328e32b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -44,11 +45,10 @@ Esistono alcuni metodi per installare e usare Docker con OMS:
 
 È possibile esaminare le versioni di sistemi operativi Docker e Linux supportate per l'host del contenitore in [GitHub](https://github.com/Microsoft/OMS-docker).
 
-Se si ha un cluster Kubernetes che usa il servizio contenitore di Azure, vedere [Monitorare un cluster del servizio contenitore di Azure con Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
-
-Se si ha un cluster DC/OS del servizio contenitore di Azure, vedere [Monitorare un cluster DC/OS del servizio contenitore di Azure con Operations Management Suite](../container-service/container-service-monitoring-oms.md).
-
-Consultare l'articolo sul [motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
+- Se si ha un cluster Kubernetes che usa il servizio contenitore di Azure, vedere [Monitorare un cluster del servizio contenitore di Azure con Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
+- Se si ha un cluster DC/OS del servizio contenitore di Azure, vedere [Monitorare un cluster DC/OS del servizio contenitore di Azure con Operations Management Suite](../container-service/container-service-monitoring-oms.md).
+- Se si usano contenitori con Service Fabric, informazioni dettagliate sono disponibili in [Panoramica di Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- Consultare l'articolo sul [motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
 
 > [!IMPORTANT]
 > Docker deve essere in esecuzione **prima** di installare l'[agente OMS per Linux](log-analytics-linux-agents.md) negli host di contenitori. Se l'agente è stato installato prima di installare Docker, è necessario reinstallare l'agente di OMS per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
@@ -59,15 +59,23 @@ Sono necessarie le seguenti impostazioni negli host di contenitori prima di pote
 
 ## <a name="configure-settings-for-a-linux-container-host"></a>Configurare le impostazioni per l'host del contenitore Linux
 
+Versioni di Linux supportate:
+
+- Docker (da 1.11 a 1.13)
+- Docker CE e EE v17.03
+
+
 Le distribuzioni Linux x64 seguenti sono supportate come host del contenitore:
 
 - Ubuntu 14.04 LTS, 16.04 LTS
 - CoreOS (stable)
 - Amazon Linux 2016.09.0
 - openSUSE 13.2
-- CentOS 7
+- openSUSE LEAP 42.2
+- CentOS 7.2, 7.3
 - SLES 12
-- RHEL 7.2
+- RHEL 7.2, 7.3
+
 
 Dopo aver installato Docker, usare le impostazioni seguenti per l'host di contenitori per configurare l'agente per l'uso con Docker. Saranno necessari l'[ID area di lavoro e la chiave di OMS](log-analytics-linux-agents.md).
 
@@ -95,45 +103,43 @@ Se in precedenza veniva usato l'agente installato direttamente e si vuole usare 
 ### <a name="docker-versions-supported-on-windows"></a>Versioni di Docker supportate in Windows
 
 - Docker 1.12 – 1.13
+- Docker 17.03.0 [stabile]
 
 ### <a name="preparation-before-installing-agents"></a>Preparazione prima dell'installazione degli agenti
 
 Prima di installare gli agenti nei computer che eseguono Windows, è necessario configurare il servizio Docker. La configurazione consente all'agente di Windows o all'estensione macchina virtuale Log Analytics di usare il socket TCP di Docker in modo che gli agenti possano accedere in remoto al daemon Docker e acquisire i dati per il monitoraggio.
 
-I dati sulle prestazioni non sono supportati nei computer che eseguono Windows.
-
-Per altre informazioni sulla configurazione del daemon Docker con Windows, vedere [Motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
-
 #### <a name="to-start-docker-and-verify-its-configuration"></a>Per avviare Docker e verificare la configurazione
 
-1.    In Windows PowerShell, abilitare pipe TCP e named pipe.
+Per configurare pipe TCP e named pipe per Windows Server, procedere come segue:
+
+1. In Windows PowerShell, abilitare pipe TCP e named pipe.
 
     ```
     Stop-Service docker
     dockerd --unregister-service
-    dockerd -H npipe:// -H 0.0.0.0:2375 --register-service
+    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
     Start-Service docker
     ```
 
-2.    Verificare la configurazione con Netstat. Dovrebbe essere visualizzata la porta 2375.
+2. Configurare Docker con il file di configurazione per pipe TCP e named pipe. Il file di configurazione è disponibile in C:\ProgramData\docker\config\daemon.json.
+
+    Nel file daemon.json, è necessario specificare quanto segue:
 
     ```
-    PS C:\Users\User1> netstat -a | sls 2375
-
-    TCP    127.0.0.1:2375         Win2016TP5:0           LISTENING
-    TCP    127.0.0.1:2375         Win2016TP5:49705       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49706       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49707       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49708       ESTABLISHED
-    TCP    127.0.0.1:49705        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49706        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49707        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49708        Win2016TP5:2375        ESTABLISHED
+    {
+    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
+    }
     ```
+
+Per altre informazioni sulla configurazione del daemon Docker usata con contenitori Windows, vedere [Motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+
 
 ### <a name="install-windows-agents"></a>Installare gli agenti Windows
 
 Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare gli agenti nei computer Windows che sono host del contenitore. Per i computer che eseguono Windows nell'ambiente locale, vedere [Collegare i computer di Windows a Log Analytics](log-analytics-windows-agents.md). Per le macchine virtuali eseguite in Azure, collegarle a Log Analytics usando l'[estensione macchina virtuale](log-analytics-azure-vm-extension.md).
+
+È possibile monitorare i contenitori Windows in esecuzione in Service Fabric. Solo le [macchine virtuali in esecuzione in Azure](log-analytics-azure-vm-extension.md) e i [computer che eseguono Windows nell'ambiente locale](log-analytics-windows-agents.md), tuttavia, sono attualmente supportati da Service Fabric.
 
 Per verificare che la soluzione Contenitori sia impostata correttamente:
 
@@ -160,7 +166,7 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 | --- | --- | --- | --- | --- | --- | --- |
 | Azure |![Sì](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |ogni 3 minuti |
 
-La tabella seguente mostra esempi di tipi di dati raccolti dalla soluzione Contenitori nonché i tipi di dati usati nella ricerca e nei risultati dei log. Tuttavia, i dati sulle prestazioni non sono ancora supportati nei computer che eseguono Windows.
+La tabella seguente mostra esempi di tipi di dati raccolti dalla soluzione Contenitori nonché i tipi di dati usati nella ricerca e nei risultati dei log.
 
 | Tipo di dati | Tipo di dati in Ricerca log | Fields |
 | --- | --- | --- |

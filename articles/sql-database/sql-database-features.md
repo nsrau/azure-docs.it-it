@@ -8,17 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
-ms.custom: features
+ms.custom: DBs & servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a1ede93b5aacf0d8a5bcf83f208f72be328ee72f
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9daf8be93216aefbcf02e3fcba44d048ab95b43d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -35,7 +36,7 @@ Altre funzionalità continueranno a essere aggiunte al database SQL. È quindi c
 | --- | :---: | :---: | 
 | Replica geografica attiva | Non supportata, vedere [Gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Supportato](sql-database-geo-replication-overview.md)
 | Always Encrypted | [Supportato](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Supportata, vedere [Archivio certificati](sql-database-always-encrypted.md) e [Key Vault](sql-database-always-encrypted-azure-key-vault.md)|
-| Gruppi di disponibilità AlwaysOn | [Supportato](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Non supportato: vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md) |
+| Gruppi di disponibilità AlwaysOn | [Supportato](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Non supportato: vedere [Replica geografica attiva](sql-database-geo-replication-overview.md) |
 | Collegamento di un database | [Supportato](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Non supportate |
 | Ruoli applicazione | [Supportato](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | [Supportato](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) |
 | Scalabilità automatica | Non supportate | Supportata, vedere [Livelli di servizio](sql-database-service-tiers.md) |
@@ -87,7 +88,7 @@ Altre funzionalità continueranno a essere aggiunte al database SQL. È quindi c
 | Supporto di dati JSON | [Supportato](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Supportato](sql-database-json-features.md) |
 | Elementi del linguaggio | [Supportato](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Supportati per la maggior parte, vedere i [singoli elementi](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) |  
 | Server collegati | [Supportato](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Non supportato: vedere [Query elastica](sql-database-elastic-query-horizontal-partitioning.md) |
-| Log shipping | [Supportato](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Non supportato: vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md) |
+| Log shipping | [Supportato](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Non supportato: vedere [Replica geografica attiva](sql-database-geo-replication-overview.md) |
 | Master Data Services (MDS) | [Supportato](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Non supportate |
 | Registrazione minima nell'importazione bulk | [Supportato](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Non supportate |
 | Modifica dei dati di sistema | [Supportato](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Non supportate |
@@ -126,7 +127,7 @@ Altre funzionalità continueranno a essere aggiunte al database SQL. È quindi c
 | Transazioni | [Supportato](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) | [Supportato](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) |
 | Variabili | [Supportato](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | [Supportato](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 
 | Transparent data encryption (TDE)  | [Supportato](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | [Supportato](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
-| Windows Server Failover Clustering | [Supportato](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Non supportato: vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md) |
+| Windows Server Failover Clustering | [Supportato](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Non supportato: vedere [Replica geografica attiva](sql-database-geo-replication-overview.md) |
 | Indici XML | [Supportato](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | [Supportato](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) |
 
 ## <a name="next-steps"></a>Passaggi successivi

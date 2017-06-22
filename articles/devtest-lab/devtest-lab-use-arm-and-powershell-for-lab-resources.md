@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 8ee0301a48265b91f951c96c3339a3c3e3bdb1cb
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cea4531175df2cc39790497dc049d27e23ffa0c6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -32,9 +33,9 @@ In questo articolo viene descritto il processo di utilizzo di questi modelli e s
 È possibile trovare [modelli di Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) e [script di PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) preconfigurati nel nostro [repository Github](https://github.com/Azure/azure-devtestlab) pubblico. Usarli così come sono o personalizzarli in base alle proprie esigenze e archiviarli nel proprio [repository Git privato](devtest-lab-add-artifact-repo.md). 
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Passaggio 2: modificare il modello di Azure Resource Manager
-Nell'articolo [Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md) viene illustrato come usare i modelli di Azure Resource Manager all'interno di DevTest Labs per definire l'infrastruttura e la configurazione della soluzione di Azure e distribuire ripetutamente più macchine virtuali in uno stato coerente.
+Se non è mai stato creato un modello, è possibile seguire i passaggi forniti in [Creare il primo modello di Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template).
 
-Se ad esempio è stata creata una nuova rete virtuale e si intende applicarla a tutti i propri lab esistenti, è possibile farlo rapidamente tramite un modello di Azure Resource Manager.
+Inoltre, l'articolo [Procedure consigliate per la creazione di modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) offre molti suggerimenti e linee guida per creare modelli di Azure Resource Manager affidabili e semplici da usare. In genere, si userà una variazione di uno degli approcci o esempi forniti, modificando il modello in base alle esigenze.
 
 ## <a name="step-3-deploy-resources-with-powershell"></a>Passaggio 3: distribuire le risorse con PowerShell
 Dopo aver personalizzato i modelli e gli script, seguire i passaggi necessari per [distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). L'articolo contiene informazioni generali sull'uso di Azure PowerShell con i modelli di Azure Resource Manager per distribuire le risorse in Azure.

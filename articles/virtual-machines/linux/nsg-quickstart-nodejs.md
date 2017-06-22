@@ -11,12 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f2640725660f5f5d5da0badafc55afc7079d5d24
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 847bc76c37ed929851712ba1c12463a01032e267
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -28,7 +29,7 @@ Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tra
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#quick-commands): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
+- [Interfaccia della riga di comando di Azure 2.0](nsg-quickstart.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
@@ -38,35 +39,45 @@ Per creare un gruppo di sicurezza di rete e le regole, è necessario che sia ins
 azure config mode arm
 ```
 
-Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `myNetworkSecurityGroup` e `myVnet`.
+Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
 
-Creare il gruppo di sicurezza di rete immettendo nomi e percorso in modo appropriato. Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup` nella località `WestUS`:
+Creare il gruppo di sicurezza di rete immettendo nomi e percorso in modo appropriato. L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup* nella posizione *eastus*:
 
 ```azurecli
-azure network nsg create --resource-group myResourceGroup --location westus \
+azure network nsg create \
+    --resource-group myResourceGroup \
+    --location eastus \
     --name myNetworkSecurityGroup
 ```
 
-Aggiungere una regola per consentire il traffico HTTP al server Web o regolare per scenario in uso, come l'accesso SSH o la connettività al database. L'esempio seguente crea una regola denominata `myNetworkSecurityGroupRule` per consentire il traffico TCP sulla porta 80:
+Aggiungere una regola per consentire il traffico HTTP al server Web o regolare per scenario in uso, come l'accesso SSH o la connettività al database. L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRule* per consentire il traffico TCP sulla porta 80:
 
 ```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1000 \
-    --destination-port-range 80 --access allow
+azure network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRule \
+    --protocol tcp \
+    --direction inbound \
+    --priority 1000 \
+    --destination-port-range 80 \
+    --access allow
 ```
 
-Associare il gruppo di sicurezza di rete con l'interfaccia di rete (NIC) della VM. L'esempio seguente associa una scheda di interfaccia di rete denominata `myNic` con il gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
+Associare il gruppo di sicurezza di rete con l'interfaccia di rete (NIC) della VM. L'esempio seguente associa una scheda di interfaccia di rete esistente denominata *myNic* al gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
 
 ```azurecli
-azure network nic set --resource-group myResourceGroup \
-    --network-security-group-name myNetworkSecurityGroup --name myNic
+azure network nic set \
+    --resource-group myResourceGroup \
+    --network-security-group-name myNetworkSecurityGroup \
+    --name myNic
 ```
 
-In alternativa, è possibile associare il gruppo di sicurezza di rete con una subnet di rete virtuale invece della sola interfaccia di rete in una singola VM. L'esempio seguente associa una subnet esistente denominata `mySubnet` nella rete virtuale `myVnet` con il gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
+In alternativa, è possibile associare il gruppo di sicurezza di rete con una subnet di rete virtuale invece della sola interfaccia di rete in una singola VM. L'esempio seguente associa una subnet esistente denominata *mySubnet* nella rete virtuale *myVnet* al gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
 
 ```azurecli
-azure network vnet subnet set --resource-group myResourceGroup \
+azure network vnet subnet set \
+    --resource-group myResourceGroup \
     --network-security-group-name myNetworkSecurityGroup \
     --vnet-name myVnet --name mySubnet
 ```

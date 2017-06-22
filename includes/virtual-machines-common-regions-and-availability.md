@@ -79,7 +79,7 @@ In Azure vengono create VM da un'immagine. In genere le immagini provengono da [
 
 Quando si crea una VM da un'immagine ricavata da Azure Marketplace, di fatto si utilizzano modelli. I modelli di Azure Resource Manager sono file JavaScript Object Notation (JSON) dichiarativi utilizzabili per creare ambienti applicativi complessi che comprendono VM, archiviazione, rete virtuale e così via. Sono disponibili altre informazioni sull'uso dei [modelli di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) e su come [compilare modelli personalizzati](../articles/resource-group-authoring-templates.md).
 
-È anche possibile creare immagini personalizzate e caricarle usando l'[interfaccia della riga di comando di Azure](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per creare rapidamente macchine virtuali personalizzate in base a requisiti di compilazione specifici.
+È anche possibile creare immagini personalizzate e caricarle usando l'[interfaccia della riga di comando di Azure](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Azure PowerShell](../articles/virtual-machines/windows/upload-generalized-managed.md) per creare rapidamente macchine virtuali personalizzate in base a requisiti di compilazione specifici.
 
 ## <a name="availability-sets"></a>Set di disponibilità
 Un set di disponibilità è un raggruppamento logico di macchine virtuali che permette ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando una sola VM usa [Archiviazione Premium di Azure](../articles/storage/storage-premium-storage.md), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. Un set di disponibilità comprende due raggruppamenti aggiuntivi che proteggono dagli errori hardware (domini di errore) e consentono di applicare gli aggiornamenti in modo sicuro (domini di aggiornamento).
@@ -93,6 +93,13 @@ Un dominio di errore è un raggruppamento logico di tutto l'hardware sottostante
 
 #### <a name="managed-disk-fault-domains-and-availability-sets"></a>Set di disponibilità e domini di errore dei dischi gestiti
 Le VM che usano [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md) sono allineate con i domini di errore dei dischi gestiti quando si usa un set di disponibilità gestito. Questo allineamento garantisce che tutti i dischi gestiti collegati a una VM siano nello stesso dominio di errore dei dischi gestiti. In un set di disponibilità gestito possono essere create solo VM con dischi gestiti. Il numero di domini di errore dei dischi gestiti varia in base all'area: due o tre domini di errore di dischi gestiti per area.
+
+![Domini di errore dei dischi gestiti](./media/virtual-machines-common-manage-availability/md-fd.png)
+
+> [!IMPORTANT]
+> Il numero di domini di errore per i set di disponibilità gestiti dipende dall'area: due o tre per area. La tabella seguente illustra il numero per area
+
+[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
 ### <a name="update-domains"></a>Domini di aggiornamento
 Un dominio di aggiornamento è un gruppo logico di hardware sottostante che può essere sottoposto a manutenzione oppure riavviato nello stesso momento. Man mano che si creano le macchine virtuali all'interno di un set di disponibilità, la piattaforma Azure le distribuisce automaticamente in questi domini di aggiornamento. Questo approccio garantisce che almeno un'istanza dell'applicazione rimanga in esecuzione durante gli interventi di manutenzione periodica della piattaforma Azure. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante la manutenzione pianificata, ma ne viene riavviato uno solo alla volta.

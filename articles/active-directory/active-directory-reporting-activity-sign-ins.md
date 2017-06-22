@@ -1,6 +1,7 @@
 ---
-title: "Report delle attività di accesso nel portale di Azure Active Directory, anteprima | Microsoft Docs"
-description: "Introduzione ai report delle attività di accesso nell&quot;anteprima del portale di Azure Active Directory"
+
+title: "Report delle attività di accesso nel portale di Azure Active Directory | Microsoft Docs"
+description: "Introduzione ai report delle attività di accesso nel portale di Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Report delle attività di accesso nel portale di Azure Active Directory, anteprima
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
-I report nell'[anteprima](active-directory-preview-explainer.md) di Azure Active Directory offrono tutte le informazioni necessarie per determinare il funzionamento dell'ambiente.
+I report di Azure Active Directory (Azure AD) nel [portale di Azure](https://portal.azure.com) offrono tutte le informazioni necessarie per determinare lo stato dell'ambiente.
 
 L'architettura di reporting in Azure Active Directory include i componenti seguenti:
 
@@ -44,7 +46,7 @@ Le informazioni contenute nel report relativo all'accesso utente consentono di r
 * Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
 * Qual è lo stato di questi accessi?
 
-Il primo punto di ingresso a tutte le attività di accesso è **Accessi** nella sezione **Attività** di Azure Active Directory.
+Il primo punto di ingresso a tutte le attività di accesso è **Accessi** nella sezione **Attività** di Azure Active
 
 
 ![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/61.png "Attività di accesso")

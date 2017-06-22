@@ -3,7 +3,7 @@ title: Come ottenere la certificazione AppSource per Azure Active Directory | Do
 description: Leggere i dettagli su come ottenere la certificazione AppSource per Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: skwan
+author: andretms
 manager: mbaldwin
 editor: 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
@@ -13,10 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/28/2017
-ms.author: skwan;bryanla
-translationtype: Human Translation
+ms.author: andret
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e1299c1f7f8a31f7034fc0736fcd9d66153a9758
 ms.openlocfilehash: 3290a375963bc3e625cbdb05b5f9686e8cfb34f6
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
 
 
@@ -45,7 +47,7 @@ La sezione dei commenti Disqus riportata di seguito consente di fornire commenti
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#guides
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
 
 
 <!--Image references-->

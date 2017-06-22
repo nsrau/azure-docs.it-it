@@ -1,5 +1,6 @@
 ---
-title: Introduzione all&quot;API di creazione report di Azure AD | Documentazione Microsoft
+
+title: Introduzione all&quot;API di creazione report di Azure AD | Microsoft Docs
 description: Come iniziare a usare l&quot;API di creazione report di Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3a8e9c802c265dacd1b8c3688855ce6ec0d90bb1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 414e6b0f23616f8f3d059f250335b0e530729741
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -26,7 +29,7 @@ ms.openlocfilehash: 3a8e9c802c265dacd1b8c3688855ce6ec0d90bb1
 Azure Active Directory fornisce una serie di report. I dati di questi report possono essere molto utili per le applicazioni, ad esempio i sistemi SIEM e gli strumenti di controllo e business intelligence. L'API di creazione report di Azure AD fornisce l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare le API da numerosi linguaggi di programmazione e strumenti.
 
 Questo articolo riporta le informazioni necessarie per iniziare con le API di creazione report di Azure AD.
-Nella sezione successiva sono riportate ulteriori informazioni sull'utilizzo delle API di controllo e di accesso. Per tutte le altre API, vedere l'articolo di [anteprima sui report e gli eventi di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) .
+Nella sezione successiva sono riportate ulteriori informazioni sull'utilizzo delle API di controllo e di accesso. Per tutte le altre API, vedere l'articolo di [sui report e gli eventi di Azure AD (anteprima)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview).
 
 Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
@@ -43,10 +46,5 @@ Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di r
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si è curiosi di vedere tutti gli endpoint disponibili dell'API Graph di Azure AD, passare ad [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

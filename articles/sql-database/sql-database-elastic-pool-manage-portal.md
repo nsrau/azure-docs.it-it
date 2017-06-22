@@ -11,14 +11,15 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 04/18/2016
+ms.date: 05/08/2017
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 66f7cc63d311b6b5cd223fe0d8a9bf9f636abef1
+ms.contentlocale: it-it
 ms.lasthandoff: 04/20/2017
 
 
@@ -30,7 +31,7 @@ Questo argomento illustra come creare e gestire [pool elastici](sql-database-ela
 
 Esistono due modi per creare un pool elastico. È possibile farlo da zero se si conosce la configurazione del pool da usare oppure iniziare con una raccomandazione fornita dal servizio. Il database SQL integra informazioni in base alle quali viene suggerita una configurazione del pool elastico nel caso risulti più conveniente secondo i dati di telemetria relativi all'uso precedente dei database.
 
-È possibile creare più pool in un server, ma non aggiungere database da diversi server nello stesso pool. 
+È possibile creare più pool in un server, ma non aggiungere database da diversi server nello stesso pool.
 
 > [!NOTE]
 > I pool elastici sono disponibili a livello generale in tutte le aree di Azure tranne India occidentale, dove sono attualmente in anteprima.  I pool elastici verranno resi disponibili a livello generale in quest'area non appena possibile.
@@ -158,7 +159,7 @@ L'immagine seguente illustra un esempio di pool elastico. La visualizzazione inc
 
     ![Fare clic su Modifica](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
-    
+
 
 3. Fare quindi clic su **OK**.
 

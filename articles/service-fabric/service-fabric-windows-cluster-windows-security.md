@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/28/2017
 ms.author: ryanwi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
 ms.openlocfilehash: b8842047351da6fdb547e0b09492b89fad962bee
+ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
 
 
@@ -34,7 +35,6 @@ Il file di configurazione di esempio *ClusterConfig.gMSA.Windows.MultiMachine.JS
 
 ```  
 "security": {  
-            "ServerCredentialType": "Windows",  
             "WindowsIdentities": {  
                 "ClustergMSAIdentity": "accountname@fqdn"  
                 "ClusterSPN": "fqdn"  

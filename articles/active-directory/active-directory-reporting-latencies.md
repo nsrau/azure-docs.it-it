@@ -1,5 +1,5 @@
 ---
-title: Latenze dei report di Azure Active Directory | Documentazione Microsoft
+title: Latenze dei report di Azure Active Directory | Microsoft Docs
 description: Tempo necessario per la visualizzazione in Azure Active Directory degli eventi dei report
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 9443a00232420d58dea52ed01f31a4ef964a1620
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -34,6 +36,7 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | Accessi da dispositivi potenzialmente infetti |2 ore |4 ore |8 ore |
 | Utenti con anomalie dell'attività di accesso |2 ore |4 ore |8 ore |
 | Utenti con credenziali perse |2 ore |4 ore |8 ore |
+| Attività di accesso di tutti gli utenti |2 ore |4 ore |8 ore |
 | **Report sull'applicazione** | | | |
 | Attività di provisioning dell'account |2 ore |4 ore |8 ore |
 | Errori di provisioning dell'account |2 ore |4 ore |8 ore |
@@ -52,12 +55,5 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | Utilizzo di RMS |2 ore |4 ore |8 ore |
 | Utilizzo dispositivi RMS |2 ore |4 ore |8 ore |
 | Utilizzo applicazioni abilitate per RMS |2 ore |4 ore |8 ore |
-| **Report di anteprima personalizzati** | | | |
-| Attività di accesso di tutti gli utenti |2 ore |4 ore |8 ore |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
+ms.contentlocale: it-it
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -87,10 +89,5 @@ Lo script restituisce l'output del report sugli accessi in formato JSON. Crea an
 * Si desidera personalizzare gli esempi contenuti in questo argomento? Consultare la pagina [Riferimento API del report sull'attività di accesso di Azure Active Directory](active-directory-reporting-api-sign-in-activity-reference.md). 
 * Se si desidera visualizzare una panoramica completa sull'uso dell'API di creazione report di Azure Active Directory, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

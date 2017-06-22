@@ -12,10 +12,6 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Usare un gateway simulato 
-#### [Simulazione in Linux](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Simulazione in Windows](iot-hub-windows-gateway-sdk-get-started.md)
-
 ### Usare un dispositivo fisico
 #### [Raspberry Pi con Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi con C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -28,9 +24,11 @@
 #### [Adafruit Feather M0 con IDE Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Usare lo starter kit per il gateway IoT
-##### [Configurare Intel NUC come gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Connettere il gateway IoT all'hub IoT](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Usare il gateway IoT per la conversione dei dati](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Configurare Intel NUC come gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Connettere il gateway all'hub IoT](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Usare il gateway per la conversione dei dati](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Usare un simulatore di dispositivi online](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Gestire la messaggistica dei dispositivi cloud con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Salvare i messaggi dell'hub IoT nell'archivio dati di Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [Supporto di protocolli aggiuntivi](iot-hub-protocol-gateway.md)
 ## [Sviluppo](iot-hub-how-to.md)
 ### [Guida per sviluppatori](iot-hub-devguide.md)
-#### [Inviare e ricevere messaggi](iot-hub-devguide-messaging.md)
 #### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
 #### [Cloud-to-device feature guide](iot-hub-devguide-c2d-guidance.md)
+#### [Inviare e ricevere messaggi](iot-hub-devguide-messaging.md)
+##### [Inviare messaggi da dispositivo a cloud all'hub IoT](iot-hub-devguide-messages-d2c.md)
+##### [Leggere messaggi da dispositivo a cloud dall'endpoint predefinito](iot-hub-devguide-messages-read-builtin.md)
+##### [Usare endpoint personalizzati e regole di routing per i messaggi da dispositivo a cloud](iot-hub-devguide-messages-read-custom.md)
+##### [Inviare messaggi da cloud a dispositivo dall'hub IoT](iot-hub-devguide-messages-c2d.md)
+##### [Creare e leggere messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md)
 #### [Caricare file da un dispositivo](iot-hub-devguide-file-upload.md)
 #### [Gestire le identità dei dispositivi](iot-hub-devguide-identity-registry.md)
 #### [Controllare l'accesso all'hub IoT](iot-hub-devguide-security.md)
 #### [Informazioni sui dispositivi gemelli](iot-hub-devguide-device-twins.md)
 #### [Richiamare metodi diretti in un dispositivo](iot-hub-devguide-direct-methods.md)
 #### [Pianificare processi in più dispositivi](iot-hub-devguide-jobs.md)
+#### [Scegliere un protocollo di comunicazione](iot-hub-devguide-protocols.md)
 #### [Endpoint hub IoT](iot-hub-devguide-endpoints.md)
 #### [Linguaggio di query](iot-hub-devguide-query-language.md)
 #### [Quote e limitazione](iot-hub-devguide-quotas-throttling.md)
@@ -78,6 +82,7 @@
 ### Introduzione ai dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-getstarted.md)
+#### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Usare metodi diretti
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +90,7 @@
 ### Introduzione alla gestione dei dispositivi
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Back-end Java/Dispositivo Java](iot-hub-java-java-device-management-getstarted.md)
 ### Come usare le proprietà dei dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -116,20 +122,24 @@
 ### [Procedure di sicurezza consigliate](iot-hub-security-best-practices.md)
 ### [Architettura di sicurezza](iot-hub-security-architecture.md)
 ### [Proteggere la distribuzione di IoT](iot-hub-security-deployment.md)
-## Gateway SDK
+## IoT Edge
+### Introduzione
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Simulare un dispositivo
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Usare un dispositivo reale](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Usare un dispositivo reale](iot-hub-iot-edge-physical-device.md)
 
 # Riferimento
-## [Anteprima dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/iot)
+## [Interfaccia della riga di comando di Azure 2.0](/cli/azure/iot)
 ## [.NET (servizio)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (dispositivi)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (servizio)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (dispositivi)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
-## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
+## [SDK per Node.js](http://azure.github.io/azure-iot-sdk-node/)
+## [SDK per dispositivi C](https://azure.github.io/azure-iot-sdk-c/index.html)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (provider di risorse)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (identità dispositivi)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [REST (dispositivi gemelli)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
@@ -154,3 +164,4 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centro per sviluppatori Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Catalogo dei dispositivi Azure Certified per IoT](https://catalog.azureiotsuite.com/)
+## [Case study tecnici](https://microsoft.github.io/techcasestudies/#technology=IoT)

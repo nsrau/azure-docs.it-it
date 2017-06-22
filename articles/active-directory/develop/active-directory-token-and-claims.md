@@ -2,7 +2,7 @@
 title: Informazioni sui diversi tipi di token e di attestazione supportati da Azure AD | Documentazione Microsoft
 description: Una guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JSON Web Tokens (JWT) emessi da Azure Active Directory (AAD)
 documentationcenter: na
-author: bryanla
+author: dstrockis
 services: active-directory
 manager: mbaldwin
 editor: 
@@ -13,10 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
-ms.author: mbaldwin
-translationtype: Human Translation
+ms.author: dastrock
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
 ms.openlocfilehash: 46702abb229ba0a6512f336cb0aa4e4a75b51771
+ms.contentlocale: it-it
 ms.lasthandoff: 02/18/2017
 
 

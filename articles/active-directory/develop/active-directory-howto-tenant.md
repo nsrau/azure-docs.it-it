@@ -3,7 +3,7 @@ title: Come ottenere un tenant di Azure AD | Microsoft Docs
 description: Come ottenere un tenant di Azure Active Directory per la registrazione e la creazione di applicazioni.
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: bryanla
 manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/28/2015
-ms.author: dastrock
-translationtype: Human Translation
+ms.author: bryanla
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.contentlocale: it-it
 ms.lasthandoff: 04/14/2017
 
 

@@ -3,7 +3,7 @@ title: Sospendere, riprendere e ridimensionare con REST in Azure SQL Data Wareho
 description: "Attività di PowerShell per la gestione della potenza di calcolo. Ridimensionare le risorse di calcolo cambiando il numero di DWU. In alternativa, sospendere e riprendere le risorse di calcolo per ridurre i costi."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: barbkess
 editor: 
 ms.assetid: 21de7337-9356-49bb-a6eb-06c1beeba2c4
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 548e61004bd95d9e785fea438eb8b81aa63f1739
+ms.contentlocale: it-it
 ms.lasthandoff: 03/28/2017
 
 

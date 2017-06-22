@@ -8,17 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/17/2017
+ms.topic: hero-article
+ms.date: 05/24/2017
 ms.author: lbosq
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4d3c3541749870b09aecc9efb63413f7c045e044
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,14 +27,17 @@ ms.lasthandoff: 04/21/2017
 
 Questa guida introduttiva illustra come connettersi a un database SQL di Azure tramite [Node.js](https://nodejs.org/en/) e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database da piattaforme Windows, Ubuntu Linux e Mac OS.
 
-Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide seguenti:
+## <a name="prerequisites"></a>Prerequisiti
+
+Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
 - [Creare un database: portale](sql-database-get-started-portal.md)
 - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+- [Creare un database: PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-nodejs"></a>Installare Node.js 
 
-Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo tramite Node.js ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con Node.js, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server), selezionare **Node.js** e quindi il sistema operativo in uso.
+Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo con Node.js ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con Node.js, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server), selezionare **Node.js** e quindi il sistema operativo in uso.
 
 ### <a name="mac-os"></a>**Mac OS**
 Immettere i comandi seguenti per installare **brew**, una gestione pacchetti facile da usare per Mac OS X e **Node.js**.
@@ -254,14 +258,10 @@ function deleteFromDatabase(){
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+- [Progettare il primo database SQL di Azure](sql-database-design-first-database.md)
+- [Driver Microsoft Node.js per SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
+- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
+- [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md)
 
-- Altre informazioni sui [driver Microsoft Node.js per SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- Per connettersi ed effettuare una query usando SQL Server Management Studio, vedere [Connettersi ed eseguire una query con SSMS](sql-database-connect-query-ssms.md)
-- Per connettersi ed eseguire query usando Visual Studio, vedere [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Per connettersi ed eseguire query usando .NET, vedere [Connettersi ed eseguire query con .NET](sql-database-connect-query-dotnet.md).
-- Per connettersi ed eseguire query usando PHP, vedere [Connettersi ed eseguire query con PHP](sql-database-connect-query-php.md).
-- Per connettersi ed eseguire query usando Java, vedere [Connettersi ed eseguire query con Java](sql-database-connect-query-java.md).
-- Per connettersi ed eseguire query usando Python, vedere [Connettersi ed eseguire query con Python](sql-database-connect-query-python.md).
-- Per connettersi ed eseguire query usando Ruby, vedere [Connettersi ed eseguire query con Ruby](sql-database-connect-query-ruby.md).
 
 

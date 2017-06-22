@@ -3,7 +3,7 @@ title: Risoluzione dei problemi relativi a dati non disponibili in Application I
 description: "I dati non vengono visualizzati in Azure Application Insights Risposte ai problemi più comuni."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights

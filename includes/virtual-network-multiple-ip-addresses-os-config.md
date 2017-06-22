@@ -32,7 +32,7 @@ Per assicurarsi che sia possibile connettersi a Internet dalla configurazione de
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->È possibile effettuare il ping a Internet solo se all'indirizzo IP privato usato in precedenza è associato un indirizzo IP pubblico.
+>Per le configurazioni IP secondarie, è possibile effettuare il ping a Internet solo se alla configurazione è associato un indirizzo IP pubblico. Per le configurazioni IP primarie, non è necessario un indirizzo IP pubblico per il ping a Internet.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
@@ -161,7 +161,7 @@ Per assicurarsi che sia possibile connettersi a Internet dalla configurazione de
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->È possibile effettuare il ping a Internet solo se all'indirizzo IP privato usato in precedenza è associato un indirizzo IP pubblico.
+>Per le configurazioni IP secondarie, è possibile effettuare il ping a Internet solo se alla configurazione è associato un indirizzo IP pubblico. Per le configurazioni IP primarie, non è necessario un indirizzo IP pubblico per il ping a Internet.
 
 Per le macchine virtuali Linux, quando si prova a convalidare la connettività in uscita da una scheda di interfaccia di rete secondaria, potrebbe essere necessario aggiungere le route appropriate. Per eseguire questa operazione è possibile procedere in molti modi. Per informazioni sulla distribuzione Linux, vedere la documentazione appropriata. Ecco un metodo per ottenere questo risultato:
 

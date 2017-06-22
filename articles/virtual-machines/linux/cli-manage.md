@@ -1,6 +1,6 @@
 ---
-title: Comandi di base dell&quot;interfaccia della riga di comando di Azure per Linux e Mac | Microsoft Docs
-description: "Comandi di base dell&quot;interfaccia della riga di comando di Azure per iniziare a gestire le VM in modalità Azure Resource Manager in Linux e Mac"
+title: Comandi comuni dell&quot;interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
+description: "Informazioni sui comandi comuni dell&quot;interfaccia della riga di comando di Azure 2.0 per iniziare a gestire le VM in modalità Azure Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/23/2016
+ms.date: 05/12/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 59a0f28561757ad065e9add5fcf92f997346cc84
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 091bba93bd9730f3fea0aa8667cfdcda2d7aa0ed
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="common-azure-cli-commands-on-linux-and-mac"></a>Comandi comuni dell'interfaccia della riga di comando di Azure per Linux e Mac
+# <a name="common-azure-cli-20-commands-for-managing-azure-resources"></a>Comandi dell'interfaccia della riga di comando di Azure 2.0 comuni per la gestione delle risorse di Azure
 [!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]
 
 

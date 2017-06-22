@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 570688ae363e223d792bec8e6b13d4ec50412130
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 41522a85cac05304b3ae60c45b48920eefbe8f5c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -61,7 +62,7 @@ Integrità risorse esegue vari controlli in base al [tipo di risorsa](resource-h
 Esistono tre stati di integrità diversi:
 1. Disponibile: non si sono verificati problemi noti nella piattaforma Azure che potrebbero influire sulla risorsa
 2. Non disponibile: Integrità risorse ha rilevato problemi che influiscono sulla risorsa
-3. Sconosciuto: Integrità risorse può determinare lo stato di integrità di una risorsa perché non riceve più informazioni su di essa. 
+3. Sconosciuto: Integrità risorse non può determinare l'integrità di una risorsa perché non riceve più informazioni su di essa. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>Che cosa significa lo stato Sconosciuto? Indica un problema relativo alla risorsa?
 Lo stato di integrità è impostato su Sconosciuto quando Integrità risorse non riceve più informazioni su una risorsa specifica. Sebbene non si tratti di un'indicazione definitiva dello stato della risorsa, in caso di errata esecuzione, potrebbe indicare la presenza di un problema di Azure.

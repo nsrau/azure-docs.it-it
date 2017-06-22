@@ -3,7 +3,7 @@ title: Risorse, ruoli e controllo di accesso in Azure Application Insights | Mic
 description: Proprietari, collaboratori e lettori di informazioni dell&quot;organizzazione.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights

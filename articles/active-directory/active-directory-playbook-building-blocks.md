@@ -1,31 +1,33 @@
 ---
-title: Blocchi predefiniti dello studio sui modelli di verifica di Azure Active Directory | Microsoft Docs
+
+title: Blocchi predefiniti del playbook dei modelli di verifica di Azure Active Directory | Microsoft Docs
 description: "Esplorare e implementare rapidamente gli scenari di Gestione delle identità e degli accessi"
 services: active-directory
 keywords: azure active directory, studio, modello di verifica, PoC
 documentationcenter: 
 author: dstefanMSFT
-manager: asuthar
+manager: femila
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 05/04/2017
 ms.author: dstefan
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b6f26a338450619cef012467bf78b9469622ba08
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Studio sui modelli di verifica di Azure Active Directory: Blocchi predefiniti
+# <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
-## <a name="catalog-of-actors"></a>Catalogo degli attori
+## <a name="catalog-of-roles"></a>Catalogo dei ruoli
 
-| Attore | Descrizione | Responsabilità PoC |
+| Ruolo | Descrizione | Responsabilità del modello di verifica |
 | --- | --- | --- |
 | **Team di sviluppo e architettura identità** | Questo è in genere quello che progetta la soluzione, implementa i prototipi, indirizza le approvazioni e gestisce le consegne al team operativo | Disponibilità degli ambienti e valutazione dei diversi scenari dal punto di vista della gestibilità |
 | **Team di gestione dell'identità locale** | Gestisce le diverse origini di identità locali: foreste di Active Directory, directory LDAP, sistemi HR e provider di identità federativa. | Disponibilità dell'accesso alle risorse locali necessarie per gli scenari PoC.<br/>Deve essere coinvolto nella misura minore possibile|
@@ -42,7 +44,7 @@ Di seguito sono riportati alcuni prerequisiti necessari per qualsiasi modello di
 | Prerequisito. | Risorse |
 | --- | --- |
 | Tenant di Azure AD definito con una sottoscrizione di Azure valida | [Come ottenere un tenant di Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** se si ha già un ambiente con licenze di Azure AD Premium, accedere a https://aka.ms/accessaad per ottenere una sottoscrizione gratuita <br/>Per altre informazioni, vedere: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
-| Domini definiti e verificati | [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** alcuni carichi di lavoro, ad esempio Power BI, possono avere eseguito il provisioning di un tenant di azure AD dietro le quinte. Per verificare se un determinato dominio è associato a un tenant, passare a https://login.microsoftonline.com/ {dominio}/v2.0/.well-known/openid-configuration. Se si ottiene una risposta positiva, il dominio è già assegnato a un tenant e potrebbe essere necessario acquisire la proprietà. In questo caso, contattare Microsoft per le istruzioni. Altre informazioni sulle opzioni di acquisizione della proprietà sono disponibili in: [Informazioni sull'iscrizione self-service per Azure](active-directory-self-service-signup.md) |
+| Domini definiti e verificati | [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** alcuni carichi di lavoro, ad esempio Power BI, possono avere eseguito il provisioning di un tenant di azure AD dietro le quinte. Per verificare se un determinato dominio è associato a un tenant, passare a https://login.microsoftonline.com/{dominio}/v2.0/.well-known/openid-configuration. Se si ottiene una risposta positiva, il dominio è già assegnato a un tenant e potrebbe essere necessario acquisire la proprietà. In questo caso, contattare Microsoft per le istruzioni. Altre informazioni sulle opzioni di acquisizione della proprietà sono disponibili in: [Informazioni sull'iscrizione self-service per Azure](active-directory-self-service-signup.md) |
 | Versione di valutazione di Azure AD Premium o EMS abilitata | [Azure Active Directory Premium gratis per un mese](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Licenze di Azure AD Premium o EMS assegnate agli utenti dei modelli di verifica | [Concessione di licenze a se stessi e agli utenti in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Credenziali di amministratore globale di Azure AD | [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
@@ -151,7 +153,7 @@ Tempo previsto per il completamento: 60 minuti
 | Impostare una riunione di lavoro e seguire i passaggi dell'esercitazione con ogni attore. | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Assegnare l'app al gruppo identificato nei prerequisiti. Se il modello di verifica usa l'accesso condizionale nell'ambito, è possibile rivederlo in un secondo momento e aggiungere l'autenticazione a più fattori e altro ancora. <br/>Tenere presente che in questo modo si avvia il processo di provisioning (se configurato) |  [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Usare il portale di gestione di Azure AD per aggiungere l'applicazione ServiceNow dalla raccolta| [Portale di gestione di Azure AD: applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Novità della gestione delle applicazioni aziendali in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
-| Nel pannello "Single sign-on" dell'applicazione ServiceNow abilitare l'accesso Single Sign-On basato su SAML |  |
+| Nel pannello "Single sign-on" dell'app ServiceNow abilitare "SAML-based Sign-on" (Accesso basato su SAML) |  |
 | Compilare i campi "URL di accesso" e "Identificatore" con l'URL di ServiceNow<br/>Selezionare l'opzione che consente di rendere attivo il nuovo certificato<br/>e salvare le impostazioni |  |
 | Aprire il pannello "Configura ServiceNow" nella parte inferiore del riquadro per visualizzare le istruzioni per la configurazione di ServiceNow |  |
 | Seguire le istruzioni per configurare ServiceNow |  |
@@ -184,7 +186,7 @@ Tempo previsto per il completamento: 15 minuti
 | Passaggio | Risorse |
 | --- | --- |
 | Installare l'estensione browser | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configurare l'applicazione dalla raccolta | [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Raccolta di applicazioni con novità e miglioramenti](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Configurare l'applicazione dalla raccolta | [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Raccolta di applicazioni con novità e miglioramenti](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: accesso basato su password](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Assegnare l'app al gruppo identificato nei prerequisiti | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Accedere a https://myapps.microsoft.com/ come utente test con accesso |  |
@@ -210,7 +212,7 @@ Tempo previsto per il completamento: 30 minuti
 | Prerequisito. | Risorse |
 | --- | --- |
 | L'elenco di applicazioni di destinazione e gli URL di accesso esatti in anticipo. Ad esempio, è possibile usare Twitter. | [Twitter in Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Iscrizione a Twitter](https://twitter.com/signup?lang=en) |
-| Credenziali condivise per questa applicazione SaaS. | [Condivisione di account con Azure AD](active-directory-sharing-accounts.md)<br/>[Post sul rollover automatizzato delle password in Azure AD per Facebook, Twitter e LinkedIn nel blog su sicurezza e mobilità aziendale](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Credenziali condivise per questa applicazione SaaS. | [Condivisione di account con Azure AD](active-directory-sharing-accounts.md)<br/>[Post sul rollover automatizzato delle password in Azure AD per Facebook, Twitter e LinkedIn ora in anteprima nel blog su sicurezza e mobilità aziendale] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Credenziali per almeno due membri del team che accedono allo stesso account. Devono fare parte di un gruppo di sicurezza. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Accesso come amministratore locale a un computer per distribuire l'estensione Pannello di accesso per Internet Explorer, Firefox o Chrome | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -219,7 +221,7 @@ Tempo previsto per il completamento: 30 minuti
 | Passaggio | Risorse |
 | --- | --- |
 | Installare l'estensione browser | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configurare l'applicazione dalla raccolta | [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Raccolta di applicazioni con novità e miglioramenti](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Configurare l'applicazione dalla raccolta | [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Raccolta di applicazioni con novità e miglioramenti](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: Accesso basato su password](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Assegnare l'app al gruppo identificato nei prerequisiti quando si assegnano le credenziali | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Accedere come utenti diversi che accedono all'app come **stesso account condiviso.**  |  |
@@ -287,7 +289,7 @@ Tempo previsto per il completamento: 60 minuti
 | Aggiungere un connettore Generic LDAP | [Documentazione tecnica sul connettore Generic LDAP: Creare un nuovo connettore](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
 | Creare profili di esecuzione per il connettore creato (importazione completa, importazione delta, sincronizzazione completa, sincronizzazione delta, esportazione) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx) (Creare un profilo di esecuzione dell'agente di gestione)<br/> [Uso dei connettori con Sync Service Manager di Azure AD Connect](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Eseguire il profilo di importazione completa e verificare se sono presenti oggetti nello spazio connettore | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx) (Ricerca di un oggetto nello spazio connettore)<br/>[Sezione sulla ricerca nello spazio connettore in Uso dei connettori con Sync Service Manager di Azure AD Connect](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Creare regole di sincronizzazione in modo che gli oggetti nel metaverse abbiano gli attributi necessari per i carichi di lavoro | [Servizio di sincronizzazione Azure AD Connect: Procedure consigliate per modificare la configurazione predefinita: Modifiche apportate alle regole di sincronizzazione](/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
+| Creare regole di sincronizzazione in modo che gli oggetti nel metaverse abbiano gli attributi necessari per i carichi di lavoro | [Servizio di sincronizzazione Azure AD Connect: Procedure consigliate per modificare la configurazione predefinita: Modifiche apportate alle regole di sincronizzazione](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Avviare un ciclo di sincronizzazione completa | [Servizio di sincronizzazione Azure AD Connect: Utilità di pianificazione: Avviare l'utilità di pianificazione](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | In caso di problemi, eseguire le procedure per la risoluzione | [Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | Verificare che utente LDAP possa eseguire l'accesso e accedere all'applicazione | https://myapps.microsoft.com |
@@ -381,8 +383,8 @@ Tempo previsto per il completamento: 15 minuti
 | Prerequisito. | Risorse |
 | --- | --- |
 | Abilitare la gestione delle password self-service nel tenant. | [Reimpostazione delle password in Azure Active Directory per gli amministratori IT](active-directory-passwords.md) |
-| Abilitare il writeback delle password per gestire le password in locale. Si noti che questa operazione richiede versioni specifiche di Azure AD Connect | [Prerequisiti per il writeback delle password](active-directory-passwords-getting-started.md#writeback-prerequisites) |
-| Identificare gli utenti del modello di verifica che useranno questa funzionalità e verificare che siano membri di un gruppo di sicurezza. Gli utenti devono essere non amministratori per presentare completamente la funzionalità | [Personalizzare: Gestione delle password di Azure Active Directory: Limitare l'accesso per la reimpostazione delle password](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
+| Abilitare il writeback delle password per gestire le password in locale. Si noti che questa operazione richiede versioni specifiche di Azure AD Connect | [Prerequisiti per il writeback delle password](active-directory-passwords-writeback.md) |
+| Identificare gli utenti del modello di verifica che useranno questa funzionalità e verificare che siano membri di un gruppo di sicurezza. Gli utenti devono essere non amministratori per presentare completamente la funzionalità | [Personalizzare: Gestione delle password di Azure Active Directory: Limitare l'accesso per la reimpostazione delle password](active-directory-passwords-writeback.md) |
 
 
 ### <a name="steps"></a>Passi

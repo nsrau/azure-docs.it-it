@@ -1,6 +1,7 @@
 ---
-title: 'Report di Azure Active Directory: anteprima | Microsoft Docs'
-description: Elenca i vari report disponibili per l&quot;anteprima di Azure Active Directory
+
+title: Creazione di report in Azure Active Directory | Microsoft Docs
+description: Elenca i vari report disponibili per Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Report di Azure Active Directory: anteprima
+# <a name="azure-active-directory-reporting"></a>Creazione di report in Azure Active Directory
 
 
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
-I report nell'anteprima di Azure Active Directory forniscono tutte le informazioni necessarie per determinare come sta funzionando l'ambiente. [Cosa c'è nell'anteprima?](active-directory-preview-explainer.md)
+I report di Azure Active Directory (Azure AD) offrono tutte le informazioni necessarie per determinare lo stato dell'ambiente.
 
 Le aree principali dei report sono due:
 

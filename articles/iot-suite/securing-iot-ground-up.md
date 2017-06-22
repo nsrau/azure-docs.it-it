@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8b453c7fe85a60791867d1c49fc2350e5f51a489
-ms.openlocfilehash: 0e917d1594deefd2b2764b09dc8bea79420c0d37
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ad88c17e0c6bad7cb58c8517a47bbe5fe0fae763
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -86,7 +87,7 @@ Dalle comunicazioni crittografate all'elaborazione dei dati nel cloud, Azure IoT
 
 Una volta che i dati si trovano nel cloud, possono essere elaborati e archiviati in qualsiasi flusso di lavoro definito dall'utente. L'accesso a ogni parte dei dati viene controllato con Azure Active Directory, a seconda del servizio di archiviazione in uso.
 
-Tutte le chiavi usate dall'infrastruttura IoT vengono archiviate nel cloud in un archivio protetto, con la possibilità di eseguire il rollover nel caso in cui le chiavi debbano essere sottoposte a nuovo provisioning. I dati possono essere archiviati in [DocumentDB](../documentdb/documentdb-introduction.md) o nei [database SQL](../sql-database/sql-database-faq.md), consentendo la definizione del livello di protezione desiderato. In aggiunta, Azure offre un modo per monitorare e controllare tutti gli accessi ai dati, ricevendo avvertenze su qualsiasi intrusione o accesso non autorizzato.
+Tutte le chiavi usate dall'infrastruttura IoT vengono archiviate nel cloud in un archivio protetto, con la possibilità di eseguire il rollover nel caso in cui le chiavi debbano essere sottoposte a nuovo provisioning. I dati possono essere archiviati in [Azure Cosmos DB](../documentdb/documentdb-introduction.md) o nei [database SQL](../sql-database/sql-database-faq.md), consentendo la definizione del livello di protezione desiderato. In aggiunta, Azure offre un modo per monitorare e controllare tutti gli accessi ai dati, ricevendo avvertenze su qualsiasi intrusione o accesso non autorizzato.
 
 ## <a name="conclusion"></a>Conclusione
 L'Internet of Things inizia dagli elementi più importanti per le aziende. L'IoT può offrire all'azienda un valore incredibile riducendo i costi, aumentando i ricavi e trasformando l'azienda stessa. Il successo di questa trasformazione dipende in larga misura dalla scelta del provider giusto per il software e i servizi IoT. Ciò significa che la ricerca di un provider non solo catalizza questa trasformazione per comprendere le esigenze e i requisiti dell'azienda, ma fornisce anche servizi e software realizzati tenendo conto di aspetti di importanza fondamentale quali sicurezza, privacy, trasparenza e conformità. Microsoft vanta una grande esperienza nello sviluppo e nella distribuzione di servizi e software protetti e continua ad attestarsi leader in questa nuova era dell'Internet of Things. 
@@ -97,7 +98,7 @@ Azure IoT Suite di Microsoft include misure di sicurezza per impostazione predef
 Ogni soluzione preconfigurata Azure IoT Suite crea istanze di servizi di Azure, ad esempio le seguenti operazioni:
 
 * [**Hub IoT di Azure**](https://azure.microsoft.com/services/iot-hub/): il gateway che si connette al cloud delle "cose". È possibile arrivare a milioni di connessioni per hub ed elaborare grandi volumi di dati con supporto per l'autenticazione specifica per dispositivo che aiuta a proteggere la soluzione.
-* [**Azure DocumentDB**](https://azure.microsoft.com/services/documentdb/): un servizio di database scalabile e completamente indicizzato per i dati semistrutturati che gestiscono metadati per i dispositivi di cui si effettua il provisioning, ad esempio attributi, configurazione e proprietà di sicurezza. DocumentDB offre l'elaborazione ad alte prestazioni e velocità, indicizzazione dei dati senza schema e una ricca interfaccia di query SQL.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/documentdb/): un servizio di database scalabile e completamente indicizzato per i dati semistrutturati che gestiscono metadati per i dispositivi di cui si effettua il provisioning, ad esempio attributi, configurazione e proprietà di sicurezza. Cosmos DB offre l'elaborazione ad alte prestazioni e velocità effettiva elevata, indicizzazione dei dati senza schema e una ricca interfaccia di query SQL.
 * [**Analisi di flusso di Azure**](https://azure.microsoft.com/services/stream-analytics/): elaborazione del flusso in tempo reale nel cloud per sviluppare e distribuire rapidamente una soluzione di analisi a basso costo che consenta di rilevare informazioni approfondite in tempo reale da dispositivi, sensori, infrastruttura e applicazioni. I dati di questo servizio completamente gestito possono raggiungere qualsiasi volume anche in condizioni di velocità effettiva elevata, bassa latenza e resilienza.
 * [**Servizi app di Azure**](https://azure.microsoft.com/services/app-service/): il servizio app è una piattaforma cloud per la creazione di potenti app Web e per dispositivi mobili che si connettono ai dati ovunque si trovino, nel cloud o in locale. Creare app per dispositivi mobili coinvolgenti per iOS, Android e Windows. Eseguire l'integrazione con applicazioni Software as a Service (SaaS) e aziendali, grazie a connettività integrata a dozzine di applicazioni aziendali e servizi basati sul cloud. Scrivere codice usando IDE e il linguaggio preferito, .NET, Node.js, PHP, Python o Java, per creare app Web e API più rapidamente che mai.
 * [**App per la logica**](https://azure.microsoft.com/services/app-service/logic/): la funzionalità App per la logica del Servizio app di Azure consente di integrare la soluzione IoT con i sistemi line-of-business esistenti e di automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
@@ -124,3 +125,4 @@ Informazioni sulla protezione dell'hub IoT sono disponibili in [Controllare l'ac
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
+

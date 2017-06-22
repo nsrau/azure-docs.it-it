@@ -17,10 +17,10 @@ ms.date: 04/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 309a36b1aa5db95a287b7a6b21449f9d61880cf4
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
 ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -48,7 +48,7 @@ Le soluzioni preconfigurate usano in genere i servizi seguenti:
 
 * Il servizio principale di Azure IoT Suite è [Hub IoT di Azure][lnk-iot-hub]. Questo servizio fornisce funzionalità di messaggistica da dispositivo a cloud e da cloud a dispositivo e funge da gateway per il cloud e gli altri servizi chiave di IoT Suite. Il servizio consente di ricevere messaggi dai dispositivi su vasta scala e inviare i comandi ai dispositivi. Il servizio consente inoltre di [gestire i dispositivi][lnk-device-management]. È possibile, ad esempio, configurare, riavviare o eseguire un ripristino delle impostazioni predefinite per uno o più dispositivi connessi all'hub.
 * [Analisi di flusso di Azure][lnk-asa] offre l'analisi dei dati in movimento. IoT Suite usa questo servizio per elaborare i dati di telemetria in entrata, eseguire operazioni di aggregazione e rilevare gli eventi. Le soluzioni preconfigurate usando anche l'analisi di flusso per elaborare i messaggi informativi che contengono dati, ad esempio i metadati o le risposte ai comandi dai dispositivi. Le soluzioni usano Analisi di flusso per elaborare i messaggi dei dispositivi e inviare i messaggi ad altri servizi.
-* [Archiviazione di Azure][lnk-azure-storage] e [Azure DocumentDB][lnk-document-db] offrono le funzionalità di archiviazione dei dati. Le soluzioni preconfigurate usano l'archivio BLOB per archiviare i dati di telemetria e renderli disponibili per l'analisi. Le soluzioni usano DocumentDB per archiviare i metadati e abilitare le funzionalità di gestione di dispositivi delle soluzioni.
+* [Archiviazione di Azure][lnk-azure-storage] e [Azure Cosmos DB][lnk-document-db] offrono le funzionalità di archiviazione dati. Le soluzioni preconfigurate usano l'archivio BLOB per archiviare i dati di telemetria e renderli disponibili per l'analisi. Le soluzioni usano Cosmos DB per archiviare i metadati dei dispositivi e abilitare le funzionalità di gestione dispositivi delle soluzioni.
 * [App Web di Azure][lnk-web-apps] e [Microsoft Power BI][lnk-power-bi] offrono le funzionalità di visualizzazione dei dati. La flessibilità di Power BI consente di creare rapidamente i propri dashboard interattivi che usano i dati di IoT Suite.
 
 Per una panoramica dell'architettura di una tipica soluzione IoT, vedere [Microsoft Azure e Internet of Things (IoT)][iot-suite-what-is-azure-iot].

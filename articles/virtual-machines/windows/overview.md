@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e1e09f4f75da05ca051b78e57979600fd3e36006
-ms.lasthandoff: 04/27/2017
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Panoramica delle macchine virtuali Windows in Azure
@@ -49,7 +50,7 @@ Quando si compila l'infrastruttura di un'applicazione in Azure, ci sono sempre n
 ### <a name="naming"></a>Denominazione
 Una macchina virtuale dispone di un [nome](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) assegnato e di un nome computer configurato come parte del sistema operativo. Il nome di una VM può essere composto da un massimo di 15 caratteri.
 
-Se si usa Azure per creare il disco del sistema operativo, il nome del computer e il nome della macchina virtuale sono uguali. Se si [carica la propria immagine](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) contenente un sistema operativo configurato in precedenza e la si usa per creare una macchina virtuale, i nomi possono differire. Quando si carica il proprio file di immagine, è consigliabile far coincidere il nome computer nel sistema operativo con il nome della macchina virtuale.
+Se si usa Azure per creare il disco del sistema operativo, il nome del computer e il nome della macchina virtuale sono uguali. Se si [carica la propria immagine](upload-generalized-managed.md) contenente un sistema operativo configurato in precedenza e la si usa per creare una macchina virtuale, i nomi possono differire. Quando si carica il proprio file di immagine, è consigliabile far coincidere il nome computer nel sistema operativo con il nome della macchina virtuale.
 
 ### <a name="locations"></a>Località
 Le risorse create in Azure vengono distribuite tra più [aree geografiche](https://azure.microsoft.com/regions/) in tutto il mondo. In genere, quando si crea una VM l'area viene chiamata **località**. Per una VM, la località specifica dove sono archiviati i dischi rigidi virtuali.
@@ -83,7 +84,7 @@ Questa tabella illustra alcuni metodi per ottenere informazioni relative a un'im
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | API REST |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
-È possibile scegliere di [caricare e usare la propria immagine](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In questo caso, il nome dell'editore, l'offerta e la SKU non vengono usati.
+È possibile scegliere di [caricare e usare la propria immagine](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account). In questo caso, il nome dell'editore, l'offerta e la SKU non vengono usati.
 
 ### <a name="extensions"></a>Estensioni
 Le [estensioni](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) offrono alla VM funzionalità aggiuntive grazie a una configurazione post-distribuzione e ad attività automatiche.
@@ -130,7 +131,7 @@ Questa tabella illustra alcuni dei metodi attraverso i quali è possibile ottene
 | Metodo | Description |
 | --- | --- |
 | Portale di Azure |Nel menu Hub fare clic su **Macchine virtuali** e quindi selezionare una VM dall'elenco. Nel pannello della VM è possibile accedere alle informazioni generali, ai valori di impostazione e alle metriche di monitoraggio. |
-| Azure PowerShell |Per informazioni sull'uso di PowerShell per gestire le VM, vedere [Gestire macchine virtuali di Azure con Resource Manager di Azure e PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Azure PowerShell |Per informazioni sull'uso di PowerShell per gestire le macchine virtuali, vedere [Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | API REST |Usare l'operazione [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) per ottenere le informazioni su una VM. |
 | Client SDK |Per informazioni sull'uso di C# per gestire le VM, vedere [Gestire le macchine virtuali di Azure con Azure Resource Manager e C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 

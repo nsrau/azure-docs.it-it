@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 05/09/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 680f41dc15b9681059847174a6910cfc937abd8b
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7b91be16b5820f379f7408b477311ea86b213ccd
+ms.contentlocale: it-it
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,23 +30,15 @@ Le sezioni seguenti forniscono indicazioni dettagliate su come usare le funziona
 ## <a name="overview"></a>Panoramica
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](storage-client-side-encryption.md), HTTPS o SMB 3.0. La crittografia del servizio di archiviazione permette di eseguire la crittografia a riposo, gestendo le operazioni di crittografia, decrittografia e gestione delle chiavi in modo completamente trasparente. Tutti i dati sono crittografati tramite la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)a 256 bit, una delle crittografie a blocchi più solide tra quelle disponibili.
 
-La crittografia del servizio di archiviazione esegue la crittografia dei dati durante la scrittura in Archiviazione di Azure e può essere usata per Archiviazione BLOB di Azure e Archiviazione file (anteprima). È adatta alle operazioni seguenti:
+La crittografia del servizio di archiviazione esegue la crittografia dei dati durante la scrittura in Archiviazione di Azure e può essere usata per Archiviazione BLOB di Azure e l'archiviazione file. È adatta alle operazioni seguenti:
 
-* Account di archiviazione di uso generale e account di archiviazione BLOB
-* Archiviazione Standard e Archiviazione Premium 
+* Archiviazione standard: account di archiviazione di uso generico per i BLOB, account di archiviazione file e account di archiviazione BLOB
+* Archiviazione Premium 
 * Tutti i livelli di ridondanza (LRS, ZRS, GRS e RA-GRS)
 * Account di archiviazione di Azure Resource Manager (non classici) 
-* Tutte le aree per Archiviazione BLOB. Per Archiviazione file, verificare la sezione relativa alla disponibilità.
-
-L'anteprima della crittografia del servizio di archiviazione per i file è ora disponibile per la crittografia dei dati in Archiviazione file. È attualmente in fase di anteprima. Di seguito è riportato l'elenco delle aree in cui è disponile la crittografia del servizio di archiviazione per Archiviazione file.
-
-Per partecipare all'anteprima della crittografia del servizio di archiviazione per i file, contattare ssediscussions@microsoft.com.
+* Tutte le aree.
 
 Per altre informazioni, vedere le domande frequenti.
-
-### <a name="availability-for-file-storage"></a>Disponibilità per Archiviazione file
-La crittografia del servizio di archiviazione per Archiviazione file è attualmente disponibile in tutte le aree di Azure.
-
 
 Per abilitare o disabilitare la crittografia del servizio di archiviazione per un account di archiviazione, accedere al [portale di Azure](https://azure.portal.com) e selezionare un account di archiviazione. Nel pannello delle impostazioni cercare la sezione Servizio BLOB, illustrata in questo screenshot, e fare clic su Crittografia.
 
@@ -58,22 +51,17 @@ Per abilitare o disabilitare la crittografia del servizio di archiviazione per u
 Dopo avere selezionato l'impostazione Crittografia, è possibile abilitare o disabilitare Crittografia del servizio di archiviazione.
 
 ![Screenshot del portale che illustra le proprietà della crittografia](./media/storage-service-encryption/image2.png)
-<br/>*Figura 1.1: abilitare la crittografia del servizio di archiviazione per il servizio BLOB (passaggio 2)*
+<br/>*Figura 3: abilitare la crittografia del servizio di archiviazione per il servizio BLOB e file (passaggio 2)*
 
-![Screenshot del portale che illustra le proprietà della crittografia](./media/storage-service-encryption/image4.png)
-<br/>*Figura 2.1: abilitare la crittografia del servizio di archiviazione per il servizio file (passaggio 2)*
 ## <a name="encryption-scenarios"></a>Scenari di crittografia
-La funzionalità Crittografia del servizio di archiviazione può essere abilitata a livello di account di archiviazione. Supporta gli scenari cliente seguenti:
+La funzionalità Crittografia del servizio di archiviazione può essere abilitata a livello di account di archiviazione. Dopo l'abilitazione della funzionalità, i clienti sceglieranno i servizi da crittografare. Supporta gli scenari cliente seguenti:
 
-* Crittografia di Archiviazione BLOB e Archiviazione file.
-* La crittografia degli account di archiviazione classici di cui è stata eseguita la migrazione negli account di archiviazione di Resource Manager è supportata per il servizio BLOB, ma non per il servizio file.
-* La crittografia per Archiviazione file è supportata solo per i nuovi account di archiviazione.
+* Crittografia di archiviazione BLOB e archiviazione file negli account di Resource Manager.
+* Crittografia dei servizi BLOB e file in account di archiviazione classici di cui è stata eseguita la migrazione negli account di archiviazione di Resource Manager.
 
 La crittografia del servizio di archiviazione presenta le limitazioni seguenti:
 
 * La crittografia degli account di archiviazione classici non è supportata.
-* La crittografia degli account di archiviazione classici di cui è stata eseguita la migrazione negli account di archiviazione di Resource Manager è supportata per il servizio BLOB, ma non per il servizio file.
-* La crittografia per Archiviazione file è supportata solo per i nuovi account di archiviazione.
 * Dati esistenti: Crittografia del servizio di archiviazione crittografa solo i dati appena creati dopo l'abilitazione della crittografia. Se ad esempio si crea un nuovo account di archiviazione di Resource Manager, ma non si attiva la crittografia e quindi si caricano BLOB o VHD archiviati nell'account di archiviazione e in seguito si attiva Crittografia del servizio di archiviazione, questi BLOB non verranno crittografati, a meno che non vengano riscritti o copiati.
 * Supporto per il Marketplace: è possibile abilitare la crittografia di VM create dal Marketplace usando il [portale di Azure](https://portal.azure.com), PowerShell e l'interfaccia della riga di comando di Azure. L'immagine di base del VHD rimarrà non crittografata. Eventuali operazioni di scrittura eseguite dopo la creazione della macchina virtuale, tuttavia, verranno crittografate.
 * I dati di tabelle e code non verranno crittografati.
@@ -133,19 +121,19 @@ R: No, la funzionalità di crittografia del servizio di archiviazione è support
 
 R: È possibile creare un nuovo account di archiviazione di Resource Manager e copiare i dati usando [AzCopy](storage-use-azcopy.md) dall'account di archiviazione classico esistente all'account di archiviazione di Resource Manager appena creato. 
 
-Se si esegue la migrazione dell'account di archiviazione classico a un account di archiviazione di Resource Manager, i dati non verranno crittografati durante la migrazione. Se tuttavia si esegue la migrazione dell'account di archiviazione e quindi si abilita la crittografia, i nuovi dati scritti nell'account di archiviazione verranno crittografati. Per altre informazioni, vedere [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/)(Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager). Si noti che questa operazione è supportata solo per Archiviazione BLOB. Per l'anteprima di Archiviazione File, gli utenti devono creare nuovi account di archiviazione di Resource Manager.
+Se si esegue la migrazione dell'account di archiviazione classico a un account di archiviazione di Resource Manager, l'operazione non è immediata, in quanto modifica il tipo dell'account ma non ha effetto sui dati esistenti. Eventuali nuovi dati verranno crittografati solo dopo l'attivazione della crittografia. Per altre informazioni, vedere [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/)(Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager). Si noti che questa operazione è supportata solo per i servizi BLOB e file.
 
 **D: È disponibile un account di archiviazione di Resource Manager. Si può abilitare Crittografia del servizio di archiviazione per questo account?**
 
-R: Sì, ma verranno crittografati solo i BLOB appena scritti. La funzionalità non è retroattiva e i dati già presenti non verranno crittografati. La funzionalità non è ancora supportata per l'anteprima di Archiviazione file.
+R: Sì, ma verranno crittografati solo i dati appena scritti. La funzionalità non è retroattiva e i dati già presenti non verranno crittografati. La funzionalità non è ancora supportata per l'anteprima di Archiviazione file.
 
 **D: È possibile crittografare i dati correnti in un account di archiviazione di Resource Manager esistente?**
 
-R: La crittografia del servizio di archiviazione può essere abilitata in qualsiasi momento in un account di archiviazione di Resource Manager. Tuttavia, i BLOB che erano già presenti non verranno crittografati. Per crittografare questi BLOB è possibile copiarli in un altro nome o in un altro contenitore e quindi rimuoverne le versioni non crittografate. La funzionalità non è ancora supportata per l'anteprima di Archiviazione file.
+R: La crittografia del servizio di archiviazione può essere abilitata in qualsiasi momento in un account di archiviazione di Resource Manager. Tuttavia, i dati che erano già presenti non verranno crittografati. Per crittografare i dati esistenti, è possibile copiarli in un altro nome o in un altro contenitore e quindi rimuoverne le versioni non crittografate.
 
 **D: È possibile usare Crittografia del servizio di archiviazione se si usa l'Archiviazione Premium?**
 
-R: Sì, la funzionalità Crittografia del servizio di archiviazione è supportata nell'Archiviazione Standard e nell'Archiviazione Premium. Non è ancora supportata per l'anteprima di Archiviazione file.
+R: Sì, la funzionalità Crittografia del servizio di archiviazione è supportata nell'Archiviazione Standard e nell'Archiviazione Premium.  Archiviazione Premium non è supportata per il servizio file.
 
 **D: Se si crea un nuovo account di archiviazione e si abilita Crittografia del servizio di archiviazione, quindi si crea una nuova VM usando tale account di archiviazione, la VM sarà crittografata?**
 

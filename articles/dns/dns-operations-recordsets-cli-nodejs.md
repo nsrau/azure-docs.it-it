@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 3074bf378f809a9857c7ea72521961368a14772c
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -221,8 +222,6 @@ azure network dns record-set add-record MyResourceGroup contoso.com www A -a 5.6
 azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4
 ```
 
-Non è possibile aggiungere, rimuovere o modificare record nel set di record NS creato automaticamente nel dominio radice della zona, vale a dire `-Name "@"`, incluse le virgolette. Per questo set di record, le uniche modifiche consentite sono quelle relative alla durata (TTL) e ai metadati del set di record.
-
 ### <a name="to-modify-a-cname-record"></a>Per modificare un record CNAME
 
 Per modificare un record CNAME, usare `azure network dns record-set add-record` per aggiungere il nuovo valore di record. A differenza di altri tipi di record, un set di record CNAME può contenere solo un singolo record. Pertanto, il record esistente viene *sostituito* quando si aggiunge il nuovo record e non deve essere eliminato separatamente.  Verrà richiesto di accettare la sostituzione.
@@ -242,6 +241,21 @@ Nell'esempio seguente viene illustrato come impostare la proprietà
 
 ```azurecli
 azure network dns record-set set-soa-record rg1 contoso.com --email admin.contoso.com
+```
+
+
+### <a name="to-modify-ns-records-at-the-zone-apex"></a>Per modificare i record NS al vertice della zona
+
+Il set di record NS al vertice della zona viene creato automaticamente con ogni zona DNS. Contiene i nomi dei server dei nomi DNS di Azure assegnati alla zona.
+
+È possibile aggiungere ulteriori server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati.
+
+Notare che questo si applica solo al set di record NS al vertice della zona. Gli altri set di record NS nella zona (usati per delegare le zone figlio) possono essere modificati senza vincoli.
+
+L'esempio seguente mostra come aggiungere un ulteriore server dei nomi al set di record NS al vertice della zona:
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Per modificare il valore TTL di un set di record esistente

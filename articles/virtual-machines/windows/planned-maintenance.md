@@ -3,7 +3,7 @@ title: Manutenzione pianificata per macchine virtuali Windows in Azure | Microso
 description: "Informazioni sulla manutenzione pianificata di Azure e su come può influire sulle macchine virtuali Windows eseguite in Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: 
+author: zivr
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: 
-translationtype: Human Translation
+ms.author: zivr
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 198c1804b342b8faf406a08eff7bc42994b9dd0d
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
 
 

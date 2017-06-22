@@ -2,8 +2,7 @@
 ## [Che cos'è Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Introduzione
-## [Esercitazione interattiva: Analizzare i log dei siti Web](data-lake-analytics-use-interactive-tutorials.md)
-## [portale di Azure](data-lake-analytics-get-started-portal.md)
+## [Portale di Azure](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
 ## [SDK per Java](data-lake-analytics-get-started-java-sdk.md)
@@ -16,6 +15,9 @@
 # Procedure
 ## Sviluppare
 ### [Nozioni di base su U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Catalogo di U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Join U-SQL](data-lake-analytics-u-sql-combine-data-with-joins.md)
+### [Parametri di U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Funzioni finestra U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Operatori U-SQL definiti dagli utenti](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Estensioni Python U-SQL](data-lake-analytics-u-sql-python-extensions.md)
@@ -24,6 +26,8 @@
 
 ## Creare soluzioni
 ### [Analizzare i log dei siti Web](data-lake-analytics-analyze-weblogs.md)
+### [Esercitazione interattiva: Analizzare i log dei siti Web](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## Gestisci
 ### [Portale di Azure](data-lake-analytics-manage-use-portal.md)

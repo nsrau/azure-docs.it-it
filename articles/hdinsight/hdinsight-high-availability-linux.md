@@ -1,25 +1,27 @@
 ---
-title: "Funzionalità a disponibilità elevata di HDInsight (Hadoop) | Documentazione Microsoft"
-description: "Informazioni su come i cluster HDInsight basati su Linux migliorano l&quot;affidabilità e la disponibilità tramite l’utilizzo di un nodo head aggiuntivo. Informazioni su come questo influisce sui servizi di Hadoop come Ambari e Hive, e anche su come connettersi singolarmente a ogni nodo head tramite SSH."
+title: "Alta disponibilità per Hadoop - Azure HDInsight | Microsoft Docs"
+description: "Informazioni su come i cluster HDInsight migliorano l&quot;affidabilità e la disponibilità tramite l&quot;uso di un nodo head aggiuntivo. Informazioni su come questo influisce sui servizi di Hadoop come Ambari e Hive, e anche su come connettersi singolarmente a ogni nodo head tramite SSH."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
 documentationcenter: 
 tags: azure-portal
+keywords: "alta disponibilità di hadoop"
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e001d497dba1e3cc0a987fd0950854fe2564d2c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 7ad2a150cd4a7223b6eababb8519140ba856cd6e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,12 +29,12 @@ ms.lasthandoff: 04/27/2017
 
 I cluster HDInsight offrono due nodi head per aumentare la disponibilità e l'affidabilità dei servizi e dei processi di Hadoop in esecuzione.
 
-Hadoop ottiene disponibilità e affidabilità elevate mantenendo copie di servizi e dati in diversi nodi di un cluster. Tuttavia le distribuzioni standard di Hadoop hanno in genere un singolo nodo head. Eventuali interruzioni del singolo nodo head possono causare l'interruzione del funzionamento del cluster. Ciò non costituisce un problema con HDInsight.
+Hadoop ottiene alta disponibilità e affidabilità replicando i servizi e i dati su più nodi di un cluster. Tuttavia le distribuzioni standard di Hadoop hanno in genere un singolo nodo head. Eventuali interruzioni del singolo nodo head possono causare l'interruzione del funzionamento del cluster. HDInsight fornisce due nodi head per migliorare la disponibilità e affidabilità di Hadoop.
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
-## <a name="understanding-the-nodes"></a>Informazioni sui nodi
+## <a name="availability-and-reliability-of-nodes"></a>Disponibilità e affidabilità dei nodi
 
 I nodi in un cluster HDInsight vengono implementati con macchine virtuali di Azure. In caso di errore di un nodo, questo viene messo offline e viene creato un nuovo nodo per sostituirlo. Mentre il nodo è offline, viene usato un altro nodo dello stesso tipo fino a quando il nuovo nodo viene messo online.
 
@@ -43,7 +45,7 @@ Le sezioni seguenti illustrano i singoli tipi di nodo usati con HDInsight. Non t
 
 ### <a name="head-nodes"></a>Nodi head
 
-Entrambi i nodi head sono contemporaneamente attivi e in esecuzione all'interno del cluster HDInsight. Alcuni servizi, ad esempio HDFS o YARN, sono "attivi"in qualsiasi momento soltanto in un nodo head. Altri servizi come HiveServer2 o Hive Metastore sono attivi su entrambi i nodi head allo tesso tempo.
+Per garantire un'alta disponibilità dei servizi Hadoop, HDInsight fornisce due nodi head. Entrambi i nodi head sono contemporaneamente attivi e in esecuzione all'interno del cluster HDInsight. Alcuni servizi, ad esempio HDFS o YARN, sono "attivi"in qualsiasi momento soltanto in un nodo head. Altri servizi come HiveServer2 o Hive Metastore sono attivi su entrambi i nodi head allo tesso tempo.
 
 I nodi head, e altri nodi in HDInsight, hanno un valore numerico all'interno del nome host del nodo. Ad esempio, `hn0-CLUSTERNAME` o `hn4-CLUSTERNAME`.
 
@@ -52,11 +54,11 @@ I nodi head, e altri nodi in HDInsight, hanno un valore numerico all'interno del
 
 ### <a name="nimbus-nodes"></a>Nodi Nimbus
 
-Per i cluster Storm, i nodi Nimbus forniscono una funzionalità simile a JobTracker di Hadoop mediante la distribuzione e il monitoraggio dell'elaborazione tra nodi di lavoro. HDInsight offre 2 nodi Nimbus per il tipo di cluster Storm.
+I nodi nimbus sono disponibili con i cluster Storm. I nodi Nimbus forniscono una funzionalità simile a JobTracker di Hadoop mediante la distribuzione e il monitoraggio dell'elaborazione tra nodi del ruolo di lavoro. HDInsight offre due nodi Nimbus per i cluster Storm
 
 ### <a name="zookeeper-nodes"></a>Nodi Zookeeper
 
-I nodi [ZooKeeper](http://zookeeper.apache.org/) vengono usati per l’elezione del leader dei servizi master nei nodi head e per garantire che i servizi, i nodi (del ruolo di lavoro) dei dati e i gateway sappiano su quale nodo head è attivo un servizio master. Per impostazione predefinita, HDInsight specifica tre nodi ZooKeeper.
+I nodi [ZooKeeper](http://zookeeper.apache.org/) vengono usati per la designazione di leader dei servizi master nei nodi head. Vengono inoltre usati per garantire che i servizi, i nodi di dati (ruolo di lavoro) e i gateway sappiano su quale nodo head è attivo un servizio master. Per impostazione predefinita, HDInsight specifica tre nodi ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nodi di lavoro
 
@@ -64,7 +66,7 @@ I nodi di lavoro eseguono l'analisi dei dati effettivi quando un processo viene 
 
 ### <a name="edge-node"></a>Nodo perimetrale
 
-Un nodo perimetrale non partecipa attivamente all'analisi dei dati all'interno del cluster, ma viene invece usato dagli sviluppatori o dai data scientist quando utilizzano Hadoop. Il nodo perimetrale si trova nella stessa rete virtuale di Azure come gli altri nodi del cluster e può accedere direttamente a tutti gli altri nodi. Poiché non è coinvolto nell'analisi dei dati per il cluster, può essere usato senza alcun preoccuparsi di sottrarre risorse ai servizi critici di Hadoop o ai processi di analisi.
+Un nodo perimetrale non partecipa attivamente all'analisi dei dati all'interno del cluster. Viene usato dagli sviluppatori o i data scientist quando lavorano con Hadoop. Il nodo perimetrale si trova nella stessa rete virtuale di Azure come gli altri nodi del cluster e può accedere direttamente a tutti gli altri nodi. Il nodo perimetrale può essere usato senza sottrarre risorse ai servizi critici di Hadoop o ai processi di analisi.
 
 Attualmente, Server R in HDInsight è l'unico tipo di cluster che fornisce un nodo perimetrale per impostazione predefinita. Per Server R in HDInsight, il nodo perimetrale viene usato per testare il codice R in locale nel nodo prima dell'invio al cluster per l'elaborazione distribuita.
 
@@ -134,15 +136,15 @@ Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight m
 
 ### <a name="ambari-rest-api"></a>API REST Ambari
 
-L'API REST Ambari è disponibile su Internet e il gateway pubblico gestisce il routing delle richieste per il nodo head che attualmente ospita l'API REST.
+L'API REST Ambari è disponibile su Internet. Il gateway pubblico HDInsight gestisce il routing delle richieste per il nodo head che attualmente ospita l'API REST.
 
 È possibile utilizzare il comando seguente per verificare lo stato di un servizio tramite l'API REST di Ambari:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
-* Sostituire **PASSWORD** con la password dell’account dell'utente HTTP (admin)
-* Sostituire **CLUSTERNAME** con il nome del cluster
-* Sostituire **SERVICENAME** con il nome del servizio per controllare lo stato di
+* Sostituire **PASSWORD** con la password dell'account dell'utente HTTP (admin).
+* Sostituire **CLUSTERNAME** con il nome del cluster.
+* Sostituire **SERVICENAME** con il nome del servizio di cui controllare lo stato.
 
 Ad esempio, per controllare lo stato del servizio **HDFS** in un cluster denominato **mycluster**, con la password **password**, è necessario usare il comando seguente:
 
@@ -191,7 +193,7 @@ Ogni nodo head può avere voci di registro univoche, perciò è consigliabile co
 
 È anche possibile connettersi al nodo head usando SSH File Transfer Protocol o Secure File Transfer Protocol (SFTP) e scaricare direttamente i file di log.
 
-In modo analogo all'uso di un client SSH, quando si stabilisce la connessione al cluster è necessario specificare il nome dell'account utente SSH e l'indirizzo SSH del cluster. Ad esempio: `sftp username@mycluster-ssh.azurehdinsight.net`. È necessario specificare la password per l'account quando richiesto oppure specificare una chiave pubblica tramite il parametro `-i`.
+In modo analogo all'uso di un client SSH, quando si stabilisce la connessione al cluster è necessario specificare il nome dell'account utente SSH e l'indirizzo SSH del cluster. Ad esempio, `sftp username@mycluster-ssh.azurehdinsight.net`. Specificare la password per l'account quando richiesto oppure specificare una chiave pubblica tramite il parametro `-i`.
 
 Una volta connessi, viene visualizzato un prompt `sftp>` . Da questo prompt è possibile modificare le directory nonché caricare e scaricare i file. Ad esempio, i comandi seguenti consentono di passare alla directory **/var/log/hadoop/hdfs** directory e quindi scaricare tutti i file nella directory.
 
@@ -206,7 +208,7 @@ Per un elenco di comandi disponibili, immettere `help` al prompt `sftp>`.
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]
-> Per accedere ai file di log tramite Ambari, è necessario usare un tunnel SSH. L'interfaccia Web per i singoli servizi non è esposta pubblicamente su Internet. Per informazioni sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
+> Per accedere ai file di log tramite Ambari, è necessario usare un tunnel SSH. Le interfacce Web per i singoli servizi non sono esposte pubblicamente su Internet. Per informazioni sull'uso del tunnel SSH, vedere il documento [Usare il tunneling SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
 Dall'interfaccia utente Web di Ambari, selezionare il servizio di cui si vogliono visualizzare i log, ad esempio, YARN. Usare quindi **Collegamenti rapidi** per selezionare il nodo head di cui visualizzare i log.
 
@@ -214,9 +216,9 @@ Dall'interfaccia utente Web di Ambari, selezionare il servizio di cui si voglion
 
 ## <a name="how-to-configure-the-node-size"></a>Come configurare le dimensioni del nodo
 
-È possibile selezionare le dimensioni di un nodo solo durante la creazione del cluster. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight, inclusi core, memoria e archiviazione locale per ognuna, sulla [pagina dei prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+È possibile selezionare le dimensioni di un nodo solo durante la creazione del cluster. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight sulla [pagina dei prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Quando si crea un nuovo cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene illustrato come specificare le dimensioni usando il [portale di Azure][preview-portal], [Azure PowerShell][azure-powershell] e l'[interfaccia della riga di comando di Azure][azure-cli]:
+Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene illustrato come specificare le dimensioni usando il [portale di Azure][preview-portal], [Azure PowerShell][azure-powershell] e l'[interfaccia della riga di comando di Azure][azure-cli]:
 
 * **Portale di Azure**: quando si crea un cluster, è possibile impostare le dimensioni dei nodi usati dal cluster:
 

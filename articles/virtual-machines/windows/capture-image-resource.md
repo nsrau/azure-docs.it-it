@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c3f5a66605b1a7059a7820ddda9463cb4277f055
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4ffbe7e28d8b4c7d421bec477455a94609cd127a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,9 +28,25 @@ ms.lasthandoff: 04/27/2017
 È possibile creare una risorsa immagine gestita da una macchina virtuale generalizzata che viene archiviata come disco gestito o non gestito in un account di archiviazione. È quindi possibile usare questa immagine per creare più macchine virtuali che usino i dischi gestiti per l'archiviazione. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
-È necessario aver già [ generalizzato la macchina virtuale](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e averla arrestata/deallocata. Generalizzando una VM si rimuovono anche tutte le informazioni personali sull'account e si prepara la macchina da usare come immagine.
+## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizzare la macchina virtuale Windows con Sysprep
 
+Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](http://technet.microsoft.com/library/bb457073.aspx).
+
+Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+> [!IMPORTANT]
+> Se si esegue Sysprep prima di caricare il disco rigido virtuale in Azure per la prima volta, verificare di aver [preparato la VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) prima di eseguire Sysprep. 
+> 
+> 
+
+1. Accedere alla macchina virtuale Windows.
+2. Aprire la finestra del prompt dei comandi come amministratore. Impostare la directory su **%windir%\system32\sysprep**, quindi eseguire `sysprep.exe`.
+3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
+4. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
+5. Fare clic su **OK**.
+   
+    ![Avvio di Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Al termine, Sysprep arresta la macchina virtuale. Non riavviare la VM.
 
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Creare un'immagine gestita nel portale 

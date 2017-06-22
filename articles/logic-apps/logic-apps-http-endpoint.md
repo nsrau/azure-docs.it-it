@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e0bf2edebfda479532a2ce71deff4623179910f3
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -275,6 +276,10 @@ Di seguito viene riportato l'aspetto che lo schema JSON dovrebbe avere ora per l
 #### <a name="q-what-about-url-security"></a>D: Come viene garantita la sicurezza degli URL?
 
 R: Azure genera in modo sicuro gli URL di callback dell'app per la logica mediante una firma di accesso condiviso (SAS). La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
+
+   > [!NOTE]
+   > Per sistemi sicuri/di produzione, è consigliabile evitare di chiamare l'app per la logica direttamente dal browser perché la chiave di accesso condiviso viene inclusa nell'URL e non è possibile gestire criteri di contenuto sicuri perché i domini vengono condivisi tra i clienti di app per la logica.
+
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>D: È possibile configurare ulteriormente gli endpoint HTTP?
 

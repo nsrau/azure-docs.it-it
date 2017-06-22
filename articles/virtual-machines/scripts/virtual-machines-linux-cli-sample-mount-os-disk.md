@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo
+title: Esempio di script dell'interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 940171e5289ce735ad1cdf0cd67759e9069ea135
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: fca1844657821a8ce20deefe0056321c365ce689
 ms.contentlocale: it-it
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +34,7 @@ Questo script consente di montare il disco del sistema operativo di una macchina
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "Creazione rapida della macchina virtuale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "Creazione rapida della macchina virtuale")]
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
