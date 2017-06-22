@@ -14,15 +14,14 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
     Verrà visualizzato l'elenco degli hotfix, ad esempio, **Cumulative Software Bundle Update 4.0 for StorSimple 8000 Series**(Aggiornamento cumulativo del pacchetto software 4.0 per StorSimple serie 8000).
    
     ![Cercare nel catalogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
-4. Fare clic su **Aggiungi**. L'aggiornamento viene aggiunto al carrello.
-5. Cercare gli eventuali hotfix aggiuntivi elencati nella tabella precedente (**4011841**) e aggiungerli al carrello.
-6. Fare clic su **Visualizza carrello**.
-7. Fare clic su **Download**. Specificare o **selezionare** il percorso locale in cui salvare i file scaricati. Gli aggiornamenti vengono scaricati nel percorso specificato e inseriti in una sottocartella con lo stesso nome dell'aggiornamento. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
+
+4. Fare clic su **Download**. Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. Fare clic sui file da scaricare nel percorso e nella cartella specificati. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
+5. Cercare gli eventuali hotfix aggiuntivi elencati nella tabella precedente (**4011841**) e scaricare i file corrispondenti nelle cartelle specifiche indicate in tale tabella.
 
 > [!NOTE]
-> Gli hotfix devono essere accessibili da entrambi i controller per rilevare eventuali messaggi di errore dal peer al controller.
+> Gli aggiornamenti rapidi devono essere accessibili da entrambi i controller per rilevare eventuali messaggi di errore potenziali dal controller peer.
 >
-> È necessario copiare gli hotfix in tre cartelle separate. Ad esempio, l'aggiornamento del software del dispositivo può essere copiato nella cartella _FirstOrderUpdate_, tutti gli altri aggiornamenti che non comportano interruzioni del servizio possono essere copiati nella cartella _SecondOrderUpdate_ e gli aggiornamenti per la modalità di manutenzione possono essere copiati nella cartella _ThirdOrderUpdate_.
+> È necessario copiare gli hotfix in tre cartelle separate. Ad esempio, l'aggiornamento del software del dispositivo o dell'agente Cis/MDS può essere copiato nella cartella _FirstOrderUpdate_, tutti gli altri aggiornamenti che non comportano interruzioni del servizio possono essere copiati nella cartella _SecondOrderUpdate_ e gli aggiornamenti per la modalità di manutenzione possono essere copiati nella cartella _ThirdOrderUpdate_.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Per installare e verificare gli hotfix in modalità normale
 
@@ -79,10 +78,10 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
     Controller1Events   :
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
 
-1. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare:
+6. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare:
    
     `Get-HcsSystem`
    
@@ -94,9 +93,12 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
     Se il numero di versione non cambia dopo aver applicato l'aggiornamento, non è stato possibile applicare l'hotfix. In questo caso contattare il [Supporto tecnico Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) per assistenza.
      
     > [!IMPORTANT]
-    > È necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController` prima di applicare gli altri aggiornamenti.
+    > Prima di applicare l'aggiornamento successivo è necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController`.
      
-7. Ripetere i passaggi da 3 a 5 per installare gli aggiornamenti di secondo livello. **Per gli aggiornamenti di secondo livello, è possibile installare più aggiornamenti eseguendo semplicemente `Start-HcsHotfix cmdlet` e puntando alla cartella in cui si trovano gli aggiornamenti di secondo livello. Il cmdlet eseguirà tutti gli aggiornamenti disponibili nella cartella.** Se è già installato un aggiornamento, la logica di aggiornamento lo rileva e non applica l'aggiornamento. Dopo aver installato tutti gli hotfix, usare il cmdlet `Get-HcsSystem`. Le versioni devono essere:
+7. Ripetere i passaggi 3-5 per installare l'agente Cis/MDS scaricato nella cartella _FirstOrderUpdate_. 
+8. Ripetere i passaggi da 3 a 5 per installare gli aggiornamenti di secondo livello. **Per gli aggiornamenti di secondo livello, è possibile installare più aggiornamenti eseguendo semplicemente `Start-HcsHotfix cmdlet` e puntando alla cartella in cui si trovano gli aggiornamenti di secondo livello. Il cmdlet eseguirà tutti gli aggiornamenti disponibili nella cartella.** Se è già installato un aggiornamento, la logica di aggiornamento lo rileva e non applica l'aggiornamento. 
+
+Dopo aver installato tutti gli hotfix, usare il cmdlet `Get-HcsSystem`. Le versioni devono essere:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`

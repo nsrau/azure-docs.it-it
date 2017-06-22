@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: briz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -64,7 +65,7 @@ Ciascuna di queste cinque fasi prevede diversi requisiti per gli operatori dei d
     *Altre informazioni*: [Usare metodi diretti][lnk-c2d-methods], [Richiamare un metodo diretto in un dispositivo][lnk-methods-devguide], [Come usare le proprietà dei dispositivi gemelli][lnk-twin-properties], [Pianificare e trasmettere processi][lnk-jobs], [Pianificare processi in più dispositivi][lnk-jobs-devguide].
 * **Monitoraggio**: vengono monitorati l'integrità complessiva della raccolta di dispositivi e lo stato delle operazioni in corso per segnalare agli operatori i problemi che potrebbero richiedere la loro attenzione.  Applicare il dispositivo gemello per consentire ai dispositivi di creare report in tempo reale sulle condizioni operative e sullo stato delle operazioni di aggiornamento. Creare report avanzati sui dashboard per mostrare i problemi più immediati mediante le query su dispositivo gemello.
   
-    *Altre informazioni*: [Come usare le proprietà dei dispositivi gemelli][lnk-twin-properties], [Linguaggio di query dell'hub IoT per dispositivi gemelli e processi][lnk-query-language].
+    *Altre informazioni*: [Come usare le proprietà del dispositivo gemello][lnk-twin-properties], [Linguaggio di query dell'hub IoT per dispositivi gemelli e processi][lnk-query-language].
 * **Ritiro**: i dispositivi vengono sostituiti o ritirati dopo un guasto o un ciclo di aggiornamento oppure alla fine della vita utile.  Usare il dispositivo gemello per mantenere le informazioni sul dispositivo se il dispositivo fisico viene sostituito o archiviato in caso di ritiro. Usare il registro di identità dell'hub IoT per revocare in modo sicuro le credenziali e le identità del dispositivo.
   
     *Altre informazioni*: [Come usare le proprietà dei dispositivi gemelli][lnk-twin-properties], [Gestire le identità dei dispositivi][lnk-identity-registry].
