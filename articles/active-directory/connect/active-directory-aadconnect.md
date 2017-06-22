@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 209f8869e9ed681285865154bdd4d2d7a0f22456
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 7701d46be70901d361f8a045c386bfa4cdaf98b6
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -145,6 +146,7 @@ Se il server AD FS non è stato configurato per l'aggiornamento automatico dei c
 |Cronologia delle versioni | [Cronologia delle versioni](active-directory-aadconnect-version-history.md)|
 |Confronto tra DirSync, Azure ADSync e Azure AD Connect | [Confronto degli strumenti di integrazione directory](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Elenco di compatibilità non AD FS per Azure AD | [Elenco di compatibilità di federazione di Azure AD](active-directory-aadconnect-federation-compatibility.md)|
+|Configurazione di un IdP SAML 2.0|[Uso di un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On](active-directory-aadconnect-federation-saml-idp.md)|
 |Attributi sincronizzati | [Attributi sincronizzati](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Monitoraggio con Azure AD Connect Health | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |Domande frequenti | [Domande frequenti su Azure AD Connect](active-directory-aadconnect-faq.md)|

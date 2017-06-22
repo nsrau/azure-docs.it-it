@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 05/25/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
-ms.openlocfilehash: 16afaa32ebbf2723a6dc5eea8e668b7fc971b43e
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3a4382979dd6e18c0e94b4a989bb8289882eeb89
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +32,7 @@ Il mittente del messaggio può richiedere anche un'ampia gamma di caratteristich
 Il bus di servizio supporta due modelli di messaggistica distinti: *inoltro di Azure* e *messaggistica del bus di servizio*.
 
 ## <a name="azure-relay"></a>Servizio di inoltro di Azure
-Il componente di [inoltro WCF](../service-bus-relay/service-bus-relay-overview.md) del bus di servizio è un servizio centralizzato, ma con carico altamente bilanciato, che supporta un'ampia gamma di protocolli di trasporto e standard dei servizi Web. tra cui SOAP, WS-* e anche REST. Il [servizio di inoltro](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) offre una varietà di opzioni di connettività di inoltro e può facilitare la negoziazione di connessioni peer-to-peer dirette quando possibile. Bus di servizio è ottimizzato per gli sviluppatori .NET che utilizzano Windows Communication Foundation (WCF), in termini di prestazioni e usabilità e fornisce accesso completo al servizio di inoltro mediante interfacce SOAP e REST. In questo modo è possibile l’integrazione con il Bus di servizio per qualsiasi SOAP o ambiente di programmazione REST.
+Il componente [Inoltro WCF](../service-bus-relay/relay-what-is-it.md) del servizio di inoltro di Azure è un servizio centralizzato, ma con carico altamente bilanciato, che supporta un'ampia gamma di protocolli di trasporto e standard dei servizi Web. tra cui SOAP, WS-* e anche REST. Il [servizio di inoltro](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) offre una varietà di opzioni di connettività di inoltro e può facilitare la negoziazione di connessioni peer-to-peer dirette quando possibile. Bus di servizio è ottimizzato per gli sviluppatori .NET che utilizzano Windows Communication Foundation (WCF), in termini di prestazioni e usabilità e fornisce accesso completo al servizio di inoltro mediante interfacce SOAP e REST. In questo modo è possibile l’integrazione con il Bus di servizio per qualsiasi SOAP o ambiente di programmazione REST.
 
 Il servizio di inoltro supporta la messaggistica unidirezionale tradizionale, la messaggistica richiesta-risposta e la messaggistica peer-to-peer. Supporta inoltre la distribuzione degli eventi nell'ambito di Internet per abilitare scenari di pubblicazione/sottoscrizione e le comunicazioni tramite socket bidirezionale per migliorare l'efficienza point-to-point. Nel modello di messaggistica inoltrata, un servizio locale si connette al servizio di inoltro attraverso una porta in uscita e crea un socket bidirezionale per la comunicazione associato a un determinato indirizzo rendezvous. Il client può quindi comunicare con il servizio locale inviando messaggi al servizio di inoltro come destinazione l'indirizzo rendezvous. Il servizio di inoltro eseguirà quindi l’"inoltro" dei messaggi al servizio locale attraverso il socket bidirezionale già in uso. Il client non necessita di una connessione diretta al servizio locale, non deve conoscere la posizione in cui risiede il servizio e il servizio locale non richiede porte in ingresso aperte sul firewall.
 

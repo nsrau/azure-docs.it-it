@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="biztalk-services-editions-chart"></a>Servizi BizTalk: Grafico edizioni
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Servizi BizTalk di Azure offre diverse edizioni. Usare questo argomento per individuare la versione più adatta al proprio scenario e alle proprie esigenze di business.
 
 ## <a name="compare-the-editions"></a>Confronto delle edizioni
@@ -59,7 +64,7 @@ Nella tabella seguente sono elencate le differenze tra le varie edizioni.
 
 <tr>
 <td><strong>Prezzo iniziale</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Prezzi dei servizi BizTalk di Azure</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Calcolatore dei prezzi di Azure</a></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Prezzi di Servizi BizTalk di Azure</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Calcolatore dei prezzi di Azure</a></td>
 </tr>
 <tr>
 <td><strong>Configurazione minima predefinita</strong></td>
@@ -70,7 +75,7 @@ Nella tabella seguente sono elencate le differenze tra le varie edizioni.
 <td>1 unità Premium</td>
 </tr>
 <tr>
-<td><strong>Scalabilità</strong></td>
+<td><strong>Ridimensionare</strong></td>
 <td>Nessuna scalabilità</td>
 <td>Nessuna scalabilità</td>
 <td>Sì, con incrementi di 1 unità Basic</td>
@@ -130,7 +135,7 @@ Include contratti TPM</td>
 <tr>
 <td align="left"><strong>Protocolli/sistemi supportati:</strong>
 <ul>
-<li>HTTP</li>
+<li>http</li>
 <li>HTTPS</li>
 <li>FTP</li>
 <li>SFTP</li>
@@ -251,10 +256,5 @@ Per creare Servizi BizTalk di Azure nel portale di Azure, vedere [Servizi BizTal
 * [Servizi BizTalk: limitazione](biztalk-throttling-thresholds.md)<br/>
 * [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
 * [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

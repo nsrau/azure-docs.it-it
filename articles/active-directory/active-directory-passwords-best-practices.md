@@ -6,19 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 05/25/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 6cc1589f2ebad9267334f70926be369b32c8e075
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5bd17fc68447b8387dfaad33fe2d0055596ec086
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -41,7 +43,7 @@ La maggior parte dei clienti segue questa procedura per garantire un'implementaz
 
 ## <a name="email-based-rollout"></a>Implementazione basata sulla posta elettronica
 
-Molti clienti ritengono che una campagna di posta elettronica con istruzioni semplici sia il modo più facile per invitare gli utenti a usare la reimpostazione password self-service. Sono stati creati tre semplici messaggi di posta elettronica che possono essere usati come modelli per agevolare l'implementazione.
+Molti clienti ritengono che una campagna di posta elettronica con istruzioni semplici sia il modo più facile per invitare gli utenti a usare la reimpostazione password self-service. [Sono stati creati tre semplici messaggi di posta elettronica che possono essere usati come modelli per agevolare l'implementazione.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
 * Modello di messaggio **Presto disponibile** da usare nelle settimane o nei giorni precedenti l'implementazione per informare gli utenti che sarà necessario eseguire alcune operazioni.
 * Modello di messaggio **Ora disponibile** da usare il giorno del lancio per invitare gli utenti a eseguire la registrazione e verificare i dati di autenticazione per usare la reimpostazione password self-service quando necessario.

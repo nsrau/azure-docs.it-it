@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -84,7 +84,7 @@ Il dashboard della soluzione consente di gestire la soluzione distribuita. Si tr
 
 Il dashboard visualizza le informazioni seguenti:
 
-* Un pannello con l'**elenco degli stabilimenti** che visualizza stato, località e configurazione di produzione corrente nella soluzione. Quando si esegue la soluzione per la prima volta, sono disponibili alcuni dispositivi simulati. La simulazione delle linee di produzione è costituita da tre server OPC UA reali per ogni linea di produzione che eseguono attività simulate e condividono i dati. 
+* Un pannello con l'**elenco degli stabilimenti** che visualizza stato, località e configurazione di produzione corrente nella soluzione. Quando si esegue la soluzione per la prima volta, sono disponibili alcuni dispositivi simulati. La simulazione delle linee di produzione è costituita da tre server OPC UA reali per ogni linea di produzione che eseguono attività simulate e condividono i dati. Per altre informazioni su OPC UA, vedere le [Domande frequenti][lnk-faq].
 * Una **mappa** che visualizza la posizione di ogni dispositivo connesso alla soluzione. La soluzione può usare l'API di Bing Mappe per tracciare le informazioni sulla mappa. Se la sottoscrizione è abilitata per l'API di Bing Mappe per le aziende, questa funzionalità viene usata automaticamente. In caso contrario, vedere le [domande frequenti][lnk-faq] per informazioni su come rendere dinamica la mappa.
 * Un pannello degli **avvisi** che visualizza gli avvisi generati quando un valore OEE/KPI o di telemetria supera una soglia specifica.
 * Un pannello **Overall Equipment Efficiency** che visualizza i valori OEE per l'intera azienda o per lo stabilimento, la linea di produzione o la postazione in esame. Questo valore viene aggregato dalla vista della postazione fino al livello aziendale. Il valore OEE e i relativi elementi costitutivi possono essere analizzati nei dettagli.
