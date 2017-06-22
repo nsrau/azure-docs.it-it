@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 89c19e9b64fc4e1fea68c717fd5f5e0e054ac10c
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -55,11 +55,9 @@ Azure Analysis Services supporta modelli tabulari con i livelli di compatibilit�
 ## <a name="data-sources"></a>Origini dati
 I modelli dati distribuiti ai server in Azure supportano la connessione alle origini dati locali nell'organizzazione o nel cloud. Combinare i dati provenienti dall'ambiente locale e dalle origini dati cloud per una soluzione di Business Intelligence ibrida.
 
-![Origini dati](./media/analysis-services-overview/aas-overview-data-sources.png)
+Poiché il server è nel cloud, la connessione alle origini dati cloud è semplice. Quando ci si connette a origini dati locali, il [gateway dati locale](analysis-services-gateway.md) garantisce connessioni veloci e sicure con il server nel cloud.
 
-Poiché il server è nel cloud, la connessione alle origini dati cloud è semplice. Quando ci si connette alle origini dati locali, il [gateway dati locale](analysis-services-gateway.md) garantisce connessioni veloci e sicure con il server Analysis Services nel cloud.
-
-\* Solo modelli tabulari 1400.
+Per altre informazioni sulle origini dati locali supportate, vedere l'articolo relativo alle [origini dati supportate in Azure Analysis Services](analysis-services-datasource.md).
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Esplorare i dati da qualsiasi luogo

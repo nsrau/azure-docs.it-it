@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 1249d7ac42bec02227d47500fe3aabb601a36f88
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="create-your-first-java-web-app-in-azure-in-five-minutes"></a>Creare la prima app Web Java in Azure in cinque minuti
@@ -30,7 +30,7 @@ Questa guida introduttiva illustra come distribuire la prima app Web Java nel [s
 
 ![Passare all'app Web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione illustra come usare l'IDE di Eclipse per sviluppatori Java EE per compilare e distribuire un'app Web Java in Azure. Se Eclipse non è già installato, è possibile scaricarlo gratuitamente all'indirizzo http://www.eclipse.org/.
 
@@ -143,7 +143,7 @@ Fare infine clic sulla scheda **JDK**. Sono elencate diverse opzioni che consent
 
 ![Creare un piano di servizio app](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 
-Azure Toolkit inizierà a creare il nuovo servizio app e visualizzerà una finestra di dialogo di stato durante l'elaborazione.
+Azure Toolkit inizia a creare il nuovo servizio app e visualizza una finestra di dialogo di stato durante l'elaborazione.
 
 ![Barra di stato per la creazione di un piano di servizio app](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
@@ -155,7 +155,7 @@ Dopo avere completato tutti i passaggi precedenti, fare clic su **Deploy** (Dist
 
 ![Distribuire l'app Web in Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
 
-Congratulazioni. L'app Web è stata distribuita in Azure. Ora è possibile visualizzare l'app Web in anteprima nel sito Web di Azure:
+Congratulazioni. L'app Web è stata distribuita in Azure. Ora è possibile visualizzare l'app Web nel sito Web di Azure:
 
 ![Passare all'app Web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

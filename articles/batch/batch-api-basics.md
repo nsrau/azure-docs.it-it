@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/05/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 84f9677daebe13f54a54802b1b16cc6487a0b845
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -344,18 +344,24 @@ Un approccio combinato viene in genere usato per la gestione di un carico variab
 
 ## <a name="pool-network-configuration"></a>Pool della configurazione di rete
 
-Quando si crea un pool di nodi di calcolo in Azure Batch, è possibile usare le API per specificare l'ID di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure nella quale devono essere creati i nodi di calcolo del pool.
+Quando si crea un pool di nodi di calcolo in Azure Batch, è possibile specificare l'ID subnet di una [rete virtuale (VNet)](../virtual-network/virtual-networks-overview.md) di Azure nella quale devono essere creati i nodi di calcolo del pool.
 
 * La rete virtuale deve:
 
    * Essere nella stessa **area** di Azure dell'account di Azure Batch.
    * Essere nella stessa **sottoscrizione** dell'account di Azure Batch.
 
-* La rete virtuale deve avere sufficienti **indirizzi IP** liberi per includere la proprietà `targetDedicated` del pool. Se la subnet non ha sufficienti indirizzi IP liberi, il servizio Batch alloca parzialmente i nodi di calcolo nel pool e restituisce un errore di ridimensionamento.
+* Il tipo di rete virtuale supportato dipende dal modo in cui vengono allocati i pool per l'account Batch:
+    - Se l'account Batch è stato creato con la proprietà **poolAllocationMode** impostata su 'BatchService', la rete virtuale specificata deve essere una rete virtuale classica.
+    - Se l'account Batch è stato creato con la proprietà **poolAllocationMode** impostata su 'UserSubscription', la rete virtuale specificata deve essere una rete virtuale classica o una rete virtuale di Azure Resource Manager. I pool devono essere creati con una configurazione di macchina virtuale per usare una rete virtuale. I pool creati con una configurazione di servizio cloud non sono supportati.
+
+* Se l'account Batch è stato creato con la proprietà **poolAllocationMode** impostata su 'BatchService', è necessario specificare le autorizzazioni per consentire all'entità servizio di Batch di accedere alla rete virtuale. L'entità servizio di Batch, denominata 'Microsoft Azure Batch' o 'MicrosoftAzureBatch', deve avere il ruolo [Collaboratore Macchina virtuale classica di Controllo degli accessi in base al ruolo](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) per la rete virtuale specificata. Se il ruolo Controllo degli accessi in base al ruolo specificato non viene indicato, il servizio Batch restituisce 400 (Richiesta non valida).
+
+* La subnet specificata deve avere un numero sufficiente di **indirizzi IP** disponibili per contenere il numero totale di nodi di destinazione, ovvero la somma delle proprietà `targetDedicatedNodes` e `targetLowPriorityNodes` del pool. Se la subnet non ha sufficienti indirizzi IP liberi, il servizio Batch alloca parzialmente i nodi di calcolo nel pool e restituisce un errore di ridimensionamento.
 
 * La subnet specificata deve consentire la comunicazione dal servizio Batch per poter pianificare le operazioni sui nodi di calcolo. Se la comunicazione ai nodi di calcolo viene negata da un **gruppo di sicurezza di rete** associato alle rete virtuale, il servizio Batch imposta lo stato dei nodi di calcolo su **Non utilizzabile**.
 
-* Se la rete virtuale specificata è associata a un gruppo di sicurezza di rete, è necessario abilitare le comunicazioni in ingresso. Per i pool sia Linux che Windows devono essere abilitate le porte 29876 e 29877. Facoltativamente, è possibile abilitare o filtrare in modo selettivo le porte 22 o 3389, rispettivamente per SSH in pool Linux o RDP in pool Windows.
+* Se la rete virtuale specificata ha gruppi di sicurezza di rete associati, è necessario abilitare alcune porte di sistema riservate per le comunicazioni in ingresso. Per i pool creati con una configurazione di macchina virtuale, abilitare le porte 29876 e 29877, nonché la porta 22 per Linux e la porta 3389 per Windows. Per i pool creati con una configurazione di servizio cloud, abilitare le porte 10100, 20100 e 30100. Abilitare anche le connessioni in uscita verso Archiviazione di Azure sulla porta 443.
 
 Le impostazioni aggiuntive della rete virtuale dipendono dalla modalità di allocazione pool dell'account Batch.
 
@@ -415,16 +421,24 @@ Potrebbe essere necessario gestire sia gli errori delle attività che quelli del
 ### <a name="task-failure-handling"></a>Gestione degli errori delle attività
 Gli errori delle attività rientrano nelle categorie seguenti:
 
-* **Errori di pianificazione**
+* **Errori di pre-elaborazione**
 
-    Se il trasferimento di file specificato per un'attività non riesce per qualsiasi motivo, per l'attività viene impostato un *errore di pianificazione*.
+    Se un'attività non può essere avviata, viene impostato un errore di pre-elaborazione per l'attività stessa.  
 
-    Le cause degli errori di pianificazione possono essere dovute a file di risorse dell'attività spostati, un account di archiviazione non più disponibile o un altro problema che ha impedito la copia corretta dei file nel nodo.
+    Gli errori di pre-elaborazione possono essere dovuti a file di risorse dell'attività spostati, un account di archiviazione non più disponibile o un altro problema che ha impedito la copia corretta dei file nel nodo.
+
+* **Errori di caricamento file**
+
+    Se il caricamento dei file specificati per un'attività non riesce per qualsiasi motivo, per l'attività viene impostato un errore di caricamento file.
+
+    Gli errori di caricamento dei file possono verificarsi se la firma di accesso condiviso specificata per l'accesso ad Archiviazione di Azure non è valida oppure non concede le autorizzazioni di scrittura, se l'account di archiviazione non è più disponibile oppure se si è verificato un altro problema che ha impedito la copia corretta dei file dal nodo.    
+
 * **Errori delle applicazioni**
 
     Anche il processo specificato dalla riga di comando dell'attività può non riuscire. Il processo viene considerato non riuscito quando il processo eseguito dall'attività restituisce un codice di uscita diverso da zero. Vedere *Codici di uscita delle attività* nella prossima sezione.
 
     Per gli errori delle applicazioni è possibile configurare il servizio Batch in modo che riprovi automaticamente a eseguire l'attività per un numero di volte specificato.
+
 * **Errori relativi ai vincoli**
 
     È possibile impostare un vincolo che specifichi la durata massima di esecuzione per un processo o un'attività, *maxWallClockTime*. Questa impostazione può essere utile per terminare le attività bloccate.
@@ -435,6 +449,7 @@ Gli errori delle attività rientrano nelle categorie seguenti:
 * `stderr` e `stdout`
 
     Durante l'esecuzione un'applicazione può generare un output di diagnostica che può essere usato per la risoluzione dei problemi. Come indicato nella sezione precedente [File e directory](#files-and-directories), il servizio Batch scrive l'output standard e l'output degli errori standard nei file `stdout.txt` e `stderr.txt` nella directory dell'attività nel nodo di calcolo. Per scaricare questi file, è possibile usare il portale di Azure oppure uno degli SDK di Batch. È ad esempio possibile recuperare questi e altri file per la risoluzione dei problemi con [ComputeNode.GetNodeFile][net_getfile_node] e [CloudTask.GetNodeFile][net_getfile_task] nella libreria Batch .NET.
+
 * **Codici di uscita delle attività**
 
     Come indicato in precedenza, un'attività viene contrassegnata come non riuscita dal servizio Batch se il processo eseguito dall'attività restituisce un codice di uscita non zero. Quando un'attività esegue un processo, il servizio Batch popola la proprietà del codice di uscita dell'attività con il *codice restituito del processo*. È importante notare che il codice di uscita dell'attività **non** è determinato dal servizio Batch. Il codice di uscita di un'attività è determinato dal processo stesso o dal sistema operativo in cui il processo è stato eseguito.
@@ -445,7 +460,7 @@ In alcuni casi, le attività non riescono o vengono interrotte. È possibile che
 È anche possibile che un problema intermittente provochi il blocco di un'attività o ne renda troppo lunga l'esecuzione. È possibile impostare l'intervallo di esecuzione massimo per un'attività. Se si supera l'intervallo di esecuzione massimo, il servizio Batch consente di interrompere l'applicazione dell'attività.
 
 ### <a name="connecting-to-compute-nodes"></a>Connessione ai nodi di calcolo
-È possibile eseguire altre operazioni di debug e di risoluzione dei problemi accedendo a un nodo di calcolo in remoto. È possibile usare il portale di Azure per scaricare un file Remote Desktop Protocol (RDP) per i nodi Windows e ottenere informazioni sulla connessione SSH (Secure Shell) per i nodi Linux. È anche possibile eseguire questa operazione usando le API Batch, ad esempio con [Batch .NET][net_rdpfile] o [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
+È possibile eseguire altre operazioni di debug e di risoluzione dei problemi accedendo a un nodo di calcolo in remoto. È possibile usare il portale di Azure per scaricare un file Remote Desktop Protocol (RDP) per i nodi Windows e ottenere informazioni sulla connessione SSH (Secure Shell) per i nodi Linux. È anche possibile eseguire questa operazione usando le API Batch, ad esempio con [Batch .NET][net_rdpfile] o [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > Per connettersi a un nodo tramite RDP o SSH, è necessario creare prima di tutto un utente nel nodo. A questo scopo è possibile usare il Portale di Azure, [aggiungere un account utente a un nodo][rest_create_user] con l'API Batch REST, chiamare il metodo [ComputeNode.CreateComputeNodeUser][net_create_user] in Batch .NET o chiamare il metodo [add_user][py_add_user] nel modulo Batch Python.
