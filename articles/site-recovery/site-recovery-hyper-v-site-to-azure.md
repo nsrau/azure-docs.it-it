@@ -14,6 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: hyper-v-site-walkthrough-overview
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 0ef782a7bb7a98da2ec63c91732b3d5ddd959848
@@ -21,6 +23,7 @@ ms.contentlocale: it-it
 ms.lasthandoff: 05/17/2017
 
 ---
+
 
 # <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure-using-azure-site-recovery-with-the-azure-portal"></a>Replicare macchine virtuali Hyper-V (senza Virtual Machine Manager) in Azure usando Azure Site Recovery con il portale di Azure
 
@@ -270,7 +273,7 @@ Abilitare la replica per le macchine virtuali nel modo seguente:
 
 10. Fare clic su **OK** per salvare le modifiche. È possibile impostare proprietà aggiuntive in un secondo momento.
 
-     ![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
+    ![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
 
 11. In **Impostazioni della replica** > **Configurare le impostazioni di replica** selezionare i criteri di replica da applicare per le VM protette. Fare quindi clic su **OK**. È possibile modificare i criteri di replica in **Criteri di replica** > nome-criterio > **Modifica impostazioni**. Le modifiche applicate verranno usate per i computer di cui è già in corso la replica e per i nuovi computer.
 
