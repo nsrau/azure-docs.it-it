@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Introduzione all&quot;API DocumentDB con l&quot;esercitazione per .NET Core | Microsoft Docs'
-description: Esercitazione che consente di creare un database online e un&quot;applicazione console in C# usando Azure Cosmos DB DocumentDB API .NET Core SDK.
+title: 'Azure Cosmos DB: Introduzione all''API DocumentDB con l''esercitazione per .NET Core | Microsoft Docs'
+description: Esercitazione che consente di creare un database online e un'applicazione console in C# usando Azure Cosmos DB DocumentDB API .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: arramac
@@ -11,7 +11,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation

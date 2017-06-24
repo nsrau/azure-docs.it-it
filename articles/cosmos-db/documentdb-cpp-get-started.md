@@ -1,6 +1,6 @@
 ---
 title: Esercitazione su C++ per Azure Cosmos DB | Microsoft Docs
-description: "Esercitazione su C++ che crea un database e un&quot;applicazione console in C++ con un SDK per C++ approvato per Azure Cosmos DB. Azure Cosmos DB è un servizio di database con copertura globale."
+description: "Esercitazione su C++ che crea un database e un'applicazione console in C++ con un SDK per C++ approvato per Azure Cosmos DB. Azure Cosmos DB è un servizio di database con copertura globale."
 services: cosmos-db
 documentationcenter: cpp
 author: asthana86
@@ -11,7 +11,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
 ms.translationtype: Human Translation
