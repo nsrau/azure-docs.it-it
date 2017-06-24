@@ -1,6 +1,6 @@
 ---
 title: Informazioni su Node.js - Esercitazione su Azure Cosmos DB per Node.js | Microsoft Docs
-description: Informazioni su Node.js. Questa esercitazione illustra come usare il servizio Microsoft Azure Cosmos DB per archiviare e accedere ai dati da un&quot;applicazione Web Node.js Express ospitata in Siti Web di Azure.
+description: Informazioni su Node.js. Questa esercitazione illustra come usare il servizio Microsoft Azure Cosmos DB per archiviare e accedere ai dati da un'applicazione Web Node.js Express ospitata in Siti Web di Azure.
 keywords: Sviluppo di applicazioni, esercitazione sul database, informazioni su node.js, esercitazione su node.js, DocumentDB, Azure, Microsoft Azure
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/23/2017
 ms.author: syamk
 ms.translationtype: Human Translation

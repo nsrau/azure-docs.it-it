@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Creare un&quot;app console con Java e l&quot;API MongoDB | Microsoft Docs'
-description: Presenta un esempio di codice Java che permette di connettersi all&quot;API MongoDB di Azure Cosmos DB ed eseguire query su di essa
+title: 'Azure Cosmos DB: Creare un''app console con Java e l''API MongoDB | Microsoft Docs'
+description: Presenta un esempio di codice Java che permette di connettersi all'API MongoDB di Azure Cosmos DB ed eseguire query su di essa
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -11,7 +11,7 @@ ms.service: cosmos-db
 ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
@@ -92,7 +92,7 @@ Ecco una breve analisi di ciò che accade nell'app. Aprire il file `Program.cs`.
 
     ```java
     Document queryResult = collection.find(Filters.eq("fruit", "apple")).first();
-    System.out.println(queryResult.toJson());        
+    System.out.println(queryResult.toJson());       
     ```
 
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
