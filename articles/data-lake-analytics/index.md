@@ -2,8 +2,8 @@
 title: Documentazione di Azure Data Lake Analytics - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come eseguire analisi di Big Data con Data Lake Analytics. Le esercitazioni illustrano come eseguire analisi batch, in tempo reale e interattive e come scrivere query U-SQL.
 services: data-lake-analytics
-author: carolz
-manager: carolz
+author: saveenr
+manager: saveenr
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 6098c2b7465ee14a5303d07c014a6f918ad62a61
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 050965185c0c4b2d6880b74592e640be85678c06
+ms.contentlocale: it-it
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Documentazione di Data Lake Analytics
@@ -77,137 +78,34 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-powershell">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/powershell.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introduzione ad Azure Data Lake Analytics con Azure PowerShell</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-net-sdk">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introduzione ad Azure Data Lake Analytics con .NET SDK</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-java-sdk">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introduzione ad Azure Data Lake Analytics con Java SDK</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Creare script U-SQL con Data Lake Tools per Visual Studio</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-cli">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-rest-api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introduzione ad Azure Data Lake Analytics con API REST</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-python">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/python.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introduzione ad Azure Data Lake Store con Python</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
+
+## <a name="quickstarts"></a>Guide introduttive
+<table>
+    <tr>
+        <td><a href="data-lake-analytics-get-started-portal.md">Portale</a></td>
+        <td><a href="data-lake-analytics-data-lake-tools-get-started.md">Visual Studio</a></td>
+        <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">Visual Studio Code</a></td>
+        <td><a href="data-lake-analytics-get-started-powershell.md">PowerShell</a></td>
+        <td><a href="data-lake-analytics-get-started-cli2.md">Interfaccia della riga di comando di Azure 2.0</a></td>
+    </tr>
+</table>
+
+## <a name="manage-data-lake-analytics"></a>Gestire Data Lake Analytics
+<table>
+    <tr>
+        <td><a href="data-lake-analytics-manage-use-portal.md">Portale</a></td>
+        <td><a href="data-lake-analytics-manage-use-powershell.md">Python</a></td>
+        <td><a href="data-lake-analytics-manage-use-cli.md">Interfaccia della riga di comando di Azure</a></td>
+        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
+        <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
+        <td><a href="data-lake-analytics-get-started-java-sdk.md">SDK per Java</a></td>
+    </tr>
+</table>
 
 ---
  
-<h2>Riferimenti</h2>
+<h2>Riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

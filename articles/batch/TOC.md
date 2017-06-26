@@ -22,6 +22,8 @@
 ### [Macchine virtuali con priorità bassa](batch-low-pri-vms.md)
 ### [Gestire gli account Batch con la gestione .NET per Batch](batch-management-dotnet.md)
 ### [Rendere persistente l'output di processi e attività](batch-task-output.md)
+#### [Rendere persistente l'output con l'API batch](batch-task-output-files.md)
+#### [Rendere persistente l'output con la libreria File Conventions](batch-task-output-file-conventions.md)
 ### [Eseguire processi MPI in Azure Batch](batch-mpi.md)
 ### [Dipendenze dell'attività](batch-task-dependencies.md)
 ### [Account utente per l'esecuzione di attività](batch-user-accounts.md)

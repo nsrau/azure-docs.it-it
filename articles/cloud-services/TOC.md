@@ -102,7 +102,11 @@
 ### [Problemi di distribuzione comuni](cloud-services-troubleshoot-deployment-problems.md)
 ### [Errore di avvio di un ruolo](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Informazioni aggiuntive sul ripristino](cloud-services-disaster-recovery-guidance.md)
-### [Domande frequenti sui servizi cloud](cloud-services-faq.md)
+### Domande frequenti sui servizi cloud
+#### [Domande frequenti sulla disponibilità dell'applicazione e del servizio](cloud-services-application-and-service-availability-faq.md)
+#### [Domande frequenti su configurazione e gestione](cloud-services-configuration-and-management-faq.md)
+#### [Domande frequenti su connettività e rete](cloud-services-connectivity-and-networking-faq.md)
+#### [Domande frequenti sulla distribuzione](cloud-services-deployment-faq.md)
 
 # Riferimento
 ## [XML Schema .csdef](https://msdn.microsoft.com/library/azure/ee758711)

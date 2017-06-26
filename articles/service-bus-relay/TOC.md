@@ -4,6 +4,7 @@
 
 # Attività iniziali
 ## [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
+## [Creare un'applicazione ibrida cloud/locale](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Connessioni ibride
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)

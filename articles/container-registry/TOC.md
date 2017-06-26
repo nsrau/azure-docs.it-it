@@ -5,6 +5,7 @@
 # Attività iniziali
 ## [Creare un Registro di sistema nel portale](container-registry-get-started-portal.md)
 ## [Creare un Registro di sistema con l'interfaccia della riga di comando di Azure 2.0](container-registry-get-started-azure-cli.md)
+## [Creare un registro con Azure PowerShell](container-registry-get-started-powershell.md)
 ## [Effettuare il push e il pull di un'immagine](container-registry-get-started-docker-cli.md)
 ## [Visualizzare i repository](container-registry-repositories.md)
 
