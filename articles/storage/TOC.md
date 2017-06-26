@@ -1,6 +1,7 @@
 # Panoramica
 
 ## [Introduzione](storage-introduction.md)
+## [Scegliere BLOB, file o dischi dati](storage-decide-blobs-files-disks.md)
 
 # Attività iniziali
 
@@ -50,6 +51,7 @@
 ### [Aggiungere un disco gestito a una VM Linux](../virtual-machines/linux/add-disk.md)
 ### [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Uso di dischi gestiti nei modelli di Resource Manager](storage-using-managed-disks-template-deployments.md)
 
 # Procedure
 ## [Creare un account di archiviazione](storage-create-storage-account.md)
@@ -70,7 +72,8 @@
 ### [Esempi](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Usare i file
 ### [Panoramica](/rest/api/storageservices/File-Service-Concepts)
-### [Risolvere i problemi relativi ad Azure AD](storage-troubleshoot-file-connection-problems.md)
+### [Risolvere i problemi relativi a File di Azure: Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Risolvere i problemi relativi a File di Azure: Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Esempi](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Usare i dischi
 ### [Dischi e VHD per VM Windows](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Proteggere
 ### [Guida alla sicurezza](storage-security-guide.md)
 ### [Crittografia per i dati inattivi](storage-service-encryption.md)
+### [Crittografia dei dati inattivi con le chiavi clienti](storage-service-encryption-customer-managed-keys.md)
 ### [Autenticazione della chiave condivisa](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
 ### [Esercitazione: Crittografare e decrittografare BLOB con l'insieme di credenziali delle chiavi di Azure](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [Informazioni aggiuntive sul ripristino di emergenza](storage-disaster-recovery-guidance.md)
 ## Trasferire i dati
 ### [Spostare dati da e verso Archiviazione](storage-moving-data.md)
-### [Utilità da riga di comando di AzCopy](storage-use-azcopy.md)
+### [AzCopy in Windows](storage-use-azcopy.md)
+### [AzCopy in Linux](storage-use-azcopy-linux.md)
 ### [Uso del servizio Importazione/Esportazione](storage-import-export-service.md)
 ### [Uso dello strumento Importazione/Esportazione](storage-import-export-tool-how-to.md)
 #### [Configurazione dello strumento Importazione/Esportazione](storage-import-export-tool-setup.md)
@@ -139,8 +144,8 @@
 ##### [Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
 ##### [Riferimento rapido per i comandi usati più di frequente per i processi di importazione](storage-import-export-tool-quick-reference.md)
 #### [Anteprima dell'uso del disco per un processo di esportazione](storage-import-export-tool-previewing-drive-usage-export-v1.md)
-#### [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)
-#### [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)
+#### [Revisione dello stato dei processi con i file di log di copia](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [Riparazione di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Riparazione di un processo di esportazione](storage-import-export-tool-repairing-an-export-job-v1.md)
 #### [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione](storage-import-export-tool-troubleshooting-v1.md)
 #### [Formato di file manifesto del servizio Importazione/Esportazione](storage-import-export-file-format-manifest.md)
@@ -153,8 +158,8 @@
 ##### [Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
 ##### [Riferimento rapido per i comandi usati più di frequente per i processi di importazione](storage-import-export-tool-quick-reference-v1.md)
 #### [Anteprima dell'uso del disco per un processo di esportazione](storage-import-export-tool-previewing-drive-usage-export-v1.md)
-#### [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)
-#### [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)
+#### [Revisione dello stato dei processi con i file di log di copia](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [Riparazione di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Riparazione di un processo di esportazione](storage-import-export-tool-repairing-an-export-job-v1.md)
 #### [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione](storage-import-export-tool-troubleshooting-v1.md)
 #### [Formato di file manifesto del servizio Importazione/Esportazione](storage-import-export-file-format-manifest.md)
@@ -162,9 +167,9 @@
 #### [Formato file log del servizio Importazione/Esportazione](storage-import-export-file-format-log.md)
 ### [Uso dell'API REST del servizio Importazione/Esportazione di Azure](storage-import-export-using-the-rest-api.md)
 #### [Creazione di un processo di importazione](storage-import-export-creating-an-import-job.md)
-#### [Creating an export job](storage-import-export-creating-an-export-job.md) (Creazione di un processo di esportazione)
-#### [Retrieving state information for a job](storage-import-export-retrieving-state-info-for-a-job.md) (Recupero delle informazioni sullo stato per un processo)
-#### [Enumerating jobs](storage-import-export-enumerating-jobs.md) (Enumerazione dei processi)
+#### [Creazione di un processo di esportazione](storage-import-export-creating-an-export-job.md)
+#### [Recupero delle informazioni sullo stato per un processo](storage-import-export-retrieving-state-info-for-a-job.md)
+#### [Enumerazione dei processi](storage-import-export-enumerating-jobs.md)
 #### [Annullamento ed eliminazione dei processi](storage-import-export-cancelling-and-deleting-jobs.md)
 #### [Backup dei manifesti delle unità](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostica e ripristino dagli errori per i processi di Importazione/Esportazione](storage-import-export-diagnostics-and-error-recovery.md)
