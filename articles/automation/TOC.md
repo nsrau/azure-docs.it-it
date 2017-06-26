@@ -11,7 +11,7 @@
 ### [Creare un account di Automazione autonomo](automation-create-standalone-account.md)
 ### [Creare un account utente di Azure AD](automation-create-aduser-account.md)
 ### [Configurare l'autenticazione con AWS](automation-config-aws-account.md)
-### [Creare un account RunAs di Azure con PowerShell](automation-update-account-powershell.md)
+### [Creare un account RunAs di Automazione](automation-create-runas-account.md)
 ### [Convalidare la configurazione di un account di Automazione](automation-verify-runas-authentication.md)
 ### [Gestire il controllo degli accessi in base al ruolo](automation-role-based-access-control.md)
 ### [Gestire l'account di Automazione](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Correggere gli avvisi delle VM di Azure](automation-azure-vm-alert-integration.md)
 ### [Avviare/arrestare una VM con tag JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Rimuovere i gruppi di risorse](automation-scenario-remove-resourcegroup.md)
-### [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
 ### [Integrazione del controllo del codice sorgente con GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Integrazione del controllo del codice sorgente con VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Soluzioni
 ### [Rilevamento delle modifiche](../log-analytics/log-analytics-change-tracking.md)
 ### [Gestione degli aggiornamenti](../operations-management-suite/oms-solution-update-management.md)
+### [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
 ## Monitorare
 ### [Inoltrare dati dei processi di Automazione di Azure a Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Scollegare l'account di automazione di Azure dal Log Analytics](automation-unlink-from-log-analytics.md)

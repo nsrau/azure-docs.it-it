@@ -48,7 +48,7 @@
 #### [Preparare le macchine virtuali distribuite da Resource Manager](backup-azure-arm-vms-prepare.md)
 ### Pianificare l'ambiente
 #### [Pianificare l'infrastruttura di backup delle macchine virtuali](backup-azure-vms-introduction.md)
-### Eseguire il backup di server e carichi di lavoro
+### Eseguire il backup delle VM
 #### [Backup di macchine virtuali di Azure nell'insieme di credenziali di backup](backup-azure-vms.md)
 #### [Backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](backup-azure-arm-vms.md)
 #### [Backup delle macchine virtuali crittografate](backup-azure-vms-encryption.md)

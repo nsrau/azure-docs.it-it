@@ -50,6 +50,7 @@
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (classico)](vpn-gateway-about-forced-tunneling.md)
 ## Modificare le impostazioni del gateway di rete locale
+### [Portale di Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Interfaccia della riga di comando di Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verificare una connessione di Gateway VPN](vpn-gateway-verify-connection-resource-manager.md)
@@ -59,6 +60,7 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configurare un gateway VPN (versione classica)](vpn-gateway-configure-vpn-gateway-mp.md)
+## [SKU del gateway (versione precedente)](vpn-gateway-about-skus-legacy.md)
 ## Risoluzione dei problemi
 ### [Convalidare la velocità effettiva della VPN verso una rete virtuale](vpn-gateway-validate-throughput-to-vnet.md)
 

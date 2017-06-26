@@ -30,7 +30,7 @@
 ### [Modelli comuni](monitoring-autoscale-common-scale-patterns.md)
 ### [Scalabilità automatica con metriche personalizzate](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Ridimensionare automaticamente i set di scalabilità di macchine virtuali usando i modelli di Resource Manager](insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+### [Ridimensionare automaticamente i computer in un set di set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configurare webhook e notifiche di posta elettronica per la scalabilità automatica](insights-autoscale-to-webhook-email.md)
 ## Usare il log attività
 ### [Visualizzare eventi nel log attività](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
@@ -39,10 +39,10 @@
 ### [Trasmettere il log attività a Hub eventi](monitoring-stream-activity-logs-event-hubs.md)
 ### [Operazioni di controllo con Gestione risorse](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Creare avvisi del log attività con Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Notifiche del servizio
+## Usare le notifiche del servizio
 ### [Visualizzare le notifiche del servizio](monitoring-service-notifications.md)
 ### [Configurare avvisi per le notifiche del servizio](monitoring-activity-log-alerts-on-service-notifications.md)
-## Gruppi di azioni
+## Usare i gruppi di azioni
 ### [Informazioni sullo schema del webhook](monitoring-activity-log-alerts-webhook.md)
 ### [Comportamento degli avvisi SMS](monitoring-sms-alert-behavior.md)
 ### [Limitazione della frequenza degli avvisi](monitoring-alerts-rate-limiting.md)

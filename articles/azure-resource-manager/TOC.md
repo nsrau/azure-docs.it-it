@@ -1,6 +1,6 @@
 # Panoramica
 ## [Informazioni su Resource Manager](resource-group-overview.md)
-## [Servizi supportati](resource-manager-supported-services.md)
+## [Provider e tipi di risorse](resource-manager-supported-services.md)
 ## [Distribuzione Resource Manager e classica](resource-manager-deployment-model.md)
 ## [Governance per le sottoscrizioni](resource-manager-subscription-governance.md)
 ## [Applicazioni gestite](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## Impostare i criteri delle risorse
 ### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
-### [Assegnazione di un criterio tramite il portale](resource-manager-policy-portal.md)
-### [Assegnazione di un criterio tramite script](resource-manager-policy-create-assign.md)
-### [Criteri dei tag delle risorse](resource-manager-policy-tags.md)
-### [Criteri di archiviazione](resource-manager-policy-storage.md)
-### [Criteri delle VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Criteri delle VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Usare il portale per assegnare i criteri](resource-manager-policy-portal.md)
+### [Usare gli script per assegnare i criteri](resource-manager-policy-create-assign.md)
+### esempi
+#### [Tag delle risorse](resource-manager-policy-tags.md)
+#### [Archiviazione](resource-manager-policy-storage.md)
+#### [VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Usare le applicazioni gestite
 ### [Pubblicare l'applicazione gestita](managed-application-publishing.md)

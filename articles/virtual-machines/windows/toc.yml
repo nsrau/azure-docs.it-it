@@ -140,6 +140,14 @@
       href: csharp-template.md
     - name: Creare una VM con Chef
       href: chef-automation.md
+    - name: Creare una VM con Python
+      href: python.md
+    - name: Creare una VM con Terraform
+      items:
+      - name: Installare e configurare
+        href: ../terraform-install-configure.md
+      - name: Creare l'infrastruttura di base
+        href: ../terraform-create-complete-vm.md      
     - name: Creare una VM con framework applicazioni comuni
       href: app-frameworks.md
     - name: Spostare una VM tra sottoscrizioni
@@ -185,13 +193,10 @@
       href: capture-image-resource.md
     - name: Creare una VM da un'immagine di disco gestito generalizzato
       href: create-vm-generalized-managed.md
+    - name: Create un'immagine con Packer
+      href: build-image-with-packer.md
   - name: Gestire le risorse di archiviazione delle VM
     items:
-    - name: Azure Managed Disks
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-      - name: Domande frequenti
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Creare un disco gestito
       href: create-managed-disk-ps.md
     - name: Eseguire la migrazione di VM a Managed Disks
@@ -215,6 +220,8 @@
       href: expand-os-disk.md
     - name: Espandere un disco dati
       href: expand-data-disks.md
+    - name: Usare una condivisione file
+      href: mount-azure-file-storage.md
     - name: Usare D come disco dati
       href: change-drive-letter.md
   - name: Rete VM
@@ -348,6 +355,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Risoluzione dei problemi
     items:
+    - name: Informazioni sul riavvio del sistema
+      href: understand-vm-reboot.md
     - name: Connessioni Desktop remoto
       href: troubleshoot-rdp-connection.md
       items:
