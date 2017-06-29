@@ -1,7 +1,7 @@
 ---
-title: Introduzione a HBase in Azure HDInsight | Documentazione Microsoft
-description: Seguire questa esercitazione di HBase per iniziare a usare Apache HBase con Hadoop in HDInsight. Creare tabelle dalla shell HBase e sottoporle a query tramite Hive.
-keywords: Apache hbase, hbase, shell di hbase, esercitazione hbase, beeline
+title: Iniziare a usare un esempio di HBase in HDInsight - Azure | Microsoft Docs
+description: Seguire questo esempio di Apache HBase per iniziare a usarlo in HDInsight. Creare tabelle dalla shell HBase e sottoporle a query tramite Hive.
+keywords: hbasecommand, esempio di hbase
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,21 +17,21 @@ ms.topic: get-started-article
 ms.date: 05/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5f9b421571fa98d9881a9e955b05041de124f922
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 5bac1fcc39d052dd1bd9bf710a45a3494b70cae9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>Esercitazione di HBase: Introduzione all'uso di Apache HBase in HDInsight
+# <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Iniziare a usare un esempio di Apache HBase in HDInsight
 
 Informazioni su come creare un cluster HBase in HDInsight, creare tabelle HBase ed eseguire query sulle tabelle con Hive. Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare questa esercitazione su HBase, è necessario avere gli elementi seguenti:
+Prima di iniziare a provare questo esempio di HBase, sono necessari gli elementi seguenti:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
@@ -76,7 +76,7 @@ In HBase, che rappresenta un'implementazione di BigTable, gli stessi dati sono s
 
 **Per usare la shell HBase**
 
-1. In SSH eseguire il comando seguente:
+1. In SSH eseguire il comando HBase seguente:
    
         hbase shell
 2. Creare un HBase con famiglie di due colonne:

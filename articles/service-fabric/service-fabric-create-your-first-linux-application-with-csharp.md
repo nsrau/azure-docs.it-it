@@ -1,6 +1,6 @@
 ---
 title: Creare la prima app di microservizi di Azure in Linux con C# | Documentazione Microsoft
-description: Creare e distribuire un&quot;applicazione di Service Fabric con C##
+description: Creare e distribuire un&quot;applicazione di Service Fabric con C#
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: c810f3e86ba582943e88f3085f6d9cff2496031c
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 2c22cc47e69b47371a96429d3ba7b8afc60e5ca7
+ms.contentlocale: it-it
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -26,8 +27,8 @@ ms.lasthandoff: 02/16/2017
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
+>
+>
 
 Service Fabric mette a disposizione SDK per la compilazione di servizi su Linux in .NET Core e Java. In questa esercitazione verrà esaminata la creazione di un'applicazione per Linux e la compilazione di un servizio con C# (.NET Core).
 
@@ -40,32 +41,32 @@ Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ogn
 1. In un terminale, digitare il comando seguente per iniziare a creare lo scaffolding: `yo azuresfcsharp`
 2. Assegnare un nome all'applicazione.
 3. Scegliere il tipo del primo servizio e assegnargli un nome. Ai fini di questa esercitazione viene scelto un servizio Reliable Actor.
-   
+
    ![Generatore Yeoman di Service Fabric per C#][sf-yeoman]
 
 > [!NOTE]
 > Per altre informazioni sulle opzioni, vedere [Panoramica dei modelli di programmazione di Service Fabric](service-fabric-choose-framework.md).
-> 
-> 
+>
+>
 
 ## <a name="build-the-application"></a>Compilare l'applicazione.
 I modelli Yeoman di Service Fabric includono uno script di compilazione che è possibile usare per compilare l'app dal terminale (dopo il passaggio alla cartella dell'applicazione).
 
   ```sh
- cd myapp 
- ./build.sh 
+ cd myapp
+ ./build.sh
   ```
 
 ## <a name="deploy-the-application"></a>Distribuire l'applicazione
 Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale tramite l'interfaccia della riga di comando di Azure.
 
 1. Connettersi al cluster locale di Service Fabric.
-   
+
     ```sh
     azure servicefabric cluster connect
     ```
 2. Usare lo script di installazione messo a disposizione nel modello per copiare il pacchetto dell'applicazione nell'archivio immagini del cluster, registrare il tipo di applicazione e creare un'istanza dell'applicazione.
-   
+
     ```bash
     ./install.sh
     ```
@@ -76,13 +77,13 @@ Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale
 I progetti Actor non eseguono alcuna operazione in modo indipendente. Richiedono un altro servizio o client per l'invio dei messaggi. Il modello Actor include un semplice script di test che è possibile usare per interagire con il servizio Actor.
 
 1. Eseguire lo script tramite l'utilità delle espressioni di controllo per visualizzare l'output del servizio Actor.
-   
+
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 2. In Service Fabric Explorer individuare il nodo che ospita la replica primaria del servizio Actor. Nello screenshot seguente si tratta del nodo 3.
-   
+
     ![Ricerca della replica primaria in Service Fabric Explorer][sfx-primary]
 3. Fare clic sul nodo trovato nel passaggio precedente, quindi selezionare **Disattiva (riavvio)** dal menu Azioni. Questa operazione consente di riavviare un nodo nel cluster locale forzando il failover in una replica secondaria in esecuzione in un altro nodo. Durante l'operazione, prestare attenzione all'output del client di test e notare che l'incremento del contatore prosegue nonostante il failover.
 
@@ -91,6 +92,11 @@ I progetti Actor non eseguono alcuna operazione in modo indipendente. Richiedono
 Per aggiungere un altro servizio a un'applicazione già creata mediante `yo`, seguire questa procedura: 
 1. Modificare la directory impostandola sulla radice dell'applicazione esistente.  Ad esempio, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` è l'applicazione creata da Yeoman.
 2. Eseguire `yo azuresfcsharp:AddService`
+
+## <a name="migrating-from-projectjson-to-csproj"></a>Migrazione da project.json a .csproj
+1. L'esecuzione di "dotnet migrate" nella directory radice del progetto consentirà la migrazione di tutti i file project.json al formato csproj.
+2. Aggiornare di conseguenza i riferimenti al progetto ai file in formato csproj nei file di progetto.
+3. Aggiornare i nomi dei file di progetto ai file in formato csproj in build.sh.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni su Reliable Actors](service-fabric-reliable-actors-introduction.md)

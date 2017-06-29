@@ -35,7 +35,7 @@
 1. Fare clic su **Esplora dispositivi**.
 1. Nel riquadro Esplora dispositivi fare clic su **Aggiungi** per aggiungere un dispositivo all'hub IoT.
 
-   **ID dispositivo**: ID del nuovo dispositivo.
+   **ID dispositivo**: ID del nuovo dispositivo. Gli ID dispositivo fanno distinzione tra maiuscole e minuscole.
 
    **Tipo di autenticazione**: selezionare **Chiave simmetrica**.
 

@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: eb85d8ef6b29605d7e26b0d2139a4a95c35141fb
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: b004310a3b2667134c9ad890bd907dc8ae439dd9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure
+# <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Introduzione ad Azure Data Lake Analytics con il portale di Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informazioni su come usare il portale di Azure per creare account Azure Data Lake Analytics, definire processi in [U-SQL](data-lake-analytics-u-sql-get-started.md) e inviare processi al servizio Data Lake Analytics. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -31,9 +31,9 @@ Informazioni su come usare il portale di Azure per creare account Azure Data Lak
 
 Prima di iniziare questa esercitazione, è necessaria una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
+## <a name="create-a-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
 
-A questo punto verranno creati un account di Data Lake Analytics e un account di Data Lake Store contemporaneamente.  Questo passaggio è semplice e richiede solo 60 secondi circa.
+A questo punto verranno creati un account Data Lake Analytics e un account Data Lake Store contemporaneamente.  Questo passaggio è semplice e richiede solo 60 secondi.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Nuovo** >  **Intelligence e analisi** > **Data Lake Analytics**.
@@ -46,38 +46,32 @@ A questo punto verranno creati un account di Data Lake Analytics e un account di
 4. Selezionare eventualmente un piano tariffario per l'account di Data Lake Analytics.
 5. Fare clic su **Crea**. 
 
-## <a name="create-and-submit-data-lake-analytics-jobs"></a>Creare e inviare processi di Analisi Data Lake
-Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno script U-SQL.  
 
-**Per inviare un processo**
+## <a name="your-first-u-sql-script"></a>Il primo script U-SQL
 
-1. Dall'account di Data Lake Analytics fare clic su **Nuovo processo**.
-2. Immettere il **Nome processo**e lo script U-SQL seguente:
+Il testo seguente è uno script U-SQL molto semplice. Definisce un set di dati di piccole dimensioni nello script e quindi scrive tale set di dati nell'istanza predefinita di Data Lake Store come file denominato `/data.csv`.
 
 ```
-@searchlog =
-    EXTRACT UserId          int,
-            Start           DateTime,
-            Region          string,
-            Query           string,
-            Duration        int?,
-            Urls            string,
-            ClickedUrls     string
-    FROM "/Samples/Data/SearchLog.tsv"
-    USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-    TO "/Output/SearchLog-from-Data-Lake.csv"
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
     USING Outputters.Csv();
 ```
 
+## <a name="submit-a-u-sql-job"></a>Inviare un processo U-SQL
 
-Questo script U-SQL legge il file di dati di origine tramite **Extractors.Tsv()** e quindi crea un file CSV tramite **Outputters.Csv()**.
-
-1. Fare clic su **Submit Job**.   
-2. Attendere finché lo stato del processo non viene modificato in **Riuscito**.
-3. In caso di esito negativo del processo, vedere [Monitorare e risolvere i problemi dei processi di Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-4. Fare clic sulla scheda **Output** e quindi su `SearchLog-from-Data-Lake.csv`. 
+1. Dall'account Data Lake Analytics fare clic su **Nuovo processo**.
+2. Incollare il testo dello script U-SQL illustrato in precedenza. 
+3. Fare clic su **Submit Job**.   
+4. Attendere finché lo stato del processo non viene modificato in **Riuscito**.
+5. In caso di esito negativo del processo, vedere [Monitorare e risolvere i problemi dei processi di Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+6. Fare clic sulla scheda **Output** e quindi su `SearchLog-from-Data-Lake.csv`. 
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -1,16 +1,15 @@
-La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata per SKU di gateway. La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse. I prezzi variano a seconda dello SKU del gateway. Per altre informazioni, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway).
+Azure offre gli SKU del gateway VPN seguenti:
 
-Si noti che lo SKU di gateway UltraPerformance non è rappresentato in questa tabella. Per informazioni sullo SKU UltraPerformance, vedere la documentazione relativa a [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+|**SKU**   | **Tunnel S2S/<br>rete virtuale-rete virtuale** | **Connessioni<br>P2S** | **Velocità effettiva<br>aggregata** |
+|---       | ---                             | ---                    | ---                         |
+|**VpnGw1**| Max. 30                         | Max. 128               | 500 Mbps                    |
+|**VpnGw2**| Max. 30                         | Max. 128               | 1 Gbps                      |
+|**VpnGw3**| Max. 30                         | Max. 128               | 1,25 Gbps                   |
+|**Basic** | Max. 10                         | Max. 128               | 100 Mbps                    | 
+|          |                                 |                        |                             | 
 
-|  | **Velocità effettiva del gateway VPN (1)** | **Tunnel IPsec massimi del gateway VPN (2)** | **Velocità effettiva del gateway di ExpressRoute** | **Coesistenza gateway VPN ed ExpressRoute** |
-| --- | --- | --- | --- | --- |
-| **SKU Basic (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
-| **SKU Standard (4)(5)** |100 Mbps |10 |1000 Mbps |Sì |
-| **SKU con prestazioni elevate (4)** |200 Mbps |30 |2000 Mbps |Sì |
+- La velocità effettiva è basata sulle misurazioni di più tunnel aggregati tramite un singolo gateway. Non è una velocità effettiva garantita, poiché può variare anche in funzione delle condizioni del traffico Internet e dei comportamenti dell'applicazione.
 
-* (1) La velocità effettiva della VPN è una stima approssimativa basata sulle misurazioni tra reti virtuali nella stessa area di Azure. Non è una velocità effettiva garantita per le connessioni cross-premise tramite Internet. È la misura massima possibile per la velocità effettiva.
-* (2) Il numero di tunnel si riferisce alle VPN RouteBased. Una VPN PolicyBased può supportare solo un tunnel VPN da sito a sito.
-* (3) BGP non è supportato nello SKU di livello Basic.
-* (4) Le VPN basate su criteri non sono supportate in questo SKU. Sono supportate solo nello SKU di livello Basic.
-* (5) Le connessioni del gateway VPN S2S attivo/attivo non sono supportate per questo SKU. La modalità attivo/attivo è supportata solo nello SKU HighPerformance.
-* (6) Lo SKU Basic è deprecato per l'uso con ExpressRoute.
+- Le informazioni sui prezzi sono disponibili nella pagina [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway) .
+
+- Le informazioni sul contratto di servizio sono disponibili nella pagina [SLA](https://azure.microsoft.com/en-us/support/legal/sla/vpn-gateway/) (Contratto di servizio).

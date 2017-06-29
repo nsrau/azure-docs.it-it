@@ -10,27 +10,27 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 0cce578185ba7811e4b13cc061a2adcb18452b13
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 893371145d77e156843271907aeef0c3756d0403
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-5-create-calculated-columns"></a>Lezione 5: Creare colonne calcolate
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In questa lezione verranno creati nuovi dati nel modello aggiungendo colonne calcolate. È possibile creare colonne calcolate (come colonne personalizzate) quando si usa Recupera dati, tramite l'Editor di query o in un secondo momento nella finestra di progettazione dei modelli come descritto di seguito. Per altre informazioni, vedere [Calculated columns](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns) (Colonne calcolate).
+In questa lezione vengono creati dati nel modello aggiungendo colonne calcolate. È possibile creare colonne calcolate (come colonne personalizzate) mentre si usa Recupera dati, tramite l'Editor di query o in un secondo momento nella finestra di progettazione dei modelli come descritto di seguito. Per altre informazioni, vedere [Calculated columns](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns) (Colonne calcolate).
   
-Verranno create cinque nuove colonne calcolate in tre tabelle diverse. I passaggi sono leggermente diversi per ogni attività. Lo scopo è dimostrare che esistono diversi modi per creare nuove colonne, rinominarle e inserirle in diverse posizioni in una tabella.  
+Vengono create cinque nuove colonne calcolate in tre tabelle diverse. I passaggi sono leggermente diversi per ogni attività, per dimostrare che esistono diversi modi per creare nuove colonne, rinominarle e inserirle in diverse posizioni in una tabella.  
 
-Questa è anche la prima lezione in cui si useranno espressioni DAX (Data Analysis Expressions). DAX è un linguaggio speciale per la creazione di espressioni per formule altamente personalizzabili per i modelli tabulari. In questa esercitazione si userà il linguaggio DAX per creare colonne calcolate, misure e filtri di ruolo. Per altre informazioni, vedere [DAX in tabular models](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular) (DAX nei modelli tabulari). 
+Questa è anche la prima lezione in cui si usano espressioni DAX (Data Analysis Expressions). DAX è un linguaggio speciale per la creazione di espressioni per formule altamente personalizzabili per i modelli tabulari. In questa esercitazione si usa il linguaggio DAX per creare colonne calcolate, misure e filtri di ruolo. Per altre informazioni, vedere [DAX in tabular models](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular) (DAX nei modelli tabulari). 
   
 Tempo previsto per il completamento della lezione: **15 minuti**  
   
@@ -51,13 +51,13 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
   
     Una nuova colonna denominata **Colonna calcolata 1** verrà inserita a sinistra della colonna **CalendarQuarter**.  
   
-4.  Nella barra della formula sopra la tabella, digitare la formula DAX seguente. La funzionalità Completamento automatico è utile per digitare correttamente i nomi completi di colonne e tabelle ed elenca le funzioni disponibili.  
+4.  Nella barra della formula sopra la tabella, digitare la formula DAX seguente: La funzionalità Completamento automatico è utile per digitare correttamente i nomi completi di colonne e tabelle ed elenca le funzioni disponibili.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  
     ``` 
   
-    I valori vengono quindi popolati per tutte le righe nella colonna calcolata. Se si scorre verso il basso nella tabella, si noterà che le righe possono avere valori diversi per questa colonna, in base ai dati in ogni riga.    
+    I valori vengono quindi popolati per tutte le righe nella colonna calcolata. Se si scorre verso il basso nella tabella, si nota che le righe possono avere valori diversi per questa colonna, in base ai dati in ogni riga.    
   
 5.  Rinominare la colonna **MonthCalendar**. 
 
@@ -91,7 +91,7 @@ La colonna calcolata DayOfWeek fornisce un nome ordinabile per il giorno della s
   
 1.  Nella tabella **DimProduct** scorrere fino all'estrema destra della tabella. Si noti che la colonna all'estrema destra è denominata **Aggiungi colonna** (in corsivo). Fare clic sull'intestazione di colonna.  
   
-2.  Nella barra della formula digitare la formula seguente.  
+2.  Nella barra della formula digitare la formula seguente:  
     
     ```
     =RELATED('DimProductSubcategory'[EnglishProductSubcategoryName])  

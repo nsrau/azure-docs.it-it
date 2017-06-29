@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.contentlocale: it-it
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -81,39 +82,9 @@ Quando si crea un gruppo di risorse è necessario specificarne il percorso. Perc
 ## <a name="resource-providers"></a>Provider di risorse
 Ogni provider di risorse offre una serie di risorse e operazioni per l'uso di un servizio di Azure. Per archiviare chiavi e segreti sarà ad esempio necessario usare il provider di risorse **Microsoft.KeyVault** . Questo provider di risorse offre un tipo di risorsa denominato **vaults** per creare l'insieme di credenziali delle chiavi. 
 
-Prima di iniziare con la distribuzione delle risorse è necessario comprendere i provider di risorse disponibili. Conoscere i nomi dei provider di risorse e delle risorse consente di definire le risorse da distribuire in Azure.
+Il nome di un tipo di risorsa è nel formato: **{resource-provider}/{resource-type}**. Ad esempio, il tipo di insieme di credenziali delle chiavi è **Microsoft.KeyVault\vaults**.
 
-È possibile visualizzare tutti i provider di risorse tramite il portale. Nel pannello relativo alla sottoscrizione selezionare **Provider di risorse**:
-
-![visualizzare i provider di risorse](./media/resource-group-overview/view-resource-providers.png)
-
-È possibile recuperare tutti i provider di risorse con il cmdlet di PowerShell seguente:
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Con la versione 2.0 dell'interfaccia della riga di comando di Azure è invece possibile recuperare tutti i provider di risorse con il comando seguente:
-
-```azurecli
-az provider list
-```
-
-È possibile esaminare l'elenco restituito per trovare i provider di risorse da usare.
-
-Per ottenere informazioni dettagliate su un provider di risorse, aggiungere lo spazio dei nomi del provider al comando. Il comando restituisce i tipi di risorse supportati per il provider di risorse, oltre alle posizioni e alle versioni API supportate per ogni tipo di risorsa. Il cmdlet di PowerShell seguente consente di ottenere informazioni dettagliate su Microsoft.Compute:
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-```
-
-In alternativa, usare la versione 2.0 dell'interfaccia della riga di comando di Azure per recuperare i tipi di risorse, le posizioni e le versioni API supportati per Microsoft.Compute con il comando seguente:
-
-```azurecli
-az provider show --namespace Microsoft.Compute
-```
-
-Per altre informazioni, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
+Prima di iniziare con la distribuzione delle risorse è necessario comprendere i provider di risorse disponibili. Conoscere i nomi dei provider di risorse e delle risorse consente di definire le risorse da distribuire in Azure. Inoltre, è necessario conoscere le posizioni e le versioni dell'API valide per ogni tipo di risorsa. Per altre informazioni, vedere [Provider e tipi di risorse](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 Resource Manager consente di creare un modello in formato JSON che definisce l'infrastruttura e la configurazione della soluzione di Azure. Usando il modello è possibile distribuire ripetutamente la soluzione nel corso del ciclo di vita garantendo al contempo che le risorse vengano distribuite in uno stato coerente. Quando si crea una soluzione dal portale, la soluzione include automaticamente un modello di distribuzione. Non è necessario creare un modello da zero perché è possibile iniziare con il modello per la soluzione e personalizzarlo per soddisfare esigenze specifiche. È possibile recuperare un modello per un gruppo di risorse esistente esportando lo stato corrente del gruppo di risorse oppure visualizzando il modello usato per una distribuzione specifica. Per conoscere la sintassi del modello è molto utile visualizzare il [modello esportato](resource-manager-export-template.md).

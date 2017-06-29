@@ -1,7 +1,9 @@
-Per informazioni sulla configurazione dei dispositivi VPN, vedere i collegamenti seguenti:
+Per informazioni sulla configurazione, vedere i collegamenti seguenti:
 
-- Per informazioni sui dispositivi VPN compatibili, vedere l'articolo relativo ai [dispositivi VPN](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md). 
+- Per informazioni sui dispositivi VPN compatibili, vedere l'articolo relativo ai [dispositivi VPN](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
+- Prima di configurare il dispositivo VPN, verificare eventuali [Problemi noti di compatibilità del dispositivo](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) per il dispositivo VPN da usare.
 - Per collegamenti alle impostazioni di configurazione dei dispositivi, vedere [Dispositivi VPN convalidati](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). I collegamenti alla configurazione del dispositivo vengono forniti nel modo più efficiente possibile. È sempre consigliabile rivolgersi al produttore del dispositivo per le informazioni di configurazione più aggiornate.
 - Per informazioni sulla modifica degli esempi, vedere [Modifica degli esempi di configurazione di dispositivo](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).
-- Per informazioni sui parametri IPsec/IKE, vedere [Parametri](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
-- Prima di configurare il dispositivo VPN, verificare eventuali [Problemi noti di compatibilità del dispositivo](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) per il dispositivo VPN da usare.
+- Per i requisiti di crittografia, vedere [About cryptographic requirements and Azure VPN gateways](../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md) (Informazioni sui requisiti di crittografia e i gateway VPN di Azure).
+- Per informazioni sui parametri IPsec/IKE, vedere [Informazioni sui dispositivi VPN e sui parametri IPsec/IKE per connessioni del Gateway VPN da sito a sito](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
+- Per la procedura di configurazione dei criteri IPsec/IKE, vedere [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md) (Configurare i criteri IPsec/IKE per connessioni VPN S2S o tra reti virtuali).

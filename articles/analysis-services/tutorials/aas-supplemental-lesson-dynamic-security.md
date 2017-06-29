@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 81a245f985c007f490acae102f1dd5c2096150e7
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lezione supplementare: Sicurezza dinamica
@@ -30,9 +30,9 @@ In questa lezione supplementare si creerà un ruolo aggiuntivo che implementa la
   
 Per implementare la sicurezza dinamica, è necessario aggiungere al modello una tabella con i nomi degli utenti che possono connettersi al modello ed esplorare dati e oggetti del modello. Il modello creato con questa esercitazione è nel contesto di Adventure Works. Per completare questa lezione, tuttavia, è necessario aggiungere una tabella contenente gli utenti del proprio dominio. Non occorrono le password per i nomi utente aggiunti. Per creare una tabella EmployeeSecurity con un piccolo campione di utenti del proprio dominio, usare la funzionalità Incolla e incollare i dati dei dipendenti da un foglio di calcolo di Excel. In uno scenario reale, la tabella contenente i nomi utente sarebbe di solito una tabella da un database effettivo usato come origine dati, ad esempio una tabella DimEmployee reale.  
   
-Per implementare la sicurezza dinamica, verranno usate due funzioni DAX: [USERNAME](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) e [LOOKUPVALUE](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Queste funzioni, applicate in una formula di filtro di riga, vengono definite in un nuovo ruolo. Usando la funzione LOOKUPVALUE, la formula specifica un valore dalla tabella EmployeeSecurity e quindi passa tale valore alla funzione USERNAME, che specifica che il nome utente dell'utente connesso appartiene a questo ruolo. L'utente può quindi esplorare solo i dati specificati dai filtri di riga del ruolo. In questo scenario, si specifica che i dipendenti del reparto vendite possono solo visualizzare i dati relativi alle vendite Internet per i territori di vendita di cui sono membri.  
+Per implementare la sicurezza dinamica, verranno usate due funzioni DAX: [USERNAME](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) e [LOOKUPVALUE](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Queste funzioni, applicate in una formula di filtro di riga, vengono definite in un nuovo ruolo. Usando la funzione LOOKUPVALUE, la formula specifica un valore dalla tabella EmployeeSecurity e quindi passa il valore alla funzione USERNAME, che specifica che il nome dell'utente connesso appartiene a questo ruolo. L'utente può quindi esplorare solo i dati specificati dai filtri di riga del ruolo. In questo scenario, si specifica che i dipendenti del reparto vendite possono solo visualizzare i dati relativi alle vendite Internet per i territori di vendita di cui sono membri.  
   
-Per questa lezione supplementare si completerà una serie di attività. Le attività specifiche per questo scenario di modello tabulare Adventure Works, non necessariamente applicabili a uno scenario reale verranno identificate come tali. Ogni attività include informazioni aggiuntive che descrivono lo scopo dell'attività.  
+Le attività specifiche per questo scenario di modello tabulare Adventure Works, non necessariamente applicabili a uno scenario reale verranno identificate come tali. Ogni attività include informazioni aggiuntive che descrivono lo scopo dell'attività.  
   
 Tempo previsto per il completamento della lezione: **30 minuti**  
   
@@ -59,11 +59,11 @@ Per implementare la sicurezza dinamica per questo scenario di Adventure Works, �
 9. Dopo aver completato l'importazione della tabella fare clic su **Chiudi**.  
 
 ## <a name="add-a-table-with-user-name-data"></a>Aggiungere una tabella con i dati dei nomi utente  
-Dato che la tabella DimEmployee nel database di esempio AdventureWorksDW contiene gli utenti dal dominio AdventureWorks e tali nomi utente non esistono nel proprio ambiente, è necessario creare una tabella nel modello che contenga un piccolo campione (tre) di utenti effettivi dell'organizzazione. Questi utenti verranno poi aggiunti come membri al nuovo ruolo. Non servono le password per i nomi utente del campione, ma sono necessari nomi utente di Windows effettivi del proprio dominio.  
+La tabella DimEmployee nel database di esempio AdventureWorksDW contiene utenti del dominio AdventureWorks. Questo nomi utente, tuttavia, non esistono nel proprio ambiente. È necessario quindi creare una tabella nel modello che contenga un piccolo campione (almeno tre) di utenti reali dell'organizzazione. Questi utenti verranno poi aggiunti come membri al nuovo ruolo. Non servono le password per i nomi utente del campione, ma sono necessari nomi utente di Windows effettivi del proprio dominio.  
   
 #### <a name="to-add-an-employeesecurity-table"></a>Per aggiungere una tabella EmployeeSecurity  
   
-1.  Aprire Microsoft Excel creando così un nuovo foglio di lavoro.  
+1.  Aprire Microsoft Excel per creare un foglio di lavoro.  
   
 2.  Copiare la tabella seguente, inclusa la riga di intestazione e quindi incollarla nel foglio di lavoro.  
 
@@ -76,7 +76,7 @@ Dato che la tabella DimEmployee nel database di esempio AdventureWorksDW contien
       |3|5|<user first name>|<user last name>|\<domain\username>|  
     ```
 
-3.  Sostituire nome, cognome e dominio\nomeutente con i nomi e gli ID di accesso dei tre utenti dell'organizzazione. Inserire lo stesso utente nelle prime due righe per EmployeeId 1. Ciò indica che questo utente appartiene a più di un territorio di vendita. Lasciare invariati i campi EmployeeId e SalesTerritoryId.  
+3.  Sostituire nome, cognome e dominio\nomeutente con i nomi e gli ID di accesso dei tre utenti dell'organizzazione. Inserire lo stesso utente nelle prime due righe, in corrispondenza di EmployeeId 1, in modo da indicare che l'utente appartiene a più di un territorio di vendita. Lasciare invariati i campi EmployeeId e SalesTerritoryId.  
   
 4.  Salvare il foglio di lavoro come **SampleEmployee**.  
   
@@ -99,11 +99,11 @@ Le tabelle FactInternetSales, DimGeography e DimSalesTerritory contengono tutte 
   
 #### <a name="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table"></a>Per creare relazioni tra le tabelle FactInternetSales, DimGeography e DimSalesTerritory  
   
-1.  Nella finestra di progettazione dei modelli, in vista diagramma, nella tabella **DimGeography** fare clic sulla colonna **SalesTerritoryId** e tenere premuto, trascinare il cursore sulla colonna **SalesTerritoryId** nella tabella **DimSalesTerritory** e quindi rilasciare.  
+1.  Nella vista diagramma, nella tabella **DimGeography** fare clic sulla colonna **SalesTerritoryId** e tenere premuto, trascinare il cursore sulla colonna **SalesTerritoryId** nella tabella **DimSalesTerritory** e quindi rilasciare.  
   
 2.  Nella tabella **FactInternetSales** fare clic sulla colonna **SalesTerritoryId** e tenere premuto, trascinare il cursore sulla colonna **SalesTerritoryId** nella tabella **DimSalesTerritory** e quindi rilasciare.  
   
-    Si noti che la proprietà Attiva per questa relazione è False, ovvero la relazione è inattiva, perché la tabella FactInternetSales include già un'altra relazione attiva.  
+    Si noti che la proprietà Attiva per questa relazione è False, ovvero è inattiva. La tabella FactInternetSales, infatti, include già un'altra relazione attiva.  
   
 ## <a name="hide-the-employeesecurity-table-from-client-applications"></a>Nascondere la tabella EmployeeSecurity dalle applicazioni client  
 In questa attività si nasconderà la tabella EmployeeSecurity, impedendone la visualizzazione nell'elenco dei campi di un'applicazione client. Tenere presente che nascondere una tabella non significa proteggerla. Gli utenti possono comunque eseguire query per recuperare dati dalla tabella EmployeeSecurity, se sanno come farlo. Per proteggere i dati della tabella EmployeeSecurity, impedendo agli utenti di poter eseguire query sui relativi dati, si applicherà un filtro in un'attività successiva.  
@@ -113,7 +113,7 @@ In questa attività si nasconderà la tabella EmployeeSecurity, impedendone la v
 -   Nella finestra di progettazione dei modelli, in vista diagramma, fare clic con il pulsante destro del mouse sull'intestazione della tabella **Employee** e quindi scegliere **Nascondi a strumenti client**.  
   
 ## <a name="create-a-sales-employees-by-territory-user-role"></a>Creare un ruolo utente Sales Employees by Territory  
-In questa attività si creerà un nuovo ruolo utente. Questo ruolo include un filtro di riga che definisce le righe della tabella DimSalesTerritory che sono visibili agli utenti. Il filtro viene quindi applicato nella direzione della relazione uno-a-molti a tutte le altre tabelle correlate a DimSalesTerritory. È anche possibile applicare un filtro che protegge l'intera tabella EmployeeSecurity impedendo l'esecuzione di query a qualsiasi utente membro del ruolo.  
+In questa attività si creerà un ruolo utente. Questo ruolo include un filtro di riga che definisce le righe della tabella DimSalesTerritory che sono visibili agli utenti. Il filtro viene quindi applicato nella direzione della relazione uno-a-molti a tutte le altre tabelle correlate a DimSalesTerritory. È anche possibile applicare un filtro che protegge l'intera tabella EmployeeSecurity impedendo l'esecuzione di query a qualsiasi utente membro del ruolo.  
   
 > [!NOTE]  
 > Il ruolo Sales Employees by Territory creato in questa lezione limita i membri consentendo loro di visualizzare solo i dati sulle vendite per il territorio a cui appartengono o di eseguire query su tali dati. Se si aggiunge un utente come membro al ruolo Sales Employees by Territory e tale utente esiste anche come membro di uno dei ruoli creati nella [Lezione 11: Creare ruoli](../tutorials/aas-lesson-11-create-roles.md), si ottiene una combinazione di autorizzazioni. Quando un utente è membro di più ruoli, le autorizzazioni e i filtri di riga definiti per ogni ruolo sono cumulativi. Questo significa che l'utente dispone delle autorizzazioni maggiori determinate dalla combinazione dei ruoli.  
@@ -144,7 +144,7 @@ In questa attività si creerà un nuovo ruolo utente. Questo ruolo include un fi
       =FALSE()  
     ```
   
-    Questa formula specifica che tutte le colonne corrispondono alla condizione booleana False, quindi nessuna colonna nella tabella EmployeeSecurity può essere sottoposta a query da un membro del ruolo utente Sales Employees by Territory.  
+    Questa formula specifica che tutte le colonne si risolvono nella condizione booleana False e che nessuna colonna della tabella EmployeeSecurity può essere sottoposta a query da un membro del ruolo utente Sales Employees by Territory.  
   
 9. Per la tabella **DimSalesTerritory** digitare la formula seguente:  
 
@@ -170,21 +170,21 @@ In questa attività si userà la funzionalità Analizza in Excel in SSDT per ver
   
 2.  Nella finestra di dialogo **Analizza in Excel**, in **Specificare il nome utente o il ruolo da utilizzare per la connessione al modello**, selezionare **Altro utente di Windows** e quindi fare clic su **Sfoglia**.  
   
-3.  Nella finestra di dialogo **Seleziona utente o gruppo**, in **Immettere il nome dell'oggetto da selezionare**, digitare uno dei nomi utente inclusi nella tabella EmployeeSecurity e quindi fare clic su **Controlla nomi**.  
+3.  Nella finestra di dialogo **Seleziona utente o gruppo**, in **Immettere il nome dell'oggetto da selezionare** digitare uno dei nomi utente inclusi nella tabella EmployeeSecurity e quindi fare clic su **Controlla nomi**.  
   
 4.  Fare clic su **OK** per chiudere la finestra di dialogo **Seleziona utente o gruppo** e quindi fare clic su **OK** per chiudere la finestra di dialogo **Analizza in Excel**.  
   
     Excel verrà aperto con una nuova cartella di lavoro. Viene creata automaticamente una tabella pivot. L'elenco dei campi della tabella pivot include la maggior parte dei campi dati disponibili nel nuovo modello.  
   
-    Si noti che la tabella EmployeeSecurity non è visibile nell'elenco Campi tabella pivot, perché questa tabella è stata nascosta dagli strumenti client in un'attività precedente.  
+    La tabella EmployeeSecurity non è visibile nell'elenco Campi tabella pivot, perché è stata nascosta dagli strumenti client in un'attività precedente.  
   
 5.  Nell'elenco **Campi**, in **∑ Internet Sales** (misure), selezionare la misura **InternetTotalSales**. La misura verrà immessa nei campi **Valori**.  
   
 6.  Selezionare la colonna **SalesTerritoryId** dalla tabella **DimSalesTerritory**. La colonna verrà immessa nei campi **Etichette di riga**.  
   
-    Si noti che i dati relativi alle vendite Internet vengono visualizzati solo per l'unica area a cui appartiene il nome utente effettivo usato. Se si seleziona un'altra colonna, ad esempio, City, nella tabella DimGeography come campo etichetta di riga, vengono visualizzate solo le città del territorio di vendita a cui appartiene l'utente effettivo.  
+    Si noti che i dati relativi alle vendite Internet vengono visualizzati solo per l'unica area a cui appartiene il nome utente effettivo usato. Se si seleziona un'altra colonna, ad esempio City nella tabella DimGeography come campo etichetta di riga, vengono visualizzate solo le città del territorio di vendita a cui appartiene l'utente effettivo.  
   
-    Questo utente non può visualizzare o eseguire query sui dati delle vendite Internet per territori diversi da quello che a cui appartiene. Questa restrizione dipende dal fatto che il filtro di riga definito per la tabella DimSalesTerritory, nel ruolo utente Sales Employees by Territory, protegge in modo efficace tutti i dati correlati ad altri territori di vendita.  
+    Questo utente non può visualizzare o eseguire query sui dati delle vendite Internet per territori diversi da quello che a cui appartiene. Questa restrizione dipende dal fatto che il filtro di riga definito per la tabella DimSalesTerritory, nel ruolo utente Sales Employees by Territory, protegge tutti i dati correlati ad altri territori di vendita.  
   
 ## <a name="see-also"></a>Vedere anche  
 [USERNAME Function (DAX) (Funzione DAX USERNAME)](https://msdn.microsoft.com/library/hh230954.aspx)  

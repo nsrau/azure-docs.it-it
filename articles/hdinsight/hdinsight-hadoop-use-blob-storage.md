@@ -1,5 +1,5 @@
 ---
-title: Eseguire query sui dati da un&quot;Archiviazione di Azure compatibile con HDFS | Microsoft Docs
+title: Eseguire query sui dati da una risorsa di archiviazione di Azure compatibile con HDFS - Azure HDInsight | Microsoft Docs
 description: Informazioni su come eseguire query sui dati da Archiviazione di Azure e Azure Data Lake Store per archiviare i risultati dell&quot;analisi.
 keywords: archivio BLOB, HDFS, dati strutturati, dati non strutturati, Data Lake Store, input Hadoop, output Hadoop, archivio Hadoop, input HDFS, output HDFS, archivio HDFS, WASB in Azure
 services: hdinsight,storage
@@ -15,25 +15,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 06/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: a8f59b891ee048bc71efc6f913e7998f6eed6d62
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 4a46c7d9a030adb9c0407fda622ccd787212b030
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="use-hdfs-compatible-storage-with-hadoop-in-hdinsight"></a>Usare un'archiviazione compatibile con HDFS con Hadoop in HDInsight
+# <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
 
 Per analizzare i dati in un cluster HDInsight è possibile archiviarli in Archiviazione di Azure, Azure Data Lake Store o in entrambe le soluzioni. Entrambe le opzioni di archiviazione consentono l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 
-Hadoop supporta una nozione del file system predefinito. Il file system predefinito implica uno schema e un'autorità predefiniti e può essere usato anche per risolvere percorsi relativi. Durante il processo di creazione del cluster HDInsight è possibile specificare un contenitore BLOB in Archiviazione di Azure come file system predefinito. In alternativa, con HDInsight 3.5 è possibile selezionare Archiviazione di Azure o Azure Data Lake Store come file system predefinito.
+Hadoop supporta una nozione del file system predefinito. Il file system predefinito implica uno schema e un'autorità predefiniti e può essere usato anche per risolvere percorsi relativi. Durante il processo di creazione del cluster HDInsight è possibile specificare un contenitore BLOB in Archiviazione di Azure come file system predefinito. In alternativa, con HDInsight 3.5 è possibile selezionare Archiviazione di Azure o Azure Data Lake Store come file system predefinito, con alcune eccezioni. Per il supporto dell'uso di Data Lake Store come risorsa di archiviazione sia predefinita che collegata, vedere [Disponibilità per il cluster HDInsight](#availabilities-for-hdinsight-clusters]).
 
-Questo articolo illustra l'uso delle due opzioni di archiviazione con i cluster HDInsight. Per altre informazioni sulla creazione di un cluster HDInsight, vedere [Introduzione a HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-
-## <a name="using-azure-storage-with-hdinsight-clusters"></a>Uso di Archiviazione di Azure con cluster HDInsight
+Questo articolo illustra come usare Archiviazione di Azure con i cluster HDInsight. Per informazioni sull'uso di Data Lake Store con i cluster HDInsight, vedere [Usare Azure Data Lake Store con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md). Per altre informazioni sulla creazione di un cluster HDInsight, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. HDInsight può usare un contenitore BLOB in Archiviazione di Azure come file system predefinito per il cluster. Grazie a un'interfaccia HDFS (Hadoop Distributed File System), tutti i componenti disponibili in HDInsight possono agire direttamente sui dati strutturati o non strutturati archiviati come BLOB.
 
@@ -47,8 +45,12 @@ Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalit
 > | Account di archiviazione BLOB | Accesso frequente | No |
 > | &nbsp; | Accesso sporadico | No |
 
-### <a name="hdinsight-storage-architecture"></a>Architettura di archiviazione di HDInsight
-Nel diagramma seguente viene mostrata una visualizzazione astratta dell'architettura di archiviazione di HDInsight:
+Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Si noti che il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
+
+La condivisione di un contenitore BLOB tra più cluster non è supportata.
+
+## <a name="hdinsight-storage-architecture"></a>Architettura di archiviazione di HDInsight
+Nel diagramma seguente viene mostrata una visualizzazione astratta dell'architettura di archiviazione HDInsight dell'uso di Archiviazione di Azure:
 
 I ![cluster Hadoop usano l'API HDFS per accedere e archiviare dati strutturati e non strutturati nell'archiviazione BLOB.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architettura di archiviazione di HDInsight")
 
@@ -56,7 +58,7 @@ HDInsight offre accesso al file system distribuito collegato localmente ai nodi 
 
     hdfs://<namenodehost>/<path>
 
-HDInsight offre anche la possibilità di accedere ai dati archiviati in Archiviazione di Azure. La sintassi è:
+HDInsight consente anche di accedere ai dati archiviati in Archiviazione di Azure. La sintassi è:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -78,7 +80,7 @@ Più processi WebHCat, inclusi Hive, MapReduce, lo streaming Hadoop e Pig, posso
 
 I BLOB possono essere usati per i dati strutturati e non strutturati. I contenitori BLOB archiviano i dati come coppie chiave-valore e non esiste una gerarchia di directory. È tuttavia possibile usare il carattere barra ( / ) all'interno del nome della chiave per far sembrare che un file sia archiviato in una struttura di directory. Ad esempio, la chiave di un BLOB potrebbe essere *input/log1.txt*. Non esiste realmente una directory *input* ma, grazie alla presenza del carattere barra, il nome della chiave ha l'aspetto di un percorso di file.
 
-### <a id="benefits"></a>Vantaggi di Archiviazione di Azure
+## <a id="benefits"></a>Vantaggi di Archiviazione di Azure
 I costi impliciti in termini di prestazioni associati alla mancata disponibilità di cluster di elaborazione e risorse di archiviazione in un ambiente condiviso sono mitigati dalla modalità di creazione dei cluster di elaborazione, in prossimità delle risorse degli account di archiviazione nell'area di Azure. Qui, grazie alla rete ad alta velocità, l'accesso ai dati in Archiviazione di Azure da parte dei nodi di calcolo è estremamente efficiente.
 
 L'archiviazione dei dati in Archiviazione di Azure anziché in HDFS offre numerosi vantaggi:
@@ -96,14 +98,14 @@ Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non
 > 
 > 
 
-### <a name="create-blob-containers"></a>Creare dei contenitori BLOB
+## <a name="create-blob-containers"></a>Creare dei contenitori BLOB
 Per usare i BLOB, è necessario creare innanzitutto un [account di archiviazione di Azure][azure-storage-create]. Come parte della procedura, è necessario specificare l'area di Azure in cui viene creato l'account di archiviazione. L'account di archiviazione deve trovarsi nella stessa area del cluster. Il database SQL Server del metastore Hive, inoltre, deve trovarsi nella stessa area del database SQL Server del metastore Oozie.
 
 Ovunque si trovi, ogni oggetto BLOB creato appartiene a un contenitore presente nell'account di archiviazione di Azure. Può trattarsi di un contenitore BLOB esistente, creato all'esterno di HDInsight, oppure di un contenitore creato per un cluster HDInsight.
 
-Il contenitore Blob predefinito archivia informazioni specifiche del cluster, come i log e la cronologia processo. Non condividere un contenitore BLOB predefinito con più cluster HDInsight. Questa operazione potrebbe danneggiare la cronologia processo. È consigliabile utilizzare un contenitore diverso per ogni cluster e inserire i dati condivisi in un account di archiviazione collegato specificato nella distribuzione di tutti i cluster rilevanti, anziché l'account di archiviazione predefinito. Per altre informazioni sulla configurazione degli account di archiviazione collegati, vedere [Creare cluster HDInsight][hdinsight-creation]. È comunque possibile riusare un contenitore di archiviazione predefinito dopo l'eliminazione del cluster HDInsight originale. Per i cluster HBase è in realtà possibile mantenere i dati e lo schema della tabella HBase creando un nuovo cluster HBase tramite il contenitore BLOB predefinito usato da un cluster HBase eliminato.
+Il contenitore BLOB predefinito archivia informazioni specifiche del cluster come i log e la cronologia processo. Non condividere un contenitore BLOB predefinito con più cluster HDInsight. Questa operazione potrebbe danneggiare la cronologia processo. È consigliabile utilizzare un contenitore diverso per ogni cluster e inserire i dati condivisi in un account di archiviazione collegato specificato nella distribuzione di tutti i cluster rilevanti, anziché l'account di archiviazione predefinito. Per altre informazioni sulla configurazione degli account di archiviazione collegati, vedere [Creare cluster HDInsight][hdinsight-creation]. È comunque possibile riusare un contenitore di archiviazione predefinito dopo l'eliminazione del cluster HDInsight originale. Per i cluster HBase è in realtà possibile mantenere i dati e lo schema della tabella HBase creando un nuovo cluster HBase tramite il contenitore BLOB predefinito usato da un cluster HBase eliminato.
 
-#### <a name="using-the-azure-portal"></a>Uso del portale di Azure
+### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 Durante la creazione di un cluster HDInsight dal portale, sono disponibili le opzioni per indicare i dettagli dell'account di archiviazione, come mostrato di seguito. È inoltre possibile specificare se si desidera associare un account di archiviazione aggiuntivo al cluster e, in caso, se sceglierlo da Data Lake Store o da un altro BLOB del servizio di archiviazione di Azure.
 
 ![Origine dati della creazione di HDInsight Hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
@@ -111,29 +113,8 @@ Durante la creazione di un cluster HDInsight dal portale, sono disponibili le op
 > [!WARNING]
 > L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
 
-#### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-Se è stata [installata e configurata l’interfaccia della riga di comando di Azure](../cli-install-nodejs.md), il comando seguente può essere usato per un account di archiviazione e un contenitore.
-
-    azure storage account create <storageaccountname> --type LRS
-
-> [!NOTE]
-> Il parametro `--type` indica la modalità di replica dell'account di archiviazione. Per altre informazioni, vedere [Replica di Archiviazione di Azure](../storage/storage-redundancy.md). Non utilizzare ZRS poiché ZRS non supporta BLOB di pagine, file, tabelle o code.
-> 
-> 
-
-Verrà chiesto di specificare l'area geografica in cui verrà creato l'account di archiviazione. È necessario creare l'account di archiviazione nella stessa area in cui si prevede di creare il cluster HDInsight.
-
-Dopo aver creato l'account di archiviazione, usare il comando seguente per recuperare le chiavi dell’account di archiviazione:
-
-    azure storage account keys list <storageaccountname>
-
-Per creare un contenitore, usare il comando seguente:
-
-    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-#### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
+### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
 Se [Azure PowerShell è stato installato e configurato][powershell-install], è possibile usare il comando seguente del prompt di Azure PowerShell per creare un account di archiviazione e un contenitore:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -159,7 +140,30 @@ Se [Azure PowerShell è stato installato e configurato][powershell-install], è 
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="address-files-in-azure-storage"></a>Accedere ai file in Archiviazione di Azure
+### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
+Se è stata [installata e configurata l’interfaccia della riga di comando di Azure](../cli-install-nodejs.md), il comando seguente può essere usato per un account di archiviazione e un contenitore.
+
+    azure storage account create <storageaccountname> --type LRS
+
+> [!NOTE]
+> Il parametro `--type` indica la modalità di replica dell'account di archiviazione. Per altre informazioni, vedere [Replica di Archiviazione di Azure](../storage/storage-redundancy.md). Non utilizzare ZRS poiché ZRS non supporta BLOB di pagine, file, tabelle o code.
+> 
+> 
+
+Verrà chiesto di specificare l'area geografica in cui verrà creato l'account di archiviazione. È necessario creare l'account di archiviazione nella stessa area in cui si prevede di creare il cluster HDInsight.
+
+Dopo aver creato l'account di archiviazione, usare il comando seguente per recuperare le chiavi dell’account di archiviazione:
+
+    azure storage account keys list <storageaccountname>
+
+Per creare un contenitore, usare il comando seguente:
+
+    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+## <a name="address-files-in-azure-storage"></a>Accedere ai file in Archiviazione di Azure
 Lo schema URI per l'accesso ai file in Archiviazione di Azure da HDInsight è il seguente:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
@@ -189,28 +193,10 @@ Se non viene specificato &lt;BlobStorageContainerName&gt; né &lt;StorageAccount
 > 
 > 
 
-### <a name="access-blobs-using-azure-cli"></a>BLOB di accesso mediante l’interfaccia della riga di comando di Azure
-Usare il comando seguente per ottenere un elenco dei comandi relativi ai BLOB:
+## <a name="access-blobs"></a>Accedere ai BLOB 
 
-    azure storage blob
 
-**Esempio di uso dell’interfaccia della riga di comando di Azure per caricare un file**
-
-    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Esempio di uso dell’interfaccia della riga di comando di Azure per scaricare un file**
-
-    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Esempio di uso dell’interfaccia della riga di comando di Azure per eliminare un file**
-
-    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Esempio di uso dell’interfaccia della riga di comando di Azure per elencare file**
-
-    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-### <a name="access-blobs-using-azure-powershell"></a>Accedere ai BLOB con Azure PowerShell
+### <a name="access-blobs-using-azure-powershell"></a> Usare Azure PowerShell
 > [!NOTE]
 > I comandi in questa sezione forniscono un esempio di base dell'utilizzo di PowerShell per accedere ai dati archiviati nei BLOB. Per un esempio completo personalizzato per l'utilizzo di HDInsight, vedere [Strumenti HDInsight](https://github.com/Blackmist/hdinsight-tools).
 > 
@@ -262,6 +248,7 @@ Fornendo il nome del gruppo di risorse e il nome del cluster, è possibile utili
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
+
 #### <a name="delete-files"></a>Eliminare file
     Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
@@ -284,80 +271,36 @@ $clusterName = "<HDInsightClusterName>"
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
+### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+Usare il comando seguente per ottenere un elenco dei comandi relativi ai BLOB:
 
-### <a name="using-additional-storage-accounts"></a>Uso di account di archiviazione aggiuntivi
+    azure storage blob
+
+**Esempio di uso dell’interfaccia della riga di comando di Azure per caricare un file**
+
+    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Esempio di uso dell’interfaccia della riga di comando di Azure per scaricare un file**
+
+    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Esempio di uso dell’interfaccia della riga di comando di Azure per eliminare un file**
+
+    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Esempio di uso dell’interfaccia della riga di comando di Azure per elencare file**
+
+    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+## <a name="use-additional-storage-accounts"></a>Usare account di archiviazione aggiuntivi
 
 Durante la creazione di un cluster HDInsight viene specificato l'account di Archiviazione di Azure da associare al cluster. Oltre a questo account di archiviazione, durante il processo di creazione o dopo la creazione di un cluster è possibile aggiungere altri account di archiviazione della stessa sottoscrizione di Azure o di sottoscrizioni di Azure diverse. Per istruzioni sull'aggiunta di altri account di archiviazione, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]
 > L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
 
-## <a name="using-azure-data-lake-store-with-hdinsight-clusters"></a>Uso di Azure Data Lake Store con i cluster HDInsight
-
-I cluster HDInsight possono usare Azure Data Lake Store in due modi:
-
-* Azure Data Lake Store come risorsa di archiviazione predefinita
-* Azure Data Lake Store risorsa di archiviazione aggiuntiva, con BLOB del servizio di archiviazione di Azure come risorsa predefinita.
-
-> [!NOTE]
-> L'accesso ad Azure Data Lake Store avviene sempre tramite un canale protetto, pertanto non è presente un nome di schema del file system `adls`. Viene usato sempre `adl`.
-> 
-> 
-
-### <a name="using-azure-data-lake-store-as-default-storage"></a>Uso di Azure Data Lake Store come risorsa di archiviazione predefinita
-
-Quando si distribuisce HDInsight con Azure Data Lake Store come risorsa di archiviazione predefinita, i file legati al cluster vengono archiviati in Azure Data Lake Store nel percorso seguente:
-
-    adl://mydatalakestore/<cluster_root_path>/
-
-dove `<cluster_root_path>` è il nome di una cartella creata in Azure Data Lake Store. Specificando un percorso radice per ogni cluster, è possibile usare lo stesso account di Azure Data Lake Store per più di un cluster. Pertanto, è possibile disporre di una configurazione in cui:
-
-* Cluster1 può usare il percorso `adl://mydatalakestore/cluster1storage`
-* Cluster2 può usare il percorso `adl://mydatalakestore/cluster2storage`
-
-Si noti che entrambi i cluster usano lo stesso account Data Lake Store **mydatalakestore**. Ogni cluster ha accesso al proprio file system radice in Data Lake Store. Più nello specifico, l'esperienza di distribuzione del Portale di Azure richiede di utilizzare un nome di cartella come **/clusters/\<clustername>** per il percorso radice.
-
-#### <a name="accessing-files-from-the-cluster"></a>Accesso ai file dal cluster
-
-Esistono diversi modi per accedere ai file in Azure Data Lake Store da un cluster HDInsight.
-
-* **Uso di nomi completi**. Con questo approccio viene fornito il percorso completo al file a cui si desidera accedere.
-
-        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/<file_path>
-
-* **Uso del formato con percorso abbreviato**. Con questo approccio si sostituisce con adl:/// il percorso fino alla radice del cluster. Nell'esempio precedente, pertanto, è possibile sostituire `adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/` con `adl:///`.
-
-        adl:///<file path>
-
-* **Uso del percorso relativo**. Con questo approccio viene fornito unicamente il percorso relativo al file a cui si desidera accedere. Ad esempio, se il percorso completo del file è:
-
-        adl://mydatalakestore.azuredatalakestore.net/<cluster_root_path>/example/data/sample.log
-
-    È possibile accedere al medesimo file sample.log usando invece il percorso relativo.
-
-        /example/data/sample.log
-
-### <a name="using-azure-data-lake-store-as-additional-storage"></a>Uso di Azure Data Lake Store come risorsa di archiviazione aggiuntiva
-
-È anche possibile usare Data Lake Store come risorsa di archiviazione aggiuntiva per il cluster. In questi casi, l'archiviazione predefinita del cluster può essere un BLOB del servizio di archiviazione di Azure o un account Azure Data Lake Store. Se si eseguono processi di HDInsight con i dati archiviati in Azure Data Lake Store come risorsa di archiviazione aggiuntiva, è necessario usare il percorso con nomi completi ai file. Ad esempio:
-
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
-
-Si noti che al momento non esiste alcun **cluster_root_path** nell'URL. Infatti, Data Lake Store non è una risorsa di archiviazione predefinita in questo caso. È sufficiente pertanto indicare il percorso ai file.
-
-
-### <a name="creating-hdinsight-clusters-with-access-to-data-lake-store"></a>Creazione di cluster HDInsight con accesso a Data Lake Store
-
-Seguire i collegamenti seguenti per informazioni dettagliate su come creare cluster HDInsight con accesso a Data Lake Store.
-
-* [Uso del portale](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Uso di PowerShell con Data Lake Store come risorsa di archiviazione predefinita](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [Uso di PowerShell con Data Lake Store come risorsa di archiviazione aggiuntiva](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
-* [Uso di modelli di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
-
-
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stato descritto come usare Archiviazione di Azure e Azure Data Lake Store compatibili con HDFS con HDInsight. In questo modo sarà possibile creare soluzioni scalabili di acquisizione e archiviazione a lungo termine dei dati e usare HDInsight per sbloccare le informazioni all'interno dei dati strutturati e non strutturati archiviati.
+In questo articolo è stato descritto come usare una risorsa di archiviazione di Azure compatibile con HDFS con HDInsight. In questo modo sarà possibile creare soluzioni scalabili di acquisizione e archiviazione a lungo termine dei dati e usare HDInsight per sbloccare le informazioni all'interno dei dati strutturati e non strutturati archiviati.
 
 Per altre informazioni, vedere:
 

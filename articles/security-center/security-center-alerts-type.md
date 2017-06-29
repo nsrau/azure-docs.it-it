@@ -12,61 +12,36 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="security-alerts-by-type-in-azure-security-center"></a>Avvisi di sicurezza per tipo nel Centro sicurezza di Azure
-Questo articolo consente di comprendere i diversi tipi di avvisi di sicurezza disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
+# <a name="understanding-security-alerts-in-azure-security-center"></a>Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure
+Questo articolo consente di comprendere i diversi tipi di avvisi di sicurezza e le informazioni significative che ne derivano disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi e degli eventi imprevisti, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
 
 > [!NOTE]
 > Per configurare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita di 60 giorni. Per eseguire l'aggiornamento, selezionare il **Piano tariffario** nei [criteri di sicurezza](security-center-policies.md). Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 >
->
 
 ## <a name="what-type-of-alerts-are-available"></a>Quali tipi di avvisi sono disponibili?
-Centro sicurezza di Azure offre una serie di avvisi in linea con le fasi delle catene di attacco. La figura seguente mostra diversi avvisi e le rispettive correlazioni ad alcune fasi.
-
-![Catena di attacco](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
-
-**Rilevare e attaccare**
-
-* Attacchi RDP o SSH in ingresso
-* Attacchi DDoS e ad applicazioni (partner WAF)
-* Rilevamento delle intrusioni (partner NG Firewall)
-
-**Installare e sfruttare**
-
-* Firme di malware note (partner AM)
-* Tentativi di exploit e malware in memoria
-* Esecuzione di processo sospetto
-* Azioni evasive per evitare l'individuazione
-* Spostamento laterale
-* Ricognizione interna
-* Attività PowerShell sospetta
-
-**Post-violazione**  
-
-* Comunicazione a un IP dannoso noto (esfiltrazione dei dati o comando e controllo)
-* Uso delle risorse compromesse per sferrare altri attacchi (attacchi di forza bruta RDP/SSH di scansione di porte in uscita e posta indesiderata)
-
-Diversi tipi di attacchi sono associati a ogni fase e colpiscono sottosistemi differenti. Per intervenire sugli attacchi in queste fasi, il Centro sicurezza offre tre categorie di avvisi:
+Il Centro sicurezza di Azure usa una serie di [funzionalità di rilevamento](security-center-detection-capabilities.md) per avvisare i clienti riguardo a potenziali attacchi contro gli ambienti in cui operano. Questi avvisi contengono informazioni importanti relative a cosa ha attivato l'avviso, alle risorse interessate e all'origine dell'attacco. Le informazioni incluse in un avviso variano in base al tipo di analisi usata per rilevare la minaccia. Anche gli eventi imprevisti possono contenere ulteriori informazioni contestuali utili nel corso dell'analisi di una minaccia.  Questo articolo fornisce informazioni sui tipi di avvisi seguenti:
 
 * Analisi del comportamento delle macchine virtuali (VMBA)
 * Analisi di rete
 * Analisi delle risorse
+* Informazioni contestuali
 
 ## <a name="virtual-machine-behavioral-analysis"></a>Analisi del comportamento delle macchine virtuali
 Il Centro sicurezza di Azure può usare le analisi del comportamento per identificare le risorse compromesse in base all'analisi del registro eventi delle macchine virtuali, ad esempio eventi di creazione di processi ed eventi di accesso. Esiste inoltre una correlazione con altri segnali per verificare la presenza di elementi a riprova di una campagna su larga scala.
 
 > [!NOTE]
 > Per altre informazioni sulle funzionalità di rilevamento del Centro sicurezza, vedere [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md).
->
 >
 
 ### <a name="crash-analysis"></a>Analisi degli arresti anomali
@@ -258,6 +233,18 @@ Questo avviso viene generato in caso di rilevamento di un errore dell'applicazio
 Questo avviso viene generato quando nel server è stato rilevato un evento di accesso da un indirizzo IP insolito non osservato nell'ultimo periodo.
 
 ![Avviso di accesso insolito](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+
+## <a name="contextual-information"></a>Informazioni contestuali
+Durante l'analisi, gli analisti hanno bisogno di un contesto aggiuntivo per raggiungere un verdetto sulla natura della minaccia e su come attenuarla.  Ad esempio, è stata rilevata un'anomalia di rete, ma senza conoscere cos'altro sta accadendo in rete o alla risorsa interessata è difficile comprendere quali azioni mettere in atto. Per supportare l'analisi, un evento imprevisto della sicurezza può includere artefatti, eventi correlati e informazioni che possono rivelarsi utili. La disponibilità di ulteriori informazioni varia in base al tipo di minaccia rilevata e alla configurazione dell'ambiente e non è garantita per tutti gli eventi imprevisti di sicurezza.
+
+Se sono disponibili ulteriori informazioni, verrà visualizzato nell'evento imprevisto di sicurezza sotto l'elenco degli avvisi. Potrebbero essere riportate informazioni come:
+
+- Eventi di cancellazione di log
+- Dispositivi Plug and Play collegati da dispositivi sconosciuti
+- Avvisi non operativi 
+
+![Avviso di accesso insolito](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
+
 
 ## <a name="see-also"></a>Vedere anche
 In questo articolo sono stati descritti i diversi tipi di avvisi di sicurezza del Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:

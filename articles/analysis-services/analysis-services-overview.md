@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 34726377836d00d484ca01edb098f6c7cbfa9dbf
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -31,7 +31,6 @@ Basato sul collaudato motore analitico di Microsoft SQL Server Analysis Services
 Guardare il video seguente per informazioni su come Azure Analysis Services si integra con le funzionalità BI generali di Microsoft e su come è possibile trarre vantaggio dai propri modelli di dati nel cloud.
 
 
->
 >[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
@@ -43,7 +42,7 @@ Azure Analysis Services è compatibile con SQL Server Analysis Services Enterpri
 ## <a name="use-the-tools-you-already-know"></a>Usare gli strumenti noti
 ![Strumenti di sviluppo di Business Intelligence](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-Durante la creazione di modelli dati per Azure Analysis Services, usare gli stessi strumenti di SQL Server Analysis Services. Creare e distribuire i modelli con [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) oppure usando [Azure Powershell](/powershell/azureps-cmdlets-docs) e [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+Durante la creazione di modelli dati per Azure Analysis Services, usare gli stessi strumenti di SQL Server Analysis Services. Creare e distribuire modelli usando [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx). Gestire i server e i database modello usando [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) e automatizzare le attività con modelli [PowerShell](analysis-services-powershell.md) e [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
 ## <a name="supports-the-latest-features"></a>Supporto delle funzionalità più recenti
 Azure Analysis Services supporta modelli tabulari con i livelli di compatibilità 1200 e 1400 (anteprima).
@@ -55,9 +54,7 @@ Azure Analysis Services supporta modelli tabulari con i livelli di compatibilit�
 ## <a name="data-sources"></a>Origini dati
 I modelli dati distribuiti ai server in Azure supportano la connessione alle origini dati locali nell'organizzazione o nel cloud. Combinare i dati provenienti dall'ambiente locale e dalle origini dati cloud per una soluzione di Business Intelligence ibrida.
 
-Poiché il server è nel cloud, la connessione alle origini dati cloud è semplice. Quando ci si connette a origini dati locali, il [gateway dati locale](analysis-services-gateway.md) garantisce connessioni veloci e sicure con il server nel cloud.
-
-Per altre informazioni sulle origini dati locali supportate, vedere l'articolo relativo alle [origini dati supportate in Azure Analysis Services](analysis-services-datasource.md).
+Poiché il server è nel cloud, la connessione alle origini dati cloud è semplice. Quando ci si connette a origini dati locali, il [gateway dati locale](analysis-services-gateway.md) garantisce connessioni veloci e sicure con il server nel cloud. Per altre informazioni sulle origini dati locali supportate, vedere l'articolo relativo alle [origini dati supportate in Azure Analysis Services](analysis-services-datasource.md).
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Esplorare i dati da qualsiasi luogo
@@ -84,13 +81,17 @@ Azure Analysis Services è disciplinato dalle [Condizioni di Microsoft Online Se
 Per altre informazioni sulla sicurezza di Azure, vedere [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
 ## <a name="get-help"></a>Ottenere aiuto
-La gestione e la configurazione di Azure Analysis Services sono semplici. In quest'area è possibile trovare tutte le informazioni necessarie per creare e gestire un server. La creazione di un modello dati per la distribuzione al server è analoga alla creazione di un modello dati distribuiti a un server locale. È disponibile una ricca libreria concettuale, procedurale e di esercitazioni e articoli di riferimento in [Analysis Services su MSDN](https://msdn.microsoft.com/library/bb522607.aspx).
 
-Sono inoltre disponibili numerosi video utili in [Azure Analysis Services su Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
+### <a name="documentation"></a>Documentazione
+La gestione e la configurazione di Azure Analysis Services sono semplici. In quest'area è possibile trovare tutte le informazioni necessarie per creare e gestire un server. La creazione di un modello dati per la distribuzione al server è analoga alla creazione di un modello dati distribuiti a un server locale. È disponibile una ricca libreria concettuale, procedurale e di esercitazioni e articoli di riferimento in [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
-Per rimanere sempre aggiornati sulle continue modifiche, è possibile consultare il [blog di Azure Analysis Services](https://go.microsoft.com/fwlink/?linkid=830920).
+### <a name="videos"></a>Video
+In [Azure Analysis Services su Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services) sono disponibili alcuni video utili.
 
-## <a name="community"></a>Community
+### <a name="blogs"></a>Blog
+Per rimanere sempre aggiornati sulle continue modifiche, è possibile consultare il [blog di Azure Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/) e il [blog di Azure](https://azure.microsoft.com/blog/).
+
+### <a name="community"></a>Community
 Analysis Services è costituito da una vivace community di utenti. È possibile partecipare alle discussioni sul [forum di Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
 ## <a name="feedback"></a>Commenti e suggerimenti
@@ -100,5 +101,4 @@ In caso di suggerimenti sulla documentazione, è possibile aggiungere commenti u
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver ottenuto alcune informazioni su Azure Analysis Services, è possibile iniziare a usarlo. Informazioni su come [creare un server](analysis-services-create-server.md) in Azure e [distribuire un modello tabulare](analysis-services-deploy.md) in tale server.
-
 
