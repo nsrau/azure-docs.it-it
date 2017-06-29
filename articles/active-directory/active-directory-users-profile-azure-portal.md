@@ -1,7 +1,7 @@
 ---
 
 title: Aggiungere o modificare informazioni del profilo per un utente in Azure Active Directory | Microsoft Docs
-description: Descrive come aggiungere il profilo utente, inclusa l&quot;immagine del profilo, in Azure Active Directory
+description: Descrive come aggiungere il profilo utente, inclusa l'immagine del profilo, in Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/27/2017
 ms.author: curtand
+ms.reviewer: jeffsta
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: ccc6dfaf1653d5888541d78f5e9e20b183709574
