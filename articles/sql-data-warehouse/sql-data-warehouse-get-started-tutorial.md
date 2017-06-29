@@ -16,10 +16,10 @@ ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
 ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -577,6 +577,9 @@ Prima di tutto, ridurre le dimensioni a 100 DWU, in modo da ottenere informazion
 6. Riportare il data warehouse a 400 DWU. Occorre ricordare che ogni incremento di 100 DWU aggiunge un altro nodo di calcolo ad Azure SQL Data Warehouse.
 
 7. Eseguire di nuovo la query. La differenza dovrebbe essere significativa. 
+
+    > [!NOTE]
+    > Dato che la query restituisce una grande quantità di dati, la disponibilità di larghezza di banda del computer che esegue SQL Server Management Studio potrebbe rappresentare un collo di bottiglia per le prestazioni e ciò potrebbe impedire di notare miglioramenti delle prestazioni.
 
 > [!NOTE]
 > Questo perché SQL Data Warehouse fa uso dell'elaborazione parallela massiva (Massively Parallel Processing, MPP). Le query che eseguono analisi o funzioni analitiche su milioni di righe mostrano tutta l'efficacia di Azure SQL Data Warehouse.

@@ -1,6 +1,6 @@
 ---
 title: Come creare, gestire o eliminare un account di archiviazione nel portale di Azure | Documentazione Microsoft
-description: Creare un nuovo account di archiviazione, gestire le chiavi di accesso dell&quot;account o eliminare un account di archiviazione nel portale di Azure. Informazioni sugli account di archiviazione Standard e Premium.
+description: Creare un nuovo account di archiviazione, gestire le chiavi di accesso dell'account o eliminare un account di archiviazione nel portale di Azure. Informazioni sugli account di archiviazione Standard e Premium.
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,13 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 16d9fa8a7b7593f222976897bddf615c28109540
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -89,7 +91,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 ## <a name="manage-your-storage-account"></a>Gestire l'account di archiviazione
 ### <a name="change-your-account-configuration"></a>Modificare la configurazione dell'account
-Dopo aver creato l'account di archiviazione, è possibile modificarne la configurazione, ad esempio modificando l'opzione di replica usata per l'account o il livello di accesso per un account di archiviazione BLOB. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione, fare clic su **Tutte le impostazioni** e quindi su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
+Dopo aver creato l'account di archiviazione, è possibile modificarne la configurazione, ad esempio modificando l'opzione di replica usata per l'account o il livello di accesso per un account di archiviazione BLOB. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione e in **IMPOSTAZIONI** fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
 
 > [!NOTE]
 > A seconda del livello di prestazioni che scelto durante la creazione dell'account di archiviazione, alcune opzioni di replica potrebbero non essere disponibili.

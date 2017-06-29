@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: b20adfa6c69488b848d4ca5bee2cb4baeca806b8
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: a613bbe84a3834ab4fb237779248c7ad8d75b563
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services: esercitazione su Adventure Works
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/05/2017
 
 Questa esercitazione comprende una serie di lezioni sulla creazione e la distribuzione di un modello tabulare al livello di compatibilità 1400 tramite [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Se non si ha familiarità con Analysis Services e la modellazione tabulare, completare questa esercitazione è il modo più rapido per imparare a creare un modello tabulare di base e distribuirlo in un server Analysis Services reale. Dopo essersi assicurati che siano stati soddisfatti tutti i prerequisiti, per il completamento dell'esercitazione sono necessarie dalle due alle tre ore.  
+Se non si ha familiarità con Analysis Services e la modellazione tabulare, completare questa esercitazione è il modo più rapido per imparare a creare un modello tabulare di base. Dopo essersi assicurati che siano stati soddisfatti tutti i prerequisiti, per il completamento dell'esercitazione sono necessarie dalle due alle tre ore.  
   
-## <a name="what-youll-learn"></a>Contenuto dell'esercitazione   
+## <a name="what-you-learn"></a>Contenuto dell'esercitazione   
   
 -   Creazione di un nuovo progetto di modello tabulare al **livello di compatibilità 1400** in SSDT.
   
@@ -49,7 +49,7 @@ Se non si ha familiarità con Analysis Services e la modellazione tabulare, comp
 -   Distribuzione di un modello tabulare in un server **Azure Analysis Services** o in un server SQL Server 2017 Analysis Services locale.  
   
 ## <a name="prerequisites"></a>Prerequisiti  
-Per completare questa esercitazione, sono necessari gli elementi seguenti:  
+Per completare questa esercitazione, sono necessari:  
   
 -   Un'istanza di Azure Analysis Services o di SQL Server 2017 Analysis Services in cui distribuire il modello. Iscriversi per ottenere una [versione di valutazione di Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) gratuita e [creare un server](../analysis-services-create-server.md). In alternativa, iscriversi e scaricare [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
 
@@ -64,13 +64,13 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 -   Un'applicazione client, ad esempio [Power BI Desktop](https://powerbi.microsoft.com/desktop/) o Excel. 
 
 ## <a name="scenario"></a>Scenario  
-Questa esercitazione è basata su Adventure Works Cycles, una società fittizia. Adventure Works è una società multinazionale di grandi dimensioni che produce e distribuisce biciclette in metallo e materiali compositi nei mercati commerciali di America del Nord, Europa e Asia. Con sede a Bothell, nello Stato di Washington, l'azienda ha un organico di 500 dipendenti. Inoltre, Adventure Works ha diversi team di vendita locali all'interno della sua base di mercato. L'utente deve occuparsi della creazione di un modello tabulare per gli utenti dei reparti vendite e marketing per l'analisi dei dati di vendita su Internet nel database di esempio AdventureWorksDW.  
+Questa esercitazione è basata su Adventure Works Cycles, una società fittizia. Adventure Works è una società multinazionale di grandi dimensioni che produce e distribuisce biciclette in metallo e materiali compositi nei mercati commerciali di America del Nord, Europa e Asia. L'azienda ha un organico di 500 dipendenti. Inoltre, Adventure Works ha diversi team di vendita locali all'interno della sua base di mercato. Il progetto consiste nella creazione di un modello tabulare per gli utenti dei reparti vendite e marketing per l'analisi dei dati di vendita su Internet nel database AdventureWorksDW.  
   
-Per portare a termine l'esercitazione, è necessario completare una serie di lezioni. Ogni lezione include specifiche attività; il completamento di ogni attività nell'ordine previsto è necessario per portare a termine la lezione. Una determinata lezione potrebbe includere più attività che producono un risultato analogo; tuttavia, le procedure per il completamento delle varie attività potrebbero essere leggermente diverse. Ciò sta a indicare che spesso sono disponibili più procedure per portare a termine una determinata attività e l'utente dovrà applicare le competenze apprese nelle lezioni e nelle attività precedenti per ottenere il risultato previsto.  
+Per portare a termine l'esercitazione, è necessario completare una serie di lezioni, ognuna delle quali prevede alcune attività. Per portare a termine la lezione è necessario completare ogni attività nell'ordine previsto. Una determinata lezione potrebbe includere più attività che producono un risultato analogo; tuttavia, le procedure per il completamento delle varie attività potrebbero essere leggermente diverse. Questo metodo dimostra che sono spesso disponibili più procedure per portare a termine un'attività e che l'utente dovrà applicare le competenze apprese nelle lezioni e nelle attività precedenti per ottenere il risultato previsto.  
   
-Lo scopo delle lezioni è guidare l'utente durante la creazione di un modello tabulare di base in esecuzione usando alcune delle funzionalità incluse in SSDT. Poiché ogni lezione si basa su quella precedente, è necessario completare le lezioni in ordine. Dopo avere concluso tutte le lezioni, l'utente avrà creato e distribuito il modello tabulare di esempio Adventure Works Internet Sales in un server Analysis Services.  
+Lo scopo delle lezioni è guidare l'utente durante la creazione di un modello tabulare di base in esecuzione usando alcune delle funzionalità incluse in SSDT. Poiché ogni lezione si basa su quella precedente, è necessario completare le lezioni in ordine.
   
-Questa esercitazione non fornisce lezioni o informazioni sulla gestione di un server Azure Analysis Services nel portale di Azure, sulla gestione di un server o di un database distribuito tramite SQL Server Management Studio (SSMS) o sull'uso di un'applicazione client di report per connettersi a un modello distribuito per l'esplorazione dei dati del modello.  
+Questa esercitazione non fornisce lezioni sulla gestione di un server nel portale di Azure, sulla gestione di un server o di un database tramite SSMS o sull'uso di un'applicazione client per l'esplorazione dei dati del modello. 
 
 
 ## <a name="lessons"></a>Lezioni  

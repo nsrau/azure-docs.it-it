@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 74a9577e2fb5cc83dd3f01d8ff87374240798700
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: df74d9cbdcf4916c24955e491767589e72389155
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-10-create-partitions"></a>Lezione 10: Creare partizioni
@@ -55,7 +55,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
     
     Si noti che nell'Editor di query, in Passaggi applicati, è visualizzato un altro passaggio denominato Filtrate righe. Questo è il filtro applicato per selezionare solo le date degli ordini dal 2010.
 
-8.  Fare clic su **Importa** per eseguire la query.
+8.  Fare clic su **Importa**.
 
     In Gestione partizioni si noti che l'espressione di query include ora una clausola Filtrate righe aggiuntiva.
 

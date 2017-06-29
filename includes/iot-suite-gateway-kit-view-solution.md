@@ -28,7 +28,7 @@ Per aggiungere un dispositivo alla soluzione per il monitoraggio remoto, complet
 
    ![Aggiungere un ID dispositivo][3]
 
-1. Annotare le credenziali del dispositivo (**ID dispositivo**, **Nome host hub IoT** e **Chiave dispositivo**). Questi valori sono necessari per consentire all'applicazione client in Raspberry Pi di connettersi alla soluzione per il monitoraggio remoto. Fare quindi clic su **Done**.
+1. Annotare le credenziali del dispositivo (**ID dispositivo**, **Nome host hub IoT** e **Chiave dispositivo**). Questi valori sono necessari per consentire all'applicazione client in Intel NUC di connettersi alla soluzione per il monitoraggio remoto. Fare quindi clic su **Done**.
 
     ![Vedere le credenziali del dispositivo][4]
 

@@ -1,11 +1,28 @@
 
+* La serie M offre il maggior numero di CPU (fino a 128 vCPU) e la maggiore quantità di memoria (fino a 2 TiB) rispetto a qualsiasi altra macchina virtuale nel cloud.  È ideale per database molto grandi o altre applicazioni che traggono vantaggio da un elevato numero di CPU e una grande quantità di memoria.
 
 * Le serie Dv2, D, G e DS/GS sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale o requisiti di memoria superiori.  Offrono una potente combinazione per molte applicazioni di livello aziendale.
 
-Le macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+* Le macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
+* Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
+## <a name="m-series"></a>Serie M*
+
+ACU: 160-180
+
+| Dimensione            | vCPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
+|-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M64ms  | 64   | 1792        | 2048           | 32             | 80.000 / 800 (6348)                                                   | 40.000/1.000                            | 32/estremamente alta          |
+| Standard_M128s** | 128  | 2048        | 4096           | 64             | 160.000 / 1.600 (12.696)                                              | 80.000/2.000                            | 32/estremamente alta          |
+
+
+
+* Le macchine virtuali Serie M integrano la tecnologia Intel® Hyper-Threading
+
+** Data la presenza di più di 64 vCPU, è necessario uno dei seguenti sistemi operativi supportati: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux o CentOS 7.3 con LIS 4.2.1 
+
+<br>
 
 ## <a name="gs-series"></a>Serie GS*
 

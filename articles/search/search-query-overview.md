@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -62,4 +62,10 @@ Altre informazioni sul paging dei risultati della ricerca sono disponibili nell'
 ## <a name="hit-highlighting"></a>Evidenziazione dei risultati
 In Ricerca di Azure è semplice mettere in evidenza la parte esatta dei risultati della ricerca che corrispondono alla query di ricerca usando i parametri `highlight`, `highlightPreTag` e `highlightPostTag`. È possibile specificare quali campi *ricercabili* devono avere il testo corrispondente evidenziato e specificare anche i tag della stringa esatta da aggiungere all'inizio e alla fine del testo corrispondente restituito da Ricerca di Azure.
 
+## <a name="try-out-query-syntax"></a>Prova della sintassi di query
 
+Il modo migliore per comprendere le differenze di sintassi consiste nell'inviare query ed esaminarne i risultati.
+
++ Usare [Esplora ricerche](search-explorer.md) nel portale di Azure. Distribuendo l'[indice di esempio](search-get-started-portal.md), è possibile eseguire una query dell'indice in pochi minuti usando gli strumenti del portale.
+
++ Usare [Fiddler](search-fiddler.md) o Chrome Postman per inviare query a un indice che è stato caricato nel servizio di ricerca. Entrambi gli strumenti supportano le chiamate REST a un endpoint HTTP. 

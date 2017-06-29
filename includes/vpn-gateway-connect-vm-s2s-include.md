@@ -1,6 +1,6 @@
 È possibile connettersi a una VM distribuita nella rete virtuale creando una connessione Desktop remoto alla VM. Il modo migliore per verificare inizialmente che è possibile connettersi alla VM consiste nel connettersi usando il rispettivo indirizzo IP privato, invece del nome del computer. Ciò consente di verificare se è possibile connettersi, non se la risoluzione dei nomi è configurata correttamente.
 
-1. Individuare l'indirizzo IP privato. È possibile trovare l'indirizzo IP privato di una VM esaminando le proprietà per la VM nel portale di Azure oppure usando PowerShell.
+1. Individuare l'indirizzo IP privato. È possibile trovare l'indirizzo IP privato di una macchina virtuale in più modi. Di seguito sono illustrate le procedure da seguire se si usa il portale di Azure o PowerShell.
 
   - Portale di Azure: individuare la macchina virtuale nel portale di Azure. Visualizzare le proprietà per la VM. Viene elencato l'indirizzo IP.
 

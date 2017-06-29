@@ -1,6 +1,6 @@
 ---
-title: Creare la prima funzione dall&quot;interfaccia della riga di comando di Azure| Microsoft Docs
-description: Informazioni su come creare la prima funzione di Azure per l&quot;esecuzione senza server tramite l&quot;interfaccia della riga di comando di Azure.
+title: Creare la prima funzione dall'interfaccia della riga di comando di Azure| Microsoft Docs
+description: Informazioni su come creare la prima funzione di Azure per l'esecuzione senza server tramite l'interfaccia della riga di comando di Azure.
 services: functions
 keywords: 
 author: ggailey777
@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3dc0e1b26c95ac6583dd3b1068b36deb54f7ac5a
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 2292b35819c5a98b690041e10f6e6d1a93fa7837
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -31,20 +31,14 @@ Questa esercitazione di avvio rapido illustra come usare Funzioni di Azure per c
 Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
 + Un account [GitHub](https://github.com) attivo. 
-+ [L'interfaccia della riga di comando di Azure installata](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 + Una sottoscrizione di Azure attiva.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
-Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login) e seguire le istruzioni visualizzate. 
-
-```azurecli
-az login
-```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

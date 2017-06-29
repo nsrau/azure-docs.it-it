@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 1691ef4a3de8f17d61aeead05b7d9eaeadc2d58a
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Lezione 7: Creare indicatori di prestazioni chiave
@@ -47,7 +47,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
     InternetCurrentQuarterSalesPerformance :=DIVIDE([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())  
     ```
 
-    Questa misura verrà usata come misura di base per l'indicatore KPI.  
+    Questa misura viene usata come misura di base per l'indicatore KPI.  
   
 4.  Fare clic con il pulsante destro del mouse su **InternetCurrentQuarterSalesPerformance** > **Crea KPI**.   
   
@@ -60,7 +60,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
     ![aas-lesson7-kpi](../tutorials/media/aas-lesson7-kpi.png)
     
     > [!TIP]  
-    > Si noti l'etichetta **Descrizioni** espandibile sotto gli stili di icona disponibili. Usare questa etichetta per immettere le descrizioni per i vari elementi KPI, in modo che siano più facilmente identificabili nelle applicazioni client.  
+    > Si noti l'etichetta **Descrizioni** espandibile sotto gli stili di icona disponibili. Usare descrizioni per i vari elementi KPI, in modo che siano più facilmente identificabili nelle applicazioni client.  
   
 9. Fare clic su **OK** per completare l'indicatore KPI.  
   

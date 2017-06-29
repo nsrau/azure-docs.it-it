@@ -1,6 +1,6 @@
 Una macchina virtuale di Azure supporta il collegamento di un numero di dischi dati. Per ottenere prestazioni ottimali, è consigliabile limitare il numero di dischi a elevato utilizzo collegati alla macchina virtuale per evitare una possibile limitazione. Se non tutti i dischi presentano un utilizzo elevato nello stesso momento, l'account di archiviazione può supportare un numero maggiore di dischi.
 
-* **Per Azure Managed Disks:** il limite per il numero di Managed Disks è specifico per l'area della sottoscrizione. Il limite flessibile predefinito è 2.000 per area per ogni sottoscrizione. Per aumentare il limite, contattare il supporto tecnico di Azure.
+* **Per Azure Managed Disks:** il limite per il numero di Managed Disks varia in base all'area geografica e al tipo di risorsa di archiviazione. Il valore predefinito, nonché limite massimo, è di 10.000 dischi per ogni sottoscrizione, ogni area e ogni tipo di risorsa di archiviazione. In una sottoscrizione e in un'area, ad esempio, è possibile creare fino a 10.000 Managed Disks Standard e 10.000 Managed Disks Premium. 
 
     Gli snapshot gestiti e le immagini sono inclusi nel calcolo per il limite di Managed Disks.
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: abb27292d4b5533fe6f3d66d6921fea8c82f18dd
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dacd689576dce65bbf1a975409ea7d7f2c3ada90
+ms.contentlocale: it-it
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ Per aggiornare l'impostazione del server DNS per la rete virtuale in cui è stat
    ![Aggiornare le impostazioni del server DNS per la rete virtuale](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [!NOTE]
-> Dopo l'aggiornamento delle impostazioni del server DNS per la rete virtuale, l'aggiornamento della configurazione DNS nelle macchine virtuali della rete potrebbe richiedere tempo. Se una macchina virtuale non riesce a connettersi al dominio, è possibile scaricare la cache DNS (ipconfig /flushdns) nella macchina virtuale. Questo comando forza un aggiornamento delle impostazioni DNS nella macchina virtuale.
+> Le macchine virtuali nella rete otterranno le nuove impostazioni DNS solo al riavvio. Se è necessario ottenere subito le impostazioni DNS aggiornate, eseguire il riavvio dal portale, da PowerShell o dall'interfaccia della riga di comando.
 >
 >
 
