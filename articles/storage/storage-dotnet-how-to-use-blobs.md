@@ -1,6 +1,6 @@
 ---
-title: Introduzione all&quot;archivio BLOB di Azure (archivio di oggetti) con .NET | Documentazione Microsoft
-description: Archiviare i dati non strutturati nel cloud con l&quot;archivio BLOB (archivio di oggetti) di Azure.
+title: Introduzione all'archivio BLOB di Azure (archivio di oggetti) con .NET | Documentazione Microsoft
+description: Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure.
 services: storage
 documentationcenter: .net
 author: mmacy
@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: e9cfcdd9d6e36c1154b91904da60483825ff8b94
+ms.contentlocale: it-it
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -53,7 +54,7 @@ Per altri esempi di uso dell'archivio BLOB, vedere [Getting Started with Azure B
 Aggiungere le direttive **using** seguenti all'inizio del file `Program.cs`:
 
 ```csharp
-using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 ```

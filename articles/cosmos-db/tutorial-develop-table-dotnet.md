@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: sviluppare con l&quot;API Table in .NET | Documentazione Microsoft'
-description: Informazioni su come sviluppare con l&quot;API Table di Azure Cosmos DB usando .NET
+title: 'Azure Cosmos DB: sviluppare con l''API Table in .NET | Documentazione Microsoft'
+description: Informazioni su come sviluppare con l'API Table di Azure Cosmos DB usando .NET
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -167,7 +167,7 @@ Per cambiare il valore predefinito, aprire il file `app.config` da Esplora soluz
 
       <!--Table creation options -->
       <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}">
+      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
