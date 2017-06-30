@@ -1,4 +1,4 @@
---- 
+---
 title: Plug-in Azure Service Fabric per Eclipse | Microsoft Docs
 description: Introduzione al plug-in Service Fabric per Eclipse.
 services: service-fabric
@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/03/2016
+ms.date: 06/29/2016
 ms.author: saysa
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
@@ -38,7 +38,7 @@ Eclipse è uno degli ambienti di sviluppo integrato (IDE) più diffusi per svilu
   1.    Nella casella **Work with** (Usa) immettere **http://dl.microsoft.com/eclipse**
   2.    Fare clic su **Aggiungi**.
 
-         ![Plug-in Service Fabric per Eclipse Neon][sf-eclipse-plugin-install] 
+         ![Plug-in Service Fabric per Eclipse Neon][sf-eclipse-plugin-install]
   3.    Selezionare il plug-in Service Fabric e fare clic su **Next** (Avanti).
   4.    Completare la procedura di installazione e quindi accettare le Condizioni di licenza software Microsoft.
 

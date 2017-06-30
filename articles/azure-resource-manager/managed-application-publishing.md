@@ -1,6 +1,6 @@
 ---
-title: Creare e pubblicare un&quot;applicazione gestita di Azure | Microsoft Docs
-description: Illustra come un fornitore di software indipendente o un partner crea un&quot;applicazione gestita di Azure
+title: Creare e pubblicare un'applicazione gestita di Azure | Microsoft Docs
+description: Illustra come un fornitore di software indipendente o un partner crea un'applicazione gestita di Azure
 services: azure-resource-manager
 author: ravbhatnagar
 manager: rjmax
@@ -41,8 +41,8 @@ Il primo passaggio è la creazione del pacchetto dell'applicazione gestita conte
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-            "storageAccountName": {
-                "type": "String"
+          "storageAccountName": {
+              "type": "String"
           }
       },
       "resources": [{
@@ -54,10 +54,10 @@ Il primo passaggio è la creazione del pacchetto dell'applicazione gestita conte
               "name": "Standard_LRS"
           },
           "kind": "Storage",
-          "properties": {        
+          "properties": {       
           }
       }],
-      "outputs": {        
+      "outputs": {      
       }
   }
   ```
@@ -102,7 +102,7 @@ Il primo passaggio è la creazione del pacchetto dell'applicazione gestita conte
               "Parameters": {
                   "storageAccountName": {
                       "value": "[parameters('storageAccountName')]"
-                  }                
+                  }             
               }
           }
       }]
@@ -118,13 +118,13 @@ Quando tutti i file necessari sono pronti, si carica il pacchetto in una posizio
 Creare quindi un gruppo utenti o un'applicazione che si vuole usare per gestire le risorse per conto del cliente. Questo gruppo utenti o questa applicazione ha le autorizzazioni per il gruppo di risorse gestito come indicato dal ruolo. Il ruolo può essere un ruolo Controllo degli accessi in base al ruolo predefinito, ad esempio **Proprietario** o **Collaboratore**. È anche possibile concedere a un singolo utente le autorizzazioni per gestire le risorse, ma in genere si assegna questa autorizzazione per usare un gruppo utenti. Per creare un nuovo gruppo utenti di Active Directory, usare:
 
 ```azurecli
-az ad group create –display-name "name" –mail-nickname "nickname"
+az ad group create --display-name "name" --mail-nickname "nickname"
 ```
 
 È anche possibile usare un gruppo esistente. È necessario l'ID oggetto del nuovo gruppo utenti creato o di uno esistente. L'esempio seguente illustra come ottenere l'ID oggetto dal nome visualizzato usato per creare il gruppo.
 
 ```azurecli
-az ad group show –group "groupName"
+az ad group show --group "groupName"
 ```
 
 Esempio:
@@ -210,3 +210,4 @@ I parametri usati nell'esempio precedente sono i seguenti:
 * Per gli esempi dei file, vedere [Managed Application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples) (Esempi di applicazione gestita).
 * Per informazioni sull'esperienza dell'utente, vedere [Utilizzare un'applicazione gestita di Azure](managed-application-consumption.md).
 * Per informazioni sulla creazione di un file di definizione dell'interfaccia utente per un'applicazione gestita, vedere [Introduzione a CreateUiDefinition](managed-application-createuidefinition-overview.md).
+

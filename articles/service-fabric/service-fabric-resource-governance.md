@@ -1,6 +1,6 @@
 ---
 title: Governance delle risorse di Azure Service Fabric per contenitori e i servizi | Microsoft Docs
-description: Azure Service Fabric consente di specificare limiti di risorse per i servizi in esecuzione all&quot;interno o all&quot;esterno di contenitori.
+description: Azure Service Fabric consente di specificare limiti di risorse per i servizi in esecuzione all'interno o all'esterno di contenitori.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/02/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
