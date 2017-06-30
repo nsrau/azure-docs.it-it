@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 99c43c63f75e01713600ef5ca46a8d11e8c5c7ce
 ms.openlocfilehash: b6560fdd50c93a7e84f12047ec4401328b601deb
+ms.contentlocale: it-it
+ms.lasthandoff: 12/09/2016
 
 
 ---
@@ -40,7 +42,6 @@ Gli argomenti seguenti illustrano come abilitare la telemetria:
 [Abilitare la telemetria con .NET](media-services-dotnet-telemetry.md) 
 
 [Abilitare la telemetria con REST](media-services-rest-telemetry.md)
-
 
 ## <a name="consuming-telemetry-information"></a>Uso delle informazioni di telemetria
 
@@ -67,11 +68,9 @@ Ciò dovrebbe garantire l'efficienza di molte query comuni:
 - Recupero di tutti i dati relativi a un servizio in un certo intervallo di date.
 - Recupero degli ultimi dati relativi a un servizio.
 
-
 ### <a name="telemetry-table-storage-output-schema"></a>Schema di output dell'archiviazione tabelle di telemetria
 
 I dati di telemetria sono archiviati tutti insieme nella tabella "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Il sistema di telemetria crea una nuova tabella per ogni giornata alle ore 00:00 UTC. In questa tabella vengono archiviati i valori ricorrenti, come la velocità in bit delle operazioni di inserimento in un determinato intervallo di tempo, i byte inviati e così via. 
-
 
 Proprietà|Valore|Esempi/note
 ---|---|---
@@ -83,7 +82,6 @@ Nome|Nome dell'evento di telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|L'ora (UTC) in cui si è verificato l'evento di telemetria|2016-09-09T22:42:36.924Z<br/><br/>L'ora osservata è fornita dall'entità che invia i dati di telemetria (ad esempio un canale). Poiché possono esserci problemi di sincronizzazione tra i componenti, questo valore è approssimativo
 ServiceID|{ID servizio}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Proprietà specifiche di entità|Come definito dall'evento|NomeFlusso: flusso1, bitrate 10123, ...<br/><br/>Vengono definite le proprietà rimanenti per il tipo di evento specificato. Il contenuto della tabella di Azure corrisponde a coppie valore-chiave.  (ovvero a diverse righe della tabella corrispondono diversi set di proprietà).
-
 
 ### <a name="entity-specific-schema"></a>Schema specifico di entità
 
@@ -112,7 +110,6 @@ BytesSent|Insieme dei byte inviati|2987358
 ServerLatency|Latenza media del server (inclusa l'archiviazione)|129
 E2ELatency|Latenza end-to-end media|250
 
-
 **Canale live**
 
 Proprietà|Valore|Esempi/note
@@ -138,7 +135,6 @@ UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualit
 UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |True
 Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sono tutti pari a 0|True<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-
 **Archivio live**
 
 Proprietà|Valore|Esempi/note
@@ -156,7 +152,6 @@ TrackType|Tipo di traccia|Audio/video
 CustomAttribute|Stringa esadecimale che opera la distinzione fra tracce diverse con lo stesso nome e la stessa velocità in bit (diverse angolazioni)|
 Bitrate|Velocità in bit della traccia|785000
 Healthy|True, se FragmentDiscardedCount == 0 e ArchiveAcquisitionError == False|True (questi due valori non sono presenti nella metrica, ma lo sono nell'evento di origine)<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
-
 
 ## <a name="general-qa"></a>Domande generali
 
@@ -226,9 +221,4 @@ Il sistema di telemetria non consente di gestire la conservazione dei dati o l'e
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
