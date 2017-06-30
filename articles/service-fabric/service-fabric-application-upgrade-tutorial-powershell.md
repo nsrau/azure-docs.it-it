@@ -1,6 +1,6 @@
 ---
-title: Aggiornamento di un&quot;app di Service Fabric mediante PowerShell | Documentazione Microsoft
-description: In questo articolo vengono esaminati l&quot;esperienza di distribuzione di un&quot;applicazione di Service Fabric, la modifica del codice e l&quot;implementazione di un aggiornamento tramite PowerShell.
+title: Aggiornamento di un'app di Service Fabric mediante PowerShell | Documentazione Microsoft
+description: In questo articolo vengono esaminati l'esperienza di distribuzione di un'applicazione di Service Fabric, la modifica del codice e l'implementazione di un aggiornamento tramite PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 6/28/2017
 ms.author: subramar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: c685deaa008cfdba5971cef4cfc7dfa41b1df64d
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 
