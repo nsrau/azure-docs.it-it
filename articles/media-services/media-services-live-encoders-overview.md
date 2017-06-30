@@ -1,6 +1,6 @@
 ---
 title: Configurare i codificatori locali quando si usa Servizi multimediali di Azure per creare flussi a bitrate multipli | Documentazione Microsoft
-description: "Questo argomento elenca i codificatori live locali che è possibile usare per acquisire gli eventi live e inviare un flusso live a bitrate singolo ai canali di AMS con codifica live abilitata per un&quot;ulteriore elaborazione. L&quot;argomento contiene i collegamenti alle esercitazioni che illustrano come configurare i codificatori elencati."
+description: "Questo argomento elenca i codificatori live locali che è possibile usare per acquisire gli eventi live e inviare un flusso live a bitrate singolo ai canali di AMS con codifica live abilitata per un'ulteriore elaborazione. L'argomento contiene i collegamenti alle esercitazioni che illustrano come configurare i codificatori elencati."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
 ms.openlocfilehash: 0ebed14fe5a24f2b161c0bab0a0e1d36dadb6b5b
+ms.contentlocale: it-it
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -43,10 +45,5 @@ Per informazioni su come configurare il codificatore [Tricaster](http://newtek.c
 
 ## <a name="see-also"></a>Vedere anche
 [Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate](media-services-manage-live-encoder-enabled-channels.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

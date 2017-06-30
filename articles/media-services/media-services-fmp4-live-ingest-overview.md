@@ -1,6 +1,6 @@
 ---
-title: Specifica per l&quot;inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure | Microsoft Docs
-description: Questa specifica descrive il protocollo e il formato per l&quot;inserimento di un live streaming basato sul formato MP4 frammentato con Servizi multimediali di Microsoft Azure. Servizi multimediali di Microsoft Azure fornisce un servizio di live streaming che consente ai clienti di trasmettere in streaming eventi live e trasmettere contenuti in tempo reale usando Microsoft Azure come piattaforma cloud. Questo documento illustra inoltre le procedure consigliate per creare meccanismi di inserimento live affidabili e altamente ridondanti.
+title: Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure | Microsoft Docs
+description: Questa specifica descrive il protocollo e il formato per l'inserimento di un live streaming basato sul formato MP4 frammentato con Servizi multimediali di Microsoft Azure. Servizi multimediali di Microsoft Azure fornisce un servizio di live streaming che consente ai clienti di trasmettere in streaming eventi live e trasmettere contenuti in tempo reale usando Microsoft Azure come piattaforma cloud. Questo documento illustra inoltre le procedure consigliate per creare meccanismi di inserimento live affidabili e altamente ridondanti.
 services: media-services
 documentationcenter: 
 author: cenkdin
@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: cenkd;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 307c9a377fce32c056a54d35f173efd1bafc4df5
+ms.contentlocale: it-it
 ms.lasthandoff: 02/16/2017
 
 

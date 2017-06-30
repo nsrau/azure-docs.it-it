@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: e4bb75b0a45dd922479cbd40ad94190c30b4333f
+ms.contentlocale: it-it
 ms.lasthandoff: 01/13/2017
 
 
@@ -121,7 +122,7 @@ L'utente ad è responsabile dell'interruzione dei canali al termine dell'utilizz
 >
 >
 
-### <a name="a-idstatesachannel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Stati del canale e relativi metodi di mapping alla modalità di fatturazione
+### <a id="states"></a>Stati del canale e relativi metodi di mapping alla modalità di fatturazione
 Si tratta dello stato attuale del canale. I valori possibili sono:
 
 * **Arrestato**. Lo stato iniziale del canale dopo la creazione (se nel portale non è stata selezionata l'opzione di avvio automatico.) In questo stato non viene eseguita alcuna attività di fatturazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
