@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
@@ -76,9 +76,9 @@ Questo articolo include informazioni sugli aggiornamenti di versione di Azure HD
 Spark 2.0.1 è ora disponibile in cluster Spark (HDInsight versione 3.5).
 
 ## <a name="11162016---release-of-r-server-90-on-hdinsight-35-spark-20"></a>11/16/2016 - Versione di R Server 9.0 in HDInsight 3.5 (Spark 2.0)
-*    Nei cluster R Server è ora possibile scegliere due versioni: R Server 9.0 in HDI 3.5 (Spark 2.0) e R Server 8.0 in HDI 3.4 (Spark 1.6).
-*    R Server 9.0 in HDI 3.5 (Spark 2.0) si basa su R 3.3.2 e include nuove funzioni di origine dati per ScaleR, denominate RxHiveData e RxParquetData, per il caricamento diretto di dati da Hive e Parquet a frame di dati Spark per l'analisi in ScaleR. Per altre informazioni su queste funzioni, vedere la guida in linea di R usando i comandi **?RxHiveData** e **?RxParquetData**.
-*    RStudio Server Community Edition è ora installato per impostazione predefinita (con possibilità di rifiuto esplicito) nel pannello Configurazione cluster, nell'ambito del flusso di provisioning.
+*   Nei cluster R Server è ora possibile scegliere due versioni: R Server 9.0 in HDI 3.5 (Spark 2.0) e R Server 8.0 in HDI 3.4 (Spark 1.6).
+*   R Server 9.0 in HDI 3.5 (Spark 2.0) si basa su R 3.3.2 e include nuove funzioni di origine dati per ScaleR, denominate RxHiveData e RxParquetData, per il caricamento diretto di dati da Hive e Parquet a frame di dati Spark per l'analisi in ScaleR. Per altre informazioni su queste funzioni, vedere la guida in linea di R usando i comandi **?RxHiveData** e **?RxParquetData**.
+*   RStudio Server Community Edition è ora installato per impostazione predefinita (con possibilità di rifiuto esplicito) nel pannello Configurazione cluster, nell'ambito del flusso di provisioning.
 
 ## <a name="11092016---release-of-spark-20-on-hdinsight"></a>11/09/2016 - Versione di Spark 2.0 in HDInsight
 * I cluster Spark 2.0 in HDInsight 3.5 supportano ora servizi Livy e Jupyter.
