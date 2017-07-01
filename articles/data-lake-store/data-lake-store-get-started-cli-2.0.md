@@ -1,5 +1,5 @@
 ---
-title: Usare l&quot;interfaccia della riga di comando di Azure 2.0 per iniziare a usare Azure Data Lake Store | Microsoft Docs
+title: Usare l'interfaccia della riga di comando di Azure 2.0 per iniziare a usare Azure Data Lake Store | Microsoft Docs
 description: Usare la riga di comando multipiattaforma di Azure 2.0 per creare un account di Data Lake Store ed eseguire operazioni di base
 services: data-lake-store
 documentationcenter: 
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/29/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
