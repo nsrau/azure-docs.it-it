@@ -31,7 +31,7 @@ ms.lasthandoff: 01/18/2017
 Se si sta sviluppando un'app di Windows Phone 8.1, Azure AD semplifica e facilita l'autenticazione degli utenti con gli account Active Directory.  Consente inoltre all'applicazione di usare in modo sicuro qualsiasi API Web protetta da Azure AD, ad esempio le API di Office 365 o l'API di Azure.
 
 > [!NOTE]
-> Questo esempio di codice usa ADAL versione&2;.0.  Per la tecnologia più recente, si consiglia di provare invece l' [esercitazione di Windows universale con ADAL versione&3;.0](active-directory-devquickstarts-windowsstore.md).  Se si sta creando un'app per Windows Phone 8.1, questo è il posto giusto.  La versione 2.0 di ADAL è ancora completamente supportata ed è lo strumento consigliato per lo sviluppo di app per Windows Phone 8.1 con Azure AD.
+> Questo esempio di codice usa ADAL versione 2.0.  Per la tecnologia più recente, si consiglia di provare invece l' [esercitazione di Windows universale con ADAL versione 3.0](active-directory-devquickstarts-windowsstore.md).  Se si sta creando un'app per Windows Phone 8.1, questo è il posto giusto.  La versione 2.0 di ADAL è ancora completamente supportata ed è lo strumento consigliato per lo sviluppo di app per Windows Phone 8.1 con Azure AD.
 > 
 > 
 

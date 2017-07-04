@@ -1,6 +1,6 @@
 ---
 title: Creare un cluster di Azure Service Fabric da un modello | Documentazione Microsoft
-description: Questo articolo descrive come configurare un cluster di Service Fabric sicuro in Azure usando Azure Resource Manager, Azure Key Vault e Azure Active Directory (Azure AD) per l&quot;autenticazione client.
+description: Questo articolo descrive come configurare un cluster di Service Fabric sicuro in Azure usando Azure Resource Manager, Azure Key Vault e Azure Active Directory (Azure AD) per l'autenticazione client.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b80ee30379e9aac207cfe420cae17da57ea123a5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8d876a0f2168ee9375a3905d5d5a562ab1194cf3
 ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
-ms.lasthandoff: 03/02/2017
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -460,7 +461,7 @@ La configurazione di Azure AD creata prima può essere inserita nel modello di R
 }
 ```
 
-### <a name="a-configure-arm-aconfigure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Configurare i parametri del modello di Resource Manager
+### <a "configure-arm" ></a>Configurare i parametri del modello di Resource Manager
 Infine, usare i valori di output dei comandi di PowerShell per Azure AD e dell'insieme di credenziali delle chiavi per compilare il file dei parametri:
 
 ```json
