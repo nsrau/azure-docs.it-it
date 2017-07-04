@@ -1,6 +1,6 @@
 ---
 title: Usare Analisi di flusso di Azure con SQL Data Warehouse | Documentazione Microsoft
-description: Suggerimenti per l&quot;uso di Analisi di flusso di Azure con Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per l'uso di Analisi di flusso di Azure con Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -87,7 +87,7 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 <!--Article references-->
 
 [Introduction to Azure Stream Analytics]: ../stream-analytics/stream-analytics-introduction.md
-[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
+[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-real-time-fraud-detection.md
 [SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop.md
 [SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integrate.md
 

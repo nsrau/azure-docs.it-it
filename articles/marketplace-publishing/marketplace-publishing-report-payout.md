@@ -50,7 +50,7 @@ I report sono disponibili 45 giorni dopo la chiusura del trimestre e vengono cal
 ## <a name="view-your-payout-reports-in-dev-center"></a>Visualizzare i report sui proventi in Dev Center
 Il rapporto dei proventi per ogni trimestre registra tutte le transazioni che si sono verificate in tale trimestre.
 
-* L'importo riservato indica i pagamenti che vengono accumulati al di fuori del ciclo dei prossimi pagamenti (questo importo verrà spostato al prossimo pagamento nel mese seguente).  Questo importo in genere sarà pari a $&0; (a meno che un cliente non paghi con largo anticipo).
+* L'importo riservato indica i pagamenti che vengono accumulati al di fuori del ciclo dei prossimi pagamenti (questo importo verrà spostato al prossimo pagamento nel mese seguente).  Questo importo in genere sarà pari a $ 0 (a meno che un cliente non paghi con largo anticipo).
 * Fare clic sul collegamento **View details** (Visualizza dettagli) in Upcoming payment (Prossimo pagamento) o Most recent payment (Pagamento più recente) per visualizzare una nota su questi proventi.
 * Fare clic su **Payment Statements** (Distinta di pagamento) per visualizzare i dettagli relativi ai guadagni per app/prodotto.
 * Fare clic sul collegamento **View** (Visualizza) per visualizzare le singole distinte.
