@@ -10,18 +10,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage, mvc
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/24/2017
+ms.date: 06/20/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 82c8a34fcccb6d19dc82110a6d95a80d748835f0
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: ca0b1dc8fdf13112510574741a319f0fbebadf93
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -69,7 +69,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
 3. Nella pagina **Panoramica** per il database, verificare il nome completo del server, come mostrato nell'immagine seguente. È possibile passare il puntatore sul nome del server per visualizzare l'opzione **Fare clic per copiare**.
 
-   ![informazioni di connessione](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![informazioni di connessione](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password. 
 
@@ -84,7 +84,7 @@ Impostare la modalità linguaggio su **SQL** in Visual Studio Code per abilitare
 
    ![Modalità linguaggio SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Connettersi al database nel server logico di database SQL
+## <a name="connect-to-your-database"></a>Connettersi al database
 
 Usare Visual Studio Code per stabilire una connessione al server del database SQL di Azure.
 
@@ -190,11 +190,6 @@ Usare il codice seguente per eliminare il nuovo prodotto aggiunto in precedenza 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per connettersi ed effettuare una query usando SQL Server Management Studio, vedere [Connettersi ed eseguire una query con SSMS](sql-database-connect-query-ssms.md)
-- Per connettersi ed eseguire una query usando .NET, vedere [Connettersi ed eseguire una query con .NET](sql-database-connect-query-dotnet.md).
-- Per connettersi ed eseguire query usando PHP, vedere [Connettersi ed eseguire query con PHP](sql-database-connect-query-php.md).
-- Per connettersi ed eseguire query usando Node.js, vedere [Connettersi ed eseguire query con Node.js](sql-database-connect-query-nodejs.md).
-- Per connettersi ed eseguire query usando Java, vedere [Connettersi ed eseguire query con Java](sql-database-connect-query-java.md).
-- Per connettersi ed eseguire query usando Python, vedere [Connettersi ed eseguire query con Python](sql-database-connect-query-python.md).
-- Per connettersi ed eseguire query usando Ruby, vedere [Connettersi ed eseguire query con Ruby](sql-database-connect-query-ruby.md).
+- Per connettersi ed eseguire una query usando SQL Server Management Studio, vedere [Connettersi ed eseguire una query con SSMS](sql-database-connect-query-ssms.md).
+- Per un articolo di MSDN Magazine sull'uso di Visual Studio Code, vedere il post di blog [Crea un IDE di database con estensione MSSQL](https://msdn.microsoft.com/magazine/mt809115).
 

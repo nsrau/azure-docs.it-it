@@ -1,5 +1,5 @@
 ---
-title: 'Linee guida per la denominazione dell&quot;infrastruttura di Azure: Windows | Microsoft Docs'
+title: 'Linee guida per la denominazione dell''infrastruttura di Azure: Windows | Microsoft Docs'
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la denominazione nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: b4d49b6ab730c99698b75853734d237559b6d374
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
 
 

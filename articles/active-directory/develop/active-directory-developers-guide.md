@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory per sviluppatori | Microsoft Docs
-description: Questo articolo offre una panoramica dell&quot;accesso agli account Microsoft aziendali e dell&quot;istituto di istruzione tramite Azure Active Directory.
+description: Questo articolo offre una panoramica dell'accesso agli account Microsoft aziendali e dell'istituto di istruzione tramite Azure Active Directory.
 services: active-directory
-author: bryanla
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2017
-ms.author: bryanla
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 7b4a4c5b9e6092806adb5e9f415f5e595e84f9df
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 0275bd00850a734c9b721c8348e24c5c40422201
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory per sviluppatori
@@ -67,6 +67,7 @@ Il modo migliore per ottenere assistenza per lo sviluppo in Azure Active Directo
 |---|
 |[Tag `azure-active-directory` e `adal` di Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
 |[Commenti e suggerimenti su Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
+| [Provare Microsoft Dev Chat (gratuito per un periodo di tempo limitato)](http://aka.ms/devchat) |
 
 <br />
 

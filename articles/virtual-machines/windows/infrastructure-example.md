@@ -1,6 +1,6 @@
 ---
-title: Procedura dettagliata per un&quot;infrastruttura di esempio di Azure | Microsoft Docs
-description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un&quot;infrastruttura di esempio in Azure.
+title: Procedura dettagliata per un'infrastruttura di esempio di Azure | Microsoft Docs
+description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un'infrastruttura di esempio in Azure.
 documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: d7d68cfd4c3fa54c889651a43b2252ffaf181495
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
 
 
