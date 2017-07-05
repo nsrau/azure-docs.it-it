@@ -1,6 +1,6 @@
 ---
 title: "Alta disponibilità per Hadoop - Azure HDInsight | Microsoft Docs"
-description: "Informazioni su come i cluster HDInsight migliorano l&quot;affidabilità e la disponibilità tramite l&quot;uso di un nodo head aggiuntivo. Informazioni su come questo influisce sui servizi di Hadoop come Ambari e Hive, e anche su come connettersi singolarmente a ogni nodo head tramite SSH."
+description: "Informazioni su come i cluster HDInsight migliorano l'affidabilità e la disponibilità tramite l'uso di un nodo head aggiuntivo. Informazioni su come questo influisce sui servizi di Hadoop come Ambari e Hive, e anche su come connettersi singolarmente a ogni nodo head tramite SSH."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
