@@ -1,1 +1,1 @@
-Un [gruppo di risorse](../articles/azure-resource-manager/resource-group-overview#terminology) è un contenitore logico in cui vengono distribuite e gestite risorse di Azure come app Web, database e account di archiviazione.
+Un [gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md#terminology) è un contenitore logico in cui vengono distribuite e gestite risorse di Azure come app Web, database e account di archiviazione.
