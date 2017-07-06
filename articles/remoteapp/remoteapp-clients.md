@@ -69,7 +69,7 @@ Dopo aver installato l'app Microsoft Remote Desktop da Google Play, viene inseri
 3. Digitare il proprio **indirizzo e-mail** nella pagina successiva e toccare **Continua**. Viene avviato il processo di accesso tramite Azure Active Directory.
    
     ![Pagina iniziale di Azure Active Directory](./media/remoteapp-clients/Android3.png)
-4. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (in precedenza "LiveID") o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione ****.    
+4. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (in precedenza "LiveID") o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare **il pulsante** per terminare l'operazione.    
    
     ![Pagina degli inviti](./media/remoteapp-clients/Android4.png)
 5. Dopo aver accettato gli inviti, verrà scaricato sul dispositivo l'elenco di app a cui si ha accesso e verrà reso disponibile nel centro connessioni. Toccare una delle app per iniziare a usarla.
@@ -91,7 +91,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 2. È necessario accedere con il proprio indirizzo di posta elettronica per usare il servizio. Per avviare il processo, digitare l'**indirizzo e-mail** e toccare il pulsante **Continua**.
    
     ![Prompt di accesso](./media/remoteapp-clients/picture1.png)
-3. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare il pulsante per terminare l'operazione ****.
+3. Seguire le istruzioni sullo schermo per accedere con il proprio account Microsoft (LiveID) o con l'ID organizzazione. Dopo aver effettuato l'accesso, è possibile che venga visualizzata una pagina che elenca tutti gli inviti ricevuti. In questo caso, selezionare gli inviti affidabili e toccare **il pulsante** per terminare l'operazione.
    
     ![Pagina degli inviti](./media/remoteapp-clients/IOS3.png)
 4. Dopo aver accettato gli inviti, verrà scaricato sul dispositivo l'elenco di app a cui si ha accesso e verrà reso disponibile nel centro connessioni. Toccare una delle app per avviarla e iniziare a usarla.
@@ -110,7 +110,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 1. All'avvio dell'app viene visualizzato un centro connessioni vuoto, a meno che l'app non sia già stata usata. Per iniziare a usare Azure RemoteApp, fare clic sul pulsante **Azure RemoteApp** .
    
     ![Centro connessioni vuoto](./media/remoteapp-clients/Mac1.png)
-2. Per poter usare il servizio, è necessario accedere con il proprio indirizzo e-mail. Per farlo, toccare il pulsante di avvio del servizio****.
+2. Per poter usare il servizio, è necessario accedere con il proprio indirizzo e-mail. Per farlo, toccare **il pulsante** di avvio del servizio.
    
     ![Prompt di accesso](./media/remoteapp-clients/Mac2.png)
 3. Digitare il proprio **indirizzo e-mail** nella pagina successiva e toccare **Continua**. Viene avviato il processo di accesso tramite Azure Active Directory.
@@ -132,7 +132,7 @@ Dopo aver installato l'app Microsoft Remote Desktop dall'App Store, viene inseri
 ## <a name="windows-all-supported-versions-except-windows-phone"></a>Windows (tutte le versioni supportate, ad eccezione di Windows Phone)
 Il client viene avviato automaticamente al termine dell'installazione, tuttavia per accedervi in seguito è disponibile nell'elenco di app con il nome **Azure RemoteApp**.
 
-1. Dopo aver avviato il client, la prima pagina visualizzata è la pagina iniziale di Azure RemoteApp. Per continuare, fare clic sul pulsante che consente di iniziare a usare il servizio ****.
+1. Dopo aver avviato il client, la prima pagina visualizzata è la pagina iniziale di Azure RemoteApp. Per continuare, fare clic **sul pulsante** che consente di iniziare a usare il servizio.
    
     ![Pagina iniziale del client di Azure RemoteApp](./media/remoteapp-clients/Windows1.png)
 2. Nella pagina successiva viene avviato il processo di accesso per Azure RemoteApp tramite Azure Active Directory. Se in precedenza sono stati usati i servizi Microsoft, il processo dovrebbe risultare familiare. Per iniziare, digitare il proprio **indirizzo e-mail** e fare clic su **Continua**.
