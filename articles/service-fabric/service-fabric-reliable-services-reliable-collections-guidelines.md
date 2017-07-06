@@ -25,7 +25,7 @@ ms.lasthandoff: 05/12/2017
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric
 Questa sezione fornisce le linee guida per l'uso di Reliable State Manager e Reliable Collections. L'obiettivo è quello di aiutare gli utenti a evitare errori comuni.
 
-Le linee guida sono organizzate come semplici consigli** su cosa fare, **prendere in considerazione,* *evitare e* *non fare.
+Le linee guida sono organizzate come semplici consigli*su cosa fare* , *prendere in considerazione* , *evitare* e*non fare*.
 
 * Non modificare un oggetto di tipo personalizzato restituito dalle operazioni di lettura, ad esempio `TryPeekAsync` o `TryGetValueAsync`. Le raccolte Reliable Collections, così come le raccolte Concurrent Collections, restituiscono un riferimento agli oggetti, non una copia.
 * Eseguire una copia completa dell'oggetto di tipo personalizzato restituito prima di modificarlo. Poiché le strutture e i tipi predefiniti vengono passati per valore, non è necessario eseguirne una copia completa.
