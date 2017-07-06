@@ -4,7 +4,7 @@ description: "Fornisce un punto di vista unico del partner di fatturazione di Mi
 services: 
 documentationcenter: 
 author: BryanLa
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 02/03/2017
 ms.author: mobandyo;sirishap;bryanla
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
 ms.openlocfilehash: 125b777e0ab05066cf066789b603b8edb15a0936
+ms.contentlocale: it-it
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -223,9 +225,4 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figura 12 - Uso dei dati API importati nel foglio UsageAPI"
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figura 13 - Creare nuovi campi per le informazioni sui tag"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figura 14 - Popolamento della struttura dei conti con le informazioni provenienti dalle ricerche"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

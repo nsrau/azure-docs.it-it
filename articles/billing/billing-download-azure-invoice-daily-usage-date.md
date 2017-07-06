@@ -1,11 +1,11 @@
 ---
 title: Scaricare la fattura e i dati di uso giornalieri di Azure | Microsoft Docs
-description: L&quot;articolo descrive come scaricare o visualizzare la fatturazione e dati di uso giornalieri di Azure.
+description: L'articolo descrive come scaricare o visualizzare la fatturazione e dati di uso giornalieri di Azure.
 keywords: fatturazione, scaricare la fatture, fattura di Azure, uso di Azure
 services: 
 documentationcenter: 
 author: genlin
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: ae3f3343cf10a6b2f3aa49dccae6d0ac906dba5c
+ms.contentlocale: it-it
 ms.lasthandoff: 04/26/2017
 
 
