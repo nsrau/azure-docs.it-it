@@ -28,7 +28,7 @@ Modificare il nome o il logo per un'applicazione aziendale personalizzata in Azu
 ## <a name="how-do-i-change-an-enterprise-apps-name-or-logo"></a>Come è possibile modificare il nome o il logo di un'app aziendale?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
-3. Nel pannello **Azure Active Directory - *nomedirectory***, vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
+3. Nel pannello **Azure Active Directory - *nomedirectory*** vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
 
     ![Apertura di app aziendali](./media/active-directory-coreapps-change-app-logo-azure-portal/open-enterprise-apps.png)
 4. Nel pannello **Applicazioni aziendali** selezionare **Tutte le applicazioni**. Verrà visualizzato un elenco di app che è possibile gestire.

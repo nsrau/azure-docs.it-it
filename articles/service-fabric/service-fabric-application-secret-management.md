@@ -1,6 +1,6 @@
 ---
 title: Gestione dei segreti nelle applicazioni di Service Fabric | Microsoft Docs
-description: Questo articolo descrive come proteggere i valori dei segreti in un&quot;applicazione di Service Fabric.
+description: Questo articolo descrive come proteggere i valori dei segreti in un'applicazione di Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: cc6ef8f3ef5371ac3092686afddc9198516916fd
+ms.contentlocale: it-it
 ms.lasthandoff: 12/09/2016
 
 

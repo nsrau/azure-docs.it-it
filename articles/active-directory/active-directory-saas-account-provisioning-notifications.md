@@ -1,6 +1,6 @@
 ---
-title: Notifiche relative al provisioning dell&quot;account | Documentazione Microsoft
-description: Come assicurarsi di ricevere notifiche relative ai problemi di provisioning utente che richiedono l&quot;attenzione dell&quot;utente abilitando le notifiche di provisioning dell&quot;account.
+title: Notifiche relative al provisioning dell'account | Documentazione Microsoft
+description: Come assicurarsi di ricevere notifiche relative ai problemi di provisioning utente che richiedono l'attenzione dell'utente abilitando le notifiche di provisioning dell'account.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 07/05/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
 ms.openlocfilehash: e15f3740fbf7cd97002b0b7efda34e968db4fe3c
+ms.contentlocale: it-it
 ms.lasthandoff: 12/28/2016
 
 

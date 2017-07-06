@@ -1,6 +1,6 @@
 ---
 title: Aggiornamento delle applicazioni di Service Fabric | Documentazione Microsoft
-description: "Questo articolo fornisce un&quot;introduzione all&quot;aggiornamento di un&quot;applicazione di Service Fabric, inclusa la scelta delle modalità di aggiornamento e dei controlli di integrità eseguiti."
+description: "Questo articolo fornisce un'introduzione all'aggiornamento di un'applicazione di Service Fabric, inclusa la scelta delle modalità di aggiornamento e dei controlli di integrità eseguiti."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 6/28/2017
 ms.author: subramar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
 ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
+ms.contentlocale: it-it
 ms.lasthandoff: 02/13/2017
 
 
