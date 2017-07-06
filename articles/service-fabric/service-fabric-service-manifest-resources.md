@@ -1,6 +1,6 @@
 ---
 title: Specifica degli endpoint di servizio di Service Fabric | Documentazione Microsoft
-description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l&quot;impostazione di endpoint HTTPS
+description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83

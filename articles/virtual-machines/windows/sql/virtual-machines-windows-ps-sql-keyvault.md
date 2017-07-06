@@ -1,6 +1,6 @@
 ---
 title: Integrare il Key Vault con SQL Server in VM Windows in Azure (Resource Manager) | Documentazione Microsoft
-description: Informazioni su come automatizzare la configurazione della crittografia di SQL Server per l&quot;uso con l&quot;insieme di credenziali delle chiavi di Azure. Questo argomento illustra come usare l&quot;integrazione dell&quot;insieme di credenziali delle chiavi di Azure con le macchine virtuali di SQL Server create con Gestione risorse.
+description: Informazioni su come automatizzare la configurazione della crittografia di SQL Server per l'uso con l'insieme di credenziali delle chiavi di Azure. Questo argomento illustra come usare l'integrazione dell'insieme di credenziali delle chiavi di Azure con le macchine virtuali di SQL Server create con Gestione risorse.
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/14/2017
+ms.date: 06/23/2017
 ms.author: jroth
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 7dd5261960d3f93f01e221c5f5d7a397bc77d590
+ms.contentlocale: it-it
 ms.lasthandoff: 03/25/2017
 
 
