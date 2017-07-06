@@ -1,10 +1,10 @@
 ---
 title: Informazioni sulla fattura per Azure | Microsoft Docs
-description: Informazioni su come leggere e comprendere l&quot;utilizzo e la fattura per la sottoscrizione di Azure
+description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per la sottoscrizione di Azure
 services: 
 documentationcenter: 
 author: genlin
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9

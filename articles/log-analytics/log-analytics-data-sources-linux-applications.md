@@ -82,7 +82,7 @@ La tabella seguente fornisce informazioni dettagliate sulla sintassi per l'utili
 |:--|:--|:--|
 | autoupdate *false\|true* | mycimprovauth autoupdate false | Specifica se il file di autenticazione verrà aggiornato automaticamente in caso di riavvio o aggiornamento. |
 | default *bind-address nome utente password* | mycimprovauth default 127.0.0.1 root pwd | Imposta l'istanza predefinita nel file di autenticazione di OMI MySQL.<br>Nel campo della password deve essere immesso un valore in testo normale: la password nel file di autenticazione di OMI MySQL verrà codificata in Base 64. |
-| delete *predefinita\|num_port * | mycimprovauth 3308 | Elimina l'istanza specificata per impostazione predefinita o in base al numero di porta. |
+| delete *predefinita\|num_port* | mycimprovauth 3308 | Elimina l'istanza specificata per impostazione predefinita o in base al numero di porta. |
 | help | mycimprov help | Stampa un elenco di comandi da usare. |
 | print | mycimprov print | Stampa un file di autenticazione di OMI MySQL di facile lettura. |
 | update port_num *bind-address nome utente password* | mycimprov update 3307 127.0.0.1 root pwd | Aggiorna l'istanza specificata o aggiunge l'istanza, se non esiste. |

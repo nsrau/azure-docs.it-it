@@ -1,12 +1,12 @@
 ---
 
 title: 'Azure AD: panoramica per la reimpostazione password self-service | Documentazione Microsoft'
-description: "Cosa può fare la Reimpostazione self-service delle password in Azure AD per l&quot;organizzazione?"
+description: "Cosa può fare la Reimpostazione self-service delle password in Azure AD per l'organizzazione?"
 services: active-directory
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity

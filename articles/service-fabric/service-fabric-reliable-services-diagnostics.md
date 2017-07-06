@@ -3,7 +3,7 @@ title: Diagnostica di Reliable Services con stato | Documentazione Microsoft
 description: "Funzionalità di diagnostica per i servizi Reliable con stato"
 services: service-fabric
 documentationcenter: .net
-author: AlanWarwick
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
-ms.author: alanwar
-translationtype: Human Translation
+ms.date: 06/30/2017
+ms.author: dekapur
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
 ms.openlocfilehash: 5da5707900b35be69018ba4e9c8efb05d8a74a9d
+ms.contentlocale: it-it
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -48,9 +50,4 @@ L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richie
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Provider di EventSource in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

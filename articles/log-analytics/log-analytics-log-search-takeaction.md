@@ -38,7 +38,7 @@ Per intervenire su un evento e avviare un runbook dai risultati della ricerca lo
 2. Nel pannello di Log Analytics selezionare l'area di lavoro personale e nel pannello dell'area di lavoro selezionare **Log search** (Ricerca log).  
 3. Nel pannello di ricerca log eseguire una ricerca log.  
 4. Nei risultati della ricerca log fare clic sui puntini di sospensione a sinistra di uno dei campi disponibili e nella finestra popup visualizzata selezionare **Take action on** (Intervieni su).<br><br> ![Selezione dell'azione di intervento dai risultati della ricerca](./media/log-analytics-log-search-takeaction/log-search-takeaction-menuoption.png) 
-5. Nel pannello Take action (Intervieni) selezionare **Run a runbook** (Esegui un runbook) e nel pannello**** visualizzato selezionare un runbook da eseguire.  È possibile selezionare qualsiasi runbook disponibile nell'account di automazione associato all'area di lavoro Log Analytics.  Tenere presente quanto segue:
+5. Nel pannello Take action (Intervieni) selezionare **Run a runbook** **(Esegui un runbook)** e nel pannello visualizzato selezionare un runbook da eseguire.  È possibile selezionare qualsiasi runbook disponibile nell'account di automazione associato all'area di lavoro Log Analytics.  Tenere presente quanto segue:
 
     * I runbook sono organizzati per tag
     * I valori dei parametri di input dei runbook possono essere selezionati direttamente dai campi dei risultati della ricerca.  Viene visualizzato un elenco a discesa con tutti i campi disponibili nella pagina dei risultati tra cui scegliere.  

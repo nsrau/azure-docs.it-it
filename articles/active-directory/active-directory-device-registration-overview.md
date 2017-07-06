@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Registrazione dispositivo Azure Active Directory | Microsoft Docs
-description: "Registrazione dispositivo Azure Active Directory rappresenta il fondamento per gli scenari di accesso condizionale basato su dispositivo. Quando un dispositivo viene registrato, Registrazione dispositivo Azure Active Directory ne effettua il provisioning con un&quot;identità che viene usata per l&quot;autenticazione del dispositivo quando l&quot;utente esegue l&quot;accesso."
+description: "Registrazione dispositivo Azure Active Directory rappresenta il fondamento per gli scenari di accesso condizionale basato su dispositivo. Quando un dispositivo viene registrato, Registrazione dispositivo Azure Active Directory ne effettua il provisioning con un'identità che viene usata per l'autenticazione del dispositivo quando l'utente esegue l'accesso."
 services: active-directory
 keywords: registrazione dispositivo, abilitare registrazione dispositivo, registrazione dispositivo e software MDM
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: d19956e4964f57251f51eb8ffe5041c6a49da1a7
+ms.contentlocale: it-it
 ms.lasthandoff: 03/10/2017
 
 

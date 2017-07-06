@@ -6,7 +6,7 @@ keywords: gestione delle password in Active Directory, gestione delle password, 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity

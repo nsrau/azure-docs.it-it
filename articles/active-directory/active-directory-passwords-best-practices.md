@@ -1,12 +1,12 @@
 ---
 title: 'Implementazione: Reimpostazione password self-service di Azure AD | Microsoft Docs'
-description: Consigli per l&quot;implementazione della reimpostazione password self-service di Azure AD
+description: Consigli per l'implementazione della reimpostazione password self-service di Azure AD
 services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
 ms.workload: identity
