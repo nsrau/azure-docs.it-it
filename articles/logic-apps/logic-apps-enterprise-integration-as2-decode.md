@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: da3fc08cc5c506dba02ccda16940a28a4600a288
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: a7920b2509fe368c6f7d55e17fe0bf0020c4562c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -40,7 +41,7 @@ Sono necessari gli elementi seguenti:
 
 2. Il connettore di messaggi Decode AS2 non dispone di trigger, pertanto è necessario aggiungerne uno per avviare l'app per la logica, ad esempio un trigger di richiesta. In Progettazione app per la logica aggiungere un trigger e un'azione all'app per la logica.
 
-3.    Nella casella di ricerca, immettere "AS2" come filtro. Selezionare **AS2 - Decodifica il messaggio AS2**.
+3.  Nella casella di ricerca, immettere "AS2" come filtro. Selezionare **AS2 - Decodifica il messaggio AS2**.
    
     ![Cercare "AS2"](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
 
@@ -55,7 +56,7 @@ Sono necessari gli elementi seguenti:
     | Nome connessione * |Immettere un nome per la connessione. |
     | Account di integrazione * |Immettere un nome per l'account di integrazione. Verificare che l'account di integrazione e l'app per la logica si trovino nella stessa località di Azure. |
 
-5.    Al termine, i dettagli della connessione dovrebbero essere simili a quelli dell'esempio seguente. Per completare la creazione della connessione, scegliere **Crea**.
+5.  Al termine, i dettagli della connessione dovrebbero essere simili a quelli dell'esempio seguente. Per completare la creazione della connessione, scegliere **Crea**.
 
     ![Dettagli della connessione di integrazione](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
 
@@ -86,6 +87,9 @@ Il connettore Decode AS2 esegue queste attività:
 ## <a name="try-this-sample"></a>Provare questo esempio
 
 Per distribuire un'app per la logica completamente operativa e uno scenario AS2 di esempio, vedere il [modello e lo scenario di app per la logica AS2](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+
+## <a name="view-the-swagger"></a>Visualizzare il file Swagger
+Vedere i [dettagli del file Swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 

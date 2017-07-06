@@ -1,6 +1,6 @@
 ---
 title: Connettersi a file system locali dalle app per la logica di Azure | Microsoft Docs
-description: Connettersi a file system locali dal flusso di lavoro dell&quot;app per la logica tramite il gateway dati locale e il connettore File System
+description: Connettersi a file system locali dal flusso di lavoro dell'app per la logica tramite il gateway dati locale e il connettore File System
 keywords: file system
 services: logic-apps
 author: derek1ee
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2017
-ms.author: deli; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 9eab48d40c3d9db896724d3bdb574d89fdab2796
-ms.lasthandoff: 04/04/2017
+ms.author: LADocs; deli
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: f33e7c58103c57e17e4e273caba1ab9b83f0cd2b
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -86,6 +87,9 @@ A questo punto, si disporrà di un'app per la logica funzionante che può connet
 - Recupera metadati di file tramite percorso
 - Elenca i file nella cartella radice
 - Aggiorna file
+
+## <a name="view-the-swagger"></a>Visualizzare il file Swagger
+Vedere i [dettagli del file Swagger](/connectors/fileconnector/). 
 
 ## <a name="get-help"></a>Ottenere aiuto
 
