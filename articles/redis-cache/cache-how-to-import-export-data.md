@@ -1,6 +1,6 @@
 ---
 title: Importare ed esportare dati in Cache Redis di Azure | Documentazione Microsoft
-description: Informazioni su come importare ed esportare dati da e verso l&quot;archivio BLOB con le istanze di Cache Redis di Azure Premium
+description: Informazioni su come importare ed esportare dati da e verso l'archivio BLOB con le istanze di Cache Redis di Azure Premium
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
 ms.openlocfilehash: 0fc176eca038801725492f905442ba4dd9d2fabe
+ms.contentlocale: it-it
 ms.lasthandoff: 03/28/2017
 
 
