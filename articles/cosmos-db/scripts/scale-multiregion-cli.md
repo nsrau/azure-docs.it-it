@@ -1,6 +1,6 @@
 ---
-title: Script dell&quot;interfaccia della riga di comando di Azure - Replica multiarea per Azure Cosmos DB | Documentazione Microsoft
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Replica multiarea per Azure Cosmos DB
+title: Script dell'interfaccia della riga di comando di Azure - Replica multiarea per Azure Cosmos DB | Documentazione Microsoft
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Replica multiarea per Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: cde5ff007dc7b26db33e195dd6cb528675ecd391
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: e797fef1ca889460dccd609ae0c769dc2933c2ac
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/15/2017
 
 Questo esempio replica qualsiasi tipo di database di Azure Cosmos DB in più aree e configura le priorità di failover mediante l'interfaccia della riga di comando di Azure.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 

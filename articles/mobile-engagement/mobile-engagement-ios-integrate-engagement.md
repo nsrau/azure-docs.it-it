@@ -14,10 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7c4e962527d0b4cd66f6ca4974851c5e5d523de7
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 58baae6fb3d338ef94caca79b9248afc0fb7f841
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---

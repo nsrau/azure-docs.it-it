@@ -1,6 +1,6 @@
 ---
 title: "Eseguire attività di avvio in Servizi cloud di Azure | Documentazione Microsoft"
-description: "Le attività di avvio consentono di preparare l&quot;ambiente del servizio cloud per l&quot;app. Questo argomento illustra il funzionamento e la modalità di esecuzione delle attività di avvio"
+description: "Le attività di avvio consentono di preparare l'ambiente del servizio cloud per l'app. Questo argomento illustra il funzionamento e la modalità di esecuzione delle attività di avvio"
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: be5bd67ed977a62b1574d8a48de0cfcfe8876bb4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
+ms.openlocfilehash: cbe7da8670693a6bbc895ce06f000b6a7d6f0ae1
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -120,9 +122,9 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
   
     Per assicurarsi che il file batch termini con un valore **errorlevel** uguale a zero, eseguire il comando `EXIT /B 0` al termine del processo del file batch.
 * **background**  
-   vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
+  vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
 * **foreground**  
-   vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
+  vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 Le variabili di ambiente costituiscono un modo per passare le informazioni a un'attività di avvio. È ad esempio possibile inserire il percorso di un BLOB contenente un programma da installare, i numeri di porta che verranno usati dal ruolo o impostazioni per controllare le funzionalità dell'attività di avvio.
@@ -167,9 +169,4 @@ Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

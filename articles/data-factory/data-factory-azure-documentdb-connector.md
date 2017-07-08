@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 06/20/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: f665ff5ca345d96bac9b51c3c798874e55738a62
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 7a11c6ade0325b08ad520448bbf82d64a0a555f3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -56,6 +56,20 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 | --- | --- | --- |
 | type |La proprietà del tipo deve essere impostata su: **DocumentDb** |Sì |
 | connectionString |Specificare le informazioni necessarie per connettersi al database di Azure Cosmos DB. |Sì |
+
+Esempio:
+
+```JSON
+{
+  "name": "CosmosDbLinkedService",
+  "properties": {
+    "type": "DocumentDb",
+    "typeProperties": {
+      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+    }
+  }
+}
+```
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo [Creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.

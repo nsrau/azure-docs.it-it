@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7bed1e96cec49e8b62d671952976025453da6787
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: daff6ab4c0eaf17d1cb488f1c16aa111b6ed9a88
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -36,7 +36,7 @@ In questo passaggio, ci si assicura che Visual Studio sia installato e si crea u
 
 1. Se non è già installato, installare [Visual Studio](https://www.visualstudio.com/).
 2. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
-3. In **Modelli** > **Visual C#** selezionare **App console (.NET Framework)**, immettere il nome e la posizione del progetto e fare clic su **OK**.
+3. In **Modelli** > **Visual C#** selezionare **App console (.NET Framework)**, immettere il nome e il percorso del progetto e quindi fare clic su **OK**.
 
 ## <a name="step-2-install-libraries"></a>Passaggio 2: installare le librerie
 
@@ -264,5 +264,4 @@ L'esecuzione completa dell'applicazione console dall'inizio alla fine richieder�
 ## <a name="next-steps"></a>Passaggi successivi
 * Se si sono verificati problemi con la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Informazioni su come distribuire una macchina virtuale e le relative risorse di supporto sono disponibili in [Distribuire una macchina virtuale di Azure con C#](csharp.md).
-* Per informazioni su come gestire la macchina virtuale creata, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

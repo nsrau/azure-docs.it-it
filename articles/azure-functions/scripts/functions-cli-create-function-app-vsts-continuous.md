@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;app per le funzioni e distribuire codice di funzione da Visual Studio Team Services | Documentazione Microsoft
-description: Creare un&quot;app per le funzioni e distribuire codice di funzione da Visual Studio Team Services
+title: Creare un'app per le funzioni e distribuire codice di funzione da Visual Studio Team Services | Documentazione Microsoft
+description: Creare un'app per le funzioni e distribuire codice di funzione da Visual Studio Team Services
 services: functions
 keywords: 
 author: syntaxc4
@@ -10,10 +10,10 @@ ms.topic: sample
 ms.service: functions
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 8e5d8bdf61746d3bda5acc7bed97b164c311a3c3
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 2ef177b55ad7ffd351156821f429e6ff8fbeccc7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-an-app-service"></a>Creare un servizio app
@@ -23,7 +23,11 @@ In questo scenario si apprenderà come creare un'app per le funzioni usando il [
 * Archivio VSTS contenente il codice di funzione per il quale si hanno autorizzazioni amministrative.
 * [Token di accesso personale](https://help.github.com/articles/creating-an-access-token-for-command-line-use) per il proprio account GitHub.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 

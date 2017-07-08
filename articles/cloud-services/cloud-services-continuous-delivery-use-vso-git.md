@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: f4f5f231536bc381d17898ff2c592be821168a65
+ms.contentlocale: it-it
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -186,7 +187,7 @@ Quando si usa Git, in genere si apportano modifiche in un branch di lavoro che v
 10. Passare alla visualizzazione **Compilazioni** e cercare la compilazione appena attivata per il branch di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri suggerimenti sull'uso di Git con Visual Studio Team Services, vedere l'articolo su come [sviluppare e condividere il codice con Git e Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx). Per informazioni sull'uso di un repository Git non gestito da Visual Studio Team Services per la pubblicazione in Azure, vedere [Distribuzione continua nel servizio app di Azure](../app-service-web/app-service-continuous-deployment.md). Per altre informazioni su Visual Studio Team Services, vedere [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Per altri suggerimenti sull'uso di Git con Visual Studio Team Services, vedere l'articolo su come [sviluppare e condividere il codice con Git e Visual Studio](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017). Per informazioni sull'uso di un repository Git non gestito da Visual Studio Team Services per la pubblicazione in Azure, vedere [Distribuzione continua nel servizio app di Azure](../app-service-web/app-service-continuous-deployment.md). Per altre informazioni su Visual Studio Team Services, vedere [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG

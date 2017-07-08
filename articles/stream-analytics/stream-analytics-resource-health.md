@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 05/01/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: c1e5710da60836039447e68b4507b71f4062f4e6
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 4ad6b8feff4c46b01613e422c090c0d30ee9c7a2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -45,7 +45,7 @@ Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
-* [Introduzione ad Analisi di flusso](stream-analytics-get-started.md)
+* [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
 * [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)

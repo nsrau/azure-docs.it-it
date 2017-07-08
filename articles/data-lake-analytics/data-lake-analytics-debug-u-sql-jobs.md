@@ -14,18 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: a5bb452582f05981a17c2514e0e40db0571bf61d
-ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
-ms.lasthandoff: 01/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: aac455520ab62d69b406a254a54b0f000ea2e5bc
+ms.contentlocale: it-it
+ms.lasthandoff: 06/26/2017
 
 
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Eseguire il debug di codice C# definito dall'utente per i processi U-SQL non riusciti
-
-Informazioni su come eseguire il debug di processi U-SQL non riusciti con bug nel codice definito dall'utente usando Strumenti Azure Data Lake per Visual Studio.
-
-## <a name="background"></a>Background
 
 U-SQL fornisce il modello di estensibilità tramite C#. Gli utenti possono pertanto scrivere codice C# definito dall'utente, come estrattori e riduttori, per ottenere maggiore estendibilità (ulteriori informazioni sul [Codice U-SQL definito dall'utente](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf)). Tuttavia, nessuno sviluppatore può scrivere codice senza il minimo errore e, al contempo, il debug nei sistemi Big Data è complesso poiché molti sistemi forniscono solo informazioni di debug del runtime limitate come log e così via. 
 
@@ -35,15 +32,10 @@ Nel video seguente viene illustrata la funzione **Debug del vertice con errore**
 
 > [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
 >
->
 
 > [!NOTE]
 > Visual Studio potrebbe bloccarsi o arrestarsi in modo anomalo se non si dispone dei due aggiornamenti Windows seguenti: [Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682) e [Universal C Runtime for Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
 > 
-> 
-
-## <a name="prerequisites"></a>Prerequisiti
-* Avere esaminato con attenzione l'articolo di [introduzione](data-lake-analytics-data-lake-tools-get-started.md) .
 
 ## <a name="download-failed-vertex-to-local"></a>Scaricare il vertice con errori in locale
 
@@ -128,7 +120,6 @@ Dopo aver completato il debug è possibile inviare nuovamente il processo non ri
 
 * [Guida di programmabilità di U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 * [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Azure Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-* [Esercitazione: Introduzione al linguaggio U-SQL di Analisi Data Lake di Azure](data-lake-analytics-u-sql-get-started.md)
 * [Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/062/2016
+ms.date: 03/06/2016
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c9376b95e4686f804d34f648e15cfcc0f2847718
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: db90fad2fe397f0c8466db6bdc1bd8c8d1cf8f15
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -28,11 +28,6 @@ ms.lasthandoff: 05/18/2017
 Questo articolo illustra come configurare la replica geografica attiva per il database SQL nel [portale di Azure](http://portal.azure.com) e avviare il failover.
 
 Per avviare un failover con il portale di Azure, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-portal.md).
-
-> [!NOTE]
-> La replica geografica attiva (database secondari accessibili in lettura) è ora disponibile per tutti i database in tutti i livelli di servizio. Nell'aprile 2017 il tipo di database secondario non leggibile è stato ritirato e i database non leggibili esistenti sono stati automaticamente aggiornati a database secondari accessibili in lettura.
-> 
-> 
 
 Per configurare la replica geografica attiva tramite il portale di Azure, è necessaria la risorsa seguente:
 

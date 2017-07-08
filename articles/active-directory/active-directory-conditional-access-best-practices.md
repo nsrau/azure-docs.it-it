@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per l&quot;accesso condizionale in Azure Active Directory | Microsoft Docs
+title: Procedure consigliate per l'accesso condizionale in Azure Active Directory | Microsoft Docs
 description: "Informazioni sugli aspetti da conoscere e su ciò che è consigliabile evitare quando si configurano i criteri di accesso condizionale."
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2017
+ms.date: 06/22/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8564f75f4e90aa7c3b4f93823b5202354c8bba3a
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: 9cecbfd1fd5db8fffc9fbdfb2d6ca949b6ff385a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -58,11 +58,6 @@ Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che t
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>L'accesso condizionale funziona con Exchange ActiveSync?
 
 Sì, è possibile usare Exchange ActiveSync in criteri di accesso condizionale.
-
-
-### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>Che cosa accade se si richiedi l'autenticazione a più fattori o un dispositivo conforme?
-
-Attualmente, all'utente verrà chiesta l'autenticazione a più fattori indipendentemente dal dispositivo.
 
 
 ## <a name="what-you-should-avoid-doing"></a>Azioni da evitare

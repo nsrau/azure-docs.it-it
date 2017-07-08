@@ -2,7 +2,7 @@
 
 
 #### <a name="to-create-a-custom-backup-policy"></a>Per creare un criterio di backup personalizzato
-1. Nella pagina **Dispositivi** fare clic su **Criteri di backup** e quindi su **Aggiungi**.
+1. Nella pagina **Dispositivi**, fare clic su **Criteri di backup**, quindi selezionare **Aggiungi**.
 2. Nella finestra di dialogo **Aggiungi un criterio di backup** visualizzata in **Definire i criteri di backup**:
    
    1. Specificare un nome per il criterio di backup.

@@ -1,6 +1,6 @@
 ---
 title: Spostare dati da e verso le tabelle di Azure | Documentazione Microsoft
-description: Informazioni su come spostare i dati da e verso l&quot;archiviazione tabelle di Azure mediante Data factory di Azure.
+description: Informazioni su come spostare i dati da e verso l'archiviazione tabelle di Azure mediante Data factory di Azure.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/22/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d688b5c6f918542b73d95c795f5dbb82070b17c8
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: 792a551ae3dae46c503e5f0dda74cd0ac3a69c3a
 ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -460,7 +460,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
    }
 }
 ```
-### <a name="type-mapping-for-azure-table"></a>Mapping dei tipi per tabelle di Azure
+## <a name="type-mapping-for-azure-table"></a>Mapping dei tipi per tabelle di Azure
 Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni di tipo automatiche dai tipi di origine ai tipi di sink con l'approccio in due passaggi seguente:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
@@ -475,8 +475,8 @@ Quando si spostano i dati da e verso tabelle di Azure, i seguenti [mapping defin
 | Edm.DateTime |DateTime |Un valore a 64 bit espresso come Coordinated Universal Time (UTC). L'intervallo DateTime supportato inizia dalle 00:00, 1 gennaio, 1601 D.C. (C.E.), UTC. L'intervallo termina il 31 dicembre 9999. |
 | Edm.Double |double |Un valore a virgola mobile a 64 bit. |
 | Edm.Guid |Guid |Un identificatore univoco globale a 128 bit. |
-| Edm.Int32 |Int32 o int |Un valore integer a 32 bit. |
-| Edm.Int64 |Int64 o long |Un valore integer a 64 bit. |
+| Edm.Int32 |Int32 |Un valore integer a 32 bit. |
+| Edm.Int64 |Int64 |Un valore integer a 64 bit. |
 | Edm.String |String |Un valore con codifica UTF-16. I valori delle stringhe possono essere di dimensioni fino a 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Esempio di conversione di tipo

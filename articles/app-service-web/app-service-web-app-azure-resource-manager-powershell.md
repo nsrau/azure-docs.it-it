@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8f76a2857766c481ec6cdec52274b5bd370ccfc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8d574f051a327ba0409e6f25a5886af673d3d5e0
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -201,10 +203,5 @@ Per informazioni sulla gestione dei certificati delle app Web, vedere l'articolo
 * Per informazioni sulla gestione dei certificati SSL del servizio app con PowerShell, vedere l'articolo relativo all' [associazione di certificati SSL con PowerShell.](app-service-web-app-powershell-ssl-binding.md)
 * Per l'elenco completo dei cmdlet di PowerShell basati su Azure Resource Manager per le app Web di Azure, vedere le [informazioni di riferimento](https://msdn.microsoft.com/library/mt619237.aspx)
 * * Per altre informazioni sulla gestione del servizio app mediante l'interfaccia della riga di comando, vedere [Using Azure Resource Manager-Based XPlat CLI for Azure Web App](app-service-web-app-azure-resource-manager-xplat-cli.md) (Uso dell'interfaccia della riga di comando di XPlat basata su Azure Resource Manager per le app Web di Azure).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

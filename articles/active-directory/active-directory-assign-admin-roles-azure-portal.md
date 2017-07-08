@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8e8723c6dc81012a0dddd4e0a28c4d4af6828c6c
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 59954c02741de2fbba22a3e41640573914efdad8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -156,6 +156,17 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 
 ## <a name="assign-or-remove-administrator-roles"></a>Assegnare o rimuovere ruoli di amministratore
 Per informazioni su come assegnare ruoli amministrativi a un utente in Azure Active Directory, vedere [Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="deprecated-roles"></a>Ruoli deprecati
+
+I ruoli seguenti non devono essere usati. Questi ruoli sono stati deprecati e verranno rimossi da Azure AD in futuro.
+
+* Amministratore di licenze ad hoc
+* Autore di utenti verificati tramite posta elettronica
+* Aggiunta di dispositivi
+* Gestione dispositivi
+* Utenti di dispositivi
+* Aggiunta di dispositivi all'area di lavoro
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,20 +11,19 @@ ms.service: site-recovery
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3bd182a775377f912914c0c7a63fe41811146e1a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 795dd0c05daf560e5a271fef5356eb83d72a6112
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Eseguire il failback di server fisici e macchine virtuali VMware nel sito locale
-> [!div class="op_single_selector"]
-> * [Computer VMware/fisici da Azure](site-recovery-how-to-failback-azure-to-vmware.md)
-> * [Macchine virtuali Hyper-V da Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
 
 Questo articolo descrive come eseguire il failback di macchine virtuali di Azure da Azure al sito locale. Seguire le istruzioni riportate di seguito per eseguire il failback delle macchine virtuali VMware o dei server fisici Windows o Linux dopo avere riprotetto i computer seguendo queste [informazioni di riferimento](site-recovery-how-to-reprotect.md).
 

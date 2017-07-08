@@ -1,10 +1,10 @@
 ---
-title: Usare l&quot;SDK Java di Data Lake Analytics per sviluppare le applicazioni | Documentazione Microsoft
-description: Usare l&quot;SDK Java di Analisi Azure Data Lake per lo sviluppo di applicazioni
+title: Usare l'SDK Java di Data Lake Analytics per sviluppare le applicazioni | Documentazione Microsoft
+description: Usare l'SDK Java di Analisi Azure Data Lake per lo sviluppo di applicazioni
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 99e1c8956968264fbea696b85ac084281d75f02a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
+ms.contentlocale: it-it
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Esercitazione: Introduzione ad Analisi Azure Data Lake con l'SDK Java
+# <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Introduzione ad Azure Data Lake Analytics con Java SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informazioni su come usare l'SDK Java di Analisi Azure Data Lake per creare un account Azure Data Lake ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e lavorare con i processi. Per altre informazioni su Data Lake, vedere [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -30,8 +32,7 @@ In questa esercitazione verrà sviluppata un'applicazione console Java che inclu
 ## <a name="prerequisites"></a>Prerequisiti
 * Java Development Kit (JDK) 8 con Java versione 1.8.
 * IntelliJ o un altro ambiente di sviluppo Java adatto. Questo prerequisito è facoltativo ma consigliato. Le istruzioni riportate di seguito usano IntelliJ.
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Analytics. Vedere le [istruzioni](data-lake-analytics-get-started-portal.md).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Creare un'applicazione Azure Active Directory (AAD) e recuperarne **ID client**, **ID tenant** e **chiave**. Per altre informazioni sulle applicazioni AAD e le istruzioni su come ottenere un ID client, vedere [Usare il portale per creare un'applicazione di Active Directory che acceda alle risorse](../azure-resource-manager/resource-group-create-service-principal-portal.md). Dopo aver creato l'applicazione e generato la chiave, anche l'URI di risposta e la chiave saranno disponibili dal portale.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Come si esegue l'autenticazione tramite Azure Active Directory?
@@ -350,9 +351,4 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) e [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348) (Riferimenti al linguaggio U-SQL).
 * Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-manage-use-portal.md).
 * Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

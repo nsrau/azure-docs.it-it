@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/18/2017
 ms.author: karolz
-translationtype: Human Translation
-ms.sourcegitcommit: d7f7b157d8d6fb54259c8f23d5005509f4eb7872
-ms.openlocfilehash: 22acb6afbfbfff753e71b5e821385798cc76ffdd
-ms.lasthandoff: 01/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 08f7b57985382f2abbb90ba1e13a30f40b38917f
+ms.contentlocale: it-it
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -53,15 +54,15 @@ I file binari di EventFlow sono disponibili come set di pacchetti NuGet. Per agg
 
 Il servizio che ospita EventFlow deve includere pacchetti appropriati a seconda dell'origine e della destinazione dei log applicazioni. Aggiungere i pacchetti seguenti: 
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource` 
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 
     * Per acquisire dati dalla classe EventSource del servizio e da oggetti EventSource standard, ad esempio *Microsoft-ServiceFabric-Services* e *Microsoft-ServiceFabric-Actors*.
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` 
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` 
     * I log verranno inviati a una risorsa di Azure Application Insights.  
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric` 
     * Consente l'inizializzazione della pipeline EventFlow dalla configurazione del servizio di Service Fabric e segnala eventuali problemi tramite l'invio di dati di diagnostica in forma di report sull'integrità di Service Fabric.
 
 > [!NOTE]
-> Per il pacchetto `Microsoft.Diagnostics.EventFlow.Input.EventSource` il progetto di servizio deve puntare a .NET Framework 4.6 o versione successiva. Assicurarsi di impostare il framework di destinazione corretto nelle proprietà del progetto prima di installare questo pacchetto. 
+> Per il pacchetto `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` il progetto di servizio deve puntare a .NET Framework 4.6 o versione successiva. Assicurarsi di impostare il framework di destinazione corretto nelle proprietà del progetto prima di installare questo pacchetto. 
 
 Dopo aver installato tutti i pacchetti, è necessario configurare e abilitare EventFlow nel servizio.
 
@@ -176,3 +177,4 @@ Avviare il servizio e osservare la finestra dell'output di debug di Visual Studi
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-collect-logs-without-an-agent/eventflow-nugets.png
 [2]: ./media/service-fabric-diagnostics-collect-logs-without-an-agent/ai-traces.png
+

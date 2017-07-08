@@ -1,22 +1,25 @@
-<properties
-   pageTitle="Sinonimi in Ricerca di Azure (anteprima) | Documentazione Microsoft"
-   description="Documentazione preliminare per la funzionalità relativa ai sinonimi (anteprima) esposta nell'API REST di Ricerca di Azure."
-   services="search"
-   documentationCenter=""
-   authors="mhko"
-   manager="pablocas"
-   editor=""/>
+---
+pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
+description: "Documentazione preliminare per la funzionalità relativa ai sinonimi (anteprima) esposta nell&quot;API REST di Ricerca di Azure."
+services: search
+documentationCenter: 
+authors: mhko
+manager: pablocas
+editor: 
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 07/07/2016
+ms.author: nateko
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
-<tags
-   ms.service="search"
-   ms.devlang="rest-api"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/07/2016"
-   ms.author="nateko"/>
-
-
+---
 # <a name="synonyms-in-azure-search-preview"></a>Sinonimi in Ricerca di Azure (anteprima)
 
 La funzionalità relativa ai sinonimi nei motori di ricerca associa termini equivalenti, che espandono in modo implicito l'ambito di una query, senza che l'utente debba fornire effettivamente il termine. Ad esempio, dato il termine "cane" e le associazioni sinonimiche "canino" e "cucciolo", tutti i documenti contenenti "cane", "canino" o "cucciolo" saranno inclusi nella query.
@@ -35,9 +38,9 @@ Le mappe sinonimiche e gli indici vengono mantenuti in modo indipendente. Dopo a
 
 L'aggiunta di sinonimi in un'applicazione di ricerca è una procedura in due passaggi:
 
-1.    Aggiungere una mappa sinonimica al servizio di ricerca tramite le API indicate di seguito.  
+1.  Aggiungere una mappa sinonimica al servizio di ricerca tramite le API indicate di seguito.  
 
-2.    Configurare un campo ricercabile per l'uso della mappa sinonimica nella definizione dell'indice.
+2.  Configurare un campo ricercabile per l'uso della mappa sinonimica nella definizione dell'indice.
 
 ### <a name="synonymmaps-resource-apis"></a>API di risorsa SynonymMaps
 

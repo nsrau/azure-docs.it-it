@@ -1,5 +1,5 @@
 ---
-title: Note sulla versione dell&quot;aggiornamento 0.1 di StorSimple 8000 | Microsoft Docs
+title: Note sulla versione dell'aggiornamento 0.1 di StorSimple 8000 | Microsoft Docs
 description: "Vengono descritte le nuove funzionalità e correzioni, i problemi e le soluzioni alternative disponibili per la versione di ottobre 2014 di Microsoft Azure StorSimple. (aggiornamento 0.1)."
 services: storsimple
 documentationcenter: NA
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d3f4908fd8e245960ba1b1b1244aafeb06922eb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4dfd3973593a94adfc15a6e15d69c697e13998af
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="storsimple-8000-series-update-01-release-notes--october-2014"></a>Note sulla versione dell'aggiornamento 0.1 di StorSimple serie 8000 - Ottobre 2014
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Nelle note sulla versione seguenti sono indicati i problemi critici non risolti relativi all'aggiornamento 0.1 di StorSimple serie 8000 rilasciato a ottobre 2014. Contengono inoltre un elenco degli aggiornamenti software e firmware di StorSimple inclusi in questa versione. Si tratta della prima versione dopo la versione di rilascio di StorSimple serie 8000 resa disponibile a livello generale a luglio 2014 e corrisponde alla versione del software 6.3.9600.17312.  
 
 Subito dopo l'installazione del dispositivo, si consiglia di ricercare e applicare eventuali aggiornamenti disponibili. È inoltre possibile attivare gli aggiornamenti automatici per scaricare e installare gli aggiornamenti ad alta priorità non appena vengono rilasciati da Microsoft. Per ulteriori informazioni, vedere come [Aggiornare il dispositivo StorSimple](storsimple-update-device.md).  
@@ -94,10 +96,5 @@ Questa versione applica anche un aggiornamento del firmware cumulativo che risol
 
 ## <a name="virtual-device-updates-in-the-october-release"></a>Aggiornamenti del dispositivo virtuale nella versione di ottobre
 Questa versione non contiene aggiornamenti per il dispositivo virtuale. L’applicazione di tale aggiornamento non cambia la versione del software di un dispositivo virtuale.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -40,7 +40,7 @@
 #### [Applicare Crittografia dischi](security-center-apply-disk-encryption.md)
 #### [Applicare gli aggiornamenti di sistema](security-center-apply-system-updates.md)
 #### [Abilitare la raccolta di dati](security-center-enable-data-collection.md)
-#### [Enable encryption for storage account](security-center-enable-encryption-for-storage-account.md) (Abilita la crittografia per l'account di archiviazione)
+#### [Abilita la crittografia per l'account di archiviazione](security-center-enable-encryption-for-storage-account.md)
 #### [Abilita l'agente di macchine virtuali](security-center-enable-vm-agent.md)
 #### [Installa Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Specificare dettagli del contatto per la sicurezza](security-center-provide-security-contact-details.md)
@@ -71,6 +71,7 @@
 ## [Sicurezza di Azure](/azure/security/)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog su sicurezza, privacy e conformità per Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Prezzi](security-center-pricing.md)
 ## [Panoramica del servizio](https://azure.microsoft.com/services/security-center/)

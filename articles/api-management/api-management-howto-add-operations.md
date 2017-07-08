@@ -1,6 +1,6 @@
 ---
-title: Come aggiungere operazioni a un&quot;API in Gestione API di Azure | Microsoft Docs
-description: Informazioni su come aggiungere operazioni a un&quot;API in Gestione API di Azure.
+title: Come aggiungere operazioni a un'API in Gestione API di Azure | Microsoft Docs
+description: Informazioni su come aggiungere operazioni a un'API in Gestione API di Azure.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: d8b2f91a4d47513572fc5a56c60524d8338c8df4
-ms.openlocfilehash: 4527e27f760a7a0685f92a7108c4e8ff9759d33c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -169,9 +171,4 @@ Una volta aggiunte le operazioni a un'API, nel passaggio successivo l'API verrà
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/23/2017
+ms.date: 06/07/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
-ms.openlocfilehash: c7094a92355a199e9b94bc695c8499271b9adc39
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: d41a02b837d2cd0c478abdcf3068a5ccf7ed1b6f
+ms.contentlocale: it-it
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -45,7 +46,7 @@ Esiste una corrispondenza uno a uno tra i limiti sugli indici e sugli indicizzat
 | Risorsa | Free | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Indice: numero massimo di campi per indice |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Numero massimo di profili di punteggio per indice |16 |16 |16 |16 |16 |16 |
+| Numero massimo di profili di punteggio per indice |100 |100 |100 |100 |100 |100 |
 | Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |
 | Indicizzatori: carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D <sup>2</sup> |
 | Indicizzatori: tempo massimo di esecuzione |3 minuti |24 ore |24 ore |24 ore |24 ore |N/D <sup>2</sup> |

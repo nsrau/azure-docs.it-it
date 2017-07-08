@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/18/2017
+ms.date: 07/05/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b653aabc0a26c85d367abd578f67987f08d07629
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9e7cbf383eff5344f652024606164c9cf264015c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,6 +42,7 @@ Per usare il backup automatico, tenere in considerazione i seguenti prerequisiti
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **Versione/edizione di SQL Server**:
 

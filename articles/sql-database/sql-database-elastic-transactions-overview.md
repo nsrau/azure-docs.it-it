@@ -16,10 +16,10 @@ ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: ceb2d7a28cc416186f3faf1dc5228fce161c34c5
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: f7f1ad3f1933b39a0030a784cae40521254037d6
 ms.contentlocale: it-it
-ms.lasthandoff: 04/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -147,7 +147,7 @@ Per le transazioni di database elastico nel database SQL si applicano attualment
 * Le transazioni tra i servizi WCF non sono supportate. Ad esempio, si dispone di un metodo del servizio WCF che esegue una transazione. Se si racchiude la chiamata all'interno di un ambito della transazione, essa avrà esito negativo come eccezione [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se ancora non si usano le funzionalità del database elastico per le applicazioni Azure Vedere la [mappa della documentazione](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Se ci sono domande, è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum relativo a commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Se ci sono domande, è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum relativo a commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

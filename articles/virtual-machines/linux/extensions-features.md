@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 2b25b4f4925962b1e4de681d268e78909a93eccd
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 77f50a830c38b3a90110845e58ee7cbb28742c10
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 ---
+
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Estensioni della macchina virtuale e funzionalità per Linux
 
 Le estensioni della macchina virtuale di Azure sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o la configurazione di Docker, è possibile usare un'estensione di questo tipo per completare queste attività. Le estensioni della macchina virtuale di Azure possono essere eseguite tramite l'interfaccia della riga di comando di Azure, PowerShell, i modelli di Azure Resource Manager e il portale di Azure. Le estensioni possono essere unite in bundle con una nuova distribuzione di macchina virtuale o eseguite su un sistema esistente.
@@ -39,7 +40,7 @@ Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna co
 
 Oltre alle estensioni specifiche del processo, è disponibile un'estensione dello script personalizzata per le macchine virtuali Linux e Windows. L'estensione dello script personalizzata per Linux consente l'esecuzione di qualsiasi script Bash su una macchina virtuale. Gli script personalizzati sono utili per la progettazione di distribuzioni di Azure che richiedono una configurazione in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione di script personalizzata per le VM Linux](extensions-customscript.md).
 
-Per illustrare un esempio d'uso di un'estensione macchina virtuale in una distribuzione di applicazioni end-to-end, vedere [Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure](../windows/dotnet-core-1-landing.md).
+Per illustrare un esempio d'uso di un'estensione macchina virtuale in una distribuzione di applicazioni end-to-end, vedere [Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure](../linux/dotnet-core-1-landing.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -130,7 +131,7 @@ Per altre informazioni, vedere il [modello di Resource Manager](https://github.c
 }
 ```
 
-Per altre informazioni, vedere [Creazione di modelli di Azure Resource Manager con le estensioni della macchina virtuale per Linux](../windows/extensions-authoring-templates.md).
+Per altre informazioni, vedere [Creazione di modelli di Azure Resource Manager con le estensioni della macchina virtuale per Linux](../linux/extensions-authoring-templates.md).
 
 ## <a name="secure-vm-extension-data"></a>Proteggere i dati dell'estensione macchina virtuale
 

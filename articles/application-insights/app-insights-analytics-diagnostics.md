@@ -1,6 +1,6 @@
 ---
 title: Diagnostica intelligente di modifiche delle prestazioni delle app Web in Azure Application Insights | Microsoft Docs
-description: Diagnosi automatica di modifiche improvvise nella telemetria delle prestazioni da parte di un&quot;app web.
+description: Diagnosi automatica di modifiche improvvise nella telemetria delle prestazioni da parte di un'app web.
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: bf5bd20007c186bfd01b82aa06213ef9e7424a05
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -33,8 +33,8 @@ In questo esempio, la diagnostica intelligente ha identificato un modello di val
 
 ## <a name="diagnose-data-changes"></a>Diagnosticare le modifiche ai dati
 
-1.    Eseguire una query in Analytics e creare un grafico del tempo. 
-2.    Fare clic su qualsiasi punto di picco evidenziato, se presente.
+1.  Eseguire una query in Analytics e creare un grafico del tempo. 
+2.  Fare clic su qualsiasi punto di picco evidenziato, se presente.
  
     ![Punto di picco](./media/app-insights-analytics-diagnostics/peak.png)
 
@@ -48,11 +48,11 @@ In questo esempio, la diagnostica intelligente ha identificato un modello di val
 
     Si noti anche la presenza di due componenti del grafico, con i filtri true e false. Il componente false visualizza una tendenza invariata. In altre parole, non c'è alcuna modifica nei risultati della telemetria, se si esclude la combinazione problematica di dimensioni identificate dalla diagnostica. Al contrario, i risultati in tale combinazione visualizzano modifiche notevoli all'interno dell'area di indagine evidenziata. Questo indica che la diagnostica ha trovato una combinazione di proprietà che spiega il cambio.
 
-4.    Se il modello è complesso, è necessario passare il mouse su **Mostra tutto** per visualizzare le dimensioni.
+4.  Se il modello è complesso, è necessario passare il mouse su **Mostra tutto** per visualizzare le dimensioni.
 
     ![Mostra tutto](./media/app-insights-analytics-diagnostics/show-all.png)
  
-5.    In caso in cui la diagnostica non trovi alcun modello significativo da notificare, verrà visualizzata la pagina "Nessun risultato". A questo punto, è possibile modificare la query. Ad esempio, è possibile restringere l'intervallo di tempo creando contenitori nella query di Analytics, per un'analisi più dettagliata e possibilmente per ottenere risultati migliori.
+5.  In caso in cui la diagnostica non trovi alcun modello significativo da notificare, verrà visualizzata la pagina "Nessun risultato". A questo punto, è possibile modificare la query. Ad esempio, è possibile restringere l'intervallo di tempo creando contenitori nella query di Analytics, per un'analisi più dettagliata e possibilmente per ottenere risultati migliori.
 
 Se si sa che una determinata pagina del sito Web ha un problema in un determinato browser, è possibile ora passare direttamente alla pagina con il problema ed eseguire un'indagine sui cambi recenti.
 
@@ -62,7 +62,7 @@ Se si sa che una determinata pagina del sito Web ha un problema in un determinat
 
 ## <a name="how-it-works"></a>Funzionamento
 
-La diagnostica intelligente usa un algoritmo di Machine Learning avanzato senza supervisione nell'operazione [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns). Esegue una ricerca di modelli candidati che potrebbero spiegare la modifica dei dati. Analizza l'impatto di ciascun modello candidato sulla metrica e visualizza il modello che ha la migliore correlazione con la modifica.
+La diagnostica intelligente usa un algoritmo di Machine Learning avanzato senza supervisione nell'operazione [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns_v2). Esegue una ricerca di modelli candidati che potrebbero spiegare la modifica dei dati. Analizza l'impatto di ciascun modello candidato sulla metrica e visualizza il modello che ha la migliore correlazione con la modifica.
 
 ## <a name="no-diagnostic-points"></a>Nessun punto di diagnostica?
 
