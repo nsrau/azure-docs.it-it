@@ -1,6 +1,6 @@
 ---
 title: Gestire i criteri di lab in Azure DevTest Labs| Microsoft Docs
-description: Informazioni su come definire i criteri del lab, ad esempio per le dimensioni delle macchine virtuali, il numero massimo di macchine virtuali per ogni utente e l&quot;arresto automatico.
+description: Informazioni su come definire i criteri del lab, ad esempio per le dimensioni delle macchine virtuali, il numero massimo di macchine virtuali per ogni utente e l'arresto automatico.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -15,17 +15,15 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: e8452e272916222679dd5e411b5f8732d3e8059b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gestire tutti i criteri per un lab in Azure DevTest Labs
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-VM-policies-in-a-DevTest-Lab/player]
-> 
-> 
 
 Azure DevTest Labs consente di gestire i criteri (impostazioni) in ogni lab, in modo da controllare i costi e ridurre al minimo gli sprechi. In questo articolo viene illustrato in modo dettagliato come impostare ogni criterio.  
 

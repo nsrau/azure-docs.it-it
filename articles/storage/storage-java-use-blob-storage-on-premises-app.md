@@ -1,6 +1,6 @@
 ---
 title: Applicazione locale con archiviazione BLOB (Java) | Microsoft Docs
-description: Informazioni su come creare un&quot;applicazione console che carica un&quot;immagine in Azure e quindi visualizza l&quot;immagine nel browser. Esempi di codice in Java.
+description: Informazioni su come creare un'applicazione console che carica un'immagine in Azure e quindi visualizza l'immagine nel browser. Esempi di codice in Java.
 services: storage
 documentationcenter: java
 author: mmacy
@@ -14,9 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27d088291d93ce936a9b2465a13a47e62270fb84
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff0c9f9c800b0e4764efb88e43087bd96fa820e9
+ms.openlocfilehash: a172b881fa38a69f4510df94f5797b7a56940c52
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -29,7 +31,7 @@ Nell'esempio seguente viene illustrato come utilizzare Azure per archiviare imma
 * Azure SDK installato.
 * JAR per le librerie di Azure per Java e qualsiasi JAR di dipendenza applicabile installati e presenti nel percorso di compilazione utilizzato dal compilatore Java. Per informazioni sull'installazione delle librerie di Azure per Java, vedere [Download di Azure SDK per Java](../java-download-azure-sdk.md).
 * Account di Archiviazione di Azure configurato. Il nome account e la chiave dell'account per l'account di archiviazione verranno utilizzati dal codice in questo articolo. Vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account) per informazioni sulla creazione di un account di archiviazione e [Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-and-copy-storage-access-keys) per informazioni sul recupero della chiave dell'account.
-* Aver creato un file di immagine locale denominato archiviato nel percorso cc:\\myimages\\image1.jpg. In alternativa, modificare il costruttore   **FileInputStream** nell'esempio per usare un percorso e un nome file di immagine diversi.
+* Aver creato un file di immagine locale denominato archiviato nel percorso cc:\\myimages\\image1.jpg. In alternativa, modificare il costruttore **FileInputStream** nell'esempio per usare un percorso e un nome file di immagine diversi.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -406,10 +408,5 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 * [Riferimento all'SDK del client di archiviazione di Azure](http://dl.windowsazure.com/storage/javadoc/)
 * [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

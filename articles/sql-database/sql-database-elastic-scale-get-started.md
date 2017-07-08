@@ -1,6 +1,6 @@
 ---
 title: Introduzione ai processi di database elastici | Microsoft Docs
-description: "Descrizione di base della funzionalità relativa agli strumenti di database elastici del database SQL di Azure, che include un&quot;app di esempio di facile esecuzione."
+description: "Descrizione di base della funzionalità relativa agli strumenti di database elastici del database SQL di Azure, che include un'app di esempio di facile esecuzione."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 035fac3cbdc9765fa8d5c80e3d2d9449e1bf5b3a
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -78,7 +78,6 @@ Per informazioni sui prezzi, vedere [Prezzi del database SQL](https://azure.micr
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sugli strumenti di database elastici, vedere le pagine seguenti:
 
-* [Mappa della documentazione sugli strumenti di database elastici](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
 * Esempi di codice: 
   * [Elastic DB Tools for Azure SQL - Getting Started](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE) (Strumenti di database elastici per SQL di Azure - Introduzione)
   * [Elastic DB Tools for Azure SQL - Entity Framework Integration](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE) (Strumenti di database elastici per SQL di Azure - Integrazione con Entity Framework)

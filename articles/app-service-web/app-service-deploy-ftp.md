@@ -1,6 +1,6 @@
 ---
-title: Distribuire l&quot;app nel servizio app di Azure usando FTP/S | Documentazione Microsoft
-description: Informazioni su come distribuire l&quot;app nel servizio app di Azure usando FTP o FTPS.
+title: Distribuire l'app nel servizio app di Azure usando FTP/S | Documentazione Microsoft
+description: Informazioni su come distribuire l'app nel servizio app di Azure usando FTP o FTPS.
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 816113f7635a003e22a5172113e5039dbcc1ceac
 ms.openlocfilehash: 5dc546849bd02ccf4d02f3e6363a3e2fc3898259
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -72,9 +74,4 @@ Per scenari di distribuzione più avanzati, provare a eseguire la [distribuzione
 
 * [Creare un'app Web PHP-MySQL e distribuirla tramite FTP](web-sites-php-mysql-deploy-use-ftp.md).
 * [Credenziali per la distribuzione del Servizio app di Azure](app-service-deploy-ftp.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

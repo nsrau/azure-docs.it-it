@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 46bc735bb288a29828903a5d1891c78c2bfae86a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -172,7 +174,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
             }
         }
 
-## <a name="a-idjsonathumbnail-json-preset"></a><a id="json"></a>Anteprima JSON predefinito
+## <a id="json"></a>Anteprima JSON predefinito
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
 
     {
@@ -274,7 +276,7 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
     }
 
 
-## <a name="a-idxmlathumbnail-xml-preset"></a><a id="xml"></a>Anteprima XML predefinito
+## <a id="xml"></a>Anteprima XML predefinito
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -373,10 +375,5 @@ Si applicano le considerazioni seguenti:
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

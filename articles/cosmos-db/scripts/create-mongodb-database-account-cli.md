@@ -1,6 +1,6 @@
 ---
-title: Creare un account API di Azure Cosmos DB MongoDB, un database e una raccolta con lo script dell&quot;interfaccia della riga di comando di Azure | Microsoft Docs
-description: Creare un account API di Azure Cosmos DB MongoDB, un database e una raccolta con un esempio di script dell&quot;interfaccia della riga di comando di Azure
+title: Creare un account API di Azure Cosmos DB MongoDB, un database e una raccolta con lo script dell'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Creare un account API di Azure Cosmos DB MongoDB, un database e una raccolta con un esempio di script dell'interfaccia della riga di comando di Azure
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 416fb332681b79ac6152d4c900547d600e8f6d1b
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: b0bf637db90cfcb987ad43ed34cb8065d28b0fcf
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/15/2017
 
 Questo script dell'interfaccia della riga di comando di Azure di esempio permette di creare un account API di Azure Cosmos DB MongoDB, un database e una raccolta. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 

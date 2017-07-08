@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: df0e99dd79c970dfc4d66565c1286c0c9a5ec532
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: fea70b389b1f1d6af963e3f14fdc48e8d857dd53
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -27,12 +27,12 @@ ms.lasthandoff: 05/18/2017
 > [!div class="op_single_selector"]
 > * [Listener interno](../classic/ps-sql-int-listener.md)
 > * [Listener esterno](../classic/ps-sql-ext-listener.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Panoramica
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e classico](../../../azure-resource-manager/resource-manager-deployment-model.md). In questo articolo viene illustrato l'uso del modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager.
 
 Per configurare un listener per un gruppo di disponibilità AlwaysOn nel modello di Resource Manager, vedere [Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità AlwaysOn in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
@@ -69,37 +69,37 @@ Creare un endpoint con carico bilanciato per ogni VM che ospita una replica di A
 6. Eseguire `Get-AzurePublishSettingsFile`. Questo cmdlet conduce a un browser per scaricare un file di impostazioni di pubblicazione in una directory locale. Potrebbero essere richieste le credenziali di accesso per la sottoscrizione di Azure.
 
 7. Eseguire il comando `Import-AzurePublishSettingsFile` seguente con il percorso del file delle impostazioni di pubblicazione scaricato:
-   
+
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
-   
+
     Dopo aver importato il file delle impostazioni di pubblicazione, è possibile gestire la sottoscrizione di Azure nella sessione di PowerShell.
-    
+
 8. Per *ILB* assegnare un indirizzo IP statico. Esaminare la configurazione attuale della rete virtuale eseguendo il comando seguente:
-   
+
         (Get-AzureVNetConfig).XMLConfiguration
 9. Annotare il nome *Subnet* per la subnet contenente le VM che ospitano le repliche. Questo nome viene usato nel parametro $SubnetName nello script.
 
 10. Annotare il valore *VirtualNetworkSite* e il valore iniziale *AddressPrefix* per la subnet contenente le VM che ospitano le repliche. Cercare un indirizzo IP disponibile passando entrambi i valori al comando `Test-AzureStaticVNetIP` ed esaminando il valore *AvailableAddresses*. Se, ad esempio, il nome della rete virtuale è *MyVNet* e l'inizio dell'intervallo di indirizzi della subnet corrisponde a *172.16.0.128*, il comando seguente elencherà gli indirizzi disponibili:
-   
+
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. Selezionare uno degli indirizzi disponibili e usarlo nel parametro $ILBStaticIP dello script al passaggio seguente.
 
 12. Copiare lo script di PowerShell seguente in un editor di testo e impostare i valori delle variabili in base all'ambiente. Per alcuni parametri sono stati forniti valori predefiniti.  
 
-    Le distribuzioni esistenti che usano i gruppi di affinità non potranno aggiungere un servizio di bilanciamento del carico interno. Per altre informazioni sui requisiti per il servizio di bilanciamento del carico interno, vedere la [panoramica del bilanciamento del carico interno](../../../load-balancer/load-balancer-internal-overview.md). 
-    
+    Le distribuzioni esistenti che usano i gruppi di affinità non potranno aggiungere un servizio di bilanciamento del carico interno. Per altre informazioni sui requisiti per il servizio di bilanciamento del carico interno, vedere la [panoramica del bilanciamento del carico interno](../../../load-balancer/load-balancer-internal-overview.md).
+
     Se il gruppo di disponibilità si estende tra diverse aree di Azure, è necessario eseguire lo script una volta in ogni data center per il servizio cloud e i nodi che risiedono nel data center.
-   
+
         # Define variables
         $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
         $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
         $SubnetName = "<MySubnetName>" # subnet name that the replicas use in the virtual network
         $ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
         $ILBName = "AGListenerLB" # customize the ILB name or use this default value
-   
+
         # Create the ILB
         Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
-   
+
         # Configure a load-balanced endpoint for each node in $AGNodes by using ILB
         ForEach ($node in $AGNodes)
         {
@@ -107,11 +107,6 @@ Creare un endpoint con carico bilanciato per ogni VM che ospita una replica di A
         }
 
 13. Dopo aver impostato le variabili, copiare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>**, digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
-
-> [!NOTE]
-> Poiché il portale di Azure classico attualmente non supporta i servizi di bilanciamento del carico interno, non mostra il sevizio di bilanciamento del carico interno e gli endpoint. Tuttavia, se il servizio di bilanciamento del carico è in esecuzione nel portale classico, `Get-AzureEndpoint` restituisce un indirizzo IP interno. In caso contrario, restituirà Null.
-> 
-> 
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Se necessario, verificare che KB2854082 sia installato.
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -128,33 +123,33 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>Configurare le risorse del cluster in PowerShell
 1. Per il servizio di bilanciamento del carico interno è necessario usare l'indirizzo IP del servizio di bilanciamento del carico interno creato in precedenza. Usare lo script seguente per ottenere questo indirizzo IP in PowerShell:
-   
+
         # Define variables
         $ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
         (Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
 
 2. Su una delle VM copiare lo script di PowerShell del sistema operativo in un editor di testo quindi impostare le variabili sui valori annotati prima.
-   
+
     Per Windows Server 2012 o versione successiva usare lo script seguente:
-   
+
         # Define variables
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP address resource name
         $ILBIP = “<X.X.X.X>” # the IP address of the ILB
-   
+
         Import-Module FailoverClusters
-   
+
         Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-   
+
     Per Windows Server 2008 R2 usare lo script seguente:
-   
+
         # Define variables
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP address resource name
         $ILBIP = “<X.X.X.X>” # the IP address of the ILB
-   
+
         Import-Module FailoverClusters
-   
+
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
 3. Dopo aver impostato le variabili, aprire una finestra con privilegi elevati di Windows PowerShell, incollare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>**, digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
@@ -173,5 +168,4 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
 

@@ -1,5 +1,5 @@
 ---
-title: Visualizzare e risolvere i problemi dei processi dell&quot;analisi di flusso | Microsoft Docs
+title: Visualizzare e risolvere i problemi dei processi dell'analisi di flusso | Microsoft Docs
 description: "Informazioni su come visualizzare una pipeline dei processi di Analisi di flusso per risolvere i problemi in modo autonomo mediante la funzionalità Diagramma diagnosi."
 keywords: 
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0aa754ee248b98395bfc9c7fd53187ef702a6d1e
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 18c39a025f750cf5a17c535ab40923b7cafe413d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -42,7 +43,7 @@ Se l'utente desidera esaminare i passaggi intermedi della query per comprendere 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

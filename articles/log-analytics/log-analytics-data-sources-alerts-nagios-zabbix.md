@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 6659e1ccbe2b2d918039bf45fbecf199606cd201
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -34,7 +34,7 @@ Per raccogliere avvisi, seguire questa procedura nel server Nagios.
 
     sudo usermod -a -G nagios omsagent
 
-2.    Modificare il file di configurazione (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Assicurarsi che le voci seguenti siano presenti e non impostate come commento:  
+2.  Modificare il file di configurazione (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Assicurarsi che le voci seguenti siano presenti e non impostate come commento:  
 
         <source>  
           type tail  
@@ -59,10 +59,16 @@ Per raccogliere avvisi da un server Zabbix, è necessario specificare un utente 
 
 Per raccogliere avvisi, seguire questa procedura nel server Nagios.
 
-2.    Modificare il file di configurazione (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Assicurarsi che le voci seguenti siano presenti e non impostate come commento.  Modificare il nome utente e la password con valori appropriati per l'ambiente Zabbix.
+1. Modificare il file di configurazione (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Assicurarsi che le voci seguenti siano presenti e non impostate come commento.  Modificare il nome utente e la password con valori appropriati per l'ambiente Zabbix.
 
         <source>
-         type zabbix_alerts    run_interval 1m    tag oms.zabbix    zabbix_url http://localhost/zabbix/api_jsonrpc.php    zabbix_username Admin    zabbix_password zabbix   </source>
+         type zabbix_alerts
+         run_interval 1m
+         tag oms.zabbix
+         zabbix_url http://localhost/zabbix/api_jsonrpc.php
+         zabbix_username Admin
+         zabbix_password zabbix
+        </source>
 
 2. Riavviare il daemon omsagent
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
-ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 32bff438c2e56b1c21aa907b6bff6c1d1e879de3
+ms.contentlocale: it-it
+ms.lasthandoff: 06/14/2017
 
 ---
 
@@ -35,6 +36,16 @@ Figura 1: Diagramma di una coppia di aree di Azure
 
 | Area geografica | Aree abbinate |  |
 |:--- |:--- |:--- |
+| Asia |Asia orientale |Asia sudorientale |
+| Australia |Australia orientale |Australia sudorientale |
+| Brasile |Brasile meridionale (1) |Stati Uniti centro-meridionali |
+| Canada |Canada centrale |Canada orientale |
+| Cina |Cina settentrionale |Cina orientale|
+| Europa |Europa settentrionale |Europa occidentale |
+| Germania |Germania centrale |Germania nord-orientale |
+| India |India centrale |India meridionale |
+| Giappone |Giappone orientale |Giappone occidentale |
+| Corea |Corea centrale |Corea meridionale |
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
 | America del Nord |Stati Uniti orientali |Stati Uniti occidentali |
 | America del Nord |Stati Uniti orientali 2 |Stati Uniti centrali |
@@ -49,6 +60,8 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | India |India centrale |India meridionale |
 | Canada |Canada centrale |Canada orientale |
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
+| Corea |Corea centrale |Corea meridionale |
+| Germania |Germania centrale |Germania nord-orientale |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 

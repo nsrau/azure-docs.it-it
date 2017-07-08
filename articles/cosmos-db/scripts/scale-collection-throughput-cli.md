@@ -1,6 +1,6 @@
 ---
-title: "Script dell&quot;interfaccia della riga di comando di Azure - Scalare la velocità effettiva del contenitore di Azure Cosmos DB | Documentazione Microsoft"
-description: "Esempio di script dell&quot;interfaccia della riga di comando Azure CLI - Scalare la velocità effettiva del contenitore di Azure Cosmos DB"
+title: "Script dell'interfaccia della riga di comando di Azure - Scalare la velocità effettiva del contenitore di Azure Cosmos DB | Documentazione Microsoft"
+description: "Esempio di script dell'interfaccia della riga di comando Azure CLI - Scalare la velocità effettiva del contenitore di Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: cfa23a21a10f53a042b3a5cd85265b0ed1130d07
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 8a9f30f3dab4a4593abc75f51d096d4e5351fe47
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/15/2017
 
 Questo esempio scala la velocità effettiva del contenitore per qualsiasi tipo di contenitore di Azure Cosmos DB.  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 

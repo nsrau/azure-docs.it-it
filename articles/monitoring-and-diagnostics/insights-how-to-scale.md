@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 44bcf3ed1be8007a3c1ab9b727acf9a249cf84cc
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -27,7 +27,7 @@ Nel [portale di Azure](https://portal.azure.com/)è possibile impostare manualme
 
 Prima di scalare in base al conteggio delle istanze, occorre tenere presente che la scalabilità è influenzata dal **piano tariffario** oltre che dal conteggio delle istanze. A seconda del piano tariffario possono variare il numero di memorie centrali e la memoria e quindi si avranno prestazioni migliori per lo stesso numero di istanze (ovvero *aumento* o *riduzione del numero di istanze*). Questo articolo descrive in particolare la *riduzione* e l'*aumento del numero di istanze*.
 
-È possibile eseguire il ridimensionamento nel portale e anche usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per regolare la scalabilità manualmente o automaticamente.
+È possibile eseguire il ridimensionamento nel portale e anche usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) o [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) per regolare la scalabilità manualmente o automaticamente.
 
 > [!NOTE]
 > Questo articolo descrive come creare un'impostazione di scalabilità automatica nel portale all'indirizzo [http://portal.azure.com](http://portal.azure.com). Le impostazioni di scalabilità automatica create in questo portale non possono essere modificate nel portale classico ([http://manage.windowsazure.com](http://manage.windowsazure.com)).

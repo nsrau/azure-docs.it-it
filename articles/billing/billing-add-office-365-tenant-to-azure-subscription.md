@@ -4,7 +4,7 @@ description: Informazioni su come aggiungere una directory (tenant) di Office 36
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: vikdesai
+manager: jlian
 editor: 
 tags: billing,top-support-issue
 ms.assetid: cc9c57c6-7bfd-4dea-9027-c75ef3737589

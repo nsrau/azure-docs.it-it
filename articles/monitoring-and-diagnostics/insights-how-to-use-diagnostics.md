@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c30ffa9e392bb6411312b0789ae6e8218f770bc1
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: b82bb1ab419831e803689edb2a2a7fe256dde5a2
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="enable-monitoring-and-diagnostics"></a>Abilitare il monitoraggio e la diagnostica
-Nel [portale di Azure](https://portal.azure.com), è possibile configurare rich data di monitoraggio e diagnostica frequenti relativi alle risorse. È anche possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per configurare la diagnostica a livello di codice.
+Nel [portale di Azure](https://portal.azure.com), è possibile configurare rich data di monitoraggio e diagnostica frequenti relativi alle risorse. È anche possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) o [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) per configurare la diagnostica a livello di codice.
 
 I dati di diagnostica, di monitoraggio e delle metriche di Azure vengono salvati nell'account di archiviazione preferito. Questo consente di usare qualsiasi strumento per leggere i dati, ad esempio uno strumento di esplorazione di archiviazione, Power BI o uno strumento di terze parti.
 

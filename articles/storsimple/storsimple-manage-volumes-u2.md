@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/28/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80d58a6ab5f2148b2391d4d63e70371724e5990b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a61c57cd74a0df8363648dd8df40e433b0e6489d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes-update-2"></a>Per gestire il volume è possibile usare il servizio StorSimple Manager (aggiornamento 2)
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come usare il servizio StorSimple Manager per creare e gestire i volumi nel dispositivo StorSimple e nel dispositivo virtuale StorSimple con l'aggiornamento 2 installato.
 
 Il servizio StorSimple Manager è un'estensione del portale di Azure classico che permette di gestire la soluzione StorSimple da un'unica interfaccia Web. Oltre che per la gestione dei volumi, è possibile usare il servizio StorSimple Manager per creare e gestire servizi StorSimple, visualizzare e gestire dispositivi, visualizzare avvisi, visualizzare e gestire i criteri di backup e il catalogo di backup.
@@ -118,7 +120,7 @@ Il [volume è stato creato](storsimple-deployment-walkthrough-u2.md#step-6-creat
       
         ![Specificare un ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
    2. È consigliabile selezionare la casella di controllo **Abilita un criterio di backup predefinito per questo volume** .
-   3. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)  per creare il volume con le impostazioni specificate.
+   3. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) per creare il volume con le impostazioni specificate.
 
 Il volume è pronto per l'utilizzo.
 
@@ -214,8 +216,8 @@ Se si desidera convertire più volumi che supportano diversi carichi di lavoro, 
 5. Fare clic sull'icona a forma di freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) per passare alla pagina **Impostazioni aggiuntive** . Se si sta configurando un volume aggiunto in locale, verrà visualizzato il messaggio seguente.
    
     ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
-6. Fare clic sull'icona a forma di freccia  ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)  per continuare.
-7. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)  per avviare il processo di conversione. Il portale di Azure mostrerà un messaggio relativo all'aggiornamento del volume. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
+6. Fare clic sull'icona a forma di freccia  ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) per continuare.
+7. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) per avviare il processo di conversione. Il portale di Azure mostrerà un messaggio relativo all'aggiornamento del volume. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
 
 ## <a name="take-a-volume-offline"></a>Portare un volume offline
 Potrebbe essere necessario portare un volume offline per modificarlo o eliminarlo. Quando un volume è offline, non è disponibile per l'accesso in lettura/scrittura. È necessario portare offline il volume nell'host e sul dispositivo. 
@@ -253,7 +255,7 @@ Completare la procedura seguente per eliminare un volume.
 5. Alla richiesta di conferma fare clic su **Sì**. Il volume verrà eliminato e nella pagina **Volumi** sarà visualizzato l’elenco aggiornato di volumi presenti nel contenitore.
    
    > [!NOTE]
-   > Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio StorSimple Manager aggiorna periodicamente lo spazio locale disponibile. È consigliabile attendere alcuni minuti prima di creare il nuovo volume.<br>  Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
+   > Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio StorSimple Manager aggiorna periodicamente lo spazio locale disponibile. È consigliabile attendere alcuni minuti prima di creare il nuovo volume.<br> Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
    > 
    > 
 
@@ -272,10 +274,5 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [clonare un volume StorSimple](storsimple-clone-volume.md)
 * Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

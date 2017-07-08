@@ -1,6 +1,6 @@
 ---
-title: "Linee guida dell&quot;utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure | Documentazione Microsoft"
-description: "Descrive le linee guida per l&quot;uso dell&quot;utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure"
+title: "Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure | Documentazione Microsoft"
+description: "Descrive le linee guida per l'uso dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure"
 services: 
 documentationcenter: 
 author: genlin
@@ -8,16 +8,18 @@ manager: mbaldwin
 editor: 
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
-ms.service: billing
+ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
-ms.sourcegitcommit: 3188a6acfe0755d8375322af79631f0cf47b764a
-ms.openlocfilehash: 7676e3100eefca2e75f669d5f105dee30322a1a3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ba6dafd8d890d88478a5e3213dd023921908f4bf
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -67,9 +69,4 @@ Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 | -            | -      | -            | -      | -         | wtl       | zit    |
 | -            | -      | -            | -      | -         |     -       | zix    |
 | -            | -      | -            | -      | -         |  -          | zzz    |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

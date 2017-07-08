@@ -15,10 +15,10 @@ ms.workload: search
 ms.date: 05/01/2017
 ms.author: brjohnst
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ea3fc801074bb6d7e7c32574bc94702c79a61185
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -259,7 +259,7 @@ Quando si crea un indice, è possibile impostare gli attributi seguenti. Per inf
 
 `name` : imposta il nome del campo.
 
-`type` : imposta il tipo di dati per il campo. Per un elenco di tipi supportati, vedere [Tipi di dati supportati](#DataTypes) .
+`type` : imposta il tipo di dati per il campo.
 
 `searchable` : contrassegna il campo come disponibile per la ricerca full-text. Ciò significa che verrà sottoposto ad analisi, ad esempio la suddivisione in parole durante l'indicizzazione. Se si imposta un campo `searchable` su un valore come "sunny day", questo viene suddiviso internamente nei singoli token "sunny" e "day". È così possibile eseguire ricerche full-text di questi termini. I campi di tipo `Edm.String` o `Collection(Edm.String)` sono `searchable` per impostazione predefinita. I campi di altri tipi non possono essere `searchable`.
 
@@ -1461,7 +1461,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 > 
 > 
 
-`$filter=[string]` (facoltativo): specifica un'espressione di ricerca strutturata nella sintassi standard di OData. Per informazioni dettagliate sul sottoinsieme della grammatica delle espressioni OData supportato da Ricerca di Azure, vedere l'articolo relativo alla [sintassi delle espressioni OData](#ODataExpressionSyntax) .
+`$filter=[string]` (facoltativo): specifica un'espressione di ricerca strutturata nella sintassi standard di OData.
 
 > [!NOTE]
 > Quando si chiama **Search** con POST, questo parametro è denominato `filter` invece di `$filter`.

@@ -16,7 +16,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -42,7 +42,7 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 | Nome variabile                     | Descrizione                                                              | Disponibilità | Esempio |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nome dell'account Batch a cui appartiene l'attività.                  | Tutte le attività.   | mybatchaccount |
-| AZ_BATCH_CERTIFICATES_DIR       | Una directory all'interno della [directory di lavoro dell'attività] [ files_dirs] in cui sono archiviati i certificati i nodi di calcolo Linux. Si noti che questa variabile di ambiente non è applicabile a Windows i nodi di calcolo.                                                  | Tutte le attività.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
+| AZ_BATCH_CERTIFICATES_DIR       | Una directory all'interno della [directory di lavoro dell'attività][files_dirs] in cui sono archiviati i certificati i nodi di calcolo Linux. Si noti che questa variabile di ambiente non è applicabile a Windows i nodi di calcolo.                                                  | Tutte le attività.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_JOB_ID                 | ID del processo a cui appartiene l'attività. | Tutte le attività tranne l'attività di avvio. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | Percorso completo della [directory delle attività][files_dirs] di preparazione del processo sul nodo. | Tutte le attività ad eccezione dell'attività di preparazione del processo e dell'attività di avvio. Questo campo è disponibile solo se il processo è configurato con un'attività di preparazione del processo. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | Percorso completo della [directory di lavoro delle attività][files_dirs] di preparazione del processo sul nodo. | Tutte le attività ad eccezione dell'attività di preparazione del processo e dell'attività di avvio. Questo campo è disponibile solo se il processo è configurato con un'attività di preparazione del processo. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |

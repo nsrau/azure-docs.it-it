@@ -1,6 +1,6 @@
 ---
 title: API Java, risorse e SDK per Azure DocumentDB | Microsoft Docs
-description: Altre informazioni sulle date di rilascio e le date di ritiro dell&quot;SDK e dell&quot;API per Java e sulle modifiche apportate tra le versioni di DocumentDB Java SDK.
+description: Altre informazioni sulle date di rilascio e le date di ritiro dell'SDK e dell'API per Java e sulle modifiche apportate tra le versioni di DocumentDB Java SDK.
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 60c73f6ffb887337e6e52d20c42f316c355a8836
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 423f841b82ced16b3bd338f1f38db9ec0250fa66
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Download dell'SDK**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
-<tr><td>**Documentazione sull'API**</td><td>[Documentazione di riferimento API Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Documentazione sull'API**</td><td>[Documentazione di riferimento API Java](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
 <tr><td>**Contribuire all'SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
