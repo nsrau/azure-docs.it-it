@@ -1,6 +1,6 @@
 ---
 title: Raccogliere log direttamente da un processo del servizio di Azure Service Fabric | Microsoft Azure
-description: Questo articolo illustra come usare le applicazioni di Service Fabric per inviare log direttamente a una posizione centralizzata, come Azure Application Insights o Elasticsearch, senza basarsi sull&quot;agente di Diagnostica di Azure.
+description: Questo articolo illustra come usare le applicazioni di Service Fabric per inviare log direttamente a una posizione centralizzata, come Azure Application Insights o Elasticsearch, senza basarsi sull'agente di Diagnostica di Azure.
 services: service-fabric
 documentationcenter: .net
 author: karolz-ms
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/18/2017
 ms.author: karolz
+redirect_url: /azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 08f7b57985382f2abbb90ba1e13a30f40b38917f
