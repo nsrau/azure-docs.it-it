@@ -104,7 +104,7 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
    > Questo nome completo del server è necessario per connettersi al server e ai relativi database nelle guide introduttive successive.
    > 
 
-   ![Nome del server](./media/sql-database-get-started-portal/server-name.png) 
+   ![Nome del server](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Fare clic su **Imposta firewall server** sulla barra degli strumenti, come illustrato nell'immagine precedente. Si apre la pagina **Impostazioni del firewall** per il server del database SQL. 
 

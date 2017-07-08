@@ -4,7 +4,7 @@ description: Viene descritto come usare lo snap-in MMC StorSimple Snapshot Manag
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/26/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: b31f6d51399dc0533d8cbefcafc3b55762cb6cf1
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Usare StorSimple Snapshot Manager per visualizzare e gestire i processi di backup
+
 ## <a name="overview"></a>Panoramica
 Nel nodo **Processi** del riquadro **Ambito** vengono mostrate le attività di backup **pianificate**, delle **ultime 24 ore** e **in esecuzione** avviate in modo interattivo o da un criterio configurato. 
 
@@ -38,9 +41,7 @@ Utilizzare la procedura seguente per visualizzare i processi di backup pianifica
    * **Ultima esecuzione** : la data e l'ora dello snapshot pianificato più recente.
      
      > [!NOTE]
-     > Solo per gli snapshot monouso, il valore di **Prossima esecuzione** e **Ultima esecuzione** sarà lo stesso. 
-     > 
-     > 
+     > Solo per gli snapshot monouso, il valore di **Prossima esecuzione** e **Ultima esecuzione** sarà lo stesso.
      
      ![Processi di backup pianificati](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
 3. Per eseguire azioni aggiuntive su un processo specifico, fare clic con il pulsante destro del mouse sul nome del processo nel riquadro **Risultati** e selezionare un’opzione del menu.
@@ -63,14 +64,14 @@ Utilizzare la procedura seguente per visualizzare i processi di backup e riprist
      ![Processi eseguiti nelle ultime 24 ore](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 3. Per eseguire azioni aggiuntive su un processo specifico, fare clic con il pulsante destro del mouse sul nome del processo nel riquadro **Risultati** e selezionare un’opzione del menu.
    
-    ![Eliminare un processo](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png) 
+    ![Eliminare un processo](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
 
 ## <a name="view-currently-running-jobs"></a>Visualizzazione dei processi attualmente in esecuzione
 Utilizzare la procedura seguente per visualizzare i processi attualmente in esecuzione.
 
 #### <a name="to-view-currently-running-jobs"></a>Per visualizzare i processi attualmente in esecuzione
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
-2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **In esecuzione**. Nel riquadro **Risultati** vengono visualizzate le informazioni seguenti, a seconda delle opzioni di **Visualizza** specificate: 
+2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **In esecuzione**. Nel riquadro **Risultati** vengono visualizzate le informazioni seguenti, a seconda delle opzioni di **Visualizza** specificate:
    
    * **Nome** : il nome dello snapshot pianificato.
    * **Avviato** : la data e l’ora di avvio dello snapshot.
@@ -87,10 +88,5 @@ Utilizzare la procedura seguente per visualizzare i processi attualmente in esec
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 * Informazioni su come [usare StorSimple Snapshot Manager per gestire il catalogo di backup](storsimple-snapshot-manager-manage-backup-catalog.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
