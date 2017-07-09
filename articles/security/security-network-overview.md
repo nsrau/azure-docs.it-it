@@ -1,6 +1,6 @@
 ---
 title: Concetti e requisiti per la sicurezza di rete in Azure | Microsoft Docs
-description: " Questo articolo rende più facilmente comprensibile ciò che Microsoft Azure può offrire nell&quot;area della sicurezza di rete. Vengono fornite spiegazioni di base per i principali concetti e requisiti della sicurezza di rete, nonché informazioni sulle funzionalità offerte da Azure in ognuna di queste aree. "
+description: " Questo articolo rende più facilmente comprensibile ciò che Microsoft Azure può offrire nell'area della sicurezza di rete. Vengono fornite spiegazioni di base per i principali concetti e requisiti della sicurezza di rete, nonché informazioni sulle funzionalità offerte da Azure in ognuna di queste aree. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: e74f3f7ed4ab0a7a37047b1277e76b6695f3884f
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -220,7 +220,7 @@ Per la risoluzione dei nomi interna sono disponibili due opzioni:
 Altre informazioni:
 
 * [Panoramica di Rete virtuale.](../virtual-network/virtual-networks-overview.md)
-* [Gestire server DNS usati da una rete virtuale](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
+* [Gestire server DNS usati da una rete virtuale](../virtual-network/virtual-network-manage-network.md#dns-servers)
 
 Per la risoluzione DNS esterna sono disponibili due opzioni:
 

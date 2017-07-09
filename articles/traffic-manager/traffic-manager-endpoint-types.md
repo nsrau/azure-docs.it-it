@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 6d048b73528d1812f1be9585d30812ca4aeaa397
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: f0609465edde67a9e11af86c3265ea29a737fc85
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -50,7 +51,7 @@ Quando si usano gli endpoint di Azure, Gestione trafficorileva l'arresto o l'avv
 Gli endpoint esterni vengono usati per i servizi esterni a Azure. Può trattarsi, ad esempio, di un servizio ospitato in locale o da un provider diverso. Gli endpoint esterni possono essere usati singolarmente o in combinazione con endpoint di Azure nello stesso profilo di Gestione traffico. La combinazione di endpoint di Azure con endpoint esterni consente un'ampia gamma di scenari:
 
 * In un modello di failover attivo-attivo o attivo-passivo, uso di Azure per offrire maggiore ridondanza per un'applicazione locale esistente.
-* Per ridurre la latenza dell'applicazione per utenti attivi in diversi paesi, possibilità di estendere un'applicazione locale esistente ad aree geografiche aggiuntive in Azure. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+* Per ridurre la latenza dell'applicazione per utenti attivi in diversi paesi, possibilità di estendere un'applicazione locale esistente ad aree geografiche aggiuntive in Azure. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
 * Uso di Azure per offrire capacità aggiuntiva a un'applicazione locale esistente, in modo continuo o come soluzione "burst nel cloud" per gestire un picco di domanda.
 
 In alcuni casi può essere utile usare endpoint esterni per fare riferimento a servizi di Azure. Per alcuni esempi, vedere la sezione [Domande frequenti](traffic-manager-faqs.md#traffic-manager-endpoints). In questo caso, i controlli di integrità vengono fatturati in base alla tariffa degli endpoint di Azure anziché in base alla tariffa degli endpoint esterni. Tuttavia, a differenza di quanto si verifica per gli endpoint di Azure, se si arresta o si elimina il servizio sottostante, la fatturazione per i controlli di integrità prosegue fino a quando non si disabilita o elimina l'endpoint in Gestione traffico.
@@ -95,5 +96,4 @@ Se tutti gli endpoint di un profilo sono disabilitati o se il profilo stesso è 
 * Informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md).
 * Informazioni sul [monitoraggio degli endpoint e sul failover automatico](traffic-manager-monitoring.md)di Gestione traffico.
 * Informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md)di Gestione traffico.
-
 

@@ -15,26 +15,17 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6bfbb0b5eaae3fb3ce45d719ea1d3dec48ed0467
-ms.openlocfilehash: 359aaa1af6765270d9fe0f449007fcb4323b0ad4
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 74196c7d3989cc748a27026c04ea837b29a2785f
+ms.contentlocale: it-it
+ms.lasthandoff: 06/05/2017
 
 
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Attivare o disattivare il dispositivo StorSimple serie 8000
 ## <a name="overview"></a>Panoramica
 L’arresto di un dispositivo Microsoft Azure StorSimple non è necessario nel normale funzionamento del sistema. Tuttavia, potrebbe esser necessario spegnere un dispositivo o accenderne uno nuovo. In genere, un arresto è necessario nei casi in cui bisogna sostituire l'hardware non riuscito, spostare fisicamente un'unità o mettere fuori servizio un dispositivo. In questa esercitazione viene descritta la procedura necessaria per l'attivazione e l'arresto del dispositivo StorSimple in scenari diversi.
-
-Nella tabella seguente sono elencati diversi scenari per l'attivazione e l'arresto del dispositivo StorSimple e vengono forniti collegamenti alle procedure appropriate.
-
-| Scenario | Argomenti di riferimento |
-|:--- |:--- |
-| Attivare un nuovo dispositivo |[Attivare un nuovo dispositivo](#turn-on-a-new-device)<ul><li>[Nuovo dispositivo con soltanto un’enclosure principale](#new-device-with-primary-enclosure-only)</li><li>[Nuovo dispositivo con enclosure EBOD](#new-device-with-ebod-enclosure)</li></ul> |
-| Attivare un dispositivo dopo l'arresto |[Attivare un dispositivo dopo l'arresto](#turn-on-a-device-after-shutdown)<ul><li>[Dispositivo con soltanto un’enclosure principale](#device-with-primary-enclosure-only)</li><li>[Dispositivo con enclosure EBOD](#device-with-ebod-enclosure)</li></ul> |
-| Attivare un dispositivo dopo un'interruzione dell'alimentazione |[Attivare un dispositivo dopo un'interruzione dell'alimentazione](#turn-on-a-device-after-a-power-loss)<ul><li>[Dispositivo con soltanto un’enclosure principale](#8100)</li><li>[Dispositivo con enclosure EBOD](#8600)</li></ul> |
-| Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’EBOD |[Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’enclosure EBOD](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost) |
-| Arrestare un dispositivo in esecuzione |[Spegnere un dispositivo in esecuzione](#turn-off-a-running-device)<ul><li>[Dispositivo con soltanto un’enclosure principale](#8100a)</li><li>[Dispositivo con enclosure EBOD](#8600a)</li></ul> |
 
 ## <a name="turn-on-a-new-device"></a>Attivare un nuovo dispositivo
 I passaggi per l'attivazione di un dispositivo StorSimple per la prima volta variano a seconda del modello del dispositivo (8100 o 8600). Il modello 8100 ha una sola enclosure principale, mentre il 8600 è un dispositivo con un’enclosure principale e un’enclosure EBOD. Nelle sezioni seguenti sono illustrati i passaggi dettagliati per entrambi i modelli.

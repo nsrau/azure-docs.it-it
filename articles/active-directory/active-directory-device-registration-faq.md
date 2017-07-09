@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 
@@ -58,17 +59,17 @@ Nelle informazioni UTENTE vengono elencati solo i dispositivi seguenti:
 
 Per i dispositivi Windows 10 e Windows Server 2016 aggiunti a un dominio AD locale:
 
-1.    Aprire il prompt dei comandi come amministratore.
+1.  Aprire il prompt dei comandi come amministratore.
 
-2.    Digitare `dsregcmd.exe /debug /leave`.
+2.  Digitare `dsregcmd.exe /debug /leave`.
 
-3.    Disconnettersi e accedere per attivare le attività pianificate che registrano nuovamente il dispositivo. 
+3.  Disconnettersi e accedere per attivare le attività pianificate che registrano nuovamente il dispositivo. 
 
 Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
-1.    Aprire il prompt dei comandi come amministratore.
-2.    Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.    Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1.  Aprire il prompt dei comandi come amministratore.
+2.  Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+3.  Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -76,13 +77,13 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 **R:**
 
--    Per i dispositivi Windows 10 e Windows Server 2016, se vengono effettuati tentativi ripetuti di rimozione o aggiunta del medesimo dispositivo, potrebbero essere visualizzate voci duplicate. 
+-   Per i dispositivi Windows 10 e Windows Server 2016, se vengono effettuati tentativi ripetuti di rimozione o aggiunta del medesimo dispositivo, potrebbero essere visualizzate voci duplicate. 
 
--    Ciascun utente Windows che usa l'opzione Aggiungi account aziendale o dell'istituto di istruzione creerà un nuovo record di dispositivo con lo stesso nome.
+-   Ciascun utente Windows che usa l'opzione Aggiungi account aziendale o dell'istituto di istruzione creerà un nuovo record di dispositivo con lo stesso nome.
 
--    Per le altre piattaforme Windows aggiunte a domini AD locali che usano la registrazione automatica verrà creato un nuovo record di dispositivo con lo stesso nome per ciascun utente di dominio che accede al dispositivo. 
+-   Per le altre piattaforme Windows aggiunte a domini AD locali che usano la registrazione automatica verrà creato un nuovo record di dispositivo con lo stesso nome per ciascun utente di dominio che accede al dispositivo. 
 
--    Un computer AADJ cancellato, reinstallato e aggiunto nuovamente con lo stesso nome verrà visualizzato con un record diverso ma con lo stesso nome dispositivo.
+-   Un computer AADJ cancellato, reinstallato e aggiunto nuovamente con lo stesso nome verrà visualizzato con un record diverso ma con lo stesso nome dispositivo.
 
 ---
 

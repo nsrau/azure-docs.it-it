@@ -1,5 +1,5 @@
 ---
-title: Come usare l&quot;invio in batch per migliorare le prestazioni delle applicazioni di database SQL di Azure
+title: Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL di Azure
 description: "Questo argomento dimostra che le operazioni di database in batch migliorano significativamente la velocità e la scalabilità delle applicazioni di database SQL di Azure. Anche se le tecniche di invio in batch funzionano con qualsiasi database SQL, questo articolo è incentrato su Azure."
 services: sql-database
 documentationcenter: na
@@ -8,17 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: b62097f945bc5c595c0893d16bb2c1d9bbfd7a07
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 22cff47444306e599325ba3035d83a0266d69c72
+ms.contentlocale: it-it
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -41,7 +42,7 @@ La prima parte del documento esamina le diverse tecniche di invio in batch per l
 ## <a name="batching-strategies"></a>Strategie di invio in batch
 ### <a name="note-about-timing-results-in-this-topic"></a>Nota sui risultati della tempistica in questo argomento
 > [!NOTE]
-> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati tempo fa e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere attualmente. Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
+> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio](sql-database-service-tiers.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
 > 
 > 
 
@@ -120,7 +121,7 @@ Anche se l'uso delle transazioni può migliorare le prestazioni, continuare a [o
 
 L'esempio precedente illustra che è possibile aggiungere una transazione locale al codice ADO.NET con due righe. Le transazioni rappresentano un modo rapido per migliorare le prestazioni del codice usato per le operazioni sequenziali di inserimento, aggiornamento ed eliminazione. Per prestazioni ottimali, provare tuttavia a modificare ulteriormente il codice per sfruttare l'invio in batch sul lato client, ad esempio i parametri con valori di tabella.
 
-Per altre informazioni sulle transazioni in ADO.NET, vedere [Transazioni locali in ADO.NET](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx).
+Per altre informazioni sulle transazioni in ADO.NET, vedere [Transazioni locali in ADO.NET](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
 ### <a name="table-valued-parameters"></a>Parametri con valori di tabella
 I parametri con valori di tabella supportano tipi di tabella definiti dall'utente come parametri nelle funzioni, nelle stored procedure e nelle istruzioni Transact-SQL. Questa tecnica di invio in batch sul lato client consente di inviare più righe di dati nel parametro con valori di tabella. Per usare parametri con valori di tabella, definire prima di tutto un tipo di tabella. L'istruzione Transact-SQL seguente crea un tipo di tabella denominato **MyTableType**.
@@ -619,6 +620,6 @@ L'elenco seguente fornisce un riepilogo delle indicazioni relative all'invio in 
 * Considerare il buffering in base a dimensioni e tempo come modalità di implementazione dell'invio in batch per più scenari.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi per migliorare le prestazioni e la scalabilità, vedere le [indicazioni sulle prestazioni del database SQL di Azure per i database singoli](sql-database-performance-guidance.md) e le [considerazioni su prezzo e prestazioni per un pool elastico](sql-database-elastic-pool.md).
+Questo articolo descrive in che modo le tecniche di progettazione e codifica di database correlate all'invio in batch possano migliorare le prestazioni e la scalabilità delle applicazioni. Questo è però solo uno dei fattori della strategia complessiva. Per altri modi per migliorare le prestazioni e la scalabilità, vedere le [indicazioni sulle prestazioni del database SQL di Azure per i database singoli](sql-database-performance-guidance.md) e le [considerazioni su prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md).
 
 

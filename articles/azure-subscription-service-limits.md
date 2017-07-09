@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 06/27/2017
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 2450eada5a49763542c95799a381f2029fec7575
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 13f968b5eeaeb74c6364b9b7c29651657f73e052
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -28,9 +29,9 @@ In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azu
 Vedere [Prezzi di Azure](https://azure.microsoft.com/pricing/) per altre informazioni sui prezzi di Azure. Nella pagina è possibile stimare i costi usando il [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/) o visitando la pagina dei dettagli dei prezzi per un servizio, ad esempio [Macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Per suggerimenti su come gestire i costi, vedere [Evitare costi imprevisti con la fatturazione del costi e la fatturazione di Azure](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Per aumentare il limite o la quota oltre il valore **Limite predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente nessuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili. 
+> Per aumentare il limite o la quota oltre il valore **Limite predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](azure-supportability/resource-manager-core-quotas-request.md). I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente nessuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili. 
 > 
-> Le sottoscrizioni per le versioni di valutazione gratuite non sono idonee ad aumenti di limite o di quota. Se è disponibile una versione di valutazione gratuita, è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) . Per altre informazioni, vedere [Aggiornare la versione di valutazione gratuita di Azure all'offerta con pagamento in base al consumo](billing-upgrade-azure-subscription.md).
+> Le sottoscrizioni per le versioni di valutazione gratuite non sono idonee ad aumenti di limite o di quota. Se è disponibile una versione di valutazione gratuita, è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) . Per altre informazioni, vedere [Aggiornare la versione di valutazione gratuita di Azure all'offerta con pagamento in base al consumo](billing/billing-upgrade-azure-subscription.md).
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Limiti e Azure Resource Manager

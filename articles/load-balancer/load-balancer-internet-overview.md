@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1a0f69e6530f1ab3734e1a44e5be056aacb0fff0
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c420b38fbe8054bc4b701f89ebc417677ca47a27
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -32,7 +32,7 @@ Il file *servicedefinition.csdef* contiene la configurazione dell'endpoint e, se
 
 La figura seguente mostra un endpoint con carico bilanciato per il traffico Web condiviso tra tre macchine virtuali per la porta TCP 80, pubblica e privata. Queste tre macchine virtuali appartengono a un set con carico bilanciato.
 
-![esempio di bilanciamento del carico pubblico](./media/load-balancer-internet-overview/IC727496.png))
+![esempio di bilanciamento del carico pubblico](./media/load-balancer-internet-overview/IC727496.png)
 
 Figura 1. Endpoint con bilanciamento del carico per il traffico Web
 

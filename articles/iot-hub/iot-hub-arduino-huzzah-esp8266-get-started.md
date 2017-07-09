@@ -1,6 +1,6 @@
 ---
 title: Da ESP8266 al cloud - Connettere Feather HUZZAH ESP8266 ad Azure IoT Hub | Documentazione Microsoft
-description: Visualizza come connettere un dispositivo Arduino denominato Adafruit Feather HUZZAH ESP8266 all&quot;hub IoT di Azure, un servizio Microsoft Cloud che consente di gestire gli asset IoT.
+description: Visualizza come connettere un dispositivo Arduino denominato Adafruit Feather HUZZAH ESP8266 all'hub IoT di Azure, un servizio Microsoft Cloud che consente di gestire gli asset IoT.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -13,12 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 06/15/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3650f628747f8a9e743711f5c7a175d2a2523565
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 0969e78a69c73c29ecfddcf0de0ebeeeed8acd60
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -57,14 +58,11 @@ Per completare questa operazione è necessario disporre dei componenti seguenti 
 
 Per l'ambiente di sviluppo sono necessari anche gli elementi seguenti:
 
+* Una sottoscrizione di Azure attiva. Se non si ha un account Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 * Mac o PC che esegue Windows o Ubuntu.
 * Rete wireless a cui Feather HUZZAH ESP8266 deve connettersi.
 * Connessione Internet per scaricare lo strumento di configurazione.
 * [IDE Arduino](https://www.arduino.cc/en/main/software) 1.6.8 o versione successiva. Le versioni precedenti non funzionano con la libreria AzureIoT.
-
-
-
-
 
 Gli elementi seguenti sono facoltativi nel caso in cui non si disponga di un sensore. È possibile anche usare dati di sensori simulati.
 
@@ -72,99 +70,8 @@ Gli elementi seguenti sono facoltativi nel caso in cui non si disponga di un sen
 * Basetta sperimentale
 * Cavi ponticello M/M
 
-## <a name="create-an-iot-hub-and-register-a-device-for-feather-huzzah-esp8266"></a>Creare un hub IoT e registrare un dispositivo per Feather HUZZAH ESP8266
 
-### <a name="to-create-your-iot-hub-in-the-azure-portal-follow-these-steps"></a>Per creare l'hub IoT nel portale di Azure, seguire questa procedura:
-
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Fare clic su **Nuovo** > **Internet delle cose** > **Hub IoT**.
-
-   ![Creare l'hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/3_iot-hub-creation.png)
-
-1. Nel riquadro **Hub IoT** immettere le informazioni necessarie per l'hub IoT:
-
-   ![Informazioni di base per la creazione dell'hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/4_iot-hub-provide-basic-info.png)
-
-   * **Nome**: il nome dell'hub IoT. Se il nome immesso è valido, viene visualizzato un segno di spunta verde.
-   * **Piano tariffario (piano DTU)**: per questa demo selezionare il livello F1 gratuito. Vedere [il piano tariffario e il livello di scalabilità](https://azure.microsoft.com/pricing/details/iot-hub/).
-   * **Gruppo di risorse**: creare un gruppo di risorse host per l'hub IoT o usare un gruppo esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-portal.md).
-   * **Percorso**: selezionare la posizione più vicina all'utente in cui viene creato l'hub IoT.
-   * **Aggiungi al dashboard**: selezionare questa opzione per semplificare l'accesso all'hub IoT dal dashboard.
-
-1. Fare clic su **Crea**. La creazione dell'hub IoT può richiedere alcuni minuti. È possibile visualizzare lo stato di avanzamento nel riquadro **Notifiche**.
-
-   ![Monitorare lo stato della creazione dell'hub IoT nel riquadro di notifica](media/iot-hub-arduino-huzzah-esp8266-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
-
-1. Dopo aver creato l'hub IoT, selezionarlo nel dashboard. Annotare il valore **Nome host** che verrà usato più avanti, quindi fare clic su **Criteri di accesso condiviso**.
-
-   ![Ottenere il nome host dell'hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/6_iot-hub-get-hostname.png)
-
-1. Nel riquadro **Criteri di accesso condiviso** fare clic sulla norma **iothubowner**, quindi copiare e salvare il valore **Stringa di connessione** dell'hub IoT. Il valore verrà usato più avanti in questo articolo. Per altre informazioni, vedere [Controllare l'accesso all'hub IoT](iot-hub-devguide-security.md).
-
-   ![Ottenere la stringa di connessione dell'hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/7_iot-hub-get-connection-string.png)
-
-L'hub IoT è stato creato. Assicurarsi di salvare i valori **Nome host** e **Stringa di connessione**. Tali valori vengono usati più avanti in questo articolo.
-
-
-### <a name="register-a-device-for-feather-huzzah-esp8266-in-your-iot-hub"></a>Registrare un dispositivo per Feather HUZZAH ESP8266 nell'hub IoT
-
-Ogni hub IoT ha un registro delle identità in cui sono archiviate le informazioni sui dispositivi a cui è consentito connettersi all'hub IoT. Perché un dispositivo possa connettersi a un hub IoT, è necessario che nel registro delle identità dell'hub IoT sia presente una voce relativa al dispositivo.
-
-
-In questa sezione si usa lo strumento dell'interfaccia della riga di comando *iothub explorer*. Lo strumento consente di registrare un dispositivo per Feather HUZZAH ESP8266 nel registro delle identità dell'hub IoT.
-
-
-
-> [!NOTE]
-> Per funzionare correttamente, iothub explorer richiede Node.js 4.x o versioni successive.
-
-Per registrare un dispositivo per Feather HUZZAH ESP8266, seguire questi passaggi:
-
-1. [Scaricare](https://nodejs.org/en/download/) e installare la versione LTS più recente di Node.js, incluso NPM.
-1. Installare iothub explorer tramite NPM.
-
-   * Windows 7 o versioni successive:
-
-     Avviare il prompt dei comandi come amministratore. Installare iothub explorer eseguendo il comando seguente:
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-
-   * Ubuntu 16.04 o versioni successive:
-
-     Aprire un terminale usando la scelta rapida da tastiera CTRL+ALT+T, quindi eseguire il comando seguente:
-
-     ```bash
-     sudo npm install -g iothub-explorer
-     ```
-
-   * MacOS 10.1 o versioni successive:
-
-     Aprire un terminale e quindi eseguire il comando seguente:
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-
-3. Accedere all'hub IoT eseguendo il comando seguente:
-
-   ```bash
-   iothub-explorer login [your IoT hub connection string]
-   ```
-
-4. Registrare un nuovo dispositivo. Nell'esempio seguente, `deviceID` è `new-device`. Ottenere la stringa di connessione usando il comando seguente.
-
-   ```bash
-   iothub-explorer create new-device --connection-string
-   ```
-
-Prendere nota della stringa di connessione del dispositivo registrato. Verrà usata in un secondo momento.
-
-
-> [!NOTE]
-> Per visualizzare la stringa di connessione dei dispositivi registrati, eseguire il comando `iothub-explorer list`.
-
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Connettere Feather HUZZAH ESP8266 con il sensore e il computer
 In questa sezione si connettono i sensori alla scheda. Quindi si collega il dispositivo al computer per poterlo usare.
@@ -185,8 +92,6 @@ Per i pin dei sensori usare i collegamenti seguenti:
 | GND (Pin 34F)            | GND (PIn 56I)          | Cavo nero   |
 
 Per altre informazioni, vedere la [configurazione del sensore Adafruit DHT22](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) e la [piedinatura di Adafruit Feather HUZZAH Esp8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts).
-
-
 
 
 
