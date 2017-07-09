@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
-ms.author: edmaca, yanacai
+ms.date: 06/28/2017
+ms.author: saveenr, yanacai
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b2fd62683f0272da271eebeb6eb3a71388ecb59e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -33,7 +33,7 @@ Informazioni su come usare Visual Studio per creare account Azure Data Lake Anal
 
 * **Visual Studio**: sono supportate tutte le versioni ad eccezione della versione Express.
     * Visual Studio 2017
-    * Visual Studio 2015 Update 4
+    * Visual Studio 2015
     * Visual Studio 2013
 * **Microsoft Azure SDK per .NET** versione 2.7.1 o successiva.  Eseguire l'installazione usando [Installazione guidata piattaforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
 * Un account **Data Lake Analytics**. Per creare un account, vedere [Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md).
@@ -89,10 +89,10 @@ OUTPUT @a
 
     ![Grafico delle prestazioni del processo di Analisi Data Lake per Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   *  **Riepilogo processo** mostra il riepilogo del processo.   
+   * **Riepilogo processo** mostra il riepilogo del processo.   
    * **Dettagli processo** mostra informazioni più specifiche sul processo, inclusi script, risorse e vertici.
-   *  **Grafico del processo** visualizza l'andamento del processo.
-   *  **Operazioni metadati** mostra tutte le azioni eseguite nel catalogo U-SQL.
+   * **Grafico del processo** visualizza l'andamento del processo.
+   * **Operazioni metadati** mostra tutte le azioni eseguite nel catalogo U-SQL.
    * **Dati** mostra tutti gli input e gli output.
    * **Diagnostica** fornisce un'analisi avanzata per l'ottimizzazione dell'esecuzione e delle prestazioni del processo.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: registrazione dell&quot;applicazione | Documentazione Microsoft'
-description: Come registrare l&quot;applicazione con Azure Active Directory B2C
+title: 'Azure Active Directory B2C: registrazione dell''applicazione | Documentazione Microsoft'
+description: Come registrare l'applicazione con Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4649bec5290e09b8a18e3e12719e63bf5e57c0b0
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 3499ff57e650c70679dfa018eec5dbe1a6173a33
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 
@@ -52,7 +52,7 @@ Se il pannello delle funzionalità B2C è stato aggiunto a Schermata iniziale, v
 1. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 1. Immettere un **nome** per l'applicazione che descriva l'applicazione agli utenti. Ad esempio, immettere "App Contoso B2C".
 1. Attivare/Disattivare l'opzione **Includi app Web/API Web** impostandola su **Sì**.
-1. Immettere un valore [appropriato](#choosing-a-web-app/api-reply-url) per gli **URL di risposta**, che sono gli endpoint a cui Azure AD B2C restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44316/`.
+1. Immettere un valore [appropriato](#limitations) per gli **URL di risposta**, che sono gli endpoint a cui Azure AD B2C restituirà qualsiasi token richiesto dall'applicazione. Ad esempio, immettere `https://localhost:44316/`.
 1. Fare clic su **Crea** per registrare l'applicazione.
 1. Fare clic sull'applicazione appena creata e copiare l' **ID client applicazione** univoco globale che verrà usato in seguito nel codice.
 1. Se l'applicazione Web chiamerà anche un'API Web protetta da Azure AD B2C, eseguire queste operazioni:
@@ -154,3 +154,4 @@ Per eliminare l'app, passare al [portale di registrazione delle applicazioni](ht
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver creato un'applicazione registrata con Azure AD B2C, è possibile completare una delle [esercitazioni di avvio rapido](active-directory-b2c-overview.md#get-started) per essere subito operativi.
+

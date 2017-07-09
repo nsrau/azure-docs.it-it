@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure | Microsoft Docs
-description: Guida dell&quot;utente di Azure Site Recovery Deployment Planner.
+description: Guida dell'utente di Azure Site Recovery Deployment Planner.
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/05/2017
+ms.date: 06/29/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 3c72026a7a6c6b348a77560c7f35d76d93c75e17
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -68,7 +68,7 @@ Lo strumento prevede due fasi principali: profilatura e generazione di report. �
 
 | Requisito server | Descrizione|
 |---|---|
-|Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Microsoft Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter devono essere impostate su 2 o su un valore superiore</li></ul>|
+|Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Microsoft Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter devono essere impostate su 2 o su un valore superiore</li></ul>|
 | Generazione di report | Un PC o server Windows con Microsoft Excel 2013 o versione successiva |
 | Autorizzazioni utente | Autorizzazioni di sola lettura per l'account utente usato per accedere al server VMware vCenter o all'host VMware vSphere ESXi durante la profilatura |
 
