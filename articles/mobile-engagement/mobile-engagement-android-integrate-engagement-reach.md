@@ -12,12 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 06/27/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd8ba95ee1fb2703926fb35cdb49e6a503637a7d
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -28,11 +29,6 @@ ms.lasthandoff: 11/17/2016
 > 
 
 ## <a name="standard-integration"></a>Integrazione standard
-L'SDK di Reach richiede la **libreria di supporto per Android (v4)**.
-
-Il modo più rapido per aggiungere la libreria al progetto in **Eclipse** è `Right click on your project -> Android Tools -> Add Support Library...`.
-
-Se non si usa Eclipse, è possibile leggere le istruzioni disponibili [qui].
 
 Copiare i file di risorse del servizio di copertura dall'SDK al progetto:
 
@@ -107,10 +103,6 @@ Modificare il file `AndroidManifest.xml`:
           <uses-permission android:name="android.permission.VIBRATE" />
   
   Senza questa autorizzazione, Android impedisce la visualizzazione delle notifiche di sistema se è stata selezionata l'opzione relativa al segnale o alla vibrazione nel responsabile della campagna di copertura.
-* Se si compila l'applicazione usando **ProGuard** e vengono visualizzati errori relativi alla libreria di supporto per Android o al file con estensione jar di Engagement, aggiungere le righe seguenti al file `proguard.cfg`:
-  
-          -dontwarn android.**
-          -keep class android.support.v4.** { *; }
 
 ## <a name="native-push"></a>Push nativo
 Dopo la configurazione del modulo di copertura, sarà necessario configurare il push nativo in modo da permettere la ricezione delle campagne sul dispositivo.
@@ -636,7 +628,7 @@ Questa è la parte interessante dell'implementazione:
 
 Come si può notare, se è stato chiamato `actionContent(this)` e l'attività è stata completata, è possibile chiamare `exitContent(this)` in modo sicuro senza che ciò abbia alcun effetto.
 
-[qui]:http://developer.android.com/tools/extras/support-library.html#Downloading
+[here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
 
