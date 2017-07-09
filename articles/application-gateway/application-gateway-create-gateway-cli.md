@@ -1,6 +1,6 @@
 ---
 title: Creare un gateway applicazione di Azure - Interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Informazioni su come creare un gateway applicazione usando l&quot;interfaccia della riga di comando di Azure 2.0 in Resource Manager
+description: Informazioni su come creare un gateway applicazione usando l'interfaccia della riga di comando di Azure 2.0 in Resource Manager
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -124,9 +124,9 @@ az network application-gateway create \
 --location eastus \
 --resource-group AdatumAppGatewayRG \
 --vnet-name AdatumAppGatewayVNET \
---vnet-address-prefix 10.0.0.0/16 \
+---vnet-address-prefix 10.0.0.0/16 \
 --subnet Appgatewaysubnet \
---subnet-address-prefix 10.0.0.0/28 \
+---subnet-address-prefix 10.0.0.0/28 \
 --servers 10.0.0.4 10.0.0.5 \
 --cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
 --cert-password P@ssw0rd \
@@ -134,6 +134,7 @@ az network application-gateway create \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
+--public-ip-address AdatumAppGatewayPIP \
 --frontend-port 443 \
 --routing-rule-type Basic \
 --http-settings-port 80
