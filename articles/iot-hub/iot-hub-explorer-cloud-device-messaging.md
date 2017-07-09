@@ -1,6 +1,6 @@
 ---
-title: Gestire la messaggistica dei dispositivi cloud nell&quot;hub IoT di Azure con iothub-explorer | Microsoft Docs
-description: Informazioni su come usare lo strumento iothub-explorer dell&quot;interfaccia della riga di comando per monitorare i messaggi da dispositivo a cloud e inviare messaggi da cloud a dispositivo nell&quot;hub IoT di Azure.
+title: Gestire la messaggistica dei dispositivi cloud nell'hub IoT di Azure con iothub-explorer | Microsoft Docs
+description: Informazioni su come usare lo strumento iothub-explorer dell'interfaccia della riga di comando per monitorare i messaggi da dispositivo a cloud e inviare messaggi da cloud a dispositivo nell'hub IoT di Azure.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -70,7 +70,7 @@ Per inviare un messaggio dall'hub IoT al dispositivo, seguire questi passaggi:
 1. Avviare una sessione nell'hub IoT eseguendo il comando seguente:
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. Inviare un messaggio al dispositivo eseguendo il comando seguente:
@@ -89,3 +89,4 @@ Il comando fa lampeggiare il LED di connessione al dispositivo e invia il messag
 È stato appreso come monitorare i messaggi da dispositivo a cloud e inviare messaggi da cloud a dispositivo tra il dispositivo IoT e l'hub IoT di Azure.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
