@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect in Microsoft Cloud per la Germania
-description: "Azure AD Connect integra le directory locali con Azure Active Directory. Consente di fornire un&quot;identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD."
-keywords: "introduzione ad Azure AD Connect, panoramica di Azure AD Connect, che cos&quot;è Azure AD Connect, installare Active Directory, Germania, Foresta Nera"
+description: "Azure AD Connect integra le directory locali con Azure Active Directory. Consente di fornire un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD."
+keywords: "introduzione ad Azure AD Connect, panoramica di Azure AD Connect, che cos'è Azure AD Connect, installare Active Directory, Germania, Foresta Nera"
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -35,8 +37,7 @@ Attualmente, molti scenari in [Microsoft Cloud per la Germania](https://www.micr
 * Non sono disponibili le funzionalità seguenti:
   * Azure AD Connect Health
   * Aggiornamenti automatici
-  * Writeback delle password
-
+ 
 ## <a name="download"></a>Scaricare
 È possibile scaricare Azure AD Connect dal pannello Azure AD Connect nel portale.  Usare le istruzioni seguenti per trovare il pannello Azure AD Connect.
 
@@ -64,10 +65,5 @@ Per installare Azure AD Connect, è possibile usare la documentazione disponibil
 
 ## <a name="advanced-features-and-additional-information"></a>Funzionalità avanzate e informazioni aggiuntive
 Per altre informazioni e indicazioni sulle impostazioni personalizzate o sulle configurazioni avanzate, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).  Questa pagina contiene informazioni e collegamenti ad altre indicazioni.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 
