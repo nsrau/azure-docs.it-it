@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Azure Data Lake Store | Documentazione Microsoft
-description: "Comprendere che cos&quot;è Azure Data Lake Store e il valore che fornisce per altri archivi di dati"
+description: "Comprendere che cos'è Azure Data Lake Store e il valore che fornisce per altri archivi di dati"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.contentlocale: it-it
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -55,7 +57,7 @@ L’Archivio Data Lake di Azure può immagazzinare i dati nel loro formato origi
 
 I contenitori di Archivio Azure Data Lake per i dati sono essenzialmente cartelle e file. È possibile agire sui dati archiviati mediante SDK, portale di Azure e Azure PowerShell. Dopo aver inserito i dati nell'archivio usando queste interfacce e i contenitori appropriati, è possibile memorizzare qualsiasi tipo di dati. Archivio Data Lake non esegue una gestione particolare dei dati in base al tipo di dati archiviati.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Protezione dei dati nell'archivio Data Lake di Azure
+## <a name="DataLakeStoreSecurity"></a>Protezione dei dati nell'archivio Data Lake di Azure
 Azure Data Lake Store utilizza la Azure Active Directory per gli elenchi di autenticazione e di controllo di accesso (ACL) per gestire l'accesso ai dati.
 
 | Funzionalità | Descrizione |
@@ -101,10 +103,5 @@ Se si preferisce guardare dei video per imparare a usare Archivio Data Lake, son
 * [Usare Apache Sqoop per spostare i dati tra origini relazionali e Archivio Azure Data Lake](https://mix.office.com/watch/1butcdjxmu114)
 * [Orchestrazione di dati con Azure Data Factory per Archivio Azure Data Lake](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Protezione dei dati in Archivio Azure Data Lake](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
