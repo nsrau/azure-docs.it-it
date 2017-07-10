@@ -23,16 +23,19 @@ ms.lasthandoff: 12/22/2016
 
 
 ---
-# <a name="azure-active-directory-identity-protection-notifications"></a>Notifiche di Azure Active Directory Identity Protection
+<a id="azure-active-directory-identity-protection-notifications" class="xliff"></a>
+# Notifiche di Azure Active Directory Identity Protection
 Azure AD Identity Protection invia due tipi di messaggi di posta elettronica di notifica automatica per la gestione del rischio utente e degli eventi di rischio:
 
 * Messaggio di posta elettronica di avviso utente compromesso
 * Messaggio di posta elettronica di riepilogo settimanale
 
-## <a name="user-compromised-alert-email"></a>Messaggio di posta elettronica di avviso utente compromesso
+<a id="user-compromised-alert-email" class="xliff"></a>
+## Messaggio di posta elettronica di avviso utente compromesso
 Quando Azure AD Identity Protection identifica un account come compromesso, viene generato un avviso di posta elettronica utente compromesso. Il messaggio include un collegamento al report relativo agli utenti contrassegnati per il rischio nel dashboard di Identity Protection. È consigliabile analizzare immediatamente le notifiche relative agli account compromessi.
 
-## <a name="weekly-digest-email"></a>Messaggio di posta elettronica di riepilogo settimanale
+<a id="weekly-digest-email" class="xliff"></a>
+## Messaggio di posta elettronica di riepilogo settimanale
 Il messaggio di riepilogo settimanale contiene un riepilogo dei nuovi eventi di rischio.<br>
 Sono inclusi:
 
@@ -61,6 +64,7 @@ Sono inclusi:
    ![Criteri di rischio utente](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
    <br>
 
-## <a name="see-also"></a>Vedere anche
+<a id="see-also" class="xliff"></a>
+## Vedere anche
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
