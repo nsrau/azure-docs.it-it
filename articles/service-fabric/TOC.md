@@ -2,11 +2,11 @@
 # Panoramica
 ## [Che cos'è Service Fabric?](service-fabric-overview.md)
 ## [Informazioni sui microservizi](service-fabric-overview-microservices.md)
+## [Quadro generale](service-fabric-content-roadmap.md)
 ## [Scenari applicativi](service-fabric-application-scenarios.md)
 ## [Modelli e scenari](service-fabric-patterns-and-scenarios.md)
 ## [Architettura](service-fabric-architecture.md)
 ## [Terminologia](service-fabric-technical-overview.md)
-## [Nozioni di base](service-fabric-content-roadmap.md)
 
 # Introduzione
 ## Configurazione dell'ambiente di sviluppo
@@ -131,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### Eseguire l'integrazione con Gestione API
+#### [Panoramica](service-fabric-api-management-overview.md)
+#### [Avvio rapido](service-fabric-api-management-quick-start.md)
+
 ### Eseguire la migrazione da Servizi cloud
 #### [Confrontare Servizi cloud e Service Fabric](service-fabric-cloud-services-migration-differences.md)
 #### [Eseguire la migrazione a Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -142,6 +146,7 @@
 ### [Informazioni sull'impostazione ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Distribuire o rimuovere applicazioni
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Interfaccia della riga di comando di Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [API client Fabric](service-fabric-deploy-remove-applications-fabricclient.md)
 ### Aggiornare un'applicazione
@@ -215,7 +220,8 @@
 ### [Visualizzare un cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md)
 
-### [Gestire un cluster con l'interfaccia della riga di comando di Azure](service-fabric-azure-cli.md)
+### [Gestire un cluster con l'interfaccia della riga di comando di XPlat](service-fabric-azure-cli.md)
+### [Gestire un cluster con i comandi dell'interfaccia della riga di comando di Azure 2.0](service-fabric-azure-cli-2-0.md)
 ### [Applicare patch ai nodi del cluster](service-fabric-patch-orchestration-application.md)
 
 ### Gestire e orchestrare le risorse cluster
@@ -258,18 +264,19 @@
 
 # Riferimento
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
-## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
+## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/sf)
 ## [API Java](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Domande frequenti su Service Fabric](service-fabric-common-questions.md)
-## [Opzioni di supporto di Service Fabric](service-fabric-support.md)
-## [Codice di esempio](http://aka.ms/servicefabricsamples)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Prezzi](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Prezzi](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Codice di esempio](http://aka.ms/servicefabricsamples)
+## [Opzioni di supporto di Service Fabric](service-fabric-support.md)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)

@@ -74,6 +74,8 @@
        href: functions-test-a-function.md
      - name: Sviluppare ed eseguire il debug in locale
        href: functions-run-local.md
+     - name: Sviluppo di Visual Studio
+       href: functions-develop-vs.md
   - name: Distribuire
     items:
     - name: Distribuzione continua
@@ -126,6 +128,8 @@
     href: functions-api-definition.md     
 - name: Risorse
   items:
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Prezzi
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Disponibilità internazionale

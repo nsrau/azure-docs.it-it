@@ -21,18 +21,18 @@
 
 ## Rete
 ### [Come configurare gli endpoint](setup-endpoints.md)
-### [Connect VMs with a VNet or Cloud Service](connect-vms.md) (Connettere VM a una rete virtuale o a un servizio cloud)
-### [Connect Classic VNets to Resource Manager VNets](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md) (Connettere reti virtuali classiche a reti virtuali di Resource Manager)
+### [Connettere VM a una rete virtuale o a un servizio cloud](connect-vms.md)
+### [Connettere reti virtuali classiche a reti virtuali di Resource Manager](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 ### [Creare un servizio di bilanciamento del carico](../../../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 ### [Gestire NSG usando Azure PowerShell](../../../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 
 ## Distribuisci
 ### [Creare una VM personalizzata](createportal.md)
-### [Create and configure a VM using Azure PowerShell](create-powershell.md) (Creare e configurare una VM tramite Azure PowerShell)
-### [Capture a Windows VM](capture-image.md) (Acquisire una VM Windows)
-### [Create and upload a VHD using PowerShell](createupload-vhd.md) (Creare e caricare un disco rigido virtuale tramite PowerShell)
+### [Creare e configurare una VM tramite Azure PowerShell](create-powershell.md)
+### [Acquisire una VM Windows](capture-image.md)
+### [Creare e caricare un disco rigido virtuale tramite PowerShell](createupload-vhd.md)
 ### [Automatizzare la distribuzione di macchine virtuali di Azure con Chef](../../virtual-machines-windows-chef-automation.md)
-### [Create and Manage VMs in Visual Studio](manage-visual-studio.md) (Creare e gestire VM in Visual Studio)
+### [Creare e gestire VM in Visual Studio](manage-visual-studio.md)
 ### [Creare una macchina virtuale per un'app Web con Visual Studio](web-app-visual-studio.md)
 ### [Eseguire un'attività a elevato utilizzo di calcolo in Java](java-run-compute-intensive-task.md)
 ### [Applicazione Web Django Hello World](python-django-web-app.md)
@@ -42,18 +42,18 @@
 ### [Installare e configurare Symantec Endpoint Protection](install-symantec.md)
 ### [Installare e configurare Trend Micro Deep Security come servizio](install-trend.md)
 ### [Configurare un set di disponibilità](configure-availability.md)
-### [Resize a Windows VM created in the classic deployment model](resize-vm.md) (Ridimensionare una VM Windows create nel modello di distribuzione classica)
+### [Ridimensionare una VM Windows create nel modello di distribuzione classica](resize-vm.md)
 
 ## Manage
 ### [Migrazione dal modello classico a Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-### [Manage your VMs using Azure PowerShell](manage-psh.md) (Gestire le VM con Azure PowerShell)
+### [Gestire le VM con Azure PowerShell](manage-psh.md)
 ### [Informazioni sull'agente e sulle estensioni delle VM](agents-and-extensions.md)
 ### [Gestire le estensioni di VM](manage-extensions.md)
 ### [Estensione Script personalizzato per le VM](extensions-customscript.md)
 ### [Inserimento dei dati personalizzati in una VM di Azure](inject-custom-data.md)
 
 ## Pianificazione
-### [About images](about-images.md) (Informazioni sulle immagini)
+### [Informazioni sulle immagini](about-images.md)
 ### [Dimensioni delle VM](../../virtual-machines-windows-sizes.md)
 #### [Informazioni sulle macchine virtuali serie H e serie A a elevato utilizzo di calcolo](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Manutenzione pianificata per le VM di Azure](../../virtual-machines-windows-planned-maintenance.md)
@@ -99,6 +99,7 @@
 ## [REST di archiviazione](/rest/api/storageservices)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Disponibilità internazionale](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

@@ -37,7 +37,7 @@
     href: tutorial-monitoring.md
   - name: 11 - Gestire la sicurezza delle VM
     href: tutorial-azure-security.md
-  - name: 12 - Integrazione continua e distribuzione continua di Jenkins
+  - name: '12: Distribuire Jenkins'
     href: tutorial-jenkins-github-docker-cicd.md
 - name: Esempi
   items:
@@ -204,6 +204,8 @@
       href: cli-ps-findimage.md
     - name: Creare immagini di VM personalizzate
       href: create-upload-generic.md
+    - name: Scaricare il VHD
+      href: download-vhd.md
     - name: Caricare immagini di VM personalizzate
       href: upload-vhd.md
     - name: Acquisire una VM esistente in un'immagine
@@ -331,6 +333,8 @@
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: Distribuire lo stack LAMP
@@ -378,6 +382,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Risoluzione dei problemi
     items:
+    - name: Reimpostare la password di una VM Linux
+      href: virtual-machines-linux-reset-password.md
     - name: Informazioni sul riavvio del sistema
       href: understand-vm-reboot.md
     - name: Connessioni SSH
@@ -393,6 +399,8 @@
     - name: Errori di allocazione
       href: allocation-failure.md
     - name: Problemi di distribuzione
+      href: troubleshoot-deploy-vm.md
+    - name: Creazione di una VM
       href: troubleshoot-deployment-new-vm.md
     - name: Ridistribuire la macchina virtuale in un nuovo nodo di Azure
       href: redeploy-to-new-node.md
@@ -424,6 +432,8 @@
   items:
   - name: Creare modelli
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Modelli della community
     href: https://azure.microsoft.com/documentation/templates
   - name: Prezzi

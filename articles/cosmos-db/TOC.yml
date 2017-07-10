@@ -29,6 +29,8 @@
       href: create-mongodb-dotnet.md
     - name: Java
       href: create-mongodb-java.md
+    - name: Golang
+      href: create-mongodb-golang.md
   - name: Grafico
     items:
     - name: .NET
@@ -310,6 +312,8 @@
       href: graph-sdk-dotnet.md
 - name: Risorse
   items:
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Prezzi
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: Domande frequenti

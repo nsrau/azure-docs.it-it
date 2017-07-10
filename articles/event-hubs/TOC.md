@@ -15,6 +15,9 @@
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+## Acquisire eventi
+### [Usare il portale di Azure per abilitare l'acquisizione di hub eventi](event-hubs-capture-enable-through-portal.md)
+### [Usare un modello di Resource Manager per abilitare l'acquisizione di hub eventi](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Guida alla programmazione](event-hubs-programming-guide.md)
 
 # Procedure
@@ -31,10 +34,9 @@
 ### [Guida al protocollo AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
 ### [Librerie di gestione di Hub eventi](event-hubs-management-libraries.md)
-### Archiviazione
-#### [Archivio di Hub eventi](event-hubs-archive-overview.md)
-#### [Abilitare l'archivio di Hub eventi usando un modello](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
-#### [Usare Python per abilitare l'archivio di Hub eventi](event-hubs-archive-python.md)
+### Acquisizione
+#### [Acquisizione di hub eventi](event-hubs-capture-overview.md)
+#### [Acquisire dati di hub eventi tramite Python](event-hubs-capture-python.md)
 ### [Uso di PowerShell per il provisioning delle entità](event-hubs-manage-with-ps.md) 
 ### [Trasmettere dati di Diagnostica di Azure usando Hub eventi](event-hubs-streaming-azure-diags-data.md)
 ### [Creare e distribuire un hub eventi con un modello di Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
@@ -54,9 +56,10 @@
 ## [Quote](event-hubs-quotas.md)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Esempi di codice](event-hubs-samples.md)
-## [Prezzi](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Prezzi](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
