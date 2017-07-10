@@ -21,24 +21,27 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Modello](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portale (versione classica)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (classico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [Interfaccia della riga di comando (versione classica)](virtual-networks-create-vnet-classic-cli.md)
+#### Classico
+##### [Portale](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Gruppi di sicurezza di rete
 #### [Portale](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Modello](virtual-networks-create-nsg-arm-template.md)
-#### [PowerShell (versione classica)](virtual-networks-create-nsg-classic-ps.md)
-#### [Interfaccia della riga di comando (versione classica)](virtual-networks-create-nsg-classic-cli.md)
+#### Classico
+##### [PowerShell](virtual-networks-create-nsg-classic-ps.md)
+##### [CLI](virtual-networks-create-nsg-classic-cli.md)
 
 ### Route definite dall'utente
 #### [PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [CLI](virtual-network-create-udr-arm-cli.md)
 #### [Modello](virtual-network-create-udr-arm-template.md)
-#### [PowerShell (versione classica)](virtual-network-create-udr-classic-ps.md)
-#### [Interfaccia della riga di comando (versione classica)](virtual-network-create-udr-classic-cli.md)
+#### Classico
+##### [PowerShell](virtual-network-create-udr-classic-ps.md)
+##### [CLI](virtual-network-create-udr-classic-cli.md)
 
 ### [Peering di rete virtuale](virtual-network-create-peering.md)
 
@@ -48,21 +51,24 @@
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Modello](virtual-network-deploy-static-pip-arm-template.md)
-##### [PowerShell (versione classica)](virtual-networks-reserved-public-ip.md)
+##### Classico
+###### [PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### Creare una VM con un indirizzo IP privato statico
 ##### [Portale](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
-##### [Portale (versione classica)](virtual-networks-static-private-ip-classic-pportal.md)
-##### [PowerShell (versione classica)](virtual-networks-static-private-ip-classic-ps.md)
-##### [Interfaccia della riga di comando (versione classica)](virtual-networks-static-private-ip-classic-cli.md)
+##### Classico
+###### [Portale](virtual-networks-static-private-ip-classic-pportal.md)
+###### [PowerShell](virtual-networks-static-private-ip-classic-ps.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Creare una VM con più interfacce di rete
 ##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [PowerShell (versione classica)](virtual-network-deploy-multinic-classic-ps.md)
-##### [Interfaccia della riga di comando (versione classica)](virtual-network-deploy-multinic-classic-cli.md)
+##### Classico
+###### [PowerShell](virtual-network-deploy-multinic-classic-ps.md)
+###### [CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Creare una macchina virtuale con più indirizzi IP
 ##### [Portale di Azure](virtual-network-multiple-ip-addresses-portal.md)
@@ -103,6 +109,9 @@
 ### [Reti virtuali](virtual-network-manage-network.md)
 #### [Subnet](virtual-network-manage-subnet.md)
 #### [Peering](virtual-network-manage-peering.md)
+#### Classico
+##### [File di configurazione di rete](virtual-networks-using-network-configuration-file.md)
+##### [Eseguire la migrazione da un gruppo di affinità a un'area](virtual-networks-migrate-to-regional-vnet.md)
 ### Gruppi di sicurezza di rete
 #### [Portale](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -126,7 +135,7 @@
 
 # Riferimento
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
-## [PowerShell (classico)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [PowerShell (classico)](/powershell/module/azure/)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
@@ -143,6 +152,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog sulle reti](http://azure.microsoft.com/blog/topics/networking)
 ## [Forum sulle reti](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-network)

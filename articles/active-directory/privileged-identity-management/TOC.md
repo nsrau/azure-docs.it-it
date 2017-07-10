@@ -25,4 +25,6 @@
 
 # Risorse correlate
 ## [Azure Active Directory](/azure/active-directory/)
-## [Controllo di accesso in base al ruolo](../role-based-access-control-what-is.md)
+## [Controllo degli accessi in base al ruolo](../role-based-access-control-what-is.md)
+# Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)

@@ -36,6 +36,7 @@
 ### Approfondimenti e analisi
 #### [Valutazione di AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Stato della replica di AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Integrità agente](oms-solution-agenthealth.md)
 #### [Gestione degli avvisi](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Contenitori](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -73,3 +74,5 @@
 # Riferimento
 ## [SDK](operations-management-suite-sdk.md)
 
+# Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)

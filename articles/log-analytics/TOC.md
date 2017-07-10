@@ -56,16 +56,18 @@
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [Valutazione di AD](log-analytics-ad-assessment.md)
 ### [Stato della replica di AD](log-analytics-ad-replication-status.md)
+### [Integrità agente](../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Gestione degli avvisi](log-analytics-solution-alert-management.md)
+### [Connettore di Application Insights](log-analytics-app-insights-connector.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
 ### [Analisi app Web di Azure](log-analytics-azure-web-apps-analytics.md)
 ### [Capacity and Performance](log-analytics-capacity.md)
 ### [Rilevamento delle modifiche](log-analytics-change-tracking.md)
 ### [Contenitori](log-analytics-containers.md)
 ### [Analisi DNS](log-analytics-dns.md)
-### [IT Service Management Connector in OMS](log-analytics-itsmc-overview.md)
-#### [Connessioni di IT Service Management in OMS](log-analytics-itsmc-connections.md)
-### [Insieme di credenziali di chiave](log-analytics-azure-key-vault.md)
+### [IT Service Management Connector](log-analytics-itsmc-overview.md)
+#### [Connessioni di IT Service Management Connector](log-analytics-itsmc-connections.md)
+### [Insieme di credenziali delle chiavi](log-analytics-azure-key-vault.md)
 ### Messaggi per le app per la logica B2B
 #### [Soluzione Messaggi per le app per la logica B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Schema di rilevamento personalizzato per le app per la logica B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -89,6 +91,7 @@
 ### [Cmdlet di PowerShell](log-analytics-powershell-workspace-configuration.md)
 ### [Modelli di Resource Manager](log-analytics-template-workspace-configuration.md)
 ### [API REST di Log Analytics per la ricerca nei log](log-analytics-log-search-api.md)
+#### [Python](log-analytics-log-search-api-python.md)
 ### [API REST degli avvisi di Log Analytics](log-analytics-api-alerts.md)
 
 # Riferimento
@@ -96,6 +99,7 @@
 ## [REST](/rest/api/loganalytics)
 
 # Risorse
-## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=log-analytics)
+## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

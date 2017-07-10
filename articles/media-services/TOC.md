@@ -4,17 +4,14 @@
 # Introduzione
 ## [Creare e gestire gli account](media-services-portal-create-account.md)
 ## [Configurare l'ambiente di sviluppo](media-services-set-up-computer.md)
-###[.NET](media-services-dotnet-how-to-use.md)
-###[REST](media-services-rest-how-to-use.md)  
+### [.NET](media-services-dotnet-how-to-use.md)
+### [REST](media-services-rest-how-to-use.md)  
 ## [Usare l'autorizzazione AAD per accedere all'API](media-services-use-aad-auth-to-access-ams-api.md)
-###[Usare il portale per gestire l'autorizzazione AAD](media-services-portal-get-started-with-aad.md)
-###[Accedere all'API con .NET](media-services-dotnet-get-started-with-aad.md)
-###[Accedere all'API con REST](media-services-rest-connect-with-aad.md)
-###[Usare l'interfaccia della riga di comando per creare e configurare l'app AAD](media-services-cli-create-and-configure-aad-app.md)
-###[Usare PowerShell per creare e configurare l'app AAD](media-services-powershell-create-and-configure-aad-app.md)
-## Connettersi a livello di codice con le chiavi del servizio contenitore di Azure
-### [.NET](media-services-dotnet-connect-programmatically.md)
-### [REST](media-services-rest-connect-programmatically.md)
+### [Usare il portale per gestire l'autorizzazione AAD](media-services-portal-get-started-with-aad.md)
+### [Accedere all'API con .NET](media-services-dotnet-get-started-with-aad.md)
+### [Accedere all'API con REST](media-services-rest-connect-with-aad.md)
+### [Usare l'interfaccia della riga di comando per creare e configurare l'app AAD](media-services-cli-create-and-configure-aad-app.md)
+### [Usare PowerShell per creare e configurare l'app AAD](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Distribuire video su richiesta
 ### [Portale](media-services-portal-vod-get-started.md)
@@ -223,7 +220,8 @@
 ## [REST](/rest/api/media/mediaservice)  
 
 # Risorse
-## [Note sulla versione](media-services-release-notes.md)
-## [Prezzi](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Community di Servizi multimediali di Azure](media-services-community.md)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Prezzi](https://azure.microsoft.com/pricing/details/media-services/)
+## [Note sulla versione](media-services-release-notes.md)
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=media-services)

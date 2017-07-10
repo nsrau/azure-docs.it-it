@@ -91,6 +91,8 @@
 ## [Eliminare un insieme di credenziali di Backup di Azure](backup-azure-delete-vault.md)
 ## [Controllo degli accessi in base al ruolo](backup-rbac-rs-vault.md)
 ## [Sicurezza per i backup ibridi](backup-azure-security-feature.md)
+## [Configurare i report di Backup di Azure](backup-azure-configure-reports.md)
+## [Modello di dati per i report di Backup di Azure](backup-azure-reports-data-model.md)
 ## [Configurare il backup offline](backup-azure-backup-import-export.md)
 ## [Sostituire la libreria di nastri](backup-azure-backup-cloud-as-tape.md)
 ## [Backup coerenti con l'applicazione di VM Linux](backup-azure-linux-app-consistent.md)
@@ -100,7 +102,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Risorse
-## [Prezzi](https://azure.microsoft.com/pricing/details/backup/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [Video](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [Prezzi](https://azure.microsoft.com/pricing/details/backup/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=backup)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=backup)

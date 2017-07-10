@@ -105,3 +105,5 @@
 #### [Informazioni si riferimento sul token](active-directory-v2-tokens.md)
 #### [Credenziali di un certificato](active-directory-certificate-credentials.md)
 ### [Ambiti](active-directory-v2-scopes.md)
+# Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)

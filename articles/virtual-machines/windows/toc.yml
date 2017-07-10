@@ -134,13 +134,13 @@
       href: create-vm-specialized.md
     - name: Creare una VM con un modello
       href: ps-template.md
-    - name: 'Creare una VM con C#'
+    - name: 'Creare/gestire macchine virtuali con C#'
       href: csharp.md
     - name: 'Creare una VM con C# e un modello'
       href: csharp-template.md
     - name: Creare una VM con Chef
       href: chef-automation.md
-    - name: Creare una VM con Python
+    - name: Creare/gestire macchine virtuali con Python
       href: python.md
     - name: Creare una VM con Terraform
       items:
@@ -173,8 +173,6 @@
       href: cli-manage.md
     - name: Gestire macchine virtuali con l'interfaccia della riga di comando
       href: cli-deploy-templates.md
-    - name: 'Gestire macchine virtuali con C#'
-      href: csharp-manage.md
   - name: Connettersi con RDP
     items:
     - name: Accedere a una macchina virtuale
@@ -187,6 +185,8 @@
       href: hybrid-use-benefit-licensing.md
     - name: Usare immagini client Windows
       href: client-images.md
+    - name: Scaricare il VHD
+      href: download-vhd.md
     - name: Preparare un disco rigido virtuale per il caricamento
       href: prepare-for-upload-vhd-image.md
     - name: Creare l'immagine di un disco gestito
@@ -366,15 +366,22 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reimpostare la password RDP
       href: reset-rdp.md
+    - name: Reimpostare la scheda di interfaccia di rete
+      href: reset-network-interface.md
     - name: Diagnostica di avvio
  
       href: boot-diagnostics.md
     - name: Creazione di una VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Problemi di distribuzione
+ 
+      href: troubleshoot-deploy-vm.md
     - name: Riavvio o ridimensionamento di una VM
       href: restart-resize-error-troubleshooting.md
     - name: Accesso all'applicazione
       href: troubleshoot-app-connection.md
+    - name: Problemi di attivazione
+      href: troubleshoot-activation-problems.md
     - name: Errori di allocazione
       href: allocation-failure.md
     - name: Ridistribuire una VM
@@ -409,6 +416,8 @@
   items:
   - name: Creare modelli
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Modelli della community
     href: https://azure.microsoft.com/documentation/templates
   - name: Prezzi

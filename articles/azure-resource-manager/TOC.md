@@ -70,7 +70,8 @@
 ### [Usare il portale per assegnare i criteri](resource-manager-policy-portal.md)
 ### [Usare gli script per assegnare i criteri](resource-manager-policy-create-assign.md)
 ### esempi
-#### [Tag delle risorse](resource-manager-policy-tags.md)
+#### [Tag](resource-manager-policy-tags.md)
+#### [Convenzioni di denominazione](resource-manager-policy-naming-convention.md)
 #### [Archiviazione](resource-manager-policy-storage.md)
 #### [VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -119,8 +120,9 @@
 ## [REST](/rest/api/resources/)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Limitazione delle richieste](resource-manager-request-limits.md)
 ## [Tenere traccia delle operazioni asincrone](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
