@@ -17,23 +17,27 @@ ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ccafe4d440f533560fcb3780d4e0e440a4399021
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/26/2017
 
 ---
-# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
+<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
+
+# Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 
 In Funzioni di Azure, i binding di input e di output forniscono una modalità dichiarativa per connettersi a dati di servizio esterni dalla funzione. Questo argomento illustra come aggiornare una funzione esistente mediante l'aggiunta di un binding di output che invia messaggi all'archiviazione code di Azure.  
 
 ![Visualizzare il messaggio nei log.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-## <a name="prerequisites"></a>Prerequisiti 
+<a id="prerequisites" class="xliff"></a>
+
+## Prerequisiti 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
-È necessario anche scaricare e installare [Esplora archivi di Microsoft Azure](http://storageexplorer.com/). 
+* Installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
@@ -41,11 +45,11 @@ In Funzioni di Azure, i binding di input e di output forniscono una modalità di
  
 1. Espandere sia l'app per le funzioni sia la funzione.
 
-2. Fare clic su **Integrazione**, su **Nuovo output**, su **Archiviazione code di Azure** e quindi su **Seleziona**.
+2. Selezionare **Integrazione**, **+ Nuovo output**, **Archiviazione code di Azure** e quindi **Seleziona**.
     
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Usare le impostazioni come indicato nella tabella e quindi fare clic su **Salva**: 
+3. Usare le impostazioni come indicato nella tabella e quindi selezionare **Salva**: 
 
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -57,9 +61,11 @@ In Funzioni di Azure, i binding di input e di output forniscono una modalità di
 
 Dopo aver definito un binding di output, è necessario ora aggiornare il codice in modo da usare il binding per aggiungere messaggi a una coda.  
 
-## <a name="update-the-function-code"></a>Aggiornare il codice funzione
+<a id="update-the-function-code" class="xliff"></a>
 
-1. Fare clic sulla funzione per visualizzare il codice funzione nell'editor. 
+## Aggiornare il codice funzione
+
+1. Selezionare la funzione per visualizzare il codice funzione nell'editor. 
 
 2. Per una funzione C#, aggiornare la definizione di funzione come illustrato di seguito in modo da aggiungere il parametro di binding di archiviazione **outQueueItem**. Ignorare questo passaggio per le funzioni JavaScript.
 
@@ -82,13 +88,15 @@ Dopo aver definito un binding di output, è necessario ora aggiornare il codice 
     outQueueItem.Add("Name passed to the function: " + name);     
     ```
 
-4. Fare clic su **Salva** per salvare le modifiche.
+4. Selezionare **Salva** per salvare le modifiche.
 
 Il valore passato al trigger HTTP è incluso in un messaggio aggiunto alla coda.
  
-## <a name="test-the-function"></a>Testare la funzione 
+<a id="test-the-function" class="xliff"></a>
 
-1. Dopo aver salvato le modifiche al codice, fare clic su **Esegui**. 
+## Testare la funzione 
+
+1. Dopo aver salvato le modifiche al codice, selezionare **Esegui**. 
 
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
@@ -96,32 +104,38 @@ Il valore passato al trigger HTTP è incluso in un messaggio aggiunto alla coda.
 
 È possibile quindi connettersi all'account di archiviazione per verificare la nuova coda e il messaggio aggiunto. 
 
-## <a name="connect-to-the-queue"></a>Connettersi alla coda
+<a id="connect-to-the-queue" class="xliff"></a>
+
+## Connettersi alla coda
 
 Ignorare i primi tre passaggi se Esplora archivi è già stato installato e connesso all'account di archiviazione.    
 
-1. Nella funzione fare clic su **Integrazione** e sul nuovo binding di output **Archiviazione code di Azure** e quindi espandere **Documentazione**. Copiare sia **Nome account** sia **Chiave account**. Usare queste credenziali per connettersi all'account di archiviazione.
+1. Nella funzione selezionare **Integrazione** e il nuovo binding di output **Archiviazione code di Azure** e quindi espandere **Documentazione**. Copiare sia **Nome account** sia **Chiave account**. Usare queste credenziali per connettersi all'account di archiviazione.
  
     ![Ottenere le credenziali per la connessione all'account di archiviazione.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
-2. Eseguire lo strumento [Microsoft Azure Storage Explorer](http://storageexplorer.com/), fare clic sull'icona di connessione a sinistra, scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e fare clic su **Avanti**.
+2. Eseguire lo strumento [Microsoft Azure Storage Explorer](http://storageexplorer.com/), selezionare l'icona di connessione a sinistra, scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e selezionare **Avanti**.
 
     ![Eseguire lo strumento di esplorazione dell'account di archiviazione.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
     
-3. Immettere i valori **Nome account** e **Chiave account** definiti nel passaggio 1, fare clic su **Avanti** e quindi su **Connetti**. 
+3. Incollare il **Nome account** e la **Chiave dell'account** dal Passaggio 1 nei rispettivi campi corrispondenti, quindi selezionare **Avanti** e infine **Connetti**. 
   
-    ![Immettere le credenziali di archiviazione ed eseguire la connessione.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+    ![Incollare le credenziali di archiviazione ed eseguire la connessione.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 4. Espandere l'account di archiviazione associato, fare doppio clic su **Code** e verificare che esista una coda denominata **myqueue-items**. Dovrebbe anche essere presente un messaggio nella coda.  
  
     ![Creare una coda di archiviazione.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+<a id="clean-up-resources" class="xliff"></a>
+
+## Pulire le risorse
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passaggi successivi
+<a id="next-steps" class="xliff"></a>
+
+## Passaggi successivi
 
 È stato aggiunto un binding di output a una funzione esistente. 
 

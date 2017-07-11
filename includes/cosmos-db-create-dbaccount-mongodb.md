@@ -9,7 +9,7 @@
        
     In questa guida introduttiva eseguiremo la programmazione in base all'API MongoDB, per cui occorrerà scegliere **MongoDB** nella compilazione del modulo. Tuttavia, se si dispone di dati grafo per un'app social media, dati documento di un'app di catalogo o dati chiave-valore (tabella), tenere presente che Azure Cosmos DB può fornire una piattaforma di servizi di database distribuiti a livello globale e a disponibilità elevata per tutte le applicazioni cruciali.
 
-    Compilare il pannello Nuovo account usando le informazioni riportate nello screenshot come guida. Scegliere valori univoci per l'impostazione del proprio account in modo che i valori immessi non corrispondano esattamente a quelli dello screenshot.
+    Compilare il pannello **Nuovo account** usando le informazioni riportate nella tabella come guida.
  
     ![Screenshot del pannello Nuovo Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
    
