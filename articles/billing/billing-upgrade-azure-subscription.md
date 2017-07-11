@@ -24,7 +24,8 @@ ms.contentlocale: it-it
 ms.lasthandoff: 03/17/2017
 
 ---
-# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo
+<a id="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go" class="xliff"></a>
+# Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo
 Aggiornare la propria sottoscrizione [Versione di valutazione gratuita](https://azure.microsoft.com/free/) o [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) alla sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) dal portale dell'account di Azure. Il solo aggiornamento non comporta alcuna spesa e l'addebito è previsto solo per i servizi usati.
 
 1. Accedere al [portale dell'account di Azure](https://account.windowsazure.com/subscriptions) e passare alla scheda **sottoscrizioni**.
