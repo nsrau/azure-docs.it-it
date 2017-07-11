@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: abilitare Azure Active Directory Domain Services | Microsoft Docs'
-description: Introduzione a Servizi di dominio Azure Active Directory
+description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure classico
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,18 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e5f1fe51d8931985fa55b2d8c0a3fd25bb93f20f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="enable-azure-active-directory-domain-services"></a>Abilitare Azure Active Directory Domain Services
-## <a name="task-3-enable-azure-active-directory-domain-services"></a>Attività 3: Abilitare Azure Active Directory Domain Services
-In questa attività si abiliterà Azure Active Directory Domain Services (Azure AD DS) per la directory nel modo seguente:
+<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+
+# Abilitare Azure Active Directory Domain Services tramite il portale di Azure classico
+
+<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
+
+## Attività 3: Abilitare Azure Active Directory Domain Services
+In questa attività si abiliterà Azure Active Directory Domain Services (Azure AD DS) per la directory seguendo questa procedura:
 
 1. Passare al [portale di Azure classico](https://manage.windowsazure.com).
 2. Selezionare il pulsante **Active Directory** nel riquadro sinistro.
@@ -70,20 +76,20 @@ In questa attività si abiliterà Azure Active Directory Domain Services (Azure 
    * Usare una subnet dedicata nella rete virtuale per Azure Active Directory Domain Services. *Non* selezionare la subnet del gateway. Vedere le [considerazioni sulla rete](active-directory-ds-networking.md).
 
    * Analogamente, le reti virtuali create con Azure Resource Manager non vengono visualizzate nell'elenco a discesa. Le reti virtuali basate su Resource Manager attualmente non sono supportate da Azure Active Directory Domain Services.
-9. Per abilitare Azure Active Directory Domain Services, fare clic su **Salva** nel riquadro attività nella parte inferiore della pagina. 
+9. Per abilitare Azure Active Directory Domain Services, fare clic su **Salva** nel riquadro attività nella parte inferiore della pagina.
     * Quando si attiva Azure Active Directory Domain Services per la directory, la pagina mostra lo stato *In sospeso*.
 
         ![Finestra Abilita Domain Services](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
         > [!NOTE]
-        > Azure Active Directory Domain Services garantisce un'elevata disponibilità per il dominio gestito. Dopo avere abilitato Azure Active Directory Domain Services, si noti che vengono visualizzati uno alla volta gli indirizzi IP per cui è disponibile Domain Services nella rete virtuale. Il secondo indirizzo IP viene visualizzato poco dopo il primo, non appena il servizio abilita la disponibilità elevata per il dominio. Al termine della configurazione e attivazione della disponibilità elevata per il dominio, nella sezione **Servizi di dominio** della scheda **Configura** dovrebbero comparire due indirizzi IP.
+        > Azure Active Directory Domain Services garantisce un'elevata disponibilità per il dominio gestito. Dopo avere abilitato Azure Active Directory Domain Services, vengono visualizzati uno alla volta gli indirizzi IP per cui è disponibile Domain Services nella rete virtuale. Il secondo indirizzo IP viene visualizzato poco dopo il primo, non appena il servizio abilita la disponibilità elevata per il dominio. Al termine della configurazione e attivazione della disponibilità elevata per il dominio, nella sezione **Servizi di dominio** della scheda **Configura** dovrebbero comparire due indirizzi IP.
         >
         >
     * Dopo circa 20-30 minuti, il primo indirizzo IP in cui è disponibile Domain Services nella rete virtuale viene visualizzato nel campo **Indirizzo IP** nella pagina **Configura**.
 
         ![La finestra di Domain Service visualizza il primo indirizzo IP di cui è stato eseguito il provisioning](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
-    * Quando la disponibilità elevata è operativa per il dominio, nella pagina sono visualizzati due indirizzi IP. Il dominio gestito è disponibile nella rete virtuale selezionata a questi due indirizzi IP. 
-    
+    * Quando la disponibilità elevata è operativa per il dominio, nella pagina sono visualizzati due indirizzi IP. Il dominio gestito è disponibile nella rete virtuale selezionata a questi due indirizzi IP.
+
 10. Prendere nota degli indirizzi IP per poter aggiornare le impostazioni DNS per la rete virtuale. Questo passaggio consente alle macchine virtuali nella rete virtuale di connettersi al dominio per operazioni quali l'aggiunta al dominio.
 
     ![La finestra di Domain Services mostra entrambi gli IP di cui è stato eseguito il provisioning](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
@@ -93,6 +99,8 @@ In questa attività si abiliterà Azure Active Directory Domain Services (Azure 
 >
 >
 
-## <a name="next-steps"></a>Passaggi successivi
-Attività 4: [Aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md)
+<a id="next-step" class="xliff"></a>
+
+## Passaggio successivo
+[Attività 4: Aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-update-dns.md)
 
