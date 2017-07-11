@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -24,13 +24,17 @@ ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="azure-resource-group-guidelines-for-windows-vms"></a>Linee guida sui gruppi di risorse di Azure per macchine virtuali Windows
+<a id="azure-resource-group-guidelines-for-windows-vms" class="xliff"></a>
+
+# Linee guida sui gruppi di risorse di Azure per macchine virtuali Windows
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Questo articolo si incentra su come creare in modo logico un ambiente e raggruppare tutti i componenti in gruppi di risorse.
 
-## <a name="implementation-guidelines-for-resource-groups"></a>Linee guida sui gruppi di risorse
+<a id="implementation-guidelines-for-resource-groups" class="xliff"></a>
+
+## Linee guida sui gruppi di risorse
 Decisioni:
 
 * Si desidera creare gruppi di risorse con i componenti dell'infrastruttura di base oppure tramite la distribuzione di applicazioni complete?
@@ -43,7 +47,9 @@ Attività:
 * Definire i ruoli di accesso utente necessari per controllare l'accesso ai gruppi di risorse.
 * Creare il set di gruppi di risorse usando la usando la convenzione di denominazione scelta. È possibile usare Azure PowerShell o il portale.
 
-## <a name="resource-groups"></a>Gruppi di risorse
+<a id="resource-groups" class="xliff"></a>
+
+## Gruppi di risorse
 Azure consente di raggruppare in modo logico risorse correlate, ad esempio account di archiviazione, reti virtuali e macchine virtuali per distribuirle, gestirle ed eseguirne la manutenzione come una singola entità. Questo approccio semplifica la distribuzione delle applicazioni e al contempo mantiene insieme tutte le risorse correlate per facilitarne la gestione o per consentire altri accessi al gruppo di risorse. I nomi dei gruppi di risorse non possono contenere più di 90 caratteri. Per informazioni complete sui gruppi di risorse, leggere la [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 Una funzionalità chiave per i gruppi di risorse è la possibilità di realizzare un ambiente personalizzato grazie ai modelli. Un modello è semplicemente un file JSON che dichiara archiviazione, rete e risorse di calcolo. È anche possibile definire qualsiasi script personalizzato o configurazioni correlati da applicare. Questi modelli consentono di creare distribuzioni coerenti e riproducibili delle applicazioni. Ciò facilita la compilazione di un ambiente nella fase di sviluppo e l'uso dello stesso modello per creare una distribuzione di produzione, o viceversa. Per altre informazioni sull'uso dei modelli, leggere [la procedura dettagliata sui modelli](../../azure-resource-manager/resource-manager-template-walkthrough.md) che descrive i passaggi per la compilazione di un modello.
@@ -55,7 +61,9 @@ Esistono due diversi approcci alla progettazione dell'ambiente con gruppi di ris
 
 Procedendo con la scalabilità orizzontale, i gruppi di risorse centralizzati contenenti la rete virtuale e le subnet semplificano la creazione di connessioni di rete cross-premise per opzioni di connettività ibrida. L'approccio alternativo prevede di avere singole applicazioni dotate di una propria rete virtuale che richiede configurazione e manutenzione.  [I controlli di accesso in base al ruolo](../../active-directory/role-based-access-control-what-is.md) rappresentano una modalità granulare per controllare l'accesso ai gruppi di risorse. Per le applicazioni di produzione, è possibile controllare gli utenti che possono accedere alle risorse. Per le risorse dell'infrastruttura di base è possibile limitare l'accesso solo ai tecnici dell'infrastruttura che le usano. I proprietari dell'applicazione possono accedere solo ai componenti dell'applicazione nel proprio gruppo di risorse e non all'infrastruttura di Azure di base dell'ambiente. Quando si progetta l'ambiente, tenere in considerazione gli utenti che dovranno accedere alle risorse e creare gruppi di risorse adeguati. 
 
-## <a name="next-steps"></a>Passaggi successivi
+<a id="next-steps" class="xliff"></a>
+
+## Passaggi successivi
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
 
