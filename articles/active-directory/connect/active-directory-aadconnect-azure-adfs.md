@@ -16,13 +16,16 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 9119a4523c66415925223b5de10ca0fb4a7147b2
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 ---
-# <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuzione di Active Directory Federation Services in Azure
+<a id="deploying-active-directory-federation-services-in-azure" class="xliff"></a>
+
+# Distribuzione di Active Directory Federation Services in Azure
 AD FS offre funzionalità di federazione delle identità e Single Sign-On (SSO) Web protette e semplificate. La federazione con Azure AD o O365 consente agli utenti di eseguire l'autenticazione con credenziali locali e accedere a tutte le risorse nel cloud. Di conseguenza, diventa importante la presenza di un'infrastruttura AD FS a disponibilità elevata per garantire l'accesso alle risorse sia in locale sia nel cloud. La distribuzione di AD FS in Azure consente di raggiungere facilmente la disponibilità elevata necessaria.
 Distribuire AD FS in Azure offre diverse vantaggi. Di seguito ne sono elencati alcuni.
 
@@ -31,7 +34,9 @@ Distribuire AD FS in Azure offre diverse vantaggi. Di seguito ne sono elencati a
 * **Ridondanza tra diverse aree geografiche** : la ridondanza geografica di Azure assicura la disponibilità elevata dell'infrastruttura a livello globale.
 * **Facilità di gestione** : le opzioni di gestione estremamente semplificate del portale di Azure consentono di gestire l'infrastruttura con la massima facilità. 
 
-## <a name="design-principles"></a>Principi di progettazione
+<a id="design-principles" class="xliff"></a>
+
+## Principi di progettazione
 ![Progettazione della distribuzione](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
 Il diagramma riportato sopra illustra la topologia di base consigliata come punto di partenza per la distribuzione di un'infrastruttura AD FS in Azure. Di seguito sono elencati i principi alla base dei vari componenti della topologia.
@@ -44,10 +49,14 @@ Il diagramma riportato sopra illustra la topologia di base consigliata come punt
 * **Account di archiviazione**: è consigliabile avere due account di archiviazione. Un singolo account di archiviazione può determinare un singolo punto di guasto e causare l'indisponibilità della distribuzione nell'improbabile scenario in cui l'account di archiviazione diventi inattivo. Con due account di archiviazione è possibile associare un account di archiviazione per ogni linea di guasto.
 * **Separazione delle reti**: i server proxy applicazione Web verranno distribuiti in una rete perimetrale separata. È possibile dividere una rete virtuale in due subnet e quindi distribuire i server proxy applicazione Web in una subnet isolata. È sufficiente configurare le impostazioni dei gruppi di sicurezza di rete per ogni subnet e consentire solo la comunicazione necessaria tra le due subnet. Altri dettagli sono riportati di seguito per i singoli scenari di distribuzione.
 
-## <a name="steps-to-deploy-ad-fs-in-azure"></a>Passaggi per la distribuzione di AD FS in Azure
+<a id="steps-to-deploy-ad-fs-in-azure" class="xliff"></a>
+
+## Passaggi per la distribuzione di AD FS in Azure
 I passaggi indicati in questa sezione offrono una guida per distribuire l'infrastruttura AD FS illustrata di seguito in Azure.
 
-### <a name="1-deploying-the-network"></a>1. Distribuire la rete
+<a id="1-deploying-the-network" class="xliff"></a>
+
+### 1. Distribuire la rete
 Come indicato in precedenza, è possibile creare due subnet in una singola rete virtuale oppure creare due reti virtuali completamente diverse. Questo articolo è incentrato sulla distribuzione di una singola rete virtuale e sulla relativa divisione in due subnet. È attualmente un approccio più semplice perché due reti virtuali separate richiederebbero un gateway da rete virtuale a rete virtuale per le comunicazioni.
 
 **1.1 Creare una rete virtuale**
@@ -99,12 +108,16 @@ Per distribuire il controller di dominio in Azure sarà necessaria una connessio
 È consigliabile usare ExpressRoute. ExpressRoute consente di creare connessioni private tra i data center di Azure e l'infrastruttura disponibile localmente o in un ambiente con percorso condiviso. Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. Queste connessioni offrono maggiore affidabilità, velocità più elevate, latenze minori e sicurezza superiore rispetto alle tipiche connessioni tramite Internet.
 Nonostante sia consigliabile usare ExpressRoute, si può scegliere qualsiasi metodo di connessione sia più adatto per l'organizzazione. Per altre informazioni su ExpressRoute e sulle varie opzioni di connettività con ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](https://aka.ms/Azure/ExpressRoute).
 
-### <a name="2-create-storage-accounts"></a>2. Creare gli account di archiviazione
+<a id="2-create-storage-accounts" class="xliff"></a>
+
+### 2. Creare gli account di archiviazione
 Per mantenere una disponibilità elevata e non dipendere da un singolo account di archiviazione, è possibile creare due account di archiviazione. Dividere i computer di ogni set di disponibilità in due gruppi e assegnare quindi a ogni gruppo un account di archiviazione separato.
 
 ![Creare gli account di archiviazione](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
-### <a name="3-create-availability-sets"></a>3. Creare set di disponibilità
+<a id="3-create-availability-sets" class="xliff"></a>
+
+### 3. Creare set di disponibilità
 Per ogni ruolo (controller di dominio/AD FS e WAP), creare set di disponibilità contenenti almeno 2 computer ognuno. Sarà così possibile ottenere una disponibilità più elevata per ogni ruolo. Durante la creazione dei set di disponibilità, è essenziale stabilire quanto segue.
 
 * **Domini di errore**: le macchine virtuali nello stesso dominio di errore condividono la stessa alimentazione e lo stesso commutatore di rete fisico. È consigliabile usare almeno 2 domini di errore. Ai fini di questa distribuzione può essere mantenuto il valore predefinito di 3.
@@ -119,7 +132,9 @@ Creare i set di disponibilità seguenti
 | contosodcset |Controller di dominio/AD FS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4-deploy-virtual-machines"></a>4. Distribuire le macchine virtuali
+<a id="4-deploy-virtual-machines" class="xliff"></a>
+
+### 4. Distribuire le macchine virtuali
 Il passaggio successivo consiste nel distribuire le macchine virtuali che ospiteranno i diversi ruoli nell'infrastruttura. In ogni set di disponibilità è consigliato un minimo di due computer. Creare quattro macchine virtuali per la distribuzione di base.
 
 | Machine | Ruolo | Subnet | Set di disponibilità | Account di archiviazione | Indirizzo IP |
@@ -135,7 +150,9 @@ Al termine della distribuzione, il riquadro relativo alle macchine virtuali avr�
 
 ![Macchine virtuali distribuite](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. Configurare controller di dominio e server AD FS
+<a id="5-configuring-the-domain-controller--ad-fs-servers" class="xliff"></a>
+
+### 5. Configurare controller di dominio e server AD FS
  Per autenticare qualsiasi richiesta in ingresso, AD FS dovrà contattare il controller di dominio. Per evitare il costoso trasferimento da Azure al controller di dominio locale per l'autenticazione, è consigliabile distribuire una replica del controller di dominio in Azure. Per ottenere una disponibilità elevata, è consigliabile creare un set di disponibilità con almeno 2 controller di dominio.
 
 | Controller di dominio | Ruolo | Account di archiviazione |
@@ -146,7 +163,9 @@ Al termine della distribuzione, il riquadro relativo alle macchine virtuali avr�
 * Innalzare i due server al livello di controller di dominio di replica con DNS
 * Configurare i server AD FS installando il ruolo AD FS con Server Manager
 
-### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Distribuire il servizio di bilanciamento del carico interno
+<a id="6-deploying-internal-load-balancer-ilb" class="xliff"></a>
+
+### 6. Distribuire il servizio di bilanciamento del carico interno
 **6.1. Creare il servizio di bilanciamento del carico interno**
 
 Per distribuire un servizio di bilanciamento del carico interno, selezionare Servizi di bilanciamento del carico nel portale di Azure e fare clic su Aggiungi (+).
@@ -162,7 +181,7 @@ Per distribuire un servizio di bilanciamento del carico interno, selezionare Ser
 * **Schema**: poiché il servizio di bilanciamento del carico verrà inserito a monte dei server AD FS e verrà usato SOLO per le connessioni della rete interna, selezionare "Interno"
 * **Rete virtuale**: scegliere la rete virtuale in cui viene distribuito AD FS
 * **Subnet**: scegliere la subnet interna
-* **Assegnazione indirizzo IP**: Dinamico
+* **Assegnazione di indirizzi IP**: statici
 
 ![Servizio di bilanciamento del carico interno](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
 
@@ -207,7 +226,9 @@ Per bilanciare efficacemente il traffico, il servizio di bilanciamento del caric
 Passare al server DNS e creare un CNAME per il servizio di bilanciamento del carico interno. Il CNAME dovrà essere creato per il servizio federativo con indirizzo IP che punta all'indirizzo IP del servizio di bilanciamento del carico interno. Se l'indirizzo DIP del servizio di bilanciamento del carico interno è 10.3.0.8 e il servizio federativo installato è fs.contoso.com, ad esempio, creare un CNAME per fs.contoso.com che punta a 10.3.0.8.
 In questo modo, tutta la comunicazione relativa a fs.contoso.com raggiungerà il servizio di bilanciamento del carico interno e verrà indirizzata correttamente.
 
-### <a name="7-configuring-the-web-application-proxy-server"></a>7. Configurare il server proxy applicazione Web
+<a id="7-configuring-the-web-application-proxy-server" class="xliff"></a>
+
+### 7. Configurare il server proxy applicazione Web
 **7.1. Configurare i server proxy applicazione Web per raggiungere i server AD FS**
 
 Affinché i server proxy applicazione Web possano raggiungere i server AD FS controllati dal servizio di bilanciamento del carico interno, creare un record per il servizio di bilanciamento del carico interno in %systemroot%\system32\drivers\etc\hosts. Si noti che il nome distinto dovrà essere il nome del servizio federativo, ad esempio fs.contoso.com, e la voce dell'indirizzo IP dovrà essere quella dell'indirizzo IP del servizio di bilanciamento del carico interno (10.3.0.8 nell'esempio).
@@ -217,7 +238,9 @@ Affinché i server proxy applicazione Web possano raggiungere i server AD FS con
 Dopo aver verificato che i server proxy applicazione Web possano raggiungere i server AD FS controllati dal servizio di bilanciamento del carico interno, è possibile installare i server proxy applicazione Web. I server proxy applicazione Web non vengono aggiunti al dominio. Installare i ruoli Proxy applicazione Web nei due server proxy applicazione Web selezionando il ruolo Accesso remoto. Server Manager consentirà di completare l'installazione di WAP.
 Per altre informazioni sulla distribuzione di WAP, vedere [Installare e configurare il server del proxy dell'applicazione Web](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Distribuire il servizio di bilanciamento del carico con connessione Internet (pubblico)
+<a id="8--deploying-the-internet-facing-public-load-balancer" class="xliff"></a>
+
+### 8.  Distribuire il servizio di bilanciamento del carico con connessione Internet (pubblico)
 **8.1.  Creare il servizio di bilanciamento del carico con connessione Internet (pubblico)**
 
 Nel portale di Azure selezionare Servizi di bilanciamento del carico e quindi fare clic su Aggiungi. Nel pannello Crea servizio di bilanciamento del carico immettere le informazioni seguenti.
@@ -262,7 +285,9 @@ Seguire la stessa procedura indicata per il servizio di bilanciamento del carico
 
 ![Configurare le regole di bilanciamento del servizio di bilanciamento del carico con connessione Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9-securing-the-network"></a>9. Proteggere la rete
+<a id="9-securing-the-network" class="xliff"></a>
+
+### 9. Proteggere la rete
 **9.1. Proteggere la subnet interna**
 
 In generale, per proteggere efficacemente la subnet interna sono necessarie le regole seguenti, nell'ordine indicato di seguito.
@@ -292,7 +317,9 @@ In generale, per proteggere efficacemente la subnet interna sono necessarie le r
 > 
 > 
 
-### <a name="10-test-the-ad-fs-sign-in"></a>10. Testare l'accesso ad AD FS
+<a id="10-test-the-ad-fs-sign-in" class="xliff"></a>
+
+### 10. Testare l'accesso ad AD FS
 Il modo più semplice per testare AD FS consiste nell'usare la pagina IdpInitiatedSignon.aspx. A tale scopo, è necessario abilitare IdpInitiatedSignOn nelle proprietà di AD FS. Per verificare l'installazione di AD FS, seguire questa procedura.
 
 1. Eseguire con PowerShell il cmdlet di seguito nel server AD FS per impostare l'abilitazione:
@@ -306,7 +333,9 @@ Dopo l'accesso, verrà visualizzato un messaggio di completamento dell'operazion
 
 ![Completamento test](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-## <a name="template-for-deploying-ad-fs-in-azure"></a>Modello per la distribuzione di AD FS in Azure
+<a id="template-for-deploying-ad-fs-in-azure" class="xliff"></a>
+
+## Modello per la distribuzione di AD FS in Azure
 Il modello consente di distribuire una configurazione a 6 computer, 2 per ogni controller di dominio, AD FS e WAP.
 
 [Modello di distribuzione di AD FS in Azure](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
@@ -341,7 +370,9 @@ Durante la distribuzione di questo modello, è possibile usare una rete virtuale
 | AdminUserName |Il nome dell'amministratore locale delle macchine virtuali |
 | AdminPassword |La password dell'account dell'amministratore locale delle macchine virtuali |
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+<a id="additional-resources" class="xliff"></a>
+
+## Risorse aggiuntive
 * [Set di disponibilità](https://aka.ms/Azure/Availability) 
 * [Servizio di bilanciamento del carico di Azure](https://aka.ms/Azure/ILB)
 * [Servizio di bilanciamento del carico interno](https://aka.ms/Azure/ILB/Internal)
@@ -350,7 +381,9 @@ Durante la distribuzione di questo modello, è possibile usare una rete virtuale
 * [Reti virtuali di Azure](https://aka.ms/Azure/VNet)
 * [Collegamenti relativi ad AD FS e proxy applicazione Web](http://aka.ms/ADFSLinks) 
 
-## <a name="next-steps"></a>Passaggi successivi
+<a id="next-steps" class="xliff"></a>
+
+## Passaggi successivi
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 * [Configurazione e gestione di AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Distribuzione di AD FS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
