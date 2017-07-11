@@ -23,11 +23,13 @@ ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="change-the-credit-card-used-to-pay-for-an-azure-subscription"></a>Modificare la carta di credito usata per pagare una sottoscrizione di Azure
+<a id="change-the-credit-card-used-to-pay-for-an-azure-subscription" class="xliff"></a>
+# Modificare la carta di credito usata per pagare una sottoscrizione di Azure
 È possibile aggiungere, modificare o rimuovere una carta di credito associata all'account Azure quando si accede al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come [amministratore account](billing-subscription-transfer.md#whoisaa). 
  
 <a id="addcard"></a>
-## <a name="add-a-credit-card-as-a-payment-method"></a>Aggiungere una carta di credito come metodo di pagamento
+<a id="add-a-credit-card-as-a-payment-method" class="xliff"></a>
+## Aggiungere una carta di credito come metodo di pagamento
 
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account.
 2. Selezionare la sottoscrizione.
@@ -40,7 +42,8 @@ Se la carta di credito è valida, verrà aggiunta all'elenco dei metodi di pagam
 
 Se si verifica un errore dopo aver aggiunto la carta di credito, vedere [La carta di credito viene rifiutata al momento dell'iscrizione ad Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
-## <a name="edit-payment-information-for-an-existing-credit-card"></a>Modificare le informazioni di pagamento per una carta di credito esistente
+<a id="edit-payment-information-for-an-existing-credit-card" class="xliff"></a>
+## Modificare le informazioni di pagamento per una carta di credito esistente
   Se la carta di credito viene rinnovata e il numero rimane invariato, aggiornare i dati della carta di credito esistente, ad esempio la data di scadenza. Se il numero di carta di credito viene modificato in seguito alla perdita, al furto o alla scadenza della carta, seguire la procedura nella sezione [Aggiungere una carta di credito come metodo di pagamento](#addcard). 
 
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account.
@@ -51,14 +54,16 @@ Se si verifica un errore dopo aver aggiunto la carta di credito, vedere [La cart
 6. Assicurarsi che il tipo di carta di credito e il numero di carta siano corretti.
 7. Selezionare **Avanti**.
 
-## <a name="change-the-credit-card-that-pays-your-azure-bill"></a>Modificare la carta di credito usata per pagare la fattura di Azure
+<a id="change-the-credit-card-that-pays-your-azure-bill" class="xliff"></a>
+## Modificare la carta di credito usata per pagare la fattura di Azure
 
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account.
 2. Selezionare la sottoscrizione.
 3. Sul lato destro della pagina selezionare **Manage payment methods**(Gestisci metodi di pagamento).
 4. Fare clic su **Usa questa carta** e selezionare la carta di credito che si desidera usare.
 
-## <a name="remove-a-credit-card-from-the-account"></a>Rimuovere una carta di credito dall'account
+<a id="remove-a-credit-card-from-the-account" class="xliff"></a>
+## Rimuovere una carta di credito dall'account
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account.
 2. Selezionare la sottoscrizione.
 3. Sul lato destro della pagina selezionare **Manage payment methods**(Gestisci metodi di pagamento).
@@ -66,12 +71,14 @@ Se si verifica un errore dopo aver aggiunto la carta di credito, vedere [La cart
 
 Se la carta di credito è associata ad altre sottoscrizioni di Microsoft attive, è impossibile rimuoverla dal proprio account Azure. Rimuovere la carta di credito da tutte le sottoscrizioni Microsoft attive.
 
-##  <a name="how-to-make-payments"></a>Come eseguire pagamenti
+<a id="how-to-make-payments" class="xliff"></a>
+##  Come eseguire pagamenti
 
 * Se il metodo di pagamento è impostato su carta di credito o carta di debito, il pagamento viene eseguito automaticamente.
 * Se si usa una [fatturazione](https://azure.microsoft.com/pricing/invoicing/), inviare il pagamento al destinatario elencato nella parte inferiore della fattura.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+<a id="need-help-contact-support" class="xliff"></a>
+## Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
