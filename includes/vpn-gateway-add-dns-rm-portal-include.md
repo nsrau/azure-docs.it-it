@@ -1,4 +1,4 @@
-1. Nella pagina **Impostazioni** della rete virtuale passare a **Server DNS** e fare clic per aprire il pannello**** corrispondente.
+1. Nella pagina **Impostazioni** della rete virtuale passare a **Server DNS** e fare clic per aprire il **pannello corrispondente**.
 
     ![Aggiungi server DNS](./media/vpn-gateway-add-dns-rm-portal/add_dns_server.png "Aggiungi server DNS")
 
