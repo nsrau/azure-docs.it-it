@@ -2,14 +2,17 @@
 
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: https://gallery.cortanaintelligence.com/
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: be75a60762674ab347ab7adaddfb17c4208a2b9e
+ms.contentlocale: it-it
 ms.lasthandoff: 05/03/2017
 
 
 ---
-# <a name="deprecated-forecasting---autoregressive-integrated-moving-average-arima"></a>Previsioni (funzionalità deprecata): media mobile integrata autoregressiva (ARIMA)
+<a id="deprecated-forecasting---autoregressive-integrated-moving-average-arima" class="xliff"></a>
+
+# Previsioni (funzionalità deprecata): media mobile integrata autoregressiva (ARIMA)
 
 > [!NOTE]
 > Microsoft DataMarket è in fase di ritiro e questa API è stata deprecata. 
@@ -25,7 +28,9 @@ Questo [servizio](https://datamarket.azure.com/dataset/aml_labs/arima) implement
 > 
 > 
 
-## <a name="consumption-of-web-service"></a>Uso del servizio Web
+<a id="consumption-of-web-service" class="xliff"></a>
+
+## Uso del servizio Web
 Questo servizio accetta 4 argomenti e calcola le previsioni ARIMA.
 Gli argomenti di input sono i seguenti:
 
@@ -49,7 +54,9 @@ L'input può essere ad esempio il seguente:
 
 Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. Per un'app di esempio, vedere [qui](http://microsoftazuremachinelearning.azurewebsites.net/ArimaForecasting.aspx).
 
-### <a name="starting-c-code-for-web-service-consumption"></a>Codice C# iniziale per l'uso del servizio Web:
+<a id="starting-c-code-for-web-service-consumption" class="xliff"></a>
+
+### Codice C# iniziale per l'uso del servizio Web:
     public class Input
     {
         public string frequency;
@@ -79,21 +86,29 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
           var scoreResult = result.ReadAsStringAsync().Result;
       }
 
-## <a name="creation-of-web-service"></a>Creazione del servizio Web
+<a id="creation-of-web-service" class="xliff"></a>
+
+## Creazione del servizio Web
 > Questo servizio Web è stato creato tramite Azure Machine Learning. Per una versione di prova gratuita e per video introduttivi sulla creazione di esperimenti e sulla [pubblicazione di servizi Web](machine-learning-publish-a-machine-learning-web-service.md), vedere [azure.com/ml](http://azure.com/ml). La schermata seguente mostra un esperimento per la creazione del servizio Web e codice di esempio per ogni modulo incluso nell'esperimento.
 > 
 > 
 
 In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati caricati dati di input di esempio con uno schema dati predefinito. Un modulo [Execute R Script][execute-r-script] (Esegui script R) è collegato allo schema dati e genera il modello di previsione ARIMA usando le funzioni 'auto.arima' e 'forecast' di R. 
 
-### <a name="experiment-flow"></a>Flusso dell'esperimento
+<a id="experiment-flow" class="xliff"></a>
+
+### Flusso dell'esperimento
 ![Creare un'area di lavoro][2]
 
-#### <a name="module-1"></a>Modulo 1:
+<a id="module-1" class="xliff"></a>
+
+#### Modulo 1:
     # Add in the CSV file with the data in the format shown below 
 ![Creare un'area di lavoro][3]    
 
-#### <a name="module-2"></a>Modulo 2:
+<a id="module-2" class="xliff"></a>
+
+#### Modulo 2:
     # data input
     data <- maml.mapInputPort(1) # class: data.frame
     library(forecast)
@@ -121,10 +136,14 @@ In Azure Machine Learning è stato creato un nuovo esperimento vuoto. Sono stati
     maml.mapOutputPort("data.forecast");
 
 
-## <a name="limitations"></a>Limitazioni
+<a id="limitations" class="xliff"></a>
+
+## Limitazioni
 Questo è un esempio molto semplice di previsione ARIMA. Come si può notare nell'esempio di codice precedente, il rilevamento di errori non è implementato, il servizio presuppone che tutte le variabili siano valori continui/positivi e la frequenza deve essere un numero intero maggiore di 1. La lunghezza dei vettori della data e il valore deve essere la stessa. La variabile relativa alla data deve avere il formato 'mm/dd/yyyy'.
 
-## <a name="faq"></a>Domande frequenti
+<a id="faq" class="xliff"></a>
+
+## Domande frequenti
 Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione nel Marketplace, vedere [qui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-arima/arima-img1.png
