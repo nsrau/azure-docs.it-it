@@ -19,7 +19,9 @@ ms.contentlocale: it-it
 ms.lasthandoff: 06/23/2017
 
 ---
-#<a name="service-fabric-documentation"></a>Documentazione di Service Fabric
+<a id="service-fabric-documentation" class="xliff"></a>
+
+#Documentazione di Service Fabric
 
 Informazioni su come usare Service Fabric per creare pacchetti di microservizi scalabili e affidabili, distribuirli e gestirli. Esercitazioni, informazioni di riferimento sulle API ed esempi di codici mostrano come usare questa piattaforma middleware per creare e gestire applicazioni con scalabilità cloud.
 

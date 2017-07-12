@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d365f7137527d60eb509b4f431295de2218ea706
 ms.openlocfilehash: 5ff91cccb711d61ed120e4a4e820d6a5dfc5e4a6
+ms.contentlocale: it-it
+ms.lasthandoff: 01/31/2017
 
 
 ---
 
-# <a name="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal"></a>Creare una rete virtuale (classica) utilizzando un file netcfg nel portale di Azure classico
+<a id="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal" class="xliff"></a>
+
+# Creare una rete virtuale (classica) utilizzando un file netcfg nel portale di Azure classico
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -33,7 +37,9 @@ In questo articolo viene illustrato come creare una rete virtuale con un file ne
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-## <a name="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal"></a>Procedura: creare una rete virtuale con un file di configurazione di rete nel portale di Microsoft Azure classico
+<a id="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal" class="xliff"></a>
+
+## Procedura: creare una rete virtuale con un file di configurazione di rete nel portale di Microsoft Azure classico
 Azure utilizza un file xml per definire tutte le reti virtuali disponibili per una sottoscrizione. È possibile scaricare questo file e modificarlo per creare reti virtuali tramite il modello di distribuzione classico o per modificare o eliminare le reti virtuali esistenti. In questo articolo viene spiegato come scaricare questo file, definito come un file di configurazione di rete (o netcfg), aggiungervi una rete virtuale e caricarlo per creare la rete virtuale. Per altre informazioni sul file di configurazione di rete, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 Per creare una rete virtuale utilizzando un file netcfg tramite il portale di Azure classico, completare i passaggi seguenti:
@@ -84,9 +90,4 @@ Per creare una rete virtuale utilizzando un file netcfg tramite il portale di Az
 10. Per creare la rete virtuale, fare clic sul pulsante di segno di spunta nell'angolo in basso a destra della finestra di dialogo come illustrato nell'immagine precedente. Dopo alcuni secondi, la rete virtuale verrà visualizzata nell'elenco di reti virtuali disponibili, come illustrato nell'immagine seguente:
 
     ![Nuova rete virtuale](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure6.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
