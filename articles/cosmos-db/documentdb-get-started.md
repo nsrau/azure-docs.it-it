@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Esercitazione introduttiva per l&quot;API DocumentDB | Microsoft Docs'
-description: Esercitazione che crea un database online e un&quot;applicazione console in C# con l&quot;API DocumentDB.
+title: 'Azure Cosmos DB: Esercitazione introduttiva per l''API DocumentDB | Microsoft Docs'
+description: Esercitazione che crea un database online e un'applicazione console in C# con l'API DocumentDB.
 keywords: esercitazione su nosql, database online, applicazione console C#
 services: cosmos-db
 documentationcenter: .net
@@ -12,18 +12,20 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/22/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5855b0542ca2ec58f3a24efcc2cf7a96fb92da0f
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 22244cbb85e3d0256b9f495f406942dd2b4b95fc
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: Esercitazione introduttiva per l'API DocumentDB
+<a id="azure-cosmos-db-documentdb-api-getting-started-tutorial" class="xliff"></a>
+
+# Azure Cosmos DB: Esercitazione introduttiva per l'API DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -54,14 +56,18 @@ Successivamente, utilizzare i pulsanti di voti all'inizio o alla fine di questa 
 
 Ecco come procedere.
 
-## <a name="prerequisites"></a>Prerequisiti
+<a id="prerequisites" class="xliff"></a>
+
+## Prerequisiti
 Assicurarsi di disporre di quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
     * In alternativa, per questa esercitazione è possibile usare l'[emulatore Azure Cosmos DB](local-emulator.md).
 * [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passaggio 1: Creare un account di Azure Cosmos DB
+<a id="step-1-create-an-azure-cosmos-db-account" class="xliff"></a>
+
+## Passaggio 1: Creare un account di Azure Cosmos DB
 Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS). Se si usa l'emulatore Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Azure Cosmos DB Emulator](local-emulator.md) (Emulatore Azure Cosmos DB) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -162,7 +168,9 @@ Premere **F5** per eseguire l'applicazione. L'output della finestra della consol
 
 Congratulazioni. La connessione a un account Azure Cosmos DB è stata stabilita. Ora è possibile esaminare l'uso delle risorse di Azure Cosmos DB.  
 
-## <a name="step-4-create-a-database"></a>Passaggio 4: Creare un database
+<a id="step-4-create-a-database" class="xliff"></a>
+
+## Passaggio 4: Creare un database
 Prima di aggiungere il codice per la creazione di un database, aggiungere un metodo helper per la scrittura nella console.
 
 Copiare e incollare il metodo **WriteToConsoleAndPromptToContinue** dopo il metodo **GetStartedDemo**.
@@ -192,7 +200,7 @@ Congratulazioni. La creazione di un database di Azure Cosmos DB è stata complet
 
 ## <a id="CreateColl"></a>Passaggio 5: Creare una raccolta
 > [!WARNING]
-> **CreateDocumentCollectionIfNotExistsAsync** crea una nuova raccolta con velocità effettiva riservata, che presenta implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
+> **CreateDocumentCollectionIfNotExistsAsync** crea una nuova raccolta con velocità effettiva riservata, che presenta implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
@@ -543,7 +551,9 @@ Per ripristinare i riferimenti a DocumentDB .NET SDK in Visual Studio, fare clic
 Per completare la procedura, è sufficiente procedere alla compilazione.
 
 
-## <a name="next-steps"></a>Passaggi successivi
+<a id="next-steps" class="xliff"></a>
+
+## Passaggi successivi
 * Per un'esercitazione su MVC ASP.NET più complessa, vedere [Creare un'applicazione Web con MVC ASP.NET usando Azure Cosmos DB](documentdb-dotnet-application.md).
 * Per la scalabilità e i test delle prestazioni con Azure Cosmos DB, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
 * Informazioni su come [monitorare un account Azure Cosmos DB](monitor-accounts.md).
