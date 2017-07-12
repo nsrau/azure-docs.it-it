@@ -1,6 +1,6 @@
 ---
 title: Creare il primo modulo di Azure IoT Gateway | Microsoft Docs
-description: Creare un modulo e aggiungerlo a un&quot;app di esempio per personalizzare i comportamenti del modulo.
+description: Creare un modulo e aggiungerlo a un'app di esempio per personalizzare i comportamenti del modulo.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,33 +17,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 027597c73d7282ef929363bab904e7d3d423d3d4
-ms.openlocfilehash: db2757015cf8e821cffcfe39bcbd1559c23fc7ed
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5e28422158684c3aaf0ac3fdf5b19c80fbccfb02
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>Lezione 5: creare il primo modulo di Azure IoT Gateway
-Mentre Gateway SDK consente di compilare moduli scritti in Java, .NET o Node.js, questa esercitazione illustra la procedura per la compilazione di un modulo in C.
+<a id="lesson-5-create-your-first-azure-iot-gateway-module" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>Contenuto dell'esercitazione
+# Lezione 5: creare il primo modulo di Azure IoT Gateway
+Mentre Azure IoT Edge consente di compilare moduli scritti in Java, .NET o Node.js, questa esercitazione illustra la procedura per la compilazione di un modulo in C.
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## Contenuto dell'esercitazione
 
 - Compilare ed eseguire l'app di esempio hello_world in Intel NUC.
 - Creare un modulo e compilarlo in Intel NUC.
 - Aggiungere il nuovo modulo all'app di esempio hello_world ed eseguire l'esempio in Intel NUC. Il nuovo modulo stampa i messaggi "hello_world" con un timestamp.
 
-## <a name="what-you-will-learn"></a>Concetti legati all'esercitazione
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Concetti legati all'esercitazione
 
 - Come compilare ed eseguire un'app di esempio in Intel NUC.
 - Come creare un modulo.
 - Come aggiungere un modulo a un'app di esempio.
 
-## <a name="what-you-need"></a>Elementi necessari
+<a id="what-you-need" class="xliff"></a>
 
-L'SDK di Azure IoT Gateway che è stato installato nel computer host.
+## Elementi necessari
 
-## <a name="folder-structure"></a>Struttura di cartelle
+Azure IoT Edge installato nel computer host.
+
+<a id="folder-structure" class="xliff"></a>
+
+## Struttura di cartelle
 
 Nella sottocartella Lezione 5 del codice di esempio, che è stato clonato nella lezione 1, si trovano una cartella `module` e una cartella `sample`.
 
@@ -52,7 +63,9 @@ Nella sottocartella Lezione 5 del codice di esempio, che è stato clonato nella 
 - La cartella `module/my_module` contiene il codice sorgente e lo script per compilare il modulo.
 - La cartella `sample` contiene il codice sorgente e lo script per compilare l'app di esempio.
 
-## <a name="compile-and-run-the-helloworld-sample-app-on-intel-nuc"></a>Compilare ed eseguire l'app di esempio hello_world in Intel NUC
+<a id="compile-and-run-the-helloworld-sample-app-on-intel-nuc" class="xliff"></a>
+
+## Compilare ed eseguire l'app di esempio hello_world in Intel NUC
 
 L'esempio `hello_world` crea un gateway basato sul file `hello_world.json` che specifica i due moduli predefiniti associati all'app. Il gateway registra un messaggio "hello world" in un file ogni 5 secondi. In questa sezione si descrive come compilare ed eseguire l'app `hello_world` con il relativo modulo predefinito.
 
@@ -99,11 +112,13 @@ Per compilare ed eseguire l'app `hello_world`, seguire questi passaggi nel compu
 
    ![run_sample](media/iot-hub-gateway-kit-lessons/lesson5/run_sample.png)
 
-## <a name="create-a-new-module-and-compile-it-on-intel-nuc"></a>Creare un nuovo modulo e compilarlo in Intel NUC
+<a id="create-a-new-module-and-compile-it-on-intel-nuc" class="xliff"></a>
+
+## Creare un nuovo modulo e compilarlo in Intel NUC
 
 I passaggi seguenti illustrano come creare un nuovo modulo e compilarlo in Intel NUC. Il modulo stampa i messaggi con un timestamp al momento della loro ricezione. In questa sezione è possibile creare il primo modulo di gateway personalizzato.
 
-Tutti i moduli dell'SDK di Azure IoT Gateway devono implementare le interfacce seguenti:
+Tutti i moduli Azure IoT Edge devono implementare le interfacce seguenti:
 
    ```C
    pfModule_ParseConfigurationFromJson Module_ParseConfigurationFromJson
@@ -207,7 +222,9 @@ A questo punto si può creare un modulo basato sul modello:
 
    Il comando trasferisce il codice sorgente in Intel NUC ed esegue `build.sh` per compilare il modulo.
 
-## <a name="add-the-module-to-the-helloworld-sample-app-and-run-the-app-on-intel-nuc"></a>Aggiungere il modulo all'app di esempio hello_world ed eseguire l'app in Intel NUC
+<a id="add-the-module-to-the-helloworld-sample-app-and-run-the-app-on-intel-nuc" class="xliff"></a>
+
+## Aggiungere il modulo all'app di esempio hello_world ed eseguire l'app in Intel NUC
 
 Per eseguire questa attività seguire questi passaggi:
 
@@ -274,7 +291,9 @@ Per eseguire questa attività seguire questi passaggi:
 
 A questo punto È ora possibile visualizzare il comportamento di questo nuovo modulo, che stampa semplicemente i messaggi "hello world" con un timestamp, con un risultato diverso dal modulo "hello_world" originale.
 
-## <a name="next-steps"></a>Passaggi successivi
+<a id="next-steps" class="xliff"></a>
+
+## Passaggi successivi
 
 È stato creato un nuovo modulo, che è poi stato aggiunto all'esempio hello_world e l'app di esempio viene eseguita con il nuovo modulo sul gateway. Per altre informazioni sui moduli di Azure IoT Gateway è possibile trovare altri esempi di modulo in: [https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules).
 
