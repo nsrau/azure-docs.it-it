@@ -127,7 +127,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| . | Descrizione |
+| Parametro | Descrizione |
 | --- | --- |
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
@@ -210,7 +210,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
-| . | Descrizione |
+| Parametro | Descrizione |
 | --- | --- |
 | access_token |Token richiesto dall'app. |
 | token_type |È sempre `Bearer`. |
