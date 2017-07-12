@@ -15,15 +15,20 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 41d63ef88e9f0caf3d5f74841ec4670875fdaad1
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: aadbe872dd3384c8d337b432fb3be69422ca322b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="analyze-azure-cdn-usage-patterns"></a>Analizzare i modelli di utilizzo della rete CDN di Azure
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)] La guida seguente riporta la procedura necessaria per visualizzare i report di base tramite il portale di gestione dei profili Verizon. È anche possibile esportare dati analitici nell'archiviazione, nell'hub eventi o nell'analisi log (oms) per i profili Verizon e Akamai [tramite il portale Azure](cdn-log-analysis.md).
+<a id="analyze-azure-cdn-usage-patterns" class="xliff"></a>
+
+# Analizzare i modelli di utilizzo della rete CDN di Azure
+
+[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+
+La guida seguente riporta la procedura necessaria per visualizzare i report di base tramite il portale di gestione dei profili Verizon. È anche possibile esportare dati analitici nell'archiviazione, nell'hub eventi o nell'analisi log (oms) per i profili Verizon e Akamai [tramite il portale Azure](cdn-log-analysis.md).
 
 È possibile visualizzare i modelli di utilizzo per la rete CDN utilizzando i seguenti report:
 
@@ -34,7 +39,9 @@ ms.lasthandoff: 05/11/2017
 * Percentuale riscontri cache
 * Dati trasferiti IPv4/IPV6
 
-## <a name="accessing-core-reports"></a>Accesso ai report di base
+<a id="accessing-core-reports" class="xliff"></a>
+
+## Accesso ai report di base
 1. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci** .
    
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-reports/cdn-manage-btn.png)
@@ -44,7 +51,9 @@ ms.lasthandoff: 05/11/2017
    
     ![Portale di gestione della rete CDN, menu Core Reports (Report di base)](./media/cdn-reports/cdn-core-reports.png)
 
-## <a name="bandwidth"></a>Larghezza di banda
+<a id="bandwidth" class="xliff"></a>
+
+## Larghezza di banda
 Il report della larghezza di banda è costituito da un grafico e da una tabella dati che indicano l'utilizzo della larghezza di banda per HTTP e HTTPS in un periodo di tempo specifico. È possibile visualizzare l'utilizzo della larghezza di banda per tutti i POP CDN o un particolare POP. In questo modo è possibile visualizzare i picchi di traffico e la distribuzione nei POP CDN in Mbps.
 
 * Selezionare Tutti i nodi Edge per visualizzare il traffico proveniente da tutti i nodi o scegliere una regione/nodo specifico dall'elenco a discesa.
@@ -55,7 +64,9 @@ Il report viene aggiornato ogni 5 minuti.
 
 ![Report della larghezza di banda](./media/cdn-reports/cdn-bandwidth.png)
 
-## <a name="data-transferred"></a>Dati trasferiti
+<a id="data-transferred" class="xliff"></a>
+
+## Dati trasferiti
 Il report è costituito da un grafico e da una tabella dati che indicano l'utilizzo del traffico per HTTP e HTTPS in un periodo di tempo specifico. È possibile visualizzare l'utilizzo del traffico per tutti i POP CDN o un particolare POP. In questo modo è possibile visualizzare i picchi di traffico e la distribuzione nei POP CDN in GB.
 
 * Selezionare Tutti i nodi Edge per visualizzare il traffico proveniente da tutti i nodi o scegliere una regione/nodo specifico dall'elenco a discesa.
@@ -66,7 +77,9 @@ Il report viene aggiornato ogni 5 minuti.
 
 ![Report dati trasferiti](./media/cdn-reports/cdn-data-transferred.png)
 
-## <a name="hits-status-codes"></a>Riscontri (codici di stato)
+<a id="hits-status-codes" class="xliff"></a>
+
+## Riscontri (codici di stato)
 Questo report descrive la distribuzione dei codici di stato delle richieste per il contenuto. Tutte le richieste di contenuto genereranno un codice di stato HTTP. Il codice di stato descrive come i POP edge hanno gestito la richiesta. Ad esempio, i codici di stato 2xx indicano che la richiesta è stata servita correttamente a un client, mentre un codice di stato 4xx indica che si è verificato un errore. Per ulteriori informazioni sul codice di stato HTTP, vedere [Codici di stato](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
 
 * Selezionare l'intervallo di date per visualizzare i dati di oggi/questa settimana/questo mese e così via, oppure immettere date personalizzate, quindi scegliere "Vai" per assicurarsi che la selezione venga aggiornata.
@@ -74,12 +87,16 @@ Questo report descrive la distribuzione dei codici di stato delle richieste per 
 
 ![Report riscontri](./media/cdn-reports/cdn-hits.png)
 
-## <a name="cache-statuses"></a>Stati della cache
+<a id="cache-statuses" class="xliff"></a>
+
+## Stati della cache
 Questo report descrive la distribuzione dei riscontri nella cache e i mancati riscontri nella cache per la richiesta del client. Poiché le prestazioni più veloci provengono dai riscontri nella cache, è possibile ottimizzare le velocità di recapito dei dati riducendo al minimo i mancati riscontri nella cache e i riscontri nella cache scaduti. I mancati riscontri nella cache possono essere ridotti mediante la configurazione del server di origine per evitare di assegnare le intestazioni di risposta "no-cache", evitando la memorizzazione nella cache della stringa di query eccetto quando è strettamente necessario ed evitando codici di risposta non memorizzabili nella cache. I riscontri nella cache scaduti possono essere evitati creando una durata max. dell’asset per ridurre al minimo il numero di richieste al server di origine.
 
 ![Report stati della cache](./media/cdn-reports/cdn-cache-statuses.png)
 
-### <a name="main-cache-statuses-include"></a>Gli stati della cache principali includono:
+<a id="main-cache-statuses-include" class="xliff"></a>
+
+### Gli stati della cache principali includono:
 * TCP_HIT: servito dall’Edge. L'oggetto è stato nella cache e non ha superato la durata max.
 * TCP_MISS: servito dall'origine. L'oggetto non era presente nella cache e la risposta è stata inviata nuovamente all'origine.
 * TCP_EXPIRED _MISS: servito dall'origine dopo la riconvalida con l’origine. L'oggetto era nella cache, ma ha superato la durata max. Una riconvalida con l’origine ha causato la sostituzione dell'oggetto nella cache con una nuova risposta dall'origine.
@@ -87,7 +104,9 @@ Questo report descrive la distribuzione dei riscontri nella cache e i mancati ri
 * Selezionare l'intervallo di date per visualizzare i dati di oggi/questa settimana/questo mese e così via, oppure immettere date personalizzate, quindi scegliere "Vai" per assicurarsi che la selezione venga aggiornata.
 * È possibile esportare e scaricare i dati facendo clic sull'icona del foglio di excel che si trova accanto a "Vai".
 
-### <a name="full-list-of-cache-statuses"></a>Elenco completo degli stati della cache
+<a id="full-list-of-cache-statuses" class="xliff"></a>
+
+### Elenco completo degli stati della cache
 * TCP_HIT: questo stato viene segnalato quando una richiesta viene gestita direttamente dal POP al client. Un asset viene servito immediatamente da un POP quando viene memorizzato nella cache nel POP più vicino al client e ha un valore TTL (time-to-live) valido. Il TTL viene determinato tramite le seguenti intestazioni di risposta:
   
   * Cache-Control: s-maxage
@@ -106,7 +125,9 @@ Questo report descrive la distribuzione dei riscontri nella cache e i mancati ri
 * PARTIAL_HIT TCP_: questo stato viene segnalato quando un richiesta di un intervallo di byte genera un riscontro per un asset parzialmente memorizzata nella cache. L'intervallo di byte richiesto viene immediatamente servito dal POP al client.
 * UNCACHEABLE: questo stato viene segnalato quando le intestazioni  Cache-Control ed Expires di un asset indicano che non deve essere memorizzato nella cache in un POP o dal client HTTP. Questi tipi di richieste vengono gestiti dal server di origine
 
-## <a name="cache-hit-ratio"></a>Percentuale riscontri cache
+<a id="cache-hit-ratio" class="xliff"></a>
+
+## Percentuale riscontri cache
 Questo report indica la percentuale di richieste memorizzate nella cache che sono state servite direttamente dalla cache.
 
 Il report fornisce i dettagli seguenti:
@@ -128,7 +149,9 @@ La formula è: (TCP_ HIT/(TCP_ HIT+TCP_MISS))*100
 
 ![Report percentuale riscontri cache](./media/cdn-reports/cdn-cache-hit-ratio.png)
 
-## <a name="ipv4ipv6-data-transferred"></a>Dati trasferiti IPv4/IPV6
+<a id="ipv4ipv6-data-transferred" class="xliff"></a>
+
+## Dati trasferiti IPv4/IPV6
 Questo report mostra la distribuzione dell’utilizzo del traffico in IPV4 e IPV6.
 
 ![Dati trasferiti IPv4/IPV6](./media/cdn-reports/cdn-ipv4-ipv6.png)
@@ -136,7 +159,9 @@ Questo report mostra la distribuzione dell’utilizzo del traffico in IPV4 e IPV
 * Selezionare l'intervallo di date per visualizzare i dati di oggi/questa settimana/questo mese e così via, oppure immettere date personalizzate.
 * Quindi, fare clic su "Vai" per assicurarsi che la selezione venga aggiornata.
 
-## <a name="considerations"></a>Considerazioni
+<a id="considerations" class="xliff"></a>
+
+## Considerazioni
 I report possono essere generati solo negli ultimi 18 mesi.
 
 
