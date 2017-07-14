@@ -23,24 +23,21 @@ ms.contentlocale: it-it
 
 ---
 
-<a id="call-the-microsoft-graph-api-from-an-android-app" class="xliff"></a>
-
 # Chiamare l'API Microsoft Graph da un'app Android
+<a id="call-the-microsoft-graph-api-from-an-android-app" class="xliff"></a>
 
 Questa guida dimostra come un'applicazione Android nativa può ottenere un token di accesso e chiamare l'API Microsoft Graph o altre API che richiedono token di accesso dall'endpoint di Azure Active Directory v2.
 
 Al termine di questa guida, l'applicazione sarà in grado di chiamare un'API protetta usando sia account personali (ad esempio, outlook.com, live.com e altri) sia account aziendali o di istituti di istruzione di proprietà di aziende o organizzazioni con Azure Active Directory.  
 
-<a id="how-this-sample-works" class="xliff"></a>
-
 ### Come interpretare questo esempio
+<a id="how-this-sample-works" class="xliff"></a>
 ![Come interpretare questo esempio](media/active-directory-mobileanddesktopapp-android-intro/android-intro.png)
 
 L'esempio creato in questa guida si basa su uno scenario in cui viene usata un'applicazione Android per eseguire query su un'API Web che accetta token dall'endpoint di Azure Active Directory v2, in questo caso l'API Microsoft Graph. Per questo scenario, viene aggiunto un token a richieste HTTP tramite l'intestazione di autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL).
 
-<a id="pre-requisites" class="xliff"></a>
-
 ### Prerequisiti
+<a id="pre-requisites" class="xliff"></a>
 * Questa installazione guidata è basata su Android Studio, ma è accettabile anche qualsiasi altro ambiente di sviluppo di applicazioni Android. 
 * È necessario Android SDK 21 o versione successiva (è consigliato SDK 25).
 * Per questa versione di Microsoft Authentication Library (MSAL) per Android è necessario Google Chrome o un Web browser che usa schede personalizzate.
@@ -48,9 +45,8 @@ L'esempio creato in questa guida si basa su uno scenario in cui viene usata un'a
 > Nota: Google Chrome non è incluso in Visual Studio Emulator for Android. È consigliabile testare questo codice in un emulatore con API 25 o in un'immagine con API 21 o versione successiva in cui è installato Google Chrome.
 
 
-<a id="how-to-handle-token-acquisition-to-access-a-protected-web-api" class="xliff"></a>
-
 ### Come gestire l'acquisizione dei token per accedere a un'API Web protetta
+<a id="how-to-handle-token-acquisition-to-access-a-protected-web-api" class="xliff"></a>
 
 Dopo che l'utente ha eseguito l'autenticazione, l'applicazione di esempio riceve un token che può essere usato per eseguire query nell'API Microsoft Graph o in un'API Web protetta da Microsoft Azure Active Directory v2.
 
@@ -58,9 +54,8 @@ API come Microsoft Graph richiedono un token di accesso per consentire l'accesso
 
 La memorizzazione nella cache e l'aggiornamento dei token di accesso vengono gestiti dalla libreria MSAL e non devono quindi essere effettuati dall'applicazione.
 
-<a id="libraries" class="xliff"></a>
-
 ### Librerie
+<a id="libraries" class="xliff"></a>
 
 Questa guida usa le librerie seguenti:
 
