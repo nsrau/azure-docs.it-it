@@ -22,9 +22,8 @@ ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
-
 # Iniziare a usare Apache Kafka (anteprima) in HDInsight
+<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
 
 Questo articolo illustra come creare e usare un cluster [Apache Kafka](https://kafka.apache.org) in Azure HDInsight. Kafka è una piattaforma di streaming distribuita open source disponibile con HDInsight. Viene spesso usata come broker di messaggi perché mette a disposizione funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione.
 
@@ -33,17 +32,15 @@ Questo articolo illustra come creare e usare un cluster [Apache Kafka](https://k
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="prerequisites" class="xliff"></a>
-
 ## Prerequisiti
+<a id="prerequisites" class="xliff"></a>
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o equivalente, ad esempio OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
 
-<a id="create-a-kafka-cluster" class="xliff"></a>
-
 ## Creare un cluster Kafka
+<a id="create-a-kafka-cluster" class="xliff"></a>
 
 Per creare un cluster Kafka in HDInsight seguire questa procedura:
 
@@ -101,9 +98,8 @@ Per creare un cluster Kafka in HDInsight seguire questa procedura:
     > [!NOTE]
     > La creazione del cluster può richiedere fino a 20 minuti.
 
-<a id="connect-to-the-cluster" class="xliff"></a>
-
 ## Connettersi al cluster
+<a id="connect-to-the-cluster" class="xliff"></a>
 
 Dal client usare SSH per connettersi al cluster:
 
@@ -151,9 +147,8 @@ Seguire questa procedura per creare le variabili di ambiente che contengono le i
     >
     > È necessario recuperare le informazioni sugli host Zookeeper e broker poco prima di usarle, per assicurare che siano valide.
 
-<a id="create-a-topic" class="xliff"></a>
-
 ## Creare un argomento
+<a id="create-a-topic" class="xliff"></a>
 
 Kafka archivia i flussi di dati in categorie denominate *argomenti*. Da una connessione SSH a un nodo head del cluster, usare uno script fornito con Kafka per creare un argomento:
 
@@ -169,9 +164,8 @@ Questo comando si connette a Zookeeper usando le informazioni sull'host archivia
 
 L'output di questo comando elenca gli argomenti Kafka, incluso l'argomento **test**.
 
-<a id="produce-and-consume-records" class="xliff"></a>
-
 ## Produrre e utilizzare record
+<a id="produce-and-consume-records" class="xliff"></a>
 
 Kafka archivia i *record* negli argomenti. I record vengono prodotti da *producer* e usati da *consumer*. I producer recuperano i record da *broker* di Kafka. Ogni nodo del ruolo di lavoro nel cluster HDInsight è un broker Kafka.
 
@@ -195,9 +189,8 @@ Seguire questa procedura per archiviare i record nell'argomento test creato in p
 
 3. Usare __Ctrl + C__ per arrestare il consumer.
 
-<a id="producer-and-consumer-api" class="xliff"></a>
-
 ## API per producer e consumer
+<a id="producer-and-consumer-api" class="xliff"></a>
 
 È anche possibile produrre e usare record a livello di codice con le [API Kafka](http://kafka.apache.org/documentation#api). Seguire questa procedura per scaricare e compilare un producer e un consumer basati su Java:
 
@@ -246,9 +239,8 @@ Seguire questa procedura per archiviare i record nell'argomento test creato in p
 
 6. Usare __Ctrl + C__ per uscire dal consumer.
 
-<a id="multiple-consumers" class="xliff"></a>
-
 ### Consumer multipli
+<a id="multiple-consumers" class="xliff"></a>
 
 Un concetto importante con Kafka è che i consumer usano un gruppo di consumer definito da un ID gruppo durante la lettura dei record. L'uso dello stesso gruppo con più consumer consente di ottenere operazioni di lettura con bilanciamento del carico da un argomento. Ogni consumer nel gruppo riceve una parte dei record. Per verificare il funzionamento del processo, seguire questa procedura:
 
@@ -270,9 +262,8 @@ Il consumo da parte dei client dello stesso gruppo viene gestito tramite le part
 
 I record vengono archiviati in Kafka nell'ordine in cui vengono ricevuti in una partizione. Per ottenere il recapito dei record nell'ordine *all'interno di una partizione*, creare un gruppo di consumer con un numero di istanze corrispondente al numero di partizioni. Per ottenere il recapito dei record nell'ordine *all'interno dell'argomento*, creare un gruppo di consumer con una sola istanza.
 
-<a id="streaming-api" class="xliff"></a>
-
 ## API di streaming
+<a id="streaming-api" class="xliff"></a>
 
 L'API di streaming è stata aggiunta a Kafka nella versione 0.10.0; le versioni precedenti si basano su Apache Spark o Storm per l'elaborazione dei flussi.
 
@@ -347,21 +338,18 @@ L'API di streaming è stata aggiunta a Kafka nella versione 0.10.0; le versioni 
 
 7. Usare __Ctrl + C__ per uscire dal consumer, quindi usare il comando `fg` per riportare in primo piano l'attività di streaming in background. Usare __Ctrl + C__ anche per uscire dall'attività.
 
-<a id="delete-the-cluster" class="xliff"></a>
-
 ## Eliminazione del cluster
+<a id="delete-the-cluster" class="xliff"></a>
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="troubleshoot" class="xliff"></a>
-
 ## Risoluzione dei problemi
+<a id="troubleshoot" class="xliff"></a>
 
 Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-<a id="next-steps" class="xliff"></a>
-
 ## Passaggi successivi
+<a id="next-steps" class="xliff"></a>
 
 In questo documento sono state illustrate le nozioni di base per l'uso di Apache Kafka in HDInsight. Per altre informazioni sull'uso di Kafka, vedere:
 

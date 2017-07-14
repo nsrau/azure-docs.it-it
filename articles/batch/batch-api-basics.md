@@ -23,9 +23,8 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="develop-large-scale-parallel-compute-solutions-with-batch" class="xliff"></a>
-
 # Sviluppare soluzioni di calcolo parallele su larga scala con Batch
+<a id="develop-large-scale-parallel-compute-solutions-with-batch" class="xliff"></a>
 
 Questa panoramica dei componenti di base del servizio Azure Batch illustra le funzionalità e le risorse primarie del servizio che gli sviluppatori di Batch possono usare per compilare soluzioni di calcolo parallele su larga scala.
 
@@ -36,9 +35,8 @@ Si usano molte delle risorse e delle funzionalità illustrate in questo articolo
 >
 >
 
-<a id="batch-service-workflow" class="xliff"></a>
-
 ## Flusso di lavoro servizio Batch
+<a id="batch-service-workflow" class="xliff"></a>
 Il flusso di lavoro generale seguente è proprio di quasi tutte le applicazioni e i servizi che usano il servizio Batch per l'elaborazione di carichi di lavoro paralleli:
 
 1. Caricare i **file di dati** da elaborare in un account di [archiviazione di Azure][azure_storage]. Batch include il supporto predefinito per accedere all'archivio BLOB di Azure e le attività possono scaricare questi file nei [nodi di calcolo](#compute-node) quando vengono eseguite.
@@ -55,9 +53,8 @@ Le sezioni seguenti illustrano queste e altre risorse di Batch che abilitano lo 
 >
 >
 
-<a id="batch-service-resources" class="xliff"></a>
-
 ## Risorse del servizio Batch
+<a id="batch-service-resources" class="xliff"></a>
 Alcune delle risorse seguenti, ovvero account, nodi di calcolo, pool, processi e attività, sono richieste da tutte le soluzioni che usano il servizio Batch. Altre risorse, come le pianificazioni di processi e i pacchetti dell'applicazione, sono funzionalità utili ma facoltative.
 
 * [Account](#account)
@@ -75,9 +72,8 @@ Alcune delle risorse seguenti, ovvero account, nodi di calcolo, pool, processi e
   * [Dipendenze dell'attività](#task-dependencies)
 * [Pacchetti dell'applicazione](#application-packages)
 
-<a id="account" class="xliff"></a>
-
 ## Account
+<a id="account" class="xliff"></a>
 Un account Batch è un'entità identificata in modo univoco all'interno del servizio Batch. Tutte le operazioni di elaborazione sono associata a un account Batch.
 
 È possibile creare un account Batch di Azure usando il [portale di Azure](batch-account-create-portal.md) o a livello di codice, ad esempio con la [libreria di gestione .NET per Batch](batch-management-dotnet.md). Quando si crea l'account, è possibile associarvi un account di archiviazione di Azure.
@@ -109,9 +105,8 @@ Per decidere quale configurazione dell'account usare, considerare ciò che è pi
 >
 
 
-<a id="compute-node" class="xliff"></a>
-
 ## Nodo di calcolo
+<a id="compute-node" class="xliff"></a>
 Un nodo di calcolo è una macchina virtuale (VM) di Azure o una VM del servizio cloud dedicata all'elaborazione di una parte del carico di lavoro dell'applicazione. Le dimensioni di un nodo determinano il numero di core CPU, la capacità di memoria e le dimensioni del file system locale allocati al nodo. È possibile creare pool di nodi Windows o Linux usando le immagini del Marketplace per servizi cloud o macchine virtuali di Azure. Per altre informazioni su queste opzioni, vedere la sezione [Pool](#pool) seguente.
 
 I nodi possono eseguire qualsiasi eseguibile o script supportato dall'ambiente del sistema operativo del nodo, inclusi \*.exe, \*.cmd, \*.bat e script di PowerShell per Windows e file binari, shell e script di Python per Linux.
@@ -122,9 +117,8 @@ Tutti i nodi di Calcolo in Batch includono anche:
 * **firewall** configurate per controllare l'accesso.
 * [Accesso remoto](#connecting-to-compute-nodes) ai nodi Windows (Remote Desktop Protocol (RDP)) e Linux (Secure Shell (SSH)).
 
-<a id="pool" class="xliff"></a>
-
 ## pool
+<a id="pool" class="xliff"></a>
 Un pool è una raccolta di nodi in cui viene eseguita l'applicazione. Il pool può essere creato manualmente dall'utente o automaticamente dal servizio Batch quando si specifica il lavoro da eseguire. È possibile creare e gestire un pool che soddisfi i requisiti relativi alle risorse dell'applicazione. Un pool può essere usato solo dall'account Batch in cui è stato creato. Un account Batch può avere più pool.
 
 I pool di Azure Batch sono basati sulla piattaforma di calcolo Azure. Offrono allocazione su larga scala, installazione di applicazioni, distribuzione dei dati, monitoraggio dell'integrità e regolazione flessibile del numero di nodi di calcolo in un pool ([ridimensionamento](#scaling-compute-resources)).
@@ -150,9 +144,8 @@ Ognuna di queste sezioni è descritta in modo più dettagliato nelle sezioni seg
 >
 >Gli account Batch creati con la configurazione Sottoscrizione utente non sono limitati dalle quote del servizio Batch. Condividono invece la quota di core per la sottoscrizione specificata. Per altre informazioni, vedere [Limiti relativi a Macchine virtuali](../azure-subscription-service-limits.md#virtual-machines-limits) in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
-<a id="compute-node-operating-system-and-version" class="xliff"></a>
-
 ### Versione e sistema operativo dei nodi di calcolo
+<a id="compute-node-operating-system-and-version" class="xliff"></a>
 
 Quando si crea un pool di Batch, è possibile specificare la configurazione delle macchine virtuali di Azure e il tipo di sistema operativo da eseguire in ogni nodo di calcolo nel pool. I due tipi di configurazioni disponibili in Batch sono:
 
@@ -170,9 +163,8 @@ Quando si crea un pool di Batch, è possibile specificare la configurazione dell
 
 Vedere la sezione [Account](#account) per informazioni sull'impostazione della modalità di allocazione dei pool quando si crea un account Batch.
 
-<a id="custom-images-for-virtual-machine-pools" class="xliff"></a>
-
 #### Immagini personalizzate per pool di macchine virtuali
+<a id="custom-images-for-virtual-machine-pools" class="xliff"></a>
 
 Per usare immagini personalizzate per i pool di macchine virtuali, creare l'account Batch con la configurazione dell'account Sottoscrizione utente. Con questa configurazione, i pool di Batch vengono allocati nella sottoscrizione in cui si trova l'account. Vedere la sezione [Account](#account) per informazioni sull'impostazione della modalità di allocazione dei pool quando si crea un account Batch.
 
@@ -199,9 +191,8 @@ Per creare un pool da un'immagine personalizzata tramite il portale di Azure:
 6. Per verificare se un pool è basato su un'immagine personalizzata, vedere la proprietà **Sistema operativo** nella sezione di riepilogo delle risorse del pannello **Pool**. Il valore di questa proprietà deve essere **Immagine di macchina virtuale personalizzata**.
 7. Tutti i dischi rigidi virtuali personalizzati associati a un pool vengono visualizzati nel pannello **Proprietà** del pool.
 
-<a id="compute-node-type-and-target-number-of-nodes" class="xliff"></a>
-
 ### Tipo di nodo di calcolo e numero di nodi di destinazione
+<a id="compute-node-type-and-target-number-of-nodes" class="xliff"></a>
 
 Quando si crea un pool, è possibile specificare i tipi di nodi di calcolo desiderati e il numero di destinazione di ognuno. I due tipi di nodi di calcolo sono i seguenti:
 
@@ -219,9 +210,8 @@ Il numero di nodi di calcolo viene definito *numero di destinazione*, perché in
 
 Per informazioni sui prezzi per i nodi di calcolo dedicati e con priorità bassa, vedere [Prezzi di Batch](https://azure.microsoft.com/pricing/details/batch/).
 
-<a id="size-of-the-compute-nodes" class="xliff"></a>
-
 ### Dimensioni dei nodi di calcolo
+<a id="size-of-the-compute-nodes" class="xliff"></a>
 
 **Cloud Services Configuration** (Configurazione servizi cloud) sono elencate in [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md). Batch supporta tutte le dimensioni dei servizi cloud tranne `ExtraSmall`, `STANDARD_A1_V2` e `STANDARD_A2_V2`.
 
@@ -231,15 +221,13 @@ Quando si seleziona una dimensione per il nodo di calcolo, tenere in considerazi
 
 Tutti i nodi in un pool devono hanno le stesse dimensioni. Se si prevede di eseguire applicazioni con requisiti di sistema e/o livelli di carico diversi, è consigliabile usare pool separati.
 
-<a id="scaling-policy" class="xliff"></a>
-
 ### Criteri di ridimensionamento
+<a id="scaling-policy" class="xliff"></a>
 
 Per carichi di lavoro dinamici, è possibile scrivere e applicare una [formula di ridimensionamento automatico](#scaling-compute-resources) a un pool. Il servizio Batch valuta periodicamente la formula e rettifica il numero di nodi nel pool in base a vari parametri relativi a pool, processi e attività specificati.
 
-<a id="task-scheduling-policy" class="xliff"></a>
-
 ### Criteri di pianificazione attività
+<a id="task-scheduling-policy" class="xliff"></a>
 
 L'opzione di configurazione [Numero massimo attività per nodo](batch-parallel-node-tasks.md) determina il numero massimo di attività che è possibile eseguire in parallelo in ogni nodo di calcolo del pool.
 
@@ -247,9 +235,8 @@ La configurazione predefinita specifica che viene eseguita una sola attività al
 
 È anche possibile specificare un *tipo di riempimento* che determina se Batch distribuisce le attività in modo uniforme a tutti i nodi di un pool o se satura ogni nodo con il numero massimo di attività prima di assegnarle ad altri nodi.
 
-<a id="communication-status-for-compute-nodes" class="xliff"></a>
-
 ### Stato delle comunicazioni dei nodi di calcolo
+<a id="communication-status-for-compute-nodes" class="xliff"></a>
 
 Nella maggior parte degli scenari le attività funzionano in modo indipendente e non devono comunicare tra loro. È tuttavia possibile che siano presenti applicazioni in cui le attività devono comunicare, ad esempio negli [scenari MPI](batch-mpi.md).
 
@@ -257,28 +244,24 @@ Nella maggior parte degli scenari le attività funzionano in modo indipendente e
 
 Si noti che l'abilitazione della comunicazione tra nodi ha effetto anche sul posizionamento dei nodi nel cluster e potrebbe limitare il numero massimo di nodi in un pool a causa di restrizioni relative alla distribuzione. Se l'applicazione non richiede la comunicazione tra nodi, il servizio Batch può allocare al pool un numero potenzialmente elevato di nodi da diversi cluster e data center per consentire una maggiore capacità di elaborazione parallela.
 
-<a id="start-tasks-for-compute-nodes" class="xliff"></a>
-
 ### Attività di avvio per i nodi di calcolo
+<a id="start-tasks-for-compute-nodes" class="xliff"></a>
 
 L' *attività di avvio* facoltativa viene eseguita in ogni nodo aggiunto al pool e ogni volta che si riavvia o si ricrea l'immagine del nodo. L'attività di avvio è utile soprattutto per preparare i nodi di calcolo per l'esecuzione di attività, ad esempio l'installazione delle applicazioni eseguite dalle attività nei nodi di calcolo.
 
-<a id="application-packages" class="xliff"></a>
-
 ### Pacchetti dell'applicazione
+<a id="application-packages" class="xliff"></a>
 
 È possibile specificare [pacchetti dell'applicazione](#application-packages) da distribuire nei nodi di calcolo del pool. I pacchetti dell'applicazione consentono una distribuzione e un controllo delle versioni più semplici delle applicazioni eseguite dalle attività. I pacchetti dell'applicazione specificati per un pool vengono installati in ogni nodo di calcolo aggiunto al pool e ogni volta che un nodo viene riavviato o ne viene ricreata l'immagine. I pacchetti dell'applicazione non sono attualmente supportati nei nodi di calcolo Linux.
 
-<a id="network-configuration" class="xliff"></a>
-
 ### Network configuration
+<a id="network-configuration" class="xliff"></a>
 
 È possibile specificare la subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure in cui devono essere creati i nodi di calcolo del pool. Per altre informazioni, vedere la sezione [Pool della configurazione di rete](#pool-network-configuration).
 
 
-<a id="job" class="xliff"></a>
-
 ## Processo
+<a id="job" class="xliff"></a>
 Un processo è una raccolta di attività. Gestisce la modalità di esecuzione dei calcoli da parte delle attività nei nodi di calcolo di un pool.
 
 * Il processo specifica il **pool** in cui eseguire il lavoro. È possibile creare un nuovo pool per ogni processo o usare un pool per più processi. È possibile creare un pool per ogni processo associato a una pianificazione o per tutti i processi associati a una pianificazione.
@@ -293,23 +276,20 @@ Un processo è una raccolta di attività. Gestisce la modalità di esecuzione de
 
     Si noti che il servizio Batch considera un processo *senza* attività quando ha tutte le relative attività completate. Di conseguenza, questa opzione viene usata più comunemente con un' [attività del gestore di processi](#job-manager-task). Se si vuole usare la chiusura automatica di processi senza un gestore di processi, è necessario impostare inizialmente la proprietà **onAllTasksComplete** di un nuovo processo su *noaction*, quindi impostarlo su *terminatejob* solo dopo aver completato l'aggiunta di attività al processo.
 
-<a id="job-priority" class="xliff"></a>
-
 ### Priorità del processo
+<a id="job-priority" class="xliff"></a>
 È possibile assegnare una priorità ai processi creati in Batch. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di programmazione dei processi in un account, da non confondere con un [processo pianificato](#scheduled-jobs). I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. Per aggiornare la priorità di un processo richiamare l'operazione [Aggiornare le proprietà di un processo][rest_update_job] (Batch REST) o modificare la proprietà [CloudJob.Priority][net_cloudjob_priority] (Batch .NET).
 
 All'interno dello stesso account i processi con priorità più alta hanno precedenza di pianificazione rispetto ai processi con priorità inferiori. Un processo con un valore di priorità più elevato in un account non ha tale precedenza di pianificazione rispetto a un altro processo con un valore di priorità inferiore in un account diverso.
 
 La pianificazione di attività dei pool è indipendente. Tra pool diversi, non è garantito che un processo con priorità più elevato venga pianificato per primo se il relativo pool associato non ha un numero sufficiente di nodi inattivi. Nello stesso pool i processi con lo stesso livello di priorità hanno la stessa probabilità di essere pianificati.
 
-<a id="scheduled-jobs" class="xliff"></a>
-
 ### Scheduled jobs
+<a id="scheduled-jobs" class="xliff"></a>
 Le [programmazioni dei processi][rest_job_schedules] consentono di creare processi ricorrenti nel servizio Batch. Una pianificazione del processo specifica quando eseguire i processi e include le specifiche per i processi da eseguire. È possibile specificare la durata della pianificazione, per quanto tempo e quando è effettiva la pianificazione, e con quale frequenza vengono creati i processi durante quell'intervallo di tempo.
 
-<a id="task" class="xliff"></a>
-
 ## Attività
+<a id="task" class="xliff"></a>
 Un'attività è un'unità di calcolo che viene associata a un processo e viene eseguita su un nodo. Le attività vengono assegnate a un nodo per l'esecuzione o vengono accodate fino a quando non diventa disponibile un nodo. In parole semplici, un'attività esegue uno o più programmi o script in un nodo di calcolo per eseguire le operazioni necessarie.
 
 Quando si crea un'attività, è possibile specificare:
@@ -336,9 +316,8 @@ Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il
 * [Attività a istanze multiple (MPI)](#multi-instance-tasks)
 * [Dipendenze dell'attività](#task-dependencies)
 
-<a id="start-task" class="xliff"></a>
-
 ### Attività di avvio
+<a id="start-task" class="xliff"></a>
 Associando un' **attività di avvio** a un pool, è possibile preparare l'ambiente operativo dei rispettivi nodi. È ad esempio possibile eseguire azioni quali l'installazione delle applicazioni che vengono eseguite dalle attività o l'avvio dei processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool e in cui viene riavviato o ne viene ricreata l'immagine.
 
 Il vantaggio principale dell'attività di avvio consiste nel fatto che può contenere tutte le informazioni necessarie per configurare un nodo di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività. Pertanto, l'aumento del numero di nodi in un pool è semplice quanto specificare il nuovo numero di nodi di destinazione. L'attività di avvio fornisce al servizio Batch le informazioni necessarie per configurare i nuovi nodi e prepararli per l'accettazione delle attività.
@@ -363,9 +342,8 @@ Se si aggiunge o si aggiorna l'attività di avvio per un pool esistente, è nece
 >
 >
 
-<a id="job-manager-task" class="xliff"></a>
-
 ### Attività di gestione dei processi
+<a id="job-manager-task" class="xliff"></a>
 Si usa in genere un' **attività del gestore di processi** per controllare e/o monitorare l'esecuzione dei processi, ad esempio per creare e inviare le attività per un processo, determinare le attività aggiuntive da eseguire e stabilire quando il lavoro è stato completato. Un'attività del gestore di processi, tuttavia, non è limitata a queste attività. Si tratta di un'attività completa, che consente di eseguire qualsiasi azione necessaria per il processo. Un'attività del gestore di processi può ad esempio scaricare un file specificato come parametro, analizzare il contenuto del file e inviare attività aggiuntive in base a quel contenuto.
 
 Un'attività di gestione dei processi viene avviata prima di tutte le altre attività Fornisce le funzionalità seguenti:
@@ -377,9 +355,8 @@ Un'attività di gestione dei processi viene avviata prima di tutte le altre atti
 * A questa attività viene assegnata la priorità più alta quando deve essere riavviata. Se un nodo inattivo non è disponibile, il servizio Batch può terminare una delle altre attività in esecuzione nel pool per consentire l'esecuzione dell'attività del gestore di processi.
 * Un'attività del gestore di processi in un processo non ha la priorità sulle attività di altri processi. Tra i processi vengono rispettate solo le priorità a livello di processo.
 
-<a id="job-preparation-and-release-tasks" class="xliff"></a>
-
 ### Attività di preparazione e rilascio dei processi
+<a id="job-preparation-and-release-tasks" class="xliff"></a>
 Il servizio Batch offre attività di preparazione dei processi per la configurazione dell'esecuzione pre-processo. Le attività di rilascio dei processi vengono usate per manutenzione o pulizia post-processo.
 
 * **Attività di preparazione del processo**: viene eseguita in tutti i nodi di calcolo pianificati per l'esecuzione di attività, prima dell'esecuzione di qualsiasi altra attività di un processo. Per copiare i dati condivisi da tutte le attività, ma univoci per il processo, ad esempio, è possibile usare l'attività di preparazione del processo.
@@ -389,16 +366,14 @@ Sia le attività di preparazione del processo sia quelle di rilascio del process
 
 Per altre informazioni sulle attività di preparazione e rilascio dei processi, vedere [Eseguire attività di preparazione e completamento dei processi nei nodi di calcolo di Azure Batch](batch-job-prep-release.md).
 
-<a id="multi-instance-task" class="xliff"></a>
-
 ### Attività a istanze multiple
+<a id="multi-instance-task" class="xliff"></a>
 Un' [attività a istanze multiple](batch-mpi.md) è un'attività configurata per l'esecuzione contemporanea in più nodi di calcolo. Con le attività a istanze multiple è possibile abilitare scenari di tipo che richiedono un gruppo di nodi di calcolo allocati insieme per elaborare un singolo carico di lavoro, ad esempio MPI (Message Passing Interface).
 
 Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando la libreria Batch .NET, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](batch-mpi.md).
 
-<a id="task-dependencies" class="xliff"></a>
-
 ### Dipendenze dell'attività
+<a id="task-dependencies" class="xliff"></a>
 Le [relazioni tra attività](batch-task-dependencies.md), come suggerito dal nome, consentono di specificare che un'attività dipende dal completamento di altre attività prima della rispettiva esecuzione. Questa funzionalità fornisce il supporto nelle situazioni in cui un'attività di tipo "downstream" utilizza l'output di un'attività di tipo "upstream" oppure quando un'attività upstream esegue un'inizializzazione richiesta da un'attività downstream. Per usare questa funzionalità, prima è necessario abilitare le relazioni tra attività nel processo batch. Per ogni attività che dipende da un'altra (o da più altre), specificare quindi le attività da cui dipende tale attività.
 
 Con le relazioni tra attività, è possibile configurare scenari come i seguenti:
@@ -409,9 +384,8 @@ Con le relazioni tra attività, è possibile configurare scenari come i seguenti
 
 Vedere [Relazioni tra attività in Azure Batch](batch-task-dependencies.md) e l'esempio di codice [TaskDependencies][github_sample_taskdeps] nel repository [azure-batch-samples][github_samples] in GitHub per altri dettagli su questa funzionalità.
 
-<a id="environment-settings-for-tasks" class="xliff"></a>
-
 ## Impostazioni di ambiente per le attività
+<a id="environment-settings-for-tasks" class="xliff"></a>
 Ogni attività eseguita dal servizio Batch ha accesso a variabili di ambiente che imposta sui nodi di calcolo. Sono incluse variabili di ambiente definite dal servizio Batch ([service-defined][msdn_env_vars]) e variabili di ambiente personalizzate che è possibile definire per le attività. Le applicazioni e gli script eseguiti dalle attività hanno accesso a queste variabili di ambiente durante l'esecuzione.
 
 È possibile impostare variabili di ambiente personalizzate a livello di attività o di processo popolando le proprietà delle *impostazioni di ambiente* per queste entità. Vedere ad esempio l'operazione [Aggiungere un'attività a un processo][rest_add_task] (API Batch REST) o le proprietà [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] in Batch .NET.
@@ -420,9 +394,8 @@ L'applicazione o il servizio client può ottenere le variabili di ambiente di un
 
 È possibile trovare un elenco completo di tutte le variabili di ambiente definite dal servizio in [Compute node environment variables][msdn_env_vars] (Variabili di ambiente dei nodi di calcolo).
 
-<a id="files-and-directories" class="xliff"></a>
-
 ## File e directory
+<a id="files-and-directories" class="xliff"></a>
 Ogni attività ha una *directory di lavoro* in cui crea zero o più file e directory. Questa directory di lavoro può essere usata per archiviare il programma eseguito dall'attività, i dati elaborati e l'output dell'elaborazione eseguita dall'attività. Tutti i file e le directory di un'attività sono proprietà dell'utente dell'attività.
 
 Il servizio Batch espone una parte del file system in un nodo come *directory radice*. Le attività possono accedere a questa directory facendo riferimento alla variabile di ambiente `AZ_BATCH_NODE_ROOT_DIR` . Per altre informazioni sull'uso delle variabili di ambiente, vedere [Impostazioni di ambiente per le attività](#environment-settings-for-tasks).
@@ -444,9 +417,8 @@ La directory radice contiene la struttura di directory seguente:
 >
 >
 
-<a id="application-packages" class="xliff"></a>
-
 ## Pacchetti dell'applicazione
+<a id="application-packages" class="xliff"></a>
 La funzionalità relativa ai [pacchetti dell'applicazione](batch-application-packages.md) consente di gestire e distribuire con facilità le applicazioni ai nodi di calcolo nei pool. È possibile caricare e gestire più versioni delle applicazioni eseguite dalle attività, inclusi i relativi file binari e i file di supporto, quindi distribuire automaticamente una o più applicazioni nei nodi di calcolo del pool.
 
 È possibile specificare i pacchetti dell'applicazione a livello di pool e di attività. Quando si specificano pacchetti dell'applicazione del pool, l'applicazione viene distribuita in ogni nodo del pool. Quando si specificano pacchetti dell'applicazione di attività, l'applicazione viene distribuita solo ai nodi pianificati per eseguire almeno una delle attività del processo, appena prima dell'esecuzione della riga di comando dell'attività.
@@ -460,9 +432,8 @@ Per altre informazioni sulla funzionalità relativa ai pacchetti dell'applicazio
 >
 >
 
-<a id="pool-and-compute-node-lifetime" class="xliff"></a>
-
 ## Durata del pool e dei nodi di calcolo
+<a id="pool-and-compute-node-lifetime" class="xliff"></a>
 Quando si progetta una soluzione Azure Batch, è necessario prendere una decisione a livello di progettazione per stabilire come e quando vengono creati i pool e per quanto tempo vengono mantenuti disponibili i nodi di calcolo all'interno dei pool.
 
 Da un lato, è possibile creare un pool per ogni processo inviato ed eliminare il pool al termine dell'esecuzione dell'attività. In questo modo è possibile massimizzare l'utilizzo, perché i nodi vengono allocati solo quando è necessario e vengono arrestati non appena sono inattivi. Mentre ciò significa che il processo deve attendere l'allocazione dei nodi, è importante notare che le attività vengono pianificate per l'esecuzione non appena i nodi risultano disponibili e allocati individualmente e dopo il completamento dell'attività di avvio. Il servizio Batch *not* attende che tutti i nodi di un pool siano disponibili prima di assegnare le attività ai nodi, assicurando quindi il massimo utilizzo di tutti i nodi disponibili.
@@ -471,9 +442,8 @@ Dall'altro lato, se l'avvio immediato dei processi ha la priorità più alta, è
 
 Un approccio combinato viene in genere usato per la gestione di un carico variabile ma continuo. È possibile inviare più processi a un pool, ma aumentare o ridurre il numero di nodi in base al carico del processo. Vedere [Ridimensionamento delle risorse di calcolo](#scaling-compute-resources) nella prossima sezione. Questa operazione può essere eseguita in modo reattivo in base al carico corrente o in modo proattivo se è possibile prevedere il carico.
 
-<a id="pool-network-configuration" class="xliff"></a>
-
 ## Pool della configurazione di rete
+<a id="pool-network-configuration" class="xliff"></a>
 
 Quando si crea un pool di nodi di calcolo in Azure Batch, è possibile specificare l'ID subnet di una [rete virtuale (VNet)](../virtual-network/virtual-networks-overview.md) di Azure nella quale devono essere creati i nodi di calcolo del pool.
 
@@ -510,9 +480,8 @@ Quando si crea un pool di nodi di calcolo in Azure Batch, è possibile specifica
 
 Le impostazioni aggiuntive della rete virtuale dipendono dalla modalità di allocazione pool dell'account Batch.
 
-<a id="vnets-for-pools-provisioned-in-the-batch-service" class="xliff"></a>
-
 ### Reti virtuali per i pool di cui è stato eseguito il provisioning nel servizio Batch
+<a id="vnets-for-pools-provisioned-in-the-batch-service" class="xliff"></a>
 
 Nella modalità di allocazione servizio Batch è possibile assegnare una rete virtuale solo ai pool di **configurazione dei servizi cloud**. La rete virtuale specificata deve essere una rete virtuale **classica**. Le reti virtuali create con il modello di distribuzione di Azure Resource Manager non sono supportate.
 
@@ -527,17 +496,15 @@ Nella modalità di allocazione servizio Batch è possibile assegnare una rete vi
 
 
 
-<a id="vnets-for-pools-provisioned-in-a-user-subscription" class="xliff"></a>
-
 ### Reti virtuali per i pool di cui è stato eseguito il provisioning in una sottoscrizione utente
+<a id="vnets-for-pools-provisioned-in-a-user-subscription" class="xliff"></a>
 
 Nella modalità di allocazione sottoscrizione utente è possibile assegnare una rete virtuale solo ai pool di **configurazione macchina virtuale**, che sono gli unici supportati. La rete virtuale specificata deve essere una rete virtuale basata su **Resource Manager**. Le reti virtuali create con il modello di distribuzione classica non sono supportate.
 
 
 
-<a id="scaling-compute-resources" class="xliff"></a>
-
 ## Ridimensionamento delle risorse di calcolo
+<a id="scaling-compute-resources" class="xliff"></a>
 Con il [ridimensionamento automatico](batch-automatic-scaling.md)è possibile fare in modo che il servizio Batch modifichi dinamicamente il numero di nodi di calcolo in un pool in base al carico di lavoro corrente e all'utilizzo delle risorse dello scenario di calcolo. In questo modo è possibile ridurre il costo complessivo dell'esecuzione dell'applicazione usando solo le risorse necessarie e rilasciando quelle non necessarie.
 
 Per abilitare il ridimensionamento automatico, scrivere una [formula di ridimensionamento automatico](batch-automatic-scaling.md#automatic-scaling-formulas) e associarla a un pool. Il servizio Batch usa la formula per determinare il numero di nodi di destinazione nel pool per l'intervallo di ridimensionamento successivo (un intervallo che è possibile configurare). È possibile specificare le impostazioni di ridimensionamento automatico per un pool quando lo si crea oppure abilitare il ridimensionamento in un pool in seguito. È anche possibile aggiornare le impostazioni di ridimensionamento in un pool abilitato per il ridimensionamento.
@@ -559,23 +526,20 @@ Per altre informazioni sulla scalabilità automatica di un'applicazione, vedere 
 >
 >
 
-<a id="security-with-certificates" class="xliff"></a>
-
 ## Sicurezza con certificati
+<a id="security-with-certificates" class="xliff"></a>
 È in genere necessario usare certificati per crittografare o decrittografare informazioni riservate per le attività, ad esempio la chiave per un [account di archiviazione di Azure][azure_storage]. Per supportare questa funzionalità, è possibile installare certificati nei nodi. I segreti crittografati vengono passati alle attività nei parametri della riga di comando o incorporati in una delle risorse dell'attività e i certificati installati possono essere usati per decrittografarli.
 
 Per aggiungere un certificato a un account Batch, usare l'operazione [Aggiungi certificato][rest_add_cert] (Batch REST) o il metodo [CertificateOperations.CreateCertificate][net_create_cert] (Batch .NET). È quindi possibile associare il certificato a un pool nuovo o esistente. Quando un certificato è associato a un pool, il servizio Batch installa il certificato in ogni nodo del pool. Il servizio Batch installa i certificati appropriati all'avvio del nodo, prima di avviare le attività, incluse quelle di avvio e del gestore di processi.
 
 Se si aggiungono certificati a un pool *esistente* , è necessario riavviare i relativi nodi di calcolo per applicare i certificati ai nodi.
 
-<a id="error-handling" class="xliff"></a>
-
 ## Gestione degli errori
+<a id="error-handling" class="xliff"></a>
 Potrebbe essere necessario gestire sia gli errori delle attività che quelli delle applicazioni nella soluzione Batch.
 
-<a id="task-failure-handling" class="xliff"></a>
-
 ### Gestione degli errori delle attività
+<a id="task-failure-handling" class="xliff"></a>
 Gli errori delle attività rientrano nelle categorie seguenti:
 
 * **Errori di pre-elaborazione**
@@ -602,9 +566,8 @@ Gli errori delle attività rientrano nelle categorie seguenti:
 
     Quando viene superata la quantità massima di tempo impostata, l'attività viene contrassegnata come *completata*, ma il codice di uscita viene impostato su `0xC000013A` e il campo *schedulingError* viene contrassegnato come `{ category:"ServerError", code="TaskEnded"}`.
 
-<a id="debugging-application-failures" class="xliff"></a>
-
 ### Debug degli errori delle applicazioni
+<a id="debugging-application-failures" class="xliff"></a>
 * `stderr` e `stdout`
 
     Durante l'esecuzione un'applicazione può generare un output di diagnostica che può essere usato per la risoluzione dei problemi. Come indicato nella sezione precedente [File e directory](#files-and-directories), il servizio Batch scrive l'output standard e l'output degli errori standard nei file `stdout.txt` e `stderr.txt` nella directory dell'attività nel nodo di calcolo. Per scaricare questi file, è possibile usare il portale di Azure oppure uno degli SDK di Batch. È ad esempio possibile recuperare questi e altri file per la risoluzione dei problemi con [ComputeNode.GetNodeFile][net_getfile_node] e [CloudTask.GetNodeFile][net_getfile_task] nella libreria Batch .NET.
@@ -613,16 +576,14 @@ Gli errori delle attività rientrano nelle categorie seguenti:
 
     Come indicato in precedenza, un'attività viene contrassegnata come non riuscita dal servizio Batch se il processo eseguito dall'attività restituisce un codice di uscita non zero. Quando un'attività esegue un processo, il servizio Batch popola la proprietà del codice di uscita dell'attività con il *codice restituito del processo*. È importante notare che il codice di uscita dell'attività **non** è determinato dal servizio Batch. Il codice di uscita di un'attività è determinato dal processo stesso o dal sistema operativo in cui il processo è stato eseguito.
 
-<a id="accounting-for-task-failures-or-interruptions" class="xliff"></a>
-
 ### Considerazioni sugli errori o sulle interruzioni delle attività
+<a id="accounting-for-task-failures-or-interruptions" class="xliff"></a>
 In alcuni casi, le attività non riescono o vengono interrotte. È possibile che si verifichi un errore dell'applicazione dell'attività stessa, che il nodo in cui è in esecuzione l'attività venga riavviato o che il nodo venga rimosso dal pool durante un'operazione di ridimensionamento se nei criteri di deallocazione del pool è impostata la rimozione immediata dei nodi senza attendere il completamento delle attività. In ogni caso, Batch può riaccodare automaticamente l'attività per eseguirla in un altro nodo.
 
 È anche possibile che un problema intermittente provochi il blocco di un'attività o ne renda troppo lunga l'esecuzione. È possibile impostare l'intervallo di esecuzione massimo per un'attività. Se si supera l'intervallo di esecuzione massimo, il servizio Batch consente di interrompere l'applicazione dell'attività.
 
-<a id="connecting-to-compute-nodes" class="xliff"></a>
-
 ### Connessione ai nodi di calcolo
+<a id="connecting-to-compute-nodes" class="xliff"></a>
 È possibile eseguire altre operazioni di debug e di risoluzione dei problemi accedendo a un nodo di calcolo in remoto. È possibile usare il portale di Azure per scaricare un file Remote Desktop Protocol (RDP) per i nodi Windows e ottenere informazioni sulla connessione SSH (Secure Shell) per i nodi Linux. È anche possibile eseguire questa operazione usando le API Batch, ad esempio con [Batch .NET][net_rdpfile] o [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
@@ -630,9 +591,8 @@ In alcuni casi, le attività non riescono o vengono interrotte. È possibile che
 >
 >
 
-<a id="troubleshooting-problematic-compute-nodes" class="xliff"></a>
-
 ### Risoluzione dei problemi dei nodi di calcolo
+<a id="troubleshooting-problematic-compute-nodes" class="xliff"></a>
 Nei casi in cui alcune attività non riescono, il servizio o l'applicazione client Batch può esaminare i metadati delle attività non riuscite per identificare un nodo non correttamente funzionante. A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseguita un'attività viene incluso nei metadati dell'attività. Dopo avere identificato un "nodo problematico", è possibile intervenire in diversi modi:
 
 * **Riavviare un nodo** ([REST][rest_reboot] | [.NET][net_reboot])
@@ -653,9 +613,8 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
 ## Passaggi successivi
+<a id="next-steps" class="xliff"></a>
 * Informazioni sulle [API e gli strumenti di Batch](batch-apis-tools.md) disponibili per la compilazione di soluzioni Batch.
 * Esaminare in dettaglio un'applicazione Batch di esempio in [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md). È disponibile anche una [versione per Python](batch-python-tutorial.md) dell'esercitazione che esegue un carico di lavoro nei nodi di calcolo Linux.
 * Scaricare e compilare il progetto di esempio [Batch Explorer][github_batchexplorer] da usare durante lo sviluppo di soluzioni Batch. Con Batch Explorer è possibile eseguire le operazioni seguenti e altre ancora:
