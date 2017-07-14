@@ -22,18 +22,16 @@ ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
 ---
-<a id="create-a-python-web-app-in-azure" class="xliff"></a>
-
 # Creare un'app Web Python in Azure
+<a id="create-a-python-web-app-in-azure" class="xliff"></a>
 
 Le [app Web di Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione.  Questa guida introduttiva illustra come sviluppare e distribuire un'app Python in un'app Web di Azure. Si creerà l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e si userà Git per distribuire il codice Python di esempio nell'app Web.
 
 ![App di esempio in esecuzione in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux. Una volta installati i prerequisiti, sono necessari circa cinque minuti per completare la procedura.
-<a id="prerequisites" class="xliff"></a>
-
 ## Prerequisiti
+<a id="prerequisites" class="xliff"></a>
 
 Per completare questa esercitazione:
 
@@ -46,9 +44,8 @@ Per completare questa esercitazione:
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
 ## Scaricare l'esempio
+<a id="download-the-sample" class="xliff"></a>
 
 In una finestra del terminale eseguire il comando seguente per clonare il repository dell'app di esempio nel computer locale.
 
@@ -64,9 +61,8 @@ Passare alla directory contenente il codice di esempio.
 cd Python-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
-
 ## Eseguire l'app in locale
+<a id="run-the-app-locally" class="xliff"></a>
 
 Per eseguire l'applicazione in locale, aprire una finestra del terminale e usare il comando `Python` per avviare il server Web Python predefinito.
 
@@ -96,9 +92,8 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 È stata creata una nuova app Web vuota in Azure.
 
-<a id="configure-to-use-python" class="xliff"></a>
-
 ## Eseguire la configurazione per usare Python
+<a id="configure-to-use-python" class="xliff"></a>
 
 Usare il comando [az webapp config set](/cli/azure/webapp/config#set) per configurare l'app Web per l'uso di Python versione `3.4`.
 
@@ -155,9 +150,8 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
 ## Passare all'app
+<a id="browse-to-the-app" class="xliff"></a>
 
 Passare all'applicazione distribuita con il Web browser.
 
@@ -171,9 +165,8 @@ Il codice di esempio Python è in esecuzione in un'app Web del servizio app di A
 
 **Congratulazioni.** La distribuzione della prima app Python nel servizio app è stata completata.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
 ## Aggiornare e ridistribuire il codice
+<a id="update-and-redeploy-the-code" class="xliff"></a>
 
 Usando un editor di testo locale, aprire il file `main.py` nell'app Python e apportare una piccola modifica al testo accanto all'istruzione `return`:
 
@@ -192,9 +185,8 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 ![App di esempio aggiornata in esecuzione in Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
 ## Gestire la nuova app Web di Azure
+<a id="manage-your-new-azure-web-app" class="xliff"></a>
 
 Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app Web creata.
 
@@ -210,9 +202,8 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
 ## Passaggi successivi
+<a id="next-steps" class="xliff"></a>
 
 > [!div class="nextstepaction"]
 > [Python con PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)

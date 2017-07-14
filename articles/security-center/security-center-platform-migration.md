@@ -22,9 +22,8 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="azure-security-center-platform-migration" class="xliff"></a>
-
 # Migrazione della piattaforma del Centro sicurezza di Azure
+<a id="azure-security-center-platform-migration" class="xliff"></a>
 
 A partire dall'inizio di giugno 2017, il Centro sicurezza di Azure ha apportato modifiche importanti alle modalità di raccolta e archiviazione dei dati di protezione.  Queste modifiche garantiscono nuove funzionalità come la possibilità di eseguire facilmente ricerche nei dati di protezione e assicurano un migliore allineamento con gli altri servizi di gestione e monitoraggio di Azure.
 
@@ -32,17 +31,15 @@ A partire dall'inizio di giugno 2017, il Centro sicurezza di Azure ha apportato 
 > La migrazione della piattaforma non dovrebbe influire sulle risorse di produzione e non richiede alcun intervento da parte dell'utente.
 
 
-<a id="whats-happening-during-this-platform-migration" class="xliff"></a>
-
 ## Cosa succede durante la migrazione della piattaforma?
+<a id="whats-happening-during-this-platform-migration" class="xliff"></a>
 
 In precedenza, il Centro sicurezza usava l'agente di monitoraggio di Azure per raccogliere i dati di protezione dalle macchine virtuali, tra cui informazioni sulle configurazioni di sicurezza, usate per identificare le vulnerabilità, ed eventi di sicurezza, usati per rilevare le minacce. Questi dati venivano archiviati negli account di archiviazione in Azure.
 
 Attualmente, il Centro sicurezza usa Microsoft Monitoring Agent, lo stesso agente usato da Operations Management Suite e dal servizio Log Analytics. I dati raccolti dall'agente vengono archiviati in un'*area di lavoro* di [Log Analytics](../log-analytics/log-analytics-manage-access.md) esistente associata alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda della georilevazione della macchina virtuale.
 
-<a id="agent" class="xliff"></a>
-
 ## Agente
+<a id="agent" class="xliff"></a>
 
 Nel corso della transizione, Microsoft Monitoring Agent (per [Windows](../log-analytics/log-analytics-windows-agents.md) o [Linux](../log-analytics/log-analytics-linux-agents.md)) viene installato in tutte le VM di Azure da cui vengono attualmente raccolti i dati.  Se la macchina virtuale ha già installato Microsoft Monitoring Agent, il Centro sicurezza usa l'agente installato corrente.
 
@@ -56,9 +53,8 @@ Microsoft Monitoring Agent per Windows richiede l'uso della porta TCP 443. Per a
 > [!NOTE] 
 > Poiché Microsoft Monitoring Agent può essere usato da altri servizi di gestione e monitoraggio di Azure, l'agente non sarà disinstallato automaticamente quando si disattiva la raccolta dati nel Centro sicurezza. Tuttavia, è possibile disinstallare manualmente l'agente se necessario.
 
-<a id="workspace" class="xliff"></a>
-
 ## Area di lavoro
+<a id="workspace" class="xliff"></a>
 
 Come descritto in precedenza, i dati raccolti da Microsoft Monitoring Agent (per conto del Centro sicurezza) vengono archiviati in una o più aree di lavoro di Log Analytics esistenti associate alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda della georilevazione della macchina virtuale.
 
@@ -72,16 +68,14 @@ Per le aree di lavoro create dal Centro sicurezza, i dati vengono conservati per
 > [!NOTE]
 > I dati raccolti in precedenza dal Centro sicurezza rimangono negli account di archiviazione. Al termine della migrazione, è possibile eliminare questi account di archiviazione.
 
-<a id="oms-security-solution" class="xliff"></a>
-
-### Soluzione di sicurezza di OMS 
+### Soluzione di sicurezza di OMS
+<a id="oms-security-solution" class="xliff"></a> 
 
 Per i clienti esistenti che non dispongono della soluzione di sicurezza di OMS, la soluzione viene installata automaticamente nell'area di lavoro, ma solo per le macchine virtuali di Azure. Non disinstallare questa soluzione, dal momento che non è disponibile alcuna correzione automatica se questa operazione viene eseguita dalla console di gestione di OMS.
 
 
-<a id="other-updates" class="xliff"></a>
-
 ## Altri aggiornamenti
+<a id="other-updates" class="xliff"></a>
 
 In combinazione con la migrazione della piattaforma, sono in corso di distribuzione alcuni aggiornamenti secondari aggiuntivi:
 

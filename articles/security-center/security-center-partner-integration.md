@@ -22,18 +22,16 @@ ms.lasthandoff: 06/24/2017
 
 
 ---
-<a id="partner-integration-in-azure-security-center" class="xliff"></a>
-
 # Integrazione dei partner nel Centro sicurezza di Azure
+<a id="partner-integration-in-azure-security-center" class="xliff"></a>
 Questo documento illustra come il Centro sicurezza di Azure si integra con i partner per migliorare la sicurezza complessiva e offrire un'esperienza integrata in Azure, sfruttando i vantaggi di Azure Marketplace per la certificazione e la fatturazione dei partner.
 
 >[!NOTE] 
 >A partire dall'inizio di giugno 2017, il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
 >
 
-<a id="why-deploy-partners-solutions-from-security-center" class="xliff"></a>
-
 ## Perché distribuire soluzioni dei partner dal Centro sicurezza?
+<a id="why-deploy-partners-solutions-from-security-center" class="xliff"></a>
 
 I quattro motivi principali per sfruttare l'integrazione di partner nel Centro sicurezza sono:
 
@@ -43,9 +41,8 @@ I quattro motivi principali per sfruttare l'integrazione di partner nel Centro s
 - **Esportazione in SIEM**: i clienti possono ora esportare tutti gli avvisi del Centro sicurezza e dei partner nel formato CEF per i sistemi SIEM locali usando l'integrazione dei log di Microsoft Azure (anteprima).
 
 
-<a id="what-partners-are-integrated-with-security-center" class="xliff"></a>
-
 ## Quali partner sono integrati con il Centro sicurezza?
+<a id="what-partners-are-integrated-with-security-center" class="xliff"></a>
 Il Centro sicurezza attualmente si integra con le soluzioni seguenti:
 
 - Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, [Microsoft Antimalware per Azure](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
@@ -55,9 +52,8 @@ Il Centro sicurezza attualmente si integra con le soluzioni seguenti:
 
 Nel corso del tempo, il Centro sicurezza estenderà il numero di partner all'interno di queste categorie esistenti e aggiungerà nuove categorie. 
 
-<a id="how-to-deploy-a-partner-solution" class="xliff"></a>
-
 ## Come distribuire soluzioni dei partner?
+<a id="how-to-deploy-a-partner-solution" class="xliff"></a>
 
 In base alla configurazione dell'ambiente Azure e ai criteri di sicurezza definiti, Centro sicurezza può consigliare che venga distribuita una soluzione partner. La raccomandazione guiderà l'utente attraverso il processo di selezione e installazione di una soluzione partner. L'esperienza di distribuzione globale a questo punto può variare a seconda del partner e del tipo di soluzione. Per altre informazioni, vedere i collegamenti seguenti:
 
@@ -66,9 +62,8 @@ In base alla configurazione dell'ambiente Azure e ai criteri di sicurezza defini
 - [Installa Endpoint Protection](security-center-install-endpoint-protection.md)
 - [La valutazione della vulnerabilità non è installata](security-center-vulnerability-assessment-recommendations.md)
 
-<a id="how-to-manage-partner-solutions" class="xliff"></a>
-
 ## Come gestire le soluzioni partner?
+<a id="how-to-manage-partner-solutions" class="xliff"></a>
 
 Dopo la distribuzione di una soluzione partner, è possibile visualizzare le informazioni sullo stato della soluzione ed eseguire attività di gestione di base dal riquadro Soluzione partner nel dashboard principale del Centro sicurezza. Per altre informazioni sulla gestione delle soluzioni partner nel Centro sicurezza, leggere [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitoraggio delle soluzioni partner con il Centro sicurezza di Azure).
 
@@ -78,9 +73,8 @@ Dopo la distribuzione di una soluzione partner, è possibile visualizzare le inf
 > Il supporto per Symantec Endpoint Protection è limitato all'individuazione, ma gli avvisi sull'integrità non sono disponibili.
 >
 
-<a id="see-also" class="xliff"></a>
-
 ## Vedere anche
+<a id="see-also" class="xliff"></a>
 In questo documento è stato illustrato come integrare soluzioni partner nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)

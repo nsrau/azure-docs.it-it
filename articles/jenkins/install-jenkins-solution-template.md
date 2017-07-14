@@ -23,9 +23,8 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure" class="xliff"></a>
-
 # Creare la prima unità master Jenkins in una macchina virtuale Linux (Ubuntu) in Azure
+<a id="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure" class="xliff"></a>
 
 Questa guida introduttiva spiega come installare l'ultima versione stabile di Jenkins in una macchina virtuale Linux (Ubuntu 14.04 LTS) insieme agli strumenti e ai plug-in configurati per l'uso con Azure. Gli strumenti comprendono:
 <ul>
@@ -46,9 +45,8 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-<a id="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins" class="xliff"></a>
-
 ## Creare la macchina virtuale in Azure distribuendo il modello di soluzione per Jenkins
+<a id="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins" class="xliff"></a>
 
 I modelli di avvio rapido di Azure consentono di distribuire in modo rapido e affidabile tecnologie complesse in Azure.  Azure Resource Manager consente di effettuare il provisioning delle applicazioni usando un [modello dichiarativo](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins). In un unico modello, è possibile distribuire più servizi con le relative dipendenze. Si usa lo stesso modello per distribuire più volte l'applicazione durante ogni fase del ciclo di vita dell'applicazione.
 
@@ -85,17 +83,15 @@ Al termine della convalida, fare clic su **OK** per scaricare il modello e i par
 
 Selezionare quindi **Acquisto** per effettuare il provisioning di tutte le risorse.
 
-<a id="setup-ssh-port-forwarding" class="xliff"></a>
-
 ## Configurare il port forwarding SSH
+<a id="setup-ssh-port-forwarding" class="xliff"></a>
 
 Per impostazione predefinita, l'istanza di Jenkins usa il protocollo http ed è in ascolto sulla porta 8080. Gli utenti non devono autenticarsi su protocolli non protetti.
     
 Configurare il port forwarding per visualizzare l'interfaccia utente di Jenkins nel computer locale.
 
-<a id="if-you-are-using-windows" class="xliff"></a>
-
 ### Se si usa Windows:
+<a id="if-you-are-using-windows" class="xliff"></a>
 
 Installare PuTTY ed eseguire questo comando se si usa la password per la sicurezza di Jenkins:
 ```
@@ -110,9 +106,8 @@ Se si usa SSH, eseguire questo comando:
 putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="if-you-are-using-linux-or-mac" class="xliff"></a>
-
 ### Se si usa Linux o Mac:
+<a id="if-you-are-using-linux-or-mac" class="xliff"></a>
 
 Se si usa una password per la sicurezza dell'unità master Jenkins, eseguire questo comando:
 ```
@@ -125,9 +120,8 @@ Se si usa SSH, eseguire questo comando:
 ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="connect-to-jenkins" class="xliff"></a>
-
 ## Connettersi a Jenkins
+<a id="connect-to-jenkins" class="xliff"></a>
 Dopo avere avviato il tunnel, passare a http://localhost:8080/ nel computer locale.
 
 Sbloccare il dashboard di Jenkins per la prima volta con la password amministratore iniziale.
@@ -146,9 +140,8 @@ L'istanza di Jenkins è ora pronta per l'uso. È possibile accedere a una visual
 
 ![Jenkins è pronto per l'uso.](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
-<a id="next-steps" class="xliff"></a>
-
 ## Passaggi successivi
+<a id="next-steps" class="xliff"></a>
 
 In questa esercitazione:
 

@@ -22,15 +22,13 @@ ms.lasthandoff: 06/29/2017
 
 
 ---
-<a id="what-is-site-recovery" class="xliff"></a>
-
 # Che cos'è Site Recovery?
+<a id="what-is-site-recovery" class="xliff"></a>
 
 Benvenuti nel servizio Azure Site Recovery. Questo articolo offre una rapida panoramica del servizio.
 
-<a id="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services" class="xliff"></a>
-
 ## Continuità aziendale e ripristino di emergenza (BCDR) con Servizi di ripristino di Azure
+<a id="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services" class="xliff"></a>
 
 Un'organizzazione deve sapere come si intende proteggere i dati e preservare l'esecuzione di applicazioni e carichi di lavoro quando si verificano interruzioni pianificate e impreviste.
 
@@ -45,9 +43,8 @@ Site Recovery può gestire la replica per:
 - Replica di macchine virtuali locali o server fisici in Azure o in un sito secondario.
 
 
-<a id="what-does-site-recovery-provide" class="xliff"></a>
-
 ## Che cosa offre Site Recovery?
+<a id="what-does-site-recovery-provide" class="xliff"></a>
 
 **Funzionalità** | **Dettagli**
 --- | ---
@@ -66,9 +63,8 @@ Site Recovery può gestire la replica per:
 **Gestire le impostazioni di rete** | Site Recovery si integra con Azure per una gestione semplice della rete delle applicazioni, tra cui l'impostazione di indirizzi IP riservati, la configurazione di servizi di bilanciamento del carico e l'integrazione di Gestione traffico di Azure per cambi di rete efficienti.
 
 
-<a id="what-can-i-replicate" class="xliff"></a>
-
 ## Ciò che è possibile replicare?
+<a id="what-can-i-replicate" class="xliff"></a>
 
 **Supportato** | **Dettagli**
 --- | ---
@@ -79,17 +75,15 @@ Site Recovery può gestire la replica per:
 **Quali carichi di lavoro è possibile replicare?** | È possibile replicare qualsiasi carico di lavoro in esecuzione in un computer di replica supportato. Inoltre, il team di Site Recovery ha eseguito test specifici dell'applicazione per un certo [numero di app](site-recovery-workload.md#workload-summary).
 
 
-<a id="azure-portal-considerations" class="xliff"></a>
-
 ## Considerazioni sul portale di Azure
+<a id="azure-portal-considerations" class="xliff"></a>
 
 * È possibile distribuire Site Recovery nel [portale di Azure](https://portal.azure.com).
 * Nel portale di Azure classico è possibile gestire Site Recovery con il modello di gestione classica dei servizi.
 - Il portale classico deve essere usato solo per gestire le distribuzioni esistenti di Site Recovery. Non è possibile creare nuovi insiemi di credenziali nel portale classico.
 
-<a id="next-steps" class="xliff"></a>
-
 ## Passaggi successivi
+<a id="next-steps" class="xliff"></a>
 * Altre informazioni sul [supporto dei carichi di lavoro](site-recovery-workload.md)
 * Introduzione alla [replica di VM di Azure tra aree](site-recovery-azure-to-azure.md), [replica VMware in Azure](vmware-walkthrough-overview.md) o [replica Hyper-V in Azure](hyper-v-site-walkthrough-overview.md).
 
