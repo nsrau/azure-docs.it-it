@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-take-a-backup" class="xliff"></a>
-
 ### Per eseguire un backup
+<a id="to-take-a-backup" class="xliff"></a>
 
 1. Passare al servizio Gestione dispositivi StorSimple. Nell'elenco tabulare dei dispositivi selezionare e fare clic sul dispositivo e quindi su **Tutte le impostazioni**. Nel pannello **Impostazioni** passare a **Impostazioni > Gestione > Criteri di backup**.
 

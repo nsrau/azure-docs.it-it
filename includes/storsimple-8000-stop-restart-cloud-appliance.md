@@ -1,6 +1,5 @@
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
-
 #### Per arrestare e avviare un'appliance cloud
+<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
 
 1. Per arrestare un'appliance cloud, passare alla relativa macchina virtuale.
     ![Macchina virtuale appliance cloud StorSimple](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -27,9 +26,8 @@ Usare i cmdlet seguenti per arrestare e avviare un'appliance cloud.
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
-
 #### Per riavviare un'appliance cloud
+<a id="to-restart-a-cloud-appliance" class="xliff"></a>
 
 Per riavviare un'appliance cloud, passare alla relativa macchina virtuale. Nella barra dei comandi fare clic su **Riavvia**. Quando richiesto, confermare il riavvio. Quando l'appliance cloud è pronta per l'uso, lo stato viene indicato come **In esecuzione**.
 
