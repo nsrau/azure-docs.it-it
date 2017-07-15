@@ -673,15 +673,15 @@ Al termine dell'esplorazione, ricordare di sospendere l'istanza. In produzione Ã
 
 [Monitoraggio delle query][]
 
-Post di blog [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][] (Prime 10 procedure consigliate per la creazione di un data warehouse relazionale di dimensioni elevate)
+[Post di blog Prime 10 procedure consigliate per la creazione di un data warehouse relazionale di dimensioni elevate][]
 
-Post di blog [Migrazione di dati in Azure SQL Data Warehouse][]
+[Post di blog Migrazione di dati in Azure SQL Data Warehouse][]
 
 [Gestione della concorrenza e del carico di lavoro]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
 [Procedure consigliate per Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Monitoraggio delle query]: sql-data-warehouse-manage-monitor.md
-Post di blog [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-Post di blog [Migrazione di dati in Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Post di blog Prime 10 procedure consigliate per la creazione di un data warehouse relazionale di dimensioni elevate]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
+[Post di blog Migrazione di dati in Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 
