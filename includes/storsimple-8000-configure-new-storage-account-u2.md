@@ -1,9 +1,8 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
-
 #### Per aggiungere una credenziale dell'account di archiviazione nella stessa sottoscrizione di Azure del servizio Gestione dispositivi StorSimple
+<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
 
 1. Passare al servizio Gestione dispositivi StorSimple. Nella sezione **Configurazione** fare clic su **Credenziali dell'account di archiviazione**.
 

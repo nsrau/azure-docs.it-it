@@ -1,9 +1,8 @@
 <!--author=alkohli last changed: 01/02/17-->
 
 
-<a id="to-add-or-remove-a-volume" class="xliff"></a>
-
 #### Per aggiungere o rimuovere un volume
+<a id="to-add-or-remove-a-volume" class="xliff"></a>
 
 1. Andare al dispositivo StorSimple e fare clic su **Criteri di backup**.
 

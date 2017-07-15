@@ -1,8 +1,7 @@
 <!--author=SharS last changed: 9/17/15-->
 
-<a id="to-mount-initialize-and-format-a-volume" class="xliff"></a>
-
 #### Per montare, avviare e formattare un volume
+<a id="to-mount-initialize-and-format-a-volume" class="xliff"></a>
 1. Avviare l'iniziatore iSCSI di Microsoft.
 2. Nella scheda **Individuazione** della finestra delle **proprietà dell'iniziatore iSCSI** fare clic su **Individua portale**.
 3. Nella finestra di dialogo **Individua portale destinazione** specificare l'indirizzo IP dell'interfaccia di rete abilitata per iSCSI e quindi fare clic su **OK**. 
