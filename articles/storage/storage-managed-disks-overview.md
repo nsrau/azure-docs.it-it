@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 06/15/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: e36deaeba611896e793f40cf0e05b8771841816f
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 292a93bd1d355b8a39c59d220352ad465df46629
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -27,14 +27,11 @@ ms.lasthandoff: 05/03/2017
 
 Azure Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS di Azure grazie alla gestione degli [account di archiviazione](storage-introduction.md) associati ai dischi delle macchine virtuali. Specificando il tipo, [Premium](storage-premium-storage.md) o [Standard](storage-standard-storage.md), e le dimensioni del disco necessarie, Azure crea e gestisce automaticamente il disco.
 
->[!NOTE]
->Le macchine virtuali con Managed Disks richiedono traffico in uscita sulla porta 8443 per segnalare lo stato [estensioni di VM](../virtual-machines/windows/extensions-features.md) installate sulla piattaforma Azure. Il provisioning di una macchina virtuale con estensioni ha esito negativo se questa porta non è disponibile. Lo stato di distribuzione di un'estensione è sconosciuto anche se questa viene installata in una macchina virtuale in esecuzione. Se non è possibile sbloccare la porta 8443, è necessario usare i dischi non gestiti. Microsoft sta lavorando attivamente per risolvere il problema. Per altri dettagli, consultare le [Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)](storage-faq-for-disks.md#managed-disks-and-port-8443). 
->
->
-
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
-Di seguito sono illustrati alcuni dei vantaggi legati all'uso dei dischi gestiti.
+Esaminiamo alcuni dei vantaggi che si ottengono usando dischi gestiti, a partire da questo video di Channel 9, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency) (Migliore resilienza della macchina virtuale di Azure con Managed Disks).
+<br/>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Distribuzione semplice e scalabile di macchine virtuali
 
@@ -44,16 +41,16 @@ Managed Disks permette di creare fino a 10.000 **dischi** di macchine virtuali i
 
 ### <a name="better-reliability-for-availability-sets"></a>Maggiore affidabilità per i set di disponibilità
 
-Managed Disks offre una maggiore affidabilità per i set di disponibilità, perché fa in modo che i dischi delle macchine virtuali in un set di disponibilità siano sufficientemente isolati gli uni dagli altri per evitare singoli punti di errore. Ciò avviene mediante l'inserimento automatico dei dischi in unità di scala di archiviazione diverse, dette stamp. Se uno stamp non riesce a causa di un errore hardware o software, hanno esito negativo solo le istanze delle macchine virtuali con dischi in tali stamp. Si prenda ad esempio un'applicazione in esecuzione in cinque macchine virtuali, a loro volta inserite in un set di disponibilità. I dischi di tali macchine virtuali non vengono tutti archiviati nello stesso stamp. In caso di inattività di uno stamp, quindi, le altre istanze dell'applicazione continuano l'esecuzione.
+Managed Disks offre una maggiore affidabilità per i set di disponibilità, perché fa in modo che [i dischi delle macchine virtuali in un set di disponibilità](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) siano sufficientemente isolati gli uni dagli altri per evitare singoli punti di errore. Ciò avviene mediante l'inserimento automatico dei dischi in unità di scala di archiviazione diverse, dette stamp. Se uno stamp non riesce a causa di un errore hardware o software, hanno esito negativo solo le istanze delle macchine virtuali con dischi in tali stamp. Si prenda ad esempio un'applicazione in esecuzione in cinque macchine virtuali, a loro volta inserite in un set di disponibilità. I dischi di tali macchine virtuali non vengono tutti archiviati nello stesso stamp. In caso di inattività di uno stamp, quindi, le altre istanze dell'applicazione continuano l'esecuzione.
 
 ### <a name="granular-access-control"></a>Controllo di accesso granulare
 
 Per assegnare autorizzazioni specifiche per un disco gestito a uno o più utenti, è possibile usare il [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md). Managed Disks espone una serie di operazioni, inclusa la lettura, la scrittura (creazione/aggiornamento), l'eliminazione e il recupero di un [URI di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) per il disco. È possibile consentire l'accesso solo alle operazioni che servono agli utenti per svolgere il proprio lavoro. Ad esempio, per fare in modo che un utente non possa copiare un disco gestito in un account di archiviazione, è possibile scegliere di non consentire l'accesso all'operazione di esportazione di tale disco gestito. Analogamente, per fare in modo che un utente non possa usare un URI di firma di accesso condiviso per copiare un disco gestito, è possibile scegliere di non concedere l'autorizzazione per il disco gestito.
 
-### <a name="azure-backup-service-support"></a>Supporto del servizio Backup di Azure 
-Usare il servizio Backup di Azure con Managed Disks per creare un processo di backup con backup basati sul tempo, criteri semplici per il ripristino delle VM e la conservazione dei backup. Managed Disks supporta solo l'archiviazione con ridondanza locale come opzione di replica. Questo significa che mantiene tre copie dei dati all'interno della stessa area. Per eseguire il ripristino di emergenza dell'area, è necessario eseguire il backup dei dischi delle macchine virtuali in un'altra area usando il [servizio Backup di Azure](../backup/backup-introduction-to-azure-backup.md) e un account di archiviazione con ridondanza geografica come insieme di credenziali di backup. Per altre informazioni in merito, vedere la sezione relativa all'[uso del servizio Backup di Azure per macchine virtuali con dischi gestiti](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+### <a name="azure-backup-service-support"></a>Supporto del servizio Backup di Azure
+Usare il servizio Backup di Azure con Managed Disks per creare un processo di backup con backup basati sul tempo, criteri semplici per il ripristino delle VM e la conservazione dei backup. Managed Disks supporta solo l'archiviazione con ridondanza locale come opzione di replica. Questo significa che mantiene tre copie dei dati all'interno della stessa area. Per eseguire il ripristino di emergenza dell'area, è necessario eseguire il backup dei dischi delle macchine virtuali in un'altra area usando il [servizio Backup di Azure](../backup/backup-introduction-to-azure-backup.md) e un account di archiviazione con ridondanza geografica come insieme di credenziali di backup. Per altre informazioni in merito, vedere la sezione relativa all'[uso del servizio Backup di Azure per macchine virtuali con dischi gestiti](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
-## <a name="pricing-and-billing"></a>Prezzi e fatturazione 
+## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
 Quando si usa Managed Disks, tenere conto delle considerazioni seguenti relative alla fatturazione:
 
@@ -76,15 +73,17 @@ Tali considerazioni vengono ora esaminate più in dettaglio.
 
 Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gestito Premium:
 
-| **Tipo di disco <br>gestito Premium**  | **P10** | **P20** | **P30**        |
-|------------------|---------|---------|----------------|
-| Dimensione disco        | 128 GB  | 512 GB  | 1024 GB (1 TB) |
+| **Tipo di disco <br>gestito Premium** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Dimensione disco        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
-Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gestito Standard: 
 
-| **Tipo di disco <br>gestito Standard** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
-|------------------|---------|---------|----------------|---------|----------------|
-| Dimensione disco        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) |
+Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gestito Standard:
+
+| **Tipo di disco <br>gestito Standard** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
+| Dimensione disco        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+
 
 **Numero di transazioni**: viene addebitato il numero di transazioni eseguite in un disco gestito Standard. Non sono previsti costi per le transazioni per un disco gestito Premium.
 
@@ -120,15 +119,12 @@ La situazione cambia se la macchina virtuale include cinque dischi con striping.
 
 ## <a name="managed-disks-and-encryption"></a>Managed Disks e crittografia
 
-Esistono due tipi di crittografia in riferimento ai dischi gestiti. Il primo si chiama Crittografia del servizio di archiviazione (SSE) e viene eseguito dal servizio di archiviazione. Il secondo è Crittografia dischi di Azure e può essere attivato nei dischi del sistema operativo e nei dischi dati per le macchine virtuali. 
+Esistono due tipi di crittografia in riferimento ai dischi gestiti. Il primo si chiama Crittografia del servizio di archiviazione (SSE) e viene eseguito dal servizio di archiviazione. Il secondo è Crittografia dischi di Azure e può essere attivato nei dischi del sistema operativo e nei dischi dati per le macchine virtuali.
 
 ### <a name="storage-service-encryption-sse"></a>Crittografia del servizio di archiviazione di Azure (SSE)
 
-Archiviazione di Azure supporta la crittografia automatica dei dati scritti in un account di archiviazione. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md). Per quanto riguarda i dati nei dischi gestiti, attualmente non è possibile abilitare Crittografia del servizio di archiviazione per Managed Disks. Questa funzionalità sarà tuttavia presto disponibile. Nel frattempo è necessario sapere come usare un file VHD crittografato che risiede in un account di archiviazione crittografato. 
+[Crittografia del servizio di archiviazione di Azure](storage-service-encryption.md) fornisce la crittografia inattiva e salvaguarda i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. SSE è abilitata per impostazione predefinita per tutti i Managed Disks, gli snapshot e le immagini in tutte le regioni in cui i dischi gestiti sono disponibili. A partire dal 10 giugno 2017, tutti i nuovi dischi gestiti/snapshot/immagini e nuovi dati scritti nei dischi gestiti esistenti vengono automaticamente crittografati in modo inattivo con le chiavi gestite da Microsoft.  Visitare la [pagina Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)](storage-faq-for-disks.md#managed-disks-and-storage-service-encryption) per altri dettagli.
 
-La crittografia del servizio di archiviazione crittografa i dati man mano che vengono scritti nell'account di archiviazione. Non è possibile usare un file VHD crittografato in precedenza con la crittografia del servizio di archiviazione per creare una macchina virtuale che usa Managed Disks. Non è possibile neppure convertire un disco non gestito crittografato in un disco gestito. Infine, se si disabilita la crittografia nell'account di archiviazione, il file VHD non viene più decrittografato. 
-
-Per usare un disco crittografato, è prima necessario copiare il file VHD in un account di archiviazione che non è mai stato crittografato. È quindi possibile creare una macchina virtuale con Managed Disks e specificare tale file VHD durante la creazione. In alternativa, è possibile collegare il file VHD copiato a una macchina virtuale in esecuzione con Managed Disks. 
 
 ### <a name="azure-disk-encryption-ade"></a>Crittografia dischi di Azure (ADE)
 
@@ -138,7 +134,7 @@ Crittografia dischi di Azure consente di crittografare i dischi del sistema oper
 
 Per altre informazioni su Managed Disks, vedere gli articoli seguenti.
 
-### <a name="get-started-with-managed-disks"></a>Informazioni di base sui Dischi gestiti 
+### <a name="get-started-with-managed-disks"></a>Informazioni di base sui Dischi gestiti
 
 * [Creare una VM con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
@@ -150,7 +146,9 @@ Per altre informazioni su Managed Disks, vedere gli articoli seguenti.
 
 * [Script di esempio di PowerShell di Managed Disks](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
 
-### <a name="compare-managed-disks-storage-options"></a>Confronto tra le opzioni di archiviazione di Managed Disks 
+* [Usare Managed Disks nei modelli di Azure Resource Manager](storage-using-managed-disks-template-deployments.md)
+
+### <a name="compare-managed-disks-storage-options"></a>Confronto tra le opzioni di archiviazione di Managed Disks
 
 * [Dischi e Archiviazione Premium](storage-premium-storage.md)
 

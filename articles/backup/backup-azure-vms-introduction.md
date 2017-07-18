@@ -13,12 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/5/2017
+ms.date: 5/22/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b6780e3dc0833c9a074ba85566848ac4246fa848
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -118,7 +119,8 @@ Un'operazione di ripristino è costituita da due sottoattività principali: la c
 * Pianificare i backup di macchine Virtuali durante le ore non di punta. In questo modo il servizio Backup usa le IOPS per il trasferimento dei dati dall'account di archiviazione del cliente all'insieme di credenziali.
 * Assicurarsi che un criterio faccia riferimento a VM in più account di archiviazione. È consigliabile non proteggere con la stessa pianificazione di backup più di 20 dischi in totale da un singolo account di archiviazione. Se un account di archiviazione include più di 20 dischi, suddividere le VM tra più criteri per ottenere i valori di IOPS necessari durante la fase di trasferimento del processo di backup.
 * Non ripristinare una macchina virtuale in esecuzione nell'Archiviazione Premium nello stesso account di archiviazione. Se il processo dell'operazione di ripristino coincide con l'operazione di backup, il valore di IOPS disponibile per il backup sarà ridotto.
-* È consigliabile eseguire ogni macchina virtuale Premium VM in un account di archiviazione Premium distinto per assicurare prestazioni di backup ottimali.
+* Per il backup di VM Premium, verificare che l'account di archiviazione che ospita i dischi premium abbia almeno il 50% di spazio disponibile per la gestione temporanea degli snapshot perché il backup sia completato correttamente. 
+* Verificare che la versione di python nelle macchine virtuali Linux abilitate per il backup sia la 2.7
 
 ## <a name="data-encryption"></a>Crittografia dei dati
 Il Backup di Azure non crittografa i dati come parte del processo di backup. È tuttavia possibile crittografare i dati all'interno della macchina virtuale e ed eseguire il backup dei dati protetti facilmente (altre informazioni sul [backup dei dati crittografati](backup-azure-vms-encryption.md)).

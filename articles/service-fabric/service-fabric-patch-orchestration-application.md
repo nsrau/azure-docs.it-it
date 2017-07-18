@@ -15,73 +15,67 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: a3554881e7db894c602e73feb385b5b361837409
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 3fc66d775f97333ad497cf3773643c188ec7c1d6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
 
-# <a name="application-to-patch-windows-os-in-your-service-fabric-cluster"></a>Applicazione per applicare patch al sistema operativo Windows nel cluster di Service Fabric
+# <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
-Patch Orchestration Application è un'applicazione Service Fabric che consente di automatizzare l'applicazione di patch ai sistemi operativi in un cluster di Service Fabric in Azure o in locale, senza tempi di inattività.
+Patch Orchestration Application è un'applicazione Service Fabric di Azure che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric in Azure senza tempi di inattività.
 
-Patch Orchestration Application include le seguenti funzionalità principali:
+Patch Orchestration Application offre quanto segue:
 
-1. **Installazione dell'aggiornamento automatico del sistema operativo**: Patch Orchestration Application garantisce che gli aggiornamenti vengano scaricati e installati automaticamente e che il nodo venga riavviato ove applicabile.
-    Questa operazione viene eseguita in tutti i nodi del cluster senza tempi di inattività.
+- **Installazione automatica dell'aggiornamento del sistema operativo**. Gli aggiornamenti del sistema operativo vengono scaricati e installati automaticamente. I nodi del cluster vengono riavviati in base alle esigenze senza tempi di inattività del cluster.
 
-1. **Integrazione dell'integrità e applicazione di patch compatibili con il cluster**: in fase di applicazione degli aggiornamenti Patch Orchestration Application monitora lo stato del cluster mentre procede un nodo alla volta o un dominio di aggiornamento alla volta. 
-    Se in un qualsiasi momento rileva la violazione dell'integrità del cluster a causa dell'applicazione di patch, arresta il processo per evitare di aggravare il problema.
+- **Integrazione dell'integrità e l'applicazione di patch compatibile con il cluster**. Durante l'applicazione degli aggiornamenti, Patch Orchestration Application esegue il monitoraggio dell'integrità dei nodi del cluster. I nodi del cluster sono aggiornati un nodo alla volta o un dominio di aggiornamento alla volta. Se l'integrità del cluster si arresta a causa del processo di applicazione di patch, l'applicazione di patch viene interrotta per impedire l'aggravarsi del problema.
 
-1. **Supporto per tutti i cluster di Service Fabric**: la genericità dell'applicazione consente il funzionamento sia nei cluster di Azure Service Fabric sia nei cluster autonomi.
-    > [!NOTE]
-    > Il supporto per il cluster autonomo sarà presto disponibile.
+## <a name="internal-details-of-the-app"></a>Dettagli interni dell'app
 
-## <a name="link-to-download-the-application-package"></a>Collegamento per scaricare il pacchetto dell'applicazione
+Patch Orchestration Application è costituita dai sottocomponenti seguenti:
 
-Scaricare l'applicazione dal [collegamento di download](https://go.microsoft.com/fwlink/P/?linkid=849590)
-
-## <a name="internal-details-of-the-application"></a>Dettagli interni dell'applicazione
-
-Patch Orchestration Application comprende i seguenti sottocomponenti:
-
-- **Coordinator Service**: è un servizio con stato. Il servizio è responsabile per:
+- **Coordinator Service**: il servizio con stato è responsabile per:
     - Il coordinamento del processo di Windows Update nell'intero cluster.
     - L'archiviazione del risultato delle operazioni completate di Windows Update.
 - **Node Agent Service**: è un servizio senza stato che viene eseguito in tutti i nodi di cluster di Service Fabric. Il servizio è responsabile per:
-    - Il bootstrap di Node Agent NTService
+    - Il bootstrap del Node Agent NTService.
     - Il monitoraggio di Node Agent NTService
-- **Node Agent NTService**: è un servizio di Windows NT. Node Agent NTService viene eseguito con privilegi più elevati (SISTEMA). Node Agent Service e Coordinator Service vengono invece eseguiti con un privilegio di livello inferiore (SERVIZIO DI RETE). Il servizio è responsabile dell'esecuzione dei seguenti processi di Windows Update in tutti i nodi del cluster.
+- **Node agent NTService**: questo servizio di Windows NT viene eseguito con un privilegio di livello superiore (SYSTEM). Il Node Agent Service e il Coordinator Service vengono invece eseguiti con un privilegio di livello inferiore (NETWORK SERVICE). Il servizio è responsabile dell'esecuzione dei seguenti processi di Windows Update in tutti i nodi del cluster:
     - Disabilitazione della connessione automatica a Windows Update nel nodo.
-    - Download, installazione di Windows Update in base ai criteri forniti dall'utente.
+    - Download e installazione di Windows Update in base al criterio fornito dall'utente.
     - Riavvio della macchina dopo l'installazione di Windows Update.
-    - Upload del risultato di Windows Update in Coordinator Service.
-    - Generazione di report sull'integrità in caso di operazione non riuscita dopo l'esaurimento di tutti i tentativi.
+    - Caricamento dei risultati di Windows Update nel Coordinator Service.
+    - Generazione di report sull'integrità in caso di un'operazione non riuscita dopo l'esaurimento di tutti i tentativi.
 
 > [!NOTE]
-> Patch Orchestration Application usa il servizio di sistema di Service Fabric, **Repair Manager**, per disabilitare/abilitare il nodo ed eseguire i controlli di integrità. L'attività di ripristino creato da Patch Orchestration Application tiene traccia dell'avanzamento di Windows Update per ogni nodo.
+> Patch Orchestration App usa il sistema di servizio di gestione della riparazione di Service Fabric per disabilitare o abilitare il nodo ed eseguire i controlli di integrità. L'attività di riparazione creata da Patch Orchestration App tiene traccia dell'avanzamento di Windows Update per ogni nodo.
 
-## <a name="prerequisites-for-using-the-application"></a>Prerequisiti per l'uso dell'applicazione
+## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="ensure-service-fabric-version-is-55-or-above"></a>Verificare che la versione di Service Fabric sia 5.5 o successiva
+### <a name="minimum-supported-service-fabric-runtime-version"></a>Versione minima di runtime di Service Fabric supportata
 
-Patch Orchestration Application può essere eseguita nei cluster in cui è installato il runtime di Service Fabric versione 5.5 o successive.
+#### <a name="azure-clusters"></a>Cluster di Azure
+Patch Orchestration App deve essere eseguita nei cluster di Azure con versione di runtime di Service Fabric 5.5 o successive.
 
-### <a name="enable-repair-manager-service-if-not-running-already"></a>Abilitare il servizio Repair Manager, se non già in esecuzione
+#### <a name="standalone-on-premise-clusters"></a>Cluster locali autonomi
+Patch Orchestration App deve essere eseguita nei cluster autonomi con versione di runtime di Service Fabric 5.6 o successive.
 
-Patch Orchestration Application richiede che questo servizio di sistema sia abilitato nel cluster.
+### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Abilitare il servizio di gestione della riparazione (se non è già in esecuzione)
 
-#### <a name="service-fabric-clusters-on-azure"></a>Cluster di Service Fabric in Azure
+Patch Orchestration App richiede che il servizio del sistema di gestione della riparazione sia abilitato nel cluster.
 
-Nei cluster di Azure al livello di durabilità Silver, per impostazione predefinita Repair Manager è abilitato. Nei cluster di Azure al livello di durabilità Gold è possibile che Repair Manager non sia abilitato, a seconda del tempo trascorso dalla creazione dei cluster. Nel cluster di Azure al livello di durabilità Bronze, per impostazione predefinita il servizio Repair Manager non è abilitato. 
+#### <a name="azure-clusters"></a>Cluster di Azure
 
-È possibile usare il [modello di Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) per abilitare il servizio Repair Manager nei cluster di Service Fabric nuovi o esistenti, nel caso in cui non risulti già esecuzione nella sezione relativa ai servizi di sistema in Service Fabric Explorer.
+I cluster di Azure al livello di durabilità silver hanno il servizio di gestione della riparazione abilitato per impostazione predefinita. I cluster di Azure al livello di durabilità gold potrebbero avere o non avere il servizio di gestione della riparazione abilitato, a seconda relativa data di creazione. I cluster di Azure al livello di durabilità bronze, per impostazione predefinita, non hanno il servizio di gestione della riparazione abilitato. Se il servizio è già abilitato, è possibile vederlo in esecuzione nella sezione relativa ai servizi del sistema in Service Fabric Explorer.
 
-Ottenere prima il modello per il cluster da distribuire. È possibile usare i modelli di esempio o creare un modello di Resource Manager. È quindi possibile abilitare Repair Manager seguendo questa procedura:
+È possibile usare il [modello di Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) per abilitare il servizio di gestione della riparazione nei cluster nuovi ed esistenti di Service Fabric. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i modelli di esempio o creare un modello di Resource Manager. 
 
-1. Verificare prima che il `apiversion` sia impostato su `2017-07-01-preview` per la risorsa `Microsoft.ServiceFabric/clusters` come illustrato nel frammento riportato di seguito. Se il valore è diverso, è necessario aggiornare `apiVersion` a `2017-07-01-preview`
+Per abilitare il servizio di gestione della riparazione:
+
+1. Verificare prima che il `apiversion` sia impostato su `2017-07-01-preview` per la risorsa `Microsoft.ServiceFabric/clusters` come illustrato nel frammento riportato di seguito. Se il valore è diverso, è necessario aggiornare `apiVersion` a `2017-07-01-preview`:
 
     ```json
     {
@@ -93,7 +87,7 @@ Ottenere prima il modello per il cluster da distribuire. È possibile usare i mo
     }
     ```
 
-2. A questo punto abilitare il servizio Repair Manager aggiungendo la sezione seguente `addonFeaturres` dopo la sezione `fabricSettings`, come illustrato di seguito
+2. A questo punto, abilitare il servizio di gestione della riparazione aggiungendo la sezione seguente `addonFeatures` dopo la sezione `fabricSettings`:
 
     ```json
     "fabricSettings": [
@@ -104,39 +98,61 @@ Ottenere prima il modello per il cluster da distribuire. È possibile usare i mo
         ],
     ```
 
-3. Dopo avere aggiornato il modello di cluster con queste modifiche, applicarle e consentire il completamento dell'aggiornamento. Al completamento il servizio di sistema Repair Manager risulta in esecuzione nel cluster, `fabric:/System/RepairManagerService`, nella sezione relativa ai servizi di sistema in Service Fabric Explorer. 
+3. Dopo aver aggiornato il modello del cluster con queste modifiche, applicarle e consentire la conclusione dell'aggiornamento. È ora possibile vedere il servizio del sistema di gestione della riparazione in esecuzione nel cluster. Viene chiamato `fabric:/System/RepairManagerService` nella sezione relativa ai servizi del sistema in Service Fabric Explorer. 
 
-#### <a name="standalone-on-premise-clusters"></a>Cluster locali autonomi
+### <a name="standalone-on-premises-clusters"></a>Cluster locali autonomi
 
-> [!NOTE]
-> Il supporto per il cluster autonomo sarà presto disponibile
+È possibile usare le [Impostazioni di configurazione per un cluster autonomo in Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest) per abilitare il servizio di gestione della riparazione nei cluster di Service Fabric nuovi ed esistenti.
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>Disabilitare la connessione automatica a Windows Update su tutti i nodi.
+Per abilitare il servizio di gestione della riparazione:
 
-L'abilitazione della connessione automatica a Windows Update sul cluster di Service Fabric può ridurre la disponibilità poiché è possibile che più nodi vengano riavviati contemporaneamente per completare l'aggiornamento.
+1. In primo luogo, verificare che `apiversion` in [Configurazioni generali del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) sia impostato su `04-2017` o versione successiva:
 
-Per impostazione predefinita Patch Orchestration Application tenta di disabilitare la connessione automatica a Windows Update su ogni nodo del cluster.
+    ```json
+    {
+        "name": "SampleCluster",
+        "clusterConfigurationVersion": "1.0.0",
+        "apiVersion": "04-2017",
+        ...
+    }
+    ```
 
-Tuttavia, nel caso in cui le impostazioni vengano gestite dall'amministratore o dai criteri di gruppo, è consigliabile impostare i criteri di Windows Update sulla notifica prima del download in modo esplicito.
+2. A questo punto abilitare il servizio di gestione della riparazione aggiungendo la sezione seguente `addonFeaturres` dopo la sezione `fabricSettings`, come illustrato di seguito:
 
+    ```json
+    "fabricSettings": [
+        ...      
+        ],
+        "addonFeatures": [
+            "RepairManager"
+        ],
+    ```
 
-### <a name="optional-enable-windows-azure-diagnostics"></a>Facoltativo: abilitare Diagnostica di Windows Azure
+3. Aggiornare il manifesto del cluster con queste modifiche, usando il manifesto del cluster aggiornato [Creare un cluster autonomo in esecuzione su Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) o [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Quando il cluster è in esecuzione con il manifesto del cluster aggiornato, è possibile vedere il servizio del sistema di gestione della riparazione in esecuzione nel cluster, denominato `fabric:/System/RepairManagerService`, nella sezione relativa ai servizi del sistema in Service Fabric Explorer.
 
-Nei giorni successivi i log per Patch Orchestration Application vengono raccolti come parte dei log di Service Fabric. Fino ad allora, i log vengono tuttavia raccolti in locale su ciascuno dei nodi del cluster. È consigliabile configurare Diagnostica di Microsoft Azure per eseguire l'upload dei log da tutti i nodi in una posizione centrale.
+### <a name="disable-automatic-windows-update-on-all-nodes"></a>Disabilitare la connessione automatica a Windows Update su tutti i nodi
 
-I passaggi per l'abilitare Diagnostica di Microsoft Azure sono descritti in dettaglio [qui](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad)
+Gli aggiornamenti automatici di Windows potrebbero causare la perdita di disponibilità perché più nodi del cluster possono riavviarsi nello stesso momento. Patch Orchestration App, per impostazione predefinita, tenta di disabilitare la connessione automatica a Windows Update su ogni nodo del cluster. Tuttavia, nel caso in cui le impostazioni vengano gestite da un amministratore o dai criteri di gruppo, è consigliabile impostare i criteri di Windows Update sulla notifica prima del download in modo esplicito.
 
-I log per Patch Orchestration Application verranno generati negli ID dei seguenti provider stabiliti.
+### <a name="optional-enable-azure-diagnostics"></a>Facoltativo: abilitare Diagnostica di Azure
+
+I log per Patch Orchestration App vengono raccolti in locale in ognuno dei nodi del cluster. Per i cluster che eseguono la versione di runtime di Service Fabric `5.6.220.9494` e livelli successivi, verranno raccolti anche i log come parte dei log di Service Fabric.
+
+Per i cluster che eseguono la versione di runtime di Service Fabric inferiore a `5.6.220.9494`, è consigliabile configurare Diagnostica di Azure per caricare i log da tutti i nodi in una posizione centrale.
+
+Per altre informazioni su come abilitare Diagnostica di Azure, vedere [Raccogliere log con Diagnostica di Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
+
+I log per Patch Orchestration App sono generati nei seguenti ID dei provider stabiliti:
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-Nella sezione "WadCfg" del modello di Azure Resource Manager aggiungere la sezione seguente: 
+Nella sezione `WadCfg` nel modello di Resource Manager, aggiungere la sezione seguente: 
 
 ```json
-"PatchOrchestrationApplication": \[
+"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -165,189 +181,217 @@ Nella sezione "WadCfg" del modello di Azure Resource Manager aggiungere la sezio
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
   },
-\]
+]
 ```
 
 > [!NOTE]
-> Nel caso in cui il cluster di Service Fabric sia costituito da più tipi di nodo, è necessario aggiungere la sezione precedente in tutte le sezioni "WadCfg".
+> Se il cluster di Service Fabric ha più tipi di nodo, è necessario aggiungere la sezione precedente per tutte le sezioni `WadCfg`.
 
-## <a name="configuring-the-application"></a>Configurazione dell'applicazione
+## <a name="download-the-app-package"></a>Scaricare il pacchetto dell'app
 
-Di seguito sono riportate le configurazioni che possono essere impostate dall'utente per modificare il comportamento di Patch Orchestration Application in base alle proprie esigenze.
+Scaricare l'applicazione dal [collegamento di download](https://go.microsoft.com/fwlink/P/?linkid=849590).
 
-È possibile eseguire l'override di valori predefiniti passando il parametro dell'applicazione durante la creazione/l'aggiornamento dell'applicazione. È possibile specificare i parametri dell'applicazione specificando `ApplicationParameter` al cmdlet `Start-ServiceFabricApplicationUpgrade` o `New-ServiceFabricApplication`
+## <a name="configure-the-app"></a>Configurare l'app
+
+Il comportamento di Patch Orchestration App può essere configurato per soddisfare le esigenze. Eseguire l'override dei valori predefiniti passando il parametro dell'applicazione durante la creazione o l'aggiornamento dell'applicazione. È possibile fornire i parametri dell'applicazione specificando `ApplicationParameter` ai cmdlet `Start-ServiceFabricApplicationUpgrade` o `New-ServiceFabricApplication`.
 
 |**Parametro**        |**Tipo**                          | **Dettagli**|
 |:-|-|-|
-|MaxResultsToCache    |long                              | Numero massimo di cronologie dei risultati di Windows Update memorizzabili nella cache. <br>Il valore predefinito è 3000 presumendo <br> - Un numero di nodi pari a 20 <br> - Un numero di aggiornamenti eseguiti su un nodo per ogni mese pari a 5 <br> - Un numero di risultati per ogni operazione pari a 10 <br> - L'archiviazione dei risultati relativi agli ultimi 3 mesi |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati da CoordinatorService per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric<br>                         I valori consentiti sono i seguenti: <br><br>                                                           <b>NodeWise</b>: Windows Update viene installato un nodo alla volta <br>                                                           <b>UpgradeDomainWise</b>: Windows Update viene installato un dominio di aggiornamento alla volta; al massimo l'aggiornamento può essere eseguito per tutti i nodi appartenenti a un dominio di aggiornamento.
-|LogsDiskQuotaInMB   |long  <br> Predefinito: 1024               |La dimensione massima in MB dei log di Patch Orchestration Application che è possibile salvare in modo permanente in locale sul nodo
-| WUQuery               | string<br>Impostazione predefinita: "IsInstalled = 0"                | Eseguire query per ottenere gli aggiornamenti Windows. Per altre informazioni, vedere [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Booleano <br> Predefinito: True                 | Questo flag consente gli aggiornamenti dei sistemi operativi Windows da installare.            |
-| WUOperationTimeOutInMinutes | int <br>Predefinito: 90                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca/download/installazione). L'operazione viene interrotta, se non viene completata entro il timeout specificato.       |
-| WURescheduleCount     | int <br> Predefinito: 5                  | Questa configurazione determina il numero massimo di volte in cui il servizio ripianificherà Windows Update quando un'operazione continua a non riuscire          |
-| WURescheduleTimeInMinutes | int <br>Predefinito: 30 | Questa configurazione determina l'intervallo con cui il servizio ripianificherà Windows Update se il problema persiste |
-| WUFrequency           | Stringa separata da virgole Predefinito: "Weekly, Wednesday, 7:00:00"     | La frequenza di installazione di Windows Update. Il formato e i valori possibili sono indicati di seguito <br>- Monthly,DD,HH:MM:SS Esempio: Monthly,5,12:22:32 <br> - Weekly,DAY,HH:MM:SS Esempio: Weekly, Tuesday, 12:22:32  <br> - Daily, HH:MM:SS Esempio: Daily, 12:22:32  <br> - None: indica che non deve essere eseguito Windows Update  <br><br> NOTA: tutti gli orari sono in formato UTC|
-| AcceptWindowsUpdateEula | Booleano <br>Predefinito: True | Impostando questo flag, l'applicazione accetta il contratto di licenza per Windows Update per conto del proprietario del computer.              |
+|MaxResultsToCache    |long                              | Numero massimo di risultati di Windows Update memorizzabili nella cache. <br>Il valore predefinito è 3000 presumendo che il: <br> - Numero di nodi sia 20. <br> - Numero di aggiornamenti eseguiti su un nodo per ogni mese sia pari a cinque. <br> - Numero di risultati per ogni operazione sia pari a 10. <br> - I risultati per gli ultimi tre mesi debbano essere archiviati. |
+|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br>                         I valori consentiti sono i seguenti: <br>                                                           <b>NodeWise</b>. Windows Update viene installato un nodo alla volta. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update viene installato un dominio di aggiornamento alla volta (al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono passare per Windows Update).
+|LogsDiskQuotaInMB   |long  <br> Predefinito: 1024               |Dimensione massima in MB dei log di Patch Orchestration App che è possibile salvare in modo permanente e locale sui nodi.
+| WUQuery               | string<br>Impostazione predefinita: "IsInstalled = 0"                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+| InstallWindowsOSOnlyUpdates | Booleano <br> Predefinito: True                 | Questo flag consente l'installazione degli aggiornamenti del sistema operativo Windows.            |
+| WUOperationTimeOutInMinutes | int <br>Predefinito: 90                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
+| WURescheduleCount     | int <br> Predefinito: 5                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento di Windows quando un'operazione continua ad avere esito negativo.          |
+| WURescheduleTimeInMinutes | int <br>Predefinito: 30 | L'intervallo con cui il servizio ripianifica l'aggiornamento di Windows se il problema persiste. |
+| WUFrequency           | Stringa separata da virgole Predefinito: "Weekly, Wednesday, 7:00:00"     | La frequenza di installazione di Windows Update. Il formato e i valori possibili sono: <br>-   Monthly, DD,HH:MM:SS, ad esempio, Monthly, 5,12:22:32. <br> -   Weekly, DAY,HH:MM:SS, ad esempio, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None: indica che non deve essere eseguito Windows Update.  <br><br> SI noti che tutti gli orari sono in formato UTC.|
+| AcceptWindowsUpdateEula | Booleano <br>Predefinito: True | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
+> [!TIP]
+> Se si desidera che Windows Update venga eseguito immediatamente, impostare `WUFrequency` in relazione al tempo di distribuzione dell'applicazione. Ad esempio, si supponga di disporre di un cluster di test a cinque nodi e si prevede di distribuire l'app all'incirca alle 17:00:00 UTC. Se si presuppone che l'aggiornamento o la distribuzione dell'applicazione richiedano un massimo di 30 minuti, impostare il WUFrequency su "Daily, 17:30:00".
 
-## <a name="steps-to-deploy-the-application"></a>Passaggi per distribuire l'applicazione
+## <a name="deploy-the-app"></a>Distribuire l'app
 
-1. Completare tutti i passaggi necessari per preparare il cluster.
-1. Distribuire l'applicazione: questa operazione può essere applicata da PowerShell usando i passaggi illustrati [qui.](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)
-1. Per la configurazione dell'applicazione in fase di distribuzione usare `ApplicationParamater` nel cmdlet `New-ServiceFabricApplication`
+1. Completare tutti i passaggi preliminari per preparare il cluster.
+2. Distribuire Patch Orchestration App come qualsiasi altra app di Service Fabric. È possibile distribuire l'app tramite PowerShell. Seguire la procedura in [Distribuire e rimuovere applicazioni con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+3. Per configurare l'applicazione al momento della distribuzione, passare `ApplicationParamater` al cmdlet `New-ServiceFabricApplication`. Per praticità, è stato fornito lo script Deploy.ps1 insieme all'applicazione. Per usare lo script:
 
-    Per facilitare l'utente è stato fornito lo script Deploy.ps1 con l'applicazione. Per usare lo script:
-
-    - Connettersi a un cluster di Service Fabric usando `Connect-ServiceFabricCluster`
-    - Eseguire lo script Deploy.ps1 di PowerShell con il valore `ApplicationParameter` appropriato
-
-> [!NOTE]
-> Mantenere lo script e la cartella dell'applicazione PatchOrchestrationApplication nella stessa directory.
-
-## <a name="steps-to-upgrade-the-application"></a>Passaggi per aggiornare l'applicazione
-
-Per l'aggiornamento di un'istanza esistente di Patch Orchestration Application con PowerShell, vedere i passaggi indicati [qui.](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell)
-
-Per modificare solo i parametri di applicazione dell'applicazione, specificare `ApplicationParamater` al cmdlet `Start-ServiceFabricApplicationUpgrade` con la versione dell'applicazione esistente.
-
-## <a name="steps-to-remove-the-application"></a>Passaggi per rimuovere l'applicazione
-
-Per rimuovere l'applicazione, vedere i passaggi indicati [qui.](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)
-
-Per facilitare l'utente è stato fornito lo script Undeploy.ps1 con l'applicazione. Per usare lo script:
-    - Connettersi a un cluster di Service Fabric usando ```Connect-ServiceFabricCluster```
-    - Eseguire lo script Undeploy.ps1 di PowerShell
+    - Connettersi a un cluster di Service Fabric tramite `Connect-ServiceFabricCluster`.
+    - Eseguire lo script Deploy.ps1 di PowerShell con il valore `ApplicationParameter` appropriato.
 
 > [!NOTE]
 > Mantenere lo script e la cartella dell'applicazione PatchOrchestrationApplication nella stessa directory.
 
-## <a name="viewing-the-windows-update-results"></a>Visualizzazione dei risultati di Windows Update
+## <a name="upgrade-the-app"></a>Aggiornare l'app
 
-Patch Orchestration Application espone l'API REST per visualizzare i risultati cronologici all'utente.
+Per aggiornare una Patch Orchestration App esistente tramite PowerShell, seguire la procedura in [Aggiornamento di un'applicazione di Service Fabric mediante PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell).
 
-È possibile eseguire query sui risultati di Windows Update eseguendo la registrazione al cluster, individuando l'indirizzo di replica per il sito primario di CoordinatorService e raggiungendo l'URL dal browser.
-http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults: l'endpoint REST per CoordinatorService dispone di porta dinamica per verificare l'URL preciso a Service Fabric Explorer.
-Nell'esempio seguente i risultati saranno disponibili in `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults` 
- ![immagine dell'endpoint REST](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
+## <a name="remove-the-app"></a>Rimuovere l'app
+
+Per rimuovere l'applicazione, seguire la procedura in [Distribuire e rimuovere applicazioni con PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+
+Per praticità, è stato fornito lo script Undeploy.ps1 insieme all'applicazione. Per usare lo script:
+
+  - Connettersi a un cluster di Service Fabric tramite ```Connect-ServiceFabricCluster```.
+
+  - Eseguire lo script Undeploy.ps1 di PowerShell.
+
+> [!NOTE]
+> Mantenere lo script e la cartella dell'applicazione PatchOrchestrationApplication nella stessa directory.
+
+## <a name="view-the-windows-update-results"></a>Visualizzare i risultati di Windows Update
+
+Patch Orchestration Application espone l'API REST per visualizzare i risultati cronologici all'utente. Un esempio del file JSON dei risultati:
+```json
+[
+  {
+    "NodeName": "_stg1vm_1",
+    "WindowsUpdateOperationResults": [
+      {
+        "OperationResult": 0,
+        "NodeName": "_stg1vm_1",
+        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "UpdateDetails": [
+          {
+            "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
+            "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
+            "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
+            "ResultCode": 0
+          }
+        ],
+        "OperationType": 1,
+        "WindowsUpdateQuery": "IsInstalled=0",
+        "WindowsUpdateFrequency": "Daily,10:00:00",
+        "RebootRequired": false
+      }
+    ]
+  },
+  ...
+]
+```
+Se non è stato ancora pianificato alcun aggiornamento, il file JSON dei risultati è vuoto.
+
+Accedere al cluster per eseguire la query sui risultati di Windows Update. Trovare quindi l'indirizzo della replica per il primario del Coordinator Service e raggiungere l'URL dal browser: http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
+
+L'endpoint REST per Coordinator Service dispone di una porta dinamica. Per controllare l'URL esatto, fare riferimento a Service Fabric Explorer. Ad esempio, i risultati sono disponibili in `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`.
+
+![Immagine dell'endpoint REST](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 
-L'utente può accedere all'URL anche dall'esterno del cluster, nel caso in cui il proxy inverso sia abilitato nel cluster.
-Endpoint che è necessario raggiungere: http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults Il proxy inverso può essere abilitato nel cluster seguendo i passaggi [qui.](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) 
+Nel caso in cui il proxy inverso sia abilitato nel cluster, l'utente può accedere all'URL anche dall'esterno del cluster.
+L'endpoint da scegliere è: http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults.
+
+Per abilitare il proxy inverso nel cluster, seguire la procedura in [Proxy inverso in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
 
 > 
 > [!WARNING]
-> Quando si configura il proxy inverso, tutti i microservizi nel cluster che espongono un endpoint HTTP sono indirizzabili dall'esterno del cluster.
+> Dopo aver configurato il proxy inverso, tutti i microservizi nel cluster che espongono un endpoint HTTP sono indirizzabili dall'esterno del cluster.
 
-## <a name="diagnostics--health-events"></a>Diagnostica/eventi di integrità
+## <a name="diagnosticshealth-events"></a>Eventi di diagnostica/integrità
 
-### <a name="collecting-patch-orchestration-application-logs"></a>Raccolta dei log di Patch Orchestration Application
+### <a name="collect-patch-orchestration-app-logs"></a>Raccogliere i log di Patch Orchestration App
 
-Nei giorni successivi i log per Patch Orchestration Application vengono raccolti come parte dei log di Service Fabric.
-Fino a quel momento i log possono essere raccolti usando uno dei modi seguenti
+Vengono raccolti i log di Patch Orchestration App come parte dei log di Service Fabric dalla versione di runtime `5.6.220.9494` e versioni successive.
+Per i cluster che eseguono la versione di runtime di Service Fabric inferiore a `5.6.220.9494`, i log possono essere raccolti tramite uno dei metodi seguenti.
 
 #### <a name="locally-on-each-node"></a>In locale in ogni nodo
 
-I log vengono raccolti in locale in ogni nodo del cluster di Service Fabric. Il percorso per accedere ai log è \[Service Fabric\_Installation\_unità\]:\\PatchOrchestrationApplication\\log
+I log vengono raccolti in locale in ogni nodo del cluster di Service Fabric. Il percorso per accedere ai log è \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs.
 
-Ad esempio, se Service Fabric è stato installato nell'unità "D", il percorso sarà D:\\PatchOrchestrationApplication\\log
+Ad esempio, se Service Fabric è installato nell'unità D, il percorso è D:\\PatchOrchestrationApplication\\logs.
 
 #### <a name="central-location"></a>Posizione centrale
 
-Se Diagnostica di Microsoft Azure viene configurata nell'ambito dei passaggi preliminari, i log per Patch Orchestration Application saranno disponibili in Archiviazione di Azure.
+Se Diagnostica di Azure viene configurata come parte dei passaggi preliminari, i log per Patch Orchestration App sono disponibili in Archiviazione di Azure.
 
 ### <a name="health-reports"></a>Report sull'integrità
 
-Patch Orchestration Application pubblica anche i report sull'integrità per CoordinatorService o NodeAgentService nei casi seguenti
+Patch Orchestration App pubblica anche i report sull'integrità per il Coordinator Service o il Node Agent Service nei casi seguenti:
 
-#### <a name="windows-update-operation-failed"></a>Operazione di Windows Update non riuscita
+#### <a name="a-windows-update-operation-failed"></a>Un'operazione di Windows Update ha avuto esito negativo
 
-Se l'operazione di Windows Update non riesce in un nodo, verrà generato il report sull'integrità per NodeAgentService.
-I dettagli del report sull'integrità conterranno il nome del nodo problematico.
+Se un'operazione di Windows Update ha esito negativo in un nodo, viene generato un report sull'integrità del Node Agent Service. I dettagli del report sull'integrità contengono il nome del nodo problematico.
 
-Il report verrà cancellato automaticamente dopo che viene eseguita correttamente l'applicazione nel nodo problematico.
+Il report viene cancellato automaticamente dopo che viene completata correttamente l'applicazione delle patch nel nodo problematico.
 
-#### <a name="node-agent-ntservice-is-down"></a>Node Agent NTService è inattivo
+#### <a name="the-node-agent-ntservice-is-down"></a>Il Node Agent NTService è inattivo
 
-Se NodeAgentNTService è inattivo in un nodo, viene generato il report sull'integrità sui livelli di avviso per NodeAgentService
+Se il Node Agent NTService è inattivo in un nodo, viene generato un report sull'integrità dei livelli di avviso per il Node Agent Service.
 
-#### <a name="repair-manager-is-not-enabled"></a>Repair Manager non è abilitato
+#### <a name="the-repair-manager-service-is-not-enabled"></a>Il servizio di gestione della riparazione non è abilitato
 
-Se il servizio Repair Manager non è stato individuato nel cluster, viene generato il report sull'integrità dei livelli di avviso per CoordinatorService.
+Se il servizio di gestione della riparazione non viene individuato nel cluster, viene generato un report sull'integrità dei livelli di avviso per il Coordinator Service.
 
-## <a name="frequently-asked-questions"></a>Domande frequenti:
+## <a name="frequently-asked-questions"></a>Domande frequenti
 
-D: **Il cluster è in uno stato di errore quando Patch Orchestration Application è in esecuzione**.
+D: **Perché il cluster è in uno stato di errore quando Patch Orchestration App è in esecuzione?**
 
-R. Patch Orchestration Application disabilita e/o riavvia i nodi durante il processo di installazione e ciò può comportare temporaneamente la violazione dell'integrità del cluster.
+R. Durante il processo di installazione, Patch Orchestration App disabilita o riavvia i nodi, il che può comportare temporaneamente la violazione dell'integrità del cluster.
 
-In base a criteri impostati per l'applicazione, durante un'operazione di applicazione di patch è possibile che diventi non disponibile un singolo nodo OPPURE un intero dominio di aggiornamento simultaneamente.
+A seconda dei criteri impostati per l'applicazione, durante un'operazione di applicazione di patch è possibile che diventi non disponibile un singolo nodo *oppure* un intero dominio di aggiornamento simultaneamente.
 
-Si noti che al termine dell'installazione di Windows Update, i nodi verranno abilitati di nuovo dopo il riavvio.
+Al termine dell'installazione di Windows Update, i nodi vengono abilitati di nuovo dopo il riavvio.
 
-Ad esempio, nel caso seguente si è verificato un errore del cluster temporaneamente a causa di 2 nodi non disponibili per violazione del criterio MaxPercentageUnhealthNodes. È un errore temporaneo fino a quando l'operazione di aggiornamento è in corso.
+Nell'esempio seguente, il cluster è passato temporaneamente a uno stato di errore perché i due nodi sono stati resi inattivi e il criterio MaxPercentageUnhealthNodes è stato violato. L'errore è temporaneo fino a quando l'operazione di aggiornamento è in corso.
 
 ![Immagine del cluster non integro](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
-Se il problema persiste, fare riferimento alla sezione relativa alla risoluzione dei problemi
+Se il problema persiste, fare riferimento alla sezione relativa alla risoluzione dei problemi.
 
-D: **È possibile usare Patch Orchestration Application per i cluster autonomi?**
+D: **Patch Orchestration App è in stato di avviso**
 
-R. Non ancora. Il supporto per i cluster autonomi sarà presto disponibile.
+R. Verificare se la causa principale è un report sull'integrità inviato all'applicazione. L'avviso in genere contiene i dettagli del problema. Se il problema è temporaneo, è previsto il ripristino automatico dell'applicazione da questo stato.
 
-D: **Patch Orchestration Application è in stato di avviso**
+D: **Che cosa è possibile fare se il cluster non è integro ed è necessario eseguire un aggiornamento del sistema operativo?**
 
-R. Verificare se un report sull'integrità inviato per l'applicazione è la causa principale. L'avviso in genere contiene i dettagli del problema.
-È previsto il ripristino automatico dell'applicazione da questo stato se il problema è temporaneo.
+R. Patch Orchestration App non installa gli aggiornamenti mentre il cluster non è in uno stato di integrità. Provare a portare il cluster in uno stato di integrità per sbloccare il flusso di lavoro di Patch Orchestration App.
 
-D: **Il cluster non è integro. Tuttavia è necessario eseguire urgentemente l'aggiornamento del sistema operativo**
+D: **Perché l'applicazione di patch nei cluster richiede molto tempo?**
 
-R. Patch Orchestration Application non installa gli aggiornamenti mentre il cluster non è in uno stato di integrità.
-Provare a portare il cluster allo stato di integrità per sbloccare il flusso di lavoro di Patch Orchestration Application.
+R. Il tempo impiegato da Patch Orchestration App dipende principalmente dai seguenti fattori:
 
-D: **Perché l'applicazione di patch nel cluster richiede molto tempo?**
-
-R. Il tempo impiegato da Patch Orchestration Application dipende principalmente dai seguenti fattori:
-
-- Criteri di CoordinatorService: il criterio predefinito `NodeWise` comporta l'applicazione di patch un solo nodo alla volta; in particolare nel caso di cluster più grandi è consigliabile usare il criterio `UpgradeDomainWise` per velocizzare il processo nel cluster.
-- Numero di aggiornamenti disponibili per il download e l'installazione: tempo medio per scaricare e installare un aggiornamento non deve superare alcune ore.
-- Prestazioni della VM e della larghezza di banda di rete.
+- I criteri del Coordinator Service. 
+  - I criteri predefiniti, `NodeWise`, comportano l'applicazione di patch solo un nodo alla volta. In particolare nel caso di cluster più grandi, è consigliabile usare i criteri `UpgradeDomainWise` per ottenere un'applicazione più rapida delle patch nei cluster.
+- Il numero di aggiornamenti disponibili per il download e l'installazione. 
+- Il tempo medio necessario per scaricare e installare un aggiornamento, che non deve superare un paio d'ore.
+- Le prestazioni della VM e la larghezza di banda della rete.
 
 ## <a name="disclaimers"></a>Dichiarazioni di non responsabilità
 
-- Patch Orchestration Application accetta contratto di licenza di Windows Update per conto dell'utente. L'impostazione può facoltativamente essere disattivata nella configurazione dell'applicazione.
+- Patch Orchestration App accetta il contratto licenza di Windows Update per conto dell'utente. Facoltativamente, l'impostazione può essere disattivata nella configurazione dell'applicazione.
 
-- Patch Orchestration Application raccoglie i dati di telemetria per tenere traccia dell'uso e delle prestazioni.
-    I dati di telemetria dell'applicazione seguono l'impostazione dei dati di telemetria del runtime di Service Fabric, che è attivata per impostazione predefinita.
+- Patch Orchestration App raccoglie i dati di telemetria per tenere traccia dell'uso e delle prestazioni. I dati di telemetria dell'applicazione seguono l'impostazione dei dati di telemetria del runtime di Service Fabric (attiva per impostazione predefinita).
 
-## <a name="troubleshooting-help"></a>Guida alla risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-### <a name="node-not-coming-back-to-up-state"></a>Il nodo non torna allo stato attivo
+### <a name="a-node-is-not-coming-back-to-up-state"></a>Un nodo non torna allo stato attivo
 
-**Il nodo potrebbe essere bloccato nello stato disabilitato** Questa situazione può verificarsi quando non è possibile disabilitare un nodo pianificato per l'operazione a causa di un controllo di sicurezza in sospeso. Per risolvere questo problema, assicurarsi che siano disponibili sufficienti nodi in stato di integrità.
+**Il nodo potrebbe essere bloccato in uno stato di disattivazione perché**:
 
-**Il nodo potrebbe essere bloccato nello stato disabilitato per la causa seguente**
+Un controllo di sicurezza è in sospeso. Per risolvere questo problema, assicurarsi che siano disponibili sufficienti nodi in uno stato di integrità.
+
+**Il nodo potrebbe essere bloccato in uno stato di disattivazione perché**:
 
 - Il nodo è stato disabilitato manualmente.
 - Il nodo è stato disabilitato a causa di un processo dell'infrastruttura di Azure in corso.
-- Il nodo è stato disabilitato temporaneamente da Patch Orchestration Application per applicare patch al nodo.
+- Il nodo è stato disabilitato temporaneamente da Patch Orchestration App per applicare le patch al nodo.
 
-**Il nodo potrebbe essere bloccato nello stato inattivo per il motivo seguente**
+**Il nodo potrebbe essere bloccato in uno stato inattivo perché**:
 
-- Il nodo è stato inserito nello stato inattivo manualmente.
-- Il nodo è in fase di riavvio; può essere stato attivato da Patch Orchestration Application.
-- Il nodo è inattivo a causa di problemi di connettività della rete di VM/computer con errore.
+- Il nodo è stato impostato su uno stato inattivo manualmente.
+- Il nodo è in fase di riavvio (che è possibile che venga avviato da Patch Orchestration App).
+- Il nodo è inattivo a causa di problemi relativi a una rete o macchina o macchina virtuale difettosa.
 
 ### <a name="updates-were-skipped-on-some-nodes"></a>Gli aggiornamenti sono stati ignorati in alcuni nodi
 
-Patch Orchestration Application tenta di installare Windows Update in base ai criteri di ripianificazione. Il servizio tenta di recuperare il nodo e di ignorare l'aggiornamento in base ai criteri dell'applicazione.
+Patch Orchestration App tenta di installare un aggiornamento di Windows in base ai criteri di ripianificazione. Il servizio tenta di recuperare il nodo e di ignorare l'aggiornamento in base ai criteri dell'applicazione.
 
-In questo caso, verrà generato un report sull'integrità dei livelli di avviso per Node Agent Service.
-Il risultato di Windows Update conterrà anche la possibile causa dell'errore.
+In questo caso, viene generato un report sull'integrità dei livelli di avviso per Node Agent Service. Il risultato di Windows Update contiene anche la possibile causa dell'errore.
 
-### <a name="health-of-the-cluster-goes-to-error-while-update-was-getting-installed"></a>Lo stato del cluster passa nello stato di errore durante l'installazione dell'aggiornamento
+### <a name="the-health-of-the-cluster-goes-to-error-while-the-update-installs"></a>L'integrità del cluster passa nello stato di errore durante l'installazione dell'aggiornamento
 
-Nel caso in cui un aggiornamento di Windows non valido interrompa l'integrità dell'applicazione/cluster in un nodo o un dominio di aggiornamento specifico, Patch Orchestration Application non procederà con le successive operazioni di Windows Update finché il cluster non diventa nuovamente integro.
+Un aggiornamento difettoso di Windows può compromettere l'integrità di un'applicazione o di un cluster in un nodo particolare o in un dominio di aggiornamento. Patch Orchestration App interrompe qualsiasi successiva operazione di aggiornamento di Windows fino a quando il cluster è di nuovo integro.
 
-L'amministratore deve intervenire e comprendere perché un aggiornamento di Windows Update sta causando la violazione dell'integrità dell'applicazione/cluster.
+Un amministratore deve intervenire e stabilire perché l'applicazione o il cluster è diventato non integro a causa di Windows Update.
 
