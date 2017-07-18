@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1aebecdaacd3525bec07a9359e52d2bc3d1539de
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: fc0fd0188261263aac550b0f0784076efc807215
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -52,9 +52,7 @@ Per usare il servizio Importazione/Esportazione di Azure, sono necessari una sot
 Per iniziare il processo di importazione o di esportazione dall'archiviazione BLOB, creare innanzitutto un processo, che potrà essere un processo di importazione o un processo di esportazione:
 
 * Creare un processo di importazione quando si desidera trasferire i dati locali nei BLOB nell'account di archiviazione di Azure.
-* Creare un processo di esportazione quando si desidera trasferire su dischi rigidi spediti all'utente i dati attualmente archiviati come BLOB nell'account di archiviazione.
-
-Quando si crea un processo, si notifica al servizio Importazione/Esportazione che si spedirà uno o più dischi rigidi a un data center di Azure.
+* Creare un processo di esportazione quando si desidera trasferire i dati attualmente archiviati come BLOB nell'account di archiviazione nei dischi rigidi inviati all'utente. Quando si crea un processo, si notifica al servizio di Importazione/Esportazione che verranno spediti uno o più dischi rigidi a un data center di Azure.
 
 * Per un processo di importazione, si spediranno dischi rigidi contenenti i dati.
 * Per un processo di esportazione, si spediranno dischi rigidi vuoti.
@@ -69,7 +67,7 @@ I file journal contengono le informazioni di base sul processo e sull'unità, co
 
 Lo strumento WAImportExport è compatibile solo con il sistema operativo Windows a 64 bit. Vedere la sezione [Sistema operativo](#operating-system) per le versioni specifiche del sistema operativo supportate.
 
-Scaricare la versione più recente dello [strumento WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). Per ulteriori dettagli sull'uso dello strumento WAImportExport, vedere [Uso dello strumento WAImportExport](storage-import-export-tool-how-to.md).
+Scaricare la versione più recente dello [strumento WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). Per ulteriori dettagli sull'uso dello strumento WAImportExport, vedere [Uso dello strumento WAImportExport](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
 >**Versione precedente:** è possibile [scaricare la versione WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) dello strumento e fare riferimento alla [guida all'uso di WAImportExport V1](storage-import-export-tool-how-to-v1.md). La versione WAImportExport V1 dello strumento offre supporto per la **preparazione di dischi quando i dati sono già scritti in precedenza sul disco**. Sarà inoltre necessario usare lo strumento WaImportExport V1 se è disponibile solo una chiave SAS.
@@ -85,6 +83,8 @@ Per i processi di importazione, verrà elaborato solo il primo volume di dati su
 > Questo servizio non supporta i dischi rigidi esterni dotati di un adattatore USB incorporato. Non possono essere usati o inviati neanche dischi inseriti nell'involucro di un'unità disco rigido esterna.
 > 
 > 
+
+Di seguito si riporta un elenco di adattatori USB esterni usati per copiare i dati in dischi rigidi interni. Anker 68UPSATAA - 02BU Anker 68UPSHHDS BU Startech SATADOCK22UE Orico 6628SUS3-C-BK (serie 6628) Alloggiamento di espansione dell'unità rigida esterna Thermaltake BlacX Hot Swap SATA (USB 2.0 ed eSATA)
 
 ### <a name="encryption"></a>Crittografia
 I dati sull'unità devono essere crittografati mediante Crittografia unità BitLocker, che protegge i dati mentre sono in transito.
@@ -264,8 +264,8 @@ Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Es
 1. Identificare i dati da importare. Potrebbe trattarsi di directory e file autonomi nel server locale o in una condivisione di rete.  
 2. Determinare il numero di unità che serviranno in base alla dimensione totale dei dati. Procurare il numero necessario di unità SSD da 2,5 pollici o dischi rigidi SATA II/III da 2,5 o 3,5 pollici.
 3. Identificare l'account di archiviazione di destinazione, il contenitore, le directory virtuali e i BLOB.
-4.    Determinare le directory e/o i file autonomi che verranno copiati in ciascuna unità disco rigido.
-5.    Creare i file CSV per set di dati e driveset.
+4.  Determinare le directory e/o i file autonomi che verranno copiati in ciascuna unità disco rigido.
+5.  Creare i file CSV per set di dati e driveset.
     
     **File CSV del set di dati**
     
@@ -299,8 +299,8 @@ Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Es
 
     Ulteriori informazioni su [come preparare un file CSV del driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.    Usare lo [strumento WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) per copiare i dati in uno o più dischi rigidi.
-7.    È possibile specificare il parametro "Encrypt" nel campo di crittografia del CSV del driveset per abilitare la crittografia BitLocker sull'unità disco rigido. In alternativa è possibile anche abilitare la crittografia BitLocker manualmente nell'unità disco rigido, specificare "AlreadyEncrypted" e indicare la chiave nel CSV del driveset durante l'esecuzione dello strumento.
+6.  Usare lo [strumento WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) per copiare i dati in uno o più dischi rigidi.
+7.  È possibile specificare il parametro "Encrypt" nel campo di crittografia del CSV del driveset per abilitare la crittografia BitLocker sull'unità disco rigido. In alternativa è possibile anche abilitare la crittografia BitLocker manualmente nell'unità disco rigido, specificare "AlreadyEncrypted" e indicare la chiave nel CSV del driveset durante l'esecuzione dello strumento.
 
 8. Non modificare i dati sulle unità disco rigido o sul file journal dopo aver completato la preparazione del disco.
 
@@ -471,9 +471,11 @@ No. Tutte le unità vengono crittografate con BitLocker.
 
 No. Sarà necessario spedire le unità per i processi sia di importazione che di esportazione.
 
+** Come è possibile accedere ai dati importati da questo servizio?** Si può accedere ai dati nell'account di archiviazione di Azure tramite il portale di Azure o usando uno strumento indipendente denominato Storage Explorer. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+
 **Al termine del processo di importazione, come si presenteranno i dati nell'account di archiviazione? Verrà mantenuta la gerarchia delle directory?**
 
-Quando si prepara un disco rigido per un processo di importazione, la destinazione viene specificata dal campo DstBlobPathOrPrefix nel file CSV del set di dati. Si tratta del contenitore di destinazione nell'account di archiviazione in cui vengono copiati i dati dal disco rigido. In questo contenitore di destinazione vengono create directory virtuali per le cartelle del disco rigido e BLOB per i file.
+Quando si prepara un disco rigido per un processo di importazione, la destinazione viene specificata dal campo DstBlobPathOrPrefix nel file CSV del set di dati. Si tratta del contenitore di destinazione nell'account di archiviazione in cui vengono copiati i dati dal disco rigido. In questo contenitore di destinazione vengono create directory virtuali per le cartelle del disco rigido e BLOB per i file. 
 
 **Se l'unità contiene file già presenti nell'account di archiviazione, il servizio sovrascriverà i BLOB esistenti nell'account di archiviazione?**
 
@@ -498,9 +500,9 @@ Per spedire le unità al data center è possibile servirsi di uno dei vettori pi
 
 Alcuni percorsi dell'account di archiviazione sono mappati a indirizzi di spedizione alternativi. Le località di spedizione disponibili in precedenza possono essere temporaneamente mappate a posizioni alternative. Controllare sempre l'indirizzo di spedizione fornito durante la creazione del processo prima di spedire le unità.
 
-**Al momento della spedizione dell'unità, il vettore richiede il nome e il numero di telefono di contatto del data center. Cosa devo fornire?**
+**Al momento della spedizione dell'unità, il vettore richiede l'indirizzo e il numero di telefono di contatto del data center. Cosa devo fornire?**
 
-Il numero di telefono viene fornito all'utente durante la creazione del processo. Se è richiesto un nome di contatto, rivolgersi a waimportexport@microsoft.com per ottenere tali informazioni.
+Il numero di telefono e l'indirizzo del controller di dominio vengono forniti come parte della creazione del processo.
 
 **È possibile usare il servizio Importazione/Esportazione di Azure per copiare cassette postali PST e dati di SharePoint in Office 365?**
 
@@ -510,11 +512,11 @@ Vedere [Importare file PST o dati di SharePoint in Office 365](https://technet.m
 
 Vedere [Flusso di lavoro di Backup offline in Backup di Azure](../backup/backup-azure-backup-import-export.md).
 
-**Qual è il numero massimo di unità disco rigido per una spedizione?
+**Qual è il numero massimo di unità disco rigido per una spedizione?**
 
 In una spedizione può essere presente un numero qualsiasi di unità disco rigido. Se i dischi appartengono a più processi, è consigliabile: a) Etichettare i dischi con i corrispondenti nomi dei processi. b) Aggiornare i processi con un numero di tracciabilità seguito da -1, -2 e così via.
   
-**Qual è la dimensione massima dei BLOB in blocchi e dei BLOB di pagine supportata dalle operazioni di importazione/esportazione di dischi?
+**Qual è la dimensione massima dei BLOB in blocchi e dei BLOB di pagine supportata dalle operazioni di importazione/esportazione di dischi?**
 
 La dimensione massima dei BLOB in blocchi è circa 4768 TB o 5.000.000 MB.
 La dimensione massima di un BLOB di pagine è 1 TB.
