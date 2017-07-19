@@ -1,6 +1,6 @@
 ---
-title: Creare una pipeline CI/CD in Azure con Jenkins | Microsoft Docs
-description: Informazioni su come creare un&quot;istanza di Jenkins in Azure che effettua il pull da GitHub in ogni commit di codice e compila un nuovo contenitore Docker per l&quot;esecuzione dell&quot;app
+title: Creare una pipeline di sviluppo in Azure con Jenkins | Microsoft Docs
+description: Informazioni su come creare una macchina virtuale di Jenkins in Azure che esegue il pull da GitHub in ogni commit di codice e compila un nuovo contenitore Docker per l'esecuzione dell'app
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -17,14 +17,14 @@ ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: dbf9b9f997ce8b66f8672f75f49f568d45e57390
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: b606d2c3070f8020cdd9aad3f12f8f1e43125138
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 
-# <a name="create-a-cicd-infrastructure-on-a-linux-vm-in-azure-that-uses-jenkins-github-and-docker"></a>Creare un'infrastruttura CI/CD in una macchina virtuale Linux in Azure che usa Jenkins, GitHub e Docker
+# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Come creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker
 Per automatizzare le fasi di compilazione e test dello sviluppo di un'applicazione, è possibile usare una pipeline per l'integrazione e la distribuzione continue (CI/CD). In questa esercitazione viene creata una pipeline CI/CD in una macchina virtuale di Azure e viene illustrato come:
 
 > [!div class="checklist"]
@@ -35,9 +35,10 @@ Per automatizzare le fasi di compilazione e test dello sviluppo di un'applicazio
 > * Creare un'immagine Docker per l'app
 > * Verificare che i commit GitHub compilino una nuova immagine Docker e gli aggiornamenti che eseguono l'app
 
-Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Creare l'istanza di Jenkins
 In un'esercitazione precedente, [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md) (Come personalizzare una macchina virtuale Linux al primo avvio), è stato descritto come personalizzare una macchina virtuale al primo avvio con cloud-init. Questa esercitazione usa un file cloud-init per installare Jenkins e Docker in una macchina virtuale. 

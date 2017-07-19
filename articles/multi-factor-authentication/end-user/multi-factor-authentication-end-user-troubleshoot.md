@@ -6,32 +6,33 @@ keywords: client di multi-factor authentication, problema di autenticazione, ID 
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 06/15/2017
 ms.author: kgremban
+ms.reviewer: yossib
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: 2eab76ba42955616ae4d6909c1568f03da0c1819
-ms.lasthandoff: 12/22/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 10b63a859c67b965734e32ec979b26a1ea6cc516
+ms.contentlocale: it-it
+ms.lasthandoff: 06/22/2017
 
 ---
 # <a name="having-trouble-with-two-step-verification"></a>Problemi con la verifica in due passaggi
-In questo articolo vengono descritti alcuni problemi che possono verificarsi con la verifica in due passaggi. Se il problema che si verifica non è incluso qui, specificare un feedback dettagliato nella sezione dei commenti per migliorare l'articolo.
+In questo articolo vengono descritti alcuni problemi che possono verificarsi con la verifica in due passaggi. Se il problema che si verifica non è incluso in questo articolo, inserire un feedback dettagliato nella sezione dei commenti ai fini di un miglioramento.
 
 ## <a name="i-lost-my-phone-or-it-was-stolen"></a>Il telefono è stato perso o rubato
 Esistono due modi per rientrare nel proprio account. Il primo consiste nell'accedere con il numero di telefono di autenticazione alternativo, se è stato configurato. Il secondo consiste nel chiedere all'amministratore di cancellare le impostazioni.
 
-Se il telefono è stato perso o rubato, è consigliabile richiedere all'amministratore di reimpostare le password dell'app e cancellare eventuali dispositivi memorizzati. Se l'amministratore non sa come eseguire questa operazione, può fare riferimento a questo articolo: [Gestione delle impostazioni utente](../multi-factor-authentication-manage-users-and-devices.md).
+Se il telefono è stato perso o rubato, è consigliabile richiedere all'amministratore di reimpostare le password dell'app e cancellare eventuali dispositivi memorizzati. Se l'amministratore non sa come eseguire questa attività, può fare riferimento a questo articolo: [Manage users and devices](../multi-factor-authentication-manage-users-and-devices.md) (Gestire utenti e dispositivi).
 
 ### <a name="use-an-alternate-phone-number"></a>Usare un numero di telefono alternativo
-Se sono state impostate più opzioni di verifica, tra cui un numero di telefono secondario o un'app di autenticazione su un altro dispositivo, è possibile usarle per accedere.
+Se sono state impostate più opzioni di verifica, tra cui un numero di telefono secondario o un'app di autenticazione in un altro dispositivo, è possibile usarle per accedere.
 
 Per accedere tramite il numero di telefono alternativo, seguire questa procedura:
 
@@ -60,14 +61,14 @@ Se sono trascorsi diversi minuti e non sono arrivati né SMS né chiamate, il mo
     ![Verifica diversa](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 2. Selezionare il metodo di recapito o il numero di telefono che si vuole usare.
    
-    Se sono stati ricevuti più codici di verifica, tenere presente che funzionerà solo il più recente.
+    Se sono stati ricevuti più codici di verifica, usare il più recente.
 
 Se non è stato configurato un altro metodo, contattare l'amministratore e chiedere di cancellare le impostazioni. Al tentativo di accesso successivo, verrà richiesto di [riconfigurare l'autenticazione a più fattori](multi-factor-authentication-end-user-first-time.md).
 
 Se si hanno spesso ritardi a causa della scarsa qualità del segnale, è consigliabile usare l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) sullo smartphone. L'app può generare codici di sicurezza casuali che consentono di accedere e che non richiedono segnale telefonico o connessione Internet.
 
 ## <a name="app-passwords-are-not-working"></a>Le password dell'app non funzionano
-Assicurarsi prima di tutto di avere immesso correttamente la password dell'app.  Se non funziona ancora, provare ad accedere e [creare una nuova password per l'app](multi-factor-authentication-end-user-app-passwords.md).  Se il problema persiste, contattare l'amministratore, richiedere l' [eliminazione delle password esistenti per l'app](../multi-factor-authentication-manage-users-and-devices.md) e creare una nuova password.
+Assicurarsi prima di tutto di avere immesso correttamente la password dell'app. Se non funziona ancora, provare ad accedere e [creare una password per l'app](multi-factor-authentication-end-user-app-passwords.md).  Se il problema persiste, contattare l'amministratore, richiedere l'[eliminazione delle password esistenti per l'app](../multi-factor-authentication-manage-users-and-devices.md) e creare una nuova password.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Nessuna risposta al problema riscontrato.
 Se queste procedure di risoluzione dei problemi non sono state utili, contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori sul dispositivo per assistenza.

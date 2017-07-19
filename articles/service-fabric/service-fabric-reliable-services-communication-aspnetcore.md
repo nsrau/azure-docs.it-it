@@ -12,19 +12,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/22/2017
+ms.date: 05/02/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: cce66615ebe457ed7230401d154ddad07941f5bc
-ms.lasthandoff: 03/23/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 8ac4d409f7363e8b4ae98be659a627ac8db8d787
+ms.contentlocale: it-it
+ms.lasthandoff: 06/10/2017
 
 ---
 
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Reliable Services di Service Fabric
 
-ASP.NET Core è un nuovo framework open source e multipiattaforma per la compilazione di applicazioni Internet moderne basate sul cloud, ad esempio app Web, app per IoT e back-end per dispositivi mobili. Anche se le app ASP.NET Core possono essere eseguite in .NET o nella versione completa di .NET Framework, i servizi di Service Fabric possono essere attualmente eseguiti solo nella versione completa di .NET Framework. Ciò significa che quando si compila un servizio di Service Fabric in ASP.NET Core è comunque necessario usare la versione completa di .NET Framework.
+ASP.NET Core è un nuovo framework open source e multipiattaforma per la compilazione di applicazioni Internet moderne basate sul cloud, ad esempio app Web, app per IoT e back-end per dispositivi mobili. 
+
+Questo articolo è una guida dettagliata per l'hosting dei servizi ASP.NET Core in Reliable Services di Service Fabric mediante il set di pacchetti NuGet **Microsoft.ServiceFabric.AspNetCore.***.
+
+Per un'esercitazione introduttiva su ASP.NET Core in Service Fabric e istruzioni per la configurazione dell'ambiente di sviluppo, vedere [Compilare un front-end di servizio Web per l'applicazione tramite ASP.NET Core](service-fabric-add-a-web-frontend.md).
+
+La parte restante di questo articolo presuppone che si conosca il funzionamento di ASP.NET Core. In caso contrario è consigliabile vedere [ASP.NET Core fundamentals overview](https://docs.microsoft.com/aspnet/core/fundamentals/index) (Panoramica sulle nozioni fondamentali di ASP.NET Core).
+
+## <a name="aspnet-core-in-the-service-fabric-environment"></a>ASP.NET Core nell'ambiente Service Fabric
+
+Anche se le app ASP.NET Core possono essere eseguite in .NET o nella versione completa di .NET Framework, i servizi di Service Fabric possono essere attualmente eseguiti solo nella versione completa di .NET Framework. Ciò significa che quando si compila un servizio di Service Fabric in ASP.NET Core è comunque necessario usare la versione completa di .NET Framework.
 
 ASP.NET Core può essere usato in due modi diversi in Service Fabric:
  - **Ospitato come eseguibile guest**. Questa modalità viene usata principalmente per eseguire applicazioni ASP.NET Core esistenti in Service Fabric senza apportare modifiche al codice.
@@ -32,13 +42,8 @@ ASP.NET Core può essere usato in due modi diversi in Service Fabric:
 
 Il resto di questo articolo illustra come usare ASP.NET Core in un servizio Reliable Services usando i componenti di integrazione ASP.NET Core forniti con Service Fabric SDK. 
 
-> [!NOTE]
->La parte restante di questo articolo presuppone la conoscenza dell'hosting in ASP.NET Core. Per altre informazioni sull'hosting in ASP.NET Core, vedere: [Introduction to hosting in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/hosting) (Introduzione all'hosting in ASP.NET Core).
-
-> [!NOTE]
-> Per sviluppare Reliable Services con ASP.NET Core in Visual Studio 2015 è necessario aver installato [.NET Core VS 2015 Tooling Preview 2](https://www.microsoft.com/net/download/core).
-
 ## <a name="service-fabric-service-hosting"></a>Hosting di servizi di Service Fabric
+
 In Service Fabric, una o più istanze e/o repliche del servizio vengono eseguite in un *processo host del servizio*, un file eseguibile che esegue il codice del servizio. L'autore del servizio è il proprietario del processo host del servizio, che verrà attivato e monitorato automaticamente da Service Fabric.
 
 La versione tradizionale di ASP.NET, fino a MVC 5, è strettamente associata a IIS tramite System.Web.dll. ASP.NET Core fornisce una separazione tra il server Web e l'applicazione Web. Ciò consente la portabilità delle applicazioni Web tra server Web diversi e il *self-hosting* dei server Web, vale a dire che è possibile avviare un server Web nel proprio processo, invece di un processo gestito da software del server Web dedicato, ad esempio IIS. 

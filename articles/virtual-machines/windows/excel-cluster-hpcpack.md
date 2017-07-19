@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/11/2017
+ms.date: 06/01/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8c40a0d44463c75e92444b393336db1daf270ee1
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: acd2ee7fb94c43493ffd9ffee157f2c3e795b63e
+ms.contentlocale: it-it
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -60,7 +61,7 @@ Usare un modello di Guida introduttiva di Azure per distribuire con rapidità un
    
    a. Nella pagina **Parametri** , immettere o modificare i valori dei parametri del modello. (Per visualizzare informazioni della Guida, fare clic sull'icona accanto a ogni impostazione). Nella seguente schermata vengono visualizzati valori di esempio. In questo esempio viene creato un cluster denominato *hpc01* nel dominio *hpc.local*, composto da un nodo head e 2 nodi di calcolo. I nodi di calcolo vengono creati da un'immagine di VM di HPC Pack che include Microsoft Excel.
    
-   ![Immettere i parametri][parameters]
+   ![Immettere i parametri][parameters-new-portal]
    
    > [!NOTE]
    > La VM del nodo head viene creata automaticamente dall' [immagine più recente del Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) di HPC Pack 2012 R2 su Windows Server 2012 R2. Attualmente l'immagine è basata su HPC Pack 2012 R2 Update 3.
@@ -78,9 +79,9 @@ Usare un modello di Guida introduttiva di Azure per distribuire con rapidità un
    e. Nella pagina **Note legali** esaminare le condizioni. Se si accettano le condizioni, fare clic su **Acquista**. Quindi, dopo aver impostato i valori per il modello, fare clic su **Crea**.
 4. Al termine della distribuzione (in genere richiede circa 30 minuti), esportare il file del certificato del cluster dal nodo head del cluster. Successivamente questo certificato pubblico viene importato nel computer client per fornire l'autenticazione sul lato server per l'associazione HTTP protetta.
    
-   a. Connettersi al nodo head da Desktop remoto nel portale di Azure.
+   a. Nel portale di Azure passare al dashboard, selezionare il nodo head e fare clic su **Connetti** nella parte superiore della pagina per connettersi tramite Desktop remoto.
    
-    ![Connettersi al nodo head][connect]
+    <!-- ![Connect to the head node][connect] -->
    
    b. Seguire le procedure standard in usare Gestione certificati per esportare il certificato del nodo head (situato in Cert: \LocalMachine\My) senza la chiave privata. In questo esempio esportare *CN = hpc01.eastus.cloudapp.azure.com*.
    
@@ -332,12 +333,12 @@ Per utilizzare l'associazione Http senza una coda di archiviazione di Azure, in 
 ```
 
 ### <a name="use-nettcp-binding"></a>Uso dell'associazione NetTcp
-Per usare l'associazione NetTcp, la configurazione è simile alla connessione a un cluster locale. È necessario aprire alcuni endpoint nella VM del nodo head. Se si usa lo script di distribuzione HPC Pack IaaS per creare il cluster, ad esempio, impostare gli endpoint nel portale di Azure classico come di seguito.
+Per usare l'associazione NetTcp, la configurazione è simile alla connessione a un cluster locale. È necessario aprire alcuni endpoint nella VM del nodo head. Se ad esempio è stato usato lo script di distribuzione IaaS di HPC Pack per creare il cluster, impostare gli endpoint nel portale di Azure come di seguito descritto.
 
 1. Arrestare la VM.
 2. Aggiungere le porte TCP 9090, 9087, 9091, 9094 rispettivamente per Sessione, Broker, Broker worker e Servizi dati
    
-    ![Configurare gli endpoint][endpoint]
+    ![Configurare gli endpoint][endpoint-new-portal]
 3. Avviare la VM.
 
 L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modifica al nome head per il nome completo del cluster IaaS.
@@ -351,6 +352,7 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [github]: ./media/excel-cluster-hpcpack/github.png
 [template]: ./media/excel-cluster-hpcpack/template.png
 [parameters]: ./media/excel-cluster-hpcpack/parameters.png
+[parameters-new-portal]: ./media/excel-cluster-hpcpack/parameters-new-portal.png
 [create]: ./media/excel-cluster-hpcpack/create.png
 [connect]: ./media/excel-cluster-hpcpack/connect.png
 [cert]: ./media/excel-cluster-hpcpack/cert.png
@@ -359,5 +361,6 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [options]: ./media/excel-cluster-hpcpack/options.png
 [run]: ./media/excel-cluster-hpcpack/run.png
 [endpoint]: ./media/excel-cluster-hpcpack/endpoint.png
+[endpoint-new-portal]: ./media/excel-cluster-hpcpack/endpoint-new-portal.png
 [udf]: ./media/excel-cluster-hpcpack/udf.png
 

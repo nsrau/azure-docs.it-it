@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 06/02/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 90b67cf3d136882d59ed7fe4210f93fb694e96a6
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 6098216f7dd901ea48fb3ab969c7934cc288b247
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -257,7 +257,8 @@ az storage blob upload \
 
  Per altre informazioni sui diversi tipi di BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di accodamento e sui BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
-### <a name="download-blobs-from-a-container"></a>Come scaricare i BLOB da un contenitore
+
+### <a name="download-a-blob-from-a-container"></a>Scaricare un BLOB da un contenitore
 Questo esempio dimostra come scaricare i BLOB da un contenitore:
 
 ```azurecli
@@ -267,35 +268,47 @@ az storage blob download \
     --file ~/mydownloadedblob.png
 ```
 
+### <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
+
+Elencare i BLOB in un contenitore con il comando [az storage blob list](/cli/azure/storage/blob#list).
+
+```azurecli
+az storage blob list \
+    --container-name mycontainer \
+    --output table
+```
+
 ### <a name="copy-blobs"></a>Copiare i BLOB
 È possibile copiare i BLOB tra aree e account di archiviazione in modo asincrono.
 
-Nell'esempio seguente viene illustrato come copiare BLOB da un account di archiviazione a un altro. Prima di tutto si crea un contenitore in un altro account specificando che i suoi BLOB sono accessibili pubblicamente in modo anonimo. Quindi si carica un file nel contenitore e infine si copia il BLOB dal contenitore nel contenitore **mycontainer** dell'account corrente.
+Nell'esempio seguente viene illustrato come copiare BLOB da un account di archiviazione a un altro. Prima di tutto si crea un contenitore nell'account di archiviazione di origine, specificando l'accesso in lettura pubblico per i suoi BLOB. Quindi si carica un file nel contenitore e infine si copia il BLOB dal contenitore in un contenitore nell'account di archiviazione di destinazione.
 
 ```azurecli
-# Create container in second account
+# Create container in source account
 az storage container create \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --name mycontainer2 \
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --name sourcecontainer \
     --public-access blob
 
-# Upload blob to container in second account
+# Upload blob to container in source account
 az storage blob upload \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --file ~/Images/HelloWorld.png \
-    --container-name mycontainer2 \
-    --name myBlockBlob2
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --container-name sourcecontainer \
+    --file ~/Pictures/sourcefile.png \
+    --name sourcefile.png
 
-# Copy blob from second account to current account
+# Copy blob from source account to destination account (destcontainer must exist)
 az storage blob copy start \
-    --source-uri https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 \
-    --destination-blob myBlobBlob \
-    --destination-container mycontainer
+    --account-name destaccountname \
+    --account-key destaccountkey \
+    --destination-blob destfile.png \
+    --destination-container destcontainer \
+    --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-L'URL del BLOB di origine (specificato da `--source-uri`) deve essere accessibile pubblicamente o includere un token di firma di accesso condiviso.
+Nell'esempio precedente, perché l'operazione di copia riesca il contenitore di destinazione deve esistere già nell'account di archiviazione di destinazione. Inoltre, il BLOB di origine specificato nell'argomento `--source-uri` deve includere un token di firma di accesso condiviso oppure essere accessibile pubblicamente, come in questo esempio.
 
 ### <a name="delete-a-blob"></a>Eliminare un BLOB
 Per eliminare un BLOB, usare il comando `blob delete`:

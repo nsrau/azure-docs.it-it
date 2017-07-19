@@ -1,6 +1,6 @@
 ---
 title: Accedere a una VM di Azure classico | Microsoft Docs
-description: Usare il portale di Azure classico per accedere a una macchina virtuale di Windows creata con il modello di distribuzione classico.
+description: Usare il portale di Azure per accedere a una macchina virtuale Windows creata con il modello di distribuzione classica.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 08a75e9ccf952097416e82ed42fb26a43d0f39f0
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 43d54de7e875de9212c23c49ad0539bf2272a312
+ms.contentlocale: it-it
+ms.lasthandoff: 06/01/2017
 
 
 ---

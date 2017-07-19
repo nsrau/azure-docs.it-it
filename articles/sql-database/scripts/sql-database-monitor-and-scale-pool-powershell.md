@@ -1,6 +1,6 @@
 ---
-title: 'Script di Azure PowerShell: monitorare e ridimensionare un pool elastico SQL | Microsoft Docs'
-description: 'Esempio di script di Azure PowerShell: monitorare e ridimensionare un pool elastico di database SQL usando PowerShell'
+title: Script di esempio di PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure | Microsoft Docs
+description: Script di esempio di Azure PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5231f5b13c3502a5a45ceea0b329f30a2e1c311c
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 6536158d4fc2e2c8fbb4e78305d28d063eb12696
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-sql-database-elastic-pool-using-powershell"></a>Monitorare e ridimensionare un pool elastico di database SQL usando PowerShell
+# <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Usare PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure
 
-Questo esempio di script di PowerShell consente di monitorare le metriche delle prestazioni di un pool elastico, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per una delle metriche delle prestazioni. 
+Questo script di esempio PowerShell consente di monitorare la metrica delle prestazioni di un pool elastico, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per la metrica di una delle prestazioni. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

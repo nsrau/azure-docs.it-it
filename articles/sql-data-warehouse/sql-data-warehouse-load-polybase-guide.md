@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 6/5/2016
 ms.custom: loading
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 1a82f9f1de27c9197bf61d63dd27c5191fec1544
-ms.openlocfilehash: 3e1bf2372762de474310c78d512a6a073c7a01b6
-ms.lasthandoff: 01/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 
@@ -119,60 +120,19 @@ WHERE
     AND DateRequested > '12/31/2013'
     AND DateRequested < '01/01/2015';
 ```
+## <a name="isolate-loading-users"></a>Isolare il caricamento degli utenti
+È spesso necessario fare in modo che più utenti possano caricare dati in un data warehouse SQL. Dato che [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] richiede autorizzazioni CONTROL per il database, il risultato sarà la presenza di più utenti con accesso di controllo su tutti gli schemi. Per limitare questa situazione, è possibile usare l'istruzione DENY CONTROL.
 
+Esempio: si supponga che esistano gli schemi di database schema_A per reparto A e schema_B per reparto B e di consentire agli utenti di database utente_A e utente _B di effettuare caricamenti PolyBase rispettivamente in reparto A e B. A entrambi gli utenti sono state concesse le autorizzazioni di database CONTROL.
+Gli autori di schema A e B usano a questo punto DENY per bloccare i rispettivi schemi:
 
-## <a name="working-around-the-polybase-utf-8-requirement"></a>Risolvere il requisito PolyBase UTF-8
-Nel presente PolyBase supporta il caricamento di file di dati che sono stati con codificata UTF-8. Come UTF-8 viene utilizzata la stessa codifica dei caratteri come ASCII PolyBase verrà inoltre supporto per il caricamento di dati è con codifica ASCII. Tuttavia, PolyBase non supporta altri codifica dei caratteri, ad esempio UTF-16 / Unicode o caratteri ASCII estesi. ASCII esteso include i caratteri con accenti, ad esempio umlaut comune in tedesco.
+```sql
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+```   
+ In questo modo, utente_A e utente_B dovrebbero ora essere esclusi dall'accesso allo schema del reparto dell'altro utente.
+ 
 
-Per ovviare a questo requisito la risposta migliore consiste nello scrivere nuovamente per la codifica UTF-8.
-
-Esistono diversi modi per eseguire questa operazione. Di seguito sono due approcci con Powershell:
-
-### <a name="simple-example-for-small-files"></a>Esempio semplice di file di piccole dimensioni
-Di seguito è una semplice uno linea script di Powershell che crea il file.
-
-```PowerShell
-Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
-```
-
-Tuttavia, mentre questo è un modo semplice per codificare di nuovo i dati è assolutamente più efficiente. Nell'esempio di flusso dei / o seguente è molto, molto più velocemente e raggiunge lo stesso risultato.
-
-### <a name="io-streaming-example-for-larger-files"></a>Nell'esempio di flusso i/o per file di dimensioni maggiori
-Nell'esempio di codice riportato di seguito è più complessa, ma è molto più efficiente durante il flusso di righe di dati dall'origine alla destinazione. Utilizzare questo approccio per file di dimensioni maggiori.
-
-```PowerShell
-#Static variables
-$ascii = [System.Text.Encoding]::ASCII
-$utf16le = [System.Text.Encoding]::Unicode
-$utf8 = [System.Text.Encoding]::UTF8
-$ansi = [System.Text.Encoding]::Default
-$append = $False
-
-#Set source file path and file name
-$src = [System.IO.Path]::Combine("C:\input_file_path\","input_file_name.txt")
-
-#Set source file encoding (using list above)
-$src_enc = $ansi
-
-#Set target file path and file name
-$tgt = [System.IO.Path]::Combine("C:\output_file_path\","output_file_name.txt")
-
-#Set target file encoding (using list above)
-$tgt_enc = $utf8
-
-$read = New-Object System.IO.StreamReader($src,$src_enc)
-$write = New-Object System.IO.StreamWriter($tgt,$append,$tgt_enc)
-
-while ($read.Peek() -ne -1)
-{
-    $line = $read.ReadLine();
-    $write.WriteLine($line);
-}
-$read.Close()
-$read.Dispose()
-$write.Close()
-$write.Dispose()
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sullo spostamento di dati in SQL Data Warehouse, vedere [Panoramica sulla migrazione di dati][data migration overview].

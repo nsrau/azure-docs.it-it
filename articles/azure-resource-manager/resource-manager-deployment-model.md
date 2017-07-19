@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
+ms.contentlocale: it-it
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -49,7 +50,7 @@ Quando si decide quale modello di distribuzione usare per le risorse, esistono t
 2. Il servizio supporta Resource Manager, ma offre due tipi di distribuzione, uno per Resource Manager e uno per la distribuzione classica. Questo scenario si applica solo alle macchine virtuali, agli account di archiviazione e alle reti virtuali.
 3. Il servizio non supporta Resource Manager.
 
-Per verificare se un servizio supporta Resource Manager, vedere l'articolo relativo ai [provider supportati per Resource Manager](resource-manager-supported-services.md).
+Per verificare se un servizio supporta Resource Manager, vedere [Provider e tipi di risorse](resource-manager-supported-services.md).
 
 Se il servizio che si vuole usare non supporta Resource Manager è necessario continuare a usare la distribuzione classica.
 

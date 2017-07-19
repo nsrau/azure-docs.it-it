@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
-ms.openlocfilehash: 3bb6cc477b413a8636433038429e4defec1d2676
+ms.translationtype: HT
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: aeaed63e00b77f885312204f17f024af462dbf25
 ms.contentlocale: it-it
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL

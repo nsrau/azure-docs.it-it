@@ -1,6 +1,6 @@
 ---
 title: "Creare un set di scalabilità di macchine virtuali Linux in Azure | Microsoft Docs"
-description: "Creare e distribuire un&quot;applicazione a disponibilità elevata in macchine virtuali Linux usando un set di scalabilità di macchine virtuali"
+description: "Creare e distribuire un'applicazione a disponibilità elevata in macchine virtuali Linux usando un set di scalabilità di macchine virtuali"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 972c6f60c8963cad6f92b228e795a5027b838f00
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: fceaf1b1d1c243ef8cff6ba6b188bb66514d0591
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Linux
-Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile adattare manualmente il numero di macchine virtuali nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo della CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure. Si apprenderà come:
+Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile adattare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo della CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Usare cloud-init per creare un'app per la scalabilità
@@ -33,7 +33,10 @@ Un set di scalabilità di macchine virtuali consente di distribuire e gestire un
 > * Visualizzare le informazioni di connessione per le istanze del set di scalabilità
 > * Usare dischi di dati in un set di scalabilità
 
-Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). È anche possibile usare [Cloud Shell](/azure/cloud-shell/quickstart) dal browser.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="scale-set-overview"></a>Informazioni generali sui set di scalabilità
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. I set di scalabilità usano gli stessi componenti descritti nell'esercitazione precedente [Creare macchine virtuali a disponibilità elevata](tutorial-availability-sets.md). Le macchine virtuali di un set di scalabilità vengono create in un set di disponibilità e distribuite in domini logici di errore e di aggiornamento.
@@ -94,13 +97,13 @@ runcmd:
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
 Per poter creare un set di scalabilità, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupScaleSet* nella posizione *eastus*:
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
 Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#create). Nell'esempio seguente viene creato un set di scalabilità denominato *myScaleSet*, viene usato il file cloud-int per personalizzare la VM e vengono generate le chiavi SSH, se non sono presenti:
 
-```azurecli
+```azurecli-interactive 
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -119,7 +122,7 @@ Un bilanciamento del carico è stato creato automaticamente come parte del set d
 
 Per consentire al traffico di raggiungere l'app Web, creare una regola con il comando [az network lb rule create](/cli/azure/network/lb/rule#create). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb*:
 
-```azurecli
+```azurecli-interactive 
 az network lb rule create \
   --resource-group myResourceGroupScaleSet \
   --name myLoadBalancerRuleWeb \
@@ -134,7 +137,7 @@ az network lb rule create \
 ## <a name="test-your-app"></a>Test dell'app
 Per visualizzare l'app Node.js sul Web, ottenere l'indirizzo IP pubblico del bilanciamento del carico con il comando [az network public-ip show](/cli/azure/network/public-ip#show). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetLBPublicIP* creato come parte del set di scalabilità:
 
-```azurecli
+```azurecli-interactive 
 az network public-ip show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetLBPublicIP \
@@ -155,7 +158,7 @@ Nel ciclo di vita del set di scalabilità, potrebbe essere necessario eseguire u
 ### <a name="view-vms-in-a-scale-set"></a>Visualizzare le macchine virtuali in un set di scalabilità
 Per visualizzare un elenco di macchine virtuali in esecuzione nel set di scalabilità, usare il comando [az vmss list-instances](/cli/azure/vmss#list-instances) come indicato di seguito:
 
-```azurecli
+```azurecli-interactive 
 az vmss list-instances \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -164,7 +167,7 @@ az vmss list-instances \
 
 L'output è simile all'esempio seguente:
 
-```azurecli
+```azurecli-interactive 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
 ------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
@@ -175,7 +178,7 @@ L'output è simile all'esempio seguente:
 ### <a name="increase-or-decrease-vm-instances"></a>Aumentare o diminuire le istanze delle macchine virtuali
 Per visualizzare il numero di istanze attualmente presenti in un set di scalabilità, usare il comando [az vmss show](/cli/azure/vmss#show) ed eseguire una query su *sku.capacity*:
 
-```azurecli
+```azurecli-interactive 
 az vmss show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -185,7 +188,7 @@ az vmss show \
 
 È possibile aumentare o ridurre manualmente il numero di macchine virtuali nel set di scalabilità con il comando [az vmss scale](/cli/azure/vmss#scale). L'esempio seguente imposta il numero di VM del set di scalabilità su *5*:
 
-```azurecli
+```azurecli-interactive 
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -197,7 +200,7 @@ Le regole di scalabilità automatica consentono di definire come aumentare o rid
 ### <a name="get-connection-info"></a>Ottenere informazioni sulla connessione
 Per ottenere informazioni sulla connessione delle macchine virtuali nel set di scalabilità, usare [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). Questo comando restituisce l'indirizzo IP pubblico e la porta per ogni macchina virtuale che consente la connessione con SSH:
 
-```azurecli
+```azurecli-interactive 
 az vmss list-instance-connection-info \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet
@@ -210,7 +213,7 @@ az vmss list-instance-connection-info \
 ### <a name="create-scale-set-with-data-disks"></a>Creare un set di scalabilità con dischi di dati
 Per creare un set di scalabilità e collegare dischi di dati, aggiungere il parametro `--data-disk-sizes-gb` al comando [az vmss create](/cli/azure/vmss#create). Nell'esempio seguente viene creato un set di scalabilità con dischi di dati da *50* Gb collegati a ogni istanza:
 
-```azurecli
+```azurecli-interactive 
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSetDisks \
@@ -227,7 +230,7 @@ Quando le istanze vengono rimosse da un set di scalabilità, vengono rimossi anc
 ### <a name="add-data-disks"></a>Aggiungere dischi di dati
 Per aggiungere un disco di dati per le istanze nel set di scalabilità, usare [az vmss disk attach](/cli/azure/vmss/disk#attach). Nell'esempio seguente viene aggiunto un disco di dati da *50* Gb a ogni istanza:
 
-```azurecli
+```azurecli-interactive 
 az vmss disk attach `
     --resource-group myResourceGroupScaleSet `
     --name myScaleSet `
@@ -238,7 +241,7 @@ az vmss disk attach `
 ### <a name="detach-data-disks"></a>Scollegare dischi di dati
 Per rimuovere un disco di dati per le istanze nel set di scalabilità, usare [az vmss disk detach](/cli/azure/vmss/disk#detach). Nell'esempio seguente viene rimosso il disco di dati del LUN *2* da ogni istanza:
 
-```azurecli
+```azurecli-interactive 
 az vmss disk detach `
     --resource-group myResourceGroupScaleSet `
     --name myScaleSet `
@@ -247,7 +250,7 @@ az vmss disk detach `
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione viene creato un set di scalabilità di macchine virtuali. Si è appreso come:
+In questa esercitazione è stato creato un set di scalabilità di macchine virtuali. Si è appreso come:
 
 > [!div class="checklist"]
 > * Usare cloud-init per creare un'app per la scalabilità
@@ -259,4 +262,4 @@ In questa esercitazione viene creato un set di scalabilità di macchine virtuali
 Passare all'esercitazione successiva per maggiori informazioni sui concetti di bilanciamento del carico per le macchine virtuali.
 
 > [!div class="nextstepaction"]
-> [Bilanciare il carico di macchine virtuali](tutorial-load-balancer.md)
+> [Bilanciare il carico delle macchine virtuali](tutorial-load-balancer.md)

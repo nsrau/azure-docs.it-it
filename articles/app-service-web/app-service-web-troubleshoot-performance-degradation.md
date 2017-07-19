@@ -1,5 +1,5 @@
 ---
-title: Rallentamento delle prestazioni dell&quot;app Web nel servizio app | Documentazione Microsoft
+title: Rallentamento delle prestazioni dell'app Web nel servizio app | Documentazione Microsoft
 description: Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app Web nel Servizio app di Azure.
 services: app-service\web
 documentationcenter: 
@@ -7,7 +7,7 @@ author: cephalin
 manager: erikre
 editor: 
 tags: top-support-issue
-keywords: prestazioni dell&quot;applicazione Web, app lenta, rallentamento app
+keywords: prestazioni dell'applicazione Web, app lenta, rallentamento app
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
-ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 97ef8d2693296fc2692be46afcedfd01b07d743f
+ms.contentlocale: it-it
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -115,6 +116,12 @@ Per istruzioni dettagliate su come configurare l'applicazione per la registrazio
 Nel servizio app di Azure è possibile profilare in modalità remota app Web, app per le API e processi Web. Se l'esecuzione del processo è più lenta del previsto o se la latenza delle richieste HTTP è superiore al normale e anche l'utilizzo della CPU da parte del processo è elevato, è possibile profilare il processo in modalità remota e ottenere campioni di stack di chiamate della CPU per analizzare l'attività del processo e i percorsi critici del codice.
 
 Per altre informazioni, vedere il post di blog sul [supporto per la profilatura remota nel servizio app di Azure](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
+
+#### <a name="use-application-insights-profiler"></a>Usare Application Insights Profiler
+
+In alcuni casi l'app del servizio app è lenta perché una parte del codice non scritta in modo efficiente. È possibile ad esempio che siano presenti un codice sequenziale che può essere eseguito in parallelo e conflitti di blocco di database non previsti. La rimozione di questi colli di bottiglia nel codice migliora le prestazioni dell'app. Questi colli di bottiglia tuttavia risultano difficili da rilevare se non vengono configurati tracce e log elaborati. Application Insights Profiler consente di superare questo problema per le app del servizio app. 
+
+Con la configurazione minima, Application Insights Profiler offre statistiche sui tempi di risposta per ogni chiamata Web e tracce che indicano la riga del codice che ha causato una risposta lenta. Per altre informazioni, vedere [Profilatura delle app Web di Azure attive con Application Insights](../application-insights/app-insights-profiler.md). 
 
 #### <a name="use-the-azure-app-service-support-portal"></a>Usare il portale di supporto del servizio app di Azure
 Il servizio app Web consente di risolvere i problemi relativi all'app Web grazie ai dati disponibili nei log HTTP, nei log eventi, nei dump dei processi e così via. È possibile accedere a tutte queste informazioni tramite il portale di supporto disponibile all'indirizzo **http://&lt;nome app>.scm.azurewebsites.net/Support**

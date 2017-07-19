@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: e15ac73051297665a2880a7818273e304d539624
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
+
+![Simbolo di Analisi DNS](./media/log-analytics-dns/dns-analytics-symbol.png)
 
 Questo articolo descrive come configurare e usare la soluzione Azure DNS Analytics in Azure Log Analytics per raccogliere informazioni dettagliate in DNS relative a sicurezza, prestazioni e operazioni.
 
@@ -155,7 +157,7 @@ Le informazioni consentono di identificare quanto segue:
 - **Record di risorse inutilizzati**. Visualizza un elenco di tutti i record di risorse non usati o non aggiornati. L'elenco contiene il nome e il tipo dei record di risorse, il server DNS associato, la data e l'ora di generazione dei record e il nome della zona. È possibile usare questo elenco per identificare i record di risorse DNS non più in uso e quindi intervenire sulla base di tali informazioni per rimuovere tali voci dai server DNS.
 - **Carico query server DNS**. Visualizza informazioni che consentono di ottenere una prospettiva del carico DNS sui server DNS. Queste informazioni consentono di pianificare la capacità per i server. È possibile passare alla scheda **Metrica** per ottenere una visualizzazione grafica, che consente di comprendere la distribuzione del carico DNS nei server DNS e mostra le tendenze nella frequenza di query DNS per ogni server.
 
-    ![Ricerca log: risultati relativi alle query nei server DNS](./media/log-analytics-dns/dns-servers-query-load.png) 
+    ![Ricerca log: risultati relativi alle query nei server DNS](./media/log-analytics-dns/dns-servers-query-load.png)
 
 - **Carico query zone DNS**. Visualizza le statistiche al secondo delle query di tutte le zone DNS nei server DNS gestiti dalla soluzione. Fare clic sulla scheda **Metrica** per passare dalla visualizzazione di record dettagliati a una visualizzazione grafica dei risultati.
 - **Eventi di configurazione**. Visualizza tutti gli eventi di modifica configurazione DNS e i messaggi associati. È quindi possibile filtrare questi eventi in base a data e ora dell'evento, ID evento, server DNS o categoria di attività. I dati consentono di controllare le modifiche apportate a specifici server DNS in date e ore specifiche.

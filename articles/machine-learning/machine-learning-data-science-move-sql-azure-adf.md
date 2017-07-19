@@ -1,6 +1,6 @@
 ---
-title: Spostare i dati da un Server SQL locale a SQL Azure con data factory di Azure | Documentazione Microsoft
-description: "È necessario impostare una pipeline ADF che comprende due attività di migrazione di dati che insieme spostano i dati su base giornaliera tra un database locale e un database nel cloud."
+title: Spostare dati da SQL Server locale a SQL Azure con Azure Data Factory | Microsoft Docs
+description: "Impostare una pipeline di ADF che comprenda due attività di migrazione di dati che insieme spostino i dati giornalmente tra database locali e nel cloud."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b34362203984a368bb74395e3e9f466b086b7521
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 5d887e20a03e160df70ac4f3484da1ada4b592d2
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="move-data-from-an-on-premise-sql-server-to-sql-azure-with-azure-data-factory"></a>Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure
-Questo argomento descrive come spostare i dati da un Database di SQL Server locale a un Database di SQL Azure tramite l'archiviazione BLOB di Azure tramite il Data factory di Azure (ADF).
+# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Spostare i dati da SQL Server locale a SQL Azure con Azure Data Factory
+Questo argomento descrive come spostare i dati da un database di SQL Server locale a un database di SQL Azure tramite l'archiviazione BLOB di Azure usando Azure Data Factory (ADF).
 
 Per un tabella che riepiloga le varie opzioni per lo spostamento dei dati in un database SQL Azure, vedere [Spostare i dati a un database SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
@@ -33,15 +34,15 @@ Con ADF, i servizi di elaborazione dei dati esistenti possono essere composti in
 
 Considerare l'uso di ADF:
 
-* quando i dati devono essere continuamente migrati in uno scenario ibrido che accede alle risorse locali e cloud
+* quando i dati sono soggetti a migrazione continua in uno scenario ibrido che accede alle risorse locali e cloud
 * quando i dati sono soggetti a transazioni, devono essere modificati o si vedono aggiungere una logica di business quando vengono migrati.
 
 L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. ADF dispone anche di altre funzionalità quali il supporto di operazioni complesse. Per ulteriori informazioni sul file ADF, vedere la documentazione di [Data factory di Azure (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>Scenario
-Si configura una pipeline ADF che compone due attività di migrazione dei dati. Insieme, queste attività spostano i dati su base quotidiana tra un database SQL locale e un atabase di SQL Azure nel cloud. Le due attività sono:
+Si configura una pipeline ADF che compone due attività di migrazione dei dati. Insieme, queste attività spostano i dati giornalmente tra un database SQL locale e un database di SQL Azure nel cloud. Le due attività sono:
 
-* Copiare dati da un database di SQL Server locale su un BLOB Azure;
+* Copiare dati da un database di SQL Server locale in un account dell'archiviazione BLOB di Azure
 * Copiare i dati dall'account di archiviazione BLOB di Azure a un Database di SQL Azure.
 
 > [!NOTE]
@@ -62,18 +63,18 @@ Il tutorial presuppone:
 >
 >
 
-## <a name="upload-data"></a> Caricare i dati sul SQL Server locale
+## <a name="upload-data"></a> Caricare i dati in SQL Server locale
 Utilizziamo il [set di dati NYC Taxi](http://chriswhong.com/open-data/foil_nyc_taxi/) per illustrare il processo di migrazione. Il set di dati NYC Taxi è disponibile, come indicato nel post, sull'archiviazione BLOB di Azure [Dati NYC Taxi](http://www.andresmh.com/nyctaxitrips/). I dati dispongono di due file, il file trip_data.csv che contiene i dettagli relativi alle corse e il file trip_far.csv che contiene i dettagli della tariffa pagata per ogni corsa. Un esempio e una descrizione di questi file sono inclusi in [Descrizione del set di dati relativo alle corse dei taxi di NYC](machine-learning-data-science-process-sql-walkthrough.md#dataset).
 
-È possibile adattare le procedure riportate di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server locale, attenersi alla procedura descritta in [Importazione in blocco dei dati nel database SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Queste istruzioni sono per un Server SQL in una macchina virtuale di Azure, ma la procedura per il caricamento nel Server SQL locale è la stessa.
+È possibile adattare le procedure riportate di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server locale, seguire la procedura descritta in [Importazione in blocco dei dati nel database SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Queste istruzioni sono per SQL Server in una macchina virtuale di Azure, ma la procedura per il caricamento in SQL Server locale è la stessa.
 
 ## <a name="create-adf"></a> Creare un data factory di Azure
 Le istruzioni per la creazione di una nuova data factory di Azure e un gruppo di risorse nel [portale di Azure](https://portal.azure.com/) sono disponibili in [Creazione di un'istanza di Data factory di Azure](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Denominare la nuova istanza ADF *adfdsp*e assegnare il nome *adfdsprg* al gruppo di risorse creato.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Installare e configurare i Gateway di gestione dati
-Per abilitare la pipeline in una data factory di Azure per il funzionamento con un Server SQL locale, è necessario aggiungere la data factory come servizio collegato. Per creare un servizio collegato per SQL Server locale, è necessario:
+Per abilitare le pipeline in Azure Data Factory per il funzionamento con SQL Server locale, è necessario aggiungerle come servizio collegato ad Azure Data Factory. Per creare un servizio collegato per SQL Server locale, è necessario:
 
-* scaricare e installare il gateway di gestione dati di Microsoft sul computer locale.
+* scaricare e installare il gateway di gestione dati di Microsoft nel computer locale.
 * configurare il servizio collegato per l'origine dati locale per l'utilizzo del gateway.
 
 Gateway di gestione dati serializza e deserializza i dati di origine e sink sul computer in cui è ospitato.
@@ -90,7 +91,7 @@ Sono disponibili tre risorse in questo scenario per il quale sono necessari serv
 3. [Servizio collegato per il database SQL Azure](#adf-linked-service-azure-sql)
 
 ### <a name="adf-linked-service-onprem-sql"></a>Servizio collegato per il database SQL Server locale
-Per creare un servizio collegato per SQL Server locale, è necessario:
+Per creare un servizio collegato per SQL Server locale:
 
 * fare clic su **Archivio dati** nella pagina di destinazione di ADF nel portale di Azure classico
 * selezionare **SQL** e immettere il *nome utente* e la *password* per SQL Server locale. È necessario immettere il nome del server nella forma **nome dell'istanza nomeserver completa barra rovesciata (nomeserver\nomeistanza)**. Nome servizio collegato *adfonpremsql*.
@@ -118,7 +119,7 @@ Creare tabelle che specificano la struttura, la posizione e la disponibilità de
 
 Le definizioni basate su JSON nelle tabelle utilizzano i nomi seguenti:
 
-* il **nome tabella** nel Server SQL locale è *nyctaxi_data*
+* il **nome della tabella** nel server SQL locale è *nyctaxi_data*
 * il **nome del contenitore** nell'account di archiviazione Blob di Azure è *nomecontenitore*  
 
 Per questa pipeline ADF sono necessarie tre definizioni di tabella:
@@ -133,7 +134,7 @@ Per questa pipeline ADF sono necessarie tre definizioni di tabella:
 >
 
 ### <a name="adf-table-onprem-sql"></a>Tabella SQL locale
-La definizione della tabella di SQL Server locale viene specificata nel file JSON seguente.
+La definizione della tabella per SQL Server locale viene specificata nel file JSON seguente:
 
         {
             "name": "OnPremSQLTable",
@@ -168,7 +169,7 @@ Copiare la definizione JSON della tabella in un file denominata *onpremtabledef.
 
 
 ### <a name="adf-table-blob-store"></a>Tabella BLOB
-Definizione della tabella per la posizione di output del BLOB è il seguente (questa mappa associa i dati acquisiti da locale con il BLOB Azure):
+La definizione della tabella per il percorso del BLOB di output è la seguente. I dati inseriti vengono così mappati dal server locale al BLOB di Azure:
 
         {
             "name": "OutputBlobTable",
@@ -245,12 +246,12 @@ Se si utilizzano le definizioni di tabella fornite in precedenza, la definizione
             "name": "AMLDSProcessPipeline",
             "properties":
             {
-                "description" : "This pipeline has one Copy activity that copies data from an on-premise SQL to Azure blob",
+                "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
                  "activities":
                 [
                     {
                         "name": "CopyFromSQLtoBlob",
-                        "description": "Copy data from on-premise SQL server to blob",     
+                        "description": "Copy data from on-premises SQL server to blob",     
                         "type": "CopyActivity",
                         "inputs": [ {"name": "OnPremSQLTable"} ],
                         "outputs": [ {"name": "OutputBlobTable"} ],

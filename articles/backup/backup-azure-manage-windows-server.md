@@ -1,5 +1,5 @@
 ---
-title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure | Documentazione Microsoft
+title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure | Microsoft Docs
 description: Usare questa esercitazione per imparare a gestire server e insiemi di credenziali dei servizi di ripristino di Azure.
 services: backup
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/9/2017
 ms.author: markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 767e3b2e8330b4c52576c90e8ef090e1abc69b42
-ms.openlocfilehash: 20e486be706c6fc02ced8343c050379ceff99d82
-ms.lasthandoff: 01/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 70ea11a7ee273d8c8497a6f12693ddb41ac7cb77
+ms.contentlocale: it-it
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -214,7 +215,7 @@ Dalle **Azioni** disponibili a destra della console dell'agente di backup è pos
     ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 3. Per aggiungere o modificare elementi, nella schermata **Seleziona elementi per backup** fare clic su **Aggiungi elementi**.
 
-    In questa pagina della procedura guidata è anche possibile specificare le **Impostazioni di esclusione** . Per escludere file o tipi di file, leggere la procedura per l'aggiunta di [impostazioni di esclusione](#exclusion-settings).
+    In questa pagina della procedura guidata è anche possibile specificare le **Impostazioni di esclusione** . Per escludere file o tipi di file, leggere la procedura per l'aggiunta di [impostazioni di esclusione](#manage-exclusion-settings).
 4. Selezionare i file e le cartelle di cui si vuole eseguire il backup e fare clic su **OK**.
 
     ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/add-items-modify.png)

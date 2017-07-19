@@ -1,6 +1,6 @@
 ---
-title: Livelli di prestazioni dell&quot;API DocumentDB | Microsoft Docs
-description: "Informazioni sul modo in cui i livelli di prestazioni dell&quot;API DocumentDB consentono di riservare la velocità effettiva per singolo contenitore."
+title: Livelli di prestazioni dell'API DocumentDB | Microsoft Docs
+description: "Informazioni sul modo in cui i livelli di prestazioni dell'API DocumentDB consentono di riservare la velocità effettiva per singolo contenitore."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 929ee15b77215ca6b150918eff6f608dc153776e
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 38afe40cf45cf13d587faf13cc5216e4326b84a0
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -143,7 +143,7 @@ La migrazione verrà eseguita il 31 luglio 2017. Se l'utente ha una raccolta che
 
 **Per eseguire la migrazione alle raccolte a partizione singola tramite .NET SDK**
 
-Un'altra opzione per la modifica dei livelli di prestazioni degli insiemi è tramite SDK. Questa sezione illustra solo la modifica del livello di prestazioni di una raccolta con l'[SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), ma il processo per gli altri [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) è simile. Se non si conosce .NET SDK, fare riferimento all'[esercitazione introduttiva](documentdb-get-started.md).
+Un'altra opzione per la modifica dei livelli di prestazioni degli insiemi è tramite SDK. Questa sezione illustra solo la modifica del livello di prestazioni di una raccolta tramite l'[API .NET DocumentDB](documentdb-sdk-dotnet.md), ma il processo per gli altri SDK è simile.
 
 Di seguito è riportato un frammento di codice per modificare la velocità effettiva della raccolta a 5000 unità richiesta al secondo:
     
@@ -177,7 +177,7 @@ Il prezzo resterà bloccato per i clienti EA fino alla scadenza del contratto in
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui prezzi e sulla gestione dei dati con Azure Cosmos DB, vedere le risorse seguenti:
 
-1.    [Partizionamento dei dati in Cosmos DB](documentdb-partition-data.md). Informazioni sulla differenza tra contenitore a partizione singola e contenitori partizionati e suggerimenti sull'implementazione di una strategia di partizionamento per eseguire facilmente il ridimensionamento.
-2.    [Prezzi di Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
-3.    [Unità richiesta](request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.
+1.  [Partizionamento dei dati in Cosmos DB](documentdb-partition-data.md). Informazioni sulla differenza tra contenitore a partizione singola e contenitori partizionati e suggerimenti sull'implementazione di una strategia di partizionamento per eseguire facilmente il ridimensionamento.
+2.  [Prezzi di Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
+3.  [Unità richiesta](request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.
 

@@ -1,9 +1,9 @@
 ---
 title: Informazioni di riferimento su Analisi in Azure Application Insights | Microsoft Docs
-description: 'Informazioni di riferimento sulle istruzioni nello strumento di ricerca avanzato per l&quot;analisi incluso in Application Insights. '
+description: 'Informazioni di riferimento sulle istruzioni nello strumento di ricerca avanzato per l''analisi incluso in Application Insights. '
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/05/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3fb2464e3757d316367487506f0aca9f1c2e35cc
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: dd3478966e4e5ccc9f108940401c7ee9454087dd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -35,7 +35,7 @@ Fonti di informazioni aggiuntive:
 ## <a name="index"></a>Indice
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Query e operatori** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Query e operatori** [as](#as-operator) | [autocluster](#evaluate-autocluster_v2) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns_v2) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregazioni** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -44,7 +44,7 @@ Fonti di informazioni aggiuntive:
 **Numeri** [Operatori aritmetici](#arithmetic-operators) | [Valori letterali numerici](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Serie numeriche** 
-[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) | [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) |[series_outliers](#seriesoutliers)| [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
 
 **Data e ora** [Espressioni di data e ora](#date-and-time-expressions) | [Valori letterali di data e ora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -318,14 +318,16 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` deve essere l'ultimo operatore nella pipeline della query, ad eccezione di un possibile `render`. Non deve comparire nel corpo funzione.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster_v2) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns_v2) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
-#### <a name="evaluate-autocluster"></a>evaluate autocluster
+#### <a name="evaluate-autocluster-deprecated"></a>evaluate autocluster (deprecato)
      T | evaluate autocluster()
 
 Autocluster è un modo rapido per individuare i raggruppamenti naturali in un set di dati. Da una considerevole quantità di dati richiesta, ad esempio, è possibile identificare rapidamente l'80% degli errori 404 come richieste per un particolare URL, eseguite da un client di una determinata città.
 
 AutoCluster trova modelli comuni di attributi discreti (dimensioni) nei dati e ridurrà i risultati della query originale (indipendentemente dal fatto che siano 100 o 100.000 righe) a un numero minore di modelli. AutoCluster è stato sviluppato per semplificare l'analisi degli errori, ad esempio eccezioni e arresti anomali, ma può potenzialmente funzionare su qualsiasi set di dati filtrato. 
+
+**Questa versione di `autocluster` è deprecata. Usare [autocluster_v2](#evaluate-autocluster_v2).**
 
 **Sintassi**
 
@@ -374,6 +376,92 @@ Si noti che i modelli non sono non contigui: è possibile che si sovrappongano e
   
     Esempio: `T | evaluate autocluster("weight_column=sample_Count")` 
 
+<a name="evaluate-autocluster_v2"></a>
+
+#### <a name="evaluate-autoclusterv2"></a>evaluate autocluster_v2
+
+    T | evaluate autocluster_v2()
+
+AutoCluster trova modelli comuni di attributi discreti (dimensioni) nei dati e ridurrà i risultati della query originale (indipendentemente dal fatto che siano 100 o 100.000 righe) a un numero minore di modelli. AutoCluster è stato sviluppato per semplificare l'analisi degli errori, ad esempio eccezioni e arresti anomali, ma può potenzialmente funzionare su qualsiasi set di dati filtrato. L'algoritmo AutoCluster è stato sviluppato dal team di ricerca Developer Analytics (KustoML@microsoft.com).
+
+Questo plug-in sostituisce la sintassi del plug-in autocluster deprecato.     
+
+**Sintassi**
+`T | evaluate autocluster_v2( arguments )`
+
+**Restituisce** AutoCluster restituisce un set, solitamente di piccole dimensioni, di modelli che acquisiscono parti dei dati con valori comuni condivisi tra più attributi discreti. Ogni modello è rappresentato da una riga nei risultati. La prima colonna è l'ID segmento. Le due colonne successive indicano il numero e la percentuale di righe esterne alla query originale acquisite dal modello. Le colonne rimanenti provengono dalla query originale e il rispettivo valore è un valore specifico della colonna o un carattere jolly (per impostazione predefinita null), ovvero valori variabili. Si noti che i modelli non sono distinti: è possibile che si sovrappongano e in genere non comprendono tutte le righe originali. È possibile che alcune righe non rientrino in alcun modello.
+
+**Suggerimenti** Usare `where` e `project` nella pipe di input per limitare i dati a quelli di interesse.
+Quando si trova una riga interessante, è possibile che si voglia visualizzarne i dettagli, aggiungendo i rispettivi valori specifici al filtro `where` .
+
+**Gli argomenti (tutti facoltativi)** `T | restituiscono autocluster_V2([*SizeWight*,*WeightColumn*,*NumSeeds*,*CustomWildcard*,...])
+
+Tutti gli argomenti sono facoltativi, ma devono essere ordinati come riportato sopra. Per indicare che è necessario usare il valore predefinito, usare il carattere tilde della stringa "~" (vedere gli esempi di seguito).
+
+**Argomenti disponibili**
+
+- SizeWeight - 0<*double* <1 [default 0,5] Offre un certo controllo sull'equilibrio tra generico (copertura elevata) e informativo (molti valori condivisi). L'aumento del valore comporta in genere la riduzione del numero di modelli e ogni motivo tende a coprire una percentuale maggiore. La riduzione del valore produce in genere modelli più specifici con un maggior numero di valori condivisi e una percentuale di copertura inferiore. La formula predefinita è una media geometrica ponderata tra il punteggio generico normalizzato e il punteggio informativo con *SizeWeight* e *1-SizeWeight* come i pesi. 
+
+**Esempio**
+`T | evaluate autocluster_v2(0.8)`
+
+- WeightColumn - *column_name*
+
+Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita ogni riga ha un peso pari a '1'. L'argomento deve essere un nome di una colonna numerica (ad esempio int, long, real). Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
+
+**Esempio**
+`T | evaluate autocluster_v2('~', sample_Count)`
+
+`- NumSeeds - *int* [default 25]
+
+Il numero di valori di inizializzazione determina il numero di punti di ricerca locale iniziali dell'algoritmo. In alcuni casi, in base alla struttura dei dati, l'aumento del numero di valori di inizializzazione consente di aumentare il numero o la qualità dei risultati tramite uno spazio di ricerca maggiore ma con una query più lenta. Il valore presenta risultati in diminuzione in entrambe le direzioni, quindi ridurlo a un valore inferiore a 5 consentirà di ottenere miglioramenti trascurabili delle prestazioni, mentre aumentarlo a un valore superiore a 50 genererà raramente modelli aggiuntivi.
+
+**Esempio**
+`T | evaluate autocluster_v2('~','~',15)`
+
+- CustomWildcard - *any_value_per_type*
+
+Imposta il valore del carattere jolly per un tipo specifico nella tabella dei risultati, che indica che il criterio corrente non prevede una restrizione su questa colonna. Il valore predefinito è null, mentre per le stringhe il valore predefinito è una stringa vuota. Se il valore predefinito è un valore usabile nei dati, deve essere usato un valore diverso per il carattere jolly (ad esempio *).
+
+**Esempio**
+
+`T | evaluate autocluster_v2('~','~','~',int (-1), double(-1), long(0), datetime(1900-1-1))`
+
+**Esempio**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage
+| evaluate autocluster_v2(0.6)
+```
+**Risultati**
+|SegmentId|Numero|Percentuale|Stato|EventType|Danni|
+----------|-----|-------|-----|---------|------|
+0|2278|38.7||Grandine|NO
+1|512|8.7||Vento di tempesta|SÌ
+2|898|15.3|TEXAS|||
+
+**Esempio con caratteri jolly personalizzati**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage 
+| evaluate autocluster_v2(0.2, '~', '~', '*')
+```
+**Risultati**
+|SegmentId|Numero|Percentuale|Stato|EventType|Danni|
+----------|-----|-------|-----|---------|------|
+0|2278|38.7|\*|Grandine|NO
+1|512|8.7|\*|Vento di tempesta|SÌ
+2|898|15.3|TEXAS|\*|\*|
+
+**Informazioni aggiuntive**
+
+-  AutoCluster in gran parte è basato sull'algoritmo Seed-Expand dal seguente documento: [Algoritmi per data mining di telemetria usante gli attributi discreti](http://www.scitepress.org/DigitalLibrary/PublicationsDetail.aspx?ID=d5kcrO+cpEU=&t=1), collegamento full-text: [pdf](https://kusto.azurewebsites.net/docs/queryLanguage/images/queries/ICPRAM17telemetry.pdf). 
+
+
 #### <a name="evaluate-basket-deprecated"></a>evaluate basket (deprecato)
 
      T | evaluate basket()
@@ -417,9 +505,13 @@ Sostituisce la sintassi deprecata `evaluate basket`.
 
 **Restituisce**
 
-Tutti i modelli disponibili in più di una frazione specificata degli eventi (valore predefinito 0,05). Per ogni criterio, le colonne che non sono impostate nel criterio stesso (vale a dire in assenza di restrizioni su un valore specifico) conterranno un carattere jolly con valore null predefinito (vedere la successiva sezione Argomenti per indicazioni su come modificarli manualmente).
+Basket restituisce tutti i modelli frequenti superiori alla soglia (predefinito: 0,05) delle righe. Ogni modello è rappresentato da una riga nei risultati.
+
+La prima colonna è l'ID segmento. Le due colonne successive indicano il numero e la percentuale di righe esterne alla query originale acquisite dal modello. Le colonne rimanenti provengono dalla query originale e il rispettivo valore è un valore specifico della colonna o un carattere jolly (per impostazione predefinita null), ovvero valori variabili.
 
 **Argomenti (tutti facoltativi)**
+
+Esempio: `T | evaluate basket_v2([Threshold, WeightColumn, MaxDimensions, CustomWildcard, CustomWildcard, ...])`
 
 Tutti gli argomenti sono facoltativi, ma devono rispettare l'ordine seguente. Per indicare che deve essere usato un valore predefinito, usare il carattere tilde "~" (vedere esempi riportati di seguito).
 
@@ -427,32 +519,69 @@ Tutti gli argomenti sono facoltativi, ma devono rispettare l'ordine seguente. Pe
   
     Imposta il rapporto minimo di righe da considerare frequenti. I modelli con rapporto inferiore non verranno restituiti.
   
-    Esempio: `T | evaluate basket(0.02)`
-* Colonna di ponderazione *itemCount*
+    Esempio: `T | evaluate basket_v2(0.02)`
+* colonna di ponderazione *-column_name*
   
-    Viene usata per tenere in considerazione il campionamento e la preaggregazione della metrica. A ogni riga viene attribuito il peso specificato in questa colonna. Per impostazione predefinita il peso di ogni riga è pari a "1". In questo modo si tiene in considerazione il bucket o l'aggregazione dei dati già incorporati in ogni riga.
+    Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita ogni riga ha un peso pari a '1'. L'argomento deve essere un nome di una colonna numerica (ad esempio int, long, real). Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
   
-    Esempio: `T | evaluate basket('~', itemCount)`
+    Esempio: `T | evaluate basket_v2('~', sample_Count)`
 * Dimensioni massime: 1 < *int* (valore predefinito: 5)
   
     Imposta il numero massimo di dimensioni non correlate per basket, limitato per impostazione predefinita per diminuire il runtime di query.
 
-    Esempio: `T | evaluate basket('~', '~', 3)`
+    Esempio: `T | evaluate basket_v2('~', '~', 3)`
 * Tipi di carattere jolly personalizzato: *qualsiasi valore per tipo*
   
     Imposta il valore del carattere jolly per un tipo specifico nella tabella dei risultati, che indica che il criterio corrente non prevede una restrizione su questa colonna. Il valore predefinito è null, mentre per le stringhe il valore predefinito è una stringa vuota. Se il valore predefinito è un valore usabile nei dati, deve essere usato un valore diverso per il carattere jolly (ad esempio *).
 
     Esempio: `T | evaluate basket_v2('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
 
-**Esempio**
+**esempi**
 
-``` AIQL
-requests 
-| evaluate basket_v2(0.7, itemCount)
+``` 
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2)
 ```
+Risultati
 
-#### <a name="evaluate-diffpatterns"></a>evaluate diffpatterns
-     requests | evaluate diffpatterns("split=success")
+|SegmentId|Numero|Percentuale|Stato|EventType|Danni|DamageCrops
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77.7|||NO|0
+1|2278|38.7||Grandine|NO|0
+2|5675|96.4||||0
+3|2371|40.3||Grandine||0
+4|1279|21.7||Vento di tempesta||0
+5|2468|41.9||Grandine|||
+6|1310|22.3|||SÌ||
+7|1291|21.9||Vento di tempesta||
+
+Esempio con caratteri jolly personalizzati
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2, '~', '~', '*', int(-1))
+```
+Risultati
+
+|SegmentId|Numero|Percentuale|Stato|EventType|Danni|DamageCrops
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77.7|\*|\*|NO|0
+1|2278|38.7|\*|Grandine|NO|0
+2|5675|96.4|\*|\*|\*|0
+3|2371|40.3|\*|Grandine|\*|0
+4|1279|21.7|\*|Vento di tempesta|\*|0
+5|2468|41.9|\*|Grandine|\*|-1|
+6|1310|22.3|\*|\*|SÌ|-1|
+7|1291|21.9|\*|Vento di tempesta|\*|-1|
+
+#### <a name="evaluate-diffpatterns-deprecated"></a>evaluate diffpatterns (deprecato)
+**Questa versione del plug-in diffpatterns è deprecata. Usare la sintassi del nuovo plug-in [diffpatterns](#evaluate-diffpatterns_v2).**
+richieste | evaluate diffpatterns("split=success")
 
 Diffpatterns identifica le differenze tra due set di dati della stessa struttura, ad esempio il log delle richieste al momento di un evento imprevisto e i log delle richieste normali. Diffpatterns è stato sviluppato per semplificare l'analisi degli errori, ad esempio confrontando gli errori con i non errori in un determinato intervallo di tempo, ma può potenzialmente trovare differenze tra qualsiasi set di dati della stessa struttura. 
 
@@ -502,6 +631,110 @@ Si noti che i modelli non sono distinti: è possibile che si sovrappongano e in 
     Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita ogni riga ha un peso pari a '1'. Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
   
     `requests | evaluate autocluster("weight_column=itemCount")`
+
+<a name="evaluate-diffpatterns_v2"></a>
+#### <a name="evaluate-diffpatternsv2"></a>evaluate diffpatterns_v2
+'T | evaluate diffpatterns_v2(splitColumn)`
+
+Diffpatterns confronta due set di dati della stessa struttura e trova modelli di attributi discreti (dimensioni) che caratterizzano le differenze tra i due set di dati. Diffpatterns è stato sviluppato per semplificare l'analisi degli errori, ad esempio confrontando gli errori con i non errori in un determinato intervallo di tempo, ma può potenzialmente trovare differenze tra qualsiasi set di dati della stessa struttura. L'algoritmo Diffpatterns è stato sviluppato dal team di ricerca Developer Analytics (KustoML@microsoft.com).
+
+Questo plug-in sostituisce la sintassi del plug-in diffpatterns deprecato.
+
+**Sintassi**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, arguments] )`
+
+**Restituisce**
+
+Diffpatterns restituisce un set di modelli, in genere di piccole dimensioni, che acquisiscono diverse parti dei dati nei due set, ovvero un modello che acquisisce una percentuale elevata delle righe nel primo set di dati e una percentuale ridotta delle righe nel secondo set di dati. Ogni modello è rappresentato da una riga nei risultati.
+La prima colonna è l'ID segmento. Le quattro colonne seguenti indicano il numero e la percentuale di righe della query originale acquisite dal modello in ogni set. La sesta colonna indica la differenza tra i due set, in punti percentuale assoluti. Le colonne rimanenti provengono dalla query originale.
+Per ogni modello, le colonne non impostate nel modello, ovvero senza restrizione su un valore specifico, conterranno un carattere jolly null per impostazione predefinita (vedere la sezione Argomenti di seguito per indicazioni su come modificare manualmente i caratteri jolly).
+Si noti che i modelli non sono distinti: è possibile che si sovrappongano e in genere non comprendono tutte le righe originali. È possibile che alcune righe non rientrino in alcun modello.
+
+**Suggerimenti**
+
+Usare where e project nella pipeline di input per ridurre i dati ai soli dati rilevanti.
+Quando si trova una riga interessante, è possibile che si voglia visualizzarne i dettagli, aggiungendo i rispettivi valori specifici al filtro `where` .
+
+**Argomenti obbligatori**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
+
+- SplitColumn - *column_name* 
+
+Indica all'algoritmo come dividere la query in set di dati. In base ai valori specificati per gli argomenti SplitValueA e SplitValueB (vedere di seguito), l'algoritmo suddivide la query in due set di dati, "A" e "B", e analizza le differenze tra di essi. Di conseguenza, la colonna di divisione deve avere almeno due valori distinti.
+
+- SplitValueA - *string*
+
+Rappresentazione in forma di stringa di uno dei valori in SplitColumn che è stato specificato. Tutte le righe per le quali questo valore è presente in SplitColumn sono considerate il set di dati "A".
+
+- SplitValueB - *string*
+
+Rappresentazione in forma di stringa di uno dei valori in SplitColumn che è stato specificato. Tutte le righe per le quali questo valore è presente in SplitColumn sono considerate il set di dati "B".
+
+**Esempio**
+
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure")
+```
+**Argomenti facoltativi**
+
+Tutti gli argomenti sono facoltativi, ma devono essere ordinati come riportato di seguito. Per indicare che è necessario usare il valore predefinito, usare il carattere tilde della stringa "~" (vedere gli esempi di seguito).
+
+- WeightColumn - *column_name*
+
+Prende in considerazione ogni riga nell'input in base al peso specificato. Per impostazione predefinita ogni riga ha un peso pari a '1'. L'argomento deve essere un nome di una colonna numerica (ad esempio int, long, real). Una colonna di ponderazione viene in genere usata per tenere in considerazione il campionamento o il bucket/aggregazione dei dati già incorporati in ogni riga.
+
+**Esempio**
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", sample_Count)
+```
+- Soglia: 0,015 < double < 1 [predefinito: 0,05]
+
+Imposta la differenza minima tra modelli (rapporto) tra i due set.
+
+**Esempio**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", 0.04)
+```
+- MaxDimensions - 0 < int [predefinito: unlimited]
+
+Imposta il numero massimo di dimensioni non correlate per il modello di risultato, specificando un limite si riduce il runtime della query.
+
+**Esempio**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", 3)
+```
+- CustomWildcard - *any_value_per_type*
+
+Imposta il valore del carattere jolly per un tipo specifico nella tabella dei risultati, che indica che il criterio corrente non prevede una restrizione su questa colonna. Il valore predefinito è null, mentre per le stringhe il valore predefinito è una stringa vuota. Se il valore predefinito è un valore usabile nei dati, deve essere usato un valore diverso per il carattere jolly (ad esempio *). Ecco un esempio.
+
+**Esempio**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))
+```
+
+**Esempio**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , 1 , 0)
+| project State , EventType , Source , Damage, DamageCrops
+| evaluate diffpatterns_v2(Damage, "0", "1" )
+```
+**Risultati**
+
+|SegmentId|CountA|CountB|PercentA|PercentB|DiffAB|Stato|EventType|Sorgente|DamageCrops
+----------|------|------|--------|--------|------|-----|---------|------|-----------
+0|2278|93|49.8|7.1|42.7||Grandine||0
+1|779|512|17.03|39.08|22.05||Vento di tempesta|||
+2|1098|118|24.01|9.01|15|||Trained Spotter|0|
+3|136|158|2.97|12.06|9.09|||Giornale||
+4|359|214|7.85|16.34|8.49||Piena improvvisa|||
+5|50|122|1.09|9.31|8.22|IOWA||||
+6|655|279|14.32|21.3|6.98|||Applicazione della legge||
+7|150|117|3.28|8.93|5.65||Alluvione|||
+8|362|176|7.91|13.44|5.52|||Responsabile della gestione emergenze||
 
 #### <a name="evaluate-extractcolumns"></a>evaluate extractcolumns
      exceptions | take 1000 | evaluate extractcolumns("details=json") 
@@ -2347,7 +2580,41 @@ range t from 1 to 1 step 1
 |2.0|3.0|
 |3.0|6.0|
 |4.0|10,0|
+### <a name="seriesoutliers"></a>series_outliers 
 
+La funzione series_outliers() accetta una colonna contenente una matrice dinamica come input e genera una matrice numerica dinamica della stessa lunghezza come input. Ogni valore della matrice indica un punteggio che indica una possibile anomalia usando il test di Tukey. Un valore maggiore di 1,5 o minore di -1,5 indica un aumento o una diminuzione anomala rispettivamente nello stesso elemento di input.  
+
+**Sintassi**  
+
+```
+series_outliers(x,kind,ignore_val,min_percentile,max_percentile)  
+```
+**Argomenti** 
+* *x:* cella di matrice dinamica costituita da una matrice di valori numerici. Si presuppone che i valori siano equidistanti, in caso contrario si potrebbero ottenere risultati imprevisti.  
+* *tipo:* algoritmo di rilevamento outlier. Supporta attualmente "tukey" e "ctukey". Il valore predefinito è "ctukey".  
+* *ignore_val:* valore numerico che indica valori mancanti nella serie, il valore predefinito è double(null).
+* *min_percentile:* per il calcolo dell'intervallo interquantile normale, il valore predefinito è 10 (solo ctukey).
+* *max_percentile:* per il calcolo dell'intervallo interquantile normale, il valore predefinito è 90 (solo ctukey).
+
+Nella tabella seguente vengono descritte le differenze tra "tukey" e "ctukey":
+
+|Algoritmo|Intervallo quantile predefinito|Supporta l'intervallo quantile personalizzato|
+|---------|----------------------|------------------------------|
+|"tukey"|25% / 75%|No|
+|"ctukey"|10% / 90%|Sì|
+
+**Nota importante** Il modo più pratico di usare questa funzione consiste nell'applicarla ai risultati dell'operatore `make-series`.
+
+**esempi** 
+
+Per l'input seguente   
+```
+[30,28,5,27,31,38,29,80,25,37,30]
+``` 
+series_outliers() restituisce  
+[0.0,0.0,-3.206896551724138,-0.1724137931034483,0.0,2.6666666666666667,0.0,16.666666666666669,-0.4482758620689655,2.3333333333333337,0.0]
+
+ovvero il 5 è un'anomalia in calo e 80 è un'anomalia in aumento rispetto al resto della serie. 
 
 ### <a name="seriesperiods"></a>series_periods
 
@@ -3095,7 +3362,8 @@ Per creare un valore letterale dinamico, usare `parsejson` (alias `todynamic`) c
 * `parsejson('21')` : un singolo valore di tipo dinamico che contiene un numero
 * `parsejson('"21"')` : un singolo valore di tipo dinamico che contiene una stringa
 
-> ![NOTA] Per racchiudere etichette e valori di stringa in JSON, è necessario usare le virgolette doppie (`"`). Di conseguenza, è in genere più semplice fare riferimento ai valori letterali di stringa con codifica JSON usando virgolette singole (`'`).
+> [!NOTE]
+> Le doppie virgolette (`"`) devono essere usate per delimitare le etichette e i valori stringa in JSON. Di conseguenza, è in genere più semplice fare riferimento ai valori letterali di stringa con codifica JSON usando virgolette singole (`'`).
 > 
 
 Questo esempio crea un valore dinamico e quindi usa i campi:
@@ -3279,7 +3547,7 @@ Nell'esempio seguente `customDimensions.person` è un elemento `string` analogo 
 "\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
-Il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e  `duration.min` (rispettivamente `118.0` e `110.0`).
+Il frammento seguente recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
 
 ```AIQL
 customEvents
@@ -3288,7 +3556,8 @@ customEvents
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
-> ![NOTA] Per racchiudere etichette e valori di stringa in JSON, è necessario usare le virgolette doppie. 
+> [!NOTE]
+> Le virgolette doppie devono essere usate per delimitare le etichette e i valori stringa in JSON. 
 >
 
 

@@ -1,6 +1,6 @@
 ---
 title: Usare trigger e associazioni in Funzioni di Azure | Microsoft Docs
-description: Informazioni su come usare trigger e associazioni in Funzioni di Azure per connettere l&quot;esecuzione del codice a eventi online e servizi basati su cloud.
+description: Informazioni su come usare trigger e associazioni in Funzioni di Azure per connettere l'esecuzione del codice a eventi online e servizi basati su cloud.
 services: functions
 documentationcenter: na
 author: lindydonna
@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 05/30/2017
 ms.author: donnam
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f7d0ed4f43c68c73c967a401509f1a5ccac7da0b
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: cc41debb2523df77be4db05817a4c7ac55604439
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -190,6 +190,23 @@ let Run(input: WorkItem, log: TraceWriter) =
     json
 ```
 
+## <a name="binding-datatype-property"></a>Proprietà Binding dataType
+
+In .NET usare i tipi per definire il tipo di dati per i dati di input. Ad esempio, usare `string` da associare al testo di un trigger di coda e una matrice di byte da leggere in formato binario.
+
+Per le lingue che vengono digitate in modo dinamico, ad esempio JavaScript, usare la proprietà `dataType` nella definizione di associazione. Ad esempio, per leggere il contenuto di una richiesta HTTP in formato binario, usare il tipo `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Altre opzioni per `dataType` sono `stream` e `string`.
+
 ## <a name="resolving-app-settings"></a>Risoluzione di impostazioni app
 Come procedura consigliata, i segreti e le stringhe di connessione devono essere gestiti tramite le impostazioni dell'app, invece dei file di configurazione. Ciò limita l'accesso a questi segreti e rende sicuro archiviare *function.json* in un repository di controllo sorgente pubblico.
 
@@ -307,6 +324,19 @@ Funzioni di Azure fornisce una sintassi utile per la generazione di GUID nelle a
 }
 ```
 
+### <a name="current-time"></a>Ora corrente
+
+È possibile usare l'espressione di associazione `DateTime`, che viene risolta in `DateTime.UtcNow`.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
 ## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Associare le proprietà di input personalizzate in un'espressione di associazione
 
 Le espressioni di associazione possono anche fare riferimento alle proprietà definite nel payload del trigger stesso. Ad esempio, si potrebbe voler associare in modo dinamico ad un file di archiviazione BLOB un filename fornito da un webhook.
@@ -377,6 +407,10 @@ module.exports = function (context, info) {
     context.done();
 }
 ```
+
+## <a name="configuring-binding-data-at-runtime"></a>Configurazione dell'associazione di dati in fase di runtime
+
+In C# e altri linguaggi .NET, è possibile usare un metodo di associazione imperativa anziché dichiarativa in *function.json*. L'associazione imperativa è utile quando i parametri di associazione devono essere calcolati in fase di runtime invece che in fase di progettazione. Per altre informazioni, vedere [Associazione in fase di runtime tramite le associazioni imperative](functions-reference-csharp.md#imperative-bindings) nel riferimento per sviluppatori C#.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:

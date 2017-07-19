@@ -1,6 +1,6 @@
 ---
-title: Spostare i dati da/verso Oracle con Data Factory | Microsoft Docs
-description: Informazioni su come spostare i dati da e verso database Oracle in locale mediante Data factory di Azure.
+title: Copiare dati da/verso Oracle con Data Factory | Microsoft Docs
+description: Informazioni su come copiare dati da e verso database Oracle locali tramite Azure Data Factory.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 18fffb6cae9107b9301ff702d483b598836ac180
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: bb6af719fe6f1a30c5933ce4342a4c0c072f3ff4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Spostare i dati da/verso Oracle locale con Azure Data Factory
+# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copiare dati da/verso un database Oracle locale con Azure Data Factory
 In questo articolo viene illustrato come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso un database Oracle locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
@@ -570,15 +570,15 @@ Quando si spostano dati da Oracle, vengono usati i mapping seguenti dal tipo di 
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimal |
-| INTEGER |Decimal |
+| FLOAT |Decimal, String (se la precisione > 28) |
+| INTEGER |Decimal, String (se la precisione > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |Intervallo di tempo |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal |
+| NUMBER |Decimal, String (se la precisione > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

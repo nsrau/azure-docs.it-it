@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: e4bb75b0a45dd922479cbd40ad94190c30b4333f
+ms.translationtype: HT
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 2b727a56f43a727807d4452eefa4229d4d90406e
 ms.contentlocale: it-it
-ms.lasthandoff: 01/13/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Panoramica dello streaming live con Servizi multimediali di Azure
@@ -68,7 +67,7 @@ Nella tabella seguente vengono confrontati i due tipi di canale supportati in Se
 | Risoluzione massima, numero di livelli |1080p, 8 livelli, oltre 60 fps |720p, 6 livelli, 30 fps |
 | Protocolli di input |RTMP, Smooth Streaming |RTMP, Smooth Streaming e RTP |
 | Prezzo |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live" |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) |
-| Tempo di esecuzione massimo |24 x&7; |8 ore |
+| Tempo di esecuzione massimo |24 x 7 |8 ore |
 | Supporto per l'inserimento di slate |No |Sì |
 | Supporto per annunci pubblicitari |No |Sì |
 | Pass-through di sottotitoli CEA 608/708 |Sì |Sì |

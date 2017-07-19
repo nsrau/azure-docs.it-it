@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/12/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 34fc513b6d4408e341fc5a723ca743daee39b85d
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 74982663b0501d3a5c7973a5f383e14e0f964696
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -58,7 +58,11 @@ Converte il valore in matrice.
 |:--- |:--- |:--- |:--- |
 | convertToArray |Sì |numero intero, stringa, matrice o oggetto |Valore da convertire in matrice. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Una matrice.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la funzione matrice con tipi diversi.
 
@@ -99,9 +103,13 @@ L'esempio seguente mostra come usare la funzione matrice con tipi diversi.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Una matrice.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["a"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 <a id="coalesce" />
 
@@ -117,7 +125,11 @@ Restituisce il primo valore non null dai parametri. Stringhe vuote, matrici vuot
 | arg1 |Sì |numero intero, stringa, matrice o oggetto |Il primo valore da controllare per verificare se è null. |
 | argomenti aggiuntivi |No |numero intero, stringa, matrice o oggetto |Valori aggiuntivi da controllare per verificare se sono null. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Valore dei primi parametri non null, che può essere una stringa, un numero intero, una matrice o un oggetto. Null se tutti i parametri sono null. 
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente illustra l'output per diversi usi di coalesce.
 
@@ -128,7 +140,14 @@ L'esempio seguente illustra l'output per diversi usi di coalesce.
     "parameters": {
         "objectToTest": {
             "type": "object",
-            "defaultValue": {"first": null, "second": null}
+            "defaultValue": {
+                "null1": null, 
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
         }
     },
     "resources": [
@@ -136,27 +155,37 @@ L'esempio seguente illustra l'output per diversi usi di coalesce.
     "outputs": {
         "stringOutput": {
             "type": "string",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 'fallback')]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
         },
         "intOutput": {
             "type": "int",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 1)]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
         },
         "objectOutput": {
             "type": "object",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, parameters('objectToTest'))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
         },
         "arrayOutput": {
             "type": "array",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, array(1))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Valore dei primi parametri non null, che può essere una stringa, un numero intero, una matrice o un oggetto. Null se tutti i parametri sono null. 
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| stringOutput | String | default |
+| intOutput | int | 1 |
+| objectOutput | Oggetto | {"first": "default"} |
+| arrayOutput | Array | [1] |
+| emptyOutput | Booleano | True  |
 
 <a id="concat" />
 
@@ -174,7 +203,10 @@ Combina più matrici e restituisce la matrice concatenata oppure combina più va
 
 Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri.
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+Stringa o matrice di valori concatenati.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente illustra come combinare due matrici.
 
@@ -211,7 +243,13 @@ L'esempio seguente illustra come combinare due matrici.
 }
 ```
 
-L'esempio seguente illustra come combinare due valori di stringa per restituire una stringa concatenata.
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+
+L'esempio seguente illustra come combinare due valori stringa e restituisce una stringa concatenata.
 
 ```json
 {
@@ -226,15 +264,18 @@ L'esempio seguente illustra come combinare due valori di stringa per restituire 
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
             "type" : "string"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
-Una stringa o matrice di valori concatenati.
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 <a id="contains" />
 
@@ -247,10 +288,14 @@ Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o 
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| contenitore |Sì |matrice, oggetto o stringa |Valore contenente l'elemento da cercare. |
-| itemToFind |Sì |stringa o numero intero |Valore da cercare. |
+| Contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
+| itemToFind |Sì |stringa o numero intero |Valore da trovare. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+**True** se l'elemento viene individuato; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la funzione contains con tipi diversi:
 
@@ -303,9 +348,16 @@ L'esempio seguente mostra come usare la funzione contains con tipi diversi:
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Restituisce **True** se l'elemento è stato trovato, in caso contrario restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| stringTrue | Booleano | True  |
+| stringFalse | Booleano | False |
+| objectTrue | Booleano | True  |
+| objectFalse | Booleano | False |
+| arrayTrue | Booleano | True  |
+| arrayFalse | Booleano | False |
 
 <a id="createarray" />
 
@@ -321,7 +373,11 @@ Crea una matrice dai parametri.
 | arg1 |Sì |Stringa, numero intero, matrice o oggetto |Primo valore della matrice. |
 | argomenti aggiuntivi |No |Stringa, numero intero, matrice o oggetto |Altri valori della matrice. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Una matrice.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la funzione createArray con tipi diversi:
 
@@ -362,9 +418,14 @@ L'esempio seguente mostra come usare la funzione createArray con tipi diversi:
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Una matrice.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Array | [["one", "two", "three"]] |
 
 <a id="empty" />
 
@@ -380,7 +441,11 @@ Determina se una matrice, un oggetto o una stringa sono vuoti.
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sì |matrice, oggetto o stringa |Valore da controllare per verificare se è vuoto. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+**True** se il valore è vuoto; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente controlla se una matrice, un oggetto e una stringa sono vuoti.
 
@@ -421,9 +486,13 @@ L'esempio seguente controlla se una matrice, un oggetto e una stringa sono vuoti
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Restituisce **True** se il valore è vuoto; in caso contrario, restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayEmpty | Booleano | True  |
+| objectEmpty | Booleano | True  |
+| stringEmpty | Booleano | True  |
 
 <a id="first" />
 
@@ -438,7 +507,11 @@ Restituisce il primo elemento della matrice o il primo carattere della stringa.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Il tipo (string, int, array o object) del primo elemento di una matrice o il primo carattere di una stringa.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la prima funzione con una matrice e una stringa.
 
@@ -467,9 +540,12 @@ L'esempio seguente mostra come usare la prima funzione con una matrice e una str
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Tipo del primo elemento in una matrice (stringa, numero intero, matrice o oggetto) o stringa del primo carattere.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 <a id="intersection" />
 
@@ -486,7 +562,11 @@ Restituisce una matrice o un oggetto singoli con gli elementi comuni dei paramet
 | arg2 |Sì |matrice o oggetto |Secondo valore da usare per cercare elementi comuni. |
 | argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per cercare elementi comuni. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Una matrice o un oggetto con elementi comuni.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare l'intersezione con matrici e oggetti:
 
@@ -527,9 +607,12 @@ L'esempio seguente mostra come usare l'intersezione con matrici e oggetti:
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Una matrice o un oggetto con elementi comuni.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| objectOutput | Oggetto | {"one": "a", "three": "c"} |
+| arrayOutput | Array | ["two", "three"] |
 
 <a id="last" />
 
@@ -544,7 +627,11 @@ Restituisce l'ultimo elemento della matrice o l'ultimo carattere della stringa.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Il tipo (string, int, array o object) dell'ultimo elemento di una matrice o l'ultimo carattere di una stringa.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare l'ultima funzione con una matrice e una stringa.
 
@@ -573,9 +660,12 @@ L'esempio seguente mostra come usare l'ultima funzione con una matrice e una str
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Tipo dell'ultimo elemento in una matrice (stringa, numero intero, matrice o oggetto) o stringa dell'ultimo carattere.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 <a id="length" />
 
@@ -590,7 +680,11 @@ Restituisce il numero di elementi in una matrice o di caratteri in una stringa.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |Matrice da usare per ottenere il numero di elementi oppure stringa da usare per ottenere il numero di caratteri. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Numero intero 
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la funzione length con una matrice e una stringa:
 
@@ -626,6 +720,13 @@ L'esempio seguente mostra come usare la funzione length con una matrice e una st
 }
 ```
 
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayLength | int | 3 |
+| stringLength | int | 13 |
+
 È possibile usare questa funzione con una matrice per specificare il numero di iterazioni durante la creazione di risorse. Nell'esempio seguente, il parametro **siteNames** fa riferimento a una matrice di nomi da usare durante la creazione di siti Web.
 
 ```json
@@ -636,10 +737,6 @@ L'esempio seguente mostra come usare la funzione length con una matrice e una st
 ```
 
 Per altre informazioni sull'uso di questa funzione con una matrice, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
-
-### <a name="return-value"></a>Valore restituito
-
-Numero intero 
 
 <a id="min" />
 
@@ -652,9 +749,13 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |Raccolta per ottenere il valore minimo. |
+| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Numero intero che rappresenta il valore minimo.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la funzione min con una matrice e un elenco di numeri interi:
 
@@ -682,9 +783,12 @@ L'esempio seguente mostra come usare la funzione min con una matrice e un elenco
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Numero intero che rappresenta il valore minimo.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -697,9 +801,13 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |Raccolta per ottenere il valore massimo. |
+| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Numero intero che rappresenta il valore massimo.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la funzione max con una matrice e un elenco di numeri interi:
 
@@ -727,9 +835,12 @@ L'esempio seguente mostra come usare la funzione max con una matrice e un elenco
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Numero intero che rappresenta il valore massimo.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="range" />
 
@@ -745,7 +856,11 @@ Crea una matrice di numeri interi da un numero intero iniziale, contenente un da
 | startingInteger |Sì |int |Primo numero intero nella matrice. |
 | numberofElements |Sì |int |Numero di valori interi della matrice. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Matrice di numeri interi.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la funzione range:
 
@@ -773,9 +888,11 @@ L'esempio seguente mostra come usare la funzione range:
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Matrice di numeri interi.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| rangeOutput | Array | [5, 6, 7] |
 
 <a id="skip" />
 
@@ -788,10 +905,14 @@ Restituisce una matrice con tutti gli elementi dopo il numero specificato nella 
 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |stringa o matrice |La stringa o la matrice da usare per i valori da ignorare. |
-| numberToSkip |Sì |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se è maggiore della lunghezza della matrice o stringa, viene restituita una matrice o stringa vuota. |
+| originalValue |Sì |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
+| numberToSkip |Sì |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Stringa o matrice.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente ignora il numero di elementi specificato nella matrice e il numero di caratteri specificato in una stringa.
 
@@ -835,9 +956,12 @@ L'esempio seguente ignora il numero di elementi specificato nella matrice e il n
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Una stringa o matrice.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayOutput | Array | ["three"] |
+| stringOutput | String | two three |
 
 <a id="take" />
 
@@ -851,9 +975,13 @@ Restituisce una matrice con il numero specificato di elementi dall'inizio della 
 | Parametro | Obbligatorio | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sì |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
-| numberToTake |Sì |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o matrice vuota. Se è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o matrice. |
+| numberToTake |Sì |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Stringa o matrice.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente prende il numero specificato di elementi dalla matrice e di caratteri dalla stringa.
 
@@ -897,9 +1025,12 @@ L'esempio seguente prende il numero specificato di elementi dalla matrice e di c
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Una stringa o matrice.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayOutput | Array | ["one", "two"] |
+| stringOutput | String | in |
 
 <a id="union" />
 
@@ -916,7 +1047,11 @@ Restituisce una matrice o un oggetto singoli con tutti gli elementi dei parametr
 | arg2 |Sì |matrice o oggetto |Secondo valore da usare per l'aggiunta di elementi. |
 | argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per l'aggiunta di elementi. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Una matrice o un oggetto.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare l'unione con matrici e oggetti:
 
@@ -931,7 +1066,7 @@ L'esempio seguente mostra come usare l'unione con matrici e oggetti:
         },
         "secondObject": {
             "type": "object",
-            "defaultValue": {"four": "d", "five": "e", "six": "f"}
+            "defaultValue": {"three": "c", "four": "d", "five": "e"}
         },
         "firstArray": {
             "type": "array",
@@ -939,7 +1074,7 @@ L'esempio seguente mostra come usare l'unione con matrici e oggetti:
         },
         "secondArray": {
             "type": "array",
-            "defaultValue": ["four", "five"]
+            "defaultValue": ["three", "four"]
         }
     },
     "resources": [
@@ -957,9 +1092,12 @@ L'esempio seguente mostra come usare l'unione con matrici e oggetti:
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Una matrice o un oggetto.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| objectOutput | Oggetto | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
+| arrayOutput | Array | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

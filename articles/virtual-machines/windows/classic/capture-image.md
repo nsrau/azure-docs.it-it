@@ -13,18 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 06a97b48fed8f80679632f5c0320d4dd73b8e1e2
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 6032263848c469ce2f416306e5c91c29f4cb30e4
+ms.contentlocale: it-it
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico.
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sul modello Resource Manager, vedere [Create a copy of a specialized Windows VM running in Azure](../../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creare una copia di macchina virtuale Windows specializzata in esecuzione in Azure).
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sul modello di Gestione risorse, vedere [Acquisire un'immagine gestita di una macchina virtuale generalizzata in Azure](../capture-image-resource.md).
 
 Questo articolo illustra come acquisire una macchina virtuale Linux che esegue Windows in modo da usarla come immagine per creare altre macchine virtuali. Tale immagine include il disco del sistema operativo ed eventuali dischi dati collegati alla macchina virtuale. Poiché le configurazioni di rete non sono incluse, sarà necessario impostare le configurazioni di rete quando vengono create le altre macchine virtuali che usano l'immagine.
 
@@ -55,7 +56,7 @@ Prima dell'acquisizione dell'immagine di una macchina virtuale di Azure, si cons
    * Fare clic su **OK**.
 
    ![Eseguire Sysprep.](./media/capture-image/SysprepGeneral.png)
-5. Sysprep arresta la macchina virtuale il cui stato nel portale di Azure classico diventa **Arrestato**.
+5. Sysprep arresta la macchina virtuale il cui stato nel portale di Azure diventa **Arrestato**.
 6. Nel portale di Azure, fare clic su **Immagini VM (classico)** e selezionare la macchina virtuale che si desidera acquisire. Il gruppo **Immagini VM (classico)** è elencato in **Calcolo** quando si visualizza **Altri servizi**.
 
 7. Nella barra dei comandi fare clic su **Capture**.

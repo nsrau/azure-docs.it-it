@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/29/2017
 ms.author: v-jysur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 732d968112913b252b40a37abc24f4de5d37999f
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/16/2017
 
 ---
-# <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Connettere prodotti/servizi ITSM con IT Service Management Connector (anteprima)
-Questo articolo fornisce informazioni su come connettere i prodotti/servizi ITSM a IT Service Management Connector in OMS e gestire centralmente gli elementi di lavoro. Per altre informazioni su IT Service Management Connector, vedere [Overview](log-analytics-itsmc-overview.md) (Panoramica).
+# <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Connettere i servizi/prodotti ITSM con IT Service Management Connector (Anteprima)
+Questo articolo fornisce informazioni su come connettere i prodotti/servizi ITSM a IT Service Management Connector in OMS e gestire centralmente gli elementi di lavoro. Per altre informazioni su IT Service Management Connector, vedere [Panoramica](log-analytics-itsmc-overview.md).
 
 Sono supportati i prodotti/servizi seguenti:
 
@@ -32,7 +32,7 @@ Sono supportati i prodotti/servizi seguenti:
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-oms"></a>Connettere System Center Service Manager a IT Service Management Connector in OMS
 
-Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto System Center Service Manager a IT Service Manager Connector in OMS.
+Le sezioni seguenti forniscono informazioni dettagliate sulla connessione del prodotto System Center Service Manager a IT Service Manager Connector in OMS.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -41,13 +41,13 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 - IT Service Management Connector è stato installato.
 Per altre informazioni, vedere [Configuration](log-analytics-itsmc-overview.md#configuration) (Configurazione).
 - L'applicazione Web (app Web) Service Manager è stata distribuita e configurata. Per informazioni sull'app Web, vedere[qui](#create-and-deploy-service-manager-web-app-service).
-- Connessione ibrida è stata creata e configurata. Per altre informazioni, vedere [Configurare la connessione ibrida](#configure-the-hybrid-connector-role).
+- Connessione ibrida è stata creata e configurata. Per altre informazioni, vedere [Configurare la connessione ibrida](#configure-the-hybrid-connection).
 - Versioni supportate di Service Manager: 2012 R2 o 2016.
 - Ruolo utente: [Operatore avanzato](https://technet.microsoft.com/library/ff461054.aspx).
 
 ### <a name="connection-procedure"></a>Procedura di connessione
 
-Seguire questa procedura per connettere l'istanza di System Center Service Manager a IT Service Management Connector:
+Eseguire i passaggi seguenti per connettere l'istanza di System Center Service Manager a IT Service Management Connector:
 
 1. Passare a **OMS** >**Impostazioni** > **Origini connesse**.
 2. Selezionare **ITSM Connector** e fare clic su **Aggiungi nuova connessione**.
@@ -60,7 +60,7 @@ Seguire questa procedura per connettere l'istanza di System Center Service Manag
 
 | **Campo** | **Descrizione** |
 | --- | --- |
-| **Nome**   | Digitare il nome per l'istanza di System Center Service Manager da connettere tramite IT Service Management Connector.  Questo nome viene usato in seguito durante la configurazione degli elementi di lavoro in questa istanza o quando si visualizzano analisi del log dettagliate. |
+| **Nome**   | Digitare il nome dell'istanza di System Center Service Manager da connettere a IT Service Management Connector.  Questo nome viene usato in seguito durante la configurazione degli elementi di lavoro in questa istanza o quando si visualizzano analisi del log dettagliate. |
 | **Seleziona tipo di connessione**   | Selezionare **System Center Service Manager**. |
 | **URL del server**   | Digitare l'URL dell'app Web Service Manager. Per altre informazioni sull'app Web Service Manager, vedere [qui](#create-and-deploy-service-manager-web-app-service).
 | **ID client**   | Digitare l'ID client generato tramite lo script automatico per l'autenticazione dell'app Web. Per altre informazioni sullo script automatico, vedere [qui](log-analytics-itsmc-service-manager-script.md).|
@@ -79,7 +79,7 @@ Per altre informazioni, vedere [Create ITSM work items for OMS alerts](log-analy
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Creare e distribuire il servizio app Web di Service Manager
 
-Per connettere l'istanza locale di Service Manager con IT Service Management Connector in OMS, Microsoft ha creato un'app Web di Service Manager in GitHub.
+Per connettere l'istanza locale di Service Manager a IT Service Management Connector in OMS, Microsoft ha creato un'app Web Service Manager in GitHub.
 
 Per configurare l'app Web ITSM per l'istanza di Service Manager, seguire questa procedura:
 
@@ -100,7 +100,7 @@ Eseguire lo script, fornendo i seguenti dettagli richiesti:
 
 Lo script crea l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera l'**URL dell'app Web**, l'**ID del client** e il **segreto client**.
 
-Salvare questi valori in quanto servono per la creazione di una connessione con IT Service Management Connector.
+Salvare questi valori perché serviranno alla creazione di una connessione a IT Service Management Connector.
 
 **Controllare l'installazione dell'app Web**
 
@@ -110,7 +110,7 @@ Salvare questi valori in quanto servono per la creazione di una connessione con 
 
 ### <a name="configure-the-hybrid-connection"></a>Configurare la connessione ibrida
 
-Seguire questa procedura per connettere il ruolo del connettore ibrido che connette l'istanza di Service Manager con IT Service Management Connector in OMS.
+Eseguire i passaggi seguenti per configurare la connessione ibrida tra l'istanza di Service Manager e IT Service Management Connector in OMS.
 
 1. Trovare l'app Web di Service Manager in **Risorse di Azure**.
 2. Fare clic su **Impostazioni** > **Rete**.
@@ -162,7 +162,7 @@ La connessione ibrida è stata completata.
 ![Connessione ibrida completata](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
-> Al termine della creazione della connessione ibrida, verificare e testare la connessione passando all'app Web di Service Manager distribuita. Assicurarsi che la connessione sia riuscita prima di provare a connettersi a IT Service Management Connector in OMS.
+> Al termine della creazione della connessione ibrida, verificare e testare la connessione passando all'app Web di Service Manager distribuita. Assicurarsi che la connessione funzioni prima di provare a connettersi a IT Service Management Connector in OMS.
 
 La figura seguente mostra i dettagli di una connessione riuscita:
 
@@ -170,17 +170,19 @@ La figura seguente mostra i dettagli di una connessione riuscita:
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-oms"></a>Connettere ServiceNow a IT Service Management Connector in OMS
 
-Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto ServiceNow a IT Service Manager Connector in OMS.
+Le sezioni seguenti forniscono informazioni dettagliate sulla connessione del prodotto ServiceNow a IT Service Manager Connector in OMS.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
 Assicurarsi che siano rispettati i prerequisiti seguenti:
 
 - IT Service Management Connector è stato installato. Per altre informazioni, vedere [Configuration](log-analytics-itsmc-overview.md#configuration) (Configurazione).
-- L'ID client e il segreto client per il prodotto ServiceNow sono stati generati e sono disponibili.  Per informazioni su come generare un ID client e un segreto client, vedere [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup) (Configurazione di OAuth).
 - Versioni supportate di ServiceNow: Fuji, Geneva, Helsinki.
-- L'app utente per l'integrazione con Microsoft OMS (app ServiceNow) è stata installata e il ruolo utente di integrazione è stato configurato. [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
-- Ruolo utente: ruolo utente di integrazione. Per informazioni su come creare il ruolo utente di integrazione, vedere [qui](#create-integration-user-role-in-servicenow-app).
+
+ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow:
+- Generare l'ID client e il segreto client per il prodotto ServiceNow. Per informazioni su come generare un ID client e un segreto client, vedere [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup) (Configurazione di OAuth).
+- Installare l'app utente per l'integrazione Microsoft OMS (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+- Creare un ruolo utente integrazione per l'app utente installata. Per informazioni su come creare il ruolo utente di integrazione, vedere [qui](#create-integration-user-role-in-servicenow-app).
 
 
 ### <a name="connection-procedure"></a>**Procedura di connessione**
@@ -199,9 +201,9 @@ Seguire questa procedura per creare una connessione ServiceNow:
 
 | **Campo** | **Descrizione** |
 | --- | --- |
-| **Nome**   | Digitare il nome per l'istanza di ServiceNow da connettere tramite IT Service Management Connector.  Questo nome viene usato in seguito in OMS durante la configurazione degli elementi di lavoro in questa istanza di ITSM o quando si visualizzano analisi del log dettagliate. |
+| **Nome**   | Digitare un nome per l'istanza di ServiceNow da connettere a IT Service Management Connector.  Questo nome viene usato in seguito in OMS durante la configurazione degli elementi di lavoro in questa istanza di ITSM o quando si visualizzano analisi del log dettagliate. |
 | **Seleziona tipo di connessione**   | Selezionare **ServiceNow**. |
-| **Nome utente**   | Digitare il nome dell'utente di integrazione creato nell'app ServiceNow per supportare la connessione a IT Service Management Connector. Per altre informazioni, vedere [Create ServiceNow app user role](#create-integration-user-role-in-servicenow-app) (Creare il ruolo utente dell'app ServiceNow).|
+| **Nome utente**   | Digitare il nome utente di integrazione creato nell'app ServiceNow per supportare la connessione a IT Service Management Connector. Per altre informazioni, vedere [Create ServiceNow app user role](#create-integration-user-role-in-servicenow-app) (Creare il ruolo utente dell'app ServiceNow).|
 | **Password**   | Digitare la password associata a questo nome utente. **Nota**: il nome utente e la password vengono usati solo per la generazione di token di autenticazione e non vengono archiviati nel servizio OMS.  |
 | **URL del server**   | Digitare l'URL dell'istanza di ServiceNow da connettere a IT Service Management Connector. |
 | **ID client**   | Digitare l'ID client da usare per l'autenticazione OAuth2, generata in precedenza.  Per altre informazioni sulla generazione dell'ID client e del segreto, vedere [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup) (Configurazione di OAuth). |
@@ -223,14 +225,14 @@ Per altre informazioni, vedere [Create ITSM work items for OMS alerts](log-analy
 
 Seguire questa procedura:
 
-1.    Passare a [ServiceNow Store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0) e installare l'**app utente per ServiceNow e per l'integrazione con Microsoft OMS** nell'istanza di ServiceNow.
-2.    Dopo l'installazione, passare alla barra di spostamento sinistra dell'istanza di ServiceNow, eseguire una ricerca e selezionare Microsoft OMS Integrator.  
-3.    Fare clic su **Installation Checklist** (Elenco di controllo installazione).
+1.  Passare a [ServiceNow Store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0) e installare l'**app utente per ServiceNow e per l'integrazione con Microsoft OMS** nell'istanza di ServiceNow.
+2.  Dopo l'installazione, passare alla barra di spostamento sinistra dell'istanza di ServiceNow, eseguire una ricerca e selezionare Microsoft OMS Integrator.  
+3.  Fare clic su **Installation Checklist** (Elenco di controllo installazione).
 
     Lo stato visualizzato è **Not complete** (Non completato) se il ruolo utente deve essere ancora creato.
 
-4.    Nelle caselle di testo immettere accanto a **Create integration user** (Crea utente di integrazione) il nome utente per l'utente che può connettersi a IT Service Management Connector in OMS.
-5.    Immettere la password per questo utente e fare clic su **OK**.  
+4.  Nelle caselle di testo, accanto a **Crea utente di integrazione** immettere il nome dell'utente che può connettersi a IT Service Management Connector in OMS.
+5.  Immettere la password per questo utente e fare clic su **OK**.  
 
 >[!NOTE]
 
@@ -241,10 +243,10 @@ L'utente appena creato viene visualizzato con i ruoli predefiniti assegnati.
 Ruoli predefiniti:
 - personalize_choices
 - import_transformer
--     x_mioms_microsoft.user
--     itil
--     template_editor
--     view_changer
+-   x_mioms_microsoft.user
+-   itil
+-   template_editor
+-   view_changer
 
 Al termine della creazione dell'utente, lo stato di **Check Installation Checklist** (Controllo elenco di controllo installazione) viene impostato su Completed (Completato) e vengono elencati i dettagli del ruolo utente creato per l'app.
 
@@ -261,7 +263,7 @@ Al termine della creazione dell'utente, lo stato di **Check Installation Checkli
 
 ## <a name="connect-provance-to-it-service-management-connector-in-oms"></a>Connettere Provance a IT Service Management Connector in OMS
 
-Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Provance a IT Service Manager Connector in OMS.
+Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Provance a IT Service Management Connector in OMS.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -286,9 +288,9 @@ Seguire questa procedura per creare una connessione Provance:
 
 | **Campo** | **Descrizione** |
 | --- | --- |
-| **Nome**   | Digitare il nome per l'istanza di Provance da connettere tramite IT Service Management Connector.  Questo nome viene usato in seguito in OMS durante la configurazione degli elementi di lavoro in questa istanza di ITSM o quando si visualizzano analisi del log dettagliate. |
+| **Nome**   | Digitare il nome per l'istanza di Provance da connettere a IT Service Management Connector.  Questo nome viene usato in seguito in OMS durante la configurazione degli elementi di lavoro in questa istanza di ITSM o quando si visualizzano analisi del log dettagliate. |
 | **Seleziona tipo di connessione**   | Selezionare **Provance**. |
-| **Nome utente**   | Digitare il nome utente autorizzato a connettersi a IT Service Management Connector.    |
+| **Nome utente**   | Digitare il nome utente che può connettersi a IT Service Management Connector.    |
 | **Password**   | Digitare la password associata a questo nome utente. **Nota**: il nome utente e la password vengono usati solo per la generazione di token di autenticazione e non vengono archiviati nel servizio OMS.|
 | **URL del server**   | Digitare l'URL dell'istanza di Provance da connettere a IT Service Management Connector. |
 | **ID client**   | Digitare l'ID client per l'autenticazione di questa connessione, generato nell'istanza di Provance.  Per altre informazioni sull'ID client, vedere [Come configurare l'autenticazione di Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
@@ -305,7 +307,7 @@ Per altre informazioni, vedere [Create ITSM work items for OMS alerts](log-analy
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-oms"></a>Connettere Cherwell a IT Service Management Connector in OMS
 
-Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Cherwell a IT Service Manager Connector in OMS.
+Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Cherwell a IT Service Management Connector in OMS.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -331,9 +333,9 @@ Seguire questa procedura per creare una connessione Cherwell:
 
 | **Campo** | **Descrizione** |
 | --- | --- |
-| **Nome**   | Digitare il nome per l'istanza di Cherwell da connettere a IT Service Management Connector.  Questo nome viene usato in seguito in OMS durante la configurazione degli elementi di lavoro in questa istanza di ITSM o quando si visualizzano analisi del log dettagliate. |
+| **Nome**   | Digitare un nome per l'istanza di Cherwell da connettere a the IT Service Management Connector.  Questo nome viene usato in seguito in OMS durante la configurazione degli elementi di lavoro in questa istanza di ITSM o quando si visualizzano analisi del log dettagliate. |
 | **Seleziona tipo di connessione**   | Selezionare **Cherwell**. |
-| **Nome utente**   | Digitare il nome utente di Cherwell autorizzato a connettersi a IT Service Management Connector. |
+| **Nome utente**   | Digitare il nome utente Cherwell autorizzato a connettersi a IT Service Management Connector. |
 | **Password**   | Digitare la password associata a questo nome utente. **Nota**: il nome utente e la password vengono usati solo per la generazione di token di autenticazione e non vengono archiviati nel servizio OMS.|
 | **URL del server**   | Digitare l'URL dell'istanza di Cherwell da connettere a IT Service Management Connector. |
 | **ID client**   | Digitare l'ID client per l'autenticazione di questa connessione, generato nell'istanza di Cherwell.   |

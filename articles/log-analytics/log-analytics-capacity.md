@@ -12,26 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a26b1f6c13b11d0fb6b47599fee43f955cbf7b7a
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: bb89bed9778056c52e47d984e5d559a4abf864a2
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Pianificare la capacità delle macchine virtuali Hyper-V con la soluzione Capacity and Performance (anteprima)
 
-![Soluzione Capacity and Performance](./media/log-analytics-capacity/capacity-solution.png) È possibile usare la soluzione Capacity and Performance di Log Analytics per determinare la capacità dei server Hyper-V. La soluzione fornisce informazioni approfondite sull'ambiente Hyper-V illustrando l'utilizzo generale (CPU, memoria e disco) dell'host e delle macchine virtuali in esecuzione negli host Hyper-V. Vengono acquisite le metriche relative a CPU, memoria e dischi di tutti gli host e delle macchine virtuali in esecuzione su tali server.
+![Simbolo di Capacità e prestazioni](./media/log-analytics-capacity/capacity-solution.png)
+
+È possibile usare la soluzione Capacity and Performance di Log Analytics per determinare la capacità dei server Hyper-V. La soluzione fornisce informazioni approfondite sull'ambiente Hyper-V illustrando l'utilizzo generale (CPU, memoria e disco) dell'host e delle macchine virtuali in esecuzione negli host Hyper-V. Vengono acquisite le metriche relative a CPU, memoria e dischi di tutti gli host e delle macchine virtuali in esecuzione su tali server.
 
 La soluzione:
 
--    Visualizza gli host con l'utilizzo più alto e più basso di CPU e memoria
--    Visualizza le VM con l'utilizzo più alto e più basso di CPU e memoria
--    Visualizza le VM con l'utilizzo più alto e più basso di operazioni di I/O al secondo e velocità effettiva
--    Visualizza le VM in esecuzione nei diversi host
--    Visualizza i dischi con velocità effettiva, operazioni di I/O al secondo e latenza più elevate nei volumi condivisi cluster
+-   Visualizza gli host con l'utilizzo più alto e più basso di CPU e memoria
+-   Visualizza le VM con l'utilizzo più alto e più basso di CPU e memoria
+-   Visualizza le VM con l'utilizzo più alto e più basso di operazioni di I/O al secondo e velocità effettiva
+-   Visualizza le VM in esecuzione nei diversi host
+-   Visualizza i dischi con velocità effettiva, operazioni di I/O al secondo e latenza più elevate nei volumi condivisi cluster
 - Consente di personalizzare e applicare filtri in base ai gruppi
 
 > [!NOTE]

@@ -18,10 +18,10 @@ ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f29b2c1da0d9b761634370f5f08ea942b66d9f1f
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
 ms.contentlocale: it-it
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -34,7 +34,7 @@ Dopo aver configurato le regole del firewall, gli utenti possono connettersi a u
 >
 
 > [!TIP]
-> Per un'esercitazione sull'uso dell'autenticazione di SQL Server, vedere [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione: Autenticazione di SQL Server). Per un'esercitazione sull'uso dell'autenticazione di Azure Active Directory, vedere [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md) (Esercitazione: Autenticazione di AAD).
+> Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md).
 >
 
 
@@ -191,9 +191,7 @@ Quando si gestiscono gli accessi e gli utenti nel database SQL, prendere in cons
 
 - Per altre informazioni sulle regole del firewall, vedere l'articolo sul [firewall del database SQL di Azure](sql-database-firewall-configure.md).
 - Per una panoramica di tutte le funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza in SQL](sql-database-security-overview.md).
-- Per un'esercitazione, vedere [Introduzione alla sicurezza di SQL](sql-database-control-access-sql-authentication-get-started.md)
+- Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md).
 - Per informazioni sulle viste e sulle stored procedure, vedere [Creazione di viste e stored procedure](https://msdn.microsoft.com/library/ms365311.aspx)
 - Per informazioni sulla concessione di accesso a un oggetto di database, vedere [Concessione dell'accesso a un oggetto di database](https://msdn.microsoft.com/library/ms365327.aspx)
-- Per un'esercitazione sull'uso dell'autenticazione di SQL Server, vedere [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione: Autenticazione di SQL Server).
-- Per un'esercitazione sull'uso dell'autenticazione di Azure Active Directory, vedere [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md) (Esercitazione: Autenticazione di AAD).
 

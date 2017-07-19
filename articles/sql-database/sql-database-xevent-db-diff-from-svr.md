@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
-ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
+ms.translationtype: HT
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 6953166f21194f3cbcef3f260b3e7a50d5bf5460
 ms.contentlocale: it-it
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL

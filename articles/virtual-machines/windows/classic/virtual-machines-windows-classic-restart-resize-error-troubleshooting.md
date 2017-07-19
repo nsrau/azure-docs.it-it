@@ -12,13 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-ms.date: 01/10/2017
+ms.date: 06/13/2017
 ms.devlang: na
 ms.author: delhan
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 95b12674f3e7d3d63421be6098c72d87cab562b6
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 7fe0636366c60d4679cfc69bd96cd532695b080e
+ms.contentlocale: it-it
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -55,7 +56,7 @@ La richiesta di avvio della VM arrestata deve essere eseguita nel cluster origin
 * Ricreare la VM nel nuovo servizio cloud usando i dischi.
 * Avviare la macchina virtuale ricreata.
 
-Se si verifica un errore durante il tentativo di creare un nuovo servizio cloud, riprovare in un secondo momento o cambiare l'area per il servizio cloud.
+Se si verifica un errore durante il tentativo di creare un nuovo servizio cloud, riprovare più tardi o cambiare l'area per il servizio cloud.
 
 > [!IMPORTANT]
 > Il nuovo servizio cloud avrà un nuovo nome e un indirizzo VIP, quindi si dovranno modificare tali informazioni per tutte le dipendenze che usano queste informazioni per il servizio cloud esistente.
@@ -83,6 +84,6 @@ Se non è possibile ridurre le dimensioni della VM, seguire questi passaggi:
 Se il servizio cloud esistente non è associato a una rete virtuale basata sull'area, è necessario eliminare le VM nel servizio cloud esistente e ricrearle nel nuovo servizio cloud dai relativi dischi. È tuttavia importante ricordare che il nuovo servizio cloud avrà un nuovo nome e un nuovo indirizzo VIP, quindi sarà necessario aggiornarli per tutte le dipendenze che attualmente usano queste informazioni per il servizio cloud esistente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si verificano problemi durante la creazione di una nuova VM Windows in Azure, vedere [Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se si verificano problemi durante la creazione di una VM Windows in Azure, vedere [Risolvere i problemi di distribuzione quando si crea una nuova macchina virtuale Windows in Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

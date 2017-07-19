@@ -1,5 +1,5 @@
 ---
-title: 'Backup di Azure: ripristinare file e cartelle da un backup di VM di Azure | Documentazione Microsoft'
+title: 'Backup di Azure: ripristinare file e cartelle da un backup di VM di Azure | Microsoft Docs'
 description: Ripristinare i file da un punto di ripristino della macchina virtuale di Azure
 services: backup
 documentationcenter: dev-center-name
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/6/2017
 ms.author: pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 873c64dfbd4ad6ced9e5a9eeb80d7ad6dbc558a6
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c65976c7394c7f9691526c0914854ef09184ab07
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -120,6 +121,10 @@ In Linux, dopo che la connessione al punto di ripristino viene interrotta, il si
 
 ## <a name="special-configurations"></a>Configurazioni speciali
 
+### <a name="dynamic-disks"></a>Dischi dinamici
+
+Se la macchina virtuale di Azure di cui è stato eseguito il backup dispone di volumi che si estendono su più dischi (volumi con spanning e striping) e/o a tolleranza di errore (volumi con mirroring e RAID-5) su dischi dinamici, non è possibile eseguire lo script eseguibile nella stessa macchina virtuale. Eseguire invece lo script eseguibile in qualsiasi altro computer con un sistema operativo compatibile.
+
 ### <a name="windows-storage-spaces"></a>Spazi di archiviazione di Windows
 
 Spazi di archiviazione Windows è una tecnologia di archiviazione Windows che consente di virtualizzare le risorse di archiviazione. Con Spazi di archiviazione Windows è possibile raggruppare dischi standard del settore in pool di archiviazione e creare dischi virtuali, detti spazi di archiviazione, dallo spazio disponibile nei pool di archiviazione.
@@ -174,10 +179,11 @@ Se si verificano problemi durante il ripristino di file dalle macchine virtuali,
 
 | Messaggio di errore/scenario | Possibile causa | Azione consigliata |
 | ------------------------ | -------------- | ------------------ |
-| Output del file exe: *Eccezione di connessione alla destinazione.* |Lo script non è in grado di accedere al punto di ripristino    | Controllare se la macchina virtuale soddisfa i requisiti di accesso indicati in precedenza|  
-|    Output del file exe: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* |    Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate |    I volumi del punto di ripristino sono già stati associati. È possibile che NON siano installati con le stesse lettere di unità della VM originale. Esplorare tutti i volumi disponibili in Esplora file per il file |
-| Output di file exe: *Questo script non è valido perché è necessario smontare i dischi tramite il portale/è stato superato il limite di 12 ore. Scaricare un nuovo script dal portale.* |    I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore |    Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe|
+| Output del file exe: *Eccezione di connessione alla destinazione.* |Lo script non è in grado di accedere al punto di ripristino | Controllare se la macchina virtuale soddisfa i requisiti di accesso indicati in precedenza|  
+|   Output del file exe: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. È possibile che NON siano installati con le stesse lettere di unità della VM originale. Esplorare tutti i volumi disponibili in Esplora file per il file |
+| Output di file exe: *Questo script non è valido perché è necessario smontare i dischi tramite il portale/è stato superato il limite di 12 ore. Scaricare un nuovo script dal portale.* |  I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore |    Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe|
 | Nella macchina virtuale in cui viene eseguito il file con estensione exe: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di disinstallazione |    L'iniziatore ISCSI nella macchina virtuale non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache |    Attendere alcuni minuti dopo la pressione del pulsante per smontare. Se i nuovi volumi non sono ancora stati smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile|
-| Output del file exe: lo script viene eseguito correttamente ma l'output indicante nuovi volumi associati non viene visualizzato nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stata già associati. Aprire Explorer per visualizzare lo stato. Se si sta usando la stessa macchina virtuale per eseguire gli script ogni volta, è consigliabile riavviare la macchina; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
+| Output del file exe: lo script viene eseguito correttamente ma l'output indicante nuovi volumi associati non viene visualizzato nell'output dello script | Si tratta di un errore temporaneo   | I volumi sono stata già associati. Aprire Explorer per visualizzare lo stato. Se si sta usando la stessa macchina virtuale per eseguire gli script ogni volta, è consigliabile riavviare la macchina; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
 | Specifico per Linux: non è possibile visualizzare i volumi desiderati | Il sistema operativo del computer in cui viene eseguito lo script potrebbe non riconoscere il file system sottostante della macchina virtuale sottoposta a backup | Controllare se il punto di ripristino è coerente con l'arresto anomalo del sistema o è coerente a livello di file. Se è coerente a livello di file, eseguire lo script in un altro computer il cui sistema operativo riconosca il file system della macchina virtuale sottoposta a backup. |
+| Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in stato offline, provare a renderlo online facendo clic con il pulsante destro del mouse sul disco e fare clic su "Online"|
 

@@ -1,6 +1,6 @@
 ---
-title: Da ESP8266 al cloud - Connettere Sparkfun ESP8266 Thing Dev all&quot;hub IoT di Azure | Microsoft Docs
-description: Guida per connettere un dispositivo Arduino, Sparkfun ESP8266 Thing Dev, all&quot;hub IoT di Azure, un servizio cloud di Microsoft che consente di gestire gli asset IoT.
+title: Da ESP8266 al cloud - Connettere Sparkfun ESP8266 Thing Dev all'hub IoT di Azure | Microsoft Docs
+description: Guida per connettere un dispositivo Arduino, Sparkfun ESP8266 Thing Dev, all'hub IoT di Azure, un servizio cloud di Microsoft che consente di gestire gli asset IoT.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: be140e86047cae304bfb5c32c5cdd9135413df82
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 0b7ce531c73d991897f1c35932e795a97dd33162
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -53,6 +54,7 @@ Per completare questa operazione, è necessario disporre dei componenti seguenti
 
 Per l'ambiente di sviluppo sono necessari anche gli elementi seguenti:
 
+* Una sottoscrizione di Azure attiva. Se non si ha un account Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 * Mac o PC che esegue Windows o Ubuntu.
 * Rete wireless per Sparkfun ESP8266 Thing Dev a cui connettersi.
 * Connessione Internet per scaricare lo strumento di configurazione.
@@ -64,79 +66,7 @@ Gli elementi seguenti sono facoltativi nel caso in cui non si disponga di un sen
 * Una basetta sperimentale.
 * Cavi ponticello M/M.
 
-## <a name="create-an-iot-hub-and-register-a-device-for-sparkfun-esp8266-thing-dev"></a>Come creare un hub IoT e registrare un dispositivo per Sparkfun ESP8266 Thing Dev
-
-### <a name="create-your-azure-iot-hub-in-the-azure-portal"></a>Creare l'hub IoT di Azure nel portale di Azure
-
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Fare clic su **Nuovo** > **Internet delle cose** > **Hub IoT**.
-
-   ![Creazione dell'hub IoT](media/iot-hub-sparkfun-thing-dev-get-started/3_iot-hub-creation.png)
-
-1. Nel riquadro **Hub IoT** immettere le informazioni necessarie per l'hub IoT:
-
-   ![Informazioni di base per la creazione dell'hub IoT](media/iot-hub-sparkfun-thing-dev-get-started/4_iot-hub-provide-basic-info.png)
-
-   * **Nome**: il nome dell'hub IoT. Se il nome immesso è valido, viene visualizzato un segno di spunta verde.
-   * **Piano tariffario e livello di scalabilità**: selezionare il livello F1 gratuito, sufficiente per questa demo. Vedere [il piano tariffario e il livello di scalabilità](https://azure.microsoft.com/pricing/details/iot-hub/).
-   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare l'hub IoT o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-portal.md).
-   * **Percorso**: selezionare la posizione più vicina all'utente in cui viene creato l'hub IoT.
-   * **Aggiungere al dashboard**: selezionare questa opzione per semplificare l'accesso all'hub IoT dal dashboard.
-1. Fare clic su **Crea**. La creazione dell'hub IoT può richiedere alcuni minuti. È possibile visualizzare lo stato di avanzamento nel riquadro **Notifiche**.
-
-   ![Monitorare lo stato di creazione dell'hub IoT nel riquadro Notifiche](media/iot-hub-sparkfun-thing-dev-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
-
-1. Dopo aver creato l'hub IoT, selezionarlo dal dashboard. Annotare il **Nome host** che verrà usato in seguito, quindi fare clic su **Criteri di accesso condiviso**.
-
-   ![Ottenere il nome host dell'hub IoT](media/iot-hub-sparkfun-thing-dev-get-started/6_iot-hub-get-hostname.png)
-
-1. Nel riquadro **Criteri di accesso condivisi** fare clic sul criterio **iothubowner**, quindi copiare e annotare la stringa di connessione nel pannello **iothubowner** dell'hub IoT che si userà in seguito. Per altre informazioni, vedere [Controllare l'accesso all'hub IoT](iot-hub-devguide-security.md).
-
-   ![Ottenere la stringa di connessione dell'hub IoT](media/iot-hub-sparkfun-thing-dev-get-started/7_iot-hub-get-connection-string.png)
-
-L'hub IoT è stato creato. Il nome host e la stringa di connessione annotati saranno usati in un secondo momento.
-
-### <a name="register-a-device-for-sparkfun-esp8266-thing-dev-in-your-iot-hub"></a>Registrare un dispositivo perSparkfun ESP8266 Thing Dev nell'hub IoT
-
-Ogni hub IoT ha un registro delle identità in cui sono archiviate le informazioni sui dispositivi a cui è consentito connettersi all'hub IoT. Prima che un dispositivo possa connettersi a un hub IoT, è necessario che sia presente una voce relativa al dispositivo nel registro delle identità dell'hub IoT.
-
-In questa sezione si userà uno strumento con interfaccia a riga di comando, iothub explorer, per registrare un dispositivo per ESP8266 Thing Dev nel registro identità dell'hub IoT.
-
-> [!NOTE]
-> iothub explorer richiede Node.js 4.x o versione successiva per funzionare correttamente.
-
-Per registrare un dispositivo per ESP8266 Thing Dev, seguire la procedura seguente:
-
-1. [Scaricare](https://nodejs.org/en/download/) e installare la versione LTS più recente di Node.js, incluso NPM.
-1. Installare iothub explorer tramite NPM.
-
-   * Windows 7 o versione successiva Avviare il prompt dei comandi come amministratore. Installare iothub explorer eseguendo il comando seguente:
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-   * Ubuntu 16.04 o versione successiva Aprire un terminale usando i tasti di scelta rapida CTRL + ALT + T e quindi eseguire il comando seguente:
-
-     ```bash
-     sudo npm install -g iothub-explorer
-     ```
-   * macOS 10.1 o versione successiva Aprire un terminale e quindi eseguire il comando seguente:
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-1. Accedere all'hub IoT eseguendo il comando seguente:
-
-   ```bash
-   iothub-explorer login [your iot hub connection string]
-   ```
-1. Registrare un nuovo dispositivo, il cui `deviceID` sia `new-device`, e ottenere la sua stringa di connessione eseguendo il comando seguente.
-
-   ```bash
-   iothub-explorer create new-device --connection-string
-   ```
-
-Prendere nota della stringa di connessione del dispositivo registrato che si userà in un secondo momento.
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-esp8266-thing-dev-with-the-sensor-and-your-computer"></a>Connettere ESP8266 Thing Dev con il sensore e il computer
 
@@ -232,7 +162,7 @@ Installare il pacchetto per Sparkfun ESP8266 Thing Dev nell'IDE di Arduino:
 
    ![Il pacchetto esp8266 è installato](media/iot-hub-sparkfun-thing-dev-get-started/12_arduino-ide-esp8266-installed.png)
 
-1. Fare clic su **Strumenti** > **Bacheca** > **Adafruit HUZZAH ESP8266**.
+1. Fare clic su **Strumenti** > **Scheda** > **Sparkfun ESP8266 Thing Dev**.
 
 ### <a name="install-necessary-libraries"></a>Installare le librerie necessarie
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: 9164a93308a4a2f3eed4ff6262942239df029dae
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: b95a52e1de176622907c338521da7b6885948118
 ms.contentlocale: it-it
-ms.lasthandoff: 12/17/2016
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -97,13 +97,13 @@ Per ottenere altre informazioni su quello che accade nell'API, aggiungere `<SDKL
 
 ```XML
 
-    <SDKLogger type="File">
+    <SDKLogger type="FILE">
       <enabled>True</enabled>
-      <uniqueprefix>JavaSDKLog</uniqueprefix>
+      <UniquePrefix>JavaSDKLog</UniquePrefix>
     </SDKLogger>
 ```
 
-I file sono reperibili in `%temp%\javasdklogs`.
+I file si trovano in `%temp%\javasdklogs` o `java.io.tmpdir` nel caso di un server Tomcat.
 
 
 ## <a name="the-azure-start-screen"></a>Schermata iniziale di Azure

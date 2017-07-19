@@ -1,6 +1,6 @@
 ---
 title: Copiare dati in e da un archivio BLOB di Azure | Microsoft Docs
-description: 'Informazioni su come copiare dati BLOB in Azure Data Factory. Usare l&quot;esempio: Come copiare dati da e verso l&quot;archivio BLOB di Azure e il database SQL di Azure.'
+description: 'Informazioni su come copiare dati BLOB in Azure Data Factory. Usare l''esempio: Come copiare dati da e verso l''archivio BLOB di Azure e il database SQL di Azure.'
 keywords: dati blob, copia di blob di azure
 services: data-factory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 06/22/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 90c4cd42aa9dcef2cda4ec66e64393bf474b6a60
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: 7be5e5095b8aa6f2ae3d8c0b636883c4ff7ced63
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -192,7 +192,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
 1. Nella home page di Data Factory fare clic sul riquadro **Copia dati (ANTEPRIMA)** per avviare **Copy Data Wizard** (Copia dati guidata).    
     
     > [!NOTE]
-    >    Se il Web browser è bloccato su "Concessione autorizzazioni in corso...", disabilitare/deselezionare l'impostazione **Block third party cookies and site data** (Blocca cookie e dati del sito di terze parti) oppure lasciarla abilitata e creare un'eccezione per **login.microsoftonline.com** e quindi provare di nuovo ad avviare la procedura guidata.
+    >    Se il Web browser è bloccato su "Concessione autorizzazioni in corso...", disabilitare/deselezionare l'impostazione **Block third party cookies and site data** (Blocca cookie e dati del sito di terze parti) oppure lasciarla abilitata, creare un'eccezione per **login.microsoftonline.com** e quindi provare di nuovo ad avviare la procedura guidata.
 2. Nella pagina **Proprietà** :
     1. Immettere **CopyPipeline** in **Nome attività**. Il nome dell'attività è il nome della pipeline nella data factory.
     2. Immettere una **descrizione** per l'attività (facoltativo).
@@ -223,16 +223,16 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     5. Fare clic su **Avanti**.
     ![Strumento di copia - Scegliere il file o la cartella di input](./media/data-factory-azure-blob-connector/chose-input-file-folder.png) 
 7. Nella pagina **File format settings** (Impostazioni di formato file) vengono visualizzati i delimitatori e lo schema rilevati automaticamente dalla procedura guidata analizzando il file. 
-    1. Verificare che **Formato file** sia impostato su **Text format** (Formato testo). È possibile visualizzare tutti i formati supportati nell'elenco a discesa. Ad esempio: JSON, Avro, ORC, Parquet. 
-    2. Verificare che **Delimitatore di colonna** sia impostato su `Comma (,)`. È possibile visualizzare gli altri delimitatori di colonna supportati da Data Factory nell'elenco a discesa. È anche possibile specificare un delimitatore personalizzato. 
-    3. Verificare che **Delimitatore di riga** sia impostato su `Carriage Return + Line feed (\r\n)`. È possibile visualizzare gli altri delimitatori di riga supportati da Data Factory nell'elenco a discesa. È anche possibile specificare un delimitatore personalizzato. 
-    4. Verificare che **skip line count** (Numero di righe da ignorare) sia impostato su **0**. Per ignorare alcune righe all'inizio del file, immettere il numero qui. 
-    5. Verificare che **the first data row contains column names** (La prima riga di dati contiene nomi di colonna) non sia impostato. Se i file di origine contengano nomi di colonna nella prima riga, selezionare questa opzione. 
-    6. Verificare che l'opzione **treat empty column value as null** (Considera i valori di colonna vuoti come null) sia impostata. 
-    7. Espandere **Impostazioni avanzate** per visualizzare l'opzione avanzata disponibile. 
-    8. Nella parte inferiore della pagina visualizzare l'**anteprima** dei dati del file emp.txt. 
-    9. Fare clic sulla scheda **SCHEMA** nella parte inferiore per visualizzate lo schema derivato dalla copia guidata esaminando i dati nel file di origine. 
-    10. Dopo aver esaminato i delimitatori e i dati di anteprima, fare clic su **Next** (Avanti).
+    1. Confermare le opzioni seguenti: a. Il **formato file** è impostato su **Testo**. È possibile visualizzare tutti i formati supportati nell'elenco a discesa. Ad esempio: JSON, Avro, ORC, Parquet.
+        b. Il **delimitatore di colonna** è impostato su `Comma (,)`. È possibile visualizzare gli altri delimitatori di colonna supportati da Data Factory nell'elenco a discesa. È anche possibile specificare un delimitatore personalizzato.
+        c. Il **delimitatore di riga** è impostato su `Carriage Return + Line feed (\r\n)`. È possibile visualizzare gli altri delimitatori di riga supportati da Data Factory nell'elenco a discesa. È anche possibile specificare un delimitatore personalizzato.
+        d. Il **numero di righe da ignorare** è impostato su **0**. Per ignorare alcune righe all'inizio del file, immettere il numero qui.
+        e.  L'opzione **Nomi di colonne nella prima riga di dati** non è impostata. Se i file di origine contengano nomi di colonna nella prima riga, selezionare questa opzione.
+        f. L'opzione **treat empty column value as null** (Considera i valori di colonna vuoti come null) è impostata.
+    2. Espandere **Impostazioni avanzate** per visualizzare l'opzione avanzata disponibile.
+    3. Nella parte inferiore della pagina visualizzare l'**anteprima** dei dati del file emp.txt.
+    4. Fare clic sulla scheda **SCHEMA** nella parte inferiore per visualizzate lo schema derivato dalla copia guidata esaminando i dati nel file di origine.
+    5. Dopo aver esaminato i delimitatori e i dati di anteprima, fare clic su **Next** (Avanti).
     ![Strumento di copia - Impostazioni di formattazioni del file](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)  
 8. Nella pagina **Destination data store** (Archivio dati di destinazione) selezionare **Archivio BLOB di Azure** e quindi fare clic su **Avanti**. In questa procedura dettagliata si usa l'archivio BLOB di Azure come archivio dati sia di origine che di destinazione.    
     ![Strumento di copia - Selezionare l'archivio dati di destinazione](media/data-factory-azure-blob-connector/select-destination-data-store.png)
@@ -243,13 +243,13 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
    4. Selezionare l'account di archiviazione di Azure. 
    5. Fare clic su **Avanti**.     
 10. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output): 
-    1. In **Percorso cartella** specificare **adfblobconnector/output/{year}/{month}/{day}** (adfblobconnector/output/{anno}/{mese}/{giorno}). Premere **TAB**. 
-    2. Per **anno**, selezionare **yyyy**. 
-    3. Per **mese**, verificare che sia impostato su **MM**. 
-    4. Per **giorno**, verificare che sia impostato su **dd** (gg). 
-    5. Verificare che **Tipo di compressione** sia impostato su **Nessuno**. 
-    6. Verificare che **copy behavior** (Comportamento copia) sia impostato su **Merge files** (Unisci file). Se esiste già un file di output con lo stesso nome, il nuovo contenuto viene aggiunto alla fine dello stesso file.  
-    7. Fare clic su **Avanti**. 
+    6. In **Percorso cartella** specificare **adfblobconnector/output/{year}/{month}/{day}** (adfblobconnector/output/{anno}/{mese}/{giorno}). Premere **TAB**.
+    7. Per **anno**, selezionare **yyyy**.
+    8. Per **mese**, verificare che sia impostato su **MM**.
+    9. Per **giorno**, verificare che sia impostato su **dd** (gg).
+    10. Verificare che **Tipo di compressione** sia impostato su **Nessuno**.
+    11. Verificare che **copy behavior** (Comportamento copia) sia impostato su **Merge files** (Unisci file). Se esiste già un file di output con lo stesso nome, il nuovo contenuto viene aggiunto alla fine dello stesso file.
+    12. Fare clic su **Avanti**.
     ![Strumento di copia - Scegliere il file o la cartella di output](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Nella pagina **File format settings** (Impostazioni di formato file) rivedere le impostazioni e fare clic su **Avanti**. Una delle opzioni aggiuntive ora consiste nell'aggiungere un'intestazione al file di output. Se si seleziona tale opzione, viene aggiunta una riga di intestazione con i nomi delle colonne dalla schema dell'origine. È possibile rinominare i nomi di colonna predefiniti quando si visualizza lo schema per l'origine. È ad esempio possibile impostare la prima colonna su Nome e la seconda colonna su Cognome. Viene quindi generato il file di output con un'intestazione contenente questi nomi come nomi di colonna. 
     ![Strumento di copia - Impostazioni di formatto file per la destinazione](media/data-factory-azure-blob-connector/file-format-destination.png)

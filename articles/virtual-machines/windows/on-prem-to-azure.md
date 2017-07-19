@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 098904d8b5262d8a19d1c10003e0bcaa668ef2dc
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 24ee84bdd1c795d6354bb5cb8fe397b078e7c51f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -30,8 +30,8 @@ ms.lasthandoff: 05/26/2017
 È possibile caricare i file di disco rigido virtuale da soluzioni di virtualizzazione locali o AWS in Azure per creare macchine virtuali che sfruttino i vantaggi di Managed Disks. Azure Managed Disks elimina la necessità di gestire gli account di archiviazione per le macchine virtuali IaaS di Azure. È necessario specificare solo il tipo (Premium o Standard) e le dimensioni del disco necessario. Azure creerà e gestirà il disco per l'utente. 
 
 È possibile caricare dischi rigidi virtuali generalizzati e specializzati. 
-**Disco rigido virtuale generalizzato**: tutte le informazioni sull'account personale sono state rimosse dal disco rigido virtuale generalizzato usando Sysprep. 
-**Disco rigido virtuale specializzato**: un disco rigido virtuale specializzato gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. 
+- **Disco rigido virtuale generalizzato**: tutte le informazioni dell'account personale sono state rimosse tramite Sysprep. 
+- **Disco rigido virtuale specializzato**: gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. 
 
 > [!IMPORTANT]
 > Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -41,9 +41,9 @@ ms.lasthandoff: 05/26/2017
 
 | Scenario                                                                                                                         | Documentazione                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Si dispone di un'istanza EC2 di AWS esistente di cui si potrebbe voler eseguire la migrazione ad Azure Managed Disks                                     | [Eseguire la migrazione da Amazon Web Services (AWS) ad Azure Managed Disks](aws-to-azure.md)                           |
-| Si dispone di una VM e di un'altra piattaforma di virtualizzazione da usare come immagine per creare più macchine virtuali di Azure. | [Upload a generalized VHD to Azure and create a new VM using Managed Disks](upload-generalized-managed.md) (Caricare un disco rigido virtuale generalizzato in Azure e creare una nuova macchina virtuale con Managed Disks) |
-| Si dispone di una macchina virtuale personalizzata in modo univoco che si desidera ricreare in Azure.                                                      | [Upload a specialized VHD to Azure and create a new VM using Managed Disks](create-vm-specialized.md) (Caricare un disco rigido virtuale specializzato in Azure e creare una nuova macchina virtuale con Managed Disks)         |
+| Si dispone di un'istanza EC2 di AWS esistente di cui si potrebbe voler eseguire la migrazione ad Azure Managed Disks                                     | [Spostare una VM Windows da Amazon Web Services (AWS) ad Azure](aws-to-azure.md)                           |
+| Si dispone di una VM e di un'altra piattaforma di virtualizzazione da usare come immagine per creare più macchine virtuali di Azure. | [Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure](upload-generalized-managed.md) |
+| Si dispone di una macchina virtuale personalizzata in modo univoco che si desidera ricreare in Azure.                                                      | [Creare una macchina virtuale da un disco specializzato](create-vm-specialized.md)         |
 
 
 ## <a name="overview-of-managed-disks"></a>Panoramica di Managed Disks

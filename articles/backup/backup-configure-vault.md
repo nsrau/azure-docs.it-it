@@ -1,6 +1,6 @@
 ---
-title: Usare l&quot;agente di Azure Backup per eseguire il backup di file e cartelle | Documentazione Microsoft
-description: Usare l&quot;agente di Backup di Microsoft Azure per eseguire il backup di file e cartelle Windows in Azure. Creare un insieme di credenziali di Servizi di ripristino, installare l&quot;agente di Backup, definire i criteri di backup ed eseguire il backup iniziale di file e cartelle.
+title: Usare l'agente di Azure Backup per eseguire il backup di file e cartelle | Documentazione Microsoft
+description: Usare l'agente di Backup di Microsoft Azure per eseguire il backup di file e cartelle Windows in Azure. Creare un insieme di credenziali di Servizi di ripristino, installare l'agente di Backup, definire i criteri di backup ed eseguire il backup iniziale di file e cartelle.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/23/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 3528294d944fd71fc98a30e2736e1245e50c3be6
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: aa6b75ef1786021b56a59ad1bea2d45eb74ad25f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -180,6 +181,15 @@ Dopo avere creato un insieme di credenziali, preparare l'infrastruttura per il b
 
 L'agente ora è installato e il computer è registrato nell'insieme di credenziali. Ora è possibile configurare e pianificare il backup.
 
+## <a name="network-and-connectivity-requirements"></a>Requisiti di rete e connettività
+
+Se il computer/proxy ha un accesso a Internet limitato, verificare che le impostazioni del firewall sul computer/proxy siano configurate per consentire gli URL seguenti: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. windowsazure.com
+    4. *.microsoftonline.com
+    5. *. windows.ne
+
 
 ## <a name="create-the-backup-policy"></a>Creare i criteri di backup
 I criteri di backup costituiscono la pianificazione per l'acquisizione degli snapshot di backup e la durata di conservazione di questi snapshot. Usare l'agente di Backup di Microsoft Azure per creare il criterio di backup di file e cartelle.
@@ -210,7 +220,7 @@ I criteri di backup costituiscono la pianificazione per l'acquisizione degli sna
    >
    >
 
-8. Nella pagina ** 	Seleziona i criteri di conservazione** selezionare i criteri di conservazione specifici per la copia di backup e fare clic su **Avanti**.
+8. Nella pagina  **	Seleziona i criteri di conservazione** selezionare i criteri di conservazione specifici per la copia di backup e fare clic su **Avanti**.
 
     I criteri di conservazione specificano il periodo di tempo per cui il backup verrà archiviato. Anziché specificare solo un "criterio semplice" per tutti i punti di backup, è possibile specificare criteri di conservazione diversi in base al momento in cui viene eseguito il backup. È possibile modificare i criteri di conservazione giornalieri, settimanali, mensili e annuali in base alle proprie esigenze.
 9. Nella pagina Scegliere il tipo di backup iniziale selezionare il tipo di backup iniziale. Lasciare selezionata l'opzione **Automaticamente tramite la rete** e fare clic su **Avanti**.

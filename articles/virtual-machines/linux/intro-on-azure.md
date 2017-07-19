@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/01/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: eaac5300292e328bcff9ddf5447bea0e53075179
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 7bd0c5549a2e1f592681760d5ef464b9570ca4ab
+ms.contentlocale: it-it
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -26,13 +27,13 @@ ms.lasthandoff: 04/03/2017
 In questo argomento viene fornita una panoramica relativa ad alcuni aspetti dell'uso di macchine virtuali Linux nel cloud di Azure. Se si usa un'immagine presente nella raccolta, la distribuzione di una macchina virtuale Linux è un processo estremamente semplice.
 
 ## <a name="authentication-usernames-passwords-and-ssh-keys"></a>Autenticazione: nomi utente, password e chiavi SSH
-Quando si crea una macchina virtuale Linux usando il portale di Azure classico viene richiesto di inserire un nome utente, una password o una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account 'root', non sono consentiti.
+Quando si crea una macchina virtuale Linux usando il portale di Azure, viene chiesto di specificare un nome utente e una password o una chiave pubblica SSH. La scelta del nome utente per la distribuzione di una macchina virtuale Linux in Azure è soggetta a un vincolo: i nomi degli account di sistema (UID <100) già presenti nella macchina virtuale, ad esempio l'account 'root', non sono consentiti.
 
 * Vedere [Creare una macchina virtuale che esegue Linux](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Vedere [Come usare SSH con Linux in Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="obtaining-superuser-privileges-using-sudo"></a>Ottenere privilegi utente avanzato tramite `sudo`
-L'account utente specificato durante la distribuzione di istanze di macchine virtuali in Azure è un account con privilegi. Tale account viene configurato dall'agente Linux di Azure con la capacità di elevare i privilegi al ruolo di utente ROOT (account utente con privilegi avanzati) tramite l'utilità `sudo` . Dopo aver eseguito l'accesso usando questo account utente, sarà possibile eseguire comandi come utente ROOT usando la sintassi del comando.
+L'account utente specificato durante la distribuzione di istanze di macchine virtuali in Azure è un account con privilegi. Tale account viene configurato dall'agente Linux di Azure con la capacità di elevare i privilegi al ruolo di utente ROOT (account utente con privilegi avanzati) tramite l'utilità `sudo` . Dopo aver eseguito l'accesso usando questo account utente, sarà possibile eseguire comandi come utente ROOT usando la sintassi del comando:
 
     # sudo <COMMAND>
 
@@ -41,7 +42,7 @@ Facoltativamente, è possibile ottenere una shell di root usando **sudo -s**.
 * Vedere [Uso di privilegi root sulle macchine virtuali Linux in Azure](use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="firewall-configuration"></a>Configurazione del firewall
-In Azure è disponibile un filtro dei pacchetti in ingresso che limita la connettività alle porte specificate nel portale di Azure classico. Per impostazione predefinita, l'unica porta consentita è SSH. È possibile aprire l'accesso a porte aggiuntive nella macchina virtuale Linux mediante la configurazione di endpoint nel portale di Azure classico:
+In Azure è disponibile un filtro dei pacchetti in ingresso che limita la connettività alle porte specificate nel portale di Azure. Per impostazione predefinita, l'unica porta consentita è SSH. È possibile aprire l'accesso a porte aggiuntive nella macchina virtuale Linux mediante la configurazione di endpoint nel portale di Azure:
 
 * Vedere [Come configurare gli endpoint in una macchina virtuale](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -71,7 +72,7 @@ Azure offre la possibilità di acquisire lo stato di una macchina virtuale esist
 
 1. Eseguire **waagent -deprovision** per annullare la personalizzazione del provisioning. Facoltativamente, eseguire **waagent -deprovision+user** per eliminare l'account utente specificato durante il provisioning e tutti i relativi dati.
 2. Arrestare/Spegnere la macchina virtuale.
-3. Fare clic su *Acquisisci* nel portale di Azure classico oppure usare Powershell o gli strumenti dell’interfaccia della riga di comando per acquisire la macchina virtuale come immagine.
+3. Fare clic su **Acquisisci** nel portale di Azure oppure usare gli strumenti di PowerShell o dell'interfaccia della riga di comando per acquisire la macchina virtuale come immagine.
    
    * Vedere: [Come acquisire una macchina virtuale Linux da usare come modello](classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 

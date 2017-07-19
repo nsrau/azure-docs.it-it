@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di script dell&quot;interfaccia della riga di comando di Azure : connettere un&quot;app Web a Cosmos DB | Microsoft Docs'
-description: 'Esempio di script dell&quot;interfaccia della riga di comando di Azure: connettere un&quot;app Web a Cosmos DB'
+title: 'Esempio di script dell''interfaccia della riga di comando di Azure : connettere un''app Web a Cosmos DB | Microsoft Docs'
+description: 'Esempio di script dell''interfaccia della riga di comando di Azure: connettere un''app Web a Cosmos DB'
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
+ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 46cffb8949f6c8d8b51f952e52c3ddc01839389a
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: ff5e7a794033cc51120831e09b055a86affb28a4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -28,11 +28,13 @@ ms.lasthandoff: 05/15/2017
 
 Questo scenario illustra come creare un account Cosmos DB di Azure e un'app Web di Azure. Cosmos DB viene quindi collegato all'app Web tramite le impostazioni dell'app.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -48,10 +50,10 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'app Web,
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Consente di creare un'App Web di Azure all'interno del piano di servizio app. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Crea un'App Web di Azure. |
 | [az cosmosdb create](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#create) | Crea un account Cosmos DB. Qui vengono archiviati i dati. |
 | [az cosmosdb list-keys](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#list-keys) | Elenca le chiavi di accesso per l'account Cosmos DB specificato. |
-| [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) | Crea o aggiorna un'impostazione per un'app Web di Azure. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
+| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | Crea o aggiorna un'impostazione per un'app Web di Azure. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

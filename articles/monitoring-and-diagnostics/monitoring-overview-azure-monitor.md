@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Monitoraggio di Azure | Documentazione Microsoft
-description: "Monitoraggio di Azure raccoglie dati statistici da usare in avvisi, webhook, scalabilità automatica e automazione. L&quot;articolo elenca anche altre opzioni di monitoraggio di Microsoft."
+description: "Monitoraggio di Azure raccoglie dati statistici da usare in avvisi, webhook, scalabilità automatica e automazione. L'articolo elenca anche altre opzioni di monitoraggio di Microsoft."
 author: rboucher
 manager: carmonm
 editor: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 726a33b5cad8b44c520d6c59d418fec1bbfc6fa5
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 72b0c11f8bea24fc8777e3e0d7712577fab8ef97
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,7 +31,7 @@ Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio
 
 
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Monitoraggio di Azure e altri prodotti per il monitoraggio di Microsoft
-Attualmente Monitoraggio di Azure offre metriche e log dell'infrastruttura di livello base per la maggior parte dei servizi in Microsoft Azure, ma in futuro tutti i servizi di Azure inseriranno i dati in Monitoraggio di Azure. 
+Attualmente Monitoraggio di Azure offre metriche e log dell'infrastruttura di livello base per la maggior parte dei servizi in Microsoft Azure, ma in futuro tutti i servizi di Azure inseriranno i dati in Monitoraggio di Azure.
 
 Microsoft offre altri prodotti e servizi con funzionalità di monitoraggio aggiuntive per sviluppatori, DevOps o ITOps, che hanno anche installazioni locali. Per una panoramica e per informazioni sull'integrazione di questi diversi prodotti e servizi, vedere [Monitoraggio in Microsoft Azure](monitoring-overview.md).
 
@@ -138,7 +138,7 @@ In generale, è possibile modificare il rilevamento, il routing e il recupero de
 * [PowerShell](insights-powershell-samples.md)  
 * [Interfaccia della riga di comando multipiattaforma](insights-cli-samples.md)
 * [API REST](https://docs.microsoft.com/rest/api/monitor/)
-* [.NET SDK](https://msdn.microsoft.com/library/dn802153.aspx)
+* [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su:

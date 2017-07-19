@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2016
+ms.date: 5/31/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 3d2ba1d63f4bb89ff51275044922fb86b5f70365
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bb490e7ba64f4db454e1bd7171d600ed9dd9e257
+ms.contentlocale: it-it
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -45,7 +46,9 @@ Vedere [Log Analytics per Load Balancer](load-balancer-monitor-log.md) e [Log ev
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Macchina virtuale con carico bilanciato senza indirizzo IP pubblico a livello di istanza
 
-In questo scenario la macchina virtuale fa parte di un pool di Azure Load Balancer. Alla macchina virtuale non è assegnato un indirizzo IP pubblico. Quando la macchina virtuale con carico bilanciato crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita nell'indirizzo IP pubblico del front-end pubblico di Load Balancer. Azure usa SNAT (Source Network Address Translation) per eseguire questa funzione. Per distinguere i singoli flussi provenienti dalla macchina virtuale vengono usate le porte temporanee dell'indirizzo IP pubblico di Load Balancer. SNAT assegna dinamicamente le porte temporanee dopo che sono stati creati i flussi in uscita. In questo contesto le porte temporanee usate per SNAT sono dette porte SNAT.
+In questo scenario la macchina virtuale fa parte di un pool di Azure Load Balancer.  Alla macchina virtuale non è assegnato un indirizzo IP pubblico. La risorsa di bilanciamento del carico deve essere configurata con una regola per collegare il front-end dell'IP pubblico al pool back-end.  Se questa configurazione non viene completata, il comportamento sarà quello descritto nella sezione precedente [Macchina virtuale autonoma senza indirizzo IP pubblico a livello di istanza](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+
+Quando la macchina virtuale con carico bilanciato crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita nell'indirizzo IP pubblico del front-end pubblico di Load Balancer. Azure usa SNAT (Source Network Address Translation) per eseguire questa funzione. Per distinguere i singoli flussi provenienti dalla macchina virtuale vengono usate le porte temporanee dell'indirizzo IP pubblico di Load Balancer. SNAT assegna dinamicamente le porte temporanee dopo che sono stati creati i flussi in uscita. In questo contesto le porte temporanee usate per SNAT sono dette porte SNAT.
 
 Le porte SNAT sono una risorsa limitata che può esaurirsi. L'importante è capire come vengono usate. Viene usata una porta SNAT per flusso verso un singolo indirizzo IP di destinazione. In caso di più flussi verso lo stesso indirizzo IP di destinazione, viene usata una singola porta SNAT per ogni flusso. Si garantisce così che i flussi siano univoci quando hanno origine dallo stesso indirizzo IP pubblico e quando sono destinati allo stesso indirizzo IP. Più flussi destinati ognuno a un indirizzo IP di destinazione diverso usano una singola porta SNAT per ogni destinazione. L'indirizzo IP di destinazione crea i flussi univoci.
 

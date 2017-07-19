@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 06/16/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ce90e15108ace97d86e7180d79e38652e1be9872
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 4ce302095fc36f046785ac45d1a9452de321113c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -46,7 +46,10 @@ Per i contatori delle prestazioni di Windows è possibile scegliere un'istanza s
 
 Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Windows da raccogliere.
 
-1. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  Per restituire tutte le istanze per un contatore specifico, specificare *oggetto\contatore*.
+1. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  Per restituire tutte le istanze per un contatore specifico, specificare *oggetto\contatore*.  
+
+    Quando si raccolgono i contatori delle prestazioni di SQL Server da istanze denominate, tutti i contatori di tali istanze iniziano con *MSSQL$*, seguito dal nome dell'istanza.  Ad esempio, per raccogliere il contatore Percentuale riscontri cache log di tutti i database dall'oggetto delle prestazioni del database per l'istanza di SQL denominata INST2, specificare `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`. 
+ 
 2. Fare clic su **+** o premere **INVIO** per aggiungere il contatore all'elenco.
 3. Quando si aggiunge un contatore, per **Intervallo di campionamento** verrà usato il valore predefinito di 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
 4. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
@@ -217,6 +220,7 @@ La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i re
 | Type=Perf CounterName="% tempo processore" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |Utilizzo orario medio della CPU per tutti i computer |
 | Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |70° percentile orario di ogni contatore percentuale % per un computer specifico |
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Utilizzo CPU orario medio, minimo, massimo e 75° percentile per un computer specifico |
+| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | Tutti i dati sulle prestazioni nell'oggetto delle prestazioni del database per il database master dell'istanza di SQL Server denominata INST2.  
 
 ## <a name="viewing-performance-data"></a>Visualizzazione dei dati sulle prestazioni
 Quando si esegue una ricerca log di dati sulle prestazioni, per impostazione predefinita viene aperta la vista **Elenco**.  Per visualizzare i dati sotto forma di grafico, fare clic su **Metriche**.  Per una visualizzazione grafica dettagliata, fare clic su **+** accanto a un contatore.  

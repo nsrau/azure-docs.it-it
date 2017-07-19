@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/19/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: eeaab56b376ffd3123efb95a1223b7344dd6d187
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 65709ef9f6cdd50fb8650a1a11c9321defb9cf5b
+ms.contentlocale: it-it
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -111,16 +112,16 @@ Creare un **pool di Azure Batch** con almeno 2 nodi di calcolo.
 
    ![](./media/data-factory-data-processing-using-batch/image3.png)
 
-   **Inputfolder** e **outputfolder** sono cartelle di primo livello in **mycontainer,** e **inputfolder** include le sottocartelle con indicatori di data e ora (AAAA-MM-GG-HH).
+   `Inputfolder`e `outputfolder` sono le cartelle di livello superiore in `mycontainer`. `inputfolder` contiene sottocartelle con indicatori data e ora (AAAA-MM-GG-HH).
 
-   Se si usa **Azure Storage Explorer**, nel passaggio successivo si dovranno caricare file con nomi inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt e così via. Le cartelle verranno create automaticamente.
+   Se si usa **Azure Storage Explorer**, nel passaggio successivo si dovranno caricare file denominati`inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt` e così via. Le cartelle verranno create automaticamente.
 3. Creare un file di testo **file.txt** nel computer con contenuto che include la parola chiave **Microsoft**. Ad esempio: "test attività personalizzata Microsoft testare l'attività personalizzata Microsoft".
 4. Caricare il file nelle cartelle di input seguenti nell'archivio BLOB di Azure.
 
    ![](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Se si usa **Azure Storage Explorer**, caricare il file **file.txt** in **mycontainer**. Fare clic su **Copia** sulla barra degli strumenti per creare una copia del BLOB. Nella finestra di dialogo **Copy Blob** (Copia BLOB) modificare il **nome del BLOB di destinazione** in **inputfolder/2015-11-16-00/file.txt.** Ripetere questo passaggio per creare inputfolder/2015-11-16-01/file.txt, inputfolder/2015-11-16-02/file.txt, inputfolder/2015-11-16-03/file.txt, inputfolder/2015-11-16-04/file.txt e così via. Le cartelle verranno create automaticamente.
-5. Creare un altro contenitore denominato: **customactivitycontainer**. Si carica il file ZIP dell'attività personalizzata in questo contenitore.
+   Se si usa **Azure Storage Explorer**, caricare il file **file.txt** in **mycontainer**. Fare clic su **Copia** sulla barra degli strumenti per creare una copia del BLOB. Nella finestra di dialogo **Copia BLOB** modificare il **nome del BLOB di destinazione** in `inputfolder/2015-11-16-00/file.txt`. Ripetere questo passaggio per creare `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` e così via. Le cartelle verranno create automaticamente.
+5. Creare un altro contenitore denominato `customactivitycontainer`. Si carica il file ZIP dell'attività personalizzata in questo contenitore.
 
 #### <a name="visual-studio"></a>Visual Studio
 Installare Microsoft Visual Studio 2012 o versione successiva per creare l'attività Batch personalizzata da usare nella soluzione Data Factory.
@@ -368,7 +369,7 @@ public IDictionary<string, string> Execute(
 3. Creare un file ZIP **MyDotNetActivity.zip** che contiene tutti i file binari disponibili nella cartella **\\bin\\Debug**. È possibile includere il file **MyDotNetActivity.pdb** per ottenere altri dettagli, ad esempio il numero della riga nel codice sorgente che ha causato il problema in caso di errore.
 
    ![](./media/data-factory-data-processing-using-batch/image5.png)
-4. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB **customactivitycontainer** nell'archiviazione BLOB di Azure usato dal servizio collegato **StorageLinkedService** in **ADFTutorialDataFactory**. Se non è già presente, creare il contenitore BLOB **customactivitycontainer** .
+4. Caricare **MyDotNetActivity.zip** come BLOB nel contenitore BLOB `customactivitycontainer` nell'archiviazione BLOB di Azure usata dal servizio collegato **StorageLinkedService** in **ADFTutorialDataFactory**. Se non esiste ancora, creare il contenitore BLOB `customactivitycontainer`.
 
 #### <a name="execute-method"></a>Metodo Execute
 Questa sezione fornisce informazioni dettagliate e note sul codice nel metodo Execute.
@@ -447,7 +448,7 @@ Questa sezione fornisce informazioni dettagliate e note sul codice nel metodo Ex
 ### <a name="create-the-data-factory"></a>Creare la data factory
 La sezione [Creare l'attività personalizzata](#create-the-custom-activity) ha illustrato come creare un'attività personalizzata e caricare il file ZIP con i file binari e il file PDB in un contenitore BLOB di Azure. Questa sezione illustra come creare una **data factory** di Azure con una **pipeline** che usa l'**attività personalizzata**.
 
-Il set di dati di input per l'attività personalizzata rappresenta i BLOB (file) nella cartella di input (mycontainer\\inputfolder) nell'archiviazione BLOB. Il set di dati di output per l'attività rappresenta i BLOB di output nella cartella di output (mycontainer\\outputfolder) nell'archiviazione BLOB.
+Il set di dati di input per l'attività personalizzata rappresenta i BLOB (file) nella cartella di input (`mycontainer\\inputfolder`) nell'archiviazione BLOB. Il set di dati di output per l'attività rappresenta i BLOB di output nella cartella di output (`mycontainer\\outputfolder`) nell'archiviazione BLOB.
 
 Lasciare uno o più file nelle cartelle di input:
 
@@ -668,7 +669,7 @@ In questo passaggio si crea un altro set di dati di tipo AzureBlob per rappresen
     }
     ```
 
-    Un BLOB o file di output viene generato per ogni sezione di input. Ecco come viene denominato il file di output per ogni sezione. Tutti i file di output vengono generati in una cartella di output: **mycontainer\\outputfolder**.
+    Un BLOB o file di output viene generato per ogni sezione di input. Ecco come viene denominato il file di output per ogni sezione. Tutti i file di output vengono generati in una cartella di output: `mycontainer\\outputfolder`.
 
     | **Sezione** | **Ora di inizio**          | **File di output**       |
     |-----------|-------------------------|-----------------------|
@@ -771,7 +772,7 @@ In questo passaggio si testerà la pipeline rilasciando i file nelle cartelle di
 
    ![](./media/data-factory-data-processing-using-batch/image13.png)
 6. Usare il portale di Azure per visualizzare le **attività** associate alle **sezioni** e vedere in quale VM viene eseguita ogni sezione. Per altre informazioni, vedere la sezione [Integrazione di Data Factory e Batch](#data-factory-and-batch-integration) .
-7. I file di output verranno visualizzati nella cartella **outputfolder** di **mycontainer** nell'archivio BLOB di Azure.
+7. I file di output verranno visualizzati nella cartella `outputfolder` di `mycontainer` nell'archiviazione BLOB di Azure.
 
    ![](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -788,7 +789,7 @@ In questo passaggio si testerà la pipeline rilasciando i file nelle cartelle di
 10. A questo punto, nel pannello **OutputDataset** fare clic con il pulsante destro del mouse sulla sezione con **ORA DI INIZIO SEZIONE** impostata su **11/16/2015 01:00:00 AM** e scegliere **Esegui** per rieseguire/rielaborare la sezione. A questo punto, la sezione ha cinque file anziché un file.
 
     ![](./media/data-factory-data-processing-using-batch/image17.png)
-11. Dopo l'esecuzione della sezione e una volta che lo stato sarà **Ready**, verificare il contenuto nel file di output per questa sezione **2015-11-16-01.txt** nella cartella **outputfolder** di **mycontainer** nell'archivio BLOB. Deve essere presente una riga per ogni file della sezione.
+11. Dopo che la sezione è stata eseguita e lo stato è diventato **Pronto**, verificare il contenuto nel file di output per questa sezione (**2015-11-16-01.txt**) nella cartella `outputfolder` di `mycontainer` nell'archiviazione BLOB. Deve essere presente una riga per ogni file della sezione.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -804,7 +805,7 @@ In questo passaggio si testerà la pipeline rilasciando i file nelle cartelle di
 >
 
 #### <a name="data-factory-and-batch-integration"></a>Integrazione di Data Factory e Batch
-Il servizio Data Factory crea un processo in Azure Batch denominato **adf-poolname:job-xxx**.
+Il servizio Data Factory crea un processo in Azure Batch denominato `adf-poolname:job-xxx`.
 
 ![Azure Data Factory: processi di Batch](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
@@ -855,7 +856,7 @@ Il debug è costituito da alcune tecniche di base:
    ![](./media/data-factory-data-processing-using-batch/image21.png)
 
    > [!NOTE]
-   > Verrà visualizzato **contenitore** nell'archivio BLOB di Azure denominato **adfjobs**. Questo contenitore non viene eliminato automaticamente, ma è possibile farlo senza problemi dopo aver completato il test della soluzione. Analogamente, la soluzione Data Factory crea un **processo** di Azure Batch denominato **adf-\<ID pool/nome\>:job-0000000001**. Dopo aver eseguito il test della soluzione, è possibile eliminare questo processo se necessario.
+   > Nell'archiviazione BLOB di Azure verrà visualizzato un **contenitore** denominato `adfjobs`. Questo contenitore non viene eliminato automaticamente, ma è possibile farlo senza problemi dopo aver completato il test della soluzione. Analogamente, la soluzione Data Factory crea un **processo** di Azure Batch denominato `adf-\<pool ID/name\>:job-0000000001`. Dopo aver eseguito il test della soluzione, è possibile eliminare questo processo se necessario.
    >
    >
 7. L'attività personalizzata non usa il file **app** dal pacchetto. Pertanto, se il codice legge tutte le stringhe di connessione dal file di configurazione, l'attività non funzionerà in fase di esecuzione. La procedura consigliata quando si usa Azure Batch consiste nell'inserire tutti i segreti in un **insieme di credenziali delle chiavi di Azure**, usare un'entità servizio basata su certificato per proteggere l'insieme di credenziali e distribuire il certificato nel pool di Azure Batch. L'attività personalizzata .NET può quindi accedere ai segreti dall'insieme di credenziali delle chiavi in fase di esecuzione. Questa è una soluzione generica e può essere ridimensionata per qualsiasi tipo di segreto, non solo per una stringa di connessione.
@@ -865,12 +866,12 @@ Il debug è costituito da alcune tecniche di base:
 #### <a name="extend-the-sample"></a>Estendere l'esempio
 È possibile estendere questo esempio per ottenere altre informazioni sulle funzionalità di Azure Data Factory e Azure Batch. Ad esempio, per elaborare le sezioni in un intervallo di tempo diverso, seguire questa procedura:
 
-1. Aggiungere le sottocartelle seguenti nella cartella **inputfolder**: 2015-11-16-05, 2015-11-16-06, 07-201-11-16, 2011-11-16-08, 09-2015-11-16 e inserirvi i file di input. Modificare l'ora di fine per la pipeline da `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. In **Vista diagramma** fare doppio clic su **InputDataset** e verificare che le sezioni di input siano pronte. Fare doppio clic su **OuptutDataset** per visualizzare lo stato delle sezioni di output. Se lo stato è Ready, controllare i file di output in outputfolder.
+1. Aggiungere le sottocartelle seguenti nella cartella `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09. Inserire i file di input in queste cartelle. Modificare l'ora di fine per la pipeline da `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. In **Vista diagramma** fare doppio clic su **InputDataset** e verificare che le sezioni di input siano pronte. Fare doppio clic su **OuptutDataset** per visualizzare lo stato delle sezioni di output. Se lo stato è Pronto, controllare i file di output nella cartella di output.
 2. Aumentare o diminuire l'impostazione **concurrency** per comprenderne gli effetti sulle prestazioni della soluzione, in particolare l'elaborazione che si verifica in Azure Batch. Per altre informazioni sull'impostazione **concurrency** , vedere Passaggio 4: Creare ed eseguire la pipeline.
 3. Creare un pool con un **numero massimo di attività per ogni VM**più alto o più basso. Aggiornare il servizio collegato Azure Batch nella soluzione Data Factory per usare il nuovo pool creato. Per altre informazioni sull'impostazione del **numero massimo di attività per ogni VM** , vedere Passaggio 4: Creare ed eseguire la pipeline.
 4. Creare un pool di Azure Batch con la funzionalità **Scalabilità automatica** . Il ridimensionamento automatico dei nodi di calcolo in un pool di Azure Batch è una regolazione dinamica della potenza di elaborazione usata dall'applicazione. 
 
-    Di seguito la formula di esempio consente di ottenere il comportamento seguente: quando il pool viene creato inizialmente, inizia con 1 macchina virtuale. La metrica $PendingTasks definisce il numero di attività in esecuzione e quelle in coda.  La formula trova il numero medio di attività in sospeso negli ultimi 180 secondi e imposta TargetDedicated di conseguenza. Assicura che TargetDedicated non vada mai oltre 25 macchine virtuali. Pertanto, quando vengono inviate nuove attività, il pool si espande automaticamente e al completamento delle attività le macchine virtuali diventano disponibili una alla volta e la scalabilità automatica le riduce. È possibile regolare startingNumberOfVMs e maxNumberofVMs in base alle proprie esigenze.
+    Di seguito la formula di esempio consente di ottenere il comportamento seguente: quando il pool viene creato inizialmente, inizia con 1 macchina virtuale. La metrica $PendingTasks definisce il numero di attività in esecuzione e quelle in coda.  La formula trova il numero medio di attività in sospeso negli ultimi 180 secondi e imposta TargetDedicated di conseguenza. Assicura che TargetDedicated non vada mai oltre 25 macchine virtuali. Pertanto, quando vengono inviate nuove attività, il pool si espande automaticamente e al completamento delle attività le macchine virtuali diventano disponibili una alla volta e la scalabilità automatica le riduce. È possibile regolare startingNumberOfVMs e maxNumberofVMs in base alle esigenze.
  
     Formula di scalabilità automatica:
 

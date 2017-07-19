@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: 4c9f2bb57e3669327d8704b93fa56e2ace1e8b35
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 482726c1dae5385964e08b720e529817d5907537
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -54,7 +55,7 @@ Si supponga ad esempio di disporre di un esperimento con un modulo [Export Data]
    * In **Please specify authentication type**selezionare "Account".
    * Immettere le informazioni dell'account per l'archiviazione BLOB di Azure. 
      <p />
-3. Fare clic sull'icona a destra del **Path to blob beginning with container parameter**. L'aspetto sarà simile al seguente:
+3. Fare clic sull'icona a destra di **Path to blob beginning with container parameter** (Percorso BLOB che inizia con parametro contenitore). L'aspetto sarà simile al seguente:
    
    ![Icona del parametro del servizio Web][icon]
    
@@ -76,7 +77,7 @@ Si supponga ad esempio di disporre di un esperimento con un modulo [Export Data]
 ## <a name="more-information"></a>Altre informazioni
 Per un esempio più dettagliato, vedere la voce relativa ai [parametri del servizio Web](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) nel [blog di Machine Learning](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
-Per altre informazioni sull'accesso a un servizio Web di Machine Learning, vedere l'articolo relativo all' [utilizzo di un servizio Web pubblicato di Machine Learning](machine-learning-consume-web-services.md).
+Per altre informazioni sull'accesso a un servizio Web di Machine Learning, vedere [Come usare un servizio Web di Azure Machine Learning ](machine-learning-consume-web-services.md).
 
 <!-- Images -->
 [icon]: ./media/machine-learning-web-service-parameters/icon.png

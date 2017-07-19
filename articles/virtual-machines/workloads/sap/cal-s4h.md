@@ -16,76 +16,157 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2a645e6ab50b7b764a56bb7a79ad5cf295881214
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
+ms.contentlocale: it-it
+ms.lasthandoff: 06/23/2017
 
 
 ---
-# <a name="deploy-sap-s4hana-or-bw4hana-on-microsoft-azure"></a>Distribuire SAP S/4HANA o BW/4HANA in Microsoft Azure
-In questo articolo viene descritto come distribuire S/4HANA in Microsoft Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Sul piano procedurale, per le altre soluzioni basate su SAP HANA, come BW/4HANA, la distribuzione funziona nello stesso modo. Semplicemente, si sceglie una soluzione diversa.
+# <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Distribuire SAP S/4HANA o BW/4HANA in Azure
+Questo articolo descrive come distribuire S/4HANA in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Per distribuire altre soluzioni basate su SAP HANA, ad esempio BW/4HANA, seguire la stessa procedura.
 
 > [!NOTE]
-Per altre informazioni su SAP Cloud Appliance Library, vedere l'[home page del relativo sito](https://cal.sap.com/). Esiste anche un blog di SAP su [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+Per altre informazioni su SAP CAL, visitare il sito Web [SAP Cloud Appliance Library](https://cal.sap.com/). Esiste anche un blog di SAP su [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+
+> [!NOTE]
+A partire dal 29 maggio 2017, per distribuire SAP CAL è possibile usare il modello di distribuzione Azure Resource Manager, oltre al modello di distribuzione classica, non preferito. È consigliabile usare il nuovo modello di distribuzione Resource Manager, ignorando il modello di distribuzione classica.
 
 ## <a name="step-by-step-process-to-deploy-the-solution"></a>Procedura dettagliata per distribuire la soluzione
 
-Gli screenshot seguenti illustrano come distribuire S/4HANA in Azure. Per altre soluzioni BW/4HANA, la procedura è sempre la stessa.
+La sequenza di screenshot che segue illustra come distribuire S/4HANA in Azure tramite SAP CAL. Per altre soluzioni, ad esempio BW/4HANA, il processo è lo stesso.
 
-Il primo screenshot mostra tutte le soluzioni SAP CAL basate su HANA disponibili in Azure. Si noti **SAP S/4HANA on-premises edition** nella parte inferiore.
+La pagina **Solutions** (Soluzioni) illustra alcune delle soluzioni SAP CAL basate su HANA disponibili in Azure. **SAP S/4HANA 1610 FPS01, Fully-Activated Appliance** è nella riga centrale:
 
-![Screenshot della finestra Solutions di SAP Cloud Appliance Library](./media/cal-s4h/s4h-pic-1b.jpg)
+![Soluzioni SAP CAL](./media/cal-s4h/s4h-pic-1c.png)
 
-Innanzitutto, creare un nuovo account SAP CAL. In **Accounts** (Account) sono presenti due scelte per Azure: Microsoft Azure e un'opzione di Azure gestita da 21Vianet. Per questo esempio, scegliere **Microsoft Azure**.
+### <a name="create-an-account-in-the-sap-cal"></a>Creare un account in SAP CAL
+1. Per accedere a SAP CAL per la prima volta, usare un account SAP S-User o un altro account utente registrato con SAP. Definire quindi un account SAP CAL da usare per distribuire appliance in Azure con SAP CAL. Nella definizione dell'account è necessario:
 
-![Screenshot della finestra Accounts (Account) di SAP Cloud Appliance Library](./media/cal-s4h/s4h-pic-2.jpg)
+    a. Selezionare il modello di distribuzione in Azure (Resource Manager o classica).
 
-Quindi, immettere l'ID sottoscrizione di Azure, reperibile nel Portale di Azure. In seguito, scaricare un certificato di gestione di Azure.
+    b. Immettere la sottoscrizione di Azure. Un account SAP CAL può essere assegnato a una sola sottoscrizione. Se sono necessarie più sottoscrizioni, è necessario creare più account SAP CAL.
 
-![Screenshot della finestra Accounts (Account) di SAP Cloud Appliance Library](./media/cal-s4h/s4h-pic3b.jpg)
+    c. Concedere a SAP CAL l'autorizzazione alla distribuzione all'interno della sottoscrizione di Azure.
+
+    > [!NOTE]
+    I passaggi successivi illustrano come creare un account SAP CAL per le distribuzioni Resource Manager. Se è già disponibile un account SAP CAL collegato al modello di distribuzione classica, per creare un nuovo account SAP CAL è *necessario* seguire questa procedura. Il nuovo account SAP CAL deve eseguire la distribuzione nel modello Resource Manager.
+
+2. Creare un nuovo account SAP CAL. La pagina **Accounts** (Account) presenta tre scelte per Azure: 
+
+    a. **Microsoft Azure (classic)** (Microsoft Azure (classica)), il modello di distribuzione classica, non rappresenta più il modello di distribuzione preferito.
+
+    b. **Microsoft Azure** corrisponde al nuovo modello di distribuzione Resource Manager.
+
+    c. **Windows Azure operated by 21Vianet** (Windows Azure gestito da 21Vianet) è un'opzione disponibile in Cina che usa il modello di distribuzione classica.
+
+    Per distribuire il modello Resource Manager, selezionare **Microsoft Azure**.
+
+    ![Dettagli dell'account SAP CAL](./media/cal-s4h/s4h-pic-2a.png)
+
+3. Immettere l'**ID sottoscrizione** di Azure, reperibile nel Portale di Azure.
+
+   ![Account SAP CAL](./media/cal-s4h/s4h-pic3c.png)
+
+4. Per autorizzare SAP CAL alla distribuzione nella sottoscrizione di Azure definita, fare clic su **Authorize** (Autorizza). Nella scheda del browser viene visualizzata la pagina seguente:
+
+   ![Accesso ai servizi cloud di Internet Explorer](./media/cal-s4h/s4h-pic4c.png)
+
+5. Se sono elencati più utenti, scegliere l'account Microsoft collegato come coamministratore della sottoscrizione di Azure selezionata. Nella scheda del browser viene visualizzata la pagina seguente:
+
+   ![Conferma dei servizi cloud di Internet Explorer](./media/cal-s4h/s4h-pic5a.png)
+
+6. Fare clic **Accept**. Se l'autorizzazione ha esito positivo, viene visualizzata nuovamente la definizione dell'account SAP CAL. Dopo un breve periodo, viene visualizzato un messaggio di conferma del completamento del processo di autorizzazione.
+
+7. Per assegnare a un utente l'account SAP CAL appena creato, immettere l'**ID utente** nella casella di testo a destra e fare clic su **Add** (Aggiungi).
+
+   ![Associazione tra account e utente](./media/cal-s4h/s4h-pic8a.png)
+
+8. Per associare l'account all'utente usato per accedere a SAP CAL, fare clic su **Review** (Verifica). 
+ 
+9. Per creare l'associazione tra l'utente e l'account SAP CAL appena creato, fare clic su **Create** (Crea).
+
+   ![Associazione tra utente e account SAP CAL](./media/cal-s4h/s4h-pic9b.png)
+
+È stato creato un account SAP CAL in grado di:
+
+- Usare il modello di distribuzione Resource Manager.
+- Distribuire i sistemi SAP nella sottoscrizione di Azure.
+
+È ora possibile iniziare a distribuire S/4HANA nella sottoscrizione utente in Azure.
 
 > [!NOTE]
-Per trovare l'ID sottoscrizione di Azure, usare il portale di Azure classico, non la versione più recente. Questo perché SAP CAL non è ancora adattato a questo nuovo modello e richiede il portale classico per poter usare i certificati di gestione.
+Prima di continuare, determinare se sono disponibili quote core di Azure per macchine virtuali di serie H di Azure. Attualmente, per distribuire alcune soluzioni basate su SAP HANA, SAP CAL usa macchine virtuali di serie H di Azure. È possibile tuttavia che la sottoscrizione di Azure in uso non abbia quote core per la serie H. In questo caso, è necessario contattare il supporto tecnico di Azure per ottenere una quota di almeno 16 serie H.
 
-Lo screenshot seguente mostra il portale classico. In **IMPOSTAZIONI**, selezionare la scheda **SOTTOSCRIZIONI** per trovare l'ID sottoscrizione da inserire nella finestra Accounts (Account) di SAP CAL.
+> [!NOTE]
+Quando si distribuisce una soluzione in Azure con SAP CAL, può accadere che sia possibile scegliere una sola area di Azure. Per eseguire la distribuzione in aree di Azure diverse da quella suggerita da SAP CAL, è necessario acquistare una sottoscrizione CAL da SAP. Potrebbe anche essere necessario aprire un messaggio con SAP per farsi abilitare l'account CAL per il recapito in aree di Azure diverse da quelle suggerite inizialmente.
 
-![Screenshot del portale di Azure classico](./media/cal-s4h/s4h-pic4b.jpg)
+### <a name="deploy-a-solution"></a>Distribuire una soluzione
 
-In **IMPOSTAZIONI**, passare alla scheda **CERTIFICATI DI GESTIONE**. Caricando un certificato di gestione, SAP CAL riceve le autorizzazioni necessarie per creare macchine virtuali in una sottoscrizione del cliente. Si carica il certificato di gestione precedentemente scaricato da SAP CAL.
+Verrà ora distribuita una soluzione dalla pagina **Solutions** (Soluzioni) di SAP CAL. Con SAP CAL sono disponibili due sequenze di distribuzione:
 
-![Screenshot del portale di Azure classico, scheda Certificati di gestione](./media/cal-s4h/s4h-pic5.jpg)
+- Una sequenza di base, che usa una sola pagina per definire il sistema da distribuire
+- Una sequenza avanzata, che offre opzioni specifiche per le dimensioni delle macchine virtuali 
 
-Viene visualizzata una finestra di dialogo in cui selezionare il file di certificato scaricato.
+In questo articolo verrà illustrato il percorso di distribuzione di base.
 
-![Screenshot della finestra di dialogo Carica certificato di gestione](./media/cal-s4h/s4h-pic8.jpg)
+1. Nella pagina **Account Details** (Dettagli account) è necessario:
 
-Una volta caricato il certificato, in SAP CAL è possibile testare la connessione tra SAP CAL e la sottoscrizione Azure. Un piccolo messaggio popup indicherà se la connessione è valida.
+    a. Selezionare un account SAP CAL. Usare un account associato alla distribuzione con il modello di distribuzione Resource Manager.
 
-![Screenshot della finestra Accounts (Account) di SAP Cloud Appliance Library](./media/cal-s4h/s4h-pic9.jpg)
+    b. Immettere un **nome** di istanza.
 
-Successivamente, selezionare una soluzione da distribuire e creare un'istanza.
-Immettere un nome da assegnare all'istanza, scegliere un'area di Azure e definire la password master della soluzione.
+    c. Selezionare un'**area** di Azure. SAP CAL suggerisce un'area. Se è necessaria un'altra area di Azure e non si ha una sottoscrizione SAP CAL, è necessario ordinare una sottoscrizione CAL a SAP.
 
-![Screenshot della finestra Solutions (Soluzioni) di SAP Cloud Appliance Library](./media/cal-s4h/s4h-pic10.jpg)
+    d. Immettere una **password** master di otto o nove caratteri per la soluzione. La password viene usata per gli amministratori dei diversi componenti.
 
-Dopo alcuni minuti, a seconda della dimensione e della complessità (stimate da SAP CAL), la soluzione viene visualizzata come attiva e pronta all'uso.
+   ![Modalità SAP CAL di base: creare un'istanza](./media/cal-s4h/s4h-pic10a.png)
 
-![Screenshot della finestra Instances (Istanze) di SAP Cloud Appliance Library](./media/cal-s4h/s4h-pic11.jpg)
+2. Fare clic su **Create** (Crea). Nella finestra di messaggio visualizzata fare clic su **OK**.
 
-È possibile visualizzare alcuni dettagli della soluzione, ad esempio la tipologia di macchine virtuali distribuite. In questo caso sono state create tre macchine virtuali di Azure diverse per dimensioni e scopo.
+   ![Dimensioni delle macchine virtuali supportate da SAP CAL](./media/cal-s4h/s4h-pic10b.png)
 
-![Screenshot della finestra Instances (Istanze) di SAP Cloud Appliance Library](./media/cal-s4h/s4h-pic12.jpg)
+3. Nella finestra di dialogo **Private Key** (Chiave privata) fare clic su **Store** (Archivia) per archiviare la chiave privata in SAP CAL. Per usare la password di protezione per la chiave privata, fare clic su **Download** (Scarica). 
 
-Nel portale di Azure classico è possibile che le macchine virtuali vengano avviate con lo stesso nome di istanza assegnato in SAP CAL.
+   ![Chiave privata SAP CAL](./media/cal-s4h/s4h-pic10c.png)
 
-![Screenshot che mostra tre macchine virtuali nel portale di Azure classico](./media/cal-s4h/s4h-pic13.jpg)
+4. Leggere il messaggio in **Warning** (Avviso) e fare clic su **OK**.
 
-A questo punto è possibile connettersi alla soluzione tramite l'apposito pulsante disponibile nel portale di SAP CAL. Nella finestra di dialogo è presente il collegamento a un manuale dell'utente che descrive tutte le credenziali predefinite per l'utilizzo della soluzione.
+   ![Avviso di SAP CAL](./media/cal-s4h/s4h-pic10d.png)
 
-![Screenshot della finestra di dialogo Connect to the Instance (Connettersi all'istanza)](./media/cal-s4h/s4h-pic14b.jpg)
+    Verrà ora eseguita la distribuzione. Dopo alcuni minuti, a seconda della dimensione e della complessità della soluzione, di cui SAP CAL fornisce una stima, la soluzione viene visualizzata come attiva e pronta all'uso.
 
-Un'altra opzione consiste nell'accedere alla macchina virtuale client di Windows e avviare, ad esempio, la GUI SAP preconfigurata.
+5. Per individuare le macchine virtuali raccolte con le altre risorse associate in un unico gruppo di risorse, passare al Portale di Azure: 
 
-![Screenshot della GUI SAP preconfigurata](./media/cal-s4h/s4h-pic15.jpg)
+   ![Oggetti SAP CAL distribuiti nel nuovo portale](./media/cal-s4h/sapcaldeplyment_portalview.png)
+
+6. Nel portale SAP CAL lo stato è visualizzato come **Active** (Attivo). Per connettersi alla soluzione, fare clic su **Connect** (Connetti). All'interno di questa soluzione sono distribuite opzioni diverse per la connessione a componenti diversi.
+
+   ![Istanze di SAP CAL](./media/cal-s4h/active_solution.png)
+
+7. Prima che sia possibile usare una delle opzioni per la connessione ai sistemi distribuiti, è necessario fare clic su **Getting Started Guide** (Guida introduttiva). 
+
+   ![Finestra Connect to the Instance (Connettersi all'istanza)](./media/cal-s4h/connect_to_solution.png)
+
+    La documentazione cita gli utenti per ognuno dei metodi di connettività. Le password per questi utenti corrispondono alla password master definita all'inizio del processo di distribuzione. Nella documentazione sono elencati altri utenti funzionali con le relative password. È possibile usare questi utenti per accedere al sistema distribuito. 
+
+    Se ad esempio si usa la GUI SAP preinstallata nel computer Desktop remoto Windows, il sistema S/4 può avere un aspetto simile al seguente:
+
+   ![SM50 nella GUI SAP preinstallata](./media/cal-s4h/gui_sm50.png)
+
+    Se invece si usa DBA Cockpit, l'istanza può avere un aspetto simile al seguente:
+
+   ![SM50 nella GUI SAP DBA Cockpit](./media/cal-s4h/dbacockpit.png)
+
+In poche ore un'appliance SAP S/4 integra verrà distribuita in Azure.
+
+Se è stata acquistata una sottoscrizione SAP CAL, SAP offre il supporto completo alle distribuzioni in Azure tramite SAP CAL. La coda di supporto è BC-VCM-CAL.
+
+
+
+
+
+
+
 

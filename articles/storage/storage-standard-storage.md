@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 06/13/2017
 ms.author: yuemlu
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 01597767a03a5959c4c0cde994b6a7b8a34bfb7e
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -31,7 +32,7 @@ Questo articolo è incentrato sull'uso di Archiviazione Standard per i dischi de
 
 È possibile creare dischi Standard per le VM di Azure in due modi.
 
-**Dischi non gestiti**: si tratta del metodo originale con cui vengono gestiti gli account di archiviazione usati per archiviare i file VHD che corrispondono ai dischi delle macchine virtuali. I file VHD vengono archiviati come BLOB di pagine in account di archiviazione. I dischi non gestiti possono essere collegati a VM di Azure di qualsiasi dimensione, incluse le VM che usano principalmente Archiviazione Premium come le serie DSv2 e GS. Le VM di Azure supportano il collegamento di diversi dischi Standard, fino a un massimo di 64 TB di spazio di archiviazione per VM.
+**Dischi non gestiti**: si tratta del metodo originale con cui vengono gestiti gli account di archiviazione usati per archiviare i file VHD che corrispondono ai dischi delle macchine virtuali. I file VHD vengono archiviati come BLOB di pagine in account di archiviazione. I dischi non gestiti possono essere collegati a VM di Azure di qualsiasi dimensione, incluse le VM che usano principalmente Archiviazione Premium come le serie DSv2 e GS. Le VM di Azure supportano il collegamento di diversi dischi Standard, fino a un massimo di 256 TB di spazio di archiviazione per VM.
 
 [**Azure Managed Disks**](storage-managed-disks-overview.md): questa funzionalità gestisce gli account di archiviazione usati per i dischi delle macchine virtuali. Specificando il tipo, Premium o Standard, e le dimensioni del disco necessarie, Azure crea e gestisce automaticamente il disco. Azure gestisce anche l'inserimento dei dischi in più account di archiviazione per rimanere entro i limiti di scalabilità degli account di archiviazione.
 
@@ -85,7 +86,7 @@ A differenza dei dischi Premium, per i dischi Standard non viene effettuato il p
 
 | **Livello VM**            | **VM livello Basic** | **VM livello Standard** |
 |------------------------|-------------------|----------------------|
-| Dimensioni massime disco          | 1023 GB           | 1023 GB              |
+| Dimensioni massime disco          | 4095 GB           | 4095 GB              |
 | Numero massimo di operazioni di I/O al secondo da 8 KB per disco | Fino a 300         | Fino a 500            |
 | Larghezza di banda massima per disco | Fino a 60 MB/s     | Fino a 60 MB/s        |
 
@@ -121,7 +122,7 @@ Quando si usa Archiviazione Standard, tenere conto delle considerazioni seguenti
 * Trasferimenti di dati in uscita
 * Transazioni
 
-**Dimensioni dei dischi e dei dati di archiviazione non gestiti:** per i dischi non gestiti e altri dati (BLOB, tabelle, code e file) viene addebitata solo la quantità di spazio usata. Se per il BLOB di pagine di una VM è stato effettuato il provisioning per 127 GB ma la VM usa in realtà solo 10 GB di spazio, verranno fatturati solo 10 GB. 
+**Dimensioni dei dischi e dei dati di archiviazione non gestiti:** per i dischi non gestiti e altri dati (BLOB, tabelle, code e file) viene addebitata solo la quantità di spazio usata. Se per il BLOB di pagine di una VM è stato effettuato il provisioning per 127 GB ma la VM usa in realtà solo 10 GB di spazio, verranno fatturati solo 10 GB. È supportato un massimo di archiviazione Standard di 8191 GB e un massimo di dischi non gestiti Standard di 4095 GB. 
 
 **Dischi gestiti:** la fatturazione dei dischi gestiti è basata sulle dimensioni per cui è stato effettuato il provisioning. Se per un disco è stato effettuato il provisioning come disco da 10 GB e si usano solo 5 GB, verranno comunque addebitate le dimensioni di 10 GB del provisioning.
 
@@ -154,3 +155,4 @@ Per informazioni dettagliate sui prezzi di Archiviazione Standard, Macchine virt
 * [Creare una VM con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
 * [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
+

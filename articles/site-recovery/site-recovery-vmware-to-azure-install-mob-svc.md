@@ -1,6 +1,6 @@
 ---
 title: Installare il servizio Mobility (VMware o fisico in Azure) | Microsoft Docs
-description: Informazioni su come installare l&quot;agente del Servizio Mobility per proteggere i computer locali.
+description: Informazioni su come installare l'agente del Servizio Mobility per proteggere i computer locali.
 services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/11/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 6e91a8b21fe7bfe2c6944cfa1c10d835a75ddd13
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -64,8 +64,7 @@ Completare questa procedura per i prerequisiti prima di iniziare a installare ma
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Installare manualmente il Servizio Mobility tramite la GUI
 
 >[!IMPORTANT]
-> L'installazione basata su GUI funziona solo con sistemi operativi Windows.
-> Se si usa un server di configurazione per replicare le macchine virtuali IaaS di Azure da una sottoscrizione o area di Azure a un altra, adottare il metodo di installazione basato sulla riga di comando
+> Se si usa un **server di configurazione** per replicare le **macchine virtuali IaaS di Azure** da una sottoscrizione o area di Azure a un'altra, **usare il metodo di installazione basato sulla riga di comando**
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 

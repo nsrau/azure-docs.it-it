@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 06/06/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 244413be8b094605883445bb3cbf675b538b704e
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 3bad3219b087523125047f24d643ffdc5e24caa0
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -28,6 +29,9 @@ ms.lasthandoff: 03/10/2017
 In questo argomento viene illustrato come usare Media Encoder Standard (MES) per generare automaticamente un bitrate ladder (coppia risoluzione-velocità in bit) in base alla risoluzione di input e alla velocità in bit. Il set di impostazioni generate automaticamente non supererà mai la risoluzione di input e la velocità in bit. Ad esempio, se l'input è 720p a 3 Mbps, l'output resterà al massimo a 720p e inizierà a una velocità inferiore a 3 Mbps.
 
 Per usare questa funzionalità, durante la creazione di un'attività di codifica è necessario specificare il set di impostazioni **Flusso adattivo**. Quando si usa il set di impostazioni **Flusso adattivo** il codificatore MES userà in modo intelligente un bitrate ladder. Tuttavia, non sarà possibile controllare i costi di codifica, poiché il servizio determina il numero di livelli da usare e la risoluzione. È possibile vedere esempi dei livelli di output prodotti da MES in seguito alla codifica con il set di impostazioni **Flusso adattivo** alla [fine](#output) di questo argomento.
+
+>[!NOTE]
+> Questo set di impostazioni deve essere usato solo quando si vuole produrre un asset di output abilitato per lo streaming. In particolare, l'asset di output conterrà i file con estensione mp4 in cui audio e video non sono con interleave. Se è necessario che l'output contenga file con estensione mp4 contenenti video e audio con interleave, ad esempio perché siano usati come file di download progressivo, usare una delle impostazioni predefinite [in questa sezione](media-services-mes-presets-overview.md).
 
 ## <a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 

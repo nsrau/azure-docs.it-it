@@ -1,6 +1,6 @@
 ---
 title: Informazioni sulle opzioni di supporto di Azure Service Fabric | Documentazione Microsoft
-description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto.
+description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto
 services: service-fabric
 documentationcenter: .net
 author: pkc
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 06/15/2017
 ms.author: pkc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f87aec3698addae135d4c934bb7217d9fae0e571
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: de5795d4781d8c01bce7313ae53ad801a0e48149
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -78,13 +78,13 @@ Fare riferimento ai documenti seguenti per informazioni dettagliate su come assi
  
 Di seguito è riportato un elenco delle versioni di Service Fabric supportate con le relative date di fine supporto.
 
-| **Cluster runtime di Service Fabric** | **Data di fine supporto** |
-| --- | --- |
-| Tutte le versioni di cluster precedenti alla 5.3.121 |20 gennaio 2017 |
-| 5.3.* |24 febbraio 2017 |
-| 5.4.* |10 maggio 2017     |
-| 5.5.* |10 luglio 2017    |
-| 5.6.* |Versione corrente, nessuna data di fine supporto
+| **Cluster runtime di Service Fabric** | **Versioni di SDK / pacchetto NuGet compatibili** | **Data di fine supporto** |
+| --- | --- | --- |
+| Tutte le versioni di cluster precedenti alla 5.3.121 |Versione 2.3 o precedente |20 gennaio 2017 |
+| 5.3.* |Versione 2.3 o precedente |24 febbraio 2017 |
+| 5.4.* |Versione 2.4 o precedente |10 maggio 2017     |
+| 5.5.* |Versione 2.5 o precedente |10 agosto 2017    |
+| 5.6.* |Versione 2.6 o precedente |Versione corrente, nessuna data di fine supporto
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versioni di anteprima di Service Fabric non supportate per l'uso in produzione

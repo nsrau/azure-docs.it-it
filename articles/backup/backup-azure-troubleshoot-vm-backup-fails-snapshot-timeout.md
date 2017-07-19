@@ -1,34 +1,36 @@
 ---
-title: "Risolvere i problemi relativi all&quot;errore di Backup di Azure: &quot;Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale&quot; | Documentazione Microsoft"
-description: "Sintomi, cause e risoluzioni degli errori di Backup di Azure correlati all&quot;errore: Non è stato possibile comunicare con l&quot;agente della macchina virtuale per lo stato dello snapshot. Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale"
+title: 'Risolvere un problema di Backup di Azure: stato dell&quot;agente guest non disponibile | Microsoft Docs'
+description: "Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all&quot;errore: Non è stato possibile comunicare con l&quot;agente di macchine virtuali"
 services: backup
 documentationcenter: 
 author: genlin
 manager: cshepard
 editor: 
+keywords: "Backup di Azure; agente di macchine virtuali; connettività di rete;"
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/13/2017
 ms.author: genli;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d7924d8aade1ea582faa0f319f8c1d16d5461fbc
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dd4ac14a703663175bb477de587da8f4ad510c7c
+ms.contentlocale: it-it
+ms.lasthandoff: 06/14/2017
 
 ---
 
-# <a name="troubleshoot-azure-backup-failure-snapshot-vm-sub-task-timed-out"></a>Risolvere i problemi relativi all'errore di Backup di Azure: "Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale"
+# <a name="troubleshoot-azure-backup-failure-vm-agent-unable-to-communicate-with-azure-backup"></a>Risolvere un problema di Backup di Azure: l'agente di macchine virtuali non è in grado di comunicare con Backup di Azure
 ## <a name="summary"></a>Riepilogo
-Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Quattro condizioni possono impedire l'attivazione dello snapshot, che a sua volta può provocare l'errore di Backup. Questo articolo fornisce la procedura di risoluzione dei problemi per correggere gli errori di Backup correlati ai problemi di timeout dello snapshot.
+Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Quattro condizioni possono impedire l'attivazione dello snapshot, che a sua volta può provocare l'errore di Backup. Questo articolo presenta una procedura di risoluzione dei problemi per correggere gli errori di Backup correlati a problemi di comunicazione con l'agente e l'estensione delle macchine virtuali.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="symptom"></a>Sintomo
-Si verifica un errore di Backup di Azure per una macchina virtuale IaaS (Infrastructure as a Service), che restituisce il messaggio di errore seguente nei dettagli degli errori del processo nel [portale di Azure](https://portal.azure.com/): "Non è stato possibile comunicare con l'agente della macchina virtuale per lo stato dello snapshot. Si è verificato il timeout della sottoattività di creazione snapshot della macchina virtuale".
+Per una macchina virtuale IaaS (Infrastructure as a Service, infrastruttura distribuita come servizio), Backup di Azure genera un errore e restituisce il messaggio di errore seguente nei dettagli degli errori del processo nel [Portale di Azure](https://portal.azure.com/): "L'agente di macchine virtuali non riesce a comunicare con il servizio Backup di Azure", "L'operazione di creazione snapshot non è riuscita perché la connettività di rete è assente nella macchina virtuale".
 
 ## <a name="cause-1-the-vm-has-no-internet-access"></a>Causa 1: la macchina virtuale non ha accesso a Internet
 In base al requisito di distribuzione, la macchina virtuale non ha accesso a Internet o sono presenti restrizioni che impediscono l'accesso all'infrastruttura di Azure.
@@ -49,6 +51,8 @@ Per risolvere il problema, provare ad applicare uno dei metodi seguenti.
 2. Per consentire l'accesso a Internet dal server proxy HTTP, aggiungere regole al gruppo di sicurezza di rete, se disponibile.
 
 Per informazioni su come configurare un proxy HTTP per i backup delle macchine virtuali, vedere [Preparare l'ambiente per il backup di macchine virtuali di Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+
+Se si usa Managed Disks, può essere necessario aprire una porta aggiuntiva (8443) nei firewall.
 
 ## <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 2: l'agente installato nella VM Linux non è aggiornato
 
@@ -80,7 +84,21 @@ Se è necessaria una registrazione dettagliata per waagent, seguire questa proce
 2. Modificare il valore di **Logs.Verbose** da *n* a *y*.
 3. Salvare la modifica e riavviare waagent seguendo la procedura precedente in questa sezione.
 
-## <a name="cause-3-the-backup-extension-fails-to-update-or-load"></a>Causa 3: non è possibile aggiornare o caricare l'estensione di backup
+## <a name="cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 3: l'agente è installato nella macchina virtuale ma non risponde (per macchine virtuali Windows)
+
+### <a name="solution"></a>Soluzione
+L'agente di macchine virtuali può essere danneggiato o il servizio può essere stato arrestato. La reinstallazione dell'agente di macchine virtuali consente di ottenere la versione più recente e di riavviare la comunicazione.
+
+1. Verificare se tra i servizi del computer (services.msc) è possibile visualizzare il servizio agente guest di Windows
+2. Se non è visualizzato, verificare in Programmi e funzionalità se il servizio è installato.
+3. Se è possibile visualizzare il servizio agente guest di Windows in Programmi e funzionalità di Windows, disinstallarlo.
+4. Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore.
+5. Il servizio agente guest di Windows dovrebbe quindi essere visualizzato tra i servizi
+6. Provare a eseguire un backup su richiesta o adhoc facendo clic su "Esegui Backup" nel portale.
+
+Verificare anche se **.NET 4.5 è installato nel sistema**. È necessario che l'agente di macchine virtuali comunichi con il servizio
+
+## <a name="cause-4-the-backup-extension-fails-to-update-or-load"></a>Causa 4: non è possibile aggiornare o caricare l'estensione di backup
 Se non è possibile caricare le estensioni, Backup ha esito negativo perché non è possibile acquisire uno snapshot.
 
 ### <a name="solution"></a>Soluzione
@@ -106,7 +124,7 @@ Per disinstallare l'estensione, seguire questa procedura:
 
 Questa procedura reinstalla l'estensione durante il backup successivo.
 
-## <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: non è possibile recuperare lo stato degli snapshot o non è possibile acquisire uno snapshot
+## <a name="cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 5: non è possibile recuperare lo stato degli snapshot o non è possibile acquisire uno snapshot
 Il backup delle macchine virtuali si basa sull'esecuzione del comando di snapshot sull'account di archiviazione sottostante. Il backup può avere esito negativo perché non ha accesso all'account di archiviazione o perché l'esecuzione dell'attività dello snapshot è stata posticipata.
 
 ### <a name="solution"></a>Soluzione

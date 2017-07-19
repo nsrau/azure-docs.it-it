@@ -1,6 +1,6 @@
 ---
 title: API .NET Core, risorse e SDK per Azure DocumentDB | Microsoft Docs
-description: Tutte le informazioni sull&quot;SDK e sull&quot;API .NET Core, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB .NET Core SDK.
+description: Tutte le informazioni sull'SDK e sull'API .NET Core, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/12/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c851e01fb8884b2f601986207d730efb338422a8
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: c1f0bbfd1bea292eedaaf8904a2f60e9415dcbcf
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Download dell'SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
-<tr><td>**Documentazione sull'API**</td><td>[Documentazione di riferimento API .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Documentazione sull'API**</td><td>[Documentazione di riferimento API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Esempi**</td><td>[Esempi di codice .NET](documentdb-dotnet-samples.md)</td></tr>
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Esercitazione sull'app Web**</td><td>[Sviluppo di applicazioni Web con DocumentDB](documentdb-dotnet-application.md)</td></tr>
 
-<tr><td>**Framework attualmente supportato**</td><td>[.NET Standard 1.6](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
+<tr><td>**Framework attualmente supportato**</td><td>[.NET standard 1.6 e .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
@@ -56,16 +56,24 @@ ms.lasthandoff: 05/31/2017
 DocumentDB .NET Core SDK ha le stesse funzionalità delle versione più recente di [DocumentDB .NET SDK](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> DocumentDB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+> DocumentDB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+
+*   Supporto di .NET Standard 1.5 come uno dei framework di destinazione.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+
+*   Risolto un problema che riguardava i computer x64 computer che non supportano l'istruzione SSE4 e generano SEHException durante l'esecuzione di query di DocumentDB.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*    Aggiunta del supporto per la funzionalità di unità richiesta al minuto (UR/min).
-*    Aggiunta del supporto per un nuovo livello di coerenza denominato ConsistentPrefix.
-*    Aggiunta del supporto per le metriche delle query per le singole partizioni.
-*    Aggiunta del supporto per la limitazione delle dimensioni del token di continuazione per le query.
-*    Aggiunta del supporto per una traccia più dettagliata delle richieste non riuscite.
-*    Alcuni miglioramenti delle prestazioni nell'SDK.
+*   Aggiunta del supporto per la funzionalità di unità richiesta al minuto (UR/min).
+*   Aggiunta del supporto per un nuovo livello di coerenza denominato ConsistentPrefix.
+*   Aggiunta del supporto per le metriche delle query per le singole partizioni.
+*   Aggiunta del supporto per la limitazione delle dimensioni del token di continuazione per le query.
+*   Aggiunta del supporto per una traccia più dettagliata delle richieste non riuscite.
+*   Alcuni miglioramenti delle prestazioni nell'SDK.
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
@@ -117,6 +125,8 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |12 giugno 2017 |--- |
+| [1.3.1](#1.3.1) |23 maggio 2017 |--- |
 | [1.3.0](#1.3.0) |10 maggio 2017 |--- |
 | [1.2.2](#1.2.2) |19 aprile 2017 |--- |
 | [1.2.1](#1.2.1) |29 marzo 2017 |--- |

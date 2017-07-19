@@ -1,6 +1,6 @@
 ---
 title: Reti virtuali di Azure e macchine virtuali Linux | Microsoft Docs
-description: 'Esercitazione: gestire reti virtuali di Azure e macchine virtuali Linux con l&quot;interfaccia della riga di comando di Azure'
+description: 'Esercitazione: gestire reti virtuali di Azure e macchine virtuali Linux con l''interfaccia della riga di comando di Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: e843e444d2fe32f578c5a887b606db982920a9e0
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: de7e77b7d4c26b08e73036b8da67489823100f4c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -35,7 +36,10 @@ Le macchine virtuali di Azure usano la rete di Azure per la comunicazione di ret
 > * Proteggere il traffico Internet in ingresso
 > * Proteggere il traffico da VM a VM
 
-Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Per determinare la versione dell'interfaccia della riga di comando, eseguire `az --version`. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). È anche possibile usare [Cloud Shell](/azure/cloud-shell/quickstart) dal browser.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="vm-networking-overview"></a>Panoramica della rete per le VM
 
@@ -47,7 +51,7 @@ Per questa esercitazione viene creata una singola rete virtuale con due subnet: 
 
 Per poter creare una rete virtuale, creare prima di tutto un gruppo di risorse con [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myRGNetwork* nella località eastus.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
 ```
 
@@ -55,7 +59,7 @@ az group create --name myRGNetwork --location eastus
 
 Usare il comando [az network vnet create](/cli/azure/network/vnet#create) per creare una rete virtuale. In questo esempio, alla rete vengono assegnati il nome *myVnet* e il prefisso di indirizzo *10.0.0.0/16*. Viene anche creata una subnet con nome *mySubnetFrontEnd* e prefisso *10.0.1.0/24*. Più avanti in questa esercitazione, a questa subnet verrà connessa una VM front-end. 
 
-```azurecli
+```azurecli-interactive 
 az network vnet create \
   --resource-group myRGNetwork \
   --name myVnet \
@@ -68,7 +72,7 @@ az network vnet create \
 
 Alla rete virtuale viene aggiunta una nuova subnet con il comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#create). In questo esempio, alla subnet vengono assegnati il nome *mySubnetBackEnd* e il prefisso di indirizzo *10.0.2.0/24*. Questa subnet verrà usata con tutti i servizi back-end.
 
-```azurecli
+```azurecli-interactive 
 az network vnet subnet create \
   --resource-group myRGNetwork \
   --vnet-name myVnet \
@@ -92,7 +96,7 @@ Il metodo di allocazione può essere impostato come statico affinché l'indirizz
 
 Quando si crea una VM con il comando [az vm create](/cli/azure/vm#create), il metodo di allocazione predefinito dell'indirizzo IP pubblico è il metodo dinamico. Nell'esempio seguente viene creata una VM con un indirizzo IP dinamico. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myRGNetwork \
   --name myFrontEndVM \
@@ -114,19 +118,19 @@ Il metodo di allocazione degli indirizzi IP può essere modificato con il comand
 
 Per prima cosa, deallocare la VM.
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myRGNetwork --name myFrontEndVM
 ```
 
 Usare il comando [az network public-ip update](/azure/network/public-ip#update) per aggiornare il metodo di allocazione. In questo caso, si imposta `--allocaion-metod` su *static*.
 
-```azurecli
+```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myFrontEndIP --allocation-method static
 ```
 
 Avviare la VM.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myRGNetwork --name myFrontEndVM --no-wait
 ```
 
@@ -150,13 +154,13 @@ Tutti i gruppi di sicurezza di rete contengono un set di regole predefinite. Le 
 
 ### <a name="create-network-security-groups"></a>Creare gruppi di sicurezza di rete
 
-È possibile creare un gruppo di sicurezza di rete contemporaneamente a una VM usando il comando [az vm create](/cli/azure/vm#create). In questo caso, il gruppo di sicurezza di rete viene associato all'interfaccia di rete della VM e viene creata automaticamente una regola del gruppo di sicurezza di rete per consentire il traffico sulla porta *22* da qualsiasi destinazione. In precedenza in questa esercitazione è stato creato automaticamente il gruppo di sicurezza di rete front-end con la VM front-end. È stata anche creata automaticamente una regola del gruppo di sicurezza di rete per la porta 22. 
+È possibile creare un gruppo di sicurezza di rete contemporaneamente a una VM usando il comando [az vm create](/cli/azure/vm#create). In questo caso, il gruppo di sicurezza di rete viene associato all'interfaccia di rete della VM e viene creata automaticamente una regola del gruppo di sicurezza di rete per consentire il traffico sulla porta *22* da qualsiasi origine. In precedenza in questa esercitazione è stato creato automaticamente il gruppo di sicurezza di rete front-end con la VM front-end. È stata anche creata automaticamente una regola del gruppo di sicurezza di rete per la porta 22. 
 
 In alcuni casi può essere utile creare preventivamente un gruppo di sicurezza di rete, ad esempio quando non devono essere create regole SSH predefinite o quando il gruppo di sicurezza di rete deve essere collegato a una subnet. 
 
 Per creare un gruppo di sicurezza di rete, usare il comando [az network nsg create](/cli/azure/network/nsg#create).
 
-```azurecli
+```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myNSGBackEnd
 ```
 
@@ -164,7 +168,7 @@ Il gruppo di sicurezza di rete verrà associato a una subnet, anziché a un'inte
 
 Aggiornare la subnet *mySubnetBackEnd* esistente con il nuovo gruppo di sicurezza di rete.
 
-```azurecli
+```azurecli-interactive 
 az network vnet subnet update \
   --resource-group myRGNetwork \
   --vnet-name myVnet \
@@ -174,7 +178,7 @@ az network vnet subnet update \
 
 Creare quindi una macchina virtuale collegata a *mySubnetBackEnd*. Si noti che l'argomento `--nsg` ha come valore virgolette doppie vuote. Non è necessario creare un gruppo di sicurezza di rete con la VM. La VM è collegata alla subnet back-end, che è protetta con il gruppo di sicurezza di rete back-end già creato. Tale gruppo di sicurezza di rete viene applicato alla VM. Si noti che anche l'argomento `--public-ip-address` ha come valore virgolette doppie vuote. Questa configurazione crea una VM senza un indirizzo IP pubblico. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myRGNetwork \
   --name myBackEndVM \
@@ -192,7 +196,7 @@ Quando è stata creata la VM front-end, è stata creata una regola del gruppo di
 
 Per creare una regola per la porta *80*, usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule#create).
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGFrontEnd \
@@ -209,13 +213,13 @@ az network nsg rule create \
 
 La VM front-end è ora accessibile solo sulla porta *22* e sulla porta *80*. Tutto il resto del traffico in ingresso viene bloccato in corrispondenza del gruppo di sicurezza di rete. Potrebbe essere utile visualizzare le configurazioni delle regole dei gruppi di sicurezza di rete. Il comando [az network rule list](/cli/azure/network/nsg/rule#list) restituisce la configurazione delle regole dei gruppi di sicurezza di rete. 
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGFrontEnd --output table
 ```
 
 Output:
 
-```azurecli
+```azurecli-interactive 
 Access    DestinationAddressPrefix      DestinationPortRange  Direction    Name                 Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
 --------  --------------------------  ----------------------  -----------  -----------------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
 Allow     *                                               22  Inbound      default-allow-ssh        1000  Tcp         Succeeded            myRGNetwork      *                      *
@@ -228,7 +232,7 @@ Le regole dei gruppi di sicurezza di rete possono essere applicate anche tra VM.
 
 Per creare una regola per la porta 22, usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule#create). Si noti che l'argomento `--source-address-prefix` specifica il valore *10.0.1.0/24*. Questa configurazione garantisce che tramite il gruppo di sicurezza di rete sia consentito solo il traffico dalla subnet front-end.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
@@ -245,7 +249,7 @@ az network nsg rule create \
 
 Aggiungere ora una regola per il traffico MySQL sulla porta 3306.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
@@ -262,7 +266,7 @@ az network nsg rule create \
 
 Infine, dato che i gruppi di sicurezza di rete includono una regola predefinita che consente tutto il traffico tra le VM della stessa rete virtuale, è possibile creare una regola affinché il gruppo di sicurezza di rete back-end blocchi tutto il traffico. Si noti che a `--priority` viene assegnato un valore di *300*, inferiore a quello delle regole MySQL e del gruppo di sicurezza di rete. Questa configurazione garantisce che tramite il gruppo di sicurezza di rete sia comunque consentito il traffico SSH e MySQL.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
@@ -279,13 +283,13 @@ az network nsg rule create \
 
 La VM back-end è ora accessibile dalla subnet front-end solo sulla porta *22* e sulla porta *3306*. Tutto il resto del traffico in ingresso viene bloccato in corrispondenza del gruppo di sicurezza di rete. Potrebbe essere utile visualizzare le configurazioni delle regole dei gruppi di sicurezza di rete. Il comando [az network rule list](/cli/azure/network/nsg/rule#list) restituisce la configurazione delle regole dei gruppi di sicurezza di rete. 
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGBackEnd --output table
 ```
 
 Output:
 
-```azurecli
+```azurecli-interactive 
 Access    DestinationAddressPrefix    DestinationPortRange    Direction    Name       Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
 --------  --------------------------  ----------------------  -----------  -------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
 Allow     *                           22                      Inbound      SSH             100  Tcp         Succeeded            myRGNetwork      10.0.1.0/24            *
@@ -309,3 +313,4 @@ Passare all'esercitazione successiva per apprendere come proteggere i dati nelle
 
 > [!div class="nextstepaction"]
 > [Eseguire il backup di macchine virtuali Linux in Azure](./tutorial-backup-vms.md)
+

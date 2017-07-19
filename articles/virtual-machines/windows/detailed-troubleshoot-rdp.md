@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/26/2017
+ms.date: 05/31/2017
 ms.author: genli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 3ba81282cd7b58cc118497c14e911fc89815d6d4
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bd832efd3902dd61be1a8b64396eaadf1cd76e24
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -49,7 +49,7 @@ Prima di procedere, può essere utile riflettere su cosa è stato modificato dal
 ## <a name="preliminary-steps"></a>Operazioni preliminari
 Prima di procedere alla risoluzione dei problemi dettagliata
 
-* Controllare lo stato della macchina virtuale nel portale di Azure classico o nel portale di Azure, per verificare che non siano presenti errori ovvi.
+* Controllare lo stato della macchina virtuale nel portale di Azure per verificare l'eventuale presenza di errori evidenti.
 * Seguire i [passaggi di correzione rapida per gli errori RDP comuni riportati nella guida alla risoluzione dei problemi di base](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
 
 Provare a riconnettersi alla VM tramite Desktop remoto dopo aver eseguito questi passaggi.

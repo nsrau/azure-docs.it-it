@@ -1,6 +1,6 @@
 ---
-title: Creare una macchina virtuale di Azure gestita da dischi virtuali locali generalizzati | Microsoft Docs
-description: Creare una macchina virtuale gestita in Azure usando dischi rigidi virtuali caricati in locale e usare i dischi gestiti nel modello di distribuzione di Resource Manager.
+title: Creare una macchina virtuale di Azure gestita da un disco rigido virtuale locale generalizzato | Microsoft Docs
+description: Caricare un disco rigido virtuale generalizzato in Azure e usarlo per creare nuove macchine virtuali nel modello di distribuzione Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,37 +13,32 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/19/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d5233e71863a47988ab3458ba15dba7b53025db9
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 581082600db3c14c2ef33acb1d47b0b48e9d0142
+ms.contentlocale: it-it
+ms.lasthandoff: 06/03/2017
 
 ---
 
-# <a name="create-a-new-vm-from-a-generalized-vhd-uploaded-to-azure-using-managed-disks"></a>Creare una nuova macchina virtuale da un disco rigido virtuale generalizzato e caricato in Azure usando Managed Disks
+# <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure
 
-È possibile creare una nuova macchina virtuale in Azure caricando un disco rigido virtuale esportato da uno strumento di virtualizzazione locale o da un altro cloud. Usando [Managed Disks](../../storage/storage-managed-disks-overview.md) per la nuova macchina virtuale è possibile semplificarne la gestione e ottenere una maggiore disponibilità posizionando la macchina virtuale in un set di disponibilità. Se si sta caricando un disco rigido virtuale che verrà usato per creare più macchine virtuali di Azure, è innanzitutto necessario generalizzare il disco rigido virtuale mediante un'utilità [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep consente di rimuovere eventuali informazioni specifiche e dati personali dell'account sul computer dal disco rigido virtuale. 
+Questo argomento illustra come usare PowerShell per caricare un disco rigido virtuale di una macchina virtuale generalizzata in Azure, creare un'immagine dal disco rigido virtuale e quindi una nuova macchina virtuale da tale immagine. È possibile caricare un disco rigido virtuale esportato da uno strumento di virtualizzazione locale o da un altro cloud. Usando [Managed Disks](../../storage/storage-managed-disks-overview.md) per la nuova macchina virtuale è possibile semplificarne la gestione e ottenere una maggiore disponibilità posizionando la macchina virtuale in un set di disponibilità. 
 
-Azure Managed Disks elimina la necessità di gestire gli [account di archiviazione](../../storage/storage-introduction.md) per le macchine virtuali di Azure. È necessario specificare solo il tipo ([Premium](../../storage/storage-premium-storage-performance.md) o [Standard](../../storage/storage-standard-storage.md)) e le dimensioni del disco necessario. Azure creerà e gestirà il disco per l'utente. 
-
-
-> [!IMPORTANT]
-> Rivedere l'articolo [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) (Piano per la migrazione a Managed Disks) prima di avviare la migrazione a [Managed Disks](../../storage/storage-managed-disks-overview.md).
->
-> Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
->
->
+Se si vuole usare uno script di esempio, vedere [Script di esempio per caricare un disco rigido virtuale in Azure e creare una nuova macchina virtuale](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Se si usa PowerShell, verificare di avere la versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
 
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Per altre informazioni, vedere [Azure PowerShell Versioning](/powershell/azure/overview) (Controllo delle versioni di Azure PowerShell).
+- Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Rivedere l'articolo [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) (Piano per la migrazione a Managed Disks) prima di avviare la migrazione a [Managed Disks](../../storage/storage-managed-disks-overview.md).
+- Verificare di avere la versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
+
+    ```powershell
+    Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+    ```
+    Per altre informazioni, vedere [Azure PowerShell Versioning](/powershell/azure/overview) (Controllo delle versioni di Azure PowerShell).
 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizzare la macchina virtuale Windows con Sysprep
@@ -81,7 +76,7 @@ Se PowerShell versione 1.4 o successiva non è già stato installato, vedere [Co
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Impostare la sottoscrizione corretta utilizzandone l'ID. Sostituire `<subscriptionID>` con l'ID della sottoscrizione corretta.
+3. Impostare la sottoscrizione corretta utilizzandone l'ID. Sostituire *<subscriptionID>* con l'ID della sottoscrizione corretta.
    
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
@@ -108,16 +103,16 @@ Per creare un account di archiviazione, seguire questa procedura:
     Get-AzureRmResourceGroup
     ```
 
-    Per creare un gruppo di risorse denominato **MyResourceGroup** nell'area **Stati Uniti occidentali**, digitare:
+    Per creare un gruppo di risorse denominato **myResourceGroup** nell'area **Stati Uniti orientali**, digitare:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzureRmResourceGroup -Name myResourceGroup -Location "East US"
     ```
 
 2. Creare un account di archiviazione denominato **mystorageaccount** in questo gruppo di risorse con il cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount).
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "East US"`
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
@@ -131,7 +126,7 @@ Per creare un account di archiviazione, seguire questa procedura:
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>Caricare il disco rigido virtuale nell'account di archiviazione
 
-Usare il cmdlet [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) per caricare il disco rigido virtuale in un contenitore nell'account di archiviazione. In questo esempio, il file **myVHD.vhd** viene caricato da `"C:\Users\Public\Documents\Virtual hard disks\"` a un account di archiviazione denominato **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Il file viene inserito nel contenitore denominato **mycontainer** e il nuovo nome del file sarà **myUploadedVHD.vhd**.
+Usare il cmdlet [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) per caricare il disco rigido virtuale in un contenitore nell'account di archiviazione. In questo esempio, il file *myVHD.vhd* viene caricato da *"C:\Users\Public\Documents\Virtual hard disks\"* in un account di archiviazione denominato *mystorageaccount* nel gruppo di risorse *myResourceGroup*. Il file viene inserito nel contenitore denominato *mycontainer* e il nuovo nome del file sarà *myUploadedVHD.vhd*.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -160,63 +155,51 @@ L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessi
 Salvare il percorso dell'**URI di destinazione** da usare in seguito se si desidera creare un disco gestito o una nuova macchina virtuale con il disco rigido virtuale caricato.
 
 ### <a name="other-options-for-uploading-a-vhd"></a>Altre opzioni per il caricamento di un disco rigido virtuale
-
+ 
+ 
 È anche possibile caricare un disco rigido virtuale nell'account di archiviazione tramite uno dei seguenti modi:
 
--   [API Copy Blob di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-
--   [Caricamento di BLOB in Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
-
--   [Materiale di riferimento dell'API REST del servizio di importazione/esportazione dell'archiviazione](https://msdn.microsoft.com/library/dn529096.aspx)
-
-    È consigliabile usare il servizio di importazione/esportazione se il tempo di caricamento stimato è maggiore di 7 giorni. È possibile usare [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) per stimare il tempo in base alla dimensione dei dati e all'unità di trasferimento. 
-
+- [AzCopy](http://aka.ms/downloadazcopy)
+- [API Copy Blob di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [Caricamento di BLOB in Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
+- [Materiale di riferimento dell'API REST del servizio di importazione/esportazione dell'archiviazione](https://msdn.microsoft.com/library/dn529096.aspx)
+-    È consigliabile usare il servizio di importazione/esportazione se il tempo di caricamento stimato è maggiore di 7 giorni. È possibile usare [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) per stimare il tempo in base alla dimensione dei dati e all'unità di trasferimento. 
     Il servizio Importazione/esportazione può essere usato per eseguire la copia in un account di archiviazione standard. Sarà necessario copiare dall'archiviazione standard all’account di archiviazione premium mediante uno strumento come AzCopy.
+
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Creare un'immagine gestita dal disco rigido virtuale caricato 
 
-Creare un'immagine gestita tramite il disco rigido virtuale del sistema operativo generalizzato.
+Creare un'immagine gestita tramite il disco rigido virtuale del sistema operativo generalizzato. Sostituire i valori con i propri.
 
 
 1.  Innanzitutto, impostare i parametri comuni:
 
     ```powershell
-    $rgName = "myResourceGroupName"
     $vmName = "myVM"
-    $location = "West Central US" 
+    $computerName = "myComputer"
+    $vmSize = "Standard_DS1_v2"
+    $location = "East US" 
     $imageName = "yourImageName"
-    $osVhdUri = "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
     ```
 
 4.  Creare un'immagine tramite il disco rigido virtuale del sistema operativo generalizzato.
 
     ```powershell
     $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
     $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
-
-## <a name="setup-some-variables-for-the-image"></a>Installare alcune variabili per l'immagine
-
-Innanzitutto, è necessario raccogliere le informazioni di base dell'immagine e creare una variabile per l'immagine. Questo esempio usa un'immagine di macchina virtuale gestita denominata **myImage** nel gruppo di risorse **myResourceGroup** nell'area **Stati Uniti centro-occidentali**. 
-
-```powershell
-$rgName = "myResourceGroup"
-$location = "West Central US"
-$imageName = "myImage"
-$image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
-```
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 Creare la rete virtuale e la subnet della [rete virtuale](../../virtual-network/virtual-networks-overview.md) stessa.
 
-1. Creare la subnet. Questo esempio crea una subnet denominata **mySubnet** con un prefisso di indirizzo di **10.0.0.0/24**.  
+1. Creare la subnet. Questo esempio crea una subnet denominata *mySubnet* con un prefisso di indirizzo di *10.0.0.0/24*.  
    
     ```powershell
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Creare la rete virtuale. Questo esempio crea una rete virtuale denominata **myVnet** con un prefisso di indirizzo di **10.0.0.0/16**.  
+2. Creare la rete virtuale. Questo esempio crea una rete virtuale denominata *myVnet* con un prefisso di indirizzo di *10.0.0.0/16*.  
    
     ```powershell
     $vnetName = "myVnet"
@@ -228,7 +211,7 @@ Creare la rete virtuale e la subnet della [rete virtuale](../../virtual-network/
 
 Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, sono necessari un [indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e un'interfaccia di rete.
 
-1. Creare un indirizzo IP pubblico. In questo esempio viene creato un indirizzo IP pubblico denominato **myPip**. 
+1. Creare un indirizzo IP pubblico. In questo esempio viene creato un indirizzo IP pubblico denominato *myPip*. 
    
     ```powershell
     $ipName = "myPip"
@@ -247,7 +230,7 @@ Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, son
 
 Per essere in grado di accedere alla VM tramite RDP, è necessario disporre di una regola di sicurezza della rete (NSG) che consenta l'accesso RDP sulla porta 3389. 
 
-In questo esempio viene creato un gruppo di sicurezza di rete denominato **myNsg** contenente una regola denominata **myRdpRule** che consente il traffico RDP sulla porta 3389. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Apertura di porte a una VM tramite PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+In questo esempio viene creato un gruppo di sicurezza di rete denominato *myNsg* contenente una regola denominata *myRdpRule* che consente il traffico RDP sulla porta 3389. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Apertura di porte a una VM tramite PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -279,21 +262,7 @@ Il cmdlet seguente apre una finestra in cui verrà immesso un nuovo nome utente 
 $cred = Get-Credential
 ```
 
-## <a name="set-variables-for-the-vm-name-computer-name-and-the-size-of-the-vm"></a>Impostare le variabili per il nome della macchina virtuale, per il nome del computer e per le dimensioni della macchina virtuale
-
-1. Creare variabili per il nome della macchina virtuale e per il nome del computer. In questo il nome della macchina virtuale viene impostato su **myVM** e il nome del computer viene impostato su **myComputer**.
-
-    ```powershell
-    $vmName = "myVM"
-    $computerName = "myComputer"
-    ```
-2. Impostare le dimensioni della macchina virtuale. Questo esempio crea una macchina virtuale con dimensione **Standard_DS1_v2**. Per altre informazioni, vedere la documentazione [Dimensioni per le macchine virtuali Windows in Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/).
-
-    ```powershell
-    $vmSize = "Standard_DS1_v2"
-    ```
-
-3. Aggiungere il nome della macchina virtuale e le dimensioni per la configurazione della macchina virtuale.
+## <a name="add-the-vm-name-and-size-to-the-vm-configuration"></a>Aggiungere il nome della macchina virtuale e le dimensioni per la configurazione della macchina virtuale.
 
 ```powershell
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
@@ -309,10 +278,10 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 
 ## <a name="set-the-os-configuration-and-add-the-nic"></a>Impostare la configurazione del sistema operativo e aggiungere la scheda di interfaccia di rete.
 
-Immettere il tipo di archiviazione (PremiumLRS o StandardLRS) e le dimensioni del disco del sistema operativo. In questo esempio il tipo di account viene impostato su **PremiumLRS**, le dimensioni del disco su **128 GB** e il caching del disco su **ReadWrite**.
+Immettere il tipo di archiviazione (PremiumLRS o StandardLRS) e le dimensioni del disco del sistema operativo. In questo esempio il tipo di account viene impostato su *PremiumLRS*, le dimensioni del disco su *128 GB* e il caching del disco su *ReadWrite*.
 
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 `
+$vm = Set-AzureRmVMOSDisk -VM $vm -DiskSizeInGB 128 `
 -CreateOption FromImage -Caching ReadWrite
 
 $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
@@ -323,7 +292,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 ## <a name="create-the-vm"></a>Creare la VM
 
-Creare la nuova macchina virtuale usando la configurazione creata e archiviata nella variabile **$vm**.
+Creare la nuova VM usando la configurazione archiviata nella variabile **$vm**.
 
 ```powershell
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
