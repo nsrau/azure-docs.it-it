@@ -13,33 +13,45 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/05/2017
 ms.author: genemi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: b42d2bd64dbaf44f1be85d687b27ffe47eb0db53
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 8c4d76e371a8f48806dd2229e406a2eb1f69504e
 ms.contentlocale: it-it
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="connection-libraries-for-sql-database-and-sql-server"></a>Raccolte di connessioni per database SQL e Server SQL
+# <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Librerie di connettività e framework per Microsoft SQL Server
 
-In questo argomento vengono elencati le librerie e i *driver* che è possibile usare nei programmi client quando ci si connette al database SQL di Azure o a Microsoft SQL Server. 
+Vedere le [esercitazioni introduttive](http://aka.ms/sqldev) per iniziare a usare rapidamente linguaggi di programmazione come C#, Java, Node.js, PHP e Python, nonché creare un'app con SQL Server su Linux o Windows o con Docker su macOS.
 
-| Lingua | Piattaforma | Risorse aggiuntive | Scaricare |
-|:--- |:--- |:--- |:--- |
-| ADO.NET |Windows, Linux, Mac |[Microsoft ADO.NET per SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server/) |[Scaricare](https://www.microsoft.com/net/) |
-| Java |Windows, Linux, Mac |[Driver Microsoft JDBC per SQL Server](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) |[Scaricare](http://go.microsoft.com/fwlink/?LinkId=245496) |
-| PHP |Windows |[Driver Microsoft PHP per SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server/) |[Scaricare](https://www.microsoft.com/download/details.aspx?id=20098) |
-| Node.js |Windows, Linux, Mac |[Driver Node.js per SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/) |[Installare](https://docs.microsoft.com/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |
-| Python |Windows, Linux, Mac |[Driver Python SQL](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/) |Opzioni di installazione: <br/> \* [pymssql](https://docs.microsoft.com/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](https://docs.microsoft.com/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |
-| Ruby |Windows, Linux, Mac |[Driver Ruby per SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/) |[Installare](https://docs.microsoft.com/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) |
-| C/C++ |Windows, Linux |[Driver Microsoft ODBC per SQL Server](http://docs.microsoft.com/sql/connect/odbc/microsoft-odbc-driver-for-sql-server) |Opzioni di installazione: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=53339) <br/> \* [Linux](https://blogs.msdn.microsoft.com/sqlnativeclient/2016/10/20/odbc-driver-13-0-for-linux-released/) |
+La tabella seguente elenca le librerie di connettività o *driver* che le applicazioni client possono usare da svariati linguaggi per connettersi a Microsoft SQL Server e usarlo in esecuzione in locale o nel cloud, in Linux, Windows o in Docker, nonché per connettersi al database SQL di Azure e ad Azure SQL Data Warehouse. 
+
+| Linguaggio | Piattaforma | Risorse aggiuntive | Scaricare | Attività iniziali |
+| :-- | :-- | :-- | :-- | :-- |
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET per SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Scaricare](https://www.microsoft.com/net/download/) | [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Driver Microsoft JDBC per SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Scaricare](http://go.microsoft.com/fwlink/?LinkId=245496) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [Driver SQL PHP per SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Sistema operativo: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
+| Node.js | Windows, Linux, macOS | [Driver Node.js per SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installare](https://msdn.microsoft.com/library/mt652094.aspx) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Driver Python SQL](http://msdn.microsoft.com/library/mt652092.aspx) | Opzioni di installazione: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Driver Ruby per SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installare](https://msdn.microsoft.com/library/mt711041.aspx) | [Attività iniziali](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [Driver Microsoft ODBC per SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Scaricare](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
+
+La tabella seguente elenca alcuni esempi di framework ORM (Object Relational Mapping) e framework Web che le applicazioni client possono usare con Microsoft SQL Server in esecuzione in locale o nel cloud, in Linux, Windows o Docker e anche per il database SQL di Azure e Azure SQL Data Warehouse. 
+
+| Linguaggio | Piattaforma | ORM |
+| :-- | :-- | :-- |
+| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/en-us/ef)<br>[Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/index) |
+| Java | Windows, Linux, macOS |[Hibernate ORM](http://hibernate.org/orm)|
+| PHP | Windows, Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
+| Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
+| Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
+| Ruby | Windows, Linux, macOS | [Ruby on Rails](http://rubyonrails.org/) |
 
 ## <a name="related-links"></a>Collegamenti correlati
-
-- [SQL Server Drivers](https://docs.microsoft.com/sql/connect/sql-server-drivers/) (Driver SQL Server), per la connessione da un client
+- [Driver SQL Server](http://msdn.microsoft.com/library/mt654049.aspx) per la connessione da applicazioni client
 - [Connettersi al database SQL tramite .NET (C#)](sql-database-connect-query-dotnet.md)
 - [Connettersi al database SQL tramite PHP](sql-database-connect-query-php.md)
 - [Connettersi al Database SQL tramite Node.js](sql-database-connect-query-nodejs.md)

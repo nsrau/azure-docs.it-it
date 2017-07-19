@@ -1,6 +1,6 @@
 ---
-title: Raccomandazioni sull&quot;ottimizzazione delle prestazioni delle query - Database SQL di Azure | Documentazione Microsoft
-description: L&quot;advisor per database SQL di Azure offre raccomandazioni per i database SQL esistenti che consentono di migliorare le prestazioni correnti delle query.
+title: Raccomandazioni per le prestazioni - Database SQL di Azure | Microsoft Docs
+description: Il database SQL di Azure offre raccomandazioni per i database SQL esistenti che consentono di migliorare le prestazioni correnti delle query.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,32 +8,45 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
-ms.custom: monitor & manage
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/30/2016
+ms.date: 07/05/2017
 ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 357a25a665894c86ddb0f93beeb4dd59d8837489
 ms.contentlocale: it-it
-ms.lasthandoff: 02/02/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="sql-database-advisor"></a>Advisor per database SQL
+# <a name="performance-recommendations"></a>Raccomandazioni per le prestazioni
 
-Il database SQL di Azure apprende e si adatta all'applicazione e offre raccomandazioni personalizzate che consentono di ottimizzare le prestazioni dei database SQL. SQL Database Advisor offre raccomandazioni per la creazione e la rimozione di indici, la parametrizzazione di query e la risoluzione dei problemi di schema. L'advisor consente di valutare le prestazioni analizzando la cronologia relativa all'utilizzo del database SQL. È consigliabile usare le raccomandazioni più adatte per l'esecuzione del carico di lavoro tipico del database. 
+Il database SQL di Azure apprende e si adatta all'applicazione e offre raccomandazioni personalizzate che consentono di ottimizzare le prestazioni dei database SQL. Le prestazioni vengono valutate continuamente analizzando la cronologia relativa all'utilizzo del database SQL. Le raccomandazioni fornite si basano su un modello di carico di lavoro univoco del database e consentono di migliorarne le prestazioni.
 
-Le seguenti raccomandazioni sono disponibili per i server del database SQL di Azure. Attualmente è possibile impostare l'applicazione automatica delle raccomandazioni per la creazione e l'eliminazione di indici. Per informazioni dettagliate, vedere [Abilitare la gestione automatica degli indici](sql-database-advisor-portal.md#enable-automatic-index-management).
+> [!NOTE]
+> Il modo consigliato per usare le raccomandazioni prevede l'abilitazione della funzionalità di 'Ottimizzazione automatica' nel database. Per altri dettagli, vedere [Ottimizzazione automatica](sql-database-automatic-tuning.md).
+>
 
 ## <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
-**creazione di indici** vengono visualizzate quando il servizio del database SQL rileva un indice mancante che, se creato, potrebbe risultare vantaggioso per il carico di lavoro dei database (solo indici non cluster).
+Il database SQL di Azure esegue un monitoraggio continuo delle query eseguite e identifica gli indici che potrebbero migliorare le prestazioni. Dopo aver raccolto dati sufficienti per confermare la mancanza di un determinato indice, verrà creata una nuova raccomandazione **Crea indice**. Il database SQL di Azure conferma l'attendibilità dei rilevamenti stimando il miglioramento delle prestazioni che potrebbe offrire l'indice nel tempo. A seconda del miglioramento delle prestazioni stimato, le raccomandazioni vengono classificate come Alta, Media o Bassa. 
+
+Gli indici creati usando le raccomandazioni vengono sempre contrassegnati come indici auto_created. È possibile scoprire quali indici sono auto_created esaminando la vista sys.indexes. Gli indici creati automaticamente non bloccano i comandi ALTER/RENAME. Se si tenta di eliminare la colonna su cui si basa un indice creato automaticamente, il comando viene eseguito ed elimina anche l'indice creato automaticamente. Gli indici normali bloccano il comando ALTER/RENAME sulle colonne indicizzate.
+
+Dopo aver applicato la raccomandazione per l'indice, il database SQL di Azure confronterà le prestazioni delle query con la baseline. Se il nuovo indice ha introdotto miglioramenti delle prestazioni, la raccomandazione verrà contrassegnata come positiva e sarà disponibile un report dell'impatto. Se l'indice non offre vantaggi, verrà annullato automaticamente. In questo modo il database SQL di Azure garantisce che l'uso delle raccomandazioni consenta solo di ottenere miglioramenti delle prestazioni del database.
+
+Per qualsiasi raccomandazione **Crea indice** esiste un criterio di sicurezza che non consente di applicare la raccomandazione se l'utilizzo DTU del database o del pool è superiore all'80% negli ultimi 20 minuti oppure se l'utilizzo dello spazio di archiviazione è superiore al 90%. In questo caso, l'applicazione della raccomandazione verrà posticipata.
 
 ## <a name="drop-index-recommendations"></a>Raccomandazioni relative all'eliminazione di indici
-**eliminazione di indici** vengono visualizzate quando il servizio del database SQL rileva indici duplicati (attualmente in anteprima e applicabile solo agli indici duplicati).
+Oltre a rilevare un indice mancante, i database SQL di Azure analizzano continuamente le prestazioni degli indici esistenti. Se un indice è inutilizzato, il database SQL di Azure proporrà di eliminarlo. L'eliminazione di un indice è consigliabile in due casi:
+* L'indice è un duplicato di un altro indice (include colonna, schema di partizione e filtri identici)
+* L'indice risulta inutilizzato per un periodo prolungato (93 giorni)
+
+Anche le raccomandazioni relative all'eliminazione di indici sono sottoposte a verifica dopo l'implementazione. Se le prestazioni risultano migliorate sarà disponibile il report di impatto. Se viene invece rilevata una riduzione delle prestazioni, la raccomandazione verrà annullata.
+
 
 ## <a name="parameterize-queries-recommendations"></a>Raccomandazioni relative alla creazione di query con parametri
 Le raccomandazioni relative alla **creazione di query con parametri** vengono visualizzate quando sono presenti una o più query che vengono ricompilate costantemente ma finiscono con lo stesso piano di esecuzione di query. Questa condizione fa emergere l'opportunità di applicare l'impostazione forzata di parametri, in modo da permettere la memorizzazione nella cache e il riutilizzo delle query in futuro, con conseguente miglioramento delle prestazioni e riduzione dell'utilizzo delle risorse. 
@@ -65,12 +78,12 @@ Le raccomandazioni relative alla "correzione di problemi di schema" vengono visu
 ## <a name="next-steps"></a>Passaggi successivi
 Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare le prestazioni. I carichi di lavoro dei database sono dinamici e cambiano in modo continuo. SQL Database Advisor continua a monitorare e offrire raccomandazioni potenzialmente utili per migliorare le prestazioni del database. 
 
-* Vedere l'articolo su [Advisor per database SQL nel portale di Azure](sql-database-advisor-portal.md) per istruzioni sul relativo uso.
+* Vedere [Applicare le raccomandazioni per le prestazioni](sql-database-advisor-portal.md) per istruzioni su come usare le raccomandazioni per le prestazioni nel portale di Azure.
 * Per imparare a esaminare l'impatto sulle prestazioni delle query principali, vedere [Query Performance Insight del database SQL di Azure](sql-database-query-performance.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md)
+* [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md)
 
 

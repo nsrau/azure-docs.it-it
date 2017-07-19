@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per l&quot;array virtuale StorSimple | Microsoft Docs
-description: Descrive le procedure consigliate per la distribuzione e la gestione dell&quot;array virtuale StorSimple.
+title: Procedure consigliate per l'array virtuale StorSimple | Microsoft Docs
+description: Descrive le procedure consigliate per la distribuzione e la gestione dell'array virtuale StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/01/2017
+ms.date: 06/08/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 6d5563d06d9097134715f8885521c85e987a3acd
-ms.lasthandoff: 05/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 56e8f5cf3886c740853a40781c42b3e36144134b
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -163,7 +164,7 @@ Tenere presenti le procedure consigliate seguenti quando si effettua il provisio
 * Per i casi d'uso di ripristino di emergenza, poiché il numero di condivisioni o volumi consentiti è pari a 16 e il numero massimo di condivisioni o volumi che possono essere elaborati in parallelo è 16, il numero di condivisioni o volumi non ha un impatto su RPO e RTO.
 
 #### <a name="volumeshare-type"></a>Tipo di volumi o condivisioni
-StorSimple supporta due tipi di volumi o condivisioni in base all'utilizzo: aggiunta in locale e a livelli. Per i volumi o le condivisioni aggiunte in locale viene effettuato il thick provisioning, mentre per i volumi o le condivisioni a livelli viene effettuato il thin provisioning. 
+StorSimple supporta due tipi di volumi o condivisioni in base all'utilizzo: aggiunta in locale e a livelli. Per i volumi o le condivisioni aggiunte in locale viene effettuato il thick provisioning, mentre per i volumi o le condivisioni a livelli viene effettuato il thin provisioning. Dopo la creazione, non è possibile convertire una condivisione o un volume aggiunto in locale nel tipo a livelli o *viceversa*.
 
 È consigliabile implementare le procedure consigliate seguenti quando si configurano volumi o condivisioni di StorSimple:
 

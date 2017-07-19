@@ -1,6 +1,6 @@
 ---
-title: 'Script dell&quot;interfaccia della riga di comando di Azure: monitorare e ridimensionare un database SQL singolo | Microsoft Docs'
-description: 'Esempio di script dell&quot;interfaccia della riga di comando di Azure: monitorare e ridimensionare un database SQL singolo usando l&quot;interfaccia della riga di comando di Azure'
+title: Esempio dell'interfaccia della riga di comando - Monitorare e ridimensionare un singolo database SQL di Azure | Microsoft Docs
+description: Script di esempio dell'interfaccia della riga di comando di Azure per monitorare e ridimensionare un singolo database SQL di Azure
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -9,40 +9,40 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc
+ms.custom: monitor & tune
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: f29da889f90968a82dccaeb1fa7e3c20e6b44458
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 01911b85268244a8fddb32aa726f8a870abbaf77
 ms.contentlocale: it-it
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-single-sql-database-using-the-azure-cli"></a>Monitorare e ridimensionare un singolo database SQL usando l'interfaccia della riga di comando di Azure
+# <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Usare l'interfaccia della riga di comando per monitorare e ridimensionare un singolo database SQL
 
-Questo esempio di script dell'interfaccia della riga di comando ridimensiona un database SQL di Azure singolo per ottenere un livello di prestazioni diverso dopo l'esecuzione di query sulle dimensioni del database. 
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Questo esempio di script dell'interfaccia della riga di comando di Azure ridimensiona un singolo database SQL di Azure per ottenere un livello di prestazioni diverso dopo aver recuperato informazioni sulle dimensioni del database tramite query. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitorare e ridimensionare database SQL singoli")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitorare e ridimensionare database SQL singoli")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
 Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

@@ -16,10 +16,10 @@ ms.workload: required
 ms.date: 04/20/2017
 ms.author: vturecek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: ebca34d5bf092494ea59a4a679f7f1175577320f
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 92a8894f24c234fbf38eda086531b524cceccfc1
 ms.contentlocale: it-it
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -31,6 +31,8 @@ La procedura di impostazione della funzionalità remota per un servizio è costi
 
 1. Creare un'interfaccia per l'implementazione del servizio. Questa interfaccia definisce i metodi che saranno disponibili per una chiamata di procedura remota nel servizio e devono essere metodi asincroni di restituzione di attività. L'interfaccia deve implementare `Microsoft.ServiceFabric.Services.Remoting.IService` per segnalare che il servizio dispone di un'interfaccia remota.
 2. Usare un listener di comunicazione remota nel servizio. Si tratta di un'implementazione `ICommunicationListener` che fornisce funzionalità di accesso remoto. Lo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.Runtime` contiene un metodo di estensione `CreateServiceRemotingListener`, per i servizi con e senza stato, che può essere usato per creare un listener di comunicazione remota con il protocollo di trasporto predefinito per la comunicazione remota.
+
+Nota: lo spazio dei nomi `Remoting` è disponibile come pacchetto NuGet separato denominato `Microsoft.ServiceFabric.Services.Remoting` 
 
 Ad esempio, il servizio senza stato seguente espone un metodo singolo per ottenere "Hello World" su una chiamata RPC.
 

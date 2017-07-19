@@ -17,10 +17,10 @@ ms.workload: NA
 ms.date: 04/13/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d233bea6d0314f0bda0ebfe6fb310f1c6b1579d1
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: fac947fa153d83b614dc35c3cc0d8e640bfe1c95
 ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -45,7 +45,7 @@ Per ottenere maggiori dettagli sul consumo di risorse (DTU) del carico di lavoro
 ![Introduzione al database SQL: DTU di database singolo in base al livello](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Informazioni sulle unità di transazione di database elastico (eDTU)
-Anziché fornire un set di risorse (DTU) dedicato a un Database SQL che è sempre disponibile indipendentemente dal fatto che sia necessario o meno, è possibile inserire i database in un [pool elastico](sql-database-elastic-pool.md) in un server di database SQL che condivide un pool di risorse tra tali database. Le risorse condivise in un pool elastico sono misurate dalle unità di transazione di database elastiche o eDTU. I pool elastici offrono una soluzione semplice e conveniente per gestire gli obiettivi di prestazioni per più database con modelli di utilizzo estremamente mutevoli e imprevedibili. In un pool elastico è possibile garantire che nessun database utilizzi tutte le risorse del pool e anche che una minima quantità di risorse sia sempre disponibile per ogni database del pool elastico. Vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) per altre informazioni.
+Anziché fornire un set di risorse (DTU) dedicato a un Database SQL che è sempre disponibile indipendentemente dal fatto che sia necessario o meno, è possibile inserire i database in un [pool elastico](sql-database-elastic-pool.md) in un server di database SQL che condivide un pool di risorse tra tali database. Le risorse condivise in un pool elastico sono misurate dalle unità di transazione di database elastiche o eDTU. I pool elastici offrono una soluzione semplice e conveniente per gestire gli obiettivi di prestazioni per più database con modelli di utilizzo estremamente mutevoli e imprevedibili. In un pool elastico è possibile garantire che nessun database utilizzi tutte le risorse del pool e anche che una minima quantità di risorse sia sempre disponibile per ogni database del pool elastico. Per altre informazioni, vedere [Pool elastici](sql-database-elastic-pool.md).
 
 ![Introduzione al database SQL: eDTU in base al livello](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 

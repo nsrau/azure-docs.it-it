@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/09/2016
+ms.date: 07/05/2017
 ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
-ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 1925d4ff8f5b16a0df56de987f8653cfd8441c52
 ms.contentlocale: it-it
-ms.lasthandoff: 01/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -37,7 +37,7 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
 * Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' [archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia attivo nel database. Se l'archivio query non è in esecuzione, il portale richiede di attivarlo.
 
 ## <a name="permissions"></a>Autorizzazioni
-Le autorizzazioni di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) seguenti sono necessarie per usare Query Performance Insight: 
+Le autorizzazioni di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) seguenti sono necessarie per usare Query Performance Insight: 
 
 * Le autorizzazioni **Lettore**, **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare le query principali che usano le risorse e i grafici. 
 * Le autorizzazioni **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare il testo della query.
@@ -80,7 +80,7 @@ Eseguire le operazioni seguenti nel [portale](http://portal.azure.com) :
      
      Selezionare o deselezionare singole query per includerle o escluderle dal grafico utilizzando le caselle di spunta.
 3. Se i dati non vengono più aggiornati, fare clic sul pulsante **Aggiorna** .
-4. È possibile usare i dispositivi di scorrimento e i pulsanti dello zoom per modificare l'intervallo di osservazione ed esaminare i picchi:  ![impostazioni](./media/sql-database-query-performance/zoom.png)
+4. È possibile usare i dispositivi di scorrimento e i pulsanti dello zoom per modificare l'intervallo di osservazione ed esaminare i picchi: ![impostazioni](./media/sql-database-query-performance/zoom.png)
 5. Facoltativamente, se si desidera un'altra visualizzazione, è possibile selezionare la scheda **Personalizzata** e impostare:
    
    * Metrica (CPU, durata, conteggio delle esecuzioni)

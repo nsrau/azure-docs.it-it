@@ -1,6 +1,6 @@
 ---
-title: 'Script di Azure PowerShell: configurare il controllo del database e il rilevamento delle minacce | Microsoft Docs'
-description: 'Esempio di script di Azure PowerShell: configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell'
+title: Esempio di PowerShell - Controllo e rilevamento delle minacce per un database SQL di Azure | Microsoft Docs
+description: Esempio di script di Azure PowerShell per configurare il controllo e il rilevamento delle minacce in un database SQL di Azure
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5bb1f0b4b6e548cf4164dae55d13cbebb660232f
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 228772ff6710596c916165a132db31f449d0a327
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="configure-sql-database-auditing-and-threat-detection-using-powershell"></a>Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell
+# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Usare PowerShell per configurare il controllo e il rilevamento delle minacce per il database SQL
 
-Questo script di PowerShell di esempio configura il controllo del database SQL e il rilevamento delle minacce. 
+Questo esempio di script di PowerShell configura il controllo e il rilevamento delle minacce del database SQL. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 06/29/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2aebded82fcf67bf9ad4a00a703e62eb12e2370c
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: d39ec89b4877e2fca01b68b30bb287a120f2eb71
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -34,21 +35,21 @@ Lo strumento Importazione/Esportazione di Microsoft Azure è lo strumento di pre
 
 Se si intende **preparare le unità** per un processo di importazione, è necessario soddisfare i prerequisiti seguenti:
 
-* È necessaria una sottoscrizione di Azure attiva.
+* È necessario disporre di una sottoscrizione di Azure attiva.
 * La sottoscrizione deve includere un account di archiviazione con spazio disponibile sufficiente per archiviare i file che si intende importare.
-* È necessaria almeno una delle chiavi dell'account per l'account di archiviazione.
+* È necessaria almeno una delle chiavi di accesso dell'account di archiviazione.
 * È necessario un computer ("computer di copia") in cui sia installato Windows 7, Windows Server 2008 R2 o un sistema operativo Windows più recente.
 * Nel computer di copia deve essere installato .NET Framework 4.
 * Nel computer di copia deve essere abilitato BitLocker.
-* Sarà necessario uno o più dischi rigidi SATA da 3,5 pollici vuoti connessi al computer di copia.
+* Sono necessari uno o più dischi rigidi SATA da 3,5 pollici vuoti connessi al computer di copia.
 * I file che si intende importare devono essere accessibili dal computer di copia, che si trovino in una condivisione di rete o in un disco rigido locale.
 
-Se si cerca di **ripristinare un'importazione** parzialmente non riuscita, sono necessari gli elementi seguenti:
+Se si tenta di **recuperare un'importazione** parzialmente non riuscita, è necessario disporre dei seguenti elementi:
 
 * I file di log di copia
-* chiave dell'account di archiviazione.
+* La chiave dell'account di archiviazione
 
-Se si cerca di **ripristinare un'esportazione** parzialmente non riuscita, sono necessari gli elementi seguenti:
+Se si tenta di **recuperare un'esportazione** parzialmente non riuscita, è necessario disporre dei seguenti elementi:
 
 * I file di log di copia
 * I file manifesto (facoltativi)
@@ -56,7 +57,7 @@ Se si cerca di **ripristinare un'esportazione** parzialmente non riuscita, sono 
 
 ## <a name="installing-the-azure-importexport-tool"></a>Installazione dello strumento di importazione/esportazione di Azure
 
-Prima di tutto [scaricare lo strumento Importazione/Esportazione di Azure](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) ed estrarlo in una directory nel computer in uso, ad esempio `c:\WAImportExport`.
+Prima di tutto [scaricare lo strumento Importazione/Esportazione di Azure](https://www.microsoft.com/download/details.aspx?id=55280) ed estrarlo in una directory nel computer in uso, ad esempio `c:\WAImportExport`.
 
 Lo strumento Importazione/Esportazione di Azure è costituito dai file indicati di seguito:
 
@@ -65,45 +66,37 @@ Lo strumento Importazione/Esportazione di Azure è costituito dai file indicati 
 * hddid.dll
 * Microsoft.Data.Services.Client.dll
 * Microsoft.WindowsAzure.Storage.dll
+* Microsoft.WindowsAzure.Storage.pdb
+* Microsoft.WindowsAzure.Storage.xml
 * WAImportExport.exe
 * WAImportExport.exe.config
+* WAImportExport.pdb
 * WAImportExportCore.dll
+* WAImportExportCore.pdb
 * WAImportExportRepair.dll
+* WAImportExportRepair.pdb
 
 Aprire quindi una finestra del prompt dei comandi in **modalità amministratore** e passare alla directory contenente i file estratti.
 
-Per visualizzare la Guida per il comando, eseguire lo strumento senza parametri:
+Per visualizzare la Guida per il comando, eseguire lo strumento (`WAImportExport.exe`) senza parametri:
 
 ```
-WAImportExport, a client tool for Windows Azure Import/Export service. Microsoft (c) 2013
+WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
 
 
 Copy directories and/or files with a new copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId> [/logdir:<LogDirectory>]
-        [/sk:<StorageAccountKey>]
-        [/silentmode]
-        [/InitialDriveSet:<driveset.csv>]
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>]
+        [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]
         DataSet:<dataset.csv>
 
 Add more drives:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AdditionalDriveSet:<driveset.csv>
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 
 Abort an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AbortSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 
 Resume an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /ResumeSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
 
 List drives:
     WAImportExport.exe PrepImport /j:<JournalFile> /ListDrives
@@ -178,7 +171,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>
         - Required. Path to the XML file containing list of blob paths or blob path
           prefixes for the blobs to be exported. The file format is the same as the
-          blob list blob format in the Put Job operation of the Import/Export service
+          blob list blob format in the Put Job operation of the Import/Export Service
           REST API.
     /DriveSize:<DriveSize>
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.
@@ -220,8 +213,8 @@ Examples:
 
 * [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import.md) (Preparazione dei dischi rigidi per un processo di importazione)
 * [Previewing drive usage for an export job](storage-import-export-tool-previewing-drive-usage-export-v1.md) (Anteprima dell'uso del disco per un processo di esportazione)
-* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)
-* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)
+* [Revisione dello stato dei processi con i file di log di copia](storage-import-export-tool-reviewing-job-status-v1.md)
+* [Riparazione di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)
 * [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
 

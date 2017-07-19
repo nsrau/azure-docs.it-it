@@ -1,6 +1,6 @@
 ---
-title: Configurare l&quot;ambiente di origine (VMware in Azure) | Documentazione Microsoft
-description: Questo articolo descrive come configurare l&quot;ambiente locale per avviare la replica di macchine virtuali VMware in Azure.
+title: Configurare l'ambiente di origine (VMware in Azure) | Documentazione Microsoft
+description: Questo articolo descrive come configurare l'ambiente locale per avviare la replica di macchine virtuali VMware in Azure.
 services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
@@ -11,21 +11,21 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 06/05/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eccc927550aef4c9cd71ffad64d2eddedb74326e
-ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: fd331d805c0c6ddcfb492db2902a8e53b23dcab3
 ms.contentlocale: it-it
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Configurare l'ambiente di origine (VMware in Azure)
 > [!div class="op_single_selector"]
-> * [Macchine virtuali VMware](./site-recovery-set-up-vmware-to-azure.md)
-> * [Server fisici](./site-recovery-set-up-physical-to-azure.md)
+> * [Da VMware ad Azure](./site-recovery-set-up-vmware-to-azure.md)
+> * [Da fisico ad Azure](./site-recovery-set-up-physical-to-azure.md)
 
 Questo articolo descrive come configurare l'ambiente locale per avviare la replica di macchine virtuali in esecuzione su VMware in Azure.
 
