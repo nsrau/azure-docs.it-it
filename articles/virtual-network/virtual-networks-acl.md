@@ -1,11 +1,12 @@
 ---
-title: "Che cos&quot;è un elenco di controllo di accesso di rete (ACL)"
-description: Informazioni sugli elenchi di controllo di accesso
+title: Informazioni sugli elenchi di controllo di accesso di rete di Azure
+description: Informazioni sugli elenchi di controllo di accesso in Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
-editor: tysonn
+manager: timlt
+editor: 
+tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
 ms.devlang: na
@@ -14,31 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 66ddcea180395b830cdb5310446e1dbc02e7d784
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="what-is-an-endpoint-access-control-list-acls"></a>Che cos'è un elenco di controllo di accesso (ACL) di endpoint?
-Un elenco di controllo di accesso (ACL) di endpoint è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta.
+# <a name="what-is-an-endpoint-access-control-list"></a>Informazioni sugli elenchi di controllo di accesso agli endpoint
 
 > [!IMPORTANT]
-> È consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso di rete, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere l'articolo relativo alla [descrizione dei gruppi di accesso di rete](virtual-networks-nsg.md).
-> 
-> 
+> Azure offre due [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per creare e usare le risorse: Resource Manager e la distribuzione classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di distribuzione Resource Manager per le distribuzioni più recenti. 
 
-Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di gestione. Per la configurazione di un elenco di controllo di accesso di rete tramite PowerShell, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md). Per configurare un elenco di controllo di accesso di rete tramite il portale di gestione, vedere [Come configurare gli endpoint in una macchina virtuale Windows classica in Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Un elenco di controllo di accesso (ACL) agli endpoint è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta. È consigliabile usare i gruppi di sicurezza di rete invece degli elenchi di controllo di accesso, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere [Panoramica dei gruppi di sicurezza di rete](virtual-networks-nsg.md).
+
+Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di Azure. Per configurare un elenco di controllo di accesso di rete usando PowerShell, vedere [Gestione degli elenchi di controllo di accesso per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md). Per configurare un elenco di controllo di accesso di rete usando il portale di Azure, vedere [Come configurare gli endpoint in una macchina virtuale](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Con gli elenchi di controllo di accesso di rete, è possibile effettuare le operazioni seguenti:
 
 * Consentire o negare in modo selettivo il traffico in ingresso in base a un intervallo di indirizzi IPv4 di subnet remota in un endpoint di input di macchina virtuale.
 * Creare una blacklist di indirizzi IP.
 * Creare più regole per un endpoint di macchina virtuale.
-* Specificare fino a 50 regole di elenchi di controllo di accesso per endpoint di macchina virtuale.
 * Usare l'ordinamento delle regole per assicurarsi che venga applicato il set di regole corretto per un endpoint specifico di macchina virtuale (dalla più bassa alla più alta).
 * Specificare un elenco di controllo di accesso per un indirizzo IPv4 di una subnet remota specifica.
+
+Per i limiti degli elenchi di controllo di accesso, vedere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ## <a name="how-acls-work"></a>Funzionamento degli elenchi di controllo di accesso
 Un elenco di controllo di accesso è un oggetto che contiene un elenco di regole. Quando si crea e si applica un elenco di controllo di accesso a un endpoint di macchina virtuale, viene eseguito il filtro dei pacchetti nel nodo host della macchina virtuale. Questo significa che il traffico proveniente dagli indirizzi IP remoti non viene filtrato nella macchina virtuale, bensì dal nodo host per la corrispondenza con le regole degli elenchi di controllo di accesso. In questo modo si evita che la macchina virtuale usi preziosi cicli della CPU per filtrare i pacchetti.
@@ -85,11 +87,11 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 | 200 |175.0.0.0/8 |80 |Consenti |
 
 ## <a name="network-acls-and-load-balanced-sets"></a>Elenchi di controllo di accesso di rete e set con carico bilanciato
-È possibile specificare elenchi di controllo di accesso di rete sull'endpoint di un set con carico bilanciato. Se per un set con carico bilanciato viene specificato un elenco di controllo di accesso, l'elenco di controllo di accesso di rete verrà applicato a tutte le macchine virtuali di tale set. Se ad esempio viene creato un set con carico bilanciato con la "porta 80" e tre macchine virtuali, l'elenco di controllo di accesso di rete creato sulla "porta 80" dell'endpoint di una macchina virtuale verrà applicato automaticamente alle altre macchine virtuali.
+È possibile specificare elenchi di controllo di accesso di rete sull'endpoint di un set con carico bilanciato. Se per un set con carico bilanciato viene specificato un elenco di controllo di accesso, l'elenco di controllo di accesso di rete verrà applicato a tutte le macchine virtuali di tale set con carico bilanciato. Se ad esempio viene creato un set con carico bilanciato con la "porta 80" e 3 macchine virtuali, l'elenco di controllo di accesso di rete creato sulla "porta 80" dell'endpoint di una macchina virtuale verrà applicato automaticamente alle altre macchine virtuali.
 
 ![Elenchi di controllo di accesso di rete e set con carico bilanciato](./media/virtual-networks-acl/IC674733.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md)
+[Gestire elenchi di controllo di accesso di endpoint con PowerShell](virtual-networks-acl-powershell.md)
 
 

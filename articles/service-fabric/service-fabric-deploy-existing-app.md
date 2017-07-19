@@ -1,6 +1,6 @@
 ---
 title: Distribuire un eseguibile esistente in Azure Service Fabric | Documentazione Microsoft
-description: Procedura dettagliata su come creare il pacchetto di un&quot;applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Service Fabric
+description: Procedura dettagliata su come creare il pacchetto di un'applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -12,17 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/07/2016
+ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 16000dcb751bd96fba247c6209e85c581833681d
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: a1db3dda674ffe43587333d88f3816549af3019c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>Distribuire un eseguibile guest in Service Fabric
-In Azure Service Fabric è possibile eseguire qualsiasi tipo di applicazione, ad esempio Node.js, Java o applicazioni native. Service Fabric fa riferimento a questi tipi di applicazioni come eseguibili guest.
+In Azure Service Fabric distribuito come servizio è possibile eseguire qualsiasi tipo di codice, ad esempio Node.js, Java, e C++. Service Fabric fa riferimento a questi tipi di servizi come eseguibili guest.
+
 Gli eseguibili guest vengono considerati da Service Fabric come servizi senza stato. Di conseguenza, vengono inseriti nei nodi di un cluster in base alla disponibilità e ad altre metriche. Questo articolo descrive come creare un pacchetto e distribuire un eseguibile guest in un cluster di Service Fabric, usando Visual Studio o un'utilità della riga di comando.
 
 Questo articolo illustra i passaggi per creare il pacchetto di un eseguibile guest e distribuirlo in Service Fabric.  
@@ -34,6 +36,7 @@ L'esecuzione di un eseguibile guest in un cluster di Service Fabric presenta num
 * Monitoraggio dell’integrità. Il monitoraggio dell'integrità di Service Fabric rileva se un'applicazione è in esecuzione e fornisce informazioni di diagnostica in caso di errore.   
 * Gestione del ciclo di vita delle applicazioni. Oltre a garantire aggiornamenti senza tempi di inattività, Service Fabric consente il ripristino automatico della versione precedente se durante un aggiornamento viene segnalato un evento di integrità negativo.    
 * Densità. È possibile eseguire più applicazioni in un cluster, eliminando la necessità che ogni applicazione venga eseguita nel proprio hardware.
+* Individuabilità. Usando REST è possibile chiamare il servizio Service Fabric Naming per trovare altri servizi nel cluster. 
 
 ## <a name="samples"></a>Esempi
 * [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -43,7 +46,7 @@ L'esecuzione di un eseguibile guest in un cluster di Service Fabric presenta num
 Nell'ambito della distribuzione di un eseguibile guest è utile comprendere il modello di creazione di pacchetti e di distribuzione di Service Fabric, descritto nel [modello applicativo](service-fabric-application-model.md). Il modello di creazione di pacchetti di Service Fabric si basa su due file XML: il manifesto dell'applicazione e il manifesto del servizio. La definizione dello schema per i file ApplicationManifest.xml e ServiceManifest.xml viene installata con Service Fabric SDK in *C:\Programmi\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 * **Manifesto dell'applicazione**. Il manifesto dell'applicazione viene usato per descrivere l'applicazione. Elenca i servizi da cui è costituita e altri parametri usati per definire come dovranno essere distribuiti tali servizi, ad esempio il numero di istanze.
-  
+
   In Service Fabric un'applicazione è un'unità di distribuzione e aggiornamento. Un'applicazione può essere aggiornata come una singola unità in cui vengono gestiti i potenziali errori e i potenziali ripristini dello stato precedente. Service Fabric garantisce che il processo di aggiornamento venga completato o, in caso di errore, che non lasci l'applicazione in uno stato sconosciuto o instabile.
 * **Manifesto del servizio** . Include dati come il nome e il tipo di servizio, nonché il codice e la configurazione. Include dati come il nome e il tipo di servizio nonché il codice, la configurazione e i dati del servizio, più alcuni parametri aggiuntivi usati per configurare il servizio una volta distribuito.
 
@@ -70,24 +73,23 @@ ApplicationPackageRoot contiene il file ApplicationManifest.xml che definisce l'
 
 > [!NOTE]
 > Non è necessario creare le directory `config` e `data` se non sono necessarie.
-> 
-> 
+>
+>
 
 ## <a name="package-an-existing-executable"></a>Creare il pacchetto di un eseguibile esistente
 Quando si crea il pacchetto di un eseguibile guest, è possibile scegliere di usare un modello di progetto di Visual Studio oppure di [creare manualmente il pacchetto dell'applicazione](#manually). Se si usa Visual Studio, la struttura del pacchetto dell'applicazione e i file manifesto vengono creati automaticamente dal nuovo modello di progetto.
 
 > [!TIP]
-> Il modo più semplice per creare il pacchetto di un eseguibile Windows esistente in un servizio consiste nell'usare Visual Studio.
-> 
-> 
+> Il modo più semplice per creare il pacchetto di un eseguibile Windows esistente in un servizio consiste nell'usare Visual Studio (oppure Yeoman in Linux)
+>
 
-## <a name="use-visual-studio-to-package-an-existing-executable"></a>Usare Visual Studio per creare il pacchetto di un eseguibile esistente
+## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Usare Visual Studio per creare il pacchetto e distribuire un eseguibile esistente
 Visual Studio include un modello di servizio di Service Fabric che consente di distribuire un eseguibile guest in un cluster di Service Fabric.
 
 1. Scegliere **File** > **Nuovo progetto** e creare un'applicazione di Service Fabric.
 2. Scegliere **Eseguibile guest** come modello di servizio.
 3. Fare clic su **Sfoglia** per selezionare la cartella contenente l'eseguibile e immettere i restanti parametri per creare il servizio.
-   * *Comportamento del pacchetto di codice*. È possibile impostare questa opzione per copiare tutto il contenuto della cartella nel progetto di Visual Studio. Questa scelta si rivela utile se il file eseguibile non viene modificato. Se si prevede che il file eseguibile venga modificato e si vuole avere la possibilità di selezionare nuove build in modo dinamico, si può scegliere invece di collegarsi alla cartella. Si noti che quando si crea il progetto di applicazione in Visual Studio si possono usare cartelle collegate. In questo modo si stabilisce il collegamento al percorso di origine dall'interno del progetto, rendendo possibile l'aggiornamento dell'eseguibile guest nella destinazione di origine. Gli aggiornamenti diventano parte del pacchetto dell'applicazione in fase di compilazione.
+   * *Comportamento del pacchetto di codice*. È possibile impostare questa opzione per copiare tutto il contenuto della cartella nel progetto di Visual Studio. Questa scelta si rivela utile se il file eseguibile non viene modificato. Se si prevede che il file eseguibile venga modificato e si vuole avere la possibilità di selezionare nuove build in modo dinamico, si può scegliere invece di collegarsi alla cartella. Se si crea il progetto di applicazione in Visual Studio è possibile usare cartelle collegate. In questo modo si stabilisce il collegamento al percorso di origine dall'interno del progetto, rendendo possibile l'aggiornamento dell'eseguibile guest nella destinazione di origine. Gli aggiornamenti diventano parte del pacchetto dell'applicazione in fase di compilazione.
    * *Programma*: specifica l'eseguibile da eseguire per avviare il servizio.
    * *Argomenti*: specifica gli argomenti da passare all'eseguibile. Può essere un elenco di parametri con argomenti.
    * *WorkingFolder*: specifica la directory di lavoro per il processo che verrà avviato. È possibile specificare tre valori:
@@ -98,6 +100,16 @@ Visual Studio include un modello di servizio di Service Fabric che consente di d
 5. Se il servizio richiede un endpoint per la comunicazione, è ora possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml. Ad esempio: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. È ora possibile usare l'azione di creazione del pacchetto e di pubblicazione sul cluster locale eseguendo il debug della soluzione in Visual Studio. Quando si è pronti, pubblicare l'applicazione in un cluster remoto o archiviare la soluzione nel controllo del codice sorgente.
 7. Per informazioni su come visualizzare il servizio dell'eseguibile guest in esecuzione in Service Fabric Explorer, andare alla fine di questo articolo.
+
+## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>Usare Yoeman per creare il pacchetto e distribuire un eseguibile esistente in Linux
+
+La procedura per la creazione e distribuzione di un eseguibile guest in Linux è analoga alla distribuzione di un'applicazione java o csharp.
+
+1. In un terminale digitare `yo azuresfguest`.
+2. Assegnare un nome all'applicazione.
+3. Assegnare un nome al servizio e specificarne i dettagli, ad esempio il percorso del file eseguibile e i parametri con cui deve essere richiamato.
+
+Yeoman crea un pacchetto dell'applicazione con i file manifesto e dell'applicazione appropriati e con gli script di installazione e di disinstallazione.
 
 <a id="manually"></a>
 
@@ -123,8 +135,8 @@ Service Fabric esegue un'operazione `xcopy` del contenuto della radice della dir
 
 > [!NOTE]
 > Assicurarsi di includere tutti i file e le dipendenze necessari all'applicazione. Service Fabric copia il contenuto del pacchetto dell'applicazione in tutti i nodi del cluster in cui vengono distribuiti i servizi dell'applicazione. Il pacchetto deve contenere tutto il codice necessario per eseguire l'applicazione. Non presupporre che le dipendenze siano già installate.
-> 
-> 
+>
+>
 
 ### <a name="edit-the-service-manifest-file"></a>Modificare il file manifesto del servizio
 Il passaggio successivo consiste nel modificare il file manifesto del servizio per includere le informazioni seguenti:
@@ -268,8 +280,8 @@ Il reindirizzamento della console può essere configurato nel file `ServiceManif
 
 > [!WARNING]
 > Non usare mai i criteri di reindirizzamento della console in un'applicazione distribuita nell'ambiente di produzione, perché ciò può incidere sul failover dell'applicazione. Usare questa opzione *solo* a scopo di sviluppo e debug locale.  
-> 
-> 
+>
+>
 
 ```xml
 <EntryPoint>
@@ -331,19 +343,9 @@ Se si passa al nodo e si accede all'applicazione, è possibile visualizzare le i
 
 ![Percorso sul disco](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
-Se si passa alla directory usando Esplora server, si possono trovare la directory di lavoro e la cartella dei log del servizio, come illustrato nella schermata seguente.
+Se si passa alla directory usando Esplora server è possibile trovare la directory di lavoro e la cartella dei log del servizio, come illustrato nella schermata seguente: 
 
 ![Percorso del log](./media/service-fabric-deploy-existing-app/loglocation.png)
-
-## <a name="creating-a-guest-executable-using-yeoman-for-service-fabric-on-linux"></a>Creazione di un guest eseguibile usando Yeoman per Service Fabric in Linux
-
-La procedura per la creazione e distribuzione di un eseguibile guest in Linux è analoga alla distribuzione di un'applicazione java o csharp. 
-
-1. In un terminale digitare `yo azuresfguest`.
-2. Assegnare un nome all'applicazione.
-3. Scegliere il tipo del primo servizio e assegnargli un nome. Scegliere **Guest Binary** (Guest binario) per un eseguibile guest (e **Guest Container** (Contenitore guest) per un contenitore) e specificare i dettagli, ad esempio il percorso del file eseguibile e i parametri da richiamare.
-
-In Yeoman deve essere stato creato un pacchetto dell'applicazione con i file manifesto e dell'applicazione appropriati e con gli script di installazione e di disinstallazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo si è appreso come creare il pacchetto di un eseguibile guest e come distribuirlo in Service Fabric. Per informazioni e attività correlate, vedere gli articoli seguenti.
@@ -352,5 +354,4 @@ In questo articolo si è appreso come creare il pacchetto di un eseguibile guest
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
 * [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-
 

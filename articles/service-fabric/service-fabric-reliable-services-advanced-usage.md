@@ -1,6 +1,6 @@
 ---
 title: Utilizzo avanzato di Reliable Services | Documentazione Microsoft
-description: "Informazioni sull&quot;uso avanzato dei servizi Reliable Services di Service Fabric per una maggiore flessibilità nei servizi."
+description: "Informazioni sull'uso avanzato dei servizi Reliable Services di Service Fabric per una maggiore flessibilità nei servizi."
 services: Service-Fabric
 documentationcenter: .net
 author: vturecek
@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 71a4ccb1914c147b1504068a09ef957a51067c08
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
+ms.contentlocale: it-it
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -36,12 +37,9 @@ Il ciclo di vita di un servizio senza stato è molto semplice. Un servizio senza
 
 Anche se `RunAsync` dovrebbe essere sufficiente nella maggior parte dei casi, in un servizio senza stato sono disponibili anche eventi di apertura, chiusura e interruzione:
 
-* `Task OnOpenAsync(IStatelessServicePartition, CancellationToken) - C# / CompletableFuture<String> onOpenAsync(CancellationToken) - Java`
-  : OnOpenAsync viene chiamato quando l'istanza del servizio senza stato sta per essere usata. In questo momento è possibile avviare attività estese di inizializzazione del servizio.
-* `Task OnCloseAsync(CancellationToken) - C# / CompletableFuture onCloseAsync(CancellationToken) - Java`
-  : OnCloseAsync viene chiamato quando l'istanza del servizio senza stato sta per essere arrestata normalmente. Ciò può verificarsi quando il codice del servizio viene aggiornato, l'istanza del servizio viene spostata a causa del bilanciamento del carico o viene rilevato un errore temporaneo. OnCloseAsync può essere usato per chiudere in modo sicuro tutte le risorse, arrestare qualsiasi elaborazione in background, completare il salvataggio dello stato esterno o chiudere le connessioni esistenti.
-* `void OnAbort() - C# / void onAbort() - Java`
-  : OnAbort viene chiamato quando l'istanza del servizio senza stato viene arrestata in modo forzato. Questo metodo in genere viene chiamato quando viene rilevato un errore permanente sul nodo o quando Service Fabric non è in grado di gestire in modo affidabile il ciclo di vita dell'istanza del servizio a causa di errori interni.
+* `Task OnOpenAsync(IStatelessServicePartition, CancellationToken) - C# / CompletableFuture<String> onOpenAsync(CancellationToken) - Java` OnOpenAsync viene chiamato quando l'istanza del servizio senza stato sta per essere usata. In questo momento è possibile avviare attività estese di inizializzazione del servizio.
+* `Task OnCloseAsync(CancellationToken) - C# / CompletableFuture onCloseAsync(CancellationToken) - Java` OnCloseAsync viene chiamato quando l'istanza del servizio senza stato sta per essere arrestata normalmente. Ciò può verificarsi quando il codice del servizio viene aggiornato, l'istanza del servizio viene spostata a causa del bilanciamento del carico o viene rilevato un errore temporaneo. OnCloseAsync può essere usato per chiudere in modo sicuro tutte le risorse, arrestare qualsiasi elaborazione in background, completare il salvataggio dello stato esterno o chiudere le connessioni esistenti.
+* `void OnAbort() - C# / void onAbort() - Java` OnAbort viene chiamato quando l'istanza del servizio senza stato viene arrestata in modo forzato. Questo metodo in genere viene chiamato quando viene rilevato un errore permanente sul nodo o quando Service Fabric non è in grado di gestire in modo affidabile il ciclo di vita dell'istanza del servizio a causa di errori interni.
 
 ## <a name="stateful-service-replica-lifecycle"></a>Ciclo di vita della replica del servizio con stato
 
@@ -52,8 +50,7 @@ Anche se `RunAsync` dovrebbe essere sufficiente nella maggior parte dei casi, in
 
 Il ciclo di vita di una replica del servizio con stato è molto più complesso rispetto a quello di un'istanza del servizio senza stato. Oltre agli eventi di apertura, chiusura e interruzione, una replica del servizio con stato è soggetta a modifiche dei ruoli durante il ciclo di vita. Quando una replica del servizio con stato cambia ruolo, viene attivato l'evento `OnChangeRoleAsync` :
 
-* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`
-  : OnChangeRoleAsync viene chiamato quando il servizio con stato cambia ruolo, ad esempio primario o secondario. Alle repliche primarie viene assegnato lo stato di scrittura (sono autorizzate a creare raccolte Reliable Collections e a scrivervi). Alle repliche secondarie viene assegnato lo stato di lettura (possono solo leggere da raccolte Reliable Collections esistenti). La maggior parte delle operazioni in un servizio con stato viene eseguita nella replica primaria. Le repliche secondarie possono eseguire la convalida di sola lettura, la generazione di report, il data mining o altri processi di sola lettura.
+* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` : OnChangeRoleAsync viene chiamato quando il servizio con stato cambia ruolo, ad esempio primario o secondario. Alle repliche primarie viene assegnato lo stato di scrittura (sono autorizzate a creare raccolte Reliable Collections e a scrivervi). Alle repliche secondarie viene assegnato lo stato di lettura (possono solo leggere da raccolte Reliable Collections esistenti). La maggior parte delle operazioni in un servizio con stato viene eseguita nella replica primaria. Le repliche secondarie possono eseguire la convalida di sola lettura, la generazione di report, il data mining o altri processi di sola lettura.
 
 In un servizio con stato solo la replica primaria ha accesso in scrittura allo stato ed è in genere il momento in cui il servizio esegue il lavoro effettivo. Il metodo `RunAsync` in un servizio con stato viene eseguito solo quando la replica del servizio con stato è primaria. Il metodo `RunAsync` viene annullato quando il ruolo della replica primaria non è più primario, nonché durante gli eventi di chiusura e interruzione.
 

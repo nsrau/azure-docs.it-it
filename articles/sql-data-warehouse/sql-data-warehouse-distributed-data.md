@@ -1,6 +1,6 @@
 ---
 title: Funzionamento dei dati distribuiti in Azure SQL Data Warehouse | Documentazione Microsoft
-description: Informazioni sulla distribuzione dei dati per l&quot;elaborazione parallela elevata (Massively Parallel Processing, MPP) e sulle opzioni di distribuzione delle tabelle in Azure SQL Data Warehouse e Parallel Data Warehouse.
+description: Informazioni sulla distribuzione dei dati per l'elaborazione parallela elevata (Massively Parallel Processing, MPP) e sulle opzioni di distribuzione delle tabelle in Azure SQL Data Warehouse e Parallel Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/29/2017
 ms.author: jrj;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ec9b3cc391a75b4f3a75f95a2ff9613c0317bfa2
 ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -65,12 +65,10 @@ Una distribuzione è l'unità di base per l'archiviazione dei dati distribuiti e
 ### <a name="can-i-view-the-compute-nodes"></a>È possibile visualizzare i nodi di calcolo?
 Ogni nodo di calcolo ha un ID nodo ed è visibile nelle visualizzazioni di sistema relative a SQL Data Warehouse e Parallel Data Warehouse.  È possibile visualizzare il nodo di calcolo cercando la colonna node_id nelle visualizzazioni di sistema il cui nome inizia con sys.pdw_nodes. Per un elenco delle visualizzazioni di sistema, vedere la [visualizzazione di sistema MPP](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="Replicated"></a>Tabelle replicate per Parallel Data Warehouse
-Si applica a: Parallel Data Warehouse
+## <a name="Replicated"></a>Tabelle replicate
+Una tabella replicata include una copia completa della tabella archiviata in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Le tabelle replicate sono realizzabili con tabelle di piccole dimensioni a causa della memoria aggiuntiva necessaria per archiviare l'intera tabella in ogni nodo di calcolo.  
 
-Oltre all'utilizzo di tabelle distribuite, Parallel Data Warehouse offre la possibilità di replicare le tabelle. Una *tabella replicata* è una tabella archiviata nella sua interezza in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire le righe di tabella tra i nodi di calcolo per poter usare la tabella in un join o in un'aggregazione. Le tabelle replicate sono realizzabili con tabelle di piccole dimensioni a causa della memoria aggiuntiva necessaria per archiviare l'intera tabella in ogni nodo di calcolo.  
-
-La figura seguente illustra una tabella replicata archiviata in ogni nodo di calcolo. La tabella replicata è archiviata in tutti i dischi assegnati al nodo di calcolo. Questa strategia di archiviazione su disco viene implementata usando i filegroup di SQL Server.  
+La figura seguente illustra una tabella replicata archiviata in ogni nodo di calcolo. Per SQL Data Warehouse, la tabella replicata è gestita da una tabella round-robin e viene copiata per intero nel primo database di distribuzione in ogni nodo di calcolo. Per Parallel Data Warehouse, la tabella replicata è archiviata in tutti i dischi assegnati al nodo di calcolo.  Questa strategia di archiviazione su disco viene implementata usando i filegroup di SQL Server.  
 
 ![Tabella replicata](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabella replicata") 
 

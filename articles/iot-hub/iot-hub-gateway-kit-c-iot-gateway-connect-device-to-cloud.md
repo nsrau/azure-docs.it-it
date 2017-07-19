@@ -1,6 +1,6 @@
 ---
-title: Usare un gateway IoT per connettere un dispositivo all&quot;hub IoT di Azure | Microsoft Docs
-description: Informazioni su come usare Intel NUC come gateway IoT per connettere un SensorTag TI e inviare i dati del sensore all&quot;hub IoT di Azure nel cloud.
+title: Usare un gateway IoT per connettere un dispositivo all'hub IoT di Azure | Microsoft Docs
+description: Informazioni su come usare Intel NUC come gateway IoT per connettere un SensorTag TI e inviare i dati del sensore all'hub IoT di Azure nel cloud.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -13,12 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 06/25/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e8efc3204512b7213c44a15c25b38287465975df
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 61cb8eb0ad23a7d4b333bf54342b872a3a8ae1da
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -41,6 +42,7 @@ Informazioni su come usare un gateway IoT per connettere un SensorTag di Texas I
 ## <a name="what-you-need"></a>Elementi necessari
 
 - Completare l'esercitazione [Configurare Intel NUC come gateway IoT di Azure](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) in cui si configura il dispositivo Intel NUC come gateway IoT.
+- * Una sottoscrizione di Azure attiva. Se non si ha un account Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 - Un client SSH in esecuzione nel computer host. Si consiglia l'uso di PuTTY in Windows. Linux e macOS sono già dotati di un client SSH.
 - L'indirizzo IP, il nome utente e la password per accedere al gateway dal client SSH.
 - Una connessione Internet.
@@ -122,7 +124,7 @@ La connessione tra il gateway IoT e SensorTag è stata abilitata correttamente.
 
 ## <a name="run-a-ble-sample-application-to-send-sensortag-data-to-your-iot-hub"></a>Eseguire un'applicazione di esempio BLE per inviare i dati del sensore SensorTag all'hub IoT
 
-L'applicazione di esempio Bluetooth a basso consumo (BLE) viene offerta dall'SDK del gateway IoT di Azure. L'applicazione di esempio raccoglie i dati dalla connessione BLE e li invia all'hub IoT. Per eseguire l'applicazione di esempio è necessario:
+L'applicazione di esempio Bluetooth Low Energy (BLE) viene offerta da Azure IoT Edge. L'applicazione di esempio raccoglie i dati dalla connessione BLE e li invia all'hub IoT. Per eseguire l'applicazione di esempio è necessario:
 
 1. Configurare l'applicazione di esempio.
 1. Eseguire l'applicazione di esempio nel gateway IoT.
@@ -132,7 +134,7 @@ L'applicazione di esempio Bluetooth a basso consumo (BLE) viene offerta dall'SDK
 1. Passare alla cartella dell'applicazione di esempio eseguendo il comando seguente:
 
    ```bash
-   cd /user/share/azureiotgatewaysdk/samples
+   cd /usr/share/azureiotgatewaysdk/samples/ble_gateway
    ```
 
 1. Aprire il file di configurazione usando il comando seguente:
@@ -170,5 +172,5 @@ L'applicazione di esempio Bluetooth a basso consumo (BLE) viene offerta dall'SDK
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Usare il gateway IoT per la trasformazione dei dati del sensore con Azure IoT Gateway SDK](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+[Usare il gateway IoT per la trasformazione dei dati del sensore con Azure IoT Edge](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 

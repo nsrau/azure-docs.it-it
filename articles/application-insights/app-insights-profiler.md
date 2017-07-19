@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6a3c4273042a7684307d56341de1065ad45eb617
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -26,8 +26,7 @@ ms.lasthandoff: 05/10/2017
 
 Determinare il tempo impiegato in ogni metodo nell'applicazione Web attiva usando lo strumento di profilatura di [Azure Application Insights](app-insights-overview.md). Consente di visualizzare profili dettagliati delle richieste attive che sono state servite dall'app ed evidenzia il 'percorso ricorrente' che usa più tempo. Seleziona automaticamente esempi con tempi di risposta diversi. Il profiler usa varie tecniche per ridurre il sovraccarico.
 
-Il profiler è valido attualmente solo per le applicazioni Web ASP.NET in esecuzione nel Servizio app di Azure, in almeno il piano tariffario Basic. Se si usa ASP.NET Core, il framework di destinazione deve essere `.NetCoreApp`.
-
+Il profiler è valido attualmente solo per le applicazioni Web ASP.NET in esecuzione nel Servizio app di Azure, in almeno il piano tariffario Basic. 
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Abilitare il profiler
@@ -196,18 +195,21 @@ Archiviare un ticket di supporto dal portale. Includere l'ID di correlazione dal
 
 ## <a name="manual-installation"></a>Installazione manuale
 
-Quando si configura il profiler, gli aggiornamenti seguenti vengono eseguiti nelle impostazioni dell'App Web. È possibile eseguire tali operazioni manualmente se l'ambiente lo richiede, ad esempio, se l'applicazione viene eseguita in una rete privata che usa il servizio di bilanciamento del carico interno:
+Quando si configura il profiler, gli aggiornamenti seguenti vengono eseguiti nelle impostazioni dell'App Web. È possibile eseguire queste operazioni manualmente se l'ambiente lo richiede, ad esempio se l'applicazione viene eseguita nell'ambiente del servizio app di Azure:
 
-1. Nel pannello di controllo dell'App Web aprire Impostazioni.
+1. Nel pannello di controllo dell'app Web aprire Impostazioni.
 2. Impostare la versione di .Net Framework su 4.6.
 3. Attivare "Always On".
 4. Aggiungere l'impostazione dell'app "__APPINSIGHTS_INSTRUMENTATIONKEY__" e impostare il valore sulla stessa chiave di strumentazione usata dall'SDK.
-5. In **Estensioni** aggiungere "Application Insights". L'installazione richiederà alcuni minuti.
+5. Aprire Strumenti avanzati.
+6. Fare clic su "OK" per aprire il sito Web Kudu.
+7. Nel sito Web Kudu selezionare "Site extensions" ("Estensioni del sito").
+8. Installare "__Application Insights__" dalla raccolta.
+9. Riavviare l'app Web .
 
 ## <a id="aspnetcore"></a>Supporto di ASP.NET Core
 
-Le applicazioni ASP.NET Core 1.1.2 destinate ad AI SDK 2.0 o alle versioni successive funzioneranno con il profiler. 
-
+L'applicazione ASP.NET Core deve installare il pacchetto NuGet Microsoft.ApplicationInsights.AspNetCore versione 2.1.0-beta6 o successiva per poter interagire con il profiler. Dopo il 27 giugno 2017 non sono più supportate le versioni precedenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

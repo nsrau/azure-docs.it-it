@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0786e54c288f30b0039c1d0b88f5c5b5965eecef
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 46a036c5f1646197522874b1302b95947e90cdd8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -210,8 +210,15 @@ Il pulsante per la distribuzione offre un altro modo per usare i modelli di Gest
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Fornire i dati certificato ai modelli di Resource Manager
 
-Quando si usa SSL con un modello, il certificato deve essere fornito in una stringa base64 anziché essere caricato. Per convertire un formato .pfx o .cer in una stringa base64, eseguire il comando PowerShell indicato qui di seguito. Tale frammento converte il certificato in una stringa base64 che può essere assegnata al modello. L'output previsto è una stringa che può essere archiviata in una variabile e incollata nel modello.
+Quando si usa SSL con un modello, il certificato deve essere fornito in una stringa base64 anziché essere caricato. Per convertire un formato PFX o CER in una stringa base64, usare uno dei comandi seguenti. I comandi seguenti convertono il certificato in una stringa base64 che può essere assegnata al modello. L'output previsto è una stringa che può essere archiviata in una variabile e incollata nel modello.
 
+### <a name="macos"></a>macOS
+```bash
+cert=$( base64 <certificate path and name>.pfx )
+echo $cert
+```
+
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
