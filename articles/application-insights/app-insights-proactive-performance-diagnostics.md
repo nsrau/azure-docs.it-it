@@ -1,6 +1,6 @@
 ---
 title: Rilevamento intelligente - prestazioni anomale | Microsoft Docs
-description: "Application Insights esegue un&quot;analisi intelligente dei dati di telemetria dell&quot;app e segnala potenziali problemi. Questa funzionalità non richiede alcuna configurazione."
+description: "Application Insights esegue un'analisi intelligente dei dati di telemetria dell'app e segnala potenziali problemi. Questa funzionalità non richiede alcuna configurazione."
 services: application-insights
 documentationcenter: windows
 author: antonfrMSFT
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 5/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 080b732d78731e6281e82ddc28a3e84ae8755ffa
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0e9c10b77110efe90239863ee603acbd54b17ead
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -63,7 +63,7 @@ Le notifiche di rilevamento intelligente sono abilitate per impostazione predefi
   
   ![Impostazioni di rilevamento intelligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
   
-  * Anche il collegamento **Annulla sottoscrizione** nel messaggio di posta elettronica del rilevamento intelligente 
+  * È possibile usare il collegamento **Annulla sottoscrizione** nel messaggio di posta elettronica di Rilevamento intelligente per interrompere la ricezione delle notifiche di posta elettronica.
 
 I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti intelligenti sono limitati a un messaggio di posta elettronica al giorno per ogni risorsa di Application Insights. Il messaggio di posta elettronica verrà inviato solo se è presente almeno un nuovo problema rilevato per quella giornata. senza alcuna ripetizione dello stesso messaggio. 
 

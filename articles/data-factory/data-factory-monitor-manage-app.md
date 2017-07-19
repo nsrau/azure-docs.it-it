@@ -12,11 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 1d35fbbe14d1597c23d8521bc21c683b520f0ea6
-ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d5a2d1f3d85b8a2212326cfcfd0ba5d80356b769
+ms.contentlocale: it-it
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -27,14 +29,16 @@ ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
 >
 >
 
-Questo articolo descrive come usare l'app di monitoraggio e gestione per monitorare, gestire ed eseguire il debug delle pipeline di Azure Data Factory crea avvisi per ricevere notifiche sugli errori. L'uso dell'app di monitoraggio e gestione è illustrato anche nel video riportato di seguito.
+Questo articolo descrive come usare l'app di monitoraggio e gestione per monitorare, gestire ed eseguire il debug delle pipeline di Data Factory. L'articolo contiene anche informazioni su come creare avvisi per ricevere notifiche relative agli errori. Per un'introduzione all'uso dell'applicazione, vedere il video seguente:
+
+> [!NOTE]
+> L'interfaccia utente visualizzata nel video potrebbe non corrispondere esattamente a ciò che viene visualizzato nel portale. L'interfaccia visualizzata nel video è di poco precedente, ma i concetti rimangono invariati. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
->
 
-## <a name="open-the-monitoring-and-management-app"></a>Avvio dell'app di monitoraggio e gestione
-Per avviare l'app di monitoraggio e gestione, fare clic sul riquadro **Monitor & Manage** (Monitoraggio e gestione) nel pannello **Data factory** della data factory.
+## <a name="launch-the-monitoring-and-management-app"></a>Avviare l'app di monitoraggio e gestione
+Per avviare l'app di monitoraggio e gestione, fare clic sul riquadro **Monitoraggio e gestione** nel pannello **Data factory** della data factory.
 
 ![Riquadro di monitoraggio nella home page di Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
@@ -45,7 +49,13 @@ L'app di monitoraggio e gestione si apre in una finestra separata.
 > [!NOTE]
 > Se il Web browser è bloccato su "Concessione autorizzazioni in corso...", deselezionare la casella di controllo **Block third-party cookies and site data** (Blocco dei cookie di terze parti e dei dati dei siti) oppure lasciarla abilitata e creare un'eccezione per **login.microsoftonline.com** quindi provare di nuovo ad aprire l'app.
 
-Se non vengono visualizzate finestre attività nell’elenco nella parte inferiore, fare clic sul pulsante **Aggiorna** nella barra degli strumenti per aggiornare l'elenco. Impostare anche i valori corretti per i filtri **Start time** e **End time**.  
+
+Nell'elenco di finestre attività nel riquadro centrale viene visualizzata una finestra attività per ogni esecuzione di un'attività. Se ad esempio un'attività è pianificata per essere eseguita ogni ora per cinque ore, sono visualizzate cinque finestre attività associate a cinque sezioni dati. Se nell'elenco in basso non sono visualizzate finestre attività, eseguire le operazioni seguenti:
+ 
+- Aggiornare i filtri relativi all'**ora di inizio** e all'**ora di fine** nella parte superiore in modo che corrispondano all'ora di inizio e all'ora di fine della pipeline e quindi fare clic sul pulsante **Applica**.  
+- L'elenco delle finestre attività non viene aggiornato automaticamente. Fare clic sul pulsante **Aggiorna** sulla barra degli strumenti dell'elenco delle **finestre attività**.  
+
+Se non è disponibile un'applicazione Data Factory con cui testare questa procedura, eseguire l'esercitazione [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Informazioni sull'app di monitoraggio e gestione
 Sulla sinistra sono presenti tre schede: **Esplora risorse**, **Monitoring Views** (Visualizzazioni monitoraggio) e **Avvisi**. La prima scheda (**Esplora risorse**) è selezionata per impostazione predefinita.
@@ -54,9 +64,9 @@ Sulla sinistra sono presenti tre schede: **Esplora risorse**, **Monitoring Views
 Saranno visualizzate le informazioni illustrate nell'immagine seguente:
 
 * **Visualizzazione albero** di Esplora risorse nel pannello a sinistra.
-* **Visualizzazione diagramma** in alto.
+* La **vista diagramma** nella parte superiore del riquadro centrale.
 * L'elenco **Activity Windows** (Finestre attività) in basso al riquadro nella parte centrale.
-* Schede **Proprietà** e **Activity Window Explorer** (Esplora finestra attività) nel riquadro a destra.
+* Le schede **Proprietà**, **Activity Window Explorer** (Esplora finestre attività) e **Script** nel riquadro destro.
 
 In Esplora inventario risorse è possibile visualizzare tutte le risorse della data factory, ovvero le pipeline, i set di dati e i servizi collegati, in una visualizzazione albero. Quando si seleziona un oggetto in Esplora risorse:
 
@@ -80,23 +90,31 @@ Quando la pipeline è abilitata (vale a dire non sospesa), viene visualizzata co
 
 ![Pipeline in esecuzione](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-Nella visualizzazione diagramma sono presenti tre pulsanti per la pipeline. Il secondo pulsante può essere usato per sospendere l'esecuzione della pipeline. La sospensione non termina le attività attualmente in esecuzione e le lascia continuare fino al completamento. Il terzo pulsante sospende l'esecuzione della pipeline e termina le attività esistenti in esecuzione. Il primo pulsante riprende l'esecuzione della pipeline. Quando la pipeline viene sospesa, il colore della pipeline viene modificato in giallo:
-
-![Sospensione/ripresa nel riquadro](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
-
-È possibile selezionare più due o più pipeline utilizzando il tasto CTRL. È possibile utilizzare i pulsanti della barra dei comandi per sospendere o riprendere più pipeline contemporaneamente.
+È possibile mettere in pausa, riprendere o terminare una pipeline selezionandola nella vista diagramma e usando i pulsanti sulla barra dei comandi.
 
 ![Sospensione/ripresa nella barra dei comandi](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+ 
+Nella visualizzazione diagramma sono presenti tre pulsanti per la pipeline. Il secondo pulsante può essere usato per sospendere l'esecuzione della pipeline. La sospensione non termina le attività attualmente in esecuzione e le lascia continuare fino al completamento. Il terzo pulsante sospende l'esecuzione della pipeline e termina le attività esistenti in esecuzione. Il primo pulsante riprende l'esecuzione della pipeline. Quando la pipeline è in pausa, il suo colore diventa giallo. Ad esempio, una pipeline in pausa ha l'aspetto illustrato nell'immagine seguente: 
 
-È possibile visualizzare tutte le attività della pipeline facendo clic con il pulsante destro del mouse sul relativo riquadro e scegliendo **Apri pipeline**.
+![Pipeline in pausa](./media/data-factory-monitor-manage-app/PipelinePaused.png)
+
+È possibile selezionare contemporaneamente due o più pipeline tramite il tasto CTRL. È possibile utilizzare i pulsanti della barra dei comandi per sospendere o riprendere più pipeline contemporaneamente.
+
+È anche possibile fare clic con il pulsante destro del mouse su una pipeline e selezionare le opzioni corrispondenti alla sospensione, alla ripresa o all'interruzione. 
+
+![Menu di scelta rapida per le pipeline](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+
+Fare clic sull'opzione **Apri pipeline** per visualizzare tutte le attività all'interno della pipeline. 
 
 ![Menu Apri pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-Nella visualizzazione pipeline aperta vengono visualizzate tutte le attività della pipeline. In questo esempio è presente soltanto l'attività di copia. Per tornare alla visualizzazione precedente, fare clic sul nome della data factory nel menu di navigazione nella parte superiore.
+Nella visualizzazione pipeline aperta vengono visualizzate tutte le attività della pipeline. In questo esempio è presente soltanto l'attività di copia. 
 
 ![Pipeline aperta](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-Quando si fa clic o si passa il mouse su un set di dati di output nella visualizzazione pipeline, viene visualizzato la finestra popup di Activity Windows (Finestre attività) per tale set di dati.
+Per tornare alla visualizzazione precedente, fare clic sul nome della data factory nel menu di navigazione nella parte superiore.
+
+Quando si seleziona un set di dati di output o si passa il mouse su un set di questo tipo, nella vista della pipeline viene visualizzata la finestra popup delle finestre attività relative al set di dati selezionato.
 
 ![Finestra popup di Activity Windows (Finestre attività)](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
@@ -316,9 +334,4 @@ La tabella seguente fornisce l'elenco di eventi, stati e stati secondari disponi
 Utilizzare i pulsanti seguenti (evidenziati in rosso) per modificare, eliminare o disabilitare un avviso.
 
 ![Pulsanti degli avvisi](./media/data-factory-monitor-manage-app/AlertButtons.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

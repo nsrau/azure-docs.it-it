@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Monitorare un&quot;App Web con i log del server Web | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Monitorare un&quot;App Web con i log del server Web
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Monitorare un'App Web con i log del server Web | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Monitorare un'App Web con i log del server Web
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
+ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: ef75aa1ea579d4a3804e641ef9c848ccde8b9d7a
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: df4ca5b1270ada849e231ad9608a5b1d2edda8be
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 05/15/2017
 
 In questo scenario verrà creato un gruppo di risorse, un piano di servizio app e un'App Web e verrà configurata l'App Web per abilitare i log del server Web. Quindi si scaricheranno i file di log per visionarli.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -48,9 +48,9 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'App Web 
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Consente di creare un'App Web di Azure all'interno del piano di servizio app. |
-| [az appservice web log config](https://docs.microsoft.com/cli/azure/appservice/web/log#config) | Configura i log che devono essere mantenuti da un'App Web di Azure. |
-| [az appservice web log download](https://docs.microsoft.com/cli/azure/appservice/web/log#download) | Scarica i log dell'App Web di Azure sul computer locale. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Crea un'App Web di Azure. |
+| [az webapp log config](https://docs.microsoft.com/cli/azure/webapp/log#config) | Configura i log che devono essere mantenuti da un'App Web di Azure. |
+| [az webapp log download](https://docs.microsoft.com/cli/azure/webapp/log#download) | Scarica i log dell'App Web di Azure sul computer locale. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

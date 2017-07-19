@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 7e9ca0c15c29fb670b742d939107bb5d4a48245c
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 5c2cb05ced7841899c2bd19f627d13b86a4b05cc
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Soluzione di monitoraggio delle prestazioni di rete in Log Analytics
+
+![Simbolo di Monitoraggio prestazioni rete](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 Questo documento descrive come configurare e usare la soluzione di monitoraggio delle prestazioni di rete in Log Analytics, che consente di monitorare le prestazioni delle reti quasi in tempo reale per rilevare e trovare i colli di bottiglia delle prestazioni di rete. Con la soluzione di monitoraggio delle prestazioni di rete, è possibile monitorare la perdita e la latenza tra due reti, subnet o server. Il monitoraggio delle prestazioni di rete rileva problemi di rete come il blackholing del traffico, gli errori di routing e i problemi che i metodi di monitoraggio della rete tradizionali non sono in grado di rilevare. Il monitoraggio delle prestazioni di rete genera avvisi e invia notifiche quando viene superata una soglia per un collegamento di rete. Queste soglie possono essere acquisite automaticamente dal sistema oppure possono essere configurate in modo che usino regole di avviso personalizzate. Il monitoraggio delle prestazioni di rete garantisce una tempestiva individuazione dei problemi legati alle prestazioni di rete e localizza l'origine del problema in un particolare segmento di rete o un dispositivo.
 
@@ -199,9 +202,9 @@ Il protocollo ICMP invece non opera tramite porta. Nella maggior parte degli sce
 Se si sceglie di usare ICMP durante la distribuzione, è possibile passare a TCP in qualsiasi momento modificando la regola di monitoraggio predefinita.
 
 ##### <a name="to-edit-the-default-monitoring-rule"></a>Per modificare la regola di monitoraggio predefinita
-1.    Passare a **Monitoraggio prestazioni** > **rete** > **Configura** > **Monitor** e quindi fare clic su **Regola predefinita**.
-2.    Passare alla sezione **Protocollo** e selezionare il protocollo che si desidera usare.
-3.    Fare clic su **Salva** per salvare le modifiche.
+1.  Passare a **Monitoraggio prestazioni** > **rete** > **Configura** > **Monitor** e quindi fare clic su **Regola predefinita**.
+2.  Passare alla sezione **Protocollo** e selezionare il protocollo che si desidera usare.
+3.  Fare clic su **Salva** per salvare le modifiche.
 
 Anche se la regola predefinita usa un protocollo specifico, è possibile creare nuove regole con un protocollo diverso. È anche possibile creare una combinazione di regole in cui alcune usano ICMP e altre usano TCP.
 

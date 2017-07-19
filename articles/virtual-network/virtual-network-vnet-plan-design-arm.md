@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: fef61e6155471a0459957ea0c510698cfa787fdc
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: f40ceb542a0ee51e17ee539db4dbc91c11e056f2
+ms.contentlocale: it-it
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -31,8 +32,10 @@ Per ottenere buoni risultati, è fondamentale una conoscenza approfondita delle 
 Prima di rispondere alle domande di pianificazione seguenti, tenere in considerazione quanto segue:
 
 * Tutti gli oggetti creati in Azure sono composti da una o più risorse. Una macchina virtuale (VM) è una risorsa, la scheda di interfaccia di rete (NIC) usata da una VM è una risorsa, l'indirizzo IP pubblico usato da una scheda di interfaccia di rete è una risorsa, la rete virtuale a cui è collegata la scheda di interfaccia di rete è una risorsa.
-* Le risorse vengono create all'interno di un' [area](https://azure.microsoft.com/regions/#services) e una sottoscrizione di Azure. Le risorse possono essere connesse solo a una rete virtuale presente nella stessa area e nella stessa sottoscrizione delle risorse.
-* È possibile connettere le reti virtuali tra loro tramite un [gateway VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)di Azure. Questo metodo consente anche di collegare reti virtuali in diverse aree e sottoscrizioni.
+* Le risorse vengono create all'interno di un' [area](https://azure.microsoft.com/regions/#services) e una sottoscrizione di Azure. Le risorse possono essere connesse solo a una rete virtuale presente nella stessa area e nella stessa sottoscrizione della risorsa.
+* È possibile connettere tra di esse le reti virtuali tramite:
+    * **[Reti virtuali con peering](virtual-network-peering-overview.md)**: le reti virtuali devono trovarsi nella stessa area di Azure. La larghezza di banda tra le risorse delle reti virtuali con peering rimane uguale a quella tra le risorse connesse alla stessa rete virtuale.
+    * **Gateway VPN[ di Azure](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**: le reti virtuali possono trovarsi nella stessa area di Azure o in aree diverse. La larghezza di banda tra le risorse delle reti virtuali connesse tramite gateway VPN è limitata dalla larghezza di banda del gateway VPN.
 * È anche possibile collegare le reti virtuali alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) disponibili in Azure.
 * È possibile raggruppare risorse diverse in [gruppi di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups), rendendo più semplice la gestione delle risorse come unità. Un gruppo di risorse può contenere risorse provenienti da più aree, purché le risorse appartengano alla stessa sottoscrizione.
 
@@ -174,7 +177,7 @@ Si lavora per un'azienda con 2 data center in America del Nord e due data center
     Sì. Questo perché gli utenti connessi ai data center locali devono essere in grado di accedere alle applicazioni tramite un tunnel crittografato.
 4. Quante VM IaaS sono necessarie per la soluzione?
 
-    200 VM IaaS. App1, App2 e App3 richiedono 5 server Web, 2 server applicazioni e 2 server database per ognuna. Questo equivale a un totale di 9 VM IaaS per applicazione o 36 VM IaaS. App5 e App6 richiedono 5 server Web e 2 server database. Questo equivale a un totale di 7 VM IaaS per applicazione o 14 VM IaaS. Per questo motivo, sono necessarie 50 VM IaaS per tutte le applicazioni in ogni area di Azure. Poiché è necessario usare 4 aree, occorrono 200 VM IaaS.
+    200 VM IaaS. App1, App2, App3 e App4 richiedono 5 server Web, 2 server applicazioni e 2 server database per ognuna. Questo equivale a un totale di 9 VM IaaS per applicazione o 36 VM IaaS. App5 e App6 richiedono 5 server Web e 2 server database. Questo equivale a un totale di 7 VM IaaS per applicazione o 14 VM IaaS. Per questo motivo, sono necessarie 50 VM IaaS per tutte le applicazioni in ogni area di Azure. Poiché è necessario usare 4 aree, occorrono 200 VM IaaS.
 
     È anche necessario mettere a disposizione alcuni server DNS in ogni rete virtuale o nei data center locali per risolvere il nome tra le VM IaaS di Azure e la rete locale.
 5. È necessario isolare il traffico in base a gruppi di VM (ad esempio server Web front-end e server database back-end)?

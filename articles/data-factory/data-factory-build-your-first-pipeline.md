@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 590d8e7c90381c455e0145a9016bd888ab0dda2c
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: b01a03fa362f8a9677e625945a2864c77d49f1bb
+ms.contentlocale: it-it
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 02/03/2017
 
 In questa esercitazione si compila la prima data factory di Azure con una pipeline di dati. La pipeline trasforma i dati di input tramite l'esecuzione di script Hive su un cluster Azure HDInsight (Hadoop) per generare i dati di output.  
 
-Questo articolo fornisce una panoramica e i prerequisiti per l'esercitazione. Dopo avere completato i prerequisiti, è possibile eseguire l'esercitazione usando uno degli strumenti/SDK seguenti: portale di Azure, Visual Studio, PowerShell, modello di Resource Manager, API REST. Selezionare una delle opzioni nell'elenco a discesa all'inizio o i collegamenti alla fine di questo articolo per eseguire l'esercitazione sull'uso di una di queste opzioni.    
+Questo articolo fornisce una panoramica e i prerequisiti per l'esercitazione. Dopo avere completato i prerequisiti, è possibile eseguire l'esercitazione usando uno degli strumenti/SDK seguenti: Portale di Azure, Visual Studio, PowerShell, modello di Resource Manager, API REST. Selezionare una delle opzioni nell'elenco a discesa all'inizio o i collegamenti alla fine di questo articolo per eseguire l'esercitazione sull'uso di una di queste opzioni.    
 
 ## <a name="tutorial-overview"></a>Panoramica dell'esercitazione
 In questa esercitazione si segue questa procedura:
@@ -82,7 +83,7 @@ Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 1. **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
 2. **Archiviazione di Azure** : in questa esercitazione si usa un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account) . Dopo aver creato l'account di archiviazione, annotare il **nome dell'account** e la **chiave di accesso**. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Scaricare e leggere il file di query Hive (**HQL**) disponibile all'indirizzo: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Questa è la query che trasforma i dati di input per generare i dati di output. 
+3. Scaricare e leggere il file di query Hive (**HQL**) disponibile all'indirizzo: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Questa query trasforma i dati di input per generare i dati di output. 
 4. Scaricare e leggere il file di input di esempio (**input.log**) disponibile all'indirizzo: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Creare un contenitore BLOB denominato **adfgetstarted** nell'Archiviazione BLOB di Azure. 
 6. Caricare il file **partitionweblogs.hql** nella cartella **script** nel contenitore **adfgetstarted**. Usare strumenti come [Esplora archivi di Microsoft Azure](http://storageexplorer.com/). 
@@ -99,7 +100,7 @@ Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK
 Il portale di Azure e Visual Studio forniscono l'interfaccia utente grafica per la creazione di data factory. Le opzioni PowerShell, il modello di Resource Manager e l'API REST forniscono una modalità di programmazione/script per la creazione di data factory.
 
 > [!NOTE]
-> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Non copia dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Esercitazione: Copiare dati da un archivio BLOB al database SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Non copia dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Copiare dati da un archivio BLOB al database SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
 
@@ -108,3 +109,4 @@ Il portale di Azure e Visual Studio forniscono l'interfaccia utente grafica per 
 
 
   
+

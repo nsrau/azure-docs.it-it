@@ -1,6 +1,6 @@
 ---
 title: Autenticazione e autorizzazione del bus di servizio di Azure | Documentazione Microsoft
-description: Panoramica dell&quot;autenticazione della firma di accesso condiviso.
+description: Autenticare le app sul bus di servizio usando l'autenticazione con firma di accesso condiviso (SAS).
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 06/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4eaae725c62f66de1b50fd2c7094f3e6e89281be
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 5ed7558cfff9991734e909e06e8bac9181131381
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticazione e autorizzazione del bus di servizio
+
 Le applicazioni possono eseguire l'autenticazione al bus di servizio di Microsoft Azure tramite l'autenticazione della firma di accesso condiviso o tramite il servizio di controllo di accesso di Microsoft Azure Active Directory (anche noto come Servizio di controllo di accesso o ACS). L'autenticazione della firma di accesso condiviso consente alle applicazioni di eseguire l'autenticazione al bus di servizio tramite una chiave di accesso configurata nello spazio dei nomi o nell'entità a cui sono associati diritti specifici. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso che i client possono usare per eseguire l'autenticazione al bus di servizio.
 
 > [!IMPORTANT]
@@ -32,7 +34,7 @@ Le applicazioni possono eseguire l'autenticazione al bus di servizio di Microsof
 
 È possibile configurare le chiavi per la firma di accesso condiviso in uno spazio dei nomi del bus di servizio. La chiave si applica a tutte le entità di messaggistica nello spazio dei nomi. È anche possibile configurare le chiavi nelle code e negli argomenti del bus di servizio. SAS è anche supportato in [Inoltro di Azure](../service-bus-relay/relay-authentication-and-authorization.md).
 
-Per usare la firma di accesso condiviso, è possibile configurare un oggetto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in uno spazio dei nomi, una coda o un argomento costituito dai parametri seguenti:
+Per usare la firma di accesso condiviso, è possibile configurare un oggetto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in uno spazio dei nomi, una coda o un argomento. Questa regola include gli elementi seguenti:
 
 * *KeyName* che identifica la regola.
 * *PrimaryKey* che è una chiave di crittografia usata per firmare/convalidare i token di firma di accesso condiviso.
@@ -67,6 +69,7 @@ Per accedere a un'entità, il client richiede un token in formato Token Web semp
 Il supporto per l'autenticazione tramite ACS per il bus di servizio è incluso in Azure .NET SDK 2.0 e versioni successive. Questa autenticazione include il supporto per un oggetto [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). Tutte le API che accettano una stringa di connessione come parametro includono il supporto per le stringhe di connessione ACS.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni su SAS, vedere [Autenticazione del bus di servizio con firme di accesso condiviso](service-bus-sas.md).
 
 Per informazioni corrispondenti sull'autenticazione in Inoltro di Azure, vedere [Autenticazione e autorizzazione di Inoltro di Azure](../service-bus-relay/relay-authentication-and-authorization.md). 

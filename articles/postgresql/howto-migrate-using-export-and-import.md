@@ -5,17 +5,15 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/14/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 275519089d682b6ef3c7858446ab2c4baface77f
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: e05e61ea05afc2866a618c663cb437540ab54c9b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrare il database PostgreSQL usando le funzionalità di esportazione e importazione
@@ -30,11 +28,11 @@ Per proseguire con questa guida, si richiedono:
 Seguire questi passaggi per esportare e importare il database PostgreSQL.
 
 ## <a name="create-a-script-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>Creare un file di script usando pg_dump che contiene i dati da caricare
-Per esportare il database PostgreSQL esistente in locale o in una macchina virtuale in un file di script SQL, eseguire il comando seguente:
+Per esportare un database PostgreSQL disponibile in locale o in una macchina virtuale in un file di script SQL, eseguire il comando seguente nell'ambiente esistente:
 ```bash
 pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
-Ad esempio, se si dispone di un server locale che contiene un database denominato **testdb**
+Se ad esempio è presente un server locale che contiene un database denominato **testdb**, eseguire:
 ```bash
 pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sql
 ```
@@ -44,7 +42,7 @@ pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sq
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-In questo esempio vengono usati il file PSQL e il file di script denominato **testdb.sql** dal passaggio precedente per importare i dati nel database **mypgsqldb** sul server di destinazione **mypgserver-20170401.postgres.database.azure.com**.
+In questo esempio vengono usati l'utility PSQL e il file di script **testdb.sql** ottenuto nel passaggio precedente per importare i dati nel database **mypgsqldb** disponibile sul server di destinazione **mypgserver-20170401.postgres.database.azure.com**.
 ```bash
 psql --file=testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
 ```

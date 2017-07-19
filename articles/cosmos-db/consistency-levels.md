@@ -3,7 +3,7 @@ title: Livelli di coerenza in Azure Cosmos DB | Microsoft Docs
 description: "Cosmos DB ha cinque livelli di coerenza per consentire di compensare scompensi di coerenza, disponibilità e latenza finale."
 keywords: coerenza finale, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 documentationcenter: 
@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
-ms.author: syamk
+ms.date: 06/16/2017
+ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b4f4a32a19c2145a18557a54d5a495ef0c8dec75
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: abca1eff9d0b79420e70da5a4c551eceda478491
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB
-Azure Cosmos DB è stato progettato da zero pensando alla distribuzione globale di tutti i modelli di dati. È pensato per offrire garanzie di bassa latenza stimabile, Contratto di servizio con disponibilità al 99,99% e più modelli di coerenza ben definiti meno severi. Attualmente Azure Cosmos DB offre cinque livelli di coerenza: assoluta, con decadimento ristretto, sessione e finale. 
+Azure Cosmos DB è stato progettato da zero pensando alla distribuzione globale di tutti i modelli di dati. È pensato per offrire garanzie di bassa latenza stimabile, Contratto di servizio con disponibilità al 99,99% e più modelli di coerenza ben definiti meno severi. Azure Cosmos DB offre attualmente cinque livelli di coerenza: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. 
 
 Oltre ai modelli di **coerenza assoluta** e **finale** offerti in genere dai database distribuiti, Azure Cosmos DB offre altri tre modelli di coerenza attentamente codificati e operativi e ha convalidato la loro utilità in casi reali. Si tratta di livelli coerenza di **decadimento ristretto**, **sessione** e **prefisso coerente**. Questi cinque livelli di coerenza, collettivamente, consentono di bilanciare in modo informato coerenza, disponibilità e latenza. 
 
@@ -40,13 +40,13 @@ La tabella seguente illustra le garanzie specifiche fornite da ciascun livello d
  
 **Livelli di coerenza e garanzie**
 
-| Livello di coerenza    | Garanzie |
+| Livello di coerenza | Garanzie |
 | --- | --- |
 | Assoluta | Linearità |
-| Obsolescenza associata    | Prefisso coerente. Ritardo delle letture rispetto alle scritture in base a prefissi k o intervallo t |
-| sessione    | Prefisso coerente. Letture costanti, scritture costanti, lettura delle proprie scritture, scrittura basata sulle letture |
-| Prefisso coerente    | Gli aggiornamenti restituiti sono un prefisso di tutti gli aggiornamenti, senza interruzioni |
-| Finale    | Letture non in ordine |
+| Obsolescenza associata | Prefisso coerente. Ritardo delle letture rispetto alle scritture in base a prefissi k o intervallo t |
+| sessione   | Prefisso coerente. Letture costanti, scritture costanti, lettura delle proprie scritture, scrittura basata sulle letture |
+| Prefisso coerente | Gli aggiornamenti restituiti sono un prefisso di tutti gli aggiornamenti, senza interruzioni |
+| Finale  | Letture non in ordine |
 
 È possibile configurare il livello di coerenza predefinito per l'account Cosmos DB (e successivamente ignorare l'impostazione del livello di coerenza per una specifica richiesta di lettura). Internamente, il livello di coerenza predefinito si applica ai dati all'interno dei set di partizioni che possono estendersi a più aree. Circa il 73% dei tenant di Microsoft usa il livello di coerenza sessione e il 20% il livello decadimento ristretto. È stato notato che circa il 3% dei clienti sperimenta i vari livelli di coerenza inizialmente prima di decidere quale sia il livello di coerenza specifico più adatto alla propria applicazione. È stato osservato anche che solo il 2% dei tenant eseguono l'override dei livelli di coerenza per ogni richiesta. 
 

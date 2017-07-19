@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 97ae17912eaa7508e3ae1315800408664a340837
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 6754505e7f58a8e7305987db9204271ca9b93870
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Ottimizzare l'ambiente con la soluzione System Center Operations Manager Assessment (Anteprima)
+
+![Simbolo di Valutazione System Center Operations Manager](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
 È possibile usare la soluzione System Center Operations Manager Assessment per valutare i rischi e l'integrità degli ambienti server di System Center Operations Manager a intervalli regolari. Questo articolo consente di installare, configurare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
 
@@ -57,7 +60,7 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 1. [Impostare l'account RunAs per System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
 2. [Configurare la regola di System Center Operations Manager Assessment](#configure-the-assessment-rule)
 
-# <a name="system-center-operations-manager-assessment-data-collection-details"></a>Dettagli della raccolta di dati della valutazione di System Center Operations Manager
+## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Dettagli della raccolta di dati della valutazione di System Center Operations Manager
 
 La valutazione di System Center Operations Manager raccoglie i dati WMI, del Registro di sistema, del log eventi e di Operations Manager tramite Windows PowerShell, query SQL e agente di raccolta di informazioni file usando il server che è stato abilitato.
 
@@ -155,8 +158,8 @@ Per impostazione predefinita, la regola Microsoft System Center Advisor SCOM Ass
 1. Nell'area di lavoro **Creazione e modifica** della console di Operations Manager, cercare la regola *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* nel pannello **Regole**.
 2. Nei risultati della ricerca selezionare quello che include il testo *Tipo: Server di gestione*.
 3. Fare clic con il pulsante destro del mouse sulla regola, quindi scegliere **Override** > **Oggetto specifico della classe: Server di gestione**.
-4.    Nell'elenco dei server di gestione disponibili selezionare il server di gestione in cui eseguire la regola.
-5.    Assicurarsi di modificare il valore di override in **True** per il valore del parametro **Enabled**.  
+4.  Nell'elenco dei server di gestione disponibili selezionare il server di gestione in cui eseguire la regola.
+5.  Assicurarsi di modificare il valore di override in **True** per il valore del parametro **Enabled**.  
     ![parametro di override](./media/log-analytics-scom-assessment/rule.png)
 
 Sempre in questa finestra, configurare la frequenza di esecuzione usando la procedura successiva.

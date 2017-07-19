@@ -1,38 +1,39 @@
 ---
 title: Creare piani di ripristino per il failover e il ripristino in Azure Site Recovery | Microsoft Docs
-description: Viene descritto come creare e personalizzare i piani di ripristino per eseguire il failover e il ripristino delle macchine virtuali e dei server fisici in Azure Site Recovery
+description: Descrive come creare e personalizzare i piani di ripristino in Azure Site Recovery, eseguire il failover e ripristinare le macchine virtuali e i server fisici
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
-ms.service: site-recovery
+ms.service: storage-backup-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/14/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 9ab51cb8e11df43ba2157b11e25a1f29b19e4da9
-ms.openlocfilehash: e36f19e9c429c0e4b42e96b28b1ba995bd1bf167
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="create-recovery-plans"></a>Creare piani di ripristino
 
 
-L'articolo contiene informazioni sulla creazione e la personalizzazione dei piani di ripristino in [Azure Site Recovery?](site-recovery-overview.md).
+L'articolo contiene informazioni sulla creazione e la personalizzazione dei piani di ripristino in [Azure Site Recovery](site-recovery-overview.md).
 
-Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
- Per i piani di ripristino, procedere come segue:
+ Per creare i piani di ripristino, procedere come segue:
 
 * Definire gruppi di computer che eseguono il failover insieme e quindi si avviano contemporaneamente.
 * Creare le dipendenze tra i computer raggruppandoli in un gruppo di piano di ripristino. Ad esempio, per eseguire il failover e visualizzare un'applicazione specifica, raggruppare tutte le macchine virtuali per l'applicazione nello stesso gruppo di piano di ripristino.
-* Failover. È possibile eseguire un failover non pianificato o un test, pianificato, in un piano di ripristino.
+* Eseguire un failover. È possibile eseguire un failover non pianificato o un test, pianificato, in un piano di ripristino.
 
 
 ## <a name="create-a-recovery-plan"></a>Creare un piano di ripristino
@@ -71,12 +72,12 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 Se si usa VMM nella distribuzione:
 
 * Gli script in un piano di ripristino vengono eseguiti nel contesto dell'account del servizio VMM. Assicurarsi che questo account disponga delle autorizzazioni di lettura per la condivisione remota in cui si trova lo script. Testare lo script da eseguire a livello di privilegi dell'account di servizio VMM.
-* I cmdlet di VMM vengono forniti in un modulo di Windows PowerShell. Il modulo viene installato quando si installa la console VMM. È possibile caricarlo nello script, usando il comando seguente nello script: 
+* I cmdlet di VMM vengono forniti in un modulo di Windows PowerShell. Il modulo viene installato quando si installa la console VMM. È possibile caricarlo nello script, usando il comando seguente nello script:
    - Import-Module -Name virtualmachinemanager. [Altre informazioni](https://technet.microsoft.com/library/hh875013.aspx).
 * Assicurarsi di disporre di almeno un server di libreria nella distribuzione di VMM. Per impostazione predefinita il percorso della condivisione di libreria per un server VMM si trova in locale nel server VMM con il nome di cartella MSCVMMLibrary.
     * Se il percorso della condivisione di libreria è remoto (o locale ma non condiviso con MSCVMMLibrary), configurare la condivisione come segue (usando \\libserver2.contoso.com\share\ come esempio):
       * Aprire l'editor del Registro di sistema e passare a **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Modificare il valore **ScriptLibraryPath** e inserire il valore \\libserver2.contoso.com\share\.. Specificare il nome di dominio completo. Fornire le autorizzazioni per il percorso di condivisione.
+      * Modificare il valore **ScriptLibraryPath** e inserirlo come \\libserver2.contoso.com\share\. Specificare il nome di dominio completo. Fornire le autorizzazioni per il percorso di condivisione.
       * Assicurarsi di testare lo script con un account utente che disponga delle stesse autorizzazioni come account del servizio VMM. In questo modo si verifica che gli script testati autonomamente vengano eseguiti nello stesso modo in cui verrebbero eseguiti nei piani di ripristino. Nel server VMM, impostare i criteri di esecuzione in modo venga ignorato quanto segue:
         * Aprire la console di Windows PowerShell a 64 bit con privilegi elevati.
         * Digitare: **Set-executionpolicy bypass**. [Altre informazioni](https://technet.microsoft.com/library/ee176961.aspx).
@@ -93,7 +94,7 @@ Dopo aver aggiunto macchine virtuali o gruppi di replica al gruppo del piano di 
 6. Eseguire un failover del piano di ripristino per assicurarsi che lo script funzioni come previsto.
 
 
-### <a name="vmm-script"></a>Script VMM
+### <a name="add-a-vmm-script"></a>Aggiungere uno script VMM
 
 Se si dispone di un sito di origine VMM, è possibile creare uno script nel server VMM e includerlo nel piano di ripristino.
 

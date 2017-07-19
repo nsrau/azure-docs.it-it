@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 75a2fa16a7e33cf85746538e120ca90a389b05c5
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 6a69dc900eee2f539a2b1740c4e89132e2bd6db7
+ms.contentlocale: it-it
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -27,6 +28,8 @@ ms.lasthandoff: 03/24/2017
 ## <a name="overview"></a>Panoramica
 
 Ogni hub IoT ha un registro delle identità in cui sono archiviate le informazioni sui dispositivi a cui è consentito connettersi all'hub IoT. Prima che un dispositivo possa connettersi a un hub IoT, è necessario che sia presente una voce relativa al dispositivo nel registro delle identità dell'hub IoT. Un dispositivo deve autenticarsi anche con l'hub IoT in base alle credenziali archiviate nel registro delle identità.
+
+L'ID dispositivo archiviato nel registro delle identità fa distinzione maiuscole e minuscole.
 
 A livello generale, il registro delle identità è una raccolta delle risorse relative alle identità dei dispositivi che supporta REST. Quando si aggiunge una voce al registro delle identità, l'hub IoT crea un set di risorse per dispositivo nel servizio, ad esempio una coda contenente messaggi da cloud a dispositivo in elaborazione.
 
@@ -83,7 +86,7 @@ Una soluzione IoT include in genere un archivio separato specifico della soluzio
 
 ## <a name="device-provisioning"></a>Provisioning di dispositivi
 
-I dati del dispositivo archiviati da una soluzione IoT dipendono dai requisiti specifici di tale soluzione. Tuttavia, come minimo, una soluzione deve archiviare identità di dispositivo e chiavi di autenticazione. L'hub IoT di Azure include un registro delle identità in grado di archiviare i valori per ogni dispositivo, ad esempio ID, chiavi di autenticazione e codici di stato. Una soluzione può usare altri servizi di Azure, ad esempio archiviazione tabelle o Archiviazione BLOB di Azure oppure Azure DocumentDB per archiviare eventuali dati aggiuntivi sui dispositivi.
+I dati del dispositivo archiviati da una soluzione IoT dipendono dai requisiti specifici di tale soluzione. Tuttavia, come minimo, una soluzione deve archiviare identità di dispositivo e chiavi di autenticazione. L'hub IoT di Azure include un registro delle identità in grado di archiviare i valori per ogni dispositivo, ad esempio ID, chiavi di autenticazione e codici di stato. Una soluzione può usare altri servizi di Azure, ad esempio archiviazione tabelle o Archiviazione BLOB di Azure oppure Azure Cosmos DB per archiviare dati aggiuntivi sui dispositivi.
 
 *Provisioning di dispositivi* è il processo di aggiunta dei dati iniziali dei dispositivi agli archivi nella soluzione. Per abilitare un nuovo dispositivo per la connessione all'hub è necessario aggiungere un ID dispositivo e le relative chiavi al registro delle identità dell'hub IoT. Come parte del processo di provisioning, può essere necessario inizializzare i dati specifici del dispositivo in altri archivi di soluzioni.
 
@@ -99,6 +102,50 @@ Un'implementazione più complessa può includere le informazioni acquisite dal [
 
 > [!NOTE]
 > Se una soluzione IoT richiede lo stato di connessione del dispositivo esclusivamente per determinare se inviare i messaggi dal cloud al dispositivo e i messaggi non vengono trasmessi a grandi gruppi di dispositivi, un modello più semplice da considerare è usare un intervallo di scadenza breve. Un modello di questo tipo consente di gestire il registro dello stato di connessione del dispositivo in modo analogo a un modello di heartbeat, ma con maggiore efficienza. È inoltre possibile, richiedendo gli acknowledgement messaggi, ricevere una notifica tramite l'hub IoT indicante i dispositivi in grado di ricevere i messaggi e che non sono online o sono malfunzionanti.
+
+## <a name="device-lifecycle-notifications"></a>Notifiche del ciclo di vita dei dispositivi
+
+L'hub IoT può inviare una notifica alla soluzione IoT quando un'identità dispositivo viene creata o eliminata inviando notifiche del ciclo di vita dei dispositivi. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *DeviceLifecycleEvents*. Per impostazione predefinita, non vengono inviate notifiche del ciclo di vita, il che significa che queste route non sono preesistenti. Il messaggio di notifica include le proprietà e il corpo.
+
+- Proprietà
+
+Le proprietà di sistema del messaggio hanno come prefisso il simbolo `'$'`.
+
+| Nome | Valore |
+| --- | --- |
+$content-type | application/json |
+$iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
+opType | "createDeviceIdentity" o "deleteDeviceIdentity" |
+hubName | Nome dell'hub IoT |
+deviceId | ID del dispositivo |
+operationTimestamp | Timestamp ISO8601 dell'operazione |
+iothub-message-schema | deviceLifecycleNotification |
+
+- Corpo
+
+Questa sezione è in formato JSON e rappresenta la copia dell'identità dispositivo creata. Ad esempio,
+``` 
+{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}
+```
 
 ## <a name="reference-topics"></a>Argomenti di riferimento:
 
@@ -132,7 +179,7 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 * [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
 * [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
 * [Azure IoT SDK per dispositivi e servizi][lnk-sdks] elenca gli SDK nei diversi linguaggi che è possibile usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
-* [Linguaggio di query per dispositivi gemelli e processi][lnk-query] illustra il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
+* [Il linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing messaggi][lnk-query] descrive il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui processi e i dispositivi gemelli.
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
 ## <a name="next-steps"></a>Passaggi successivi

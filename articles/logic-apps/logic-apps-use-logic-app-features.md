@@ -1,6 +1,6 @@
 ---
-title: Aggiungere la logica condizionale e avviare i flussi di lavoro - App per la logica di Azure | Microsoft Docs
-description: Controllare l&quot;esecuzione dei flussi di lavoro nelle app per la logica di Azure mediante l&quot;aggiunta di logica condizionale, trigger, azioni e parametri.
+title: Aggiungere condizioni e avviare i flussi di lavoro - App per la logica di Azure | Microsoft Docs
+description: Controllare l'esecuzione dei flussi di lavoro nelle app per la logica di Azure mediante l'aggiunta di logica condizionale, trigger, azioni e parametri.
 author: stepsic-microsoft-com
 manager: anneta
 editor: 
@@ -15,55 +15,75 @@ ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9f7d623ec213de6d46f59547aff9d4417ac95ede
-ms.openlocfilehash: 41aafe94d24f0e22fe2256ab213c7668b670764c
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
 ms.contentlocale: it-it
-ms.lasthandoff: 02/15/2017
+ms.lasthandoff: 06/24/2017
 
 
 ---
 # <a name="use-logic-apps-features"></a>Usare le funzionalità delle app per la logica
-Nell' [argomento precedente](../logic-apps/logic-apps-create-a-logic-app.md)è stata creata la prima app per la logica. A questo punto verrà creato un processo più completo con le app per la logica di Azure. Questo argomento introduce i concetti relativi alle app per la logica di Azure elencati di seguito:
 
-* Logica condizionale, che esegue un'azione solo quando viene soddisfatta una determinata condizione.
-* Visualizzazione del codice per modificare un'app per la logica esistente.
-* Opzioni per avviare un flusso di lavoro.
+In un [argomento precedente](../logic-apps/logic-apps-create-a-logic-app.md) è stata creata la prima app per la logica. Per il controllo del flusso di lavoro delle app per la logica, è possibile specificare percorsi diversi per l'app per la logica da eseguire e la modalità di elaborazione dati in matrici, raccolte e batch. È possibile includere questi elementi nel flusso di lavoro dell'app per la logica:
 
-Prima di completare questo argomento, completare i passaggi elencati nell'articolo [Creare una nuova app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Nel [portale di Azure], passare all'app per la logica e fare clic su **Trigger e azioni** nel riepilogo per modificare la definizione di app per la logica.
+* Le condizioni e le [istruzioni switch](../logic-apps/logic-apps-switch-case.md) consentono all'app per la logica di eseguire azioni diverse in base al fatto che vengano soddisfatte o meno condizioni specifiche.
 
-## <a name="reference-material"></a>Materiale di riferimento
-I seguenti documenti possono essere utili:
+* I [cicli](../logic-apps/logic-apps-loops-and-scopes.md) consentono di eseguire ripetutamente passaggi dell'app per la logica. Ad esempio, è possibile ripetere azioni su una matrice quando si usa un ciclo **For_each**. Oppure è possibile ripetere azioni fino a quando non viene soddisfatta una condizione se si usa un ciclo **Until**.
 
-* [API REST di gestione e di runtime](https://msdn.microsoft.com/library/azure/mt643787.aspx) : contiene anche informazioni su come richiamare direttamente le app per la logica
-* [Riferimento al linguaggio](https://msdn.microsoft.com/library/azure/mt643789.aspx) : fornisce un elenco completo di tutte le funzioni/espressioni supportate
-* [Tipi di trigger e azioni](https://msdn.microsoft.com/library/azure/mt643939.aspx) : descrive i diversi tipi di azioni e gli input che accettano
-* [Panoramica del servizio app](../app-service/app-service-value-prop-what-is.md) : fornisce informazioni sui componenti da scegliere per la creazione di una soluzione
+* Gli [ambiti](../logic-apps/logic-apps-loops-and-scopes.md) consentono di raggruppare serie di azioni, ad esempio per implementare la gestione delle eccezioni.
 
-## <a name="add-conditional-logic-to-your-logic-app"></a>Aggiungere la logica condizionale all'app per la logica
+* La [scomposizione dei batch](../logic-apps/logic-apps-loops-and-scopes.md) consente all'app per la logica di avviare flussi di lavoro separati per gli elementi di una matrice quando si usa il comando **SplitOn**.
 
-Benché il flusso originale dell'app per la logica funzioni, possiamo migliorare alcune aree.
+Questo argomento introduce altri concetti per la compilazione dell'app per la logica:
 
-### <a name="conditional"></a>Condizionale
+* Visualizzazione Codice per modificare un'app per la logica esistente
+* Opzioni per avviare un flusso di lavoro
 
-La prima app per la logica potrebbe comportare la ricezione di troppi messaggi di posta elettronica. I passaggi seguenti consentono di aggiungere una logica condizionale per assicurarsi di ricevere un'e-mail solo quando il tweet proviene da un utente con un numero specifico di follower.
+## <a name="conditions-run-steps-only-after-meeting-a-condition"></a>Condizioni: eseguire i passaggi solo quando è soddisfatta una condizione
 
-0. Nella finestra di progettazione dell'app per la logica scegliere **Nuovo passaggio** (+) > **Aggiungi un'azione**.
-0.    Trovare e aggiungere l'azione **Get User** (Trova utente) per Twitter.
-0. Per visualizzare le informazioni sull'utente di Twitter, trovare e aggiungere il campo **Tweeted by** (Pubblicato da) dal trigger.
+Per fare in modo che l'app per la logica esegua i passaggi solo quando i dati soddisfano criteri specifici, è possibile aggiungere una condizione che confronta i dati nel flusso di lavoro in base a campi o valori specifici.
 
-    ![Get User](media/logic-apps-use-logic-app-features/getuser.png)
+Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi di posta elettronica per i post sul feed RSS di un sito Web. È possibile aggiungere una condizione in modo che l'app per la logica invii un messaggio solo quando il nuovo post appartiene a una categoria specifica.
 
-0. Scegliere **Nuovo passaggio** (+) > **Aggiungi una condizione**.
-0. Per filtrare il numero di follower relativi a un utente, in **Nome oggetto** scegliere **Aggiungi contenuto dinamico**. 
-0.    Nella casella di ricerca, trovare e aggiungere il campo **Followers count** (Conteggio follower).
-0. In **Relazione** selezionare **is greater than** (è maggiore di).
-0. Nella casella **Valore** immettere il numero di follower per gli utenti.
+1. Nel [portale di Azure](https://portal.azure.com) individuare e aprire l'app per la logica in Progettazione app per la logica.
 
-    ![Condizionale](media/logic-apps-use-logic-app-features/conditional.png)
+2. Aggiungere una condizione al percorso del flusso di lavoro da usare. 
 
-0. Infine, trascinare la casella **Send email** (Invia email) nella casella **If Yes** (Se sì) . 
+   Per aggiungere la condizione tra i passaggi esistenti nel flusso di lavoro dell'app per la logica, spostare il puntatore sulla freccia dove si vuole aggiungere la condizione. 
+   Scegliere il **segno più** (**+**), quindi **Aggiungi una condizione**. ad esempio:
 
-Ora si ricevono messaggi di posta elettronica solo quando il numero di follower soddisfa la condizione.
+   ![Aggiungere una condizione all'app per la logica](./media/logic-apps-use-logic-app-features/add-condition.png)
+
+   > [!NOTE]
+   > Se si vuole aggiungere una condizione alla fine del flusso di lavoro corrente, andare alla fine dell'app per la logica e scegliere **+ Nuovo passaggio**.
+
+3. Ora definire la condizione. Specificare il campo di origine da valutare, l'operazione da eseguire e il valore o il campo di destinazione. Per aggiungere alla condizione campi già esistenti, sceglierli dall'**elenco Aggiungi contenuto dinamico**.
+
+   ad esempio:
+
+   ![Modificare la condizione nella modalità di base](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
+
+   Questa è la condizione completa:
+
+   ![Condizione completa](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
+
+   > [!TIP]
+   > Per definire la condizione nel codice, scegliere **Modifica in modalità avanzata**. ad esempio:
+   > 
+   > ![Modificare la condizione nel codice](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
+
+4. In **SE SÌ** e **SE NO** aggiungere i passaggi da eseguire in base al fatto che la condizione sia soddisfatta o meno.
+
+   ad esempio:
+
+   ![Condizione con percorsi SÌ e NO](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
+
+   > [!TIP]
+   > È possibile trascinare le azioni esistenti nei percorsi **SE SÌ** e **SE NO**.
+
+5. Al termine, salvare l'app per la logica.
+
+Ora si ricevono messaggi di posta elettronica solo quando i post soddisfano la condizione.
 
 ## <a name="repeat-actions-over-a-list-with-foreach"></a>Ripetere l'azione in un elenco con forEach
 
@@ -84,35 +104,36 @@ Oltre che nella finestra di progettazione dell'app per la logica, è possibile m
 
 2. Per salvare le modifiche, scegliere **Salva**.
 
-### <a name="parameters"></a>Parametri
+## <a name="parameters"></a>Parametri
 
 Alcune funzionalità delle app per la logica sono disponibili solo nella visualizzazione codice, ad esempio, i parametri. I parametri semplificano il riutilizzo dei valori all'interno di un'app per la logica. Ad esempio, se si ha un indirizzo e-mail che si vuole usare in diverse azioni, è consigliabile definirlo come parametro.
 
-I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto. Sono particolarmente utili quando è necessario eseguire l'override dei parametri in diversi ambienti. Per informazioni su come eseguire l'override dei parametri in base all'ambiente, vedere la [documentazione sulle API REST](https://docs.microsoft.com/rest/api/logic).
+I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto. Sono particolarmente utili quando è necessario eseguire l'override dei parametri in diversi ambienti. Per informazioni sull'esecuzione dell'override dei parametri in base all'ambiente, vedere l'argomento relativo alla [creazione di definizioni di app per la logica](../logic-apps/logic-apps-author-definitions.md) e la [documentazione dell'API REST](https://docs.microsoft.com/rest/api/logic).
 
 Questo esempio illustra come aggiornare l'app per la logica esistente in modo che sia possibile usare i parametri per il termine della query.
 
-1. Nella visualizzazione codice trovare l'oggetto `parameters : {}` e aggiungere un oggetto argomento:
+1. Nella visualizzazione codice trovare l'oggetto `parameters : {}` e aggiungere un oggetto `currentFeedUrl`:
 
-        "topic" : {
+        "currentFeedUrl" : {
             "type" : "string",
-            "defaultValue" : "MicrosoftAzure"
+            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
         }
 
-2. Andare all'azione `twitterconnector`, trovare il valore della query e sostituire tale valore con `#@{parameters('topic')}`. 
+2. Andare all'azione `When_a_feed-item_is_published`, trovare la sezione `queries` e sostituire il valore della query con `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
 
     Per unire due o più stringhe, è inoltre possibile usare la funzione `concat`. 
-    Ad esempio, `@concat('#',parameters('topic'))` funziona esattamente come sopra.
+    Ad esempio, `"@concat('#',parameters('currentFeedUrl'))"` 
+    funziona come indicato sopra.
 
-3.    Al termine dell'operazione, scegliere **Salva**. 
+3.  Al termine dell'operazione, scegliere **Salva**. 
 
-    A questo punto, ogni ora tutti i nuovi tweet con più di cinque retweet vengono recapitati in una cartella denominata **tweet** nella propria area Dropbox.
+    Ora è possibile modificare il feed RSS del sito Web passando un URL diverso attraverso l'oggetto `currentFeedURL`.
 
-Per informazioni sulle definizioni dell'app per la logica, vedere l'articolo relativo alla [creazione di definizioni di app per la logica](../logic-apps/logic-apps-author-definitions.md).
+Altre informazioni su come [creare definizioni di app per la logica](../logic-apps/logic-apps-author-definitions.md).
 
 ## <a name="start-logic-app-workflows"></a>Avviare i flussi di lavoro delle app per la logica
 
-Sono disponibili diverse opzioni per avviare il flusso di lavoro definito nell'app per la logica. Un flusso di lavoro può sempre essere avviato su richiesta nel [portale di Azure].
+Sono disponibili diverse opzioni per avviare il flusso di lavoro definito nell'app per la logica. Un flusso di lavoro può sempre essere avviato su richiesta nel [Portale di Azure].
 
 ### <a name="recurrence-triggers"></a>Trigger di ricorrenza
 
@@ -123,5 +144,10 @@ Un trigger di ricorrenza viene eseguito a un intervallo specificato dall'utente.
 Per avviare un flusso di lavoro, i servizi possono chiamare un endpoint dell'app per la logica. Per avviare questa tipologia di app per la logica su richiesta, fare clic su **Run now** (Esegui ora) nella barra dei comandi. Vedere [Avviare i flussi di lavoro chiamando endpoint dell'app per la logica come trigger](../logic-apps/logic-apps-http-endpoint.md). 
 
 <!-- Shared links -->
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Istruzioni switch](../logic-apps/logic-apps-switch-case.md) 
+* [Cicli, ambiti e debatching](../logic-apps/logic-apps-loops-and-scopes.md)
+* [Creare definizioni di app per la logica](../logic-apps/logic-apps-author-definitions.md)

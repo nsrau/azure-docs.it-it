@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/13/2017
+ms.date: 06/09/2017
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 3c7c972cdc395e2e20e7f6a296a2ffab6efad66d
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 19346f2e4f2860258c421d76729abeb82f0e8987
+ms.contentlocale: it-it
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -89,7 +90,7 @@ Questo passaggio richiede la preparazione dell'ambiente di file server locale, l
       > Il nome file può cambiare a seconda della versione.
       >
       >
-3. Fare clic su **Next**.
+3. Fare clic su **Avanti**.
 4. Accettare le **condizioni del contratto** e quindi fare clic su **Avanti**.
 5. Fare clic su **Fine**.
 6. Creare condivisioni file usando volumi ottenuti dall'archiviazione StorSimple. Per maggiori informazioni, vedere l'articolo [Usare il servizio StorSimple Manager per gestire i volumi](storsimple-manage-volumes.md).
@@ -140,9 +141,18 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
 ## <a name="create-a-recovery-plan"></a>Creare un piano di ripristino
 È possibile creare un piano di ripristino in ASR per automatizzare il processo di failover delle condivisioni file. Se si verifica un'interruzione, è possibile visualizzare le condivisioni file in pochi minuti con un semplice clic. Per abilitare l'automazione, è necessario un account di Automazione di Azure.
 
-#### <a name="to-create-the-account"></a>Per creare l'account
+#### <a name="to-create-an-automation-account"></a>Per creare un account di Automazione
 1. Passare al portale di Azure &gt; sezione **Automazione**.
-2. Creare un nuovo account di automazione. Usare la stessa area geografica/area in cui sono stati creati gli account dell'appliance cloud StorSimple e di archiviazione.
+2. Fare clic sul pulsante **+ Aggiungi** e viene aperto il pannello sotto.
+
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
+
+   * Nome: immettere un nuovo account di automazione
+   * Sottoscrizione: scegliere la sottoscrizione
+   * Gruppo di risorse: creare un nuovo gruppo di risorse o sceglierne uno esistente
+   * Posizione: scegliere la posizione, usare la stessa area geografica/area in cui sono stati creati gli account dell'appliance cloud StorSimple e di archiviazione.
+   * Creare un account RunAs di Azure: selezionare l'opzione **Sì**.
+
 3. Passare all'account di automazione, fare clic su **Runbook** &gt; **Sfoglia raccolta** per importare tutti i runbook richiesti nell'account di automazione.
 4. Aggiungere i runbook seguenti individuando il tag **Ripristino di emergenza** nella raccolta:
 
@@ -153,13 +163,12 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
    * Avviare l'appliance virtuale StorSimple
 
      ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
+
 5. Pubblicare tutti gli script selezionando il runbook nell'account di automazione e fare clic su **Modifica** &gt; **Pubblica** e quindi **Sì** al messaggio di verifica. Dopo questo passaggio, la scheda **Runbook** verrà visualizzata come segue:
 
     ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
-6. Nell'account di automazione andare alla scheda **Asset** &gt; fare clic su **Credenziali** &gt; **+ Aggiungi credenziali** e aggiungere le credenziali di Azure. Assegnare all'asset il nome AzureCredential.
 
-   Usare le credenziali di Windows PowerShell. Queste credenziali devono contenere un nome utente ID organizzazione e una password con accesso alla sottoscrizione di Azure e Multi-Factor Authentication disabilitata. Si tratta di un passaggio necessario per eseguire l'autenticazione per conto dell'utente durante i failover e per visualizzare i volumi del file server nel sito di ripristino di emergenza.
-7. Nell'account di automazione selezionare la scheda **Asset** &gt; fare clic su **Variabili** &gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
+6. Nell'account di automazione selezionare la scheda **Asset** &gt; fare clic su **Variabili** &gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
 
    * *RecoveryPlanName***-StorSimRegKey**: la chiave di registrazione per il servizio StorSimple Manager.
    * *RecoveryPlanName***-AzureSubscriptionName**: il nome della sottoscrizione Azure.
@@ -178,8 +187,8 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
-8. Passare alla sezione **Servizi di ripristino** e selezionare l'insieme di credenziali di Azure Site Recovery creato in precedenza.
-9. Selezionare l'opzione **Piani di ripristino (Site Recovery)** dal gruppo **Gestisci** e creare un nuovo piano di ripristino come segue:
+7. Passare alla sezione **Servizi di ripristino** e selezionare l'insieme di credenziali di Azure Site Recovery creato in precedenza.
+8. Selezionare l'opzione **Piani di ripristino (Site Recovery)** dal gruppo **Gestisci** e creare un nuovo piano di ripristino come segue:
 
    a.  Fare clic sul pulsante **+ Piano di ripristino**. Verrà visualizzato il pannello seguente.
 
@@ -291,7 +300,7 @@ La pianificazione della capacità prevede almeno due processi importanti:
 
   > [!IMPORTANT]
   > Eseguire il backup manualmente dal portale di Azure e quindi eseguire nuovamente il piano di ripristino.
-  
+
 * Timeout del processo di clonazione: si verifica il timeout dello script StorSimple se la clonazione dei volumi impiega più tempo rispetto al limite di Azure Site Recovery per ogni script (attualmente è di 120 minuti).
 * Errore di sincronizzazione dell'ora: si verifica un errore dello script StorSimple che informa dell'esito negativo dei backup anche in caso di esito positivo del backup nel portale. Una possibile causa dell'errore potrebbe essere la mancata sincronizzazione dell'ora dell'appliance StorSimple con l'ora corrente del fuso orario.
 

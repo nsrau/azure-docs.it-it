@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 3b2ddf764f54d2e7f23b02b5b593077938ac9355
+ms.contentlocale: it-it
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -32,7 +33,7 @@ Il gateway applicazione di Azure è un servizio di controller per la distribuzio
 
 **D. Quali funzionalità supporta il gateway applicazione?**
 
-Il gateway applicazione supporta l'offload SSL e l'SSL end-to-end, il Web application firewall (anteprima), l'affinità di sessione basata su cookie, il routing basato sul percorso dell'URL, l'hosting di più siti e altro. Per un elenco completo delle funzionalità supportate, vedere la [panoramica del gateway applicazione](application-gateway-introduction.md)
+Application Gateway supporta l'offload SSL e SSL end-to-end, web application firewall, affinità della sessione basata su cookie, routing basato su percorso url, hosting multisito e altro. Per un elenco completo delle funzionalità supportate, vedere la [panoramica del gateway applicazione](application-gateway-introduction.md)
 
 **D. Qual è la differenza tra gateway applicazione e Azure Load Balancer?**
 
@@ -78,6 +79,10 @@ Il gateway applicazione supporta un solo indirizzo IP pubblico.
 
 Sì, il gateway applicazione inserisce le intestazioni x-forwarded-for, x-forwarded-proto e x-forwarded-port nella richiesta inoltrata al back-end. Il formato dell'intestazione x-forwarded-for è un elenco di IP:Porta separato da virgole. I valori validi per x-forwarded-proto sono http o https. X-forwarded-port specifica la porta raggiunta dalla richiesta nel gateway applicazione.
 
+**D. Quanto tempo occorre per distribuire un gateway applicazione? Il gateway applicazione funziona durante l'aggiornamento?**
+
+Nuove distribuzioni di gateway applicazione possono richiedere fino a 20 minuti per effettuare il provisioning. Le modifiche all'istanza di conteggio/dimensioni non causano problemi e il gateway rimane attivo durante questo periodo di tempo.
+
 ## <a name="configuration"></a>Configurazione
 
 **D. Il gateway applicazione viene sempre distribuito in una rete virtuale?**
@@ -90,11 +95,17 @@ Il gateway applicazione può comunicare con le istanze all'esterno della rete vi
 
 **D. È possibile distribuire altri elementi nella subnet del gateway applicazione?**
 
-No, ma è possibile distribuire altri gateway applicazione nella subnet
+No, ma è possibile distribuire altri gateway applicazione nella subnet.
 
 **D. I gruppi di sicurezza di rete sono supportati nella subnet del gateway applicazione?**
 
-I gruppi di sicurezza di rete sono supportati nella subnet del gateway applicazione, ma è necessario applicare eccezioni per le porte 65503-65534 per il corretto funzionamento dell'integrità back-end. La connettività Internet in uscita non deve essere bloccata.
+I gruppi di sicurezza di rete sono supportati nella subnet del gateway applicazione con le restrizioni seguenti:
+
+* Le eccezioni devono essere inserite per il traffico in entrata sulle porte 65503-65534 affinché l'integrità del back-end funzioni correttamente.
+
+* La connettività Internet in uscita non deve essere bloccata.
+
+* È necessario consentire il traffico dal tag AzureLoadBalancer.
 
 **D. Quali sono i limiti del gateway applicazione? È possibile aumentare questi limiti?**
 
@@ -122,7 +133,21 @@ I probe personalizzati non supportano caratteri jolly o regex nei dati di rispos
 
 **D. Cosa indica il campo Host per i probe personalizzati?**
 
-Il campo Host specifica il nome a cui inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM ed è nel formato \<protocollo\>://\<host\>:\<porta\>\<percorso\>. 
+Il campo Host specifica il nome a cui inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM ed è nel formato \<protocollo\>://\<host\>:\<porta\>\<percorso\>.
+
+**D. È possibile consentire l'accesso al gateway applicazione ad alcuni IP di origine?**
+
+Questa operazione può essere eseguita utilizzando gruppi di sicurezza di rete nella subnet del gateway applicazione. Nella subnet nell'ordine di priorità elencato, è necessario inserire le restrizioni seguenti:
+
+* Consentire il traffico in ingresso dall'intervallo di IP/IP di origine.
+
+* Consentire le richieste in ingresso da tutte le origini alle porte 65503-65534 per la [comunicazione integrità back-end](application-gateway-diagnostics.md).
+
+* Consentire probe di bilanciamento del carico di Azure in ingresso (tag AzureLoadBalancer) e il traffico di rete virtuale in ingresso (tag VirtualNetwork) nei [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+
+* Bloccare tutto il traffico in ingresso con una regola Nega tutto.
+
+* Consentire il traffico in uscita a Internet per tutte le destinazioni.
 
 ## <a name="performance"></a>Prestazioni
 
@@ -283,3 +308,4 @@ Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul gateway applicazione, vedere la [panoramica del gateway applicazione](application-gateway-introduction.md).
+

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 06/08/2017
 ms.author: pajosh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 41a7024b51bc7a3c9cf34dba97255ea61fd27924
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 1400fe83bec85a7ab1b4c96fb38abdaf6c944845
 ms.contentlocale: it-it
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -79,7 +79,7 @@ Per gli utenti che usano il **server di Backup di Azure**:
 
 Per gli utenti di **Data Protection Manager**:
 
-1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino dei **dati per recuperare** i dati da tutti i punti di recupero precedenti.
+1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino**** dei dati per recuperare i dati da tutti i punti di recupero precedenti.
 2. Se questo server non è disponibile, usare [Aggiungi DPM esterno](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) per usare un altro server Data Protection Manager per ottenere questi dati.
 
 ## <a name="prevent-attacks"></a>Prevenire gli attacchi
@@ -107,6 +107,13 @@ Per garantire che sia sempre disponibile un numero valido di punti di recupero, 
 In genere, quando viene eseguita un'operazione critica, l'amministratore della sottoscrizione riceve una notifica tramite posta elettronica con i dettagli dell'operazione. È possibile configurare altri destinatari di posta elettronica per queste notifiche usando il portale di Azure.
 
 Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di difesa da attacchi mirati. Un aspetto ancora più importante è che se si verifica un attacco, queste funzionalità permettono di ripristinare i dati.
+
+## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
+| Operazione | Dettagli errore | Risoluzione |
+| --- | --- | --- |
+| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore si verifica quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. Le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è necessario impostare il periodo di mantenimento dati al di sopra del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile o un anno per il backup annuale). Facoltativamente, per sfruttare tutti gli aggiornamenti della sicurezza un approccio consigliato è l'aggiornamento dell'agente di backup, del server di Backup di Azure e/o di DPM UR. |
+| Modifica della passphrase |Il PIN di sicurezza immesso non è corretto. (ID: 100130) Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere al Portale di Azure e passare a Insieme di credenziali di Servizi di ripristino > Impostazioni > Proprietà > Genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
+| Modifica della passphrase |Operazione non riuscita. ID: 120002 |**Causa:**<br/>Questo errore si verifica quando sono abilitate impostazioni di sicurezza, si tenta di modificare la passphrase e si usa una versione non supportata. Le versioni valide sono specificate nella prima nota di questo articolo.<br/>**Azione consigliata**<br/> Per modificare la passphrase, è prima necessario aggiornare l'agente di backup almeno alla versione 2.0.9052, il server di Backup di Azure almeno all'Update 1 e/o DPM almeno a DPM 2012 R2 UR12 o a DPM 2016 UR2 (collegamenti per il download riportati più avanti). Immettere quindi un PIN di sicurezza valido. Per ottenere il PIN, accedere al Portale di Azure e passare a Insieme di credenziali di Servizi di ripristino > Impostazioni > Proprietà > Genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) (Introduzione all'insieme di credenziali di Servizi di ripristino di Azure) per abilitare queste funzionalità.

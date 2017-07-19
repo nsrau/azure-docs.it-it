@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: rajram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 894d5dc2599246fda59ecc9e8b542888d2ce7f74
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 428cfb29fe5d436073744a369da8ca1c2784044b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -28,7 +28,7 @@ Questo articolo descrive come ridimensionare la risorsa in base a una metrica pe
 La scalabilità automatica di Monitoraggio di Azure si applica solo a set di scalabilità di macchine virtuali (VMSS), servizi cloud, piani di servizio app e ambienti di servizio app. 
 
 # <a name="lets-get-started"></a>Introduzione
-Questo articolo presuppone che l'utente abbia un'app Web configurata con Application Insights configurato. Se non è già stato fatto, è possibile [configurare Application Insights per il sito Web ASP.NET][1].
+In questo articolo si presuppone che l'utente abbia un'app Web con Application Insights configurato. Se non è già stato fatto, è possibile [configurare Application Insights per il sito Web ASP.NET][1].
 
 - Aprire il [portale di Azure][2].
 - Fare clic sull'icona di Monitoraggio di Azure nel riquadro di spostamento a sinistra.
@@ -58,3 +58,4 @@ A questo punto A questo punto è stata creata l'impostazione di scalabilità aut
 [5]: ./media/monitoring-autoscale-scale-by-custom-metric/scale-setting-new-web-app.png
 [6]: ./media/monitoring-autoscale-scale-by-custom-metric/scale-by-custom-metric.png
 [7]: ./media/monitoring-autoscale-scale-by-custom-metric/autoscale-setting-custom-metrics-ai.png
+

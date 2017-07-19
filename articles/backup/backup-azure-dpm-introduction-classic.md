@@ -13,12 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/14/2017
 ms.author: nkolli;giridham;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 9d1e68b0e73c60542de566c32c92caf0b3c4630c
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 95ec0e6cabfeadb68fd11cf27dc571b4c86621df
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -62,10 +63,14 @@ Dopo l'acquisizione dello snapshot, il servizio Backup di Azure trasferisce i da
 ## <a name="prerequisites"></a>Prerequisiti
 Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuzione del backup dei dati DPM:
 
-1. **Creare un insieme di credenziali per il backup**
+1. **Creare un insieme di credenziali di backup**. Se non è stato ancora creato un insieme di credenziali di backup nella sottoscrizione, vedere la versione relativa al Portale di Azure di questo articolo: [Preparazione del backup dei carichi di lavoro in Azure con DPM](backup-azure-dpm-introduction.md).
 
   > [!IMPORTANT]
-  > A partire da marzo 2017, non è più possibile usare il portale classico per creare insiemi di credenziali di backup. Gli insiemi di credenziali di backup esistenti sono ancora supportati ed è possibile [usare Azure PowerShell per creare insiemi di credenziali di backup](./backup-client-automation-classic.md#create-a-backup-vault). È tuttavia consigliabile creare insiemi di credenziali dei servizi di ripristino per tutte le distribuzioni, perché i miglioramenti futuri si applicheranno solo a tali insiemi di credenziali.
+  > A partire da marzo 2017, non è più possibile usare il portale classico per creare insiemi di credenziali di backup.
+  > È ora possibile aggiornare gli insiemi di credenziali di Backup ad insiemi di credenziali dei servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft consiglia di aggiornare gli insiemi di credenziali di Backup a insiemi di credenziali dei servizi di ripristino.<br/> **A partire dal 1° novembre 2017**:
+  >- Eventuali insiemi di credenziali di Backup rimanenti verranno automaticamente aggiornati a insiemi di credenziali di servizi di ripristino
+  >- e non sarà più possibile accedere ai dati di backup nel portale classico. Sarà possibile invece usare il portale di Azure per accedere ai dati di backup negli insiemi di credenziali di servizi di ripristino.
+  >
 
 2. **Scaricare le credenziali di insieme** : in Backup di Azure caricare il certificato di gestione creato nell'insieme di credenziali.
 3. **Installare Azure Backup Agent e registrare il server** : da Backup di Azure, installare l'agente su ogni server DPM e registrare tale server nell'insieme di credenziali di backup.

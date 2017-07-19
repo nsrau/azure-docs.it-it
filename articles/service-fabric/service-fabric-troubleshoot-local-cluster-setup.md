@@ -3,7 +3,7 @@ title: Risoluzione dei problemi di installazione locale del cluster di Service F
 description: In questo articolo viene illustrata una serie di suggerimenti per la risoluzione dei problemi del cluster di sviluppo locale
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f0db912ac3cee02f4268996bf2409440afade86
-ms.lasthandoff: 11/17/2016
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -57,7 +58,7 @@ Eseguire sempre i cmdlet di Service Fabric direttamente da Windows PowerShell.
 Quando ci si connette al cluster in PowerShell, viene visualizzato l'errore TypeInitializationException per System.Fabric.Common.AppTrace.
 
 #### <a name="solution"></a>Soluzione
-La variabile di percorso non è stata impostata correttamente durante l'installazione. Disconnettersi da Windows e accedere nuovamente. In tal modo il percorso verrà aggiornato.
+La variabile di percorso non è stata impostata correttamente durante l'installazione. Disconnettersi da Windows e accedere nuovamente. Il percorso risulterà aggiornato.
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>La connessione del cluster ha esito negativo con il messaggio "L’oggetto è chiuso"
 #### <a name="problem"></a>Problema
@@ -78,12 +79,12 @@ Chiudere la finestra di PowerShell corrente e aprire una nuova finestra di Power
 Durante il debug da Visual Studio, si verifica un errore FabricConnectionDeniedException.
 
 #### <a name="solution"></a>Soluzione
-Questo errore si verifica in genere quando si tenta di avviare manualmente un processo host del servizio invece di consentirne l’avvio automatico dal runtime di Infrastruttura di servizi.
+Questo errore si verifica in genere quando si tenta di avviare manualmente un processo host del servizio, anziché consentirne l'avvio automatico dal runtime di Service Fabric.
 
 Assicurarsi di non disporre di progetti di servizio impostati come progetti di avvio nella soluzione. Solo i progetti di applicazione di Infrastruttura di servizi devono essere impostati come progetti di avvio.
 
 > [!TIP]
-> Se, in seguito alla configurazione, il cluster locale inizia a presentare un comportamento anomalo, può essere ripristinato con l'applicazione dell'area di notifica Local Cluster Manager. In questo modo verrà rimosso il cluster esistente e ne verrà configurato uno nuovo. Si noti che tutte le applicazioni distribuite e i dati associati verranno rimossi.
+> Se, in seguito alla configurazione, il cluster locale inizia a presentare un comportamento anomalo, può essere ripristinato con l'applicazione dell'area di notifica Local Cluster Manager. In questo modo viene rimosso il cluster esistente e ne viene configurato uno nuovo. Tenere presente che verranno rimosse anche tutte le applicazioni distribuite e i dati associati.
 > 
 > 
 

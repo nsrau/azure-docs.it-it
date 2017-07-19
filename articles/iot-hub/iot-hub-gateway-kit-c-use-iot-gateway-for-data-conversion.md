@@ -1,6 +1,6 @@
 ---
-title: Conversione di dati nel gateway IoT con Azure IoT Gateway SDK | Microsoft Docs
-description: Usare il gateway IoT per convertire il formato dei dati del sensore tramite un modulo personalizzato di Azure IoT Gateway SDK.
+title: Conversione di dati nel gateway IoT con Azure IoT Edge | Microsoft Docs
+description: Usare il gateway IoT per convertire il formato dei dati del sensore tramite un modulo personalizzato di Azure IoT Edge.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -13,23 +13,24 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 06/25/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d7897f1a7eee5fbb04cf43da0d0156a6b8fb11f6
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 5f5151c9e250fb8a19a953c6212dd2675004dc55
+ms.contentlocale: it-it
+ms.lasthandoff: 06/26/2017
 
 
 ---
-# <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-gateway-sdk"></a>Usare il gateway IoT per la trasformazione dei dati del sensore con Azure IoT Gateway SDK
+# <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>Usare il gateway IoT per la trasformazione dei dati del sensore con Azure IoT Edge
 
 > [!NOTE]
 > Prima di iniziare questa esercitazione, assicurarsi di aver completato le lezioni seguenti in sequenza:
 > * [Configurare Intel NUC come gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 > * [Use IoT gateway to connect things to the cloud - SensorTag to Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md) (Usare il gateway IoT per connettere oggetti al cloud - SensorTag ad Azure IoT Hub)
 
-Uno degli scopi di un gateway IoT consiste nell'elaborare i dati raccolti prima di inviarli al cloud. Azure IoT Gateway SDK introduce moduli che possono essere creati e assemblati per formare il flusso di lavoro dell'elaborazione dei dati. Un modulo riceve un messaggio, esegue un'azione su di esso e quindi lo passa ad altri moduli per l'elaborazione.
+Uno degli scopi di un gateway IoT consiste nell'elaborare i dati raccolti prima di inviarli al cloud. Azure IoT Edge introduce una serie di moduli che possono essere creati e assemblati per formare il flusso di lavoro dell'elaborazione dei dati. Un modulo riceve un messaggio, esegue un'azione su di esso e quindi lo passa ad altri moduli per l'elaborazione.
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
@@ -39,7 +40,7 @@ Informazioni su come creare un modulo per convertire i messaggi del SensorTag in
 
 * Creare un modulo per convertire nel formato JSON un messaggio ricevuto.
 * Compilare il modulo.
-* Aggiungere il modulo all'applicazione di esempio BLE da Azure IoT Gateway SDK.
+* Aggiungere il modulo all'applicazione di esempio BLE da Azure IoT Edge.
 * Eseguire l'applicazione di esempio.
 
 ## <a name="what-you-need"></a>Elementi necessari
@@ -61,7 +62,7 @@ Informazioni su come creare un modulo per convertire i messaggi del SensorTag in
    git clone https://github.com/Azure-Samples/iot-hub-c-intel-nuc-gateway-customized-module.git
    ```
 
-   Questo è un modulo di Azure Gateway SDK nativo scritto nel linguaggio di programmazione C. Il modulo converte il formato dei messaggi ricevuti nel formato seguente:
+   Questo è un modulo di Azure Edge nativo scritto nel linguaggio di programmazione C. Il modulo converte il formato dei messaggi ricevuti nel formato seguente:
 
    ```json
    {"deviceId": "Intel NUC Gateway", "messageId": 0, "temperature": 0.0}
@@ -72,11 +73,11 @@ Informazioni su come creare un modulo per convertire i messaggi del SensorTag in
 Per compilare il modulo, eseguire i comandi seguenti:
 
 ```bash
-cd iot-hub-c-intel-nuc-gateway-customized-module
+cd iot-hub-c-intel-nuc-gateway-customized-module/my_module
 # change the build script runnable
 chmod 777 build.sh
 # remove the invalid windows character
-sed -i -e "s/\r$\/\/" build.sh
+sed -i -e "s/\r$//" build.sh
 # run the build shell script
 ./build.sh
 ```
@@ -148,3 +149,4 @@ Al termine della compilazione, viene creato un file `libmy_module.so`. Prendere 
 È stato usato il gateway IoT per convertire il messaggio dal SensorTag nel formato JSON.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

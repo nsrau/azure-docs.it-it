@@ -1,6 +1,6 @@
 ---
-title: Salvare i messaggi dell&quot;hub IoT nell&quot;archivio dati di Azure | Microsoft Docs
-description: Usare l&quot;app per le funzioni di Azure per salvare i messaggi dell&quot;hub IoT nell&quot;archiviazione tabelle di Azure. I messaggi dell&quot;hub IoT contengono informazioni come i dati di sensori inviate dal dispositivo IoT.
+title: Salvare i messaggi dell'hub IoT nell'archivio dati di Azure | Microsoft Docs
+description: Usare l'app per le funzioni di Azure per salvare i messaggi dell'hub IoT nell'archiviazione tabelle di Azure. I messaggi dell'hub IoT contengono informazioni come i dati di sensori inviate dal dispositivo IoT.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4918648906212ea9708b6c6f0e89d1f4bb7bdcc5
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: c1f5d737b9718ead9c59794dae23798ef26aa42a
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -48,7 +48,7 @@ Si apprenderà come creare un account di archiviazione di Azure e un'app per le 
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-1. Nel portale di Azure fare clic su **Nuovo** > **Archiviazione** > **Account di archiviazione**.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuova** > **Archiviazione** > **Account di archiviazione**.
 1. Immettere le informazioni necessarie per l'account di archiviazione:
 
    ![Creare un account di archiviazione nel portale di Azure](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
@@ -115,6 +115,8 @@ L'hub IoT espone un endpoint predefinito compatibile con Hub eventi per consenti
 1. Creare una nuova funzione nell'app per le funzioni.
    1. Fare clic su **Nuova funzione**.
    1. Selezionare **JavaScript** per **Linguaggio** ed **Elaborazione dati** per **Scenario**.
+   1. Fare clic su **Creare questa funzione** e poi su **Nuova funzione**.
+   1. Selezionare **JavaScript** per il linguaggio e **Elaborazione dati** per lo scenario.
    1. Fare clic sul modello **EventHubTrigger-JavaScript**.
    1. Immettere le informazioni necessarie per il modello.
 
@@ -134,7 +136,8 @@ L'hub IoT espone un endpoint predefinito compatibile con Hub eventi per consenti
       
       **Nome tabella**: usare `deviceData` per il nome.
 
-      **Connessione dell'account di archiviazione**: fare clic su **nuovo** e selezionare o immettere l'account di archiviazione.
+      **Connessione dell'account di archiviazione**: fare clic su **nuovo** e selezionare o immettere l'account di archiviazione. Se non è possibile visualizzare l'account di archiviazione, vedere [Requisiti dell'account di archiviazione](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+      
    1. Fare clic su **Salva**.
 1. In **Trigger** fare clic su **Hub eventi di Azure (myEventHubTrigger)**.
 1. In **Gruppo di consumer dell'hub eventi** immettere il nome del gruppo di consumer creato, quindi fare clic su **Salva**.

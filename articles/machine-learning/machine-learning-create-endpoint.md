@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
 ms.author: himad
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 700761e24565310df0792a209ce6e41699f3d0e8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 9f83ffc9cf7dbe37c1ce9980fd7f5b9133fe78f6
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -71,6 +72,6 @@ Dopo aver creato l'endpoint, è possibile utilizzarlo tramite le API sincrone, l
     ![Creare un endpoint](./media/machine-learning-create-endpoint/figure-4.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Come usare un servizio Web di Azure Machine Learning pubblicato](machine-learning-consume-web-services.md).
+[Come usare un servizio Web di Azure Machine Learning](machine-learning-consume-web-services.md).
 
 

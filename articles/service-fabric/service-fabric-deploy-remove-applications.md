@@ -1,6 +1,6 @@
 ---
-title: Distribuzione di un&quot;applicazione di Service Fabric | Documentazione Microsoft
-description: Come distribuire e rimuovere applicazioni in Service Fabric
+title: Distribuzione dell&quot;applicazione Azure Service Fabric | Microsoft Docs
+description: Come distribuire e rimuovere applicazioni in Service Fabric con PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/23/2017
+ms.date: 06/01/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: ae79f305e22095f560f4d97aaa4300b4a8ba20d3
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 00b19fdb0a4cac44fc1d338a580fe4500ac50463
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/23/2017
 ms.author: raprasa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 11e60ab8dfada4b8b0e1cd73ca60dc428364dc68
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: a438b5079ae48c82fb2dbd5ce4547302364e0ef5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -51,8 +51,9 @@ L'immagine di seguito illustra i backup completi periodici di tutte le entità d
 ![Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="retention-period-for-a-given-snapshot"></a>Periodo di conservazione di uno snapshot specifico
-Come descritto sopra, periodicamente vengono creati degli snapshot dei dati che, in conformità alle normative, vengono conservati in archivio per un massimo di 90 giorni prima di essere eliminati. In caso di eliminazione di un contenitore o un account, Cosmos DB archivia l'ultimo backup per 90 giorni.
+Come descritto in precedenza, vengono eseguiti snapshot dei dati ogni 4 ore e gli ultimi due snapshot vengono mantenuti per 30 giorni. In base alle normative di conformità, gli snapshot vengono eliminati dopo 90 giorni.
 
+Se si vuole mantenere gli snapshot, è possibile usare l'opzione di esportazione in JSON nello [strumento di migrazione dei dati](import-data.md#export-to-json-file) di Azure Cosmos DB per pianificare backup aggiuntivi. 
 
 ## <a name="restore-database-from-the-online-backup"></a>Ripristinare il database dal backup online
 Nel caso di un'involontaria eliminazione dei dati, è possibile [creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dall'ultimo backup automatico. Per il ripristino di uno snapshot specifico del backup, Cosmos DB richiede che i dati siano stati disponibili almeno per la durata del ciclo di backup per tale snapshot.

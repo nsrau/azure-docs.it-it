@@ -1,6 +1,6 @@
 ---
-title: Spostare i dati da/in Azure SQL Data Warehouse | Microsoft Docs
-description: Informazioni su come spostare i dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure
+title: Copiare dati da/in Azure SQL Data Warehouse | Microsoft Docs
+description: Informazioni su come copiare dati da e in Azure SQL Data Warehouse tramite Azure Data Factory
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 02c5b7c8932a08bac4bc9e89bd7df3b3e5c57f94
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: bf4c327804e0e9d40512adacd7f13db56b799508
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure
+# <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiare dati da e in Azure SQL Data Warehouse tramite Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso Azure SQL Data Warehouse. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.  
 
 > [!TIP]
@@ -328,13 +328,13 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
-### <a name="type-mapping-for-azure-sql-data-warehouse"></a>Mapping dei tipi per Azure SQL Data Warehouse
+## <a name="type-mapping-for-azure-sql-data-warehouse"></a>Mapping dei tipi per Azure SQL Data Warehouse
 Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
 
-Quando si spostano dati da e verso SQL Azure, SQL Server, Sybase sono usati i mapping seguenti dal tipo SQL di tipo .NET e viceversa.
+Quando si spostano dati da e verso Azure SQL Data Warehouse, vengono usati i mapping seguenti dal tipo SQL al tipo .NET e viceversa.
 
 Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 

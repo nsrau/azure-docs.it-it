@@ -1,6 +1,6 @@
 ---
 title: Replica dei dati in Archiviazione di Azure | Documentazione Microsoft
-description: "I dati nell&quot;account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di replica includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)."
+description: "I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di replica includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 6a5ba89d8b17e0646cd8a6185da6d1094fd64d12
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 0237d10ccd9424da0ec10bc2773b978ffc11a294
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/23/2017
 
 ---
 # <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
@@ -111,7 +111,9 @@ L'area primaria viene selezionata durante la creazione di un account di archivia
 | India centrale |India meridionale |
 | India occidentale |India meridionale |
 | Governo degli Stati Uniti - Iowa |Governo degli Stati Uniti - Virginia |
-| Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Iowa |
+| Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Texas |
+| Governo degli Stati Uniti - Texas |Governo degli Stati Uniti - Arizona |
+| Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
 | Canada centrale |Canada orientale |
 | Canada orientale |Canada centrale |
 | Regno Unito occidentale |Regno Unito meridionale |
@@ -122,6 +124,11 @@ L'area primaria viene selezionata durante la creazione di un account di archivia
 | Stati Uniti centro-occidentali |Stati Uniti occidentali 2 |
 
 Per informazioni aggiornate sulle aree supportate da Azure, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
+
+>[!NOTE]  
+> L'area secondaria di US Gov Virginia è US Gov Texas. In precedenza, US Gov Virginia usava come area secondaria US Gov Iowa. È in corso la migrazione degli account di archiviazione che usano ancora US Gov Iowa all'area secondaria US Gov Texas. 
+> 
+> 
 
 ## <a name="read-access-geo-redundant-storage"></a>Archiviazione con ridondanza geografica e accesso in lettura
 L'archiviazione con ridondanza geografica e accesso in lettura(RA-GRS) massimizza la disponibilità dell'account di archiviazione fornendo l'accesso in sola lettura ai dati nella posizione secondaria, oltre alla replica tra due aree assicurata dall'archiviazione con ridondanza geografica.
@@ -135,6 +142,49 @@ Considerazioni:
 * Se Microsoft avvia un failover nell'area secondaria, al termine del failover si avrà accesso in lettura e scrittura a tali dati. Per altre informazioni, vedere le [indicazioni sul ripristino di emergenza](storage-disaster-recovery-guidance.md). 
 * L'archiviazione con ridondanza geografica e accesso in lettura è pensata per rispondere a requisiti di disponibilità elevata. Per linee guida sulla scalabilità, consultare l'[elenco di controllo delle prestazioni](storage-performance-checklist.md).
 
+## <a name="frequently-asked-questions"></a>Domande frequenti
+
+<a id="howtochange"></a>
+#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. Come si può modificare il tipo di replica geografica dell'account di archiviazione?
+
+   Si può modificare il tipo di replica geografica dell'account di archiviazione, scegliendo tra archiviazione con ridondanza locale, archiviazione con ridondanza geografica e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md) o a livello di programmazione usando una delle numerose librerie dei client di archiviazione disponibili. Si noti che gli account di archiviazione con ridondanza della zona non possono essere convertiti in account di archiviazione con ridondanza locale o di archiviazione con ridondanza geografica. Allo stesso modo, non è possibile convertire un account di archiviazione con ridondanza locale o di archiviazione con ridondanza geografica in un account di archiviazione con ridondanza della zona.
+
+<a id="changedowntime"></a>
+#### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. Sono previsti tempi di inattività quando si cambia il tipo di replica dell'account di archiviazione?
+
+   No, non si verificheranno tempi di inattività.
+
+<a id="changecost"></a>
+#### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3. Sono previsti costi aggiuntivi quando si cambia il tipo di replica dell'account di archiviazione?
+
+   Sì. Il passaggio dall'archiviazione con ridondanza locale all'archiviazione con ridondanza geografica (o con ridondanza geografica e accesso in lettura, RA-GRS) per l'account di archiviazione comporta un addebito aggiuntivo sul traffico in uscita associato alla copia dei dati esistenti dalla posizione primaria alla posizione secondaria. Dopo la copia dei dati iniziali non sono previsti ulteriori addebiti in uscita per la replica geografica dei dati dalla posizione primaria a quella secondaria. I dettagli sui costi per la larghezza di banda sono disponibili nella [pagina dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Se si passa dall'archiviazione con ridondanza geografica all'archiviazione con ridondanza locale non sono previsti costi aggiuntivi, ma i dati verranno eliminati dalla posizione secondaria.
+
+<a id="ragrsbenefits"></a>
+#### <a name="4-how-can-ra-grs-help-me"></a>4. Qual è l'utilità di RA-GRS?
+   
+   Con l'archiviazione con ridondanza geografica i dati vengono replicati in un'area secondaria a centinaia di chilometri di distanza dall'area primaria. In questo caso, la durabilità dei dati è assicurata anche in caso di un'interruzione completa dell'alimentazione locale o in situazioni di emergenza in cui l'area primaria non è recuperabile. L'archiviazione RA-GRS include, oltre a questo, la possibilità di leggere i dati dalla posizione secondaria. Per alcune idee su come sfruttare questa possibilità, consultare [Progettazione di applicazioni a disponibilità elevata con archiviazione RA-GRS](storage-designing-ha-apps-with-ragrs.md). 
+
+<a id="lastsynctime"></a>
+#### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Esiste un modo per determinare il tempo necessario per replicare i dati dall'area primaria a quella secondaria?
+   
+   Se si usa l'archiviazione RA-GRS, è possibile controllare l'ora dell'ultima sincronizzazione dell'account di archiviazione. Ora ultima sincronizzazione è un valore di data/ora GMT. Tutte le scritture nell'area primaria precedenti all'ora dell'ultima sincronizzazione sono state scritte correttamente nella posizione secondaria, vale a dire che sono disponibili per la lettura dalla posizione secondaria. Le scritture nell'area primaria successive all'ora dell'ultima sincronizzazione possono essere o meno già disponibili per la lettura. È possibile eseguire query su questo valore tramite il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md) o a livello di programmazione usando l'API REST o una delle librerie dei client di archiviazione. 
+
+<a id="outage"></a>
+#### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. Come si fa a passare all'area secondaria se si verifica un'interruzione nell'area primaria?
+   
+   Consultare l'articolo [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](storage-disaster-recovery-guidance.md) per altri dettagli.
+
+<a id="rpo-rto"></a>
+#### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. Quali sono gli obiettivi RPO e RTO con l'archiviazione con ridondanza geografica?
+   
+   Obiettivo del punto di ripristino (RPO, Recovery Point Objective): nel caso dell'archiviazione con ridondanza geografica e dell'archiviazione con ridondanza geografica e accesso in lettura, il servizio di archiviazione esegue la replica geografica asincrona dalla posizione primaria a quella secondaria. Se si verifica una grave emergenza a livello locale ed è necessario eseguire il failover, le modifiche differenziali non ancora replicate geograficamente potrebbero andare perse. Il numero di minuti di potenziale perdita di dati è detto RPO e corrisponde al punto nel tempo in cui è possibile ripristinare i dati. In genere il nostro RPO è inferiore a 15 minuti, anche se attualmente non è previsto alcun contratto di servizio sulla durata della replica geografica.
+
+   Obiettivo del punto di ripristino (RPO, Recovery Point Objective): è una misura del tempo necessario per eseguire il failover e riportare online l'account di archiviazione se si rende necessario un failover. Il tempo necessario per eseguire il failover include quanto segue:
+    * Tempo necessario per svolgere analisi e determinare se è possibile recuperare i dati nella posizione primaria o se è necessario eseguire un failover.
+    * Failover dell'account mediante modifica delle voci relative al DNS primario in modo che puntino alla posizione secondaria.
+
+   Prendiamo molto seriamente la responsabilità di salvaguardare i dati degli utenti, pertanto se esiste la possibilità di recuperare i dati il failover non verrà eseguito e ci concentreremo sul recupero dei dati nella posizione primaria. In futuro, intendiamo fornire un'API che consenta agli utenti di attivare il failover a livello di account e dunque di controllare personalmente l'obiettivo RTO, ma attualmente non è disponibile.
+   
 ## <a name="next-steps"></a>Passaggi successivi
 * [Progettazione di applicazioni a disponibilità elevata con archiviazione RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/)

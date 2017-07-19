@@ -1,7 +1,7 @@
 ---
-title: Esercitazione sullo sviluppo di un&quot;applicazione Java tramite Azure Cosmos DB | Microsoft Docs
-description: Questa esercitazione sull&quot;applicazione web Java illustra come usare il servizio Azure Cosmos DB per archiviare e accedere ai dati da un&quot;applicazione Java ospitata in siti Web di Azure.
-keywords: Sviluppo di applicazioni, esercitazione sul database, applicazione Java, esercitazione sull&quot;applicazione Web Java, DocumentDB, Azure, Microsoft Azure
+title: Esercitazione sullo sviluppo di un'applicazione Java tramite Azure Cosmos DB | Microsoft Docs
+description: Questa esercitazione sull'applicazione Web Java spiega come usare Azure Cosmos DB e l'API di DocumentDB per archiviare e accedere ai dati da un'applicazione Java ospitata nei siti Web di Azure.
+keywords: Sviluppo di applicazioni, esercitazione sul database, applicazione Java, esercitazione sull'applicazione Web Java, DocumentDB, Azure, Microsoft Azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -10,20 +10,20 @@ editor: mimig
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 06/23/2017
 ms.author: denlee
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 3c22c33b27b793e19850c405df9b6b7bc3fe3362
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: 09df5cb8d83dd9366d268a4245aaf25abf3ab55a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/24/2017
 
 
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db"></a>Creare un'applicazione Web Java con Azure Cosmos DB
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Creare un'applicazione Web Java con Azure Cosmos DB e l'API di DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.JS](documentdb-nodejs-application.md)

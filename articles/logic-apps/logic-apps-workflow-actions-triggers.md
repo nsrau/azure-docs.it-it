@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
 ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 
@@ -731,7 +731,7 @@ L'azione compose consente di costruire un oggetto arbitrario. L'output dell'azio
 
 ## <a name="table-action"></a>azione Tabella
 
-`table` consente di convertire un array di elementi in una tabella in formato **CVS** o **HTML**.
+`table` consente di convertire una matrice di elementi in una tabella **CSV** o **HTML**.
 
 Presumere che @triggerBody() sia
 
@@ -761,7 +761,7 @@ L'elemento sopra darebbe
 
 <table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>mele</td></tr><tr><td>1</td><td>arance</td></tr></tbody></table>"
 
-Per personalizzare la tabella, è possibile specificare le colonne in modo esplicito. Ad esempio:
+Per personalizzare la tabella, è possibile specificare le colonne in modo esplicito. ad esempio:
 
 ```json
 "ConvertToTable" : {
@@ -789,7 +789,7 @@ Se il valore della proprietà `from` è un array vuoto, l'output sarà una tabel
 |Nome|Obbligatoria|Tipo|Descrizione|
 |--------|------------|--------|---------------|
 |from|Sì|Array|Matrice di origine.|
-|format|Sì|String|Il formato, **CVS** o **HTML**.|
+|format|Sì|String|Il formato, **CSV** o **HTML**.|
 |columns|No|Array|Le colonne. Consente di sostituire la forma predefinita della tabella.|
 |intestazione di colonna|No|String|L'intestazione della colonna.|
 |valore colonna|Sì|String|Il valore della colonna.|

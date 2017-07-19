@@ -1,6 +1,6 @@
 ---
-title: Gestire i dischi di Azure con l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
-description: 'Esercitazione: gestire i dischi di Azure con l&quot;interfaccia della riga di comando di Azure'
+title: Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: 'Esercitazione: gestire i dischi di Azure con l''interfaccia della riga di comando di Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 4453876c126289f922d6d08d321707e1d10004e3
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d77dd2b44dca8cee6fa2e93e79cda76c80ccfe1a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure
 
-Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, applicazioni e dati di macchine virtuali. Quando si crea una macchina virtuale, è importante scegliere dimensione del disco e configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la distribuzione e la gestione dei dischi di macchina virtuale. Vengono fornite informazioni su:
+Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, applicazioni e dati di macchine virtuali. Quando si crea una VM, è importante scegliere dimensione del disco e configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la distribuzione e la gestione dei dischi di VM. Vengono fornite informazioni su:
 
 > [!div class="checklist"]
 > * Dischi del sistema operativo e dischi temporanei
@@ -36,7 +37,10 @@ Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, app
 > * Ridimensionamento dei dischi
 > * Snapshot dei dischi
 
-Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). È anche possibile usare [Cloud Shell](/azure/cloud-shell/quickstart) dal browser.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="default-azure-disks"></a>Dischi di Azure predefiniti
 
@@ -102,13 +106,13 @@ I dischi dati possono essere creati e collegati al momento della creazione della
 
 Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
 ```
 
 Creare una VM con il comando [az vm create]( /cli/azure/vm#create). L'argomento `--datadisk-sizes-gb` viene usato per specificare che è necessario creare un disco aggiuntivo e collegarlo alla macchina virtuale. Per creare e collegare più dischi, usare un elenco delimitato da spazio dei valori delle dimensioni del disco. Nell'esempio seguente viene creata una macchina virtuale con due dischi di dati, entrambi di 128 GB. Poiché le dimensioni dei dischi sono 128 GB, entrambi i dischi sono configurati come P10, il che garantisce un massimo di 500 operazioni di I/O al secondo per disco.
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
@@ -122,7 +126,7 @@ az vm create \
 
 Per creare e collegare un nuovo disco a una macchina virtuale esistente, usare il comando [az vm disk attach](/cli/azure/vm/disk#attach). Nell'esempio seguente viene creato un disco premium, di 128 gigabyte, che viene collegato alla macchina virtuale creata nel passaggio precedente.
 
-```azurecli
+```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
 ```
 
@@ -134,7 +138,7 @@ Dopo aver collegato un disco alla macchina virtuale, il sistema operativo deve e
 
 Creare una connessione SSH alla macchina virtuale. Sostituire l'indirizzo IP di esempio con l'indirizzo IP pubblico della macchina virtuale.
 
-```azurecli
+```azurecli-interactive 
 ssh 52.174.34.95
 ```
 
@@ -201,25 +205,25 @@ Dopo la distribuzione di una macchina virtuale, è possibile aumentare le dimens
 
 Prima di aumentare le dimensioni del disco, è necessario conoscere l'ID o il nome del disco. Usare il comando [az disk list](/cli/azure/vm/disk#list) per restituire tutti i dischi in un gruppo di risorse. Prendere nota del nome del disco di cui si desidera cambiare le dimensioni.
 
-```azurecli
+```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
 La macchina virtuale deve anche essere deallocata. Usare il comando [aaz vm deallocate]( /cli/azure/vm#deallocate) per arrestare e deallocare la VM.
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
 Usare il comando [az disk update](/cli/azure/vm/disk#update) per ridimensionare il disco. In questo esempio un disco denominato *myDataDisk* viene ridimensionato a 1 terabyte.
 
-```azurecli
+```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
 ```
 
 Dopo aver completato l'operazione di ridimensionamento, avviare la macchina virtuale.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
@@ -233,7 +237,7 @@ Quando si crea uno snapshot del disco, viene creata una copia temporizzata di so
 
 Prima di creare uno snapshot del disco della macchina virtuale, è necessario conoscere l'ID o il nome del disco. Usare il comando [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) per ottenere l'ID del disco. In questo esempio l'ID del disco viene archiviato in una variabile in modo da poter essere usato in un passaggio successivo.
 
-```azurecli
+```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 ```
 
@@ -247,7 +251,7 @@ az snapshot create -g myResourceGroupDisk --source "$osdiskid" --name osDisk-bac
 
 Lo snapshot può quindi essere convertito in un disco da usare per ricreare la macchina virtuale.
 
-```azurecli
+```azurecli-interactive 
 az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
 ```
 
@@ -255,13 +259,13 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 
 Per illustrare il ripristino della macchina virtuale, eliminare la macchina virtuale esistente. 
 
-```azurecli
+```azurecli-interactive 
 az vm delete --resource-group myResourceGroupDisk --name myVM
 ```
 
 Creare una nuova macchina virtuale dal disco dello snapshot.
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk mySnapshotDisk --os-type linux
 ```
 
@@ -271,19 +275,19 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 Innanzitutto usare il comando [az disk list](https://docs.microsoft.com/cli/azure/disk#list) per trovare il nome del disco dati. L'esempio inserisce il nome del disco in una variabile denominata *datadisk*, che viene usata nel passaggio successivo.
 
-```azurecli
+```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
 Usare il comando [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) per collegare il disco.
 
-```azurecli
+```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati descritti argomenti relativi ai dischi delle macchine virtuali, ad esempio:
+In questa esercitazione sono stati descritti argomenti relativi ai dischi delle VM, ad esempio:
 
 > [!div class="checklist"]
 > * Dischi del sistema operativo e dischi temporanei

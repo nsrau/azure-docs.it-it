@@ -5,40 +5,41 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtland
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 06/15/2017
 ms.author: kgremban
+ms.reviewer: yossib
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: dd9b0692dbc044e4bed26cfe7e9e4be11450a595
-ms.lasthandoff: 12/22/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 6527e624ce9c911b201881ffd409c57b2f065ef3
+ms.contentlocale: it-it
+ms.lasthandoff: 06/22/2017
 
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Quali sono i vantaggi di Azure Multi-Factor Authentication?
-È stato ricevuto un messaggio di posta elettronica dal reparto IT o dal datore con la comunicazione dell’aggiunta di un’ulteriore verifica di sicurezza all’account.  Che cosa significa?
+È stato ricevuto un messaggio di posta elettronica dal reparto IT o dal capo con la comunicazione dell’aggiunta di un’altra verifica di sicurezza all’account.  Che cosa significa?
 
-Non è necessario preoccuparsi.  Significa semplicemente che l'organizzazione desidera adottare nuove misure per accertarsi sull’identità degli utenti che accedono ad applicazioni quali Office 365.  Questa operazione viene realizzata utilizzando una combinazione di nome utente, password e numero di telefono,  sia esso il telefono dell’ufficio o il numero personale.
+Non è necessario preoccuparsi. L'organizzazione vuole adottare nuove misure per accertarsi sull’identità degli utenti che accedono. Per questa verifica è necessaria una combinazione di nome utente, password e telefono.  
 
-A questo scopo, sarà necessario innanzitutto completare il processo di registrazione.  Prima di avviare il processo e decidere, consideriamo alcuni punti.
+Il primo passo è completare il processo di registrazione.  Prima di avviare il processo e decidere, consideriamo alcuni punti.
 
 * **Telefono dell'ufficio o cellulare** : scegliere tra l'utilizzo del telefono dell'ufficio o del telefono cellulare.
-* **Chiamata sul telefono cellulare, messaggio di testo o app per dispositivi mobili** : se si utilizza un telefono cellulare, scegliere se ricevere una chiamata, un messaggio di testo o l'app per dispositivi mobili.
+* **Chiamata sul telefono cellulare, messaggio di testo o app per dispositivi mobili**: se si usa un telefono cellulare, scegliere se ricevere una chiamata, un SMS o usare l'app per dispositivi mobili.
 * **App per dispositivi mobili con codice di notifica o verifica** : se si utilizza l'app per dispositivi mobili, scegliere tra la ricezione di una notifica con risposta da parte dell’utente o un codice di verifica.
 
 > [!NOTE]
-> Tenere presente che il reparto IT può disabilitare uno o più opzioni elencate in precedenza.  In tal caso, è possibile che tali opzioni non siano disponibili durante il processo di registrazione.  
+> Il reparto IT può disabilitare una o più opzioni specificate.  In tal caso, non saranno disponibili durante il processo di registrazione.  
 
-Una volta scelto il metodo di verifica, procedere con la registrazione.  Usare il collegamento [Esperienza di installazione](multi-factor-authentication-end-user-first-time.md) per un'introduzione al processo di registrazione.
+Dopo aver scelto il metodo di verifica, procedere con la registrazione. Usare il collegamento [Esperienza di installazione](multi-factor-authentication-end-user-first-time.md) per un'introduzione al processo di registrazione.
 
-## <a name="how-to-get-going-with-multi-factor-authentication"></a>Come procedere con Multi-Factor Authentication
-Per iniziare, selezionare uno dei seguenti argomenti.
+## <a name="how-to-get-going-with-two-step-verification"></a>Presentazione della verifica in due passaggi
+Per iniziare, selezionare uno degli argomenti seguenti.
 
 | Argomento | Descrizione |
 |:--- |:--- |

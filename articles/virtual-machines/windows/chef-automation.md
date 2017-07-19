@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2015
+ms.date: 05/30/2017
 ms.author: diviso
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: aed46cbf5a57d73f4ce5bab42fdd20ae11d86373
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: b6db0fbb4e0de896994954974ddcc39daad9c125
+ms.contentlocale: it-it
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -59,7 +60,8 @@ Creare quindi una seconda directory denominata c:\chef\cookbooks.
 
 A questo punto, è necessario scaricare il file di impostazioni di Azure affinché Chef possa comunicare con la sottoscrizione Azure.
 
-Scaricare le impostazioni di pubblicazione [qui](https://manage.windowsazure.com/publishsettings/)
+<!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
+Scaricare le impostazioni di pubblicazione tramite il comando di Azure PowerShell [Get-AzurePublishSettingsFile](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0). 
 
 Salvare il file delle impostazioni di pubblicazione in C:\chef.
 
@@ -221,7 +223,7 @@ Una volta completata la distribuzione, dovrebbe essere possibile connettersi al 
 
 In questo esempio è stata impiegata una certa dose di creatività nell'uso del codice HTML.
 
-Tenere inoltre presente che è possibile connettersi tramite una sessione RDP dal portale di Azure classico attraverso la porta 3389.
+Tenere anche presente che è anche possibile connettersi tramite una sessione RDP dal Portale di Azure attraverso la porta 3389.
 
 Si spera che questa guida sia stata utile. Ora è possibile avviare l'infrastruttura come percorso di codice con Azure.
 

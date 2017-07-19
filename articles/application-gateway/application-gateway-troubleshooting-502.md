@@ -1,5 +1,5 @@
 ---
-title: Risolvere gli errori (502) del gateway non valido nel gateway applicazione | Microsoft Docs
+title: Risolvere gli errori di gateway non valido (502) nel gateway applicazione di Azure | Microsoft Docs
 description: Informazioni su come risolvere gli errori 502 del gateway applicazione
 services: application-gateway
 documentationcenter: na
@@ -13,27 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 05/09/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 178cd0e1c20947c952a2abb4bad253272da9fcd4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
 
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
 
-## <a name="overview"></a>Overview
+Informazioni su come risolvere gli errori di gateway non valido (502) ricevuti durante l'uso di un gateway applicazione.
 
-Dopo aver configurato un gateway applicazione di Azure, uno degli errori che gli utenti possono incontrare è "Errore del server: 502 - Risposta non valida ricevuta dal server Web in funzione come server proxy o gateway". Questo errore può verificarsi a causa dei principali motivi seguenti:
+## <a name="overview"></a>Panoramica
 
-* Il pool back-end del gateway applicazione di Azure non è configurato o è vuoto.
-* Nessuna delle macchine virtuali o istanze nel set di scalabilità di macchine virtuali è integra.
-* Le macchine virtuali o le istanze back-end del set di scalabilità di macchine virtuali non rispondono al probe di integrità predefinito.
-* Configurazione non valida o inappropriata dei probe di integrità personalizzati.
-* Problemi di timeout della richiesta o di connettività con le richieste degli utenti.
+Dopo aver configurato un gateway applicazione, uno degli errori che gli utenti possono riscontrare è "Errore del server: 502 - Risposta non valida ricevuta dal server Web in funzione come server proxy o gateway". Questo errore può verificarsi a causa dei principali motivi seguenti:
+
+* Il [pool back-end del gateway applicazione di Azure non è configurato o è vuoto](#empty-backendaddresspool).
+* Nessuna delle macchine virtuali o istanze nel [set di scalabilità di macchine virtuali è integra](#unhealthy-instances-in-backendaddresspool).
+* Le macchine virtuali o le istanze back-end del set di scalabilità di macchine virtuali [non rispondono al probe di integrità predefinito](#problems-with-default-health-probe.md).
+* [Configurazione dei probe di integrità personalizzati](#problems-with-custom-health-probe.md) non valida o inappropriata.
+* [Problemi di timeout della richiesta o di connettività](#request-time-out) con le richieste degli utenti.
 
 ## <a name="empty-backendaddresspool"></a>BackendAddressPool vuoto
 

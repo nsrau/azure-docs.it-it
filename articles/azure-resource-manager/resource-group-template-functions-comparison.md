@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 7f19efa7e09b0dce43851019f94285b2887c46d5
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 7af374232fd45da8769001cd520fa7d1734cbc4e
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -46,7 +46,30 @@ Controlla se due valori sono uguali tra loro.
 | arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
 | arg2 |Sì |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Restituisce **True** se i valori sono uguali; in caso contrario, restituisce **False**.
+
+### <a name="remarks"></a>Osservazioni
+
+La funzione uguale a viene spesso usata con l'elemento `condition` per verificare se la risorsa viene distribuita.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+### <a name="example"></a>Esempio
 
 Il modello di esempio controlla tipi diversi di valori per verificarne l'uguaglianza. Tutti i valori predefiniti restituiscono True.
 
@@ -111,9 +134,14 @@ Il modello di esempio controlla tipi diversi di valori per verificarne l'uguagli
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Restituisce **True** se i valori sono uguali; in caso contrario, restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True  |
+| checkStrings | Booleano | True  |
+| checkArrays | Booleano | True  |
+| checkObjects | Booleano | True  |
 
 <a id="less" />
 
@@ -129,7 +157,11 @@ Controlla se il primo valore è minore del secondo.
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Restituisce **True** se il primo valore è inferiore al secondo; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
 
 Il modello di esempio controlla se un valore è minore dell'altro.
 
@@ -139,16 +171,20 @@ Il modello di esempio controlla se un valore è minore dell'altro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -166,9 +202,12 @@ Il modello di esempio controlla se un valore è minore dell'altro.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Restituisce **True** se il primo valore è inferiore al secondo; in caso contrario, restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True  |
+| checkStrings | Booleano | False |
 
 <a id="lessorequals" />
 
@@ -184,7 +223,11 @@ Controlla se il primo valore è minore o uguale al secondo valore.
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Restituisce **True** se il primo valore è minore o uguale al secondo; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
 
 Il modello di esempio controlla se un valore è minore o uguale all'altro.
 
@@ -194,16 +237,20 @@ Il modello di esempio controlla se un valore è minore o uguale all'altro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -221,9 +268,12 @@ Il modello di esempio controlla se un valore è minore o uguale all'altro.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Restituisce **True** se il primo valore è minore o uguale al secondo; in caso contrario, restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True  |
+| checkStrings | Booleano | False |
 
 <a id="greater" />
 
@@ -239,7 +289,11 @@ Controlla se il primo valore è maggiore del secondo.
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Restituisce **True** se il primo valore è maggiore del secondo; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
 
 Il modello di esempio controlla se un valore è maggiore dell'altro.
 
@@ -249,16 +303,20 @@ Il modello di esempio controlla se un valore è maggiore dell'altro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -276,9 +334,12 @@ Il modello di esempio controlla se un valore è maggiore dell'altro.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Restituisce **True** se il primo valore è maggiore del secondo; in caso contrario, restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | False |
+| checkStrings | Booleano | True  |
 
 <a id="greaterorequals" />
 
@@ -294,7 +355,11 @@ Controlla se il primo valore è maggiore o uguale al secondo valore.
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Restituisce **True** se il primo valore è maggiore o uguale al secondo; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
 
 Il modello di esempio controlla se un valore è maggiore o uguale all'altro.
 
@@ -304,16 +369,20 @@ Il modello di esempio controlla se un valore è maggiore o uguale all'altro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -331,9 +400,13 @@ Il modello di esempio controlla se un valore è maggiore o uguale all'altro.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Restituisce **True** se il primo valore è maggiore o uguale al secondo; in caso contrario, restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | False |
+| checkStrings | Booleano | True  |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

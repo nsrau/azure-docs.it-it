@@ -16,17 +16,17 @@ ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cd3b13b9988f51fd3755ced48714fdc18cf1ea3c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 5f501bdb0a3c478a436d729dfe045ad8e39bd3bb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 
 # <a name="how-to-partition-and-scale-in-azure-cosmos-db"></a>Come eseguire il partizionamento e il ridimensionamento in Azure Cosmos DB
 
-[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) è un servizio di database multimodello con distribuzione globale progettato per ottenere prestazioni rapide e prevedibili e per eseguire facilmente il ridimensionamento in base alla crescita dell'applicazione. Questo articolo offre una panoramica del funzionamento del partizionamento in Azure Cosmos DB e descrive come configurare contenitori di Azure Cosmos DB per ridimensionare le applicazioni in modo efficace.
+[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è un servizio di database multimodello con distribuzione globale progettato per ottenere prestazioni rapide e prevedibili e per eseguire facilmente il ridimensionamento in base alla crescita dell'applicazione. Questo articolo offre una panoramica del funzionamento del partizionamento in Azure Cosmos DB e descrive come configurare contenitori di Azure Cosmos DB per ridimensionare le applicazioni in modo efficace.
 
 Il partizionamento e le chiavi di partizione sono illustrati anche in questo video di Azure Friday con Scott Hanselman e Shireesh Thota, responsabile principale della progettazione di Azure Cosmos DB.
 
@@ -104,7 +104,7 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
 ```
 
 ### <a name="mongodb-api"></a>API di MongoDB
-Con l'API di MongoDB è possibile creare una raccolta con partizionamento orizzontale usando il proprio strumento, driver o SDK preferito. In questo esempio verrà usato Mongo Shell per la creazione della raccolta.
+Con l'API MongoDB è possibile creare una raccolta partizionata usando il proprio strumento, driver o SDK preferito. In questo esempio verrà usato Mongo Shell per la creazione della raccolta.
 
 In Mongo Shell:
 

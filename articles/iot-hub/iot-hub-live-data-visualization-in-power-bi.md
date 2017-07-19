@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: ba25cdee46ce4ceb5acd5ff9da683a057f2bd733
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 404ab1682d9b77f22e60888340ffb70a101ed5d4
 ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -121,11 +121,7 @@ Nel processo di analisi di flusso, **Avvia** > **Ora** > **Avvia**. Dopo aver av
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Creare e pubblicare un report di Power BI per visualizzare i dati
 
-1. Verificare che l'applicazione di esempio sia in esecuzione. In caso contrario, eseguire questo comando per eseguire l'applicazione in Pi:
-
-   ```bash
-   gulp run
-   ```
+1. Verificare che l'applicazione di esempio sia in esecuzione nel dispositivo. Se non lo fosse, è possibile fare riferimento alle esercitazioni descritte in [Configurare il dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
 1. Accedere all'account [Power BI](https://powerbi.microsoft.com/en-us/).
 1. Passare all'area di lavoro del gruppo impostata quando è stato creato l'output del processo di analisi di flusso.
 1. Fare clic su **Set di dati in streaming**.
@@ -165,3 +161,4 @@ Si è utilizzato correttamente Power BI per visualizzare i dati del sensore in t
 Esiste un modo alternativo per visualizzare i dati dall'hub IoT di Azure. Vedere [Usare App Web di Azure per visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

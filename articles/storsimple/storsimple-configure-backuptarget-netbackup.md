@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 06/15/2017
 ms.author: hkanna
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: cbc33fa15d069b55844cc6e4356ca5a01b40c199
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 613fd0c1164ac34d36d5f21d07dfdf00c8aad614
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 ---
 
@@ -228,7 +229,7 @@ Configurare la soluzione in base alle linee guida riportate nelle sezioni seguen
 
 -   Il database di NetBackup deve essere locale nel server e non deve trovarsi in un volume StorSimple.
 -   Per il ripristino di emergenza, eseguire il backup del database di NetBackup in un volume StorSimple.
--   Per questa soluzione sono supportati i backup completi e incrementali di NetBackup. Si consiglia di non usare backup sintetici e differenziali.
+-   Sono supportati i backup completi e incrementali NetBackup (detti anche backup incrementali differenziali in NetBackup) per questa soluzione. Si consiglia di non usare backup sintetici e incrementali cumulativi.
 -   I file dei dati di backup devono contenere solo i dati per un processo specifico. Non è ad esempio consentito alcun supporto di aggiunta tra diversi processi.
 
 Per le ultime impostazioni di NetBackup e le procedure consigliate per l'implementazione di questi requisiti, vedere la documentazione di NetBackup all'indirizzo [www.veritas.com](https://www.veritas.com).

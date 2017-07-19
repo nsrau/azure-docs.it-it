@@ -1,6 +1,6 @@
 ---
 title: Informazioni sui criteri di sicurezza dei microservizi di Azure | Documentazione Microsoft
-description: Panoramica dell&quot;esecuzione di un&quot;applicazione di Service Fabric con account di sicurezza di sistema e locali, incluso il punto SetupEntry in cui un&quot;applicazione deve eseguire un&quot;azione con privilegi prima dell&quot;avvio
+description: Panoramica dell'esecuzione di un'applicazione di Service Fabric con account di sicurezza di sistema e locali, incluso il punto SetupEntry in cui un'applicazione deve eseguire un'azione con privilegi prima dell'avvio
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -12,17 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 06/30/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configurare i criteri di sicurezza per l'applicazione
-Azure Service Fabric consente di proteggere le applicazioni sicure in esecuzione nel cluster con account utente diversi. Service Fabric permette anche di proteggere le risorse usate dalle applicazioni in fase di distribuzione con l'account utente, ad esempio file, directory e certificati. In questo modo le applicazioni in esecuzione, anche in un ambiente ospitato condiviso, sono reciprocamente protette.
+Azure Service Fabric consente di proteggere le applicazioni in esecuzione nel cluster con account utente diversi. Service Fabric permette anche di proteggere le risorse usate dalle applicazioni in fase di distribuzione con l'account utente, ad esempio file, directory e certificati. In questo modo le applicazioni in esecuzione, anche in un ambiente ospitato condiviso, sono reciprocamente protette.
 
 Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. Service Fabric consente anche di eseguire le applicazioni con un account utente locale o un account di sistema locale, specificato nel manifesto dell'applicazione. I tipi di account supportati dal sistema locale sono **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
 
@@ -202,7 +203,7 @@ Echo "Test console redirection which writes to the application log folder on the
 Nei passaggi precedenti è stato illustrato come applicare i criteri RunAs a SetupEntryPoint. A questo punto è possibile vedere come creare entità diverse che possono essere applicate come criteri del servizio.
 
 ### <a name="create-local-user-groups"></a>Creare gruppi di utenti locali
-È possibile definire e creare gruppi di utenti che permettono di aggiungere uno o più utenti a un gruppo. Questo aspetto è particolarmente utile se sono presenti più utenti per punti di ingresso del servizio differenti che devono disporre di determinati privilegi comuni disponibili a livello di gruppo. L'esempio seguente illustra un gruppo locale denominato **LocalAdminGroup** con privilegi di amministratore. Due utenti, Customer1 e Customer2, diventano membri di questo gruppo locale.
+È possibile definire e creare gruppi di utenti che permettono di aggiungere uno o più utenti a un gruppo. Questo aspetto è utile quando sono presenti più utenti per punti di ingresso del servizio differenti che devono avere determinati privilegi comuni disponibili a livello di gruppo. L'esempio seguente illustra un gruppo locale denominato **LocalAdminGroup** con privilegi di amministratore. Due utenti, Customer1 e Customer2, diventano membri di questo gruppo locale.
 
 ```xml
 <Principals>
@@ -270,7 +271,7 @@ La sezione **DefaultRunAsPolicy** consente di specificare un account utente pred
 </Policies>
 ```
 ### <a name="use-an-active-directory-domain-group-or-user"></a>Uso di un utente o un gruppo di dominio di Active Directory
-Per un'istanza di Service Fabric installata in Windows Server con il programma di installazione autonomo, è possibile eseguire il servizio con le credenziali per un account utente o di gruppo di Active Directory. Si noti che si tratta di Active Directory locale nel dominio e non di Azure Active Directory (Azure AD). Usando un utente o un gruppo del dominio, sarà quindi possibile accedere ad altre risorse del dominio (ad esempio, condivisioni file) a cui sono state concesse le autorizzazioni.
+Per un'istanza di Service Fabric installata in Windows Server con il programma di installazione autonomo, è possibile eseguire il servizio con le credenziali per un account utente o di gruppo di Active Directory. Si tratta di Active Directory locale nel dominio e non di Azure Active Directory (Azure AD). Usando un utente o un gruppo del dominio, sarà quindi possibile accedere ad altre risorse del dominio (ad esempio, condivisioni file) a cui sono state concesse le autorizzazioni.
 
 L'esempio seguente illustra un utente di Active Directory denominato *TestUser* con la password del dominio crittografata con un certificato denominato *MyCert*. È possibile usare il comando `Invoke-ServiceFabricEncryptText` PowerShell per creare il testo crittografato segreto. Vedere [Gestione dei segreti nelle applicazioni di Service Fabric](service-fabric-application-secret-management.md).
 
@@ -330,7 +331,7 @@ Test-AdServiceAccount svc-Test$
 ```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Assegnare un criterio di accesso di sicurezza per gli endpoint HTTP e HTTPS
-Se si applicano criteri RunAs a un servizio e il manifesto del servizio dichiara le risorse dell'endpoint con il protocollo HTTP, è necessario specificare **SecurityAccessPolicy** per garantire che le porte allocate a questi endpoint siano correttamente inserite nell'elenco di controllo di accesso per l'account utente RunAs con cui viene eseguito il servizio. In caso contrario, **http.sys** non ha accesso al servizio e le chiamate del client hanno esito negativo. L'esempio seguente applica l'account Customer3 a un endpoint denominato **ServiceEndpointName**, a cui assegna diritti di accesso completi.
+Se si applicano criteri RunAs a un servizio e il manifesto del servizio dichiara le risorse dell'endpoint con il protocollo HTTP, è necessario specificare **SecurityAccessPolicy** per garantire che le porte allocate a questi endpoint siano correttamente inserite nell'elenco di controllo di accesso per l'account utente RunAs con cui viene eseguito il servizio. In caso contrario, **http.sys** non ha accesso al servizio e le chiamate del client hanno esito negativo. L'esempio seguente applica l'account Customer1 a un endpoint denominato **EndpointName**, a cui assegna diritti di accesso completi.
 
 ```xml
 <Policies>
@@ -351,7 +352,12 @@ Per l'endpoint HTTPS, è necessario indicare anche il nome del certificato da re
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Aggiornamento di più applicazioni con endpoint https
+È necessario prestare attenzione a non utilizzare la **stessa porta** per istanze diverse della stessa applicazione quando si usa http**s**. Ciò è dovuto al fatto che Service Fabric non sarà in grado di aggiornare il certificato per una delle istanze dell'applicazione. Ad esempio, se sia l'applicazione 1 che l'applicazione 2 desiderano eseguire l'aggiornamento del certificato 1 al certificato 2. Al momento dell'aggiornamento, Service Fabric potrebbe avere eliminato la registrazione del certificato 1 con http.sys anche se è ancora utilizzato dall'altra applicazione. Per evitare questo problema, Service Fabric rileva che è già presente un'altra istanza dell'applicazione registrata sulla porta con il certificato (a causa di http.sys) e l'operazione ha esito negativo.
 
+Pertanto Service Fabric non supporta l'aggiornamento di due servizi diversi mediante **la stessa porta** in istanze dell'applicazione diverse. In altre parole, non è possibile utilizzare lo stesso certificato in servizi diversi sulla stessa porta. Se è necessario avere un certificato condiviso sulla stessa porta, occorre verificare che i servizi si trovino su computer diversi con vincoli di posizionamento. In alternativa, utilizzare le porte dinamiche di Service Fabric se possibile per ogni servizio in ogni istanza dell'applicazione. 
+
+Se si verifica un errore di aggiornamento con https, viene visualizzato un avviso indicante che l'API del server Windows HTTP non supporta più certificati per le applicazioni che condividono una porta.
 
 ## <a name="a-complete-application-manifest-example"></a>Esempio completo del manifesto dell'applicazione
 Il manifesto dell'applicazione seguente illustra molte delle impostazioni:

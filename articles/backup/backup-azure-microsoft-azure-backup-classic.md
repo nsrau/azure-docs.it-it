@@ -13,12 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/14/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2b278b5c512d3ea0ff045869487d4551118c0e5c
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 348df3f4359e572d3514e1b11ce709f946c2efea
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -58,11 +59,13 @@ Se si prevede di aggiungere il server di Backup di Azure a un dominio, è consig
 ## <a name="2-backup-vault"></a>2. Insieme di credenziali per il backup
 ![passaggio2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Se si inviano dati di backup in Azure o se si desidera mantenerli in locale, è necessario registrare il server di Backup di Azure in un insieme di credenziali.
+Se si inviano dati di backup in Azure o se si desidera mantenerli in locale, è necessario registrare il server di Backup di Azure in un insieme di credenziali. I nuovi utenti di Backup di Azure che vogliono usare il server di Backup di Azure devono leggere la versione di questo articolo relativa al Portale di Azure: [Preparazione del backup dei carichi di lavoro con il server di Backup di Azure](backup-azure-microsoft-azure-backup.md).
 
 > [!IMPORTANT]
-> A partire da marzo 2017, non è più possibile usare il portale classico per creare insiemi di credenziali di backup. Gli insiemi di credenziali di backup esistenti sono ancora supportati ed è possibile [usare Azure PowerShell per creare insiemi di credenziali di backup](./backup-client-automation-classic.md#create-a-backup-vault). È tuttavia consigliabile creare insiemi di credenziali dei servizi di ripristino per tutte le distribuzioni, perché i miglioramenti futuri si applicheranno solo a tali insiemi di credenziali.
->
+> A partire da marzo 2017, non è più possibile usare il portale classico per creare insiemi di credenziali di backup.
+> È ora possibile aggiornare gli insiemi di credenziali di Backup ad insiemi di credenziali dei servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft consiglia di aggiornare gli insiemi di credenziali di Backup a insiemi di credenziali dei servizi di ripristino.<br/> **A partire dal 1° novembre 2017**:
+>- Eventuali insiemi di credenziali di Backup rimanenti verranno automaticamente aggiornati a insiemi di credenziali di servizi di ripristino
+>- e non sarà più possibile accedere ai dati di backup nel portale classico. Sarà possibile invece usare il portale di Azure per accedere ai dati di backup negli insiemi di credenziali di servizi di ripristino.
 >
 
 

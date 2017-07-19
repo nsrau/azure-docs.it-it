@@ -14,29 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d0aea6ffc04792e7e70a15accf92de05c553ff46
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: c1485205f49dae28adbddbf679fc120a6e52bff6
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-azure-data-factory-copy-wizard"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory [Copia guidata]
+# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
 [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) è un database basato su cloud, con possibilità di aumentare il numero di istanze, che può elaborare volumi massivi di dati relazionali e non relazionali.  Basato sull'architettura di elaborazione parallela massiva (MPP, Massively Parallel Processing), SQL Data Warehouse è ottimizzato per i carichi di lavoro dei data warehouse dell'organizzazione.  Offre l'elasticità del cloud con la flessibilità per ridimensionare la capacità di archiviazione e di calcolo in modo indipendente.
 
-L'uso di Azure SQL Data Warehouse è ora più semplice dell'uso di **Azure Data Factory**.  Azure Data Factory è un servizio di integrazione di dati basato su cloud completamente gestito, che può essere usato per popolare un'istanza di SQL Data Warehouse con i dati del sistema esistente e che consente di risparmiare tempo prezioso durante la valutazione di SQL Data Warehouse e la creazione delle soluzioni di analisi al suo interno.  Di seguito sono elencati i vantaggi principali del caricamento di dati in Azure SQL Data Warehouse mediante Azure Data Factory:
+L'uso di Azure SQL Data Warehouse è ora più semplice dell'uso di **Azure Data Factory**.  Azure Data Factory è un servizio di integrazione di dati basato su cloud completamente gestito, che può essere usato per popolare un'istanza di SQL Data Warehouse con i dati del sistema esistente e che consente di risparmiare tempo prezioso durante la valutazione di SQL Data Warehouse e la creazione di soluzioni di analisi. Di seguito sono elencati i vantaggi principali del caricamento di dati in Azure SQL Data Warehouse mediante Azure Data Factory:
 
 * **Semplicità di configurazione**: procedura guidata intuitiva in 5 passaggi, senza necessità di script.
 * **Supporto completo per archivi dati**: supporto integrato per una vasta gamma di archivi dati locali e basati su cloud.
 * **Sicurezza e conformità**: i dati vengono trasferiti tramite HTTPS o ExpressRoute e la presenza di un servizio globale garantisce che i dati non superino mai il confine geografico.
 * **Prestazioni ineguagliabili tramite Polybase**: Polybase rappresenta il modo più efficiente per spostare dati in Azure SQL Data Warehouse. Mediante la funzionalità di gestione temporanea dei BLOB è possibile ottenere velocità di carico elevate da tutti i tipi di archivi dati oltre all'archivio BLOB di Azure, supportato da Polybase per impostazione predefinita.
 
-Questo articolo illustra come usare la Copia guidata di Data Factory per caricare 1 TB di dati dall'archivio BLOB di Azure ad Azure SQL Data Warehouse in meno di 15 minuti, a una velocità effettiva di oltre 1,2 Gbps.
+Questo articolo illustra come usare la Copia guidata di Data Factory per caricare 1 TB di dati da Archiviazione BLOB di Azure ad Azure SQL Data Warehouse in meno di 15 minuti a una velocità effettiva di oltre 1,2 GBps.
 
 Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Data Warehouse tramite la Copia guidata.
 
 > [!NOTE]
-> Per informazioni generali sulle funzionalità di Data Factory per lo spostamento di dati da e verso Azure SQL Data Warehouse, vedere [Spostare dati da e verso Azure SQL Data Warehouse mediante Data Factory di Azure](data-factory-azure-sql-data-warehouse-connector.md).
+>  Per informazioni generali sulle funzionalità di Data Factory per lo spostamento di dati da e verso Azure SQL Data Warehouse, vedere [Spostare dati da e verso Azure SQL Data Warehouse mediante Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
 >
 > È anche possibile creare pipeline usando il portale di Azure, Visual Studio, PowerShell e così via. Per una procedura con istruzioni dettagliate sull'uso dell'attività di copia in Azure Data Factory, vedere l'esercitazione [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .  
 >
@@ -59,7 +60,7 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
   > [!NOTE]
   > Durante il caricamento dal BLOB di Azure, le prestazioni di caricamento dei dati sono direttamente proporzionali al numero di DWU configurate in SQL Data Warehouse:
   >
-  > Il caricamento di 1 TB in un'istanza di SQL Data Warehouse con 1000 DWU richiede 87 minuti (alla velocità effettiva di circa 200 Mbps) Il caricamento di 1 TB in un'istanza di SQL Data Warehouse con 2000 DWU richiede 46 minuti (alla velocità effettiva di circa 380 Mbps) Il caricamento di 1 TB in un'istanza di SQL Data Warehouse con 6000 DWU richiede 14 minuti (alla velocità effettiva di circa 1,2 Gbps)
+  > Il caricamento di 1 TB in un'istanza di SQL Data Warehouse con 1.000 DWU richiede 87 minuti (alla velocità effettiva di circa 200 MBps) Il caricamento di 1 TB in un'istanza di SQL Data Warehouse con 2.000 DWU richiede 46 minuti (alla velocità effettiva di circa 380 MBps) Il caricamento di 1 TB in un'istanza di SQL Data Warehouse con 6.000 DWU richiede 14 minuti (alla velocità effettiva di circa 1,2 GBps)
   >
   >
 
@@ -139,12 +140,12 @@ Nella pagina **Proprietà** :
 
 1. Immettere **CopyFromBlobToAzureSqlDataWarehouse** per **Nome attività**
 2. Selezionare l'opzione **Esegui una volta**.   
-3. Fare clic su **Next**.  
+3. Fare clic su **Avanti**.  
 
     ![Copia guidata: pagina delle proprietà](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>Passaggio 2: Configurare l'origine
-Questa sezione illustra i passaggi per configurare l'origine: BLOB di Azure contenente i file della voce TPC-H da 1 TB.
+Questa sezione illustra i passaggi per configurare l'origine: BLOB di Azure contenente i file delle voci TPC-H da 1 TB.
 
 1. Selezionare **Archivio BLOB di Azure** come archivio dati e fare clic su **Avanti**.
 

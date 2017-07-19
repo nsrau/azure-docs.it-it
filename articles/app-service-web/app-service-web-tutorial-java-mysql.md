@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;app Web Java e MySQL in Azure
-description: Informazioni su come ottenere un&quot;app Java che si connette al servizio di database MySQL di Azure e funziona nel Servizio app di Azure.
+title: Creare un'app Web Java e MySQL in Azure
+description: Informazioni su come ottenere un'app Java che si connette al servizio di database MySQL di Azure e funziona nel Servizio app di Azure.
 services: app-service\web
 documentationcenter: Java
 author: bbenz
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3a8bc6b11cccf7f6b277e800dbcedcd90e87006
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 5a6e4431ef25c66e1863a679f0db1363a83f4769
 ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -44,11 +44,12 @@ In questa esercitazione si apprenderà come:
 1. [Scaricare e installare Git](https://git-scm.com/)
 1. [Scaricare e installare Java 7 JDK o versione successiva](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Scaricare, installare e avviare MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-1. [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-local-mysql"></a>Preparare MySQL in locale 
 
@@ -56,7 +57,7 @@ In questo passaggio si crea un database in un server locale di MySQL da usare pe
 
 ### <a name="connect-to-mysql-server"></a>Connettersi al server MySQL
 
-Connettersi al server MySQL locale dalla riga di comando:
+In una finestra terminale connettersi al server MySQL locale. È possibile usare questa finestra del terminale per eseguire tutti i comandi presenti in questa esercitazione.
 
 ```bash
 mysql -u root -p
@@ -86,7 +87,7 @@ In questo passaggio si clona l'app Spring Boot di esempio, la si configura per l
 
 ### <a name="clone-the-sample"></a>Clonare l'esempio
 
-Dal prompt dei comandi passare alla directory di lavoro e clonare il repository di esempio. 
+Nella finestra del terminale passare alla directory di lavoro e clonare il repository di esempio. 
 
 ```bash
 git clone https://github.com/azure-samples/mysql-spring-boot-todo
@@ -94,7 +95,7 @@ git clone https://github.com/azure-samples/mysql-spring-boot-todo
 
 ### <a name="configure-the-app-to-use-the-mysql-database"></a>Configurare l'app per l'uso del database MySQL
 
-Aggiornare il valore `spring.datasource.password` in *spring-boot-mysql-todo/src/main/resources/application.properties* con la stessa password radice usata per aprire il prompt dei comandi MySQL:
+Aggiornare `spring.datasource.password` e il valore in *spring-boot-mysql-todo/src/main/resources/application.properties* con la stessa password radice usata per aprire il prompt MySQL:
 
 ```
 spring.datasource.password=mysqlpass
@@ -109,14 +110,14 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Inserire nel browser l'indirizzo http://localhost:8080 per vedere l'esempio in azione. Quando si aggiungono attività all'elenco, usare i comandi SQL seguenti nel prompt dei comandi MySQL per visualizzare i dati archiviati in MySQL.
+Inserire nel browser l'indirizzo http://localhost:8080 per vedere l'esempio in azione. Quando si aggiungono attività all'elenco, usare i comandi SQL seguenti nel prompt MySQL per visualizzare i dati archiviati in MySQL.
 
 ```SQL
 use testdb;
 select * from todo_item;
 ```
 
-Arrestare l'applicazione premendo `Ctrl`+`C` nel prompt dei comandi. 
+Arrestare l'applicazione premendo `Ctrl`+`C` nel terminale. 
 
 ## <a name="create-an-azure-mysql-database"></a>Creare un database MySQL di Azure
 

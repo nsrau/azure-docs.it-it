@@ -1,6 +1,6 @@
 ---
 title: Panoramica dei log di diagnostica di Azure | Microsoft Docs
-description: Informazioni sui log di diagnostica di Azure e su come usarli per comprendere gli eventi che si verificano all&quot;interno di una risorsa di Azure.
+description: Informazioni sui log di diagnostica di Azure e su come usarli per comprendere gli eventi che si verificano all'interno di una risorsa di Azure.
 author: johnkemnetz
 manager: rboucher
 editor: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/05/2017
 ms.author: johnkem; magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: c3e766b2e4c7bd372dc9c7b9d675a76c2d14a4cc
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d144dd60192a4b62db393db08b82efeaa8d45447
 ms.contentlocale: it-it
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -188,6 +188,7 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 | Azure Batch |[Registrazione diagnostica di Azure Batch](../batch/batch-diagnostics.md) |
 | Customer Insights | Lo schema non è disponibile. |
 | Rete per la distribuzione di contenuti (CDN) | Lo schema non è disponibile. |
+| Cosmos DB | Lo schema non è disponibile. |
 | Analisi Data Lake |[Accesso ai log di diagnostica per Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Archivio Data Lake |[Accesso ai log di diagnostica per Archivio Data Lake di Azure](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Hub eventi |[Log di diagnostica di Hub eventi in Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
@@ -215,6 +216,7 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 |Microsoft.DataLakeAnalytics/accounts|Requests|Log delle richieste|
 |Microsoft.DataLakeStore/accounts|Audit|Log di controllo|
 |Microsoft.DataLakeStore/accounts|Requests|Log delle richieste|
+|Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Log di archiviazione|
 |Microsoft.EventHub/namespaces|OperationalLogs|Log operativi|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Log di scalabilità automatica|
@@ -233,7 +235,6 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventi di Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Elementi replicati di Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Log delle operazioni|
-|Microsoft.ServerManagement/nodes|RequestLogs|Log delle richieste|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Log operativi|
 |Microsoft.StreamAnalytics/streamingjobs|Esecuzione|Esecuzione|
 |Microsoft.StreamAnalytics/streamingjobs|Creazione|Creazione|

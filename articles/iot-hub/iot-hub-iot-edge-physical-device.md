@@ -12,17 +12,17 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 06/12/2017
 ms.author: andbuc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 63545f007a2696714d21ab7d778a6e78e6183806
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 02962a91c739a53dfcf947bcc736e5c293b9384f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
-# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Usare Azure IoT Edge per inviare messaggi da dispositivo a cloud con un dispositivo fisico (Linux)
+# <a name="use-azure-iot-edge-on-a-raspberry-pi-to-forward-device-to-cloud-messages-to-iot-hub"></a>Usare Azure IoT Edge in Raspberry Pi per inoltrare all'hub IoT messaggi da dispositivo a cloud
 
 Questa procedura dettagliata relativa all'[esempio Bluetooth Low Energy][lnk-ble-samplecode] illustra come usare [Azure IoT Edge][lnk-sdk] per:
 
@@ -48,7 +48,7 @@ Quando viene eseguito, il gateway IoT Edge:
 Il gateway contiene i moduli IoT Edge seguenti:
 
 * Un *modulo BLE* che si interfaccia con un dispositivo BLE per ricevere i dati sulla temperatura dal dispositivo e inviare comandi al dispositivo.
-* Un *modulo BLE da cloud a dispositivo* che converte i messaggi JSON provenienti dal cloud in istruzioni BLE per il *modulo BLE*.
+* Un *modulo BLE da cloud a dispositivo* che converte i messaggi JSON inviati dall'hub IoT in istruzioni BLE per il *modulo BLE*.
 * Un *modulo logger* che registra tutti i messaggi del gateway in un file locale.
 * Un *modulo di mapping delle identità* che esegue la conversione tra gli indirizzi MAC del dispositivo BLE e le identità dispositivo dell'hub IoT di Azure.
 * Un *modulo dell'hub IoT* che carica i dati di telemetria in un hub IoT e riceve i comandi del dispositivo da un hub IoT.
@@ -64,7 +64,8 @@ Il passaggio di un elemento di telemetria da un dispositivo BLE all'hub IoT prev
 
 1. Il dispositivo BLE genera un esempio relativo alla temperatura e lo invia tramite Bluetooth al modulo BLE nel gateway.
 1. Il modulo BLE riceve l'esempio e lo pubblica sul broker insieme all'indirizzo MAC del dispositivo.
-1. Il modulo di mapping delle identità preleva il messaggio e usa una tabella interna per convertire l'indirizzo MAC del dispositivo in un'identità dispositivo dell'hub IoT. Un'identità dispositivo dell'hub IoT è costituita da un ID di dispositivo e una chiave del dispositivo. Il modulo pubblica quindi un nuovo messaggio contenente i dati di esempio relativi alla temperatura, nonché l'indirizzo MAC, l'ID e la chiave del dispositivo.
+1. Il modulo di mapping delle identità preleva il messaggio e usa una tabella interna per convertire l'indirizzo MAC del dispositivo in un'identità dispositivo dell'hub IoT. Un'identità dispositivo dell'hub IoT è costituita da un ID di dispositivo e una chiave del dispositivo.
+1. Il modulo di mapping delle identità pubblica un nuovo messaggio contenente i dati di esempio relativi alla temperatura, nonché l'indirizzo MAC, l'ID e la chiave del dispositivo.
 1. Il modulo dell'hub IoT riceve questo nuovo messaggio (generato dal modulo di mapping delle identità) e lo pubblica nell'hub IoT.
 1. Il modulo logger registra tutti i messaggi provenienti dal broker in un file locale.
 
@@ -79,6 +80,18 @@ Il diagramma a blocchi seguente illustra la pipeline del flusso di invio dei com
 1. Il modulo BLE preleva il messaggio ed esegue l'istruzione di I/O comunicando con il dispositivo BLE.
 1. Il modulo logger registra tutti i messaggi provenienti dal broker in un file su disco.
 
+## <a name="prerequisites"></a>Prerequisiti
+
+Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva.
+
+> [!NOTE]
+> Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk-free-trial].
+
+È necessario un client SSH nel computer desktop per poter accedere in remoto alla riga di comando in Raspberry Pi.
+
+- Windows non include un client SSH. È consigliabile usare [PuTTY](http://www.putty.org/).
+- La maggior parte delle distribuzioni Linux e Mac OS includono l'utilità SSH della riga di comando. Per altre informazioni, vedere [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md) (SSH con Linux o Mac OS).
+
 ## <a name="prepare-your-hardware"></a>Preparare l'hardware
 
 Questa esercitazione presuppone che si usi un dispositivo [SensorTag di Texas Instruments](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) connesso a un modulo Raspberry Pi 3 che esegue Raspbian.
@@ -90,85 +103,123 @@ Questa esercitazione presuppone che si usi un dispositivo [SensorTag di Texas In
 * Per installare la versione più recente di Raspbian, usare l'interfaccia utente grafica [NOOBS][lnk-noobs].
 * [Scaricare][lnk-raspbian] manualmente l'immagine più recente del sistema operativo Raspbian e scriverla in una scheda SD.
 
+### <a name="sign-in-and-access-the-terminal"></a>Accedere al terminale
+
+Esistono due opzioni per accedere all'ambiente di un terminale in Raspberry Pi:
+
+* Se a Raspberry Pi sono connessi una tastiera e un monitor, è possibile usare l'interfaccia utente grafica di Raspbian per accedere a una finestra del terminale.
+
+* Accedere alla riga di comando in Raspberry Pi usando SSH dal computer desktop.
+
+#### <a name="use-a-terminal-window-in-the-gui"></a>Usare una finestra del terminale nell'interfaccia utente grafica
+
+Le credenziali predefinite per Raspbian sono il nome utente **pi** e la password **raspberry**. Nella barra della applicazioni dell'interfaccia utente grafica è possibile avviare l'utilità **Terminal** (Terminale) usando l'icona del monitor.
+
+#### <a name="sign-in-with-ssh"></a>Accedere con SSH
+
+È possibile usare la riga di comando SSH per accedere a Raspberry Pi. L'articolo [SSH (Secure Shell)][lnk-pi-ssh] (SSH - Secure Shell) descrive come configurare SSH in Raspberry Pi e come connettersi da [Windows][lnk-ssh-windows] o [Linux e Mac OS][lnk-ssh-linux].
+
+Accedere con il nome utente **pi** e la password **raspberry**.
+
 ### <a name="install-bluez-537"></a>Installare BlueZ 5.37
 
 I moduli BLE comunicano con l'hardware Bluetooth tramite lo stack BlueZ. Per il corretto funzionamento dei moduli è necessaria la versione 5.37 di BlueZ. Queste istruzioni consentono di verificare che sia installata la versione corretta di BlueZ.
 
 1. Arrestare il daemon Bluetooth corrente:
 
-    `sudo systemctl stop bluetooth`
+    ```sh
+    sudo systemctl stop bluetooth
+    ```
 
 1. Installare le dipendenze BlueZ:
 
-    `sudo apt-get update`
-
-    `sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev`
+    ```sh
+    sudo apt-get update
+    sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
+    ```
 
 1. Scaricare il codice sorgente BlueZ da bluez.org:
 
-    `wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz`
+    ```sh
+    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
+    ```
 
 1. Decomprimere il codice sorgente:
 
-    `tar -xvf bluez-5.37.tar.xz`
+    ```sh
+    tar -xvf bluez-5.37.tar.xz
+    ```
 
 1. Passare alla cartella appena creata:
 
-    `cd bluez-5.37`
+    ```sh
+    cd bluez-5.37
+    ```
 
 1. Configurare il codice BlueZ da compilare:
 
-    `./configure --disable-udev --disable-systemd --enable-experimental`
+    ```sh
+    ./configure --disable-udev --disable-systemd --enable-experimental
+    ```
 
 1. Compilare BlueZ:
 
-    `make`
+    ```sh
+    make
+    ```
 
 1. Al termine, installare BlueZ:
 
-    `sudo make install`
+    ```sh
+    sudo make install
+    ```
 
 1. Cambiare la configurazione del servizio systemd per bluetooth in modo che punti al nuovo daemon Bluetooth nel file `/lib/systemd/system/bluetooth.service`. Sostituire la riga 'ExecStart' con il testo seguente:
 
-    `ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E`
+    ```conf
+    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
+    ```
 
 ### <a name="enable-connectivity-to-the-sensortag-device-from-your-raspberry-pi-3-device"></a>Abilitare la connettività al dispositivo SensorTag dal dispositivo Raspberry Pi 3
 
 Prima di eseguire l'esempio è necessario verificare che il dispositivo Raspberry Pi 3 possa connettersi al dispositivo SensorTag.
 
-
 1. Assicurarsi che l'utilità `rfkill` sia installata:
 
-    `sudo apt-get install rfkill`
+    ```sh
+    sudo apt-get install rfkill
+    ```
 
 1. Sbloccare Bluetooth sul dispositivo Raspberry Pi 3 e verificare che il numero di versione sia **5.37**:
 
-    `sudo rfkill unblock bluetooth`
-
-    `bluetoothctl --version`
-
-1. Avviare il servizio Bluetooth ed eseguire il comando **bluetoothctl** per accedere a una shell Bluetooth interattiva:
-
-    `sudo systemctl start bluetooth`
-
-    `bluetoothctl`
-
-1. Immettere il comando **power on** per accendere il controller bluetooth. L'output sarà simile al seguente:
-
+    ```sh
+    sudo rfkill unblock bluetooth
+    bluetoothctl --version
     ```
+
+1. Per accedere a una shell del Bluetooth interattiva, avviare il servizio Bluetooth ed eseguire il comando **bluetoothctl**:
+
+    ```sh
+    sudo systemctl start bluetooth
+    bluetoothctl
+    ```
+
+1. Immettere il comando **power on** per accendere il controller bluetooth. L'output restituito dal comando è simile al seguente:
+
+    ```sh
     [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
 
-1. Nella shell Bluetooth interattiva immettere il comando **scan on** per cercare i dispositivi Bluetooth. Verrà visualizzato un output simile al seguente:
+1. Nella shell Bluetooth interattiva immettere il comando **scan on** per cercare i dispositivi Bluetooth. L'output restituito dal comando è simile al seguente:
 
-    ```
+    ```sh
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
 1. Rendere individuabile il dispositivo SensorTag premendo il pulsante piccolo (il LED verde dovrebbe lampeggiare). Il modulo Raspberry Pi 3 dovrebbe individuare il dispositivo SensorTag:
 
-    ```
+    ```sh
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
     [CHG] Device A0:E6:F8:B5:F6:00 TxPower: 0
     [CHG] Device A0:E6:F8:B5:F6:00 RSSI: -43
@@ -178,14 +229,14 @@ Prima di eseguire l'esempio è necessario verificare che il dispositivo Raspberr
 
 1. Disattivare la scansione immettendo il comando **scan off**:
 
-    ```
+    ```sh
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
 1. Connettersi al dispositivo SensorTag tramite il relativo indirizzo MAC immettendo**connect \<indirizzo MAC\>**. L'output di esempio seguente è abbreviato per maggiore chiarezza:
 
-    ```
+    ```sh
     Attempting to connect to A0:E6:F8:B5:F6:00
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: yes
     Connection successful
@@ -206,7 +257,7 @@ Prima di eseguire l'esempio è necessario verificare che il dispositivo Raspberr
 
 1. È ora possibile disconnettersi dal dispositivo usando il comando **disconnect** e quindi uscire dalla shell Bluetooth con il comando **quit**:
 
-    ```
+    ```sh
     Attempting to disconnect from A0:E6:F8:B5:F6:00
     Successful disconnected
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
@@ -222,7 +273,7 @@ Per eseguire l'esempio IoT Edge BLE è necessario completare tre attività:
 * Compilare IoT Edge sul dispositivo Raspberry Pi 3.
 * Configurare ed eseguire l'esempio BLE sul dispositivo Raspberry Pi 3.
 
-Al momento della redazione di questo documento, IoT Edge supporta solo i gateway che usano moduli BLE su Linux.
+Al momento della redazione di questo documento, IoT Edge supporta solo moduli BLE in gateway che vengono eseguiti in Linux.
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Configurare due dispositivi di esempio nell'hub IoT
 
@@ -233,21 +284,23 @@ Al momento della redazione di questo documento, IoT Edge supporta solo i gateway
 
 Installare le dipendenze per Azure IoT Edge:
 
-`sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev`
+```sh
+sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
+```
 
 Usare i comandi seguenti per clonare IoT Edge e tutti i relativi moduli secondari nella directory home:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure/iot-edge.git`
-
-`cd iot-edge`
-
-`git submodule update --init --recursive`
+```sh
+cd ~
+git clone https://github.com/Azure/iot-edge.git
+```
 
 Quando si ha una copia completa del repository di IoT Edge nel dispositivo Raspberry Pi 3, è possibile procedere alla compilazione usando il comando seguente dalla cartella contenente l'SDK:
 
-`./tools/build.sh`
+```sh
+cd ~/iot-edge
+./tools/build.sh  --disable-native-remote-modules
+```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configurare ed eseguire l'esempio BLE sul dispositivo Raspberry Pi 3
 
@@ -277,7 +330,7 @@ Se l'archivio del gateway si trova nella cartella **/home/pi/iot-edge/**, config
 
 #### <a name="ble-module-configuration"></a>Configurazione del modulo BLE
 
-La configurazione di esempio per il dispositivo BLE presuppone che venga usato un dispositivo SensorTag di Texas Instruments. Dovrebbe essere possibile usare qualsiasi dispositivo BLE standard in grado di funzionare come periferica GATT, ma in tal caso sarà necessario aggiornare i dati e gli ID delle caratteristiche GATT (per le istruzioni di scrittura). Aggiungere l'indirizzo MAC del dispositivo SensorTag:
+La configurazione di esempio per il dispositivo BLE presuppone che venga usato un dispositivo SensorTag di Texas Instruments. Dovrebbe essere possibile usare qualsiasi dispositivo BLE standard in grado di funzionare come periferica GATT, ma in tal caso sarà necessario aggiornare i dati e gli ID delle caratteristiche GATT. Aggiungere l'indirizzo MAC del dispositivo SensorTag:
 
 ```json
 {
@@ -335,6 +388,8 @@ La configurazione di esempio per il dispositivo BLE presuppone che venga usato u
   }
 }
 ```
+
+Se non si usa un dispositivo SensorTag, esaminare la documentazione del dispositivo BLE per determinare se è necessario aggiornare i dati e gli ID delle caratteristiche GATT.
 
 #### <a name="iot-hub-module"></a>modulo dell'hub IoT
 
@@ -435,13 +490,17 @@ La configurazione seguente garantisce che i moduli IoT Edge:
 
 Per eseguire l'esempio, passare il percorso del file di configurazione JSON come parametro al codice binario **ble\_gateway**. Il comando seguente assume che si stia usano il file di configurazione **gateway_sample.json**. Eseguire questo comando dalla cartella **iot-edge** in Raspberry Pi:
 
-```
+```sh
 ./build/samples/ble_gateway/ble_gateway ./samples/ble_gateway/src/gateway_sample.json
 ```
 
 Prima di eseguire l'esempio, potrebbe essere necessario premere il pulsante piccolo sul dispositivo SensorTag per renderlo individuabile.
 
-Durante l'esecuzione dell'esempio è possibile usare lo strumento [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) o [iothub-explorer](https://github.com/Azure/iothub-explorer) per monitorare i messaggi che il gateway IoT Edge inoltra dal dispositivo SensorTag.
+Durante l'esecuzione dell'esempio è possibile usare lo strumento [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) o [iothub-explorer](https://github.com/Azure/iothub-explorer) per monitorare i messaggi che il gateway IoT Edge inoltra dal dispositivo SensorTag. Ad esempio, tramite iothub-explorer è possibile monitorare i messaggi da dispositivo a cloud usando il comando seguente:
+
+```sh
+iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
+```
 
 ## <a name="send-cloud-to-device-messages"></a>Inviare messaggi da cloud a dispositivo
 
@@ -518,8 +577,9 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-sdk]: https://github.com/Azure/iot-edge/
 [lnk-noobs]: https://www.raspberrypi.org/documentation/installation/noobs.md
 [lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/
-
-
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-create-hub]: iot-hub-create-through-portal.md 
+[lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
+[lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
+[lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
 

@@ -1,9 +1,9 @@
 ---
 title: Usare Docker Machine per creare host Linux in Azure | Documentazione Microsoft
-description: Descrive l&quot;uso di Docker Machine per creare host Docker in Azure.
+description: Descrive l'uso di Docker Machine per creare host Docker in Azure.
 services: virtual-machines-linux
 documentationcenter: 
-author: squillace
+author: iainfoulds
 manager: timlt
 editor: tysonn
 ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
@@ -12,52 +12,57 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/22/2016
-ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b303510970aca957a4da5f2ed51a9125302d419a
-ms.lasthandoff: 04/03/2017
+ms.date: 06/19/2017
+ms.author: iainfou
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a69951ed60edab8ae20374ab3869b468979c4907
+ms.contentlocale: it-it
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="use-docker-machine-with-the-azure-driver"></a>Usare Docker Machine con il driver di Azure
-[Docker](https://www.docker.com/) fornisce virtualizzazione tramite contenitori Linux invece di macchine virtuali al fine di isolare i dati dell'applicazione ed eseguire i calcoli in una risorsa condivisa. Questo argomento descrive come e quando usare [Docker Machine](https://docs.docker.com/machine/). Il comando `docker-machine` crea una nuova VM Linux in Azure abilitata come host del docker per i contenitori Linux.
+# <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Come usare Docker Machine per creare host in Azure
+Questa articolo illustra come usare [Docker Machine](https://docs.docker.com/machine/) per creare host in Azure. Il comando `docker-machine` crea una macchina virtuale (VM) Linux in Azure e quindi installa Docker. Ciò consentirà di gestire gli host Docker in Azure usando gli stessi strumenti e flussi di lavoro locali.
 
 ## <a name="create-vms-with-docker-machine"></a>Creare VM con Docker Machine
-Creare VM host di Docker in Azure con il comando `docker-machine create` usando l'argomento `azure` del driver per l'opzione driver (`-d`) e altri argomenti. 
+Ottenere prima di tutto l'ID sottoscrizione di Azure con [az account show](/cli/azure/account#show) nel modo seguente:
 
-L'esempio seguente si basa sui valori predefiniti, ma apre la porta 80 della VM verso Internet per eseguire il test con un contenitore nginx, rende `ops` l'utente di accesso per SSH e chiama la nuova VM `machine`. 
+```azurecli
+sub=$(az account show --query "id" -o tsv)
+```
 
-Digitare `docker-machine create --driver azure` per vedere le opzioni e i corrispondenti valori predefiniti. È anche possibile leggere la [documentazione del driver di Azure per Docker](https://docs.docker.com/machine/drivers/azure/). Si noti che se è abilitata l'autenticazione a due fattori, verrà richiesto di eseguire l'autenticazione tramite il secondo fattore.
+Le macchine virtuali host Docker vengono create in Azure con `docker-machine create` specificando *azure* come driver. Per altre informazioni, vedere la [documentazione del driver di Azure per Docker](https://docs.docker.com/machine/drivers/azure/)
+
+Nell'esempio seguente viene creata una macchina virtuale denominata *myVM*, viene creato un account utente denominato *azureuser* e viene aperta la porta *80* sulla macchina virtuale host. Seguire le istruzioni visualizzate per accedere all'account Azure e concedere a Docker Machine le autorizzazioni necessarie per creare e gestire le risorse.
 
 ```bash
 docker-machine create -d azure \
-  --azure-ssh-user ops \
-  --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> \
-  --azure-open-port 80 \
-  machine
+    --azure-subscription-id $sub \
+    --azure-ssh-user azureuser \
+    --azure-open-port 80 \
+    myvm
 ```
 
-Se l'account è configurato per l'autenticazione a due fattori, l'output dovrebbe essere simile a quanto segue.
+L'output è simile al seguente esempio:
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
-(machine) Microsoft Azure: To sign in, use a web browser to open the page https://aka.ms/devicelogin. Enter the code <code> to authenticate.
-(machine) Completed machine pre-create checks.
+(myvmdocker) Completed machine pre-create checks.
 Creating machine...
-(machine) Querying existing resource group.  name="machine"
-(machine) Creating resource group.  name="machine" location="eastus"
-(machine) Configuring availability set.  name="docker-machine"
-(machine) Configuring network security group.  name="machine-firewall" location="eastus"
-(machine) Querying if virtual network already exists.  name="docker-machine-vnet" location="eastus"
-(machine) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
-(machine) Creating public IP address.  name="machine-ip" static=false
-(machine) Creating network interface.  name="machine-nic"
-(machine) Creating storage account.  name="vhdsolksdjalkjlmgyg6" location="eastus"
-(machine) Creating virtual machine.  name="machine" location="eastus" size="Standard_A2" username="ops" osImage="canonical:UbuntuServer:15.10:latest"
+(myvmdocker) Querying existing resource group.  name="docker-machine"
+(myvmdocker) Creating resource group.  name="docker-machine" location="westus"
+(myvmdocker) Configuring availability set.  name="docker-machine"
+(myvmdocker) Configuring network security group.  name="myvmdocker-firewall" location="westus"
+(myvmdocker) Querying if virtual network already exists.  rg="docker-machine" location="westus" name="docker-machine-vnet"
+(myvmdocker) Creating virtual network.  name="docker-machine-vnet" rg="docker-machine" location="westus"
+(myvmdocker) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
+(myvmdocker) Creating public IP address.  name="myvmdocker-ip" static=false
+(myvmdocker) Creating network interface.  name="myvmdocker-nic"
+(myvmdocker) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="westus"
+(myvmdocker) Creating virtual machine.  location="westus" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvmdocker"
 Waiting for machine to be running, this may take a few minutes...
 Detecting operating system of created instance...
 Waiting for SSH to be available...
@@ -69,65 +74,68 @@ Copying certs to the remote machine...
 Setting Docker configuration on the remote daemon...
 Checking connection to Docker...
 Docker is up and running!
-To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env machine
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvmdocker
 ```
 
 ## <a name="configure-your-docker-shell"></a>Configurare la shell di Docker
-A questo punto digitare `docker-machine env <VM name>` per vedere quali sono le informazioni necessarie configurare la shell. 
+Per connettersi all'host Docker in Azure, definire le impostazioni di connessione appropriate. Come indicato alla fine dell'output, visualizzare le informazioni di connessione per l'host Docker nel modo seguente: 
 
 ```bash
-docker-machine env machine
+docker-machine env myvmdocker
 ```
 
-Stampa le informazioni sull'ambiente, che si presentano in modo simile a quanto segue. Si noti che viene assegnato un indirizzo IP, necessario per il test della VM.
+L'output è simile all'esempio seguente:
 
 ```bash
 export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://191.237.46.90:2376"
-export DOCKER_CERT_PATH="/Users/rasquill/.docker/machine/machines/machine"
+export DOCKER_HOST="tcp://40.68.254.142:2376"
+export DOCKER_CERT_PATH="/Users/user/.docker/machine/machines/machine"
 export DOCKER_MACHINE_NAME="machine"
 # Run this command to configure your shell:
-# eval $(docker-machine env machine)
+# eval $(docker-machine env myvmdocker)
 ```
 
-È possibile eseguire il comando di configurazione consigliato oppure impostare le variabili di ambiente manualmente. 
+Per definire le impostazioni di connessione, è possibile eseguire il comando di configurazione suggerito (`eval $(docker-machine env myvmdocker)`) o impostare manualmente le variabili di ambiente. 
 
 ## <a name="run-a-container"></a>Eseguire un contenitore
-È ora possibile eseguire un semplice server Web per verificare se tutto funziona correttamente. Qui viene usata un'immagine nginx standard. Specificare che deve essere in ascolto sulla porta 80 e che se la VM viene riavviata, anche il contenitore deve essere riavviato (`--restart=always`). 
+Per vedere un contenitore in azione, verrà eseguito un server Web NGINX di base. Creare un contenitore con `docker run` ed esporre la porta 80 al traffico Web nel modo seguente:
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
 ```
 
-L'output dovrebbe essere simile a quanto segue.
+L'output è simile all'esempio seguente:
 
 ```bash
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
-efd26ecc9548: Pull complete
-a3ed95caeb02: Pull complete
-83f52fbfa5f8: Pull complete
-fa664caa1402: Pull complete
-Digest: sha256:12127e07a75bda1022fbd4ea231f5527a1899aad4679e3940482db3b57383b1d
+ff3d52d8f55f: Pull complete
+226f4ec56ba3: Pull complete
+53d7dd52b97d: Pull complete
+Digest: sha256:41ad9967ea448d7c2b203c699b429abe1ed5af331cd92533900c6d77490e0268
 Status: Downloaded newer image for nginx:latest
-25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
+675e6056cb81167fe38ab98bf397164b01b998346d24e567f9eb7a7e94fba14a
+```
+
+Visualizzare i contenitori in esecuzione con `docker ps`. Nell'output di esempio seguente si può vedere il contenitore NGINX in esecuzione con la porta 80 esposta:
+
+```bash
+CONTAINER ID    IMAGE    COMMAND                   CREATED          STATUS          PORTS                          NAMES
+d5b78f27b335    nginx    "nginx -g 'daemon off"    5 minutes ago    Up 5 minutes    0.0.0.0:80->80/tcp, 443/tcp    festive_mirzakhani
 ```
 
 ## <a name="test-the-container"></a>Eseguire il test del contenitore
-Esaminare i contenitori in esecuzione usando `docker ps`:
+Ottenere l'indirizzo IP pubblico dell'host Docker come indicato di seguito:
+
 
 ```bash
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
-d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
+docker-machine ip myvmdocker
 ```
 
-Quindi verificare il contenitore in esecuzione, digitare `docker-machine ip <VM name>` per trovare l'indirizzo IP, se lo si è dimenticato dopo l'esecuzione del comando `env`:
+Per vedere il contenitore in azione, aprire un Web browser e immettere l'indirizzo IP pubblico indicato nell'output del comando precedente:
 
-![Esecuzione di un contenitore ngnix](./media/docker-machine/nginxsuccess.png)
+![Esecuzione di un contenitore ngnix](./media/docker-machine/nginx.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se interessa, è possibile provare l' [estensione VM per Docker](dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) di Azure per eseguire la stessa operazione tramite l'interfaccia della riga di comando di Azure o i modelli di Azure Resource Manager. 
-
-Per altri esempi di uso di Docker, vedere [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) (Uso di Docker) dalla demo [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect[](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Per altre guide introduttive della demo HealthClinic.biz, vedere [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)(Guide introduttive agli strumenti di sviluppo di Azure).
-
+È anche possibile creare host con l'[estensione di VM Docker](dockerextension.md). Per esempi sull'uso di Docker Compose, vedere [Introduzione a Docker e Compose in Azure](docker-compose-quickstart.md).
 

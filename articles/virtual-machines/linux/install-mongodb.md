@@ -1,6 +1,6 @@
 ---
-title: Installare MongoDB in una macchina virtuale Linux con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Informazioni su come installare e configurare MongoDB in una macchina virtuale Linux usando l&quot;interfaccia della riga di comando di Azure 2.0
+title: Installare MongoDB in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Informazioni su come installare e configurare MongoDB in una macchina virtuale Linux usando l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/14/2017
+ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 0494e684d1996fe6208589b6dd806ecdcc2b7822
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: e19c09558285497f29eb78b4f4ae5b15d7f1a191
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -39,7 +39,7 @@ Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/gro
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm#create). L'esempio seguente crea una macchina virtuale denominata *myVM* con un utente denominato *azureuser* usando l'autenticazione con chiave pubblica SSH e una voce DNS pubblica di *mypublicdns*:
+Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm#create). L'esempio seguente crea una macchina virtuale denominata *myVM* con un utente chiamato *azureuser* usando l'autenticazione con chiave pubblica SSH
 
 ```azurecli
 az vm create \
@@ -47,20 +47,13 @@ az vm create \
     --name myVM \
     --image CentOS \
     --admin-username azureuser \
-    --generate-ssh-keys \
-    --public-ip-address-dns-name mypublicdns
+    --generate-ssh-keys
 ```
 
-Eseguire l'accesso alla VM usando l'indirizzo DNS pubblico della VM. È possibile visualizzare l'indirizzo DNS pubblico con [az vm show](/cli/azure/vm#show):
-
-```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
-```
-
-Eseguire SSH sulla VM usando il proprio nome utente e l'indirizzo DNS pubblico:
+Eseguire SSH sulla macchina virtuale usando il proprio nome utente e l'indirizzo `publicIpAddress` elencato nell'output ottenuto nel passaggio precedente:
 
 ```bash
-ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+ssh azureuser@<publicIpAddress>
 ```
 
 Per aggiungere le origini di installazione di MongoDB, creare un file di archivio **yum** come illustrato di seguito:
@@ -228,6 +221,8 @@ az group deployment show \
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questi esempi si effettua la connessione all'istanza di MongoDB locale dalla VM. Se si desidera connettersi all'istanza di MongoDB da un'altra VM o un'altra rete, accertarsi di [creare le regole del gruppo di sicurezza di rete](nsg-quickstart.md) appropriate.
+
+Questi esempi consentono di distribuire l'ambiente MongoDB di base per scopi di sviluppo. Applicare le opzioni di configurazione della sicurezza necessarie per l'ambiente in uso. Per altre informazioni, vedere i [documenti sulla sicurezza di MongoDB](https://docs.mongodb.com/manual/security/).
 
 Per altre informazioni sulla creazione tramite modelli, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
