@@ -12,20 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/25/2017
+ms.date: 06/05/2017
 ms.author: rajanaki
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 711fb0715b7f12e12a742136f75af8069cbc83d8
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 6664cb20393ec5f588c8eeb119d6f606a0072861
+ms.contentlocale: it-it
+ms.lasthandoff: 06/15/2017
 
 
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica in Azure
-
-> [!div class="op_single_selector"]
-> * [Replica in Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replica in sito secondario di proprietà del cliente](site-recovery-support-matrix-to-sec-site.md)
+# <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da locale ad Azure
 
 
 In questo articolo vengono riepilogati le configurazioni e i componenti supportati per Azure Site Recovery durante la replica e il ripristino in Azure. Per altre informazioni sui requisiti di Azure Site Recovery, vedere i [prerequisiti](site-recovery-prereq.md).
@@ -68,16 +65,23 @@ In questo articolo vengono riepilogati le configurazioni e i componenti supporta
 In caso di replica in Azure, le macchine virtuali protette devono soddisfare i [requisiti di Azure](#failed-over-azure-vm-requirements).
 La tabella seguente offre un riepilogo dei sistemi operativi replicati supportati nei vari scenari di distribuzione quando si usa Azure Site Recovery. Il supporto è applicabile per qualsiasi carico di lavoro in esecuzione nel sistema operativo indicato.
 
- **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)** |
+ **Server fisico/VMware** | **Hyper-V (con/senza VMM)** |
 --- | --- |
-Le VM Windows Server 2012 R2 a 64 bit, Windows Server 2012, Windows Server 2008 R2 con SP1 o successivo<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.) | Qualsiasi sistema operativo guest [supportato da Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Le VM Windows Server 2012 R2 a 64 bit, Windows Server 2012, Windows Server 2008 R2 con SP1 o successivo<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/>CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/>Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.) | Qualsiasi sistema operativo guest [supportato da Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
 >[!IMPORTANT]
 >(Applicabile ai server VMware/fisici replicati in Azure)
 >
-> Sui server Red Hat Enterprise Linux Server 7+ e CentOS 7+, la versione del kernel 3.10.0-514 è supportata a partire dalla versione 9.8 del servizio di mobilità Azure Site Recovery.<br/><br/>
-> I clienti sul kernel di 3.10.0-514 con una versione del servizio di mobilità inferiore alla 9.8 devono disabilitare la replica, aggiornare il servizio di mobilità alla versione 9.8 e quindi abilitare nuovamente la replica.  
+> Sui server Red Hat Enterprise Linux Server 7+ e CentOS 7+ la versione del kernel 3.10.0-514 è supportata a partire dalla versione 9.8 del servizio Mobility di Azure Site Recovery.<br/><br/>
+> I clienti sul kernel di 3.10.0-514 con una versione del servizio Mobility inferiore alla 9.8 devono disabilitare la replica, aggiornare il servizio Mobility alla versione 9.8 e quindi abilitare nuovamente la replica.
+
+
+### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versioni del kernel Ubuntu supportate per server VMware/fisici
+
+**Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
+--- | --- | --- |
+14.04 LTS | 9.9 | Da 3.13.0-24 generica a 3.13.0-117 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-75 generica |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>File system e configurazioni di archiviazione guest supportate in Linux (server VMware/fisici)
 
@@ -90,7 +94,7 @@ I server fisici con il controller di archiviazione HP CCISS non sono supportati.
 
 >[!Note]
 > Sui server Linux le seguenti directory (se impostate come partizioni o file system separati) devono essere tutte nello stesso disco (il disco del sistema operativo) nel server di origine: / (root), /boot, /usr, /usr/local, /var, ecc.<br/><br/>
-> Le funzionalità XFS v5, ad esempio i checksum di metadati, non sono attualmente supportate da ASR nei file System XFS. Assicurarsi che i file System XFS non usino alcuna funzionalità v5. È possibile usare l'utilità xfs_info per controllare il superblocco XFS per la partizione. Se ftype è impostato su 1, le funzionalità XFSv5 sono in uso. 
+> Le funzionalità XFS v5, ad esempio i checksum di metadati, non sono attualmente supportate da ASR nei file System XFS. Assicurarsi che i file System XFS non usino alcuna funzionalità v5. È possibile usare l'utilità xfs_info per controllare il superblocco XFS per la partizione. Se ftype è impostato su 1, le funzionalità XFSv5 sono in uso.
 >
 
 

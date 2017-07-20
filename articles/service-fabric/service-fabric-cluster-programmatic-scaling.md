@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 06/29/2017
 ms.author: mikerou
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 8d7052fabeb348b4bba744b43d9af78f058175a8
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 46b0b62f92abbac57bc27bbcdd5821eafedf5519
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -41,7 +42,7 @@ Esistono API Azure che consentono alle applicazioni di usare a livello di codice
 
 Un approccio all'implementazione di questa funzionalità di scalabilità automatica "interna" consiste nell'aggiungere un nuovo servizio senza stato all'applicazione Service Fabric per gestire le operazioni di scalabilità. All'interno del metodo `RunAsync` del servizio, un set di trigger può determinare se la scalabilità è necessaria, inclusi i parametri di controllo, come la dimensione massima di un cluster e i tempi di raffreddamento della scalabilità.   
 
-L'API usata per le interazioni dei set di scalabilità di macchine virtuali, sia per verificare il numero corrente di istanze di macchine virtuali sia per modificarlo, è la [libreria Azure Management Compute](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/1.0.0-beta50) Fluent. La libreria Fluent fornisce un'API facile da usare per l'interazione con i set di scalabilità di macchine virtuali.
+L'API usata per le interazioni dei set di scalabilità di macchine virtuali, sia per verificare il numero corrente di istanze di macchine virtuali che per modificarlo, è la [libreria Azure Management Compute Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). La libreria Fluent fornisce un'API facile da usare per l'interazione con i set di scalabilità di macchine virtuali.
 
 Per interagire con il cluster Service Fabric, usare [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
@@ -57,10 +58,13 @@ Un problema in fase di scrittura di un servizio per gestire la scalabilità è c
     1. Prendere nota di appId (denominato altrove "ID client"), nome, password e tenant per un uso successivo.
     2. Sarà inoltre necessario l'ID sottoscrizione, che può essere visualizzato con `az account list`
 
-La libreria di calcolo Fluent può accedere usando queste credenziali nel modo seguente:
+La libreria di calcolo Fluent può eseguire l'accesso usando queste credenziali come indicato di seguito. Si noti che i tipi di Azure fluent principali, ad esempio `IAzure`, sono nel pacchetto [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/):
 
 ```C#
-var credentials = AzureCredentials.FromServicePrincipal(AzureClientId, AzureClientKey, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
+var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
+                ClientId = AzureClientId,
+                ClientSecret = 
+                AzureClientKey }, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
 IAzure AzureClient = Azure.Authenticate(credentials).WithSubscription(AzureSubscriptionId);
 
 if (AzureClient?.SubscriptionId == AzureSubscriptionId)
@@ -79,40 +83,12 @@ Una volta eseguito l'accesso, è possibile eseguire una query del numero di ista
 Usando l'SDK di calcolo di Azure Fluent è possibile aggiungere istanze al set di scalabilità di macchine virtuali con poche chiamate.
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
-var newCapacity = Math.Min(MaximumNodeCount, NodeCount.Value + 1);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
+var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-**Attualmente [un bug](https://github.com/Azure/azure-sdk-for-net/issues/2716) impedisce il funzionamento di questo codice**, ma è stata aggiunta una correzione e quindi il problema dovrebbe essere risolto presto nelle versioni pubblicate di Microsoft.Azure.Management.Compute.Fluent. A causa del bug, quando si modificano le proprietà del set di scalabilità di macchine virtuali, ad esempio la capacità, con l'API di calcolo Fluent, vengono perse le impostazioni protette del modello di Resource Manager del set di scalabilità. L'assenza di queste impostazioni causa, tra l'altro, la configurazione non corretta dei servizi di Service Fabric nelle nuove istanze di macchine virtuali.
-
-Come soluzione temporanea, è possibile chiamare i cmdlet di PowerShell dal servizio di scalabilità per applicare la stessa modifica, anche se questo percorso implica la presenza degli strumenti PowerShell:
-
-```C#
-using (var psInstance = PowerShell.Create())
-{
-    psInstance.AddScript($@"
-        $clientId = ""{AzureClientId}""
-        $clientKey = ConvertTo-SecureString -String ""{AzureClientKey}"" -AsPlainText -Force
-        $Credential = New-Object -TypeName ""System.Management.Automation.PSCredential"" -ArgumentList $clientId, $clientKey
-        Login-AzureRmAccount -Credential $Credential -ServicePrincipal -TenantId {AzureTenantId}
-        
-        $vmss = Get-AzureRmVmss -ResourceGroupName {ResourceGroup} -VMScaleSetName {NodeTypeToScale}
-        $vmss.sku.capacity = {newCapacity}
-        Update-AzureRmVmss -ResourceGroupName {ResourceGroup} -Name {NodeTypeToScale} -VirtualMachineScaleSet $vmss
-    ");
-
-    psInstance.Invoke();
-
-    if (psInstance.HadErrors)
-    {
-        foreach (var error in psInstance.Streams.Error)
-        {
-            ServiceEventSource.Current.ServiceMessage(Context, $"ERROR adding node: {error.ToString()}");
-        }
-    }                
-}
-```
+In alternativa, le dimensioni del set di scalabilità di macchine virtuali possono essere gestite anche con i cmdlet di PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss) consente di recuperare l'oggetto set di scalabilità di macchine virtuali. La capacità corrente verrà archiviata nella proprietà `.sku.capacity`. Dopo avere impostato la capacità sul valore desiderato, il set di scalabilità di macchine virtuali in Azure può essere aggiornato con il comando [`Update-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss).
 
 Quando si aggiunge manualmente un nodo, l'aggiunta di un'istanza del set di scalabilità dovrebbe essere sufficiente per avviare un nuovo nodo Service Fabric in quanto il modello del set di scalabilità include le estensioni per aggiungere automaticamente nuove istanze al cluster Service Fabric. 
 
@@ -137,7 +113,7 @@ Tenere presente che i nodi di *inizializzazione* non seguotno apparentemente sem
 Dopo avere individuato il nodo da rimuovere, questo può essere disattivato e rimosso usando la stessa istanza `FabricClient` e l'istanza `IAzure` precedente.
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
 ServiceEventSource.Current.ServiceMessage(Context, $"Disabling node {mostRecentLiveNode.NodeName}");
@@ -154,18 +130,16 @@ while ((mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Up || mo
 }
 
 // Decrement VMSS capacity
-var newCapacity = Math.Max(MinimumNodeCount, NodeCount.Value - 1); // Check min count 
+var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Check min count 
 
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Dopo avere rimosso l'istanza di macchina virtuale, è possibile rimuovere lo stato del nodo Service Fabric.
+Anche in questo caso, come per l'aumento del numero di istanze, è possibile usare i cmdlet di PowerShell per modificare la capacità del set di scalabilità di macchine virtuali, se si preferisce un approccio basato sugli script. Dopo avere rimosso l'istanza di macchina virtuale, è possibile rimuovere lo stato del nodo Service Fabric.
 
 ```C#
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
-
-Come in precedenza, è necessario usare una soluzione temporanea per il mancato funzionamento di `IVirtualMachineScaleSet.Update()` finché non viene risolto il problema [Azure/azure-sdk-per-net #2716](https://github.com/Azure/azure-sdk-for-net/issues/2716).
 
 ## <a name="potential-drawbacks"></a>Potenziali svantaggi
 
@@ -180,3 +154,4 @@ Per iniziare a implementare la logica di scalabilità automatica, acquisire fami
 - [Scalabilità manuale o con regole di scalabilità automatica](./service-fabric-cluster-scale-up-down.md)
 - [Fluent Azure Management Libraries per .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (utili per l'interazione con i set di scalabilità di macchine virtuali sottostanti del cluster Service Fabric)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (utile per l'interazione con un cluster Service Fabric e i relativi nodi)
+

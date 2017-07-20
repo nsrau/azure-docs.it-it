@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -62,6 +62,10 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **R:** Sì.
 
+**D:** È possibile usare **Distribuzione Web** per distribuire l'app Web?
+
+**R:** Sì, è necessario impostare `UseWebDeployScm` nell'app su `false`.
+
 ## <a name="language-support"></a>Supporto per le lingue
 
 **D:** È presente il supporto per le app .NET Core non compilate?
@@ -70,7 +74,7 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **R:** È previsto il supporto per lo strumento Composer come gestore delle dipendenze per le app PHP?
 
-**R:** No. Le app PHP dovranno essere distribuite con tutte le dipendenze. Per il futuro, è prevista l'implementazione di un'esperienza di distribuzione completa.
+**R:** Sì. Durante una distribuzione Git, Kudu rileverà che si sta distribuendo un'applicazione PHP (grazie alla presenza di un file composer.json) e attiverà automaticamente l'installazione di Composer.
 
 ## <a name="custom-containers"></a>Contenitori personalizzati
 

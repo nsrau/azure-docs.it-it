@@ -3,7 +3,7 @@ title: Aggiornare un cluster autonomo di Azure Service Fabric in Windows Server 
 description: "Aggiornare il codice di Azure Service Fabric e/o della configurazione che esegue un cluster autonomo di Service Fabric e impostare la modalità di aggiornamento del cluster."
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: chackdan
+ms.date: 06/30/2017
+ms.author: dekapur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 0c62f84993c83619cd55f9081450deaf0b21c090
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: a6f74374582d551e2540d1ebd5e9677c92330e09
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server
+# <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server
 > [!div class="op_single_selector"]
 > * [Cluster di Azure](service-fabric-cluster-upgrade.md)
 > * [Cluster autonomo](service-fabric-cluster-upgrade-windows-server.md)

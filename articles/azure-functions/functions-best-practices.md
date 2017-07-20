@@ -14,32 +14,31 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 53dcaea155471d47eb61317c52d38524c05e4600
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 5408bf986b67d420d4d1359961ec83510c97cd05
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
-# <a name="tips-for-improving-the-performance-and-reliability-of-azure-functions"></a>Suggerimenti per migliorare le prestazioni e l'affidabilità delle funzioni di Azure
+# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
-##<a name="overview"></a>Panoramica
-
-Questo articolo offre una raccolta di procedure consigliate da tenere in considerazione quando si implementano app per le funzioni. Ricordare che l'app per le funzioni di Azure è un servizio app di Azure. Si applicano pertanto le procedure consigliate per il servizio app.
+Questo articolo fornisce indicazioni per migliorare le prestazioni e l'affidabilità delle app per le funzioni. 
 
 
-## <a name="avoid-large-long-running-functions"></a>Evitare funzioni di grandi dimensioni con esecuzione prolungata
+## <a name="avoid-long-running-functions"></a>Evitare funzioni con esecuzione prolungata
 
-Le funzioni con esecuzione prolungata e di grandi dimensioni possono causare problemi di timeout imprevisti. Le dimensioni di una funzione possono essere grandi a causa della presenza di molte dipendenze di Node.js. L'importazione di tali dipendenze può fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze di Node.js possono essere caricate in modo esplicito da più istruzioni `require()` nel codice. Le dipendente possono anche essere implicite, basate su un unico modulo caricato dal codice che ha le proprie dipendenze interne.  
+Le funzioni con esecuzione prolungata e di grandi dimensioni possono causare problemi di timeout imprevisti. Le dimensioni di una funzione possono diventare grandi a causa della presenza di molte dipendenze di Node.js. L'importazione delle dipendenze può anche fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze vengono caricate in modo sia esplicito che implicito. Un singolo modulo caricato dal codice potrebbe caricare i propri moduli aggiuntivi.  
 
-Quando è possibile, suddividere le funzioni di grandi dimensioni in gruppi di funzioni più piccoli che possono interagire tra loro e restituire rapidamente le risposte. Ad esempio, un webhook o una funzione di trigger HTTP potrebbe richiedere una risposta di conferma entro un determinato limite di tempo. È possibile passare il payload del trigger HTTP in una coda perché venga elaborato da una funzione di trigger della coda. Questo approccio consente di rinviare l'operazione effettiva e di restituire una risposta immediata. È normale per i webhook richiedere una risposta immediata.
+Quando è possibile, suddividere le funzioni di grandi dimensioni in gruppi di funzioni più piccoli che possono interagire tra loro e restituire rapidamente le risposte. Ad esempio, un webhook o una funzione di trigger HTTP potrebbe richiedere una risposta di acknowledgment entro un determinato limite di tempo. È normale per i webhook richiedere una risposta immediata. È possibile passare il payload del trigger HTTP in una coda perché venga elaborato da una funzione di trigger della coda. Questo approccio consente di rinviare l'operazione effettiva e di restituire una risposta immediata.
 
 
-## <a name="cross-function-communication"></a>Comunicazioni tra funzioni.
+## <a name="cross-function-communication"></a>Comunicazioni tra funzioni
 
 Quando si integrano più funzioni, in genere è opportuno usare le code di archiviazione per la comunicazione tra funzioni.  Il motivo principale è che le code di archiviazione sono più economiche ed è molto più facile sottoporle a provisioning. 
 
@@ -50,7 +49,6 @@ Gli argomenti del bus di servizio sono utili se è necessario filtrare i messagg
 Gli hub eventi sono utili per supportare comunicazioni con volumi elevati.
 
 
-
 ## <a name="write-functions-to-be-stateless"></a>Scrivere le funzioni in modo che siano senza stato 
 
 Le funzioni devono essere senza stato e idempotenti se possibile. Associare ai dati eventuali informazioni obbligatorie sullo stato. Ad esempio, un ordine in fase di elaborazione probabilmente ha un membro `state` associato. Una funzione può elaborare un ordine basato su tale stato rimanendo però una funzione senza stato. 
@@ -58,7 +56,7 @@ Le funzioni devono essere senza stato e idempotenti se possibile. Associare ai d
 Le funzioni idempotenti sono consigliate in particolare con i trigger timer. Ad esempio, se si deve assolutamente eseguire un'azione una volta al giorno, scriverla in modo che possa essere eseguita a qualsiasi ora del giorno con gli stessi risultati. La funzione può essere chiusa quando non è presente alcun lavoro da svolgere per un determinato giorno. Anche se un'esecuzione precedente non è stata completata, l'esecuzione successiva riprenderà da dove era stata interrotta.
 
 
-## <a name="write-defensive-functions"></a>Scrivere funzioni difensive.
+## <a name="write-defensive-functions"></a>Scrivere funzioni difensive
 
 Si supponga che la funzione possa rilevare un'eccezione in qualsiasi momento. Progettare le funzioni con la possibilità di continuare da un punto di errore precedente durante l'esecuzione successiva. Si consideri uno scenario che richiede le azioni seguenti:
 
@@ -74,7 +72,7 @@ Se un elemento della coda è già stato elaborato, consentire alla funzione di e
 Sfruttare le misure difensive già messe a disposizione per i componenti usati nella piattaforma Funzioni di Azure. Ad esempio, vedere **Gestione di messaggi della coda non elaborabili** nella documentazione relativa ai [trigger della coda di Archiviazione di Azure](functions-bindings-storage-queue.md#trigger).
  
 
-## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Non combinare codice di test e di produzione nella stessa app per le funzioni.
+## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Non combinare codice di test e di produzione nella stessa app per le funzioni
 
 Le funzioni all'interno di un'app per le funzioni condividono le risorse. Ad esempio, la memoria è condivisa. Se si usa un'app per le funzioni nell'ambiente di produzione, non aggiungere funzioni e risorse relative ai test, per evitare possibili sovraccarichi imprevisti durante l'esecuzione del codice di produzione.
 
@@ -92,18 +90,15 @@ Non usare la registrazione dettagliata nel codice di produzione. Ha un impatto n
 
 ## <a name="use-async-code-but-avoid-taskresult"></a>Usare codice asincrono ma evitare Task.Result
 
-La programmazione asincrona è una procedura consigliata. Tuttavia, evitare sempre di fare riferimento alla proprietà `Task.Result`. Questo approccio essenzialmente crea un "busy waiting" su un blocco di un altro thread. Il blocco potenzialmente può causare deadlock.
+La programmazione asincrona è una procedura consigliata. Tuttavia, evitare sempre di fare riferimento alla proprietà `Task.Result`. Questo approccio può causare l'esaurimento di un thread.
 
 
-
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le seguenti risorse:
 
-* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
-* [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
-* [Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#](functions-reference-fsharp.md)
-* [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
-* [Schemi e procedure per le ottimizzazioni delle prestazioni HTTP](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
+Poiché Funzioni di Azure usa Servizio app di Azure, è consigliabile vedere anche le linee guida del servizio app.
+* [Schemi e procedure per le ottimizzazioni delle prestazioni HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
 
 
