@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: ab6076d430688ee54515ec4a0d960728ae1f1e48
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 96c46b2c01272abfaf1dd2667a45e3818cbe49a0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -83,7 +84,7 @@ Nella tabella seguente vengono descritte le proprietà all'interno della definiz
 | --- | --- | --- |
 | name |Nome dell'attività. Specificare un nome che rappresenta l'azione che l'attività è configurata per eseguire<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Sì |
 | Descrizione |Testo descrittivo per lo scopo dell'attività. |Sì |
-| type |Specifica il tipo di attività. Per articoli sui diversi tipi di attività, vedere gli articoli sugli [Archivi dati](#data-stores) e sulle [Attività di trasformazione](#transformation-activities). |Sì |
+| type |Specifica il tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [ARCHIVIAZIONE DEI DATI](#data-stores) e [ATTIVITÀ DI TRASFORMAZIONE DEI DATI](#data-transformation-activities). |Sì |
 | inputs |Tabelle di input usate dall'attività<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sì |
 | outputs |Tabelle di output usate dall'attività.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Sì |
 | linkedServiceName |Nome del servizio collegato usato dall'attività. <br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. |Sì per attività di HDInsight, attività di Azure Machine Learning e attività delle stored procedure. <br/><br/>No per tutto il resto |
@@ -371,7 +372,7 @@ Fare clic sul collegamento all'archivio a cui si è interessati per visualizzare
 |:--- |:--- |
 | **Azure** |[Archivio BLOB di Azure](#azure-blob-storage) |
 | &nbsp; |[Archivio Data Lake di Azure](#azure-datalake-store) |
-| &nbsp; |[Azure DocumentDB](#azure-documentdb) |
+| &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Database SQL di Azure](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
 | &nbsp; |[Ricerca di Azure](#azure-search) |
@@ -775,20 +776,20 @@ Se si copiano dati in Azure Data Lake Store, impostare il **tipo di sink**  dell
 
 Per altre informazioni, vedere [Connettore Azure Data Lake Store](data-factory-azure-datalake-connector.md#copy-activity-properties). 
 
-## <a name="azure-documentdb"></a>Azure DocumentDB
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB  
 
 ### <a name="linked-service"></a>Servizio collegato
-Per definire un servizio collegato di DocumentDB di Azure, impostare il **tipo** di servizio collegato su **DocumentDb** e specificare le proprietà seguenti nella sezione **typeProperties**:  
+Per definire un servizio collegato di Azure Cosmos DB, impostare il **tipo** di servizio collegato su **DocumentDb** e specificare le proprietà seguenti nella sezione **typeProperties**:  
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
-| connectionString |Specificare le informazioni necessarie per connettersi al database di Azure DocumentDB. |Sì |
+| connectionString |Specificare le informazioni necessarie per connettersi al database di Azure Cosmos DB. |Sì |
 
 #### <a name="example"></a>Esempio
 
 ```json
 {
-    "name": "DocumentDbLinkedService",
+    "name": "CosmosDBLinkedService",
     "properties": {
         "type": "DocumentDb",
         "typeProperties": {
@@ -797,23 +798,23 @@ Per definire un servizio collegato di DocumentDB di Azure, impostare il **tipo**
     }
 }
 ```
-Per altre informazioni, vedere [Connettore DocumentDB](data-factory-azure-documentdb-connector.md#linked-service-properties).
+Per altre informazioni, vedere l'articolo [Connettore Azure Cosmos DB](data-factory-azure-documentdb-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Set di dati
-Per definire un set di dati DocumentDB di Azure, impostare il **tipo** del set di dati su **DocumentDbCollection**e specificare le proprietà seguenti nella sezione **typeProperties**: 
+Per definire un set di dati Azure Cosmos DB, impostare il **tipo** di set di dati su **DocumentDbCollection**e specificare le proprietà seguenti nella sezione **typeProperties**: 
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
-| collectionName |Nome della raccolta documenti di DocumentDB. |Sì |
+| collectionName |Nome della raccolta di Azure Cosmos DB. |Sì |
 
 #### <a name="example"></a>Esempio
 
 ```json
 {
-    "name": "PersonDocumentDbTable",
+    "name": "PersonCosmosDBTable",
     "properties": {
         "type": "DocumentDbCollection",
-        "linkedServiceName": "DocumentDbLinkedService",
+        "linkedServiceName": "CosmosDBLinkedService",
         "typeProperties": {
             "collectionName": "Person"
         },
@@ -825,16 +826,16 @@ Per definire un set di dati DocumentDB di Azure, impostare il **tipo** del set d
     }
 }
 ```
-Per altre informazioni, vedere [Connettore DocumentDB](data-factory-azure-documentdb-connector.md#dataset-properties).
+Per altre informazioni, vedere l'articolo [Connettore Azure Cosmos DB](data-factory-azure-documentdb-connector.md#dataset-properties).
 
-### <a name="documentdb-collection-source-in-copy-activity"></a>Origine della raccolta DocumentDB in attività di copia
-Se si copiano dati da un archivio DocumentDB di Azure, impostare il **tipo di origine** dell'attività di copia su **DocumentDbCollectionSource**e specificare le proprietà seguenti nella sezione **source**:
+### <a name="azure-cosmos-db-collection-source-in-copy-activity"></a>Origine della raccolta Azure Cosmos DB in attività di copia
+Se si copiano dati da un archivio Azure Cosmos DB, impostare il **tipo di origine** dell'attività di copia su **DocumentDbCollectionSource** e specificare le proprietà seguenti nella sezione **source**:
 
 
 | **Proprietà** | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | --- | --- | --- | --- |
-| query |Specificare la query per leggere i dati. |Stringa di query supportata da DocumentDB. <br/><br/>Esempio: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Se non specificato, l'istruzione SQL eseguita: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Carattere speciale per indicare che il documento è nidificato |Qualsiasi carattere. <br/><br/>DocumentDB è un archivio NoSQL per i documenti JSON, dove sono consentite strutture nidificate. Azure Data Factory consente di indicare una gerarchia tramite nestingSeparator, ovvero "." negli esempi precedenti. Con il separatore, l'attività copia genererà l'oggetto "Name" con tre elementi figlio First, Middle e Last, in base a "Name.First", "Name.Middle" e "Name.Last" nella definizione della tabella. |No |
+| query |Specificare la query per leggere i dati. |Stringa di query supportata da Azure Cosmos DB. <br/><br/>Esempio: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Se non specificato, l'istruzione SQL eseguita: `select <columns defined in structure> from mycollection` |
+| nestingSeparator |Carattere speciale per indicare che il documento è nidificato |Qualsiasi carattere. <br/><br/>Azure Cosmos DB è un archivio NoSQL per i documenti JSON, dove sono consentite strutture nidificate. Azure Data Factory consente di indicare una gerarchia tramite nestingSeparator, ovvero "." negli esempi precedenti. Con il separatore, l'attività copia genererà l'oggetto "Name" con tre elementi figlio First, Middle e Last, in base a "Name.First", "Name.Middle" e "Name.Last" nella definizione della tabella. |No |
 
 #### <a name="example"></a>Esempio
 
@@ -858,7 +859,7 @@ Se si copiano dati da un archivio DocumentDB di Azure, impostare il **tipo di or
                 }
             },
             "inputs": [{
-                "name": "PersonDocumentDbTable"
+                "name": "PersonCosmosDBTable"
             }],
             "outputs": [{
                 "name": "PersonBlobTableOut"
@@ -866,7 +867,7 @@ Se si copiano dati da un archivio DocumentDB di Azure, impostare il **tipo di or
             "policy": {
                 "concurrency": 1
             },
-            "name": "CopyFromDocDbToBlob"
+            "name": "CopyFromCosmosDbToBlob"
         }],
         "start": "2016-04-01T00:00:00",
         "end": "2016-04-02T00:00:00"
@@ -874,13 +875,13 @@ Se si copiano dati da un archivio DocumentDB di Azure, impostare il **tipo di or
 }
 ```
 
-### <a name="documentdb-collection-sink-in-copy-activity"></a>Sink della raccolta DocumentDB in attività di copia
-Se si copiano dati in Azure DocumentDB, impostare il **tipo di sink** dell'attività di copia su **DocumentDbCollectionSink**e specificare le proprietà seguenti nella sezione **sink**:
+### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>Sink della raccolta Azure Cosmos DB in attività di copia
+Se si copiano dati in Azure Cosmos DB, impostare il **tipo di sink** dell'attività di copia su **DocumentDbCollectionSink** e specificare le proprietà seguenti nella sezione **sink**:
 
 | **Proprietà** | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | --- | --- | --- | --- |
-| nestingSeparator |È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Per l'esempio sopra: `Name.First` nella tabella di output produce la struttura JSON seguente nel documento di DocumentDB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carattere utilizzato per separare i livelli di nidificazione.<br/><br/>Il valore predefinito è `.` (punto). |Carattere utilizzato per separare i livelli di nidificazione. <br/><br/>Il valore predefinito è `.` (punto). |
-| writeBatchSize |Numero di richieste in parallelo per il servizio DocumentDB per creare documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso DocumentDB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a DocumentDB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore: "La frequenza delle richieste è troppo elevata".<br/><br/>La limitazione è dovuta a diversi fattori, inclusi la dimensione dei documenti, il numero di termini nei documenti, i criteri di indicizzazione della raccolta di destinazione, ecc. Per le operazioni di copia, è possibile usare una raccolta migliore (ad esempio, S3) per poter disporre della maggiore velocità effettiva possibile (2.500 unità richieste al secondo). |Integer |No (valore predefinito: 5) |
+| nestingSeparator |È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Per l'esempio sopra: `Name.First` nella tabella di output produce la struttura JSON seguente nel documento di Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carattere utilizzato per separare i livelli di nidificazione.<br/><br/>Il valore predefinito è `.` (punto). |Carattere utilizzato per separare i livelli di nidificazione. <br/><br/>Il valore predefinito è `.` (punto). |
+| writeBatchSize |Numero di richieste in parallelo per il servizio Azure Cosmos DB per creare documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso Azure Cosmos DB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a Azure Cosmos DB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore: "La frequenza delle richieste è troppo elevata".<br/><br/>La limitazione è dovuta a diversi fattori, inclusi la dimensione dei documenti, il numero di termini nei documenti, i criteri di indicizzazione della raccolta di destinazione, ecc. Per le operazioni di copia, è possibile usare una raccolta migliore (ad esempio, S3) per poter disporre della maggiore velocità effettiva possibile (2.500 unità richieste al secondo). |Integer |No (valore predefinito: 5) |
 | writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
 
 #### <a name="example"></a>Esempio
@@ -910,12 +911,12 @@ Se si copiano dati in Azure DocumentDB, impostare il **tipo di sink** dell'attiv
                 "name": "PersonBlobTableIn"
             }],
             "outputs": [{
-                "name": "PersonDocumentDbTableOut"
+                "name": "PersonCosmosDbTableOut"
             }],
             "policy": {
                 "concurrency": 1
             },
-            "name": "CopyFromBlobToDocDb"
+            "name": "CopyFromBlobToCosmosDb"
         }],
         "start": "2016-04-14T00:00:00",
         "end": "2016-04-15T00:00:00"
@@ -923,7 +924,7 @@ Se si copiano dati in Azure DocumentDB, impostare il **tipo di sink** dell'attiv
 }
 ```
 
-Per altre informazioni, vedere [Connettore DocumentDB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
+Per altre informazioni, vedere l'articolo [Connettore Azure Cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
 
 ## <a name="azure-sql-database"></a>Database SQL di Azure
 
@@ -4833,7 +4834,7 @@ La tabella seguente fornisce le descrizioni delle proprietà usate nella definiz
 | type |La proprietà type deve essere impostata su **HDInsightOnDemand**. |Sì |
 | clusterSize |Numero di nodi del ruolo di lavoro/nodi dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head e il numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard_D3, con 4 core, quindi un cluster di 4 nodi del ruolo di lavoro ha 24 core, ossia 4\*4 = 16 core per i nodi del ruolo di lavoro + 2\*4 = 8 core per i nodi head. Vedere [Creare cluster Hadoop basati su Linux in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) per i dettagli sul livello Standard_D3. |Sì |
 | timeToLive |Il tempo di inattività consentito per il cluster HDInsight su richiesta. Specifica per quanto tempo il cluster HDInsight su richiesta rimane attivo dopo il completamento di un'attività eseguita se non sono presenti altri processi attivi del cluster.<br/><br/>Ad esempio, se un'esecuzione di attività accetta 6 minuti e timetolive è impostato su 5 minuti, il cluster rimane attivo per altri 5 minuti dopo i 6 minuti di elaborazione dell'attività. Se un'altra attività viene eseguita entro i 6 minuti consentiti, verrà elaborata dal cluster stesso.<br/><br/>Poiché la creazione di un cluster HDInsight su richiesta è un'operazione che usa un numero elevato di risorse e potrebbe richiedere alcuni minuti, usare questa impostazione a seconda delle necessità per migliorare le prestazioni di una data factory riutilizzando un cluster HDInsight su richiesta.<br/><br/>Se si imposta il valore della proprietà timetolive su 0, il cluster viene eliminato non appena l'attività in elaborazione termina. D'altra parte, se si imposta un valore elevato, il cluster può rimanere inattivo inutilmente causando costi elevati. È quindi importante impostare il valore appropriato in base alle esigenze.<br/><br/>Più pipeline possono condividere la stessa istanza del cluster HDInsight su richiesta se il valore della proprietà timetolive è impostato in modo appropriato. |Sì |
-| version |Versione del cluster HDInsight Il valore predefinito è 3.1 per cluster Windows e 3.2 per cluster Linux. |No |
+| version |Versione del cluster HDInsight Per informazioni dettagliate vedere le [versioni supportate di HDInsight in Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |No |
 | linkedServiceName |Servizio collegato Archiviazione di Azure che il cluster su richiesta deve usare per l'archiviazione e l'elaborazione dei dati. <p>Non è attualmente possibile creare un cluster HDInsight su richiesta che usa Azure Data Lake Store come risorsa di archiviazione. Per archiviare i dati dei risultati dell'elaborazione di HDInsight in un'istanza di Azure Data Lake Store, usare un'attività di copia per copiare i dati dall'archivio BLOB di Azure in Azure Data Lake Store.</p>  | Sì |
 | additionalLinkedServiceNames |Specifica account di archiviazione aggiuntivi per il servizio collegato HDInsight in modo che il servizio Data Factory possa registrarli per conto dell'utente. |No |
 | osType |Tipo di sistema operativo. I valori consentiti sono: Windows (impostazione predefinita) e Linux |No |
@@ -4872,6 +4873,8 @@ La tabella seguente fornisce le descrizioni delle proprietà usate nella definiz
 | username |Specifica il nome dell'utente da utilizzare per connettersi a un cluster HDInsight esistente. |Sì |
 | password |Specifica la password per l'account utente. |Sì |
 | linkedServiceName | Nome del servizio collegato all'archiviazione di Azure che fa riferimento all'archiviazione BLOB di Azure usata dal cluster HDInsight. <p>Attualmente non è possibile specificare un servizio collegato di Azure Data Lake Store per questa proprietà. È possibile accedere ai dati in Azure Data Lake Store da script Hive/Pig se il cluster HDInsight dispone di accesso a Data Lake Store. </p>  |Sì |
+
+Per le versioni dei cluster di HDInsight, vedere le [versioni supportate di HDInsight](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). 
 
 #### <a name="json-example"></a>Esempio di JSON
 
@@ -5097,7 +5100,7 @@ Se vengono specificati nome utente e password, il gateway li usa per rappresenta
 
 Per altre informazioni, vedere [Connettore SQL Server](data-factory-sqlserver-connector.md#linked-service-properties).
 
-## <a name="transformation-activites"></a>Attività di trasformazione
+## <a name="data-transformation-activities"></a>ATTIVITÀ DI TRASFORMAZIONE DEI DATI
 
 Attività | Descrizione
 -------- | -----------

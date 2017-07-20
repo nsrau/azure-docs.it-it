@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 6b6e3f0a1182fbce209494af111cf8159e43b639
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: b8714cf97e0497cfea2b5c449ec857a16cc14924
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -64,7 +64,7 @@ Queste variabili potrebbero essere utili se si esegue più di uno tra i comandi 
 | Riavviare una macchina virtuale in esecuzione |[Restart-AzureRmVM](/powershell/module/azurerm.compute/restart-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | Eliminare una macchina virtuale |[Remove-AzureRmVM](/powershell/module/azurerm.compute/remove-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | Generalizzare una macchina virtuale |[Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM -Generalized<BR></BR><BR></BR>È necessario eseguire questo comando prima di eseguire Save-AzureRmVMImage. |
-| Acquisire una macchina virtuale |[Save-AzureRmVMImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Save-AzureRmVMImage) -ResourceGroupName $myResourceGroup -VMName $myVM -DestinationContainerName "myImageContainer" -VHDNamePrefix "myImagePrefix" -Path "C:\filepath\filename.json"<BR></BR><BR></BR>Una macchina virtuale deve essere [arrestata e generalizzata](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per potere essere usata per creare un'immagine. Prima di eseguire questo comando, eseguire Set-AzureRmVm. |
+| Acquisire una macchina virtuale |[Save-AzureRmVMImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Save-AzureRmVMImage) -ResourceGroupName $myResourceGroup -VMName $myVM -DestinationContainerName "myImageContainer" -VHDNamePrefix "myImagePrefix" -Path "C:\filepath\filename.json"<BR></BR><BR></BR>Una macchina virtuale deve essere [preparata, arrestata e generalizzata](prepare-for-upload-vhd-image.md) per potere essere usata per creare un'immagine. Prima di eseguire questo comando, eseguire Set-AzureRmVm. |
 | Aggiornare una macchina virtuale |[Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>Ottenere la configurazione della macchina virtuale usando Get-AzureRmVM, cambiare le impostazioni di configurazione nell'oggetto VM e quindi eseguire questo comando. |
 | Aggiungere un disco dati a una macchina virtuale |[Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Add-AzureRmVMDataDisk) -VM $vm -Name "myDataDisk" -VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk.vhd" -LUN # -Caching ReadWrite -DiskSizeinGB # -CreateOption Empty<BR></BR><BR></BR>Usare Get-AzureRmVM per ottenere l'oggetto VM. Specificare il numero LUN e le dimensioni del disco. Eseguire Update-AzureRmVM per applicare le modifiche della configurazione alla macchina virtuale. Il disco aggiunto non viene inizializzato. |
 | Rimuovere un disco dati da una macchina virtuale |[Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) -VM $vm -Name "myDataDisk"<BR></BR><BR></BR>Usare Get-AzureRmVM per ottenere l'oggetto VM. Eseguire Update-AzureRmVM per applicare le modifiche della configurazione alla macchina virtuale. |

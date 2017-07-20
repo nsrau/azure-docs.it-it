@@ -1,6 +1,6 @@
 ---
-title: Usare metodi diretti dell&quot;Hub IoT di Azure (.NET/Node) | Documentazione Microsoft
-description: Come usare metodi diretti dell&quot;Hub IoT di Azure. Si usa Azure IoT SDK per dispositivi per Node.js per implementare un&quot;app per dispositivo simulato che include un metodo diretto e Azure IoT SDK per servizi per .NET per implementare un&quot;app di servizio che richiama il metodo diretto.
+title: Usare metodi diretti dell'Hub IoT di Azure (.NET/Node) | Documentazione Microsoft
+description: Come usare metodi diretti dell'Hub IoT di Azure. Si usa Azure IoT SDK per dispositivi per Node.js per implementare un'app per dispositivo simulato che include un metodo diretto e Azure IoT SDK per servizi per .NET per implementare un'app di servizio che richiama il metodo diretto.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
+ms.date: 05/12/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: bb58d485a7ae805489b468cfffd72654914f63f1
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: fe804cc01925cee58a1d694bdb94b85a8f994cef
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -62,7 +62,7 @@ In questa sezione viene creata un'app console Java che risponde a un metodo chia
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.24</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -209,7 +209,7 @@ In questa sezione viene creata un'app console Java che chiama un metodo diretto 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```
@@ -250,10 +250,10 @@ In questa sezione viene creata un'app console Java che chiama un metodo diretto 
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituzione di **{youriothubname}** con il nome dell'hub IoT e di **{yourhubkey}** con il valore della chiave del dispositivo generato nella sezione *Creare un'identità del dispositivo*:
+1. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire **{youriothubconnectionstring}** con la stringa di connessione dell'hub IoT indicata nella sezione *Creare un hub IoT*:
 
     ```java
-    public static final String iotHubConnectionString = "HostName={youriothubname}.azure-devices.net;SharedAccessKeyName=owner;SharedAccessKey={yourhubkey}";
+    public static final String iotHubConnectionString = "{youriothubconnectionstring}";
     public static final String deviceId = "myDeviceId";
 
     public static final String methodName = "writeLine";
@@ -288,11 +288,15 @@ In questa sezione viene creata un'app console Java che chiama un metodo diretto 
     System.out.println("Shutting down sample...");
     ```
 
+1. Salvare e chiudere il file invoke-direct-method\src\main\java\com\mycompany\app\App.java
+
+1. Compilare l'app **invoke-direct-method** e correggere eventuali errori. Al prompt dei comandi passare alla cartella invoke-direct-method ed eseguire il comando seguente:
+
+    `mvn clean package -DskipTests`
+
 ## <a name="run-the-apps"></a>Eseguire le app
 
 A questo punto è possibile eseguire le app console.
-
-A questo punto è possibile eseguire le app.
 
 1. Eseguire questo comando al prompt dei comandi nella cartella simulated-device per iniziare ad ascoltare le chiamate ai metodi dell'hub IoT:
 
@@ -325,7 +329,7 @@ Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al
 
 <!-- Links -->
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md

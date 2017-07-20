@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2017
+ms.date: 5/26/2017
 ms.author: glimoli;genli
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 104063500a33dfe55c56467517a5002c562772df
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4d8972e5a18cbe471ec4c5baa53992cc23fad129
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -260,20 +261,31 @@ Installare gli ultimi aggiornamenti di Windows. Se ciò non è possibile, assicu
    * [KB3115224](https://support.microsoft.com/kb/3115224) - I miglioramenti dell'affidabilità per le macchine virtuali eseguite in un host di Windows Server 2012 R2 o Windows Server 2012
    * [KB3140410](https://support.microsoft.com/kb/3140410) - MS16-031: aggiornamento della sicurezza di Microsoft Windows per gestire l'aumento di livello dei privilegi (8 marzo 2016)
    * [KB3063075](https://support.microsoft.com/kb/3063075) - Molti eventi ID 129 vengono registrati quando si esegue una macchina virtuale di Windows Server 2012 R2 in Microsoft Azure
-   * [KB3137061](https://support.microsoft.com/kb/3137061) - Le macchine virtuali di Microsoft Azure non vengono ripristinate a seguito di un'interruzione di rete e del danneggiamento dei dati
    * [KB3114025](https://support.microsoft.com/kb/3114025) - Rallentamento delle prestazioni quando si accede all'archiviazione dei file di Azure da Windows 8.1 o Windows Server 2012 R2
    * [KB3033930](https://support.microsoft.com/kb/3033930) - Hotfix aumenta il limite di 64 K nei buffer RIO per ogni processo del servizio Azure in Windows
    * [KB3004545](https://support.microsoft.com/kb/3004545) - Non è possibile accedere alle macchine virtuali ospitate nei servizi di hosting di Azure tramite una connessione VPN in Windows
    * [KB3082343](https://support.microsoft.com/kb/3082343) - Perdita della connettività VPN cross-premise quando i tunnel VPN site-to-site di Azure utilizzano l'RRAS di Windows Server 2012 R2
-   * [KB3140410](https://support.microsoft.com/kb/3140410) - MS16-031: aggiornamento della sicurezza di Microsoft Windows per gestire l'aumento di livello dei privilegi (8 marzo 2016)
    * [KB3146723](https://support.microsoft.com/kb/3146723) - MS16-048: descrizione dell'aggiornamento di sicurezza per CSRSS (12 aprile 2016)
    * [KB2904100](https://support.microsoft.com/kb/2904100) - Il sistema si blocca durante il processo di I/O del disco in Windows
      
 ## Eseguire Sysprep <a id="step23"></a>    
-Se si desidera creare un'immagine da distribuire in più macchine, è [necessario generalizzare l'immagine eseguendo Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) prima di caricare il disco rigido virtuale in Azure. Non è necessario eseguire Sysprep per usare un disco rigido virtuale specifico. Per altre informazioni, vedere gli articoli seguenti:
+Se si desidera creare un'immagine da distribuire in più macchine virtuali, è necessario generalizzare l'immagine eseguendo Sysprep prima di caricare il disco rigido virtuale in Azure. Non è necessario eseguire Sysprep per usare un disco rigido virtuale specifico. 
+
+Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](http://technet.microsoft.com/library/bb457073.aspx).
+
+Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+1. Accedere alla macchina virtuale Windows.
+2. Aprire la finestra del prompt dei comandi come amministratore. Impostare la directory su **%windir%\system32\sysprep**, quindi eseguire `sysprep.exe`.
+3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
+4. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
+5. Fare clic su **OK**.
    
-   * [Generalizzare una macchina virtuale Windows mediante Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-   * [Supporto di Sysprep per i ruoli del server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+    ![Avvio di Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Al termine, Sysprep arresta la macchina virtuale. Non riavviare la VM.
+
+
+
 
 ## <a name="complete-recommended-configurations"></a>Completare le configurazioni consigliate
 Le seguenti impostazioni non influenzano il caricamento del disco rigido virtuale. Tuttavia, si consiglia vivamente di configurarle.
@@ -299,6 +311,6 @@ Le seguenti impostazioni non influenzano il caricamento del disco rigido virtual
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](upload-generalized-managed.md)
 
 

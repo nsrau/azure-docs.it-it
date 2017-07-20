@@ -1,10 +1,10 @@
 ---
-title: Gestire l&quot;accesso alla fatturazione di Azure tramite i ruoli | Microsoft Docs
+title: Gestire l'accesso alla fatturazione di Azure tramite i ruoli | Microsoft Docs
 description: 
 services: 
 documentationcenter: 
 author: vikramdesai01
-manager: vikramdesai01
+manager: vikdesai
 editor: 
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: vikdesai
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 3453e80246393f15cf0ee2eb29b2fb1d53f77078
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 247782a86a0d20486513dff0dae0c1564b5ecb72
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -63,7 +64,7 @@ Il ruolo di lettore della fatturazione dispone di accesso in sola lettura alle i
     ![Schermata che mostra ciò che vede il lettore della fatturazione nel portale di Azure](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> La funzionalità di lettore della fatturazione è disponibile in anteprima ed è disponibile solo per cloud globale di Azure.
+> La funzionalità Fatturazione per lettore è disponibile in anteprima e non supporta ancora le sottoscrizioni enterprise (EA) o i cloud non globali.
 
 ## <a name="adding-users-to-other-roles"></a>Aggiunta di utenti ad altri ruoli
 
@@ -76,3 +77,4 @@ Solo l'amministratore dell'account può accedere al Centro account. L'amministra
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+

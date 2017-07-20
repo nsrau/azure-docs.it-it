@@ -12,18 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 05/25/17
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1eacd13562adcff96fdd0dd3fd91c78ef6a26dbf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 32d5baf404efddd2e3ce122b14ea8c256bf56299
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="reference---iot-hub-query-language-for-device-twins-and-jobs"></a>Informazioni di riferimento: linguaggio di query dell'hub IoT per dispositivi gemelli e processi
-## <a name="overview"></a>Panoramica
-L'hub IoT fornisce un linguaggio simile a SQL avanzato per recuperare informazioni su [dispositivi gemelli][lnk-twins] e [processi][lnk-jobs]. Questo articolo contiene:
+# <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Riferimento: linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi
+
+L'hub IoT offre un linguaggio simile a SQL avanzato per recuperare informazioni su [dispositivi gemelli][lnk-twins], [processi][lnk-jobs] e [routing di messaggi][lnk-devguide-messaging-routes]. Questo articolo contiene:
 
 * Un'introduzione alle principali funzionalità del linguaggio di query dell'hub IoT
 * La descrizione dettagliata del linguaggio
@@ -32,100 +33,114 @@ L'hub IoT fornisce un linguaggio simile a SQL avanzato per recuperare informazio
 I [dispositivi gemelli][lnk-twins] possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query dei dispositivi gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi gemelli.
 Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la struttura seguente:
 
-        {                                                                      
-            "deviceId": "myDeviceId",                                            
-            "etag": "AAAAAAAAAAc=",                                              
-            "tags": {                                                            
-                "location": {                                                      
-                    "region": "US",                                                  
-                    "plant": "Redmond43"                                             
-                }                                                                  
-            },                                                                   
-            "properties": {                                                      
-                "desired": {                                                       
-                    "telemetryConfig": {                                             
-                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
-                        "sendFrequencyInSecs": 300                                          
-                    },                                                               
-                    "$metadata": {                                                   
-                    ...                                                     
-                    },                                                               
-                    "$version": 4                                                    
-                },                                                                 
-                "reported": {                                                      
-                    "connectivity": {                                                
-                        "type": "cellular"                            
-                    },                                                               
-                    "telemetryConfig": {                                             
-                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
-                        "sendFrequencyInSecs": 300,                                         
-                        "status": "Success"                                            
-                    },                                                               
-                    "$metadata": {                                                   
-                    ...                                                
-                    },                                                               
-                    "$version": 7                                                    
-                }                                                                  
-            }                                                                    
+```json
+{
+    "deviceId": "myDeviceId",
+    "etag": "AAAAAAAAAAc=",
+    "tags": {
+        "location": {
+            "region": "US",
+            "plant": "Redmond43"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",
+                "sendFrequencyInSecs": 300
+            },
+            "$metadata": {
+            ...
+            },
+            "$version": 4
+        },
+        "reported": {
+            "connectivity": {
+                "type": "cellular"
+            },
+            "telemetryConfig": {
+                "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",
+                "sendFrequencyInSecs": 300,
+                "status": "Success"
+            },
+            "$metadata": {
+            ...
+            },
+            "$version": 7
+        }
+    }
+}
+```
 
 L'hub IoT espone i dispositivi gemelli come raccolta di documenti denominata **devices**.
 Quindi la query seguente recupera l'intero set di dispositivi:
 
-        SELECT * FROM devices
+```sql
+SELECT * FROM devices
+```
 
 > [!NOTE]
 > Gli [SDK dell'hub IoT][lnk-hub-sdks] supportano il paging di risultati di grandi dimensioni.
->
->
 
 L'hub IoT consente di recuperare i dispositivi gemelli applicando filtri con condizioni arbitrarie. Ad esempio,
 
-        SELECT * FROM devices
-        WHERE tags.location.region = 'US'
+```sql
+SELECT * FROM devices
+WHERE tags.location.region = 'US'
+```
 
 recupera i dispositivi gemelli con il tag **location.region** impostato su **US**.
 Sono supportati anche gli operatori booleani e confronti aritmetici, ad esempio
 
-        SELECT * FROM devices
-        WHERE tags.location.region = 'US'
-            AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
+```sql
+SELECT * FROM devices
+WHERE tags.location.region = 'US'
+    AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
+```
 
 recupera tutti i dispositivi gemelli situati negli Stati Uniti configurati per l'invio di dati di telemetria meno di ogni minuto. Per praticità, è anche possibile usare costanti di matrice con gli operatori **IN** e **NIN** (non in). Ad esempio,
 
-        SELECT * FROM devices
-        WHERE property.reported.connectivity IN ['wired', 'wifi']
+```sql
+SELECT * FROM devices
+WHERE properties.reported.connectivity IN ['wired', 'wifi']
+```
 
 recupera tutti i dispositivi gemelli che hanno segnalato una connettività WiFi o cablata. È spesso necessario identificare tutti i dispositivi gemelli che contengono una proprietà specifica. L'hub IoT supporta la funzione `is_defined()` per questo scopo. Ad esempio,
 
-        SELECT * FROM devices
-        WHERE is_defined(property.reported.connectivity)
+```SQL
+SELECT * FROM devices
+WHERE is_defined(properties.reported.connectivity)
+```
 
 recupera tutti i dispositivi gemelli che definiscono la proprietà segnalata `connectivity`. Per informazioni di riferimento complete sulle funzionalità di filtro, vedere la sezione [Clausola WHERE][lnk-query-where].
 
 Sono supportati anche il raggruppamento e le aggregazioni. Ad esempio,
 
-        SELECT properties.reported.telemetryConfig.status AS status,
-            COUNT() AS numberOfDevices
-        FROM devices
-        GROUP BY properties.reported.telemetryConfig.status
+```sql
+SELECT properties.reported.telemetryConfig.status AS status,
+    COUNT() AS numberOfDevices
+FROM devices
+GROUP BY properties.reported.telemetryConfig.status
+```
 
 restituisce il numero di dispositivi in ogni stato di configurazione della telemetria.
 
-        [
-            {
-                "numberOfDevices": 3,
-                "status": "Success"
-            },
-            {
-                "numberOfDevices": 2,
-                "status": "Pending"
-            },
-            {
-                "numberOfDevices": 1,
-                "status": "Error"
-            }
-        ]
+```json
+[
+    {
+        "numberOfDevices": 3,
+        "status": "Success"
+    },
+    {
+        "numberOfDevices": 2,
+        "status": "Pending"
+    },
+    {
+        "numberOfDevices": 1,
+        "status": "Error"
+    }
+]
+```
 
 L'esempio precedente illustra una situazione in cui tre dispositivi hanno segnalato che la configurazione è riuscita, due stanno ancora applicando la configurazione e uno ha segnalato un errore.
 
@@ -133,15 +148,17 @@ L'esempio precedente illustra una situazione in cui tre dispositivi hanno segnal
 La funzionalità di query viene esposta dall'[SDK del servizio C#][lnk-hub-sdks] nella classe **RegistryManager**.
 Ecco un esempio di una query semplice:
 
-        var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
-        while (query.HasMoreResults)
-        {
-            var page = await query.GetNextAsTwinAsync();
-            foreach (var twin in page)
-            {
-                // do work on twin object
-            }
-        }
+```csharp
+var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
+while (query.HasMoreResults)
+{
+    var page = await query.GetNextAsTwinAsync();
+    foreach (var twin in page)
+    {
+        // do work on twin object
+    }
+}
+```
 
 Si noti come venga creata un'istanza dell'oggetto **query** con dimensioni della pagina (fino a 1000) e quindi si possano recuperare più pagine chiamando più volte i metodi **GetNextAsTwinAsync**.
 Si noti che l'oggetto query espone più **Next\***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti dispositivi gemelli, oggetti processo oppure il normale codice JSON quando si ricorre alle proiezioni.
@@ -150,22 +167,24 @@ Si noti che l'oggetto query espone più **Next\***, a seconda dell'opzione di de
 La funzionalità di query viene esposta da [SDK per i servizi IoT di Azure per Node.js][lnk-hub-sdks] nell'oggetto **Registro**.
 Ecco un esempio di una query semplice:
 
-        var query = registry.createQuery('SELECT * FROM devices', 100);
-        var onResults = function(err, results) {
-            if (err) {
-                console.error('Failed to fetch the results: ' + err.message);
-            } else {
-                // Do something with the results
-                results.forEach(function(twin) {
-                    console.log(twin.deviceId);
-                });
+```nodejs
+var query = registry.createQuery('SELECT * FROM devices', 100);
+var onResults = function(err, results) {
+    if (err) {
+        console.error('Failed to fetch the results: ' + err.message);
+    } else {
+        // Do something with the results
+        results.forEach(function(twin) {
+            console.log(twin.deviceId);
+        });
 
-                if (query.hasMoreResults) {
-                    query.nextAsTwin(onResults);
-                }
-            }
-        };
-        query.nextAsTwin(onResults);
+        if (query.hasMoreResults) {
+            query.nextAsTwin(onResults);
+        }
+    }
+};
+query.nextAsTwin(onResults);
+```
 
 Si noti come venga creata un'istanza dell'oggetto **query** con dimensioni della pagina (fino a 1000) e quindi si possano recuperare più pagine chiamando più volte i metodi **nextAsTwin**.
 Si noti che l'oggetto query espone più **Next\***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti dispositivi gemelli, oggetti processo oppure il normale codice JSON quando si ricorre alle proiezioni.
@@ -173,8 +192,6 @@ Si noti che l'oggetto query espone più **Next\***, a seconda dell'opzione di de
 ### <a name="limitations"></a>Limitazioni
 > [!IMPORTANT]
 > I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se si eseguono query su singoli dispositivi gemelli in base all'D, è sempre preferibile usare l'API di recupero di dispositivi gemelli, che contiene i valori più recenti e ha soglie di limitazione più alte.
->
->
 
 I confronti sono attualmente supportati solo tra tipi primitivi (non oggetti), ad esempio `... WHERE properties.desired.config = properties.reported.config` è supportato solo se tali proprietà hanno valori primitivi.
 
@@ -182,32 +199,34 @@ I confronti sono attualmente supportati solo tra tipi primitivi (non oggetti), a
 I [processi][lnk-jobs] consentono di eseguire operazioni su set di dispositivi. Ogni dispositivo gemello contiene le informazioni dei processi di cui fa parte in una raccolta denominata **jobs**.
 La struttura logica è la seguente.
 
-        {                                                                      
-            "deviceId": "myDeviceId",                                            
-            "etag": "AAAAAAAAAAc=",                                              
-            "tags": {                                                            
-                ...                                                              
-            },                                                                   
-            "properties": {                                                      
-                ...                                                                 
-            },
-            "jobs": [
-                {
-                    "deviceId": "myDeviceId",
-                    "jobId": "myJobId",    
-                    "jobType": "scheduleTwinUpdate",            
-                    "status": "completed",                    
-                    "startTimeUtc": "2016-09-29T18:18:52.7418462",
-                    "endTimeUtc": "2016-09-29T18:20:52.7418462",
-                    "createdDateTimeUtc": "2016-09-29T18:18:56.7787107Z",
-                    "lastUpdatedDateTimeUtc": "2016-09-29T18:18:56.8894408Z",
-                    "outcome": {
-                        "deviceMethodResponse": null   
-                    }                                         
-                },
-                ...
-            ]                                                             
-        }
+```json
+{
+    "deviceId": "myDeviceId",
+    "etag": "AAAAAAAAAAc=",
+    "tags": {
+        ...
+    },
+    "properties": {
+        ...
+    },
+    "jobs": [
+        {
+            "deviceId": "myDeviceId",
+            "jobId": "myJobId",
+            "jobType": "scheduleTwinUpdate",
+            "status": "completed",
+            "startTimeUtc": "2016-09-29T18:18:52.7418462",
+            "endTimeUtc": "2016-09-29T18:20:52.7418462",
+            "createdDateTimeUtc": "2016-09-29T18:18:56.7787107Z",
+            "lastUpdatedDateTimeUtc": "2016-09-29T18:18:56.8894408Z",
+            "outcome": {
+                "deviceMethodResponse": null
+            }
+        },
+        ...
+    ]
+}
+```
 
 Attualmente è possibile effettuare una query di questa raccolta come **devices.jobs** nel linguaggio di query dell'hub IoT.
 
@@ -218,25 +237,31 @@ Attualmente è possibile effettuare una query di questa raccolta come **devices.
 
 Ad esempio, per ottenere tutti i processi (passati e pianificati) che influiscono su un singolo dispositivo, è possibile usare la query seguente:
 
-        SELECT * FROM devices.jobs
-        WHERE devices.jobs.deviceId = 'myDeviceId'
+```sql
+SELECT * FROM devices.jobs
+WHERE devices.jobs.deviceId = 'myDeviceId'
+```
 
 Si noti come questa query indichi lo stato specifico del dispositivo (e verosimilmente la risposta del metodo diretto) di ogni processo restituito.
 È anche possibile applicare un filtro con condizioni booleane arbitrarie a tutte le proprietà degli oggetti della raccolta **devices.jobs**.
 Ad esempio, la query seguente:
 
-        SELECT * FROM devices.jobs
-        WHERE devices.jobs.deviceId = 'myDeviceId'
-            AND devices.jobs.jobType = 'scheduleTwinUpdate'
-            AND devices.jobs.status = 'completed'
-            AND devices.jobs.createdTimeUtc > '2016-09-01'
+```sql
+SELECT * FROM devices.jobs
+WHERE devices.jobs.deviceId = 'myDeviceId'
+    AND devices.jobs.jobType = 'scheduleTwinUpdate'
+    AND devices.jobs.status = 'completed'
+    AND devices.jobs.createdTimeUtc > '2016-09-01'
+```
 
 recupera tutti i processi di aggiornamento del dispositivo gemello completati per il dispositivo **myDeviceId** e creati dopo settembre 2016.
 
 È anche possibile recuperare i risultati per ogni dispositivo di un singolo processo.
 
-        SELECT * FROM devices.jobs
-        WHERE devices.jobs.jobId = 'myJobId'
+```sql
+SELECT * FROM devices.jobs
+WHERE devices.jobs.jobId = 'myJobId'
+```
 
 ### <a name="limitations"></a>Limitazioni
 Attualmente le query su **devices.jobs** non supportano:
@@ -249,25 +274,31 @@ Attualmente le query su **devices.jobs** non supportano:
 
 Usando i [route da dispositivo a cloud][lnk-devguide-messaging-routes], è possibile configurare l'hub IoT per l'invio di messaggi da dispositivo a cloud a endpoint diversi in base alle espressioni valutate nei singoli messaggi.
 
-La [condizione][lnk-query-expressions] route usa lo stesso linguaggio di query dell'hub IoT come condizione nelle query gemelle e di processo. Le condizioni route vengono valutate in base alle proprietà dei messaggi, presupponendo la rappresentazione JSON seguente:
+La [condizione][lnk-query-expressions] route usa lo stesso linguaggio di query dell'hub IoT come condizione nelle query gemelle e di processo. Le condizioni di routing vengono valutate nel corpo e nelle intestazioni del messaggio. L'espressione di query del routing potrebbe riguardare solo le intestazioni dei messaggi, solo il corpo del messaggio oppure entrambi. L'hub IoT presuppone uno schema specifico per le intestazioni e il corpo del messaggio per instradare i messaggi, mentre le sezioni seguenti descrivono gli elementi necessari affinché l'hub IoT esegua il routing correttamente:
 
-        {
-            "$messageId": "",
-            "$enqueuedTime": "",
-            "$to": "",
-            "$expiryTimeUtc": "",
-            "$correlationId": "",
-            "$userId": "",
-            "$ack": "",
-            "$connectionDeviceId": "",
-            "$connectionDeviceGenerationId": "",
-            "$connectionAuthMethod": "",
-            "$content-type": "",
-            "$content-encoding": ""
+### <a name="routing-on-message-headers"></a>Routing delle intestazioni dei messaggi
 
-            "userProperty1": "",
-            "userProperty2": ""
-        }
+L'hub IoT presuppone la seguente rappresentazione JSON delle intestazioni dei messaggi per il routing dei messaggi:
+
+```json
+{
+    "$messageId": "",
+    "$enqueuedTime": "",
+    "$to": "",
+    "$expiryTimeUtc": "",
+    "$correlationId": "",
+    "$userId": "",
+    "$ack": "",
+    "$connectionDeviceId": "",
+    "$connectionDeviceGenerationId": "",
+    "$connectionAuthMethod": "",
+    "$content-type": "",
+    "$content-encoding": "",
+
+    "userProperty1": "",
+    "userProperty2": ""
+}
+```
 
 Le proprietà di sistema del messaggio hanno come prefisso il simbolo `'$'`.
 Alle proprietà utente si accede sempre con il relativo nome. Se un nome di proprietà utente coincide con una proprietà di sistema, ad esempio `$to`, la proprietà dell'utente verrà recuperata con l'espressione `$to`.
@@ -281,25 +312,47 @@ Si ricordi che nei nomi delle proprietà viene fatta distinzione tra maiuscole e
 
 Ad esempio, se si utilizza una proprietà `messageType`, è possibile indirizzare tutti i dati di telemetria a un endpoint e tutti gli avvisi a un altro endpoint. È possibile scrivere l'espressione seguente per indirizzare i dati di telemetria:
 
-        messageType = 'telemetry'
+```sql
+messageType = 'telemetry'
+```
 
 L'espressione seguente per indirizzare i messaggi di avviso:
 
-        messageType = 'alert'
+```sql
+messageType = 'alert'
+```
 
 Sono supportate anche le espressioni e le funzione booleane. Questa funzionalità consente di distinguere i vari livelli di gravità, ad esempio:
 
-        messageType = 'alerts' AND as_number(severity) <= 2
+```sql
+messageType = 'alerts' AND as_number(severity) <= 2
+```
 
 Fare riferimento alla sezione [Espressioni e condizioni][lnk-query-expressions] per l'elenco completo delle funzioni e degli operatori supportati.
+
+### <a name="routing-on-message-bodies"></a>Routing del corpo dei messaggi
+
+L'hub IoT può eseguire il routing solo in base al contenuto del corpo del messaggio se il corpo del messaggio è formato correttamente con codifica JSON in UTF-8, UTF-16 o UTF-32. È necessario impostare il tipo di contenuto del messaggio su `application/json` e la codifica del contenuto su una delle codifiche UTF supportate nelle intestazioni del messaggio per consentire all'hub IoT di indirizzare il messaggio in base al contenuto del corpo. Se una delle intestazioni viene omessa, l'hub IoT non tenterà di valutare alcuna espressione di query che coinvolga il corpo rispetto al messaggio. Se il messaggio non è un messaggio JSON oppure se il messaggio non specifica il tipo di contenuto e la codifica del contenuto, è comunque possibile usare il routing dei messaggi per indirizzare il messaggio in base alle intestazioni.
+
+È possibile usare `$body` nell'espressione di query per indirizzare il messaggio. Nell'espressione di query è possibile usare un riferimento semplice al corpo, un riferimento a una matrice del corpo o riferimenti multipli al corpo. L'espressione di query può anche combinare un riferimento al corpo con un riferimento all'intestazione del messaggio. Ad esempio, di seguito sono riportate tutte le espressioni di query valide:
+
+```sql
+$body.message.Weather.Location.State = 'WA'
+$body.Weather.HistoricalData[0].Month = 'Feb'
+$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+length($body.Weather.Location.State) = 2
+$body.Weather.Temperature = 50 AND Status = 'Active'
+```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Nozioni di base di una query dell'hub IoT
 Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti in cui eseguire l'iterazione (**devices** o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Nel caso delle aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY e, per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
 
-        SELECT <select_list>
-        FROM <from_specification>
-        [WHERE <filter_condition>]
-        [GROUP BY <group_specification>]
+```sql
+SELECT <select_list>
+FROM <from_specification>
+[WHERE <filter_condition>]
+[GROUP BY <group_specification>]
+```
 
 ## <a name="from-clause"></a>Clausola FROM
 La clausola **FROM <from_specification>** può avere solo due valori: **FROM devices**, per effettuare una query dei dispositivi gemelli, o **FROM devices.jobs**, per effettuare una query dei dettagli per ogni dispositivo.
@@ -315,23 +368,25 @@ Per ogni elemento del subset filtrato (e facoltativamente raggruppato) della rac
 
 Questa è la sintassi della clausola SELECT:
 
-        SELECT [TOP <max number>] <projection list>
+```
+SELECT [TOP <max number>] <projection list>
 
-        <projection_list> ::=
-            '*'
-            | <projection_element> AS alias [, <projection_element> AS alias]+
+<projection_list> ::=
+    '*'
+    | <projection_element> AS alias [, <projection_element> AS alias]+
 
-        <projection_element> :==
-            attribute_name
-            | <projection_element> '.' attribute_name
-            | <aggregate>
+<projection_element> :==
+    attribute_name
+    | <projection_element> '.' attribute_name
+    | <aggregate>
 
-        <aggregate> :==
-            count()
-            | avg(<projection_element>)
-            | sum(<projection_element>)
-            | min(<projection_element>)
-            | max(<projection_element>)
+<aggregate> :==
+    count()
+    | avg(<projection_element>)
+    | sum(<projection_element>)
+    | min(<projection_element>)
+    | max(<projection_element>)
+```
 
 dove **attribute_name** si riferisce alle proprietà del documento JSON nella raccolta FROM. Alcuni esempi di clausola SELECT sono disponibili nella sezione [Introduzione alle query dei dispositivi gemelli][lnk-query-getstarted].
 
@@ -342,17 +397,21 @@ La clausola **GROUP BY <group_specification>** è un passaggio facoltativo che p
 
 Ecco un esempio di query che usa GROUP BY:
 
-        SELECT properties.reported.telemetryConfig.status AS status,
-            COUNT() AS numberOfDevices
-        FROM devices
-        GROUP BY properties.reported.telemetryConfig.status
+```sql
+SELECT properties.reported.telemetryConfig.status AS status,
+    COUNT() AS numberOfDevices
+FROM devices
+GROUP BY properties.reported.telemetryConfig.status
+```
 
 La sintassi formale di GROUP BY è:
 
-        GROUP BY <group_by_element>
-        <group_by_element> :==
-            attribute_name
-            | < group_by_element > '.' attribute_name
+```
+GROUP BY <group_by_element>
+<group_by_element> :==
+    attribute_name
+    | < group_by_element > '.' attribute_name
+```
 
 dove **attribute_name** si riferisce alle proprietà del documento JSON nella raccolta FROM.
 
@@ -368,29 +427,31 @@ Le *condizioni* sono espressioni che restituiscono un valore booleano. Una costa
 
 La sintassi delle espressioni è:
 
-        <expression> ::=
-            <constant> |
-            attribute_name |
-            <function_call> |
-            <expression> binary_operator <expression> |
-            <create_array_expression> |
-            '(' <expression> ')'
+```
+<expression> ::=
+    <constant> |
+    attribute_name |
+    <function_call> |
+    <expression> binary_operator <expression> |
+    <create_array_expression> |
+    '(' <expression> ')'
 
-        <function_call> ::=
-            <function_name> '(' expression ')'
+<function_call> ::=
+    <function_name> '(' expression ')'
 
-        <constant> ::=
-            <undefined_constant>
-            | <null_constant>
-            | <number_constant>
-            | <string_constant>
-            | <array_constant>
+<constant> ::=
+    <undefined_constant>
+    | <null_constant>
+    | <number_constant>
+    | <string_constant>
+    | <array_constant>
 
-        <undefined_constant> ::= undefined
-        <null_constant> ::= null
-        <number_constant> ::= decimal_literal | hexadecimal_literal
-        <string_constant> ::= string_literal
-        <array_constant> ::= '[' <constant> [, <constant>]+ ']'
+<undefined_constant> ::= undefined
+<null_constant> ::= null
+<number_constant> ::= decimal_literal | hexadecimal_literal
+<string_constant> ::= string_literal
+<array_constant> ::= '[' <constant> [, <constant>]+ ']'
+```
 
 dove:
 
@@ -426,7 +487,7 @@ Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 | ABS(x) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | EXP(x) | Restituisce il valore esponente dell'espressione numerica specificata (e^x). |
 | POWER(x,y) | Restituisce il valore dell'espressione specificata alla potenza specificata (x^y).|
-| SQUARE(x)    | Restituisce il quadrato del valore numerico specificato. |
+| SQUARE(x) | Restituisce il quadrato del valore numerico specificato. |
 | CEILING(x) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
 | FLOOR(x) | Restituisce il valore integer più alto, minore di o uguale all'espressione numerica specificata. |
 | SIGN(x) | Restituisce il segno positivo (+1), zero (0) o negativo (-1) dell'espressione numerica specificata.|
@@ -472,9 +533,9 @@ Informazioni su come eseguire query nelle app usando gli [SDK dell'hub IoT][lnk-
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messaging.md#routing-rules
-[lnk-devguide-messaging-format]: iot-hub-devguide-messaging.md#message-format
-
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
+[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 4e145740f8485e4a02c70f2c9d3a9fa6057da635
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: ef14dbaecf5675fa92c91cb5df58b65f59764fa7
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -64,9 +64,9 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Configurare una stringa di connessione per il bus di servizio
 Il modulo di Azure legge le variabili di ambiente AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY per informazioni necessarie per la connessione al bus di servizio. Se queste variabili di ambiente non sono impostate, è necessario specificare le informazioni relative all'account quando si chiama **createServiceBusService**.
 
-Per un esempio di impostazione delle variabili di ambiente in un file di configurazione per un servizio cloud di Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Node.js Cloud Service with Storage].
+Per un esempio di impostazione delle variabili di ambiente per un servizio cloud di Azure, vedere [Servizio cloud Node.js con Archiviazione][Node.js Cloud Service with Storage].
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure classico][portale di Azure classico] per un sito Web di Azure, vedere [Node.js Web Application with Storage][Node.js Web Application with Storage] (Applicazione Web Node.js con Archiviazione di Azure).
+Per un esempio di impostazione delle variabili di ambiente per un sito Web di Azure, vedere [Creazione di un'applicazione Web Node.js con Archiviazione][Node.js Web Application with Storage].
 
 ## <a name="create-a-topic"></a>Creare un argomento
 L'oggetto **ServiceBusService** consente di usare gli argomenti. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo azure:

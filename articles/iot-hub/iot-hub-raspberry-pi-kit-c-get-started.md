@@ -13,13 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/13/2017
+ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 387dcace5be29de52b465bc53fa81a3dbf876390
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: b7c328ac622190d64ea1b07ee459c7f8f5d1e0f4
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -29,6 +30,8 @@ ms.lasthandoff: 04/18/2017
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 Questa esercitazione illustra le nozioni di base sull'uso di Raspberry Pi con il sistema operativo Raspbian. Viene poi illustrato come connettere i dispositivi al cloud usando l'[hub IoT di Azure](iot-hub-what-is-iot-hub.md). Per esempi di Windows 10 IoT Core, vedere [Windows Dev Center](http://www.windowsondevices.com/).
+
+Se non si ha ancora un kit, Provare il [simulatore online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md). In alternativa, acquistare un nuovo kit [qui](https://azure.microsoft.com/develop/iot/starter-kits).
 
 ## <a name="what-you-do"></a>Operazioni da fare
 
@@ -97,7 +100,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
    ![Il menu Preferenze di Raspbian](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
-1. Nella scheda **Interfacce** impostare **SPI** e **SSH** su **Abilita**, quindi fare clic su **OK**.
+1. Nella scheda **Interfacce** impostare **SPI** e **SSH** su **Abilita**, quindi fare clic su **OK**. Se non si hanno sensori fisici e si vogliono usare i dati di sensori simulati, questo passaggio è facoltativo.
 
    ![Abilitare SPI e SSH su Raspberry Pi](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
@@ -109,6 +112,8 @@ Per abilitare SSH e SPI è possibile trovare più documenti di riferimento su [r
 Usare i cavi ponticello e la basetta sperimentale per connettere un LED e un sensore BME280 a Pi, come indicato di seguito. Se non si dispone di sensori, ignorare questa sezione.
 
 ![La connessione di Raspberry Pi e del sensore](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+
+Il sensore BME280 può raccogliere i dati relativi a temperatura e umidità. Il LED sarà intermittente se viene stabilita una comunicazione tra il dispositivo e il cloud. 
 
 Per i pin dei sensori usare i collegamenti seguenti:
 
@@ -163,8 +168,8 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 1. Aprire il file di configurazione eseguendo i comandi seguenti:
 
    ```bash
-   cd iot-hub-c-raspberry-pi-clientapp
-   nano config.json
+   cd iot-hub-c-raspberry-pi-client-app
+   nano config.h
    ```
 
    ![File di configurazione](media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)

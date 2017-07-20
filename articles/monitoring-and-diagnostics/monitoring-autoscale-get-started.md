@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: rajram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a0a420adc57a0bcbb3779183324ab7bfafcb5bf1
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 4faccae708b5407d1eb64e746824a23688bc5834
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -39,7 +39,7 @@ La scalabilità automatica di Monitoraggio di Azure si applica solo a set di sca
 
 È possibile usare il riquadro filtro nella parte superiore per ridurre l'ambito dell'elenco e selezionare le risorse in un gruppo di risorse specifico, selezionare tipi di risorse specifici o una determinata risorsa.
 
-Per ogni risorsa vengono indicati il numero di istanze corrente e lo stato di scalabilità automatica. Lo stato di scalabilità automatica può essere
+Per ogni risorsa verranno indicati il numero di istanze corrente e lo stato di scalabilità automatica. Lo stato di scalabilità automatica può essere
 
 - Non configurato: non è stata ancora abilitata la scalabilità automatica per questa risorsa
 - Abilitato: è stata abilitata la scalabilità automatica per questa risorsa
@@ -69,7 +69,7 @@ Oltre alla scalabilità basata sempre sulla CPU, è possibile impostare la scala
 - Fare clic su 'Add a scale condition' (Aggiungi una condizione di scalabilità)
 - L'impostazione della modalità e delle regole di scalabilità è uguale alla condizione predefinita
 - Selezionare 'Ripeti in giorni specifici' per la pianificazione
-- Selezionare i giorni e l'ora di inizio/fine per l'applicazione della condizione di scalabilità per i giorni selezionati.
+- Selezionare i giorni e l'ora di inizio/fine per l'applicazione della condizione di scalabilità per i giorni selezionati
 
 ![Condizione di scalabilità in base alla pianificazione][9]
 ## <a name="scale-differently-on-specific-dates"></a>Impostare la scalabilità in modo diverso per date specifiche
@@ -78,7 +78,7 @@ Oltre alla scalabilità basata sempre sulla CPU, è possibile impostare la scala
 - Fare clic su 'Add a scale condition' (Aggiungi una condizione di scalabilità)
 - L'impostazione della modalità e delle regole di scalabilità è uguale alla condizione predefinita
 - Selezionare 'Specificare le date di inizio/fine' per la pianificazione
-- Selezionare le date di inizio/fine e l'ora di inizio/fine per l'applicazione della condizione di scalabilità per i giorni selezionati.
+- Selezionare le date di inizio/fine e l'ora di inizio/fine per l'applicazione della condizione di scalabilità per i giorni selezionati
 
 ![Condizione di scalabilità in base alle date][10]
 
@@ -99,7 +99,7 @@ L'impostazione di scalabilità automatica è una risorsa di Azure Resource Manag
 ## <a name="disable-autoscale-and-manually-scale-your-instances"></a>Disabilitare la scalabilità automatica e ridimensionare le istanze manualmente
 A volte può essere opportuno disabilitare l'impostazione di scalabilità corrente e ridimensionare la risorsa manualmente.
 
-Fare clic sul pulsante 'Disabilita scalabilità automatica' nella parte superiore.
+Fare clic sul pulsante "Disabilita scalabilità automatica" nella parte superiore.
 ![Disabilitare la scalabilità automatica][13]
 
 Si noti che questa opzione disabilita la configurazione, che può essere tuttavia riattivata abilitando di nuovo la scalabilità automatica. È ora possibile impostare il numero di istanze da ridimensionare manualmente.
@@ -123,3 +123,4 @@ Si noti che questa opzione disabilita la configurazione, che può essere tuttavi
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
+

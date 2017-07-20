@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: cec0ceb0da57150e4bdd9f9a0f6d3e751c108523
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -44,10 +46,13 @@ Configurare le origini dati nel menu **Dati** in **Impostazioni** di Log Analyti
 
 ![Configurare gli eventi di Windows](./media/log-analytics-data-sources/configure-events.png)
 
-1. Nella console di OMS selezionare il riquadro **Impostazioni** .
+1. Nella console OMS fare clic sul riquadro **Impostazioni** o sul pulsante **Impostazioni** nella parte superiore della schermata.
 2. Selezionare **Dati**.
 3. Fare clic sull'origine dati da configurare.
 4. Per informazioni dettagliate relative alla configurazione, seguire il collegamento alla documentazione per ogni origine dati nella tabella precedente.
+
+> [!NOTE]
+> Attualmente non è possibile configurare le origini dati di Log Analytics nel portale di Azure.
 
 ## <a name="data-collection"></a>Raccolta dei dati
 Le configurazioni dell'origine dati vengono distribuite agli agenti connessi direttamente a Log Analytics entro pochi minuti.  I dati specificati vengono raccolti dall'agente e distribuiti direttamente a Log Analytics a intervalli specifici per ogni origine dati.  Per informazioni sugli intervalli specifici di ogni origine dati, vedere la documentazione.
@@ -63,9 +68,4 @@ Tutti i dati raccolti da Log Analytics vengono archiviati nel repository OMS com
 * Informazioni sulle [soluzioni](log-analytics-add-solutions.md) che aggiungono funzionalità a Log Analytics e raccolgono dati nel repository OMS.
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
 * Configurare gli [avvisi](log-analytics-alerts.md) per inviare notifiche immediate sui dati critici raccolti da origini dati e soluzioni.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

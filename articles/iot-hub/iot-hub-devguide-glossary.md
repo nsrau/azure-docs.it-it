@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 2fad3e3fb88d447b377ccfce052035640c1360c3
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c3646fef95bc06f8febe45718f4f9aeb9aefb42a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -39,7 +39,7 @@ L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cl
 Sono disponibili _SDK per dispositivi_ per più linguaggi che consentono di creare [app per dispositivo](#device-app) che interagiscono con un hub IoT. Le esercitazioni su Hub IoT illustrano come usare questi SDK per dispositivi. Il codice sorgente e altre informazioni sugli SDK per dispositivi sono disponibili in questo [repository](https://github.com/Azure/azure-iot-sdks) GitHub.
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-TIoT Edge consente di scrivere applicazioni che permettono ai dispositivi connessi al gateway di comunicare con l'[hub IoT](#iot-hub). Le esercitazioni su IoT Edge illustrano come usare questo servizio. Il codice sorgente e altre informazioni su Azure IoT Edge sono disponibili in questo [repository](https://github.com/Azure/iot-edge) di GitHub.
+IoT Edge consente di scrivere applicazioni che permettono ai dispositivi connessi al gateway di comunicare con l'[hub IoT](#iot-hub). Le esercitazioni su IoT Edge illustrano come usare questo servizio. Il codice sorgente e altre informazioni su Azure IoT Edge sono disponibili in questo [repository](https://github.com/Azure/iot-edge) di GitHub.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT SDK per servizi
 Sono disponibili _SDK per servizi_ per più linguaggi che consentono di creare [app back-end](#back-end-app) che interagiscono con un hub IoT. Le esercitazioni su Hub IoT illustrano come usare questi SDK per servizi. Il codice sorgente e altre informazioni sugli SDK per servizi sono disponibili in questo [repository](https://github.com/Azure/azure-iot-sdks) GitHub.
@@ -80,7 +80,7 @@ Le stringhe di connessione vengono usate nel codice dell'app per incapsulare le 
 È possibile creare [endpoint](iot-hub-devguide-endpoints.md) personalizzati su un hub IoT per recapitare i messaggi inviati da una [regola di routing](#routing-rules). Gli endpoint personalizzati connettono direttamente a un Hub eventi, a una coda del Bus di servizio o a un argomento del Bus di servizio.
 
 ## <a name="custom-gateway"></a>Gateway personalizzato
-Un gateway abilita la connettività per i dispositivi che non possono connettersi direttamente a [Hub IoT](#iot-hub). È possibile usare [Azure IoT Edge](#azure-iot-gateway-sdk) per compilare gateway personalizzati che implementano la logica personalizzata per gestire i messaggi, le conversioni dei protocolli personalizzati e altre attività di elaborazione su edge.
+Un gateway abilita la connettività per i dispositivi che non possono connettersi direttamente a [Hub IoT](#iot-hub). È possibile usare [Azure IoT Edge](#azure-iot-edge) per compilare gateway personalizzati che implementano la logica personalizzata per gestire i messaggi, le conversioni dei protocolli personalizzati e altre attività di elaborazione su edge.
 
 ## <a name="data-point-message"></a>Messaggio di punto dati
 Un messaggio di punto dati è un messaggio da [dispositivo a cloud](#device-to-cloud) contenente dati di [telemetria](#telemetry) come temperatura o velocità del vento.
@@ -191,7 +191,7 @@ Il back-end della soluzione può usare i [processi](iot-hub-devguide-jobs.md) pe
 L'[API REST dei processi](https://docs.microsoft.com/rest/api/iothub/jobapi) consente di gestire i [processi](#job) in esecuzione nell'hub IoT.
 
 ## <a name="module"></a>Modulo
-In [Azure IoT Edge](iot-hub-linux-gateway-sdk-get-started.md) un [modulo](iot-hub-linux-gateway-sdk-get-started.md) è un componente che esegue un'attività specifica. Le attività possono includere l'inserimento di un messaggio da un dispositivo, la trasformazione di un messaggio o l'invio di un messaggio a un hub IoT. Un broker è responsabile dell'inoltro dei messaggi tra i moduli. Azure IoT Edge include un set di moduli di esempio. È anche possibile creare moduli personalizzati.
+In [Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md) un [modulo](iot-hub-linux-iot-edge-get-started.md) è un componente che esegue un'attività specifica. Le attività possono includere l'inserimento di un messaggio da un dispositivo, la trasformazione di un messaggio o l'invio di un messaggio a un hub IoT. Un broker è responsabile dell'inoltro dei messaggi tra i moduli. Azure IoT Edge include un set di moduli di esempio. È anche possibile creare moduli personalizzati.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) è uno dei protocolli di messaggistica supportati da [Hub IoT](#iot-hub) per la comunicazione con i dispositivi. Per altre informazioni sui protocolli di messaggistica supportati dall'hub IoT, vedere [Inviare e ricevere messaggi con l'hub IoT](iot-hub-devguide-messaging.md).
@@ -224,7 +224,7 @@ Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), le pr
 I criteri di ripetizione si usano per gestire gli [errori temporanei](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) quando ci si connette a un servizio cloud.
 
 ## <a name="routing-rules"></a>Regole di routing
-Configurare le [regole di routing](iot-hub-devguide-messaging.md#routing-rules) nell'hub IoT per indirizzare i messaggi da dispositivo a cloud su un [endpoint predefinito](#built-in-endpoints) o su un [endpoint personalizzato](#custom-endpoints) per l'elaborazione da parte della soluzione di back-end in uso.
+Configurare le [regole di routing](iot-hub-devguide-messages-read-custom.md) nell'hub IoT per indirizzare i messaggi da dispositivo a cloud su un [endpoint predefinito](#built-in-endpoints) o su un [endpoint personalizzato](#custom-endpoints) per l'elaborazione da parte della soluzione di back-end in uso.
 
 ## <a name="sasl-plain"></a>SASL PLAIN
 SASL PLAIN è un protocollo usato dal protocollo [AMQP](#advanced-message-queue-protocol) per trasferire i token di sicurezza.

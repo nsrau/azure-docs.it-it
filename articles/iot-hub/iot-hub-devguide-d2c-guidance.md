@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 05/25/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: aa3704fe844a41fef22b8cdd35838c68aebc7752
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a36283053939ccd53856a394cd9efb66285271ae
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -34,14 +35,14 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da disposit
 | ---- | ------- | ---------- | ---- |
 | Scenario | Serie temporale di telemetria e avvisi. Ad esempio, batch di dati di sensori di 256 KB inviati ogni 5 minuti. | Funzionalità disponibili e condizioni. Ad esempio, la modalità di connessione del dispositivo corrente, ad esempio cellulare o Wi-Fi. Sincronizzazione di flussi di lavoro a esecuzione prolungata, ad esempio aggiornamenti della configurazione e del software. | File multimediali. Batch di telemetria di grandi dimensioni, in genere compressi. |
 | Archiviazione e recupero | Archiviati temporaneamente dall'hub IoT, per un massimo di 7 giorni. Solo lettura sequenziale. | Archiviate dall'hub IoT nel dispositivo gemello. Recuperabili mediante il [linguaggio di query dell'hub IoT][lnk-query]. | Archiviati nell'account di Archiviazione di Azure specificato dall'utente. |
-| Dimensione | Fino a 256 KB di messaggi. | Le dimensioni massime per le proprietà segnalate sono 8 KB. | Dimensioni di file massime supportate dall'Archiviazione BLOB di Azure. |
+| Dimensione | Fino a messaggi di 256 KB. | Le dimensioni massime per le proprietà segnalate sono 8 KB. | Dimensioni di file massime supportate dall'Archiviazione BLOB di Azure. |
 | Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Media. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. |
 | Protocol | Disponibile in tutti i protocolli. | Attualmente disponibile solo quando si usa MQTT. | Disponibile quando si usa qualsiasi protocollo, ma richiede HTTP nel dispositivo. |
 
 È possibile che un'applicazione richieda di inviare informazioni sotto forma di serie temporali di telemetria o avvisi e di renderle disponibili nel dispositivo gemello. In questo scenario è possibile scegliere una delle opzioni seguenti:
 
-* L'app per dispositivo invia un messaggio da dispositivo a cloud e segnala una modifica della proprietà. 
-* In alternativa, la soluzione back-end può archiviare le informazioni nei tag del dispositivo gemello quando riceve il messaggio. 
+* L'app per dispositivo invia un messaggio da dispositivo a cloud e segnala una modifica della proprietà.
+* La soluzione back-end può archiviare le informazioni nei tag del dispositivo gemello quando riceve il messaggio.
 
 Poiché i messaggi da dispositivo a cloud consentono una velocità effettiva notevolmente superiore rispetto agli aggiornamenti del dispositivo gemello, è a volte consigliabile evitare di aggiornare il dispositivo gemello per ogni messaggio da dispositivo a cloud.
 
@@ -50,5 +51,5 @@ Poiché i messaggi da dispositivo a cloud consentono una velocità effettiva not
 [lnk-fileupload]: iot-hub-devguide-file-upload.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 
