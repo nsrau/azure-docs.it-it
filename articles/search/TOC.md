@@ -31,6 +31,7 @@
 ### [Aggiornare l'SDK](search-dotnet-sdk-migration.md)
 ### [Aggiornare l'API REST](search-api-migration.md)
 ### [Modellare tipi di dati complessi](search-howto-complex-data-types.md)
+
 ## Gestire
 ### Gestire Ricerca di Azure
 #### [Portale di Azure](search-manage.md)

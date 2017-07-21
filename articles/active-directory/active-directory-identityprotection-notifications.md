@@ -15,27 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
 ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
 ms.contentlocale: it-it
 ms.lasthandoff: 12/22/2016
 
-
 ---
-<a id="azure-active-directory-identity-protection-notifications" class="xliff"></a>
-# Notifiche di Azure Active Directory Identity Protection
+# <a name="azure-active-directory-identity-protection-notifications"></a>Notifiche di Azure Active Directory Identity Protection
 Azure AD Identity Protection invia due tipi di messaggi di posta elettronica di notifica automatica per la gestione del rischio utente e degli eventi di rischio:
 
 * Messaggio di posta elettronica di avviso utente compromesso
 * Messaggio di posta elettronica di riepilogo settimanale
 
-<a id="user-compromised-alert-email" class="xliff"></a>
-## Messaggio di posta elettronica di avviso utente compromesso
+## <a name="user-compromised-alert-email"></a>Messaggio di posta elettronica di avviso utente compromesso
 Quando Azure AD Identity Protection identifica un account come compromesso, viene generato un avviso di posta elettronica utente compromesso. Il messaggio include un collegamento al report relativo agli utenti contrassegnati per il rischio nel dashboard di Identity Protection. È consigliabile analizzare immediatamente le notifiche relative agli account compromessi.
 
-<a id="weekly-digest-email" class="xliff"></a>
-## Messaggio di posta elettronica di riepilogo settimanale
+## <a name="weekly-digest-email"></a>Messaggio di posta elettronica di riepilogo settimanale
 Il messaggio di riepilogo settimanale contiene un riepilogo dei nuovi eventi di rischio.<br>
 Sono inclusi:
 
@@ -64,7 +61,6 @@ Sono inclusi:
    ![Criteri di rischio utente](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
    <br>
 
-<a id="see-also" class="xliff"></a>
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

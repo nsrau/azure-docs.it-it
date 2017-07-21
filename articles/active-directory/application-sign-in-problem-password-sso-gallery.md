@@ -1,6 +1,6 @@
 ---
-title: Problemi di accesso a un&quot;applicazione della raccolta di Azure AD configurata per il Single Sign-On federato | Microsoft Docs
-description: Come risolvere i problemi relativi a un&quot;applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password
+title: Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On federato | Microsoft Docs
+description: Come risolvere i problemi relativi a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password
 documentationcenter: 
 author: ajamess
 manager: femila
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 65bfb0a759a624c98a19f3c2c9c72aa5a6780df7
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

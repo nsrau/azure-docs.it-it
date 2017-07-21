@@ -1,6 +1,6 @@
 ---
-title: Problemi durante l&quot;accesso alle applicazioni&quot;
-description: Problemi durante l&quot;accesso alle applicazioni&quot;
+title: Problemi durante l'accesso alle applicazioni"
+description: Problemi durante l'accesso alle applicazioni"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 2e6995d730089e194dcac989151af13df28a173a
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

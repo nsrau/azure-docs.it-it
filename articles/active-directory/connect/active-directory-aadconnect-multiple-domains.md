@@ -1,6 +1,6 @@
 ---
 title: Domini multipli di Azure AD Connect
-description: "Questo documento descrive l&quot;impostazione e la configurazione di più domini di primo livello con Office&365; e Azure AD."
+description: "Questo documento descrive l'impostazione e la configurazione di più domini di primo livello con Office&365; e Azure AD."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
 ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Supporto di più domini per la federazione con Azure AD
@@ -162,10 +163,5 @@ Usare la procedura seguente per aggiungere un'attestazione personalizzata per il
     ![Sostituzione dell'attestazione](./media/active-directory-multiple-domains/sub2.png)
 
 5. Fare clic su Ok.  Fare clic su Applica.  Fare clic su Ok.  Chiudere Gestione ADFS.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

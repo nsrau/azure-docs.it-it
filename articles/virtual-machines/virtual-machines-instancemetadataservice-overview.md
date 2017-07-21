@@ -1,17 +1,17 @@
 ---
-title: Panoramica del Servizio metadati dell&quot;istanza di Azure | Microsoft Docs
+title: Panoramica del Servizio metadati dell'istanza di Azure | Microsoft Docs
 description: Interfaccia RESTful per ottenere informazioni sugli eventi di calcolo, di rete e di manutenzione previsti della macchina virtuale.
 services: virtual-machines-windows, virtual-machines-linux,virtual-machines-scale-sets, cloud-services
-documentationcenter: 
+documentationcenter: virtual-machines
 author: harijay
 manager: timlt
 editor: 
-tags: 
-ms.service: azure-instancemetadataservice
+tags: azure-resource-manager
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: harijay
 ms.translationtype: Human Translation

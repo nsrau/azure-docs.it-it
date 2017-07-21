@@ -21,7 +21,6 @@ ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
 ms.contentlocale: it-it
 ms.lasthandoff: 03/18/2017
 
-
 ---
 # <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Accesso e disconnessione all'app Web Java con Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -186,7 +185,7 @@ In questo passaggio si configura l'app Web Java per l'uso del protocollo di aute
         <display-name>Archetype Created Web Application</display-name>
         <context-param>
             <param-name>authority</param-name>
-            <param-value>https://login.windows.net/</param-value>
+            <param-value>https://login.microsoftonline.com/</param-value>
         </context-param>
         <context-param>
             <param-name>tenant</param-name>

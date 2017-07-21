@@ -1,6 +1,6 @@
 ---
 title: Dimensioni delle macchine virtuali Windows di Azure - Utilizzo generico | Documentazione Microsoft
-description: Elenca le diverse dimensioni disponibili per l&quot;utilizzo generico per le macchine virtuali Windows in Azure.
+description: Elenca le diverse dimensioni disponibili per l'utilizzo generico per le macchine virtuali Windows in Azure.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 07/17/2017
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 548683288ed0864409a4f8a1cd91181713654ac9
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 

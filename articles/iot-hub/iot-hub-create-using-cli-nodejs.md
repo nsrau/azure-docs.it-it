@@ -1,6 +1,6 @@
 ---
-title: Creare un hub IoT usando l&quot;interfaccia della riga di comando di Azure (azure.js) | Documentazione Microsoft
-description: Come creare un hub IoT di Azure usando l&quot;interfaccia della riga di comando di Azure multipiattaforma (azure.js).
+title: Creare un hub IoT usando l'interfaccia della riga di comando di Azure (azure.js) | Documentazione Microsoft
+description: Come creare un hub IoT di Azure usando l'interfaccia della riga di comando di Azure multipiattaforma (azure.js).
 services: iot-hub
 documentationcenter: .net
 author: BeatriceOltean
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
 ms.openlocfilehash: 8ac82da36b2edb71fcd0599dac12a3ed18e33b6f
+ms.contentlocale: it-it
 ms.lasthandoff: 03/24/2017
-
 
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure
@@ -93,6 +93,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **location**. Il percorso (area/data center di Azure) per eseguire il provisioning dell'hub IoT.
 * **sku-name**. Il nome dello SKU, uno fra: [F1, S1, S2, S3]. Per l'elenco completo più recente, vedere la pagina relativa ai prezzi di IoT Hub.
 * **units**. Il numero di unità fornite. Intervallo: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. Le unità IoT Hub sono basate sul numero totale di messaggi e il numero di dispositivi a cui si vuole connettersi.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 Per visualizzare tutti i parametri disponibili per la creazione, è possibile usare il comando help nel prompt dei comandi:
 

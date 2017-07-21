@@ -21,7 +21,6 @@ ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -74,8 +73,10 @@ Seguire questa procedura per configurare le chiavi del Registro di Sistema da ri
    * **Ignora** (Ignorare i collegamenti simbolici durante le ricorsioni per non includere i file/le directory a cui viene fatto riferimento)
    * **Segui** (Seguire i collegamenti simbolici durante la ricorsione per includere anche i file/le directory a cui viene fatto riferimento)
    * **Gestisci** (Seguire i collegamenti simbolici e modificare la modalità di gestione del contenuto restituito) 
+   
    > [!NOTE]   
    > L'opzione dei collegamenti "Gestisci" non è consigliata poiché il recupero del contenuto di file non è supportato attualmente.
+   
 3. **Esegui ricorsione** (Eseguire la ricorsione dei livelli di cartelle e rilevare tutti i file che soddisfano l'istruzione di percorso)
 4. **Sudo** (Consentire di accedere a file o directory che richiedono il privilegio sudo)
 

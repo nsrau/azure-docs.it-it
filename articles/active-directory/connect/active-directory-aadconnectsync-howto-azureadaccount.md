@@ -1,8 +1,8 @@
 ---
-title: 'Servizio di sincronizzazione Azure Active Directory Connect: come gestire l&quot;account del servizio Azure Active Directory | Microsoft Docs'
-description: Questo argomento illustra come ripristinare l&quot;account del servizio Azure AD.
+title: 'Servizio di sincronizzazione Azure Active Directory Connect: come gestire l''account del servizio Azure Active Directory | Microsoft Docs'
+description: Questo argomento illustra come ripristinare l'account del servizio Azure AD.
 services: active-directory
-keywords: AADSTS70002, AADSTS50054, Come reimpostare la password dell&quot;account del servizio di sincronizzazione Azure AD Connect
+keywords: AADSTS70002, AADSTS50054, Come reimpostare la password dell'account del servizio di sincronizzazione Azure AD Connect
 documentationcenter: 
 author: andkjell
 manager: femila
@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4e6ef568f510d9db4df115e25d66f53feffc829e
 ms.openlocfilehash: c607830466d7f942f1d0a43ebeccea07ed0877a9
 ms.contentlocale: it-it
 ms.lasthandoff: 02/06/2017
-
 
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Servizio di sincronizzazione Azure Active Directory Connect: come gestire l'account del servizio Azure Active Directory

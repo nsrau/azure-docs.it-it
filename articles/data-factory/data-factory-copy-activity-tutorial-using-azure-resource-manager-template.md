@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
 ms.openlocfilehash: aaa8758281f239ad0984d8d1de65f5ea8951d366
 ms.contentlocale: it-it
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare un modello di Azure Resource Manager per creare una pipeline di Data Factory per copiare dati 
@@ -318,7 +317,7 @@ Creare un file JSON denominato **ADFCopyTutorialARM-Parameters.json** contenente
    * Eseguire il comando seguente e immettere il nome utente e la password usati per accedere al portale di Azure.
    
     ```PowerShell
-    Login-AzureRmAccount       
+    Login-AzureRmAccount    
     ```  
    * Eseguire il comando seguente per visualizzare tutte le sottoscrizioni per l'account.
    

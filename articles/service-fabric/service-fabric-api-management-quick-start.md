@@ -20,7 +20,6 @@ ms.openlocfilehash: 2160e2e65de5c65df8a13248bad4f626def86e49
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 
 # <a name="service-fabric-with-azure-api-management-quick-start"></a>Avvio rapido di Service Fabric con Gestione API
@@ -197,7 +196,6 @@ Corpo della richiesta:
             "managementEndpoints": [ "<cluster HTTP management endpoint>" ],
             "clientCertificateThumbprint": "<client cert thumbprint>",
             "serverCertificateThumbprints": [ "<cluster cert thumbprint>" ],
-            "partitionResolutionRequestTimeout" : "00:02:00",
             "maxPartitionResolutionRetries" : 5
         }
     }
@@ -225,7 +223,6 @@ Content-Type: application/json
             "managementEndpoints": ["https://your-cluster.westus.cloudapp.azure.com:19080"],
             "clientCertificateThumbprint": "57bc463aba3aea3a12a18f36f44154f819f0fe32",
             "serverCertificateThumbprints": ["57bc463aba3aea3a12a18f36f44154f819f0fe32"],
-            "partitionResolutionRequestTimeout" : "00:02:00",
             "maxPartitionResolutionRetries" : 5
         }
     }

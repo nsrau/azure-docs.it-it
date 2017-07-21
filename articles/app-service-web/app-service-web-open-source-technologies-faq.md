@@ -3,7 +3,7 @@ title: Domande frequenti sulle tecnologie open source per App Web di Azure | Mic
 description: "È possibile ottenere risposte alle domande frequenti sulle tecnologie open source nella funzionalità App Web del servizio app di Azure."
 services: app-service\web
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,14 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 5/16/2017
-ms.author: v-six
+ms.date: 7/10/2017
+ms.author: genli
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 3f7dcaf21e39ebfd6a36f1bfe38f8e78adad081f
 ms.contentlocale: it-it
 ms.lasthandoff: 06/15/2017
-
 
 ---
 

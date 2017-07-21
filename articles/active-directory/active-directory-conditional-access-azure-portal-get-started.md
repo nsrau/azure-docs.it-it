@@ -1,6 +1,6 @@
 ---
-title: Introduzione all&quot;accesso condizionale in Azure Active Directory | Microsoft Docs
-description: "Verificare l&quot;accesso condizionale usando una condizione della località."
+title: Introduzione all'accesso condizionale in Azure Active Directory | Microsoft Docs
+description: "Verificare l'accesso condizionale usando una condizione della località."
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
+ms.reviewer: calebb
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
 ms.openlocfilehash: 52b65b24867906d0c574a323904d980e126bcbd2
 ms.contentlocale: it-it
 ms.lasthandoff: 05/05/2017
-
 
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introduzione all'accesso condizionale in Azure Active Directory

@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
 ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
-
 ---
-<a id="azure-active-directory-automatic-device-registration-faq" class="xliff"></a>
-# Domande frequenti sulla registrazione automatica dei dispositivi con Azure Active Directory
+# <a name="azure-active-directory-automatic-device-registration-faq"></a>Domande frequenti sulla registrazione automatica dei dispositivi con Azure Active Directory
 
 **D: Di recente è stato registrato un dispositivo. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure?**
 

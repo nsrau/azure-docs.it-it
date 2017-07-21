@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
@@ -19,18 +19,13 @@ ms.openlocfilehash: 7c4e2f084571a2146e5013f24bd5da55319118af
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
-<a id="cant-access-this-corporate-application-error-when-using-an-application-proxy-application" class="xliff"></a>
-
-# Errore "Can't Access this Corporate Application" (Impossibile accedere all'applicazione aziendale) quando si usa un'applicazione Proxy di applicazione
+# <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Errore "Can't Access this Corporate Application" (Impossibile accedere all'applicazione aziendale) quando si usa un'applicazione Proxy di applicazione
 
 Questo articolo consente di risolvere alcuni problemi comuni riscontrati quando si visualizza un errore "Impossibile accedere a questa app aziendale" in un'applicazione Proxy di applicazione di Azure AD.
 
-<a id="overview" class="xliff"></a>
-
-## Panoramica
+## <a name="overview"></a>Panoramica
 Quando si visualizza questo errore, la pagina riporta anche un codice di stato. Questo codice è probabilmente uno dei seguenti:
 
 -   **Gateway Timeout** (timeout del gateway): il servizio Proxy di applicazione non è in grado di raggiungere il connettore. Questo in genere indica un problema con l'assegnazione del connettore, con il connettore stesso o con le regole di rete relative al connettore.
@@ -45,16 +40,12 @@ Per trovare il codice, cercare il campo "Status Code" (Codice di stato) nel test
 
 Per dettagli su come risolvere la causa principale di questi errori e per ulteriori dettagli sulle risoluzioni consigliate, vedere la sezione corrispondente di seguito.
 
-<a id="gateway-timeout-errors" class="xliff"></a>
-
-## Errori di timeout del gateway
+## <a name="gateway-timeout-errors"></a>Errori di timeout del gateway
 
 Un timeout del gateway si verifica quando i servizio tenta di raggiungere il connettore e non ci riesce entro il periodo di timeout. Ciò è in genere causato da un'applicazione assegnata a un gruppo di connettori senza connettori funzionanti o a porte richieste dal connettore non aperte.
 
 
-<a id="bad-gateway-errors" class="xliff"></a>
-
-## Errori di gateway non valido
+## <a name="bad-gateway-errors"></a>Errori di gateway non valido
 
 Un errore di gateway non valido indica che il connettore non è in grado di raggiungere l'applicazione back-end. Assicurarsi di aver pubblicato l'applicazione corretta. Inesattezze comuni che causano questo errore:
 
@@ -66,9 +57,7 @@ Un errore di gateway non valido indica che il connettore non è in grado di ragg
 
 -   Problemi dell'applicazione back-end
 
-<a id="forbidden-errors" class="xliff"></a>
-
-## Errori di accesso non consentito
+## <a name="forbidden-errors"></a>Errori di accesso non consentito
 
 Se viene visualizzato un errore di accesso non consentito, l'utente non è stato assegnato all'applicazione. Questo può riferirsi a Azure Active Directory o all'applicazione back-end.
 
@@ -76,15 +65,11 @@ Per informazioni su come assegnare utenti all'applicazione in Azure, vedere la [
 
 Se l'utente risulta assegnato all'applicazione in Azure, controllare la configurazione dell'utente nell'applicazione back-end. Se si utilizza la delega vincolata Kerberos o l'autenticazione integrata di Windows, consultare la pagina di risoluzione dei problemi KCD per alcune linee guida.
 
-<a id="check-the-applications-internal-url" class="xliff"></a>
-
-## Controllare l'URL interno dell'applicazione
+## <a name="check-the-applications-internal-url"></a>Controllare l'URL interno dell'applicazione
 
 Innanzitutto, controllare attentamente e correggere l'URL interno aprendo l'applicazione tramite **Applicazioni aziendali** e selezionando il menu **Proxy dell'applicazione**. Verificare che si tratti dell'URL interno corretto, ossia quello utilizzato dalla rete locale per accedere all'applicazione.
 
-<a id="check-the-application-is-assigned-to-a-working-connector-group" class="xliff"></a>
-
-## Controllare che l'applicazione sia assegnata a un gruppo di connettori funzionante
+## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Controllare che l'applicazione sia assegnata a un gruppo di connettori funzionante
 
 Per verificare che l'applicazione sia assegnata a un gruppo di connettori funzionante:
 
@@ -104,23 +89,17 @@ Per verificare che l'applicazione sia assegnata a un gruppo di connettori funzio
 
 Dopo aver eseguito tutte queste operazioni per assicurarsi che l'applicazione sia assegnata a un gruppo con connettori funzionanti, provare di nuovo l'applicazione. Se ancora non funziona, passare alla sezione successiva.
 
-<a id="check-all-required-ports-are-whitelisted" class="xliff"></a>
-
-## Controllare che tutte le porte richieste siano inserite nell'elenco degli elementi consentiti
+## <a name="check-all-required-ports-are-whitelisted"></a>Controllare che tutte le porte richieste siano inserite nell'elenco degli elementi consentiti
 
 Per verificare che tutte le porte richieste siano aperte, vedere la documentazione sull'apertura delle porte. Se tutte le porte richieste sono aperte, passare alla sezione successiva.
 
-<a id="check-for-other-connector-errors" class="xliff"></a>
-
-## Verificare la presenza di altri errori del connettore
+## <a name="check-for-other-connector-errors"></a>Verificare la presenza di altri errori del connettore
 
 Se nessuna delle operazioni precedenti ha risolto il problema, il passaggio successivo è cercare errori relativi al connettore stesso. Alcuni errori comuni sono riportati nel [documento di risoluzione dei problemi](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
 È anche possibile consultare direttamente i registri del connettore per verificare se sono riportati errori. Molti dei messaggi di errore riportano consigli più specifici per la risoluzione dei problemi. Per informazioni su come visualizzare i registri, vedere la [documentazione sui connettori](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
 
-<a id="additional-resolutions" class="xliff"></a>
-
-## Risorse aggiuntive
+## <a name="additional-resolutions"></a>Risorse aggiuntive
 
 Se quanto sopra riportato non ha consentito di risolvere il problema, vi sono alcune altre cause possibili. Per identificare il problema:
 
@@ -132,8 +111,6 @@ Se si continua a visualizzare l'errore, accedere al computer su cui è installat
 
 Se è possibile raggiungere l'applicazione da tale computer, cercare problemi o errori relativi al connettore stesso. Alcuni errori comuni sono riportati nel [documento di risoluzione dei problemi](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). È anche possibile consultare direttamente i registri del connettore per verificare se sono riportati errori. Molti dei messaggi di errore riportano consigli più specifici per la risoluzione dei problemi. Per informazioni su come visualizzare i registri, vedere la [documentazione sui connettori](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-understand-connectors.md)
 

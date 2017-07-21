@@ -1,6 +1,6 @@
 ---
-title: Come configurare un&quot;applicazione proxy dell&quot;applicazione per l&quot;uso di PingAccess | Microsoft Docs
-description: Informazioni su come usare PingAccess per estendere i vantaggi del proxy dell&quot;applicazione alle applicazioni che usano l&quot;autenticazione basata su intestazione
+title: Come configurare un'applicazione proxy dell'applicazione per l'uso di PingAccess | Microsoft Docs
+description: Informazioni su come usare PingAccess per estendere i vantaggi del proxy dell'applicazione alle applicazioni che usano l'autenticazione basata su intestazione
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 72591111f417267c1daaf13a40a499da42a2c303
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

@@ -3,7 +3,7 @@ title: Domande frequenti sulla distribuzione per app Web di Azure | Microsoft Do
 description: "È possibile ottenere risposte alle domande frequenti sulla distribuzione per la funzionalità App Web del servizio app di Azure."
 services: app-service\web
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,14 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 5/16/2017
-ms.author: v-six
+ms.date: 7/10/2017
+ms.author: genli
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 0a184d21a2c5ed1166aa9011ad7f077bcacc0d94
 ms.contentlocale: it-it
 ms.lasthandoff: 06/15/2017
-
 
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla distribuzione per app Web in Azure

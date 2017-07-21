@@ -4,7 +4,7 @@ description: Usare il gateway IoT per convertire il formato dei dati del sensore
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: conversione dei dati del gateway iot, trasformazione dei dati del gateway iot
 ms.assetid: 75f2573d-500b-4405-bff7-61021c4c3500
@@ -20,7 +20,6 @@ ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: 5f5151c9e250fb8a19a953c6212dd2675004dc55
 ms.contentlocale: it-it
 ms.lasthandoff: 06/26/2017
-
 
 ---
 # <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>Usare il gateway IoT per la trasformazione dei dati del sensore con Azure IoT Edge

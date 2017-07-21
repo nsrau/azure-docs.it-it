@@ -1,6 +1,6 @@
 ---
-title: Connettere l&quot;app alla rete virtuale tramite PowerShell
-description: Istruzioni sulla connessione e l&quot;uso di reti virtuali con PowerShell
+title: Connettere l'app alla rete virtuale tramite PowerShell
+description: Istruzioni sulla connessione e l'uso di reti virtuali con PowerShell
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: ccompy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e8763f1ab7e51e10ae59cf2b6b2c609f0f45dcd3
+ms.contentlocale: it-it
 ms.lasthandoff: 12/08/2016
-
 
 ---
 # <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>Connettere l'app alla rete virtuale tramite PowerShell
@@ -339,6 +339,12 @@ Copiare lo script seguente e salvarlo in un file. Se si preferisce non usare lo 
 
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName -VirtualNetworkGatewayName $vnetGatewayName -ProcessorArchitecture Amd64
+        
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
 
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{
@@ -518,6 +524,12 @@ Copiare lo script seguente e salvarlo in un file. Se si preferisce non usare lo 
         # Now finish joining by getting the VPN package and giving it to the App
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $vnet.ResourceGroupName -VirtualNetworkGatewayName $gateway.Name -ProcessorArchitecture Amd64
+        
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
 
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{

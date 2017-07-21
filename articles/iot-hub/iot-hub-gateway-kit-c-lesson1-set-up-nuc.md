@@ -4,7 +4,7 @@ description: Configurare Intel NUC come gateway IoT di Azure tra un sensore e l'
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: 
 keywords: gateway iot, intel nuc, computer nuc, DE3815TYKE
 ms.assetid: 917090d6-35c2-495b-a620-ca6f9c02b317
@@ -20,7 +20,6 @@ ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: b9e842a93dfdb7699158a11978aa622c31382d28
 ms.contentlocale: it-it
 ms.lasthandoff: 06/26/2017
-
 
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configurare Intel NUC come gateway IoT di Azure

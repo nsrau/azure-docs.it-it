@@ -77,7 +77,7 @@ Aprire la finestra del terminale e usare il comando `CD` per passare a una direc
 Eseguire i comandi seguenti per clonare il repository di esempio e passare alla versione *0.1-initialapp*.
 
 ```bash
-git clone https://github.com/Azure-Samples/docker-flask-postgres.gi
+git clone https://github.com/Azure-Samples/docker-flask-postgres.git
 cd docker-flask-postgres
 git checkout tags/0.1-initialapp
 ```
@@ -98,7 +98,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 cd app
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db run
+FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
 Al termine del caricamento dell'app viene visualizzato un messaggio simile al seguente:

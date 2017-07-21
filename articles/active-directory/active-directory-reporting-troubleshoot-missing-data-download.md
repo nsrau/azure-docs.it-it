@@ -1,5 +1,4 @@
 ---
-
 title: "Risoluzione dei problemi: dati mancanti nei log attività scaricati di Azure Active Directory | Microsoft Docs"
 description: "Offre una soluzione per i dati mancanti nei log attività scaricati di Azure Active Directory."
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 9109c698e4e8b43eeb7534c338adc99476012a3f
 ms.contentlocale: it-it
 ms.lasthandoff: 05/08/2017
-
 
 ---
 

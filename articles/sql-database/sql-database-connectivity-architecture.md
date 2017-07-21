@@ -21,7 +21,6 @@ ms.openlocfilehash: 524804c972ee3a5e97ebc756628dbf7ef5ab720d
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure 
 
@@ -117,7 +116,7 @@ Login-AzureRmAccount
 $tenantId =  #your AAD tenant ID
 $subscriptionId = #Azure SubscriptionID
 $uri = #AAD uri
-$authUrl = "https://login.windows.net/$tenantId"
+$authUrl = "https://login.microsoftonline.com/$tenantId"
 $serverName = #sqldb server name 
 $resourceGroupName=#sqldb resource group
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
