@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4e6ef568f510d9db4df115e25d66f53feffc829e
 ms.openlocfilehash: c607830466d7f942f1d0a43ebeccea07ed0877a9
+ms.contentlocale: it-it
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -52,10 +54,5 @@ AADSTS70002: Errore di convalida delle credenziali. AADSTS50054: Per l'autentica
 
 * [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
