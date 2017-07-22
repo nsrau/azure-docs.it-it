@@ -3,7 +3,7 @@ title: Raccogliere log con Diagnostica di Azure per Linux | Documentazione Micro
 description: Questo articolo descrive come configurare Diagnostica di Azure per raccogliere log da un cluster Linux di Service Fabric in esecuzione in Azure.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: a160d469-8b7d-4560-82dd-8500db34a44a
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/28/2017
-ms.author: subramar
+ms.author: ryanwi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 46b62b0ebc5b81241815e3b5b4fa3fe275b88af1
 ms.contentlocale: it-it
 ms.lasthandoff: 03/27/2017
-
 
 ---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Raccogliere log con Diagnostica di Azure

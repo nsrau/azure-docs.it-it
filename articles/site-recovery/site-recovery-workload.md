@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/19/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -55,7 +55,7 @@ Site Recovery può replicare qualsiasi app in esecuzione in una macchina support
 | System Center Operations Manager |S |S |S |S |
 | SharePoint |S |S |S |S |
 | SAP<br/><br/>Replicare il sito SAP in Azure per non cluster |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |
-| Exchange (non DAG) |S |Presto disponibile |S |S |
+| Exchange (non DAG) |S |S |S |S |
 | Desktop remoto/VDI |S |S |S |N/D |
 | Linux (sistema operativo e app) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |
 | Dynamics AX |S |S |S |S |
@@ -138,11 +138,11 @@ Usare Site Recovery per proteggere la distribuzione IIS. In particolare, è poss
 
 Azure Site Recovery assicura il ripristino di emergenza replicando i componenti critici dell'ambiente in un sito remoto non attivo o in un cloud pubblico, ad esempio Microsoft Azure. Poiché la macchina virtuale con il server Web e il database vengono replicati nel sito di ripristino, non è necessario eseguire il backup separato dei file di configurazione o dei certificati. I mapping e le associazioni dell'applicazione dipendenti dalle variabili di ambiente modificate dopo il failover possono essere aggiornati tramite gli script integrati nei piani di ripristino di emergenza. Le macchine virtuali vengono spostate nel sito di ripristino solo in caso di failover. Azure Site Recovery consente anche di orchestrare il failover end-to-end con le funzionalità seguenti:
 
--    Sequenza di arresto e avvio delle macchine virtuali nei diversi livelli.
--    Aggiunta di script per consentire l'aggiornamento delle associazioni e delle dipendenze tra applicazioni nelle macchine virtuali dopo che sono state avviate. Gli script possono essere usati anche per aggiornare il server DNS in modo che punti al sito di ripristino.
--    Allocare gli indirizzi IP alle macchine virtuali prima del failover eseguendo il mapping delle reti primarie e di ripristino e quindi usare script che non è necessario aggiornare dopo il failover.
--    Possibilità di failover con un clic per più applicazioni Web nei server Web, eliminando così la confusione derivante da un'emergenza.
--    Possibilità di testare i piani di ripristino in un ambiente isolato per le esercitazioni sul ripristino di emergenza.
+-   Sequenza di arresto e avvio delle macchine virtuali nei diversi livelli.
+-   Aggiunta di script per consentire l'aggiornamento delle associazioni e delle dipendenze tra applicazioni nelle macchine virtuali dopo che sono state avviate. Gli script possono essere usati anche per aggiornare il server DNS in modo che punti al sito di ripristino.
+-   Allocare gli indirizzi IP alle macchine virtuali prima del failover eseguendo il mapping delle reti primarie e di ripristino e quindi usare script che non è necessario aggiornare dopo il failover.
+-   Possibilità di failover con un clic per più applicazioni Web nei server Web, eliminando così la confusione derivante da un'emergenza.
+-   Possibilità di testare i piani di ripristino in un ambiente isolato per le esercitazioni sul ripristino di emergenza.
 
 [Altre informazioni](https://aka.ms/asr-iis) sulla protezione di una Web farm IIS.
 
