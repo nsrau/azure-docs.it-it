@@ -1,6 +1,6 @@
 ---
-title: Come usare l&quot;archiviazione BLOB da Node.js | Microsoft Docs
-description: Archiviare i dati non strutturati nel cloud con l&quot;archivio BLOB (archivio di oggetti) di Azure.
+title: Come usare l'archiviazione BLOB da Node.js | Microsoft Docs
+description: Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure.
 services: storage
 documentationcenter: nodejs
 author: mmacy
@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: b5ed7853c696d9e8477a31aba8a9cc9ab8558fa8
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 38c3fd3cd271c3f9d60c44fff17715062b4979ae
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Come usare l'archiviazione BLOB da Node.js
@@ -418,7 +418,7 @@ Per altre informazioni, vedere le risorse seguenti:
 * [Riferimento per le API di Azure Storage SDK per Node][Azure Storage SDK for Node API Reference]
 * [Blog del team di Archiviazione di Azure][Azure Storage Team Blog]
 * Repository di [Azure Storage SDK per Node][Azure Storage SDK for Node] su GitHub
-* [Centro per sviluppatori di Node. js](/develop/nodejs/)
+* [Centro per sviluppatori di Node. js](https://azure.microsoft.com/develop/nodejs/)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

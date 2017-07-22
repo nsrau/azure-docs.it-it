@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2016
+ms.date: 07/07/2016
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 68b4e317c51e18d61c8bde80d9fce2d63910847c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6221f5fa113bf58ed3f5e0767b79b2b647005c71
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -123,7 +123,7 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
     ![Esercitazione su Power BI per il connettore Azure Cosmos DB per Power BI: elenco di coordinate](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. Per rendere flat la matrice di coordinate, si creerà una **Colonna personalizzato** denominata LatLong.  Selezionare **Aggiungi colonna** sulla barra multifunzione e fare clic su **Aggiungi colonna personalizzata**.  Verrà visualizzata la finestra **Aggiungi colonna personalizzata** .
 8. Specificare un nome per la nuova colonna, ad esempio LatLong.
-9. Specificare quindi la formula personalizzata per la nuova colonna.  Per questo esempio, verranno concatenati i valori di latitudine e longitudine separati da una virgola, come illustrato di seguito, usando la formula seguente: `Text.From([Document.Location.coordinates]{1})&","&Text.From([Document.Location.coordinates]{0})`. Fare clic su **OK**.
+9. Specificare quindi la formula personalizzata per la nuova colonna.  Per questo esempio, verranno concatenati i valori di latitudine e longitudine separati da una virgola, come illustrato di seguito, usando la formula seguente: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Fare clic su **OK**.
    
     Per altre informazioni su Data Analysis Expressions (DAX), incluse le funzioni DAX, vedere [Nozioni di base su DAX in Power BI Designer](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
    

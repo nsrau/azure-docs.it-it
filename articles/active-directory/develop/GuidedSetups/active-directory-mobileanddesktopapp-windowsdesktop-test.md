@@ -16,16 +16,14 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 04580626bafe1b432d87ccd44cdff219922ec002
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 972cc48057c13271d725b0c973c3ccf651ad27c4
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-<a id="test-your-code" class="xliff"></a>
-
-## Testare il codice
+## <a name="test-your-code"></a>Testare il codice
 
 Per testare l'applicazione, premere `F5` per eseguire il progetto in Visual Studio. Verrà visualizzata la finestra principale:
 
@@ -35,16 +33,12 @@ Quando si è pronti per eseguire il test, fare clic su *Call Microsoft Graph API
 
 ![Accesso](media/active-directory-mobileanddesktopapp-windowsdesktop-test/signinscreenshot.png)
 
-<a id="consent" class="xliff"></a>
-
-### Consenso
+### <a name="consent"></a>Consenso
 La prima volta che si accede all'applicazione, viene visualizzata una schermata di consenso, simile alla figura seguente, in cui è necessario accettare in modo esplicito:
 
 ![Schermata di consenso](media/active-directory-mobileanddesktopapp-windowsdesktop-test/consentscreen.png)
 
-<a id="expected-results" class="xliff"></a>
-
-### Risultati previsti
+### <a name="expected-results"></a>Risultati previsti
 Nella schermata API Call Results (Risultati chiamata API) vengono visualizzate le informazioni sul profilo utente restituite dalla chiamata all'API Microsoft Graph.
 
 Nella casella Token Info (Informazioni sul token) vengono visualizzate anche informazioni di base sul token acquisite tramite `AcquireTokenAsync` o `AcquireTokenSilentAsync`:
@@ -57,12 +51,9 @@ Nella casella Token Info (Informazioni sul token) vengono visualizzate anche inf
 |Token di accesso |{Stringa}         |Stringa di token che verrà inviata alle richieste HTTP che richiedono un'intestazione di autorizzazione|
 
 <!--start-collapse-->
-<a id="more-information-about-scopes-and-delegated-permissions" class="xliff"></a>
-
-### Altre informazioni sugli ambiti e sulle autorizzazioni delegate
+### <a name="more-information-about-scopes-and-delegated-permissions"></a>Altre informazioni sugli ambiti e sulle autorizzazioni delegate
 L'API Graph richiede l'ambito `user.read` per leggere il profilo utente. Per impostazione predefinita, questo ambito viene aggiunto automaticamente in ogni applicazione registrata nel portale di registrazione. Altre API Graph e alcune API personalizzate per il server back-end richiedono anche altri ambiti. Graph, ad esempio, richiede l'ambito `Calendars.Read` per elencare i calendari degli utenti. Per poter accedere al calendario dell'utente nel contesto di un'applicazione, è necessario aggiungere le informazioni di registrazione dell'applicazione delegata `Calendars.Read` e aggiungere `Calendars.Read` alla chiamata `AcquireTokenAsync`. Con l'aumentare del numero di ambiti è possibile che all'utente venga chiesto di esprimere anche altri tipi di consenso.
 
-Se per un'API back-end non è richiesto alcun ambito (non consigliabile), è possibile usare `ClientId` come ambito nella chiamata `AcquireTokenAsync`.
 <!--end-collapse-->
 
 

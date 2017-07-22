@@ -1,6 +1,6 @@
 ---
-title: Come usare l&quot;archiviazione BLOB da Xamarin | Microsoft Docs
-description: La libreria client di Archiviazione di Azure per Xamarin consente agli sviluppatori di creare app per Windows Store, iOS e Android con le proprie interfacce utente native. Questa esercitazione illustra come usare Xamarin per creare un&quot;applicazione che usa l&quot;archiviazione BLOB di Azure.
+title: Come usare l'archiviazione BLOB da Xamarin | Microsoft Docs
+description: La libreria client di Archiviazione di Azure per Xamarin consente agli sviluppatori di creare app per Windows Store, iOS e Android con le proprie interfacce utente native. Questa esercitazione illustra come usare Xamarin per creare un'applicazione che usa l'archiviazione BLOB di Azure.
 services: storage
 documentationcenter: xamarin
 author: michaelhauss
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 2ef27dc58e12d1b9e8eed54239332a53860ddd52
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0952c0e7189dd360098744a7e19b04cd330cb617
 ms.contentlocale: it-it
-ms.lasthandoff: 03/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Come usare l'archiviazione BLOB da Xamarin

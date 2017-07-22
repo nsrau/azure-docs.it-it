@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 8066621670e6e79ff4169253f2a97972e376eaa3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b9cd83e6891c723f843825b99dce0e0158fc6ef6
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -72,7 +72,7 @@ L'esempio seguente illustra la struttura di una definizione di parametro:
 
 |Nome dell'elemento|Obbligatorio|Descrizione|  
 |------------------|--------------|-----------------|  
-|type|Sì|**Tipo**: string <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "string"}` <p> **Specifiche**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: securestring <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Specifiche**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: int <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Specifiche**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tipo**: bool <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": true }}` <p> **Tipo**: array <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tipo**: object <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tipo**: secureobject <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Nota:** i tipi `securestring` e `secureobject` non vengono restituiti nelle operazioni `GET`. Tutte le password, le chiavi e i segreti devono usare questo tipo.|  
+|type|Sì|**Tipo**: string <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "string"}` <p> **Specifiche**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: securestring <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Specifiche**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: int <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Specifiche**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tipo**: bool <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": true }}` <p> **Tipo**: array <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tipo**: object <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tipo**: secureobject <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Nota:** i tipi `securestring` e `secureobject` non vengono restituiti nelle operazioni `GET`. Tutte le password, le chiavi e i segreti devono usare questo tipo.|  
 |defaultValue|No|Specifica il valore predefinito per il parametro quando non viene specificato alcun valore durante la creazione della risorsa.|  
 |allowedValues|No|Specifica una matrice di valori consentiti per il parametro.|  
 |metadata|No|Specifica informazioni aggiuntive sul parametro, ad esempio una descrizione leggibile o dati relativi alla fase di progettazione usati da Visual Studio o da altri strumenti.|  

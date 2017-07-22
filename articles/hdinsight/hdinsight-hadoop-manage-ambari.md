@@ -1,6 +1,6 @@
 ---
-title: Monitorare e gestire Azure HDInsight con l&quot;interfaccia utente Web Ambari | Documentazione Microsoft
-description: Informazioni sull&quot;uso di Ambari per monitorare e gestire cluster HDInsight basati su Linux. Questo documento spiega come usare l&quot;interfaccia utente Web di Ambari inclusa nei cluster HDInsight.
+title: Monitorare e gestire Azure HDInsight con l'interfaccia utente Web Ambari | Documentazione Microsoft
+description: Informazioni sull'uso di Ambari per monitorare e gestire cluster HDInsight basati su Linux. Questo documento spiega come usare l'interfaccia utente Web di Ambari inclusa nei cluster HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 7576bf607a4bec60011ed0a009462f8cd3e0d598
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0bcf8f0d1c5fc44a31de9be9adbdad3893ff111f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -39,7 +39,7 @@ Questo documento spiega come usare l'interfaccia utente Web Ambari con un cluste
 L'interfaccia utente Web Ambari è disponibile per impostazione predefinita con i cluster HDInsight che usano il sistema operativo Linux.
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## <a name="connectivity"></a>Connettività
 

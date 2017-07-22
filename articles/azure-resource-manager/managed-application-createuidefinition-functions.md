@@ -1,6 +1,6 @@
 ---
-title: Funzioni per la creazione di definizioni dell&quot;interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
-description: Illustra le funzioni da usare durante la creazione di definizioni dell&quot;interfaccia utente per le applicazioni gestite di Azure
+title: Funzioni per la creazione di definizioni dell'interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
+description: Illustra le funzioni da usare durante la creazione di definizioni dell'interfaccia utente per le applicazioni gestite di Azure
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: tabrezm;tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 913674dcbb88f3bad0cc8e41241753eae86b309c
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 62ee10eb8e6f33cc4d828cf01b405c846bef8aa4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="createuidefinition-functions"></a>Funzioni di CreateUiDefinition
