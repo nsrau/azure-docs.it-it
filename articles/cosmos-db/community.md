@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b78d8d257ea31e7cb6b4e1abfb32c81fcea67b6d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="community-portal"></a>Portale della community
@@ -105,7 +104,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 |[South Florida Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx) (South Florida Codecamp: NoSQL per gli sviluppatori .NET in meno di 10 minuti con DocumentDB di Azure)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|11 marzo 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Orlando Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20) (Orlando Codecamp: NoSQL per gli sviluppatori .NET in meno di 10 minuti con DocumentDB di Azure)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|8 aprile 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
 |[Global Azure Bootcamp: Serverless computing in Azure with Azure Functions and DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638) (Global Azure Bootcamp: calcolo senza server in Azure con Funzioni di Azure e DocumentDB)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|22 aprile 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
-|[NDC Oslo 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/) (NDC Olso 2017: Azure DocumentDB - Il miglior database NoSQL probabilmente non (ancora) usato)|[Josh Lane](https://twitter.com/jplane)|Oslo, Norvegia|14 giugno 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
+|[NDC Oslo 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-cosmos-db-the-best-nosql-database-youre-probably-not-using-yet/) (NDC Olso 2017: Azure DocumentDB - Il miglior database NoSQL probabilmente non (ancora) usato)|[Josh Lane](https://twitter.com/jplane)|Oslo, Norvegia|14 giugno 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *I relatori o coloro che ospitano un evento [possono fare clic qui](mailto:askcosmosdb@microsoft.com) per ottenere assistenza.*
 

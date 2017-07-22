@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 3f6ae31f577eb1bc70a06e183518aadbc6279159
+ms.reviewer: asteen
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ea2dc2762b556da837fa1d6674e01aba32face92
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indice di articoli per la gestione di applicazioni in Azure Active Directory
@@ -203,7 +203,7 @@ Azure Active Directory offre diversi report e avvisi per semplificare il monitor
 | Tenere traccia delle modifiche apportate agli utenti autorizzati ad accedere a un'applicazione specifica. |[Eventi del report di controllo di Azure Active Directory](active-directory-reporting-audit-events.md) |
 | Esportare i dati di questi report nei propri strumenti preferito mediante l'API di creazione di report. |[Introduzione all'API di creazione report di Azure AD](active-directory-reporting-api-getting-started.md) |
 
-Per visualizzare i report inclusi nelle diverse edizioni di Azure Active Directory, [fare clic qui](active-directory-view-access-usage-reports.md#report-editions).
+Per visualizzare i report inclusi nelle diverse edizioni di Azure Active Directory, [fare clic qui](active-directory-view-access-usage-reports.md).
 
 ## <a name="see-also"></a>Vedere anche
 [Informazioni su Azure Active Directory](active-directory-whatis.md)
