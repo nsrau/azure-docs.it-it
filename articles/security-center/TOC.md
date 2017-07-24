@@ -19,6 +19,7 @@
 
 ## Prevenzione
 ### [Impostare i criteri di sicurezza](security-center-policies.md)
+### [Accesso JIT (Just-in-Time)](security-center-just-in-time.md)
 ### [Implementare le raccomandazioni sulla sicurezza](security-center-recommendations.md)
 
 ### [Raccomandazioni sulle applicazioni](security-center-application-recommendations.md)
