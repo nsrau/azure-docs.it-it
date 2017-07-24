@@ -21,8 +21,6 @@
 #### [Archivio code e servizi connessi](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Archivio tabelle e servizi connessi](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Configurare i pacchetti per la compilazione continua e la distribuzione
-#### [Visual Studio Team Services e Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS e Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurare le regole del traffico per un ruolo](cloud-services-enable-communication-role-instances.md)
 ### [Gestire eventi del ciclo di vita dei servizi cloud](cloud-services-role-lifecycle-dotnet.md)

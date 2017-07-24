@@ -87,6 +87,7 @@
 ### Usare metodi diretti
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-direct-methods.md)
+#### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Back-end Java/Dispositivo Java](iot-hub-java-java-direct-methods.md)
 ### Introduzione alla gestione dei dispositivi
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-device-management-get-started.md)
@@ -95,6 +96,7 @@
 ### Come usare le proprietà dei dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
+#### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 ### Usare processi del dispositivo per aggiornarne il firmware
 #### [Back-end Node/Dispositivo Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-firmware-update.md)

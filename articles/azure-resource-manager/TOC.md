@@ -72,13 +72,16 @@
 ### esempi
 #### [Tag](resource-manager-policy-tags.md)
 #### [Convenzioni di denominazione](resource-manager-policy-naming-convention.md)
+#### [Rete](resource-manager-policy-network.md)
 #### [Archiviazione](resource-manager-policy-storage.md)
 #### [VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Usare le applicazioni gestite
-### [Pubblicare l'applicazione gestita](managed-application-publishing.md)
-### [Utilizzare l'applicazione gestita](managed-application-consumption.md)
+### [Pubblicare un'applicazione del catalogo di servizi](managed-application-publishing.md)
+### [Utilizzare un'applicazione del catalogo di servizi](managed-application-consumption.md)
+### [Pubblicare un'applicazione del Marketplace](managed-application-author-marketplace.md)
+### [Utilizzare un'applicazione del Marketplace](managed-application-consume-marketplace.md)
 ### [Creare definizioni dell'interfaccia utente](managed-application-createuidefinition-overview.md)
 
 ## Audit
@@ -87,6 +90,11 @@
 
 ## Risoluzione dei problemi
 ### [Errori di distribuzione comuni](resource-manager-common-deployment-errors.md)
+### [Informazioni sugli errori di distribuzione](resource-manager-troubleshoot-tips.md)
+### [Errore RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Errori di distribuzione delle macchine virtuali
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Riferimento
 ## [Formato del modello](/azure/templates/)

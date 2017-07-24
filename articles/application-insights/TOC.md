@@ -92,7 +92,7 @@
 ### Utilizzo
 #### [Panoramica](app-insights-usage-overview.md)
 #### [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
-#### [Grafici a imbuto](app-insights-understand-usage-patterns.md)
+#### [Grafici a imbuto](usage-funnels.md)
 #### [Conservazione](app-insights-usage-retention.md)
 #### [Cartelle di lavoro](app-insights-usage-workbooks.md)
 
@@ -115,7 +115,8 @@
 
 ## Sviluppare
 
-### [API per eventi e metriche personalizzati](app-insights-api-custom-events-metrics.md)
+### [API per metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md)
+### [Tenere traccia delle operazioni personalizzate in .NET SDK](application-insights-custom-operations-tracking.md)
 ### [Filtri e pre-elaborazione della telemetria](app-insights-api-filtering-sampling.md)
 ### [Campionamento](app-insights-sampling.md)
 

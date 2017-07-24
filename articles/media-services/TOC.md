@@ -1,7 +1,8 @@
 # [Panoramica](media-services-overview.md)
+## [Scenari e disponibilità](scenarios-and-availability.md)
 ## [Concetti](media-services-concepts.md)
 
-# Introduzione
+# Attività iniziali
 ## [Creare e gestire gli account](media-services-portal-create-account.md)
 ## [Configurare l'ambiente di sviluppo](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
@@ -130,16 +131,15 @@
 ### [Panoramica del modello di licenza Widevine](media-services-widevine-license-template-overview.md)
 ### [Distribuzione di licenze DRM](media-services-deliver-keys-and-licenses.md)
 ### [Uso di partner per distribuire licenze Widevine a Servizi multimediali](media-services-licenses-partner-integration.md)
+#### [Uso di Axinom per distribuire licenze Widevine a Servizi multimediali](media-services-axinom-integration.md)
+#### [Uso di castLabs per distribuire licenze Widevine a Servizi multimediali](media-services-castlabs-integration.md)
 ### [Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
 ### [Trasmettere i contenuti HLS in modo protetto con Apple FairPlay](media-services-protect-hls-with-fairplay.md)
+### [Progettazione ibrida del sottosistema DRM](hybrid-design-drm-sybsystem.md)
 ### [CENC con Multi-DRM e controllo di accesso](media-services-cenc-with-multidrm-access-control.md)
-### [Uso di Axinom per distribuire licenze Widevine a Servizi multimediali](media-services-axinom-integration.md)
-### [Uso di castLabs per distribuire licenze Widevine a Servizi multimediali](media-services-castlabs-integration.md)
-
-### Distribuzione degli asset
-#### Configurare i criteri di distribuzione degli asset
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### Configurare i criteri di distribuzione degli asset
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Creare entità ContentKey
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
@@ -152,6 +152,7 @@
 ### [Analizzare i file multimediali usando il portale](media-services-portal-analyze.md)
 ### [Elaborare con Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Elaborare con Indexer](media-services-index-content.md)
+#### [Set di impostazioni per le attività](indexer-task-preset.md)
 ### [Elaborare con Hyperlapse](media-services-hyperlapse-content.md)
 ### [Elaborare con Face Detector](media-services-face-and-emotion-detection.md)
 ### [Elaborare con Motion Detector](media-services-motion-detection.md)

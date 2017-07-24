@@ -17,6 +17,7 @@
 ### Panoramiche
 #### [Panoramica degli scenari di sicurezza](key-vault-ovw-security-worlds.md)
 #### [Panoramica dell'eliminazione temporanea](key-vault-ovw-soft-delete.md)
+#### [Panoramica delle chiavi dell'account di archiviazione](key-vault-ovw-storage-keys.md)
 #### [Panoramica della limitazione](key-vault-ovw-throttling.md)
 
 ## Gestisci
