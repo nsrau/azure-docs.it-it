@@ -1,8 +1,8 @@
 ---
 title: Comportamento degli avvisi SMS nei gruppi di azione | Microsoft Docs
-description: Formato di messaggio SMS e risposta a messaggi SMS per l&quot;annullamento e la riesecuzione della sottoscrizione o la richiesta di assistenza.
+description: Formato di messaggio SMS e risposta a messaggi SMS per l'annullamento e la riesecuzione della sottoscrizione o la richiesta di assistenza.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 10f33898fb86bd2449994a153d99cb59dc6078d6
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento degli avvisi SMS nei gruppi di azione

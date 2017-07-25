@@ -15,10 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 029401a1884aebf0625ad8d68410dcdcd491d0ad
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: c8592ea38d62213327549583a1e931ea682ee56e
+ms.contentlocale: it-it
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -46,7 +47,7 @@ Funzionalità del livello Standard:
 Per i livelli Basic e Standard di Hub di notifica, le applicazioni correttamente configurate possono inviare notifiche push o eseguire operazioni di gestione delle registrazioni almeno per il 99,9% del tempo. Per altre informazioni sul Contratto di servizio, visitare la pagina del [contratto di servizio per Hub di notifica](https://azure.microsoft.com/support/legal/sla/notification-hubs/).
 
 > [!NOTE]
-> Poiché le notifiche push dipendono da Platform Notification System di terze parti (come Apple APN e Google FCM), non sono presenti contratti di servizio per la consegna di tali messaggi. Dopo che Hub di notifica ha eseguito il batch degli invii ai Platform Notification System (Contratto di servizio garantito), è responsabilità dei Platform Notification System recapitare i push (senza Contratto di servizio garantito).
+> Poiché le notifiche push dipendono da Platform Notification System di terze parti (come Apple APN e Google FCM), non sono presenti contratti di servizio per la consegna di tali messaggi. Dopo che Hub di notifica ha inviato i batch a Platform Notification System, come garantito dal contratto di servizio, è Platform Notification System a dover recapitare i push, senza garanzia del contratto di servizio.
 
 ### <a name="which-customers-are-using-notification-hubs"></a>Quali clienti utilizzano Hub di notifica?
 Molti clienti usano Hub di notifica. Di seguito sono elencati alcuni dei più importanti:

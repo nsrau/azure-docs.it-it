@@ -1,5 +1,5 @@
 ---
-title: Diversi modi per creare una VM Linux con l&quot;Interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
+title: Diversi modi per creare una VM Linux con l'Interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
 description: Informazioni sui diversi modi per creare una macchina virtuale Linux in Azure, con collegamenti a strumenti ed esercitazioni per ogni metodo.
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 756141fda3148726af0030a010465ee14e8ce6b6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1eb90d44797d66f3e09811918ce5a7f4ad4287c6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="different-ways-to-create-a-linux-virtual-machine-in-azure"></a>Diversi modi per creare una macchina virtuale Linux in Azure
@@ -98,8 +97,6 @@ Elencare tutte le immagini disponibili per una determinata versione come segue:
 ```azurecli
 azure vm image list --location eastus --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
-
-Per altri esempi sull'esplorazione e l'uso delle immagini disponibili, vedere [Individuare e selezionare immagini di macchine virtuali di Azure con l'interfaccia della riga di comando di Azure](cli-ps-findimage.md#use-azure-cli-10).
 
 I comandi `azure vm quick-create` e `azure vm create` hanno alias che è possibile usare per accedere rapidamente alle distribuzioni più comuni e alle versioni più recenti. Usare alias è in genere più veloce che specificare editore, offerta, SKU e versione ogni volta che si crea una VM:
 

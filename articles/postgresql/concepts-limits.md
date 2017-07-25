@@ -5,17 +5,16 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+ms.custom: mvc
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/01/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2df8d6e3d3629ad0e383aa80ba7fee02f8862410
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a4ddb9d4f672de6cf1ebe137bf06e5e2c8b7796f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limiti del Database di Azure per PostgreSQL
@@ -45,23 +44,24 @@ Esiste un numero massimo di connessioni, unità di calcolo e archiviazione in og
 Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si riceva l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)
 
-## <a name="preview-functional-limitations"></a>Limiti funzionali dell'anteprima:
-### <a name="scale-operations"></a>Operazioni di scalabilità:
-1.    La scalabilità dinamica dei server tra i livelli di servizio non è attualmente supportata, vale a dire il passaggio tra i livelli di servizio Base e Standard.
-2.    L'aumento dinamico su richiesta dell'archiviazione sul server creato in precedenza non è attualmente supportato.
-3.    La riduzione delle dimensioni di archiviazione del server non è supportato.
+## <a name="preview-functional-limitations"></a>Limiti funzionali dell'anteprima
+### <a name="scale-operations"></a>Operazioni di scalabilità
+1.  La scalabilità dinamica dei server tra i livelli di servizio non è attualmente supportata, vale a dire il passaggio tra i livelli di servizio Base e Standard.
+2.  L'aumento dinamico su richiesta dell'archiviazione sul server creato in precedenza non è attualmente supportato.
+3.  La riduzione delle dimensioni di archiviazione del server non è supportato.
 
-### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server:
+### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server
 - La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata.
 
-### <a name="subscription-management"></a>Gestione sottoscrizioni:
+### <a name="subscription-management"></a>Gestione sottoscrizioni
 - Lo spostamento dinamico di server creati in precedenza tra le sottoscrizioni e il gruppo di risorse non è attualmente supportato.
 
-### <a name="point-in-time-restore"></a>Ripristino temporizzato:
-1.    Il ripristino a un livello di servizio diverso e/o a dimensioni delle unità di calcolo e di archiviazione diverse non è consentito.
-2.    Il ripristino di un server eliminato non è supportato.
+### <a name="point-in-time-restore"></a>Ripristino temporizzato
+1.  Il ripristino a un livello di servizio diverso e/o a dimensioni delle unità di calcolo e di archiviazione diverse non è consentito.
+2.  Il ripristino di un server eliminato non è supportato.
 
-## <a name="next-steps"></a>Passaggi successivi:
-- Informazioni sulle [opzioni e prestazioni disponibili in ogni livello di servizio](concepts-service-tiers.md)
+## <a name="next-steps"></a>Passaggi successivi
+- Informazioni sulle [opzioni e prestazioni disponibili in ogni piano tariffario](concepts-service-tiers.md)
 - Informazione sulle [Supported PostgreSQL Database Versions](concepts-supported-versions.md) (Versioni supportate del Database PostgreSQL)
 - Rivedere [How To Back up and Restore a server in Azure Database for PostgreSQL using the Azure portal](howto-restore-server-portal.md) (Come eseguire il backup e il ripristino di un server nel Database di Azure per PostgreSQL usando il portale di Azure)
+

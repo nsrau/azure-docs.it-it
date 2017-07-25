@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: dad35a2b3beb2b07d5b12afb8a04ba48f8b8ef7e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e5011c1c67e051616d53621b72e46ba894ca3c02
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -103,7 +103,7 @@ Usare la procedura seguente per monitorare una relazione di replica geografica a
 2. Aprire la cartella Database, espandere la cartella **Database di sistema**, fare clic con il pulsante destro del mouse su **master** e quindi scegliere **Nuova query**.
 3. Usare l'istruzione seguente per visualizzare tutti i database con collegamenti di replica geografica.
    
-        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM sys.geo_replication_links;
 4. Fare clic su **Execute** per eseguire la query.
 5. Aprire la cartella Database, espandere la cartella **Database di sistema**, fare clic con il pulsante destro del mouse su **MyDB** e quindi scegliere **Nuova query**.
 6. Usare l'istruzione seguente per visualizzare gli intervalli di replica e l'ultima ora di replica dei database secondari di MyDB.
@@ -117,7 +117,7 @@ Usare la procedura seguente per monitorare una relazione di replica geografica a
 9. Fare clic su **Execute** per eseguire la query.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
+* Per altre informazioni sui gruppi di failover e la replica geografica attiva, vedere [Gruppi di failover](sql-database-geo-replication-overview.md).
 * Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
 
 

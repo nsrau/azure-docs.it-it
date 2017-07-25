@@ -1,5 +1,5 @@
 ---
-title: "Importare o esportare le identità dei dispositivi dell&quot;hub IoT di Azure | Documentazione Microsoft"
+title: "Importare o esportare le identità dei dispositivi dell'hub IoT di Azure | Microsoft Docs"
 description: "Come usare Azure IoT SDK per servizi per eseguire operazioni in blocco sul registro delle identità per importare ed esportare le identità dei dispositivi. Le operazioni di importazione consentono di creare, aggiornare ed eliminare in blocco le identità dei dispositivi."
 services: iot-hub
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 07/03/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 9ea3896f73e0e97b89743d8b17c8fd1e723153c3
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8df8cdfd0b265b11e6a11f0a5eb7ad8f0e669ca2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gestire in blocco le identità dei dispositivi dell'hub IoT
 
-Ogni hub IoT include un registro delle identità che è possibile usare per creare risorse per i singoli dispositivi nel servizio, ad esempio una coda contenente messaggi da cloud a dispositivo in elaborazione e per consentire di controllare gli accessi agli endpoint per il dispositivo. Questo articolo descrive come importare ed esportare in blocco le identità del dispositivo in/da un registro delle identità.
+Ogni hub IoT ha un registro delle identità che è possibile usare per creare le risorse per ogni dispositivo nel servizio. e per consentire di controllare gli accessi agli endpoint per il dispositivo. Questo articolo descrive come importare ed esportare in blocco le identità del dispositivo in/da un registro delle identità.
 
 Le operazioni di importazione ed esportazione vengono eseguite nel contesto di *processi* che consentono di eseguire operazioni del servizio in blocco a fronte di un hub IoT.
 
@@ -37,7 +37,7 @@ Le operazioni del registro delle identità usano il sistema di gestione dei **pr
 * Ha un tempo di esecuzione potenzialmente lungo rispetto alle operazioni di runtime standard.
 * Restituisce all'utente una grande quantità di dati.
 
-In questi casi, invece di avere una singola chiamata API in attesa o che blocca il risultato dell'operazione, quest'ultima crea in modo asincrono un **processo** per tale hub IoT, quindi restituisce immediatamente un oggetto **JobProperties**.
+Invece di avere una singola chiamata API in attesa o che blocca il risultato dell'operazione, quest'ultima crea in modo asincrono un **processo** per tale hub IoT, quindi restituisce immediatamente un oggetto **JobProperties**.
 
 Il frammento di codice C# seguente mostra come creare un processo di esportazione:
 
@@ -48,7 +48,6 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 
 > [!NOTE]
 > Per usare la classe il **RegistryManager** nel codice c#, aggiungere il pacchetto NuGet **Microsoft.Azure.Devices** al progetto. La classe **RegistryManager** si trova nello spazio dei nomi **Microsoft.Azure.Devices**.
-
 
 È possibile usare la classe **RegistryManager** per eseguire query sullo stato del **processo** usando i metadati di **JobProperties** restituiti.
 
@@ -122,7 +121,8 @@ Nell'esempio seguente vengono descritti i dati di output:
 ```
 
 Se un dispositivo contiene dati gemelli, allora anche i dati gemelli vengono esportati con i dati del dispositivo. Questo formato è illustrato nell'esempio seguente. Tutti i dati dalla riga di "twinETag" fino alla fine sono dati gemelli.
-```
+
+```json
 {
    "id":"export-6d84f075-0",
    "eTag":"MQ==",
@@ -172,7 +172,7 @@ Se è necessario accedere ai dati nel codice, è possibile deserializzarli facil
 ```csharp
 var exportedDevices = new List<ExportImportDevice>();
 
-using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), RequestOptions, null), Encoding.UTF8))
+using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), null, null), Encoding.UTF8))
 {
   while (streamReader.Peek() != -1)
   {
@@ -217,7 +217,7 @@ Il frammento di codice C# seguente mostra come avviare un processo di importazio
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-Questo metodo può essere usato anche per importare i dati per il dispositivo gemello. Il formato per i dati di input è uguale a quello visualizzato nella sezione relativa al **ExportDevicesAsync**. In questo modo, i dati esportati possono anche essere reimportati. Il $metadata è facoltativo.
+Questo metodo può essere usato anche per importare i dati per il dispositivo gemello. Il formato per i dati di input è uguale al formato visualizzato nella sezione **ExportDevicesAsync**. In questo modo, è possibile reimportare i dati esportati. Il **$metadata** è facoltativo.
 
 ## <a name="import-behavior"></a>Importare il comportamento
 
@@ -232,7 +232,7 @@ Questo metodo può essere usato anche per importare i dati per il dispositivo ge
 
 È possibile eseguire una combinazione qualsiasi delle operazioni precedenti in un'unica chiamata **ImportDevicesAsync** . Ad esempio, è possibile registrare nuovi dispositivi ed eliminare o aggiornare contemporaneamente quelli esistenti. Insieme con il metodo **ExportDevicesAsync** , è possibile eseguire la migrazione completa di tutti i dispositivi da un hub IoT all'altro.
 
-Se il file di importazione specifica metadati gemelli, questi metadati sovrascrivono i metadati esistenti del gemello. In caso contrario, allora solo i metadati `lastUpdateTime` vengono aggiornati con l'ora corrente. 
+Se il file di importazione include metadati gemelli, questi metadati sovrascrivono i metadati gemelli esistenti. Se il file di importazione non include i metadati gemelli, allora solo i metadati `lastUpdateTime` vengono aggiornati usando l'ora corrente.
 
 Usare la proprietà facoltativa **importMode** nei dati di serializzazione dell'importazione per ogni dispositivo per controllare il processo di importazione per dispositivo. La proprietà **importMode** include le opzioni seguenti:
 
@@ -263,7 +263,8 @@ var serializedDevices = new List<string>();
 
 for (var i = 0; i < 1000; i++)
 {
-// Create a new ExportImportDevice
+  // Create a new ExportImportDevice
+  // CryptoKeyGenerator is in the Microsoft.Azure.Devices.Common namespace
   var deviceToAdd = new ExportImportDevice()
   {
     Id = Guid.NewGuid().ToString(),
@@ -279,11 +280,11 @@ for (var i = 0; i < 1000; i++)
     ImportMode = ImportMode.Create
   };
 
-  // Add device to existing list
+  // Add device to the list
   serializedDevices.Add(JsonConvert.SerializeObject(deviceToAdd));
 }
 
-// Write this list to the blob
+// Write the list to the blob
 var sb = new StringBuilder();
 serializedDevices.ForEach(serializedDevice => sb.AppendLine(serializedDevice));
 await blob.DeleteIfExistsAsync();
@@ -298,8 +299,9 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Call import using the same blob to add new devices!
-// This normally takes 1 minute per 100 devices the normal way
+// Call import using the blob to add new devices
+// Log information related to the job is written to the same container
+// This normally takes 1 minute per 100 devices
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -349,7 +351,7 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Step 3: Call import using the same blob to delete all devices!
+// Step 3: Call import using the same blob to delete all devices
 importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -366,7 +368,6 @@ while(true)
 
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
-
 ```
 
 ## <a name="get-the-container-sas-uri"></a>Recuperare l'URI di firma di accesso condiviso del contenitore
@@ -394,7 +395,6 @@ static string GetContainerSasUri(CloudBlobContainer container)
   // including the SAS token.
   return container.Uri + sasContainerToken;
 }
-
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

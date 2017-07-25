@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure | Microsoft Docs
-description: Guida dell&quot;utente di Azure Site Recovery Deployment Planner.
+description: Guida dell'utente di Azure Site Recovery Deployment Planner.
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -8,17 +8,17 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 06/29/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -68,7 +68,7 @@ Lo strumento prevede due fasi principali: profilatura e generazione di report. �
 
 | Requisito server | Descrizione|
 |---|---|
-|Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Microsoft Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter devono essere impostate su 2 o su un valore superiore</li></ul>|
+|Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Microsoft Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter devono essere impostate su 2 o su un valore superiore</li></ul>|
 | Generazione di report | Un PC o server Windows con Microsoft Excel 2013 o versione successiva |
 | Autorizzazioni utente | Autorizzazioni di sola lettura per l'account utente usato per accedere al server VMware vCenter o all'host VMware vSphere ESXi durante la profilatura |
 
@@ -140,7 +140,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Operation | StartProfiling |
 | -Server | Nome di dominio completo o indirizzo IP del server vCenter o dell'host vSphere ESXi con le VM da profilare.|
 | -User | Nome utente per la connessione al server vCenter o all'host vSphere ESXi. L'utente deve avere almeno l'accesso in sola lettura.|
-| -VMListFile |    File contenente l'elenco di VM da profilare. Il percorso del file può essere assoluto o relativo. Il file deve contenere un solo nome/indirizzo IP di VM per riga. Il nome della macchina virtuale specificato nel file deve corrispondere al nome della VM nel server vCenter o nell'host vSphere ESXi.<br>Ad esempio, il file VMList.txt contiene le VM seguenti:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -VMListFile | File contenente l'elenco di VM da profilare. Il percorso del file può essere assoluto o relativo. Il file deve contenere un solo nome/indirizzo IP di VM per riga. Il nome della macchina virtuale specificato nel file deve corrispondere al nome della VM nel server vCenter o nell'host vSphere ESXi.<br>Ad esempio, il file VMList.txt contiene le VM seguenti:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
 | -NoOfDaysToProfile | Numero di giorni per i quali eseguire la profilatura. È consigliabile eseguire la profilatura per più di 15 giorni per far sì che il modello di carico di lavoro nell'ambiente venga osservato nel periodo specificato e usato per fornire un'indicazione accurata. |
 | -Directory | (Facoltativo) UNC (Universal Naming Convention) o percorso della directory locale per l'archiviazione dei dati generati durante la profilatura. Per impostazione predefinita, se non viene specificato un nome di directory, verrà usata la directory denominata "ProfiledData" nel percorso corrente. |
 | -Password | (Facoltativo) Password da usare per connettersi al server vCenter o all'host vSphere ESXi. Se non se ne specifica una in questa fase, verrà chiesta all'esecuzione del comando.|
@@ -205,10 +205,7 @@ Al termine della profilatura, è possibile eseguire lo strumento in modalità di
 | -StartDate | (Facoltativo) Data e ora di inizio in MM-GG-AAAA:HH:MM, in formato 24 ore. *StartDate* deve essere specificato con *EndDate*. Quando StartDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
 | -EndDate | (Facoltativo) Data e ora di fine in MM-GG-AAAA:HH:MM, in formato 24 ore. *EndDate* deve essere specificato con *StartDate*. Quando EndDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
 | -GrowthFactor | (Facoltativo) Fattore di crescita, espresso come percentuale. Il valore predefinito è 30%. |
-| -UseManagedDisks | (Facoltativo) UseManagedDisks: Yes/No. Il valore predefinito è Yes. Il calcolo del numero di macchine virtuali che può essere inserito in un singolo account di archiviazione dipende dalla selezione o meno di un disco gestito per il failover e il failover di test. |
-
-Per l'inserimento in un singolo account di archiviazione, il calcolo tiene conto del fatto che il failover e il failover di test delle macchine virtuali vengano eseguiti su un disco gestito anziché su un disco non gestito. |
-
+| -UseManagedDisks | (Facoltativo) UseManagedDisks: Yes/No. Il valore predefinito è Yes. Il numero di macchine virtuali che possono essere inserite in un singolo account di archiviazione viene calcolato a seconda che il failover e il failover di test delle macchine virtuali vengano eseguiti su un disco gestito anziché su un disco non gestito. |
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Esempio 1: Generare un report con valori predefiniti quando i dati profilati si trovano nell'unità locale
 ```
@@ -531,11 +528,11 @@ Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene al
 
 **Destinazione archiviazione di replica** | **Dimensioni medie I/O disco di origine** |**Varianza dati media disco di origine** | **Varianza dati totale giornaliera disco di origine**
 ---|---|---|---
-Archiviazione standard | 8 KB    | 2 MBps | 168 GB per disco
-Premium, disco P10 | 8 KB    | 2 MBps | 168 GB per disco
-Premium, disco P10 | 16 KB | 4 MBps |    336 GB per disco
+Archiviazione standard | 8 KB | 2 MBps | 168 GB per disco
+Premium, disco P10 | 8 KB | 2 MBps | 168 GB per disco
+Premium, disco P10 | 16 KB | 4 MBps | 336 GB per disco
 Premium, disco P10 | 32 KB o superiori | 8 MBps | 672 GB per disco
-Disco P20 o P30 Premium | 8 KB    | 5 MBps | 421 GB per disco
+Disco P20 o P30 Premium | 8 KB  | 5 MBps | 421 GB per disco
 Disco P20 o P30 Premium | 16 KB o superiori |10 MBps | 842 GB per disco
 
 Si tratta di numeri medi presupponendo una sovrapposizione I/O del 30%. Site Recovery può gestire una velocità effettiva maggiore in base alla percentuale di sovrapposizione, alle dimensioni di scrittura maggiori e all'effettivo I/O del carico di lavoro. I numeri precedenti presuppongono un backlog tipico di circa cinque minuti, ovvero i dati, dopo essere stati caricati, verranno elaborati e verrà creato un punto di ripristino entro cinque minuti.

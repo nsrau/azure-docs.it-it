@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 717f4969a91209576a504c94c31993b938770432
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 96921f4be8aabb6d960ee4f66acd6c07d7ba7f95
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -64,7 +65,11 @@ Nelle VM NV Azure, è necessario eseguire il riavvio dopo l'installazione del dr
 
 ![Proprietà del driver GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-Per eseguire una query sullo stato del dispositivo GPU, eseguire l'utilità della riga di comando [smi nvidia](https://developer.nvidia.com/nvidia-system-management-interface) installata con il driver. 
+Per eseguire una query sullo stato del dispositivo GPU, eseguire l'utilità della riga di comando [smi nvidia](https://developer.nvidia.com/nvidia-system-management-interface) installata con il driver.
+
+1. Aprire un prompt dei comandi e passare alla directory **C:\Programmi\NVIDIA Corporation\NVSMI**.
+
+2. Eseguire **nvidia-smi**. Se il driver è installato, l'output sarà simile al seguente. **GPU-Util** mostrerà **0%** a meno che nella macchina virtuale non sia attualmente in esecuzione un carico di lavoro GPU.
 
 ![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)  
 

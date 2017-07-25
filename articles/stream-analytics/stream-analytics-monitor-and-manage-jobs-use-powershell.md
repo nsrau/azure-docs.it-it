@@ -1,5 +1,5 @@
 ---
-title: Monitorare e gestire i processi dell&quot;analisi di flusso con PowerShell | Microsoft Docs
+title: Monitorare e gestire i processi dell'analisi di flusso con PowerShell | Microsoft Docs
 description: Informazioni su come usare Azure PowerShell e i cmdlet per monitorare e gestire i processi di Analisi di flusso.
 keywords: Azure PowerShell, cmdlet di Azure PowerShell, comando di PowerShell, script di PowerShell
 services: stream-analytics
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: ad872828443dd795dd6c45bd2957bbf0f48f6cdd
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: d968a22c61c8e9c3375927c01dd10aaf413fce00
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -455,7 +456,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
@@ -468,7 +469,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [msdn-rest-api-create-stream-analytics-transformation]: https://msdn.microsoft.com/library/dn835007.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
+[stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299

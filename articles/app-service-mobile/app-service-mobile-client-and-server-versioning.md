@@ -3,8 +3,8 @@ title: Controllo delle versioni SDK di client e server in App per dispositivi mo
 description: "Elenco degli SDK del client e compatibilità con versioni SDK del server per Servizi mobili e App per dispositivi mobili di Azure"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
+ms.author: glenga
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
+ms.contentlocale: it-it
 ms.lasthandoff: 03/09/2017
-
 
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
@@ -47,8 +47,8 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 > [!NOTE]
 > Esistono una serie di modifiche di comportamento tra Servizi mobili e App per dispositivi mobili, in particolare per quanto riguarda la sincronizzazione offline, l’autenticazione e le notifiche push. È consigliabile rifiutare esplicitamente solo il controllo della versione dopo aver completato un test per assicurarsi che queste modifiche del comportamento non interferiscano con le funzionalità dell'applicazione.
-> 
-> 
+>
+>
 
 ## <a name="summary-of-compatibility-for-all-versions"></a>Riepilogo della compatibilità per tutte le versioni
 Il grafico seguente illustra la compatibilità tra tutti i tipi di client e server. Un back-end viene classificato come **Servizi** mobili o **App** per dispositivi mobili in base all'SDK del server usato.
@@ -130,5 +130,4 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Eseguire la migrazione di un servizio mobile al servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
-
 

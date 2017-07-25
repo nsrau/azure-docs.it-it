@@ -1,5 +1,5 @@
 ---
-title: Esempi di codice di Archiviazione di Azure | Documentazione Microsoft
+title: Esempi di codice di Archiviazione di Azure | Microsoft Docs
 description: Visualizzare, scaricare ed eseguire codici di esempio e applicazioni per l&quot;Archiviazione di Azure. Individuare la Guida introduttiva agli esempi su BLOB, code, tabelle e file, utilizzando le librerie client di archiviazione .NET, Java, Node. js e C++.
 services: storage
 documentationcenter: na
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 01/23/2017
+ms.date: 06/03/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: dd11ad70efd8f78805e74ad193fb9000abf6a3a8
-ms.lasthandoff: 04/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: aa2b53c514890aa980bc89626e8c7c7336b77a0b
+ms.contentlocale: it-it
+ms.lasthandoff: 06/05/2017
 
 
 ---
 # <a name="azure-storage-samples"></a>Esempi di archiviazione di Azure
-## <a name="overview"></a>Panoramica
-Utilizzare i collegamenti seguenti per visualizzare e scaricare esempi di risorse di archiviazione di Azure funzionanti.
+
+Usare i collegamenti seguenti per visualizzare e scaricare codice e applicazioni di esempio di Archiviazione di Azure.
 
 ## <a name="azure-code-samples-library"></a>Libreria di esempi di codice per Azure
 La libreria degli [esempi di codice per Azure](https://azure.microsoft.com/documentation/samples/?service=storage) include esempi per Archiviazione di Azure che è possibile scaricare ed eseguire localmente. La libreria degli esempi di codice fornisce il codice di esempio in formato .zip. In alternativa, è possibile esplorare e clonare l'archivio GitHub per ogni esempio.
@@ -63,22 +64,18 @@ Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione 
 * [Introduzione alle tabelle](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Introduzione alle code](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
+## <a name="api-reference-and-source-code"></a>Informazioni di riferimento sulle API e codice sorgente
+
+| Linguaggio | Informazioni di riferimento sulle API | Codice sorgente |
+|----------|---------------|-------------|
+| .NET | [Informazioni di riferimento sulla libreria client .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Codice sorgente per la libreria client di archiviazione .NET](https://github.com/Azure/azure-storage-net) |
+| Java | [Informazioni di riferimento sulla libreria client Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Codice sorgente per la libreria client di archiviazione Java](https://github.com/azure/azure-storage-java) |
+| Node.js | [Informazioni di riferimento sulla libreria client Node.js](http://azure.github.io/azure-storage-node) | [Codice sorgente per la libreria client di archiviazione Node. js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/) | [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)|
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="net-resources"></a>Risorse di .NET
-* [Codice sorgente per la libreria client di archiviazione .NET](https://github.com/Azure/azure-storage-net)
-* [Informazioni di riferimento sulla libreria client .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+Gli articoli seguenti indicizzano ciascuno degli esempi per servizio (BLOB, file, coda, tabella).
 
-### <a name="java-resources"></a>Risorse Java
-* [Codice sorgente per la libreria client di archiviazione Java](https://github.com/azure/azure-storage-java)
-* [Informazioni di riferimento sulla libreria client Java](http://dl.windowsazure.com/storage/javadoc/)
-
-### <a name="nodejs-resources"></a>Risorse di Node. js
-* [Codice sorgente per la libreria client di archiviazione Node. js](https://github.com/Azure/azure-storage-node)
-* [Informazioni di riferimento sulla libreria client Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-
-### <a name="c-resources"></a>Risorse C++
-* [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)
-* [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/)
-
-
+* [Esempi di Archiviazione di Azure che usano .NET](storage-samples-dotnet.md)
+* [Esempi di Archiviazione di Azure che usano Java](storage-samples-java.md)

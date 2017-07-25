@@ -1,6 +1,6 @@
 ---
 title: Supporto SSH per App Web del Servizio app di Azure in Linux | Microsoft Docs
-description: Informazioni sull&quot;uso di SSH con App Web di Azure in Linux.
+description: Informazioni sull'uso di SSH con App Web di Azure in Linux.
 keywords: Servizio app di Azure, app Web, Linux, OSS
 services: app-service
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c1fdd9835992559c985426855a45c09849d54af2
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 6da663ea282e09b01ce380827fa7e31505712516
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/10/2017
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) è un protocollo di rete di crittografia per l'uso di servizi di rete in modo sicuro. Più comunemente viene usato per accedere in modo sicuro a un sistema da una riga di comando ed eseguire comandi amministrativi in remoto.
 
-App Web in Linux offre il supporto SSH con ognuna delle immagini Docker predefinite usate per lo stack di runtime di nuove app web. 
+App Web in Linux offre il supporto SSH nel contenitore di app con ognuna delle immagini Docker predefinite usate per lo stack di runtime di nuove app web. 
 
 ![Stack di runtime](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -72,7 +72,7 @@ Questa procedura viene mostrata nell'archivio del Servizio app di Azure come ese
       && echo "root:Docker!" | chpasswd
     ``` 
 
-2. Aggiungere un'[istruzione `COPY`](https://docs.docker.com/engine/reference/builder/#copy) a Dockerfile per copiare un file [sshd_config](http://man.openbsd.org/sshd_config) nella directory */etc/ssh/*. Il file di configurazione deve essere basato sul file sshd_config nell'archivio GitHub di Azure-App-Service [qui](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/sshd_config).
+2. Aggiungere un'[istruzione `COPY`](https://docs.docker.com/engine/reference/builder/#copy) a Dockerfile per copiare un file [sshd_config](http://man.openbsd.org/sshd_config) nella directory */etc/ssh/*. Il file di configurazione deve essere basato sul file sshd_config nell'archivio GitHub di Azure-App-Service [qui](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
 
     > [!NOTE] 
     > Per fare in modo che la connessione abbia esito positivo, il file *sshd_config* deve includere quanto segue: 
@@ -103,7 +103,7 @@ Questa procedura viene mostrata nell'archivio del Servizio app di Azure come ese
     COPY init_container.sh /bin/
       ...
     RUN chmod 755 /bin/init_container.sh 
-      ...        
+      ...       
     CMD ["/bin/init_container.sh"]
     ```
 

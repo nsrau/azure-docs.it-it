@@ -1,10 +1,10 @@
 ---
 title: Sospendere, riprendere e ridimensionare con REST in Azure SQL Data Warehouse | Documentazione Microsoft
-description: "Attività di PowerShell per la gestione della potenza di calcolo. Ridimensionare le risorse di calcolo cambiando il numero di DWU. In alternativa, sospendere e riprendere le risorse di calcolo per ridurre i costi."
+description: Gestire la potenza di calcolo in SQL Data Warehouse con REST, T-SQL e PowerShell.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
-manager: barbkess
+manager: johnmac
 editor: 
 ms.assetid: 21de7337-9356-49bb-a6eb-06c1beeba2c4
 ms.service: sql-data-warehouse
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: elbutter;barbkess
+ms.author: elbutter; barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 548e61004bd95d9e785fea438eb8b81aa63f1739
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: e250fa59204be14614a4c91fb5a0c1af5a8d5281
 ms.contentlocale: it-it
-ms.lasthandoff: 03/28/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/28/2017
 Per modificare le DWU, usare l'API REST descritta in [Create or Update Database][Create or Update Database] (Creare o aggiornare il database). L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
 
 ```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/MyServer/databases/MySQLDW?api-version=2014-04-01-preview HTTP/1.1
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {
@@ -60,7 +60,7 @@ Content-Type: application/json; charset=UTF-8
 Per sospendere un database, usare l'API REST descritta in [Pause Database][Pause Database] (Sospendere il database). L'esempio seguente sospende il database Database02 ospitato sul server Server01. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
 
 ```
-POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/pause?api-version=2014-04-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
 ```
 
 <a name="resume-compute-bk"></a>
@@ -71,13 +71,13 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 Per avviare un database, usare l'API REST descritta in [Resume Database][Resume Database] (Riprendere il database). L'esempio seguente avvia il database Database02 ospitato sul server Server01. Il server appartiene al gruppo di risorse di Azure ResourceGroup1. 
 
 ```
-POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/resume?api-version=2014-04-01-preview HTTP/1.1
 ```
 
 ## <a name="check-database-state"></a>Controllare lo stato del database
 
-```json
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}?api-version=2014-04-01 HTTP/1.1
+```
+GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
 <a name="next-steps-bk"></a>

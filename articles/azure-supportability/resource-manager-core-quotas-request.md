@@ -7,9 +7,11 @@ ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2373cf227cbed4f6657e31088b11dca5223ce5fe
 ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -43,9 +45,4 @@ Per richiedere un aumento, creare una richiesta di supporto per la quota dei cor
 
 - Per rimuovere una riga, deselezionare lo SKU dall'elenco a discesa delle famiglie di SKU oppure fare clic sull'icona di eliminazione "x".
 Dopo aver immesso la quota desiderata per ogni famiglia di SKU, fare clic su "Avanti" nella pagina del passaggio del problema per procedere con la creazione della richiesta di supporto.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

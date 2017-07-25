@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 0c7ef7004618966ae8c2d32027c460b2b643923e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -51,7 +52,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Espandere la nuova app per le funzioni e quindi fare clic sul pulsante **+** accanto a **Funzioni**.
 
-2.  Nella pagina **Get started quickly** (Operatività immediata) fare clic su **Webhook e API**, scegliere un linguaggio per la funzione e fare clic su **Crea funzione**. 
+2.  Nella pagina **Creazione rapida di funzioni** selezionare **Webhook e API**, scegliere un linguaggio per la funzione e fare clic su **Creare questa funzione**. 
    
     ![Guida di avvio rapido di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -59,7 +60,7 @@ Viene creata una funzione nel linguaggio prescelto usando il modello per una fun
 
 ## <a name="test-the-function"></a>Testare la funzione
 
-1. Nella nuova funzione fare clic su **</> Get function URL** (Ottieni URL funzione) e copiare il valore di **URL funzione**. 
+1. Nella nuova funzione fare clic su **</> Recupera URL della funzione**, selezionare **predefinito (tasto funzione)** e quindi fare clic su **Copia**. 
 
     ![Creare l'URL della funzione dal portale di Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 

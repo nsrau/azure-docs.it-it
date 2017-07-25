@@ -5,25 +5,29 @@ documentationcenter: na
 services: application-gateway
 author: georgewallace
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 05/09/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 1f273f3b55d719e37b9cdb6cefda30c3566e7226
-ms.lasthandoff: 11/18/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 4b649379ce41a4d6cea93b42fc492fdc0940e689
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL
 
-Il routing basato su percorso URL consente di instradare il traffico a pool di server back-end in base ai percorsi URL della richiesta. Uno degli scenari è l'instradamento delle richieste di tipi di contenuto diversi a pool di server back-end diversi.
+Il routing basato su percorso URL consente di instradare il traffico a pool di server back-end in base ai percorsi URL della richiesta. 
+
+Uno degli scenari è l'instradamento delle richieste di tipi di contenuto diversi a pool di server back-end diversi.
+
 Nell'esempio seguente, il gateway applicazione soddisfa le richieste di traffico per contoso.com dai tre pool di server back-end, ad esempio VideoServerPool, ImageServerPool e DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
@@ -36,26 +40,26 @@ L'elemento UrlPathMap consente di specificare modelli di percorso dei mapping de
 
 ```json
 "urlPathMaps": [{
-    "name": "<urlPathMapName>",
-    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/urlPathMaps/<urlPathMapName>",
+    "name": "{urlpathMapName}",
+    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/urlPathMaps/{urlpathMapName}",
     "properties": {
         "defaultBackendAddressPool": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
+            "id": "/subscriptions/    {subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendAddressPools/{poolName1}"
         },
         "defaultBackendHttpSettings": {
-            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
+            "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpSettingsList/{settingname1}"
         },
         "pathRules": [{
-            "name": "<pathRuleName>",
+            "name": "{pathRuleName}",
             "properties": {
                 "paths": [
-                    "<pathPattern>"
+                    "{pathPattern}"
                 ],
                 "backendAddressPool": {
-                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
+                    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendAddressPools/{poolName2}"
                 },
                 "backendHttpsettings": {
-                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
+                    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpsettingsList/{settingName2}"
                 }
             }
         }]
@@ -77,15 +81,15 @@ Frammento della regola PathBasedRouting:
 "requestRoutingRules": [
     {
 
-"name": "<ruleName>",
-"id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
+"name": "{ruleName}",
+"id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/requestRoutingRules/{ruleName}",
 "properties": {
     "ruleType": "PathBasedRouting",
     "httpListener": {
-        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/httpListeners/<listenerName>"
+        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/httpListeners/<listenerName>"
     },
     "urlPathMap": {
-        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>"
+        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/ urlPathMaps/{urlpathMapName}"
     },
 
 }
@@ -96,5 +100,4 @@ Frammento della regola PathBasedRouting:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver acquisito familiarità con il routing di contenuti basato su URL, passare a [Create a Path-based rule for an application gateway by using the portal](application-gateway-create-url-route-portal.md) (Creare una regola basata sul percorso per un gateway applicazione usando il portale) per la creazione di un gateway applicazione con regole di routing basate su URL.
-
 

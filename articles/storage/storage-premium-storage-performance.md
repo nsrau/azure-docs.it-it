@@ -1,6 +1,6 @@
 ---
 title: 'Archiviazione Premium di Azure: progettata per prestazioni elevate | Microsoft Docs'
-description: Progettare applicazioni a prestazioni elevate con l&quot;Archiviazione Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
+description: Progettare applicazioni a prestazioni elevate con l'Archiviazione Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
 services: storage
 documentationcenter: na
 author: aungoo-msft
@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 06/27/2017
 ms.author: aungoo
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 0efa2fdb2b78086e89e77429f8fac813ae1cf1a4
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 7bd38be9f8e1160ebf0d7c5ed51fd31d89481881
+ms.contentlocale: it-it
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -47,12 +48,12 @@ In questa sezione verranno illustrati gli indicatori di prestazioni comuni nel c
 ## <a name="iops"></a>IOPS
 IOPS indica il numero di richieste inviate dall'applicazione ai dischi di archiviazione in un secondo. Un'operazione di input/output può essere di lettura o di scrittura, sequenziale o casuale. Le applicazioni OLTP, ad esempio un sito Web per la rivendita online, devono elaborare immediatamente molte richieste utente concomitanti. Le richieste utente sono transazioni di database con un numero elevato di inserimenti e aggiornamenti, che devono essere elaborate rapidamente dall'applicazione. Le applicazioni OLTP richiedono quindi valori molto elevati per IOPS. Queste applicazioni gestiscono milioni di richieste I/O di piccole dimensioni e casuali. Se si crea un'applicazione di questo tipo, sarà necessario progettare l'infrastruttura dell'applicazione in modo che sia ottimizzata per IOPS. Nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*, verranno illustrati in modo dettagliato tutti i fattori da valutare per ottenere valori elevati per IOPS.
 
-Quando si collega un disco di Archiviazione Premium alla VM a scalabilità elevata, Azure effettua automaticamente il provisioning di un numero garantito di IOPS, in base alla specifica del disco. Ad esempio, un disco P30 effettua il provisioning di 5000 IOPS. Ogni dimensione di VM a scalabilità elevata prevede anche un limite di IOPS specifico sostenibile. Ad esempio, una VM GS5 Standard ha un limite di 80.000 IOPS.
+Quando si collega un disco di Archiviazione Premium alla VM a scalabilità elevata, Azure effettua automaticamente il provisioning di un numero garantito di IOPS, in base alla specifica del disco. Ad esempio, un disco P50 effettua il provisioning di 7500 IOPS. Ogni dimensione di VM a scalabilità elevata prevede anche un limite di IOPS specifico sostenibile. Ad esempio, una VM GS5 Standard ha un limite di 80.000 IOPS.
 
 ## <a name="throughput"></a>Velocità effettiva
 La velocità effettiva o larghezza di banda è la quantità di dati che l'applicazione invia ai dischi di archiviazione in un intervallo specificato. Se l'applicazione esegue operazioni di input/output con dimensioni elevate per le unità I/O, richiederà una velocità effettiva elevata. Le applicazioni di tipo data warehouse tendono a emettere operazioni che richiedono quantità elevate di analisi, accedono a grandi porzioni di dati ed eseguono in genere operazione in blocco. In altri termini, queste applicazioni richiedono una velocità effettiva più elevata. Se si crea un'applicazione di questo tipo, sarà necessario progettare l'infrastruttura dell'applicazione in modo che sia ottimizzata per la velocità effettiva. Nella sezione successiva verranno illustrati in modo dettagliato i fattori da ottimizzare per ottenere questo risultato.
 
-Quando si collega un disco di Archiviazione Premium a una VM a scalabilità elevata, Azure effettua automaticamente il provisioning della velocità effettiva in base alla specifica del disco. Ad esempio, un disco P30 effettua il provisioning di una velocità effettiva di 200 MB al secondo per il disco. Ogni dimensione di VM a scalabilità elevata prevede anche un limite di velocità effettiva specifico sostenibile. Ad esempio, una VM GS5 Standard ha una velocità effettiva massima di 2.000 MB al secondo.
+Quando si collega un disco di Archiviazione Premium a una VM a scalabilità elevata, Azure effettua automaticamente il provisioning della velocità effettiva in base alla specifica del disco. Ad esempio, un disco P50 effettua il provisioning di una velocità effettiva di 250 MB al secondo per il disco. Ogni dimensione di VM a scalabilità elevata prevede anche un limite di velocità effettiva specifico sostenibile. Ad esempio, una VM GS5 Standard ha una velocità effettiva massima di 2.000 MB al secondo. 
 
 Come illustrato dalla formula seguente, esiste una relazione tra la velocità effettiva e IOPS.
 
@@ -216,20 +217,21 @@ Archiviazione Premium di Azure offre lo stesso livello di prestazioni per le mac
 Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibili aggiornamenti recenti per i driver necessari, in modo da assicurare prestazioni elevate.
 
 ## <a name="premium-storage-disk-sizes"></a>Dimensioni dei dischi di Archiviazione Premium
-L'Archiviazione Premium di Azure offre attualmente tre dimensioni di disco. Ogni dimensione di disco ha un limite di scala diverso per IOPS, larghezza di banda e archiviazione. Scegliere la dimensione del disco di Archiviazione Premium appropriata, in base ai requisiti dell'applicazione e le dimensioni delle VM a scalabilità elevata. La tabella seguente illustra le tre dimensioni di disco e le relative capacità.
+L'Archiviazione Premium di Azure offre attualmente sette dimensioni di disco. Ogni dimensione di disco ha un limite di scala diverso per IOPS, larghezza di banda e archiviazione. Scegliere la dimensione del disco di Archiviazione Premium appropriata, in base ai requisiti dell'applicazione e le dimensioni delle VM a scalabilità elevata. La tabella seguente illustra le sette dimensioni di disco e le relative capacità. Le dimensioni di disco P4 e P6 sono attualmente supportate solo per Managed Disks.
 
-| **Tipo di disco** | **P10** | **P20** | **P30** |
-| --- | --- | --- | --- |
-| Dimensioni disco |128 GiB |512 GiB |1024 GiB (1 TB) |
-| IOPS per disco |500 |2300 |5000 |
-| Velocità effettiva per disco |100 MB al secondo |150 MB al secondo |200 MB al secondo |
+| Tipo di disco Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| Dimensioni disco           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
+| Velocità effettiva per disco | 25 MB al secondo  | 50 MB al secondo  | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo | 
 
-Il numero di dischi scelto dipende dalla dimensione scelta per il disco. È possibile usare un singolo disco P30 o più dischi P10 per soddisfare i requisiti dell'applicazione. Valutare le considerazioni elencate di seguito quando si effettua la scelta.
+
+Il numero di dischi scelto dipende dalla dimensione scelta per il disco. È possibile usare un singolo disco P50 o più dischi P10 per soddisfare i requisiti dell'applicazione. Valutare le considerazioni elencate di seguito quando si effettua la scelta.
 
 *Limiti di scalabilità (IOPS e velocità effettiva)*  
 I limiti di IOPS e velocità effettiva di ogni dimensione di disco Premium sono diversi e non dipendono dai limiti di scalabilità delle VM. Assicurarsi che il valore totale di IOPS e velocità effettiva rientri nei limiti di scalabilità della dimensione scelta per la VM.
 
-Ad esempio, si supponga che un requisito di applicazione preveda una velocità effettiva massima di 250 MB/sec e si usi una VM DS4 con un singolo disco P30. La VM DS4 può offrire una velocità effettiva massima di 256 MB/sec. Un singolo disco P30 ha tuttavia un limite di velocità effettiva pari a 200 MB/sec. L'applicazione sarà quindi limitata a 200 MB/sec a causa di questo limite del disco. Per superare questo limite, effettuare il provisioning di più dischi dati nella VM.
+Ad esempio, si supponga che un requisito di applicazione preveda una velocità effettiva massima di 250 MB/sec e si usi una VM DS4 con un singolo disco P30. La VM DS4 può offrire una velocità effettiva massima di 256 MB/sec. Un singolo disco P30 ha tuttavia un limite di velocità effettiva pari a 200 MB/sec. L'applicazione sarà quindi limitata a 200 MB/sec a causa di questo limite del disco. Per superare questo limite, effettuare il provisioning di più dischi dati nella VM oppure ridimensionare i dischi a P40 o P50.
 
 > [!NOTE]
 > le operazioni di lettura fornite dalla cache non sono incluse nei valori di IOPS e velocità effettiva, quindi non sono soggette ai limiti del disco. La cache ha un limite di IOPS e velocità effettiva specifico per ogni VM.

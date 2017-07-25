@@ -1,10 +1,10 @@
 ---
 title: API di fatturazione di Azure | Microsoft Docs
-description: "Informazioni sull&quot;utilizzo dell’API di fatturazione e dell’API RestCard di Azure, utilizzate per offrire informazioni sul consumo di risorse e sulle tendenze di Azure."
+description: "Informazioni sull'utilizzo dell’API di fatturazione e dell’API RestCard di Azure, utilizzate per offrire informazioni sul consumo di risorse e sulle tendenze di Azure."
 services: 
 documentationcenter: 
 author: BryanLa
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/18/2017
 ms.author: mobandyo;bryanla
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: d3e1dd894c1548b44257bcc02c12cfafe364d5eb
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 
 ---
 
-# <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Usare le API di fatturazione di Azure per ottenere informazioni approfondite sull'uso di Azure a livello di codice
+<a id="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage" class="xliff"></a>
+# Usare le API di fatturazione di Azure per ottenere informazioni approfondite sull'uso di Azure a livello di codice
 Usare le API di fatturazione di Azure per raccogliere e immettere i dati di uso e delle risorse negli strumenti di analisi dei dati scelti. Le API di utilizzo delle risorse di Azure e RateCard possono aiutare a prevedere e gestire i costi con precisione. Le API vengono implementate come provider di risorse, nell’ambito della famiglia di API esposte da Azure Resource Manager.  
 
-## <a name="azure-invoice-download-api-preview"></a>API per il download della fattura in Azure (anteprima)
+<a id="azure-invoice-download-api-preview" class="xliff"></a>
+## API per il download della fattura in Azure (anteprima)
 Dopo aver [completato il consenso esplicito](billing-manage-access.md#opt-in), scaricare le fatture tramite la versione di anteprima di [API per le fatture](/rest/api/billing). Le funzionalità includono:
 
 * **Controllo degli accessi in base al ruolo di Azure**: configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](/powershell/azure/overview) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
@@ -35,7 +38,8 @@ Dopo aver [completato il consenso esplicito](billing-manage-access.md#opt-in), s
 > [!NOTE]
 > Questa funzionalità è nella prima versione di anteprima e può essere soggetta a modifiche incompatibili con le versioni precedenti. Attualmente, non è disponibile per alcune offerte di sottoscrizione, EA, CSP e AIO non sono supportati, e in Azure Germania.
 
-## <a name="azure-resource-usage-api-preview"></a>API di utilizzo delle risorse di Azure (anteprima)
+<a id="azure-resource-usage-api-preview" class="xliff"></a>
+## API di utilizzo delle risorse di Azure (anteprima)
 Per ottenere una stima dei dati di consumo di Azure usare l'[API di uso delle risorse](https://msdn.microsoft.com/library/azure/mt219003) di Azure. L'API include:
 
 * **Controllo degli accessi in base al ruolo di Azure**: configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](/powershell/azure/overview) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
@@ -44,13 +48,15 @@ Per ottenere una stima dei dati di consumo di Azure usare l'[API di uso delle ri
 * **Metadati delle risorse**: dettagli delle risorse, ad esempio il nome, la categoria e la sottocategoria del misuratore, l'unità e l'area, per fornire ai chiamanti una migliore comprensione delle risorse utilizzate. Stiamo inoltre lavorando per allineare la terminologia dei metadati delle risorse nel portale di Azure, il CSV di utilizzo di Azure, il CSV di fatturazione EA e altre esperienze pubbliche, per consentire agli utenti di correlare i dati delle diverse esperienze.
 * **Utilizzo per tutti i tipi di offerte** : i dati di utilizzo sono accessibili per tutti i tipi di offerta, tra cui il pagamento in base al consumo, MSDN, l’impegno monetario, il credito monetari ed EA.
 
-## <a name="azure-resource-ratecard-api-preview"></a>API RateCard delle risorse di Azure (anteprima)
+<a id="azure-resource-ratecard-api-preview" class="xliff"></a>
+## API RateCard delle risorse di Azure (anteprima)
 Per ottenere l'elenco delle risorse di Azure disponibili e una stima delle informazioni sul prezzo di ognuna di esse usare l'[API RateCard delle risorse di Azure](https://msdn.microsoft.com/library/azure/mt219005). L'API include:
 
 * **Controllo degli accessi in base al ruolo di Azure**: configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](/powershell/azure/overview) per specificare quali utenti o applicazioni possono avere accesso ai dati di RateCard. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Aggiungere il chiamante al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione di Azure.
 * **Supporto delle offerte con pagamento in base al consumo, MSDN, impegno monetario e credito monetario (EA non supportato)** : questa API fornisce informazioni sulle tariffe a livello di offerta di Azure.  Il chiamante di questa API deve passare le informazioni sull'offerta per dettagli e tariffe delle risorse. Dal momento che le offerte EA hanno tariffe personalizzate in base alla registrazione, al momento non è possibile fornire le tariffe EA. 
 
-## <a name="scenarios"></a>Scenari
+<a id="scenarios" class="xliff"></a>
+## Scenari
 Di seguito sono illustrati alcuni scenari resi possibili con la combinazione di API di utilizzo e API RateCard:
 
 * **Spesa di Azure durante il mese**: usare le API di utilizzo e RateCard per ottenere informazioni più approfondite sulle spese mensili legate al cloud. È possibile analizzare i bucket di utilizzo orari e giornalieri e le stime di addebito.
@@ -62,12 +68,14 @@ Di seguito sono illustrati alcuni scenari resi possibili con la combinazione di 
   * È possibile determinare se è più conveniente eseguire i propri carichi di lavoro in un'altra area o in un'altra configurazione della risorsa di Azure. I costi delle risorse di Azure possono variare in base all'area di Azure in uso.
   * È inoltre possibile determinare se un altro tipo di offerta di Azure offre una tariffa migliore per una risorsa di Azure.
   
-## <a name="partner-solutions"></a>Soluzioni partner
+<a id="partner-solutions" class="xliff"></a>
+## Soluzioni partner
 Nell'articolo [L'API di utilizzo e l'API RateCard di Microsoft Azure Usage consentono a Cloudyn di fornire ITFM ai clienti](billing-usage-rate-card-partner-solution-cloudyn.md) viene descritta l'esperienza di integrazione offerta dal partner API di fatturazione di Azure [Cloudyn](https://www.cloudyn.com/microsoft-azure/). Questo articolo illustra le loro esperienze e include un video che mostra come usare Cloudyn e le API di fatturazione di Azure per ottenere informazioni approfondite dai dati di utilizzo di Azure.
 
 In [Cloud Cruiser e integrazione dell'API di fatturazione di Microsoft Azure](billing-usage-rate-card-partner-solution-cloudcruiser.md) viene descritto come la [versione Express di Cloud Cruiser per Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) funzioni direttamente dal portale Windows Azure Pack (WAP), consentendo ai clienti di gestire senza problemi gli aspetti operativi e finanziari del cloud privato o pubblico di Microsoft Azure da una singola interfaccia utente.   
 
-## <a name="next-steps"></a>Passaggi successivi
+<a id="next-steps" class="xliff"></a>
+## Passaggi successivi
 * Controllare gli esempi di codice su GitHub:
   * [Esempio di codice API della fattura](https://go.microsoft.com/fwlink/?linkid=845124)
 

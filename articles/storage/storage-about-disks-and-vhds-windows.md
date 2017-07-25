@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 06/15/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 3b9d6eb9bcc4afe0e68920bbd5da7c259ceb0c67
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 953704c7eb8613d321a15a9f245118f87d33b51e
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="about-disks-and-vhds-for-azure-windows-vms"></a>Informazioni sui dischi e sui dischi rigidi virtuali per le VM Windows di Azure
@@ -33,10 +33,10 @@ Questo articolo illustra i diversi usi dei dischi e descrive i diversi tipi di d
 Esaminiamo come i dischi vengono usati dalle VM.
 
 ### <a name="operating-system-disk"></a>Disco del sistema operativo
-Tutte le macchine virtuali dispongono di un disco del sistema operativo collegato. Per impostazione predefinita, è registrato come unità SATA ed etichettato come unità C:. Questo disco ha una capacità massima di 1023 GB. 
+Tutte le macchine virtuali dispongono di un disco del sistema operativo collegato. Per impostazione predefinita, è registrato come unità SATA ed etichettato come unità C:. Questo disco ha una capacità massima di 2048 GB. 
 
 ### <a name="temporary-disk"></a>Disco temporaneo
-Ogni VM contiene un disco temporaneo. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) o la [ridistribuzione di una VM](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante un riavvio standard della macchina virtuale, i dati nell'unità temporanea vengono mantenuti.
+Ogni VM contiene un disco temporaneo. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o la [ridistribuzione di una VM](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante un riavvio standard della macchina virtuale, i dati nell'unità temporanea vengono mantenuti.
 
 Per impostazione predefinita il disco temporaneo viene etichettato come unità D: e usato per l'archiviazione di pagefile.sys. Per eseguire un nuovo mapping di questo disco su un'altra lettera di unità, vedere [Modifica della lettera di unità del disco temporaneo di Windows](../virtual-machines/windows/change-drive-letter.md). Le dimensioni del disco temporaneo variano in base alle dimensioni della macchina virtuale. Per maggiori informazioni, vedere [Dimensioni delle macchine virtuali di Windows](../virtual-machines/windows/sizes.md).
 
@@ -44,7 +44,7 @@ Per altre informazioni sull'uso del disco temporaneo in Azure, vedere l'articolo
 
 
 ### <a name="data-disk"></a>Disco dati
-Un disco dati è un disco rigido virtuale collegato a una macchina virtuale per archiviare i dati delle applicazioni o altri dati che è necessario conservare. I dischi dati vengono registrati come unità SCSI ed etichettati con una lettera di propria scelta. Ciascun disco dati ha una capacità massima di 1023 GB. Le dimensioni della macchina virtuale determinano il numero di dischi dati è possibile collegare e il tipo di archiviazione che è possibile utilizzare per ospitare i dischi.
+Un disco dati è un disco rigido virtuale collegato a una macchina virtuale per archiviare i dati delle applicazioni o altri dati che è necessario conservare. I dischi dati vengono registrati come unità SCSI ed etichettati con una lettera di propria scelta. Ogni disco dati ha una capacità massima di 4095 GB. Le dimensioni della macchina virtuale determinano il numero di dischi dati è possibile collegare e il tipo di archiviazione che è possibile utilizzare per ospitare i dischi.
 
 > [!NOTE]
 > Per altre informazioni sulle capacità delle macchine virtuali, vedere [Dimensioni delle macchine virtuali di Windows](../virtual-machines/windows/sizes.md).
@@ -63,6 +63,7 @@ Se si usano dischi standard non gestiti, è consigliabile abilitare TRIM. TRIM i
 
 Per verificare l'impostazione TRIM, è possibile eseguire questo comando. Aprire un prompt dei comandi nella macchina virtuale Windows e digitare:
 
+
 ```
 fsutil behavior query DisableDeleteNotify
 ```
@@ -73,10 +74,13 @@ Se il comando restituisce 0, l'impostazione TRIM è abilitata correttamente. Se 
 fsutil behavior set DisableDeleteNotify 0
 ```
 
+> [!NOTE]
+> Nota: il supporto per Trim è disponibile con Windows Server 2012/Windows 8 e versioni successive. Vedere [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints) (La nuova API consente alle app di inviare hint TRIM e Unmap ai supporti di memorizzazione).
+> 
+
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Passaggi successivi
 * [Collegare un disco](../virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per aggiungere altro spazio di archiviazione per la VM.
-* [Caricare un'immagine di VM Windows in Azure](../virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) da usare durante la creazione di una nuova VM.
 * [Modificare la lettera di unità del disco temporaneo di Windows](../virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) in modo che l'applicazione possa usare l'unità D: per i dati.
 
 

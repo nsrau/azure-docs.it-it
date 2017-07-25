@@ -1,6 +1,6 @@
 ---
-title: Come configurare un&quot;applicazione proxy dell&quot;applicazione | Microsoft Docs
-description: Informazioni su come creare e configurare un&quot;applicazione proxy dell&quot;applicazione in pochi semplici passaggi
+title: Come configurare un'applicazione proxy dell'applicazione | Microsoft Docs
+description: Informazioni su come creare e configurare un'applicazione proxy dell'applicazione in pochi semplici passaggi
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 9abec188a5677942fd9eb9192c4067d2851a1969
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

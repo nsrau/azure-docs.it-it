@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Creare una pipeline per lo spostamento di dati con Azure PowerShell | Documentazione Microsoft'
-description: "In questa esercitazione viene creata una pipeline di Azure Data Factory con un&quot;attività di copia usando Azure PowerShell."
+description: "In questa esercitazione viene creata una pipeline di Azure Data Factory con un'attività di copia usando Azure PowerShell."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 674a35f36af07e00c558948cbce5b4279eb7f9f8
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: ba2f64eb962aa34ca74c09441845f627342590f8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 06/14/2017
 
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Esercitazione: Creare una pipeline di Data Factory per lo spostamento di dati con Azure PowerShell
@@ -73,7 +72,7 @@ Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
 > [!IMPORTANT]
 > Completare i [prerequisiti per l'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) se non è già stato fatto.   
 
-Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. In questo passaggio iniziale viene creata la data factory.
+Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, un'attività di copia per copiare dati da un archivio dati di origine a uno di destinazione e un'attività Hive HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. In questo passaggio iniziale viene creata la data factory.
 
 1. Avviare **PowerShell**. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
 
@@ -509,7 +508,7 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
     State             : InProgress
     SubState          :
     LatencyStatus     :
-    LongRetryCount    : 0    
+    LongRetryCount    : 0   
 
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : ADFTutorialDataFactoryPSH0516

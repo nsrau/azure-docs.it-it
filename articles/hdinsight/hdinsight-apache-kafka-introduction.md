@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 06/15/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f3e1cfb23a28d0d1fc7a60bdc8b282b72984fd03
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introduzione ad Apache Kafka in HDInsight (anteprima)
@@ -39,6 +39,12 @@ Kafka fornisce le funzionalità seguenti:
 * Recapito ordinato: in ogni partizione i record vengono archiviati nel flusso nell'ordine in cui sono stato ricevuti. Associando un processo consumer per partizione, è possibile garantire che i record vengano elaborati in ordine.
 
 * Tolleranza di errore: le partizioni possono essere replicate tra i nodi per assicurare la tolleranza di errore.
+
+* Integrazione con Azure Managed Disks: i dischi gestiti assicurano maggiore scalabilità e velocità effettiva per i dischi usati dalle macchine virtuali nel cluster HDInsight.
+
+    I dischi gestiti sono abilitati per impostazione predefinita per Kafka in HDInsight e il numero di dischi usati per ogni nodo può essere configurato durante la creazione di HDInsight. Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+
+    Per informazioni sulla configurazione di dischi gestiti con Kafka in HDInsight, vedere [Configurare l'archiviazione e la scalabilità per Apache Kafka in HDInsight](hdinsight-apache-kafka-scalability.md).
 
 ## <a name="use-cases"></a>Casi d'uso
 

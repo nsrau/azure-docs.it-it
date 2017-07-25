@@ -1,6 +1,6 @@
 ---
 title: Usare Archiviazione di Azure nelle app di Windows Store | Microsoft Docs
-description: Scoprire come creare un&quot;applicazione di Windows Store che usa l&quot;archiviazione BLOB, code, tabelle o file di Azure.
+description: Scoprire come creare un'applicazione di Windows Store che usa l'archiviazione BLOB, code, tabelle o file di Azure.
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 5b86154414c7745430af11d59355a937fc525d54
-ms.openlocfilehash: 3284f94b28d814b3442d8088f69a301ef4dabc79
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 43d38584270fbbbe6fa4e4ff8cef72ca44e14acc
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-azure-storage-in-windows-store-apps"></a>Come usare l'archiviazione di Azure nelle app di Windows Store
@@ -25,7 +26,7 @@ ms.openlocfilehash: 3284f94b28d814b3442d8088f69a301ef4dabc79
 In questa guida viene illustrato come iniziare a sviluppare un'applicazione Windows Store che utilizzi l'archiviazione di Azure.
 
 ## <a name="download-required-tools"></a>Download degli strumenti richiesti
-* [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) semplifica le operazioni di compilazione, debug, localizzazione, creazione di pacchetti e distribuzione delle app di Windows Store. È richiesto Visual Studio 2012 o versione successiva.
+* [Visual Studio](https://www.visualstudio.com/downloads/) semplifica le operazioni di compilazione, debug, localizzazione, creazione di pacchetti e distribuzione delle app di Windows Store. È richiesto Visual Studio 2012 o versione successiva.
 * La [libreria client di archiviazione di Azure](https://www.nuget.org/packages/WindowsAzure.Storage) fornisce una libreria di classi per Windows Runtime per l'uso di Archiviazione di Azure.
 * [strumenti di WCF Data Services per app di Windows Store](http://www.microsoft.com/download/details.aspx?id=30714) ampliano l'esperienza della finestra di dialogo Aggiungi riferimento al servizio con il supporto OData lato client per le app di Windows Store in Visual Studio.
 
@@ -89,9 +90,4 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

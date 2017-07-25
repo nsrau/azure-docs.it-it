@@ -1,6 +1,6 @@
 ---
 title: Creare la prima data factory (REST) | Documentazione Microsoft
-description: In questa esercitazione viene creata una pipeline di esempio di Azure Data Factory usando l&quot;API REST di Data Factory.
+description: In questa esercitazione viene creata una pipeline di esempio di Azure Data Factory usando l'API REST di Data Factory.
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: a8a4c9592ec78f1c56c9bf60c10d9190c13b0e7d
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 168704acc3ef1fadad2ab17abbc3cc0ddd2f389c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 06/14/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Esercitazione: Creare la prima data factory di Azure usando l'API REST di Data Factory
@@ -41,7 +40,7 @@ La pipeline in questa esercitazione include un'attività, l'**attività Hive di 
 > [!NOTE]
 > Questo articolo non illustra tutte le API REST. Per una documentazione completa sull'API REST, vedere [Data Factory REST API Reference](/rest/api/datafactory/) (Informazioni di riferimento sull'API REST di Data Factory).
 > 
-> Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [pianificazione ed esecuzione in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+> Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Pianificazione ed esecuzione in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -289,7 +288,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 
 ## <a name="create-data-factory"></a>Creare un'istanza di Data Factory
-In questo passaggio viene creata un'istanza di Azure Data Factory denominata **FirstDataFactoryREST**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati. Eseguire i comandi seguenti per creare la data factory:
+In questo passaggio viene creata un'istanza di Azure Data Factory denominata **FirstDataFactoryREST**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, un'attività di copia per copiare dati da un archivio dati di origine a uno di destinazione e un'attività Hive HDInsight per eseguire uno script Hive e trasformare i dati. Eseguire i comandi seguenti per creare la data factory:
 
 1. Assegnare il comando alla variabile denominata **cmd**.
 
@@ -334,7 +333,7 @@ Tenere presente quanto segue:
 Prima di creare una pipeline è necessario creare alcune entità di Data factory. Creare prima di tutto i servizi collegati per collegare archivi dati/servizi di calcolo all'archivio dati, definire i set di dati di input e di output per rappresentare i dati negli archivi dati collegati.
 
 ## <a name="create-linked-services"></a>Creazione di servizi collegati
-In questo passaggio l'account di archiviazione di Azure e un cluster HDInsight su richiesta di Azure vengono collegati alla data factory. In questo esempio l'account di archiviazione di Azure contiene i dati di input e di output per la pipeline. In questo esempio il servizio collegato HDInsight viene usato per eseguire lo script Hive specificato nell'attività della pipeline.
+In questo passaggio l'account di archiviazione di Azure e un cluster HDInsight su richiesta di Azure vengono collegati alla data factory. In questo esempio l'account di archiviazione di Azure contiene i dati di input e di output per la pipeline. Il servizio HDInsight collegato viene usato per eseguire uno script Hive specificato nell'attività della pipeline in questo esempio.
 
 ### <a name="create-azure-storage-linked-service"></a>Creare il servizio collegato Archiviazione di Azure
 In questo passaggio l'account di archiviazione di Azure viene collegato alla data factory. In questa esercitazione viene usato lo stesso account di archiviazione di Azure per archiviare i dati di input/output e il file di script HQL.

@@ -1,6 +1,6 @@
 ---
-title: Avvio rapido in Azure - Creare l&quot;interfaccia della riga di comando per una VM | Microsoft Docs
-description: Informazioni veloci su come creare macchine virtuali con l&quot;interfaccia della riga di comando di Azure.
+title: Avvio rapido in Azure - Creare l'interfaccia della riga di comando per una VM | Microsoft Docs
+description: Informazioni veloci su come creare macchine virtuali con l'interfaccia della riga di comando di Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 06/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 935cc417e7fa60e725c26560adf97ed00cf4bf06
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a7cba5b2c43704d92e36d6f808efaa9fc73fdf36
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -30,17 +30,9 @@ L'interfaccia della riga di comando di Azure viene usata per creare e gestire le
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure 
-
-Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login) e seguire le istruzioni visualizzate oppure fare clic su **Prova** per usare Cloud Shell.
-
-```azurecli-interactive 
-az login
-```
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

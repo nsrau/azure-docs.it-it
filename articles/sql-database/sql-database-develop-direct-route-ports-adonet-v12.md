@@ -8,22 +8,27 @@ manager: jhubbard
 editor: 
 ms.assetid: 3f17106a-92fd-4aa4-b6a9-1daa29421f64
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: e47d8f71fbfe95027e1fbfebb0b7e91ffe653c62
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: d47ee8c794d1e231507dae6bb4aa88bf19ce6418
+ms.contentlocale: it-it
+ms.lasthandoff: 06/08/2017
 
 
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
-In questo argomento viene descritto il comportamento di connessione del database SQL di Azure per i client che utilizzano ADO.NET 4.5 o versione successiva.
+In questo argomento viene descritto il comportamento di connessione del database SQL di Azure per i client che utilizzano ADO.NET 4.5 o versione successiva. 
+
+> [!IMPORTANT]
+> Per informazioni sull'architettura di connettività, vedere [Architettura della connettività del database SQL di Azure](sql-database-connectivity-architecture.md).
+>
 
 ## <a name="outside-vs-inside"></a>Esterno rispetto all'interno
 Per le connessioni al database SQL di Azure, è necessario prima chiedere se il programma client viene eseguito *all'esterno* o *all'interno* del limite del cloud di Azure. Nelle sottosezioni vengono illustrati due scenari comuni.

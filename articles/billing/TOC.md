@@ -9,6 +9,8 @@
 ## Monitorare l'utilizzo e i costi
 ### [Ottenere la fattura e i dati di utilizzo](billing-download-azure-invoice-daily-usage-date.md)
 ### [Informazioni sulla fattura](billing-understand-your-bill.md)
+### [Informazioni sulle condizioni della fattura](billing-understand-your-invoice.md)
+### [Informazioni sulle condizioni dell'utilizzo](billing-understand-your-usage.md)
 ### [Informazioni sugli addebiti per i servizi esterni](billing-understand-your-azure-marketplace-charges.md)
 ### [Comprendere il limite di spesa](billing-spending-limit.md)
 ### [Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure](billing-set-up-alerts.md)
@@ -40,4 +42,5 @@
 ## [Soluzione di un partner: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Contattare il supporto tecnico](../azure-supportability/how-to-create-azure-support-request.md)

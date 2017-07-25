@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
+ms.contentlocale: it-it
 ms.lasthandoff: 01/13/2017
 
 
@@ -115,7 +116,7 @@ Esempio:
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-### <a name="a-idfmp4v20asmooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Manifesto Smooth Streaming 2.0 (manifesto legacy)
+### <a id="fmp4_v20"></a>Manifesto Smooth Streaming 2.0 (manifesto legacy)
 Per impostazione predefinita, il manifesto Smooth Streaming contiene il tag di ripetizione (r-tag). Alcuni lettori, tuttavia, non supportano gli r-tag. I client con questi lettori possono usare un formato che disabilita gli r-tag:
 
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=fmp4-v20)

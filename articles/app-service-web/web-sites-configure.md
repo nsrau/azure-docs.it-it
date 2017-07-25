@@ -1,6 +1,6 @@
 ---
 title: Configurazione delle app Web in Servizio app di Azure
-description: Come configurare un&quot;app Web nel servizio app di Azure
+description: Come configurare un'app Web nel servizio app di Azure
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: c78b69188136d6df7887e92600984c4fa269d355
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -52,7 +52,7 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 **Web Socket**. Impostare **ATTIVATO** per abilitare il protocollo WebSocket, ad esempio se l'app Web usa [ASP.NET SignalR] o [socket.io].
 
 <a name="alwayson"></a>
-**Always On**. Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. In modalità Basic o Standard è possibile abilitare **Always On** affinché l'app rimanga sempre caricata. Se nell'app vengono eseguiti processi Web continui, è necessario abilitare **Always On**, altrimenti l'esecuzione dei processi Web potrebbe non avvenire in modo affidabile.
+**Always On**. Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. In modalità Basic o Standard è possibile abilitare **Always On** affinché l'app rimanga sempre caricata. Se nell'app vengono eseguiti processi Web continui o processi Web attivati mediante un'espressione CRON è necessario abilitare **Always On**, altrimenti l'esecuzione dei processi Web potrebbe non avvenire in modo affidabile.
 
 **Versione pipeline gestita**. Consente di impostare la [modalità pipeline]IIS. Lasciare questa opzione impostata su Integrato (predefinita), tranne nel caso in cui un'app meno recente richieda una versione precedente di IIS.
 

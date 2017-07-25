@@ -1,22 +1,20 @@
 ---
 title: Progettare il primo Database di Azure per il database MySQL - Interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: In questa esercitazione viene illustrato come creare e gestire il database di Azure per il server e il database MySQL tramite l&quot;interfaccia della riga di comando di Azure 2.0.
+description: In questa esercitazione viene illustrato come creare e gestire il database di Azure per il server e il database MySQL tramite l'interfaccia della riga di comando di Azure 2.0 dalla riga di comando.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
 ms.service: mysql-database
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: article
-ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 06/13/2017
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 99238b9c0bcc7fa80e8c72cda25f7ed809cc5195
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 590cba6cb58d0c0eaedb9f122ac048c33988004d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -26,38 +24,39 @@ Il database di Azure per MySQL è un servizio di database relazionale in Microso
 
 > [!div class="checklist"]
 > * Creare un database di Azure per MySQL
-> * Configurare il firewall del server Usare lo [strumento della riga di comando mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) per creare un database
+> * Configurare il firewall del server
+> * Usare lo [strumento della riga di comando mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) per creare un database
 > * Caricare dati di esempio
 > * Eseguire query sui dati
 > * Aggiornare i dati
 > * Ripristinare i dati
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
+È possibile usare Azure Cloud Shell nel browser o [installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli) nel computer in uso per eseguire i blocchi di codice di questa esercitazione.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login) e seguire le istruzioni visualizzate.
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
-```azurecli
-az login
+Se si dispone di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui la risorsa esiste o per cui è configurata. Selezionare un ID di sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account#set).
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
-Seguire le istruzioni del prompt dei comandi per aprire l'URL https://aka.ms/devicelog nel browser e quindi immettere il codice generato nel **prompt dei comandi**.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Creare un [gruppo di risorse di Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) con il comando [az group create](https://docs.microsoft.com/cli/azure/group#create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
 
 Nell'esempio seguente viene creato un gruppo di risorse denominato `mycliresource` nella posizione `westus`.
 
-```azurecli
+```azurecli-interactive
 az group create --name mycliresource --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Creare un database di Azure per il server MySQL
 Creare un database di Azure per il server MySQL con il comando mysql server create. Un server può gestire più database. In genere, viene usato un database separato per ogni progetto o per ogni utente.
 
-Nell'esempio seguente viene creato un database di Azure per il server MySQL in `westus` nel gruppo di risorse `mycliresource` con nome `mycliserver`. Il server dispone di un accesso di amministratore denominato `myadmin` e di una password `Password01!`. Il server viene creato con un livello di prestazioni **Basic** e **50** unità di calcolo condivise tra tutti i database nel server. È possibile aumentare o ridurre le capacità di calcolo e archiviazione a seconda delle esigenze dell'applicazione.
+L'esempio seguente crea un database di Azure per il server MySQL disponibile in `westus` nel gruppo di risorse `mycliresource` con nome `mycliserver`. Il server ha un account di accesso amministratore chiamato `myadmin` e la password `Password01!`. Il server viene creato con livello di prestazioni **Basic** e **50** unità di calcolo condivise tra tutti i database nel server. È possibile aumentare o ridurre le capacità di calcolo e archiviazione a seconda delle esigenze dell'applicazione.
 
-```azurecli
+```azurecli-interactive
 az mysql server create --resource-group mycliresource --name mycliserver
 --location westus --user myadmin --password Password01!
 --performance-tier Basic --compute-units 50
@@ -68,16 +67,14 @@ Creare una regola del firewall a livello di server del Database SQL di Azure con
 
 Nell'esempio seguente viene creata una regola del firewall per un intervallo di indirizzi predefinito. In questo esempio viene illustrato l'intero intervallo possibile di indirizzi IP.
 
-```azurecli
-az mysql server firewall-rule create --resource-group mycliresource
---server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0
---end-ip-address 255.255.255.255
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 ## <a name="get-the-connection-information"></a>Ottenere le informazioni di connessione
 
-Per connettersi al server, è necessario fornire le informazioni sull'host e le credenziali di accesso.
-```azurecli
+Per connettersi al server, è necessario specificare le informazioni sull'host e le credenziali di accesso.
+```azurecli-interactive
 az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
@@ -169,9 +166,8 @@ Per il ripristino sono necessarie le informazioni seguenti:
 - Server di destinazione: fornire un nuovo nome del server che si desidera ripristinare.
 - Server di origine: fornire il nome del server che si desidera ripristinare
 - Posizione: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
-- Piano tariffario: non è possibile modificare questo valore quando si ripristina un server. È uguale al server di origine. 
 
-```azurecli
+```azurecli-interactive
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
 ```
 
@@ -181,11 +177,13 @@ Per ripristinare il server e [ ripristinare in un punto nel tempo ](./howto-rest
 Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Creare un database di Azure per MySQL
-> * Configurare il firewall del server Usare lo [strumento della riga di comando mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) per creare un database
+> * Configurare il firewall del server
+> * Usare lo [strumento della riga di comando mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) per creare un database
 > * Caricare dati di esempio
 > * Eseguire query sui dati
 > * Aggiornare i dati
 > * Ripristinare i dati
 
-[Database di Azure per MySQL - Esempi di interfaccia della riga di comando di Azure](./sample-scripts-azure-cli.md)
+> [!div class="nextstepaction"]
+> [Database di Azure per MySQL - Esempi di interfaccia della riga di comando di Azure](./sample-scripts-azure-cli.md)
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8446790af6af160c4b2d463191405faaed68bf0e
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -56,9 +56,9 @@ Per altre informazioni sui gateway dati per altri servizi Microsoft, vedere gli 
 
 * È necessario già disporre del [gateway dati locale installato in un computer locale](logic-apps-gateway-install.md).
 
-* È necessario disporre dell'account Azure che abbia un indirizzo di posta elettronica aziendale o dell'istituto di istruzione usato per [installare il gateway dati locale](logic-apps-gateway-install.md#requirements).
+* Quando si accede al portale di Azure, è necessario usare lo stesso account aziendale o dell'istituto di istruzione usato per [installare il gateway dati locale](logic-apps-gateway-install.md#requirements). L'account di accesso deve avere anche una sottoscrizione di Azure da usare quando si crea una risorsa di gateway nel portale di Azure per l'installazione del gateway.
 
-* L'installazione del gateway non può essere già richiesta da un'altra risorsa del gateway di Azure. È possibile associare l'installazione del gateway solo a una risorsa del gateway. L'attestazione avviene quando si crea la risorsa per il gateway in modo che l'installazione non sia disponibile per le altre risorse.
+* L'installazione del gateway non può essere già richiesta da una risorsa del gateway di Azure. È possibile associare l'installazione del gateway a una sola risorsa del gateway di Azure. L'attestazione avviene quando si crea la risorsa per il gateway in modo che l'installazione non sia disponibile per le altre risorse.
 
 ## <a name="set-up-the-data-gateway-connection"></a>Configurare la connessione al gateway dati
 

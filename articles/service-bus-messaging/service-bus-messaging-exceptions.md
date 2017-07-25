@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/06/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3b543b1c94122a037cdd3b16e25d60957add1cb7
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -120,7 +121,8 @@ Per questo errore, esistono due cause comuni: una configurazione errata o un err
    : a volte il servizio del bus di servizio può subire ritardi nell'elaborazione delle richieste, ad esempio durante periodi di traffico elevato. In questi casi, è possibile ritentare l'operazione dopo un ritardo fino a quando l'operazione ha esito positivo. Se la stessa operazione ha ancora esito negativo dopo diversi tentativi, visitare il [sito sullo stato dei servizi Azure](https://azure.microsoft.com/status/) per verificare se esistono casi noti di interruzioni del servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni complete sull'API del bus di servizio e di Hub eventi per .NET, vedere [Azure .NET API reference](/dotnet/api/) (Informazioni di riferimento sulle API di Azure per .NET).
+
+Per informazioni complete sull'API .NET del bus di servizio, vedere [Azure .NET API reference](/dotnet/api/overview/azure/servicebus) (Informazioni di riferimento sulle API di Azure per .NET).
 
 Per altre informazioni sul [bus di servizio](https://azure.microsoft.com/services/service-bus/), vedere gli argomenti seguenti.
 

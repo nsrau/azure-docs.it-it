@@ -1,6 +1,6 @@
 ---
-title: "Trasformare dati usando l&quot;attività di streaming di Hadoop - Azure | Documentazione Microsoft"
-description: "Informazioni su come usare l&quot;attività di Hadoop Streaming in una Data factory di Azure per trasformare i dati eseguendo i programmi di Hadoop Streaming in un cluster HDInsight personalizzato o su richiesta."
+title: "Trasformare dati usando l'attività di streaming di Hadoop - Azure | Documentazione Microsoft"
+description: "Informazioni su come usare l'attività di Hadoop Streaming in una Data factory di Azure per trasformare i dati eseguendo i programmi di Hadoop Streaming in un cluster HDInsight personalizzato o su richiesta."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2748838279462a493983c397454cbcf13b2a82e6
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 1946fba8dd94d0b2815550e3825b092c1c6289ec
+ms.contentlocale: it-it
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -37,6 +38,9 @@ ms.lasthandoff: 03/14/2017
 È possibile usare l'attività HDInsightStreamingActivity per richiamare un processo di Hadoop Streaming da una pipeline di Data factory di Azure. Il frammento JSON seguente illustra la sintassi per l'uso di HDInsightStreamingActivity in un file JSON della pipeline. 
 
 L'attività HDInsight Streaming Activity in una [pipeline](data-factory-create-pipelines.md) di Data Factory esegue i programmi di Hadoop Streaming nei cluster HDInsight [personalizzati](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basati su Windows/Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
+
+> [!NOTE] 
+> Se non si ha familiarità con Azure Data Factory, leggere l'[Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione: [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md) prima di leggere questo articolo. 
 
 ## <a name="json-sample"></a>Esempio JSON
 Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc.exe e cat.exe) e con i dati (davinci.txt). Per impostazione predefinita, il nome del contenitore che viene utilizzato dal cluster HDInsight è il nome del cluster stesso. Ad esempio, se il nome del cluster è myhdicluster, il nome del contenitore BLOB associato sarebbe myhdicluster. 
@@ -58,7 +62,7 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
                         "<nameofthecluster>/example/apps/wc.exe",
                         "<nameofthecluster>/example/apps/cat.exe"
                     ],
-                    "fileLinkedService": "StorageLinkedService",
+                    "fileLinkedService": "AzureStorageLinkedService",
                     "getDebugInfo": "Failure"
                 },
                 "outputs": [
@@ -98,7 +102,7 @@ Tenere presente quanto segue:
 7. Nella sezione **filePaths** specificare i percorsi dei file eseguibili del mapper e del reducer. Nell'esempio: "adfsample/example/apps/wc.exe", adfsample è il contenitore BLOB, example/apps è la cartella e wc.exe è l'eseguibile.
 8. Per la proprietà **fileLinkedService** specificare il servizio collegato Archiviazione di Azure che rappresenta l'archivio di Azure contenente i file specificati nella sezione filePaths.
 9. Per la proprietà **arguments** specificare gli argomenti per il processo di streaming.
-10. La proprietà **getDebugInfo** è un elemento facoltativo. Quando viene impostata su Failure, i log vengono scaricati solo in caso di errore. Quando viene impostata su All, i log vengono sempre scaricati indipendentemente dallo stato dell'esecuzione.
+10. La proprietà **getDebugInfo** è un elemento facoltativo. Quando viene impostata su Failure, i log vengono scaricati solo in caso di errore. Quando viene impostata su Always, i log vengono sempre scaricati indipendentemente dallo stato dell'esecuzione.
 
 > [!NOTE]
 > Come illustrato nell'esempio, è necessario specificare un set di dati di output per l'attività di Hadoop Streaming per la proprietà **output** . Questo è solo un set di dati fittizio necessario per la pianificazione della pipeline. Non è necessario specificare alcun set di dati di input per l'attività per la proprietà **input** .  

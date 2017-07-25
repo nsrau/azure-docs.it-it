@@ -1,6 +1,6 @@
 ---
 title: Proteggere la distribuzione di Azure IoT | Documentazione Microsoft
-description: Come proteggere la distribuzione di IoT. Include istruzioni per proteggere il provisioning dei dispositivi, le connessioni e l&quot;accesso al servizio dell&quot;hub IoT.
+description: Come proteggere la distribuzione di IoT. Include istruzioni per proteggere il provisioning dei dispositivi, le connessioni e l'accesso al servizio dell'hub IoT.
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 07/03/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481

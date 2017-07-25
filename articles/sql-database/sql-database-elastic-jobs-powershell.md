@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e0a0a711ffb0b474606863187acaab4474c3459
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 9b212bcfcb604319ff9bc39fd284a5eb98c0d2c3
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,7 +29,7 @@ Le API di PowerShell per i **processi di database elastici** , in anteprima, con
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Un set di database creato con gli strumenti di database elastici. Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+* Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 * **processi di database elastici** di PowerShell, vedere [Installing processi di database elastici](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selezionare la sottoscrizione ad Azure
@@ -217,7 +217,7 @@ Le procedure consigliate per i processi di database elastici includono:
 * Le credenziali devono disporre dei privilegi minimi necessari per eseguire l'attività di processo.  Per altre informazioni, vedere l'articolo [Autorizzazioni in SQL Server](https://msdn.microsoft.com/library/bb669084.aspx) di MSDN.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Per creare credenziali crittografate per l'esecuzione di processi nei database
-Per creare nuove credenziali crittografate, il [**cmdlet Get-Credential**](https://technet.microsoft.com/library/hh849815.aspx) richiede un nome utente e una password che possono essere passati al [**cmdlet New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential?view=azureelasticdbjobsps-0.8.33).
+Per creare nuove credenziali crittografate, il [**cmdlet Get-Credential**](https://technet.microsoft.com/library/hh849815.aspx) richiede un nome utente e una password che possono essere passati al [**cmdlet New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential
@@ -225,7 +225,7 @@ Per creare nuove credenziali crittografate, il [**cmdlet Get-Credential**](https
     Write-Output $credential
 
 ### <a name="to-update-credentials"></a>Per aggiornare le credenziali
-Quando la password cambia, usare il [**cmdlet Set-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential?view=azureelasticdbjobsps-0.8.33) e impostare il parametro **CredentialName**.
+Quando la password cambia, usare il [**cmdlet Set-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential) e impostare il parametro **CredentialName**.
 
     $credentialName = "{Credential Name}"
     Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
@@ -246,7 +246,7 @@ Il database di gestione delle mappe partizioni deve essere impostato come destin
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Creare uno Script T-SQL per l'esecuzione tra database
 Quando si creano script T-SQL per l'esecuzione, è consigliabile compilarli in modo che siano [idempotenti](https://en.wikipedia.org/wiki/Idempotence) e resilienti in caso di errori. I processi di database elastici ritenterà l'esecuzione di uno script ogni volta che l'esecuzione rileva un errore, indipendentemente dalla classificazione dell'errore.
 
-Usare il [**cmdlet New-AzureSqlJobContent**](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent?view=azureelasticdbjobsps-0.8.33) per creare e salvare uno script per l'esecuzione e impostare i parametri **-ContentName** e **-CommandText**.
+Usare il [**cmdlet New-AzureSqlJobContent**](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent) per creare e salvare uno script per l'esecuzione e impostare i parametri **-ContentName** e **-CommandText**.
 
     $scriptName = "Create a TestTable"
 
@@ -329,7 +329,7 @@ Aggiornare la variabile seguente per riflettere il nome del processo desiderato 
     Write-Output $jobExecution
 
 ## <a name="to-retrieve-the-state-of-a-single-job-execution"></a>Per recuperare lo stato di esecuzione di un singolo processo
-Usare il [**cmdlet Get-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/new-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33) e impostare il parametro **JobExecutionId** per visualizzare lo stato di esecuzione del processo.
+Usare il [**cmdlet Get-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/get-azuresqljobexecution) e impostare il parametro **JobExecutionId** per visualizzare lo stato di esecuzione del processo.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecution = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId
@@ -342,7 +342,7 @@ Usare lo stesso cmdlet **Get-AzureSqlJobExecution** con il parametro **IncludeCh
     Write-Output $jobExecutions 
 
 ## <a name="to-view-the-state-across-multiple-job-executions"></a>Per visualizzare lo stato di più esecuzioni del processo
-Il [**cmdlet Get-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/new-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33) ha più parametri facoltativi che possono essere usati per visualizzare più esecuzioni di processo, filtrate tramite i parametri forniti. Di seguito vengono illustrati alcuni dei possibili modi per utilizzare Get-AzureSqlJobExecution:
+Il [**cmdlet Get-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/new-azuresqljob) ha più parametri facoltativi che possono essere usati per visualizzare più esecuzioni di processo, filtrate tramite i parametri forniti. Di seguito vengono illustrati alcuni dei possibili modi per utilizzare Get-AzureSqlJobExecution:
 
 Recuperare tutte le esecuzioni attive di processo di primo livello:
 
@@ -465,7 +465,7 @@ E’ possibile cancellare un processo in due modi diversi tramite i processi di 
 
 Se viene richiesto un annullamento del processo per un processo padre, tale richiesta verrà rispettata per il processo padre e per tutti i relativi processi figlio.
 
-Per inviare una richiesta di annullamento, usare il [**cmdlet Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33) e impostare il parametro **JobExecutionId**.
+Per inviare una richiesta di annullamento, usare il [**cmdlet Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) e impostare il parametro **JobExecutionId**.
 
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
@@ -473,9 +473,9 @@ Per inviare una richiesta di annullamento, usare il [**cmdlet Stop-AzureSqlJobEx
 ## <a name="to-delete-a-job-and-job-history-asynchronously"></a>Per eliminare un processo e la relativa cronologia in modo asincrono
 I processi di database elastici supportano l'eliminazione asincrona dei processi. Un processo può essere contrassegnato per l'eliminazione e il sistema lo eliminerà con tutta la relativa cronologia dopo il completamento di tutte le esecuzioni di processo per tale processo. Il sistema non annullerà automaticamente le esecuzioni di processo attive.  
 
-Richiamare [**Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33) per annullare le esecuzioni di processo attive.
+Richiamare [**Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) per annullare le esecuzioni di processo attive.
 
-Per attivare l'eliminazione di processi, usare il [**cmdlet Remove-AzureSqlJob**](/powershell/module/elasticdatabasejobs/remove-azuresqljob?view=azureelasticdbjobsps-0.8.33) e impostare il parametro **JobName**.
+Per attivare l'eliminazione di processi, usare il [**cmdlet Remove-AzureSqlJob**](/powershell/module/elasticdatabasejobs/remove-azuresqljob) e impostare il parametro **JobName**.
 
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
@@ -490,7 +490,7 @@ Impostare le seguenti variabili in modo da riflettere le informazioni desiderate
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
 ## <a name="to-create-a-custom-database-collection-target"></a>Per creare una destinazione per la raccolta di database personalizzata
-Usare il cmdlet [**New-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget?view=azureelasticdbjobsps-0.8.33) per definire una destinazione per la raccolta di database personalizzata per abilitare l'esecuzione in più destinazioni di database definite. Dopo aver creato un gruppo di database, è possibile associarli alla destinazione della raccolta personalizzata.
+Usare il cmdlet [**New-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) per definire una destinazione per la raccolta di database personalizzata per abilitare l'esecuzione in più destinazioni di database definite. Dopo aver creato un gruppo di database, è possibile associarli alla destinazione della raccolta personalizzata.
 
 Impostare le seguenti variabili in modo da riflettere la configurazione della destinazione della raccolta personalizzata desiderata:
 
@@ -498,7 +498,7 @@ Impostare le seguenti variabili in modo da riflettere la configurazione della de
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 
 ### <a name="to-add-databases-to-a-custom-database-collection-target"></a>Per aggiungere database a una destinazione della raccolta di database personalizzata
-Per aggiungere un database a una raccolta personalizzata specifica, usare il cmdlet [**Add-AzureSqlJobChildTarget**](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget?view=azureelasticdbjobsps-0.8.33).
+Per aggiungere un database a una raccolta personalizzata specifica, usare il cmdlet [**Add-AzureSqlJobChildTarget**](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget).
 
     $databaseServerName = "{Database Server Name}"
     $databaseName = "{Database Name}"
@@ -506,7 +506,7 @@ Per aggiungere un database a una raccolta personalizzata specifica, usare il cmd
     Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
 
 #### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Verificare i database in una destinazione per la raccolta dei database personalizzata
-Usare il cmdlet [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget?view=azureelasticdbjobsps-0.8.33) per recuperare i database figlio all'interno di una destinazione di una raccolta database personalizzata. 
+Usare il cmdlet [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) per recuperare i database figlio all'interno di una destinazione di una raccolta database personalizzata. 
 
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
@@ -514,7 +514,7 @@ Usare il cmdlet [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejo
     Write-Output $childTargets
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Creare un processo per eseguire uno script in una destinazione di una raccolta database personalizzata
-Usare il cmdlet [**New AzureSqlJob**](/powershell/module/elasticdatabasejobs/new-azuresqljob?view=azureelasticdbjobsps-0.8.33) per creare un processo rispetto a un gruppo di database definiti da una destinazione della raccolta di database personalizzata. I processi di database elastici espanderanno il processo in più processi figlio, ognuno corrispondente a un database associato alla destinazione di raccolta database personalizzata e eseguiranno lo script in tutti i database. Anche in questo caso, è importante che gli script siano idempotenti per essere flessibili ai tentativi.
+Usare il cmdlet [**New AzureSqlJob**](/powershell/module/elasticdatabasejobs/new-azuresqljob) per creare un processo rispetto a un gruppo di database definiti da una destinazione della raccolta di database personalizzata. I processi di database elastici espanderanno il processo in più processi figlio, ognuno corrispondente a un database associato alla destinazione di raccolta database personalizzata e eseguiranno lo script in tutti i database. Anche in questo caso, è importante che gli script siano idempotenti per essere flessibili ai tentativi.
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -531,7 +531,7 @@ La tabella di destinazione specificata verrà creata automaticamente, se non esi
 
 Lo script di PowerShell seguente esegue uno script e raccoglie i risultati in una tabella specificata. Questo script presuppone che sia stato creato uno script T-SQL che restituisce un singolo set di risultati e che sia stata creata una destinazione della raccolta di database personalizzata.
 
-Questo script usa il cmdlet [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget?view=azureelasticdbjobsps-0.8.33). Impostare i parametri per lo script, le credenziali e la destinazione di esecuzione:
+Questo script usa il cmdlet [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget). Impostare i parametri per lo script, le credenziali e la destinazione di esecuzione:
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -545,7 +545,7 @@ Questo script usa il cmdlet [**Get-AzureSqlJobTarget**](/powershell/module/elast
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
 ### <a name="to-create-and-start-a-job-for-data-collection-scenarios"></a>Per creare e avviare un processo per gli scenari di raccolta dati
-Questo script usa il cmdlet [**Start-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33).
+Questo script usa il cmdlet [**Start-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution).
 
     $job = New-AzureSqlJob -JobName $jobName 
     -CredentialName $executionCredentialName 
@@ -561,7 +561,7 @@ Questo script usa il cmdlet [**Start-AzureSqlJobExecution**](/powershell/module/
     Write-Output $jobExecution
 
 ## <a name="to-schedule-a-job-execution-trigger"></a>Per pianificare un trigger di esecuzione del processo
-Lo script di PowerShell seguente può essere usato per creare una pianificazione ricorrente. Questo script usa l'intervallo di minuti, ma [**New-AzureSqlJobSchedule**](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule?view=azureelasticdbjobsps-0.8.33) supporta anche i parametri -DayInterval, -HourInterval, -MonthInterval e -WeekInterval. Le pianificazioni che vengono eseguite una sola volta possono essere create specificando -OneTime.
+Lo script di PowerShell seguente può essere usato per creare una pianificazione ricorrente. Questo script usa l'intervallo di minuti, ma [**New-AzureSqlJobSchedule**](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule) supporta anche i parametri -DayInterval, -HourInterval, -MonthInterval e -WeekInterval. Le pianificazioni che vengono eseguite una sola volta possono essere create specificando -OneTime.
 
 Creare una nuova pianificazione:
 
@@ -577,7 +577,7 @@ Creare una nuova pianificazione:
 ### <a name="to-trigger-a-job-executed-on-a-time-schedule"></a>Per attivare l'esecuzione di un processo in una pianificazione temporale
 È possibile definire un trigger di processo per eseguire un processo in base a una pianificazione temporale. Il seguente script di PowerShell può essere utilizzato per creare un trigger di processo.
 
-Usare [New-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger?view=azureelasticdbjobsps-0.8.33) e impostare le variabili seguenti in modo che corrispondano al processo e alla pianificazione desiderati:
+Usare [New-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger) e impostare le variabili seguenti in modo che corrispondano al processo e alla pianificazione desiderati:
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -587,7 +587,7 @@ Usare [New-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azures
     Write-Output $jobTrigger
 
 ### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Per rimuovere un'associazione pianificata per arrestare l'esecuzione di un processo in base a una pianificazione
-Per sospendere l'esecuzione del processo ricorrente tramite un trigger di processo, è possibile rimuovere il trigger di processo. Rimuovere un trigger di processo per arrestare l'esecuzione di un processo in base a una pianificazione mediante il [**cmdlet Remove-AzureSqlJobTrigger**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger?view=azureelasticdbjobsps-0.8.33).
+Per sospendere l'esecuzione del processo ricorrente tramite un trigger di processo, è possibile rimuovere il trigger di processo. Rimuovere un trigger di processo per arrestare l'esecuzione di un processo in base a una pianificazione mediante il [**cmdlet Remove-AzureSqlJobTrigger**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger).
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -603,14 +603,14 @@ Il seguente script PowerShell è utilizzabile per ottenere e visualizzare i trig
     Write-Output $jobTriggers
 
 ### <a name="to-retrieve-job-triggers-bound-to-a-job"></a>Per recuperare i trigger di processo associati a un processo
-Usare [Get AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger?view=azureelasticdbjobsps-0.8.33) per ottenere e visualizzare le pianificazioni che contengono un processo registrato.
+Usare [Get AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger) per ottenere e visualizzare le pianificazioni che contengono un processo registrato.
 
     $jobName = "{Job Name}"
     $jobTriggers = Get-AzureSqlJobTrigger -JobName $jobName
     Write-Output $jobTriggers
 
 ## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>Per creare un'applicazione livello dati (DACPAC) per l'esecuzione sui database
-Per creare un'applicazione DACPAC, vedere [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx). Per distribuire un'applicazione DACPAC, usare il [cmdlet New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent?view=azureelasticdbjobsps-0.8.33). L'applicazione DACPAC deve essere accessibile al servizio. È consigliabile caricare nell'archiviazione di Azure un'applicazione DACPAC creata e creare una [Firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) per DACPAC.
+Per creare un'applicazione DACPAC, vedere [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx). Per distribuire un'applicazione DACPAC, usare il [cmdlet New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). L'applicazione DACPAC deve essere accessibile al servizio. È consigliabile caricare nell'archiviazione di Azure un'applicazione DACPAC creata e creare una [Firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) per DACPAC.
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"
@@ -618,7 +618,7 @@ Per creare un'applicazione DACPAC, vedere [Applicazioni livello dati](https://ms
     Write-Output $dacpac
 
 ### <a name="to-update-a-data-tier-application-dacpac-for-execution-across-databases"></a>Per aggiornare un'applicazione livello dati (DACPAC) per l'esecuzione nei database
-I DACPAC esistenti registrati all’interno dei processi di database elastici possono essere aggiornati in modo da fare riferimento ai nuovo URI. Usare il [**cmdlet Set-AzureSqlJobContentDefinition**](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition?view=azureelasticdbjobsps-0.8.33) per aggiornare l'URI DACPAC in una DACPAC registrata esistente:
+I DACPAC esistenti registrati all’interno dei processi di database elastici possono essere aggiornati in modo da fare riferimento ai nuovo URI. Usare il [**cmdlet Set-AzureSqlJobContentDefinition**](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition) per aggiornare l'URI DACPAC in una DACPAC registrata esistente:
 
     $dacpacName = "{Dacpac Name}"
     $newDacpacUri = "{Uri}"

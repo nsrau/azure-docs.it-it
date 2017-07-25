@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: ba601ffa74582cf2f3cee660095884566f73eba9
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 8e3e1be572aa66ab46f894a2e5f395d1e6f2ea23
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Lezione 13: Distribuire
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/05/2017
 
 In questa lezione verranno configurate le proprietà per la distribuzione, ovvero verranno specificati il server di Analysis Services in Azure o il server di Analysis Services di SQL Server vNext e un nome per il modello. Verrà quindi descritta la procedura per distribuire il modello in tale istanza. Dopo aver distribuito il modello, gli utenti possono connettersi a esso tramite un'applicazione client per la creazione di report. Per altre informazioni, vedere [Distribuire in Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
-Tempo previsto per il completamento della lezione: **5 minuti**  
+Tempo previsto per il completamento della lezione: **cinque minuti**  
   
 ## <a name="prerequisites"></a>Prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 12: Analizzare in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  

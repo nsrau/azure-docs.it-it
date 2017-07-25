@@ -1,6 +1,6 @@
 ---
 title: "Test delle prestazioni e della scalabilità in Azure Cosmos DB | Microsoft Docs"
-description: "Informazioni sull&quot;esecuzione di test delle prestazioni e della scalabilità con Azure Cosmos DB"
+description: "Informazioni sull'esecuzione di test delle prestazioni e della scalabilità con Azure Cosmos DB"
 keywords: test delle prestazioni
 services: cosmos-db
 author: arramac
@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/19/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f85be2c605ec5dadd9296486d3a1357c39e40b64
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a3f2e8634981ac158312e6b9700db92415e9e6c5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test delle prestazioni e della scalabilità con Azure Cosmos DB
-Il test delle prestazioni e della scalabilità è un passaggio chiave nello sviluppo di un'applicazione. Per molte applicazioni, il livello del database ha un impatto significativo sulle prestazioni e sulla scalabilità globali, è pertanto un componente fondamentale del test delle prestazioni. [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) è appositamente progettato per garantire scalabilità elastica e prestazioni prevedibili ed è quindi ideale per applicazioni che richiedono un livello database con prestazioni elevate. 
+Il test delle prestazioni e della scalabilità è un passaggio chiave nello sviluppo di un'applicazione. Per molte applicazioni, il livello del database ha un impatto significativo sulle prestazioni e sulla scalabilità globali, è pertanto un componente fondamentale del test delle prestazioni. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è appositamente progettato per garantire scalabilità elastica e prestazioni prevedibili ed è quindi ideale per applicazioni che richiedono un livello database con prestazioni elevate. 
 
 Questo articolo offre informazioni di riferimento per gli sviluppatori che implementano gruppi di test delle prestazioni per i carichi di lavoro di Cosmos DB o valutano Cosmos DB per scenari di applicazioni ad alte prestazioni. Approfondisce soprattutto i test isolati delle prestazioni del database, ma include anche le procedure consigliate per le applicazioni di produzione.
 
@@ -33,7 +33,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 * Dove è possibile trovare un'applicazione client .NET di esempio per i test delle prestazioni di Cosmos DB? 
 * Come è possibile ottenere livelli di velocità effettiva elevati con Cosmos DB dall'applicazione client?
 
-Per iniziare a usare il codice, scaricare il progetto dell'[esempio di test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
+Per iniziare a usare il codice, scaricare il progetto dell'[esempio relativo al test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
 > L'obiettivo di questa applicazione è illustrare le procedure consigliate per ottenere prestazioni migliori da Cosmos DB con un numero ridotto di computer client. L'applicazione non è stata realizzata per dimostrare la capacità massima del servizio, che può essere aumentata senza limiti.
@@ -45,12 +45,12 @@ Se si è interessati alle opzioni di configurazione lato client per migliorare l
 ## <a name="run-the-performance-testing-application"></a>Eseguire l'applicazione per il test delle prestazioni
 Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET riportato di seguito, come descritto nella procedura seguente. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle applicazioni client.
 
-**Passaggio 1**: scaricare il progetto dell'[esempio di test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare una copia tramite fork del repository GitHub.
+**Passaggio 1**: scaricare il progetto dell'[esempio relativo al test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare la biforcazione del repository GitHub.
 
 **Passaggio 2** : modificare le impostazioni di EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (facoltativo) nel file App.config.
 
 > [!NOTE]
-> Prima del provisioning delle raccolte con velocità effettiva elevata, consultare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/) per stimare i costi di ogni raccolta. Dato che l'addebito dello spazio di archiviazione e della velocità effettiva per Cosmos DB viene eseguito in modo indipendente su base oraria, è possibile risparmiare eliminando o riducendo la velocità effettiva delle raccolte DocumentDB al termine del test.
+> Prima del provisioning delle raccolte con velocità effettiva elevata, consultare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) per stimare i costi di ogni raccolta. Dato che l'addebito dello spazio di archiviazione e della velocità effettiva per Cosmos DB viene eseguito in modo indipendente su base oraria, è possibile risparmiare eliminando o riducendo la velocità effettiva delle raccolte DocumentDB al termine del test.
 > 
 > 
 
@@ -100,19 +100,16 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET riporta
     DocumentDBBenchmark completed successfully.
 
 
-**Passaggio 4 (se necessario)** : la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta. In caso contrario, l'aumento di DegreeOfParallelism in incrementi ridotti può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client su stabilizza, l'avvio di più istanze dell'app nelle stesse macchine o in macchine diverse consente di raggiungere il limite di provisioning tra istanze diverse. Per ottenere assistenza per questo passaggio, inviare un messaggio di posta elettronica all'indirizzo askdocdb@microsoft.com o creare un ticket di supporto dal [portale di Azure](https://portal.azure.com).
+**Passaggio 4 (se necessario)** : la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta. In caso contrario, l'aumento di DegreeOfParallelism in incrementi ridotti può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client su stabilizza, l'avvio di più istanze dell'app nelle stesse macchine o in macchine diverse consente di raggiungere il limite di provisioning tra istanze diverse. Per ottenere assistenza per questo passaggio, inviare un messaggio di posta elettronica all'indirizzo askcosmosdb@microsoft.com o creare un ticket di supporto dal [portale di Azure](https://portal.azure.com).
 
 Quando l'app è in esecuzione, è possibile provare diversi [criteri di indicizzazione](indexing-policies.md) e [livelli di coerenza](consistency-levels.md) per comprenderne l'impatto sulla velocità effettiva e sulla latenza. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle suite di test o alle applicazioni di produzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stato illustrato come eseguire test delle prestazioni e della scalabilità con Cosmos DB usando un'app console .NET. Per altre informazioni sull'uso di Cosmos DB, vedere i collegamenti seguenti.
+In questo articolo è stato illustrato come eseguire test delle prestazioni e della scalabilità con Cosmos DB usando un'app console .NET. Per altre informazioni sull'uso di Azure Cosmos DB, vedere i collegamenti seguenti.
 
 * [Esempio di test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Opzioni di configurazione client per migliorare le prestazioni di Azure Cosmos DB](performance-tips.md)
 * [Partizionamento lato server in Azure Cosmos DB](partition-data.md)
-* [Raccolte e livelli di prestazioni in DocumentDB](performance-levels.md)
-* [Documentazione di DocumentDB .NET SDK in MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-* [Esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net)
-* [Suggerimenti sulle prestazioni nel blog su Azure Cosmos DB](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+
 
 

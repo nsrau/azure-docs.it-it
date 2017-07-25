@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -78,7 +80,7 @@ Il [volume è stato creato](storsimple-deployment-walkthrough-u1.md#step-6-creat
    
    1. Selezionare un record di controllo di accesso (ACR) dall'elenco a discesa. In alternativa, è possibile aggiungere un nuovo ACR. Gli ACR determinano quali host possono accedere ai volumi creando una corrispondenza tra il nome qualificato ISCSI dell'host e quello elencato nel record.
    2. È consigliabile abilitare un backup predefinito tramite la selezione della casella di controllo **Abilita un criterio di backup predefinito per questo volume** .
-   3. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-volumes/HCS_CheckIcon.png)  per creare il volume con le impostazioni specificate.
+   3. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-volumes/HCS_CheckIcon.png) per creare il volume con le impostazioni specificate.
 
 Il volume è pronto per l'utilizzo.
 
@@ -177,10 +179,5 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [clonare un volume StorSimple](storsimple-clone-volume.md)
 * Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

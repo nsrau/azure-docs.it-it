@@ -1,6 +1,6 @@
 ---
 title: Creare una funzione che si integra con App per la logica di Azure | Microsoft Docs
-description: Creare una funzione che classifica i sentiment nei tweet usando servizi di Azure.
+description: "Creare una funzione che si integra con le app per la logica di Azure e i servizi cognitivi di Azure per classificare la valutazione dei tweet e inviare notifiche quando la valutazione è bassa."
 services: functions, logic-apps, cognitive-services
 keywords: flusso di lavoro, app cloud, servizi cloud, processi aziendali, integrazione di sistemi, enterprise application integration, EAI
 documentationcenter: 
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/15/2017
 ms.author: glenga, riande
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b8bf047be9796935ce815f4d803e229c7208ade5
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c1c7e291e30cc519f089dec259fdf8c5a75d2677
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -52,7 +53,7 @@ Se queste procedure non sono state ancora completate, completarle ora per creare
 
 È necessario un account Servizi cognitivi per rilevare il sentiment dei tweet monitorati.
 
-1. Accedere al [Portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 

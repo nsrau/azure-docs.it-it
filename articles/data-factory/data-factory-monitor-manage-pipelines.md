@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 223edfde090c9b77467e032198c2150fbaa56a5b
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 61bb5379cd94dd00814e14420947e7783999ff0a
+ms.contentlocale: it-it
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -27,15 +28,11 @@ ms.lasthandoff: 04/12/2017
 > * [Con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md)
 
 
-Azure Data Factory consente una visualizzazione affidabile e completa dei servizi di archiviazione, elaborazione e spostamento di dati. Il servizio offre un dashboard di monitoraggio che è possibile usare per:
+> [!IMPORTANT]
+> L'applicazione di monitoraggio e gestione offre un supporto migliore per il monitoraggio e la gestione delle pipeline di dati, nonché per la risoluzione di eventuali problemi. Per dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
 
-* Valutare rapidamente l'integrità della pipeline di dati end-to-end.
-* Identificare i problemi e intraprendere eventuali azioni correttive.
-* Tenere traccia dell'origine dei dati.
-* Tenere traccia delle relazioni tra i dati in qualsiasi origine.
-* Visualizzare i dati storici completi dell'esecuzione dei processi, dello stato del sistema e delle dipendenze.
 
-Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline. Contiene anche informazioni su come creare avvisi e ricevere notifiche sugli errori.
+Questo articolo descrive come monitorare e gestire le pipeline ed eseguirne il debug tramite il Portale di Azure e PowerShell. L'articolo contiene anche informazioni su come creare avvisi e ricevere notifiche sugli errori.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Informazioni sulle pipeline e sugli stati delle attività
 L'uso del portale di Azure consente di:
@@ -44,15 +41,13 @@ L'uso del portale di Azure consente di:
 * Visualizzare le attività all'interno di una pipeline.
 * Visualizzare set di dati di input e di output.
 
-Questa sezione illustra anche come avviene la transizione di una sezione da uno stato a un altro.   
+Questa sezione illustra anche come avviene la transizione di una sezione di un set di dati da uno stato a un altro.   
 
 ### <a name="navigate-to-your-data-factory"></a>Passare alla data factory
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Data factory** nel menu a sinistra. Se non è visibile, fare clic su **Altri servizi >**, quindi selezionare **Data factory** nella categoria **Intelligence e analisi**.
 
    ![Esplora tutto > Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-
-   Verranno visualizzate tutte le data factory presenti nel pannello **Data factory**.
 3. Nel pannello **Data factory** selezionare la data factory a cui si è interessati.
 
     ![Selezionare la data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
@@ -62,13 +57,11 @@ Questa sezione illustra anche come avviene la transizione di una sezione da uno 
    ![Pannello Data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>Vista diagramma della data factory
-La vista **Diagramma** di una data factory offre un'unica console da cui monitorare e gestire la data factory e i relativi asset.
-
-Per visualizzare la vista **Diagramma** della data factory, fare clic su **Diagramma** nella home page della data factory.
+La vista **Diagramma** di una data factory offre un'unica console da cui monitorare e gestire la data factory e i relativi asset. Per visualizzare la vista **Diagramma** della data factory, fare clic su **Diagramma** nella home page della data factory.
 
 ![Vista diagramma](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-È possibile eseguire lo zoom avanti, lo zoom indietro, lo zoom 100%, adattare alla finestra, bloccare il layout del diagramma e posizionare automaticamente pipeline e tabelle. È anche possibile visualizzare le informazioni sulla derivazione dei dati, vale a dire gli elementi upstream e downstream degli elementi selezionati.
+È possibile eseguire lo zoom avanti, lo zoom indietro, lo zoom 100%, adattare alla finestra, bloccare il layout del diagramma e posizionare automaticamente pipeline e set di dati. È anche possibile visualizzare le informazioni sulla derivazione dei dati, vale a dire gli elementi upstream e downstream degli elementi selezionati.
 
 ### <a name="activities-inside-a-pipeline"></a>Attività all'interno di una pipeline
 1. Fare clic con il pulsante destro del mouse sulla pipeline e scegliere **Apri pipeline** per visualizzare tutte le attività della pipeline, oltre ai set di dati di input e output relativi a tali attività. Questa funzionalità è utile quando la pipeline include più di una attività e si vuole conoscere la derivazione operativa di una singola pipeline.
@@ -172,39 +165,38 @@ La sezione viene avviata nello stato **In attesa** e prima dell'esecuzione è ne
 
 È possibile reimpostare la sezione in modo che dallo stato **Pronto** o **Non riuscito** torni allo stato **In attesa**. È anche possibile impostare lo stato della sezione su **Ignora**per impedire l'esecuzione dell'attività e l'elaborazione della sezione.
 
-## <a name="manage-pipelines"></a>Gestire le pipeline
-È possibile gestire le pipeline usando Azure PowerShell. Ad esempio, è possibile sospendere e riprendere le pipeline eseguendo i cmdlet di Azure PowerShell.
+## <a name="pause-and-resume-pipelines"></a>Sospendere e riprendere le pipeline
+È possibile gestire le pipeline usando Azure PowerShell. Ad esempio, è possibile sospendere e riprendere le pipeline eseguendo i cmdlet di Azure PowerShell. 
 
-### <a name="pause-and-resume-pipelines"></a>Sospendere e riprendere le pipeline
-È possibile sospendere le pipeline usando il cmdlet di PowerShell **Suspend-AzureRmDataFactoryPipeline**. Questo cmdlet è utile quando non si desidera eseguire le pipeline finché non viene risolto un problema.
+> [!NOTE] 
+> La vista diagramma non supporta la sospensione e la ripresa di pipeline. Se si vuole usare un'interfaccia utente, usare l'applicazione di gestione e monitoraggio. Per dettagli sull'uso dell'applicazione, vedere l'articolo [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
 
-Nella schermata seguente, ad esempio, è stato identificato un problema relativo a **PartitionProductsUsagePipeline** nella data factory **productrecgamalbox1dev** e si vuole sospendere la pipeline.
-
-![Pipeline da sospendere](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
-
-Per sospendere una pipeline, eseguire il comando di PowerShell seguente:
+È possibile sospendere le pipeline usando il cmdlet di PowerShell **Suspend-AzureRmDataFactoryPipeline**. Questo cmdlet è utile quando non si desidera eseguire le pipeline finché non viene risolto un problema. 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Ad esempio:
+ad esempio:
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
-Dopo aver risolto il problema relativo a **PartitionProductsUsagePipeline**, è possibile riprendere l'esecuzione della pipeline sospesa usando il comando di PowerShell seguente:
+Dopo aver risolto il problema della pipeline, è possibile riprendere l'esecuzione della pipeline sospesa tramite il comando di PowerShell seguente:
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Ad esempio:
+ad esempio:
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
+
 ## <a name="debug-pipelines"></a>Eseguire il debug delle pipeline
 Azure Data Factory offre funzionalità avanzate per il debug e la risoluzione dei problemi relativi alle pipeline tramite il portale di Azure e Azure PowerShell.
+
+> [!NOTA} È molto più semplice risolvere gli errori tramite l'app di monitoraggio e gestione. Per dettagli sull'uso dell'applicazione, vedere l'articolo [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
 
 ### <a name="find-errors-in-a-pipeline"></a>Trovare gli errori in una pipeline
 Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati generato dalla pipeline è in uno stato di errore. È possibile eseguire il debug e risolvere i problemi relativi agli errori in Azure Data Factory usando i metodi seguenti.
@@ -221,7 +213,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
    ![Pannello Dettagli esecuzione attività con errore](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Usare PowerShell per eseguire il debug di un errore
-1. Avviare **Azure PowerShell**.
+1. Avviare **PowerShell**.
 2. Eseguire il comando **Get-AzureRmDataFactorySlice** per vedere le sezioni e i relativi stati. Verrà visualizzata una sezione con lo stato **Non riuscito**.        
 
     ```powershell   
@@ -233,7 +225,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
-   Sostituire **StartDateTime** con il valore StartDateTime specificato per Set-AzureRmDataFactoryPipelineActivePeriod.
+   Sostituire **StartDateTime** con l'ora di inizio della pipeline. 
 3. Eseguire ora il cmdlet **Get-AzureRmDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
 
     ```powershell   
@@ -279,15 +271,20 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     ```
 
 ## <a name="rerun-failures-in-a-pipeline"></a>Eseguire nuovamente le operazioni non riuscite in una pipeline
+
+> [!IMPORTANT]
+> È più semplice risolvere gli errori e ripetere l'esecuzione di sezioni non riuscite tramite l'app di monitoraggio e gestione. Per dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
+
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 Dopo aver risolto i problemi relativi agli errori in una pipeline e averne eseguito il debug, è possibile eseguire nuovamente le operazioni non riuscite passando alla sezione degli errori e facendo clic sul pulsante **Esegui** sulla barra dei comandi.
 
 ![Nuova esecuzione di una sezione non riuscita](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
 Se non è possibile eseguire la convalida della sezione a causa di un errore relativo ai criteri, ad esempio se i dati non sono disponibili, è possibile correggere l'errore ed eseguire nuovamente la convalida facendo clic sul pulsante **Convalida** sulla barra dei comandi.
-![Correzione di errori e convalida](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
-### <a name="use-azure-powershell"></a>Usare Azure PowerShell
+![Correggere gli errori e convalidare](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+
+### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
 È possibile eseguire nuovamente le operazioni non riuscite usando il cmdlet **Set-AzureRmDataFactorySliceStatus**. Per informazioni sulla sintassi e altri dettagli sul cmdlet, vedere l'argomento [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx).
 
 **Esempio:**

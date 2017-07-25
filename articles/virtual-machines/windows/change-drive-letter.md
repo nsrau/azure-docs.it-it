@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/31/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: abe380b8cb5988479197353282ef76442ee75930
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -31,10 +31,7 @@ Se si ridimensiona o si **Arresta (dealloca)** una macchina virtuale, potrebbe e
 Per ulteriori informazioni sull'utilizzo del disco temporaneo in Azure, vedere [Informazioni sull'unità temporanea in Macchine virtuali di Microsoft Azure.](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## <a name="attach-the-data-disk"></a>Collegare il disco dati
-Per prima cosa è necessario collegare il disco dati alla macchina virtuale. 
-
-* Per usare il portale, vedere [Come collegare un disco dati gestito nel portale di Azure](attach-managed-disk-portal.md)
-* Per usare il portale classico, vedere [Come collegare un disco dati a una macchina virtuale Windows](classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
+Per prima cosa è necessario collegare il disco dati alla macchina virtuale. Per eseguire questa operazione tramite il portale, vedere [How to attach a managed data disk in the Azure portal](attach-managed-disk-portal.md) (Come collegare un disco dati gestito nel Portale di Azure).
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Spostare temporaneamente pagefile.sys nell'unità C
 1. Connettersi alla macchina virtuale. 

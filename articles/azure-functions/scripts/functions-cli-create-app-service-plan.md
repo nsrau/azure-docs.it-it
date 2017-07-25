@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;app per le funzioni in un piano di servizio app | Documentazione Microsoft
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;app per le funzioni in un piano di servizio app
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app per le funzioni in un piano di servizio app | Documentazione Microsoft
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app per le funzioni in un piano di servizio app
 services: functions
 documentationcenter: functions
 author: syntaxc4
@@ -17,21 +17,21 @@ ms.date: 04/11/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 8c98e392c1c735458184bb782ed9c42f468f33de
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 40c3fa6fa6c07d59e4bf55531e116ba50aa92b91
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Creare un'app per le funzioni in un piano di servizio app
 
 Questo script di esempio crea un'app per le funzioni di Azure che è un contenitore per le funzioni. L'app per le funzioni viene creata usando un piano di servizio app dedicato, ovvero le risorse del server sono sempre attive.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 

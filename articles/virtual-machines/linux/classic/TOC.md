@@ -20,6 +20,7 @@
 ### [Monitorare VM con l'estensione di macchina virtuale Diagnostica v2.x](diagnostic-extension-v2.md)
 ### [Inserire dati personalizzati](inject-custom-data.md)
 ### [Reimpostare password o chiavi di Linux, correggere errori SSH e controllare dischi](reset-access.md)
+### [Manutenzione](planned-maintenance-schedule.md)
 ### [Creare un host Docker con l'interfaccia della riga di comando](cli-use-docker.md)
 ### [Creare un host Docker con il portale](portal-use-docker.md)
 ### [Come usare docker con Swarm](../../virtual-machines-linux-docker-swarm.md)
@@ -78,6 +79,7 @@
 
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Disponibilità internazionale](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

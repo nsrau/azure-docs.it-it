@@ -4,7 +4,7 @@ description: "Questa è la pagina di Azure AD Connect Health che descrive come m
 services: active-directory
 documentationcenter: 
 author: arluca
-manager: samueld
+manager: femila
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
 ms.service: active-directory
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9d7640577eedcc9221f6346b650aed85f1d31a65
 ms.openlocfilehash: 26ebdbc6f568dd3d9bbcaa3250aae70d80af2d35
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/18/2017
 
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Uso di Azure AD Connect Health con Servizi di dominio Active Directory
@@ -61,10 +62,5 @@ Per impostazione predefinita sono selezionati quattro contatori delle prestazion
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

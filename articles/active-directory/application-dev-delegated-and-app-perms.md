@@ -1,6 +1,6 @@
 ---
-title: Come riconoscere le differenze tra le autorizzazioni delegate e dell&quot;applicazione | Microsoft Docs
-description: Altre informazioni sulle autorizzazioni delegate e dell&quot;applicazione, come vengono usate dai client ed esposte dalle risorse per le applicazioni sviluppate con Azure AD
+title: Come riconoscere le differenze tra le autorizzazioni delegate e dell'applicazione | Microsoft Docs
+description: Altre informazioni sulle autorizzazioni delegate e dell'applicazione, come vengono usate dai client ed esposte dalle risorse per le applicazioni sviluppate con Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: 1754c40a4c555ae1349549657e5906e023cb3bd8
+ms.contentlocale: it-it
 ms.lasthandoff: 04/14/2017
-
 
 ---
 

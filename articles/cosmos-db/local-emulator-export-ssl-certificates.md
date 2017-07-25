@@ -13,21 +13,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2017
+ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ef14df93b7870c7bc4be0f644d32cc45d15b7856
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 4add5028d50972316902cecd8c399781c012cb77
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Esportare i certificati dell'emulatore di Azure Cosmos DB per l'uso con Java, Python e Node.js
 
-[**Scaricare l'emulatore**](https://aka.ms/documentdb-emulator)
+[**Scaricare l'emulatore**](https://aka.ms/cosmosdb-emulator)
 
 L'emulatore di Azure Cosmos DB fornisce un ambiente locale che emula il servizio Azure Cosmos DB per obiettivi di sviluppo, incluso l'uso di connessioni SSL. Questo post illustra come esportare i certificati SSL da usare in linguaggi e runtime non integrati con l'archivio certificati Windows, ad esempio Java che usa il proprio [archivio certificati](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), Python che usa [wrapper per socket](https://docs.python.org/2/library/ssl.html) e Node.js che usa [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Per altre informazioni sull'emulatore, vedere [Usare l'emulatore di Azure Cosmos DB per sviluppo e test](./local-emulator.md).
 
@@ -40,45 +40,45 @@ Questa esercitazione illustra le attività seguenti:
 
 ## <a name="certification-rotation"></a>Rotazione della certificazione
 
-I certificati nell'emulatore locale di Azure Cosmos DB vengono generati la prima volta che l'emulatore viene eseguito. Esistono due certificati, uno usato per la connessione all'emulatore locale e l'altro per la gestione dei segreti nell'emulatore. Il certificato che si vuole esportare è il certificato di connessione con il nome descrittivo "Azure Cosmos DBEmulatorCertificate".
+I certificati nell'emulatore locale di Azure Cosmos DB vengono generati la prima volta che l'emulatore viene eseguito. Esistono due certificati, uno usato per la connessione all'emulatore locale e l'altro per la gestione dei segreti nell'emulatore. Il certificato che si vuole esportare è il certificato per la connessione con il nome descrittivo "DocumentDBEmulatorCertificate".
 
 Entrambi i certificati possono essere rigenerati facendo clic su **Reset Data** (Reimposta dati), come illustrato di seguito, dall'emulatore di Azure Cosmos DB in esecuzione nell'area di notifica di Windows. Se si rigenerano i certificati e questi sono stati installati nell'archivio certificati di Java o usati altrove, sarà necessario aggiornarli. In caso contrario l'applicazione non si connetterà più all'emulatore locale.
 
-![Reimpostazione dei dati nell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-reset-data.png)
+![Reimpostazione dei dati nell'emulatore locale di Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png)
 
 ## <a name="how-to-export-the-azure-cosmos-db-ssl-certificate"></a>Come esportare il certificato SSL dell'emulatore di Azure Cosmos DB
 
-1. Avviare Gestione certificati di Windows eseguendo certlm.msc, passare alla cartella Personale->Certificati e aprire il certificato con il nome descrittivo **CosmosDBEmulatorCertificate**.
+1. Avviare Gestione certificati di Windows eseguendo certlm.msc, passare alla cartella Personale->Certificati e aprire il certificato con il nome descrittivo **DocumentDbEmulatorCertificate**.
 
-    ![Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-export-step-1.png)
+    ![Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
 
 2. Fare clic su **Details** (Dettagli) quindi su **OK**.
 
-    ![Passaggio 2 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-export-step-2.png)
+    ![Passaggio 2 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
 
 3. Fare clic su **Copy to File...** (Copia in file).
 
-    ![Passaggio 3 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-export-step-3.png)
+    ![Passaggio 3 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
 4. Fare clic su **Avanti**.
 
-    ![Passaggio 4 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-export-step-4.png)
+    ![Passaggio 4 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
 
 5. Fare clic su **No, do not export private key** (No, non esportare la chiave privata) e quindi su **Next** (Avanti).
 
-    ![Passaggio 5 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-export-step-5.png)
+    ![Passaggio 5 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png)
 
 6. Fare clic su **Base-64 encoded X.509 (.CER)** (Codificato in base 64 X.509 (.CER)) e quindi su **Next** (Avanti).
 
-    ![Passaggio 6 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-export-step-6.png)
+    ![Passaggio 6 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png)
 
 7. Assegnare un nome al certificato. In questo caso, **documentdbemulatorcert**, quindi fare clic su **Next** (Avanti).
 
-    ![Passaggio 7 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-export-step-7.png)
+    ![Passaggio 7 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png)
 
 8. Fare clic su **Finish** (Fine).
 
-    ![Passaggio 8 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator/database-local-emulator-export-step-8.png)
+    ![Passaggio 8 dell'esportazione nell'emulatore locale di Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png)
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Come usare il certificato in Java
 
@@ -90,11 +90,11 @@ Dopo l'installazione del certificato SSL "CosmosDBEmulatorCertificate", l'applic
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Come usare il certificato in Python
 
-Per impostazione predefinita, [Python SDK (2.0.0 o versione successiva)](documentdb-sdk-python.md) per DocumentDB non proverà a usare il certificato SSL quando si connette all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi della documentazione sui [wrapper per socket di Python](https://docs.python.org/2/library/ssl.html).
+Per impostazione predefinita, [Python SDK (2.0.0 o versione successiva)](documentdb-sdk-python.md) per l'API di DocumentDB non prova a usare il certificato SSL quando si connette all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi della documentazione sui [wrapper per socket di Python](https://docs.python.org/2/library/ssl.html).
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Come usare il certificato in Node.js
 
-Per impostazione predefinita, [Node.js SDK (1.10.1 o versione successiva)](documentdb-sdk-node.md) per DocumentDB non proverà a usare il certificato SSL quando si connette all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi nella [documentazione di Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Per impostazione predefinita, [Node.js SDK (1.10.1 o versione successiva)](documentdb-sdk-node.md) per l'API di DocumentDB non prova a usare il certificato SSL quando si connette all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi nella [documentazione di Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

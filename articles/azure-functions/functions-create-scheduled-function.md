@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: f35f693131bd1f4f47b161afb0a4f38d4f00bbd6
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 4442d0038a0604d3297871907c1d05d8d3916dcf
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Creare una funzione in Azure attivata da un timer
@@ -31,7 +31,9 @@ Informazioni su come usare Funzioni di Azure per creare una funzione eseguita in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Per completare questa esercitazione:
+
++ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -47,7 +49,11 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 ## <a name="create-a-timer-triggered-function"></a>Creare una funzione attivata da un timer
 
-1. Espandere l'app per le funzioni, fare clic sul pulsante **+** accanto a **Funzioni** e fare clic sul modello **TimerTrigger** per il linguaggio desiderato. Usare quindi le impostazioni specificate nella tabella:
+1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Funzione personalizzata**. Verrà visualizzato il set completo di modelli di funzione.
+
+    ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/functions-create-scheduled-function/add-first-function.png)
+
+2. Selezionare il modello **TimerTrigger** per la lingua desiderata. Usare quindi le impostazioni specificate nella tabella:
 
     ![Creare una funzione attivata da un timer nel portale di Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 

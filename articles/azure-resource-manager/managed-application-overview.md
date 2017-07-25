@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/24/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a4348a4d2348d744c03ad3a89d0548526fa2f9f8
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c4e0508e243bd4f0cd57ea1619f7812433329423
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -34,9 +34,13 @@ Sono disponibili due esperienze per l'uso delle applicazioni gestite:
 1. Il fornitore o il fornitore di software indipendente crea un'applicazione gestita e la rende disponibile per un uso più ampio. 
 2. Il cliente o l'utente vuole creare e usare l'applicazione pubblicata. 
 
-Questo articolo illustra entrambe le esperienze. È prima di tutto necessario comprendere il funzionamento delle applicazioni gestite. 
+Questo articolo offre una panoramica di entrambe le esperienze. È prima di tutto necessario comprendere il funzionamento delle applicazioni gestite. 
 
 Un'applicazione gestita è simile a una soluzione del Marketplace, con una differenza essenziale. In un'applicazione gestita, le risorse vengono sottoposte a provisioning in un gruppo di risorse gestito dal fornitore di software indipendente/fornitore. Il gruppo di risorse è presente nella sottoscrizione del cliente, ma un utente, un gruppo di utenti o un'applicazione nel tenant del fornitore di software indipendente ha accesso al gruppo di risorse. Per gestire l'applicazione, l'identità del fornitore viene aggiunta a un ruolo Proprietario, Collaboratore, Lettore o a un altro ruolo predefinito di Active Directory. 
+
+Per altre informazioni sull'esperienza del fornitore, vedere [Creare e pubblicare un'applicazione gestita di Azure](managed-application-publishing.md).
+
+Per altre informazioni sull'esperienza del cliente, vedere [Utilizzare un'applicazione gestita di Azure](managed-application-consumption.md).
 
 ## <a name="key-concepts"></a>Concetti chiave
 

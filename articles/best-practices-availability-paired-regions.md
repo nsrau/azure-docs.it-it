@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
-ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
-ms.lasthandoff: 02/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8a1e5333e893e2a3a205f08223f103793df452cd
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -35,20 +36,26 @@ Figura 1: Diagramma di una coppia di aree di Azure
 
 | Area geografica | Aree abbinate |  |
 |:--- |:--- |:--- |
+| Asia |Asia orientale |Asia sudorientale |
+| Australia |Australia orientale |Australia sudorientale |
+| Canada |Canada centrale |Canada orientale |
+| Cina |Cina settentrionale |Cina orientale|
+| India |India centrale |India meridionale |
+| Giappone |Giappone orientale |Giappone occidentale |
+| Corea |Corea centrale |Corea meridionale |
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
 | America del Nord |Stati Uniti orientali |Stati Uniti occidentali |
 | America del Nord |Stati Uniti orientali 2 |Stati Uniti centrali |
 | America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali |
 | Europa |Europa settentrionale |Europa occidentale |
-| Asia |Asia sudorientale |Asia orientale |
-| Cina |Cina orientale |Cina settentrionale |
 | Giappone |Giappone orientale |Giappone occidentale |
 | Brasile |Brasile meridionale (1) |Stati Uniti centro-meridionali |
-| Australia |Australia orientale |Australia sudorientale |
 | Governo degli Stati Uniti |Governo degli Stati Uniti - Iowa |Governo degli Stati Uniti - Virginia |
-| India |India centrale |India meridionale |
-| Canada |Canada centrale |Canada orientale |
+| Governo degli Stati Uniti |Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Texas |
+| Governo degli Stati Uniti |Governo degli Stati Uniti - Texas |Governo degli Stati Uniti - Arizona |
+| Governo degli Stati Uniti |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
+| Germania |Germania centrale |Germania nord-orientale |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 

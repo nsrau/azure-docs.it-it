@@ -13,9 +13,3 @@
 ### [Introduzione all'app](microsoft-authenticator-app-how-to.md)
 ### [Accedere tramite il telefono](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Domande frequenti](microsoft-authenticator-app-faq.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

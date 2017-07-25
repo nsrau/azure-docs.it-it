@@ -1,6 +1,6 @@
 ---
-title: Esempi di interfaccia della riga di comando di Azure per database SQL | Documentazione Microsoft
-description: Esempi di interfaccia della riga di comando di Azure - Creare e gestire server per database SQL di Azure, pool elastici, database e firewall.
+title: Esempi di script dell'interfaccia della riga di comando di Azure per il database SQL | Microsoft Docs
+description: Esempi di script dell'interfaccia della riga di comando di Azure per creare e gestire server per database SQL di Azure, pool elastici, database e firewall.
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
@@ -14,27 +14,27 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: f4fab4159ed4ff14adad9b1ad63315fe1acfe9e9
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 91b02d1099dc1683abb1042b3dc65cbee5aeae5b
 ms.contentlocale: it-it
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Esempi di interfaccia della riga di comando di Azure per un database SQL di Azure
 
-La tabella seguente include collegamenti a esempi di script di interfaccia della riga di comando di Azure per database SQL di Azure.
+La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per il database SQL di Azure.
 
 | |  |
 |---|---|
 |**Creare un database singolo e un pool elastico**||
-| [Creare un database singolo e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un database SQL di Azure singolo e configura una regola del firewall a livello di server. |
-| [Creare pool elastici e spostare i database in pool](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea pool elastici, sposta i database SQL di Azure in pool e modifica i livelli di prestazioni.|
+| [Creare un database singolo e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando crea un singolo database SQL di Azure e configura una regola del firewall a livello di server. |
+| [Creare pool elastici e spostare i database in pool](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando crea pool elastici SQL, sposta i database SQL di Azure in pool e modifica i livelli di prestazioni.|
 |**Ridimensionare un database singolo e un pool elastico**||
-| [Ridimensionare un database singolo](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Ridimensiona un database SQL di Azure singolo per ottenere un livello di prestazioni diverso dopo l'esecuzione di query sulle dimensioni del database. |
-| [Ridimensionare un pool elastico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Ridimensiona un pool elastico a un livello di prestazioni diverso.  |
+| [Ridimensionare un database singolo](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando ridimensiona un database SQL di Azure singolo per impostare un livello di prestazioni diverso dopo aver recuperato informazioni sulle dimensioni per il database. |
+| [Ridimensionare un pool elastico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Questo esempio di script dell'interfaccia della riga di comando ridimensiona un pool elastico SQL impostando un livello di prestazioni diverso.  |
 |||
 

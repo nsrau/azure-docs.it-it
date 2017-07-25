@@ -3,7 +3,7 @@ title: Creare un cluster autonomo di Azure Service Fabric | Documentazione Micro
 description: Creare un cluster di Azure Service Fabric su qualsiasi macchina (fisica o virtuale) che esegue Windows Server, sia locale che nel cloud.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/24/2017
-ms.author: chackdan;maburlik
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 3389684dca62a1b3c8297600c7c09ffef642c854
-ms.lasthandoff: 03/29/2017
-
+ms.date: 06/24/2017
+ms.author: chackdan;maburlik;dekapur
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 7543d98030ea143d537e0028801fd3efe3e4ff32
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creare un cluster autonomo in esecuzione su Windows Server
@@ -33,17 +33,17 @@ Questo articolo illustra la procedura di creazione di un cluster autonomo di Ser
 
 <a id="getsupport"></a>
 
-## <a name="get-support-for-the-service-fabric-standalone-package"></a>Ottenere supporto per il pacchetto autonomo Service Fabric
+## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Ottenere supporto per il pacchetto Service Fabric per Windows Server
 * Porre domande alla community sul pacchetto autonomo Service Fabric per Windows Server nel [forum di Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Aprire un ticket per ottenere il [supporto professionale per Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Altre informazioni sul supporto professionale Microsoft sono disponibili [qui](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * È possibile anche ottenere supporto per questo pacchetto come parte del [Supporto tecnico Microsoft Premier](https://support.microsoft.com/en-us/premier).
 * Per altre informazioni vedere [Opzioni di supporto di Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
-* Per raccogliere i log a scopo di supporto, eseguire l'[agente di raccolta log autonomo di Service Fabric](https://go.microsoft.com/fwlink/?linkid=842487).
+* Per raccogliere log a scopo di supporto, eseguire l'[agente di raccolta log autonomo di Service Fabric](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
 
-## <a name="download-the-service-fabric-standalone-package"></a>Download del pacchetto autonomo Service Fabric
-Per creare il cluster, usare il pacchetto autonomo di Service Fabric per Windows Server (2012 R2 e versioni successive) disponibile qui: <br>
+## <a name="download-the-service-fabric-for-windows-server-package"></a>Scaricare il pacchetto Service Fabric per Windows Server
+Per creare il cluster usare il pacchetto Service Fabric per Windows Server (Windows Server 2012 R2 e versioni successive) disponibile qui: <br>
 [Collegamento per il download - Pacchetto autonomo di Service Fabric - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
 
 Informazioni dettagliate sul contenuto del pacchetto sono disponibili [qui](service-fabric-cluster-standalone-package-contents.md).
@@ -65,9 +65,9 @@ Decomprimere il pacchetto autonomo nella macchina, copiare il file di configuraz
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
 ```
 
-Vedere la sezione di configurazione dell'ambiente in [Pianificare e preparare la distribuzione del cluster](service-fabric-cluster-standalone-deployment-preparation.md) per i dettagli sulla risoluzione.
+Per informazioni dettagliate sulla risoluzione dei problemi, vedere la sezione Configurazione dell'ambiente in [Pianificare e preparare la distribuzione del cluster](service-fabric-cluster-standalone-deployment-preparation.md).
 
-Al termine dell'esecuzione degli scenari di sviluppo è possibile rimuovere il cluster Service Fabric dalla macchina facendo riferimento alla procedura descritta nella sezione seguente "[Rimuovere un cluster](#removecluster_anchor)". 
+Al termine dell'esecuzione degli scenari di sviluppo è possibile rimuovere il cluster Service Fabric dalla macchina facendo riferimento alla procedura della sezione "[Rimuovere un cluster](#removecluster_anchor)". 
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>Passaggio 1B: creare un cluster con più macchine
 Dopo avere eseguito i passaggi di pianificazione e preparazione illustrati nel collegamento seguente, si è pronti per creare il cluster di produzione usando il file di configurazione del cluster. <br>
@@ -75,39 +75,48 @@ Dopo avere eseguito i passaggi di pianificazione e preparazione illustrati nel c
 
 1. Convalidare il file di configurazione scritto eseguendo lo script *TestConfiguration.ps1* nella cartella del pacchetto autonomo:  
 
-```powershell
-.\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
-```
+    ```powershell
+    .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
+    ```
 
-Verrà visualizzato un output simile al seguente: Se nel campo in basso "Passed" viene restituito un valore "True", sono stati superati i controlli di integrità ed è possibile distribuire il cluster in base alla configurazione di input.
+    Verrà visualizzato un output simile al seguente: Se nel campo in basso "Passed" viene restituito un valore "True", sono stati superati i controlli di integrità ed è possibile distribuire il cluster in base alla configurazione di input.
 
-```
-Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
-Running Best Practices Analyzer...
-Best Practices Analyzer completed successfully.
-
-
-LocalAdminPrivilege        : True
-IsJsonValid                : True
-IsCabValid                 : True
-RequiredPortsOpen          : True
-RemoteRegistryAvailable    : True
-FirewallAvailable          : True
-RpcCheckPassed             : True
-NoConflictingInstallations : True
-FabricInstallable          : True
-Passed                     : True
-```
+    ```
+    Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
+    Running Best Practices Analyzer...
+    Best Practices Analyzer completed successfully.
+    
+    LocalAdminPrivilege        : True
+    IsJsonValid                : True
+    IsCabValid                 : True
+    RequiredPortsOpen          : True
+    RemoteRegistryAvailable    : True
+    FirewallAvailable          : True
+    RpcCheckPassed             : True
+    NoConflictingInstallations : True
+    FabricInstallable          : True
+    Passed                     : True
+    ```
 
 2. Creare il cluster: eseguire lo script *CreateServiceFabricCluster.ps1* per la distribuzione del cluster Service Fabric in ogni computer nella configurazione. 
-```powershell
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
-```
+    ```powershell
+    .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
+    ```
 
 > [!NOTE]
 > Le tracce di distribuzione vengono scritte nella VM o nel computer in cui è stato eseguito lo script PowerShell CreateServiceFabricCluster.ps1. Sono disponibili nella sottocartella DeploymentTraces all'interno della directory da cui è stato eseguito lo script. Per verificare se Service Fabric è stato distribuito correttamente in un computer, individuare i file installati nella directory FabricDataRoot, come descritto in dettaglio nella sezione FabricSetting del file di configurazione del cluster. Per impostazione predefinita la directory è c:\ProgramData\SF. I processi FabricHost.exe e Fabric.exe possono essere visualizzati in esecuzione in Gestione attività.
 > 
 > 
+
+### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Passaggio 1C: Creare un cluster offline (non connesso a Internet)
+Il pacchetto di runtime di Service Fabric viene scaricato automaticamente al momento della creazione del cluster. Quando si distribuisce un cluster a computer non connessi a Internet è necessario scaricare il pacchetto di runtime di Service Fabric separatamente e specificare il percorso del pacchetto al momento della creazione del cluster.
+Il pacchetto di runtime può essere scaricato separatamente da un altro computer connesso a Internet in [Collegamento per il download - Service Fabric Runtime (Runtime di Service Fabric) - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copiare il pacchetto di runtime nella posizione da cui si intende distribuire il cluster offline eseguendo `CreateServiceFabricCluster.ps1` con il parametro `-FabricRuntimePackagePath` incluso, come illustrato di seguito: 
+
+```powershell
+CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterConfig.json> -FabricRuntimePackagePath <path to MicrosoftAzureServiceFabric.cab>
+```
+dove `<path to ClusterConfig.json>` e `<path to MicrosoftAzureServiceFabric.cab>` sono rispettivamente i percorsi per la configurazione del cluster e per il file di runtime con estensione cab.
+
 
 ### <a name="step-2-connect-to-the-cluster"></a>Passaggio 2: connettersi al cluster
 Per connettersi a un cluster protetto, vedere la sezione relativa alla [connessione di Service Fabric a un cluster protetto](service-fabric-connect-to-secure-cluster.md).

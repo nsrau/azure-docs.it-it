@@ -2,7 +2,7 @@
 title: Archiviare i log di diagnostica di Azure | Microsoft Docs
 description: Informazioni su come archiviare il log di diagnostica di Azure per la conservazione a lungo termine in un account di archiviazione.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3e82377c36da1563931bc0301daa4534e6f82377
 ms.openlocfilehash: e3413236445f3f6034a228dc93624d3fdc9b87ad
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiviare i log di diagnostica di Azure
@@ -133,10 +134,5 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 * [Introduzione all'archivio BLOB di Azure con .NET](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Trasmettere log di diagnostica di Azure a Hub eventi](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Altre informazioni sui log di diagnostica](monitoring-overview-of-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

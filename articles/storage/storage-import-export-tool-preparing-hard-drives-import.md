@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 06/29/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 04ac94a1c07c3ad2a9384f5cf5fca1341ebfa0d8
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 5b894dac8fdc26999b6f3cbffaf7e6a98e68d000
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -51,7 +52,7 @@ WAImportExport è lo strumento di preparazione e ripristino delle unità che è 
 
 ## <a name="download-and-install-waimportexport"></a>Scaricare e installare WAImportExport
 
-Scaricare la [versione più recente di WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=42659). Estrarre il contenuto compresso in una directory del computer.
+Scaricare la [versione più recente di WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=55280). Estrarre il contenuto compresso in una directory del computer.
 
 L'attività successiva consiste nel creare i file CSV.
 
@@ -61,7 +62,7 @@ L'attività successiva consiste nel creare i file CSV.
 
 Il file CSV dataset, che corrisponde al valore del flag /dataset, è un file CSV che contiene un elenco di directory e/o un elenco di file da copiare nelle unità di destinazione. Il primo passaggio per la creazione di un processo di importazione è determinare le directory e i file da importare. Può trattarsi di un elenco di directory, di un elenco di file univoci o di una combinazione di entrambi gli elementi. Quando viene inclusa una directory, tutti i file presenti nella directory e nelle relative sottodirectory fanno parte del processo di importazione.
 
-Per ogni directory o file che viene importato, è necessario identificare un BLOB o una directory virtuale di destinazione nel servizio BLOB di Azure. Queste destinazioni vengono successivamente usate come input per lo strumento WAImportExport. Si noti che le directory devono essere delimitate con il carattere barra "/".
+Per ogni directory o file da importare, è necessario identificare un BLOB o una directory virtuale di destinazione nel servizio BLOB di Azure. Queste destinazioni vengono successivamente usate come input per lo strumento WAImportExport. Le directory devono essere delimitate con il carattere barra "/".
 
 La tabella seguente mostra alcuni esempi di destinazioni BLOB:
 
@@ -84,8 +85,8 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | Campo | Descrizione |
 | --- | --- |
-| BasePath | **[Obbligatorio]**<br/>Il valore di questo parametro rappresenta l'origine in cui si trovano i dati da importare. Lo strumento copia in modo ricorsivo tutti i dati presenti in questo percorso.<br><br/>**Valori consentiti:** deve essere un percorso valido nel computer locale o un percorso di condivisione valido e deve essere accessibile dall'utente. Il percorso di directory deve essere un percorso assoluto, non relativo. Se il percorso termina con "\\" rappresenta una directory, mentre se termina senza "\\" rappresenta un file.<br/>In questo campo non sono consentiti regex. Se il percorso contiene spazi, racchiuderlo tra "".<br><br/>**Esempio**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\nomecondivisione\directory\"  |
-| DstBlobPathOrPrefix | **[Obbligatorio]**<br/> Percorso della directory virtuale di destinazione nell'account di archiviazione di Windows Azure. La directory virtuale può essere già esistente. Se non esiste, il servizio Importazione/Esportazione ne crea una.<br/><br/>Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole. Per le regole di denominazione dei contenitori, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Assegnazione di nome e riferimento a contenitori, BLOB e metadati). Se è specificata solo la radice, la struttura di directory dell'origine viene replicata nel contenitore BLOB di destinazione. Se si vuole una struttura di directory diversa da quella dell'origine, sono necessarie più righe di mapping nel file CSV.<br/><br/>È possibile specificare un contenitore o un prefisso di BLOB come music/70s/. La directory di destinazione deve iniziare con il nome del contenitore, seguito da una barra "/" e facoltativamente può includere una directory BLOB virtuale che termina con "/".<br/><br/>Quando la destinazione è il contenitore radice, è necessario specificarlo in modo esplicito, compresa la barra, con $root/. Poiché i BLOB nel contenitore radice non possono includere "/" nel nome, quando la directory di destinazione è il contenitore radice le sottodirectory della directory di origine non vengono copiate.<br/><br/>**Esempio**<br/>Se il percorso BLOB di destinazione è https://mystorageaccount.blob.core.windows.net/video, il valore di questo campo può essere video/  |
+| BasePath | **[Obbligatorio]**<br/>Il valore di questo parametro rappresenta l'origine in cui si trovano i dati da importare. Lo strumento copierà in modo ricorsivo tutti i dati che si trovano in questo percorso.<br><br/>**Valori consentiti:** deve essere un percorso valido nel computer locale o un percorso di condivisione valido e deve essere accessibile dall'utente. Il percorso di directory deve essere un percorso assoluto, non un percorso relativo. Se il percorso termina con "\\" rappresenta una directory, mentre se termina senza "\\" rappresenta un file.<br/>In questo campo non sono consentiti regex. Se il percorso contiene spazi, racchiuderlo tra "".<br><br/>**Esempio**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\nomecondivisione\directory\"  |
+| DstBlobPathOrPrefix | **[Obbligatorio]**<br/> Percorso della directory virtuale di destinazione nell'account di archiviazione di Windows Azure. La directory virtuale può essere già esistente. Se non esiste, il servizio Importazione/Esportazione ne crea una.<br/><br/>Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole. Per le regole sulla denominazione dei contenitori, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Assegnazione di nome e riferimento a contenitori, BLOB e metadati). Se è specificata solo la radice, la struttura di directory dell'origine viene replicata nel contenitore BLOB di destinazione. Se si vuole una struttura di directory diversa da quella dell'origine, sono necessarie più righe di mapping nel file CSV<br/><br/>È possibile specificare un contenitore o un prefisso di BLOB come music/70s/. La directory di destinazione deve iniziare con il nome del contenitore, seguito da una barra "/" e facoltativamente può includere una directory BLOB virtuale che termina con "/".<br/><br/>Quando la destinazione è il contenitore radice, è necessario specificarlo in modo esplicito, compresa la barra, con $root/. Poiché i BLOB nel contenitore radice non possono includere "/" nel nome, quando la directory di destinazione è il contenitore radice le sottodirectory della directory di origine non vengono copiate.<br/><br/>**Esempio**<br/>Se il percorso BLOB di destinazione è https://mystorageaccount.blob.core.windows.net/video, il valore di questo campo può essere video/  |
 | BlobType | **[Facoltativo]**  block &#124; page<br/>Attualmente il servizio Importazione/Esportazione supporta 2 tipi di BLOB. di pagine e in blocchi. Per impostazione predefinita, tutti i file vengono importati come BLOB in blocchi. I file con estensione \*.vhd e \*.vhdx vengono importati come BLOB di pagine. La dimensione dei BLOB in blocchi e di pagine non può superare il valore massimo consentito. Per altre informazioni, vedere [Obiettivi di scalabilità per BLOB, code, tabelle e file](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).  |
 | Disposition | **[Facoltativo]** rename &#124; no-overwrite &#124; overwrite <br/> Questo campo specifica il comportamento di copia durante l'importazione, ovvero quando i dati vengono caricati nell'account di archiviazione dal disco. Le opzioni disponibili sono: rename&#124;overwite&#124;no-overwrite. Se non è specificato alcun valore, viene utilizzata l'opzione predefinita "rename". <br/><br/>**Rename**: se è presente un oggetto con lo stesso nome, viene creata una copia nella destinazione.<br/>Overwrite: il file viene sovrascritto con un file più recente. Prevale il file modificato per ultimo.<br/>**No-overwrite**: se il file è già presente, non viene scritto.|
 | MetadataFile | **[Facoltativo]** <br/>Il valore per questo campo è il file di metadati che può essere specificato se è necessario mantenere i metadati degli oggetti o specificare metadati personalizzati. Percorso del file di metadati per i BLOB di destinazione. Per altre informazioni, vedere [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione) |
@@ -117,7 +118,7 @@ H,Format,SilentMode,Encrypt,
 | --- | --- |
 | DriveLetter | **[Obbligatorio]**<br/> Ogni unità fornita allo strumento come destinazione deve includere un volume NTFS semplice e deve avere una lettera di unità assegnata.<br/> <br/>**Esempio**: R o r |
 | FormatOption | **[Obbligatorio]** Format &#124; AlreadyFormatted<br/><br/> **Format**: se si specifica questo valore, tutti i dati sul disco vengono formattati. <br/>**AlreadyFormatted**: quando viene specificato questo valore, lo strumento ignora la formattazione. |
-| SilentOrPromptOnFormat | **[Obbligatorio]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: se si specifica questo valore, l'utente può eseguire lo strumento in modalità non interattiva. <br/>**PromptOnFormat**: lo strumento richiede all'utente di confermare se l'azione è veramente prevista per tutti i formati.<br/><br/>Se il valore non è impostato, il comando viene interrotto e viene visualizzato il messaggio di errore "Incorrect value for SilentOrPromptOnFormat: none" (Valore non corretto per SilentOrPromptOnFormat: none). |
+| SilentOrPromptOnFormat | **[Obbligatorio]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: se si specifica questo valore, l'utente può eseguire lo strumento in modalità non interattiva. <br/>**PromptOnFormat**: lo strumento richiede all'utente di confermare se l'azione è veramente prevista per tutti i formati.<br/><br/>Se il valore non è impostato, il comando viene interrotto e viene visualizzato il messaggio di errore "Incorrect value for SilentOrPromptOnFormat: none" (Valore non corretto per SilentOrPromptOnFormat: none) |
 | Crittografia | **[Obbligatorio]** Encrypt &#124; AlreadyEncrypted<br/> Il valore di questo campo indica quale disco crittografare. <br/><br/>**Encrypt**: lo strumento formatta l'unità. Se il campo "FormatOption" è impostato su "Format", il valore di questo campo deve essere "Encrypt". Se in questo caso viene specificato"AlreadyEncrypted", viene restituito l'errore seguente: "When Format is specified, Encrypt must also be specified" (Quando viene specificato Format, è necessario specificare anche Encrypt).<br/>**AlreadyEncrypted**: lo strumento decrittografa l'unità usando la chiave BitLocker specificata nel campo "ExistingBitLockerKey". Se il valore del campo "FormatOption" è "AlreadyFormatted", il valore di questo campo può essere "Encrypt" o "AlreadyEncrypted". |
 | ExistingBitLockerKey | **[Obbligatorio]** Se il valore del campo "Encryption" è "AlreadyEncrypted",<br/> il valore di questo campo corrisponde alla chiave BitLocker associata al disco specifico. <br/><br/>Se il valore del campo "Encryption" è "Encrypt", questo campo deve essere lasciato vuoto.  Se in questo caso è specificata una chiave BitLocker, viene restituito l'errore seguente: "Bitlocker Key should not be specified" (Non specificare la chiave BitLocker).<br/>  **Esempio**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
@@ -222,7 +223,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /ManifestFile:&lt;FileManifestoUnità&gt; | **Obbligatorio** Applicabile solo per RepairImport e RepairExport.<br/> Percorso del file manifesto dell'unità.  |
 |     /PathMapFile:&lt;FileMappingPercorsoUnità&gt; | **Facoltativo**. Applicabile solo per RepairImport.<br/> Percorso del file contenente i mapping dei percorsi di file relativi alla radice dell'unità ai percorsi dei file effettivi (delimitati da tabulazione). Quando questo parametro viene specificato per la prima volta, viene popolato con percorsi di file con destinazioni vuote, perché si tratta di file non trovati in TargetDirectories, con accesso negato, con nome non valido o esistenti in più directory. Il file di mapping può essere modificato manualmente includendo i percorsi di destinazione corretti e può essere specificato nuovamente in modo da consentire allo strumento di risolvere i percorsi dei file in modo corretto.  |
 |     /ExportBlobListFile:&lt;FileElencoBlobEsportazione&gt; | **Obbligatoria**. Applicabile solo per PreviewExport.<br/> Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Il formato del file è lo stesso usato dall'elenco dei BLOB nell'operazione Put Job dell'API REST del servizio Importazione/Esportazione.  |
-|     /DriveSize:&lt;DimensioneUnità&gt; | **Obbligatoria**. Applicabile solo per PreviewExport.<br/>  Dimensioni delle unità da usare per l'esportazione, ad esempio 500 GB o 1,5 TB. Nota: 1 GB = 1.000.000.000 byte, 1 TB = 1.000.000.000.000 byte  |
+|     /DriveSize:&lt;DimensioneUnità&gt; | **Obbligatoria**. Applicabile solo per PreviewExport.<br/>  Dimensioni delle unità da usare per l'esportazione, Ad esempio: 500 GB, 1,5 TB. Nota: 1 GB = 1.000.000.000 di byte, 1 TB = 1.000.000.000.000 di byte  |
 |     /DataSet:&lt;dataset.csv&gt; | **Obbligatorio**<br/> File CSV che contiene un elenco di directory e/o un elenco di file da copiare nelle unità di destinazione.  |
 |     /silentmode  | **Facoltativo**.<br/> Se questo parametro non è specificato, viene visualizzato un messaggio con i requisiti delle unità e sarà necessaria la conferma dell'utente per continuare.  |
 
@@ -285,7 +286,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### <a name="sample-journal-file-jrn-for-session-which-records-the-trail-of-sessions"></a>Esempio di file journal con estensione jrn che tiene traccia della successione delle sessioni
+### <a name="sample-journal-file-jrn-for-session-that-records-the-trail-of-sessions"></a>Esempio di file journal con estensione jrn che tiene traccia della successione delle sessioni
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -301,7 +302,7 @@ StorageAccountKey: *******
 [EndUpdateRecord]
 ```
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 ### <a name="general"></a>Generale
 
@@ -309,7 +310,7 @@ StorageAccountKey: *******
 
 WAImportExport è lo strumento di preparazione e ripristino delle unità che è possibile usare con il servizio Importazione/Esportazione di Microsoft Azure. Questo strumento consente di copiare dati nei dischi rigidi da spedire a un data center di Azure. Al termine di un processo di importazione, è possibile usare lo strumento per ripristinare gli eventuali BLOB danneggiati, mancanti o in conflitto con altri BLOB. Dopo aver ricevuto le unità da un processo di esportazione completato, lo strumento consente di ripristinare gli eventuali file danneggiati o mancanti nelle unità.
 
-#### <a name="how-does-the-waimportexport-tool-work-on-multiple-sorce-dir-and-disks"></a>Come funziona lo strumento WAImportExport con più dischi e directory di origine?
+#### <a name="how-does-the-waimportexport-tool-work-on-multiple-source-dir-and-disks"></a>Come funziona lo strumento WAImportExport con più dischi e directory di origine?
 
 Se le dimensioni dei dati sono superiori alla dimensione del disco, lo strumento WAImportExport opera una distribuzione ottimizzata dei dati tra i diversi dischi. La copia dei dati in più dischi può essere eseguita in parallelo o in sequenza. Non esiste alcun limite al numero di dischi in cui è possibile scrivere i dati contemporaneamente. Lo strumento distribuisce i dati in base alle dimensioni del disco e della cartella, selezionando il disco che risulta maggiormente ottimizzato per le dimensioni dell'oggetto. Dopo che i dati sono stati caricati nell'account di archiviazione, ne viene eseguita la convergenza nella struttura di directory specificata.
 
@@ -415,7 +416,7 @@ Lo strumento WAImportExport legge e scrive i file un batch alla volta e un batch
 * [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) (Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione)
 * [Quick reference for frequently used commands](storage-import-export-tool-quick-reference.md) (Riferimento rapido per i comandi usati più di frequente) 
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)
-* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)
+* [Riparazione di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)
 * [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
 

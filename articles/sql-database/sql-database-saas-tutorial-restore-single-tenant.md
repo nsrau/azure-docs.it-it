@@ -9,24 +9,24 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 8567061a98ec5a0619a8e10cb44501dd88d8166c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="restore-a-single-tenant-database"></a>Ripristinare un database a tenant singolo
+# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Ripristinare un database SQL a tenant Wingtip SaaS
 
-L'applicazione SaaS Wingtip Tickets viene compilata usando un modello database per ogni tenant, in cui ogni tenant dispone di un proprio database. Uno dei vantaggi di questo modello è che è facile ripristinare i dati di un singolo tenant in isolamento senza alcun impatto sugli altri tenant.
+L'applicazione SaaS Wingtip viene compilata usando un modello database per ogni tenant, in cui ogni tenant dispone di un proprio database. Uno dei vantaggi di questo modello è che è facile ripristinare i dati di un singolo tenant in isolamento senza alcun impatto sugli altri tenant.
 
 Questa esercitazione illustra due modelli di ripristino dei dati:
 
@@ -42,9 +42,9 @@ Questa esercitazione illustra due modelli di ripristino dei dati:
 | **Ripristinare un tenant sul posto** | Questo modello viene in genere usato per ripristinare un tenant a un punto precedente nel tempo, dopo che il tenant ha accidentalmente eliminato i dati. Il database originale viene portato offline e sostituito con il database ripristinato. |
 |||
 
-Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
+Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-* L'applicazione WTP viene distribuita. Per distribuire in meno di cinque minuti, vedere [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md) (Distribuire ed esplorare l'applicazione SaaS WTP)
+* L'app SaaS Wingtip viene distribuita. Per distribuire in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS Wingtip](sql-database-saas-tutorial.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-saas-tenant-restore-pattern"></a>Introduzione al modello di ripristino di tenant SaaS
@@ -57,11 +57,11 @@ Nel secondo modello, in cui si presuppone che il tenant abbia subito una perdita
 
 ## <a name="get-the-wingtip-application-scripts"></a>Ottenere gli script dell'applicazione Wingtip
 
-Gli script di Wingtip Tickets e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). I file di script si trovano nella [cartella Moduli Learning](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Scaricare la cartella **Moduli Learning** nel computer locale, mantenendo la struttura delle cartelle.
+Gli script dell'app SaaS Wingtip e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procedura per scaricare gli script dell'app SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simulare un tenant che elimina accidentalmente i dati
 
-Per illustrare gli scenari di ripristino, è necessario eliminare *accidentalmente* alcuni dati in uno dei database tenant. Mentre è possibile eliminare qualsiasi record, il passaggio successivo consente di impostare la demo in modo da non essere bloccato da violazioni di integrità referenziale. Aggiunge anche alcuni dati di acquisto dei ticket che è possibile usare successivamente nelle *esercitazioni WTP Analytics*.
+Per illustrare gli scenari di ripristino, è necessario eliminare *accidentalmente* alcuni dati in uno dei database tenant. Mentre è possibile eliminare qualsiasi record, il passaggio successivo consente di impostare la demo in modo da non essere bloccato da violazioni di integrità referenziale. Aggiunge anche alcuni dati di acquisto dei ticket che è possibile usare successivamente nelle *esercitazioni su Wingtip SaaS Analytics*.
 
 Eseguire lo script del generatore di ticket e creare dati aggiuntivi. Il generatore di ticket intenzionalmente non acquista ticket per l'ultimo evento di ogni tenant.
 
@@ -148,6 +148,7 @@ Questa esercitazione illustra come:
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Altre esercitazioni basate sulla distribuzione iniziale dell'applicazione Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Altre [esercitazioni basate sull'applicazione SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
 * [Informazioni sul backup del database SQL](sql-database-automated-backups.md)
+

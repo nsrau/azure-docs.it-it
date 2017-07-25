@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ec9da5c9818f03a85e858800bd38be49d8ed14e6
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: ffa791cf4c4be15645a67fef4e94bf6ebdc42a6a
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -41,7 +42,7 @@ La configurazione di connessioni coesistenti di tipo VPN da sito a sito ed Expre
 * **Il gateway SKU Basic non è supportato.** È necessario usare un gateway SKU non Basic sia per il [gateway ExpressRoute](expressroute-about-virtual-network-gateways.md) che per il [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **È supportato solo il gateway VPN basato su route.** È necessario usare un [gateway VPN basato su route](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Deve essere configurata una route statica per il gateway VPN.** Se la rete locale è connessa sia a ExpressRoute che a una VPN da sito a sito, per il routing della connessione VPN da sito a sito alla rete Internet pubblica è necessario che nella rete locale sia configurata una route statica.
-* **Il gateway ExpressRoute deve essere configurato prima.** È necessario creare il gateway ExpressRoute prima di aggiungere il gateway VPN da sito a sito.
+* **Il gateway ExpressRoute deve essere prima configurato e collegato a un circuito.** È necessario prima creare il gateway ExpressRoute e collegarlo a un circuito prima di aggiungere il gateway VPN da sito a sito.
 
 ## <a name="configuration-designs"></a>Progetti di configurazione
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurare una VPN da sito a sito come percorso di failover per ExpressRoute
@@ -87,6 +88,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
+  $VNetASN = 65010
   ```
 3. Creare una rete virtuale con una subnet del gateway. Per altre informazioni sulla configurazione della rete virtuale, vedere l'articolo relativo alla [configurazione di una rete virtuale di Azure](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
    
@@ -136,10 +138,10 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
   New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard"
   ```
    
-    Il gateway VPN di Azure supporta BGP. È possibile specificare -EnableBgp nel comando seguente.
+    Il gateway VPN di Azure supporta il protocollo di routing BGP. È possibile specificare il codice ASN (Numero AS) per la rete virtuale aggiungendo il parametro -Asn nel comando seguente. Se non si specifica questo parametro, il numero AS predefinito sarà 65515.
 
   ```powershell
-  $azureVpn = New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard" -EnableBgp $true
+  $azureVpn = New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard" -Asn $VNetASN
   ```
    
     È possibile trovare l'IP del peering BGP e il numero AS usati da Azure per il gateway VPN in $azureVpn.BgpSettings.BgpPeeringAddress e in $azureVpn.BgpSettings.Asn. Per altre informazioni, vedere [Configurare BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md) per il gateway VPN di VPN.

@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 06/04/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 2cb8c9b50f3067561c63be194151d6128cd45299
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 624b6c8f317477d83539392c6c2f15c2dc69d401
+ms.contentlocale: it-it
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -153,6 +154,35 @@ Se l'origine è di tipo **RelationalSource** (che comprende OData), nella sezion
 | Proprietà | Descrizione | Esempio | Obbligatorio |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |"?$select=Name, Description&$top=5" |No |
+
+## <a name="type-mapping-for-odata"></a>Mapping dei tipi per OData
+Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni di tipo automatiche dai tipi di origine ai tipi di sink con l'approccio in due passaggi seguente:
+
+1. Conversione dai tipi di origine nativi al tipo .NET
+2. Conversione dal tipo .NET al tipo di sink nativo
+
+Quando si spostano dati da OData, vengono usati i mapping seguenti tra i tipi OData e i tipi .NET.
+
+| Tipo di dati OData | Tipo .NET |
+| --- | --- |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Booleano |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |DateTime |
+| Edm.Decimal |Decimale |
+| Edm.Double |Double |
+| Edm.Single |Single |
+| Edm.Guid |Guid |
+| Edm.Int16 |Int16 |
+| Edm.Int32 |Int32 |
+| Edm.Int64 |Int64 |
+| Edm.SByte |Int16 |
+| Edm.String |String |
+| Edm.Time |Intervallo di tempo |
+| Edm.DateTimeOffset |Datetimeoffset |
+
+> [!Note]
+> Tipi di dati OData complessi. Gli oggetti, ad esempio, non sono supportati.
 
 ## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>Esempio JSON: Copiare dati da un'origine OData al BLOB di Azure
 Questo esempio fornisce le definizioni JSON di esempio da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un'origine OData in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory. L'esempio include le entità della data factory seguenti:

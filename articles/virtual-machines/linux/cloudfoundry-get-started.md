@@ -16,9 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 89117c59ae8948eeb32b51a0ecd4fdf0a3a2edd7
-ms.openlocfilehash: d026d6d901374a91864edf9f6ee38d5450e7f179
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: fd51bf9e965d2efd5a6bea9de142ab2ec8d27836
+ms.contentlocale: it-it
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -66,9 +68,4 @@ Cloud Foundry è particolarmente adatto per Agile Software Development e l'uso d
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Distribuire Pivotal Cloud Foundry da Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+- [Deploy an app to Cloud Foundry in Azure](./cloudfoundry-deploy-your-first-app.md) (Distribuire un'app a Cloud Foundry in Azure)

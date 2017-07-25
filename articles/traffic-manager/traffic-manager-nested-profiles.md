@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: e274d10b59c6f198962974fda0a804f4d993c324
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 2dacb50ab9b8604e48f5ba08e8f8e94fa4a71bd5
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -45,7 +46,7 @@ Il diagramma seguente illustra questo esempio:
 
 In questa configurazione, il traffico indirizzato tramite il profilo padre verrà distribuito in più aree, come di consueto. In Europa occidentale il traffico verrà distribuito dal profilo annidato alla produzione e alle distribuzioni di prova in base ai pesi assegnati.
 
-Quando il profilo padre usa il metodo di routing del traffico "Prestazioni", a ogni endpoint deve essere assegnata una posizione. Questa posizione deve essere assegnata al momento della configurazione dell'endpoint. Scegliere l'area di Azure più vicina alla distribuzione specifica. Le opzioni disponibili sono le aree di Azure, ovvero i valori delle posizioni supportati dalla tabella della latenza di Internet. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+Quando il profilo padre usa il metodo di routing del traffico "Prestazioni", a ogni endpoint deve essere assegnata una posizione. Questa posizione deve essere assegnata al momento della configurazione dell'endpoint. Scegliere l'area di Azure più vicina alla distribuzione specifica. Le opzioni disponibili sono le aree di Azure, ovvero i valori delle posizioni supportati dalla tabella della latenza di Internet. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Esempio 2: Monitoraggio degli endpoint nei profili nidificati
 

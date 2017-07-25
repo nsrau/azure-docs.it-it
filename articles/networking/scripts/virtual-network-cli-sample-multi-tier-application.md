@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una rete per applicazioni multilivello | Documentazione Microsoft
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una rete virtuale per applicazioni multilivello
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una rete per applicazioni multilivello | Documentazione Microsoft
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una rete virtuale per applicazioni multilivello
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 07/07/2017
 ms.author: jdial
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a7c7bc0e6321a4169609b60f270b701a743dad92
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: de65d820f2d9eea49b58185c81d815675fd76740
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -32,10 +32,11 @@ Questo script di esempio crea una rete virtuale con subnet front-end e back-end.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+
 ## <a name="sample-script"></a>Script di esempio
 
 
-[!code-azurecli[main](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Rete virtuale per applicazioni multilivello")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Rete virtuale per applicazioni multilivello")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 

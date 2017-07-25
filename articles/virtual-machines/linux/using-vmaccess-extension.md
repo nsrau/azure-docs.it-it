@@ -1,9 +1,9 @@
 ---
-title: Ripristinare l&quot;accesso con l&quot;estensione VMAccess e l&quot;interfaccia della riga di comando di Azure 2.0 | Documenti di Microsoft
-description: Come gestire gli utenti e ripristinare l&quot;accesso in VM Linux mediante l&quot;estensione VMAccess e l&quot;interfaccia della riga di comando di Azure 2.0
+title: Ripristinare l'accesso con l'estensione VMAccess e l'interfaccia della riga di comando di Azure 2.0 | Documenti di Microsoft
+description: Come gestire gli utenti e ripristinare l'accesso in VM Linux mediante l'estensione VMAccess e l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: v-livech
-translationtype: Human Translation
+ms.author: danlep
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e23e2b2d5f30a2ec30564287c96ffc9c671c0dbf
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux mediante l'estensione VMAccess con l'interfaccia della riga di comando di Azure 2.0

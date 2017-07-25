@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 07/21/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logica di ripetizione dei tentativi in Media Services SDK for .NET
@@ -47,7 +48,7 @@ La tabella seguente descrive le eccezioni che Media Services SDK for .NET gestis
 | StorageException |No |Sì |No |No |
 | IOException |No |Sì |No |No |
 
-### <a name="a-namewebexceptionstatusa-webexception-status-codes"></a><a name="WebExceptionStatus"></a> Codici di stato di WebException
+### <a name="WebExceptionStatus"></a> Codici di stato di WebException
 La tabella seguente mostra i codici di errore WebException per cui viene implementata la logica di ripetizione dei tentativi. L'enumerazione [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) definisce i codici di stato.  
 
 | Stato | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
@@ -65,7 +66,7 @@ La tabella seguente mostra i codici di errore WebException per cui viene impleme
 | Timeout |Sì |Sì |Sì |No |
 | ProtocolError <br/>La ripetizione dei tentativi in ProtocolError viene controllata mediante la gestione del codice di stato HTTP. Per altre informazioni, vedere [Codici di stato dell'errore HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Sì |Sì |Sì |Sì |
 
-### <a name="a-namehttpstatuscodea-http-error-status-codes"></a><a name="HTTPStatusCode"></a> Codici di stato dell'errore HTTP
+### <a name="HTTPStatusCode"></a> Codici di stato dell'errore HTTP
 Quando le operazioni di query e salvataggio di modifiche generano DataServiceClientException, DataServiceQueryException o DataServiceQueryException, nella proprietà StatusCode viene restituito il codice di stato dell'errore HTTP.  La tabella seguente mostra i codici di errore per cui viene implementata la logica di ripetizione dei tentativi.  
 
 | Stato | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
@@ -86,10 +87,5 @@ Se si vuole esaminare l'implementazione effettiva della logica di ripetizione de
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

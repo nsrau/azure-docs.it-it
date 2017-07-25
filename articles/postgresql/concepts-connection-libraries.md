@@ -1,29 +1,27 @@
 ---
 title: Raccolte connessioni per il database di Azure per PostgreSQL | Documentazione Microsoft
-description: "Elenca le raccolte e i driver che è possibile usare nei programmi client quando ci si connette al database di Azure per PostgreSQL."
-keywords: azure cloud postgresql postgres
+description: In questo articolo vengono descritte varie librerie e driver che gli sviluppatori possono usare per generare il codice delle applicazioni per la connessione e l&quot;esecuzione di query nel database di Azure per PostgreSQL.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: postgresql - database
-ms.tgt_pltfrm: portal
+editor: jasonwhowell
+ms.service: postgresql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/15/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6bb3f393a8e9533b86919e9a1ebe3490ab838714
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7099e26fd749820ab6869c0262e1f97d993ab7b2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Raccolte connessioni per il database di Azure per PostgreSQL
-Questo argomento elenca le raccolte e i driver che è possibile usare nei programmi client quando ci si connette al database di Azure per PostgreSQL.
+In questo articolo vengono elencate le librerie e i driver che gli sviluppatori possono usare per programmare le applicazioni per la connessione e l'esecuzione di query nel database di Azure per PostgreSQL.
 
 ## <a name="client-interfaces"></a>Interfacce client
-La maggior parte delle raccolte del linguaggio per connettersi al server PostgreSQL sono progetti esterni e vengono distribuite in modo indipendente. Queste sono supportate sulle piattaforme Windows, Linux e Mac. Di seguito sono elencati alcuni dei driver client più diffusi.
+La maggior parte delle raccolte del linguaggio per connettersi al server PostgreSQL sono progetti esterni e vengono distribuite in modo indipendente. Queste sono supportate sulle piattaforme Windows, Linux e Mac. Di seguito sono elencati alcuni dei driver client più diffusi:
+
 | **Lingua** | **Interfaccia del client** | **Informazioni aggiuntive** | **Scaricare** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | Compatibile con l'API DB 2.0 | [Scaricare](http://initd.org/psycopg/download/) |
@@ -38,7 +36,7 @@ La maggior parte delle raccolte del linguaggio per connettersi al server Postgre
 | C++ | [libpqxx](http://pqxx.org/) | Interfaccia nel nuovo stile C++ | [Scaricare](http://pqxx.org/download/software/) |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per una panoramica del servizio, vedere [Azure Database for PostgreSQL Overview](overview.md) (Database di Azure per una panoramica di PostgreSQL).
-- Per altre informazioni sui server, vedere [Azure Database for PostgreSQL servers](concepts-servers.md) (Database di Azure per server PostgreSQL).
-- Per creare il primo server PostgreSQL, vedere [Create an Azure Database for PostgreSQL in the Azure portal](quickstart-create-server-database-portal.md) (Creare un database di Azure per PostgreSQL nel portale di Azure).
+Leggere queste guide rapide per informazioni su come connettersi ed eseguire query nel database di Azure per PostgreSQL usando il linguaggio scelto:
+
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)
 

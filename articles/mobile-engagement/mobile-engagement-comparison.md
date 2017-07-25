@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4503810769d88ea554885f39902349046981ec88
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -62,10 +64,5 @@ Seguono alcuni scenari:
 Ricapitolando, Mobile Engagement non serve soltanto alla raccolta di analisi, non è semplicemente un altro prodotto di analisi di Microsoft. Permette di inviare notifiche push mirate e a tal fine vengono raccolti dati di analisi comportamentali, ma l'obiettivo principale rimane l'invio di notifiche push utili agli utenti dell'app che non vengano percepite come posta indesiderata. 
 
 Per ulteriori dettagli, vedere questo [video rapido](mobile-engagement-overview.md) che sintetizza Mobile Engagement. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

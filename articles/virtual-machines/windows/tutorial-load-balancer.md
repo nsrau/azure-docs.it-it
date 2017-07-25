@@ -1,6 +1,6 @@
 ---
 title: Come bilanciare il carico delle macchine virtuali di Windows in Azure | Microsoft Docs
-description: "Informazioni su come usare Azure Load Balancer per creare un&quot;applicazione sicura e a disponibilità elevata in tre macchine virtuali di Windows"
+description: "Informazioni su come usare Azure Load Balancer per creare un'applicazione sicura e a disponibilità elevata in tre macchine virtuali di Windows"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: c9df0fedfb39ee162334304d56eb4df3a96dcd3e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 342a305a4bbdc1526a9316a35819d06996702a5b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -112,12 +112,20 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
+Creare il servizio di bilanciamento del carico con [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
+
+```powershell
+Set-AzureRmLoadBalancer -LoadBalancer $lb
+```
+
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP di back-end affinché riceva il traffico, insieme alla porta di origine e di destinazione necessaria. Per assicurarsi che solo le macchine virtuali integre ricevano il traffico, è necessario anche definire il probe di integrità da usare.
 
 Creare una regola di bilanciamento del carico con [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). Nell'esempio seguente viene creata una regola di bilanciamento del carico denominata *myLoadBalancerRule* e il traffico viene bilanciato sulla porta *80*:
 
 ```powershell
+$probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe
+
 Add-AzureRmLoadBalancerRuleConfig `
   -Name myLoadBalancerRule `
   -LoadBalancer $lb `
@@ -125,7 +133,8 @@ Add-AzureRmLoadBalancerRuleConfig `
   -BackendAddressPool $lb.BackendAddressPools[0] `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+  -Probe $probe
 ```
 
 Creare il servizio di bilanciamento del carico con [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
@@ -142,9 +151,12 @@ Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciam
 Creare una rete virtuale con [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). Nell'esempio seguente viene creata una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet*:
 
 ```powershell
+# Create subnet config
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name mySubnet `
   -AddressPrefix 192.168.1.0/24
+
+# Create the virtual network
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Location EastUS `
@@ -158,6 +170,7 @@ Creare una regola per il gruppo di sicurezza di rete con [New-AzureRmNetworkSecu
 Nell'esempio seguente viene creata una regola del gruppo di sicurezza di rete denominata *myNetworkSecurityGroup* che viene applicata a *mySubnet*:
 
 ```powershell
+# Create security rule config
 $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myNetworkSecurityGroupRule `
   -Protocol Tcp `
@@ -168,16 +181,22 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -DestinationAddressPrefix * `
   -DestinationPortRange 80 `
   -Access Allow
+
+# Create the network security group
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Location EastUS `
   -Name myNetworkSecurityGroup `
   -SecurityRules $nsgRule
+
+# Apply the network security group to a subnet
 Set-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name mySubnet `
   -NetworkSecurityGroup $nsg `
   -AddressPrefix 192.168.1.0/24
+
+# Update the virtual network
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 

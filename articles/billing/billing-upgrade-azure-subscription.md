@@ -4,8 +4,8 @@ description: Viene descritto come passare a un pagamento a consumo da una sottos
 keywords: pagamento a consumo
 services: 
 documentationcenter: 
-author: adpick
-manager: adpick
+author: jlian
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
@@ -17,13 +17,15 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.contentlocale: it-it
 ms.lasthandoff: 03/17/2017
 
 ---
-# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo
+<a id="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go" class="xliff"></a>
+# Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo
 Aggiornare la propria sottoscrizione [Versione di valutazione gratuita](https://azure.microsoft.com/free/) o [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) alla sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) dal portale dell'account di Azure. Il solo aggiornamento non comporta alcuna spesa e l'addebito è previsto solo per i servizi usati.
 
 1. Accedere al [portale dell'account di Azure](https://account.windowsazure.com/subscriptions) e passare alla scheda **sottoscrizioni**.

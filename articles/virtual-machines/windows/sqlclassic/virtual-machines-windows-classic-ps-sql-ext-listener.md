@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/28/2016
+ms.date: 05/31/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d9138b17e54aa1c4bf1982b09d3d0ad10e936d4c
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
+ms.contentlocale: it-it
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -95,7 +96,7 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>Configurare le risorse del cluster in PowerShell
-1. Per il servizio di bilanciamento del carico esterno, è necessario ottenere l'indirizzo IP virtuale pubblico del servizio cloud contenente le repliche. Accedere al portale di Azure classico. Passare al servizio cloud che contiene la macchina virtuale del gruppo di disponibilità. Aprire la visualizzazione **Dashboard** .
+1. Per il servizio di bilanciamento del carico esterno, è necessario ottenere l'indirizzo IP virtuale pubblico del servizio cloud contenente le repliche. Accedere al portale di Azure. Passare al servizio cloud che contiene la macchina virtuale del gruppo di disponibilità. Aprire la visualizzazione **Dashboard** .
 2. Annotare l'indirizzo visualizzato sotto **Indirizzo IP virtuale pubblico (VIP)**. Se la soluzione interessa più reti virtuali, ripetere questo passaggio per ogni servizio cloud che contiene una macchina virtuale che ospita una replica.
 3. Su una delle macchine virtuali copiare lo script di PowerShell seguente in un editor di testo e impostare le variabili sui valori annotati prima.
    

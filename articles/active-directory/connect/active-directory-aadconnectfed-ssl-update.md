@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+ms.date: 07/17/2017
 ms.author: anandy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
+ms.contentlocale: it-it
 ms.lasthandoff: 03/21/2017
-
 
 ---    
 
@@ -65,10 +65,10 @@ Dopo aver confermato le informazioni sui server della farm AD FS, Azure AD Conne
 
 Dopo aver specificato il certificato, Azure AD Connect esegue una serie di verifiche dei prerequisiti per assicurarsi che il certificato sia corretto per la farm AD FS:
 
--    Il nome soggetto o il nome soggetto alternativo del certificato deve corrispondere al nome del servizio federativo oppure il certificato deve contenere caratteri jolly.
--    Il certificato deve essere valido per più di 30 giorni.
--    La catena di certificati deve essere valida.
--    Il certificato deve essere protetto da password.
+-   Il nome soggetto o il nome soggetto alternativo del certificato deve corrispondere al nome del servizio federativo oppure il certificato deve contenere caratteri jolly.
+-   Il certificato deve essere valido per più di 30 giorni.
+-   La catena di certificati deve essere valida.
+-   Il certificato deve essere protetto da password.
 
 ## <a name="step-3-select-servers-for-the-update"></a>Passaggio 3: Selezionare i server per l'aggiornamento
 

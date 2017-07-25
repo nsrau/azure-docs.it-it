@@ -29,5 +29,8 @@
 | [GS1-GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* |
 | [H](../articles/virtual-machines/windows/sizes-hpc.md) |290 - 300* |
 | [L4s-L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* |
+| [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160-180** |
 
 Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni.  L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
+
+**Con hyperthreading. 

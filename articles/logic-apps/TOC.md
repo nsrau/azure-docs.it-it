@@ -45,10 +45,12 @@
 ### [Integrazione aziendale EDIFACT](logic-apps-enterprise-integration-edifact.md)
 ### [Codifica EDIFACT](logic-apps-enterprise-integration-edifact-encode.md)
 ### [Decodifica EDIFACT](logic-apps-enterprise-integration-edifact-decode.md)
+### [Come gestire documenti EDIFACT con un segmento UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [Integrazione aziendale X12](logic-apps-enterprise-integration-x12.md)
 ### [Codifica X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Decodifica X12](logic-apps-enterprise-integration-x12-decode.md)
 ### [Ripristino di emergenza](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Errori e soluzioni](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Accedere ai dati locali
 ### [Connettersi ai dati locali](logic-apps-gateway-connection.md)
@@ -60,14 +62,14 @@
 
 ## Gestire e monitorare
 ### [Gestire app per la logica con Visual Studio](logic-apps-manage-from-vs.md)
-### [Monitorare le app per la logica](logic-apps-monitor-your-logic-apps.md)
 ### [Gestire gli account di integrazione](logic-apps-enterprise-integration-accounts.md)
+### [Monitorare lo stato delle app per la logica](logic-apps-monitor-your-logic-apps.md)
 ### [Monitorare i messaggi B2B](logic-apps-monitor-b2b-message.md)
+#### [Tenere traccia dei messaggi B2B in OMS](logic-apps-track-b2b-messages-omsportal.md)
+#### [Cercare messaggi B2B in OMS](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 #### [Schema di rilevamento AS2](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [Schema di rilevamento X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Schema di rilevamento personalizzato](logic-apps-track-integration-account-custom-tracking-schema.md)
-#### [Tenere traccia dei messaggi B2B in OMS](logic-apps-track-b2b-messages-omsportal.md)
-#### [Cercare messaggi in OMS](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
 ## Esempi, scenari e procedure dettagliate
 ### [Panoramica](logic-apps-examples-and-scenarios.md)
@@ -75,12 +77,10 @@
 ### [Chiamare le app per la logica con Funzioni di Azure](logic-apps-scenario-function-sb-trigger.md)
 ### [Aggiungere la gestione di errori ed eccezioni](logic-apps-scenario-error-and-exception-handling.md)
 ### [Elaborazione B2B](logic-apps-enterprise-integration-b2b.md)
-### [Come gestire documenti EDIFACT con un segmento UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Prezzi e fatturazione
 ### [Prezzi](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Misurazione dell'utilizzo](logic-apps-pricing.md)
-
 
 # Senza server
 ## Panoramica
@@ -116,6 +116,7 @@
 ### [Webhook HTTP](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Account di integrazione](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [Oracle Database](../connectors/connectors-create-api-oracledatabase.md)
 ### [Richiesta/Risposta](../connectors/connectors-native-reqres.md)
@@ -137,6 +138,7 @@
 ### [Anteprima](logic-apps-schema-2015-08-01.md)
 
 # Risorse
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=logic-apps)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)

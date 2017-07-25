@@ -12,15 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 07/19/2017
 ms.author: priyamo
-ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: dceaab3f89675ae8e046419aaa5173c2733b0660
+ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
+ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
 ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Uso del protocollo SAML in Azure Active Directory
@@ -28,9 +26,7 @@ Azure Active Directory (Azure AD) usa il protocollo SAML 2.0 per consentire alle
 
 Il protocollo SAML richiede che il provider di identità (Azure AD) e il provider del servizio (l'applicazione) si scambino informazioni su se stessi.
 
-Quando un'applicazione viene registrata in Azure AD, lo sviluppatore dell'app registra le informazioni relative alla federazione con Azure AD. Tali informazioni includono l'**URI di reindirizzamento** e l'**URI dei metadati** dell'applicazione.
-
-Azure AD usa l' **URI dei metadati** del servizio cloud per recuperare la chiave di firma e l'URI di disconnessione del servizio cloud. Se l'applicazione non supporta un URI dei metadati, lo sviluppatore deve contattare il supporto tecnico Microsoft per fornire l'URI di disconnessione e la chiave di firma.
+Quando un'applicazione viene registrata in Azure AD, lo sviluppatore dell'app registra le informazioni relative alla federazione con Azure AD. È incluso l'**URI di reindirizzamento** dell'applicazione.
 
 Azure Active Directory espone endpoint di Single Sign-On e Single Sign-Out specifici del tenant e comuni (indipendenti dal tenant). Questi URL non sono semplici identificatori, ma rappresentano posizioni indirizzabili. È quindi possibile accedere all'endpoint per leggere i metadati.
 

@@ -11,18 +11,20 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 02/13/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d77f9c4e6365c95b0ea1bf4d00b9f2e9c35eefde
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Abilitare la riprotezione da Azure a un sito locale
+
+
 
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive come eseguire la riprotezione di macchine virtuali di Azure da Azure al sito locale. Seguire le istruzioni riportate in questo articolo quando si è pronti a eseguire il failback delle macchine virtuali VMware o dei server fisici Windows/Linux dopo aver eseguito il failover dal sito locale in Azure usando [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-failover.md).
@@ -44,7 +46,7 @@ Di seguito vengono riportati i passaggi obbligatori da eseguire o prendere in co
 
 * Se le macchine virtuali in cui si vuole eseguire il failback sono gestite da un server vCenter, verificare di avere le autorizzazioni necessarie per l'individuazione di macchine virtuali nei server vCenter. [Altre informazioni](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 
-> [!WARNING] 
+> [!WARNING]
 > Se nella destinazione master o nella macchina virtuale locale sono presenti snapshot, la riprotezione avrà esito negativo. È possibile eliminare gli snapshot nella destinazione master prima di continuare con la protezione. Durante il processo di protezione gli snapshot nella macchina virtuale verranno automaticamente uniti.
 
 * Prima di eseguire il failback, sarà necessario creare due componenti aggiuntivi:
@@ -103,6 +105,10 @@ Fare clic sui collegamenti seguenti per informazioni su come installare un serve
 * [Come installare un server di destinazione master Linux](site-recovery-how-to-install-linux-master-target.md)
 
 
+### <a name="what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback"></a>Tipi di archivio dati supportati nell'host ESXi locale durante il failback
+
+ASR supporta attualmente solo il failback in un archivio dati VMFS. Un archivio dati vSAN o NFS non è supportato. Si noti che è possibile proteggere le macchine virtuali in esecuzione in un archivio dati vSAN o NFS. A causa di questa limitazione, l'input di selezione dell'archivio dati nella schermata di riprotezione risulterà vuoto in caso di database NFS o mostrerà l'archivio dati vSAN ma avrà esito negativo durante il processo. Se si prevede di eseguire il failback, è possibile creare un archivio dati VMFS in locale ed eseguire il failback in tale archivio. Questo failback provocherà un download completo di VMDK. Nelle prossime versioni verrà aggiunto il supporto per archivi dati NFS e vSAN.
+
 #### <a name="common-things-to-check-after-completing-installation-of-the-master-target-server"></a>Elementi comuni da controllare dopo aver installato il server di destinazione master
 
 * Se la macchina virtuale è presente in locale nel server vCenter, il server di destinazione master deve poter accedere al disco VMDK nella macchina virtuale locale. L'accesso è necessario per scrivere i dati replicati nei dischi della macchina virtuale. Assicurarsi che l'archivio dati della macchina virtuale locale sia montato nell'host del server di destinazione master con accesso in lettura/scrittura.
@@ -129,7 +135,7 @@ Fare clic sui collegamenti seguenti per informazioni su come installare un serve
    * Il volume di conservazione predefinito per Windows è il volume R.
 
    * Il volume di conservazione predefinito per Linux è /mnt/retention/.
-   
+
    > [!IMPORTANT]
    > È necessario aggiungere una nuova unità se si usa un computer CS+PS esistente o un computer di scala o PS+MT. La nuova unità deve soddisfare i requisiti indicati sopra. Se l'unità di conservazione non è presente, nessuna unità verrà elencata nell'elenco a discesa di selezione nel portale. Dopo aver aggiunto un'unità alla destinazione master locale, sono necessari fino a 15 minuti perché l'unità appaia nell'elenco di selezione nel portale. È anche possibile aggiornare il server di configurazione se l'unità non appare dopo 15 minuti.
 

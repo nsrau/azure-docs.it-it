@@ -3,7 +3,7 @@ title: Notifiche di Report di Azure Active Directory
 description: Come utilizzare le notifiche di report di Azure Active Directory per gli accessi sospetti.
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
+ms.custom: oldportal
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 90ba006f25c27e1dc24c85fdc4ef1d5e2a8d0e3d
 ms.contentlocale: it-it
 ms.lasthandoff: 02/11/2017
-
 
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notifiche di Report di Azure Active Directory

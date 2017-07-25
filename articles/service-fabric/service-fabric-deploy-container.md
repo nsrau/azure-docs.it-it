@@ -1,6 +1,6 @@
 ---
 title: Service Fabric e distribuzione di contenitori | Microsoft Docs
-description: "Service Fabric e l&quot;uso di contenitori per la distribuzione di applicazioni di microservizi. Questo articolo illustra le funzionalità offerte da Service Fabric per i contenitori e la modalità di distribuzione di un&quot;immagine contenitore Windows in un cluster."
+description: "Service Fabric e l'uso di contenitori per la distribuzione di applicazioni di microservizi. Questo articolo illustra le funzionalità offerte da Service Fabric per i contenitori e la modalità di distribuzione di un'immagine contenitore Windows in un cluster."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 5/16/2017
 ms.author: msfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 17e9f4f81c60d86f804d1d9e6df2014dd4568d75
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 25d6b056421e71fa70ed20a39589f77dbbc25c69
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/17/2017
 
 Questo articolo descrive in dettaglio il processo di creazione di servizi in contenitori Windows.
 
-Service Fabric offre diverse funzionalità relative ai contenitori che consentono di creare applicazioni costituite da microservizi inseriti in contenitori, 
+Service Fabric offre diverse funzionalità che consentono di creare applicazioni costituite da microservizi eseguiti in contenitori. 
 
 Le funzionalità includono:
 
@@ -55,32 +55,32 @@ Visual Studio include un modello di servizio Service Fabric che consente di dist
 
 1. Scegliere **File** > **Nuovo progetto** e creare un'applicazione di Service Fabric.
 2. Scegliere **Guest Container (Contenitore guest)** come modello del servizio.
-3. Scegliere **Image Name (Nome immagine)** e specificare il percorso dell'immagine nel repository del contenitore, come https://hub.docker.com/, ad esempio myrepo/myimage:v1 
+3. Scegliere **Nome immagine** e specificare il percorso dell'immagine nell'archivio del contenitore. Ad esempio `myrepo/myimage:v1` in https://hub.docker.com
 4. Assegnare un nome al servizio e fare clic su **OK**.
-5. Se il servizio nel contenitore richiede un endpoint per la comunicazione, è ora possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml. Ad esempio: 
+5. Se il servizio nel contenitore richiede un endpoint per la comunicazione, è ora possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml. ad esempio: 
      
     `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
     
-    Se si specifica l'elemento `UriScheme`, questo registra automaticamente l'endpoint del contenitore con il servizio di denominazione (Naming) di Service Fabric per l'individuazione. La porta può essere stabilita (come illustrato nell'esempio precedente) o allocata in modo dinamico (valore lasciato vuoto per allocare una porta presente nell'intervallo di porte dell'applicazione designata) esattamente come per qualsiasi altro servizio.
-    È anche necessario configurare il mapping tra porta del contenitore e porta dell'host specificando un elemento di criteri `PortBinding` nel manifesto dell'applicazione come descritto in precedenza.
+    Se si specifica `UriScheme` Service Fabric registra automaticamente l'endpoint del contenitore con Naming Service per l'individuazione. La porta può essere fissa (come nell'esempio precedente) o allocata in modo dinamico. Se non si specifica una porta, questa viene allocata in modo dinamico nell'intervallo di porte dell'applicazione (come per qualsiasi servizio).
+    È anche necessario configurare il mapping tra contenitore e porta dell'host specificando una norma `PortBinding` nel manifesto dell'applicazione. Per altre informazioni, vedere [Configurare il mapping tra porta del contenitore e porta dell'host](#Portsection).
 6. Se per il contenitore è necessaria una governance delle risorse, aggiungere un elemento `ResourceGovernancePolicy`.
 8. Se il contenitore deve eseguire l'autenticazione con un repository privato, aggiungere `RepositoryCredentials`.
-7. È ora possibile usare il pacchetto e pubblicare l'azione nel cluster locale se quest'ultimo è Windows Server 2016 con supporto del contenitore attivato. 
+7. Se si usa un computer Windows Server 2016 con il supporto dei contenitori abilitato è possibile usare l'azione di creazione pacchetto e pubblicazione per la distribuzione nel cluster locale. 
 8. Quando si è pronti, pubblicare l'applicazione in un cluster remoto o archiviare la soluzione nel controllo del codice sorgente. 
 
-Per un'applicazione di esempio [vedere gli esempi di codice di contenitore Service Fabric su GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+Per un esempio vedere gli [esempi di codice di contenitore Service Fabric su GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
 
 ## <a name="creating-a-windows-server-2016-cluster"></a>Creazione di un cluster di Windows Server 2016
-Per distribuire l'applicazione nei contenitori, è necessario creare un cluster che esegue Windows Server 2016 con il supporto di contenitore abilitato. Il cluster può trovarsi nel computer di sviluppo locale o può essere distribuito tramite Azure Resource Manager (ARM) in Azure. 
+Per distribuire l'applicazione nei contenitori, è necessario creare un cluster che esegue Windows Server 2016 con il supporto di contenitore abilitato. Il cluster può essere eseguito localmente o distribuito con Azure Resource Manager in Azure. 
 
-Per distribuire un cluster con ARM, scegliere l'opzione di immagine **Windows Server 2016 with Containers** (Windows Server 2016 con contenitori) in Azure. Vedere l'articolo [Creare un cluster di Service Fabric usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Assicurarsi di usare le seguenti impostazioni di ARM:
+Per distribuire un cluster con Azure Resource Manager scegliere l'opzione di immagine **Windows Server 2016 with Containers** (Windows Server 2016 con contenitori) in Azure. Vedere l'articolo [Creare un cluster di Service Fabric usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Assicurarsi di usare le seguenti impostazioni di Azure Resource Manager:
 
 ```xml
 "vmImageOffer": { "type": "string","defaultValue": "WindowsServer"     },
 "vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
 "vmImageVersion": { "defaultValue": "latest","type": "string"     },  
 ```
-È inoltre possibile usare il [modello ARM a 5 nodi presente qui](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) per creare un cluster. In alternativa leggere [qui il post di blog di Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sull'uso di Service Fabric e dei contenitori di Windows.
+Per creare un cluster è anche possibile usare il [modello di Azure Resource Manager con cinque nodi](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype). In alternativa è consigliabile leggere un [post di blog](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) della community sull'uso di Service Fabric e dei contenitori di Windows.
 
 <a id="manually"></a>
 
@@ -108,7 +108,7 @@ Nel manifesto del servizio aggiungere un `ContainerHost` per il punto di ingress
     </CodePackage>
 ```
 
-È possibile fornire comandi di input specificando l'elemento `Commands` facoltativo con un set delimitato da virgole di comandi da eseguire all'interno del contenitore.
+È possibile specificare i comandi facoltativi da eseguire all'avvio del contenitore all'interno dell'elemento `Commands`. Per aggiungere più comandi, separarli con virgole. 
 
 ## <a name="understand-resource-governance"></a>Informazioni sulla governance delle risorse
 La governance delle risorse è una funzionalità del contenitore che limita le risorse che possono essere usate dal contenitore nell'host. L'impostazione `ResourceGovernancePolicy`, specificata nel manifesto dell'applicazione, viene usata per dichiarare limiti di risorse per il pacchetto di codice di un servizio. È possibile impostare limiti per le risorse seguenti:
@@ -120,7 +120,7 @@ La governance delle risorse è una funzionalità del contenitore che limita le r
 * BlkioWeight (peso relativo BlockIO)
 
 > [!NOTE]
-> In una versione futura sarà incluso il supporto della definizione di specifici limiti di I/O di blocco, come operazioni di I/O al secondo, BPS in lettura/scrittura e altri.
+> Il supporto per la definizione di limiti di I/O di blocco specifici, come operazioni di I/O al secondo, BPS in lettura/scrittura e altro, è previsto per una versione futura.
 > 
 > 
 
@@ -165,7 +165,7 @@ La chiave privata del certificato usata per decrittografare la password deve ess
     </ServiceManifestImport>
 ```
 
-## <a name="configure-container-port-to-host-port-mapping"></a>Configurare il mapping tra porta del contenitore e porta dell'host
+## <a name ="Portsection"></a> Configurare il mapping tra contenitore e porta dell'host
 È possibile configurare una porta dell'host per la comunicazione con il contenitore specificando `PortBinding` nel manifesto dell'applicazione. Il binding di porta esegue il mapping tra la porta su cui il servizio è in ascolto all'interno del contenitore e una porta nell'host.
 
 ```xml
@@ -180,9 +180,8 @@ La chiave privata del certificato usata per decrittografare la password deve ess
 ```
 
 ## <a name="configure-container-to-container-discovery-and-communication"></a>Configurare individuazione e comunicazione da contenitore a contenitore
-Usando il criterio `PortBinding`, è possibile eseguire il mapping tra la porta di un contenitore e un `Endpoint` nel manifesto del servizio, come illustrato nell'esempio seguente. L'endpoint `Endpoint1` può specificare una porta fissa, ad esempio, la porta 80, oppure non specificarne alcuna. Nel secondo caso verrà scelta automaticamente una porta casuale nell'intervallo di porte dell'applicazione del cluster.
+È possibile usare l'elemento `PortBinding` per eseguire il mapping di una porta del contenitore a un endpoint nel manifesto del servizio. Nell'esempio seguente l'endpoint `Endpoint1` specifica la porta fissa 8905. oppure non specificarne alcuna. Nel secondo caso verrà scelta automaticamente una porta casuale nell'intervallo di porte dell'applicazione del cluster.
 
-Se si specifica un endpoint, usando il tag `Endpoint` nel manifesto del servizio di un contenitore guest, Service Fabric può pubblicare automaticamente questo endpoint per Naming Service. Altri servizi in esecuzione nel cluster possono così individuare questo contenitore usando query REST per la risoluzione.
 
 ```xml
     <ServiceManifestImport>
@@ -194,11 +193,12 @@ Se si specifica un endpoint, usando il tag `Endpoint` nel manifesto del servizio
         </Policies>
     </ServiceManifestImport>
 ```
+Se si specifica un endpoint, usando il tag `Endpoint` nel manifesto del servizio di un contenitore guest, Service Fabric può pubblicare automaticamente questo endpoint per Naming Service. Altri servizi in esecuzione nel cluster possono così individuare questo contenitore usando query REST per la risoluzione.
 
-Eseguendo la registrazione in Naming Service, è possibile includere facilmente la comunicazione da contenitore a contenitore nel codice all'interno del contenitore usando il [proxy inverso](service-fabric-reverseproxy.md). La comunicazione avviene specificando la porta di ascolto HTTP del proxy inverso e il nome dei servizi con cui si vuole comunicare come variabili di ambiente. Per altre informazioni, vedere la sezione seguente. 
+Eseguendo la registrazione in Naming Service è possibile implementare la comunicazione tra contenitori all'interno del contenitore usando il [proxy inverso](service-fabric-reverseproxy.md). La comunicazione avviene specificando la porta di ascolto HTTP del proxy inverso e il nome dei servizi con cui si vuole comunicare come variabili di ambiente. Per altre informazioni, vedere la sezione seguente. 
 
 ## <a name="configure-and-set-environment-variables"></a>Configurare e impostare variabili di ambiente
-È possibile specificare variabili di ambiente per ogni pacchetto di codice nel manifesto del servizio, per servizi distribuiti sia in contenitori che come processi/eseguibili guest. È possibile eseguire specificamente l'override dei valori di queste variabili di ambiente nel manifesto dell'applicazione oppure specificarli durante la distribuzione come parametri dell'applicazione.
+È possibile specificare variabili di ambiente per ogni pacchetto di codice nel manifesto del servizio. Questa funzionalità è disponibile per tutti i servizi, siano essi distribuiti come contenitori, processi o eseguibili guest. È possibile sostituire i valori delle variabili di ambiente nel manifesto dell'applicazione oppure specificarli durante la distribuzione come parametri dell'applicazione.
 
 Il frammento XML del manifesto del servizio seguente offre un esempio di come specificare le variabili di ambiente per un pacchetto di codice:
 
@@ -236,6 +236,15 @@ Il frammento XML del manifesto del servizio seguente offre un esempio di come sp
 ```
 
 Nell'esempio precedente è stato specificato un valore esplicito per la variabile di ambiente `HttpGateway` (19000), mentre il valore per il parametro `BackendServiceName` viene impostato tramite il parametro dell'applicazione `[BackendSvc]`. Queste impostazioni consentono di specificare il valore per `BackendServiceName` quando si distribuisce l'applicazione anziché avere un valore fisso nel manifesto.
+
+## <a name="configure-isolation-mode"></a>Configurare la modalità di isolamento
+
+Windows supporta due modalità di isolamento per i contenitori: la modalità processo e la modalità Hyper-V.  Nella modalità di isolamento del processo tutti i contenitori in esecuzione nello stesso computer host condividono il kernel con l'host. Nella modalità di isolamento Hyper-V i kernel sono isolati tra i singoli contenitori Hyper-V e il contenitore host. La modalità di isolamento è specificata nel tag `ContainerHostPolicies` nel file manifesto dell'applicazione.  Le modalità di isolamento specificabili sono `process`, `hyperv` e `default`. La modalità di isolamento `default` assume come impostazione predefinita `process` negli host Windows Server e `hyperv` negli host Windows 10.  Il frammento seguente indica come è specificata la modalità di isolamento nel file manifesto dell'applicazione.
+
+```xml
+   <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
+```
+
 
 ## <a name="complete-examples-for-application-and-service-manifest"></a>Esempi completi per il manifesto dell'applicazione e del servizio
 
@@ -299,5 +308,5 @@ Di seguito è riportato un manifesto del servizio di esempio (specificato nel ma
 Ora che è stato distribuito un servizio in contenitori, vedere [Ciclo di vita dell'applicazione Service Fabric](service-fabric-application-lifecycle.md) per informazioni su come gestire il ciclo di vita del servizio.
 
 * [Panoramica di Service Fabric e contenitori](service-fabric-containers-overview.md)
-* Per un'applicazione di esempio [vedere gli esempi di codice di contenitore Service Fabric su GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* Per un esempio vedere gli [esempi di codice di contenitore Service Fabric su GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
 

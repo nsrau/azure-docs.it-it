@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 06/29/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e5b622be66c3e009c67a00dd380efd87b013c920
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -72,6 +73,21 @@ I criteri di arresto automatico consentono di ridurre al minimo gli sprechi nel 
 1. Selezionare **Salva**.
 
     Per impostazione predefinita, dopo l'abilitazione questi criteri verranno applicati a tutte le macchine virtuali nel lab corrente. Per rimuovere questa impostazione da una VM specifica, aprire il pannello della VM e modificare l'impostazione **Arresto automatico** . 
+
+## <a name="set-auto-start"></a>Impostazione dell'avvio automatico
+I criteri di avvio automatico consentono di specificare l'ora in cui devono essere avviate le macchine virtuali nel lab corrente.  
+
+1. Dal pannello **Configuration and policies** (Configurazione e criteri) del lab selezionare **Avvio automatico**.
+   
+    ![Avvio automatico](./media/devtest-lab-set-lab-policy/auto-start.png)
+
+2. Selezionare **Attivo** per abilitare i criteri e **Non attivo** per disabilitarli.
+
+3. Se si abilita questo criterio, specificare l'ora di avvio pianificata, il fuso orario e i giorni della settimana a cui è applicabile questo orario. 
+
+4. Selezionare **Salva**.
+
+    Dopo l'abilitazione, questi criteri non vengono applicati automaticamente alle VM del lab corrente. Per applicare questa impostazione a una VM specifica, aprire il pannello della VM e modificare l'impostazione **Avvio automatico** . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

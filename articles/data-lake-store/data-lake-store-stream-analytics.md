@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4ecf4f8594f7a274bec231fb74c4caa22c3cc354
 ms.openlocfilehash: b5f2ae124ca3276e15e0d1f75d655ec346bf8ee8
+ms.contentlocale: it-it
 ms.lasthandoff: 01/06/2017
 
 
 ---
-# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Trasmettere i dati dal BLOB di archiviazione di Azure ad Archivio Data Lake usando Analisi di flusso di Azure
+<a id="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics" class="xliff"></a>
+# Trasmettere i dati dal BLOB di archiviazione di Azure ad Archivio Data Lake usando Analisi di flusso di Azure
 In questo articolo viene descritto come usare Archivio Azure Data Lake come output per un processo di Analisi di flusso di Azure. Questo articolo illustra uno scenario semplice in cui i dati vengono letti da un BLOB di Archiviazione di Azure (input) e scritti in Archivio Data Lake (output).
 
 > [!NOTE]
@@ -29,7 +31,8 @@ In questo articolo viene descritto come usare Archivio Azure Data Lake come outp
 >
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+<a id="prerequisites" class="xliff"></a>
+## Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -38,7 +41,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
   
 * **Account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md). Si supponga di avere un account Data Lake denominato **asadatalakestore**. 
 
-## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso
+<a id="create-a-stream-analytics-job" class="xliff"></a>
+## Creare un processo di Analisi di flusso
 Iniziare creando un processo di Analisi di flusso che include un'origine di input e una destinazione di output. Per questa esercitazione, l'origine è un contenitore BLOB di Azure e la destinazione è Archivio Data Lake.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -51,7 +55,8 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     > Assicurarsi di creare il processo nella stessa area dell'account di archiviazione per non incorrere in costi aggiuntivi per lo spostamento dei dati tra le aree.
     >
 
-## <a name="create-a-blob-input-for-the-job"></a>Creare un input BLOB per il processo
+<a id="create-a-blob-input-for-the-job" class="xliff"></a>
+## Creare un input BLOB per il processo
 
 1. Aprire la pagina per il processo di Analisi di flusso, nel riquadro sinistro fare clic sulla scheda **Input** e quindi fare clic su **Aggiungi**.
 
@@ -74,7 +79,8 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     Fare clic su **Crea**. Il portale ora aggiunge l'input e verifica la connessione allo stesso.
 
 
-## <a name="create-a-data-lake-store-output-for-the-job"></a>Creare un output di Archivio Data Lake per il processo
+<a id="create-a-data-lake-store-output-for-the-job" class="xliff"></a>
+## Creare un output di Archivio Data Lake per il processo
 
 1. Aprire la pagina per il processo di Analisi di flusso, fare clic sulla scheda **Output** e quindi fare clic su **Aggiungi**.
 
@@ -102,7 +108,8 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     
     Fare clic su **Crea**. Il portale ora aggiunge l'output e verifica la connessione allo stesso.
     
-## <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso
+<a id="run-the-stream-analytics-job" class="xliff"></a>
+## Eseguire il processo di Analisi di flusso
 
 1. Per eseguire un processo di Analisi di flusso, è necessario eseguire una query dalla scheda **Query**. Per questa esercitazione, è possibile eseguire la query di esempio sostituendo i segnaposto con gli alias di input e output del processo, come illustrato nella schermata seguente.
 
@@ -126,6 +133,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
     Nel riquadro Esplora dati l'output viene scritto in un percorso di cartella come specificato nelle impostazioni di output di Data Lake Store (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Vedere anche
+<a id="see-also" class="xliff"></a>
+## Vedere anche
 * [Creare un cluster HDInsight per usare Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 

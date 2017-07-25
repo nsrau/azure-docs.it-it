@@ -1,6 +1,6 @@
 ---
-title: " Ridimensionare l&quot;elaborazione di contenuti con il portale di Azure | Documentazione Microsofts"
-description: Questa esercitazione descrive i passaggi per ridimensionare l&quot;elaborazione multimediale mediante il portale di Azure.
+title: Ridimensionare l'elaborazione di contenuti mediante il portale di Azure | Microsoft Docs
+description: Questa esercitazione descrive i passaggi per ridimensionare l'elaborazione multimediale mediante il portale di Azure.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/04/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 3f9134fdff56e0ee5146cb7ccf08d168ebf84281
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e6ef52f7aee8b2a0d0dd6ebc99ad7a8c5c11f525
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -30,7 +32,15 @@ ms.openlocfilehash: 3f9134fdff56e0ee5146cb7ccf08d168ebf84281
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
+
+Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità dei processi di elaborazione dei multimedia. È possibile scegliere uno dei seguenti tipi di unità riservata: **S1**, **S2** o **S3**. Lo stesso processo di codifica viene eseguito più velocemente quando si usa ad esempio il tipo di unità riservata **S2** rispetto al tipo **S1**.
+
+Oltre al tipo di unità riservata, è possibile specificare il provisioning dell'account con **Unità riservate** (UR). Il numero delle UR sottoposte a provisioning determina il numero di attività multimediali che possono essere elaborate contemporaneamente in un determinato account.
+
+>[!NOTE]
+>UR di lavoro per la parallelizzazione di tutta l'elaborazione di supporti di memorizzazione, tra cui l'indicizzazione di processi tramite Azure Media Indexer. Tuttavia, a differenza della codifica, l'indicizzazione di processi non viene elaborata più velocemente con unità riservate più veloci.
+
 > [!IMPORTANT]
 > Per altre informazioni sul ridimensionamento dell'elaborazione multimediale, vedere questo argomento di [panoramica](media-services-scale-media-processing-overview.md) .
 > 
@@ -58,10 +68,5 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

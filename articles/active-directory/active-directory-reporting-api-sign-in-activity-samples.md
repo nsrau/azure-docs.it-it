@@ -1,9 +1,9 @@
 ---
-title: "Esempi dell&quot;API del report sull&quot;attività di accesso di Azure Active Directory | Documentazione Microsoft"
-description: Come iniziare a usare l&quot;API di creazione report di Azure Active Directory
+title: "Esempi dell'API del report sull'attività di accesso di Azure Active Directory | Documentazione Microsoft"
+description: Come iniziare a usare l'API di creazione report di Azure Active Directory
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7fc2b59fe37ed2ffe85925c457300ef8fd83c3c7
 ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Esempi dell'API del report sull'attività di accesso di Azure Active Directory
@@ -29,10 +29,9 @@ L'obiettivo di questo argomento è fornire il codice di esempio per l' **API sul
 
 Vedere:
 
-* [Log di controllo](active-directory-reporting-azure-portal.md#audit-logs) per informazioni più concettuali
+* [Log di controllo](active-directory-reporting-azure-portal.md#activity-reports) per informazioni più concettuali
 * [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md) .
 
-Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di poter usare gli esempi contenuti in questo argomento, è necessario completare i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md).  
@@ -41,7 +40,7 @@ Prima di poter usare gli esempi contenuti in questo argomento, è necessario com
     # This script will require the Web Application and permissions setup in Azure Active Directory
     $ClientID       = "<clientId>"             # Should be a ~35 character string insert your info here
     $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
-    $loginURL       = "https://login.windows.net/"
+    $loginURL       = "https://login.microsoftonline.com/"
     $tenantdomain   = "<tenantDomain>"
     $ daterange            # For example, contoso.onmicrosoft.com
 

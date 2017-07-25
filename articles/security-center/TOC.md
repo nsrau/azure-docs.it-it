@@ -5,11 +5,13 @@
 ## Scenari
 ### [Risposta agli eventi imprevisti](security-center-incident-response.md)
 ### [Usare le raccomandazioni per migliorare la sicurezza](security-center-using-recommendations.md)
+## [Migrazione della piattaforma](security-center-platform-migration.md)
 
-# Introduzione
+# Attività iniziali
 ## [Avvio rapido](security-center-get-started.md)
 ## [Pianificazione e gestione](security-center-planning-and-operations-guide.md)
 ## [Autorizzazioni](security-center-permissions.md)
+## [Piattaforme supportate](security-center-os-coverage.md)
 ## [Integrazione di partner](security-center-partner-integration.md)
 ## [Domande frequenti](security-center-faq.md)
 
@@ -17,6 +19,7 @@
 
 ## Prevenzione
 ### [Impostare i criteri di sicurezza](security-center-policies.md)
+### [Accesso JIT (Just-in-Time)](security-center-just-in-time.md)
 ### [Implementare le raccomandazioni sulla sicurezza](security-center-recommendations.md)
 
 ### [Raccomandazioni sulle applicazioni](security-center-application-recommendations.md)
@@ -38,7 +41,7 @@
 #### [Applicare Crittografia dischi](security-center-apply-disk-encryption.md)
 #### [Applicare gli aggiornamenti di sistema](security-center-apply-system-updates.md)
 #### [Abilitare la raccolta di dati](security-center-enable-data-collection.md)
-#### [Enable encryption for storage account](security-center-enable-encryption-for-storage-account.md) (Abilita la crittografia per l'account di archiviazione)
+#### [Abilita la crittografia per l'account di archiviazione](security-center-enable-encryption-for-storage-account.md)
 #### [Abilita l'agente di macchine virtuali](security-center-enable-vm-agent.md)
 #### [Installa Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Specificare dettagli del contatto per la sicurezza](security-center-provide-security-contact-details.md)
@@ -69,6 +72,7 @@
 ## [Sicurezza di Azure](/azure/security/)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog su sicurezza, privacy e conformità per Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Prezzi](security-center-pricing.md)
 ## [Panoramica del servizio](https://azure.microsoft.com/services/security-center/)

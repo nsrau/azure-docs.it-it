@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 01448fcff64e99429e2ee7df916b110c869307fb
-ms.openlocfilehash: 7776ac35f1a8a30c959286a9e31beb666f5fc799
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.lasthandoff: 03/02/2017
 ## <a name="overview"></a>Panoramica
 
 Questo argomento descrive come personalizzare i set d impostazioni di Media Encoder Standard. L'argomento [Codifica avanzata con Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md) mostra come usare .NET per creare un'attività di codifica e un processo per l'esecuzione di tale attività. Dopo aver personalizzato un set di impostazioni, fornire tali impostazioni all'attività di codifica. 
+
+>[!NOTE]
+>Se si usa un set di impostazioni XML, assicurarsi di mantenere l'ordine degli elementi, come illustrato negli esempi XML seguenti (KeyFrameInterval, ad esempio, deve precedere SceneChangeDetection).
+>
 
 In questo argomento vengono illustrati i set di impostazioni personalizzati che eseguono le attività di codifica seguenti.
 
@@ -909,15 +914,16 @@ Aggiornare il set di impostazioni personalizzate con gli ID degli asset che si v
 Vedere l'argomento [Ritagliare video con Media Encoder Standard](media-services-crop-video.md) .
 
 ## <a id="no_video"></a>Inserire una traccia video quando l'input non ha video
+
 Per impostazione predefinita, se si invia al codificatore un input che contiene solo audio e nessun video, l'asset di output contiene file di soli dati audio. Alcuni lettori, tra cui Azure Media Player (vedere [qui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) potrebbero non essere in grado di gestire tali flussi. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia video monocromatica all'output da parte del codificatore.
 
 > [!NOTE]
 > Forzando il codificatore a inserire una traccia video di output si accresce la dimensione dell'asset di output e perciò il costo sostenuto per l'attività di codifica. È necessario eseguire test per verificare che questo incremento abbia un impatto modesto sugli addebiti mensili.
 >
->
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Inserimento di video alla sola velocità in bit più bassa
-Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio ["H264 bitrate multipli 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) per codificare l'intero catalogo di input per lo streaming, che contiene una combinazione di file video e file di solo audio. In questo scenario, quando l'input non ha video, è opportuno forzare il codificatore a inserire una traccia video monocromatica solo alla velocità in bit più bassa, anziché inserire il video a tutte le velocità in bit. A tale scopo è necessario specificare il flag "InsertBlackIfNoVideoBottomLayerOnly".
+
+Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio ["H264 bitrate multipli 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) per codificare l'intero catalogo di input per lo streaming, che contiene una combinazione di file video e file di solo audio. In questo scenario, quando l'input non ha video, è opportuno forzare il codificatore a inserire una traccia video monocromatica solo alla velocità in bit più bassa, anziché inserire il video a tutte le velocità in bit. A tale scopo è necessario usare il flag **InsertBlackIfNoVideoBottomLayerOnly**.
 
 È possibile usare uno dei set di impostazioni di Media Encoder Standard documentati in [questa](media-services-mes-presets-overview.md) sezione e apportare la modifica seguente:
 
@@ -932,9 +938,30 @@ Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio 
     }
 
 #### <a name="xml-preset"></a>Set di impostazioni XML
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+Se si usa XML, applicare Condition="InsertBlackIfNoVideoBottomLayerOnly" come attributo per l'elemento **H264Video** e Condition="InsertSilenceIfNoAudio" come attributo per l'elemento **AACAudio**.
+    
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>Inserimento di video a tutte le velocità in bit di output
 Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio ["H264 bitrate multipli 720p"](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) per codificare l'intero catalogo di input per lo streaming, che contiene una combinazione di file video e file di solo audio. In questo scenario, quando l'input non ha video, è opportuno forzare il codificatore a inserire una traccia video monocromatica a tutte le velocità in bit di output. In questo modo gli asset di output saranno tutti omogenei rispetto al numero di tracce video e tracce audio. A tale scopo è necessario specificare il flag "InsertBlackIfNoVideo".
@@ -952,9 +979,30 @@ Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio 
     }
 
 #### <a name="xml-preset"></a>Set di impostazioni XML
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideo</Condition>
+
+Se si usa XML, applicare Condition="InsertBlackIfNoVideo" come attributo per l'elemento **H264Video** e Condition="InsertSilenceIfNoAudio" come attributo per l'elemento **AACAudio**.
+
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideo">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .  
 
 ## <a id="rotate_video"></a>Ruotare un video
 Il [codificatore multimediale standard](media-services-dotnet-encode-with-media-encoder-standard.md) supporta la rotazione in base ad angoli di 0/90/180/270. Il comportamento predefinito è "Auto", che tenta di rilevare i metadati di rotazione nel file video in arrivo per la compensazione. Includere l'elemento **Sources** seguente in uno dei set di impostazioni definiti in [questa](media-services-mes-presets-overview.md) sezione:

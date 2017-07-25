@@ -1,6 +1,6 @@
 ---
-title: Esercitazione su Node.js per l&quot;API DocumentDB per Azure Cosmos DB | Microsoft Docs
-description: Esercitazione su Node.js che crea un&quot;istanza di Cosmos DB con l&quot;API DocumentDB.
+title: Esercitazione su Node.js per l'API DocumentDB per Azure Cosmos DB | Microsoft Docs
+description: Esercitazione su Node.js che crea un'istanza di Cosmos DB con l'API DocumentDB.
 keywords: esercitazione su node.js, database nodo
 services: cosmos-db
 documentationcenter: node.js
@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/23/2017
 ms.author: anhoh
 ms.translationtype: Human Translation

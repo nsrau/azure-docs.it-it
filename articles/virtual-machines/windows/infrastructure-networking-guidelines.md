@@ -1,5 +1,5 @@
 ---
-title: 'Linee guida sull&quot;infrastruttura di rete di Azure: Windows | Documentazione Microsoft'
+title: 'Linee guida sull''infrastruttura di rete di Azure: Windows | Documentazione Microsoft'
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di una rete virtuale nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 3338d3d259189c85c21758ae92b7f45611e400ac
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
 
 

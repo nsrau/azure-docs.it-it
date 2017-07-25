@@ -1,6 +1,6 @@
 ---
 title: Panoramica concettuale dei nomi di dominio personalizzati in Azure Active Directory | Documentazione Microsoft
-description: Illustra il framework concettuale per l&quot;uso di nomi di dominio personalizzati in Azure Active Directory, compresa la federazione per Single Sign-On
+description: Illustra il framework concettuale per l'uso di nomi di dominio personalizzati in Azure Active Directory, compresa la federazione per Single Sign-On
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: curtand;jeffsta
+ms.date: 07/13/2017
+ms.author: curtand
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
 ms.openlocfilehash: 028c1cab4f0229a06d37d2f325b384ee78a2b8f9
 ms.contentlocale: it-it
 ms.lasthandoff: 05/05/2017
-
 
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Panoramica concettuale dei nomi di dominio personalizzati in Azure Active Directory

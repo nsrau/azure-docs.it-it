@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7dd240c4e1a6fcc9c89bf4418e635e7ef8ef0617
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 587d73bc91aa10b79c1d1488f98f05b73801d8c8
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -32,7 +32,7 @@ Per monitorare l'esecuzione dell'applicazione si usano i tipi di dati di telemet
 
 * [**Richiesta**](application-insights-data-model-request-telemetry.md): tipo generato per registrare una richiesta ricevuta dall'applicazione. Ad esempio, la versione Web di Application Insights SDK genera automaticamente un elemento di telemetria di tipo richiesta per ogni richiesta HTTP ricevuta dall'app Web. 
 
-    Un'**operazione** è il thread di esecuzione che elabora una richiesta. È anche possibile [scrivere codice](app-insights-api-custom-events-metrics.md#trackrequest) per monitorare altri tipi di operazioni, ad esempio la "riattivazione" di un processo Web o di una funzione che periodicamente elabora i dati.  Ogni operazione presenta un ID che può essere usato per raggruppare altri dati di telemetria generati durante l'elaborazione della richiesta da parte dell'applicazione. Ogni operazione ha un esito positivo o negativo e una certa durata.
+    Un'**operazione** è il thread di esecuzione che elabora una richiesta. È anche possibile [scrivere codice](app-insights-api-custom-events-metrics.md#trackrequest) per monitorare altri tipi di operazioni, ad esempio la "riattivazione" di un processo Web o di una funzione che periodicamente elabora i dati.  Ogni operazione presenta un ID. Questo ID può essere usato per [raggruppare] ((application-insights-correlation.md) tutti i dati di telemetria generati durante l'elaborazione della richiesta da parte dell'applicazione. Ogni operazione ha un esito positivo o negativo e una certa durata.
 * [**Eccezione**](application-insights-data-model-exception-telemetry.md): rappresenta in genere un'eccezione che causa l'esito negativo dell'operazione.
 * [**Dipendenza**](application-insights-data-model-dependency-telemetry.md): rappresenta una chiamata dall'applicazione a un servizio esterno o a una risorsa di archiviazione, ad esempio a un'API REST o a SQL. In ASP.NET le chiamate di dipendenza a SQL sono definite da `System.Data`. Le chiamate agli endpoint HTTP sono definite da `System.Net`. 
 
@@ -42,7 +42,9 @@ Application Insights offre altri tre tipi di dati per la telemetria personalizza
 * [Evento](application-insights-data-model-event-telemetry.md): tipo usato in genere per acquisire l'interazione dell'utente con il servizio per analizzare i modelli di utilizzo.
 * [Metrica](application-insights-data-model-metric-telemetry.md): tipo usato per indicare le misurazioni scalari periodiche.
 
-Il modello di dati di Application Insights Telemetry definisce una modalità di [correlazione](application-insights-correlation.md) dei dati di telemetria all'operazione di cui fanno parte. Una richiesta può ad esempio di effettuare chiamate a un database SQL e registrare informazioni di diagnostica. È possibile impostare il contesto di correlazione per gli elementi di telemetria che lo legheranno di nuovo alla telemetria delle richieste.
+Ogni elemento di telemetria può definire [informazioni di contesto](application-insights-data-model-context.md) quali la versione dell'applicazione o l’ID della sessione utente. Il contesto è un set di campi fortemente tipizzati che sblocca determinati scenari. Quando la versione dell'applicazione viene inizializzata correttamente, Application Insights può rilevare nuovi modelli di comportamento dell'applicazione in correlazione con la ridistribuzione. L'ID sessione consente di calcolare l'interruzione del servizio o l’impatto di un problema sugli utenti. Il calcolo separato dei valori dell'ID sessione per determinate dipendenze non riuscite, tracce di errore o eccezioni critiche offre una buona conoscenza dell'impatto.
+
+Il modello di dati di Application Insights Telemetry definisce una modalità di [correlazione](application-insights-correlation.md) dei dati di telemetria all'operazione di cui fanno parte. Una richiesta può ad esempio di effettuare chiamate a un database SQL e registrare informazioni di diagnostica. È possibile impostare il contesto di correlazione per gli elementi di telemetria che lo legano di nuovo alla telemetria delle richieste.
 
 ## <a name="schema-improvements"></a>Miglioramenti allo schema
 

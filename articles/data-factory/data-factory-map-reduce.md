@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: afa8c08fc89103a14cc393c62e7f2c9d985426c2
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: e5dfe0cf0ba7b77a5b23dddc5c5d784e0a0565cc
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -35,6 +36,9 @@ ms.lasthandoff: 03/14/2017
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 L'attività HDInsight MapReduce in una [pipeline](data-factory-create-pipelines.md) di Data Factory esegue i programmi di MapReduce nei cluster HDInsight [personalizzati](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basati su Windows/Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
+
+> [!NOTE] 
+> Se non si ha familiarità con Azure Data Factory, prima di leggere questo articolo leggere [Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md) .  
 
 ## <a name="introduction"></a>Introduzione
 Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. In questo articolo viene descritto l'utilizzo dell'attività MapReduce di HDInsight.

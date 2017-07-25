@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 04b809a6fdd7b993a048a67f66a9851c2a7bf3d2
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 0b15399cade0a9dc21b2274a64172d65f2f4e877
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -29,12 +29,12 @@ Dopo aver creato un server nella sottoscrizione di Azure, si è pronti per distr
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per iniziare, è necessario:
 
-* Un **server Analysis Services** in Azure. Per altre informazioni, vedere [Create an Analysis Services in Azure](analysis-services-create-server.md) (Creare un'istanza di Analysis Services in Azure).
-* Un **progetto di modello tabulare** in SSDT o un modello tabulare esistente con livello di compatibilità 1200 o successivo in un'istanza di Analysis Services. Se non è mai stato creato un progetto simile, consultare [Esercitazione di AdventureWorks](https://msdn.microsoft.com/library/hh231691.aspx).
+* Un **server Analysis Services** in Azure. Per altre informazioni, vedere [Creare un server Azure Analysis Services](analysis-services-create-server.md).
+* Un **progetto di modello tabulare** in SSDT o un modello tabulare esistente con livello di compatibilità 1200 o successivo. Se non è mai stato creato un progetto simile, consultare [Esercitazione di AdventureWorks](https://msdn.microsoft.com/library/hh231691.aspx).
 * Un **gateway locale**: se una o più origini dati si trovano nella rete locale dell'organizzazione, è necessario installare un [gateway dati locale](analysis-services-gateway.md). Il gateway è necessario affinché il server nel cloud possa connettersi alle origini dati locali per elaborare e aggiornare i dati nel modello.
 
 > [!TIP]
-> Prima di distribuire, assicurarsi che sia possibile elaborare i dati nelle tabelle. In SSDT fare clic su **Modello** > **Elabora** > **Elabora tutto**. Se l'elaborazione ha esito negativo, anche la distribuzione non potrà essere eseguita.
+> Prima di distribuire, assicurarsi che sia possibile elaborare i dati nelle tabelle. In SSDT fare clic su **Modello** > **Elabora** > **Elabora tutto**. Se l'elaborazione ha esito negativo, la distribuzione non potrà essere eseguita.
 > 
 > 
 

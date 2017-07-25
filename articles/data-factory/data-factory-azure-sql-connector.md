@@ -1,6 +1,6 @@
 ---
-title: Spostare dati nel/dal database SQL di Azure | Microsoft Docs
-description: Informazioni su come spostare i dati da e verso il database SQL di Azure mediante Data factory di Azure.
+title: Copiare dati nel/dal database SQL di Azure | Microsoft Docs
+description: Informazioni su come copiare dati da e verso il database SQL di Azure mediante Azure Data Factory.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,20 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 4bc3ab14d7b2960a0732743edc31e12eb320b5ad
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: a64d13fa7dc5f50c259b98774be80b603dce400a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="move-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Spostare dati da e nel database SQL di Azure con Data factory di Azure
+<a id="copy-data-to-and-from-azure-sql-database-using-azure-data-factory" class="xliff"></a>
+
+# Copiare dati da e nel database SQL di Azure con Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da e verso database SQL di Azure. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.  
 
-## <a name="supported-scenarios"></a>Scenari supportati
+<a id="supported-scenarios" class="xliff"></a>
+
+## Scenari supportati
 È possibile copiare i dati **da un database SQL di Azure** negli archivi di dati seguenti:
 
 [!INCLUDE [data-factory-supported-sinks](../../includes/data-factory-supported-sinks.md)]
@@ -34,10 +38,14 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
-## <a name="supported-authentication-type"></a>Tipo di autenticazione supportato
+<a id="supported-authentication-type" class="xliff"></a>
+
+## Tipo di autenticazione supportato
 Il connettore per database SQL di Azure supporta l'autenticazione di base.
 
-## <a name="getting-started"></a>Introduzione
+<a id="getting-started" class="xliff"></a>
+
+## Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un database SQL di Azure usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -55,7 +63,9 @@ Quando si usa la procedura guidata, le definizioni JSON per queste entità di da
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di un database SQL di Azure: 
 
-## <a name="linked-service-properties"></a>Proprietà del servizio collegato
+<a id="linked-service-properties" class="xliff"></a>
+
+## Proprietà del servizio collegato
 Un servizio collegato SQL di Azure collega un database SQL di Azure alla data factory. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato SQL di Azure.
 
 | Proprietà | Descrizione | Obbligatorio |
@@ -66,7 +76,9 @@ Un servizio collegato SQL di Azure collega un database SQL di Azure alla data fa
 > [!IMPORTANT]
 > Configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e il server di database in modo da [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se si copiano dati nel database SQL di Azure dall'esterno di Azure e da origini dati locali con gateway di data factory, configurare anche un intervallo di indirizzi IP appropriato per il computer che invia dati al database SQL di Azure.
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+<a id="dataset-properties" class="xliff"></a>
+
+## Proprietà dei set di dati
 Per specificare un set di dati per rappresentare i dati di input o outpui in un database SQL di Azure, impostare la proprietà del tipo del set di dati su **AzureSqlTable**. Impostare la proprietà **linkedServiceName** del set di dati sul nome del servizio collegato SQL di Azure.  
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
@@ -77,7 +89,9 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 | --- | --- | --- |
 | tableName |Nome della tabella o vista nell'istanza di database SQL di Azure a cui fa riferimento il servizio collegato. |Sì |
 
-## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
+<a id="copy-activity-properties" class="xliff"></a>
+
+## Proprietà dell'attività di copia
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
 > [!NOTE]
@@ -87,7 +101,9 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Se si effettua il trasferimento dei dati da un database SQL di Azure, impostare il tipo di origine nell'attività di copia su **SqlSource**. Analogamente, se si effettua il trasferimento dei dati in un database SQL di Azure, impostare il tipo di sink nell'attività di copia su **SqlSink**. Questa sezione presenta un elenco delle proprietà supportate da SqlSource e SqlSink.
 
-### <a name="sqlsource"></a>SqlSource
+<a id="sqlsource" class="xliff"></a>
+
+### SqlSource
 In caso di attività di copia con origine di tipo **SqlSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
@@ -105,7 +121,9 @@ Se non si specifica sqlReaderQuery o sqlReaderStoredProcedureName, le colonne de
 >
 >
 
-### <a name="sqlsource-example"></a>Esempio SqlSource
+<a id="sqlsource-example" class="xliff"></a>
+
+### Esempio SqlSource
 
 ```JSON
 "source": {
@@ -137,20 +155,24 @@ END
 GO
 ```
 
-### <a name="sqlsink"></a>SqlSink
+<a id="sqlsink" class="xliff"></a>
+
+### SqlSink
 **SqlSink** supporta le proprietà seguenti:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
-| sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. Per altre informazioni, vedere la sezione relativa alla [ripetibilità](#repeatability-during-copy). |Istruzione di query. |No |
-| sliceIdentifierColumnName |Specificare il nome di una colonna in cui inserire nell'attività di copia l'identificatore di sezione generato automaticamente che verrà usato per pulire i dati di una sezione specifica quando viene ripetuta l'esecuzione. Per altre informazioni, vedere la sezione relativa alla [ripetibilità](#repeatability-during-copy). |Nome di colonna di una colonna con tipo di dati binario (32). |No |
+| sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. Per altre informazioni, vedere la [copia ripetibile](#repeatable-copy). |Istruzione di query. |No |
+| sliceIdentifierColumnName |Specificare il nome di una colonna in cui inserire nell'attività di copia l'identificatore di sezione generato automaticamente che verrà usato per pulire i dati di una sezione specifica quando viene ripetuta l'esecuzione. Per altre informazioni, vedere la [copia ripetibile](#repeatable-copy). |Nome di colonna di una colonna con tipo di dati binario (32). |No |
 | sqlWriterStoredProcedureName |Nome della stored procedure che esegue l'upsert (aggiornamenti/inserimenti) nella tabella di destinazione. |Nome della stored procedure. |No |
 | storedProcedureParameters |Parametri per la stored procedure. |Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
 | sqlWriterTableType |Specificare il nome di un tipo di tabella da usare nella stored procedure. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. |Nome del tipo di tabella. |No |
 
-#### <a name="sqlsink-example"></a>Esempio SqlSink
+<a id="sqlsink-example" class="xliff"></a>
+
+#### Esempio SqlSink
 
 ```JSON
 "sink": {
@@ -167,10 +189,14 @@ GO
 }
 ```
 
-## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>Esempi JSON per la copia dei dati da e verso un database SQL
+<a id="json-examples-for-copying-data-to-and-from-sql-database" class="xliff"></a>
+
+## Esempi JSON per la copia dei dati da e verso un database SQL
 Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati in e da un database SQL di Azure e un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Data factory di Azure.
 
-### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Esempio: Copiare i dati dal database SQL di Azure SQL nel BLOB di Azure
+<a id="example-copy-data-from-azure-sql-database-to-azure-blob" class="xliff"></a>
+
+### Esempio: Copiare i dati dal database SQL di Azure SQL nel BLOB di Azure
 L'esempio definisce le entità di Data Factory seguenti:
 
 1. Un servizio collegato di tipo [AzureSqlDatabase](#linked-service-properties).
@@ -362,7 +388,9 @@ Se non si specifica sqlReaderQuery o sqlReaderStoredProcedureName, le colonne de
 
 Vedere la sezione [SqlSource](#sqlsource) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) per l'elenco delle proprietà supportate da SqlSource e BlobSink.
 
-### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Esempio: Copiare i dati dal BLOB di Azure nel database SQL di Azure
+<a id="example-copy-data-from-azure-blob-to-azure-sql-database" class="xliff"></a>
+
+### Esempio: Copiare i dati dal BLOB di Azure nel database SQL di Azure
 L'esempio definisce le entità di Data Factory seguenti:  
 
 1. Un servizio collegato di tipo [AzureSqlDatabase](#linked-service-properties).
@@ -548,7 +576,9 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 ```
 Per l'elenco delle proprietà supportate da SqlSink e BlobSink, vedere la sezione [SqlSink](#sqlsink) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-## <a name="identity-columns-in-the-target-database"></a>Colonne Identity nel database di destinazione
+<a id="identity-columns-in-the-target-database" class="xliff"></a>
+
+## Colonne Identity nel database di destinazione
 In questa sezione viene fornito un esempio per la copia di dati da una tabella di origine senza una colonna identity in una tabella di destinazione con una colonna identity.
 
 **Tabella di origine:**
@@ -619,24 +649,20 @@ Si noti che la tabella di destinazione contiene una colonna identity.
 
 Si noti che la tabella di origine e la tabella di destinazione hanno schemi diversi (la destinazione include una colonna aggiuntiva identity). In questo scenario è necessario specificare la proprietà **structure** nella definizione del set di dati di destinazione che non include la colonna identity.
 
-## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
-Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
+<a id="invoke-stored-procedure-from-sql-sink" class="xliff"></a>
 
-## <a name="repeatable-copy"></a>Copia ripetibile
-Quando si copiano dati in un database SQL Server, per impostazione predefinita l'attività di copia accoda i dati alla tabella di sink. Per eseguire invece un UPSERT, vedere l'articolo [Scrittura ripetibile in SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink). 
-
-Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Vedere [Lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
-## <a name="invoke-stored-procedure-from-sql-sink"></a>Chiamare una stored procedure da un sink SQL
+## Chiamare una stored procedure da un sink SQL
 Per un esempio di come chiamare una stored procedure da un sink SQL in un'attività di copia di una pipeline, vedere l'articolo su come [richiamare una stored procedure per il sink SQL nell'attività di copia](data-factory-invoke-stored-procedure-from-copy-activity.md). 
 
-## <a name="sql-database-to-net-type-mapping"></a>Mapping dei tipi dal database SQL a .NET
+<a id="type-mapping-for-azure-sql-database" class="xliff"></a>
+
+## Mapping dei tipi per il database SQL di Azure
 Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
 
-Quando si spostano dati da e verso SQL di Azure vengono usati i mapping seguenti dal tipo SQL al tipo .NET e viceversa. Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
+Quando si spostano dati da e verso il database SQL di Azure vengono usati i mapping seguenti dal tipo SQL al tipo .NET e viceversa. Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 | Tipo di motore di database di SQL Server | Tipo di .NET Framework |
 | --- | --- |
@@ -673,6 +699,20 @@ Quando si spostano dati da e verso SQL di Azure vengono usati i mapping seguenti
 | varchar |String, Char[] |
 | xml |xml |
 
-## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
+<a id="map-source-to-sink-columns" class="xliff"></a>
+
+## Eseguire il mapping delle colonne dell'origine alle colonne del sink
+Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
+
+<a id="repeatable-copy" class="xliff"></a>
+
+## Copia ripetibile
+Quando si copiano dati in un database SQL Server, per impostazione predefinita l'attività di copia accoda i dati alla tabella di sink. Per eseguire invece un UPSERT, vedere l'articolo [Scrittura ripetibile in SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink). 
+
+Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Vedere [Lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+
+<a id="performance-and-tuning" class="xliff"></a>
+
+## Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 

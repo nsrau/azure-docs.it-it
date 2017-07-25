@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2016
-ms.author: padmavc
+ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4d68fde29e85fcf9aa623b4d798262bcd486a8bb
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: d1c61ba220b4334f053428a23e620e8004fc60f7
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="track-b2b-messages-in-the-operations-management-suite-portal"></a>Tenere traccia dei messaggi B2B nel portale di Operations Management Suite
+
+![Simbolo di App per la logica B2B](./media/logic-apps-track-b2b-messages-omsportal/logic-apps-b2b-symbol.png)
+
 La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicazioni aziendali in esecuzione. Usare le seguenti funzionalità di rilevamento basate su web nel portale di Operations Management Suite per verificare che i messaggi vengano elaborati correttamente:
 
 * Conteggio e stato dei messaggi
@@ -67,9 +70,10 @@ La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicaz
 2. Selezionare **Logic Apps B2B Messages** (Messaggi per le app per la logica B2B) nella home page per visualizzare lo stato dei messaggi AS2 e X12.  I dati sono relativi a un solo giorno.
 ![Selezionare Messaggi per le app per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-3. Selezionare un messaggio AS2 o X12 in base allo stato per passare all'elenco dei messaggi. La schermata successiva mostra lo stato dei messaggi AS2. Le descrizioni delle proprietà di stato del messaggio AS2 e X12 vengono visualizzate in seguito in "Descrizioni delle proprietà di elenco dei messaggi".  
+3. Selezionare un messaggio AS2, X12 o EDIFACT in base allo stato per passare all'elenco dei messaggi. La schermata successiva mostra lo stato dei messaggi AS2. Le descrizioni delle proprietà di stato del messaggio AS2 e X12 vengono visualizzate in seguito in "Descrizioni delle proprietà di elenco dei messaggi".  
 ![Selezionare lo stato dei messaggi AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
-4. Selezionare una riga nell'elenco dei messaggi X12 o AS2 per passare alla ricerca nei log.  La ricerca nei log elenca tutte le azioni con lo stesso ID di esecuzione.
+
+4. Selezionare una riga nell'elenco dei messaggi X12, AS2 o EDIFACT per passare alla ricerca log.  La ricerca nei log elenca tutte le azioni con lo stesso ID di esecuzione.
 ![Selezionare lo stato dei messaggi](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
 ## <a name="message-list-property-descriptions"></a>Descrizioni delle proprietà di elenco di messaggi
@@ -92,8 +96,8 @@ La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicaz
 
 | Proprietà | Descrizione |
 | --- | --- |
-| Mittente | Il partner guest configurato nelle impostazioni di ricezione o il partner host configurato nelle impostazioni di invio di un contratto AS2. |
-| Ricevitore | Il partner host configurato nelle impostazioni di ricezione o il partner guest configurato nelle impostazioni di invio di un contratto AS2. |
+| Mittente | Il partner guest configurato nelle impostazioni di ricezione o il partner host configurato nelle impostazioni di invio di un contratto X12. |
+| Ricevitore | Il partner host configurato nelle impostazioni di ricezione o il partner guest configurato nelle impostazioni di invio di un contratto X12. |
 | App per la logica | App per la logica in cui sono configurate le azioni AS2. |
 | Stato | Stato dei messaggi X12 <br>Operazione riuscita = ricevuto o inviato un messaggio X12 corretto, nessun ACK funzionale configurato <br>Operazione riuscita = ricevuto o inviato un messaggio X12 corretto, ACK funzionale configurato e ricevuto o ACK funzionale inviato <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 errato <br>In sospeso = ricevuto o inviato un messaggio X12 corretto, ACK funzionale configurato e ACK funzionale previsto. |
 | Ack | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ACK funzionale positivo <br>Rifiutato = ricevuto o inviato un ACK funzionale negativo <br>In sospeso = in attesa di un ACK funzionale ma non ricevuto <br>In sospeso = ACK funzionale generato ma impossibile inviarlo al partner <br>Non richiesto = ACK funzionale non configurato |
@@ -103,6 +107,24 @@ La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicaz
 | ICN | Numero di controllo interscambio del messaggio X12. |
 | TSCN | Numero di controllo set transazionale del messaggio X12. |
 | Timestamp | Ora in cui l'azione X12 elabora il messaggio. |
+
+
+#### <a name="edifact-message-list-property-descriptions"></a>Descrizioni delle proprietà di elenco di messaggi EDIFACT
+
+| Proprietà | Descrizione |
+| --- | --- |
+| Mittente | Il partner guest configurato nelle impostazioni di ricezione o il partner host configurato nelle impostazioni di invio di un contratto EDIFACT. |
+| Ricevitore | Il partner host configurato nelle impostazioni di ricezione o il partner guest configurato nelle impostazioni di invio di un contratto EDIFACT. |
+| App per la logica | App per la logica in cui sono configurate le azioni AS2. |
+| Stato | Stato dei messaggi EDIFACT <br>Operazione riuscita = ricevuto o inviato un messaggio X12 corretto, nessun ACK funzionale configurato <br>Operazione riuscita = ricevuto o inviato un messaggio X12 corretto, ACK funzionale configurato e ricevuto o ACK funzionale inviato <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 errato <br>In sospeso = ricevuto o inviato un messaggio X12 corretto, ACK funzionale configurato e ACK funzionale previsto. |
+| Ack | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ACK funzionale positivo <br>Rifiutato = ricevuto o inviato un ACK funzionale negativo <br>In sospeso = in attesa di un ACK funzionale ma non ricevuto <br>In sospeso = ACK funzionale generato ma impossibile inviarlo al partner <br>Non richiesto = ACK funzionale non configurato |
+| Direzione | Direzione dei messaggi EDIFACT. |
+| ID correlazione | ID per correlare tutti i trigger e le azioni all'interno di un'app per la logica. |
+| Tipo di messaggio |  Tipo dei messaggi EDIFACT. |
+| ICN | Numero di controllo interscambio del messaggio EDIFACT. |
+| TSCN | Numero di controllo set transazionale del messaggio EDIFACT. |
+| Timestamp | Ora in cui l'azione EDIFACT elabora il messaggio. |
+
 
 ## <a name="queries-in-the-operations-management-suite-portal"></a>Query nel portale di Operations Management Suite
 

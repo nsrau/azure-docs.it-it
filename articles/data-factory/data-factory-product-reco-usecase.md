@@ -12,23 +12,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 2/24/2017
 ms.author: shlo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: deda1cc7be197fc3d59b71038224dc6e8089267b
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
-# <a name="use-case---product-recommendations"></a>Caso d'uso - Consigli sui prodotti
+<a id="use-case---product-recommendations" class="xliff"></a>
+
+# Caso d'uso - Consigli sui prodotti
 Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per i dettagli sulla suite, vedere la pagina [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) . Questo documento descrive un caso d'uso comune risolto e implementato da alcuni utenti di Azure usando Azure Data Factory e altri servizi del componente Cortana Intelligence.
 
-## <a name="scenario"></a>Scenario
+<a id="scenario" class="xliff"></a>
+
+## Scenario
 I rivenditori online, in genere, cercano di indurre i clienti ad effettuare acquisti mostrando loro prodotti a cui probabilmente sono interessati e che quindi sono propensi ad acquistare. A tale scopo, è necessario che i rivenditori online personalizzino l'esperienza degli utenti mediante consigli personalizzati sui prodotti in base all'utente specifico. Questi consigli personalizzati devono essere fatti in base ai dati sugli acquisti attuali e passati, alle informazioni sui prodotti, ai marchi introdotti da poco e ai dati sulla segmentazione di clienti e prodotti.  I rivenditori possono fornire consigli sui prodotti anche in base all'analisi del comportamento di uso complessivo da parte di tutti gli utenti.
 
 L'obiettivo di questi rivenditori è ottimizzare il rapporto clic/vendite e aumentare così le entrate derivanti dalle vendite.  Per raggiungere questa conversione, forniscono consigli sui prodotti contestuali e basati sul comportamento, messi a punto a partire dagli interessi e dalle azioni dei clienti. In questo caso, usiamo i rivenditori online come esempio di società che desiderano ottimizzare i loro clienti. Tuttavia, questi principi si applicano a qualsiasi società che desideri coinvolgere i clienti nei suoi beni e servizi e migliorare l'esperienza di acquisto dei clienti con consigli personalizzati sui prodotti.
 
-## <a name="challenges"></a>Problematiche
+<a id="challenges" class="xliff"></a>
+
+## Problematiche
 Sono molte le problematiche che i rivenditori online devono affrontare quando tentano di implementare un caso d'uso di questo tipo. 
 
 In primo luogo, i dati di diverse forme e dimensioni devono essere acquisiti da più origini dati, sia in locale che nel cloud. Questi dati includono i dati dei prodotti, i dati sul comportamento cronologico dei clienti e i dati degli utenti mentre esplorano il sito di vendita online. 
@@ -39,7 +47,9 @@ In terzo luogo, i consigli devono essere immediatamente resi disponibili agli ut
 
 I rivenditori, infine, devono poter misurare l'efficacia del loro approccio monitorando il tasso di conversione dei clic in vendite (upselling e cross-selling) e apportare eventuali modifiche nella definizione dei consigli futuri.
 
-## <a name="solution-overview"></a>Panoramica della soluzione
+<a id="solution-overview" class="xliff"></a>
+
+## Panoramica della soluzione
 Questo caso d'uso di esempio è stato risolto e implementato da utenti reali di Azure usando Azure Data Factory e altri servizi del componente Cortana Intelligence, tra cui [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/).
 
 Il rivenditore online usa un archivio BLOB di Azure, un server SQL locale, un database SQL Azure e un data mart relazionale come soluzioni di archiviazione per le varie fasi del flusso di lavoro.  L'archivio BLOB contiene informazioni sui clienti, dati sul comportamento dei clienti e informazioni sui prodotti, che comprendono informazioni sui marchi dei prodotti e un catalogo prodotti archiviato localmente in SQL Data Warehouse. 
@@ -54,14 +64,11 @@ Il sistema di raccomandazione usato in questo esempio per l'apprendimento automa
 
 Il set di risultati ottenuto dai consigli personalizzati sui prodotti viene infine spostato in un data mart relazionale che verrà usato dal sito Web del rivenditore.  È possibile accedere direttamente al set di risultati anche dall'archivio BLOB di un'altra applicazione oppure è possibile spostarlo in archivi aggiuntivi per metterlo a disposizione di altri consumer e casi d'uso.
 
-## <a name="benefits"></a>Vantaggi
+<a id="benefits" class="xliff"></a>
+
+## Vantaggi
 Ottimizzando la strategia di raccomandazione dei prodotti e allineandola agli obiettivi aziendali, la soluzione ha soddisfatto gli obiettivi commerciali e di marketing del rivenditore online. Inoltre, il rivenditore è stato in grado di rendere operativo e gestire il flusso di lavoro per la raccomandazione dei prodotti in modo efficiente, affidabile ed economico. L'approccio ha semplificato l'aggiornamento del modello e l'ottimizzazione dell'efficacia in base alle misure di successi della conversione dei clic in vendite. Usando Azure Data Factory, inoltre, il rivenditore ha potuto abbandonare la gestione manuale delle risorse cloud, eccessivamente lunga e costosa, per passare a una gestione delle risorse cloud di tipo on-demand. Pertanto, ha potuto risparmiare tempo e denaro e ridurre i tempi di distribuzione della soluzione. Grazie all'intuitiva interfaccia di gestione e monitoraggio di Data factory, accessibile dal portale di Azure, è possibile anche visualizzare e risolvere facilmente eventuali problemi relativi alla condizione dei servizi operativi e alle viste di derivazione dei dati. Questa soluzione, infine, può essere pianificata e gestita in modo che vengano prodotti e distribuiti agli utenti dati finiti e le dipendenze di elaborazione vengano gestite automaticamente senza l'intervento umano.
 
 Offrendo un'esperienza di acquisto personalizzata, il rivenditore ha messo a punto un'esperienza utente più coinvolgente e competitiva e, quindi, ha aumentato le vendite e la soddisfazione complessiva dei clienti.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

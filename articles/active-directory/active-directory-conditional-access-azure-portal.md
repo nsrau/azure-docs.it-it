@@ -1,6 +1,6 @@
 ---
 title: Accesso condizionale di Azure Active Directory | Microsoft Docs
-description: Usare il controllo di accesso condizionale di Azure Active Directory per controllare condizioni specifiche durante il processo di autenticazione per l&quot;accesso alle applicazioni.
+description: Usare il controllo di accesso condizionale di Azure Active Directory per controllare condizioni specifiche durante il processo di autenticazione per l'accesso alle applicazioni.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2017
 ms.author: markvi
+ms.reviewer: calebb
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
 ms.contentlocale: it-it
 ms.lasthandoff: 05/11/2017
-
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory

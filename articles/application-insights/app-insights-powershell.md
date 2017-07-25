@@ -178,7 +178,7 @@ Creare un nuovo file con estensione .json - definirlo `template1.json` in questo
 Dopo la creazione di una risorsa applicazione, è necessaria la chiave di strumentazione: 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>"
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
     $details = Get-AzureRmResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```

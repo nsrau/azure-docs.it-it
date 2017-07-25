@@ -1,11 +1,11 @@
 ---
-title: Messaggi X12 per l&quot;integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
-description: Scambiare messaggi X12 in formato EDI per l&quot;integrazione aziendale B2B con App per la logica di Azure
+title: Messaggi X12 per l'integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
+description: Scambiare messaggi X12 in formato EDI per l'integrazione aziendale B2B con App per la logica di Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
 ms.workload: integration
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 2c20d4c764129004b4e757854bcd1ecb106cecff
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 4a41d9eb8b28aed499bb20e17e3c979962c78bcd
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -40,14 +41,14 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 ## <a name="create-an-x12-agreement"></a>Creare un contratto X12
 
-1.    Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). Fare clic su **Altri servizi** nel menu a sinistra. 
+1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). Fare clic su **Altri servizi** nel menu a sinistra. 
 
     > [!TIP]
     > Se **Altri servizi** non viene visualizzato, potrebbe essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
 
     ![Fare clic su "Altri servizi" nel menu a sinistra](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.    Nella casella di ricerca, digitare "integrazione" come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.  
+2.  Nella casella di ricerca, digitare "integrazione" come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.  
 
     ![Filtro su "integrazione", selezionare "Account di integrazione"](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
@@ -86,7 +87,7 @@ Se non viene visualizzato alcun account di integrazione, [crearne prima uno](../
 
 Dopo aver impostato le proprietà del contratto, è possibile configurare il modo in cui il contratto identifica e gestisce i messaggi in arrivo ricevuti dal partner tramite il presente contratto.
 
-1.    In **Aggiungi**, selezionare **Impostazioni di ricezione**.
+1.  In **Aggiungi**, selezionare **Impostazioni di ricezione**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere le tabelle in questa sezione.
 
     Il controllo **Impostazioni di ricezione** è suddiviso nelle sezioni seguenti: Identificatori, Riconoscimento, Schemi, Buste, Numeri di controllo, Convalide e Impostazioni interne.
@@ -182,7 +183,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 È possibile configurare il modo in cui il contratto identifica e gestisce i messaggi in uscita inviati al partner tramite il presente contratto.
 
-1.    In **Aggiungi**, selezionare **Impostazioni di avvio**.
+1.  In **Aggiungi**, selezionare **Impostazioni di avvio**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere le tabelle in questa sezione.
 
     Il controllo **Impostazioni di invio** è suddiviso nelle sezioni seguenti: Identificatori, Riconoscimento, Schemi, Buste, Set di caratteri e separatori, Numeri di controllo e Convalida.
@@ -289,13 +290,16 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 ## <a name="find-your-created-agreement"></a>Individuare il contratto creato
 
-1.    Dopo aver impostato tutte le proprietà del contratto, scegliere **OK** nel pannello **Aggiungi** per completare la creazione del contratto e tornare al pannello dell'account di integrazione.
+1.  Dopo aver impostato tutte le proprietà del contratto, scegliere **OK** nel pannello **Aggiungi** per completare la creazione del contratto e tornare al pannello dell'account di integrazione.
 
     Il contratto appena aggiunto viene visualizzato nell'elenco **Contratti**.
 
-2.    È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel pannello dell'account di integrazione, selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**.
+2.  È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel pannello dell'account di integrazione, selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**.
 
     ![Scegliere il riquadro Contratti per visualizzare tutti i contratti](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+
+## <a name="view-the-swagger"></a>Visualizzare il file Swagger
+Vedere i [dettagli del file Swagger](/connectors/x12/). 
 
 ## <a name="learn-more"></a>Altre informazioni
 * [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  

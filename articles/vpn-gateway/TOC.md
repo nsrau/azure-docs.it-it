@@ -50,6 +50,7 @@
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (classico)](vpn-gateway-about-forced-tunneling.md)
 ## Modificare le impostazioni del gateway di rete locale
+### [Portale di Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Interfaccia della riga di comando di Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verificare una connessione di Gateway VPN](vpn-gateway-verify-connection-resource-manager.md)
@@ -59,8 +60,16 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configurare un gateway VPN (versione classica)](vpn-gateway-configure-vpn-gateway-mp.md)
+## [SKU del gateway (versione precedente)](vpn-gateway-about-skus-legacy.md)
+## Configurare dispositivi VPN di terze parti
+### [Panoramica e configurazione di Azure](vpn-gateway-3rdparty-device-config-overview.md)
+### [Esempio: dispositivo Cisco ASA (IKEv2/senza BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## Risoluzione dei problemi
 ### [Convalidare la velocità effettiva della VPN verso una rete virtuale](vpn-gateway-validate-throughput-to-vnet.md)
+### [Impostazioni di un dispositivo firewall o una VPN suggerita dalla community](vpn-gateway-third-party-settings.md)
+### [Problema di connessione da punto a sito](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+### [Disconnessione intermittente della connessione da sito a sito](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+### [La connessione da sito a sito non riesce a connettersi](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
 
 # Riferimento
 ## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
@@ -78,6 +87,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway)

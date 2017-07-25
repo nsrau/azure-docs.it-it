@@ -1,6 +1,6 @@
 ---
-title: Esercitazione per un&quot;applicazione Web Python Flask per Azure Cosmos DB | Microsoft Docs
-description: Esaminare un&quot;esercitazione del database sull&quot;utilizzo di Azure Cosmos DB per archiviare e accedere ai dati da un&quot;applicazione web Python Flask ospitata in Azure. Trovare soluzioni di sviluppo dell&quot;applicazione.
+title: Esercitazione per un'applicazione Web Python Flask per Azure Cosmos DB | Microsoft Docs
+description: Esaminare un'esercitazione del database sull'utilizzo di Azure Cosmos DB per archiviare e accedere ai dati da un'applicazione web Python Flask ospitata in Azure. Trovare soluzioni di sviluppo dell'applicazione.
 keywords: Sviluppo di applicazioni, Python Flask, applicazione Web Python, sviluppo Web Python
 services: cosmos-db
 documentationcenter: python
@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017

@@ -13,23 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
-ms.lasthandoff: 03/25/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="handle-content-types-in-logic-apps"></a>Gestire i tipi di contenuto di app per la logica
+<a id="handle-content-types-in-logic-apps" class="xliff"></a>
+
+# Gestire i tipi di contenuto di app per la logica
 
 Molti tipi diversi di contenuto possono attraversare un'app per la logica, tra cui JSON, XML, file flat e dati binari. Sebbene il motore di App per la logica supporti tutti i tipi di contenuto, alcuni vengono riconosciuti in modo nativo dal motore. Altri potrebbero richiedere cast o conversioni in base alle esigenze. Questo articolo descrive come il motore gestisce i differenti tipi di contenuto e come gestire correttamente questi tipi quando è necessario.
 
-## <a name="content-type-header"></a>Intestazione Content-Type
+<a id="content-type-header" class="xliff"></a>
+
+## Intestazione Content-Type
 
 Per semplicità, esaminiamo due valori `Content-Types` che non richiedono alcuna conversione o cast da usare nei tipi di contenuto `application/json` e `text/plain` di un'app per la logica.
 
-## <a name="applicationjson"></a>Application/JSON
+<a id="applicationjson" class="xliff"></a>
+
+## Application/JSON
 
 Il motore del flusso di lavoro si basa sull'intestazione `Content-Type` delle chiamate HTTP per determinare la gestione appropriata. Qualsiasi richiesta con tipo di contenuto `application/json` viene archiviata e gestita come un oggetto JSON. Per impostazione predefinita, il contenuto JSON può anche essere analizzato senza che sia necessario alcun cast. 
 
@@ -46,19 +53,25 @@ Ad esempio, è possibile analizzare una richiesta con l'intestazione content-typ
 
 Non è necessario alcun cast aggiuntivo. Se si lavora con dati JSON ma non è stata specificata un'intestazione, è possibile impostare manualmente i dati su JSON usando la funzione `@json()`, ad esempio `@json(triggerBody())['foo']`.
 
-### <a name="schema-and-schema-generator"></a>Schema e generatore di schemi
+<a id="schema-and-schema-generator" class="xliff"></a>
+
+### Schema e generatore di schemi
 
 Il trigger della richiesta consente di immettere uno schema JSON per il payload che si prevede di ricevere. Questo schema consente alla finestra di progettazione di generare token per consentire di usare il contenuto della richiesta. Se non si dispone di uno schema pronto, selezionare **Usare il payload di esempio per generare lo schema** per generare uno schema JSON da un payload di esempio.
 
 ![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)
 
-### <a name="parse-json-action"></a>Azione di "analisi JSON"
+<a id="parse-json-action" class="xliff"></a>
 
-L'azione `Parse JSON` consente di analizzare il contenuto JSON in token descrittivi per l'uso di app per la logica. Analogamente al trigger di richiesta, questa azione consente di immettere o generare uno schema JSON per il contenuto da analizzare. Questo strumento rende molto più semplice l'uso di dati da Bus di servizio, DocumentDB e così via.
+### Azione di "analisi JSON"
+
+L'azione `Parse JSON` consente di analizzare il contenuto JSON in token descrittivi per l'uso di app per la logica. Analogamente al trigger di richiesta, questa azione consente di immettere o generare uno schema JSON per il contenuto da analizzare. Questo strumento rende molto più semplice l'uso di dati da Bus di servizio, Cosmos DB e così via.
 
 ![Analizzare JSON](./media/logic-apps-content-type/ParseJSON.png)
 
-## <a name="textplain"></a>Text/plain
+<a id="textplain" class="xliff"></a>
+
+## Text/plain
 
 Come per `application/json`, i messaggi HTTP ricevuti con l'intestazione `Content-Type` di `text/plain` vengono archiviati nel formato non elaborato. Inoltre, se questi messaggi sono inclusi in azioni successive senza eseguire il cast, queste richieste passano con l'intestazione `Content-Type`: `text/plain`. Ad esempio, quando si usa un file flat, è possibile che venga visualizzato questo contenuto HTTP come `text/plain`:
 
@@ -69,7 +82,9 @@ Oct-1,Frank,123 Ave.
 
 Se nell'azione successiva si invia la richiesta come corpo di un'altra richiesta (`@body('flatfile')`), la richiesta avrà un'intestazione Content-Type `text/plain`. Se si lavora con dati che sono testo normale ma non è stata specificata un'intestazione, è possibile impostare manualmente i dati come testo usando la funzione `@string()`, ad esempio `@string(triggerBody())`.
 
-## <a name="applicationxml-and-applicationoctet-stream-and-converter-functions"></a>Application/xml, Application/octet-stream e funzioni del convertitore
+<a id="applicationxml-and-applicationoctet-stream-and-converter-functions" class="xliff"></a>
+
+## Application/xml, Application/octet-stream e funzioni del convertitore
 
 Il motore dell'app per la logica mantiene sempre il valore `Content-Type` che è stato ricevuto per la richiesta o risposta HTTP. Se quindi il motore riceve contenuto con il `Content-Type` di `application/octet-stream` e si include questo contenuto in un'azione successiva senza eseguire il cast, la richiesta in uscita ha `Content-Type`: `application/octet-stream`. In questo modo, il motore può garantire che non vengano persi dati durante lo spostamento nel flusso di lavoro. Tuttavia, lo stato dell'azione, ovvero gli input e gli output, viene archiviato in un oggetto JSON mentre attraversa il flusso di lavoro. Per mantenere alcuni tipi di dati, il motore converte il contenuto in una stringa binaria con codifica Base64, con i metadati appropriati per conservare sia `$content` che `$content-type`, che viene automaticamente convertita. 
 
@@ -92,7 +107,9 @@ Ad esempio, se si riceve una richiesta HTTP con `Content-Type`: `application/xml
 
 Si potrebbe eseguire il cast e usarlo in un secondo tempo con un elemento simile a `@xml(triggerBody())` o all'interno di una funzione come `@xpath(xml(triggerBody()), '/CustomerName')`.
 
-## <a name="other-content-types"></a>Altri tipi di contenuto
+<a id="other-content-types" class="xliff"></a>
+
+## Altri tipi di contenuto
 
 Esistono altri tipi di contenuto che sono supportati e funzionano con le app per la logica, ma potrebbero richiedere il recupero manuale del corpo del messaggio con la decodifica di `$content`. Ad esempio si supponga di attivare una richiesta `application/x-www-url-formencoded` dove `$content` rappresenta il payload codificato come stringa Base64 per mantenere tutti i dati:
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/14/2017
+ms.date: 06/14/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 28f8ed91cd2305fdad5105428e50d1d9b3370dd9
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d8be07fe4cd3fd50827fb7021a75eb05b6f075e0
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -32,12 +33,17 @@ Il servizio Backup di Azure presenta insiemi di credenziali di due tipi: l'insie
 > [!NOTE]
 > Le credenziali per il backup non consentono di proteggere le soluzioni distribuite con Resource Manager. Per proteggere le VM e i server distribuiti in modo tradizionale, è tuttavia possibile usare un insieme di credenziali dei servizi di ripristino.  
 >
+
+> [!IMPORTANT]
+> È ora possibile aggiornare gli insiemi di credenziali di Backup ad insiemi di credenziali dei servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft consiglia di aggiornare gli insiemi di credenziali di Backup a insiemi di credenziali dei servizi di ripristino.<br/> **A partire dal 1° novembre 2017**:
+>- Eventuali insiemi di credenziali di Backup rimanenti verranno automaticamente aggiornati a insiemi di credenziali di servizi di ripristino
+>- e non sarà più possibile accedere ai dati di backup nel portale classico. Sarà possibile invece usare il portale di Azure per accedere ai dati di backup negli insiemi di credenziali di servizi di ripristino.
 >
 
 In questo articolo il termine insieme di credenziali viene usato per fare riferimento alla forma generica dell'insieme di credenziali per il backup o dell'insieme di credenziali dei servizi di ripristino. Il nome formale, ovvero insieme di credenziali per il backup o insieme di credenziali dei servizi di ripristino, viene usato quando è necessario distinguere tra gli insiemi di credenziali.
 
 ## <a name="deleting-a-recovery-services-vault"></a>Eliminazione di un insieme di credenziali dei servizi di ripristino
-L'eliminazione di un insieme di credenziali dei servizi di ripristino è un processo costituito da un solo passaggio, *purché l'insieme di credenziali non contenga risorse*. Prima di potere eliminare un insieme di credenziali dei servizi di ripristino, è necessario rimuovere o eliminare tutte le risorse nell'insieme di credenziali. Se si prova a eliminare un insieme di credenziali contenente risorse, viene visualizzato un errore analogo a quello riportato nell'immagine seguente:
+L'eliminazione di un insieme di credenziali dei servizi di ripristino è un processo costituito da un solo passaggio, *purché l'insieme di credenziali non contenga risorse*. Prima di potere eliminare un insieme di credenziali dei servizi di ripristino, è necessario rimuovere o eliminare tutte le risorse nell'insieme di credenziali. Se si cerca di eliminare un insieme di credenziali contenente risorse, viene visualizzato un errore analogo a quello riportato nell'immagine seguente:
 
 ![Errore di eliminazione dell'insieme di credenziali](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
 

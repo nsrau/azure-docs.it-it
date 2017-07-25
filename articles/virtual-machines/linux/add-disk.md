@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un disco a una macchina virtuale Linux con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Questo articolo illustra come aggiungere un disco permanente alla macchina virtuale Linux con l&quot;interfaccia della riga di comando di Azure 1.0 e 2.0.
+title: Aggiungere un disco a una macchina virtuale Linux con l'interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Questo articolo illustra come aggiungere un disco permanente alla macchina virtuale Linux con l'interfaccia della riga di comando di Azure 1.0 e 2.0.
 keywords: macchina virtuale Linux, aggiungere un disco di risorse
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 02/02/2017
-ms.author: rasquill
+ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 7a989ffd72dd3636419dfb91f696f0e38f9271c2
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
 
 ---

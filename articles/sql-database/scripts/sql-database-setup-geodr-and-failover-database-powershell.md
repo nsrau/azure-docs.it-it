@@ -1,6 +1,6 @@
 ---
-title: 'Script di Azure PowerShell: configurare la replica geografica per un database SQL singolo | Microsoft Docs'
-description: 'Esempio di script di Azure PowerShell: configurare la replica geografica attiva per un database SQL di Azure singolo usando PowerShell'
+title: Esempio di PowerShell - Configurare la replica geografica attiva per un singolo database SQL di Azure | Microsoft Docs
+description: Script di esempio di Azure PowerShell per configurare la replica geografica attiva per un singolo database SQL di Azure
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: b406c288f1e3eee7e92d690915ca0bdebe6cdb3d
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 80bc573233b73882d4bce553de1a627ae76ed1b4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="configure-active-geo-replication-for-a-single-azure-sql-database-using-powershell"></a>Configurare la replica geografica attiva per un database SQL di Azure singolo usando PowerShell
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>Usare PowerShell per configurare la replica geografica attiva per un singolo database SQL di Azure
 
-Questo esempio di script di PowerShell configura la replica geografica attiva per un database singolo e ne esegue il failover nella replica secondaria.
+Questo esempio di script di PowerShell configura la replica geografica attiva per un singolo database SQL di Azure e ne esegue il failover su una replica secondaria del database SQL di Azure.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

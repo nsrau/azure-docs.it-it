@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 2058e74c1c2e719e879a3808d24790bfe86a9e1b
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: fde5cd9a9efc3a13e731a91962ced5c086a72355
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lezione supplementare: Righe di dettaglio
@@ -42,7 +42,7 @@ Prima di aggiungere un'espressione di righe di dettaglio, verrà esaminata in de
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. Nella tabella pivot fare doppio clic su un valore aggregato per un anno e un nome di area. In questo esempio sono stati selezionati l'Australia e l'anno 2014. Verrà aperto un nuovo foglio contenente una grande quantità di dati, ma non molto utili.
+3. Nella tabella pivot fare doppio clic su un valore aggregato per un anno e un nome di area. In questo esempio sono stati selezionati l'Australia e l'anno 2014. Viene aperto un nuovo foglio contenente alcuni dati, ma non molto utili.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   

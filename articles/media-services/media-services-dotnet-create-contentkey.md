@@ -1,6 +1,6 @@
 ---
 title: "Creare entità ContentKey mediante .NET"
-description: Informazioni su come creare chiavi simmetriche che forniscono l&quot;accesso sicuro agli asset.
+description: Informazioni su come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c547afd9535eb4764caf6b37d4e38a22f6e88186
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="create-contentkeys-with-net"></a>Creare entità ContentKey mediante .NET
@@ -67,7 +68,7 @@ Uno dei valori che è necessario impostare quando si crea una chiave simmetrica 
         EnvelopeEncryption = 4
     }
 
-## <a name="a-idenvelopecontentkeyacreate-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
+## <a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia envelope. Associa quindi la chiave all'asset specificato.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -104,7 +105,7 @@ chiamare
 
 
 
-## <a name="a-idcommoncontentkeyacreate-common-type-contentkey"></a><a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common
+## <a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia common. Associa quindi la chiave all'asset specificato.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -147,10 +148,5 @@ chiamare
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

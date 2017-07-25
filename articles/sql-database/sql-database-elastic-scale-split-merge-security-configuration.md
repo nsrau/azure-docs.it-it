@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7eecd3cc01cc708c3da1efb1cbb3b1cddb86d6f0
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 7e6ccf51a4b75eef16a7df5c1a1018954af8e5dd
 ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -29,8 +29,8 @@ Per usare il servizio di "split and merge", è necessario configurare correttame
 ## <a name="configuring-certificates"></a>Configurazione dei certificati
 I certificati vengono configurati in due modi. 
 
-1. [Per configurare il certificato SSL](#To-Configure-the-SSL#Certificate)
-2. [Per configurare i certificati client](#To-Configure-Client-Certificates) 
+1. [Per configurare il certificato SSL](#to-configure-the-ssl-certificate)
+2. [Per configurare i certificati client](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Per ottenere i certificati
 È possibile ottenere i certificati da Autorità di certificazione (CA) pubbliche o dal [servizio certificati di Windows](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Questi sono i metodi consigliati per ottenere i certificati.
@@ -53,43 +53,43 @@ Se tali opzioni non sono disponibili, è possibile generare **certificati autofi
 Un certificato SSL è necessario per crittografare la comunicazione e autenticare il server. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
 
 ### <a name="create-a-new-self-signed-certificate"></a>Creare un nuovo certificato autofirmato
-1. [Creare un certificato autofirmato](#Create-a-Self-Signed-Certificate)
-2. [Creare un file PFX per il certificato SSL autofirmato](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
-3. [Caricare il certificato SSL nel servizio cloud](#Upload-SSL-Certificate-to-Cloud-Service)
-4. [Aggiornare il certificato SSL nel file di configurazione del servizio](#Update-SSL-Certificate-in-Service-Configuration-File)
-5. [Importare l'Autorità di certificazione SSL](#Import-SSL-Certification-Authority)
+1. [Creare un certificato autofirmato](#create-a-self-signed-certificate)
+2. [Creare un file PFX per il certificato SSL autofirmato](#create-pfx-file-for-self-signed-ssl-certificate)
+3. [Caricare il certificato SSL nel servizio cloud](#upload-ssl-certificate-to-cloud-service)
+4. [Aggiornare il certificato SSL nel file di configurazione del servizio](#update-ssl-certificate-in-service-configuration-file)
+5. [Importare l'Autorità di certificazione SSL](#import-ssl-certification-authority)
 
 ### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>Per usare un certificato esistente dall'archivio certificati
-1. [Esportare il certificato SSL dall'archivio certificati](#Export-SSL-Certificate-From-Certificate-Store)
-2. [Caricare il certificato SSL nel servizio cloud](#Upload-SSL-Certificate-to-Cloud-Service)
-3. [Aggiornare il certificato SSL nel file di configurazione del servizio](#Update-SSL-Certificate-in-Service-Configuration-File)
+1. [Esportare il certificato SSL dall'archivio certificati](#export-ssl-certificate-from-certificate-store)
+2. [Caricare il certificato SSL nel servizio cloud](#upload-ssl-certificate-to-cloud-service)
+3. [Aggiornare il certificato SSL nel file di configurazione del servizio](#update-ssl-certificate-in-service-configuration-file)
 
 ### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>Per usare un certificato esistente in un file con estensione pfx
-1. [Caricare il certificato SSL nel servizio cloud](#Upload-SSL-Certificate-to-Cloud-Service)
-2. [Aggiornare il certificato SSL nel file di configurazione del servizio](#Update-SSL-Certificate-in-Service-Configuration-File)
+1. [Caricare il certificato SSL nel servizio cloud](#upload-ssl-certificate-to-cloud-service)
+2. [Aggiornare il certificato SSL nel file di configurazione del servizio](#update-ssl-certificate-in-service-configuration-file)
 
 ## <a name="to-configure-client-certificates"></a>Per configurare i certificati client
 I certificati client sono necessari per autenticare le richieste al servizio. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
 
 ### <a name="turn-off-client-certificates"></a>Disabilitare i certificati client
-1. [Disabilitare l'autenticazione basata su certificati client](#Turn-Off-Client-Certificate-Based-Authentication)
+1. [Disabilitare l'autenticazione basata su certificati client](#turn-off-client-certificate-based-authentication)
 
 ### <a name="issue-new-self-signed-client-certificates"></a>Rilasciare nuovi certificati autofirmati
-1. [Creare un'autorità di certificazione autofirmata](#Create-a-Self-Signed-Certification-Authority)
-2. [Caricare un certificato della CA nel servizio cloud](#Upload-CA-Certificate-to-Cloud-Service)
-3. [Aggiornare il certificato della CA nel file di configurazione del servizio](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [Rilasciare certificati client](#Issue-Client-Certificates)
-5. [Creare file PFX per i certificati client](#Create-PFX-files-for-Client-Certificates)
+1. [Creare un'autorità di certificazione autofirmata](#create-a-self-signed-certification-authority)
+2. [Caricare un certificato della CA nel servizio cloud](#upload-ca-certificate-to-cloud-service)
+3. [Aggiornare il certificato della CA nel file di configurazione del servizio](#update-ca-certificate-in-service-configuration-file)
+4. [Rilasciare certificati client](#issue-client-certificates)
+5. [Creare file PFX per i certificati client](#create-pfx-files-for-client-certificates)
 6. [Importare il certificato client](#Import-Client-Certificate)
-7. [Copiare le identificazioni personali del certificato client](#Copy-Client-Certificate-Thumbprints)
-8. [Configurare i client consentiti nel file di configurazione del servizio](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
+7. [Copiare le identificazioni personali del certificato client](#copy-client-certificate-thumbprints)
+8. [Configurare i client consentiti nel file di configurazione del servizio](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>Usare i certificati client esistenti
-1. [Find CA Public Key](#Find-CA-Public Key)
+1. [Find CA Public Key](#find-ca-public-key)
 2. [Caricare un certificato della CA nel servizio cloud](#Upload-CA-certificate-to-cloud-service)
 3. [Aggiornare il certificato della CA nel file di configurazione del servizio](#Update-CA-Certificate-in-Service-Configuration-File)
 4. [Copiare le identificazioni personali del certificato client](#Copy-Client-Certificate-Thumbprints)
-5. [Configurare i client consentiti nel file di configurazione del servizio](#Configure-Allowed-Clients-in-the-Service-Configuration File)
+5. [Configurare i client consentiti nel file di configurazione del servizio](#configure-allowed-clients-in-the-service-configuration-file)
 6. [Configurare il controllo della revoca del certificato client](#Configure-Client-Certificate-Revocation-Check)
 
 ## <a name="allowed-ip-addresses"></a>Indirizzi IP consentiti
@@ -99,19 +99,19 @@ L'accesso agli endpoint del servizio può essere limitato a intervalli specifici
 È necessario un certificato per crittografare le credenziali archiviate nell'archivio di metadati. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
 
 ### <a name="use-a-new-self-signed-certificate"></a>Usare un nuovo certificato autofirmato
-1. [Creare un certificato autofirmato](#Create-a-Self-Signed-Certificate)
-2. [Creare un file PFX per il certificato di crittografia autofirmato](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
-3. [Caricare il certificato di crittografia nel servizio cloud](#Upload-Encryption-Certificate-to-Cloud-Service)
-4. [Aggiornare il certificato di crittografia nel file di configurazione del servizio](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1. [Creare un certificato autofirmato](#create-a-self-signed-certificate)
+2. [Creare un file PFX per il certificato di crittografia autofirmato](#create-pfx-file-for-self-signed-ssl-certificate)
+3. [Caricare il certificato di crittografia nel servizio cloud](#upload-encryption-certificate-to-cloud-service)
+4. [Aggiornare il certificato di crittografia nel file di configurazione del servizio](#update-encryption-certificate-in-service-configuration-file)
 
 ### <a name="use-an-existing-certificate-from-the-certificate-store"></a>Usare un certificato esistente dall'archivio certificati
-1. [Esportare il certificato di crittografia dall'archivio certificati](#Export-Encryption-Certificate-From-Certificate-Store)
-2. [Caricare il certificato di crittografia nel servizio cloud](#Upload-Encryption-Certificate-to-Cloud-Service)
-3. [Aggiornare il certificato di crittografia nel file di configurazione del servizio](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1. [Esportare il certificato di crittografia dall'archivio certificati](#export-encryption-certificate-from-certificate-store)
+2. [Caricare il certificato di crittografia nel servizio cloud](#upload-encryption-certificate-to-cloud-service)
+3. [Aggiornare il certificato di crittografia nel file di configurazione del servizio](#update-encryption-certificate-in-service-configuration-file)
 
 ### <a name="use-an-existing-certificate-in-a-pfx-file"></a>Usare un certificato esistente in un file PFX
-1. [Caricare il certificato di crittografia nel servizio cloud](#Upload-Encryption-Certificate-to-Cloud-Service)
-2. [Aggiornare il certificato di crittografia nel file di configurazione del servizio](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1. [Caricare il certificato di crittografia nel servizio cloud](#upload-encryption-certificate-to-cloud-service)
+2. [Aggiornare il certificato di crittografia nel file di configurazione del servizio](#update-encryption-certificate-in-service-configuration-file)
 
 ## <a name="the-default-configuration"></a>Configurazione predefinita
 La configurazione predefinita nega qualunque accesso all'endpoint HTTP. Questa è l'impostazione consigliata, in quanto le richieste inviate a tali endpoint posso includere dati sensibili come le credenziali di database.
@@ -404,7 +404,7 @@ In **Esportazione guidata certificati**:
 
 1. Fare clic su **Avanti**.
 2. Selezionare **Sì** e quindi **Esporta la chiave privata**.
-3. Fare clic su **Next**.
+3. Fare clic su **Avanti**.
 4. Selezionare il formato del file di output desiderato.
 5. Controllare le opzioni desiderate.
 6. Selezionare **Password**.

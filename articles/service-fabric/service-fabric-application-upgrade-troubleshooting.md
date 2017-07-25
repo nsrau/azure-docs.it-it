@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi di aggiornamento delle applicazioni | Documentazione Microsoft
-description: Questo articolo descrive alcuni problemi comuni relativi all&quot;aggiornamento di un&quot;applicazione di Service Fabric e come risolverli.
+description: Questo articolo descrive alcuni problemi comuni relativi all'aggiornamento di un'applicazione di Service Fabric e come risolverli.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 6/28/2017
 ms.author: subramar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
+ms.contentlocale: it-it
 ms.lasthandoff: 04/26/2017
 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Esempio di IoT di Azure MyDriving: Avvio rapido | Documentazione Microsoft'
-description: Introduzione a un&quot;app che rappresenta una dimostrazione completa di come progettare un sistema IoT con Microsoft Azure che include l&quot;analisi di flusso, Machine Learning e hub eventi.
+description: Introduzione a un'app che rappresenta una dimostrazione completa di come progettare un sistema IoT con Microsoft Azure che include l'analisi di flusso, Machine Learning e hub eventi.
 services: 
 documentationcenter: .net
 suite: 
@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
 ms.author: harikm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c6366d42b91748963ec14c258f92746e5d2fde92
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 031b492df1f186087e7b91102cbb44f552999293
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -49,7 +51,7 @@ Nel dispositivo:
    
    Sono disponibili due elementi. Installare il certificato in **Persone attendibili**, quindi installare l'app.
 
-*In caso di problemi di avvio dell'app in Windows 10 Mobile*  Il telefono potrebbe non essere aggiornato alla versione più recente. Verificare che siano installati gli ultimi aggiornamenti oppure installare:
+*In caso di problemi di avvio dell'app in Windows 10 Mobile* Il telefono potrebbe non essere aggiornato alla versione più recente. Verificare che siano installati gli ultimi aggiornamenti oppure installare:
 
 * [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx) 
 * [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx) 
@@ -144,9 +146,4 @@ Tutti i commenti e suggerimenti saranno apprezzati.
 [ScanTool OBDLink MX Wi-Fi: OBD Adapter/Diagnostic Scanner]: http://www.amazon.com/gp/product/B00OCYXTYY/ref=s9_simh_gw_g263_i1_r?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=desktop-2&pf_rd_r=1MWRMKXK4KK9VYMJ44MP
 [HockeyApp]: https://rink.hockeyapp.org
 [problema in GitHub]: https://github.com/Azure-Samples/MyDriving/issues
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

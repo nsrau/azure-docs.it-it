@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: 6e2bb0e228aa28c79969cba07352061abbb47951
+ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
-
 
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando PowerShell
@@ -136,14 +136,14 @@ Le macchine virtuali di back-end dipendono dalla creazione delle risorse seguent
     ```powershell
     Add-AzureProvisioningConfig -VM $vmConfig -Windows `
         -AdminUsername $cred.UserName `
-        -Password $cred.Password
+        -Password $cred.GetNetworkCredential().Password
     ```
 
 4. Impostare il valore predefinito NIC e assegnare un indirizzo IP statico.
 
     ```powershell
-    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. Aggiungere una seconda scheda di rete per ogni macchina virtuale.

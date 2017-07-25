@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Creare un&quot;app Web con .NET e l&quot;API DocumentDB | Microsoft Docs'
-description: Presenta un esempio di codice .NET che permette di connettersi all&quot;API DocumentDB di Azure Cosmos DB e di eseguire query su di essa
+title: 'Azure Cosmos DB: Creare un''app Web con .NET e l''API DocumentDB | Microsoft Docs'
+description: Presenta un esempio di codice .NET che permette di connettersi all'API DocumentDB di Azure Cosmos DB e di eseguire query su di essa
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,14 +16,16 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 899c710318fee46a93b3f54a68cb9027589f7177
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: d17f90d5ed5440dc336d1e3ae890a13077e33c4d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app Web per le API DocumentDB con .NET e il portale di Azure
+<a id="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal" class="xliff"></a>
+
+# Azure Cosmos DB: Creare un'app Web per le API DocumentDB con .NET e il portale di Azure
 
 Azure Cosmos DB è il servizio di database multimodello distribuito a livello globale di Microsoft. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave/valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
@@ -31,28 +33,36 @@ Questa guida di avvio rapido mostra come creare un account, un database di docum
 
 ![App elenco attività con dati di esempio](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+<a id="prerequisites" class="xliff"></a>
+
+## Prerequisiti
 
 Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>Creare un account di database
+<a id="create-a-database-account" class="xliff"></a>
+
+## Creare un account di database
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-collection"></a>
-## <a name="add-a-collection"></a>Aggiungere una raccolta
+<a id="add-a-collection" class="xliff"></a>
+
+## Aggiungere una raccolta
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 <a id="add-sample-data"></a>
-## <a name="add-sample-data"></a>Aggiungere dati di esempio
+<a id="add-sample-data" class="xliff"></a>
+
+## Aggiungere dati di esempio
 
 È ora possibile aggiungere dati alla nuova raccolta usando Esplora dati.
 
-1. In Esplora dati il nuovo database viene visualizzato nel riquadro Raccolte. Espandere il database **Items**, espandere la raccolta **ToDoList**, fare clic su **Documenti** e quindi su **Nuovo documento**. 
+1. In Esplora dati il nuovo database viene visualizzato nel riquadro Raccolte. Espandere il database **Tasks**, espandere la raccolta **Items**, fare clic su **Documenti** e quindi su **Nuovo documento**. 
 
    ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
@@ -63,15 +73,22 @@ Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare l
          "id": "1",
          "category": "personal",
          "name": "groceries",
-         "description": "Pick up apples and strawberries."
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
      }
      ```
+
+3. Dopo avere aggiunto il codice JSON alla scheda **Documenti**, fare clic su **Salva**.
+
+    ![Copiare i dati JSON e fare clic su Salva in Esplora dati nel portale di Azure](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
      È ora possibile usare query in Esplora dati per recuperare i dati. Per impostazione predefinita, Esplora dati usa `SELECT * FROM c` per recuperare tutti i documenti della raccolta, ma è possibile usare `SELECT * FROM c ORDER BY c.name ASC` per restituire tutti i documenti in ordine alfabetico crescente in base alla proprietà name. 
  
      È anche possibile usare Esplora dati per creare stored procedure, funzioni definite dall'utente e trigger per eseguire la logica di business sul lato server e aumentare la velocità effettiva. Esplora dati espone tutti i tipi di accesso ai dati a livello di codice predefiniti disponibili nelle API, ma consente anche di accedere facilmente ai dati nel portale di Azure.
 
-## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
+<a id="clone-the-sample-application" class="xliff"></a>
+
+## Clonare l'applicazione di esempio
 
 Clonare ora un'app per le API DocumentDB da GitHub, impostare la stringa di connessione ed eseguirla. Come si noterà, è facile usare i dati a livello di codice. 
 
@@ -83,25 +100,27 @@ Clonare ora un'app per le API DocumentDB da GitHub, impostare la stringa di conn
     git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
     ```
 
-3. Aprire quindi il file della soluzione in Visual Studio. 
+3. Aprire quindi il file della soluzione todo in Visual Studio. 
 
-## <a name="review-the-code"></a>Esaminare il codice
+<a id="review-the-code" class="xliff"></a>
+
+## Esaminare il codice
 
 Ecco una breve analisi di ciò che accade nell'app. Aprire il file DocumentDBRepository.cs. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
 
-* Viene inizializzato DocumentClient.
+* Viene inizializzato DocumentClient alla riga 73.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
     ```
 
-* Viene creato un nuovo database.
+* Viene creato un nuovo database alla riga 88.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* Viene creata una nuova raccolta.
+* Viene creata una nuova raccolta alla riga 107.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -110,7 +129,9 @@ Ecco una breve analisi di ciò che accade nell'app. Aprire il file DocumentDBRep
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
-## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
+<a id="update-your-connection-string" class="xliff"></a>
+
+## Aggiornare la stringa di connessione
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
@@ -128,7 +149,9 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     `<add key="authKey" value="FILLME" />`
     
-## <a name="run-the-web-app"></a>Eseguire l'app Web
+<a id="run-the-web-app" class="xliff"></a>
+
+## Eseguire l'app Web
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e quindi scegliere **Gestisci pacchetti NuGet**. 
 
 2. Nella casella **Sfoglia** di NuGet digitare *DocumentDB*.
@@ -143,18 +166,24 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 È ora possibile tornare a Esplora dati e visualizzare, modificare e usare questi nuovi dati, nonché eseguire query su di essi. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+
+## Esaminare i contratti di servizio nel portale di Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+<a id="clean-up-resources" class="xliff"></a>
+
+## Pulire le risorse
 
 Se non si intende continuare a usare l'app, eliminare tutte le risorse create tramite questa guida di avvio rapido nel portale di Azure eseguendo questi passaggi:
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata. 
 2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
 
-## <a name="next-steps"></a>Passaggi successivi
+<a id="next-steps" class="xliff"></a>
+
+## Passaggi successivi
 
 In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una raccolta con Esplora dati e come eseguire un'app Web. È ora possibile importare dati aggiuntivi nell'account Cosmos DB. 
 

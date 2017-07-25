@@ -1,6 +1,6 @@
 ---
 title: Associazione di Hub di notifica in Funzioni di Azure | Documentazione Microsoft
-description: Informazioni su come usare l&quot;associazione di Hub di notifica di Azure in Funzioni di Azure.
+description: Informazioni su come usare l'associazione di Hub di notifica di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
-ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: fa3d37b963c1bb6b58127b9180cd657d7b1dabcc
+ms.contentlocale: it-it
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -43,7 +45,7 @@ Il file function.json specifica le proprietà seguenti:
 * `connection` : questa stringa di connessione deve essere una stringa di connessione dell' **impostazione dell'applicazione** configurata sul valore *DefaultFullSharedAccessSignature* per l'hub di notifica.
 * `direction` : deve essere impostato su *"out"*. 
 * `platform` : la piattaforma delle proprietà indica la piattaforma di notifica a cui è indirizzata la notifica. Deve essere uno dei valori seguenti: 
-  * `template` : piattaforma predefinita in caso di omissione della proprietà della piattaforma dall'associazione di uscita. È possibile utilizzare le notifiche modello per indirizzare qualsiasi piattaforma configurata sull'hub di notifica di Azure. Per ulteriori informazioni sull'utilizzo dei modelli in generale per inviare notifiche tra piattaforme con un hub di notifica di Azure, vedere [Modelli](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+  * Per impostazione predefinita, se la proprietà della piattaforma viene omessa dall'associazione di output, possono essere usate le notifiche del modello per indirizzarsi a qualsiasi piattaforma configurata nell'hub di notifica di Azure. Per ulteriori informazioni sull'utilizzo dei modelli in generale per inviare notifiche tra piattaforme con un hub di notifica di Azure, vedere [Modelli](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
   * `apns` : Apple Push Notification Service. Per ulteriori informazioni su come configurare l'hub di notifica per APN e ricevere la notifica in un'applicazione client, vedere [Invio di notifiche push a iOS con hub di notifica di Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md) 
   * `adm` : [Amazon Device Messaging](https://developer.amazon.com/device-messaging). Per ulteriori informazioni su come configurare l'hub di notifica per ADM e ricevere la notifica in un'applicazione Kindle, vedere [Introduzione agli hub di notifica per le applicazioni Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md) 
   * `gcm` : [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). È supportato anche Firebase Cloud Messaging, la nuova versione di GCM. Per ulteriori informazioni su come configurare l'hub di notifica per GCM/FCM e ricevere la notifica in un'applicazione client Android, vedere [Invio di notifiche push ad Android con hub di notifica di Azure](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)
@@ -294,10 +296,5 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

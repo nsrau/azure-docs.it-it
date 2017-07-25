@@ -17,10 +17,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -32,9 +32,9 @@ Per creare gli endpoint HTTP, è possibile aggiungere questi trigger in modo che
 
 * [Richiesta](../connectors/connectors-native-reqres.md)
 
-* [Webhook di connessione API](logic-apps-workflow-actions-triggers.md#api-connection)
+* [Webhook di connessione API](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
 
-* [Webhook HTTP](../connectors/connectors-native-http.md)
+* [Webhook HTTP](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
    > Sebbene gli esempi usino il trigger **Richiesta** è possibile usare uno dei trigger HTTP elencati e tutti i principi si applicano in modo identico agli altri tipi di trigger.
@@ -211,7 +211,7 @@ Dopo aver creato l'endpoint HTTP, è possibile attivare l'app per la logica tram
 
 ## <a name="reference-content-from-an-incoming-request"></a>Riferimento al contenuto dalla richiesta in ingresso
 
-Se il tipo di contenuto è `application/json`, è possibile fare riferimento a proprietà dalla richiesta in ingresso. In caso contrario, il contenuto viene considerato come una singola unità binaria che è possibile passare ad altre API. Non è possibile fare riferimento a questo contenuto all'interno del flusso di lavoro senza convertire il contenuto. Se ad esempio si passa il contenuto `application/xml`, è possibile usare `@xpath()` per eseguire un'estrazione XPath o `@json()` per la conversione da XML a JSON. Informazioni sull'[uso dei tipi di contenuto](../logic-apps/logic-apps-content-type.md).
+Se il tipo di contenuto è `application/json`, è possibile fare riferimento a proprietà dalla richiesta in ingresso. In caso contrario, il contenuto viene considerato come una singola unità binaria che è possibile passare ad altre API. Per fare riferimento a questo contenuto all'interno del flusso di lavoro è necessario convertire il contenuto. Se ad esempio si passa il contenuto `application/xml`, è possibile usare `@xpath()` per eseguire un'estrazione XPath o `@json()` per la conversione da XML a JSON. Informazioni sull'[uso dei tipi di contenuto](../logic-apps/logic-apps-content-type.md).
 
 Per ottenere l'output da una richiesta in ingresso, è possibile usare la funzione `@triggerOutputs()`. L'output potrebbe essere simile al seguente:
 
@@ -277,9 +277,11 @@ Di seguito viene riportato l'aspetto che lo schema JSON dovrebbe avere ora per l
 
 R: Azure genera in modo sicuro gli URL di callback dell'app per la logica mediante una firma di accesso condiviso (SAS). La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
 
-   > [!NOTE]
-   > Per sistemi sicuri/di produzione, è consigliabile evitare di chiamare l'app per la logica direttamente dal browser perché la chiave di accesso condiviso viene inclusa nell'URL e non è possibile gestire criteri di contenuto sicuri perché i domini vengono condivisi tra i clienti di app per la logica.
-
+   > [!IMPORTANT]
+   > Per i sistemi di produzione e protezione, è consigliabile evitare la chiamata dell'app per la logica direttamente dal browser in quanto:
+   > 
+   > * La chiave di accesso condiviso viene visualizzata nell'URL.
+   > * Non è possibile gestire i criteri di contenuto protetti a causa di domini condivisi tra i clienti di App per la logica.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>D: È possibile configurare ulteriormente gli endpoint HTTP?
 

@@ -4,7 +4,7 @@ description: Informazioni su come aggiungere una directory (tenant) di Office 36
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: vikdesai
+manager: jlian
 editor: 
 tags: billing,top-support-issue
 ms.assetid: cc9c57c6-7bfd-4dea-9027-c75ef3737589
@@ -23,22 +23,26 @@ ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>Associare un tenant di Office 365 a una sottoscrizione di Azure
+<a id="associate-an-office-365-tenant-to-an-azure-subscription" class="xliff"></a>
+# Associare un tenant di Office 365 a una sottoscrizione di Azure
 Collegare le sottoscrizioni di Azure e Office 365 separate per accedere al tenant di Office 365 dalla sottoscrizione di Azure. Per collegare le sottoscrizioni, accedere ad Azure con l'account di amministratore del servizio di Azure, aggiungere una directory e quindi l'account aziendale per Office 365 al tenant di Azure Active Directory.
 
 Se si desidera una sottoscrizione di Office 365 per gli utenti nell'istanza di Azure Active Directory o si dispone di un account Office 365 ma non di un account Azure, vedere [Sign up for Azure with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md) (Iscriversi ad Azure con un account Office 365). 
 
-## <a name="before-you-begin"></a>Prima di iniziare
+<a id="before-you-begin" class="xliff"></a>
+## Prima di iniziare
 * Sono necessarie le credenziali dell'amministratore del servizio della sottoscrizione di Azure. Gli account coamministratore non possono eseguire alcuni passaggi di questo articolo. Per modificare l'amministratore dell'account, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
 * Sono necessarie le credenziali di un amministratore globale del tenant di Office 365.
 * L'indirizzo di posta elettronica dell'amministratore del servizio deve essere incluso nel tenant di Office 365.
 * L'indirizzo di posta elettronica dell'amministratore del servizio deve essere diverso da quello di un amministratore globale del tenant di Office 365.
 * Se si usa un indirizzo di posta elettronica che corrisponde a un account Microsoft e a un account aziendale, modificare temporaneamente le impostazioni dell'amministratore del servizio della sottoscrizione di Azure in modo da usare un altro account Microsoft. È possibile creare un account Microsoft nella [pagina Crea account Microsoft](https://signup.live.com/).
 
-## <a name="link-office-365-tenant-to-azure-subscription"></a>Collegare il tenant di Office 365 alla sottoscrizione di Azure
+<a id="link-office-365-tenant-to-azure-subscription" class="xliff"></a>
+## Collegare il tenant di Office 365 alla sottoscrizione di Azure
 Per associare il tenant di Office 365 alla sottoscrizione di Azure, seguire questa procedura:
 
-### <a name="step-1-add-office-365-tenant-to-your-azure-subscription"></a>Passaggio 1: Aggiungere il tenant di Office 365 alla sottoscrizione di Azure
+<a id="step-1-add-office-365-tenant-to-your-azure-subscription" class="xliff"></a>
+### Passaggio 1: Aggiungere il tenant di Office 365 alla sottoscrizione di Azure
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/) con le credenziali di amministratore del servizio.
 
@@ -98,7 +102,8 @@ Per associare il tenant di Office 365 alla sottoscrizione di Azure, seguire ques
    
 5. Selezionare **Completa** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
-### <a name="step-3-add-your-office-365-organizational-accounts-as-co-administrators-to-the-azure-active-directory-tenant"></a>Passaggio 3: Aggiungere gli account aziendali di Office 365 come coamministratori del tenant Azure Active Directory
+<a id="step-3-add-your-office-365-organizational-accounts-as-co-administrators-to-the-azure-active-directory-tenant" class="xliff"></a>
+### Passaggio 3: Aggiungere gli account aziendali di Office 365 come coamministratori del tenant Azure Active Directory
    
 1. Selezionare la scheda **AMMINISTRATORI** e quindi **AGGIUNGI**.
    
@@ -121,7 +126,8 @@ Per associare il tenant di Office 365 alla sottoscrizione di Azure, seguire ques
    
     ![Screenshot della pagina di accesso di Azure](./media/billing-add-office-365-tenant-to-azure-subscription/s324_azure-sign-in-with-co-admin.png)
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+<a id="need-help-contact-support" class="xliff"></a>
+## Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 

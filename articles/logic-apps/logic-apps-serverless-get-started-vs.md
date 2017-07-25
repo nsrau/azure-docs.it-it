@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4ed26f1a30501d9ce67845795606f6d8e77ac53f
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Compilare un'app senza server in Visual Studio con App per la logica e Funzioni
@@ -34,7 +34,7 @@ Di seguito sono elencati i prerequisiti necessari per compilare un'applicazione 
 * [Strumenti di App per la logica per Visual Studio](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551)
 * [Versione più recente di Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 o versione successiva)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
-* [Interfaccia della riga di comando di Funzioni di Azure](https://www.npmjs.com/package/azure-functions-cli) per eseguire il debug di Funzioni in locale
+* [Strumenti di base di Funzioni di Azure](https://www.npmjs.com/package/azure-functions-core-tools) per eseguire il debug di Funzioni in locale
 * Accesso al Web mentre viene usata la finestra di progettazione integrata di App per la logica
 
 ## <a name="getting-started-with-a-deployment-template"></a>Introduzione a un modello di distribuzione
@@ -94,3 +94,4 @@ Se si usa JavaScript, Python, F#, Bash, Batch o PowerShell, seguire la [procedur
 <!-- Image references -->
 [1]: ./media/logic-apps-serverless-get-started-vs/select-template.png
 [2]: ./media/logic-apps-serverless-get-started-vs/deploy.png
+

@@ -1,6 +1,6 @@
 ---
 title: Codice del buffer circolare XEvent per il database SQL | Documentazione Microsoft
-description: Fornisce un esempio di codice Transact-SQL reso semplice e veloce tramite l&quot;uso della destinazione del buffer circolare nel database SQL di Azure.
+description: Fornisce un esempio di codice Transact-SQL reso semplice e veloce tramite l'uso della destinazione del buffer circolare nel database SQL di Azure.
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: a49be9d5037af120e429a9cc7ae77ceda5e03236
 ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 06/28/2017
 
 
 ---

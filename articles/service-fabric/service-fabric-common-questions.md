@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/10/2017
 ms.author: seanmck
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 2bfbb3b8f7282ec8ae8abe9597230a3485221ecf
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 0d1d795a4d6965de6cdc2b9bd81a24a27a255566
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -77,9 +77,14 @@ Generalmente, no. Service Fabric archivia lo stato su dischi locali e temporanei
 
 Se si desidera creare cluster per testare l'applicazione prima di distribuirla, è consigliabile crearli in maniera dinamica come parte della [pipeline integrazione costante/distribuzione costante](service-fabric-set-up-continuous-integration.md).
 
+
+### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Come aggiorno il sistema operativo? Ad esempio come passo da Windows Server 2012 a Windows Server 2016?
+
+Mentre Microsoft sviluppa un'esperienza migliorata oggi l'utente è responsabile dell'aggiornamento. È necessario aggiornare l'immagine del sistema operativo nelle macchine virtuali del cluster per una macchina virtuale per volta. 
+
 ## <a name="container-support"></a>Supporto dei contenitori
 
-### <a name="why-are-my-containers-that-are-deployed-to-sf-are-unable-to-resolve-dns-addresses"></a>Perché i contenitori distribuiti in Service Fabric non riescono a risolvere gli indirizzi DNS?
+### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Perché i contenitori distribuiti in Service Fabric non riescono a risolvere gli indirizzi DNS?
 
 Il problema è stato segnalato nei cluster versione 5.6.204.9494 
 

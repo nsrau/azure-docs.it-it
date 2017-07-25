@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/24/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: db227bfea10255322c090e68b197cfb2dd1cf15b
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 99685748120b40cd02328f6ece0b8dde55042d61
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
@@ -31,7 +31,7 @@ Informazioni sulle funzionalità in Ricerca di Azure.
 
 ### <a name="full-text-search-and-text-analysis"></a>Ricerca full-text e analisi del testo
 
-[Ricerca full-text](https://en.wikipedia.org/wiki/Full_text_search) è un caso di utilizzo principale per la maggior parte delle app basate sulla ricerca. In Ricerca di Azure le query possono essere formulate usando una [semplice sintassi di query](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), in grado di offrire operatori logici, operatori di ricerca di una frase, operatori di suffisso, operatori di precedenza. Inoltre, la [sintassi di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) consente la ricerca fuzzy, la ricerca per prossimità, l'aumento della priorità dei termini e le espressioni regolari. La Ricerca di Azure supporta anche gli [analizzatori lessicali personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per consentire all'applicazione di gestire query di ricerca complesse mediante la corrispondenza fonetica e le espressioni regolari.
+[Ricerca full-text](search-lucene-query-architecture.md) è un caso di utilizzo principale per la maggior parte delle app basate sulla ricerca. In Ricerca di Azure le query possono essere formulate usando una [semplice sintassi di query](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), in grado di offrire operatori logici, operatori di ricerca di una frase, operatori di suffisso, operatori di precedenza. Inoltre, la [sintassi di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) consente la ricerca fuzzy, la ricerca per prossimità, l'aumento della priorità dei termini e le espressioni regolari. La Ricerca di Azure supporta anche gli [analizzatori lessicali personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per consentire all'applicazione di gestire query di ricerca complesse mediante la corrispondenza fonetica e le espressioni regolari.
 
 ### <a name="language-support"></a>Supporto per le lingue
 

@@ -1,6 +1,6 @@
 ---
-title: Acquisire un&quot;immagine di una macchina virtuale Linux | Microsoft Docs
-description: Informazioni su come acquisire un&quot;immagine di una macchina virtuale di Azure basata su Linux creata con il modello di distribuzione classica.
+title: Acquisire un'immagine di una macchina virtuale Linux | Microsoft Docs
+description: Informazioni su come acquisire un'immagine di una macchina virtuale di Azure basata su Linux creata con il modello di distribuzione classica.
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 691caf95971ccdd37b12bbc178627f25b228a782
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
+ms.contentlocale: it-it
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -57,9 +58,13 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 4. Digitare **Exit** per chiudere il client SSH.
 
    > [!NOTE]
-   > I restanti passaggi presuppongono che l' [interfaccia della riga di comando di Azure](../../../cli-install-nodejs.md) sia stata già installata sul computer client. Tutti i passaggi seguenti possono essere effettuati anche nel [portale di Azure classico][Azure classic portal].
+   > I restanti passaggi presuppongono che l' [interfaccia della riga di comando di Azure](../../../cli-install-nodejs.md) sia stata già installata sul computer client. Tutti i passaggi seguenti possono essere eseguiti anche nel [Portale di Azure](http://portal.azure.com).
 
 5. Dal computer client, aprire l'interfaccia della riga di comando di Azure ed eseguire l'accesso alla sottoscrizione di Azure. Per informazioni dettagliate, leggere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../../../xplat-cli-connect.md).
+
+   > [!NOTE]
+   > Accedere al Portale di Azure.
+
 6. Assicurarsi che sia attiva la modalità Gestione dei servizi:
 
     ```azurecli
@@ -71,9 +76,10 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
     ```azurecli
     azure vm shutdown myVM
     ```
+   Se necessario, è possibile visualizzare un elenco di tutte le macchine virtuali create nella propria sottoscrizione tramite il comando `azure vm list`
 
    > [!NOTE]
-   > È possibile visualizzare un elenco di tutte le macchine virtuali create nella propria sottoscrizione usando il comando `azure vm list`
+   > Se si usa il Portale di Azure, selezionare la macchina virtuale e fare clic su **Arresta** per arrestarla.
 
 8. Quando la macchina virtuale viene arrestata, acquisire l'immagine. Nell'esempio seguente viene acquisita la macchina virtuale denominata `myVM` e viene creata un'immagine generalizzata denominata `myNewVM`:
 
@@ -82,6 +88,9 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
     ```
 
     Il sottocomando `-t` consente di eliminare la macchina virtuale originale.
+
+    > [!NOTE]
+    > Nel Portale di Azure è possibile acquisire un'immagine selezionando **Immagine** dal menu Hub. Per l'immagine è necessario specificare le informazioni seguenti: nome, gruppo di risorse, posizione, tipo di sistema operativo e percorso BLOB di archiviazione.
 
 9. La nuova immagine è ora disponibile nell'elenco di immagini che possono essere usate per configurare nuove macchine virtuali. È possibile visualizzarla con il comando:
 
@@ -96,11 +105,10 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 ## <a name="next-steps"></a>Passaggi successivi
 L'immagine può ora essere usata per creare macchine virtuali. È possibile usare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine creata. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con il modello di distribuzione classica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-In alternativa, usare il [portale di Azure classico][Azure classic portal] per creare una macchina virtuale personalizzata tramite il metodo **Da raccolta** e selezionando l'immagine creata. Per altre informazioni, vedere [Come creare una macchina virtuale personalizzata][How to Create a Custom Virtual Machine].
+In alternativa, usare il [Portale di Azure](http://portal.azure.com) per creare una macchina virtuale personalizzata tramite il metodo **Image** e selezionando l'immagine creata. Per altre informazioni, vedere [Come creare una macchina virtuale personalizzata][How to Create a Custom Virtual Machine].
 
 **Vedere anche:** [Manuale dell'utente dell'agente Linux di Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md

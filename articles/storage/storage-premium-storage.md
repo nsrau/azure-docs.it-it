@@ -12,19 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 06/27/2017
 ms.author: ramankum
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 1040027de1df88544bd7a0c4ba6565d5599a54ab
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c905bfe672d1027916d7f273ab5ac79ceec9a4d9
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM
 Archiviazione Premium di Azure offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) con carichi di lavoro con I/O intensivo. I dischi delle VM che usano Archiviazione Premium memorizzano i dati in unità a stato solido (SSD). È possibile migrare i dischi delle VM esistenti in Archiviazione Premium di Azure per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi.
 
-In Azure è possibile collegare diversi dischi di Archiviazione Premium a una VM. L'uso di più dischi offre alle applicazioni fino a 64 TB di spazio di archiviazione per ogni VM. Con Archiviazione Premium le applicazioni possono ottenere 80.000 operazioni di I/O al secondo (IOPS) per ogni VM e una velocità effettiva del disco fino a 2.000 megabyte al secondo (Mbps) per ogni VM. Le operazioni di lettura offrono una latenza molto bassa.
+In Azure è possibile collegare diversi dischi di Archiviazione Premium a una VM. L'uso di più dischi offre alle applicazioni fino a 256 TB di spazio di archiviazione per ogni VM. Con Archiviazione Premium le applicazioni possono ottenere 80.000 operazioni di I/O al secondo (IOPS) per ogni VM e una velocità effettiva del disco fino a 2.000 megabyte al secondo (Mbps) per ogni VM. Le operazioni di lettura offrono una latenza molto bassa.
 
 Con Archiviazione Premium, Azure offre la possibilità di potenziare e spostare nel cloud le applicazioni aziendali più complesse come Dynamics AX, Dynamics CRM, Exchange Server, SAP Business Suite e farm SharePoint. È possibile eseguire carichi di lavoro del database a prestazioni intensive in applicazioni come SQL Server, Oracle, MongoDB, MySQL e Redis, che richiedono prestazioni elevate e coerenti e una bassa latenza.
 
@@ -58,11 +59,11 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
 * **Limiti dei dischi di Archiviazione Premium**
 
-    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS e Fs. È possibile scegliere fra tre dimensioni di disco: P10 (128 GB), P20 (512 GB) e P30 (1.024 GB). Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#premium-storage-scalability-and-performance-targets).
+    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS e Fs. È possibile scegliere fra sette dimensioni di disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Attualmente le dimensioni di disco P4 e P6 sono supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#premium-storage-scalability-and-performance-targets).
 
 * **BLOB di pagine Premium**
 
-    Archiviazione Premium supporta i BLOB di pagine. Usare i BLOB di pagine per archiviare i dischi persistenti e non gestiti per le VM in Archiviazione Premium. A differenza di Archiviazione Standard, Archiviazione Premium non supporta i BLOB in blocchi, i BLOB di aggiunta, file, tabelle o code.
+    Archiviazione Premium supporta i BLOB di pagine. Usare i BLOB di pagine per archiviare i dischi persistenti e non gestiti per le VM in Archiviazione Premium. A differenza di Archiviazione Standard, Archiviazione Premium non supporta i BLOB in blocchi, i BLOB di aggiunta, file, tabelle o code. I BLOB di pagine Premium supportano sei dimensioni, da P10 a P50, e P60 (8191 GiB). I BLOB di pagine Premium P60 non supportano il collegamento come dischi di macchine virtuali. 
 
     Qualsiasi oggetto inserito in un account di Archiviazione Premium è un BLOB di pagine. Il BLOB di pagine si aggancia a una delle dimensioni di provisioning supportate. Questo è il motivo per cui un account di Archiviazione Premium non è destinato all'archiviazione di BLOB di piccole dimensioni.
 
@@ -83,11 +84,11 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
     Azure usa l'account di archiviazione come contenitore per i dischi non gestiti. Quando si crea una VM di Azure serie DS, DSv2, GS o Fs con dischi non gestiti e si seleziona un account di archiviazione Premium, il sistema operativo e i dischi dati vengono archiviati in tale account.
 
 ## <a name="supported-vms"></a>VM supportate
-Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS e Fs. Con questi tipi di VM è possibile usare dischi di archiviazione sia Standard che Premium. Non è possibile usare i dischi di Archiviazione Premium con MV delle serie non compatibili con Archiviazione Premium.
+L'archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls e Fs. Con questi tipi di VM è possibile usare dischi di archiviazione sia Standard che Premium. Non è possibile usare i dischi di Archiviazione Premium con MV delle serie non compatibili con Archiviazione Premium.
 
 Per informazioni sui tipi e le dimensioni delle VM in Azure, vedere [Dimensioni delle macchine virtuali Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Per informazioni sui tipi e le dimensioni delle VM in Azure, vedere [Dimensioni delle macchine virtuali Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Di seguito sono indicate alcune funzionalità delle VM serie DS, DSv2, GS e Fs:
+Di seguito sono indicate alcune funzionalità delle VM serie DS, DSv2, GS, Ls e Fs:
 
 * **Servizio cloud**
 
@@ -148,13 +149,13 @@ Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Arch
 Se si usano account di archiviazione Premium per dischi non gestiti e l'applicazione supera gli obiettivi di scalabilità di un singolo account di archiviazione, si potrebbe prendere in considerazione la migrazione a Managed Disks. Se non si vuole eseguire la migrazione a Managed Disks, compilare l'applicazione per l'uso di più account di archiviazione. Quindi partizionare i dati tra tali account di archiviazione. Ad esempio, se si desidera collegare dischi da 51 TB tra più VM, distribuirli in due account di archiviazione. Il limite per un account di Archiviazione Premium singolo è 35 TB. Accertarsi che i dischi di cui viene effettuato il provisioning in un singolo account di archiviazione Premium non superino mai i 35 TB.
 
 ### <a name="premium-storage-disk-limits"></a>Limiti dei dischi di Archiviazione Premium
-Quando si effettua il provisioning di un disco di archiviazione Premium, la dimensione del disco determina il livello massimo di IOPS e velocità effettiva (larghezza di banda). Azure offre tre tipi di dischi di Archiviazione Premium: P10, P20 e P30. Ogni tipo di disco di Archiviazione Premium ha limiti specifici di IOPS e velocità effettiva. I limiti per i tipi di dischi sono descritti nella tabella seguente:
+Quando si effettua il provisioning di un disco di archiviazione Premium, la dimensione del disco determina il livello massimo di IOPS e velocità effettiva (larghezza di banda). Azure offre sette tipi di dischi di Archiviazione Premium: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P20, P30, P40 e P50. Ogni tipo di disco di Archiviazione Premium ha limiti specifici di IOPS e velocità effettiva. I limiti per i tipi di dischi sono descritti nella tabella seguente:
 
-|Tipo di disco di Archiviazione Premium | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Dimensioni disco | 128 GB | 512 GB | 1.024 GB (1 TB) |
-| IOPS per disco | 500 | 2.300 | 5.000 |
-Velocità effettiva per disco | 100 MB/s | 150 MB/s | 200 MB/s |
+| Tipo di disco Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| Dimensioni disco           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
+| Velocità effettiva per disco | 25 MB al secondo  | 50 MB al secondo  | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo | 
 
 > [!NOTE]
 > Assicurarsi che nella VM sia disponibile una larghezza di banda sufficiente per il traffico dell'unità disco, come descritto in [Macchine virtuali supportate da Archiviazione Premium](#premium-storage-supported-vms). In caso contrario, la velocità effettiva del disco e IOPS sarà limitata a valori più bassi. IOPS e velocità effettiva massima si basano sui limiti della VM, non sui limiti del disco descritti nella tabella precedente.  
@@ -165,7 +166,7 @@ Ecco alcuni aspetti importanti da conoscere sulla scalabilità e le prestazioni 
 
 * **Capacità fornita e prestazioni**
 
-    Quando si effettua il provisioning di un disco di archiviazione Premium, a differenza di Archiviazione Standard, vengono garantiti livelli di capacità, IOPS e velocità effettiva del disco. Se ad esempio si crea un disco P30, Azure effettua il provisioning di 1.024 GB di capacità di archiviazione, 5.000 IOPS e 200 MB/s di velocità effettiva per tale disco. L'applicazione può usare la totalità o una della capacità e delle prestazioni.
+    Quando si effettua il provisioning di un disco di archiviazione Premium, a differenza di Archiviazione Standard, vengono garantiti livelli di capacità, IOPS e velocità effettiva del disco. Se ad esempio si crea un disco P50, Azure effettua il provisioning di 4.095 GB di capacità di archiviazione, 7.500 IOPS e 250 MB/s di velocità effettiva per tale disco. L'applicazione può usare la totalità o una della capacità e delle prestazioni.
 
 * **Dimensioni disco**
 

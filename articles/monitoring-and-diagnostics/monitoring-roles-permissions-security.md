@@ -1,8 +1,8 @@
 ---
 title: Introduzione a ruoli, autorizzazioni e sicurezza con Monitoraggio di Azure | Microsoft Docs
-description: Informazioni su come usare le autorizzazioni e i ruoli predefiniti di monitoraggio di Azure per limitare l&quot;accesso alle risorse di monitoraggio.
+description: Informazioni su come usare le autorizzazioni e i ruoli predefiniti di monitoraggio di Azure per limitare l'accesso alle risorse di monitoraggio.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
@@ -169,10 +170,5 @@ Un modello simile può essere seguito con gli hub eventi, tuttavia è innanzitut
 ## <a name="next-steps"></a>Passaggi successivi
 * [Controllo degli accessi in base al ruolo e autorizzazioni in Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Panoramica sul monitoraggio in Azure](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

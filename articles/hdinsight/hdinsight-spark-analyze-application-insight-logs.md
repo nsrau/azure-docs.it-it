@@ -1,6 +1,6 @@
 ---
 title: Analizzare i log di Application Insights con Spark in Azure HDInsight | Microsoft Docs
-description: Informazioni su come esportare i log di Application Insight nell&quot;archiviazione BLOB e analizzare i log con Spark in HDInsight.
+description: Informazioni su come esportare i log di Application Insight nell'archiviazione BLOB e analizzare i log con Spark in HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 02ecc95d97719908a18f615dc3e19af2a563cc73
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8ccb94ea1b415c93d9dc3faefab3cbf8fb075b89
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -36,7 +36,7 @@ Informazioni su come usare Spark in HDInsight per analizzare i dati di telemetri
 * Familiarità con la creazione di un cluster HDInsight basato su Linux. Per altre informazioni, vedere [Introduzione: Creare un cluster Apache Spark in Azure HDInsight ed eseguire query interattive usando Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
-  > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un Web browser.
 

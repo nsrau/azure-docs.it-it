@@ -1,6 +1,6 @@
 ---
-title: Servizio app in Linux | Documentazione Microsoft
-description: "Che cos&quot;è Servizio app di Azure in Linux? Introduzione al servizio app in Linux."
+title: App Web in Linux | Microsoft Docs
+description: "Che cos'è App Web in Linux? Introduzione ad App Web in Linux."
 keywords: Servizio app di Azure, Linux, OSS
 services: app-service
 documentationcenter: 
@@ -15,26 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
-translationtype: Human Translation
-ms.sourcegitcommit: f978be8872961695731ba1daffc0f4d4a54a670a
-ms.openlocfilehash: bd5ebd7ee969acc0a785e179ebff0cd498b9b5ec
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4207da871572cf60e3c33cafd68e8e122ce2028c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="app-service-on-linux-documentation"></a>Documentazione sul servizio app in Linux
-Il servizio app in Linux è attualmente in anteprima pubblica e consente ai clienti di eseguire le app Web in modalità nativa su una piattaforma Linux. Ciò consente una migliore compatibilità delle applicazioni per alcuni tipi di applicazioni e semplifica la migrazione delle app Web esistenti ospitate in una piattaforma Linux ai servizi app di Azure.
+<a id="web-app-on-linux-documentation" class="xliff"></a>
+
+# Documentazione su App Web in Linux
+App Web in Linux è attualmente disponibile in anteprima pubblica e consente ai clienti di eseguire le app Web in modalità nativa su una piattaforma Linux. Ciò consente una migliore compatibilità delle applicazioni per alcuni tipi di applicazioni e semplifica la migrazione delle app Web esistenti ospitate in una piattaforma Linux ai servizi app di Azure.
 
 I clienti possono creare app Web in Linux solo in un piano di servizio app abilitato per Linux e questo piano di servizio app può ospitare solo app Web basate su Linux. 
 
-> Il prezzo dell'anteprima pubblica per il servizio app in Linux corrisponde al 50% del prezzo normale e viene calcolato dimezzando il numero di ore di calcolo utilizzate dal piano di servizio app.
+> Il prezzo dell'anteprima pubblica di App Web in Linux corrisponde al 50% del prezzo normale e viene calcolato dimezzando il numero di ore di calcolo usate dal piano di servizio app.
 > 
 > Durante il periodo di anteprima pubblica non vengono offerti contratti di servizio. 
 > 
 > 
 
-* [What is App Service on Linux?](../app-service-web/app-service-linux-intro.md) (Che cos'è Servizio app in Linux?)
-* [Creating Apps in an App Service on Linux](../app-service-web/app-service-linux-how-to-create-a-web-app.md) (Creazione di app in un servizio app in Linux)
+* [Definizione di App Web in Linux](../app-service-web/app-service-linux-intro.md)
+* [Creazione di app in App Web in Linux](../app-service-web/app-service-linux-how-to-create-web-app.md)
 * [Azure App Service Web Apps on Linux FAQ](../app-service-web/app-service-linux-faq.md) (App Web del Servizio app di Azure nelle domande frequenti su Linux) 
 
 

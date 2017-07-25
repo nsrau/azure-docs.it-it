@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/25/2015
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cbdef43381deac957c0e48b7043273c43b032935
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 4fbf4fcfba4452111f406fe0f2303731877eba71
 ms.contentlocale: it-it
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -29,6 +29,9 @@ Questo prodotto consente di accertarsi che le prestazioni della propria applicaz
 Application Insights può monitorare sia le applicazioni web Java e ASP.NET che i servizi, i servizi WCF. Possono essere ospitati in locale, su macchine virtuali o come siti Web di Microsoft Azure. 
 
 Sul lato client, Application Insights può richiedere dati di telemetria di pagine web e un'ampia gamma di dispositivi, tra l’app Store iOS, Android e Windows.
+
+>[!Note]
+> È ora disponibile una nuova funzionalità per la ricerca delle pagine a basse prestazioni nell'applicazione Web. Se non si ha accesso alla funzionalità, abilitarla configurando le opzioni di anteprima usando il [pannello Anteprima](app-insights-previews.md). Leggere le informazioni su questa nuova funzionalità in [Individuare e risolvere i colli di bottiglia delle prestazioni con l'analisi interattiva delle prestazioni](#Find-and-fix-performance-bottlenecks-with-an-interactive-Performance-investigation).
 
 ## <a name="setup"></a>Configurare il monitoraggio delle prestazioni
 Se Application Insights non è stato ancora aggiunto al progetto (vale a dire, se ApplicationInsights.config non è presente), scegliere uno dei modi seguenti per iniziare:
@@ -52,11 +55,9 @@ Fare clic su un grafico per scegliere quali metriche visualizzare oppure aggiung
 
 > [!NOTE]
 > **Deselezionare tutte le metriche** per visualizzare la selezione completa disponibile. Le metriche sono suddivise in gruppi; quando si seleziona qualsiasi membro di un gruppo, vengono visualizzati solo gli altri membri di quel gruppo.
-> 
-> 
 
 ## <a name="metrics"></a>Interpretazione dei dati riquadri e report sulle prestazioni
-È disponibile una vasta gamma di metriche sulle prestazioni. Vengono analizzate innanzitutto quelle visualizzate per impostazione predefinita nel pannello dell'applicazione.
+È possibile ottenere diverse metriche delle prestazioni. Vengono analizzate innanzitutto quelle visualizzate per impostazione predefinita nel pannello dell'applicazione.
 
 ### <a name="requests"></a>Richieste
 Il numero di richieste HTTP ricevute in un periodo specificato. Confrontare questo numero con i risultati di altri report per analizzare il comportamento dell'app al variare del carico.
@@ -95,7 +96,7 @@ Per sapere quali altri metriche è possibile visualizzare, fare clic su un grafi
 
 ![Deselezionare tutte le metriche per visualizzare l'intero set](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
-La selezione di una metrica disabiliterà le altre metriche che non possono essere visualizzate nello stesso grafico.
+La selezione di una metrica disabilita le altre metriche che non possono essere visualizzate nello stesso grafico.
 
 ## <a name="set-alerts"></a>Impostazione di avvisi
 Per ricevere tramite posta elettronica una notifica relativa a valori insoliti di una metrica, aggiungere un avviso. È possibile scegliere di inviare il messaggio di posta elettronica agli amministratori di account o a indirizzi di posta elettronica specifici.
@@ -114,6 +115,37 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 * Configurare i [test Web][availability] in modo da ricevere un avviso se il sito Web non risponde o risponde in maniera non corretta o lentamente. 
 * Confrontare il conteggio delle richieste con altre metriche per verificare se gli errori o la risposta lenta sono collegati al carico.
 * [Inserire e cercare istruzioni di traccia][diagnostic] nel codice per individuare i problemi.
+* Monitorare l'applicazione Web in esecuzione con [Live Metrics Stream][livestream].
+* Acquisire lo stato dell'applicazione .Net con il [debugger di snapshot][snapshot].
+
+## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-performance-investigation"></a>Individuare e risolvere i colli di bottiglia delle prestazioni con l'analisi interattiva delle prestazioni
+
+È possibile usare la nuova analisi interattiva delle prestazioni di Application Insights per individuare le aree dell'app Web che riducono le prestazioni generali. È possibile individuare rapidamente le singole pagine lente e usare lo [strumento di profilatura](app-insights-profiler.md) per verificare la presenza di una correlazione tra le pagine.
+
+### <a name="create-a-list-of-slow-performing-pages"></a>Creare un elenco delle pagine lente 
+
+La prima operazione da eseguire per individuare i problemi di prestazioni consiste nell'ottenere un elenco delle pagine che rispondono lentamente. Lo screenshot seguente illustra l'uso del pannello Prestazioni per ottenere un elenco delle possibili pagine che meritano un'ulteriore analisi. Nella pagina è immediatamente evidente che si è verificato un rallentamento nel tempo di risposta dell'app alle 18:00 e di nuovo alle 22:00. È anche possibile osservare che l'operazione GET customer/details (Ottieni clienti/dettagli) ha incluso operazioni di lunga durata con un tempo di risposta medio di 507,05 millisecondi. 
+
+![Analisi interattiva delle prestazioni di Application Insights](./media/app-insights-web-monitor-performance/performance1.png)
+
+### <a name="drill-down-on-specific-pages"></a>Eseguire il drill-down in pagine specifiche
+
+Dopo aver ottenuto uno snapshot delle prestazioni dell'app, è possibile visualizzare altri dettagli sulle singole operazioni lente. Fare clic su un'operazione nell'elenco per visualizzare i dettagli come illustrato di seguito. Dal grafico è possibile determinare se le prestazioni erano basate su una dipendenza. È anche possibile visualizzare il numero di utenti per i quali si sono verificati i diversi tempi di risposta. 
+
+![Pannello delle operazioni di Application Insights](./media/app-insights-web-monitor-performance/performance5.png)
+
+### <a name="drill-down-on-a-specific-time-period"></a>Eseguire il drill-in un periodo di tempo specifico
+
+Dopo aver identificato un periodo di tempo da analizzare, eseguire il drill-down per visualizzare le operazioni specifiche che potrebbero aver causato il rallentamento delle prestazioni. Quando si fa clic in un periodo di tempo specifico vengono visualizzati i dettagli della pagina come illustrato di seguito. Nell'esempio seguente sono elencate le operazioni per ogni periodo di tempo con i codici di risposta del server e la durata dell'operazione. È disponibile anche l'URL per aprire un elemento di lavoro TFS per inviare queste informazioni al team di sviluppo.
+
+![Intervallo di tempo di Application Insights](./media/app-insights-web-monitor-performance/performance2.png)
+
+### <a name="drill-down-on-a-specific-operation"></a>Eseguire il drill-in un'operazione specifica
+
+Dopo aver identificato un periodo di tempo da analizzare, eseguire il drill-down per visualizzare le operazioni specifiche che potrebbero aver causato il rallentamento delle prestazioni. Fare clic su un'operazione nell'elenco per visualizzare i dettagli dell'operazione, come illustrato di seguito. In questo esempio l'operazione non è stata eseguita e Application Insights ha visualizzato i dettagli dell'eccezione generata dall'applicazione. È di nuovo possibile creare un elemento di lavoro TFS da questo pannello.
+
+![Pannello dell'operazione di Application Insights](./media/app-insights-web-monitor-performance/performance3.png)
+
 
 ## <a name="next"></a>Passaggi successivi
 [Test Web][availability]: possibilità di inviare richieste Web all'applicazione a intervalli regolari da tutto il mondo.
@@ -135,6 +167,9 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
+[livestream]: app-insights-live-stream.md
+[snapshot]: app-insights-snapshot-debugger.md
+
 
 
 

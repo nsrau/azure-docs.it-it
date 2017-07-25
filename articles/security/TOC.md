@@ -11,6 +11,7 @@
 ### [Registrazione e controllo](azure-log-audit.md)
 ### [Isolamento nel cloud pubblico](azure-isolation.md)
 ### [Funzionalità tecniche per la sicurezza](azure-security-technical-capabilities.md)
+### [Governance in Azure](governance-in-azure.md)
 
 # Attività iniziali
 ## [Introduzione alla sicurezza di Azure](azure-security-getting-started.md)
@@ -41,6 +42,7 @@
 #### [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-get-started.md)
 #### [Integrare i log di controllo di Azure Active Directory](security-azure-log-integration-ad.md)
 #### [Integrare gli avvisi del Centro sicurezza](security-azure-log-integration-security-center.md)
+#### [Integrare i log di Key Vault usando un hub eventi](security-azure-log-integration-keyvault-eventhub.md)
 #### [Domande frequenti](security-azure-log-integration-faq.md)
 
 ## Gestione delle identità
@@ -71,9 +73,10 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Risorse
-## [Blog su sicurezza e conformità](http://blogs.msdn.com/b/azuresecurity/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Programma MVP per la sicurezza di Azure](azure-security-mvp.md)
 ## [Consulenza sulla sicurezza informatica](azure-security-cyber-services.md)
+## [Blog su sicurezza e conformità](http://blogs.msdn.com/b/azuresecurity/)
 ## [Corsi sulla sicurezza di Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Video sulla sicurezza su Channel 9](security-channel-nine.md)
 ## [Threat Modeling Tool](azure-security-threat-modeling-tool.md)

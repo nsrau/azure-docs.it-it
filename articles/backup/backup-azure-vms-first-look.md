@@ -12,12 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 3/10/2017
+ms.date: 6/14/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 8883ff1601c521d05068452b1b58cadaee1a941f
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 61328e32763faea90074fc6d499e660c4109ab6d
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -47,9 +48,11 @@ Per completare l'esercitazione seguente, è necessario rispettare questi prerequ
 Un insieme di credenziali di backup è un'entità che archivia tutti i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali di backup contiene anche i criteri di backup applicati alle macchine virtuali di cui viene eseguito il backup.
 
 > [!IMPORTANT]
-> A partire da marzo 2017, non è più possibile usare il portale classico per creare insiemi di credenziali di backup. Gli insiemi di credenziali di backup esistenti sono ancora supportati ed è possibile [usare Azure PowerShell per creare insiemi di credenziali di backup](./backup-client-automation-classic.md#create-a-backup-vault). È tuttavia consigliabile creare insiemi di credenziali dei servizi di ripristino per tutte le distribuzioni, perché i miglioramenti futuri si applicheranno solo a tali insiemi di credenziali.
-
-
+> A partire da marzo 2017, non è più possibile usare il portale classico per creare insiemi di credenziali di backup.
+> È ora possibile aggiornare gli insiemi di credenziali di Backup ad insiemi di credenziali dei servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft consiglia di aggiornare gli insiemi di credenziali di Backup a insiemi di credenziali dei servizi di ripristino.<br/> **A partire dal 1° novembre 2017**:
+>- Eventuali insiemi di credenziali di Backup rimanenti verranno automaticamente aggiornati a insiemi di credenziali di servizi di ripristino
+>- e non sarà più possibile accedere ai dati di backup nel portale classico. Sarà possibile invece usare il portale di Azure per accedere ai dati di backup negli insiemi di credenziali di servizi di ripristino.
+>
 
 ## <a name="discover-and-register-azure-virtual-machines"></a>Individuare e registrare le macchine virtuali di Azure
 Prima di registrare la VM con un insieme di credenziali, eseguire il processo di individuazione per identificare eventuali VM nuove. Verrà restituito un elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area.

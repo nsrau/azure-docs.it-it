@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: b319970e0fd744b21bd0362f1de500a0f182d52e
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 29d19364b9a98e351c95f13e68a2e63b9f6439f8
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,7 +42,7 @@ Sono necessari gli elementi seguenti:
 
 2. Il connettore di messaggi Encode X12 non dispone di trigger, pertanto è necessario aggiungerne uno per avviare l'app per la logica, ad esempio un trigger di richiesta. In Progettazione app per la logica aggiungere un trigger e un'azione all'app per la logica.
 
-3.    Nella casella di ricerca, immettere "x12" come filtro. Selezionare **X12 - Codifica in un messaggio X12 in base al nome dell'accordo** o **X12 - Codifica in un messaggio X12 in base alle identità**.
+3.  Nella casella di ricerca, immettere "x12" come filtro. Selezionare **X12 - Codifica in un messaggio X12 in base al nome dell'accordo** o **X12 - Codifica in un messaggio X12 in base alle identità**.
    
     ![Cercare "X12"](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
 
@@ -56,7 +57,7 @@ Sono necessari gli elementi seguenti:
     | Nome connessione * |Immettere un nome per la connessione. |
     | Account di integrazione * |Immettere un nome per l'account di integrazione. Verificare che l'account di integrazione e l'app per la logica si trovino nella stessa località di Azure. |
 
-5.    Al termine, i dettagli della connessione dovrebbero essere simili a quelli dell'esempio seguente. Per completare la creazione della connessione, scegliere **Crea**.
+5.  Al termine, i dettagli della connessione dovrebbero essere simili a quelli dell'esempio seguente. Per completare la creazione della connessione, scegliere **Crea**.
 
     ![connessione all'account di integrazione creata](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png)
 
@@ -92,6 +93,9 @@ Il connettore Encode X12 esegue queste attività:
 * Richiede un riconoscimento tecnico e/o funzionale (se configurata).
   * Un riconoscimento tecnico viene generato in seguito alla convalida dell'intestazione. Il riconoscimento tecnico segnala lo stato dell'elaborazione di un'intestazione e finale di interscambio in base all'indirizzo del ricevitore.
   * Un riconoscimento funzionale viene generato in seguito alla convalida del corpo. Il riconoscimento funzionale segnala ogni errore rilevato durante l'elaborazione del documento ricevuto.
+
+## <a name="view-the-swagger"></a>Visualizzare il file Swagger
+Vedere i [dettagli del file Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") 

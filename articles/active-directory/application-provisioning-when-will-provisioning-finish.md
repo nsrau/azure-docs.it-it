@@ -1,6 +1,6 @@
 ---
-title: Il provisioning utenti per un&quot;applicazione della raccolta di AD Azure richiede alcune ore o tempi maggiori | Microsoft Docs
-description: "Come individuare il motivo per cui il provisioning per l&quot;applicazione in uso può richiedere più tempo del previsto"
+title: Il provisioning utenti per un'applicazione della raccolta di AD Azure richiede alcune ore o tempi maggiori | Microsoft Docs
+description: "Come individuare il motivo per cui il provisioning per l'applicazione in uso può richiedere più tempo del previsto"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: a0d2909ca69f06b6d08deaa25f35d55d9f9828fe
+ms.contentlocale: it-it
 ms.lasthandoff: 04/11/2017
-
 
 ---
 

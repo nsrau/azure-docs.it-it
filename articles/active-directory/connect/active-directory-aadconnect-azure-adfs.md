@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 9119a4523c66415925223b5de10ca0fb4a7147b2
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuzione di Active Directory Federation Services in Azure
@@ -162,7 +163,7 @@ Per distribuire un servizio di bilanciamento del carico interno, selezionare Ser
 * **Schema**: poiché il servizio di bilanciamento del carico verrà inserito a monte dei server AD FS e verrà usato SOLO per le connessioni della rete interna, selezionare "Interno"
 * **Rete virtuale**: scegliere la rete virtuale in cui viene distribuito AD FS
 * **Subnet**: scegliere la subnet interna
-* **Assegnazione indirizzo IP**: Dinamico
+* **Assegnazione di indirizzi IP**: statici
 
 ![Servizio di bilanciamento del carico interno](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
 

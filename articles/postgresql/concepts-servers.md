@@ -10,10 +10,10 @@ ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e14712b8fd68d6364f44c116448a9a8f33622a91
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5197a3f44a085d25d964f355154d92b08e65560b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Database di Azure per server PostgreSQL
@@ -42,7 +42,7 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 
 |||
 | :-- | :-- |
-| **Autenticazione e autorizzazione** | Il database di Azure per il server PostgreSQL supporta l'autenticazione nativa a PostgreSQL. È possibile connettersi ed eseguire l'autenticazione al server tramite l'account amministratore del server.<br />Per altre informazioni, vedere [Managing Users and Roles in Azure Database for PostgreSQL](/azure/sql-database/sql-database-manage-logins) (Gestione di utenti e ruoli nel database di Azure per PostgreSQL). |
+| **Autenticazione e autorizzazione** | Il database di Azure per il server PostgreSQL supporta l'autenticazione nativa a PostgreSQL. È possibile connettersi ed eseguire l'autenticazione al server tramite l'account amministratore del server. |
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da PostgreSQLL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
 | **Firewall** | Per proteggere i dati, le regole del firewall impediscono qualsiasi accesso al server del database o ai database finché non si specificano i computer autorizzati. Vedere [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md) (Database di Azure per le regole firewall del server PostgreSQL). |
@@ -50,7 +50,7 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 
 ## <a name="how-do-i-manage-a-server"></a>Gestione di un server
 
-È possibile gestire il database di Azure per i server PostgreSQL mediante il portale o l'interfaccia della riga di comando di Azure.
+È possibile gestire il database di Azure per i server PostgreSQL mediante il portale o l'[interfaccia della riga di comando di Azure](/cli/azure/postgres).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

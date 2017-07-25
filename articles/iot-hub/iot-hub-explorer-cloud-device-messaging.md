@@ -1,10 +1,10 @@
 ---
-title: Gestire la messaggistica dei dispositivi cloud nell&quot;hub IoT di Azure con iothub-explorer | Microsoft Docs
-description: Informazioni su come usare lo strumento iothub-explorer dell&quot;interfaccia della riga di comando per monitorare i messaggi da dispositivo a cloud e inviare messaggi da cloud a dispositivo nell&quot;hub IoT di Azure.
+title: Gestire la messaggistica dei dispositivi cloud nell'hub IoT di Azure con iothub-explorer | Microsoft Docs
+description: Informazioni su come usare lo strumento iothub-explorer dell'interfaccia della riga di comando per monitorare i messaggi da dispositivo a cloud e inviare messaggi da cloud a dispositivo nell'hub IoT di Azure.
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: iothub explorer, messaggistica dei dispositivi cloud, hub iot da cloud a dispositivo, messaggistica da cloud a dispositivo
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: a7abb8fb279e134b7f23df779f1c4548a9feb82d
 ms.contentlocale: it-it
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Usare iothub-explorer per inviare e ricevere messaggi tra il dispositivo e l'hub IoT
@@ -70,7 +69,7 @@ Per inviare un messaggio dall'hub IoT al dispositivo, seguire questi passaggi:
 1. Avviare una sessione nell'hub IoT eseguendo il comando seguente:
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. Inviare un messaggio al dispositivo eseguendo il comando seguente:
@@ -89,3 +88,4 @@ Il comando fa lampeggiare il LED di connessione al dispositivo e invia il messag
 È stato appreso come monitorare i messaggi da dispositivo a cloud e inviare messaggi da cloud a dispositivo tra il dispositivo IoT e l'hub IoT di Azure.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/29/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: e9a858addb768ce051fccce0eaf83e49a83da21b
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="assign-and-manage-resource-policies"></a>Assegnare e gestire i criteri delle risorse
 
-Per implementare un criterio è necessario eseguire tre passaggi:
+Per implementare i criteri, è necessario eseguire questi passaggi:
 
-1. Definire la regola del criterio con JSON.
-2. Creare una definizione del criterio nella sottoscrizione dal codice JSON creato nel passaggio precedente. Questo passaggio rende disponibile il criterio per l'assegnazione ma non applica le regole alla sottoscrizione.
-3. Assegnare il criterio a un ambito (come una sottoscrizione o un gruppo di risorse). A questo punto le regole del criterio vengono applicate.
-
-Azure offre alcuni criteri predefiniti che possono ridurre il numero di criteri da definire. Se un criterio predefinito è appropriato per lo scenario, ignorare i primi due passaggi e assegnare il criterio predefinito a un ambito.
+1. Controllare le definizioni dei criteri (inclusi i criteri predefiniti forniti da Azure) per verificare se ne esiste già una nella sottoscrizione che soddisfa i requisiti.
+2. Se ne esiste una, ottenerne il nome.
+3. In caso contrario, definire la regola dei criteri con JSON e aggiungerla come definizione dei criteri nella sottoscrizione. Questo passaggio rende disponibile il criterio per l'assegnazione ma non applica le regole alla sottoscrizione.
+4. In entrambi i casi, assegnare i criteri a un ambito (ad esempio una sottoscrizione o un gruppo di risorse). A questo punto le regole del criterio vengono applicate.
 
 Questo articolo illustra i passaggi per creare una definizione di criterio e assegnare tale definizione a un ambito tramite l'API REST, PowerShell o l'interfaccia della riga di comando di Azure. Se si preferisce usare il portale per assegnare i criteri, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse). Questo articolo non tratta la sintassi per la creazione della definizione di un criterio. Per informazioni sulla sintassi dei criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
@@ -144,30 +144,55 @@ L'esempio seguente illustra la definizione di un alias. È possibile notare che 
 
 Prima di passare agli esempi di PowerShell, verificare di avere [installato la versione più recente](/powershell/azure/install-azurerm-ps) di Azure PowerShell. I parametri dei criteri sono stati aggiunti nella versione 3.6.0. Se si ha una versione precedente, gli esempi restituiscono un errore che indica che non è possibile trovare il parametro.
 
-### <a name="create-policy-definition"></a>Creare una definizione di criterio
-È possibile creare una definizione di criterio usando il cmdlet `New-AzureRmPolicyDefinition`. L'esempio seguente crea una definizione di criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.
+### <a name="view-policy-definitions"></a>Visualizzare le definizioni dei criteri
+Per visualizzare tutte le definizioni dei criteri nella sottoscrizione, usare il comando seguente:
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{
-   "if": {
-     "not": {
-       "field": "location",
-       "in": "[parameters(''allowedLocations'')]"
-     }
-   },
-   "then": {
-     "effect": "deny"
-   }
- }' -Parameter '{
-     "allowedLocations": {
-       "type": "array",
-       "metadata": {
-         "description": "An array of permitted locations for resources.",
-         "strongType": "location",
-         "displayName": "List of locations"
-       }
-     }
- }'
+Get-AzureRmPolicyDefinition
+```
+
+Restituisce tutte le definizioni dei criteri disponibili, inclusi i criteri predefiniti. Tutti i criteri vengono restituiti nel formato seguente:
+
+```powershell
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+Prima di procedere per creare una definizione dei criteri, esaminare i criteri predefiniti. Se si trovano i criteri predefiniti che applicano i limiti necessari, è possibile ignorare la creazione di una definizione dei criteri. Al contrario, assegnare i criteri predefiniti all'ambito desiderato.
+
+### <a name="create-policy-definition"></a>Creare una definizione di criterio
+È possibile creare una definizione di criterio usando il cmdlet `New-AzureRmPolicyDefinition`.
+
+```powershell
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
 ```            
 
 L'output viene archiviato in un oggetto `$policy` che viene usato durante l'assegnazione del criterio. 
@@ -175,39 +200,41 @@ L'output viene archiviato in un oggetto `$policy` che viene usato durante l'asse
 Anziché specificare JSON come parametro, è possibile fornire il percorso al file con estensione .json contenente la regola del criterio.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy "c:\policies\storageskupolicy.json"
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
 ```
 
 ### <a name="assign-policy"></a>Assegnare un criterio
 
-Si applica il criterio nell'ambito desiderato mediante il cmdlet `New-AzureRmPolicyAssignment`:
+Si applicano i criteri nell'ambito desiderato mediante il cmdlet `New-AzureRmPolicyAssignment`. L'esempio seguente descrive come assegnare i criteri a un gruppo di risorse.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $policy
+```
+
+Per assegnare i criteri che richiedono parametri, creare un oggetto con tali valori. L'esempio seguente descrive come recuperare i criteri predefiniti e passare i valori dei parametri:
+
+```powershell
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$policy = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
 $array = @("West US", "West US 2")
-$param = @{"allowedLocations"=$array}
-New-AzureRMPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
+$param = @{"listOfAllowedLocations"=$array}
+New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
 ```
 
-### <a name="view-policies"></a>Visualizzare i criteri
+### <a name="view-policy-assignment"></a>Visualizzare l'assegnazione di un criterio
 
-Per ottenere tutte le assegnazioni dei criteri, usare:
-
-```powershell
-Get-AzureRmPolicyAssignment
-```
-
-Per ottenere un criterio specifico, usare:
+Per ottenere un'assegnazione di criteri specifica, usare:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-(Get-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId
+(Get-AzureRmPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId
 ```
 
 Per visualizzare la regola dei criteri per una definizione di criteri, usare:
 
 ```powershell
-(Get-AzureRmPolicyDefinition -Name regionPolicyDefinition).Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Name coolAccessTier).Properties.policyRule | ConvertTo-Json
 ```
 
 ### <a name="remove-policy-assignment"></a>Rimuovere l'assegnazione di un criterio 
@@ -218,39 +245,70 @@ Per rimuovere un'assegnazione di criteri, usare:
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+### <a name="view-policy-definitions"></a>Visualizzare le definizioni dei criteri
+Per visualizzare tutte le definizioni dei criteri nella sottoscrizione, usare il comando seguente:
+
+```azurecli
+az policy definition list
+```
+
+Restituisce tutte le definizioni dei criteri disponibili, inclusi i criteri predefiniti. Tutti i criteri vengono restituiti nel formato seguente:
+
+```azurecli
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",                                                                                                                "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                 "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                                                                    "policyRule": {                                                                                                                                      "if": {                                                                                                                                              "not": {                                                                                                                                             "field": "location",                                                                                                                               "in": "[parameters('listOfAllowedLocations')]"                                                                                                   }                                                                                                                                                },                                                                                                                                                 "then": {                                                                                                                                            "effect": "Deny"                                                                                                                                 }                                                                                                                                                },                                                                                                                                                 "policyType": "BuiltIn"
+}
+```
+
+Prima di procedere per creare una definizione dei criteri, esaminare i criteri predefiniti. Se si trovano i criteri predefiniti che applicano i limiti necessari, è possibile ignorare la creazione di una definizione dei criteri. Al contrario, assegnare i criteri predefiniti all'ambito desiderato.
 
 ### <a name="create-policy-definition"></a>Creare una definizione di criterio
 
-È possibile creare una definizione di criteri usando l'interfaccia della riga di comando di Azure 2.0 con il comando di definizione dei criteri. L'esempio seguente crea un criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.
+È possibile creare una definizione di criteri usando l'interfaccia della riga di comando di Azure con il comando di definizione dei criteri.
 
 ```azurecli
-az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
+az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
   },
-  "then" : {
-    "effect" : "deny"
+  "then": {
+    "effect": "deny"
   }
 }'    
 ```
 
 ### <a name="assign-policy"></a>Assegnare un criterio
 
-È possibile applicare il criterio all'ambito desiderato usando il comando per l'assegnazione di criteri:
+È possibile applicare i criteri all'ambito desiderato usando il comando per l'assegnazione di criteri. L'esempio seguente descrive come assegnare i criteri a un gruppo di risorse.
 
 ```azurecli
-az policy assignment create --name regionPolicyAssignment --policy regionPolicyDefinition --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment create --name coolAccessTierAssignment --policy coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-### <a name="view-policy-definition"></a>Visualizzare una definizione di criterio
-Per ottenere una definizione di criterio, usare il comando seguente:
+### <a name="view-policy-assignment"></a>Visualizzare l'assegnazione di un criterio
+
+Per visualizzare l'assegnazione di criteri, specificare il nome dell'assegnazione dei criteri e l'ambito:
 
 ```azurecli
-az policy definition show --name regionPolicyAssignment
+az policy assignment show --name coolAccessTierAssignment --scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}"
 ```
 
 ### <a name="remove-policy-assignment"></a>Rimuovere l'assegnazione di un criterio 
@@ -258,62 +316,7 @@ az policy definition show --name regionPolicyAssignment
 Per rimuovere un'assegnazione di criteri, usare:
 
 ```azurecli
-az policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-## <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
-
-### <a name="create-policy-definition"></a>Creare una definizione di criterio
-
-È possibile creare una definizione di criteri usando l'interfaccia della riga di comando di Azure con il comando di definizione dei criteri. L'esempio seguente crea un criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}'    
-```
-
-È possibile specificare il percorso di un file con estensione JSON contenente i criteri invece di specificare criteri inline.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
-```
-
-### <a name="assign-policy"></a>Assegnare un criterio
-
-È possibile applicare il criterio all'ambito desiderato usando il comando per l'assegnazione di criteri:
-
-```azurecli
-azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/{subscription-id}/providers/Microsoft.Authorization/policyDefinitions/{policy-name} --scope    /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-L'ambito è il nome del gruppo di risorse specificato. Se non si conosce il valore del parametro policy-definition-id, è possibile ottenerlo tramite l'interfaccia della riga di comando di Azure. 
-
-```azurecli
-azure policy definition show {policy-name}
-```
-
-### <a name="view-policy"></a>Visualizzare un criterio
-Per ottenere un criterio, usare il comando seguente:
-
-```azurecli
-azure policy definition show {definition-name} --json
-```
-
-### <a name="remove-policy-assignment"></a>Rimuovere l'assegnazione di un criterio 
-
-Per rimuovere un'assegnazione di criteri, usare:
-
-```azurecli
-azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

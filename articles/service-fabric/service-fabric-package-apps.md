@@ -1,6 +1,6 @@
 ---
-title: Inserire un&quot;applicazione Azure Service Fabric di Azure in un pacchetto | Microsoft Docs
-description: Come inserire un&quot;applicazione Service Fabric in un pacchetto prima della distribuzione in un cluster.
+title: Inserire un'applicazione Azure Service Fabric di Azure in un pacchetto | Microsoft Docs
+description: Come inserire un'applicazione Service Fabric in un pacchetto prima della distribuzione in un cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/24/2017
+ms.date: 6/28/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f47fbe0e9c6cb4d09e6233f6d26211969a5c1f00
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 48e4ad774164b87d0cacb42f709e54af1d6f07b9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -175,6 +175,17 @@ Se è stata copiata una versione non compressa del pacchetto dell'applicazione e
 Analogamente, se è stata caricata una versione compressa del pacchetto e si vuole usare un pacchetto non compresso, è necessario aggiornare la versione per evitare la mancata corrispondenza del checksum.
 
 Il pacchetto è ora corretto, convalidato e compresso (se necessario). Pertanto, è pronto per la [distribuzione](service-fabric-deploy-remove-applications.md) in uno o più cluster di Service Fabric.
+
+### <a name="compress-packages-when-deploying-using-visual-studio"></a>Comprimere i pacchetti quando si distribuisce con Visual Studio
+È possibile indicare a Visual Studio di comprimere i pacchetti in fase di distribuzione, aggiungendo l'elemento `CopyPackageParameters` al profilo di pubblicazione, e di impostare l'attributo `CompressPackage` su `true`.
+
+``` xml
+    <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
+        <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com" />
+        <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+        <CopyPackageParameters CompressPackage="true"/>
+    </PublishProfile>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Distribuire e rimuovere applicazioni con PowerShell][10]: descrive come usare PowerShell per gestire le istanze dell'applicazione

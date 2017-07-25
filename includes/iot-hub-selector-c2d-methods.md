@@ -1,6 +1,7 @@
 > [!div class="op_single_selector"]
-> * [Node.js](../articles/iot-hub/iot-hub-node-node-direct-methods.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
+> * [Node.JS](../articles/iot-hub/iot-hub-node-node-direct-methods.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
+> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-direct-methods.md)
 
 L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. Le esercitazioni precedenti, ad esempio [Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT], illustrano le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT. L'hub IoT offre inoltre la possibilità di richiamare metodi non durevoli dal cloud ai dispositivi. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, perché dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente per far conoscere all'utente lo stato della chiamata. [Richiamare un metodo diretto in un dispositivo ][lnk-devguide-methods] descrive in maniera dettagliata i metodi diretti e illustra quando usarli in alternativa ai messaggi da cloud a dispositivo o alle proprietà desiderate.

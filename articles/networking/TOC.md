@@ -59,9 +59,10 @@
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # Risorse
-## [Blog sulle reti](http://azure.microsoft.com/blog/topics/networking)
 ## [Creare modelli](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Modelli della community](https://azure.microsoft.com/resources/templates/)
+## [Blog sulle reti](http://azure.microsoft.com/blog/topics/networking)
 ## [Prezzi](https://azure.microsoft.com/pricing)
 ## [Disponibilità internazionale](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

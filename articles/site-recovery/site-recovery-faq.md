@@ -4,22 +4,21 @@ description: Questo articolo illustra le domande frequenti su Azure Site Recover
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
-ms.service: get-started-article
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/21/2017
+ms.date: 05/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: d3351e4a480caa1bf02e82545f130b14bf6f0910
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4ed866cf83ff1d38147c9aecf337fd05b025f01a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: domande frequenti
@@ -27,20 +26,19 @@ In questo articolo sono riportate le domande frequenti su Azure Site Recovery. E
 
 ## <a name="general"></a>Generale
 ### <a name="what-does-site-recovery-do"></a>Quali sono le funzioni di Site Recovery?
-Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza mediante la gestione e l'automatizzazione delle operazioni di replica dalle macchine virtuali e dai server fisici locali a Azure o a un data center secondario. [Altre informazioni](site-recovery-overview.md).
+Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza mediante la gestione e l'automatizzazione delle operazioni di replica delle macchine virtuali di Azure tra le aree, delle macchine virtuali e dei server fisici locali in Azure o in un data center secondario. [Altre informazioni](site-recovery-overview.md).
 
 ### <a name="what-can-site-recovery-protect"></a>Quali elementi può proteggere Site Recovery?
+* **Macchine virtuali di Azure**: Site Recovery può replicare qualsiasi carico di lavoro in esecuzione in una macchina virtuale di Azure supportata
 * **Macchine virtuali Hyper-V**: Site Recovery può proteggere qualsiasi carico di lavoro in esecuzione in una macchina virtuale Hyper-V.
 * **Server fisici**: Site Recovery può proteggere server fisici che eseguono Windows o Linux.
 * **Macchine virtuali VMware**: Site Recovery può proteggere qualsiasi carico di lavoro in esecuzione in una macchina virtuale VMware.
 
 ### <a name="does-site-recovery-support-the-azure-resource-manager-model"></a>Site Recovery supporta il modello Azure Resource Manager?
-Oltre che nel portale di Azure classico, Site Recovery è disponibile nel portale di Azure con il supporto di Resource Manager. Per la maggior parte degli scenari di distribuzione, Site Recovery nel portale di Azure offre un'esperienza di distribuzione semplificata e la possibilità di eseguire la replica di VM e server fisici nell'archiviazione classica o di Resource Manager. Ecco le distribuzioni supportate:
+Site Recovery è disponibile nel portale di Azure con il supporto per Resource Manager. Site Recovery supporta le distribuzioni legacy nel portale di Azure classico. Non è possibile creare nuovi insiemi di credenziali nel portale classico e le nuove funzionalità non sono supportate.
 
-* [Replica da VM VMware o server fisici ad Azure nel portale di Azure](site-recovery-vmware-to-azure.md)
-* [Replica da VM Hyper-V nei cloud VMM ad Azure nel portale di Azure](site-recovery-vmm-to-azure.md)
-* [Replica da VM Hyper-V (senza VMM) ad Azure nel portale di Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replica da VM Hyper-V nei cloud VMM a un sito secondario nel portale di Azure](site-recovery-vmm-to-vmm.md)
+### <a name="can-i-replicate-azure-vms"></a>È possibile replicare le macchine virtuali di Azure?
+Sì, è possibile replicare le macchine virtuali di Azure supportate tra le aree di Azure. [Altre informazioni](site-recovery-azure-to-azure.md).
 
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Cosa occorre in Hyper-V per orchestrare la replica con Site Recovery?
 Gli elementi necessari per il server host Hyper-V dipendono dallo scenario di distribuzione. Verificare i prerequisiti di Hyper-V in:
@@ -87,6 +85,10 @@ La licenza di Site Recovery è una licenza per istanza protetta. Un'istanza è u
 
 - In caso di replica di un disco di una VM in un account di archiviazione Standard, il costo di Archiviazione di Azure è basato sul consumo. Se le dimensioni del disco di origine sono 1 TB e vengono usati 400 GB, ad esempio, Site Recovery crea un disco rigido virtuale di 1 TB in Azure, ma per l'archiviazione vengono addebitati 400 GB (più la quantità di spazio di archiviazione usata per i log di replica).
 - In caso di replica di un disco di una VM in un account di archiviazione Premium, il costo di Archiviazione di Azure è basato sulle dimensioni della risorsa di archiviazione sottoposta a provisioning, con arrotondamento all'opzione relativa al disco di Archiviazione Premium più vicina. Se le dimensioni del disco di origine sono 50 GB, ad esempio, Site Recovery crea un disco di 50 GB in Azure e Azure lo associa al disco di Archiviazione Premium più vicino (P10).  I costi vengono calcolati su P10, non sulle dimensioni di 50 GB del disco.  [Altre informazioni](https://aka.ms/premium-storage-pricing).  Se si usa Archiviazione Premium, è necessario anche un account di archiviazione Standard per i log di replica e viene addebitata anche la quantità di spazio di archiviazione Standard usata per tali log.
+- Non viene creato alcun disco fino a un failover del test o un failover. Nello stato di replica l'archiviazione viene addebitata nella categoria "Page blob and disk" (BLOB e disco della pagina) in base al [Calcolatore prezzi di archiviazione](https://azure.microsoft.com/en-in/pricing/calculator/). Questi addebiti si basano sul tipo di risorsa di archiviazione, che sia premium o standard, e sul tipo di ridondanza dei dati, LRS, GRS, RA-GRS e così via.
+- Se è selezionata l'opzione per usare i dischi gestiti in un failover, gli [addebiti per i dischi gestiti](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) si applicano dopo il failover o il failover dei test. Gli addebiti dei dischi gestiti non si applicano durante la replica.
+- Se l'opzione per usare i dischi gestiti in caso di failover non è selezionata, l'archiviazione viene addebitata nella categoria "Page blob and disk" (BLOB e disco della pagina) in base al [calcolatore di prezzi di archiviazione](https://azure.microsoft.com/en-in/pricing/calculator/) dopo il failover. Questi addebiti si basano sul tipo di risorsa di archiviazione, che sia premium o standard, e sul tipo di ridondanza dei dati, LRS, GRS, RA-GRS e così via.
+- Le transazioni di archiviazione vengono addebitate durante la replica nello stato stazionario e per le normali operazioni della macchina virtuale dopo il failover o il failover del test. Questi costi non sono trascurabili.
 
 Vengono addebitati costi anche durante il failover di test, con applicazione dei costi per la VM, l'archiviazione, i dati in uscita e le transazioni di archiviazione.
 
@@ -160,7 +162,7 @@ Sì. Ulteriori informazioni sulla limitazione della larghezza di banda sono disp
 
 * [Pianificazione della capacità per la replica da VM VMware e server fisici](site-recovery-plan-capacity-vmware.md)
 * [Pianificazione della capacità per la replica da VM Hyper-V nei cloud VMM](site-recovery-vmm-to-azure.md#capacity-planning)
-* [Pianificazione della capacità per la replica da VM Hyper-V senza VMM](site-recovery-hyper-v-site-to-azure.md#capacity-planning)
+* [Pianificazione della capacità per la replica da VM Hyper-V senza VMM](site-recovery-hyper-v-site-to-azure.md)
 
 ## <a name="failover"></a>Failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Se si esegue il failover in Azure, come è possibile accedere alle macchine virtuali dopo il failover?

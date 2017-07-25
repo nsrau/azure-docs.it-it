@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione su NoSQL: Azure DocumentDB Java SDK | Microsoft Docs'
-description: "Esercitazione su NoSQL che crea un database online e un&quot;applicazione console Java con DocumentDB Java SDK. Azure DocumentDB è un database NoSQL per JSON."
+description: "Esercitazione su NoSQL che crea un database online e un'applicazione console Java con DocumentDB Java SDK. Azure DocumentDB è un database NoSQL per JSON."
 keywords: esercitazione su nosql, database online, applicazione console java
 services: cosmos-db
 documentationcenter: Java
@@ -12,14 +12,14 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 96ed03c48c4be12638aae6ab30f3843a7e68c995
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: d69e70ae178c9ae889d44998938cb2c215ff10ba
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -68,9 +68,9 @@ Creare prima di tutto un account Azure Cosmos DB. Se è già disponibile un acco
 ## <a id="GitClone"></a>Passaggio 2: Clonare il progetto GitHub
 Per iniziare, è possibile clonare il repository GitHub per l'[introduzione ad Azure Cosmos DB e Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Eseguire questo comando da una directory locale per recuperare il progetto di esempio in locale.
 
-    git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
+    git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
 
-    cd documentdb-java-getting-started
+    cd azure-cosmos-db-documentdb-java-getting-started
 
 La directory contiene un oggetto `pom.xml` per il progetto e una cartella `src` che contiene il codice sorgente Java incluso `Program.java`, che mostra come eseguire semplici operazioni con Azure DocumentDB, come la creazione di documenti e l'esecuzione di query sui dati all'interno di una raccolta. L'oggetto `pom.xml` include una dipendenza per [DocumentDB Java SDK su Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
@@ -94,7 +94,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
 ![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console Java. Mostra un account Azure Cosmos DB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account Azure Cosmos DB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
 
 ## <a name="step-4-create-a-database"></a>Passaggio 4: Creare un database
-È possibile creare un [database](documentdb-resources.md#databases) di Azure Cosmos DB usando il metodo [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) della classe **DocumentClient**. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
+È possibile creare un [database](documentdb-resources.md#databases) di Azure Cosmos DB usando il metodo [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) della classe **DocumentClient**. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
 
     Database database = new Database();
     database.setId("familydb");
@@ -102,11 +102,11 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
 
 ## <a id="CreateColl"></a>Passaggio 5: Creare una raccolta
 > [!WARNING]
-> **createCollection** crea una nuova raccolta con velocità effettiva riservata, che presenta implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
+> **createCollection** crea una nuova raccolta con velocità effettiva riservata, che presenta implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
-È possibile creare una [raccolta](documentdb-resources.md#collections) usando il metodo [createCollection](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createCollection-java.lang.String-com.microsoft.azure.documentdb.DocumentCollection-com.microsoft.azure.documentdb.RequestOptions-) della classe **DocumentClient**. Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata.
+È possibile creare una [raccolta](documentdb-resources.md#collections) usando il metodo [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) della classe **DocumentClient**. Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -120,7 +120,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Passaggio 6: Creare documenti JSON
-È possibile creare un [documento](documentdb-resources.md#documents) usando il metodo [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente (arbitrario). Ora è possibile inserire uno o più documenti. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dei dati](import-data.md) di DocumentDB per importare i dati in un database.
+È possibile creare un [documento](documentdb-resources.md#documents) usando il metodo [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente (arbitrario). Ora è possibile inserire uno o più documenti. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dei dati](import-data.md) di DocumentDB per importare i dati in un database.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -143,7 +143,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
 ![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console Java](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di Azure Cosmos DB
-Azure Cosmos DB supporta [query complesse](documentdb-sql-query.md) sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra come eseguire query su documenti in Azure Cosmos DB usando la sintassi SQL con il metodo [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
+Azure Cosmos DB supporta [query complesse](documentdb-sql-query.md) sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra come eseguire query su documenti in Azure Cosmos DB usando la sintassi SQL con il metodo [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -156,7 +156,7 @@ Azure Cosmos DB supporta [query complesse](documentdb-sql-query.md) sui document
     }
 
 ## <a id="ReplaceDocument"></a>Passaggio 8: Sostituire un documento JSON
-Azure Cosmos DB supporta l'aggiornamento di documenti JSON con il metodo [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
+Azure Cosmos DB supporta l'aggiornamento di documenti JSON con il metodo [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument).
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -167,7 +167,7 @@ Azure Cosmos DB supporta l'aggiornamento di documenti JSON con il metodo [replac
         null);
 
 ## <a id="DeleteDocument"></a>Passaggio 9: Eliminare un documento JSON
-Analogamente, Azure Cosmos DB supporta l'eliminazione di documenti JSON con il metodo [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
+Analogamente, Azure Cosmos DB supporta l'eliminazione di documenti JSON con il metodo [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
@@ -177,7 +177,7 @@ Se si elimina il database creato, insieme al database vengono rimosse tutte le r
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>Passaggio 11: Eseguire l'intera applicazione console Java
-Per eseguire l'applicazione dalla console, eseguire prima la compilazione con Maven:
+Per eseguire l'applicazione dalla console, passare alla cartella del progetto e compilare usando Maven:
     
     mvn package
 

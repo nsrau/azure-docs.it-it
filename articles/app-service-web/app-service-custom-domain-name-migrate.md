@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 6adc34f208c6c4363b73f6e42b4a4d6ae2e4483f
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 5f6537a45bcb092b5ef463e8069b9fc5582c14c2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/26/2017
 
 Questo articolo descrive come eseguire la migrazione di un dominio personalizzato attivo al [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) senza tempi di inattività.
 
-Quando si esegue la migrazione di un sito live e del relativo nome di dominio al servizio app, il nome di dominio è già in uso e pertanto non è opportuno che si verifichi alcun tempo di inattività nella risoluzione DNS durante il processo di migrazione. In questo caso, è necessario associare preventivamente il nome di dominio all'app di Azure per la verifica. 
+Quando si esegue la migrazione di un sito live e del relativo nome di dominio al servizio app, il nome di dominio è già in uso e pertanto non è opportuno che si verifichi alcun tempo di inattività nella risoluzione DNS durante il processo di migrazione. In questo caso, è necessario associare preventivamente il nome di dominio all'app di Azure per la verifica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,10 +44,10 @@ Quando infine si modifica il record DNS in modo che punti all'app del servizio a
 
 Attenersi ai passaggi indicati di seguito:
 
-1. Creare innanzitutto un record TXT di verifica con il registro di sistema DNS seguendo i passaggi descritti in [Passaggio 2. Creare i record DNS](app-service-web-tutorial-custom-domain.md#create-a).
+1. Creare innanzitutto un record TXT di verifica con il registro di sistema DNS seguendo i passaggi descritti in [Passaggio 2. Creare i record DNS](app-service-web-tutorial-custom-domain.md).
 Il record TXT aggiuntivo segue la convenzione che esegue il mapping da &lt;*sottodominio*>.&lt;*dominioradice*> a &lt;*nomeapp*>.azurewebsites.net.
 Vedere la tabella seguente per alcuni esempi:  
- 
+
     <table cellspacing="0" border="1">
     <tr>
     <th>Esempio di FQDN</th>
@@ -75,7 +75,7 @@ Vedere la tabella seguente per alcuni esempi:
 
     Il dominio personalizzato è abilitato nell'app di Azure. È ora necessario aggiornare il record DNS presso il registrar.
 
-3. Aggiornare infine il record DNS del dominio in modo che punti all'app di Azure, come illustrato in [Passaggio 2. Creare i record DNS](app-service-web-tutorial-custom-domain.md#create-a). 
+3. Aggiornare infine il record DNS del dominio in modo che punti all'app di Azure, come illustrato in [Passaggio 2. Creare i record DNS](app-service-web-tutorial-custom-domain.md).
 
     Il traffico utente verrà reindirizzato all'app di Azure immediatamente dopo la propagazione del DNS.
 
@@ -84,11 +84,10 @@ Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS 
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-> 
-> 
+>
+>
 
 [Introduzione a DNS di Azure](../dns/dns-getstarted-create-dnszone.md)  
 [Creare record DNS per un'app Web in un dominio personalizzato](../dns/dns-web-sites-custom-domain.md)  
 [Delegare un dominio al servizio DNS di Azure](../dns/dns-domain-delegation.md)
-
 

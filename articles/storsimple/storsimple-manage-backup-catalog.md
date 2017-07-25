@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/28/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e74a04276810c52fef3ad62e7f2c56860ba4fbd1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5ee9855e1428c7a2d871d9c215d302c5c3b7101a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -52,7 +54,7 @@ Completare la procedura seguente per elencare tutti i backup per un volume.
    1. Selezionare un dispositivo appropriato.
    2. Nell'elenco a discesa scegliere un volume per visualizzare i backup corrispondenti.
    3. Specificare l'intervallo di tempo.
-   4. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  per eseguire la query.
+   4. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) per eseguire la query.
       
       I backup associati al volume selezionato dovrebbero essere visualizzati nell'elenco dei set di backup.
 
@@ -66,7 +68,7 @@ Completare i passaggi seguenti per selezionare un set di backup per un volume o 
    1. Selezionare un dispositivo appropriato.
    2. Nell'elenco a discesa, scegliere il volume o il criterio di backup per il backup che si desidera selezionare.
    3. Specificare l'intervallo di tempo.
-   4. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  per eseguire la query.
+   4. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) per eseguire la query.
       
       I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
 3. Selezionare ed espandere un set di backup Le opzioni **Ripristina** ed **Elimina** sono visualizzate nella parte inferiore della pagina. È possibile eseguire queste azioni sul set di backup selezionato.
@@ -81,7 +83,7 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
    1. Selezionare un dispositivo appropriato.
    2. Nell'elenco a discesa, scegliere il volume o il criterio di backup per il backup che si desidera selezionare.
    3. Specificare l'intervallo di tempo.
-   4. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  per eseguire la query.
+   4. Fare clic sull'icona del segno di spunta  ![Icona del segno di spunta](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) per eseguire la query.
       
       I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
 3. Selezionare ed espandere un set di backup Le opzioni **Ripristina** ed **Elimina** sono visualizzate nella parte inferiore della pagina. Fare clic su **Elimina**.
@@ -90,10 +92,5 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare la pagina Catalogo di backup per ripristinare il dispositivo da un set di backup](storsimple-restore-from-backup-set.md).
 * Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Descrive come aggiungere o modificare il co-amministratore di Azur
 services: 
 documentationcenter: 
 author: genlin
-manager: vikdesai
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
-ms.sourcegitcommit: 6d438cde704323a07cc125eb75d08cb64b2432ec
-ms.openlocfilehash: 00b71701c4c114007e2d9a6d23f20b3df5fb2534
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 782489e7551fef3daed4de8212821e93f7777535
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -108,7 +109,7 @@ Il controllo degli accessi in base al ruolo di Azure Active Directory consente d
 ## <a name="limitations-and-restrictions-for-admin-accounts"></a>Limitazioni e restrizioni per gli account amministratore
 * Ogni sottoscrizione è associata a una directory di Azure AD, ovvero la directory predefinita. Per trovare la directory predefinita associata alla sottoscrizione, accedere al [portale di Azure classico](https://manage.windowsazure.com/) e selezionare **Impostazioni** > **Sottoscrizioni**. Verificare l'ID sottoscrizione per trovare la directory predefinita.
 * Se l'accesso è stato eseguito con un account Microsoft, è possibile aggiungere come coamministratori solo altri account Microsoft o utenti nella directory predefinita.
-* Se l'accesso è stato eseguito con un account dell'organizzazione, è possibile aggiungere come coamministratori altri account dell'organizzazione. Ad esempio, abby@contoso.com può aggiungere bob@contoso.com come amministratore del servizio o coamministratore, ma non può aggiungere john@notcontoso.com a meno che john@noncontoso.com non si trovi nella directory predefinita. Gli utenti che hanno eseguito l'accesso con un account dell'organizzazione possono continuare ad aggiungere utenti di account Microsoft come amministratori del servizio o coamministratori.
+* Se l'accesso è stato eseguito con un account dell'organizzazione, è possibile aggiungere come coamministratori altri account dell'organizzazione. Ad esempio, abby@contoso.com può aggiungere bob@contoso.com come amministratore del servizio o coamministratore, ma non può aggiungere john@notcontoso.com a meno che john@notcontoso.com non si trovi nella directory predefinita. Gli utenti che hanno eseguito l'accesso con un account dell'organizzazione possono continuare ad aggiungere utenti di account Microsoft come amministratori del servizio o coamministratori.
 * Ora che è possibile accedere ad Azure con un account dell'organizzazione, ecco le modifiche ai requisiti degli account di amministratore del servizio e di coamministratore:
 
   | Metodo di accesso | Aggiungere un account Microsoft o utenti in una directory predefinita come coamministratori o amministratori del servizio? | Aggiungere un account aziendale nella stessa organizzazione come coamministratore o amministratore del servizio? | Aggiungere un account aziendale in un'organizzazione diversa come coamministratore o amministratore del servizio? |

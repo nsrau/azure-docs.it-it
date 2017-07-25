@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: eac5027f39d15e355d1c9f60a31ded567272d5fa
-ms.openlocfilehash: b94ceac2298509817020b32b65125c5f767d8089
-ms.lasthandoff: 12/16/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: abb7f80662650efa8f158f32125ebc5350cb4f62
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -117,8 +118,8 @@ Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che
 | Proprietà | Description |
 | --- | --- |
 | **jobId** |ID fornito dall'applicazione per il processo. |
-| **startTime** |Ora di inizio fornita dall'applicazione (ISO&8601;) per il processo. |
-| **endTime** |Data fornita dall'hub IoT (ISO&8601;) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
+| **startTime** |Ora di inizio fornita dall'applicazione (ISO 8601) per il processo. |
+| **endTime** |Data fornita dall'hub IoT (ISO 8601) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
 | **type** |Tipi di processi: |
 | **scheduledUpdateTwin**: un processo usato per aggiornare un set di proprietà o tag desiderati. | |
 | **scheduledDeviceMethod**: un processo usato per richiamare un metodo di dispositivo in un set di dispositivi gemelli. | |
@@ -147,7 +148,7 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 * [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
 * [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
 * [Azure IoT SDK per dispositivi e servizi][lnk-sdks] elenca gli SDK nei diversi linguaggi da usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
-* [Linguaggio di query per dispositivi gemelli e processi][lnk-query] illustra il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
+* [Il linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi][lnk-query] descrive il linguaggio di query dell’hub IoT che è possibile usare per recuperare informazioni dall’hub IoT sui processi e i dispositivi gemelli.
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
 ## <a name="next-steps"></a>Passaggi successivi

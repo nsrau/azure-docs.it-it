@@ -15,6 +15,7 @@
 ### [Configurare le impostazioni](multi-factor-authentication-whats-next.md)
 ### [Report in MFA](multi-factor-authentication-manage-reports.md)
 ### [Usare server di criteri di rete esistenti](multi-factor-authentication-nps-extension.md)
+#### [Configurazione avanzata per l'estensione Server dei criteri di rete](nps-extension-advanced-configuration.md)
 ### [Creare un provider di autenticazione](multi-factor-authentication-get-started-auth-provider.md)
 ### Azure MFA in locale
 #### [Installare il portale per gli utenti](multi-factor-authentication-get-started-portal.md)
@@ -48,3 +49,5 @@
 ### [Domande frequenti](multi-factor-authentication-faq.md)
 ### [Porre una domanda](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Errori dell'estensione del Server dei criteri di rete](multi-factor-authentication-nps-errors.md)
+# Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)

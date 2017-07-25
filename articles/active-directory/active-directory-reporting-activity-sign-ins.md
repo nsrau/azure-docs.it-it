@@ -1,5 +1,4 @@
 ---
-
 title: "Report delle attività di accesso nel portale di Azure Active Directory | Microsoft Docs"
 description: "Introduzione ai report delle attività di accesso nel portale di Azure Active Directory"
 services: active-directory
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/05/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,6 +36,17 @@ L'architettura di reporting in Azure Active Directory include i componenti segue
     - **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per informazioni dettagliate, vedere Utenti contrassegnati per il rischio.
 
 In questo argomento viene offerta una panoramica delle attività di accesso.
+
+## <a name="pre-requisite"></a>Prerequisito.
+
+### <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
+* Gli utenti con ruolo di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza
+* Gli amministratori globali
+* Qualsiasi utente (non amministratore) può visualizzare i propri accessi 
+
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Quale licenza di Azure AD è necessaria per visualizzare le attività di accesso?
+* Per visualizzare il report completo delle attività di accesso, è necessario che al tenant sia associata una licenza di Azure AD Premium
+
 
 ## <a name="signs-in-activities"></a>Attività di accesso
 

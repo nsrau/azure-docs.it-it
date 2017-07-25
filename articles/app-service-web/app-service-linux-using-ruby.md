@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5aeef6f31dacb1b27c605d39a35a81bd0211e06a
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: ad724b99426c1873c173da905c89b471ee64ffa6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -45,11 +45,14 @@ Viene quindi aperto il **pannello Crea**, come illustrato nell'immagine seguente
 
 Dopo aver creato un'applicazione Web Ruby, è possibile distribuirla tramite Git o FTP.
 
+Per altre informazioni sulla creazione di un'app Ruby, vedere la [guida introduttiva](app-service-linux-ruby-get-started.md)
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Definizione di App Web in Linux](app-service-linux-intro.md)
 * [Creazione di app Web in App Web in Linux](app-service-linux-how-to-create-web-app.md)
 * [Distribuzione dell'archivio Git locale nel servizio app di Azure](app-service-deploy-local-git.md)
 * [Domande frequenti su App Web del Servizio app di Azure su Linux](app-service-linux-faq.md)
+* [Creare un'app Ruby con App Web di Azure in Linux](app-service-linux-ruby-get-started.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

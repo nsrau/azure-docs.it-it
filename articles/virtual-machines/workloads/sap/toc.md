@@ -16,15 +16,18 @@
 ### [Eseguire la risoluzione dei problemi e il monitoraggio](troubleshooting-monitoring.md)
 ## SAP HANA nelle macchine virtuali
 ### [SAP HANA a istanza singola](hana-get-started.md)
-### [Guida alla distribuzione di S/4 HANA o BW/4 HANA](cal-s4h.md)
+### [Guida alla distribuzione di S/4 HANA o BW/4 HANA SAP CAL](cal-s4h.md)
 ### [Disponibilità elevata nelle VM](sap-hana-high-availability.md)
 ### [Panoramica del servizio Backup](sap-hana-backup-guide.md)
 ### [Backup a livello di file](sap-hana-backup-file-level.md)
 ### [Backup degli snapshot di archiviazione](sap-hana-backup-storage-snapshots.md)
 ## SAP NetWeaver
+### [Guida alla distribuzione di SAP IDES in Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ### [Panoramica e architettura](suse-quickstart.md)
 ### [Pianificare e implementare](planning-guide.md)
 ### [Disponibilità elevata](high-availability-guide.md)
 ### [Configurazioni a più SID](high-availability-multi-sid.md)
 ### [Guida alla distribuzione](deployment-guide.md)
 ### [Guida alla distribuzione DBMS](dbms-guide.md)
+# Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)

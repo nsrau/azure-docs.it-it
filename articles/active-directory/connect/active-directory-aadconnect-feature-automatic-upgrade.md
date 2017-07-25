@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
 ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/20/2016
 
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
@@ -99,9 +100,4 @@ Ecco un elenco dei messaggi più comuni. L'elenco non include tutti i messaggi, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

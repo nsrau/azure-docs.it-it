@@ -1,6 +1,6 @@
 ---
 title: Rilevare le modifiche con Log Analytics di Azure | Microsoft Docs
-description: La soluzione Rilevamento modifiche in Log Analytics consente di identificare le modifiche al software e al servizio Windows che si verificano nell&quot;ambiente in uso.
+description: La soluzione Rilevamento modifiche in Log Analytics consente di identificare le modifiche al software e al servizio Windows che si verificano nell'ambiente in uso.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a3d958e1a37ddf6821d41afe7427faec1b8259b2
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche
+
+![Simbolo di Rilevamento modifiche](./media/log-analytics-change-tracking/change-tracking-symbol.png)
 
 Questo articolo spiega come usare la soluzione di rilevamento delle modifiche in Log Analytics per identificare facilmente le modifiche nell'ambiente. La soluzione rileva le modifiche apportate al software Windows e Linux, ai file e alle chiavi del Registro di Sistema di Windows, ai servizi di Windows e ai daemon Linux. Rilevando le modifiche alla configurazione è possibile localizzare eventuali problemi operativi.
 
@@ -33,6 +35,17 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
 * È necessario avere un agente [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) o [Linux](log-analytics-linux-agents.md) su ogni computer in cui si vuole monitorare le modifiche.
 * Aggiungere la soluzione Rilevamento modifiche all'area di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
+
+### <a name="configure-linux-files-to-track"></a>Configurare i file di Linux da rilevare
+Seguire questa procedura per configurare i file da rilevare in computer Linux.
+
+1. Nel portale di OMS, fare clic su **Impostazioni** (simbolo dell'ingranaggio).
+2. Nella pagina **Impostazioni** fare clic su **Dati** e quindi su **Rilevamento file di Linux**.
+3. In Rilevamento modifiche file di Linux digitare l'intero percorso, includendo il nome del file che si vuole rilevare, e quindi fare clic sul simbolo **Aggiungi**. Ad esempio: "/etc/*.conf"
+4. Fare clic su **Salva**.  
+  
+> [!NOTE]
+> Il rilevamento dei file di Linux contiene funzionalità aggiuntive, tra cui il rilevamento di directory, la ricorsione tramite directory e il rilevamento di caratteri jolly.
 
 ### <a name="configure-windows-files-to-track"></a>Configurare i file di Windows da rilevare
 Seguire questa procedura per configurare i file da rilevare in computer Windows.
@@ -52,14 +65,30 @@ Seguire questa procedura per configurare le chiavi del Registro di Sistema da ri
 4. Fare clic su **Salva**.  
    ![Rilevamento modifiche del Registro di sistema Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
+### <a name="explanation-of-linux-file-collection-properties"></a>Spiegazione delle proprietà di raccolta di file di Linux
+1. **Tipo**
+   * **File** (Indicare i metadati di file: dimensioni, data di modifica, hash, ecc.)
+   * **Directoy** (Indicare i metadati di directory: dimensioni, data di modifica, ecc.)
+2. **Collegamenti** (Gestione dei riferimenti dei collegamenti simbolici di Linux ad altri file o directory)
+   * **Ignora** (Ignorare i collegamenti simbolici durante le ricorsioni per non includere i file/le directory a cui viene fatto riferimento)
+   * **Segui** (Seguire i collegamenti simbolici durante la ricorsione per includere anche i file/le directory a cui viene fatto riferimento)
+   * **Gestisci** (Seguire i collegamenti simbolici e modificare la modalità di gestione del contenuto restituito) 
+   
+   > [!NOTE]   
+   > L'opzione dei collegamenti "Gestisci" non è consigliata poiché il recupero del contenuto di file non è supportato attualmente.
+   
+3. **Esegui ricorsione** (Eseguire la ricorsione dei livelli di cartelle e rilevare tutti i file che soddisfano l'istruzione di percorso)
+4. **Sudo** (Consentire di accedere a file o directory che richiedono il privilegio sudo)
+
 ### <a name="limitations"></a>Limitazioni
 La soluzione di rilevamento modifiche non supporta attualmente gli elementi seguenti:
 
-* cartelle (directory)
-* ricorsione
-* caratteri jolly
-* variabili di percorso
-* file system di rete
+* Cartelle (directory) per Rilevamento file di Windows
+* Ricorsione per Rilevamento file di Windows
+* Caratteri jolly per Rilevamento file di Windows
+* Variabili di percorso
+* File system di rete
+* File Content
 
 Altre limitazioni:
 

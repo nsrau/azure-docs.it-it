@@ -1,5 +1,5 @@
 ---
-title: " Gestire un server di elaborazione in esecuzione in Azure (Resource Manager) | Documentazione Microsofts"
+title: " Gestire un server di elaborazione in esecuzione in Azure (Resource Manager) | Microsoft Docs"
 description: Questo articolo descrive come configurare un server di elaborazione failback (Resource Manager) in Azure.
 services: site-recovery
 documentationcenter: 
@@ -11,13 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 2/2/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: edf190031e87cc5a433eaa8fb86187b41fc1dd4e
-ms.openlocfilehash: 61db9c89ff84db89323b55990dc1049d636958f7
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 2b9b31abd5d11d02935a74e47d26be9803cdc920
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 ---
 

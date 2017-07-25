@@ -1,5 +1,5 @@
 ---
-title: Come configurare il provisioning degli utenti in un&quot;applicazione della raccolta di Azure AD | Microsoft Docs
+title: Come configurare il provisioning degli utenti in un'applicazione della raccolta di Azure AD | Microsoft Docs
 description: "Come configurare rapidamente il provisioning e il deprovisioning degli account utente per applicazioni già elencate nella raccolta di applicazioni AD Azure"
 services: active-directory
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: d24031955f57794d6796ea37d8d1b0984f066286
+ms.contentlocale: it-it
 ms.lasthandoff: 04/20/2017
-
 
 ---
 

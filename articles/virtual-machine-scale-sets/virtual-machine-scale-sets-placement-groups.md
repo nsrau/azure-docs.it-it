@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/7/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: a226bdfeb1e1e70f31b2728db594042578e5f21f
-ms.openlocfilehash: 7ccb76695a6ca0d9f1ff79f05de6a5c071510a43
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso di set di scalabilità di macchine virtuali di grandi dimensioni
@@ -37,8 +38,8 @@ Per stabilire se l'applicazione può usare in modo efficace set di scalabilità 
 - I set di scalabilità di grandi dimensioni richiedono Azure Managed Disks. Per i set di scalabilità non creati con Managed Disks sono necessari più account di archiviazione (uno ogni 20 VM). I set di scalabilità di grandi dimensioni sono progettati per usare esclusivamente Managed Disks, per ridurre il sovraccarico nella gestione dell'archiviazione ed evitare il rischio di raggiungere i limiti della sottoscrizione per gli account di archiviazione. Se non si usa Managed Disks, il set di scalabilità è limitato a 100 VM.
 - I set di scalabilità creati da immagini di Azure Marketplace sono ridimensionabili fino a 1.000 VM.
 - I set di scalabilità creati da immagini personalizzate (ossia immagini di VM create e caricate dall'utente) sono attualmente ridimensionabili fino a 100 VM.
-- Il bilanciamento del carico di livello&4; con Azure Load Balancer non è ancora supportato per i set di scalabilità costituiti da più gruppi di posizionamento. Se è necessario usare Azure Load Balancer, verificare che il set di scalabilità sia configurato per l'uso di un singolo gruppo di posizionamento, come da impostazione predefinita.
-- Il bilanciamento del carico di livello&7; con il gateway applicazione di Azure è supportato per tutti i set di scalabilità.
+- Il bilanciamento del carico di livello 4 con Azure Load Balancer non è ancora supportato per i set di scalabilità costituiti da più gruppi di posizionamento. Se è necessario usare Azure Load Balancer, verificare che il set di scalabilità sia configurato per l'uso di un singolo gruppo di posizionamento, come da impostazione predefinita.
+- Il bilanciamento del carico di livello 7 con il gateway applicazione di Azure è supportato per tutti i set di scalabilità.
 - Un set di scalabilità è definito con una singola subnet. Verificare che lo spazio indirizzi della subnet sia sufficiente per tutte le VM necessarie. Per impostazione predefinita, un set di scalabilità effettua un provisioning eccessivo (ossia crea VM aggiuntive, per cui non vengono applicati addebiti, in fase di distribuzione o quando si aumenta il numero di istanze) per migliorare l'affidabilità e le prestazioni della distribuzione. Prevedere uno spazio indirizzi superiore del 20% rispetto al numero di VM a cui si intende eseguire il ridimensionamento.
 - Se si pianifica di distribuire molte VM, potrebbe essere necessario aumentare i limiti di quota dei core di calcolo.
 - I domini di errore e di aggiornamento sono coerenti solo all'interno di un gruppo di posizionamento. Questa architettura non modifica la disponibilità generale di un set di scalabilità, perché le VM sono distribuite in modo uniforme su hardware fisico distinto. Se è necessario garantire che due VM risiedano in hardware diverso, tuttavia, verificare che si trovino in domini di errore diversi nello stesso gruppo di posizionamento. Il dominio di errore e l'ID del gruppo di posizionamento sono riportati nella _visualizzazione dell'istanza_ di una VM del set di scalabilità. La visualizzazione dell'istanza di una VM del set di scalabilità è disponibile in [Esplora risorse di Azure](https://resources.azure.com/).
@@ -83,16 +84,7 @@ Per un esempio completo di modello di set di scalabilità di grandi dimensioni, 
 Per consentire il ridimensionamento di un set di scalabilità di macchine virtuali esistente a più di 100 VM, è necessario modificare la proprietà _singlePlacementGroup_ impostandola su _false_ nel modello di set di scalabilità. È possibile testare la modifica di questa proprietà con [Esplora risorse di Azure](https://resources.azure.com/). Trovare un set di scalabilità esistente, selezionare _Edit_ (Modifica) e modificare la proprietà _singlePlacementGroup_. Se questa proprietà non è visualizzata, è possibile che si stia visualizzando il set di scalabilità con una versione precedente dell'API Microsoft.Compute.
 
 >[!NOTE] 
-È possibile modificare una set di scalabilità passando dal supporto di un singolo gruppo di posizionamento (comportamento predefinito) al supporto di più gruppi di posizionamento, ma non eseguire la conversione inversa. Di conseguenza, prima di effettuare la conversione è importante comprendere le proprietà dei set di scalabilità di grandi dimensioni. In particolare, verificare che non sia necessario il bilanciamento del carico di livello&4; con Azure Load Balancer.
+È possibile modificare una set di scalabilità passando dal supporto di un singolo gruppo di posizionamento (comportamento predefinito) al supporto di più gruppi di posizionamento, ma non eseguire la conversione inversa. Di conseguenza, prima di effettuare la conversione è importante comprendere le proprietà dei set di scalabilità di grandi dimensioni. In particolare, verificare che non sia necessario il bilanciamento del carico di livello 4 con Azure Load Balancer.
 
-## <a name="additional-notes"></a>Note aggiuntive
-Il supporto per i set di scalabilità di grandi dimensioni, i set di scalabilità con dischi dati collegati e Azure Managed Disks è stato aggiunto alla versione [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) dell'API Microsoft.Compute. È possibile usare qualsiasi SDK o strumento da riga di comando integrato in questa versione o in una versione successiva dell'API.
-
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Cordova per Azure AD | Microsoft Docs
-description: Come compilare un&quot;applicazione Cordova che si integra con Azure AD per l&quot;accesso e chiama le API protette di Azure AD usando OAuth.
+description: Come compilare un'applicazione Cordova che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
 documentationcenter: 
 author: vibronet
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 0d7333f9752a9e03c1087a4bc588284b418d8926
 ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
 ms.contentlocale: it-it
 ms.lasthandoff: 02/14/2017
-
 
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integrare Azure AD con un'app Apache Cordova
@@ -146,7 +145,7 @@ L'applicazione sviluppata in questa esercitazione fornirà una semplice funziona
 La prima cosa da fare nel codice consiste nell'introdurre i valori di protocollo usati da Azure AD per l'identificazione dell'app e delle risorse di destinazione. Questi valori verranno usati in seguito per costruire le richieste di token. Inserire il frammento seguente all'inizio del file index.js:
 
 ```javascript
-var authority = "https://login.windows.net/common",
+var authority = "https://login.microsoftonline.com/common",
     redirectUri = "http://MyDirectorySearcherApp",
     resourceUri = "https://graph.windows.net",
     clientId = "a5d92493-ae5a-4a9f-bcbf-9f1d354067d3",

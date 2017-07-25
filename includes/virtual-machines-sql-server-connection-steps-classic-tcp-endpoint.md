@@ -1,4 +1,5 @@
-### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Creare un endpoint TCP per la macchina virtuale
+### Creare un endpoint TCP per la macchina virtuale
+<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
 Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere presente un endpoint per l'ascolto delle comunicazioni TCP in entrata. In questo passaggio di configurazione di Azure, il traffico della porta TCP in ingresso viene indirizzato a una porta TCP accessibile alla macchina virtuale.
 
 > [!NOTE]

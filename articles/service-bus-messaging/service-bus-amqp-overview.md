@@ -1,6 +1,6 @@
 ---
 title: Panoramica del protocollo AMQP 1.0 nel bus di servizio di Azure | Documentazione Microsoft
-description: Informazioni sull&quot;uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 in Azure.
+description: Informazioni sull'uso del protocollo AMQP (Advanced Message Queuing Protocol) 1.0 in Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 91b138ee9590a66c63e2055eaeace82b4e719ae5
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0aeb02c8a07728cd17aa937614c5c20dd0bf102b
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Supporto per il protocollo AMQP 1.0 nel bus di servizio
@@ -90,16 +90,12 @@ Per altre informazioni, vedere i collegamenti seguenti:
 
 * [Uso del bus di servizio da .NET con AMQP]
 * [Uso del bus di servizio da Java con AMQP]
-* [Uso del bus di servizio da Python con AMQP]
-* [Uso del bus di servizio da PHP con AMQP]
 * [Installazione di Apache Qpid Proton-C in una macchina virtuale Linux di Azure]
 * [AMQP nel bus di servizio per Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Uso del bus di servizio da .NET con AMQP]: service-bus-amqp-dotnet.md
 [Uso del bus di servizio da Java con AMQP]: service-bus-amqp-java.md
-[Uso del bus di servizio da Python con AMQP]: service-bus-amqp-python.md
-[Uso del bus di servizio da PHP con AMQP]: service-bus-amqp-php.md
 [Installazione di Apache Qpid Proton-C in una macchina virtuale Linux di Azure]: service-bus-amqp-apache.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 

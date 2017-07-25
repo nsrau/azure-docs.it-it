@@ -1,18 +1,18 @@
 ---
 title: Come ottenere informazioni dettagliate con i report di gestione delle password di Azure AD | Documentazione Microsoft
-description: Questo articolo descrive come usare i report per ottenere informazioni dettagliate sulle operazioni di gestione delle password nell&quot;organizzazione.
+description: Questo articolo descrive come usare i report per ottenere informazioni dettagliate sulle operazioni di gestione delle password nell'organizzazione.
 services: active-directory
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
 ms.openlocfilehash: 7375d2d3c237c3b1c2dcdab44b2fcb0000ff961c
 ms.contentlocale: it-it
 ms.lasthandoff: 05/04/2017
-
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>Come ottenere informazioni dettagliate con i report di gestione delle password

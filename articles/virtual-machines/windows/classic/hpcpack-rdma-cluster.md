@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 12/29/2016
+ms.date: 06/01/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e542ea6431933668d96f7028431826bceb9f337
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 2ec31c5444f72c7255d8925bdb3ea85854cfaf1a
+ms.contentlocale: it-it
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -58,7 +59,7 @@ Di seguito sono riportati le considerazioni e i passaggi per il burst in istanze
     Configurare un certificato per proteggere la connessione fra il nodo head e Azure. Per altre opzioni e procedure, vedere la pagina relativa agli [scenari per configurare il certificato di gestione di Azure per HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Per le distribuzioni di test, HPC Pack installa un certificato di gestione di Azure per HPC Microsoft predefinito che è possibile caricare rapidamente nella sottoscrizione di Azure.
 3. **Creare un nuovo servizio cloud e un account di archiviazione**
    
-    Usare il portale di Azure classico per creare un servizio cloud e un account di archiviazione per la distribuzione in un'area in cui sono disponibili le istanze con supporto per RDMA.
+    Usare il portale di Azure per creare un servizio cloud e un account di archiviazione per la distribuzione in un'area in cui sono disponibili le istanze con supporto per RDMA.
 4. **Creare un modello di nodo di Azure**
    
     Usare la Creazione guidata modello di nodo in Gestione cluster HPC. Per la procedura, vedere la sezione relativa alla [creazione di un modello di nodo di Azure](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) nell'articolo che illustra la "procedura per distribuire i nodi di Azure con Microsoft HPC Pack".

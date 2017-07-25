@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Come eseguire il ripristino dal limite di 10 GB per Lo
 description: Questo argomento descrive come eseguire il ripristino del servizio di sincronizzazione Azure AD Connect quando incontra il problema del limite di 10 GB per LocalDB.
 services: active-directory
 documentationcenter: 
-author: billmath
+author: cychua
 manager: femila
 editor: 
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: cychua
-translationtype: Human Translation
+ms.date: 07/17/2017
+ms.author: billmath
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
 ms.openlocfilehash: 533d3db2a9b49f3077b7cdb699cac797c7a931b3
+ms.contentlocale: it-it
 ms.lasthandoff: 03/24/2017
-
 
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Come eseguire il ripristino dal limite di 10 GB per LocalDB
@@ -79,13 +79,13 @@ Il nome del database creato per Azure AD Connect è **ADSync**. Per eseguire un'
 ### <a name="delete-run-history-data"></a>Eliminare i dati della cronologia di esecuzione
 Per impostazione predefinita, Azure AD Connect conserva i dati della cronologia di esecuzione per sette giorni. In questo passaggio si eliminano i dati della cronologia di esecuzione per recuperare spazio del database e riavviare il servizio di sincronizzazione Azure AD Connect.
 
-1.    Avviare **Synchronization Service Manager** passando a START → Synchronization Service (Servizio di sincronizzazione).
+1.  Avviare **Synchronization Service Manager** passando a START → Synchronization Service (Servizio di sincronizzazione).
 
-2.    Passare alla scheda **Operations** (Operazioni).
+2.  Passare alla scheda **Operations** (Operazioni).
 
-3.    In **Actions** (Azioni) selezionare **Clear Runs** (Cancella esecuzioni).
+3.  In **Actions** (Azioni) selezionare **Clear Runs** (Cancella esecuzioni).
 
-4.    È possibile scegliere **Clear all runs** (Cancella tutte le esecuzioni) oppure **Clear runs before<date>** (Cancella esecuzioni precedenti a). È consigliabile iniziare cancellando i dati della cronologia di esecuzione che risalgono a più di due giorni di prima. Se il problema delle dimensioni del database persiste, scegliere l'opzione **Clear all runs** (Cancella tutte le esecuzioni).
+4.  È possibile scegliere **Clear all runs** (Cancella tutte le esecuzioni) oppure **Clear runs before<date>** (Cancella esecuzioni precedenti a). È consigliabile iniziare cancellando i dati della cronologia di esecuzione che risalgono a più di due giorni di prima. Se il problema delle dimensioni del database persiste, scegliere l'opzione **Clear all runs** (Cancella tutte le esecuzioni).
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Abbreviare il periodo di conservazione dei dati della cronologia di esecuzione
 Questo passaggio consente di ridurre la probabilità che si verifichi il problema del limite di 10 GB dopo più cicli di sincronizzazione.

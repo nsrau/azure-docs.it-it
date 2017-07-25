@@ -1,5 +1,5 @@
 ---
-title: Suggerimenti per l&quot;uso di Hadoop in HDInsight basato su Linux - Azure | Documentazione Microsoft
+title: Suggerimenti per l'uso di Hadoop in HDInsight basato su Linux - Azure | Documentazione Microsoft
 description: "Ottenere suggerimenti di implementazione per l’uso di cluster HDInsight (Hadoop) basati su Linux in un ambiente Linux familiare, in esecuzione nel cloud di Azure."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f4ff9c9a76cb5e33c5474ce3b535c3e582dff890
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1477ed13ef0434ed86938c49e6bb815837cb40fb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 I cluster Azure HDInsight mettono a disposizione Hadoop in un ambiente Linux familiare, in esecuzione nel cloud di Azure. Per la maggior parte delle operazioni, dovrebbe funzionare esattamente come qualsiasi altra installazione di Hadoop in Linux. Questo documento indica le differenze specifiche che è opportuno conoscere.
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -198,7 +197,7 @@ Se si usa __Azure Data Lake Store__, vedere i collegamenti seguenti per informaz
 
 * [Web browser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Interfaccia della riga di comando di Azure](../data-lake-store/data-lake-store-get-started-cli.md)
+* [Interfaccia della riga di comando di Azure 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [API REST WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Strumenti di Data Lake per Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)

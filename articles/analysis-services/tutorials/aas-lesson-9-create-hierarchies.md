@@ -10,23 +10,23 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: abe9edb0cbcdae18964731b1ab90a27117fc0c15
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d628dc621335acf231342a6d9186079de16e85f4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-9-create-hierarchies"></a>Lezione 9: Creare gerarchie
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In questa lezione verranno create gerarchie. Le gerarchie sono gruppi di colonne disposti in livelli. Ad esempio, una gerarchia Geografia potrebbe includere i sottolivelli Paese, Stato, Regione e Città. Le gerarchie possono essere visualizzate separatamente da altre colonne in un elenco di campi dell'applicazione client per la creazione di report, in modo che sia più semplice per gli utenti del client individuare i campi appropriati da includere in un report. Per altre informazioni, vedere [Hierarchies](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular) (Gerarchie).
+In questa lezione verranno create gerarchie. Le gerarchie sono gruppi di colonne disposti in livelli. Ad esempio, una gerarchia Geografia può includere i sottolivelli Paese, Stato, Regione e Città. Le gerarchie possono essere visualizzate separatamente da altre colonne in un elenco di campi dell'applicazione client per la creazione di report, in modo che sia più semplice per gli utenti del client individuare i campi appropriati da includere in un report. Per altre informazioni, vedere [Hierarchies](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular) (Gerarchie).
   
 Per creare gerarchie, usare la finestra di progettazione dei modelli in *Vista diagramma*. La creazione e la gestione delle gerarchie non è supportata in vista dati.  
   
@@ -58,7 +58,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
   
 #### <a name="to-create-hierarchies-in-the-dimdate-table"></a>Per creare gerarchie nella tabella DimDate  
   
-1.  Nella tabella **DimDate** creare una nuova gerarchia denominata **Calendar**.  
+1.  Nella tabella **DimDate** creare una gerarchia denominata **Calendar**.  
   
 3.  Aggiungere le colonne seguenti nell'ordine:
 

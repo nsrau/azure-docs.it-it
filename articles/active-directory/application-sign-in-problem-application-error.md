@@ -1,6 +1,6 @@
 ---
-title: Errore nella pagina di un&quot;applicazione dopo l&quot;accesso | Microsoft Docs
-description: Come risolvere i problemi di accesso ad Azure AD quando l&quot;applicazione stessa genera un errore
+title: Errore nella pagina di un'applicazione dopo l'accesso | Microsoft Docs
+description: Come risolvere i problemi di accesso ad Azure AD quando l'applicazione stessa genera un errore
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: c04cfea4c6c0a8211db2579eccc0c05a93cc0a35
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

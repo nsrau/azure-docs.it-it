@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: 240475240be76265c2a2f150a4a6d8f4aa0d3664
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introduzione alle impostazioni rapide per Azure AD Connect
@@ -35,7 +36,7 @@ Se le impostazioni rapide non corrispondono alla topologia, vedere la [documenta
 3. Nella schermata iniziale, selezionare la casella che consente di accettare le condizioni di licenza e fare clic su **Continua**.  
 4. Nella schermata Impostazioni rapide fare clic su **Usa impostazioni rapide**.  
    ![Avvio di Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
-5. Nella schermata Connessione ad Azure AD immettere il nome utente e la password di un amministratore globale per Azure AD. Fare clic su **Next**.  
+5. Nella schermata Connessione ad Azure AD immettere il nome utente e la password di un amministratore globale per Azure AD. Fare clic su **Avanti**.  
    ![Connessione ad Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Se viene visualizzato un errore e si hanno problemi di connettività, vedere [Risolvere i problemi di connettività con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Nella schermata Connessione a Servizi di dominio Active Directory immettere il nome utente e la password di un account amministratore dell'organizzazione. È possibile immettere la parte relativa al dominio in formato NetBios o FQDN, ad esempio FABRIKAM\administrator o fabrikam.com\administrator. Fare clic su **Avanti**.  
    ![Connessione ad AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
@@ -72,10 +73,5 @@ Ulteriori informazioni su [Integrazione delle identità locali con Azure Active 
 | Eseguire l'installazione con le impostazioni personalizzate |
 | Aggiornamento da DirSync |
 | Account usati per l'installazione |
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

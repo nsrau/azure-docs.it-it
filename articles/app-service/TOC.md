@@ -1,17 +1,17 @@
 # Panoramica
-## [What is App Service](app-service-value-prop-what-is.md) (Informazioni sul servizio app)
+## [Informazioni sul servizio app](app-service-value-prop-what-is.md)
 ## [Funzionamento](app-service-how-works-readme.md)
 ## [Piani del servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 # Introduzione
 
-## Create API app (Creare un'app per le API)
+## Creare un'app per le API
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
 ### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
 
-## Create mobile app (Creare un'app per dispositivi mobili)
+## Creare un'app per dispositivi mobili
 ### [Android](../app-service-mobile/app-service-mobile-android-get-started.md)
 ### [Cordova](../app-service-mobile/app-service-mobile-cordova-get-started.md)
 ### [iOS](../app-service-mobile/app-service-mobile-ios-get-started.md)
@@ -35,7 +35,7 @@
 ### [Servizio app di Azure e i servizi di Azure esistenti](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Panoramica approfondita dei piani del servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 ### [Hosting ad alta densità](app-service-high-density-hosting.md)
-### [App Service on Linux](app-service-linux-readme.md) (Servizio app in Linux)
+### [Servizio app in Linux](app-service-linux-readme.md)
 ### [Uso di Processi Web nel servizio app di Azure](app-service-webjobs-readme.md)
 ### [Ambiente del servizio app](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Documentazione relativa agli ambienti del servizio app](app-service-app-service-environments-readme.md)
@@ -68,7 +68,7 @@
 ### [Ambiente del servizio app](app-service-app-service-environments-readme.md)
 #### [Scalabilità distribuita a livello geografico con ambienti del servizio app](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Ridimensionamento di app in un ambiente del servizio app](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
-#### [Autoscale in App Service Environment](app-service-environment-auto-scale.md) (Scalabilità automatica in un ambiente del servizio app)
+#### [Scalabilità automatica in un ambiente del servizio app](app-service-environment-auto-scale.md)
 
 ## Manage
 ### [Configurare](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -140,6 +140,7 @@
 ## Integrare
 ### [Accesso alle risorse locali usando connessioni ibride](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Inviare e-mail usando SendGrid con Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Esportare in PowerApps e Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
 ## Risoluzione dei problemi
 ### [Abilitare la registrazione diagnostica](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -147,13 +148,14 @@
 ### [Risolvere i problemi con Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 # Risorse
-## [Portale di Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Informazioni di riferimento sul servizio app](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [procedure consigliate](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Portale di Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Procedure consigliate](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Prezzi](https://azure.microsoft.com/pricing/details/app-service/)  
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=app-service) 
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Risorse di Processi Web](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [SDK di Processi Web](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [REST](https://docs.microsoft.com/rest/api/appservice/)
-## [Prezzi](https://azure.microsoft.com/pricing/details/app-service/)  
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
-## [Video](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=app-service) 

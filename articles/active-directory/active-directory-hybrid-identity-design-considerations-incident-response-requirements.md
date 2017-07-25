@@ -1,5 +1,5 @@
 ---
-title: "Considerazioni di progettazione dell&quot;identità ibrida di Azure Active Directory - Determinare i requisiti di risposta a eventi imprevisti | Documentazione Microsoft"
+title: "Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Determinare i requisiti di risposta a eventi imprevisti | Documentazione Microsoft"
 description: "Determinare le funzionalità di monitoraggio e reporting della soluzione di identità ibrida di cui può avvalersi il personale IT per identificare e contrastare potenziali minacce."
 documentationcenter: 
 services: active-directory
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: bc8e3b76aad18e8d7a73de8bc12e6527e415035d
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/28/2016
 
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di risposta agli eventi imprevisti per una soluzione di identità ibrida
@@ -65,10 +66,5 @@ Durante le fasi di controllo dei danni e riduzione dei rischi, è importante lim
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

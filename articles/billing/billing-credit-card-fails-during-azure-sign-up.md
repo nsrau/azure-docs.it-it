@@ -24,7 +24,9 @@ ms.lasthandoff: 02/11/2017
 
 
 ---
-# <a name="your-debit-card-or-credit-card-is-declined-at-azure-sign-up"></a>La carta di debito o credito viene rifiutata al momento dell'iscrizione ad Azure
+<a id="your-debit-card-or-credit-card-is-declined-at-azure-sign-up" class="xliff"></a>
+
+# La carta di debito o credito viene rifiutata al momento dell'iscrizione ad Azure
 Se la carta di debito o credito viene rifiutata o non accettata al momento dell'iscrizione ad Azure, è possibile che si riscontri uno dei problemi seguenti:
 
 * **Il provider della carta di credito o debito non è accettato nel proprio paese.** Quando si sceglie la carta, è possibile visualizzare solo le opzioni valide nel paese selezionato. Contattare la banca o l'autorità emittente della carta per verificare che la carta di credito sia abilitata per le transazioni internazionali. Vedere l'elenco di paesi e valute supportati in [Domande frequenti relative agli acquisti di Azure](https://azure.microsoft.com/pricing/faq/).
@@ -35,12 +37,18 @@ Se la carta di debito o credito viene rifiutata o non accettata al momento dell'
 
 Dopo aver aggiornato le informazioni di pagamento, provare a eseguire nuovamente l'iscrizione.
 
-## <a name="representing-a-business-that-doesnt-want-to-pay-by-card-set-up-invoicing"></a>L'utente rappresenta un'azienda che non desidera pagare con carta? Impostare la fatturazione
-Se l'utente rappresenta un'azienda, è possibile pagare la sottoscrizione di Azure con metodi di pagamento della fattura, ad esempio assegni, assegni con pagamento in&24; ore e bonifici. Una volta selezionato il metodo di pagamento tramite fattura, non è più possibile modificare la scelta. Per pagare tramite fattura, vedere [Fatturazione di Azure](https://azure.microsoft.com/pricing/invoicing/).
+<a id="representing-a-business-that-doesnt-want-to-pay-by-card-set-up-invoicing" class="xliff"></a>
 
-## <a name="update-your-credit-card-or-debit-card-information"></a>Aggiornare le informazioni sulla carta di credito o debito
+## L'utente rappresenta un'azienda che non desidera pagare con carta? Impostare la fatturazione
+Se l'utente rappresenta un'azienda, è possibile pagare la sottoscrizione di Azure con metodi di pagamento della fattura, ad esempio assegni, assegni con pagamento in 24 ore e bonifici. Una volta selezionato il metodo di pagamento tramite fattura, non è più possibile modificare la scelta. Per pagare tramite fattura, vedere [Fatturazione di Azure](https://azure.microsoft.com/pricing/invoicing/).
+
+<a id="update-your-credit-card-or-debit-card-information" class="xliff"></a>
+
+## Aggiornare le informazioni sulla carta di credito o debito
 Dopo l'iscrizione, [gestire le informazioni di pagamento](billing-how-to-change-credit-card.md) per modificare o rimuovere una carta.
 
-## <a name="need-more-help-contact-support"></a>Ulteriore assistenza Contattare il supporto tecnico.
+<a id="need-more-help-contact-support" class="xliff"></a>
+
+## Ulteriore assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 

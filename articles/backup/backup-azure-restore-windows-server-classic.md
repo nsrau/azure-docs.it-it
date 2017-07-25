@@ -12,12 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
+ms.date: 06/14/2017
 ms.author: saurse;trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: be6bc58ab856309004904626db166331b29199a8
-ms.openlocfilehash: aa8ccc15971bed76d7ce8fd554e6a0f89d985fb8
-ms.lasthandoff: 02/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: e2eac02d194c8a3de653292664cb94a55aafc9b7
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -28,7 +29,15 @@ ms.lasthandoff: 02/02/2017
 >
 >
 
-Questo articolo illustra come ripristinare i dati da un insieme di credenziali di backup. Per ripristinare i dati, usare la procedura di ripristino guidato dei dati nell'agente di Servizi di ripristino di Microsoft Azure (MARS). Quando si ripristinano dati, è possibile:
+Questo articolo spiega come recuperare i dati da un insieme di credenziali di backup e ripristinarli in un server o in un computer. A partire da marzo 2017 non è più possibile creare insiemi di credenziali di backup nel portale classico.
+
+> [!IMPORTANT]
+> È ora possibile aggiornare gli insiemi di credenziali di Backup ad insiemi di credenziali dei servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft consiglia di aggiornare gli insiemi di credenziali di Backup a insiemi di credenziali dei servizi di ripristino.<br/> **A partire dal 1° novembre 2017**:
+>- Eventuali insiemi di credenziali di Backup rimanenti verranno automaticamente aggiornati a insiemi di credenziali di servizi di ripristino
+>- e non sarà più possibile accedere ai dati di backup nel portale classico. Sarà possibile invece usare il portale di Azure per accedere ai dati di backup negli insiemi di credenziali di servizi di ripristino.
+>
+
+Per ripristinare i dati, usare la procedura di ripristino guidato dei dati nell'agente di Servizi di ripristino di Microsoft Azure (MARS). Quando si ripristinano dati, è possibile:
 
 * Ripristinare i dati nello stesso computer in cui sono stati eseguiti i backup.
 * Ripristinare i dati in un'altra macchina.
@@ -46,7 +55,7 @@ A gennaio 2017 Microsoft ha rilasciato un aggiornamento in anteprima all'agente 
 
 Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello stesso computer in cui è stato eseguito il backup, la seguente procedura permette di recuperarlo.
 
-1. Aprire lo snap-in di **Backup di Microsoft Azure** . Se non si conosce il percorso di installazione dello snap-in, cercare **Backup di Microsoft Azure** nel computer o nel server.
+1. Aprire lo snap-in di **Backup di Microsoft Azure** . Se non si sa dove è stato installato lo snap-in, cercare **Backup di Microsoft Azure** nel computer o nel server.
 
     L'applicazione desktop dovrebbe essere visualizzata nei risultati della ricerca.
 
@@ -54,7 +63,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     ![Ripristina dati](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Nel riquadro **Attività iniziali** selezionare l'opzione **This server (Questo server) (`<server name>`)** e fare clic su **Avanti** per ripristinare i dati nello stesso server o computer.
+3. Nel riquadro **Guida introduttiva** selezionare l'opzione **This server (Questo server) (`<server name>`)** e fare clic su **Avanti** per ripristinare i dati nello stesso server o computer.
 
     ![Scegliere l'opzione This server (Questo server) per ripristinare i dati nello stesso computer](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
@@ -64,11 +73,11 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
 5. Nel riquadro **Seleziona volume e data** selezionare il volume che contiene i file e/o le cartelle da ripristinare.
 
-    Nel calendario selezionare un punto di ripristino. È possibile eseguire il ripristino da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo avere selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato nell'elenco a discesa **Ora**.
+    Nel calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato dall'elenco a discesa **Ora**.
 
     ![Volume e dati](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
-6. Dopo avere selezionato il punto di ripristino, fare clic su **Monta**.
+6. Dopo aver selezionato il punto di ripristino, fare clic su **Monta**.
 
     Backup di Azure monta il punto di ripristino locale e lo usa come volume di ripristino.
 
@@ -77,16 +86,16 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
     ![Opzioni di ripristino](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. In Esplora risorse copiare i file e/o le cartelle che si vuole ripristinare e incollarle in qualsiasi posizione locale nel server o nel computer. È possibile aprire o trasmettere i file direttamente dal volume di ripristino e verificare che vengano ripristinate le versioni corrette.
+8. In Esplora risorse copiare i file e/o le cartelle che si desidera ripristinare e incollarle in qualsiasi posizione locale nel server o nel computer. È possibile aprire o trasmettere i file direttamente dal volume di ripristino e verificare che vengano ripristinate le versioni corrette.
 
-    ![Copiare e incollare file e cartelle dal volume montato al percorso locale](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Copiare e incollare file e cartelle dal volume montato alla posizione locale](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
-9. Dopo avere terminato il ripristino di file e/o di cartelle, fare clic su **Smonta** nel riquadro **Cerca e ripristina file**. Fare clic su **Sì** per confermare che si vuole smontare il volume.
+9. Dopo aver terminato il ripristino di file e/o cartelle, fare clic su **Smonta** nel riquadro **Cerca e ripristina file**. Fare clic su **Sì** per confermare che si desidera smontare il volume.
 
     ![Smontare il volume e confermare](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Se non si fa clic su Smonta, il volume di ripristino resterà montato per sei ore dal momento in cui è stato montato. Nessuna operazione di backup verrà eseguita mentre il volume è montato. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
+    > Se non si fa clic su Smonta, il volume di ripristino resterà montato per sei ore. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
     >
 
 
@@ -172,25 +181,25 @@ Include la terminologia utilizzata in questi passaggi:
 * *Insieme di credenziali di esempio*: l'insieme di credenziali dei servizi di ripristino in cui il *computer di origine* e il *computer di destinazione* sono registrati. <br/>
 
 > [!NOTE]
-> Non è possibile ripristinare i backup in una macchina di destinazione che esegue una versione precedente del sistema operativo. Ad esempio, un backup eseguito su un computer con Windows 7 può essere ripristinato in un computer con Windows 8 o versioni successive. Un backup eseguito su un computer con Windows 8 non può essere ripristinato in un computer con Windows 7.
+> Non è possibile ripristinare i backup in un computer di destinazione che esegue una versione precedente del sistema operativo. Ad esempio, un backup eseguito su un computer con Windows 7 può essere ripristinato in un computer con Windows 8 o versioni successive. Un backup eseguito su un computer con Windows 8 non può essere ripristinato in un computer con Windows 7.
 >
 >
 
 1. Aprire lo snap-in di **Backup di Microsoft Azure** nel *Computer di destinazione*.
 
-2. Assicurarsi che il *computer di destinazione* e il *computer di origine* siano registrati nello stesso insieme di credenziali di Servizi di ripristino.
+2. Assicurarsi che il *computer di destinazione* e il *computer di origine* siano registrati nello stesso insieme di credenziali dei servizi di ripristino.
 
 3. Fare clic su **Ripristina dati** per aprire il **ripristino guidato dei dati**.
 
     ![Ripristina dati](./media/backup-azure-restore-windows-server/recover.png)
 
-4. Nel riquadro **Attività iniziali** selezionare **Another server** (Un altro server)
+4. Nel riquadro **Guida introduttiva** selezionare **Another server** (Un altro server)
 
     ![Un altro server](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
 5. Specificare il file dell'insieme di credenziali che corrisponde all'*insieme di credenziali di esempio*, quindi fare clic su **Avanti**.
 
-    Se il file dell'insieme di credenziali non è valido o è scaduto, è necessario scaricarne uno nuovo dall'*insieme di credenziali di esempio* nel Portale di Azure. Dopo avere specificato un insieme di credenziali valido, viene visualizzato il nome dell'insieme di credenziali di backup corrispondente.
+    Se il file dell'insieme di credenziali non è valido (o è scaduto), è necessario scaricarne uno nuovo dall'*insieme di credenziali di esempio* nel Portale di Azure. Dopo aver specificato un insieme di credenziali valido, viene visualizzato il nome dell'insieme di credenziali di backup corrispondente.
 
 6. Nel riquadro **Seleziona server di backup** selezionare il *computer di origine* dall'elenco dei computer visualizzati e specificare la passphrase. Quindi fare clic su **Next**.
 
@@ -202,7 +211,7 @@ Include la terminologia utilizzata in questi passaggi:
 
 8. Nel riquadro **Seleziona volume e data** selezionare il volume che contiene i file e/o le cartelle da ripristinare.
 
-    Nel calendario selezionare un punto di ripristino. È possibile eseguire il ripristino da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo avere selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato nell'elenco a discesa **Ora**.
+    Nel calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato dall'elenco a discesa **Ora**.
 
     ![Ricerca di elementi](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
@@ -216,12 +225,12 @@ Include la terminologia utilizzata in questi passaggi:
 
     ![Crittografia](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
-12. Dopo avere terminato il ripristino di file e/o di cartelle, fare clic su **Smonta** nel riquadro **Cerca e ripristina file**. Fare clic su **Sì** per confermare che si vuole smontare il volume.
+12. Dopo aver terminato il ripristino di file e/o cartelle, fare clic su **Smonta** nel riquadro **Cerca e ripristina file**. Fare clic su **Sì** per confermare che si desidera smontare il volume.
 
     ![Crittografia](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Se non si fa clic su Smonta, il volume di ripristino resterà montato per sei ore dal momento in cui è stato montato. Nessuna operazione di backup verrà eseguita mentre il volume è montato. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
+    > Se non si fa clic su Smonta, il volume di ripristino resterà montato per sei ore. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
     >
 
 

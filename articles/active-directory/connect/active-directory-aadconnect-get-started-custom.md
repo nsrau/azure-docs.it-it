@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: installazione personalizzata | Documentazione Microsoft'
 description: Questo documento descrive le opzioni di installazione personalizzata per Azure AD Connect. Usare queste istruzioni per installare Active Directory con Azure AD Connect.
 services: active-directory
-keywords: "che cos&quot;è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD"
+keywords: "che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD"
 documentationcenter: 
 author: billmath
 manager: femila
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
 ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
@@ -200,8 +199,8 @@ Per altre informazioni, vedere [Estensioni della directory](active-directory-aad
 ### <a name="enabling-single-sign-on-sso"></a>Abilitazione di Single Sign-On (SSO)
 La configurazione di Single Sign-On per l'uso con la sincronizzazione delle password e l'autenticazione pass-through è un processo semplice che è necessario eseguire una sola volta per ogni foresta sincronizzata con Azure AD. La configurazione comporta due passaggi, come indicato di seguito:
 
-1.    Creare l'account computer necessario in Active Directory locale.
-2.    Configurare l'area Intranet dei computer client per il supporto Single Sign-On.
+1.  Creare l'account computer necessario in Active Directory locale.
+2.  Configurare l'area Intranet dei computer client per il supporto Single Sign-On.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Creare l'account computer in Active Directory
 Per ogni foresta aggiunta in Azure AD Connect è necessario specificare le credenziali di amministratore del dominio in modo che l'account computer possa essere creato in ogni foresta. Le credenziali vengono usate solo per creare l'account e non vengono archiviate o usate per altre operazioni. È sufficiente aggiungere le credenziali nella pagina **Abilita Single Sign-On** della procedura guidata di Azure AD Connect come illustrato di seguito:
@@ -215,20 +214,20 @@ Per ogni foresta aggiunta in Azure AD Connect è necessario specificare le crede
 Per assicurarsi che il client acceda automaticamente all'area Intranet, è necessario verificare che due URL facciano parte dell'area Intranet. In questo modo, il computer aggiunto al dominio invierà automaticamente un ticket Kerberos ad Azure AD quando è connesso alla rete aziendale.
 In un computer con gli strumenti di gestione dei criteri di gruppo.
 
-1.    Aprire gli strumenti di gestione dei criteri di gruppo
-2.    Modificare i criteri di gruppo che verranno applicati a tutti gli utenti. Ad esempio, il criterio di dominio predefinito.
-3.    Passare a **Configurazione utente\Modelli amministrativi\Componenti Windows\Internet Explorer\Pannello di controllo Internet\Scheda Sicurezza** e selezionare **Elenco di assegnazione siti ad aree**, come indicato nell'immagine seguente.
-4.    Abilitare i criteri e immettere i due elementi seguenti nella finestra di dialogo.
+1.  Aprire gli strumenti di gestione dei criteri di gruppo
+2.  Modificare i criteri di gruppo che verranno applicati a tutti gli utenti. Ad esempio, il criterio di dominio predefinito.
+3.  Passare a **Configurazione utente\Modelli amministrativi\Componenti Windows\Internet Explorer\Pannello di controllo Internet\Scheda Sicurezza** e selezionare **Elenco di assegnazione siti ad aree**, come indicato nell'immagine seguente.
+4.  Abilitare i criteri e immettere i due elementi seguenti nella finestra di dialogo.
 
-        Valore: `https://autologon.microsoftazuread-sso.com`  
-        Data 1  
-        Valore: `https://aadg.windows.net.nsatc.net`  
-        Data 1
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
 
-5.    Dovrebbe essere simile a quello riportato di seguito:  
+5.  Dovrebbe essere simile a quello riportato di seguito:  
 ![Aree Intranet](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.    Fare clic su **OK** due volte.
+6.  Fare clic su **OK** due volte.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Configurazione della federazione con ADFS
 Configurare ADFS con Azure AD Connect è semplice e richiede l'esecuzione di pochi passaggi. Prima della configurazione, sono necessari gli elementi seguenti.

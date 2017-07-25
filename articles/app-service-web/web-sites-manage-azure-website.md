@@ -1,6 +1,6 @@
 ---
-title: Scalare un&quot;app Web in Servizio app di Azure
-description: Collegamenti a risorse per la gestione di un&quot;applicazione web nel servizio di applicazione Azure.
+title: Scalare un'app Web in Servizio app di Azure
+description: Collegamenti a risorse per la gestione di un'applicazione web nel servizio di applicazione Azure.
 services: app-service\web
 documentationcenter: 
 author: erikre
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 08a84ace63465e7c058add69a25687fe46c7ea07
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9e19618a1b24bbdf3163ddfc3423c5c932dcd7af
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>Scalare un'app Web in Servizio app di Azure
@@ -78,10 +77,6 @@ Se non sono stati abilitati i backup automatici, è possibile creare un [backup 
 
 Valutare l'opportunità di applicare una [distribuzione a fasi](web-sites-staged-publishing.md). Questa opzione consente di pubblicare aggiornamenti a una distribuzione a fasi che viene eseguita in parallelo alla distribuzione di produzione. 
 
-Se si utilizza Visual Studio Team Services, è possibile configurare la distribuzione continua dal controllo codice sorgente:
-
-* [Utilizzo di Controllo della versione di Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
-* [Utilizzo di Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
 
 <!-- Anchors. -->
 

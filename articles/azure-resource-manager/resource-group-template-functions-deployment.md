@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: ce888415b6a5f82fb3d49834b055f8afe97442a8
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: d7e6bcd669d40cb19de44b646505856ecd8f51a0
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funzioni di distribuzione per i modelli di Azure Resource Manager 
@@ -38,32 +37,6 @@ Per ottenere valori da risorse, gruppi di risorse o sottoscrizioni, vedere [Funz
 `deployment()`
 
 Restituisce informazioni sull'operazione di distribuzione corrente.
-
-### <a name="examples"></a>esempi
-
-L'esempio seguente restituisce l'oggetto di distribuzione:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "subscriptionOutput": {
-            "value": "[deployment()]",
-            "type" : "object"
-        }
-    }
-}
-```
-
-Nell'esempio seguente viene illustrato come utilizzare la distribuzione () per collegarsi a un altro modello in base all'URI del modello padre.
-
-```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
-}
-```  
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -113,7 +86,57 @@ Quando l'oggetto viene passato come collegamento, come quando si usa il parametr
 }
 ```
 
+### <a name="remarks"></a>Osservazioni
 
+È possibile usare deployment() per il collegamento a un altro modello in base all'URI del modello padre.
+
+```json
+"variables": {  
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+}
+```  
+
+### <a name="example"></a>Esempio
+
+L'esempio seguente restituisce l'oggetto di distribuzione:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "subscriptionOutput": {
+            "value": "[deployment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+L'esempio precedente restituisce l'oggetto seguente:
+
+```json
+{
+  "name": "deployment",
+  "properties": {
+    "template": {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [],
+      "outputs": {
+        "subscriptionOutput": {
+          "type": "Object",
+          "value": "[deployment()]"
+        }
+      }
+    },
+    "parameters": {},
+    "mode": "Incremental",
+    "provisioningState": "Accepted"
+  }
+}
+```
 
 <a id="parameters" />
 
@@ -128,9 +151,13 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 |:--- |:--- |:--- |:--- |
 | parameterName |Sì |string |Nome del parametro da restituire. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
 
-L'esempio seguente mostra un uso semplificato della funzione parameters.
+Il valore del parametro specificato.
+
+### <a name="remarks"></a>Osservazioni
+
+Per impostare i valori delle risorse, si usano in genere i parametri. Nell'esempio seguente il nome del sito Web viene impostato sul valore del parametro passato durante la distribuzione.
 
 ```json
 "parameters": { 
@@ -140,7 +167,7 @@ L'esempio seguente mostra un uso semplificato della funzione parameters.
 },
 "resources": [
    {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2016-08-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       ...
@@ -148,9 +175,72 @@ L'esempio seguente mostra un uso semplificato della funzione parameters.
 ]
 ```
 
-### <a name="return-value"></a>Valore restituito
+### <a name="example"></a>Esempio
 
-Il tipo del parametro.
+L'esempio seguente mostra un uso semplificato della funzione parameters.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringParameter": {
+            "type" : "string",
+            "defaultValue": "option 1"
+        },
+        "intParameter": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "objectParameter": {
+            "type": "object",
+            "defaultValue": {"one": "a", "two": "b"}
+        },
+        "arrayParameter": {
+            "type": "array",
+            "defaultValue": [1, 2, 3]
+        },
+        "crossParameter": {
+            "type": "string",
+            "defaultValue": "[parameters('stringParameter')]"
+        }
+    },
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "stringOutput": {
+            "value": "[parameters('stringParameter')]",
+            "type" : "string"
+        },
+        "intOutput": {
+            "value": "[parameters('intParameter')]",
+            "type" : "int"
+        },
+        "objectOutput": {
+            "value": "[parameters('objectParameter')]",
+            "type" : "object"
+        },
+        "arrayOutput": {
+            "value": "[parameters('arrayParameter')]",
+            "type" : "array"
+        },
+        "crossOutput": {
+            "value": "[parameters('crossParameter')]",
+            "type" : "string"
+        }
+    }
+}
+```
+
+L'output dell'esempio precedente con i valori predefiniti è:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| stringOutput | String | option 1 |
+| intOutput | int | 1 |
+| objectOutput | Oggetto | {"one": "a", "two": "b"} |
+| arrayOutput | Array | [1, 2, 3] |
+| crossOutput | String | option 1 |
 
 <a id="variables" />
 
@@ -165,26 +255,82 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 |:--- |:--- |:--- |:--- |
 | variableName |Sì |String |Nome della variabile da restituire. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
 
-L'esempio seguente usa un valore della variabile.
+Il valore della variabile specificata.
+
+### <a name="remarks"></a>Osservazioni
+
+Per semplificare il modello creando valori complessi una sola volta, si usano in genere le variabili. Nell'esempio seguente viene creato un nome univoco per un account di archiviazione.
 
 ```json
 "variables": {
-  "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
 },
 "resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageName')]",
-    ...
-  }
+    {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.Compute/virtualMachines",
+        "dependsOn": [
+            "[variables('storageName')]"
+        ],
+        ...
+    }
 ],
 ```
 
-### <a name="return-value"></a>Valore restituito
+### <a name="example"></a>Esempio
 
-Il tipo del variabile.
+Il modello di esempio restituisce valori di variabile diversi.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "var1": "myVariable",
+        "var2": [ 1,2,3,4 ],
+        "var3": "[ variables('var1') ]",
+        "var4": {
+            "property1": "value1",
+            "property2": "value2"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "exampleOutput1": {
+            "value": "[variables('var1')]",
+            "type" : "string"
+        },
+        "exampleOutput2": {
+            "value": "[variables('var2')]",
+            "type" : "array"
+        },
+        "exampleOutput3": {
+            "value": "[variables('var3')]",
+            "type" : "string"
+        },
+        "exampleOutput4": {
+            "value": "[variables('var4')]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+L'output dell'esempio precedente con i valori predefiniti è:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| exampleOutput1 | String | myVariable |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
+| exampleOutput3 | String | myVariable |
+| exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

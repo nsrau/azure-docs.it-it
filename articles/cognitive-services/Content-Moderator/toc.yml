@@ -14,20 +14,22 @@
     items:
     - name: Modello Human-in-the-loop
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Creare team
-      href: Review-Tool-User-Guide/Sign-up.md
-    - name: Caricare immagini
-      href: Review-Tool-User-Guide/Upload-Images.md
+    - name: Impostazioni
+      href: Review-Tool-User-Guide/Configure.md
+    - name: Team e sottoteam
+      href: Review-Tool-User-Guide/SubTeams.md
+    - name: Informazioni sui tag
+      href: Review-Tool-User-Guide/Tags.md
     - name: Revisioni di immagini
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
     - name: Revisioni di testi
       href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Team e sottoteam
-      href: Review-Tool-User-Guide/SubTeams.md
+    - name: Verifica delle credenziali
+      href: Review-Tool-User-Guide/Credentials.md
+    - name: Informazioni sui connettori
+      href: Review-Tool-User-Guide/Connectors.md
     - name: Uso dei flussi di lavoro
       href: Review-Tool-User-Guide/Workflows.md
-    - name: Impostazioni
-      href: Review-Tool-User-Guide/Configure.md
     - name: Visualizzare il dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
 - name: Riferimento
@@ -48,6 +50,8 @@
     href: video-moderation-api.md
 - name: Risorse
   items:  
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Windows SDK
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
   - name: Esempi

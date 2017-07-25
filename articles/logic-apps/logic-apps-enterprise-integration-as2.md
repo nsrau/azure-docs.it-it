@@ -12,12 +12,13 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5733592fc1633d8722905c33dd267b4cbe1fe184
-ms.lasthandoff: 03/10/2017
+ms.date: 06/08/2017
+ms.author: LADocs; mandia
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
+ms.contentlocale: it-it
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -39,9 +40,9 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 ## <a name="create-an-as2-agreement"></a>Creare un contratto AS2
 
-1.    Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure").  
+1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure").  
 
-2.    Fare clic su **Altri servizi** nel menu a sinistra. Nella casella di ricerca, digitare **integrazione** come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.
+2.  Fare clic su **Altri servizi** nel menu a sinistra. Nella casella di ricerca, digitare **integrazione** come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.
 
     > [!TIP]
     > Se **Altri servizi** non viene visualizzato, potrebbe essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
@@ -80,7 +81,7 @@ Se non viene visualizzato alcun account di integrazione, [crearne prima uno](../
 
 Dopo aver impostato le proprietà del contratto, è possibile configurare il modo in cui il contratto identifica e gestisce i messaggi in arrivo ricevuti dal partner tramite il presente contratto.
 
-1.    In **Aggiungi**, selezionare **Impostazioni di ricezione**.
+1.  In **Aggiungi**, selezionare **Impostazioni di ricezione**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere la tabella in questa sezione.
 
     ![Configurare "Impostazioni di ricezione"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
@@ -89,7 +90,7 @@ Configurare queste proprietà in base al contratto con il partner con cui si sca
 
 3. Selezionare **Il messaggio deve essere firmato** per richiedere la firma di tutti i messaggi in arrivo. Per convalidare la firma dei messaggi, selezionare un **certificato pubblico del partner guest** nell'elenco [Certificato](../logic-apps/logic-apps-enterprise-integration-certificates.md). Se non si dispone del certificato, crearne uno.
 
-4.    Per richiedere la crittografia di tutti i messaggi in arrivo, selezionare **Il messaggio deve essere crittografato**. Per decrittografare i messaggi in arrivo, dall'elenco **Certificato** selezionare un [certificato privato del partner host](../logic-apps/logic-apps-enterprise-integration-certificates.md). Se non si dispone del certificato, crearne uno.
+4.  Per richiedere la crittografia di tutti i messaggi in arrivo, selezionare **Il messaggio deve essere crittografato**. Per decrittografare i messaggi in arrivo, dall'elenco **Certificato** selezionare un [certificato privato del partner host](../logic-apps/logic-apps-enterprise-integration-certificates.md). Se non si dispone del certificato, crearne uno.
 
 5. Per richiedere la compressione dei messaggi, selezionare **Il messaggio deve essere compresso**.
 
@@ -120,10 +121,10 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 
 È possibile configurare il modo in cui il contratto identifica e gestisce i messaggi in uscita inviati ai partner tramite il presente contratto.
 
-1.    In **Aggiungi**, selezionare **Impostazioni di avvio**.
+1.  In **Aggiungi**, selezionare **Impostazioni di avvio**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere la tabella in questa sezione.
 
-    ![Impostare le proprietà "Impostazioni di invio"](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)
+    ![Impostare le proprietà "Impostazioni di invio"](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
 
 2. Per inviare messaggi firmati al partner, selezionare **Abilita firma del messaggio**. Per firmare i messaggi, nell'elenco **Algoritmo per il controllo di integrità delle credenziali**, selezionare l'*algoritmo per il controllo di integrità delle credenziali del certificato privato del partner host*. Dall'elenco **Certificato**, selezionare un [certificato privato del partner host](../logic-apps/logic-apps-enterprise-integration-certificates.md) esistente.
 
@@ -140,9 +141,11 @@ Dall'elenco **Certificato**, selezionare un [certificato pubblico del partner gu
 
 8. Per ricevere notifiche asincrone sulla ricezione del messaggio per i messaggi inviati, selezionare **Richiedi notifica sulla ricezione del messaggio asincrona**. Se si seleziona questa opzione, immettere l'URL a cui inviare le MDN.
 
-9. Per richiedere il non ripudio della ricezione, selezionare **Abilita rilevamento messaggi (NRR)**.
+9. Per richiedere il non ripudio della ricezione, selezionare **Abilita rilevamento messaggi (NRR)**.  
 
-10. Al termine, assicurarsi di salvare le impostazioni selezionando **OK**.
+10. Per specificare il formato di algoritmo da usare per il controllo di integrità delle credenziali o la firma nelle intestazioni in uscita del messaggio AS2 o della notifica sulla ricezione del messaggio, selezionare il **formato di algoritmo SHA2**.  
+
+11. Al termine, assicurarsi di salvare le impostazioni selezionando **OK**.
 
 Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazioni selezionate.
 
@@ -161,16 +164,20 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 | Richiedi MDN asincrono |Richiede l'invio di MDN asincroni a questo contratto. |
 | URL |Specificare l'URL al quale inviare le MDN. |
 | Enable NRR (Attiva NRR) |Richiede il non ripudio della ricezione (NRR), un attributo di comunicazione che fornisce prova di ricezione dei dati come inviati. |
+| Formato di algoritmo SHA2 |Selezionare il formato di algoritmo da usare per il controllo di integrità delle credenziali o la firma nelle intestazioni in uscita del messaggio AS2 o della notifica sulla ricezione del messaggio |
 
 ## <a name="find-your-created-agreement"></a>Individuare il contratto creato
 
-1.    Dopo aver impostato tutte le proprietà del contratto, scegliere **OK** nel pannello **Aggiungi** per completare la creazione del contratto e tornare al pannello dell'account di integrazione.
+1.  Dopo aver impostato tutte le proprietà del contratto, scegliere **OK** nel pannello **Aggiungi** per completare la creazione del contratto e tornare al pannello dell'account di integrazione.
 
     Il contratto appena aggiunto viene visualizzato nell'elenco **Contratti**.
 
-2.    È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel pannello dell'account di integrazione, selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. 
+2.  È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel pannello dell'account di integrazione, selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. 
 
     ![Scegliere il riquadro Contratti per visualizzare tutti i contratti](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+
+## <a name="view-the-swagger"></a>Visualizzare il file Swagger
+Vedere i [dettagli del file Swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  

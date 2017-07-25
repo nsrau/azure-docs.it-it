@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Amazon Web Service (AWS) | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Amazon Web Services.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Amazon Web Services.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/20/2017
 ms.author: jeedes
+ms.reviewer: jeedes
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 61999ebea05371c53e5ff27644a68039db1aef96
 ms.contentlocale: it-it
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Esercitazione: Integrazione di Azure Active Directory con Amazon Web Service (AWS)
@@ -133,7 +133,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | Nome attributo  | Valore attributo | Spazio dei nomi |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://AWS.Amazon.com/SAML/Attributes |
-    | Ruolo               | user.assignedroles |  https://AWS.Amazon.com/SAML/Attributes |
+    | Ruolo            | user.assignedroles |  https://AWS.Amazon.com/SAML/Attributes |
     
     >[!TIP]
     >È necessario configurare il provisioning dell'utente in Azure AD per recuperare tutti i ruoli dalla Console AWS. Consultare le seguente procedura di provisioning.
@@ -172,13 +172,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     ![Configura accesso Single Sign-On][14]
  
-      a. In **Tipo provider** selezionare **SAML**.
+    a. In **Tipo provider** selezionare **SAML**.
 
-      b. Nella casella di testo **Provider Name** digitare un nome di provider, ad esempio *WAAD*.
+    b. Nella casella di testo **Provider Name** digitare un nome di provider, ad esempio *WAAD*.
 
-      c. Per caricare il file di metadati scaricato, fare clic su **Choose file**.
+    c. Per caricare il file di metadati scaricato, fare clic su **Choose file**.
 
-      d. Fare clic su **Next Step**.
+    d. Fare clic su **Next Step**.
 
 13. Nella pagina della finestra di dialogo **Verify Provider Information** (Verifica informazioni provider) fare clic su **Crea**. 
     
@@ -192,25 +192,25 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Configura accesso Single Sign-On][17] 
 
-      a. Nella casella d testo **Role Name** digitare un nome, ad esempio *TestUser*. 
+    a. Nella casella d testo **Role Name** digitare un nome, ad esempio *TestUser*. 
 
-      b. Fare clic su **Next Step**.
+    b. Fare clic su **Next Step**.
 
 16. Nella finestra di dialogo **Select Role Type** seguire questa procedura: 
     
     ![Configura accesso Single Sign-On][18] 
 
-      a. Selezionare **Role For Identity Provider Access**. 
+    a. Selezionare **Role For Identity Provider Access**. 
 
-      b. Nella sezione **Grant Web Single Sign-On (WebSSO) access to SAML providers** (Concedi accesso Web Single Sign-On (WebSSO) a provider SAML) fare clic su **Seleziona**.
+    b. Nella sezione **Grant Web Single Sign-On (WebSSO) access to SAML providers** (Concedi accesso Web Single Sign-On (WebSSO) a provider SAML) fare clic su **Seleziona**.
 
 17. Nella finestra di dialogo **Establish Trust** seguire questa procedura:  
     
     ![Configura accesso Single Sign-On][19] 
 
-      a. Come provider SAML selezionare quello creato in precedenza, ad esempio *WAAD*
+    a. Come provider SAML selezionare quello creato in precedenza, ad esempio *WAAD*
   
-      b. Fare clic su **Next Step**.
+    b. Fare clic su **Next Step**.
 
 18. Nella finestra di dialogo **Verify Role Trust** (Verifica attendibilità ruolo) fare clic su **Passaggio successivo**.
     
@@ -224,7 +224,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Configura accesso Single Sign-On][34]
  
-      a. Fare clic su **Crea ruolo**.
+    a. Fare clic su **Crea ruolo**.
 
     b. Creare tutti i ruoli necessari in base alle esigenze ed eseguirne il mapping per il Provider di identità.
 

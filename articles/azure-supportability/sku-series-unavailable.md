@@ -1,6 +1,6 @@
 ---
 title: Serie di SKU non disponibile | Microsoft Docs
-description: Alcune serie di SKU non sono disponibili per la sottoscrizione selezionata nell&quot;area.
+description: Alcune serie di SKU non sono disponibili per la sottoscrizione selezionata nell'area.
 services: Azure Supportability
 documentationcenter: 
 author: ganganarayanan
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: gangan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0f41aac0512e78039e6038795c72c07251bbcf76
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -46,10 +48,5 @@ Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti]
 
 ## <a name="learn-more"></a>Altre informazioni
 [Domande frequenti relative al supporto tecnico Azure](https://azure.microsoft.com/support/faq)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

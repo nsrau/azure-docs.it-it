@@ -20,6 +20,8 @@
 ## [Gestire gli asset di dati](data-catalog-how-to-manage.md)
 ## [Salvare le ricerche e aggiungere asset di dati](data-catalog-how-to-save-pin.md)
 ## [Configurare il glossario aziendale](data-catalog-how-to-business-glossary.md)
+## [Proteggere l'accesso al catalogo dati](data-catalog-how-to-secure-catalog.md)
+## [Visualizzare gli asset di dati correlati](data-catalog-how-to-view-related-data-assets.md) 
 
 # Riferimento
 ## [REST](/rest/api/datacatalog/)
@@ -28,10 +30,11 @@
 ## [Esempi per gli sviluppatori](data-catalog-samples.md)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Scelte rapide da tastiera per Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
-## [Terminologia](data-catalog-terminology.md)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Prezzi](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Note sulla versione](data-catalog-whats-new.md)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Prezzi](https://azure.microsoft.com/pricing/details/data-catalog/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Terminologia](data-catalog-terminology.md)

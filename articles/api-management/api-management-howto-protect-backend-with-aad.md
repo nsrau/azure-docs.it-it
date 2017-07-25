@@ -1,6 +1,6 @@
 ---
-title: Proteggere il back-end di un&quot;API Web con Azure Active Directory e Gestione API | Documentazione Microsoft
-description: Informazioni su come proteggere il back-end di un&quot;API Web con Azure Active Directory e Gestione API.
+title: Proteggere il back-end di un'API Web con Azure Active Directory e Gestione API | Documentazione Microsoft
+description: Informazioni su come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 690f820b3beb6b7d5d68732b94470602a92e9268
-ms.openlocfilehash: bf0d72f97a32771f86bdff62029fb43e279b6842
-ms.lasthandoff: 02/23/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0dfb4102904c2e972e6617fd3851fb1c50147357
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
@@ -500,7 +501,7 @@ L'ultima procedura dei video inizia dal minuto 20:48 e illustra come usare i cri
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
+    <openid-config url="https://login.microsoftonline.com/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
             <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>

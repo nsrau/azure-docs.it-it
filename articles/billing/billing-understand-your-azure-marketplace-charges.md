@@ -4,7 +4,7 @@ description: Informazioni sulla fatturazione di servizi esterni, noti in precede
 services: 
 documentationcenter: 
 author: adpick
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
@@ -23,7 +23,8 @@ ms.contentlocale: it-it
 ms.lasthandoff: 03/03/2017
 
 ---
-# <a name="understand-your-azure-billing-for-external-service-charges"></a>Informazioni sulla fatturazione di Azure per gli addebiti dei servizi esterni
+<a id="understand-your-azure-billing-for-external-service-charges" class="xliff"></a>
+# Informazioni sulla fatturazione di Azure per gli addebiti dei servizi esterni
 I servizi esterni erano denominati Azure Marketplace. Si tratta in genere di servizi pubblicati da terze parti disponibili per Azure, ma integrati completamente in Azure. Ad esempio, ClearDB e SendGrid sono servizi esterni che è possibile acquistare in Azure, ma che non vengono pubblicati da Microsoft.
 
 Durante il provisioning di un nuovo servizio esterno o di una nuova risorsa, viene visualizzato un avviso:
@@ -35,13 +36,15 @@ Durante il provisioning di un nuovo servizio esterno o di una nuova risorsa, vie
 > 
 > 
 
-## <a name="how-external-services-are-billed"></a>Modalità di fatturazione dei servizi esterni
+<a id="how-external-services-are-billed" class="xliff"></a>
+## Modalità di fatturazione dei servizi esterni
 - I servizi esterni vengono fatturati separatamente. Vengono gestiti come ordini singoli all'interno della sottoscrizione di Azure. Il periodo di fatturazione per ogni servizio è impostato al momento dell'acquisto del servizio. Non deve essere confuso con il periodo di fatturazione della sottoscrizione in cui è stato eseguito l'acquisto. Si ricevono anche fatture separate e l'addebito sulla carta di credito viene applicato separatamente.
 - Per ogni servizio esterno è previsto un modello di fatturazione diverso. Alcuni servizi vengono fatturati con pagamento in base al consumo, mentre altri prevedono un modello di pagamento su base mensile. Per i servizi esterni di Azure è necessaria una carta di credito e non è possibile pagare tramite fattura.
 - Non è possibile usare i crediti gratuiti mensili per i servizi esterni. Se si usa una sottoscrizione di Azure che include [crediti gratuiti](https://azure.microsoft.com/pricing/spending-limits/), questi non possono essere applicati ai pagamenti per i servizi esterni. Usare una carta di credito per acquistare servizi esterni.
 
 
-## <a name="view-external-service-spending-and-history-in-the-azure-portal"></a>Visualizzare la spesa e la cronologia dei servizi esterni nel portale di Azure
+<a id="view-external-service-spending-and-history-in-the-azure-portal" class="xliff"></a>
+## Visualizzare la spesa e la cronologia dei servizi esterni nel portale di Azure
 È possibile visualizzare un elenco di servizi esterni inclusi in ogni sottoscrizione all'interno del [portale di Azure](https://portal.azure.com/): 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore account.
@@ -58,10 +61,12 @@ Durante il provisioning di un nuovo servizio esterno o di una nuova risorsa, vie
    
     ![Visualizzare la cronologia di fatturazione dei servizi esterni](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
-## <a name="view-external-service-spending-for-enterprise-agreement-ea-customers"></a>Visualizzare la spesa dei servizi esterni per i clienti con contratto Enterprise (EA, Enterprise Agreement)
+<a id="view-external-service-spending-for-enterprise-agreement-ea-customers" class="xliff"></a>
+## Visualizzare la spesa dei servizi esterni per i clienti con contratto Enterprise (EA, Enterprise Agreement)
 I clienti EA possono visualizzare la spesa dei servizi esterni e scaricare i report nel portale EA. Per iniziare, vedere [Azure Marketplace per i clienti EA](https://ea.azure.com/helpdocs/azureMarketplace).
 
-## <a name="manage-payment-methods-for-external-service-orders"></a>Gestire i metodi di pagamento per gli ordini di servizi esterni
+<a id="manage-payment-methods-for-external-service-orders" class="xliff"></a>
+## Gestire i metodi di pagamento per gli ordini di servizi esterni
 Aggiornare i metodi di pagamento per gli ordini di servizi esterni da [Centro account](https://account.windowsazure.com/).
 
 > [!NOTE]
@@ -82,12 +87,14 @@ Aggiornare i metodi di pagamento per gli ordini di servizi esterni da [Centro ac
    
     ![Selezionare Modifica informazioni](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
 
-## <a name="cancel-an-external-service-order"></a>Annullare un ordine di servizio esterno
+<a id="cancel-an-external-service-order" class="xliff"></a>
+## Annullare un ordine di servizio esterno
 Se si desidera annullare l'ordine di servizio esterno, eliminare la risorsa nel [Portale di Azure](https://portal.azure.com).
 
 ![Eliminare una risorsa](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+<a id="need-help-contact-support" class="xliff"></a>
+## Richiesta di assistenza Contattare il supporto tecnico.
 Per eventuali domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 

@@ -1,7 +1,7 @@
 ---
-title: Funzioni JavaScript definite dall&quot;utente in Analisi di flusso di Azure | Microsoft Docs
-description: Eseguire i meccanismi di query avanzate con funzioni JavaScript definite dall&quot;utente
-keywords: javascript, funzioni definite dall&quot;utente, udf
+title: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure | Microsoft Docs
+description: Eseguire i meccanismi di query avanzate con funzioni JavaScript definite dall'utente
+keywords: javascript, funzioni definite dall'utente, udf
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: e917385cb9afc13ba459aed48e5f06cc156efac5
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 3dfe8571114d936cc07d887392ec294ec8a67120
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 ---
 
@@ -43,11 +44,11 @@ Sebbene le funzioni come **Date.GetDate()** o **Math.random()** non sono bloccat
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Aggiungere una funzione JavaScript definita dall'utente nel portale di Azure
 I passaggi seguenti illustrano come creare una semplice funzione JavaScript definita dall'utente in un processo esistente di Analisi di flusso:
 
-1.    Nel portale di Azure individuare il processo di Analisi di flusso.
+1.  Nel portale di Azure individuare il processo di Analisi di flusso.
 2.  In **TOPOLOGIA PROCESSO** selezionare la funzione. Viene visualizzato un elenco vuoto di funzioni.
-3.    Per creare una nuova funzione definita dall'utente, selezionare **Aggiungi**.
-4.    Sul pannello **Nuova funzione** selezionare **JavaScript** per **Tipo funzione**. Nell'editor viene visualizzato un modello di funzione predefinita.
-5.    Per l'**alias della funzione definita dall'utente**, inserire **hex2Int** e modificare l'implementazione della funzione come indicato di seguito:
+3.  Per creare una nuova funzione definita dall'utente, selezionare **Aggiungi**.
+4.  Sul pannello **Nuova funzione** selezionare **JavaScript** per **Tipo funzione**. Nell'editor viene visualizzato un modello di funzione predefinita.
+5.  Per l'**alias della funzione definita dall'utente**, inserire **hex2Int** e modificare l'implementazione della funzione come indicato di seguito:
 
     ```
     // Convert Hex value to integer.
@@ -56,13 +57,13 @@ I passaggi seguenti illustrano come creare una semplice funzione JavaScript defi
     }
     ```
 
-6.    Selezionare **Salva**. La funzione viene visualizzata nell'elenco delle funzioni.
-7.    Selezionare la nuova funzione **hex2Int** e controllare la definizione di funzione. Per ogni funzione, all'alias della funzione viene aggiunto un prefisso della **funzione definita dall'utente**. È necessario *includere il prefisso* quando si chiama la funzione nella query Analisi di flusso. In questo caso, si chiama **UDF.hex2Int**.
+6.  Selezionare **Salva**. La funzione viene visualizzata nell'elenco delle funzioni.
+7.  Selezionare la nuova funzione **hex2Int** e controllare la definizione di funzione. Per ogni funzione, all'alias della funzione viene aggiunto un prefisso della **funzione definita dall'utente**. È necessario *includere il prefisso* quando si chiama la funzione nella query Analisi di flusso. In questo caso, si chiama **UDF.hex2Int**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chiamare una funzione JavaScript definita dall'utente nella query
 
 1. Nell'editor di query, in **TOPOLOGIA PROCESSO**, selezionare **Query**.
-2.    Modificare la query e quindi chiamare la funzione definita dall'utente, simile alla seguente:
+2.  Modificare la query e quindi chiamare la funzione definita dall'utente, simile alla seguente:
 
     ```
     SELECT
@@ -74,8 +75,8 @@ I passaggi seguenti illustrano come creare una semplice funzione JavaScript defi
         InputStream
     ```
 
-3.    Per caricare un file di dati di esempio, fare clic con il tasto destro del mouse sull'input del processo.
-4.    Per testare la query, selezionare **Test**.
+3.  Per caricare un file di dati di esempio, fare clic con il tasto destro del mouse sull'input del processo.
+4.  Per testare la query, selezionare **Test**.
 
 
 ## <a name="supported-javascript-objects"></a>Oggetti JavaScript supportati
@@ -144,7 +145,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

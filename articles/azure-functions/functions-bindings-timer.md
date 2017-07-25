@@ -16,15 +16,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: chrande; glenga
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2542d8c750fc7e1bcc31a9c0eb1672402facfd58
-ms.openlocfilehash: 146884833e968767c14d7e4f924762a592e427e2
-ms.lasthandoff: 03/01/2017
+ms.custom: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 12a793c4df497f221dbd592ca3d249b8c1f65e04
+ms.contentlocale: it-it
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="schedule-code-execution-with-azure-functions"></a>Pianificare l'esecuzione di codice con Funzioni di Azure
+# <a name="azure-functions-timer-trigger"></a>Trigger timer in Funzioni di Azure
+
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Questo articolo illustra come configurare trigger timer in Funzioni di Azure e su come scrivere il relativo codice. Funzioni di Azure è dotata di un binding trigger timer che consente di eseguire il codice della funzione secondo una pianificazione definita. 
@@ -47,7 +49,7 @@ Il trigger timer per una funzione usa l'oggetto JSON seguente nella matrice `bin
 }
 ```
 
-Il valore di `schedule` è un'[espressione CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) che include i&6; campi seguenti: 
+Il valore di `schedule` è un'[espressione CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) che include i 6 campi seguenti: 
 
     {second} {minute} {hour} {day} {month} {day-of-week}
 &nbsp;
@@ -60,13 +62,13 @@ Ad esempio, *Ora solare fuso orientale* (EST) è UTC-05:00. Per attivare il time
 
 ```json
 "schedule": "0 0 15 * * *",
-```    
+``` 
 
 In alternativa, è possibile aggiungere una nuova impostazione di app per l'app per le funzioni denominata `WEBSITE_TIME_ZONE` e impostare il valore su **Ora solare fuso orientale**.  La seguente espressione CRON può quindi essere usata per 10:00 EST: 
 
 ```json
 "schedule": "0 0 10 * * *",
-```    
+``` 
 
 
 <a name="examples"></a>
@@ -74,7 +76,7 @@ In alternativa, è possibile aggiungere una nuova impostazione di app per l'app 
 ## <a name="schedule-examples"></a>Esempi di pianificazione
 Di seguito sono riportati alcuni esempi di espressioni CRON che possibile usare per la proprietà `schedule`. 
 
-Per attivare una volta ogni&5; minuti:
+Per attivare una volta ogni 5 minuti:
 
 ```json
 "schedule": "0 */5 * * * *"
@@ -86,7 +88,7 @@ Per attivare una volta all'inizio di ogni ora:
 "schedule": "0 0 * * * *",
 ```
 
-Per attivare una volta ogni&2; ore:
+Per attivare una volta ogni 2 ore:
 
 ```json
 "schedule": "0 0 */2 * * *",

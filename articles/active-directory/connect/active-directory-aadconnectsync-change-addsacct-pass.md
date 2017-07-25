@@ -1,6 +1,6 @@
 ---
 title: "Sincronizzazione Azure AD Connect: modifica della password dell’account AD DS | Microsoft Docs"
-description: Il documento di questo argomento descrive come aggiornare Azure AD Connect dopo aver modificato la password dell&quot;account Active Directory Domain Services.
+description: Il documento di questo argomento descrive come aggiornare Azure AD Connect dopo aver modificato la password dell'account Active Directory Domain Services.
 services: active-directory
 keywords: account Active Directory Domain Services, account di Active Directory, password
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 427070021ac547058c2f18be0e58ef6d81822b8a
+ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Modifica della password dell'account Active Directory Domain Services

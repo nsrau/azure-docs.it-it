@@ -1,5 +1,5 @@
 ---
-title: Associazioni HTTP e webhook in Funzioni di Azure | Documentazione Microsoft
+title: Associazioni HTTP e webhook in Funzioni di Azure | Microsoft Docs
 description: Informazioni su come usare trigger e associazioni HTTP e webhookin Funzioni di Azure.
 services: functions
 documentationcenter: na
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 06958522139d621f86afd8bf25128ee64cf822b3
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 56d6f7b5858a0e2122021e02718050a26e6defe4
+ms.contentlocale: it-it
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -35,10 +36,7 @@ Funzioni di Azure fornisce le associazioni seguenti:
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!TIP]
->
-> È consigliabile leggere il documento sulle procedure consigliate su [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
->
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 <a name="httptrigger"></a>
 
@@ -58,7 +56,7 @@ Un trigger HTTP viene definito includendo un oggetto JSON simile al seguente nel
     "type": "httpTrigger",
     "direction": "in",
     "authLevel": "function",
-    "methods": [ "GET" ],
+    "methods": [ "get" ],
     "route": "values/{id}"
 },
 ```
@@ -265,7 +263,7 @@ Vedere l'esempio specifico del linguaggio, che cerca un parametro `name` nella s
 
 * [C#](#httptriggercsharp)
 * [F#](#httptriggerfsharp)
-* [Node.js](#httptriggernodejs)
+* [Node.JS](#httptriggernodejs)
 
 
 <a name="httptriggercsharp"></a>

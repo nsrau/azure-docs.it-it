@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: d50d25e4ea594b5231d29a862f3a98f07de70324
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: fa214f1c8d7cfb4b3b1d475183a63a3028f2306f
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Active Directory Assessment in Log Analytics
+
+![Simbolo di Valutazione AD](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
 È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari. Questo articolo consente di installare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
 

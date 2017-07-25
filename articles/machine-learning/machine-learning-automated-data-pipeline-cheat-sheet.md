@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: d109c50be94a227efd39f151c01070a8e30b237d
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 22f9369d18edae34f51f20712c3f92e0a57700f2
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -40,7 +41,7 @@ Scaricare il foglio informativo qui: **[foglio informativo sulla pipeline di dat
 ## <a name="more-help-with-machine-learning-studio"></a>Altre informazioni su Machine Learning Studio
 * Per una panoramica di Microsoft Azure Machine Learning, vedere [Introduzione all’apprendimento automatico su Microsoft Azure](machine-learning-what-is-machine-learning.md)
 * Per una spiegazione su come distribuire un servizio Web di classificazione, vedere [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
-* Per altri forum su come utilizzare un servizio Web di classificazione, vedere [Come usare un servizio Web di Azure Machine Learning distribuito da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
+* Per una spiegazione di come usare un servizio Web di assegnazione dei punteggi, vedere [Come usare un servizio Web di Azure Machine Learning](machine-learning-consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

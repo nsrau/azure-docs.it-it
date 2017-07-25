@@ -1,6 +1,6 @@
 ---
-title: "Eseguire la migrazione di una rete virtuale di Azure da un gruppo di affinità in un&quot;area | Classico | Documenti di Microsoft"
-description: "Informazioni su come eseguire la migrazione di una rete virtuale da un gruppo di affinità in un&quot;area."
+title: "Eseguire la migrazione di una rete virtuale di Azure da un gruppo di affinità in un'area | Classico | Documenti di Microsoft"
+description: "Informazioni su come eseguire la migrazione di una rete virtuale da un gruppo di affinità in un'area."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
 ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -70,10 +72,5 @@ Come spiegato in precedenza, i gruppi di affinità non sono più consigliati in 
 Le macchine virtuali attualmente incluse in un gruppo di affinità non devono essere rimosse da tale gruppo.
 
 Quando si esegue la distribuzione, una macchina virtuale viene distribuita in una singola unità di scala. I gruppi di affinità possono limitare il set di dimensioni di macchine virtuali disponibili per una nuova distribuzione, ma qualsiasi macchina virtuale esistente che venga distribuita è già limitata al set di dimensioni disponibile nell'unità di scala in cui avviene la distribuzione. Per questo motivo, la rimozione di una macchina virtuale dal gruppo di affinità non avrà alcun effetto.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

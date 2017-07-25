@@ -1,7 +1,7 @@
 ---
 title: 'Output di Analisi di flusso: opzioni per archiviazione, analisi | Microsoft Docs'
-description: Informazioni sulla destinazione di opzioni di output dei dati di Analisi di flusso tra cui Power BI per i risultati dell&quot;analisi.
-keywords: trasformazione dei dati, risultati dell&quot;analisi, opzioni di archiviazione dati
+description: Informazioni sulla destinazione di opzioni di output dei dati di Analisi di flusso tra cui Power BI per i risultati dell'analisi.
+keywords: trasformazione dei dati, risultati dell'analisi, opzioni di archiviazione dati
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: 
 author: jeffstokes72
@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 693a4a0dbe7e067492040a12c6cb3b003bbcc54e
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: fdecfe8b63d56983846f1601971ed680d624118d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -324,7 +324,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 ## <a name="next-steps"></a>Passaggi successivi
 È stato presentato Analisi di flusso, un servizio gestito per l'analisi di flusso su dati provenienti da Internet delle cose. Per altre informazioni su questo servizio, vedere:
 
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
@@ -333,7 +333,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
+[stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 

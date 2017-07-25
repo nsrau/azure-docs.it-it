@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 23ca92cc12ed0ff70a4ad6147609289eef061a93
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c0fabf155d4feb6d88ef7d7e087cc1654f44978b
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-windows-vms"></a>Linee guida per l'infrastruttura di archiviazione di Azure per macchine virtuali Windows
@@ -34,7 +34,7 @@ Decisioni:
 
 * Si intende usare Managed Disks di Azure o i dischi non gestiti?
 * È necessario usare l'archiviazione standard o Premium per il carico di lavoro?
-* È necessario lo striping del disco per creare dischi più grandi di 1023 TB?
+* È necessario lo striping del disco per creare dischi più grandi di 4TB?
 * È necessario lo striping del disco per ottenere prestazioni di I/O ottimali per il carico di lavoro?
 * Quali sono i set di account di archiviazione necessari per l’hosting dell’infrastruttura o del carico di lavoro IT?
 
@@ -63,20 +63,19 @@ Per garantire che i dati rimangano protetti da eventi di manutenzione non pianif
 
 Sono disponibili altre informazioni sulle [opzioni di replica per la disponibilità elevata](../../storage/storage-introduction.md#replication-for-durability-and-high-availability).
 
-I dischi dati e del sistema operativo hanno una dimensione massima di 1.023 gigabyte (GB). La dimensione massima di un BLOB è di 1.024 GB, compresi i metadati (piè di pagina) del file VHD (un GB corrisponde a 1.024<sup>3</sup> byte). È possibile usare gli spazi di archiviazione in Windows Server 2012 per superare questo limite tramite il pooling dei dischi dati per la presentazione di volumi logici superiori a 1023 GB per la VM.
+I dischi dati e del sistema operativo hanno una dimensione massima di 4TB. È possibile usare gli spazi di archiviazione in Windows Server 2012 o versione successiva per superare questo limite tramite il pooling dei dischi dati per la presentazione di volumi logici superiori a 4TB per la VM.
 
 Quando si progettano le distribuzioni di Archiviazione di Azure, esistono alcuni limiti di scalabilità. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-subscription-service-limits.md#storage-limits). Vedere anche [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../storage/storage-scalability-targets.md).
 
 Quanto all'archiviazione delle applicazioni, è possibile archiviare dati oggetto non strutturati, ad esempio documenti, immagini, backup, dati di configurazione, log e così via usando l'archiviazione BLOB. Anziché la scrittura in un disco virtuale collegato alla macchina virtuale, l'applicazione può scrivere direttamente nell'archiviazione BLOB di Azure. L'archiviazione BLOB offre anche la possibilità di [livelli di archiviazione per accesso frequente e accesso sporadico](../../storage/storage-blob-storage-tiers.md) in base alle esigenze di disponibilità e ai vincoli di costo.
 
 ## <a name="striped-disks"></a>Dischi con striping
-Oltre a consentire di creare dischi di dimensioni superiori a 1023 GB, in molti casi l'uso dello striping per i dischi dati contribuisce a migliorare le prestazioni, consentendo a più BLOB di supportare l'archiviazione per un singolo volume. Con lo striping, le operazioni I/O necessarie per scrivere e leggere dati da un singolo disco logico procedono in parallelo.
+Oltre a consentire di creare dischi di dimensioni superiori a 4TB, in molti casi l'uso dello striping per i dischi dati contribuisce a migliorare le prestazioni, consentendo a più BLOB di supportare l'archiviazione per un singolo volume. Con lo striping, le operazioni I/O necessarie per scrivere e leggere dati da un singolo disco logico procedono in parallelo.
 
-Azure impone limiti riguardo al numero di dischi dati e alla quantità della larghezza di banda disponibile a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Azure impone limiti riguardo al numero di dischi dati e alla quantità della larghezza di banda disponibile a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](sizes.md).
 
 Se si usa lo striping del disco per i dischi dati di Azure, considerare le linee guida seguenti:
 
-* I dischi dati devono essere sempre della massima dimensione (1023 GB).
 * Collegare i dischi dati delle dimensioni massime consentite per le dimensioni della macchina virtuale.
 * Usare gli spazi di archiviazione.
 * Evitare di usare le opzioni di caching del disco di dati di Azure (criterio di caching = Nessuno).

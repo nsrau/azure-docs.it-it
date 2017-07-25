@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c35d1548262f25e65c391c927919b8acf1411e10
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 467626354cff5643f5f6e602b9d7b72c6c1281ec
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -811,10 +811,10 @@ Per accedere ad Azure Cosmos DB da DSVM, è necessario eseguire questa procedura
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
-Dopo avere importato i dati è possibile passare a Jupyter e aprire il notebook denominato *DocumentDBSample* contenente il codice Python per accedere a DocumentDB ed eseguire alcune query di base. Per altre informazioni su DocumentDB, vedere la [pagina della documentazione](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+Dopo avere importato i dati è possibile passare a Jupyter e aprire il notebook denominato *DocumentDBSample* contenente il codice Python per accedere a DocumentDB ed eseguire alcune query di base. Per altre informazioni su Cosmos DB, vedere la [pagina della documentazione](https://docs.microsoft.com/azure/cosmos-db/) del servizio.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Compilare report e dashboard usando Power BI Desktop
-Verrà ora visualizzato in Power BI il file JSON sui vulcani usato nell'esempio precedente di Cosmos DB per ottenere informazioni visive sui dati. I passaggi dettagliati sono disponibili nell' [articolo relativo a Power BI](../documentdb/documentdb-powerbi-visualize.md). I passaggi generali sono i seguenti:
+Verrà ora visualizzato in Power BI il file JSON sui vulcani usato nell'esempio precedente di Cosmos DB per ottenere informazioni visive sui dati. I passaggi dettagliati sono disponibili nell' [articolo relativo a Power BI](../cosmos-db/powerbi-visualize.md). I passaggi generali sono i seguenti:
 
 1. Aprire Power BI Desktop ed eseguire "Recupera dati". Specificare l'URL come: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. Verranno visualizzati i record JSON importati come elenco.
@@ -842,7 +842,7 @@ I dati sono ora inclusi nel modello di dati di Power BI. Power BI Desktop dovreb
 
 ![Power BI Desktop](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
-È possibile avviare la compilazione di report e visualizzazioni usando il modello di dati. Per compilare un report, è possibile seguire i passaggi in questo [articolo relativo a Power BI](../documentdb/documentdb-powerbi-visualize.md#build-the-reports) . Il risultato finale sarà un report simile al seguente.
+È possibile avviare la compilazione di report e visualizzazioni usando il modello di dati. Per compilare un report, è possibile seguire i passaggi in questo [articolo relativo a Power BI](../cosmos-db/powerbi-visualize.md#build-the-reports) . Il risultato finale sarà un report simile al seguente.
 
 ![Visualizzazione report di Power BI Desktop - Connettore Power BI](./media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)
 

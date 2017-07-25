@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: zivr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 28c2fb5a67eca0c5ab2f0299bba7c11375e10558
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f5e52f4642b85a75f0c9f1892fbf0e565aa8b35b
 ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -36,4 +36,5 @@ Vi sono casi tuttavia in cui gli aggiornamenti hanno conseguenze sulle macchine 
 
 -   La manutenzione con riavvio delle VM che richiede un riavvio a la ridistribuzione nelle macchine virtuali ospitate.
 
-Si noti che questa pagina descrive il modo in cui Microsoft Azure esegue la manutenzione pianificata. Per altre informazioni sugli eventi non pianificati (interruzioni), vedere [Gestire la disponibilità delle macchine virtuali](../windows/manage-availability.md).
+Si noti che questa pagina descrive il modo in cui Microsoft Azure esegue la manutenzione pianificata. Per altre informazioni sugli eventi non pianificati (interruzioni), vedere [Gestire la disponibilità delle macchine virtuali](../linux/manage-availability.md).
+

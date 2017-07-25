@@ -1,5 +1,5 @@
 ---
-title: Gestione dell&quot;ordine degli eventi e del ritardo con Analisi di flusso di Azure | Documentazione Microsoft
+title: Gestione dell'ordine degli eventi e del ritardo con Analisi di flusso di Azure | Documentazione Microsoft
 description: Informazioni su come funziona Analisi di flusso con gli eventi non in ordine o in ritardo nei flussi di dati.
 keywords: non in ordine, in ritardo, eventi
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 02c854727e5185968dba49233df82ea6ff336ec8
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: d7a5620aef1f28ea065ec10ce095f7f3904a8060
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -65,11 +65,11 @@ Per consentire ad Analisi di flusso di correggere un evento non in ordine è pos
 Un effetto collaterale della memorizzazione nel buffer è che l'output viene **ritardato della stessa quantità di tempo**. È possibile ottimizzare il valore per ridurre il numero di eventi non in ordine e mantenere bassa la latenza del processo.
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ottenere assistenza, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
-* [Introduzione ad Analisi di flusso](stream-analytics-get-started.md)
+* [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
 * [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)

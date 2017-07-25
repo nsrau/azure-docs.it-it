@@ -1,6 +1,6 @@
 ---
 title: Creare un cluster di Azure Service Fabric da un modello | Documentazione Microsoft
-description: Questo articolo descrive come configurare un cluster di Service Fabric sicuro in Azure usando Azure Resource Manager, Azure Key Vault e Azure Active Directory (Azure AD) per l&quot;autenticazione client.
+description: Questo articolo descrive come configurare un cluster di Service Fabric sicuro in Azure usando Azure Resource Manager, Azure Key Vault e Azure Active Directory (Azure AD) per l'autenticazione client.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/22/2017
+ms.date: 06/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b80ee30379e9aac207cfe420cae17da57ea123a5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8d876a0f2168ee9375a3905d5d5a562ab1194cf3
 ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
-ms.lasthandoff: 03/02/2017
-
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Creare un cluster di Service Fabric usando Azure Resource Manager
@@ -230,7 +230,7 @@ Se i certificati sono già stati caricati nell'insieme di credenziali delle chia
 
 ```powershell
 
-$ResouceGroup = "chackowestuskv"
+$ResourceGroup = "chackowestuskv"
 $VName = "chackokv2"
 $SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
 $locationRegion = "westus"
@@ -238,7 +238,7 @@ $newCertName = "chackotestcertificate1"
 $dnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
 $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
 
- Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
+ Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResourceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
 
 ```
 
@@ -340,7 +340,7 @@ In questa sezione, gli output dei comandi di PowerShell precedenti verranno usat
 Nella [raccolta di modelli di avvio rapido di Azure in GitHub][azure-quickstart-templates] sono disponibili alcuni modelli di Resource Manager di esempio. Questi modelli possono essere usati come punto di partenza per il modello del cluster.
 
 ### <a name="create-the-resource-manager-template"></a>Creare il modello di Azure Resource Manager
-Questa guida usa il modello di esempio di un [cluster protetto a&5; nodi][service-fabric-secure-cluster-5-node-1-nodetype] e i relativi parametri. Scaricare `azuredeploy.json` e `azuredeploy.parameters.json` sul computer e aprire entrambi i file in un editor di testo.
+Questa guida usa il modello di esempio di un [cluster protetto a 5 nodi][service-fabric-secure-cluster-5-node-1-nodetype] e i relativi parametri. Scaricare `azuredeploy.json` e `azuredeploy.parameters.json` sul computer e aprire entrambi i file in un editor di testo.
 
 ### <a name="add-certificates"></a>Aggiungere certificati
 I certificati vengono aggiunti a un modello di Resource Manager per cluster facendo riferimento all'insieme di credenziali delle chiavi che contiene le chiavi del certificato. È consigliabile inserire i valori dell'insieme di credenziali delle chiavi in un file di parametri del modello di Resource Manager. In questo modo, il file di modello di Resource Manager è riutilizzabile e non contiene valori specifici di una distribuzione.
@@ -460,7 +460,7 @@ La configurazione di Azure AD creata prima può essere inserita nel modello di R
 }
 ```
 
-### <a name="a-configure-arm-aconfigure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Configurare i parametri del modello di Resource Manager
+### <a "configure-arm" ></a>Configurare i parametri del modello di Resource Manager
 Infine, usare i valori di output dei comandi di PowerShell per Azure AD e dell'insieme di credenziali delle chiavi per compilare il file dei parametri:
 
 ```json
@@ -680,4 +680,5 @@ FabricClient e FabricGateway eseguono un'autenticazione reciproca. Durante l'aut
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
+
 

@@ -1,6 +1,6 @@
 ---
 title: Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio | Microsoft Docs
-description: Registrare con Azure Active Directory i dispositivi Windows aggiunti a un dominio in modo automatico e invisibile all&quot;utente.
+description: Registrare con Azure Active Directory i dispositivi Windows aggiunti a un dominio in modo automatico e invisibile all'utente.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.reviewer: jairoc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 9934902811354ffa4047d70d995a6dd44be0229b
+ms.contentlocale: it-it
 ms.lasthandoff: 03/10/2017
-
 
 ---
 # <a name="get-started-with-azure-active-directory-device-registration"></a>Introduzione a Registrazione dispositivo Azure Active Directory
@@ -51,19 +52,19 @@ Per le istruzioni più aggiornate, vedere [Come configurare la registrazione aut
 
 **Per abilitare il servizio Registrazione dispositivo Azure Active Directory:**
 
-1.    Accedere al portale di Microsoft Azure come amministratore.
+1.  Accedere al portale di Microsoft Azure come amministratore.
 
-2.    Nel riquadro sinistro selezionare **Active Directory**.
+2.  Nel riquadro sinistro selezionare **Active Directory**.
 
-3.    Selezionare la propria directory nella scheda Directory.
+3.  Selezionare la propria directory nella scheda Directory.
 
-4.    Fare clic su **Configure**.
+4.  Fare clic su **Configure**.
 
-5.    Scorrere fino a **Dispositivi**.
+5.  Scorrere fino a **Dispositivi**.
 
-6.    Selezionare Tutti per Gli utenti possono registrare i propri dispositivi in Azure AD.
+6.  Selezionare Tutti per Gli utenti possono registrare i propri dispositivi in Azure AD.
 
-7.    Selezionare il numero massimo di dispositivi da autorizzare per l'utente.
+7.  Selezionare il numero massimo di dispositivi da autorizzare per l'utente.
 
 L'iscrizione a Microsoft Intune o Gestione dei dispositivi mobili per Office 365 richiede la registrazione del dispositivo. Se è stato configurato uno di questi servizi, sarà selezionata l'opzione **Tutti** e disabilitata l'opzione **Nessuno**. Assicurarsi che siano configurati correttamente e di avere le licenze appropriate.
 
@@ -79,19 +80,19 @@ Nel portale dell'amministratore di Azure è possibile visualizzare, bloccare e s
 
 **Per visualizzare e gestire oggetti dispositivo in Azure Active Directory:**
  
-1.    Accedere al portale di Microsoft Azure come amministratore.
+1.  Accedere al portale di Microsoft Azure come amministratore.
 
-2.    Nel riquadro sinistro selezionare **Active Directory**.
+2.  Nel riquadro sinistro selezionare **Active Directory**.
 
-3.    Selezionare la propria directory.
+3.  Selezionare la propria directory.
 
-4.    Selezionare **Utenti**. 
+4.  Selezionare **Utenti**. 
 
 5.  Fare clic sull'utente per il quale si vogliono visualizzare i dispositivi.
 
-6.    Selezionare **Dispositivi**.
+6.  Selezionare **Dispositivi**.
 
-7.    Selezionare **Dispositivi registrati**.
+7.  Selezionare **Dispositivi registrati**.
 
 A questo punto è possibile esaminare, bloccare o sbloccare i dispositivi registrati dell'utente.
 I dispositivi Windows 10 aggiunti a un dominio locale e registrati automaticamente non vengono visualizzati nella scheda Utenti. Usare il comando di PowerShell Get-MsolDevice per trovare tutti i dispositivi dell'organizzazione. 

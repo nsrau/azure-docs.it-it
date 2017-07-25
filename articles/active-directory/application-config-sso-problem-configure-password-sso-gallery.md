@@ -1,6 +1,6 @@
 ---
-title: Problema nella configurazione dell&quot;accesso Single Sign-On basato su password per un&quot;applicazione nella raccolta di Azure AD | Microsoft Docs
-description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell&quot;accesso Single Sign-On basato su password per applicazioni incluse nella raccolta delle applicazioni di Azure AD
+title: Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione nella raccolta di Azure AD | Microsoft Docs
+description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell'accesso Single Sign-On basato su password per applicazioni incluse nella raccolta delle applicazioni di Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4394a5ddd17e635661cd89b42f76b0558ffa17ab
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 32c6d4ed5470077856d4ab175a5df5188b3690a6
+ms.contentlocale: it-it
+ms.lasthandoff: 06/13/2017
 
 ---
 
@@ -67,7 +67,7 @@ Esistono due soluzioni principali a questo problema:
 
 -   A seconda delle impostazioni di sicurezza abilitate in Internet Explorer, se il sito Web non rientra in un'**area attendibile**, è possibile che allo script Microsoft venga impedito di eseguire l'applicazione.
 
-  *  Per risolvere il problema, chiedere all'utente di **aggiungere il sito Web dell'applicazione** all'elenco **Siti attendibili** nelle **impostazioni di sicurezza di Internet Explorer**. Per le istruzioni dettagliate, rimandare l'utente all'articolo relativo a [come aggiungere un sito all'elenco dei siti attendibili](https://answers.microsoft.com/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5).
+  *  Per risolvere il problema, chiedere all'utente di **aggiungere il sito Web dell'applicazione** all'elenco **Siti attendibili** nelle **impostazioni di sicurezza di Internet Explorer**. Per le istruzioni dettagliate, rimandare l'utente all'articolo relativo a [come aggiungere un sito all'elenco dei siti attendibili](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5).
 
 -   La convalida di sicurezza di Internet Explorer può, in casi rari, fare sì che pagina venga caricata più lentamente rispetto all'esecuzione dello script Microsoft.
 

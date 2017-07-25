@@ -1,6 +1,6 @@
 ---
 title: Come configurare una nuova applicazione multi-tenant | Microsoft Docs
-description: Come configurare l&quot;accesso Single Sign-on per un&quot;applicazione personalizzata che si sta sviluppando e registrando con Azure AD.
+description: Come configurare l'accesso Single Sign-on per un'applicazione personalizzata che si sta sviluppando e registrando con Azure AD.
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 2a6831cbfb747dd134a9cc17ed0f1925d8cc62d4
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

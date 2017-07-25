@@ -1,6 +1,6 @@
 ---
 title: 'Connettere la rete locale a una rete virtuale di Azure: VPN da sito a sito: interfaccia della riga di comando | Microsoft Docs'
-description: "Passaggi per creare una connessione IPsec dalla rete locale a una rete virtuale di Azure tramite Internet pubblico. Questa procedura consentirà di creare una connessione gateway VPN da sito a sito cross-premise usando l&quot;interfaccia della riga di comando."
+description: "Passaggi per creare una connessione IPsec dalla rete locale a una rete virtuale di Azure tramite Internet pubblico. Questa procedura consentirà di creare una connessione gateway VPN da sito a sito cross-premise usando l'interfaccia della riga di comando."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 06/01/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7132c83168efcebc9ac03b42afdec9f760e4fcbe
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 43ac7ccada8aa156d41b42839cac0644c061f25c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -28,11 +28,11 @@ ms.lasthandoff: 05/09/2017
 Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare una connessione gateway VPN da sito a sito dalla rete locale alla rete virtuale. I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:<br>
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - Interfaccia della riga di comando](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Distribuzione classica - Portale di Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Distribuzione classica - Portale classico](vpn-gateway-site-to-site-create.md)
+> * [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Portale di Azure (classico)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Portale classico (versione classica)](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -45,10 +45,10 @@ Una connessione gateway VPN da sito a sito viene usata per connettere la rete lo
 
 Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti:
 
-* Assicurarsi di voler usare il modello di distribuzione Resource Manager. [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
+* Assicurarsi di voler usare il modello di distribuzione Resource Manager. [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-rm-include.md)]
 * Un dispositivo VPN compatibile e un utente che sia in grado di configurarlo. Per altre informazioni sui dispositivi VPN compatibili e sulla configurazione dei dispositivi, vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md).
 * Un indirizzo IPv4 pubblico esterno per il dispositivo VPN. L'indirizzo IP non può trovarsi dietro un NAT.
-* Se non si ha familiarità con gli intervalli degli indirizzi IP disponibili nella configurazione della rete locale, è necessario coordinarsi con qualcuno che possa fornire tali dettagli. Quando si crea questa configurazione, è necessario specificare i prefissi degli intervalli di indirizzi IP che Azure instraderà alla posizione locale. Nessuna delle subnet della rete locale può sovrapporsi alle subnet della rete virtuale a cui ci si vuole connettere. 
+* Se non si ha familiarità con gli intervalli degli indirizzi IP disponibili nella configurazione della rete locale, è necessario coordinarsi con qualcuno che possa fornire tali dettagli. Quando si crea questa configurazione, è necessario specificare i prefissi degli intervalli di indirizzi IP che Azure instraderà alla posizione locale. Nessuna delle subnet della rete locale può sovrapporsi alle subnet della rete virtuale a cui ci si vuole connettere.
 * La versione più recente dei comandi dell'interfaccia della riga di comando (2.0 o successiva). Per informazioni sull'installazione dei comandi dell'interfaccia della riga di comando, vedere [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Installare l'interfaccia della riga di comando di Azure 2.0) e [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Introduzione all'interfaccia della riga di comando di Azure 2.0).
 
 ### <a name="example-values"></a>Valori di esempio
@@ -67,7 +67,7 @@ Subnet                  = 10.12.0.0/24
 GatewaySubnet           = 10.12.255.0/27 
 LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
-LocalAddrPrefix1        = 10.0.0.0/24 
+LocalAddrPrefix1        = 10.0.0.0/24
 LocalAddrPrefix2        = 20.0.0.0/24   
 GatewayName             = VNet1GW 
 PublicIP                = VNet1GWIP 
@@ -90,7 +90,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="VNet"></a>3. Crea rete virtuale
 
-Se non si ha già una rete virtuale, crearne una usando il comando [az network vnet create](/cli/azure/network/vnet#create). Quando si crea una rete virtuale, verificare che gli spazi di indirizzi specificati non si sovrappongano agli spazi di indirizzi presenti nella rete locale. 
+Se non si ha già una rete virtuale, crearne una usando il comando [az network vnet create](/cli/azure/network/vnet#create). Quando si crea una rete virtuale, verificare che gli spazi di indirizzi specificati non si sovrappongano agli spazi di indirizzi presenti nella rete locale.
 
 L'esempio seguente crea una rete virtuale denominata "TestVNet1" e una subnet "Subnet1".
 
@@ -146,12 +146,12 @@ Usare i valori seguenti:
 
 * Il valore di *--gateway-type* per una configurazione da sito a sito è *Vpn*. Il tipo di gateway è sempre specifico della configurazione che si sta implementando. Per altre informazioni, vedere [Tipi di gateway](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 * Il valore di *--vpn-type* può essere *RouteBased*, talvolta definito gateway dinamico nella documentazione, o *PolicyBased*, talvolta definito gateway statico nella documentazione. L'impostazione è specifica dei requisiti del dispositivo a cui ci si connette. Per altre informazioni sui tipi di gateway VPN, vedere [Informazioni sulle impostazioni di configurazione del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
-* Il valore di *--sku* può essere Basic, Standard o HighPerformance. Esistono limitazioni di configurazione per alcuni SKU. Per altre informazioni, vedere [SKU del gateway](vpn-gateway-about-vpngateways.md#gateway-skus).
+* Selezionare lo SKU del gateway da usare. Esistono limitazioni di configurazione per alcuni SKU. Per altre informazioni, vedere [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Creare il gateway VPN usando il comando [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create). Se si esegue questo comando usando il parametro '--no-wait', non viene visualizzato alcun output o commento. Questo parametro consente la creazione in background del gateway. La creazione di un gateway richiede circa 45 minuti.
 
 ```azurecli
-az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. Configurare il dispositivo VPN
@@ -183,15 +183,19 @@ La connessione verrà stabilita in breve tempo.
 
 ## <a name="toverify"></a>10. Verificare la connessione VPN
 
-[!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)] 
+[!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 Per usare un altro metodo per verificare la connessione, vedere [Verificare una connessione di Gateway VPN](vpn-gateway-verify-connection-resource-manager.md).
+
+## <a name="connectVM"></a>Per connettersi a una macchina virtuale
+
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 ## <a name="common-tasks"></a>Attività comuni
 
 Questa sezione contiene i comandi comuni che risultano utili quando si usano configurazioni da sito a sito. Per l'elenco completo dei comandi di rete dell'interfaccia della riga di comando, vedere [Azure CLI - Networking](/cli/azure/network) (Interfaccia della riga di comando di Azure - Rete).
 
-[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)] 
+[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -199,3 +203,4 @@ Questa sezione contiene i comandi comuni che risultano utili quando si usano con
 * Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Per informazioni sul tunneling forzato, vedere [Configurare il tunneling forzato](vpn-gateway-forced-tunneling-rm.md).
 * Per un elenco di comandi dell'interfaccia della riga di comando di Azure di rete, vedere [Azure CLI](https://docs.microsoft.com/cli/azure/network) (Interfaccia della riga di comando di Azure).
+

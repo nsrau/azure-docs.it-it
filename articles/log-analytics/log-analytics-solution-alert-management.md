@@ -1,6 +1,6 @@
 ---
 title: La soluzione Gestione avvisi in Operations Management Suite (OMS) | Documentazione Microsoft
-description: La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nell&quot;ambiente.  Oltre a consolidare gli avvisi generati in OMS, importa gli avvisi da gruppi di gestione di System Center Operations Manager (SCOM) collegati in Log Analytics.
+description: La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nell'ambiente.  Oltre a consolidare gli avvisi generati in OMS, importa gli avvisi da gruppi di gestione di System Center Operations Manager (SCOM) collegati in Log Analytics.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 885de1e94e3ce520621dc8dc7a4a495501f6a429
-ms.openlocfilehash: 35b4c30de20c46312bd7e4524a4264450184138a
-ms.lasthandoff: 02/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3714730dce9c856f602cf46e013b1ff6a89cfb07
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>La soluzione Gestione avvisi in Operations Management Suite (OMS)
 
 ![Icona di Alert Management](media/log-analytics-solution-alert-management/icon.png)
 
-La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, inclusi quelli [creati da Log Analytics](log-analytics-alerts.md) o [importati da Nagios o Zabbix](log-analytics-linux-agents.md#linux-alerts).  La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager (SCOM) connesso](log-analytics-om-agents.md).
+La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, inclusi quelli [creati da Log Analytics](log-analytics-alerts.md) o [importati da Nagios o Zabbix](log-analytics-linux-agents.md).  La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager (SCOM) connesso](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 La soluzione funziona con i record nel repository di Log Analytics con un tipo di **avviso**, pertanto è necessario eseguire qualsiasi configurazione necessaria per raccogliere questi record.
 
 - Per gli avvisi di Log Analytics, [creare regole di avviso](log-analytics-alerts.md) per creare i record degli avvisi direttamente nel repository.
-- Per gli avvisi di Nagios e Zabbix, [configurare tali server](log-analytics-linux-agents.md#linux-alerts) per inviare avvisi a Log Analytics.
+- Per gli avvisi di Nagios e Zabbix, [configurare tali server](log-analytics-linux-agents.md) per inviare avvisi a Log Analytics.
 - Per gli avvisi SCOM,[connettere il gruppo di gestione Operations Manager all'area di lavoro Log Analytics](log-analytics-om-agents.md).  Gli avvisi creati in SCOM verranno importati in Log Analytics.  
 
 ## <a name="configuration"></a>Configurazione
@@ -64,7 +64,7 @@ Quando si aggiunge la soluzione Alert Management all'area di lavoro di OMS, il r
 
 ![Riquadro di Alert Management](media/log-analytics-solution-alert-management/tile.png)
 
-Fare clic su sul riquadro **Gestione avvisi** per aprire il relativo** **dashboard.  Il dashboard include le colonne nella tabella seguente.  Ogni colonna elenca i primi dieci avvisi per numero corrispondente ai criteri della colonna per l'ambito e l'intervallo di tempo specificati.  È possibile eseguire una ricerca di log che fornisce l'intero elenco facendo clic su **Visualizza tutto** nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
+Fare clic su sul riquadro **Gestione avvisi** per aprire il relativo**** dashboard.  Il dashboard include le colonne nella tabella seguente.  Ogni colonna elenca i primi dieci avvisi per numero corrispondente ai criteri della colonna per l'ambito e l'intervallo di tempo specificati.  È possibile eseguire una ricerca di log che fornisce l'intero elenco facendo clic su **Visualizza tutto** nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
 
 | Colonna | Descrizione |
 |:--- |:--- |

@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/11/2017
+ms.date: 05/30/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 1d208f931af4704528309780b45e170627f1753c
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: db851023c8620bec6583184326029d1a3e99ad88
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -36,8 +37,8 @@ Questa guida illustra come usare **Cache Redis di Azure**. Cache Redis di Micros
 Cache Redis di Microsoft Azure è disponibile nei seguenti livelli:
 
 * **Basic**: singolo nodo. Più dimensioni fino a 53 GB.
-* **Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del&99;,9%.
-* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB (contattare Microsoft per ulteriori informazioni). Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del&99;,9%.
+* **Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del 99,9%.
+* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 530 GB. Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Per informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache][Cache Pricing Details].
 
@@ -210,7 +211,7 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 * È anche possibile usare Cache Redis di Azure con servizi e strumenti di terze parti come Redsmin e Redis Desktop Manager.
   * Per altre informazioni su Redsmin, vedere [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] (Come recuperare una stringa di connessione di Azure Redis e usarla con Redsmin).
   * Per accedere ai dati in Cache Redis di Azure e controllarli con una GUI, usare [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
-* Vedere la documentazione su [Redis][redis] e in particolare l'articolo sui [tipi di dati Redis][redis data types] e l'[introduzione di&15; minuti ai tipi di dati Redis][a fifteen minute introduction to Redis data types].
+* Vedere la documentazione su [Redis][redis] e in particolare l'articolo sui [tipi di dati Redis][redis data types] e l'[introduzione di 15 minuti ai tipi di dati Redis][a fifteen minute introduction to Redis data types].
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps

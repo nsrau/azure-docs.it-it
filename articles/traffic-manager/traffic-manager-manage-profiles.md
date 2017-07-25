@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 3d30024920295298ad2a8a6e22e11ef829934255
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -45,7 +45,7 @@ I profili di Gestione traffico di Azure usano metodi di routing del traffico per
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Disabilitare, abilitare o eliminare un profilo
 
-È possibile disabilitare un profilo di Gestione traffico esistente in modo che non indirizzi le richieste dell'utente agli endpoint configurati. Quando si disabilita un profilo di Gestione traffico, il profilo stesso e le informazioni in esso contenute rimangono invariati e possono essere modificati nell'interfaccia di Gestione traffico.  I riferimenti vengono ripristinati quando si riabilita il profilo. Un profilo di Gestione traffico creato nel portale di Azure classico viene abilitato automaticamente. Se si decide che un profilo non sarà più necessario, è possibile eliminarlo.
+È possibile disabilitare un profilo di Gestione traffico esistente in modo che non indirizzi le richieste dell'utente agli endpoint configurati. Quando si disabilita un profilo di Gestione traffico, il profilo stesso e le informazioni in esso contenute rimangono invariati e possono essere modificati nell'interfaccia di Gestione traffico.  I riferimenti vengono ripristinati quando si riabilita il profilo. Un profilo di Gestione traffico creato nel portale di Azure viene abilitato automaticamente. Se si decide che un profilo non sarà più necessario, è possibile eliminarlo.
 
 ### <a name="to-disable-a-profile"></a>Per disabilitare un profilo
 

@@ -16,20 +16,52 @@ ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0630f43642a0be98c470032d32b74ca14ee144e5
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 07ca2321852e276502187e768177e7e82bdfd080
 ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="migrate-your-schema-to-sql-data-warehouse"></a>Eseguire la migrazione dello schema in SQL Data Warehouse
-I riepiloghi seguenti consentono di capire le differenze tra l'uso di SQL Server e di SQL Data Warehouse per la migrazione di un database.
+# <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Eseguire la migrazione degli schemi a SQL Data Warehouse
+Indicazioni per la migrazione degli schemi SQL a SQL Data Warehouse. 
 
-## <a name="table-migration"></a>Migrazione di tabelle
-Quando si esegue la migrazione di tabelle, è opportuno acquisire familiarità con le funzionalità delle tabelle di SQL Data Warehouse.  La [panoramica delle tabelle][table overview] è un ottimo punto di partenza.  In questo articolo vengono presentate le considerazioni più importanti da tenere presenti quando si crea una tabella, ad esempio statistiche, distribuzione, partizionamento e indicizzazione di una tabella.  Vengono anche presentate alcune [funzionalità non supportate][unsupported table features] e soluzioni alternative.
+## <a name="plan-your-schema-migration"></a>Pianificare la migrazione dello schema
 
-SQL Data Warehouse supporta i tipi di dati business comuni.  Vedere l'articolo sui [tipi di dati][data types] per un elenco dei [tipi di dati non supportati][unsupported data types] e supportati.  Nell'articolo sui [tipi di dati][data types] è contenuta anche una query per identificare i [tipi di dati non supportati][unsupported data types].  Quando si convertono i tipi di dati, assicurarsi di esaminare le [procedure consigliate per il tipo di dati][data type best practices].
+Per pianificare una migrazione vedere la [panoramica delle tabelle][table overview] per aspetti della creazione delle tabelle come statistiche, distribuzione, partizionamento e indicizzazione.  Vengono anche presentate alcune [funzionalità non supportate per le tabelle][unsupported table features] e le soluzioni alternative.
+
+## <a name="use-user-defined-schemas-to-consolidate-databases"></a>Usare gli schemi definiti dall'utente per consolidare i database
+
+È probabile che carico di lavoro esistente includa più di un database. Ad esempio un data warehouse di SQL Server può includere un database di staging, un database del data warehouse e alcuni database del data mart. In questa topologia ogni database viene eseguito come carico di lavoro separato con criteri di protezione separati.
+
+Al contrario, SQL Data Warehouse esegue tutto il carico di lavoro del data warehouse all'interno di un database. I join tra database non sono consentiti. SQL Data Warehouse prevede pertanto che tutte le tabelle usate dal data warehouse siano archiviate in un unico database.
+
+È consigliabile usare schemi definiti dall'utente per consolidare il carico di lavoro esistente in un unico database. Per esempi, vedere [Schemi definiti dall'utente](sql-data-warehouse-develop-user-defined-schemas.md)
+
+## <a name="use-compatible-data-types"></a>Usare tipi di dati compatibili
+Modificare i tipi di dati in modo che siano compatibili con SQL Data Warehouse. Per l'elenco dei tipi di dati supportati e non supportati, vedere [Tipi di dati][data types]. L'argomento offre soluzioni alternative per i tipi non supportati. Offre anche una query per identificare i tipi esistenti che non sono supportati in SQL Data Warehouse.
+
+## <a name="minimize-row-size"></a>Ridurre al minimo le dimensioni delle righe
+Per prestazioni ottimali, ridurre al minimo la lunghezza delle righe delle tabelle. Dato che a righe più brevi corrispondono prestazioni migliori, usare i tipi di dati più brevi che funzionano per i dati. 
+
+Per la larghezza della riga della tabella, PolyBase ha un limite pari a 1 MB.  Se si prevede di caricare dati in SQL Data Warehouse con PolyBase, aggiornare le tabelle in modo che le righe abbiano una larghezza massima inferiore a 1 MB. 
+
+<!--
+- For example, this table uses variable length data but the largest possible size of the row is still less than 1 MB. PolyBase will load data into this table.
+
+- This table uses variable length data and the defined row width is less than one MB. When loading rows, PolyBase allocates the full length of the variable-length data. The full length of this row is greater than one MB.  PolyBase will not load data into this table.  
+
+-->
+
+## <a name="specify-the-distribution-option"></a>Specificare l'opzione di distribuzione
+SQL Data Warehouse è un sistema di database distribuito. Ogni tabella è distribuita o replicata nei nodi di calcolo. Un'opzione della tabella consente di specificare la modalità di distribuzione dei dati. Le scelte disponibili sono round robin, replica o distribuzione hash. Ognuna presenta vantaggi e svantaggi. Se non si specifica l'opzione di distribuzione, SQL Data Warehouse usa round robin come impostazione predefinita.
+
+- La modalità round robin è la modalità predefinita. È la più semplice da usare e carica i dati alla massima velocità, ma lo spostamento di dati richiesto dai join determina un rallentamento delle prestazioni delle query.
+- Nell'approccio con tabelle replicate, viene archiviata una copia della tabella in ogni nodo di calcolo. Le tabelle replicate sono efficienti perché non richiedono lo spostamento di dati per i join e le aggregazioni. Tuttavia richiedono risorse di archiviazione aggiuntive e di conseguenza sono la scelta migliore per tabelle di dimensioni contenute.
+- La distribuzione hash distribuisce le righe su tutti i nodi tramite una funzione hash. Le tabelle con distribuzione hash sono il nucleo di SQL Data Warehouse e sono progettate per garantire alte prestazioni per le query su tabelle di grandi dimensioni. Questa opzione richiede un certo grado di pianificazione nella scelta della colonna ottimale per la distribuzione dei dati. Se tuttavia al primo tentativo non si sceglie la colonna migliore, è possibile ridistribuire facilmente i dati in base a un'altra colonna. 
+
+Per scegliere la migliore opzione di distribuzione per ogni tabella, vedere [Tabelle con distribuzione](sql-data-warehouse-tables-distribute.md).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo la migrazione dello schema del database a SQL Data Warehouse, passare a uno degli articoli seguenti:
@@ -49,7 +81,6 @@ Per altre informazioni, vedere l'articolo con le [procedure consigliate][best pr
 [unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [data types]: ./sql-data-warehouse-tables-data-types.md
 [unsupported data types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
-[data type best practices]: ./sql-data-warehouse-tables-data-types.md#data-type-best-practices
 
 <!--MSDN references-->
 

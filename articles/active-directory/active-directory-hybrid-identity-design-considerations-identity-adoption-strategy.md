@@ -1,6 +1,6 @@
 ---
 title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: definire la strategia di adozione della soluzione ibrida di gestione delle identità | Documentazione Microsoft"
-description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l&quot;autenticazione dell&quot;utente e prima di consentire l&quot;accesso all&quot;applicazione. Se tali condizioni vengono soddisfatte, l&quot;utente viene autenticato e gli viene consentito l&quot;accesso all&quot;applicazione.
+description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
@@ -50,9 +51,9 @@ La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna
 
 | Strategia | Vantaggi | Svantaggi: |
 | --- | --- | --- |
-| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Niente da installare in locale, nessun hardware aggiuntivo necessario<br> Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud  <br>  Le password per le identità cloud e locale possono essere uguali oppure no |
-| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud  <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br>  Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
-| **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On  <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br>  Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
+| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Niente da installare in locale, nessun hardware aggiuntivo necessario<br>Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud  <br> Le password per le identità cloud e locale possono essere uguali oppure no |
+| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud  <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br> Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
+| **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On  <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
 
 ### <a name="client-experience"></a>Esperienza client
 La strategia scelta determinerà l'esperienza di accesso per gli utenti.  Le tabelle seguenti forniscono informazioni su ciò che gli utenti dovranno aspettarsi dall'esperienza di accesso.  Si noti che non tutti i provider di identità federate supportano l'accesso Single Sign-On in tutti gli scenari.
@@ -176,7 +177,7 @@ In questa attività verrà definita la strategia di autenticazione a più fattor
 
 Opzioni di progettazione per l'autenticazione a più fattori:
 
-| Asset da proteggere | Autenticazione a più fattori nel cloud | Autenticazione a più fattori in locale |
+| Asset da proteggere | Autenticazione a più fattori nel cloud | MFA in locale |
 | --- | --- | --- |
 | App Microsoft |sì |sì |
 | App SaaS nella Raccolta di app |sì |sì |
@@ -212,10 +213,5 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Informazioni sulle quote e sulle limitazioni dell&quot;hub IoT di Azure | Documentazione Microsoft
-description: 'Guida per gli sviluppatori: descrizione delle quote che si applicano all&quot;hub IoT e del comportamento di limitazione previsto.'
+title: Informazioni sulle quote e sulle limitazioni dell'hub IoT di Azure | Documentazione Microsoft
+description: 'Guida per gli sviluppatori: descrizione delle quote che si applicano all''hub IoT e del comportamento di limitazione previsto.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/16/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: f36ce029acebfccdfa84122a86ea3a642c048b8c
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 3aab67303fd349195c2ffb8d0854efec74e47070
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -34,7 +34,7 @@ Lo SKU determina anche le limitazioni che l'hub IoT applica alle operazioni.
 ## <a name="operation-throttles"></a>Limitazioni per le operazioni
 Le limitazioni per le operazioni sono limitazioni di frequenza applicate con intervalli di minuti e consentono di evitare abusi. L'hub IoT prova a evitare la restituzione di errori, se possibile, ma inizia a restituire eccezioni se la limitazione viene violata troppo a lungo.
 
-Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a un singolo hub.
+La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento a un singolo hub.
 
 | Limitazione | Hub gratuiti e S1 | Hub S2 | Hub S3 | 
 | -------- | ------- | ------- | ------- |
@@ -50,7 +50,7 @@ Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a 
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Velocità effettiva delle operazioni dei processi per dispositivo | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
 
-È importante chiarire che la limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT e non il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene eseguito il provisioning per l'hub IoT.
+È importante chiarire che la limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT. La limitazione delle *connessioni del dispositivo* non determina il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene eseguito il provisioning per l'hub IoT.
 
 Ad esempio, se si acquista una singola unità S1, si ottiene un limite di 100 connessioni al secondo. Di conseguenza, per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità.
 
@@ -66,29 +66,36 @@ Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, ve
 
 ## <a name="other-limits"></a>Altri limiti
 
-L'hub IoT applica altri limiti sulle diverse funzionalità.
+L'hub IoT applica altri limiti operativi:
 
 | Operazione | Limite |
 | --------- | ----- |
 | URI per il caricamento di file | 10000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione. <br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
-| Processi | La cronologia dei processi viene mantenuta per un massimo di 30 giorni. <br/> Il numero massimo di processi simultanei è 1 (per il livello Gratuito e S1), 5 (per S2), 10 (per S3). |
+| Processi | La cronologia dei processi viene mantenuta per un massimo di 30 giorni. <br/> Il numero massimo di processi simultanei è 1 (per il livello Gratuito e S1, 5 (per S2), 10 (per S3). |
 | Altri endpoint | Agli hub SKU a pagamento possono essere associati 10 endpoint aggiuntivi. Agli hub SKU gratuiti può essere associato solo un endpoint aggiuntivo. |
 | Regole di routing dei messaggi | Agli hub SKU a pagamento possono essere associate 100 regole di routing. Agli hub SKU gratuiti possono essere associate cinque regole di routing. |
+| Messaggistica da dispositivo a cloud | Dimensioni massime dei messaggi 256 KB |
+| Messaggistica da cloud a dispositivo | Dimensioni massime dei messaggi 64 KB |
+| Messaggistica da cloud a dispositivo | Il numero massimo di messaggi in sospeso è 50 |
 
 > [!NOTE]
-> Attualmente, il numero massimo di dispositivi che è possibile connettere a un singolo hub IoT è 500.000. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/en-us/support/options/).
+> Attualmente, il numero massimo di dispositivi che è possibile connettere a un singolo hub IoT è 500.000. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="latency"></a>Latency
-L'hub IoT punta a fornire bassa latenza per tutte le operazioni. Tuttavia, a causa delle condizioni della rete e di altri fattori imprevedibili, non è possibile garantire una latenza massima. Quando si progetta la soluzione, evitare eventuali supposizioni errate circa la latenza massima di qualsiasi operazione dell'hub IoT. Eseguire il provisioning dell'hub IoT nell'area di Azure più vicina ai dispositivi e usare Azure IoT Edge per eseguire operazioni sensibili alla latenza sul dispositivo o su un gateway vicino al dispositivo.
+L'hub IoT punta a fornire bassa latenza per tutte le operazioni. Tuttavia, a causa delle condizioni della rete e di altri fattori imprevedibili, non può garantire una latenza massima. Quando si progetta la soluzione, è necessario:
+
+* Evitare di fare ipotesi sulla latenza massima di qualsiasi operazione dell'hub IoT.
+* Eseguire il provisioning dell'hub IoT nell'area di Azure più vicina ai dispositivi.
+* Considerare l'eventualità di usare Azure IoT Edge per eseguire operazioni sensibili alla latenza sul dispositivo o su un gateway vicino al dispositivo.
 
 Più unità dell'hub IoT influiscono sulla limitazione come descritto in precedenza, ma non forniscono alcuna prestazione di latenza aggiuntiva o garanzia.
-In caso di incremento imprevisto della latenza dell'operazione, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/en-us/support/options/).
+In caso di incremento imprevisto della latenza dell'operazione, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Endpoint dell'hub IoT][lnk-devguide-endpoints]
-* [Linguaggio di query dell'hub IoT per dispositivi gemelli e processi][lnk-devguide-query]
+* [Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing messaggi][lnk-devguide-query]
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

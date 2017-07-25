@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 42fabff59577db5feb98e5c03d7a2b6d3d2461c3
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: ba8db575c8731e4f9067a6635e745da12c8667dd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Creare una funzione attivata dall'archiviazione code di Azure
@@ -33,7 +33,7 @@ Informazioni su come creare una funzione attivata nel momento in cui vengono inv
 
 - Scaricare e installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-- È necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+- Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -49,15 +49,21 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 ## <a name="create-a-queue-triggered-function"></a>Creare una funzione attivata da una coda
 
-Espandere l'app per le funzioni, fare clic sul pulsante **+** accanto a **Funzioni** e fare clic sul modello **QueueTrigger** per il linguaggio desiderato. Usare quindi le impostazioni come indicato nella tabella e fare clic su **Crea**.
+1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Funzione personalizzata**. Verrà visualizzato il set completo di modelli di funzione.
 
-![Creare una funzione attivata da una coda di archiviazione.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-| Impostazione | Valore consigliato | Descrizione |
-|---|---|---|
-| **Nome coda**   | myqueue-items    | Nome della coda a cui connettersi nell'account di archiviazione. |
-| **Connessione dell'account di archiviazione** | AzureWebJobStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
-| **Dare un nome alla funzione** | Univoco nell'app per le funzioni | Nome della funzione attivata dalla coda. |
+2. Selezionare il modello **QueueTrigger** per la lingua desiderata e usare le impostazioni specificate nella tabella.
+
+    ![Creare una funzione attivata da una coda di archiviazione.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    
+    | Impostazione | Valore consigliato | Descrizione |
+    |---|---|---|
+    | **Nome coda**   | myqueue-items    | Nome della coda a cui connettersi nell'account di archiviazione. |
+    | **Connessione dell'account di archiviazione** | AzureWebJobStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
+    | **Dare un nome alla funzione** | Univoco nell'app per le funzioni | Nome della funzione attivata dalla coda. |
+
+3. Fare clic su **Crea** per creare la funzione.
 
 Connettersi quindi all'account di archiviazione di Azure e creare la coda di archiviazione **myqueue-items**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d47447007c3bac51dc9ee0a17948ef9a42377a22
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 981b87540070dff18a01d6bf3dce24a675b451aa
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -52,7 +52,6 @@ Con Macchine virtuali di Azure è possibile distribuire in modo flessibile un'am
 Quando si distribuisce una VM in Azure, si selezionano le dimensioni della VM in una delle serie di dimensioni adatte per il proprio carico di lavoro. Le dimensioni influiscono anche sulla potenza di elaborazione, sulla memoria e sulla capacità di archiviazione della macchina virtuale. I costi vengono addebitati in base alla quantità di tempo in cui la VM è in esecuzione e utilizza le risorse allocate. Elenco completo delle [dimensioni delle macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Ecco alcune linee guida fondamentali per la selezione delle dimensioni di una VM da una delle serie disponibili (A, D, DS, G e GS).
-
 * Le VM serie A sono VM di fascia bassa con prezzi vantaggiosi per carichi di lavoro leggeri e scenari di sviluppo e test. Sono ampiamente disponibili in tutte le aree e possono connettersi e usare tutte le risorse standard disponibili per le macchine virtuali.
 * Le dimensioni della serie A (A8 - A11) sono speciali configurazioni a elevato utilizzo di calcolo adatte per applicazioni di cluster di calcolo ad alte prestazioni.
 * Le macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo.
@@ -94,7 +93,7 @@ Microsoft collabora con i partner per verificare che le immagini disponibili ven
 * Docker - [Azure Marketplace - Azure Container Service con Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-## <a name="getting-setup-on-azure"></a>Configurazione in Azure
+## <a name="getting-started-with-linux-on-azure"></a>Introduzione a Linux in Azure
 Per iniziare a usare Azure, è necessario un account Azure, aver installato l'interfaccia della riga di comando di Azure e disporre di una coppia di chiavi pubblica e privata SSH.
 
 ### <a name="sign-up-for-an-account"></a>Iscriversi per ottenere un account

@@ -1,6 +1,6 @@
 ---
 title: Creare una funzione di Azure che si connette a un Azure Cosmos DB | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando - Creare una funzione di Azure che si connette a un Azure Cosmos DB
+description: Esempio di script dell'interfaccia della riga di comando - Creare una funzione di Azure che si connette a un Azure Cosmos DB
 services: functions
 documentationcenter: functions
 author: rachelappel
@@ -17,21 +17,21 @@ ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: dbe02fbc71f04c67ab03a84845bf8666333ce621
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: ba7e934f71824493f29b001cea6dd1c567ef3414
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Creare una funzione di Azure che si connette a un database Azure Cosmos DB | Documentazione Microsoft
 
 Questo script di esempio crea un'app per le funzioni di Azure e si connette a un database Azure Cosmos DB.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 

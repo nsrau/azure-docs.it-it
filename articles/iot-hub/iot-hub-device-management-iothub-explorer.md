@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 06/15/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 480f0544f155365d94b325bbf799bb999268dc31
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 2234924251447bb32d7cca0623a4e8d4f8d4e7ff
 ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -47,7 +47,7 @@ Per altre informazioni sulle differenze e sull'uso di queste opzioni, vedere [De
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
-Si apprende l'uso di iothub-explorer con diverse opzioni di gestione.
+Si apprende l'uso di iothub-explorer con varie opzioni di gestione presenti nel proprio computer di sviluppo.
 
 ## <a name="what-you-do"></a>Operazioni da fare
 
@@ -59,7 +59,7 @@ Eseguire iothub-explorer con diverse opzioni di gestione.
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
   - Un'applicazione client che invia messaggi ad Azure IoT hub.
-- iothub-explorer. ([Installare iothub-explorer](https://github.com/azure/iothub-explorer))
+- iothub-explorer. ([Installare iothub-explorer](https://github.com/azure/iothub-explorer) nel computer di sviluppo)
 
 ## <a name="connect-to-your-iot-hub"></a>Accedere all'hub IoT
 
@@ -88,7 +88,7 @@ iothub-explorer device-method <your device Id> stop
 Impostare l'intervallo di proprietà desiderato su 3000 eseguendo il comando seguente:
 
 ```bash
-iothub-explorer update-twin mydevice {\"properties\":{\"desired\":{\"interval\":3000}}}
+iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"interval\":3000}}}
 ```
 
 Questa proprietà può essere letta dal dispositivo.
@@ -146,3 +146,4 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 Si è appreso l'uso di iothub-explorer con diverse opzioni di gestione.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

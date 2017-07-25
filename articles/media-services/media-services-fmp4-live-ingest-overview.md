@@ -1,6 +1,6 @@
 ---
-title: Specifica per l&quot;inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure | Microsoft Docs
-description: Questa specifica descrive il protocollo e il formato per l&quot;inserimento di un live streaming basato sul formato MP4 frammentato con Servizi multimediali di Microsoft Azure. Servizi multimediali di Microsoft Azure fornisce un servizio di live streaming che consente ai clienti di trasmettere in streaming eventi live e trasmettere contenuti in tempo reale usando Microsoft Azure come piattaforma cloud. Questo documento illustra inoltre le procedure consigliate per creare meccanismi di inserimento live affidabili e altamente ridondanti.
+title: Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure | Microsoft Docs
+description: Questa specifica descrive il protocollo e il formato per l'inserimento di un live streaming basato sul formato MP4 frammentato con Servizi multimediali di Microsoft Azure. Servizi multimediali di Microsoft Azure fornisce un servizio di live streaming che consente ai clienti di trasmettere in streaming eventi live e trasmettere contenuti in tempo reale usando Microsoft Azure come piattaforma cloud. Questo documento illustra inoltre le procedure consigliate per creare meccanismi di inserimento live affidabili e altamente ridondanti.
 services: media-services
 documentationcenter: 
 author: cenkdin
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: cenkd;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 307c9a377fce32c056a54d35f173efd1bafc4df5
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 75f117e206df1883ea9eb8a78f9e0ab62f569049
+ms.contentlocale: it-it
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure
@@ -38,7 +38,7 @@ Il diagramma seguente illustra l'architettura di alto livello del servizio di li
 ![Immagine1][image1]
 
 ## <a name="3-bit-stream-format--iso-14496-12-fragmented-mp4"></a>3. Formato del flusso di bit: MP4 frammentato ISO 14496-12
-Il formato di trasmissione per il processo di inserimento di un live streaming illustrato in questo documento si basa sullo standard [ISO&14496;-12]. Fare riferimento a [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili sia per i file video on demand sia per l'inserimento di uno streaming live.
+Il formato di trasmissione per il processo di inserimento di un live streaming illustrato in questo documento si basa sullo standard [ISO 14496-12]. Fare riferimento a [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili sia per i file video on demand sia per l'inserimento di uno streaming live.
 
 ### <a name="live-ingest-format-definitions"></a>Definizioni del formato di inserimento live
 Di seguito sono elencate alcune speciali definizioni di formato applicabili all'inserimento live in Servizi multimediali di Microsoft Azure.
@@ -161,7 +161,7 @@ Di seguito è illustrata la procedura consigliata per l'inserimento di una tracc
    3. Durante il periodo in cui i dati di segnalazione non sono disponibili, il codificatore dovrebbe (SHOULD) chiudere la richiesta HTTP POST  e inviare i dati mentre la richiesta POST è ancora attiva. 
    4. Quando si inviano frammenti di tipo sparse, il codificatore può impostare esplicitamente l'intestazione Content-Length, se disponibile.
    5. Quando si inviano frammenti di tipo sparse con una nuova connessione, il codificatore dovrebbe (SHOULD) inviare prima le caselle di intestazione, quindi i nuovi frammenti. Questo consente di gestire casi in cui il failover si verifica tra una connessione e l'altra e la nuova connessione di tipo sparse viene stabilita con un nuovo server che non ha mai visto prima la traccia di tipo sparse.
-   6. Il frammento della traccia di tipo sparse viene reso disponibile al client nel momento in cui il frammento della traccia padre corrispondente, uguale o maggiore rispetto al valore timestamp, viene reso disponibile al client. Ad esempio, se il frammento di tipo sparse presenta un timestamp di t = 1000, dopo che il client rileva il timestamp del frammento video (presupponendo che il nome della traccia padre sia "video"), uguale o superiore a 1000, è possibile scaricare il frammento di tipo sparse t = 1000. Tenere presente che il segnale effettivo può essere usato anche per una posizione diversa nella sequenza temporale della presentazione rispetto a quella designata. Nell'esempio precedente, è possibile che il frammento di tipo sparse con t =&1000; disponga di un payload XML che consente di inserire un annuncio in una posizione di pochi secondi successiva.
+   6. Il frammento della traccia di tipo sparse viene reso disponibile al client nel momento in cui il frammento della traccia padre corrispondente, uguale o maggiore rispetto al valore timestamp, viene reso disponibile al client. Ad esempio, se il frammento di tipo sparse presenta un timestamp di t = 1000, dopo che il client rileva il timestamp del frammento video (presupponendo che il nome della traccia padre sia "video"), uguale o superiore a 1000, è possibile scaricare il frammento di tipo sparse t = 1000. Tenere presente che il segnale effettivo può essere usato anche per una posizione diversa nella sequenza temporale della presentazione rispetto a quella designata. Nell'esempio precedente, è possibile che il frammento di tipo sparse con t = 1000 disponga di un payload XML che consente di inserire un annuncio in una posizione di pochi secondi successiva.
    7. Il payload del frammento della traccia di tipo sparse può essere di vari formati (ad esempio, XML, testo o binario), a seconda dello scenario. 
 
 ### <a name="redundant-audio-track"></a>Traccia audio ridondante

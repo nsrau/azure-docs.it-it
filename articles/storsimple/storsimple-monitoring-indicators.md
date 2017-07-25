@@ -4,7 +4,7 @@ description: Descrive i diodi a emissione luminosa (LED) e gli avvisi sonori uti
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 06/05/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0b8efafadee9bb7636bb204b55758f18a86cf049
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -135,7 +137,7 @@ Utilizzare la tabella seguente per determinare se il modulo controller funziona 
 ### <a name="controller-indicator-leds"></a>Indicatori LED del controller
 | LED | Descrizione |
 | --- | --- |
-| LED ID (blu) |Indica che è in corso l’identificazione del modulo. Se su un controller in esecuzione, il LED blu lampeggia, significa che tale controller è attivo mentre l'altro è in standby. Per ulteriori informazioni, vedere [Identificare un controller attivo sul dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| LED ID (blu) |Indica che è in corso l’identificazione del modulo. Se su un controller in esecuzione, il LED blu lampeggia, significa che tale controller è attivo mentre l'altro è in standby. Per ulteriori informazioni, vedere [Identificare un controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED errore (ambra) |Indica un errore nel controller. |
 | LED OK (verde) |Una luce verde continua indica che il controller è OK. Una luce verde intermittente indica un errore di configurazione del controller VPD. |
 | LED attività SAS (verde) |Una luce verde continua indica una connessione senza attività corrente. Una luce verde intermittente indica un’attività in corso nella connessione. |
@@ -209,12 +211,11 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 > * Nello stato di allarme S1, se non si preme Disattiva entro 2 minuti, lo stato passa automaticamente da S2 a S3.  
 > * Dopo la risoluzione della condizione di errore, gli stati di allarme da S1 a S4 tornano a S0.  
 > * Lo stato di errore critico S4 può essere immesso da qualunque altro stato.  
-> 
-> 
 
-È possibile disattivare l'allarme acustico premendo l'apposito pulsante sul pannello delle operazioni. Se, dopo due minuti il commutatore di disattivazione non viene azionato manualmente, la disattivazione avviene in modo automatico. Quando l'allarme viene disattivato, continuerà a emettere brevi segnali acustici intermittenti per indicare che il problema ancora persiste. L’allarme non emetterà segnali acustici quando tutti i problemi vengono risolti.  
 
-Nella tabella seguente vengono descritte le varie condizioni di allarme.  
+È possibile disattivare l'allarme acustico premendo l'apposito pulsante sul pannello delle operazioni. Se, dopo due minuti il commutatore di disattivazione non viene azionato manualmente, la disattivazione avviene in modo automatico. Quando l'allarme viene disattivato, continuerà a emettere brevi segnali acustici intermittenti per indicare che il problema ancora persiste. L’allarme non emetterà segnali acustici quando tutti i problemi vengono risolti.
+
+Nella tabella seguente vengono descritte le varie condizioni di allarme.
 
 ### <a name="alarm-conditions"></a>Condizioni di allarme
 | Stato | Gravità | Allarme | LED pannello delle operazioni |
@@ -240,7 +241,7 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Disponibilità alimentazione insufficiente |Avviso |None |Errore del modulo |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](storsimple-monitor-hardware-status.md)
+Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](storsimple-8000-monitor-hardware-status.md)
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -249,10 +250,5 @@ Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](sto
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

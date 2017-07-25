@@ -11,12 +11,22 @@
     href: quickstart-create-server-database-portal.md
   - name: 'Creare un database: interfaccia della riga di comando di Azure'
     href: quickstart-create-server-database-azure-cli.md
-  - name: Connettere
-    items:
-    - name: Node.js
-      href: connect-nodejs.md
+  - name: Connettersi ed eseguire query
+    items: 
     - name: Python
       href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: PHP
+      href: connect-php.md
+    - name: .NET
+      href: connect-csharp.md
+    - name: Go
+      href: connect-go.md
 - name: Esercitazioni
   items:
   - name: 1. Progettare un database
@@ -27,6 +37,10 @@
       href: tutorial-design-database-using-azure-cli.md
   - name: '2. Progettare app Web: Python'
     href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+- name: Esempi
+  items:
+  - name: Interfaccia della riga di comando di Azure
+    href: sample-scripts-azure-cli.md
 - name: Concetti
   items:
   - name: Database e server
@@ -57,10 +71,6 @@
     items:
     - name: Raccolte di connessioni
       href: concepts-connection-libraries.md
-- name: Esempi
-  items:
-  - name: Interfaccia della riga di comando di Azure
-    href: sample-scripts-azure-cli.md
 - name: Guide alle procedure
   items:
   - name: Regole del firewall
@@ -73,6 +83,8 @@
     items:
     - name: Portale di Azure
       href: howto-restore-server-portal.md
+    - name: Interfaccia della riga di comando di Azure
+      href: howto-restore-server-cli.md
   - name: Eseguire la migrazione del database
     items:
     - name: Dump e ripristino
@@ -93,12 +105,16 @@
     href: /cli/azure/postgres
 - name: Risorse
   items:
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Prezzi
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: Video
+    href: videos.md    
   - name: Forum di commenti e suggerimenti
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Aree di disponibilità

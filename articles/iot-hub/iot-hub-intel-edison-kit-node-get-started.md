@@ -13,14 +13,14 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
+ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 231d9f2e4a501f20a47b1cec55c75fba4c2e57c8
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9e9198f827d0906f65f59322126ef27ba6428d3e
 ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -194,6 +194,7 @@ Congratulazioni. Edison è stato configurato.
 3. Passare quindi alla cartella del repository per eseguire il comando seguente, in modo da installare tutti i pacchetti. Il completamento dell'operazione potrebbe richiedere alcuni minuti.
    
    ```bash
+   cd iot-hub-node-intel-edison-client-app
    npm install
    ```
 
@@ -208,9 +209,9 @@ Congratulazioni. Edison è stato configurato.
 
    ![File di configurazione](media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
 
-   Questo file contiene due macro configurabili. La prima è `INTERVAL`, che definisce l'intervallo di tempo tra due messaggi inviati al cloud. La seconda è `SIMULATED_DATA`, ossia un valore booleano che indica se usare o no i dati del sensore simulato.
+   Questo file contiene due macro configurabili. La prima è `INTERVAL`, che definisce l'intervallo di tempo tra due messaggi inviati al cloud. La seconda è `simulatedData`, ossia un valore booleano che indica se usare o no i dati del sensore simulato.
 
-   Se **non si ha il sensore**, impostare il valore `SIMULATED_DATA` su `1` per permettere all'applicazione di esempio di creare e usare i dati del sensore simulato.
+   Se **non si dispone del sensore**, impostare il valore `simulatedData` su `true` per permettere all'applicazione di esempio di creare e usare i dati del sensore simulati.
 
 1. Salvare e uscire premendo CTRL-O > Invio > CTRL-X.
 
@@ -233,3 +234,4 @@ Dovrebbe essere visibile l'output seguente che mostra i dati del sensore e i mes
 È stata eseguita un'applicazione di esempio per raccogliere i dati del sensore da inviare all'hub IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

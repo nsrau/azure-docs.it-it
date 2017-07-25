@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 2cdfbadfc4cc28afe34b4d558f40bba6451f7388
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: bf45f4c80c73ab47698a39e310324e34a3e21e67
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -144,6 +145,7 @@ Informazioni su come creare un'app per la logica che connette l'hub IoT e la cas
    1. Selezionare la coda creata e immettere `175` per **Numero massimo di messaggi**
 
       ![Specificare il numero massimo di messaggi per la connessione del bus di servizio nell'app per la logica](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+   1. Fare clic sul pulsante "Salva" per salvare le modifiche apportate.
 
 1. Creare una connessione del servizio SMTP.
    1. Fare clic su **Nuovo passaggio** > **Aggiungi un'azione**.
@@ -175,3 +177,4 @@ L'app per la logica è in funzionamento durante il salvataggio.
 È stata creata correttamente un'app per la logica che connette l'hub IoT e la cassetta postale per il monitoraggio della temperatura e le notifiche.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

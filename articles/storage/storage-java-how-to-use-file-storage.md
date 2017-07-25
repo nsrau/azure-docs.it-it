@@ -1,5 +1,5 @@
 ---
-title: Come usare l&quot;archiviazione file da Java | Microsoft Docs
+title: Come usare l'archiviazione file da Java | Microsoft Docs
 description: Informazioni su come usare il servizio file di Azure per caricare, scaricare, elencare ed eliminare file. Gli esempi sono scritti in Java.
 services: storage
 documentationcenter: java
@@ -14,9 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60d4bcafa51a6eedea06901a0557d13b4e85ec7a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 33630644e2b3b6565d009276145ecf220802cc63
+ms.openlocfilehash: 49b35ff1b82f5384b105d99ce95773648a11f6f4
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -233,10 +235,5 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 * [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

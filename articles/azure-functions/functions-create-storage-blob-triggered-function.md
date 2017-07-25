@@ -1,6 +1,6 @@
 ---
-title: Creare una funzione in Azure attivata dall&quot;archiviazione BLOB| Microsoft Docs
-description: Usare Funzioni di Azure per creare una funzione senza server che viene richiamata da elementi aggiunti all&quot;archiviazione BLOB di Azure.
+title: Creare una funzione in Azure attivata dall'archiviazione BLOB| Microsoft Docs
+description: Usare Funzioni di Azure per creare una funzione senza server che viene richiamata da elementi aggiunti all'archiviazione BLOB di Azure.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: c0d1271bc083688bbc72bd2556546c2f738e7345
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Creare una funzione attivata dall'archiviazione BLOB di Azure
@@ -31,11 +31,8 @@ Informazioni su come creare una funzione attivata nel momento in cui vengono car
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di eseguire questo esempio, è necessario effettuare queste operazioni:
-
-- Scaricare e installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
++ Scaricare e installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
++ Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -51,15 +48,21 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Creare una funzione attivata dall'archiviazione BLOB
 
-Espandere l'app per le funzioni, fare clic sul pulsante **+** accanto a **Funzioni** e fare clic sul modello **BlobTrigger** per il linguaggio desiderato. Usare quindi le impostazioni come indicato nella tabella e quindi fare clic su **Crea**.
+1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Funzione personalizzata**. Verrà visualizzato il set completo di modelli di funzione.
 
-![Creare una funzione attivata dall'archiviazione BLOB.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-| Impostazione | Valore consigliato | Descrizione |
-|---|---|---|
-| **Percorso**   | mycontainer/{name}    | Percorso da monitorare nell'archiviazione BLOB. Il nome file del BLOB viene passato nel binding come parametro _name_.  |
-| **Connessione dell'account di archiviazione** | AzureWebJobStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
-| **Dare un nome alla funzione** | Univoco nell'app per le funzioni | Nome della funzione attivata dalla coda. |
+2. Selezionare il modello **BlobTrigger** per la lingua desiderata e usare le impostazioni specificate nella tabella.
+
+    ![Creare una funzione attivata dall'archiviazione BLOB.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+    | Impostazione | Valore consigliato | Descrizione |
+    |---|---|---|
+    | **Percorso**   | mycontainer/{name}    | Percorso da monitorare nell'archiviazione BLOB. Il nome file del BLOB viene passato nel binding come parametro _name_.  |
+    | **Connessione dell'account di archiviazione** | AzureWebJobStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
+    | **Dare un nome alla funzione** | Univoco nell'app per le funzioni | Nome della funzione attivata dal BLOB. |
+
+3. Fare clic su **Crea** per creare la funzione.
 
 Connettersi quindi all'account di archiviazione di Azure e creare il contenitore **mycontainer**.
 
@@ -111,3 +114,4 @@ Dopo aver creato un contenitore BLOB, è possibile ora testare la funzione caric
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Per altre informazioni sui trigger dell'archiviazione BLOB, vedere [Binding dell'archiviazione BLOB di Funzioni di Azure](functions-bindings-storage-blob.md).
+

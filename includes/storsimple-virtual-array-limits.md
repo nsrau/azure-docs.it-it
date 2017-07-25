@@ -18,7 +18,8 @@
 | Numero massimo di backup conservati dal dispositivo virtuale nella cartella *.backups* per file server |5 |Sono inclusi i backup pianificati (generati dal criterio di backup predefinito) e manuali più recenti. |
 | Numero massimo di backup pianificati conservati dal dispositivo |55 |30 backup giornalieri<br>12 backup mensili<br>13 backup annuali |
 | Numero massimo di backup manuali conservati dal dispositivo |45 | |
-| Numero massimo di file per ogni condivisione |1 milione |Quando si esegue un ripristino del dispositivo, i tempi di ripristino sono proporzionali al numero di file in tutte le condivisioni nel dispositivo. |
+| Numero massimo di file per condivisione in un file server |1 milione |Quando si esegue un ripristino del dispositivo, i tempi di ripristino sono proporzionali al numero di file in tutte le condivisioni nel dispositivo. |
+| Numero massimo di file per volume in un server iSCSI |1 milione | |
 | Numero massimo di file per ogni array virtuale |4 milioni | |
 | Tempo di recupero del ripristino |Ripristino rapido |Il ripristino si basa sulla mappa termica e dipende dalle dimensioni del volume.<br>Le operazioni di backup possono verificarsi quando è in corso un'operazione di ripristino. |
 

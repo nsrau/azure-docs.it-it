@@ -1,6 +1,6 @@
 ---
 title: Monitorare lo stato dei processi mediante .NET
-description: "Informazioni su come usare il codice del gestore eventi per tenere traccia dello stato dei processi e inviare aggiornamenti di stato. L&quot;esempio di codice è scritto in C# e usa l&quot;SDK di Servizi multimediali per .NET."
+description: "Informazioni su come usare il codice del gestore eventi per tenere traccia dello stato dei processi e inviare aggiornamenti di stato. L'esempio di codice è scritto in C# e usa l'SDK di Servizi multimediali per .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 1420c9dbaba1767526fa86a27aacb4fa3b2e2fe0
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="monitor-job-progress-using-net"></a>Monitorare lo stato dei processi mediante .NET
@@ -117,10 +118,5 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

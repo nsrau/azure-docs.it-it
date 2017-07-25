@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: adf358a130fd20674cbf2585de93005a9e1cb3ec
 ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
@@ -80,7 +79,7 @@ La tabella seguente descrive le porte e i protocolli necessari per la comunicazi
 |Protocol|Numero della porta|Descrizione
 | --- | --- | ---
 |HTTP|80|Abilitare il traffico HTTP in uscita per la convalida di sicurezza quale SSL. Serve anche per il funzionamento corretto dell'aggiornamento automatico del connettore.
-|HTTPS|443|    Consentire il traffico HTTPS in uscita per operazioni quali l'abilitazione e disabilitazione della funzionalità, la registrazione di connettori, il download degli aggiornamenti del connettore e la gestione di tutte le richieste di accesso degli utenti.
+|HTTPS|443| Consentire il traffico HTTPS in uscita per operazioni quali l'abilitazione e disabilitazione della funzionalità, la registrazione di connettori, il download degli aggiornamenti del connettore e la gestione di tutte le richieste di accesso degli utenti.
 
 È necessario anche che Azure AD Connect sia in grado di creare connessioni IP dirette agli [intervalli IP dei data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
@@ -88,7 +87,7 @@ La tabella seguente descrive le porte e i protocolli necessari per la comunicazi
 
 |Protocol|Numero della porta|Descrizione
 | --- | --- | ---
-|HTTPS|443|    Abilitare la registrazione SSO (necessaria solo per il processo di registrazione SSO).
+|HTTPS|443| Abilitare la registrazione SSO (necessaria solo per il processo di registrazione SSO).
 
 È necessario anche che Azure AD Connect sia in grado di creare connessioni IP dirette agli [intervalli IP dei data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Anche questo requisito è necessario solo per il processo di registrazione SSO.
 

@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione di macchine virtuali AWS in Azure | Documentazione Microsoft
-description: Eseguire la migrazione di un&quot;istanza EC2 di Amazon Web Services (AWS) nelle macchine virtuali di Azure. Questo scenario usa Managed Disks per semplificare l&quot;archiviazione cloud.
+title: Spostare macchine virtuali AWS Windows in Azure | Microsoft Docs
+description: Spostare un'istanza Windows di Amazon Web Services (AWS) EC2 in Macchine virtuali di Azure usando Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,345 +13,70 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/01/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: e940a5653d81852c6440829010ec86bcadeadca7
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 22f5dda489f94ebb5a22e017b72c2524a8f22d6a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
-# <a name="migrate-from-amazon-web-services-aws-to-azure-managed-disks"></a>Eseguire la migrazione da Amazon Web Services (AWS) ad Azure Managed Disks
+<a id="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell" class="xliff"></a>
 
-È possibile eseguire la migrazione di un'istanza EC2 di Amazon Web Services (AWS) in Azure caricando il disco rigido virtuale. Se si desidera creare più macchine virtuali (VM) in Azure dalla stessa immagine, è prima necessario generalizzare la macchina virtuale e quindi esportare il disco rigido virtuale generalizzato in una directory locale. Una volta caricato il disco rigido virtuale, è possibile creare una nuova macchina virtuale di Azure che usa [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per l'archiviazione. Azure Managed Disks elimina la necessità di gestire gli account di archiviazione per le macchine virtuali IaaS di Azure. È necessario specificare solo il tipo (Premium o Standard) e le dimensioni necessarie del disco, poiché sarà Azure a creare e gestire il disco automaticamente. 
+# Spostare una VM Windows da Amazon Web Services (AWS) ad Azure usando PowerShell
 
-Prima di iniziare il processo, consultare [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) (Piano per la migrazione a Managed Disks).
+Se si stanno valutando le macchine virtuali di Azure per l'hosting dei carichi di lavoro, è possibile esportare un'istanza di VM Windows di Amazon Web Services (AWS) EC2 esistente e quindi caricare il disco rigido virtuale in Azure. Dopo il caricamento del disco rigido virtuale è possibile creare una nuova VM in Azure dal disco rigido virtuale. 
 
-Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Questo argomento illustra lo spostamento di una singola VM da AWS ad Azure. Per spostare VM da AWS ad Azure su larga scala, vedere [Eseguire la migrazione delle macchine virtuali in Amazon Web Services (AWS) ad Azure con Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
-## <a name="before-you-begin"></a>Prima di iniziare
-Se si usa PowerShell, verificare di avere la versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
+<a id="prepare-the-vm" class="xliff"></a>
 
-```powershell
-Install-Module AzureRM.Compute -MinimumVersion 2.6.0
+## Preparare la macchina virtuale 
+ 
+È possibile caricare dischi rigidi virtuali generalizzati e specializzati in Azure. Entrambi i tipi richiedono prima di tutto la preparazione della macchina virtuale prima dell'esportazione da AWS. 
+
+- **Disco rigido virtuale generalizzato**: tutte le informazioni sull'account personale sono state rimosse dal disco rigido virtuale generalizzato usando Sysprep. Se si vuole usare il disco rigido virtuale come immagine dalla quale creare nuove macchine virtuali, è necessario: 
+ 
+    * [Preparare una VM Windows](prepare-for-upload-vhd-image.md).  
+    * Generalizzare una macchina virtuale Windows con Sysprep.  
+
+ 
+- **Disco rigido virtuale specializzato**: un disco rigido virtuale specializzato gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. Se si intende usare il disco rigido virtuale così come è per creare una nuova macchina virtuale, assicurare il completamento delle operazioni seguenti.  
+    * [Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure](prepare-for-upload-vhd-image.md). **Non** generalizzare la macchina Virtuale con Sysprep. 
+    * Rimuovere tutti gli strumenti di virtualizzazione guest e gli agenti installati nella macchina virtuale, ad esempio gli strumenti VMware. 
+    * Assicurarsi che la macchina virtuale sia configurata per eseguire il pull dell'indirizzo IP e delle impostazioni DNS tramite DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio.  
+
+
+<a id="export-and-download-the-vhd" class="xliff"></a>
+
+## Esportare e scaricare il disco rigido virtuale 
+
+Esportare l'istanza EC2 in un disco rigido virtuale in un bucket Amazon S3. Seguire la procedura illustrata nell'argomento [Exporting an Instance as a VM Using VM Import/Export](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) (Esportazione di un'istanza come VM tramite l'importazione/esportazione della VM) della documentazione di Amazon ed eseguire il comando [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) per esportare l'istanza EC2 in un file di disco rigido virtuale. 
+
+Il file di disco rigido virtuale esportato viene salvato nel bucket Amazon S3 indicato. La sintassi di base per l'esportazione del disco rigido virtuale viene riportata di seguito. È sufficiente sostituire il testo segnaposto in <brackets> con le informazioni specifiche.
+
 ```
-Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/powershell/azure/overview).
+aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \
+  --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
+```
 
-
-## <a name="generalize-the-vm"></a>Generalizzare la VM
-
-La generalizzazione di una macchina virtuale con Sysprep elimina le informazioni specifiche della macchina o le informazioni su account personali dal disco rigido virtuale e prepara il computer da usare come immagine. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](http://technet.microsoft.com/library/bb457073.aspx).
-
-Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per ulteriori informazioni, vedere [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Dopo l'esportazione del disco rigido virtuale, seguire le istruzioni disponibili in [How Do I Download an Object from an S3 Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) (Come scaricare un oggetto da un bucket S3) per scaricare il file disco rigido virtuale dal bucket S3. 
 
 > [!IMPORTANT]
-> Se si esegue Sysprep prima di caricare il disco rigido virtuale in Azure per la prima volta, verificare di aver [preparato la VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) prima di eseguire Sysprep. 
-> 
-> 
+> AWS applica addebiti per il trasferimento di dati per il download del disco rigido virtuale. Per altre informazioni, vedere [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) (Prezzi di Amazon S3).
 
-1. Accedere alla macchina virtuale Windows.
-2. Aprire la finestra del prompt dei comandi come amministratore. Impostare la directory su **%windir%\system32\sysprep**, quindi eseguire `sysprep.exe`.
-3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
-4. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
-5. Fare clic su **OK**.
-   
-    ![Avvio di Sysprep](./media/aws-to-azure/sysprepgeneral.png)
-6. Al termine, Sysprep arresta la macchina virtuale. Non riavviare la VM.
 
+<a id="next-steps" class="xliff"></a>
 
+## Passaggi successivi
 
-## <a name="export-the-vhd-from-aws"></a>Esportare il disco rigido virtuale da AWS
+È ora possibile caricare il disco rigido virtuale in Azure e creare una nuova VM. 
 
-1.    Se si usa Amazon Web Services (AWS), esportare l'istanza EC2 in un disco rigido virtuale in un bucket Amazon S3. Seguire i passaggi descritti nella documentazione di Amazon per l'esportazione delle istanze di Amazon EC2 per installare lo strumento di interfaccia della riga di comando Amazon EC2 ed eseguire il comando create-instance-export-task per esportare l'istanza di EC2 in un file di disco rigido virtuale. Assicurarsi di usare un disco rigido virtuale per la variabile DISK_IMAGE_FORMAT quando si esegue il comando create-instance-export-task. Il file di disco rigido virtuale esportato viene salvato nel bucket Amazon S3 indicato durante tale processo.
+- Se è stato eseguito Sysprep nell'origine per la **generalizzazione** prima dell'esportazione, vedere [Caricare un disco rigido virtuale generalizzato e usarlo per creare una nuova VM in Azure](upload-generalized-managed.md)
+- Se non è stato eseguito Sysprep prima dell'esportazione, il disco rigido virtuale viene considerato **specializzato**. Vedere [Caricare un disco rigido virtuale specializzato in Azure e creare una nuova VM](create-vm-specialized.md)
 
-    ```
-    aws ec2 create-instance-export-task --instance-id ID --target-environment TARGET_ENVIRONMENT '
-    --export-to-s3-task DiskImageFormat=DISK_IMAGE_FORMAT,ContainerFormat=ova,S3Bucket=BUCKET,S3Prefix=PREFIX
-    ```
-
-2.    Scaricare il file di disco rigido virtuale dal bucket S3. Selezionare il file del disco rigido virtuale e scegliere **Azioni** > **Download**.
-
-
-
-## <a name="upload-the-vhd"></a>Caricare il disco rigido virtuale
-
-È necessario accedere ad Azure, creare un account di archiviazione e caricare il disco rigido virtuale in tale account di archiviazione prima di creare l'immagine. 
-
-### <a name="log-in-to-azure"></a>Accedere ad Azure
-
-Se PowerShell non è già stato installato, vedere [How to install and configure Azure PowerShell](/powershell/azure/overview) (Come installare e configurare Azure PowerShell).
-
-1. Aprire Azure PowerShell e accedere al proprio account di Azure. Verrà visualizzata una finestra popup in cui immettere le credenziali dell'account Azure.
-   
-    ```powershell
-    Login-AzureRmAccount
-    ```
-2. Ottenere l'ID di sottoscrizione per le sottoscrizioni disponibili.
-   
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. Impostare la sottoscrizione corretta utilizzandone l'ID. Sostituire `<subscriptionID>` con l'ID della sottoscrizione corretta.
-   
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
-    ```
-
-### <a name="get-the-storage-account"></a>Ottenere l'account di archiviazione
-Per archiviare l'immagine della VM caricata, è necessario un account di archiviazione di Azure. È possibile usare un account di archiviazione esistente o crearne uno nuovo. 
-
-Se il disco rigido virtuale viene usato per creare un disco gestito per una VM, la posizione dell'account di archiviazione deve corrispondere al percorso in cui si crea la VM.
-
-Per mostrare gli account di archiviazione disponibili, digitare:
-
-```powershell
-Get-AzureRmStorageAccount
-```
-
-Se si vuole usare un account di archiviazione esistente, passare alla sezione [Caricare l'immagine della VM](#upload-the-vm-vhd-to-your-storage-account) .
-
-Per creare un account di archiviazione, seguire questa procedura:
-
-1. È necessario il nome del gruppo di risorse in cui deve essere creato l'account di archiviazione. Per trovare tutti i gruppi di risorse inclusi nella sottoscrizione digitare:
-   
-    ```powershell
-    Get-AzureRmResourceGroup
-    ```
-
-    Per creare un gruppo di risorse denominato **MyResourceGroup** nell'area **Stati Uniti occidentali**, digitare:
-
-    ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
-    ```
-
-2. Creare un account di archiviazione denominato **mystorageaccount** in questo gruppo di risorse con il cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount).
-   
-    ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
-        -SkuName "Standard_LRS" -Kind "Storage"
-    ```
-   
-    I valori validi -SkuName validi sono:
-   
-   * **Standard_LRS**: archiviazione con ridondanza locale. 
-   * **Standard_ZRS**: archiviazione con ridondanza della zona.
-   * **Standard_GRS**: archiviazione con ridondanza geografica. 
-   * **Standard_RAGRS**: archiviazione con ridondanza geografica e accesso in lettura. 
-   * **Premium_LRS**: archiviazione con ridondanza locale Premium. 
-
-### <a name="upload-the-vhd"></a>Caricare il disco rigido virtuale 
-
-Usare il cmdlet [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) per caricare il disco rigido virtuale in un contenitore nell'account di archiviazione. In questo esempio, il file **myVHD.vhd** viene caricato da `"C:\Users\Public\Documents\Virtual hard disks\"` a un account di archiviazione denominato **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Il file viene inserito nel contenitore denominato **mycontainer** e il nuovo nome del file è **myUploadedVHD.vhd**.
-
-```powershell
-$rgName = "myResourceGroup"
-$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-Se l'operazione riesce, si ottiene una risposta simile alla seguente:
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessione di rete e delle dimensioni del file VHD.
-
-Salvare il percorso dell'**URI di destinazione** da usare in seguito se si desidera creare un disco gestito o una nuova macchina virtuale con il disco rigido virtuale caricato.
-
-### <a name="other-options-for-uploading-a-vhd"></a>Altre opzioni per il caricamento di un disco rigido virtuale
-
-È anche possibile caricare un disco rigido virtuale nell'account di archiviazione tramite uno dei seguenti modi:
-
--   [API Copy Blob di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-
--   [Caricamento di BLOB in Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
-
--   [Materiale di riferimento dell'API REST del servizio di importazione/esportazione dell'archiviazione](https://msdn.microsoft.com/library/dn529096.aspx)
-
-    È consigliabile usare il servizio di importazione/esportazione se il tempo di caricamento stimato è maggiore di 7 giorni. È possibile usare [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) per stimare il tempo in base alla dimensione dei dati e all'unità di trasferimento. 
-
-    Il servizio Importazione/esportazione può essere usato per eseguire la copia in un account di archiviazione standard. Per usare l'Archiviazione Premium, è necessario eseguire la copia dall'archiviazione standard all’account di archiviazione Premium mediante uno strumento come AzCopy.
-
-## <a name="create-an-image"></a>Creare un'immagine 
-
-Creare un'immagine gestita tramite il disco rigido virtuale del sistema operativo generalizzato.
-
-
-1.  Innanzitutto, impostare i parametri comuni:
-
-    ```powershell
-    $rgName = "myResourceGroupName"
-    $vmName = "myVM"
-    $location = "West Central US" 
-    $imageName = "yourImageName"
-    $osVhdUri = "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
-    ```
-
-4.  Creare un'immagine tramite il disco rigido virtuale del sistema operativo generalizzato.
-
-    ```powershell
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```
-
-## <a name="create-vm-from-image"></a>Creare una VM in base a un'immagine
-
-Innanzitutto, è necessario raccogliere le informazioni di base dell'immagine e creare una variabile per l'immagine. Questo esempio usa un'immagine di macchina virtuale gestita denominata **myImage** nel gruppo di risorse **myResourceGroup** nell'area **Stati Uniti centro-occidentali**. 
-
-```powershell
-$rgName = "myResourceGroup"
-$location = "West Central US"
-$imageName = "myImage"
-$image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
-```
-
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
-Creare la rete virtuale e la subnet della [rete virtuale](../../virtual-network/virtual-networks-overview.md) stessa.
-
-1. Creare la subnet. Questo esempio crea una subnet denominata **mySubnet** con un prefisso di indirizzo di **10.0.0.0/24**.  
-   
-    ```powershell
-    $subnetName = "mySubnet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-    ```
-2. Creare la rete virtuale. Questo esempio crea una rete virtuale denominata **myVnet** con un prefisso di indirizzo di **10.0.0.0/16**.  
-   
-    ```powershell
-    $vnetName = "myVnet"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
-        -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-    ```    
-
-### <a name="create-a-public-ip-and-nic"></a>Creare un IP pubblico e una NIC
-
-Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, sono necessari un [indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e un'interfaccia di rete.
-
-1. Creare un indirizzo IP pubblico. In questo esempio viene creato un indirizzo IP pubblico denominato **myPip**. 
-   
-    ```powershell
-    $ipName = "myPip"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-        -AllocationMethod Dynamic
-    ```       
-2. Creare la scheda NIC. In questo esempio viene creata una scheda NIC denominata **myNic**. 
-   
-    ```powershell
-    $nicName = "myNic"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
-        -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-    ```
-
-### <a name="create-nsg"></a>Creare un gruppo di sicurezza di rete
-
-Per essere in grado di accedere alla VM tramite RDP, è necessario disporre di una regola di sicurezza della rete (NSG) che consenta l'accesso RDP sulla porta 3389. 
-
-In questo esempio viene creato un gruppo di sicurezza di rete denominato **myNsg** contenente una regola denominata **myRdpRule** che consente il traffico RDP sulla porta 3389. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Apertura di porte a una VM tramite PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-```powershell
-$nsgName = "myNsg"
-$ruleName = "myRdpRule"
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description "Allow RDP" `
-    -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
-    -SourceAddressPrefix Internet -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 3389
-
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
-    -Name $nsgName -SecurityRules $rdpRule
-```
-
-
-### <a name="create-network-variables"></a>Creare variabili di rete
-
-Creare una variabile per la rete virtuale realizzata. 
-
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
-
-```
-
-### <a name="get-the-credentials"></a>Ottenere le credenziali 
-
-Il cmdlet seguente apre una finestra in cui si immette un nuovo nome utente e una nuova password da usare come account amministratore locale per accedere in remoto alla VM. 
-
-```powershell
-$cred = Get-Credential
-```
-
-### <a name="set-vm-variables"></a>Impostare le variabili della VM 
-
-1. Creare variabili per il nome della macchina virtuale e per il nome del computer. In questo il nome della macchina virtuale viene impostato su **myVM** e il nome del computer viene impostato su **myComputer**.
-
-    ```powershell
-    $vmName = "myVM"
-    $computerName = "myComputer"
-    ```
-2. Impostare le dimensioni della macchina virtuale. Questo esempio crea una macchina virtuale con dimensione **Standard_DS1_v2**. Per altre informazioni, vedere la documentazione [Dimensioni per le macchine virtuali Windows in Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/).
-
-    ```powershell
-    $vmSize = "Standard_DS1_v2"
-    ```
-
-3. Aggiungere il nome della macchina virtuale e le dimensioni per la configurazione della macchina virtuale.
-
-```powershell
-$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-```
-
-### <a name="set-the-vm-image"></a>Impostare l'immagine della VM 
-
-Impostare l'immagine di origine usando l'ID dell'immagine di macchina virtuale gestita.
-
-```powershell
-$vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
-```
-
-### <a name="set-the-os-configuration"></a>Impostare la configurazione del sistema operativo 
-
-Immettere il tipo di archiviazione (PremiumLRS o StandardLRS) e le dimensioni del disco del sistema operativo. In questo esempio il tipo di account viene impostato su **PremiumLRS**, le dimensioni del disco su **128 GB** e il caching del disco su **ReadWrite**.
-
-```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 `
--CreateOption FromImage -Caching ReadWrite
-
-$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
--Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-```
-
-### <a name="create-the-vm"></a>Creare la VM
-
-Creare la nuova VM usando la configurazione creata e archiviata nella variabile **$vm**.
-
-```powershell
-New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
-```
-
-## <a name="verify-the-vm"></a>Verificare la VM
-Al termine, la VM appena creata dovrebbe essere visualizzata nel [portale di Azure](https://portal.azure.com) in **Browse** (Sfoglia)  > **Macchine virtuali**. In alternativa, è possibile usare i comandi PowerShell seguenti:
-
-```powershell
-    $vmList = Get-AzureRmVM -ResourceGroupName $rgName
-    $vmList.Name
-```
-
-## <a name="next-steps"></a>Passaggi successivi
-
-Per accedere alla nuova macchina virtuale, passare alla VM nel [portale](https://portal.azure.com), fare clic su **Connetti**e aprire il file RDP di Desktop remoto. Usare le credenziali dell'account della macchina virtuale originale per accedere alla nuova macchina virtuale. Per altre informazioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
  
 

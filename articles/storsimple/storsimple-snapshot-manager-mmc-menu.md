@@ -4,7 +4,7 @@ description: Viene descritto come utilizzare lo standard delle azioni di menu di
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
@@ -12,17 +12,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b2be03e12b2deaecb352f8703650cf23cdefdebd
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Utilizzo delle azioni del menu MMC in Gestione snapshot StorSimple
+
 ## <a name="overview"></a>Panoramica
-In Gestione snapshot StorSimple, le azioni seguenti verranno visualizzate elencate in tutti i menu delle azioni e in tutte le variazioni del riquadro **Azioni** . 
+In Gestione snapshot StorSimple, le azioni seguenti verranno visualizzate elencate in tutti i menu delle azioni e in tutte le variazioni del riquadro **Azioni** .
 
 * Visualizza
 * Nuova finestra da qui 
@@ -99,10 +102,5 @@ Queste azioni fanno parte di Microsoft Management Console (MMC) e non sono speci
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sull' [interfaccia utente di Gestione snapshot StorSimple](storsimple-use-snapshot-manager.md).
 * Ulteriori informazioni sull’ [utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ffae86cb963f0df7f879effbace073d7e830cd94
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: b45dbdf7aaca9fa7db06e5312b6918c24814c30e
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorare lo stato della replica di Active Directory con Log Analytics
+
+![Simbolo di Stato replica di AD](./media/log-analytics-ad-replication-status/ad-replication-status-symbol.png)
 
 Active Directory è un componente chiave di un ambiente IT aziendale. Per garantire disponibilità e prestazioni elevate, ogni controller di dominio ha la propria copia del database di Active Directory. I controller di dominio si replicano tra loro per propagare le modifiche all'interno dell'azienda. Gli errori in questo processo di replica possono causare una serie di problemi all'interno dell'azienda.
 

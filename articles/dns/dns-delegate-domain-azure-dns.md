@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 992b08a1e88062923d0775c59b8baf93fee5364b
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
 ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -297,11 +297,11 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 ## <a name="delete-all-resources"></a>Eliminare tutte le risorse
 
-Per eliminare tutte le risorse create in questo articolo, seguire questa procedura:
+Per eliminare tutte le risorse create nell'esecuzione dell'esercizio, seguire questa procedura:
 
 1. Nel riquadro **Preferiti** del portale di Azure fare clic su **Tutte le risorse**. Fare clic sul gruppo di risorse **contosorg** nel pannello Tutte le risorse. Se nella sottoscrizione selezionata sono già presenti delle risorse, è possibile immettere **contosorg** nella casella **Filtra per nome** per accedere facilmente al gruppo di risorse.
 1. Nel pannello **contosorg** fare clic sul pulsante **Elimina**.
-1. Il portale richiede di digitare il nome del gruppo di risorse per confermare che si desidera effettivamente procedere all'eliminazione. Fare clic su **Elimina**, digitare *contosorg* come nome del gruppo di risorse e quindi fare clic su **Elimina**. L'eliminazione di un gruppo di risorse determina l'eliminazione di tutte le risorse in esso contenute. È quindi consigliabile verificare sempre il contenuto di un gruppo prima di eliminarlo. Il portale elimina tutte le risorse contenute nel gruppo di risorse e quindi elimina il gruppo. Questo processo richiede alcuni minuti.
+1. Il portale richiede di digitare il nome del gruppo di risorse per confermare che si desidera effettivamente procedere all'eliminazione. Digitare *contosorg* come nome del gruppo di risorse e quindi fare clic su **Elimina**. L'eliminazione di un gruppo di risorse determina l'eliminazione di tutte le risorse in esso contenute. È quindi consigliabile verificare sempre il contenuto di un gruppo prima di eliminarlo. Il portale elimina tutte le risorse contenute nel gruppo di risorse e quindi elimina il gruppo. Questo processo richiede alcuni minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,9 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f5716ebd46560793a4f7161705252839a3f70e44
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
+ms.openlocfilehash: 7841fcf0b5f4dcb409abf8bfb804c2e03dad6d3a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -68,10 +70,5 @@ L’esempio [Retwis](https://github.com/SyntaxC4-MSFT/retwis) rappresenta Hello 
 
 ## <a name="bandwidth-monitor"></a>Monitor della larghezza di banda
 L’esempio relativo al [monitor della larghezza di banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) consente di monitorare la larghezza di banda utilizzata nel client. Per misurare la larghezza di banda, eseguire l'esempio nel computer client della cache, effettuare chiamate alla cache e osservare la larghezza di banda segnalata nell'esempio del monitor della larghezza di banda.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

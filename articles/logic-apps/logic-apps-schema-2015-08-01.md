@@ -311,7 +311,7 @@ Questo approccio dovrebbe funzionare per tutte le azioni delle app per le API. T
 <a name="foreach"></a>
 ## <a name="renamed-repeat-to-foreach"></a>"Repeat" rinominato come "foreach"
 
-In base ai commenti e suggerimenti ricevuti dai clienti per la versione dello schema precedente, **Ripeti** generava confusione e non era chiaramente identificabile come ciclo Foreach.**** Di conseguenza, `repeat` è stato rinominato in `foreach`. Ad esempio, in precedenza si sarebbe scritto:
+In base ai commenti e suggerimenti ricevuti dai clienti per la versione dello schema precedente, **Ripeti** generava confusione e non era chiaramente identificabile come ciclo **Foreach** . Di conseguenza, `repeat` è stato rinominato in `foreach`. Ad esempio, in precedenza si sarebbe scritto:
 
 ```
 {

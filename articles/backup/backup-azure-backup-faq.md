@@ -17,10 +17,10 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: aabd0481e6dd264e9a5e91c2e4b2b83f01227db1
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 17b0740f11fcfe200191f8695b6d885df41e68e2
 ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -156,10 +156,13 @@ Certo. Backup di Azure consente il backup a livello di VM per le VM di Azure usa
 Sì. Installare Azure Backup Agent nel sistema operativo guest Windows ed eseguire il backup di file e cartelle in un'archiviazione temporanea. Dopo la cancellazione dei dati nell'archivio temporaneo, i processi di backup hanno esito negativo. Se poi i dati nell'archivio temporaneo sono stati eliminati, è possibile eseguire il ripristino solo in un archivio non temporaneo.
 
 
-## <a name="azure-backup-server-and-data-protection-manager"></a>Server di Backup di Azure e Data Protection Manager
+## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Server di Backup di Azure e System Center Data Protection Manager
 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>È possibile usare il server di Backup di Azure per creare un backup di ripristino bare metal per un server fisico? <br/>
 Sì.
+
+### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>È possibile registrare un server Data Protection Manager in più insiemi di credenziali? <br/>
+No. Un server di Backup di Microsoft Azure o un server Data Protection Manager può essere registrato in un solo insieme di credenziali.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>Quale versione di System Center Data Protection Manager è supportata? <br/>
 È consigliabile installare l'agente di Backup di Azure [più recente](http://aka.ms/azurebackup_agent) nell'ultimo aggiornamento cumulativo di System Center Data Protection Manager (DPM). Ad agosto 2016, il più recente è l'aggiornamento cumulativo 11.

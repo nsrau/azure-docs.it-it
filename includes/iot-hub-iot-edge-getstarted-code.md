@@ -1,6 +1,6 @@
 ## <a name="typical-output"></a>Output tipico
 
-Il seguente è un esempio dell'output scritto nel file di log per l'esempio Hello World. L'output è formattato per migliorare la leggibilità:
+L'esempio seguente mostra l'output scritto nel file di log dall'esempio Hello World. L'output è formattato per migliorare la leggibilità:
 
 ```json
 [{
@@ -36,9 +36,9 @@ In questa sezione vengono descritte alcune sezioni chiave del codice nell'esempi
 
 ### <a name="iot-edge-gateway-creation"></a>Creazione del gateway IoT Edge
 
-Lo sviluppatore deve scrivere il *processo del gateway*. Questo programma crea l'infrastruttura interna, ovvero il broker, carica i moduli di IoT Edge e configura tutto in modo che funzioni correttamente. IoT Edge specifica la funzione **Gateway\_Create\_From\_JSON** per consentire di avviare un gateway da un file JSON. Per usare la funzione **Gateway\_Create\_From\_JSON**, è necessario chiamarla dal percorso di un file JSON che specifica i moduli di IoT Edge da caricare.
+È necessario implementare un *processo del gateway*. Questo programma crea l'infrastruttura interna, ovvero il broker, carica i moduli di IoT Edge e configura il processo del gateway. IoT Edge specifica la funzione **Gateway\_Create\_From\_JSON** per consentire di avviare un gateway da un file JSON. Per usare la funzione **Gateway\_Create\_From\_JSON**, chiamarla dal percorso di un file JSON che specifica i moduli di IoT Edge da caricare.
 
-È possibile trovare il codice per il processo del gateway per l'esempio Hello World nel file [main.c][lnk-main-c]. Per migliorare la leggibilità, il frammento di codice seguente illustra una versione abbreviata del codice del processo del gateway. Questo programma di esempio crea un gateway e quindi attende che l'utente prema **INVIO** prima di rimuove il gateway.
+È possibile trovare il codice per il processo del gateway nell'esempio *Hello World* nel file [main.c][lnk-main-c]. Per migliorare la leggibilità, il frammento di codice seguente illustra una versione abbreviata del codice del processo del gateway. Questo programma di esempio crea un gateway e quindi attende che l'utente prema **INVIO** prima di rimuove il gateway.
 
 ```c
 int main(int argc, char** argv)
@@ -62,9 +62,9 @@ int main(int argc, char** argv)
 Il file di impostazioni JSON contiene un elenco di moduli di IoT Edge da caricare e i collegamenti tra i moduli. Ogni modulo di IoT Edge deve specificare:
 
 * **name**: nome univoco per il modulo.
-* **loader**: un caricatore che riesca a caricare il modulo appropriato. I caricatori sono punti di estensione per il caricamento di tipi diversi di moduli. Microsoft offre caricatori da usare con moduli scritti in C, Node.js, Java e .NET nativi. L'esempio Hello World usa solo il caricatore C nativo perché tutti i moduli in questo esempio sono librerie dinamiche scritte in C. Per altre informazioni su come usare moduli di IoT Edge scritti in linguaggi diversi, vedere gli esempi [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample) o [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample).
+* **loader**: un caricatore che riesca a caricare il modulo appropriato. I caricatori sono punti di estensione per il caricamento di tipi diversi di moduli. IoT Edge offre caricatori da usare con moduli scritti in C, Node.js, Java e .NET nativi. L'esempio Hello World usa solo il caricatore C nativo perché tutti i moduli in questo esempio sono librerie dinamiche scritte in C. Per altre informazioni su come usare moduli di IoT Edge scritti in linguaggi diversi, vedere gli esempi [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample) o [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample).
     * **name**: nome del caricatore usato per caricare il modulo.
-    * **entrypoint**: percorso della libreria che contiene il modulo. In Linux questa libreria è un file con estensione so, in Windows è un file con estensione dll. Il punto di ingresso è specifico per il tipo di caricatore in uso. Il punto di ingresso del caricatore Node.js è un file con estensione js. Il punto di ingresso del caricatore Java è un percorso di classe più un nome di classe. Il punto di ingresso del caricatore .NET è un nome di assembly più un nome di classe.
+    * **entrypoint**: percorso della libreria che contiene il modulo. In Linux questa libreria è un file con estensione so, in Windows è un file con estensione dll. Il punto di ingresso è specifico per il tipo di caricatore in uso. Il punto di ingresso del caricatore Node.js è un file con estensione js. Il punto di ingresso del caricatore Java è un percorso di classe e un nome di classe. Il punto di ingresso del caricatore .NET è un nome di assembly e un nome di classe.
 
 * **args**: le informazioni di configurazione necessarie per il modulo.
 
@@ -98,10 +98,10 @@ Il codice seguente illustra l'uso di JSON per dichiarare tutti i moduli di IoT E
 
 Il file JSON contiene anche i collegamenti tra i moduli che vengono passati al broker. Un collegamento ha due proprietà:
 
-* **source**: il nome di un modulo dalla sezione `modules` oppure "\*".
+* **source**: il nome di un modulo dalla sezione `modules` oppure `\*`.
 * **sink**: il nome di un modulo dalla sezione `modules`.
 
-Ogni collegamento definisce una route messaggi e una direzione. I messaggi dal modulo `source` vengono recapitati al modulo `sink`. Il modulo `source` può essere impostato su "\*", a indicare che i messaggi da qualsiasi modulo vengono ricevuti dal `sink`.
+Ogni collegamento definisce una route messaggi e una direzione. I messaggi dal modulo **source** vengono recapitati al modulo **sink**. È possibile impostare il modulo **source** su `\*`, che indica che il modulo **sink** riceve messaggi da qualsiasi modulo.
 
 Il codice seguente illustra l'uso di JSON per configurare i collegamenti tra i moduli usati nell'esempio hello\_world in Linux. Tutti i messaggi generati dal modulo `hello_world` vengono utilizzati dal modulo `logger`.
 
@@ -180,7 +180,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 Il modulo logger riceve messaggi dal broker e li scrive in un file, ma non pubblica mai messaggi. Il codice del modulo logger quindi non chiama mai la funzione **Broker_Publish**.
 
-La funzione **Logger_Recieve** nel file [logger.c][lnk-logger-c] è il callback che viene richiamato dal broker per recapitare i messaggi al modulo logger. Il frammento di codice seguente riporta una versione modificata, per una maggior leggibilità, in cui sono stati aggiunti commenti ed è stata rimossa parte del codice per la gestione degli errori:
+La funzione **Logger_Receive** nel file [logger.c][lnk-logger-c] è il callback che viene richiamato dal broker per recapitare i messaggi al modulo logger. Il frammento di codice seguente riporta una versione modificata, per una maggior leggibilità, in cui sono stati aggiunti commenti ed è stata rimossa parte del codice per la gestione degli errori:
 
 ```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -223,14 +223,13 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come usare Azure IoT Edge, vedere gli articoli seguenti:
+In questo articolo è stato eseguito un gateway IoT Edge semplice che ha scritto messaggi in un file di log. Per eseguire un esempio che invia messaggi all'hub IoT, vedere [IoT Edge: inviare messaggi da dispositivo a cloud con un dispositivo simulato usando Linux][lnk-gateway-simulated-linux] o [IoT Edge: inviare messaggi da dispositivo a cloud con un dispositivo simulato usando Windows][lnk-gateway-simulated-windows].
 
-* [IoT Edge: inviare messaggi da dispositivo a cloud con un dispositivo simulato usando Linux][lnk-gateway-simulated].
-* [Azure IoT Edge][lnk-iot-edge] in GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/iot-edge/blob/master/samples/hello_world/src/main.c
 [lnk-helloworld-c]: https://github.com/Azure/iot-edge/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/iot-edge/blob/master/modules/logger/src/logger.c
 [lnk-iot-edge]: https://github.com/Azure/iot-edge/
-[lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md
+[lnk-gateway-simulated-linux]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md
+[lnk-gateway-simulated-windows]: ../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md

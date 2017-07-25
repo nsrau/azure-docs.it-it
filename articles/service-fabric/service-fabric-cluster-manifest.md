@@ -1,6 +1,6 @@
 ---
-title: Configurare il cluster autonomo | Documentazione Microsoft
-description: Questo articolo descrive come configurare un cluster di Service Fabric autonomo o privato.
+title: Configurare un cluster autonomo di Azure Service Fabric | Microsoft Docs
+description: Informazioni su come configurare un cluster di Service Fabric autonomo o privato.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 06/02/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.contentlocale: it-it
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -37,7 +38,7 @@ Questa sezione tratta in modo ampio le configurazioni specifiche dei cluster, co
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "01-2017",
 
 È possibile attribuire qualsiasi nome descrittivo al cluster di Service Fabric assegnandolo alla variabile **name**. **clusterConfigurationVersion** rappresenta il numero di versione del cluster; è possibile aggiornarlo ogni volta che si aggiorna il cluster di Service Fabric. Tuttavia, è necessario mantenere il valore predefinito per **apiVersion**.
 
@@ -87,6 +88,10 @@ Nella sezione **reliabilityLevel** viene definito il numero di copie dei servizi
     "reliabilityLevel": "Bronze",
 
 Si noti che poiché un nodo primario esegue una sola copia dei servizi di sistema, è necessario un minimo di 3 nodi primari per livelli di affidabilità *Bronze*, 5 per *Silver*, 7 per *Gold* e 9 per *Platinum*.
+
+Se non si specifica la proprietà reliabilityLevel in clusterConfig.json il sistema calcola il valore reliabilityLevel ottimale in base al numero di nodi di tipo primario disponibili. Se ad esempio sono disponibili 4 nodi primari, reliabilityLevel viene impostato su Minimo, mentre se sono disponibili 5 nodi primari viene impostato su Medio. Nel futuro l'opzione per la configurazione del livello di affidabilità verrà rimossa, in quanto il cluster rileverà e userà automaticamente il livello di affidabilità ottimale.
+
+ReliabilityLevel è aggiornabile. È possibile creare un clusterConfig.json v2 e applicare la scalabilità verticale come descritto in [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](service-fabric-cluster-upgrade-windows-server.md). È anche possibile aggiornare a un clusterConfig.json v2 in cui reliabilityLevel non è specificato, pertanto il livello di affidabilità viene calcolato automaticamente. 
 
 ### <a name="diagnostics"></a>Diagnostica
 La sezione **diagnosticsStore** consente di configurare i parametri per consentire la diagnostica e la risoluzione degli errori di nodi o cluster, come illustrato nel frammento riportato di seguito. 
@@ -183,6 +188,21 @@ L'esempio seguente illustra come modificare il log delle transazioni condiviso c
             "value": "4096"
         }]
     }]
+
+### <a name="add-on-features"></a>Funzionalità aggiuntive
+Per configurare le funzioni aggiuntive l'impostazione di apiVersion deve essere '04-2017' o versione successiva ed è necessario configurare addonFeatures:
+
+    "apiVersion": "04-2017",
+    "properties": {
+      "addOnFeatures": [
+          "DnsService",
+          "RepairManager"
+      ]
+    }
+
+### <a name="container-support"></a>Supporto dei contenitori
+Per abilitare il supporto dei contenitori sia per il contenitore di Windows Server che per il contenitore di Hyper-V per i cluster autonomi, deve essere attivata la funzionalità aggiuntiva 'DnsService'.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato la configurazione di un file ClusterConfig.JSON in base alla configurazione del cluster autonomo, è possibile distribuire il cluster seguendo l'articolo [Creare un cluster di Service Fabric autonomo](service-fabric-cluster-creation-for-windows-server.md) e quindi proseguire per la [Visualizzazione del cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).

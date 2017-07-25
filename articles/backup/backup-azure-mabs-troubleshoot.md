@@ -12,12 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/24/2017
+ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: a42488d618c58b36fa8105c1b22fd32ca615d1b1
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a8df63821af039b7a5ad34f065423701485ee7d8
+ms.contentlocale: it-it
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -26,8 +27,13 @@ ms.lasthandoff: 03/27/2017
 
 È possibile risolvere gli errori rilevati durante l'uso di server di Backup di Azure con le informazioni elencate nella tabella seguente.
 
->
->
+
+## <a name="installation-issues"></a>Problemi di installazione
+
+| Operazione | Dettagli errore | Soluzione alternativa |
+|-----------|---------------|------------|
+|Installazione | Non è stato possibile aggiornare i metadati del Registro di sistema. Questo errore di aggiornamento potrebbe causare un utilizzo eccessivo dell'archiviazione. Per evitare questo problema, aggiornare la voce del Registro di sistema ReFS Trimming. | Modificare la chiave del Registro di sistema, SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim. Impostare il valore DWORD su 1. |
+|Installazione | Non è stato possibile aggiornare i metadati del Registro di sistema. Questo errore di aggiornamento potrebbe causare un utilizzo eccessivo dell'archiviazione. Per evitare questo problema, aggiornare la voce del Registro di sistema Volume SnapOptimization. | Creare la chiave del Registro di sistema, SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds, con un valore di stringa vuoto. |
 
 ## <a name="registration-and-agent-related-issues"></a>Problemi relativi alla registrazione e all'agente
 | Operazione | Dettagli errore | Soluzione alternativa |
@@ -43,6 +49,7 @@ ms.lasthandoff: 03/27/2017
 | Configurazione di gruppi di protezione | DPM non è in grado di enumerare il componente dell'applicazione nel computer protetto (Nome computer protetto) | Fare clic su "Aggiorna"' nella schermata dell'interfaccia utente per la configurazione del gruppo protezione dati al livello di origine dati/componente appropriato |
 | Configurazione di gruppi di protezione | Impossibile configurare la protezione | Se il server protetto è un server SQL, verificare se le autorizzazioni del ruolo sysadmin siano state fornite all'account di sistema (NTAuthority\System) nel computer protetto come indicato in [questo articolo](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx)
 | Configurazione di gruppi di protezione | Non c'è spazio sufficiente nel pool di archiviazione per questo gruppo protezione dati | I dischi aggiunti al pool di archiviazione [non devono contenere una partizione](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). Eliminare i volumi presenti nei dischi e quindi aggiungerlo al pool di archiviazione|
+| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore si verifica quando sono abilitate le impostazioni di sicurezza, si prova a ridurre l'intervallo di conservazione dei dati al sotto dei valori minimi specificati in precedenza e si usa una versione non supportata, ovvero precedente a MAB 2.0.9052 o al server di Backup di Azure Update 1. <br/>**Azione consigliata:**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è necessario impostare il periodo di conservazione dei dati al di sopra del valore minimo specificato, ovvero sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile o un anno per il backup annuale. Facoltativamente, per sfruttare tutti gli aggiornamenti della sicurezza un approccio consigliato è aggiornare l'agente di backup e il server di Backup di Azure. |
 
 ## <a name="backup"></a>Backup
 | Operazione | Dettagli errore | Soluzione alternativa |
@@ -54,4 +61,10 @@ ms.lasthandoff: 03/27/2017
 | Backup | Impossibile creare il punto di ripristino online | Se viene visualizzato il messaggio di errore "Non è stata impostata la passphrase di crittografia per questo server. Configurare una passphrase di crittografia.", provare a configurare una passphrase di crittografia. In caso di esito negativo, <br> <ol><li>verificare se esista o meno il percorso dei file temporanei. Dovrebbe esistere il percorso indicato nel Registro di sistema HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config con nome "ScratchLocation".</li><li> Se il percorso dei file temporanei esiste, provare nuovamente a eseguire la registrazione con la passphrase precedente. **Quando si configura una passphrase di crittografia, salvarla in un luogo sicuro**</li><ol>
 | Backup | Errore di backup per il ripristino bare metal | Se il ripristino bare metal ha dimensioni elevate, riprovare dopo aver spostato alcuni file di applicazione nell'unità del sistema operativo |
 | Backup | Errore durante l'accesso a file o cartelle condivise | Provare a modificare le impostazioni dell'antivirus come suggerito [qui](https://technet.microsoft.com/library/hh757911.aspx)|
+
+## <a name="change-passphrase"></a>Modificare la passphrase
+| Operazione | Dettagli errore | Soluzione alternativa |
+| --- | --- | --- |
+| Modificare la passphrase |Il PIN di sicurezza immesso non è corretto. Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata:**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere al portale di Azure e passare a Insieme di credenziali di Servizi di ripristino > Impostazioni > Proprietà > Genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
+| Modificare la passphrase |Operazione non riuscita. ID: 120002 |**Causa:**<br/>Questo errore si verifica quando sono abilitate impostazioni di sicurezza, si prova a modificare la passphrase e si usa una versione non supportata.<br/>**Azione consigliata:**<br/> Per modificare la passphrase è prima necessario aggiornare l'agente di backup almeno alla versione 2.0.9052 e il server di Backup di Azure almeno all'Update 1, quindi immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere al portale di Azure e passare a Insieme di credenziali di Servizi di ripristino > Impostazioni > Proprietà > Genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
 

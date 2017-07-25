@@ -10,7 +10,12 @@
 ### [Servizi cloud](cdn-cloud-service-with-cdn.md)
 ### [Archiviazione](cdn-create-a-storage-account-with-cdn.md)
 ### [Condivisione di risorse tra le origini](cdn-cors.md)
-
+## Ottimizzare il contenuto
+### [Panoramica dell'ottimizzazione](cdn-optimization-overview.md)
+####[Ottimizzazione di file di grandi dimensioni](cdn-large-file-optimization.md)
+####[Ottimizzazione dello streaming multimediale](cdn-media-streaming-optimization.md)
+####[Accelerazione sito dinamico](cdn-dynamic-site-acceleration.md)
+ 
 ## Manage
 ### [Abilitare HTTPS in un dominio personalizzato](cdn-custom-ssl.md)
 ### [Gestire con PowerShell](cdn-manage-powershell.md)
@@ -55,11 +60,13 @@
 # Risorse
 ##  [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md)
 ### [Espressioni condizionali del motore regole](cdn-rules-engine-reference-conditional-expressions.md)
-### [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md)
 ### [Funzionalità del motore regole](cdn-rules-engine-reference-features.md)
+### [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md)
 ## [Località POP della rete CDN di Azure](cdn-pop-locations.md)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cdn)
-## [Prezzi](https://azure.microsoft.com/pricing/details/cdn/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Prezzi](https://azure.microsoft.com/pricing/details/cdn/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+

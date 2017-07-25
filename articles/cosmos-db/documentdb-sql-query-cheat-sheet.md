@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/05/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e714d3585b78d28aba069464a444162103739657
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 04810ffa33d90d31003d0919c3edb2710fed453c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Foglio informativo PDF sulle query SQL di Azure Cosmos DB
-Il **foglio informativo sulle query SQL per Azure Cosmos DB** consente di scrivere rapidamente query per i dati di Azure Cosmos DB visualizzando query di database, parole chiave, funzioni predefinite e operatori comuni in un foglio di riferimento PDF facile da stampare. 
+# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: foglio informativo PDF sulle query SQL dell'API di DocumentDB
+Il **foglio informativo sulle query SQL dell'API di DocumentDB per Azure Cosmos DB** consente di scrivere rapidamente query per i dati dell'API di DocumentDB visualizzando query di database, parole chiave, funzioni predefinite e operatori comuni in un foglio di riferimento PDF facile da stampare. 
 
 Cosmos DB supporta l'esecuzione di query relazionali, gerarchiche e spaziali su documenti JSON usando [SQL](documentdb-sql-query.md) senza specificare uno schema o indici secondari. Oltre alle parole chiave e agli operatori standard ANSI SQL, Cosmos DB supporta funzioni JavaScript definite dall'utente (UDF), operatori JavaScript e una vasta gamma di funzioni predefinite.
 

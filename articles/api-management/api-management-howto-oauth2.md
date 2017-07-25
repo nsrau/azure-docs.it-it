@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: e43027cdea291f34aa60ad123e0de86b385efb30
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a19c453bb3271374b587f3d0b35adad55863b490
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure
@@ -65,7 +67,7 @@ Selezionare i tipi desiderati in **Authorization code grant types** . **Authoriz
 
 Immettere il valore relativo a **Authorization endpoint URL**. Per Azure Active Directory, questo URL sarà simile all'URL seguente, dove `<client_id>` viene sostituito dall'ID client che identifica l'applicazione in uso nel server OAuth 2.0.
 
-`https://login.windows.net/<client_id>/oauth2/authorize`
+`https://login.microsoftonline.com/<client_id>/oauth2/authorize`
 
 L'impostazione **Authorization request method** specifica la modalità di invio della richiesta di autorizzazione al server OAuth 2.0. Il valore selezionato per impostazione predefinita è **GET** .
 
@@ -75,7 +77,7 @@ Nella sezione successiva vengono specificate le impostazioni **Token endpoint UR
 
 Per un server OAuth 2.0 di Azure Active Directory, il **Token endpoint URL** avrà il seguente formato, dove `<APPID>` avrà il formato `yourapp.onmicrosoft.com`.
 
-`https://login.windows.net/<APPID>/oauth2/token`
+`https://login.microsoftonline.com/<APPID>/oauth2/token`
 
 L'impostazione predefinita di **Client authentication methods** è **Basic**, mentre quella di **Access token sending method** è **Authorization header**. Questi valori vengono configurati in questa sezione del modulo, insieme a **Default scope**.
 
@@ -172,10 +174,5 @@ Per altre informazioni sull'uso di OAuth 2.0 e di Gestione API, vedere il video 
 [Configure an API to use OAuth 2.0 user authorization]: #step2
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

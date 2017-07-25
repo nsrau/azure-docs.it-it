@@ -1,6 +1,6 @@
 ---
-title: Script dell&quot;interfaccia della riga di comando di Azure -Spostare un database SQL e i pool elastici | Microsoft Docs
-description: 'Esempio di script dell&quot;interfaccia della riga di comando di Azure: spostare un database SQL tra pool elastici usando l&quot;interfaccia della riga di comando di Azure'
+title: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL in un pool elastico SQL | Microsoft Docs
+description: Script di esempio dell'interfaccia della riga di comando di Azure per lo spostamento di un database SQL in un pool elastico SQL
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,25 +14,25 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 07/05/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: df4a62783cf3f8f644de850cb80bdad8352cf372
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 1dc31a0b20f36e28a58896ed63a5e0395ae1d3af
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
-# <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-the-azure-cli"></a>Creare pool elastici e spostare i database tra pool e all'esterno di un pool con l'interfaccia della riga di comando di Azure
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Usare l'interfaccia della riga di comando per spostare un database SQL di Azure in un pool elastico SQL
 
-Questo esempio di script dell'interfaccia della riga di comando crea due pool elastici e sposta un database da un pool elastico all'altro, quindi sposta un database all'esterno di un pool elastico in un livello di prestazioni a database singolo. 
+Questo script di esempio dell'interfaccia della riga di comando di Azure crea due pool elastici e sposta un database SQL di Azure da un pool elastico all'altro, quindi sposta un database all'esterno di un pool elastico in un livello di prestazioni a database singolo di Azure. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -54,7 +54,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Crea un server logico che ospita un database o un pool elastico. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pools#create) | Crea un pool elastico all'interno di un server logico. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#create) | Crea un pool elastico all'interno di un server logico. |
 | [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Crea un database in un server logico come database singolo o in pool. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update) | Aggiorna le proprietà del database o sposta un database all'interno, all'esterno o tra pool elastici. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |

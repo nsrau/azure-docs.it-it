@@ -1,4 +1,5 @@
 # [Panoramica](active-directory-developers-guide.md)
+## [Perché Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Nozioni di base sull'autenticazione](active-directory-authentication-scenarios.md)
 ## [Tipi di app](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Attività iniziali
@@ -71,6 +72,7 @@
 ### [Token e tipi di attestazioni supportati](active-directory-token-and-claims.md)
 ### [Rollover della chiave di firma](active-directory-signing-key-rollover.md)
 ### [Metadati della federazione](active-directory-federation-metadata.md)
+### [Credenziali di un certificato](active-directory-certificate-credentials.md)
 ## [Oggetti applicazione](active-directory-application-objects.md)
 ### [App e Azure AD](active-directory-how-applications-are-added.md)
 ## [Manifesto dell'applicazione](active-directory-application-manifest.md)
@@ -83,11 +85,11 @@
 ### [Confronto tra la versione 1 e la versione 2](active-directory-v2-compare.md)
 ## Attività iniziali
 ### App per dispositivi mobili e desktop
-#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
 #### [.NET per Windows Desktop](guidedsetups/active-directory-windesktop.md)
 ### App Web
-#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [Server Web ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [App Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Guide
@@ -101,4 +103,7 @@
 #### [Concessione di credenziali client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Flusso on-behalf-of di OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Informazioni si riferimento sul token](active-directory-v2-tokens.md)
+#### [Credenziali di un certificato](active-directory-certificate-credentials.md)
 ### [Ambiti](active-directory-v2-scopes.md)
+# Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)

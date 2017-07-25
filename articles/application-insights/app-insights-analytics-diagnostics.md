@@ -1,6 +1,6 @@
 ---
 title: Diagnostica intelligente di modifiche delle prestazioni delle app Web in Azure Application Insights | Microsoft Docs
-description: Diagnosi automatica di modifiche improvvise nella telemetria delle prestazioni da parte di un&quot;app web.
+description: Diagnosi automatica di modifiche improvvise nella telemetria delle prestazioni da parte di un'app web.
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -18,7 +18,6 @@ ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
 ms.contentlocale: it-it
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>Diagnosticare modifiche improvvise nella telemetria dell'app
 
@@ -33,8 +32,8 @@ In questo esempio, la diagnostica intelligente ha identificato un modello di val
 
 ## <a name="diagnose-data-changes"></a>Diagnosticare le modifiche ai dati
 
-1.    Eseguire una query in Analytics e creare un grafico del tempo. 
-2.    Fare clic su qualsiasi punto di picco evidenziato, se presente.
+1.  Eseguire una query in Analytics e creare un grafico del tempo. 
+2.  Fare clic su qualsiasi punto di picco evidenziato, se presente.
  
     ![Punto di picco](./media/app-insights-analytics-diagnostics/peak.png)
 
@@ -48,11 +47,11 @@ In questo esempio, la diagnostica intelligente ha identificato un modello di val
 
     Si noti anche la presenza di due componenti del grafico, con i filtri true e false. Il componente false visualizza una tendenza invariata. In altre parole, non c'è alcuna modifica nei risultati della telemetria, se si esclude la combinazione problematica di dimensioni identificate dalla diagnostica. Al contrario, i risultati in tale combinazione visualizzano modifiche notevoli all'interno dell'area di indagine evidenziata. Questo indica che la diagnostica ha trovato una combinazione di proprietà che spiega il cambio.
 
-4.    Se il modello è complesso, è necessario passare il mouse su **Mostra tutto** per visualizzare le dimensioni.
+4.  Se il modello è complesso, è necessario passare il mouse su **Mostra tutto** per visualizzare le dimensioni.
 
     ![Mostra tutto](./media/app-insights-analytics-diagnostics/show-all.png)
  
-5.    In caso in cui la diagnostica non trovi alcun modello significativo da notificare, verrà visualizzata la pagina "Nessun risultato". A questo punto, è possibile modificare la query. Ad esempio, è possibile restringere l'intervallo di tempo creando contenitori nella query di Analytics, per un'analisi più dettagliata e possibilmente per ottenere risultati migliori.
+5.  In caso in cui la diagnostica non trovi alcun modello significativo da notificare, verrà visualizzata la pagina "Nessun risultato". A questo punto, è possibile modificare la query. Ad esempio, è possibile restringere l'intervallo di tempo creando contenitori nella query di Analytics, per un'analisi più dettagliata e possibilmente per ottenere risultati migliori.
 
 Se si sa che una determinata pagina del sito Web ha un problema in un determinato browser, è possibile ora passare direttamente alla pagina con il problema ed eseguire un'indagine sui cambi recenti.
 

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
 ms.openlocfilehash: 8ca2eb740a2b2b1ef60fdb6037c619fb378b2575
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/29/2016
 
 ---
-
 
 # <a name="h264-single-bitrate-16x9-sd-audio-51"></a>Codec video H.264 a bitrate singolo con risoluzione 16x9 SD e audio 5.1
 `Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  
@@ -117,8 +117,4 @@ ms.openlocfilehash: 8ca2eb740a2b2b1ef60fdb6037c619fb378b2575
   ]  
 }  
 ```
-
-
-<!--HONumber=Nov16_HO5-->
-
 

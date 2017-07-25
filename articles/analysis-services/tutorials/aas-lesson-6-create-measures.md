@@ -10,24 +10,27 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: c4977758997c91f0191e0367fb57923f43080b56
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-6-create-measures"></a>Lezione 6: Creare misure
-In questa lezione verranno create le misure da includere nel modello. In modo simile alle colonne calcolate create, una misura è un calcolo creato usando una formula DAX. Tuttavia, a differenza delle colonne calcolate, le misure vengono valutate in base a un *filtro* selezionato dall'utente, ad esempio, una particolare colonna o filtro dei dati aggiunto al campo Etichette di riga in una tabella pivot. Con la misura applicata viene quindi calcolato un valore per ogni cella nel filtro. Le misure sono calcoli potenti e flessibili che sarà utile includere in quasi tutti i modelli tabulari per eseguire calcoli dinamici su dati numerici. Per altre informazioni, vedere [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular) (Misure).
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+In questa lezione verranno create le misure da includere nel modello. In modo simile alle colonne calcolate create, una misura è un calcolo creato usando una formula DAX. Tuttavia, a differenza delle colonne calcolate, le misure vengono valutate in base a un *filtro* selezionato dall'utente, ad esempio una particolare colonna o un filtro dei dati aggiunto al campo Etichette di riga in una tabella pivot. Con la misura applicata viene quindi calcolato un valore per ogni cella nel filtro. Le misure sono calcoli potenti e flessibili che è utile includere in quasi tutti i modelli tabulari per eseguire calcoli dinamici su dati numerici. Per altre informazioni, vedere [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular) (Misure).
   
 Per creare le misure si usa la *griglia delle misure*. Per impostazione predefinita, ogni tabella ha una griglia delle misure vuota, ma di solito non si creano misure per ogni tabella. La griglia delle misure viene visualizzata sotto una tabella nella finestra di progettazione dei modelli in vista dati. Per mostrare o nascondere la griglia delle misure per una tabella, fare clic sul menu **Tabella** e quindi fare clic su **Mostra griglia delle misure**.  
   
-È possibile creare una misura facendo clic su una cella vuota nella griglia delle misure e quindi digitando una formula DAX nella barra della formula. Quando si preme INVIO per completare la formula, la misura verrà quindi visualizzata nella cella. È anche possibile creare misure con una funzione di aggregazione standard facendo clic su una colonna e quindi sul pulsante Somma automatica (**∑**) sulla barra degli strumenti. Le misure create con la funzionalità Somma automatica verranno visualizzate nella cella della griglia delle misure direttamente sotto la colonna, ma possono essere spostate.  
+È possibile creare una misura facendo clic su una cella vuota nella griglia delle misure e quindi digitando una formula DAX nella barra della formula. Quando si preme INVIO per completare la formula, la misura verrà quindi visualizzata nella cella. È anche possibile creare misure con una funzione di aggregazione standard facendo clic su una colonna e quindi sul pulsante Somma automatica (**∑**) sulla barra degli strumenti. Le misure create con la funzionalità Somma automatica vengono visualizzate nella cella della griglia delle misure direttamente sotto la colonna, ma possono essere spostate.  
   
 In questa lezione le misure vengono create sia immettendo una formula DAX nella barra della formula che usando la funzionalità Somma automatica.  
   
@@ -54,12 +57,12 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
-    Diversamente dalle colonne calcolate, con le formule per le misure è possibile digitare il nome della misura, seguito da una virgola, seguita dall'espressione della formula.
+    Diversamente dalle colonne calcolate, con le formule per le misure è possibile digitare il nome della misura, seguito da due punti, seguiti dall'espressione della formula.
 
   
 #### <a name="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table"></a>Per creare una misura DaysInCurrentQuarter nella tabella DimDate  
   
-1.  Con la tabella **DimDate** ancora attiva nella finestra di progettazione dei modelli, nella griglia delle misure fare clic sulla cella vuota sotto la misura appena creata.  
+1.  Con la tabella **DimDate** ancora attiva nella finestra di progettazione dei modelli, nella griglia delle misure fare clic sulla cella vuota sotto la misura creata.  
   
 2.  Nella barra della formula digitare la formula seguente:  
   
@@ -99,7 +102,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
     |TaxAmt|InternetTotalTaxAmt|Somma|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|Somma|=SUM([Freight])|  
   
-2.  Facendo clic su una cella vuota nella griglia delle misure e quindi usando la barra della formula creare le misure seguenti con il nome indicato in ordine:  
+2.  Facendo clic su una cella vuota nella griglia delle misure e usando quindi la barra della formula, creare le misure seguenti con il nome indicato in ordine:  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))

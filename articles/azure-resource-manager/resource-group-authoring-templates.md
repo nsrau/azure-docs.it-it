@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/14/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: c0c4ea4eba742e4abe3da9e92508665ec1d91490
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: dc9b64062d7f68c83aa090eec96744819a5ca423
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manger
 Questo argomento descrive la struttura di un modello di Azure Resource Manager. Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per un'esercitazione dettagliata sulla creazione di un modello, vedere [Creare il primo modello di Azure Resource Manager](resource-manager-create-first-template.md).
-
-Limitare le dimensioni del modello a 1 MB e ogni file di parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri. 
 
 ## <a name="template-format"></a>Formato del modello
 La struttura più semplice di un modello è costituita dagli elementi seguenti:
@@ -78,19 +76,34 @@ Ogni elemento contiene proprietà che è possibile impostare. L'esempio seguente
     },
     "resources": [
       {
+          "condition": "<boolean-value-whether-to-deploy>",
           "apiVersion": "<api-version-of-resource>",
           "type": "<resource-provider-namespace/resource-type-name>",
           "name": "<name-of-the-resource>",
           "location": "<location-of-resource>",
-          "tags": "<name-value-pairs-for-resource-tagging>",
+          "tags": {
+              "<tag-name1>": "<tag-value1>",
+              "<tag-name2>": "<tag-value2>"
+          },
           "comments": "<your-reference-notes>",
+          "copy": {
+              "name": "<name-of-copy-loop>",
+              "count": "<number-of-iterations>",
+              "mode": "<serial-or-parallel>",
+              "batchSize": "<number-to-deploy-serially>"
+          },
           "dependsOn": [
               "<array-of-related-resource-names>"
           ],
-          "properties": "<settings-for-the-resource>",
-          "copy": {
-              "name": "<name-of-copy-loop>",
-              "count": "<number-of-iterations>"
+          "properties": {
+              "<settings-for-the-resource>",
+              "copy": [
+                  {
+                      "name": ,
+                      "count": ,
+                      "input": {}
+                  }
+              ]
           },
           "resources": [
               "<array-of-child-resources>"
@@ -171,7 +184,7 @@ I valori e i tipi consentiti sono:
 
 Per specificare un parametro come facoltativo, fornire un valore defaultValue (che può essere anche una stringa vuota). 
 
-Se nel modello si specifica un nome di parametro che corrisponde a un parametro nel comando per distribuire il modello, si crea una potenziale ambiguità in merito ai valori forniti. Resource Manager risolve questa confusione aggiungendo il suffisso **FromTemplate** al parametro del modello. Se si include un parametro denominato **ResourceGroupName** nel modello, ad esempio, questo sarà in conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment][deployment2cmdlet]. Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
+Se nel modello si specifica un nome di parametro che corrisponde a un parametro nel comando per distribuire il modello, si crea una potenziale ambiguità in merito ai valori forniti. Resource Manager risolve questa confusione aggiungendo il suffisso **FromTemplate** al parametro del modello. Se, ad esempio, si include un parametro denominato **ResourceGroupName** nel modello, si crea un conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
 
 > [!NOTE]
 > Per tutte le password, le chiavi e altre informazioni riservate si consiglia di usare il tipo **secureString** . Se si passano dati sensibili in un oggetto JSON, usare il tipo **secureObject**. Non è possibile leggere i parametri di modello di tipo secureString o secureObject dopo la distribuzione delle risorse. 
@@ -280,6 +293,7 @@ Le risorse vengono definite con la struttura seguente:
 ```json
 "resources": [
   {
+      "condition": "<boolean-value-whether-to-deploy>",
       "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
       "name": "<name-of-the-resource>",
@@ -289,13 +303,24 @@ Le risorse vengono definite con la struttura seguente:
           "<tag-name2>": "<tag-value2>"
       },
       "comments": "<your-reference-notes>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>",
+          "mode": "<serial-or-parallel>",
+          "batchSize": "<number-to-deploy-serially>"
+      },
       "dependsOn": [
           "<array-of-related-resource-names>"
       ],
-      "properties": "<settings-for-the-resource>",
-      "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>"
+      "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+              {
+                  "name": ,
+                  "count": ,
+                  "input": {}
+              }
+          ]
       },
       "resources": [
           "<array-of-child-resources>"
@@ -306,15 +331,16 @@ Le risorse vengono definite con la struttura seguente:
 
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--- |:--- |:--- |
+| condition | No | Valore booleano che indica se la risorsa viene distribuita. |
 | apiVersion |Sì |Versione dell'API REST da utilizzare per la creazione della risorsa. |
 | type |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft.Storage/storageAccounts**. |
 | name |Sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi Azure che rendono visibile il nome della risorsa a terze parti convalidano anche il nome, per garantire che non si tratti di un tentativo di spoofing per un'identità alternativa. |
 | location |Variabile |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. Vedere [Impostare la posizione delle risorse nei modelli di Azure Resource Manager](resource-manager-template-location.md). |
 | tags |No |Tag associati alla risorsa. Vedere [Applicare i tag alle risorse nei modelli di Azure Resource Manager](resource-manager-template-tags.md). |
 | commenti |No |Le note per documentare le risorse nel modello |
+| copy |No |Numero di risorse da creare, se sono necessarie più istanze. La modalità predefinita è parallela. Specificare la modalità seriale quando si desidera che non tutte le risorse vengano distribuite contemporaneamente. Per altre informazioni, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |No |Risorse da distribuire prima della distribuzione di questa risorsa. Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine corretto. Quando le risorse non sono interdipendenti, vengono distribuite in parallelo. Il valore può essere un elenco delimitato da virgole di nomi o identificatori univoci di risorse. Elencare solo le risorse distribuite in questo modello. Le risorse non definite in questo modello devono essere già esistenti. Evitare di aggiungere dipendenze non necessarie perché possono rallentare la distribuzione e creare dipendenze circolari. Per indicazioni sull'impostazione delle dipendenze, vedere l'articolo relativo alla [definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md). |
-| properties |No |Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli specificati nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. |
-| copy |No |Numero di risorse da creare, se sono necessarie più istanze. Per altre informazioni, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md). |
+| properties |No |Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli specificati nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. È inoltre possibile specificare una matrice di copia per creare più istanze di una proprietà. Per altre informazioni, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md). |
 | resources |No |Risorse figlio che dipendono dalla risorsa in via di definizione. Specificare solo tipi di risorsa consentiti dallo schema della risorsa padre. Il nome di tipo completo della risorsa figlio include il tipo della risorsa padre, ad esempio **Microsoft.Web/sites/extensions**. La dipendenza dalla risorsa padre non è implicita. È necessario definirla in modo esplicito. |
 
 La sezione resources contiene una matrice delle risorse da distribuire. All'interno di ogni risorsa è anche possibile definire una matrice di risorse figlio. La sezione resources potrebbe quindi avere una struttura simile a questa:
@@ -343,7 +369,71 @@ La sezione resources contiene una matrice delle risorse da distribuire. All'inte
 
 Per altre informazioni sulla definizione delle risorse figlio, vedere [Impostare il nome e il tipo di una risorsa figlio in un modello di Resource Manager](resource-manager-template-child-resource.md).
 
-## <a name="outputs"></a>outputs
+L'elemento **condition** specifica se la risorsa viene distribuita. Il valore di questo elemento restituisce true o false. Ad esempio, per specificare se viene distribuito un nuovo account di archiviazione, usare:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+Per un esempio di utilizzo di una risorsa nuova o esistente, vedere [Modello di condizione nuovo o esistente](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+
+Per specificare se una macchina virtuale viene distribuita con una password o una chiave SSH, definire due versioni della macchina virtuale nel modello e utilizzare **condition** per differenziare l'utilizzo. Passare un parametro che specifichi lo scenario da distribuire.
+
+```json
+{
+    "condition": "[equals(parameters('passwordOrSshKey'),'password')]",
+    "apiVersion": "2016-03-30",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[concat(variables('vmName'),'password')]",
+    "properties": {
+        "osProfile": {
+            "computerName": "[variables('vmName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+        },
+        ...
+    },
+    ...
+},
+{
+    "condition": "[equals(parameters('passwordOrSshKey'),'sshKey')]",
+    "apiVersion": "2016-03-30",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[concat(variables('vmName'),'ssh')]",
+    "properties": {
+        "osProfile": {
+            "linuxConfiguration": {
+                "disablePasswordAuthentication": "true",
+                "ssh": {
+                    "publicKeys": [
+                        {
+                            "path": "[variables('sshKeyPath')]",
+                            "keyData": "[parameters('adminSshKey')]"
+                        }
+                    ]
+                }
+            }
+        },
+        ...
+    },
+    ...
+}
+``` 
+
+Per un esempio di utilizzo di una password o di una chiave SSH per la distribuzione di una macchina virtuale, vedere [Modello di condizione basato su nome utente o SSH](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+
+## <a name="outputs"></a>Output
 Nella sezione dell'output è possibile specificare i valori restituiti dalla distribuzione. Ad esempio, è possibile restituire l'URI per accedere a una risorsa distribuita.
 
 L'esempio seguente illustra la struttura di una definizione di output:
@@ -376,11 +466,23 @@ L'esempio seguente illustra un valore che viene restituito nella sezione dell'ou
 
 Per altre informazioni sull'utilizzo dell'output, vedere [Condivisione dello stato in modelli di Azure Resource Manager](best-practices-resource-manager-state.md).
 
+## <a name="template-limits"></a>Limiti del modello
+
+Limitare le dimensioni del modello a 1 MB e ogni file di parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri. 
+
+Si è anche limitati a:
+
+* 256 parametri
+* 256 variabili
+* 800 risorse (incluso il conteggio copie)
+* 64 valori di output
+* 24.576 caratteri in un'espressione di modello
+
+È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [Uso di modelli collegati nella distribuzione di risorse di Azure](resource-group-linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](resource-manager-objects-as-parameters.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare modelli completi per molti tipi diversi di soluzioni, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 * Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
 * Per unire più modelli durante la distribuzione, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
 * Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo scenario è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](resource-group-template-functions-resource.md#resourceid).
-
-[deployment2cmdlet]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment
 

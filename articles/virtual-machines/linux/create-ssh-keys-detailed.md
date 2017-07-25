@@ -1,9 +1,9 @@
 ---
 title: Procedura dettagliata per creare una coppia di chiavi SSH per le macchine virtuali Linux in Azure | Microsoft Docs
-description: Passaggi aggiuntivi per creare una coppia di chiavi SSH pubblica e privata per le VM Linux in Azure, con certificati specifici per i diversi casi d&quot;uso.
+description: Passaggi aggiuntivi per creare una coppia di chiavi SSH pubblica e privata per le VM Linux in Azure, con certificati specifici per i diversi casi d'uso.
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: dlepow
 manager: timlt
 editor: 
 tags: 
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 2/6/2016
-ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f452e8b3802bef5dc61bff64a8ac9ec5bb2a5bd9
-ms.lasthandoff: 04/03/2017
-
+ms.date: 6/28/2017
+ms.author: danlep
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0cb70d36bd6e8d4cf5fcd5ed4a3e85c42f3cf81d
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 ---
 
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Procedura dettagliata per creare una coppia di chiavi SSH e certificati aggiuntivi per una VM Linux in Azure
-Con una coppia di chiavi SSH è possibile creare macchine virtuali in Azure che per impostazione predefinita usano le chiavi SSH per l'autenticazione, eliminando la necessità di password per l'accesso. Le password sono intuibili e le macchine virtuali sono esposte a inesorabili tentativi di attacchi massicci per scoprire la password. Le macchine virtuali create con l'interfaccia della riga di comando di Azure o i modelli di Resource Manager possono includere la chiave pubblica SSH durante la distribuzione, rimuovendo il passaggio della configurazione post-distribuzione di disattivazione degli account di accesso con password per SSH. Questo articolo illustra i passaggi dettagliati e offre esempi aggiuntivi per la generazione di certificati, ad esempio per l'uso con il portale classico. Per creare rapidamente e usare una coppia di chiavi SSH, vedere [Come creare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](mac-create-ssh-keys.md).
+Con una coppia di chiavi SSH è possibile creare macchine virtuali in Azure che per impostazione predefinita usano le chiavi SSH per l'autenticazione, eliminando la necessità di password per l'accesso. Le password sono intuibili e le macchine virtuali sono esposte a inesorabili tentativi di attacchi massicci per scoprire la password. Le macchine virtuali create con l'interfaccia della riga di comando di Azure o i modelli di Resource Manager possono includere la chiave pubblica SSH durante la distribuzione, rimuovendo il passaggio della configurazione post-distribuzione di disattivazione degli account di accesso con password per SSH. Questo articolo illustra i passaggi dettagliati e offre esempi aggiuntivi per la generazione di certificati, ad esempio per l'uso con macchine virtuali di Linux. Per creare rapidamente e usare una coppia di chiavi SSH, vedere [Come creare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](mac-create-ssh-keys.md).
 
 ## <a name="understanding-ssh-keys"></a>Informazioni sulle chiavi SSH
 
@@ -36,7 +36,7 @@ Questo articolo crea una coppia di file di chiavi pubblica e privata RSA protoco
 
 ## <a name="ssh-keys-use-and-benefits"></a>Uso e vantaggi delle chiavi SSH
 
-Azure richiede almeno chiavi pubbliche e private in formato RSA protocollo SSH versione 2 a 2048 bit. Il file di chiave pubblica ha il formato di contenitore `.pub`. Il portale classico usa il formato di file `.pem`. Per creare le chiavi, usare `ssh-keygen`, che presenta una serie di domande e quindi scrive una chiave privata e una pubblica corrispondente. Quando viene creata una VM di Azure, Azure copia la chiave pubblica nella cartella `~/.ssh/authorized_keys` sulla VM. Le chiavi SSH in `~/.ssh/authorized_keys` vengono usate per fare in modo che il client trovi la chiave privata corrispondente in una connessione di accesso SSH.  Quando viene creata una macchina virtuale Linux di Azure usando le chiavi SSH per l'autenticazione, Azure configura il server SSHD per non consentire l'accesso con password, ma solo con le chiavi SSH.  La creazione di macchine virtuali Linux in Azure con chiavi SSH consente di proteggere la distribuzione delle VM e di evitare l'esecuzione del passaggio di post-distribuzione tipico relativo alla disabilitazione delle password nel file **sshd_config**.
+Azure richiede almeno chiavi pubbliche e private in formato RSA protocollo SSH versione 2 a 2048 bit. Il file di chiave pubblica ha il formato di contenitore `.pub`. Per creare le chiavi, usare `ssh-keygen`, che presenta una serie di domande e quindi scrive una chiave privata e una pubblica corrispondente. Quando viene creata una VM di Azure, Azure copia la chiave pubblica nella cartella `~/.ssh/authorized_keys` sulla VM. Le chiavi SSH in `~/.ssh/authorized_keys` vengono usate per fare in modo che il client trovi la chiave privata corrispondente in una connessione di accesso SSH.  Quando viene creata una macchina virtuale Linux di Azure usando le chiavi SSH per l'autenticazione, Azure configura il server SSHD per non consentire l'accesso con password, ma solo con le chiavi SSH.  La creazione di macchine virtuali Linux in Azure con chiavi SSH consente di proteggere la distribuzione delle VM e di evitare l'esecuzione del passaggio di post-distribuzione tipico relativo alla disabilitazione delle password nel file **sshd_config**.
 
 ## <a name="using-ssh-keygen"></a>Uso di ssh-keygen
 
@@ -63,21 +63,6 @@ ssh-keygen \
 
 `-C "azureuser@myserver"`: commento aggiunto alla fine del file della chiave pubblica per identificarla facilmente.  In genere come commento viene usato un indirizzo di posta elettronica, ma è possibile usare qualsiasi elemento, in base alle esigenze dell'infrastruttura.
 
-## <a name="classic-portal-and-x509-certs"></a>Portale classico e certificati X.509
-
-Se si usa il [portale classico](https://manage.windowsazure.com/) di Azure, è necessario un file PEM di certificato X.509 per le chiavi SSH.  Non sono consentite altre chiavi pubbliche SSH, *devono* essere certificati X.509.
-
-Per creare un certificato X.509 dalla chiave privata SSH-RSA:
-
-```bash
-openssl req -x509 \
--key ~/.ssh/id_rsa \
--nodes \
--days 365 \
--newkey rsa:2048 \
--out ~/.ssh/id_rsa.pem
-```
-
 ## <a name="classic-deploy-using-asm"></a>Distribuzione classica tramite `asm`
 
 Se si usa il modello di distribuzione classica (modalità `asm` nell'interfaccia della riga di comando), è possibile usare una chiave pubblica SSH-RSA o una chiave formattata RFC4716 in un contenitore PEM.  La chiave pubblica SSH-RSA corrisponde a quella creata in precedenza in questo articolo tramite `ssh-keygen`.
@@ -96,7 +81,7 @@ ssh-keygen \
 ```bash
 ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): 
+Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.

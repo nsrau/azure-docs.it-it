@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d8ae05316b424af7d87c3c5ebdac575bcc04998d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati
 La macchina virtuale Linux per l'analisi scientifica dei dati è una macchina virtuale di Azure basata su CentOS fornita con un insieme di strumenti preinstallati. Questi strumenti vengono comunemente usati per eseguire l'analisi dei dati e il Machine Learning. Ecco i componenti software principali:
 
+* Sistema operativo: distribuzione di Linux CentOS.
 * Microsoft R Server Developer Edition
 * Distribuzione di Anaconda Python, versioni 2.7 e 3.5, incluse le più comuni librerie di analisi dei dati
 * JuliaPro: un'accurata distribuzione di linguaggio Julia con librerie scientifiche e dati di analitica diffuse

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: hanuk;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1cc14b99a4c0dfeb9eec0afaf72200e93cd22e12
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7dc61a4ea5f7ce9749a3280562e42223dfdbde17
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -86,7 +87,7 @@ Il modello descritto di replica e coerenza con riconoscimento del data center di
 
 **Distribuzione basata su prossimità:** applicazioni multi-tenant, con mapping chiaro di utenti tenant all’area, possono trarre vantaggio dalle basse latenze del cluster con più aree. Ad esempio, sistemi di gestione della formazione per istituzioni didattiche possono distribuire un cluster distribuito nelle aree degli Stati Uniti orientali e degli Stati Uniti occidentali per servire i rispettivi campus sia per scopi di transazione che di analisi. I dati possono essere coerenti localmente in fase di lettura e scrittura e possono essere alla fine coerenti tra le due aree. Sono disponibili altri esempi quali la distribuzione su supporti, e-commerce, e qualsiasi elemento serva alla base utenti concentrata geograficamente è un buon caso di utilizzo per questo modello di distribuzione.
 
-**Disponibilità elevata:** la ridondanza è un fattore chiave per ottenere un'elevata disponibilità di software e hardware; per ulteriori informazioni, vedere la sezione sulla compilazione di sistemi cloud affidabili in Microsoft Azure. In Microsoft Azure, l'unico modo affidabile per ottenere una vera ridondanza è la distribuzione di un cluster con più aree. Le applicazioni possono essere distribuite in modalità attivo-attivo o attivo-passivo e se una delle aree è inattiva, Gestione traffico di Azure può reindirizzare il traffico all'area attiva.  Con la distribuzione della singola area, se la disponibilità è 99,9, una distribuzione di due aree può raggiungere una disponibilità di 99,9999, calcolata con la formula: (1-(1-0.999) *(1-0.999))*100); vedere il documento precedente per informazioni dettagliate.
+**Disponibilità elevata:** la ridondanza è un fattore chiave per ottenere un'elevata disponibilità di software e hardware; per ulteriori informazioni, vedere la sezione sulla compilazione di sistemi cloud affidabili in Microsoft Azure. In Microsoft Azure, l'unico modo affidabile per ottenere una vera ridondanza è la distribuzione di un cluster con più aree. Le applicazioni possono essere distribuite in modalità attivo-attivo o attivo-passivo e se una delle aree è inattiva, Gestione traffico di Azure può reindirizzare il traffico all'area attiva.  Con la distribuzione della singola area, se la disponibilità è 99,9, una distribuzione di due aree può raggiungere una disponibilità di 99,9999, calcolata con la formula: (1-(1-0,999) * (1-0,999))*100). Vedere il documento precedente per informazioni dettagliate.
 
 **Ripristino di emergenza:** il cluster Cassandra con più aree, se correttamente progettato, può far fronte a potenziali interruzioni irreversibili del centro. Se un'area è inattiva, l'applicazione distribuita in altre aree può iniziare a servire gli utenti finali. Come le altre implementazioni di continuità aziendale, l'applicazione deve tollerare una certa perdita di dati risultante dai dati della pipeline asincrona. Tuttavia, Cassandra rende il ripristino molto più veloce rispetto ai tradizionali processi di ripristino dei database. La figura 2 mostra il tipico modello di distribuzione con più aree con otto nodi in ogni area. Entrambe le aree sono immagini speculari tra loro per simmetria; i progetti reali dipendono dai requisiti relativi a tipo di carico di lavoro (ad esempio transazionale o analitico), RPO, RTO, coerenza dei dati e disponibilità.
 
@@ -303,15 +304,13 @@ Assicurarsi che la macchina virtuale sia evidenziata e fare clic sul collegament
 Dopo alcuni secondi l'immagine dovrebbe essere disponibile nella sezione IMMAGINI PERSONALI della raccolta immagini. La macchina virtuale di origine verrà automaticamente eliminata una volta acquisita l'immagine. 
 
 ## <a name="single-region-deployment-process"></a>Processo di distribuzione in un'area singola
-**Passaggio 1: creare la rete virtuale** Accedere al portale di Azure classico e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Configurare una rete virtuale usando il portale di Azure classico](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) .      
+**Passaggio 1: Creare la rete virtuale** Accedere al portale di Azure e creare una rete virtuale (versione classica) con gli attributi elencati nella tabella seguente. Per i singoli passaggi del processo, vedere [Creare una rete virtuale (versione classica) usando il portale di Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).      
 
 <table>
 <tr><th>Nome attributo macchina virtuale</th><th>Valore</th><th>Osservazioni</th></tr>
 <tr><td>Nome</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>Stati Uniti occidentali</td><td></td></tr>
-<tr><td>Server DNS    </td><td>None</td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
-<tr><td>Configura una VPN Point-to-Site</td><td>None</td><td> Ignorare questo attributo</td></tr>
-<tr><td>Configura una VPN Site-to-Site</td><td>Nessuno</td><td> Ignorare questo attributo</td></tr>
+<tr><td>Server DNS</td><td>None</td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
 <tr><td>Spazio di indirizzi</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>IP iniziale</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>

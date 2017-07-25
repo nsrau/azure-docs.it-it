@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3216868d867f4c840a610c45855d22575ded609c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -39,9 +41,9 @@ Lo scenario seguente è un esempio di un problema di connessione comune:
 
 Una macchina virtuale denominata *VM1* fa parte di una subnet denominata *Subnet1* in una rete virtuale denominata *WestUS-VNet1*. Un tentativo di connettersi alla VM con RDP su porta TCP 3389 ha esito negativo. I gruppi di sicurezza di rete vengono applicati sia all'interfaccia di rete *VM1-NIC1* che alla subnet *Subnet1*. Il traffico verso la porta TCP 3389 è consentito nel gruppo di sicurezza di rete associato all'interfaccia di rete *VM1 NIC1*, tuttavia il comando ping TCP per VM1 della porta 3389 ha esito negativo.
 
-Anche se in questo esempio si usa la porta TCP 3389, è possibile seguire questa procedura per determinare gli errori di connessione in ingresso e in uscita su qualsiasi porta.
+Sebbene in questo esempio si usi la porta TCP 3389, è possibile attenersi alla procedura seguente per determinare gli errori di connessione in ingresso e in uscita su qualsiasi porta.
 
-### <a name="view-effective-security-rules-for-a-virtual-machine"></a>Visualizzare le regole di sicurezza effettive per una macchina virtuale
+### <a name="vm"></a>Visualizzare le regole di sicurezza effettive per una macchina virtuale
 Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza di rete per una VM:
 
 È possibile visualizzare l'elenco completo delle regole di sicurezza effettive in un'interfaccia di rete dalla VM stessa. È anche possibile aggiungere, modificare ed eliminare le regole dei gruppi di sicurezza di rete per subnet e interfacce di rete usando il pannello delle regole effettive, se si hanno le autorizzazioni per eseguire queste operazioni.
@@ -92,7 +94,7 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
    
     Verificare che la porta TCP 3389 sia aperta aprendo una connessione RDP alla VM o usando lo strumento PsPing. Per altre informazioni su PsPing, vedere la [pagina di download di PsPing](https://technet.microsoft.com/sysinternals/psping.aspx).
 
-### <a name="view-effective-security-rules-for-a-network-interface"></a>Visualizzare le regole di sicurezza effettive per un'interfaccia di rete
+### <a name="nic"></a>Visualizzare le regole di sicurezza effettive per un'interfaccia di rete
 In caso di problemi con il flusso del traffico della VM in un'interfaccia di rete specifica, è possibile visualizzare un elenco completo delle regole effettive nel contesto dell'interfaccia di rete seguendo questa procedura:
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
@@ -109,7 +111,7 @@ In caso di problemi con il flusso del traffico della VM in un'interfaccia di ret
    > 
 4. È possibile modificare direttamente le regole per i gruppi di sicurezza di rete associati a un'interfaccia di rete e a una subnet. Per informazioni su questa procedura, vedere il passaggio 8 della sezione **Visualizzare le regole di sicurezza effettive per una macchina virtuale** di questo articolo.
 
-## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>Visualizzare le regole di sicurezza effettive per un gruppo di sicurezza di rete
+## <a name="nsg"></a>Visualizzare le regole di sicurezza effettive per un gruppo di sicurezza di rete
 Quando si modificano le regole del gruppo di sicurezza di rete, può essere opportuno esaminare l'impatto delle regole aggiunte in una determinata VM. È possibile visualizzare l'elenco completo delle regole di sicurezza effettive per tutte le interfacce di rete a cui è applicato un determinato gruppo di sicurezza di rete, restando nel contesto del pannello dello specifico gruppo di sicurezza di rete. Per risolvere i problemi delle regole effettive in un gruppo di sicurezza di rete, seguire questa procedura:
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
@@ -148,10 +150,5 @@ Durante la risoluzione dei problemi di connettività, tenere presente quanto seg
 * Se si hanno reti virtuali con peering, il tag VIRTUAL_NETWORK si espanderà automaticamente per impostazione predefinita in modo da includere i prefissi delle reti virtuali con peering. È possibile vedere questi prefissi nell'elenco **ExpandedAddressPrefix** per risolvere eventuali problemi legati alla connettività di peering della rete virtuale. 
 * Le regole di sicurezza effettive vengono visualizzate solo se c'è un gruppo di sicurezza di rete associato all'interfaccia di rete o alla subnet della VM. 
 * Se non esistono gruppi di sicurezza di rete associati all'interfaccia di rete o alla subnet e si dispone di un indirizzo IP pubblico assegnato alla VM, tutte le porte saranno aperte per l'accesso in ingresso e in uscita. Se la VM ha un indirizzo IP pubblico, è consigliabile applicare gruppi di sicurezza di rete all'interfaccia di rete o alla subnet.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

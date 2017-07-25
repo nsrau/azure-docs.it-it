@@ -1,70 +1,50 @@
 ---
-title: Script dell&quot;interfaccia della riga di comando - Creare un database di Azure per PostgreSQL | Documentazione Microsoft
-description: Script dell&quot;interfaccia della riga di comando di Azure - Crea un singolo database di Azure per il server PostgreSQL e configura una regola di firewall a livello di server.
+title: Script dell'interfaccia della riga di comando - Creare un database di Azure per PostgreSQL | Documentazione Microsoft
+description: Script dell'interfaccia della riga di comando di Azure - Crea un singolo database di Azure per il server PostgreSQL e configura una regola di firewall a livello di server.
 services: postgresql
 author: salonisonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 05/10/2017
+ms.custom: mvc
+ms.devlang: azure-cli
+ms.topic: sample
+ms.date: 05/31/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0f61358aa655a44ac7982c80eb1d796667c47bf4
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 18700246b496d037464d86945b24ac59c8d88756
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Creare un database di Azure per il server PostgreSQL e configurare una regola di firewall tramite l'interfaccia della riga di comando di Azure
 Questo esempio di script dell'interfaccia della riga di comando di Azure crea un singolo database di Azure per il server PostgreSQL e configura una regola di firewall a livello di server. Dopo aver eseguito correttamente lo script, è possibile accedere al server PostgreSQL da tutti i servizi di Azure e dall'indirizzo IP configurato.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
-```azurecli
-#!/bin/bash
-
-# Create a resource group
-az group create \
---name myresourcegroup \
---location westus
-
-# Create a PostgreSQL server in the resource group
-# Name of a server maps to DNS name and is thus required to be globally unique in Azure.
-# Substitute the <server_admin_password> with your own value.
-az postgres server create \
---name mypgserver-20170401 \
---resource-group myresourcegroup \
---location westus \
---admin-user mylogin \
---admin-password <server_admin_password> \
---performance-tier Basic \
---compute-units 50 \
-
-# Configure a firewall rule for the server
-# The ip address range that you want to allow to access your server
-az postgres server firewall-rule create \
---resource-group myresourcegroup \
---server mypgserver-20170401 \
---name AllowIps \
---start-ip-address 0.0.0.0 \
---end-ip-address 255.255.255.255
-
-# Default database ‘postgres’ gets created on the server.
-```
+In questo script di esempio modificare le righe evidenziate per personalizzare il nome utente e la password dell'amministratore.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=15-16 "Creare un database di Azure per PostgreSQL e regole del firewall di livello server.")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
-```azurecli
-az group delete --name myresourcegroup
-```
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/delete-postgresql.sh "Eliminare il gruppo di risorse.")]
+
+## <a name="script-explanation"></a>Spiegazione dello script
+Questo script usa i comandi seguenti. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+
+| **Comando** | **Note** |
+|---|---|
+| [az group create](/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az postgres server create](/cli/azure/postgres/server#create) | Crea un server PostgreSQL che ospita i database. |
+| [az postgres server firewall create](/cli/azure/postgres/server/firewall-rule#create) | Crea una regola di firewall per consentire l'accesso al server e ai database presenti sul server dall'intervallo di indirizzi IP immesso. |
+| [az group delete](/cli/azure/group#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
-- Altri esempi di script dell'interfaccia della riga di comando del database di Azure per PostgreSQL sono riportati in [Documentazione del database di Azure per PostgreSQL](../sample-scripts-azure-cli.md).
+- Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/overview).
+- Provare a eseguire altri script: [Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL](../sample-scripts-azure-cli.md)
 

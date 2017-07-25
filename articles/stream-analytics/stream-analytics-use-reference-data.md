@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 74d33505b777925a19830d1eda2eca9776ecaf61
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 56d39e888fe5f2679c20ea6addfb0523ccaa6b82
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -104,7 +105,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 ## <a name="next-steps"></a>Passaggi successivi
 È stato presentato Analisi di flusso, un servizio gestito per l'analisi di flusso su dati provenienti da Internet delle cose. Per altre informazioni su questo servizio, vedere:
 
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
@@ -112,7 +113,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.introduction]: stream-analytics-introduction.md
+[stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301

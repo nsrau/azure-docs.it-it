@@ -4,7 +4,7 @@ description: Riepiloga i sistemi operativi e componenti supportati per Azure Sit
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,28 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/08/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: d53d4cfdc7b673d2816fa9372dedbed540380cce
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
+ms.contentlocale: it-it
+ms.lasthandoff: 06/15/2017
 
 
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matrice di supporto per la replica in un sito secondario con Azure Site Recovery
 
-> [!div class="op_single_selector"]
-> * [Replica in Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicare in un percorso locale](site-recovery-support-matrix-to-sec-site.md)
-
 Questo articolo contiene un riepilogo di elementi supportati quando si usa Azure Site Recovery per eseguire la replica in un sito locale secondario.
 
 ## <a name="deployment-options"></a>Opzioni di distribuzione
 
-**Distribuzione** | **Server fisico/VMware** | **Hyper-V (con/senza SCVMM)
+**Distribuzione** | **Server fisico/VMware** | **Hyper-V (con/senza SCVMM)**
 --- | --- | --- | ---
-**Portale di Azure** | Macchine virtuali VMware locali nel sito VMware secondario.<br/><br/> Scaricare il [manuale dell'utente per InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponibile nel portale di Azure). | VM Hyper-V locali in cloud VMM in un cloud VMM secondario.<br></br> Non supportato senza SCVMM  <br/><br/> Viene usata solo la replica Hyper-V standard. SAN non supportato.
+**Portale di Azure** | Macchine virtuali VMware locali nel sito VMware secondario.<br/><br/> Scaricare il [manuale dell'utente per InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponibile nel portale di Azure). | VM Hyper-V locali in cloud VMM in un cloud VMM secondario.<br></br> Non supportato senza VMM  <br/><br/> Viene usata solo la replica Hyper-V standard. SAN non supportato.
 **Portale classico** | Solo modalità manutenzione. Non è possibile creare nuovi insiemi di credenziali. | Solo modalità di manutenzione.<br></br> Non supportato senza SCVMM
 **PowerShell** | Non supportate | Supportato<br></br> Non supportato senza SCVMM
 
@@ -140,5 +137,6 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sui [Prerequisiti di distribuzione](site-recovery-prereq.md).
+- [Eseguire la replica di VM Hyper-V nel cloud VMM in un sito secondario](site-recovery-vmm-to-vmm.md)
+- [Replicare VM VMware e server fisici in un sito secondario](site-recovery-vmware-to-vmware.md)
 

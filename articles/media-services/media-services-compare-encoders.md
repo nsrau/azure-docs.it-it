@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 1c3118bc66afe7ef4f04d86d9b598128d1aadf82
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 32cbfbc78fbb808ed59142b80602a751f607706d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 06/29/2017
 
 ---
 
@@ -27,13 +26,30 @@ ms.lasthandoff: 05/05/2017
 
 Questo argomento mette a confronto le funzionalità di codifica di **Media Encoder Standard** e di **Flusso di lavoro Premium del codificatore multimediale**.
 
-### <a id="billing"></a>Metro di fatturazione usato da ogni codificatore
+## <a name="video-and-audio-processing-capabilities"></a>Funzionalità di elaborazione audio e video
+
+La tabella seguente mette a confronto le funzionalità di Media Encoder Standard (MES) e Media Encoder Premium Workflow (MEPW). 
+
+|Funzionalità|Codificatore multimediale standard|Flusso di lavoro Premium del codificatore multimediale|
+|---|---|---|
+|Applicazione della logica condizionale durante la codifica<br/>(ad esempio, se l'input è HD viene usata la codifica audio 5.1)|No|Sì|
+|Sottotitoli|No|[Sì](media-services-premium-workflow-encoder-formats.md#a-idclosedcaptioningasupport-for-closed-captioning)|
+|[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> con Dialogue Intelligence™|No|Sì|
+|Deinterlacciamento, telecine inverso|Basic|Qualità broadcast|
+|Rilevamento e rimozione dei bordi neri <br/>(formati 4:3, formati 16:9)|No|Sì|
+|Generazione di anteprime|[Sì](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sì](media-services-media-encoder-premium-workflow-tutorials.md#a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output)|
+|Ritaglio/rifilatura e pinzatura di video|[Sì](media-services-advanced-encoding-with-mes.md#a-idtrimvideoatrim-a-video-clipping)|Sì|
+|Sovrapposizioni di audio o video|[Sì](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[Sì](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|Sovrapposizioni di elementi grafici|Da origini di immagini|Da origini di immagini e testo|
+|Tracce audio in più lingue|Limitato|[Sì](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
+
+## <a id="billing"></a>Metro di fatturazione usato da ogni codificatore
 | Nome del processore multimediale | Prezzi applicabili | Note |
 | --- | --- | --- |
 | **Codificatore multimediale standard** |CODIFICATORE |Le attività di codifica verranno addebitate le attività in base alla durata totale, espressa in minuti, di tutti i file multimediali generati come output, alla tariffa specificata [qui][1], nella colonna CODIFICATORE. |
 | **Flusso di lavoro Premium del codificatore multimediale** |CODIFICATORE PREMIUM |Le attività di codifica verranno addebitate le attività in base alla durata totale, espressa in minuti, di tutti i file multimediali generati come output, alla tariffa specificata [qui][1], nella colonna CODIFICATORE PREMIUM. |
 
-### <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
+## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 | Contenitore di input/formati di file | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Sì |Sì |
@@ -50,7 +66,7 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 | Matroska/WebM |Sì |No |
 | QuickTime (.mov) |Sì |No |
 
-### <a name="input-video-codecs"></a>Codec video di input
+## <a name="input-video-codecs"></a>Codec video di input
 | Codec video di input | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra |4:2:0 e 4:2:2 a 8 bit |Sì |
@@ -70,7 +86,7 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 | Apple ProRes 4444 |Sì |No |
 | Apple ProRes 4444 XQ |Sì |No |
 
-### <a name="input-audio-codecs"></a>Codec audio di input
+## <a name="input-audio-codecs"></a>Codec audio di input
 | Codec audio di input | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |No |Sì |
@@ -86,7 +102,7 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Sì |No |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sì |No |
 
-### <a name="output-containerfile-formats"></a>Contenitore di output/formati di file
+## <a name="output-containerfile-formats"></a>Contenitore di output/formati di file
 | Contenitore di output/formati di file | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | Adobe® Flash® F4V |No |Sì |
@@ -99,7 +115,7 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 | AVI (non compresso 8 bit/10 bit) |No |Sì |
 | Formato di file Smooth Streaming (PIFF 1.3) |No |Sì |
 
-### <a name="output-video-codecs"></a>Codec video di output
+## <a name="output-video-codecs"></a>Codec video di output
 | Codec video di output | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AVC (H.264; 8 bit; fino a High Profile, Level 5.2; 4K Ultra HD; AVC Intra) |Solo 4:2:0 a 8 bit |Sì |
@@ -111,7 +127,7 @@ Questo argomento mette a confronto le funzionalità di codifica di **Media Encod
 | Creazione di anteprime PNG |Sì |Sì |
 | Creazione di anteprime BMP |Sì |No |
 
-### <a name="output-audio-codecs"></a>Codec audio di output
+## <a name="output-audio-codecs"></a>Codec audio di output
 | Codec audio di output | Codificatore multimediale standard | Flusso di lavoro Premium del codificatore multimediale |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |No |Sì |

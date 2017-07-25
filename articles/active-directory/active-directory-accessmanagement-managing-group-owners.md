@@ -1,6 +1,6 @@
 ---
-title: Passaggi successivi per la gestione dell&quot;accesso mediante i gruppi | Documentazione Microsoft
-description: Procedura avanzata per la gestione dei gruppi di sicurezza e l&quot;uso di questi gruppi per gestire l&quot;accesso a una risorsa.
+title: Passaggi successivi per la gestione dell'accesso mediante i gruppi | Documentazione Microsoft
+description: Procedura avanzata per la gestione dei gruppi di sicurezza e l'uso di questi gruppi per gestire l'accesso a una risorsa.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 04/26/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8c4920107b5d05716021bcef80d3c52c25f6eade
-ms.lasthandoff: 12/28/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 6b448b4fac56d4b5debcf4fb3a545dd538929aff
+ms.contentlocale: it-it
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="managing-owners-for-a-group"></a>Gestione dei proprietari di un gruppo
@@ -47,5 +47,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
 
