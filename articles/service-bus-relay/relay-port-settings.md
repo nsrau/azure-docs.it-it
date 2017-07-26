@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 07/03/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 783e797ad318fe926ba9e72e2eea027beb4a5994
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 5906495c565dad583e74a43b2e5eed57e0c68df1
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
 # <a name="azure-relay-port-settings"></a>Impostazioni delle porte di inoltro di Azure
 
-La tabella seguente descrive la configurazione necessaria per i valori di porta per Inoltro di Azure.
+La tabella seguente descrive la configurazione necessaria per i valori della porta del servizio Inoltro di Azure.
 
 ## <a name="hybrid-connections"></a>Connessioni ibride
 Connessioni ibride si avvale di WebSocket come meccanismo di trasporto di base che usa solo **HTTPS**. 
@@ -51,6 +52,6 @@ Connessioni ibride si avvale di WebSocket come meccanismo di trasporto di base c
 |[Classe WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (servizio)|È possibile usare il|9351/HTTP|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su Inoltro di Azure, visitare i collegamenti seguenti:
+Per altre informazioni sul servizio di inoltro di Azure, vedere i collegamenti seguenti:
 * [Che cos'è il servizio di inoltro di Azure?](relay-what-is-it.md)
 * [Domande frequenti sul servizio di inoltro](relay-faq.md)
