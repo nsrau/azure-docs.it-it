@@ -33,7 +33,7 @@
 
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Esempio per incorporare JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 ## [Repository Git JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Repository Git C# per Power BI](https://github.com/Microsoft/PowerBI-CSharp)

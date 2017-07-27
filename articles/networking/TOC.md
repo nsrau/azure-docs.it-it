@@ -60,7 +60,7 @@
 
 # Risorse
 ## [Creare modelli](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Modelli della community](https://azure.microsoft.com/resources/templates/)
 ## [Blog sulle reti](http://azure.microsoft.com/blog/topics/networking)
 ## [Prezzi](https://azure.microsoft.com/pricing)

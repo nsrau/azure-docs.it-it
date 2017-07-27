@@ -50,4 +50,4 @@
 ### [Porre una domanda](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Errori dell'estensione del Server dei criteri di rete](multi-factor-authentication-nps-errors.md)
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

@@ -16,7 +16,8 @@
 ### [2- Distribuire un'app .NET tramite Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Esempi
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Interfaccia della riga di comando di Azure](samples-cli.md)
 # Concetti
 ## [Informazioni sui microservizi](service-fabric-overview-microservices.md)
 ## [Quadro generale](service-fabric-content-roadmap.md)

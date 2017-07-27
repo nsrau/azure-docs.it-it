@@ -67,7 +67,7 @@
 ## [Bilanciamento del carico](/azure/load-balancer/)
 ## [Gestione traffico](/azure/traffic-manager/)
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=application-gateway)

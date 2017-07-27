@@ -12,7 +12,7 @@
 ## [Senza server](../../azure-functions/functions-create-first-azure-function.md)
 ## Microservizi
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
-### [Servizio contenitore](../../container-service/container-service-deployment.md) 
+### [Servizio contenitore](../../container-service/dcos-swarm/container-service-deployment.md) 
 
 # Esercitazioni
 ## Creare e distribuire un'app Web

@@ -81,9 +81,10 @@
 ### [Accedere a un'applicazione](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Problemi della distribuzione classica con la creazione di una nuova VM](troubleshoot-deployment-new-vm.md)
 ### [Problemi della distribuzione classica con il riavvio o il ridimensionamento di una VM esistente](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Reimpostare la password RDP](reset-rdp.md)
+### [Reimpostare la password RDP](reset-rdp.md)
+### [Collegare un disco rigido virtuale alla VM di risoluzione dei problemi](troubleshoot-recovery-disks-portal.md)
 
-# Riferimento
+# riferimento
 ## [PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
 ## [Java](/java/api)
@@ -95,7 +96,7 @@
 ## [REST di archiviazione](/rest/api/storageservices)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Disponibilità internazionale](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

@@ -106,6 +106,6 @@
 
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Domande frequenti su Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Deprecazione di DirSync](active-directory-aadconnect-dirsync-deprecated.md)
