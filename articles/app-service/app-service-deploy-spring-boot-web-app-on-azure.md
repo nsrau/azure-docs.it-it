@@ -209,7 +209,7 @@ Per altre informazioni sulla distribuzione di app Web in Azure tramite FTP, vede
 
 Per altre informazioni sul progetto di esempio Spring Boot, vedere [Introduzione a Spring Boot ].
 
-Per informazioni sulla Guida introduttiva con le proprie applicazioni Spring Boot, vedere **Spring Initializr** (Inizializzazione di SpringBoot) all'indirizzo https://start.spring.io/..
+Per informazioni sulla Guida introduttiva con le proprie applicazioni Spring Boot, vedere **Spring Initializr** (Inizializzazione di SpringBoot) all'indirizzo https://start.spring.io/.
 
 Per altre informazioni sulla configurazione delle impostazioni aggiuntive per l'app Web, vedere [Configurare app Web in Servizio app di Azure].
 

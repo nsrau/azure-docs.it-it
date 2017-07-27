@@ -1,6 +1,6 @@
 ---
-title: Esercitazione sulla distribuzione globale in Azure Cosmos DB per l&quot;API MongoDB | Documentazione Microsoft
-description: Informazioni su come configurare la distribuzione globale in Azure Cosmos DB usando l&quot;API MongoDB.
+title: Esercitazione sulla distribuzione globale in Azure Cosmos DB per l'API MongoDB | Documentazione Microsoft
+description: Informazioni su come configurare la distribuzione globale in Azure Cosmos DB usando l'API MongoDB.
 services: cosmos-db
 keywords: distribuzione globale, MongoDB
 documentationcenter: 
@@ -20,7 +20,6 @@ ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 119ebb3f4966de08934c7d1fbd139229bda1d060
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Procedura di configurazione della distribuzione globale in Azure Cosmos DB usando l'API MongoDB
@@ -59,14 +58,14 @@ Risultati dell'esempio:
             "region": "South India"
          },
          "hosts": [
-            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10250",
-            "vishi-api-for-mongodb-westeurope.documents.azure.com:10250",
-            "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10255",
+            "vishi-api-for-mongodb-westeurope.documents.azure.com:10255",
+            "vishi-api-for-mongodb-southindia.documents.azure.com:10255"
          ],
          "setName": "globaldb",
          "setVersion": 1,
-         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10250",
-         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10255",
+         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10255"
       }
    ```
 

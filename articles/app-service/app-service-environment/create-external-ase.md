@@ -27,7 +27,7 @@ L'ambiente del servizio app (ASE) è una distribuzione di Servizio app di Azure 
 - con un indirizzo VIP su un indirizzo IP esterno, spesso denominato _ambiente del servizio app esterno_.
 - con l'indirizzo VIP su un indirizzo IP interno, spesso denominato _ambiente del servizio app ILB_ perché l'endpoint interno è un servizio di bilanciamento del carico interno (ILB).
 
-In questo articolo viene illustrato come creare un ambiente del servizio app esterno. Per una panoramica sull'ambiente del servizio app è possibile iniziare con [un'introduzione all'ambiente del servizio App] [ Intro]. Per informazioni dettagliate sulla creazione di un ambiente del servizio app ILB, vedere [Create and use an ILB ASE][MakeILBASE] (Creare e usare un ambiente del servizio app ILB).
+In questo articolo viene illustrato come creare un ambiente del servizio app esterno. Per una panoramica sull'ambiente del servizio app è possibile iniziare con [un'introduzione all'ambiente del servizio App][Intro]. Per informazioni dettagliate sulla creazione di un ambiente del servizio app ILB, vedere [Create and use an ILB ASE][MakeILBASE] (Creare e usare un ambiente del servizio app ILB).
 
 ## <a name="before-you-create-your-ase"></a>Prima di creare l'ambiente del servizio app ##
 
