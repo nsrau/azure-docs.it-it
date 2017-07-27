@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore Oracle Database in App per la logica di Azure | Microsoft Docs
-description: Usare il connettore Oracle Database in un&quot;app per la logica
+description: Usare il connettore Oracle Database in un'app per la logica
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1d7574110d616643c67b19e9a4bf21ee9187503d
-ms.lasthandoff: 03/31/2017
-
+ms.author: mandia; ladocs
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
@@ -70,7 +70,7 @@ Questo argomento illustra come usare il connettore Oracle Database in un'app per
     > [!TIP]
     > Questo è anche il modo più rapido per visualizzare i trigger e le azioni disponibili per i connettori. Digitare parte del nome del connettore, ad esempio `oracle`. La finestra di progettazione elenca i trigger e le azioni. 
 
-5. Selezionare una delle azioni, ad esempio **Oracle Database - Ottieni riga**. Selezionare **Connetti tramite gateway dati locale**. Immettere il nome del server Oracle, il metodo di autenticazione, il nome utente e la password e selezionare il gateway:
+5. Selezionare una delle azioni, ad esempio **Oracle Database - Ottieni riga**. Selezionare **Connect via on-premises data gateway** (Connetti tramite gateway dati locale). Immettere il nome del server Oracle, il metodo di autenticazione, il nome utente e la password e selezionare il gateway:
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -123,6 +123,9 @@ Questo argomento illustra come usare il connettore Oracle Database in un'app per
 * Tabelle con chiavi composte
 * Tipi di oggetti annidati nelle tabelle
  
+## <a name="connector-specific-details"></a>Dettagli specifici del connettore
+
+Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/oracle/). 
 
 ## <a name="get-some-help"></a>Ottenere aiuto
 

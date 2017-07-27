@@ -11,12 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 05/05/2017
 ms.author: markscu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 69e26eaf4aedaf17b58091420430ca996c01cf69
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0f839072d9603e83b0ca493c9a7bab0e71a682c5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -29,6 +28,8 @@ Le macchine virtuali con priorità bassa sfruttano la capacità in eccesso di Az
 Il compromesso per l'uso di macchine virtuali con priorità bassa è che queste macchine virtuali possono essere interrotte quando non c'è capacità in surplus in Azure. Per questo motivo, le macchine virtuali con priorità bassa sono più adatte per determinati tipi di carichi di lavoro. Usare le macchine virtuali con priorità bassa per carichi di lavoro di batch ed elaborazione asincrona in cui il tempo di completamento del processo è flessibile e il lavoro viene distribuito su più macchine virtuali.
 
 Le macchine virtuali con priorità bassa sono decisamente meno dispendiose delle macchine virtuali dedicate. Per i dettagli sui prezzi vedere [Prezzi dei Batch](https://azure.microsoft.com/pricing/details/batch/).
+
+Per un'analisi aggiuntiva delle macchine virtuali con priorità bassa, vedere l'annuncio del post di blog: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/) (Batch computing a prezzi ridotti).
 
 > [!IMPORTANT]
 > Le macchine virtuali con priorità bassa sono attualmente in anteprima e sono disponibili solo per i carichi di lavoro in esecuzione in Batch. 
@@ -72,6 +73,9 @@ Azure Batch offre diverse funzionalità che semplificano l'uso e i vantaggi dall
 -   I pool di batch tentano automaticamente di puntare al numero di macchine virtuali con priorità bassa. Se le macchine virtuali vengono interrotte, Batch tenterà di sostituire la capacità persa e di tornare all'obiettivo.
 
 -   Nel caso di interruzioni di attività, Batch rileverà e riaccoderà automaticamente le attività da eseguire di nuovo.
+
+-   Le macchine virtuali con priorità bassa hanno una quota di code diversa rispetto a quella delle VM dedicate. 
+    La quota per le macchine virtuali con priorità bassa è superiore a quella delle VM dedicate, perché le macchine virtuali con priorità bassa sono meno costose. Per altre informazioni, vedere [Quote e limiti del servizio Batch](batch-quota-limit.md#resource-quotas).    
 
 > [!NOTE]
 > Le macchine virtuali con priorità bassa non sono attualmente supportate per gli account di Batch in cui la modalità di allocazione del pool è impostata su [Sottoscrizione utente](batch-account-create-portal.md#user-subscription-mode).
