@@ -74,7 +74,7 @@ Eseguire lo script *Demo-ProvisionAndCatalog* per creare velocemente un tenant e
 
 1. Premere **F5** ed eseguire lo script.
 
-Dopo il completamento dello script, viene effettuato il provisioning del nuovo tenant e l'app degli eventi** corrispondente verrà aperta nel browser:
+Dopo il completamento dello script, viene effettuato il provisioning del nuovo tenant e l'app degli *eventi* corrispondente verrà aperta nel browser:
 
 ![Nuovo tenant](./media/sql-database-saas-tutorial-provision-and-catalog/new-tenant.png)
 

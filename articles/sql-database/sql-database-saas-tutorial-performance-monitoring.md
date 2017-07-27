@@ -210,7 +210,7 @@ Questo esercizio simula l'effetto di un carico elevato per Contoso Concert Hall 
 1. Nel [portale di Azure](https://portal.azure.com) aprire **Pool1**.
 1. Esaminare il grafico **Monitoraggio pool elastico** e cercare il maggiore utilizzo di eDTU del pool. Dopo un paio di minuti, il carico elevato dovrebbe iniziare a comparire e il pool dovrebbe raggiungere velocemente l'utilizzo al 100%.
 1. Esaminare i dati in **Monitoraggio database elastico** che mostrano i database più attivi nell'ultima ora. Il database *contosoconcerthall* dovrebbe essere presto visualizzato come uno dei cinque database più attivi.
-1. **Fare clic sul **grafico** Monitoraggio database elastico**. Viene aperta la pagina **Utilizzo risorse database** in cui è possibile monitorare i singoli database. Ciò consente di isolare i dati per il database *contosoconcerthall*.
+1. **Fare clic sul** **grafico** Monitoraggio database elastico. Viene aperta la pagina **Utilizzo risorse database** in cui è possibile monitorare i singoli database. Ciò consente di isolare i dati per il database *contosoconcerthall*.
 1. Nell'elenco di database fare clic su **contosoconcerthall**.
 1. Fare clic su **Piano tariffario (piano DTU)** per aprire la pagina **Configura prestazioni** in cui è possibile impostare un livello di prestazioni autonomo per il database.
 1. Fare clic sulla scheda **Standard** per aprire le opzioni di scalabilità nel livello Standard.

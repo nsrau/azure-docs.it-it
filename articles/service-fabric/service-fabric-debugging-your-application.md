@@ -42,7 +42,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
    > Visual Studio si connette a tutte le istanze dell'applicazione. Mentre il codice viene eseguito un'istruzione alla volta, i punti di interruzione possono essere raggiunti da più processi, dando luogo a sessioni simultanee. Provare a disabilitare i punti di interruzione dopo che sono stati raggiunti rendendoli condizionali in base all'ID del thread, oppure usando gli eventi di diagnostica.
    > 
    > 
-4. La finestra degli ****eventi di diagnostica si aprirà automaticamente per visualizzare gli eventi diagnostici in tempo reale.
+4. La finestra degli **eventi di diagnostica** si aprirà automaticamente per visualizzare gli eventi diagnostici in tempo reale.
    
     ![Visualizzare gli eventi diagnostici in tempo reale][diagnosticevents]
 5. È possibile aprire la finestra degli **** eventi di diagnostica anche in Cloud Explorer.  In **Service Fabric** fare clic con il pulsante destro del mouse e scegliere **Visualizza tracce streaming**.
