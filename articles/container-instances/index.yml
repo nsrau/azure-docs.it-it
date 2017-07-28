@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Istanze di contenitore di Azure
+metadata:
+  title: Documentazione di Istanze di contenitore di Azure - Esercitazioni | Microsoft Docs
+  description: 'Istanze di contenitore di Azure rappresenta il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore.'
+  services: container-instances
+  author: carolz
+  manager: carolz
+  ms.service: container-instances
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: 'Istanze di contenitore di Azure rappresenta il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore. Se è necessaria una soluzione di orchestrazione del contenitore completa, vedere <a href="/azure/container-service/kubernetes/">Documentazione del servizio contenitore di Azure con Kubernetes</a>. Informazioni su come creare e gestire istanze di contenitore con guide introduttive, esercitazioni ed esempi.'
+sections:
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: Informazioni su come distribuire immagini del contenitore con Istanze di contenitore di Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/container-instances/media/container-instances.png
+            text: Creare l'istanza di contenitore
+            href: /azure/container-instances/container-instances-quickstart
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: Informazioni su come creare un pacchetto di codice in un'immagine del contenitore ed eseguirlo in un'istanza di contenitore di Azure.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Creare il pacchetto di un'applicazione in un'immagine del contenitore</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Creare un'istanza di Registro contenitori di Azure e caricare l'immagine del contenitore</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Distribuire l'immagine del contenitore in un'istanza di contenitore di Azure</a>

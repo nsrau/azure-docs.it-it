@@ -17,7 +17,7 @@
 ### Eseguire il backup delle VM
 #### [Backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](backup-azure-arm-vms.md)
 #### [Backup delle macchine virtuali crittografate](backup-azure-vms-encryption.md)
-#### [Backup di macchine virtuali di Azure nell'insieme di credenziali di backup](backup-azure-vms.md)
+#### [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms.md)
 ### Gestire e monitorare le VM
 #### [Gestire i backup delle macchine virtuali di Azure nel portale di Azure](backup-azure-manage-vms.md)
 #### [Monitorare gli avvisi per i backup delle macchine virtuali di Azure nel portale di Azure](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Preparare carichi di lavoro DPM nel portale di Azure](backup-azure-dpm-introduction.md)
 ### [Preparare carichi di lavoro DPM nel portale classico](backup-azure-dpm-introduction-classic.md)
 ### [Usare System Center DPM per eseguire il backup del server di Exchange](backup-azure-backup-exchange-server.md)
-### [Ripristinare i dati dell'insieme di credenziali per il backup in un server DPM alternativo](backup-azure-alternate-dpm-server.md)
+### [Ripristinare i dati in un server DPM alternativo](backup-azure-alternate-dpm-server.md)
 ### [Usare DPM per eseguire il backup di carichi di lavoro di SQL Server](backup-azure-backup-sql.md)
 ### [Usare DPM per eseguire il backup di una farm di SharePoint](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # Concetti
 ## [Panoramica degli insiemi di credenziali dei servizi di ripristino](backup-azure-recovery-services-vault-overview.md)
 ## [Aggiornamento di un insieme di credenziali di backup a insieme di credenziali dei servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Eliminare un insieme di credenziali di Backup di Azure](backup-azure-delete-vault.md)
+## [Eliminare un insieme di credenziali di Servizi di ripristino](backup-azure-delete-vault.md)
 ## [Controllo degli accessi in base al ruolo](backup-rbac-rs-vault.md)
 ## [Sicurezza per i backup ibridi](backup-azure-security-feature.md)
 ## [Configurare i report di Backup di Azure](backup-azure-configure-reports.md)
 ## [Modello di dati per i report di Backup di Azure](backup-azure-reports-data-model.md)
+## [Modello di dati per di Log Analytics per Backup di Azure](backup-azure-log-analytics-data-model.md)
 ## [Configurare il backup offline](backup-azure-backup-import-export.md)
 ## [Sostituire la libreria di nastri](backup-azure-backup-cloud-as-tape.md)
 ## [Backup coerenti con l'applicazione di VM Linux](backup-azure-linux-app-consistent.md)
