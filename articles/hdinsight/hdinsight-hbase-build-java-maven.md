@@ -22,7 +22,6 @@ ms.openlocfilehash: 83aeb23275a86e5d4706a0ad7ea72d11d71f9604
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Usare Maven per compilare applicazioni Java che usano HBase con HDInsight basato su Windows (Hadoop)
 In questo articolo si apprenderà come creare e compilare un'applicazione [Apache HBase](http://hbase.apache.org/) in Java usando Apache Maven. quindi a usare l'applicazione con HDInsight di Azure (Hadoop).
@@ -425,7 +424,7 @@ Ci sono molti modi per caricare un file nel cluster HDInsight, come descritto ne
         $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
         # The JAR
-        $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+        $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
         # The job definition
         $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `

@@ -21,7 +21,6 @@ ms.openlocfilehash: e457b722ec403d56ca551bb1fd01c3dd619bf9b5
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight
 Hive fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][hadoop-hiveql]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
@@ -75,8 +74,8 @@ Nella tabella seguente vengono elencati i file usati nell'esercitazione:
 
 <table border="1">
 <tr><th>File</th><th>Description</th></tr>
-<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>File script HiveQL necessario per il processo Hive. Lo script è stato caricato in un contenitore di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-b">Appendice B</a> include istruzioni su come preparare e caricare il file nel proprio account di archiviazione BLOB di Azure.</td></tr>
-<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Dati di input per il processo Hive. I dati sono stati caricati in un account di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-a">Appendice A</a> include istruzioni su come ottenere i dati e caricarli nel proprio account di archiviazione BLOB di Azure.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>File script HiveQL necessario per il processo Hive. Lo script è stato caricato in un contenitore di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-b">Appendice B</a> include istruzioni su come preparare e caricare il file nel proprio account di archiviazione BLOB di Azure.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Dati di input per il processo Hive. I dati sono stati caricati in un account di archiviazione BLOB di Azure con autorizzazione di accesso pubblico. L'<a href="#appendix-a">Appendice A</a> include istruzioni su come ottenere i dati e caricarli nel proprio account di archiviazione BLOB di Azure.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>Percorso di output per il processo Hive. Il contenitore predefinito viene usato per archiviare i dati di output.</td></tr>
 <tr><td>\tutorials\flightdelays\jobstatus</td><td>Cartella di stato del processo Hive nel contenitore predefinito.</td></tr>
 </table>
@@ -205,7 +204,7 @@ Per altre informazioni sulla creazione di un cluster HDInsight e sull'esecuzione
     ###########################################
     # Submit the Sqoop job
     ###########################################
-    $exportDir = "wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
+    $exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
 
     $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
                     -Command "export --connect $sqlDatabaseConnectionString --table $sqlDatabaseTableName --export-dir $exportDir --fields-terminated-by \001 "
@@ -352,7 +351,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l' [Appendice B
 
 Se si sceglie un metodo diverso per il caricamento dei file, verificare che il percorso sia tutorials/flightdelay/data. Di seguito viene riportata la sintassi per l'accesso ai file:
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
+    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
 Il percorso tutorials/flightdelay/data è la cartella virtuale creata durante il caricamento dei file. Verificare che siano disponibili 12 file, uno per ogni mese.
 
@@ -502,7 +501,7 @@ Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Langua
         "ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
         "LINES TERMINATED BY '\n' " +
         "STORED AS TEXTFILE " +
-        "LOCATION 'wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
+        "LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
 
     $hqlDropDelays = "DROP TABLE delays;"
 

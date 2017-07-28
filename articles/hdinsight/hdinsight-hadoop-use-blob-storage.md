@@ -1,6 +1,6 @@
 ---
 title: Eseguire query sui dati da una risorsa di archiviazione di Azure compatibile con HDFS - Azure HDInsight | Microsoft Docs
-description: Informazioni su come eseguire query sui dati da Archiviazione di Azure e Azure Data Lake Store per archiviare i risultati dell&quot;analisi.
+description: Informazioni su come eseguire query sui dati da Archiviazione di Azure e Azure Data Lake Store per archiviare i risultati dell'analisi.
 keywords: archivio BLOB, HDFS, dati strutturati, dati non strutturati, Data Lake Store, input Hadoop, output Hadoop, archivio Hadoop, input HDFS, output HDFS, archivio HDFS, WASB in Azure
 services: hdinsight,storage
 documentationcenter: 
@@ -22,7 +22,6 @@ ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: 4a46c7d9a030adb9c0407fda622ccd787212b030
 ms.contentlocale: it-it
 ms.lasthandoff: 06/10/2017
-
 
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
@@ -105,6 +104,8 @@ Ovunque si trovi, ogni oggetto BLOB creato appartiene a un contenitore presente 
 
 Il contenitore BLOB predefinito archivia informazioni specifiche del cluster come i log e la cronologia processo. Non condividere un contenitore BLOB predefinito con più cluster HDInsight. Questa operazione potrebbe danneggiare la cronologia processo. È consigliabile utilizzare un contenitore diverso per ogni cluster e inserire i dati condivisi in un account di archiviazione collegato specificato nella distribuzione di tutti i cluster rilevanti, anziché l'account di archiviazione predefinito. Per altre informazioni sulla configurazione degli account di archiviazione collegati, vedere [Creare cluster HDInsight][hdinsight-creation]. È comunque possibile riusare un contenitore di archiviazione predefinito dopo l'eliminazione del cluster HDInsight originale. Per i cluster HBase è in realtà possibile mantenere i dati e lo schema della tabella HBase creando un nuovo cluster HBase tramite il contenitore BLOB predefinito usato da un cluster HBase eliminato.
 
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 Durante la creazione di un cluster HDInsight dal portale, sono disponibili le opzioni per indicare i dettagli dell'account di archiviazione, come mostrato di seguito. È inoltre possibile specificare se si desidera associare un account di archiviazione aggiuntivo al cluster e, in caso, se sceglierlo da Data Lake Store o da un altro BLOB del servizio di archiviazione di Azure.
 
@@ -175,8 +176,8 @@ Lo schema URI offre l'accesso non crittografato (con il prefisso *wasb:*) e l'ac
 
 Se non viene specificato &lt;BlobStorageContainerName&gt; né &lt;StorageAccountName&gt;, verrà usato il file system predefinito. Per i file presenti nel file system predefinito è possibile usare un percorso relativo o un percorso assoluto. Ad esempio, è possibile fare riferimento al file *hadoop-mapreduce-examples.jar* nei cluster HDInsight nei due modi seguenti:
 
-    wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    wasbs:///example/jars/hadoop-mapreduce-examples.jar
+    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+    wasb:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [!NOTE]
@@ -269,7 +270,7 @@ $clusterName = "<HDInsightClusterName>"
     $defines = @{}
     $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 Usare il comando seguente per ottenere un elenco dei comandi relativi ai BLOB:

@@ -191,7 +191,7 @@ Dopo aver creato l'applicazione, compilarla per produrre il file `/bin/Debug/red
     * Se si usa __Archiviazione di Azure__ come risorsa di archiviazione predefinita:
 
         ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
         ```
 
     L'elenco seguente descrive le operazioni eseguite da ogni parametro:

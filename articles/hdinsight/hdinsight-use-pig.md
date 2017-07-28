@@ -22,7 +22,6 @@ ms.openlocfilehash: 9c19dc502acd1af4c3193e033d3caefe895624be
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Usare Pig con Hadoop in HDInsight
 
@@ -84,7 +83,7 @@ Nell'esempio precedente, il livello log è ERROR.
 
 Il processo Pig Latin seguente carica il file `sample.log` dalla risorsa di archiviazione predefinita per il cluster HDInsight. Esegue quindi una serie di trasformazioni che generano un conteggio delle occorrenze di ciascun livello di log presente nei dati di input. I risultati vengono scritti in STDOUT.
 
-    LOGS = LOAD 'wasbs:///example/data/sample.log';
+    LOGS = LOAD 'wasb:///example/data/sample.log';
     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
     FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
     GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;

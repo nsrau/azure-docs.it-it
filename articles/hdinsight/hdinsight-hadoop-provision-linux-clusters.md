@@ -23,7 +23,6 @@ ms.openlocfilehash: 8d7f397145bbecf0c651872f04b81cf44e25dbff
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurare i cluster di HDInsight con Hadoop, Spark, Kafka e altro ancora
 
@@ -130,6 +129,9 @@ Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDF
 Durante la configurazione, per l'endpoint di archiviazione predefinito si specifica un contenitore blob di un account di archiviazione di Azure o un Data Lake Store. L'archiviazione predefinita include registri di sistema e applicazioni. Facoltativamente, è possibile specificare degli account di Archiviazione di Azure aggiuntivi e degli account di Data Lake Store a cui il cluster può accedere. Il cluster HDInsight e l'account di archiviazione da esso dipendente devono trovarsi nella stessa posizione di Azure.
 
 ![Impostazioni di archiviazione del cluster: endpoint di archiviazione compatibili con HDFS](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 
 ### <a name="optional-metastores"></a>Metastore facoltativi
 È possibile creare dei metastore Hive o Oozie facoltativi. Tuttavia, non tutti i tipi di cluster supportano i metastore e Azure SQL Data Warehouse non è compatibile con i metastore. 

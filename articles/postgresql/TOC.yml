@@ -104,7 +104,7 @@
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/postgres
     - name: API REST
-      href: /rest/api/postgres
+      href: /rest/api/postgresql
 - name: Risorse
   items:
     - name: Roadmap per Azure

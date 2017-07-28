@@ -22,7 +22,6 @@ ms.openlocfilehash: 04f79442b72a58abb0eba9c2162e0b7b9d390e41
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Sviluppare script di Azione script per HDInsight nei cluster basati su Windows
 Informazioni su come scrivere script di Azione script per HDInsight Per informazioni sull'uso di script di Azione script, vedere [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster.md). Per lo stesso articolo dedicato ai cluster HDInsight basati su Linux, vedere [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -206,7 +205,7 @@ In questo esempio, è necessario assicurarsi che il contenitore 'somecontainer' 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Passare i parametri al cmdlet Add-AzureRmHDInsightScriptAction
 Per passare più parametri al cmdlet Add-AzureRmHDInsightScriptAction, è necessario formattare il valore di stringa per contenere tutti i parametri per lo script. Ad esempio:
 
-    "-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+    "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
 oppure
 
