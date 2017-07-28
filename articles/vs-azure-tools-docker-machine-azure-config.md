@@ -1,5 +1,5 @@
 ---
-title: Creare host Docker in Azure con Docker Machine | Documentazione Microsoft
+title: Creare host Docker in Azure con Docker Machine | Microsoft Docs
 description: Descrive l&quot;uso di Docker Machine per creare host Docker in Azure.
 services: azure-container-service
 documentationcenter: na
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a5b845a93f318b991e14705f0fadea3acd802ced
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -33,11 +34,11 @@ Questo argomento descrive come usare il comando [docker-machine](https://docs.do
 ## <a name="create-vms-with-docker-machine"></a>Creare VM con Docker Machine
 Creare macchine virtuali host di Docker in Azure con il comando `docker-machine create` usando il driver `azure`. 
 
-Il driver Azure necessita dell'ID sottoscrizione. È possibile usare l'[interfaccia della riga di comando di Azure](cli-install-nodejs.md) o il [Portale di Azure](https://portal.azure.com) per recuperare la sottoscrizione di Azure. 
+Il driver Azure richiede l'ID sottoscrizione. È possibile usare l'[interfaccia della riga di comando di Azure](cli-install-nodejs.md) o il [Portale di Azure](https://portal.azure.com) per recuperare la sottoscrizione di Azure. 
 
 **Uso del portale di Azure**
 
-* Selezionare le sottoscrizioni nella pagina di esplorazione a sinistra e copiare l'ID sottoscrizione.
+* Selezionare **Sottoscrizioni** nella pagina di esplorazione a sinistra e copiare l'ID sottoscrizione.
 
 **Uso dell'interfaccia della riga di comando di Azure**
 
@@ -48,7 +49,7 @@ Digitare `docker-machine create --driver azure` per visualizzare le opzioni e i 
 
 L'esempio seguente si basa sui [valori predefiniti](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), ma imposta facoltativamente questi valori: 
 
-* azure-dns per il nome associato all'indirizzo IP pubblico e ai certificati generati.  La macchina virtuale può quindi arrestare e rilasciare in modo sicuro l'indirizzo IP dinamico e consentire di riconnettersi dopo che una macchina virtuale viene avviata nuovamente con un nuovo indirizzo IP.  Il prefisso del nome deve essere univoco per tale area, ovvero UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* azure-dns per il nome associato all'indirizzo IP pubblico e ai certificati generati. Questo è il nome DNS della macchina virtuale. La macchina virtuale può quindi arrestare e rilasciare in modo sicuro l'indirizzo IP dinamico e consentire di riconnettersi dopo che una macchina virtuale viene avviata nuovamente con un nuovo indirizzo IP. Il prefisso del nome deve essere univoco per tale area, ovvero UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
 * porta 80 aperta sulla macchina virtuale per l'accesso Internet in uscita
 * dimensioni della macchina virtuale per usare l'archiviazione Premium più veloce
 * archiviazione Premium usata per il disco della macchina virtuale
@@ -107,7 +108,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
 ```
 
-Quindi verificare il contenitore in esecuzione digitando `docker-machine ip <VM name>` per trovare l'indirizzo IP da immettere nel browser:
+Quindi per vedere il contenitore in esecuzione digitare `docker-machine ip <VM name>` per trovare l'indirizzo IP da immettere nel browser:
 
 ```
 PS C:\> docker-machine ip MyDockerHost
