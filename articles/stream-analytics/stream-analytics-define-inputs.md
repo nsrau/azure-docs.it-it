@@ -1,6 +1,6 @@
 ---
-title: 'Connessione dati: input di flussi di dati da un flusso di eventi | Documentazione Microsoft'
-description: Informazioni sulla configurazione di una connessione dati ad Analisi di flusso denominata &quot;input&quot;. Gli input includono un flusso di dati dagli eventi, oltre a dati di riferimento.
+title: 'Connessione dati: input di flussi di dati da un flusso di eventi | Microsoft Docs'
+description: Informazioni sulla configurazione di una connessione dati ad Analisi di flusso denominata 'input'. Gli input includono un flusso di dati dagli eventi, oltre a dati di riferimento.
 keywords: flusso di dati, connessione dati, flusso di eventi
 services: stream-analytics
 documentationcenter: 
@@ -13,59 +13,61 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 07/05/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: fc71abada25c6f52859f68bca47396850ed59ed1
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 09066927641054acb8c53a3585e111df87893e50
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
-La connessione dati ad Analisi di flusso è un flusso di dati di eventi da un'origine dati. Questo viene detto "input". Analisi di flusso si integra perfettamente con origini di flussi di dati di Azure come hub eventi, hub IoT e archivi BLOB appartenenti alla stessa sottoscrizione di Azure del processo di analisi o a una sottoscrizione diversa.
+La connessione dati a un processo di Analisi di flusso è un flusso di eventi da un'origine dati, definito *input* del processo. Analisi di flusso si integra perfettamente con le origini del flusso dei dati di Azure, come [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) e [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Queste origini di input possono appartenere alla stessa sottoscrizione di Azure del processo di analisi o a un'altra sottoscrizione.
 
-## <a name="data-input-types-data-stream-and-reference-data"></a>Tipi di input di dati: flusso di dati e dati di riferimento
-Quando i dati vengono inviati a un'origine dati, vengono usati dal processo di Analisi di flusso ed elaborati in tempo reale. Gli input si dividono in due tipi distinti: input del flusso dei dati e input dei dati di riferimento.
+## <a name="data-input-types-data-stream-and-reference-data"></a>Tipi di input di dati: flusso dei dati e dati di riferimento
+Quando sono inviati tramite push a un'origine, i dati vengono utilizzati dal processo di Analisi di flusso ed elaborati in tempo reale. Gli input si dividono in due tipi: input del flusso dei dati e input dei dati di riferimento.
 
 ### <a name="data-stream-inputs"></a>Input del flusso dei dati
-Un flusso di dati è una sequenza non associata di eventi che si verificano nel tempo. I processi di analisi di flusso devono includere almeno un input del flusso dei dati che deve essere utilizzato e trasformato dal processo stesso. L'archivio BLOB, gli Hub eventi e gli hub IoT sono supportati come origini di input del flusso dei dati. Gli Hub eventi vengono usati per raccogliere i flussi di eventi da più dispositivi e servizi, ad esempio i feed attività dei social media, le informazioni sulle quotazioni azionarie o i dati dei sensori. Gli hub IoT sono ottimizzati per raccogliere dati dai dispositivi connessi in scenari Internet of Things (IoT).  Si può usare l'archivio BLOB come origine di input per l'inserimento di dati in blocco come flusso.  
+Un flusso dei dati è una sequenza non associata di eventi che accadono nel tempo. I processi di Analisi di flusso devono includere almeno un input del flusso dei dati. Gli hub eventi, l'hub IoT e l'archiviazione BLOB sono supportati come origini di input del flusso dei dati. Gli hub eventi vengono usati per raccogliere flussi di eventi da più dispositivi e servizi, ad esempio i feed attività dei social media, le informazioni sulle quotazioni azionarie o i dati di sensori. Gli hub IoT sono ottimizzati per raccogliere dati dai dispositivi connessi in scenari di Internet delle cose (IoT).  L'archiviazione BLOB può essere usata come origine di input per l'inserimento di dati in blocco come flusso, ad esempio i file di log.  
 
 ### <a name="reference-data"></a>Dati di riferimento
-L'analisi di flusso supporta un secondo tipo di input, ovvero i dati di riferimento. Si tratta di dati ausiliari, che sono statici o cambiano lentamente, usati di solito per eseguire correlazioni e ricerche. L'archivio BLOB di Azure attualmente è l'unica origine di input supportata per i dati di riferimento. Le dimensioni dei BLOB di origine dei dati di riferimento non possono superare i 100 MB.
-Per informazioni su come creare input dei dati di riferimento, vedere [Usare i dati di riferimento](stream-analytics-use-reference-data.md)  
+Analisi di flusso supporta anche l'input noto come *dati di riferimento*. Si tratta di dati ausiliari che sono statici o cambiano lentamente e che di solito sono usati per eseguire correlazioni e ricerche. È ad esempio possibile unire i dati nell'input del flusso dei dati con quelli inclusi nei dati di riferimento, proprio come si esegue un join SQL per cercare valori statici. L'archiviazione BLOB di Azure è attualmente l'unica origine di input supportata per i dati di riferimento. I BLOB di origine dei dati di riferimento non possono avere una dimensione superiore a 100 MB.
 
-## <a name="create-a-data-stream-input-with-an-event-hub"></a>Creare un input del flusso di dati con un hub eventi
-Gli [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) sono un ingestor eventi di pubblicazione-sottoscrizione altamente scalabile. Può raccogliere milioni di eventi al secondo in modo che sia possibile elaborare e analizzare enormi quantità di dati generati dalle applicazioni e dai dispositivi connessi. È uno degli input più usati per l'analisi di flusso. Gli Hub eventi, insieme all'analisi di flusso, forniscono ai clienti una soluzione end-to-end per l'analisi in tempo reale. Gli Hub eventi consentono ai clienti di inserire gli eventi in Azure in tempo reale. I processi di analisi di flusso possono anche essere elaborati in tempo reale. Ad esempio, i clienti possono inviare le selezioni effettuate nel Web, le letture dei sensori, gli eventi del registro online per gli Hub eventi e creare processi di analisi di flusso per usare gli Hub eventi come flussi dei dati di input per l'applicazione di filtri, l'aggregazione e la correlazione in tempo reale.
+Per informazioni su come creare input dei dati di riferimento, vedere [Uso dei dati di riferimento](stream-analytics-use-reference-data.md).  
 
-È importante notare che il timestamp predefinito degli eventi proveniente dagli Hub eventi nell'analisi di flusso è il timestamp con cui l'evento è giunto nell'Hub eventi, cioè EventEnqueuedUtcTime. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) .
+## <a name="create-data-stream-input-from-event-hubs"></a>Creare un input del flusso dei dati dagli hub eventi
 
-### <a name="consumer-groups"></a>Gruppi di utenti
-Ogni input dell'Hub eventi per l'analisi di flusso deve essere configurato in modo tale da avere un proprio gruppo di consumer. Quando un processo contiene un self-join o più input, alcuni input potrebbero essere letti da più di un lettore downstream, influendo sul numero di lettori in un singolo gruppo di consumer. Per evitare di superare il limite di Hub eventi di 5 lettori per ogni gruppo di consumer per ciascuna partizione, è consigliabile definire un gruppo di consumer per ogni processo di analisi di flusso. Si noti che è presente anche un limite di 20 gruppi di utenti per Hub eventi. Per informazioni dettagliate, vedere la [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
+Hub eventi di Azure offre una tecnologia di inserimento altamente scalabile per eventi di pubblicazione-sottoscrizione. Un hub eventi può raccogliere milioni di eventi al secondo per consentire di elaborare e analizzare enormi quantità di dati generati dalle applicazioni e dai dispositivi connessi. Hub eventi e Analisi di flusso offrono una soluzione end-to-end per l'analisi in tempo reale. Gli hub eventi consentono di inserire gli eventi in Azure tramite feed e i processi di Analisi di flusso sono in grado di elaborare tali eventi. Entrambe le operazioni vengono eseguite in tempo reale. È ad esempio possibile inviare clic sul Web, letture di sensori o eventi di log online agli hub eventi e quindi creare processi di Analisi di flusso per usare gli hub eventi come flussi dei dati di input per il filtraggio, l'aggregazione e la correlazione in tempo reale.
 
-### <a name="configure-event-hub-as-an-input-data-stream"></a>Configurare l'hub eventi come flusso di dati di input
-La tabella seguente illustra ciascuna proprietà nella scheda di input dell'Hub eventi con la relativa descrizione:
+Il timestamp predefinito degli eventi provenienti dagli hub eventi in Analisi di flusso è il timestamp in cui l'evento è giunto nell'hub, ovvero `EventEnqueuedUtcTime`. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-| NOME PROPRIETÀ | DESCRIZIONE |
+### <a name="consumer-groups"></a>Gruppi di consumer
+È necessario configurare uno specifico gruppo di consumer per ogni input degli hub eventi di Analisi di flusso. Quando un processo contiene un self-join o ha più input, è possibile che qualche input venga letto da più lettori downstream. Questa situazione influisce sul numero di lettori in un singolo gruppo di consumer. Per evitare di superare il limite di cinque lettori imposto da Hub eventi per ogni gruppo di consumer di ciascuna partizione, è consigliabile definire un gruppo di consumer per ogni processo di Analisi di flusso. È definito anche un limite di 20 gruppi di consumer per ogni hub eventi. Per altre informazioni, vedere [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
+
+### <a name="configure-an-event-hub-as-a-data-stream-input"></a>Configurare un hub eventi come input del flusso dei dati
+La tabella seguente contiene la descrizione delle proprietà disponibili nel pannello **Nuovo input** del portale di Azure quando si configura un hub eventi come input.
+
+| Proprietà | Descrizione |
 | --- | --- |
-| Alias di input |Nome descrittivo che verrà usato nella query di processo per fare riferimento a questo input |
-| Spazio dei nomi del bus di servizio |Uno spazio dei nomi Service Bus è un contenitore per un set di entità di messaggistica. Quando si crea un nuovo Hub eventi, viene inoltre creato uno spazio dei nomi Service Bus. |
-| Hub eventi |Nome dell'input dell'hub eventi. |
-| Nome criterio hub eventi |Criteri di accesso condiviso che possono essere creati nella scheda Configura dell'hub eventi. Ogni criterio di accesso condiviso dispone di un nome, delle autorizzazioni impostate, e di tasti di scelta. |
-| Chiave criterio hub eventi |Chiave di accesso condivisa usata per autenticare l'accesso allo spazio dei nomi del bus di servizio. |
-| Gruppo di consumer dell'hub eventi |Il gruppo di utenti per acquisire dati dall'Hub eventi. Se non specificato, i processi di analisi del flusso utilizzano il gruppo di utenti predefinito per acquisire dati dall'Hub eventi. È consigliabile usare un gruppo di consumer distinto per ogni processo di analisi di flusso. |
-| Formato di serializzazione eventi |Per accertarsi che le query funzionino come previsto, l'analisi di flusso deve conoscere il formato di serializzazione (JSON, CSV o Avro) usato per i flussi di dati in entrata. |
-| Codifica |Al momento UTF-8 è l'unico formato di codifica supportato. |
+| **Alias di input** |Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
+| **Spazio dei nomi del bus di servizio** |Spazio dei nomi del bus di servizio di Azure che viene usato come contenitore per un set di entità di messaggistica. Quando si crea un nuovo hub eventi, viene creato anche uno spazio dei nomi del bus di servizio. |
+| **Nome hub eventi** |Nome dell'hub eventi da usare come input. |
+| **Nome criteri hub eventi** |Criteri di accesso condiviso che consentono di accedere all'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. |
+| **Gruppo di consumer dell'hub eventi** (facoltativa) |Gruppo di consumer da usare per l'inserimento di dati dall'hub eventi. Se non è specificato alcun gruppo di consumer, il processo di Analisi di flusso usa quello predefinito. È consigliabile usare un gruppo di consumer distinto per ogni processo di Analisi di flusso. |
+| **Formato di serializzazione eventi** |Formato di serializzazione (JSON, CSV o Avro) del flusso dei dati in ingresso. |
+| **Codifica** | L'unico formato di codifica attualmente supportato è UTF-8. |
 
-Quando i dati provengono da un'origine di Hub eventi, è possibile accedere ai pochi campi di metadati nella query di analisi di flusso. La tabella seguente elenca i campi e la relativa descrizione.
+Quando i dati provengono da un hub eventi, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| PROPRIETÀ | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| EventProcessedUtcTime |Data e ora di elaborazione dell'evento in Analisi di flusso. |
-| EventEnqueuedUtcTime |Data e ora di ricezione dell'evento da parte di Hub eventi. |
-| PartitionId |ID di partizione in base zero per l'adattatore di input. |
+| **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |
+| **EventEnqueuedUtcTime** |Data e ora di ricezione dell'evento da parte di Hub eventi. |
+| **PartitionId** |ID di partizione in base zero per l'adattatore di input. |
 
-Ad esempio, è possibile scrivere una query come la seguente:
+Ad esempio, tramite questi campi, è possibile scrivere una query simile alla seguente:
 
 ````
 SELECT
@@ -75,121 +77,85 @@ SELECT
 FROM Input
 ````
 
-## <a name="create-an-iot-hub-data-stream-input"></a>Creare un input del flusso di dati Hub IoT
+## <a name="create-data-stream-input-from-iot-hub"></a>Creare un input del flusso dei dati dall'hub IoT
 Hub IoT di Azure è un servizio di inserimento di eventi di pubblicazione-sottoscrizione altamente scalabile ottimizzato per scenari IoT.
-È importante notare che il timestamp predefinito degli eventi proveniente dagli hub IoT nell'analisi di flusso è il timestamp con cui l'evento è giunto nell'hub IoT, cioè EventEnqueuedUtcTime. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) .
+
+Il timestamp predefinito degli eventi provenienti da un hub IoT in Analisi di flusso è il timestamp in cui l'evento è giunto nell'hub IoT, ovvero `EventEnqueuedUtcTime`. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
 > [!NOTE]
-> È possibile elaborare solo i messaggi inviati con una proprietà DeviceClient.
+> Solo i messaggi inviati con una proprietà `DeviceClient` possono essere elaborati.
 > 
 > 
 
-### <a name="consumer-groups"></a>Gruppi di utenti
-Ogni input dell'hub IoT per l'analisi di flusso deve essere configurato in modo tale da avere un proprio gruppo di consumer. Quando un processo contiene un self-join o più input, alcuni input potrebbero essere letti da più di un lettore downstream, influendo sul numero di lettori in un singolo gruppo di consumer. Per evitare di superare il limite di hub IoT di 5 lettori per ogni gruppo di consumer per ciascuna partizione, è consigliabile definire un gruppo di consumer per ogni processo di analisi di flusso.
+### <a name="consumer-groups"></a>Gruppi di consumer
+È necessario configurare uno specifico gruppo di consumer per ogni input dell'hub IoT di Analisi di flusso. Quando un processo contiene un self-join o ha più input, è possibile che qualche input venga letto da più lettori downstream. Questa situazione influisce sul numero di lettori in un singolo gruppo di consumer. Per evitare di superare il limite di cinque lettori imposto da Hub IoT di Azure per ogni gruppo di consumer di ciascuna partizione, è consigliabile definire un gruppo di consumer per ogni processo di Analisi di flusso.
 
-### <a name="configure-iot-hub-as-an-data-stream-input"></a>Configurare Hub IoT come input del flusso di dati
-La tabella seguente illustra ciascuna proprietà nella scheda di input dell’hub IoT con la relativa descrizione:
+### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Configurare un hub IoT come input del flusso dei dati
+La tabella seguente contiene la descrizione delle proprietà disponibili nel pannello **Nuovo input** del portale di Azure quando si configura un hub IoT come input.
 
-| NOME PROPRIETÀ | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| Alias di input |Nome descrittivo che verrà usato nella query di processo per fare riferimento a questo input. |
-| Hub IoT |Un hub IoT è un contenitore per un set di entità di messaggistica. |
-| Endpoint |Il nome dell'endpoint dell’hub IoT. |
-| Nome del criterio di accesso condiviso |Il criterio di accesso condiviso per consentire l'accesso all'hub IoT. Ogni criterio di accesso condiviso dispone di un nome, delle autorizzazioni impostate, e di tasti di scelta. |
-| Chiave del criterio di accesso condiviso |Chiave di accesso condivisa usata per autenticare l'accesso all’hub IoT. |
-| Gruppo di consumer (facoltativo) |Il gruppo di utenti per acquisire dati dall'hub IoT. Se non specificato, i processi di analisi di flusso utilizzano il gruppo di utenti predefinito per acquisire dati dall'hub IoT. È consigliabile usare un gruppo di consumer distinto per ogni processo di analisi di flusso. |
-| Formato di serializzazione eventi |Per accertarsi che le query funzionino come previsto, l'analisi di flusso deve conoscere il formato di serializzazione (JSON, CSV o Avro) usato per i flussi di dati in entrata. |
-| Codifica |Al momento UTF-8 è l'unico formato di codifica supportato. |
+| **Alias di input** |Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input.|
+| **Hub IoT** |Nome dell'hub IoT da usare come input. |
+| **Endpoint** |Endpoint per l'hub IoT.|
+| **Nome criteri di accesso condiviso** |Criteri di accesso condiviso che consentono di accedere all'hub IoT. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. |
+| **Chiave criteri di accesso condiviso** |Chiave di accesso condiviso usata per autorizzare l'accesso all'hub IoT. |
+| **Gruppo di consumer** (facoltativa) |Gruppo di consumer da usare per inserire dati dall'hub IoT. Se non è specificato alcun gruppo di consumer, un processo di Analisi di flusso usa quello predefinito. È consigliabile usare un gruppo di consumer diverso per ogni processo di Analisi di flusso. |
+| **Formato di serializzazione eventi** |Formato di serializzazione (JSON, CSV o Avro) del flusso dei dati in ingresso. |
+| **Codifica** |L'unico formato di codifica attualmente supportato è UTF-8. |
 
-Quando i dati provengono da un'origine di hub IoT, è possibile accedere ai pochi campi di metadati nella query di analisi di flusso. La tabella seguente elenca i campi e la relativa descrizione.
+Quando i dati provengono da un hub IoT, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| PROPRIETÀ | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| EventProcessedUtcTime |Data e ora di elaborazione dell'evento. |
-| EventEnqueuedUtcTime |Data e ora di ricezione dell'evento da parte dell'hub IoT. |
-| PartitionId |ID di partizione in base zero per l'adattatore di input. |
-| IoTHub.MessageId |Utilizzato per correlare la comunicazione bidirezionale nell’hub IoT. |
-| IoTHub.CorrelationId |Utilizzato nelle risposte dei messaggi e nei feedback nell'hub IoT. |
-| IoTHub.ConnectionDeviceId |L’ID utente autenticato utilizzato per inviare questo messaggio, indicato nei messaggi servicebound dall'hub IoT. |
-| IoTHub.ConnectionDeviceGenerationId |Il generationID del dispositivo autenticato utilizzato per inviare questo messaggio, indicato nei messaggi servicebound dall'hub IoT. |
-| IoTHub.EnqueuedTime |Ora di ricezione del messaggio da parte dell'hub IoT. |
-| IoTHub.StreamId |Proprietà di evento personalizzato aggiunta dal dispositivo mittente. |
+| **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento. |
+| **EventEnqueuedUtcTime** |Data e ora di ricezione dell'evento da parte dell'hub IoT. |
+| **PartitionId** |ID di partizione in base zero per l'adattatore di input. |
+| **IoTHub.MessageId** | ID usato per correlare la comunicazione bidirezionale nell'hub IoT. |
+| **IoTHub.CorrelationId** |ID usato nelle risposte dei messaggi e nei feedback nell'hub IoT. |
+| **IoTHub.ConnectionDeviceId** |ID di autenticazione usato per inviare questo messaggio. Questo valore viene riportato nei messaggi servicebound dall'hub IoT. |
+| **IoTHub.ConnectionDeviceGenerationId** |ID di generazione del dispositivo autenticato che è stato usato per inviare questo messaggio. Questo valore viene riportato nei messaggi servicebound dall'hub IoT. |
+| **IoTHub.EnqueuedTime** |Ora in cui il messaggio è stato ricevuto dall'hub IoT. |
+| **IoTHub.StreamId** |Proprietà di evento personalizzato aggiunta dal dispositivo mittente. |
 
-## <a name="create-a-blob-storage-data-stream-input"></a>Creare un input del flusso di dati dell'archivio BLOB
-Per gli scenari che dispongono di grandi quantità di dati non strutturati da archiviare nel cloud, l'archivio BLOB offre una soluzione conveniente e scalabile. I dati nell' [archivio BLOB](https://azure.microsoft.com/services/storage/blobs/) vengono generalmente considerati come dati "inattivi", ma possono essere elaborati come flusso di dati dall'analisi di flusso. Uno scenario comune per gli input dell'archivio BLOB con l'analisi di flusso è l'elaborazione dei log, dove i dati di telemetria vengono acquisiti da un sistema e devono essere analizzati ed elaborati per estrarne i dati significativi.
 
-È importante notare che il timestamp predefinito degli eventi dell'archivio BLOB nell'analisi di flusso sia il timestamp con cui è stato modificato l'ultima volta il BLOB, e cioè *BlobLastModifiedUtcTime*. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) .
+## <a name="create-data-stream-input-from-blob-storage"></a>Creare un input del flusso dei dati dall'archiviazione BLOB
+Per gli scenari con grandi quantità di dati non strutturati da archiviare nel cloud, l'archiviazione BLOB di Azure offre una soluzione scalabile e conveniente. I dati nell'archiviazione BLOB sono in genere considerati dati inattivi, ma possono essere elaborati come flusso dei dati da Analisi di flusso. Uno scenario tipico per gli input di archiviazione BLOB con Analisi di flusso consiste nell'elaborazione dei log. In questo scenario i dati di telemetria sono stati acquisiti da un sistema e devono essere analizzati ed elaborati per estrarre dati significativi.
 
-Si noti inoltre che gli input in formato CSV **richiedono** una riga di intestazione per definire i campi per il set di dati. Altri campi di righe di intestazione devono essere tutti **univoci**.
+Il timestamp predefinito degli eventi dell'archiviazione BLOB in Analisi di flusso è il timestamp dell'ultima modifica del BLOB, ovvero `BlobLastModifiedUtcTime`. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+
+Gli input in formato CSV *richiedono* una riga di intestazione per definire i campi per il set di dati. Inoltre, tutti i campi delle righe di intestazione devono essere univoci.
 
 > [!NOTE]
-> Analisi di flusso non supporta l'aggiunta di contenuto a un BLOB esistente. Analisi di flusso si limita a visualizzare un BLOB una sola volta. Tutte le modifiche apportate successivamente a questa lettura non verranno elaborate. La procedura consigliata consiste nel caricare tutti i dati in una sola volta e non aggiungere altri eventi all'archivio BLOB.
+> Analisi di flusso non supporta l'aggiunta di contenuto a un BLOB esistente. Analisi di flusso visualizza un oggetto BLOB una sola volta e le eventuali modifiche inserite nel BLOB dopo la lettura dei dati non vengono elaborate. È quindi consigliabile caricare tutti i dati in una sola volta e non aggiungere altri eventi alla risorsa di archiviazione BLOB.
 > 
-> 
 
-La tabella seguente illustra ciascuna proprietà nella scheda di input dell'archivio BLOB con la relativa descrizione:
+### <a name="configure-blob-storage-as-a-data-stream-input"></a>Configurare l'archiviazione BLOB come input del flusso dei dati
 
-<table>
-<tbody>
-<tr>
-<td>NOME PROPRIETÀ</td>
-<td>DESCRIZIONE</td>
-</tr>
-<tr>
-<td>Alias di input</td>
-<td>Nome descrittivo che verrà usato nella query di processo per fare riferimento a questo input.</td>
-</tr>
-<tr>
-<td>Account di archiviazione</td>
-<td>Nome dell'account di archiviazione in cui si trovano i file BLOB.</td>
-</tr>
-<tr>
-<td>Chiave dell'account di archiviazione</td>
-<td>Chiave privata associata all'account di archiviazione.</td>
-</tr>
-<tr>
-<td>Contenitore di archiviazione
-</td>
-<td>I contenitori forniscono un raggruppamento logico per gli oggetti BLOB archiviati nel servizio BLOB di Microsoft Azure. Quando si carica un oggetto BLOB nel servizio BLOB, è necessario specificare un contenitore per il BLOB.</td>
-</tr>
-<tr>
-<td>Schema prefisso percorso [facoltativo]</td>
-<td>Percorso del file usato per individuare i BLOB nel contenitore specificato.
-All'interno del percorso è possibile scegliere di specificare una o più istanze delle 3 variabili seguenti:<BR>{date}, {time},<BR>{partition}<BR>Esempio 1: cluster1/logs/{date}/{time}/{partition}<BR>Esempio 2: cluster1/logs/{date}<P>Si noti che "*" non è un valore consentito per pathprefix. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi.</td>
-</tr>
-<tr>
-<td>Formato data [facoltativo]</td>
-<td>Se nel percorso di prefisso viene usato il token di data, è possibile selezionare il formato della data in cui sono organizzati i file. Esempio: AAAA/MM/GG</td>
-</tr>
-<tr>
-<td>Formato ora [facoltativo]</td>
-<td>Se nel percorso di prefisso viene usato il token dell'ora, specificare il formato dell'ora in cui sono organizzati i file. Al momento, l'unico valore supportato è HH.</td>
-</tr>
-<tr>
-<td>Formato di serializzazione eventi</td>
-<td>Per accertarsi che le query funzionino come previsto, l'analisi di flusso deve conoscere il formato di serializzazione (JSON, CSV o Avro) usato per i flussi di dati in entrata.</td>
-</tr>
-<tr>
-<td>Codifica</td>
-<td>Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON.</td>
-</tr>
-<tr>
-<td>Delimitatore</td>
-<td>Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale.</td>
-</tr>
-</tbody>
-</table>
+La tabella seguente contiene la descrizione delle proprietà disponibili nel pannello **Nuovo input** del portale di Azure quando si configura l'archiviazione BLOB come input.
 
-Quando i dati provengono da un'origine di archivio BLOB, è possibile accedere ai pochi campi di metadati nella query di analisi di flusso. La tabella seguente elenca i campi e la relativa descrizione.
-
-| PROPRIETÀ | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| BlobName |Nome del BLOB di input da cui proviene l'evento. |
-| EventProcessedUtcTime |Data e ora di elaborazione dell'evento in Analisi di flusso. |
-| BlobLastModifiedUtcTime |Data e ora dell'ultima modifica del BLOB. |
-| PartitionId |ID di partizione in base zero per l'adattatore di input. |
+| **Alias di input** | Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
+| **Account di archiviazione** | Nome dell'account di archiviazione in cui si trovano i file BLOB. |
+| **Chiave dell'account di archiviazione** | Chiave privata associata all'account di archiviazione. |
+| **Contenitore** | Contenitore per l'input del servizio BLOB. I contenitori forniscono un raggruppamento logico per gli oggetti BLOB archiviati nel servizio BLOB di Microsoft Azure. Quando si carica un oggetto BLOB nel servizio Archiviazione BLOB di Azure, è necessario specificare un contenitore per tale BLOB. |
+| **Modello percorso** (facoltativa) | Percorso del file usato per trovare gli oggetti BLOB nel contenitore specificato. All'interno del percorso è possibile specificare una o più istanze delle tre variabili seguenti: `{date}`, `{time}` o `{partition}`<br/><br/>Esempio 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Esempio 2: `cluster1/logs/{date}`<br/><br/>Il carattere `*` non è un valore consentito per il prefisso del percorso. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi. |
+| **Formato data** (facoltativa) | Formato della data in base al quale vengono organizzati i file, se si usa la variabile date nel percorso. Esempio: `YYYY/MM/DD` |
+| **Formato ora** (facoltativa) |  Formato dell'ora in base al quale vengono organizzati i file, se si usa la variabile time nel percorso. L'unico valore attualmente supportato è `HH`. |
+| **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV o Avro) per i flussi dei dati in ingresso. |
+| **Codifica** | Per CSV e JSON, l'unico formato di codifica attualmente supportato è UTF-8. |
 
-Ad esempio, è possibile scrivere una query come la seguente:
+Quando i dati provengono da un'origine di archiviazione BLOB, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
+
+| Proprietà | Descrizione |
+| --- | --- |
+| **BlobName** |Nome del BLOB di input da cui proviene l'evento. |
+| **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |
+| **BlobLastModifiedUtcTime** |Data e ora dell'ultima modifica del BLOB. |
+| **PartitionId** |ID di partizione in base zero per l'adattatore di input. |
+
+Ad esempio, tramite questi campi, è possibile scrivere una query simile alla seguente:
 
 ````
 SELECT
@@ -199,14 +165,13 @@ SELECT
 FROM Input
 ````
 
-
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Sono state apprese le opzioni di connessione dei dati in Azure per i processi di Analisi di flusso. Per altre informazioni su Analisi di flusso, vedere:
 
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
@@ -215,7 +180,7 @@ Sono state apprese le opzioni di connessione dei dati in Azure per i processi di
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
+[stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 

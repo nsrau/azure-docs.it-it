@@ -15,19 +15,39 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: e1ab8dd89c0590c8ee309a032efc17edeacf4d0e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Note sulla versione di analisi di flusso
 
+## <a name="notes-for-06142017-update-of-stream-analytics-tools-for-visual-studio"></a>Note per la versione 14/06/2017 di Strumenti di Analisi di flusso per Visual Studio
+Questo aggiornamento è per gli Strumenti di Visual Studio. Questa versione contiene le nuove funzionalità seguenti.
+
+| Titolo | Descrizione |
+| --- | --- |
+| Supporto per l'editor dello script Java |È possibile usufruire dell'esperienza dell'editor nativo dello script Java dopo la creazione di funzioni dello script Java.|
+| Visualizzare il messaggio di errore di runtime del processo | Se sono presenti errori di runtime durante l'esecuzione del processo, è possibile visualizzarli nella scheda Errori regolando l'intervallo di tempo visualizzato. Per impostazione predefinita mostra i messaggi di errore degli ultimi 30 minuti. |
+| Supporto CSV e Avro per l'input di test locale | Oltre a JSON, ora è possibile usare il formato file CSV e Avro per l'input di test locale.|
+
 ## <a name="notes-for-05032017-update-of-stream-analytics"></a>Note sulla versione 03/05/2017 dell'aggiornamento di Analisi di flusso
 Questo aggiornamento è relativo al rilascio della documentazione sulla risoluzione dei problemi.
 
 Sono stati rilasciati la [Guida per la risoluzione dei problemi](stream-analytics-troubleshooting-guide.md) e altri documenti. Esaminare il contenuto. Commenti e suggerimenti sono apprezzati.
+
+## <a name="notes-for-04242017-update-of-stream-analytics-tools-for-visual-studio"></a>Note per la versione 24/04/2017 di Strumenti di Analisi di flusso per Visual Studio
+Questo aggiornamento è per gli Strumenti di Visual Studio. Questa versione contiene le nuove funzionalità seguenti.
+
+| Titolo | Descrizione |
+| --- | --- |
+| Visualizzare il risultato del test locale in Visual Studio | Per visualizzare il risultato dell'output del test locale, premere INVIO nella finestra della console di output o chiuderla. Il risultato verrà visualizzato in una finestra in Visual Studio in formato tabella. |
+| Risultato locale dell'output in formato JSON | Quando si esegue un test locale, il risultato dell'output verrà generato nei formati file JSON e CSV. |
+| Visualizzare dati di input/output di archiviazione della tabella/BLOB | Facendo doppio clic su un'archiviazione di BLOB o tabella di input/output nella visualizzazione dei processi, è possibile visualizzare in anteprima i dati all'interno di Visual Studio in modo molto semplice. |
+| Visualizzare messaggio di errore per input/output | Se sono presenti alcuni errori di runtime relativi all'input o output del processo, verranno visualizzati sul diagramma del processo e sui quali sarà possibile passare il mouse per visualizzare il messaggio di errore dettagliato.|
+
 
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Note per la versione 01/02/2017 di Analisi di flusso
 Questa versione contiene l'aggiornamento seguente.
@@ -147,7 +167,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

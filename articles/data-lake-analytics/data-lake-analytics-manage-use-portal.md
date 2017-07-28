@@ -1,9 +1,9 @@
 ---
-title: Gestire Azure Data Lake Analytics tramite il portale di Azure | Documentazione Microsoft
-description: Informazioni su come gestire account, origini dati, utenti e processi di Analisi Data Lake.
+title: Gestire Azure Data Lake Analytics tramite il portale di Azure | Microsoft Docs
+description: Informazioni su come gestire account, origini dati, utenti e processi di Data Lake Analytics.
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
+author: saveenr
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
@@ -14,242 +14,227 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 86711ba89442c3569b570bbf3ea2d1661a469011
-ms.openlocfilehash: 34be29749075b9953950ffd64d2526430307d33e
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 43bb5a1aa246004346765d1be4aea236ca17abd2
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
+# <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Informazioni su come gestire gli account, le origini dati degli account, gli utenti e i processi di Azure Data Lake Analytics tramite il portale di Azure. Per visualizzare gli argomenti relativi alla gestione tramite altri strumenti, fare clic sul selettore di scheda nella parte superiore della pagina.
-
-**Prerequisiti**
-
-Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
-
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Informazioni su come gestire gli account, le origini dati degli account, gli utenti e i processi di Azure Data Lake Analytics usando il portale di Azure. Per visualizzare gli argomenti di gestione sull'uso di altri strumenti, fare clic su una scheda nella parte superiore della pagina.
 
 <!-- ################################ -->
 <!-- ################################ -->
-## <a name="manage-accounts"></a>Gestire account
-Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, l'account Data Lake Analytics è a pagamento solo nel momento in cui si esegue un processo.  Il pagamento, infatti, viene richiesto solo per la durata di esecuzione di un processo.  Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).  
 
-**Per creare un account di Analisi Data Lake**
+## <a name="manage-data-lake-analytics-accounts"></a>Gestire gli account di Data Lake Analytics
+
+### <a name="create-an-account"></a>Creare un account
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Nuovo**, su **Intelligence e analisi** e quindi su **Data Lake Analytics**.
-3. Digitare o selezionare i valori seguenti:
-   
-    ![Pannello del portale di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
-   
-   * **Nome**: assegnare un nome all'account Data Lake Analytics.
-   * **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analytics.
-   * **Gruppo di risorse**. Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo. Gestione risorse di Azure consente di lavorare con le risorse dell'applicazione come gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md). 
-   * **Località**. Selezionare un data center di Azure per l'account di Data Lake Analytics. 
-   * **Data Lake Store**: ogni account di Data Lake Analytics ha un account di Data Lake Store dipendente. L'account di Data Lake Analytics e l'account di Data Lake Store dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Data Lake Store o selezionarne uno esistente.
-4. Fare clic su **Crea**. Viene visualizzata la schermata iniziale del portale. Alla schermata iniziale viene aggiunto un nuovo riquadro con l'etichetta "Distribuzione di Analisi Data Lake di Azure". Il processo per la creazione di un account di Analisi Data Lake richiede alcuni istanti. Al termine del processo, il portale aprirà l'account in un nuovo pannello.
+2. Fare clic su **Nuovo** > **Intelligence e analisi** > **Data Lake Analytics**.
+3. Selezionare i valori per gli elementi seguenti: 
+   1. **Nome**: nome dell'account di Data Lake Analytics.
+   2. **Sottoscrizione**: sottoscrizione di Azure usata per l'account.
+   3. **Gruppo di risorse**: gruppo di risorse di Azure in cui creare l'account. 
+   4. **Posizione**: data center di Azure per l'account di Data Lake Analytics. 
+   5. **Data Lake Store**: archivio predefinito da usare per l'account di Data Lake Analytics. L'account di Azure Data Lake Store e quello di Data Lake Analytics devono trovarsi nella stessa posizione.
+4. Fare clic su **Crea**. 
 
-Dopo aver creato un account di Analisi Data Lake, è possibile aggiungere altri account di Archivio Data Lake e account di Archiviazione di Azure. Per istruzioni, vedere la sezione relativa alla [gestione delle origini dati degli account di Analisi Data Lake](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+### <a name="delete-a-data-lake-analytics-account"></a>Eliminare un account di Data Lake Analytics
 
-<a name="access-adla-account"></a> **Per accedere/aprire un account di Analisi Data Lake**
+Prima di eliminare un account di Data Lake Analytics, eliminare il relativo account di Data Lake Store predefinito.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Data Lake Analytics** nel menu a sinistra.  Se non si riesce a visualizzarlo, fare clic su **Altri servizi**, quindi fare clic su **Data Lake Analytics** in **Intelligence e analisi**.
-3. Selezionare l'account di Analisi Data Lake a cui si desidera accedere. L'account verrà aperto in un nuovo pannello.
-
-**Per eliminare un account di Analisi Data Lake**
-
-1. Aprire l'account di Analisi Data Lake che si desidera eliminare. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Data Lake Analytics](#access-adla-account).
-2. Fare clic su **Elimina** nel menu di pulsanti disponibile nella parte superiore del pannello.
-3. Digitare il nome dell'account e quindi fare clic su **Elimina**.
-
-L'eliminazione di un account Data Lake Analytics non comporta l'eliminazione dell'account di Data Lake Store dipendente. Per istruzioni sull'eliminazione di account di archiviazione di Data Lake, vedere [Eliminare un account di Archivio Data Lake](../data-lake-store/data-lake-store-get-started-portal.md#delete-azure-data-lake-store-account).
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Fare clic su **Elimina**.
+3. Digitare il nome dell'account.
+4. Fare clic su **Elimina**.
 
 <!-- ################################ -->
 <!-- ################################ -->
-## <a name="manage-account-data-sources"></a>Gestire le origini dati degli account
-Analisi Data Lake supporta attualmente le seguenti origini dati:
 
-* [Archivio Data Lake di Azure](../data-lake-store/data-lake-store-overview.md)
-* [Archiviazione di Azure](../storage/storage-introduction.md)
+## <a name="manage-data-sources"></a>Gestire le origini dati
 
-Quando si crea un account di Analisi Data Lake, è necessario impostare un account di Archivio Data Lake di Azure come account di archiviazione predefinito. L'account di Archivio Data Lake predefinito viene usato per archiviare i metadati e i log di controllo dei processi. Dopo aver creato un account di Analisi Data Lake, è possibile aggiungere altri account di Archivio Data Lake e/o account di Archiviazione di Azure. 
+Data Lake Analytics supporta le origini dati seguenti:
 
-<a name="default-adl-account"></a>**Per trovare l'account di archiviazione di Data Lake predefinito**
+* Data Lake Store
+* Archiviazione di Azure
 
-* Aprire l'account di Analisi Data Lake che si desidera gestire. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Data Lake Analytics](#access-adla-account). L'archivio Data Lake predefinito viene visualizzato in **Informazioni di base**:
-  
-    ![Azure Data Lake Analytics - Aggiunta di origini dati](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
+Per esplorare le origini dati ed eseguire operazioni di gestione dei file di base è possibile usare Esplora dati. 
 
-**Per aggiungere altre origini dati**
+### <a name="add-a-data-source"></a>Aggiungere un'origine dati
 
-1. Aprire l'account di Analisi Data Lake che si desidera gestire. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Data Lake Analytics](#access-adla-account).
-2. Fare clic su **Impostazioni** e quindi su **Origini dati**. Verrà visualizzato un elenco contenente l'account di Archivio Data Lake predefinito. 
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Fare clic su **Origini dati**.
 3. Fare clic su **Aggiungi origine dati**.
-   
-    ![Analisi Data Lake di Azure - Aggiunta di origini dati](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-add-data-source.png)
-   
-    Per aggiungere un account di Azure Data Lake Store, è necessario il nome dell'account e i diritti di accesso all'account per poter eseguire una query.
-    Per aggiungere una risorsa di archiviazione BLOB di Azure, è necessario l'account di archiviazione e la chiave dell'account, che è possibile trovare accedendo all'account di archiviazione nel portale.
+    
+   * Per aggiungere un account di Data Lake Store, sono necessari il nome dell'account e i diritti di accesso all'account per poter eseguire una query.
+   * Per aggiungere una risorsa di archiviazione BLOB di Azure, sono necessari l'account di archiviazione e la chiave dell'account. Per trovarli, passare all'account di archiviazione nel portale.
 
-<a name="explore-data-sources"></a>**Per esplorare origini dati**    
+## <a name="set-up-firewall-rules"></a>Configurare le regole del firewall
 
-1. Aprire l'account di Analisi che si desidera gestire. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Data Lake Analytics](#access-adla-account).
-2. Fare clic su **Impostazioni** e quindi su **Esplora dati**. 
-   
-    ![Analisi Data Lake di Azure - Esplora dati](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-data-explorer.png)
-3. Fare clic su un account di Data Lake Store per aprirlo.
-   
-    ![Analisi Data Lake di Azure - Esplora dati e account di archiviazione](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-adls.png)
-   
-    Per ogni account di Archivio Data Lake, è possibile
-   
-   * **Nuova cartella**: aggiungere una nuova cartella.
-   * **Carica**: caricare file nell'account di archiviazione dalla workstation.
-   * **Accesso**: configurare le autorizzazioni di accesso.
-   * **Rinomina cartella**: rinominare una cartella.
-   * **Proprietà cartella**: visualizzare le proprietà di un file o una cartella, ad esempio il percorso WASB o WEBHDFS, l'ora dell'ultima modifica e così via.
-   * **Elimina cartella**: eliminare una cartella.
+È possibile usare Data Lake Analytics per bloccare ulteriormente l'accesso all'account di Data Lake Analytics a livello di rete. È possibile abilitare un firewall, specificare un indirizzo IP o definire un intervallo di indirizzi IP per i client attendibili. Dopo aver configurato queste regole, solo i client con indirizzo IP compreso nell'intervallo definito potranno connettersi all'archivio.
 
-<a name="upload-data-to-adls"></a> **Per caricare file in un account di Archivio Data Lake**
+Se altri servizi di Azure, come Azure Data Factory o Macchine virtuali, si connettono all'account di Data Lake Analytics, verificare che l'opzione **Consenti ai servizi di Azure di accedere al server** sia **attivata**. 
 
-1. Nel menu a sinistra del portale fare clic su **Sfoglia** e quindi su **Data Lake Store**.
-2. Selezionare l'account di Archivio Data Lake su cui si desidera caricare i dati. Per trovare l'account di archiviazione di Data Lake predefinito, vedere [qui](#default-adl-account).
-3. Fare clic su **Esplora dati** nel menu superiore.
-4. Fare clic su **Nuova directory** per creare una nuova cartella oppure su un nome di cartella per cambiare cartella.
-5. Fare clic su **Carica** nel menu superiore per caricare il file.
+### <a name="set-up-a-firewall-rule"></a>Configurare una regola del firewall
 
-<a name="upload-data-to-wasb"></a> **Per caricare file in un account di archiviazione BLOB di Azure**
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Nel menu a sinistra fare clic su **Firewall**.
 
-Vedere [Caricare dati per processi Hadoop in HDInsight](../hdinsight/hdinsight-upload-data.md).  Queste informazioni sono valide per Analisi Data Lake.
+## <a name="add-a-new-user"></a>Aggiungere un nuovo utente
 
-## <a name="manage-users"></a>Gestire gli utenti
-Analisi Data Lake usa il controllo degli accessi in base al ruolo con Azure Active Directory. Quando si crea un account di Data Lake Analytics, all'account viene aggiunto il ruolo "Amministratori della sottoscrizione". È possibile aggiungere altri utenti e gruppi di sicurezza con i ruoli seguenti:
+È possibile usare l'**Aggiunta guidata utente** per effettuare facilmente il provisioning di nuovi utenti di Data Lake.
 
-| Ruolo | Descrizione |
-| --- | --- |
-| Proprietario |Consente di gestire qualsiasi aspetto, incluso l'accesso alle risorse. |
-| Collaboratore |Consente di accedere al portale, nonché inviare e monitorare processi. Per poter inviare processi, tuttavia, un collaboratore deve disporre dell'autorizzazione di lettura o scrittura per gli account di Data Lake Store. |
-| Sviluppatore Analisi Data Lake |Inviare, monitorare e annullare i processi.  Questi utenti possono annullare solo i propri processi. Non possono gestire il proprio account, ovvero aggiungere utenti, modificare autorizzazioni o eliminare l'account. Per poter eseguire processi, devono disporre dell'accesso in lettura o scrittura per gli account di Archivio Data Lake |
-| Reader |Consente di visualizzare tutti gli elementi, ma senza apportare alcuna modifica. |
-| Utente DevTest Labs |Consente di visualizzare tutti gli elementi, nonché connettere, avviare, riavviare e arrestare macchine virtuali. |
-| Amministratore accessi utente |Consente di gestire gli accessi utente alle risorse di Azure. |
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. A sinistra, sotto **Attività iniziali**, fare clic su **Aggiunta guidata utente**.
+3. Selezionare un utente e quindi fare clic su **Seleziona**.
+4. Selezionare un ruolo e quindi fare clic su **Seleziona**. Per configurare un nuovo sviluppatore per Azure Data Lake, selezionare il ruolo **Sviluppatore di Data Lake Analytics**.
+5. Selezionare gli elenchi di controllo di accesso (ACL) per i database U-SQL. Dopo aver completato le selezioni, fare clic su **Seleziona**.
+6. Selezionare gli elenchi ACL per i file. Per l'archivio predefinito, non modificare gli elenchi ACL per la cartella radice "/" e per la cartella /system. Fare clic su **Seleziona**.
+7. Esaminare tutte le modifiche selezionate e quindi fare clic su **Esegui**.
+8. Al termine della procedura guidata, fare clic su **Fine**.
 
-Per informazioni sulla creazione di utenti e gruppi di sicurezza di Azure Active Directory , vedere [Informazioni su Azure Active Directory](../active-directory/active-directory-whatis.md).
+## <a name="manage-role-based-access-control"></a>Gestire il controllo degli accessi in base al ruolo
 
-**Per aggiungere utenti o gruppi di sicurezza a un account di Data Lake Analytics**
+Come per altri servizi di Azure, è possibile usare il controllo degli accessi in base al ruolo (RBAC, Role-Based Access Control) per controllare il modo con cui gli utenti interagiscono con il servizio.
 
-1. Aprire l'account di Analisi che si desidera gestire. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Data Lake Analytics](#access-adla-account).
-2. Fare clic su **Impostazioni** e quindi su **Utenti**. In alternativa, è possibile fare clic su **Accedi** sulla barra del titolo **Elementi essenziali**, come illustrato nella schermata seguente:
-   
-    ![Analisi Data Lake di Azure - Aggiunta di utenti all'account](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-access-button.png)
-3. Nel pannello **Utente** fare clic su **Aggiungi**.
-4. Selezionare un ruolo e aggiungere un utente, quindi fare clic su **OK**.
+I ruoli RBAC standard offrono le funzionalità seguenti:
+* **Proprietario**: può inviare e monitorare i processi, annullarli da qualsiasi utente e configurare l'account.
+* **Collaboratore**: può inviare e monitorare i processi, annullarli da qualsiasi utente e configurare l'account.
+* **Lettore**: può monitorare i processi.
+
+Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppatori di U-SQL di usare il servizio Data Lake Analytics. È possibile usare il ruolo Sviluppatore di Data Lake Analytics per eseguire queste operazioni:
+* Inviare processi.
+* Monitorare lo stato e l'avanzamento dei processi inviati da qualsiasi utente.
+* Vedere gli script U-SQL relativi ai processi inviati da qualsiasi utente.
+* Annullare solo i processi creati personalmente.
+
+### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Aggiungere utenti o gruppi di sicurezza a un account di Data Lake Analytics
+
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Fare clic su **Controllo di accesso (IAM)** > **Aggiungi**.
+3. Selezionare un ruolo.
+4. Aggiungere un utente.
+5. Fare clic su **OK**.
 
 >[!NOTE]
->Se l'utente o il gruppo di sicurezza deve inviare dei processi, sarà necessario che gli venga concessa anche l'autorizzazione di accesso a Data Lake Store. Per altre informazioni, vedere [Protezione dei dati presenti in Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md)
+>Se un utente o un gruppo di sicurezza vuole inviare processi, deve disporre anche dell'autorizzazione sull'account di archiviazione. Per altre informazioni, vedere [Protezione dei dati presenti in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).
 >
 
 <!-- ################################ -->
 <!-- ################################ -->
+
 ## <a name="manage-jobs"></a>Gestire i processi
-È necessario disporre di un account di Data Lake Analytics prima di poter eseguire qualsiasi processo U-SQL.  Per altre informazioni, vedere [Gestire gli account di Analisi Data Lake](#manage-data-lake-analytics-accounts).
 
-<a name="create-job"></a>**Per creare un processo**
+### <a name="submit-a-job"></a>Inviare un processo
 
-1. Aprire l'account di Analisi che si desidera gestire. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Data Lake Analytics](#access-adla-account).
-2. Fare clic su **Nuovo processo**.
-   
-    ![creare processi U-SQL con Analisi Data Lake di Azure](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-create-job-button.png)
-   
-    Verrà visualizzato un nuovo pannello simile alla figura seguente:
-   
-    ![creare processi U-SQL con Analisi Data Lake di Azure](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-new-job.png)
-   
-    Per ogni processo, è possibile configurare
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 
-    |Nome|Descrizione|
-    |----|-----------|
-    |Nome processo|Immettere il nome del processo.|
-    |Priorità|Un numero più basso indica una priorità maggiore. Se due processi sono entrambi in coda, verrà eseguito per primo quello con il numero di priorità più basso|
-    |Parallelismo |Numero massimo di processi di calcolo che possono essere eseguiti contemporaneamente. Se si aumenta questo numero, è possibile che vengano migliorate le prestazioni, ma anche che vengano incrementati i costi.|
-    |Script|Immettere lo script U-SQL per il processo.|
+2. Fare clic su **Nuovo processo**. Per ogni processo, configurare quanto segue:
 
-    Attraverso la stessa interfaccia è possibile anche esplorare le origini dati collegate e aggiungere ad esse nuovi file. 
-1. Fare clic su **Invia processo** se si desidera inviare il processo.
+    1. **Nome processo**: nome del processo.
+    2. **Priorità**: i numeri più bassi hanno maggiore priorità. Se due processi sono in coda, verrà eseguito per primo quello con la priorità più bassa.
+    3. **Parallelismo**: numero massimo di processi di calcolo da riservare per il processo.
 
-**Per inviare un processo**
+3. Fare clic su **Invia processo**.
 
-Vedere [Creare processi di Analisi Data Lake](#create-job).
+### <a name="monitor-jobs"></a>Monitorare i processi
 
-<a name="monitor-jobs"></a>**Per monitorare processi**
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Fare clic su **Visualizza tutti i processi**. Viene visualizzato un elenco di tutti i processi attivi e completati di recente nell'account.
+3. Facoltativamente, fare clic su **Filtra** per trovare i processi in base ai valori di **Intervallo di tempo**, **Nome processo** e **Autore**. 
 
-1. Aprire l'account di Analisi che si desidera gestire. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Data Lake Analytics](#access-adla-account). Il pannello di gestione dei processi mostra le principali informazioni relative al processo:
-   
-    ![gestire processi U-SQL con Analisi Data Lake di Azure](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs.png)
-2. Fare clic su **Gestione processo** , come illustrato nella schermata precedente.
-   
-    ![gestire processi U-SQL con Analisi Data Lake di Azure](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs-details.png)
-3. Fare clic su un processo dell'elenco oppure sul pulsante **Filtra** per trovare più facilmente il processo desiderato:
-   
-    ![filtrare processi U-SQL con Analisi Data Lake di Azure](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-filter-jobs.png)
-   
-    È possibile filtrare i processi per **Intervallo di tempo**, **Nome processo** o **Autore**.
-4. Fare clic su **Invia di nuovo** se si desidera inviare nuovamente il processo.
+## <a name="manage-policies"></a>Gestire i criteri
 
-**Per inviare nuovamente un processo**
+### <a name="account-level-policies"></a>Criteri a livello di account
 
-Vedere [Monitorare processi di Analisi Data Lake](#monitor-jobs).
+Questi criteri si applicano a tutti i processi in un account di Data Lake Analytics.
 
-## <a name="monitor-account-usage"></a>Monitorare l'utilizzo dell'account
-**Per monitorare l'utilizzo dell'account**
+#### <a name="maximum-number-of-aus-in-a-data-lake-analytics-account"></a>Numero massimo di unità di analisi in un account di Data Lake Analytics
+Un criterio controlla il numero totale di unità di analisi (AU, Analytics Unit) che possono essere usate dall'account di Data Lake Analytics. Per impostazione predefinita, il valore è impostato su 250. Se ad esempio sono impostate 250 AU, è possibile eseguire un processo a cui sono assegnate 250 AU oppure 10 processi con 25 AU ciascuno. Gli altri processi inviati vengono inseriti in coda finché i processi in esecuzione non vengono completati. Al termine di questi processi, le AU vengono rese disponibili per consentire l'esecuzione dei processi in coda.
 
-1. Aprire l'account di Analisi che si desidera gestire. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Data Lake Analytics](#access-adla-account). Il pannello Utilizzo mostra informazioni relative al modo in cui viene usato l'account:
-   
-    ![monitorare l'utilizzo di Analisi Data Lake di Azure](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-monitor-usage.png)
-2. Fare doppio clic sul pannello per visualizzare altri dettagli.
+Per modificare il numero di AU per l'account di Data Lake Analytics:
 
-## <a name="view-u-sql-catalog"></a>Visualizzare il catalogo di U-SQL
-Il [catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md) permette di definire la struttura dei dati e del codice in modo da poterli condividere mediante U-SQL. Il catalogo consente di ottenere le migliori prestazioni possibili con i dati in Azure Data Lake. È possibile visualizzare il catalogo di U-SQL dal portale di Azure.
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Fare clic su **Proprietà**.
+3. In **Numero massimo di AU** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo. 
+4. Fare clic su **Salva**.
 
-**Per sfogliare il catalogo di U-SQL**
+> [!NOTE]
+> Se è necessario impostare un numero di AU superiore al valore predefinito (250), nel portale fare clic su **Guida e supporto** per inviare una richiesta di supporto. Il numero di AU disponibili nell'account di Data Lake Analytics può essere incrementato.
+>
 
-1. Aprire l'account di Analisi che si desidera gestire. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Data Lake Analytics](#access-adla-account).
-2. Fare clic su **Esplora dati** nel menu superiore.
-3. Espandere **Catalogo**, **master** e quindi **Tabelle, **Funzioni con valori di tabella** o **Assembly**. La schermata seguente illustra una funzione con valori di tabella.
-   
-    ![Analisi Data Lake di Azure - Esplora dati e account di archiviazione](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-catalog.png)
+#### <a name="maximum-number-of-jobs-that-can-run-simultaneously"></a>Numero massimo di processi che possono essere eseguiti contemporaneamente
+Un criterio controlla il numero di processi che possono essere eseguiti contemporaneamente. Per impostazione predefinita, questo valore è impostato su 20. Se in Data Lake Analytics sono presenti AU disponibili, viene pianificata l'esecuzione di nuovi processi finché il numero totale dei processi in esecuzione non raggiunge il valore di questo criterio. Quando si raggiunge il numero massimo di processi che possono essere eseguiti contemporaneamente, i processi successivi vengono inseriti in coda, in ordine di priorità, finché uno o più processi non vengono completati (a seconda della disponibilità di AU).
 
-<!-- ################################ -->
-<!-- ################################ -->
-## <a name="use-azure-resource-manager-groups"></a>Usare i gruppi Gestione risorse di Azure
-Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Azure Resource Manager consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione in un'unica operazione coordinata. Per la distribuzione viene usato un modello; questo modello può essere usato per diversi ambienti, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md). 
+Per modificare il numero di processi che possono essere eseguiti contemporaneamente:
 
-Un servizio di Analisi Data Lake può includere i componenti seguenti:
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Fare clic su **Proprietà**.
+3. In **Numero massimo di processi in esecuzione** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo. 
+4. Fare clic su **Salva**.
 
-* Account di Analisi Data Lake di Azure
-* Account di Archivio Data Lake predefinito (obbligatorio)
-* Account di Archivio Data Lake di Azure aggiuntivi
-* Account di archiviazione aggiuntivi di Azure
+> [!NOTE]
+> Se è necessario eseguire un numero di processi superiore al valore predefinito (20), nel portale fare clic su **Guida e supporto** per inviare una richiesta di supporto. Il numero di processi che possono essere eseguiti contemporaneamente nell'account di Data Lake Analytics può essere incrementato.
+>
 
-È possibile creare tutti questi componenti in un unico gruppo di gestione delle risorse per semplificarne la gestione.
+#### <a name="how-long-to-keep-job-metadata-and-resources"></a>Per quanto tempo mantenere le risorse e i metadati dei processi 
+Quando gli utenti eseguono processi U-SQL, il servizio Data Lake Analytics mantiene tutti i file correlati, ovvero lo script U-SQL, i file DLL a cui viene fatto riferimento nello script U-SQL, le risorse compilate e le statistiche. I file si trovano nella cartella /system/ dell'account di Azure Data Lake Store. Questo criterio controlla per quanto tempo le risorse rimangono archiviate prima di essere eliminate automaticamente. Il valore predefinito è 30 giorni. È possibile usare questi file per il debug e per ottimizzare le prestazioni dei processi che si eseguiranno nuovamente in futuro.
 
-![Account e archiviazione di Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
+Per modificare il tempo di archiviazione delle risorse e dei metadati dei processi:
 
-Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono trovarsi nello stesso data center di Azure,
-mentre il gruppo di gestione delle risorse può trovarsi anche in un data center diverso.  
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Fare clic su **Proprietà**.
+3. In **Giorni di conservazione delle query del processo** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo.  
+4. Fare clic su **Salva**.
 
-## <a name="see-also"></a>Vedere anche
-* [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
+### <a name="job-level-policies"></a>Criteri a livello di processo
+Con i criteri a livello di processo è possibile controllare il numero massimo di AU e la massima priorità che i singoli utenti (o i membri di specifici gruppi di sicurezza) possono impostare per i processi che inviano. Ciò consente di controllare i costi sostenuti dagli utenti e l'effetto che i processi pianificati possono avere sui processi di produzione ad alta priorità in esecuzione nello stesso account di Data Lake Analytics.
+
+In Data Lake Analytics è possibile impostare due criteri a livello di processo:
+
+* **AU limit per job** (Limite AU per processo): gli utenti possono inviare solo processi che hanno al massimo il numero di AU specificato. Per impostazione predefinita, questo limite corrisponde a quello definito per l'account.
+* **Priorità**: gli utenti possono inviare solo processi che hanno una priorità inferiore o uguale a questo valore. Si noti che un numero più alto indica una priorità più bassa. Per impostazione predefinita, questo valore è impostato su 1, che corrisponde alla massima priorità possibile.
+
+Per ogni account è impostato un criterio predefinito che si applica a tutti gli utenti dell'account. È possibile impostare altri criteri per utenti e gruppi specifici. 
+
+> [!NOTE]
+> I criteri a livello di account e quelli a livello di processo vengono applicati contemporaneamente.
+>
+
+#### <a name="add-a-policy-for-a-specific-user-or-group"></a>Aggiungere un criterio per un utente o un gruppo specifico
+
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Fare clic su **Proprietà**.
+3. In **Limiti di invio del processo** fare clic sul pulsante **Aggiungi criterio**. Selezionare o immettere le impostazioni seguenti:
+    1. **Nome criteri di calcolo**: immettere un nome di criterio in modo da identificarne la finalità.
+    2. **Selezionare l'utente o il gruppo**: selezionare l'utente o il gruppo a cui si applica questo criterio.
+    3. **Impostare il limite AU del processo**: impostare il limite di AU che si applica all'utente o al gruppo selezionato.
+    4. **Impostare il limite di priorità del processo**: impostare il limite di priorità che si applica all'utente o al gruppo selezionato.
+
+4. Fare clic su **OK**.
+
+5. Il nuovo criterio viene elencato nella tabella dei criteri **Impostazioni predefinite** in **Limiti di invio del processo**. 
+
+#### <a name="delete-or-edit-an-existing-policy"></a>Eliminare o modificare un criterio esistente
+
+1. Nel portale di Azure accedere all'account di Data Lake Analytics.
+2. Fare clic su **Proprietà**.
+3. In **Limiti di invio del processo** trovare il criterio da modificare.
+4.  Per visualizzare le opzioni **Elimina** e **Modifica**, nella colonna all'estremità destra della tabella fare clic su **...**.
+
+### <a name="additional-resources-for-job-policies"></a>Risorse aggiuntive per i criteri dei processi
+* [Post di blog con una panoramica dei criteri](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)
+* [Post di blog sui criteri a livello di account](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
+* [Post di blog sui criteri a livello di processo](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Introduzione a Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
 * [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

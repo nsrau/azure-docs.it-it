@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di sincronizzazione della password con il servizio di sincronizzazione Azure AD Connect | Microsoft Docs
-description: L&quot;articolo contiene informazioni sulla risoluzione dei problemi di sincronizzazione della password
+description: Questo articolo contiene informazioni sulla risoluzione dei problemi di sincronizzazione delle password.
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -12,79 +12,256 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e7ad2cb4c464c7095f704cc137f1c42422fbb40e
-ms.openlocfilehash: 4c42821b95d666721b84d4976966b4886e517193
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: bd1b931681331d4de06e227983dfce98b4cc84f2
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione della password con il servizio di sincronizzazione Azure AD Connect
-In questo argomento viene descritta la procedura per risolvere i problemi di sincronizzazione della password. Se le password non vengono sincronizzate come previsto, può essere per un subset di utenti o per tutti gli utenti.
+In questo argomento viene descritta la procedura per risolvere i problemi di sincronizzazione della password. Se le password non vengono sincronizzate come previsto, il problema può riguardare un subset di utenti o tutti gli utenti. Per la distribuzione di Azure Active Directory (Azure AD) Connect versione 1.1.524.0 o successiva è ora disponibile un cmdlet di diagnostica che è possibile usare per risolvere i problemi di sincronizzazione delle password:
 
-* Se si verifica un problema in cui non viene sincronizzata alcuna password, vedere [Risolvere i problemi in cui non viene sincronizzata alcuna password](#no-passwords-are-synchronized).
-* Se si verifica un problema con singoli oggetti, vedere [Risolvere i problemi relativi a un oggetto che non sincronizza le password](#one-object-is-not-synchronizing-passwords).
+* Se si verifica un problema per cui nessuna password viene sincronizzata, vedere la sezione [Nessuna password viene sincronizzata: risolvere i problemi tramite il cmdlet di diagnostica](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet).
 
-## <a name="no-passwords-are-synchronized"></a>Le password non sono sincronizzate
-Seguire questi passaggi per scoprire il motivo per cui le password non sono sincronizzate:
+* Se si verifica un problema relativo a singoli oggetti, vedere la sezione [Un oggetto non sincronizza le password: risolvere i problemi tramite il cmdlet di diagnostica](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet).
+
+Per le versioni precedenti della distribuzione di Azure AD Connect:
+
+* Se si verifica un problema per cui nessuna password viene sincronizzata, vedere la sezione [Nessuna password viene sincronizzata: passaggi per la risoluzione manuale dei problemi](#no-passwords-are-synchronized-manual-troubleshooting-steps).
+
+* Se si verifica un problema relativo a singoli oggetti, vedere la sezione [Un oggetto non sincronizza le password: passaggi per la risoluzione manuale dei problemi](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps).
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Nessuna password viene sincronizzata: risolvere i problemi tramite il cmdlet di diagnostica
+Per stabilire il motivo per cui nessuna password viene sincronizzata, è possibile usare il cmdlet `Invoke-ADSyncDiagnostics`.
+
+> [!NOTE]
+> Il cmdlet `Invoke-ADSyncDiagnostics` è disponibile solo per Azure AD Connect versione 1.1.524.0 o successiva.
+
+### <a name="run-the-diagnostics-cmdlet"></a>Eseguire il cmdlet di diagnostica
+Per risolvere i problemi per cui nessuna password viene sincronizzata:
+
+1. Aprire una nuova sessione di Windows PowerShell nel server di Azure AD Connect con l'opzione **Esegui come amministratore**.
+
+2. Eseguire `Set-ExecutionPolicy RemoteSigned` o `Set-ExecutionPolicy Unrestricted`.
+
+3. Eseguire `Import-Module ADSyncDiagnostics`.
+
+4. Eseguire `Invoke-ADSyncDiagnostics -PasswordSync`.
+
+### <a name="understand-the-results-of-the-cmdlet"></a>Comprendere i risultati del cmdlet
+Il cmdlet di diagnostica esegue i controlli seguenti:
+
+* Verifica che la funzionalità di sincronizzazione delle password sia abilitata per il tenant di Azure AD.
+
+* Verifica che il server di Azure AD Connect non sia in modalità di gestione temporanea.
+
+* Per ogni istanza locale esistente di Active Directory Connector, corrispondente a una foresta di Active Directory esistente:
+
+   * Verifica che la funzionalità di sincronizzazione delle password sia abilitata.
+   
+   * Cerca gli eventi heartbeat di sincronizzazione delle password nei log eventi delle applicazioni di Windows.
+
+   * Per ogni dominio di Active Directory nell'istanza locale di Active Directory Connector:
+
+      * Verifica che il dominio sia raggiungibile dal server di Azure AD Connect.
+
+      * Verifica che gli account di Active Directory Domain Services usati dall'istanza locale di Active Directory Connector abbiano il nome utente e la password corretti e le autorizzazioni necessarie per la sincronizzazione delle password.
+
+Il diagramma seguente illustra i risultati del cmdlet per una topologia di Active Directory locale a dominio singolo:
+
+![Output di diagnostica per la sincronizzazione delle password](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
+
+La parte restante di questa sezione descrive i risultati specifici restituiti dal cmdlet e i problemi corrispondenti.
+
+#### <a name="password-synchronization-feature-isnt-enabled"></a>La funzionalità di sincronizzazione delle password non è abilitata
+Se la sincronizzazione delle password non è stata abilitata tramite la procedura guidata di Azure AD Connect, viene restituito l'errore seguente:
+
+![La sincronizzazione delle password non è abilitata](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobaldisabled.png)
+
+#### <a name="azure-ad-connect-server-is-in-staging-mode"></a>Il server di Azure AD Connect è in modalità di gestione temporanea
+Se il server di Azure AD Connect è in modalità di gestione temporanea, la sincronizzazione delle password è temporaneamente disabilitata e viene restituito l'errore seguente:
+
+![Il server di Azure AD Connect è in modalità di gestione temporanea](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalstaging.png)
+
+#### <a name="no-password-synchronization-heartbeat-events"></a>Eventi heartbeat di mancata sincronizzazione delle password
+Ogni istanza locale di Active Directory Connector ha uno specifico canale di sincronizzazione delle password. Quando il canale di sincronizzazione delle password è attivo e non vi sono modifiche di password da sincronizzare, nel log eventi delle applicazioni di Windows viene generato un evento heartbeat (EventId 654) ogni 30 minuti. Per ogni istanza locale di Active Directory Connector, il cmdlet cerca gli eventi heartbeat corrispondenti che si sono verificati nelle ultime tre ore. Se la ricerca ha esito negativo, viene restituito l'errore seguente:
+
+![Evento heartbeat di mancata sincronizzazione delle password](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalnoheartbeat.png)
+
+#### <a name="ad-ds-account-does-not-have-correct-permissions"></a>L'account di Active Directory Domain Services non ha le autorizzazioni corrette
+Se l'account di Active Directory Domain Services usato dall'istanza locale di Active Directory Connector per sincronizzare gli hash delle password non ha le autorizzazioni appropriate, viene restituito l'errore seguente:
+
+![Credenziali non corrette](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectpermission.png)
+
+#### <a name="incorrect-ad-ds-account-username-or-password"></a>La password o il nome utente dell'account di Active Directory Domain Services non è corretto
+Se l'account di Active Directory Domain Services usato dall'istanza locale di Active Directory Connector per sincronizzare gli hash delle password ha una password o un nome utente non corretto, viene restituito l'errore seguente:
+
+![Credenziali non corrette](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Un oggetto non sincronizza le password: risolvere i problemi tramite il cmdlet di diagnostica
+Per stabilire il motivo per cui un oggetto non sincronizza le password è possibile usare il cmdlet `Invoke-ADSyncDiagnostics`.
+
+> [!NOTE]
+> Il cmdlet `Invoke-ADSyncDiagnostics` è disponibile solo per Azure AD Connect versione 1.1.524.0 o successiva.
+
+### <a name="run-the-diagnostics-cmdlet"></a>Eseguire il cmdlet di diagnostica
+Per risolvere i problemi per cui nessuna password viene sincronizzata:
+
+1. Aprire una nuova sessione di Windows PowerShell nel server di Azure AD Connect con l'opzione **Esegui come amministratore**.
+
+2. Eseguire `Set-ExecutionPolicy RemoteSigned` o `Set-ExecutionPolicy Unrestricted`.
+
+3. Eseguire `Import-Module ADSyncDiagnostics`.
+
+4. Eseguire il cmdlet seguente:
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
+   ```
+   ad esempio:
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
+   ```
+
+### <a name="understand-the-results-of-the-cmdlet"></a>Comprendere i risultati del cmdlet
+Il cmdlet di diagnostica esegue i controlli seguenti:
+
+* Esamina lo stato dell'oggetto Active Directory nello spazio di Active Directory Connector, nel metaverse e nello spazio di Azure AD Connector.
+
+* Verifica che siano definite regole di sincronizzazione con la sincronizzazione delle password abilitata e applicata all'oggetto Active Directory.
+
+* Prova a recuperare e visualizzare i risultati dell'ultimo tentativo di sincronizzazione della password per l'oggetto.
+
+Il diagramma seguente illustra i risultati del cmdlet durante la risoluzione dei problemi di sincronizzazione delle password per un singolo oggetto:
+
+![Output di diagnostica per la sincronizzazione delle password: singolo oggetto](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectgeneral.png)
+
+La parte restante di questa sezione descrive i risultati specifici restituiti dal cmdlet e i problemi corrispondenti.
+
+#### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>L'oggetto Active Directory non viene esportato in Azure AD
+La sincronizzazione delle password per questo account di Active Directory locale non riesce perché non è presente alcun oggetto corrispondente nel tenant di Azure AD. Viene restituito l'errore seguente:
+
+![Oggetto Azure AD mancante](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnotexported.png)
+
+#### <a name="user-has-a-temporary-password"></a>L'utente ha una password temporanea
+Azure AD Connect non supporta attualmente la sincronizzazione delle password temporanee con Azure AD. Una password viene considerata temporanea se l'opzione **Cambiamento obbligatorio password all'accesso successivo** è impostata per l'utente di Active Directory locale. Viene restituito l'errore seguente:
+
+![Password temporanea non esportata](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjecttemporarypassword.png)
+
+#### <a name="results-of-last-attempt-to-synchronize-password-arent-available"></a>I risultati dell'ultimo tentativo di sincronizzare la password non sono disponibili
+Per impostazione predefinita, Azure AD Connect archivia i risultati dei tentativi di sincronizzazione delle password per sette giorni. Se per l'oggetto Active Directory selezionato non sono disponibili risultati, viene restituito l'avviso seguente:
+
+![Output di diagnostica per un singolo oggetto: cronologia di mancata sincronizzazione delle password](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnohistory.png)
+
+
+## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Nessuna password viene sincronizzata: passaggi per la risoluzione manuale dei problemi
+Per stabilire il motivo per cui nessuna password viene sincronizzata, seguire questi passaggi:
 
 1. Il server di connessione è in [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode)? Un server in modalità di gestione temporanea non sincronizza le password.
+
 2. Eseguire lo script nella sezione [Ottenere lo stato delle impostazioni di sincronizzazione password](#get-the-status-of-password-sync-settings). Fornisce una panoramica della configurazione della sincronizzazione password.  
-![Output dello script di PowerShell dalle impostazioni di sincronizzazione password](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/psverifyconfig.png)  
-3. Se la funzionalità non è abilitata in Azure AD o se lo stato di sincronizzazione del canale non è abilitato, eseguire l'installazione guidata di Connect. Selezionare **Personalizzazione delle opzioni di sincronizzazione** e deselezionare l'opzione di sincronizzazione password. Questa modifica disabilita temporaneamente la funzionalità. Eseguire quindi di nuovo la procedura guidata e riabilitare la sincronizzazione password. Eseguire di nuovo lo script per verificare che la configurazione sia corretta.
-4. Esaminare il registro eventi per trovare gli errori. Cercare gli eventi seguenti che potrebbero indicare un problema:
-    1. Origine: ID "Sincronizzazione della directory": 0, 611, 652, 655 se viene visualizzato uno di questi eventi c'è un problema di connettività. Il messaggio del registro eventi contiene informazioni relative alla foresta in cui è presente il problema. Per altre informazioni sulla connettività client, vedere [Problemi di connettività](#connectivity problem)
-5. Se non viene visualizzato alcun heartbeat o se altri elementi non sono stati eseguiti correttamente, eseguire [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords) (Attivare una sincronizzazione completa di tutte le password). Eseguire questo script solo una volta.
-6. Leggere la sezione [Risolvere i problemi relativi a un oggetto che non sincronizza le password](#one-object-is-not-synchronizing-passwords).
 
-### <a name="connectivity-problem"></a>Problema di connettività
+    ![Output dello script di PowerShell dalle impostazioni di sincronizzazione password](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/psverifyconfig.png)  
 
-1. L'utente dispone della connettività con Azure AD?
-2. L'account dispone delle autorizzazioni necessarie per leggere gli hash delle password in tutti i domini? Se è installato Connect con le impostazioni rapide, le autorizzazioni dovrebbero già essere corrette. Se l'utente ha seguito l'installazione personalizzata, è necessario impostare manualmente le autorizzazioni.
-    1. Per trovare l'account usato dal connettore di Active Directory, avviare **Synchronization Service Manager**. Passare a **Connettori** e trovare la foresta di Active Directory locale per cui si desidera risolvere i problemi. Selezionare il connettore e fare clic su **Proprietà**. Passare a **Connetti a Foresta Active Directory**.  
-    ![Account usato dal connettore di AD](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/connectoraccount.png)  
+3. Se la funzionalità non è abilitata in Azure AD o se lo stato del canale di sincronizzazione non è abilitato, eseguire l'Installazione guidata di Connect. Selezionare **Personalizzazione delle opzioni di sincronizzazione** e deselezionare l'opzione di sincronizzazione delle password. Questa modifica disabilita temporaneamente la funzionalità. Eseguire quindi di nuovo la procedura guidata e riabilitare la sincronizzazione password. Eseguire di nuovo lo script per verificare che la configurazione sia corretta.
+
+4. Esaminare il log eventi per cercare eventuali errori. Cercare gli eventi seguenti che potrebbero indicare un problema:
+    * Origine: ID "Sincronizzazione della directory": 0, 611, 652, 655 Se vengono visualizzati eventi di questo tipo, c'è un problema di connettività. Il messaggio del log eventi contiene informazioni relative alla foresta in cui è presente un problema. Per altre informazioni, vedere [Problemi di connettività](#connectivity problem).
+
+5. Se non viene visualizzato alcun heartbeat o non si sono trovate altre soluzioni al problema, eseguire lo script riportato in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords). Eseguire lo script una sola volta.
+
+6. Vedere la sezione [Risolvere i problemi relativi a un oggetto che non sincronizza le password](#one-object-is-not-synchronizing-passwords).
+
+### <a name="connectivity-problems"></a>Problemi di connettività
+
+La connettività con Azure AD è presente?
+
+L'account dispone delle autorizzazioni necessarie per leggere gli hash delle password in tutti i domini? Se si è installato Connect usando le impostazioni rapide, le autorizzazioni dovrebbero già essere corrette. 
+
+Se invece si è usata l'installazione personalizzata, impostare manualmente le autorizzazioni eseguendo queste le operazioni:
+    
+1. Per trovare l'account usato dall'istanza di Active Directory Connector, avviare **Synchronization Service Manager**. 
+ 
+2. Passare a **Connettori** e cercare la foresta di Active Directory locale per cui risolvere i problemi. 
+ 
+3. Selezionare il connettore e quindi fare clic su **Proprietà**. 
+ 
+4. Passare a **Connetti a Foresta Active Directory**.  
+    
+    ![Account usato da Active Directory Connector](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/connectoraccount.png)  
     Prendere nota del nome utente e del dominio in cui si trova l'account.
-    2. Avviare **Utenti e computer di Active Directory**. Verificare che l'account trovato nel passaggio precedente disponga delle autorizzazioni seguenti impostate alla radice di tutti i domini della foresta:
-        * Replica modifiche directory
-        * Replica modifiche directory - Tutto
-3. I controller di dominio sono raggiungibili da Azure AD Connect? Se il server Connect non può connettersi a tutti i controller di dominio, è necessario configurare **Only use preferred domain controller** (Usare solo controller di dominio preferito).  
-    ![Controller di dominio usato dal connettore di AD](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/preferreddc.png)  
-    Tornare a **Synchronization Service Manager** e **Configure Directory Partition** (Configurare la partizione della directory). Selezionare il dominio in **Select directory partitions** (Selezionare le partizioni della directory), selezionare la casella di controllo **Only use preferred domain controller** (Usare solo controller di dominio preferito) e fare clic su **Configura**. Nell'elenco, immettere i controller di dominio che Connect deve usare per la sincronizzazione delle password. Lo stesso elenco viene usato anche per importare ed esportare. Eseguire questi passaggi per tutti i domini.
-4. Se lo script indica che non sono stati ricevuti heartbeat, eseguire lo script disponibile in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords).
+    
+5. Avviare **Utenti e computer di Active Directory** e verificare che l'account trovato in precedenza disponga delle autorizzazioni seguenti impostate nella radice di tutti i domini della foresta:
+    * Replica modifiche directory
+    * Replica modifiche directory - Tutto
 
-## <a name="one-object-is-not-synchronizing-passwords"></a>Un oggetto non sincronizza le password
+6. I controller di dominio sono raggiungibili da Azure AD Connect? Se il server Connect non riesce a connettersi a tutti i controller di dominio, configurare **Only use preferred domain controller** (Usare solo controller di dominio preferito).  
+    
+    ![Controller di dominio usato da Active Directory Connector](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/preferreddc.png)  
+    
+7. Tornare a **Synchronization Service Manager** e **Configure Directory Partition** (Configurare la partizione della directory). 
+ 
+8. Selezionare il dominio in **Select directory partitions** (Selezionare le partizioni della directory), selezionare la casella di controllo **Only use preferred domain controller** (Usare solo controller di dominio preferito) e quindi fare clic su **Configura**. 
+
+9. Nell'elenco immettere i controller di dominio che Connect deve usare per la sincronizzazione delle password. Lo stesso elenco viene usato anche per importare ed esportare. Eseguire questi passaggi per tutti i domini.
+
+10. Se lo script mostra che non sono stati generati heartbeat, eseguire lo script riportato in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords).
+
+## <a name="one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps"></a>Un oggetto non sincronizza le password: passaggi per la risoluzione manuale dei problemi
 È possibile risolvere facilmente i problemi di sincronizzazione password esaminando lo stato di un oggetto.
 
-1. Avviare **Utenti e computer di Active Directory**. Trovare l'utente e verificare che **Cambiamento obbligatorio password all'accesso successivo** sia deselezionata.  
-![Password per la produttività di Active Directory](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/adprodpassword.png)  
-Se è selezionata, chiedere all'utente di accedere e modificare la password. Le password temporanee non vengono sincronizzate con Azure AD.
-2. Se in Active Directory non vengono rilevati problemi, il passaggio successivo consiste nel seguire l'utente nel motore di sincronizzazione. Seguendo l'utente da Active Directory locale ad Azure AD, è possibile vedere se è presente un errore descrittivo per l'oggetto.
-    1. Avviare **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
-    2. Fare clic su **Connectors**(Connettori).
-    3. Selezionare l'istanza di **Active Directory Connector** in cui si trova l'utente.
-    4. Selezionare **Search Connector Space**(Cerca spazio connettore).
-    5. In **Ambito**selezionare **DN or anchor** (DN o ancoraggio). Immettere il DN completo dell'utente per cui si risolvono i problemi.
-    ![Ricerca per utente in cs con DN](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/searchcs.png)  
-    6. Individuare l'utente che si sta cercando e fare clic su **Proprietà** per visualizzare tutti gli attributi. Se l'utente non è incluso nei risultati della ricerca, verificare le [regole di filtro](active-directory-aadconnectsync-configure-filtering.md) e accertarsi di eseguire [Applica e verifica le modifiche](active-directory-aadconnectsync-configure-filtering.md#apply-and-verify-changes) per visualizzare l'utente in Connect.
-    7. Per visualizzare i dettagli della sincronizzazione password dell'oggetto per la settimana precedente, fare clic su **Log...**(Log...).  
-    ![Dettagli del log oggetti](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/csobjectlog.png)  
-    Se il log oggetti è vuoto, Azure AD Connect non è stato in grado di leggere l'hash della password da Active Directory. Continuare la risoluzione dei problemi con [Errori di connettività](#connectivity-errors). Se viene visualizzato qualsiasi valore diverso da **success**, fare riferimento alla tabella [Log di sincronizzazione delle password](#password-sync-log).
-    8. Selezionare la scheda **Lineage** (Derivazione) e verificare che **Password Sync** (Sincronizzazione password) sia impostata su **True** almeno per una regola di sincronizzazione. Nella configurazione predefinita il nome della regola di sincronizzazione è **In from AD - User AccountEnabled**(In entrata da AD - Account utente abilitato).  
+1. In **Utenti e computer di Active Directory** cercare l'utente e verificare che la casella di controllo **Cambiamento obbligatorio password all'accesso successivo** sia deselezionata.  
+
+    ![Password per la produttività di Active Directory](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/adprodpassword.png)  
+
+    Se la casella di controllo è selezionata, chiedere all'utente di accedere e modificare la password. Le password temporanee non vengono sincronizzate con Azure AD.
+
+2. Se in Active Directory la password sembra corretta, seguire l'utente nel motore di sincronizzazione. Seguendo l'utente da Active Directory locale ad Azure AD, è possibile verificare se viene generato un errore descrittivo per l'oggetto.
+
+    a. Avviare [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
+
+    b. Fare clic su **Connectors**(Connettori).
+
+    c. Selezionare l'istanza di **Active Directory Connector** in cui si trova l'utente.
+
+    d. Selezionare **Search Connector Space**(Cerca spazio connettore).
+
+    e. Nella casella **Ambito** selezionare **DN or Anchor** (DN o ancoraggio) e quindi immettere il nome distinto completo dell'utente per il quale si devono risolvere i problemi.
+
+    ![Cercare l'utente nello spazio connettore con nome distinto](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/searchcs.png)  
+
+    f. Trovare l'utente e fare clic su **Proprietà** per visualizzare tutti gli attributi. Se l'utente non è incluso nei risultati della ricerca, verificare le [regole di filtro](active-directory-aadconnectsync-configure-filtering.md) e accertarsi di seguire le istruzioni in [Applicare e verificare le modifiche](active-directory-aadconnectsync-configure-filtering.md#apply-and-verify-changes) per visualizzare l'utente in Connect.
+
+    g. Per visualizzare i dettagli della sincronizzazione della password dell'oggetto per la settimana precedente, fare clic su **Log**.  
+
+    ![Dettagli del log dell'oggetto](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/csobjectlog.png)  
+
+    Se il log dell'oggetto è vuoto, Azure AD Connect non è stato in grado di leggere l'hash della password da Active Directory. Continuare la risoluzione dei problemi con [Errori di connettività](#connectivity-errors). Se viene visualizzato un valore diverso da **success**, fare riferimento alla tabella [Log di sincronizzazione delle password](#password-sync-log).
+
+    h. Selezionare la scheda **Lineage** (Derivazione) e verificare che almeno una regola di sincronizzazione nella colonna **PasswordSync** (Sincronizzazione password) sia impostata su **True**. Nella configurazione predefinita il nome della regola di sincronizzazione è **In from AD - User AccountEnabled**.  
+
     ![Informazioni sulla derivazione relative a un utente](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync.png)  
-    9. Fare clic su **Metaverse Object Properties** (Proprietà dell'oggetto Metaverse). Viene visualizzato un elenco di attributi dell'utente.  
-    ![Informazioni su Metaverse](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvpasswordsync.png)  
+
+    i. Fare clic su **Metaverse Object Properties** (Proprietà dell'oggetto Metaverse) per visualizzare un elenco di attributi utente.  
+
+    ![Informazioni del metaverse](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvpasswordsync.png)  
+
     Verificare che non sia presente alcun attributo **cloudFiltered**. Assicurarsi che gli attributi di dominio (domainFQDN e domainNetBios) abbiano i valori previsti.
-    10. Fare clic sulla scheda **Connettori**. Assicurarsi di visualizzare i connettori per AD locale e Azure AD.
-    ![Informazioni su Metaverse](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvconnectors.png)  
-    11. Selezionare la riga che rappresenta Azure AD e fare clic su **Proprietà**. Fare clic sulla scheda **Derivazione**. L'oggetto spazio connettore deve avere una regola in uscita con **Password Sync** (Sincronizzazione password) impostata su **True**. Nella configurazione predefinita il nome della regola di sincronizzazione è **Out to AAD - User Join**(In uscita ad AAD - Aggiunta utente).  
-    ![Proprietà dello spazio connettore di un utente](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync2.png)  
+
+    j. Fare clic sulla scheda **Connettori**. Assicurarsi che i connettori per Active Directory locale e Azure AD siano visualizzati.
+
+    ![Informazioni del metaverse](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvconnectors.png)  
+
+    k. Selezionare la riga che rappresenta Azure AD, fare clic su **Proprietà** e quindi sulla scheda **Lineage** (Derivazione). L'oggetto spazio connettore deve avere una regola in uscita con la colonna **PasswordSync** (Sincronizzazione password) impostata su **True**. Nella configurazione predefinita il nome della regola di sincronizzazione è **Out to AAD - User Join**.  
+
+    ![Finestra di dialogo Proprietà dell'oggetto spazio connettore](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync2.png)  
 
 ### <a name="password-sync-log"></a>Log di sincronizzazione delle password
 I valori possibili per la colonna dello stato sono i seguenti:
 
-| Stato | Description |
+| Stato | Descrizione |
 | --- | --- |
 | Success |La password è stata sincronizzata. |
 | FilteredByTarget |La password è impostata su **Richiedi modifica della password all'accesso successivo**. La password non è stata sincronizzata. |
@@ -151,7 +328,7 @@ Write-Host
 
 #### <a name="trigger-a-full-sync-of-all-passwords"></a>Attivare una sincronizzazione completa di tutte le password
 > [!NOTE]
-> Eseguire questo script solo una volta. Se è necessario eseguirlo più volte, il problema è un altro. Contattare il supporto tecnico Microsoft per risolvere il problema.
+> Eseguire questo script una sola volta. Se è necessario eseguirlo più volte, il problema è dovuto a un'altra causa. Per risolverlo, contattare il supporto tecnico Microsoft.
 
 È possibile attivare una sincronizzazione completa di tutte le password usando lo script seguente:
 
@@ -171,6 +348,6 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Implementazione della sincronizzazione password con il servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)
-* [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
