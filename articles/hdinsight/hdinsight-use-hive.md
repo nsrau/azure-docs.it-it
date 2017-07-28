@@ -1,7 +1,7 @@
 ---
 title: Cosa sono Apache Hive e HiveQL - Azure HDInsight | Microsoft Docs
 description: "Apache Hive è un sistema di data warehouse per Hadoop. È possibile eseguire query sui dati archiviati in Hive tramite HiveQL, che è simile a Transact-SQL. Questo documento riporta informazioni su come usare Hive e HiveQL con Azure HDInsight."
-keywords: "hiveql, cos&quot;è hive, hadoop hiveql, come usare hive, informazioni su hive, cos&quot;è hive"
+keywords: "hiveql, cos'è hive, hadoop hiveql, come usare hive, informazioni su hive, cos'è hive"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -10,7 +10,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 05/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f974c2714fc600d850baff64fdf65aae178e5068
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 495afb2d6e166e8f8cbb5157ef2182804c91a4e4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -54,7 +54,7 @@ Consultare la tabella seguente per informazioni su come usare Hive con HDInsight
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux o Windows* |Windows |
 
 > [!IMPORTANT]
-> \* Linux è l'unico sistema operativo utilizzato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> \* Linux è l'unico sistema operativo utilizzato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Se si usa un cluster HDInsight basato su Windows, è possibile usare la [console Query](hdinsight-hadoop-use-hive-query-console.md) dal browser o [Desktop remoto](hdinsight-hadoop-use-hive-remote-desktop.md) per eseguire query Hive.
 
