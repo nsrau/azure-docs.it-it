@@ -1,6 +1,6 @@
 ---
-title: Configurare l&quot;autenticazione e l&quot;autorizzazione per un&quot;applicazione personalizzata che chiama l&quot;API Azure Time Series Insights | Microsoft Docs
-description: Questa esercitazione illustra come configurare l&quot;autenticazione e l&quot;autorizzazione per un&quot;applicazione personalizzata che chiama l&quot;API Azure Time Series Insights
+title: Configurare l'autenticazione e l'autorizzazione per un'applicazione personalizzata che chiama l'API Azure Time Series Insights | Microsoft Docs
+description: Questa esercitazione illustra come configurare l'autenticazione e l'autorizzazione per un'applicazione personalizzata che chiama l'API Azure Time Series Insights
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -88,7 +88,7 @@ Ecco di seguito i passaggi dettagliati:
 
     ```csharp
     var authenticationContext = new AuthenticationContext(
-        "https://login.windows.net/common",
+        "https://login.microsoftonline.com/common",
         TokenCache.DefaultShared);
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(

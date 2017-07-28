@@ -12,23 +12,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a8f1bf660c44f7716767d3244a7d6e7f7acf8a83
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: c4ec436df17926114e3e27eabc8ed12761c9614e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="how-to-manage-cloud-services"></a>Come gestire i servizi cloud
 > [!div class="op_single_selector"]
 > * [Portale di Azure](cloud-services-how-to-manage-portal.md)
-> * [Portale di Azure classico](cloud-services-how-to-manage.md)
+> * [portale di Azure classico](cloud-services-how-to-manage.md)
 >
 >
 
-Il servizio cloud viene gestito nell'area **Servizi cloud (classico)** del portale di Azure. Questo articolo descrive alcune azioni comuni da eseguire durante la gestione dei servizi cloud. Sono incluse l'aggiornamento, l'eliminazione, il ridimensionamento e l'innalzamento di livello di una pre-distribuzione in produzione.
+Nell'area **Servizi cloud (versione classica)** del portale di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una pre-distribuzione in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e ridimensionare le risorse insieme, oltre a eliminare un servizio cloud o una distribuzione.
 
 Altre informazioni sul ridimensionamento del servizio cloud sono disponibili [qui](cloud-services-how-to-scale-portal.md).
 
@@ -47,7 +47,7 @@ Se è necessario aggiornare il codice dell'applicazione per il servizio cloud, u
 4. **Facoltativamente** aggiornare l'etichetta di distribuzione e l'account di archiviazione.
 5. Se uno o più ruoli contengono una sola istanza del ruolo, selezionare la casella di controllo **Distribuisci anche se uno o più ruoli contengono una singola istanza** per abilitare l'esecuzione dell'aggiornamento.
 
-    Durante un aggiornamento del servizio cloud, Azure può garantire una percentuale di disponibilità del servizio pari solo al 99,95% se ogni ruolo contiene almeno due istanze del ruolo (macchine virtuali). Con sue istanze del ruolo, una macchina virtuale elaborerà le richieste dei client mentre l'altra viene aggiornata.
+    Durante un aggiornamento del servizio cloud, Azure può garantire una percentuale di disponibilità del servizio pari solo al 99,95% se ogni ruolo contiene almeno due istanze del ruolo (macchine virtuali). Con due istanze del ruolo, una macchina virtuale elabora le richieste dei client mentre l'altra viene aggiornata.
 
 6. Selezionare **Avvia distribuzione** per applicare l'aggiornamento al termine del caricamento del pacchetto.
 7. Fare clic su **OK** per iniziare l'aggiornamento del servizio.
@@ -78,15 +78,15 @@ Quando si decide di distribuire una nuova versione di un servizio cloud, è poss
 
 Esistono due prerequisiti chiave per lo scambio corretto di distribuzioni:
 
-- Se si desidera usare un indirizzo IP statico per lo slot di produzione, è necessario riservarne uno anche per lo slot di gestione temporanea. In caso contrario, lo scambio avrà esito negativo.
+- Se si desidera usare un indirizzo IP statico per lo slot di produzione, è necessario riservarne uno anche per lo slot di gestione temporanea. In caso contrario, lo scambio ha esito negativo.
 
-- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel pannello di panoramica del portale di Azure o usando il [comando Get-AzureRole in Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
+- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel pannello Panoramica del portale di Azure. In alternativa, è possibile usare il comando [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) in Windows PowerShell.
 
 Si noti che anche gli aggiornamenti del sistema operativo guest e le operazioni di correzione del servizio possono ostacolare il corretto scambio delle distribuzioni. Per altre informazioni, vedere [Risolvere eventuali problemi di distribuzione dei servizi cloud](cloud-services-troubleshoot-deployment-problems.md).
 
 **Uno scambio comporta un tempo di inattività per l'applicazione? Come gestire questa situazione?**
 
-Come descritto nella sezione precedente, lo scambio di distribuzioni è in genere molto veloce perché è una semplice modifica della configurazione in Azure Load Balancer. In alcuni casi, tuttavia, può richiedere più di dieci secondi e causare errori di connessione temporanei. Per limitare l'impatto sui clienti, si consiglia di implementare la [logica di ripetizione dei tentativi nel client](../best-practices-retry-general.md).
+Come descritto nella sezione precedente, lo scambio di distribuzioni è in genere veloce perché è una semplice modifica della configurazione in Azure Load Balancer. In alcuni casi, tuttavia, può richiedere più di dieci secondi e causare errori di connessione temporanei. Per limitare l'impatto sui clienti, si consiglia di implementare la [logica di ripetizione dei tentativi nel client](../best-practices-retry-general.md).
 
 ## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Procedura: Collegare una risorsa a un servizio cloud
 Il portale di Azure non collega tra loro le risorse come nel portale di Azure classico. Distribuire invece risorse aggiuntive allo stesso gruppo di risorse usato dal servizio cloud.
@@ -112,8 +112,14 @@ Per eliminare una distribuzione o il servizio cloud, attenersi alla procedura se
 
 > [!NOTE]
 > Quando un servizio cloud viene eliminato e viene configurato il monitoraggio dettagliato, è necessario eliminare manualmente i dati dall'account di archiviazione. Per informazioni sull'ubicazione delle tabelle di metriche, vedere [questo articolo](cloud-services-how-to-monitor.md) :
->
->
+
+
+## <a name="how-to-find-more-information-about-failed-deployments"></a>Procedura: Trovare altre informazioni sulle distribuzioni non riuscite
+Il pannello **Panoramica** comprende una barra di stato in alto. Quando si fa clic sulla barra, si apre un nuovo pannello che visualizza le informazioni sugli errori. Se la distribuzione non contiene errori, il pannello delle informazioni è vuoto.
+
+![Scambio di servizi cloud](./media/cloud-services-how-to-manage-portal/status-info.png)
+
+
 
 [Azure portal]: https://portal.azure.com
 

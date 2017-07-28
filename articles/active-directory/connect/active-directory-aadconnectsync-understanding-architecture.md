@@ -1,6 +1,6 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: informazioni sull&quot;architettura | Documentazione Microsoft'
-description: Questo argomento descrive l&quot;architettura del servizio di sincronizzazione Azure AD Connect e spiega la terminologia usata.
+title: 'Servizio di sincronizzazione Azure AD Connect: informazioni sull''architettura | Documentazione Microsoft'
+description: Questo argomento descrive l'architettura del servizio di sincronizzazione Azure AD Connect e spiega la terminologia usata.
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3d3ba2d11d66ecc253a34e7c4da422bf9fdbd1bd
 ms.openlocfilehash: da69c6f8d0d831349e50548c8883db249b4ee60f
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/06/2017
 
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura
@@ -257,10 +258,5 @@ Il motore di sincronizzazione, ad esempio, se esporta l'attributo C, che ha valo
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

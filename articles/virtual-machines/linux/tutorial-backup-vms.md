@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/05/2017
 ms.author: cynthn
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 8ec31be4c2cdd634a0e45b58a6afaeaca1c4896e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 4dcfad63fdc610160bd47a3b900591fb06585005
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Eseguire il backup di macchine virtuali Linux in Azure
@@ -43,7 +44,7 @@ Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e vien
 
 
 ## <a name="create-a-backup"></a>Creare un backup
-Creare un semplice backup giornaliero pianificato per un insieme di credenziali di servizi di ripristino. 
+Creare un semplice backup giornaliero pianificato per un insieme di credenziali di Servizi di ripristino. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra selezionare **Macchine virtuali**. 
@@ -94,7 +95,7 @@ Questo esempio illustra come ripristinare la pagina Web di nginx predefinita /va
 6. Nel menu a sinistra selezionare **Macchine virtuali**. 
 7. Selezionare la macchina virtuale dall'elenco.
 8. Nel pannello della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. Verrà visualizzato il pannello **Backup**. 
-9. Nel menu nella parte superiore del pannello selezionare **Ripristino file (anteprima)**. Verrà aperto il pannello **Ripristino file (anteprima).
+9. Nel menu nella parte superiore del pannello selezionare **Ripristino file (anteprima)**. Si apre il pannello **Ripristino di file (anteprima)**.
 10. In **Passaggio 1: Selezionare il punto di recupero** selezionare un punto di recupero dall'elenco a discesa.
 11. In **Passaggio 2: Scaricare lo script per cercare e ripristinare i file** fare clic sul pulsante **Scarica eseguibile**. Salvare il file scaricato nel computer locale in uso.
 7. Fare clic su **Scarica script** per scaricare il file di script in locale.

@@ -37,13 +37,18 @@
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## Archiviazione file
-### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
+## [Archiviazione file](storage-files-introduction.md)
+### [Portale](storage-file-how-to-use-files-portal.md)
+### [.NET](storage-dotnet-how-to-use-files.md)
+### [PowerShell](storage-file-how-to-use-files-powershell.md)
+### [Windows](storage-file-how-to-use-files-windows.md)
 ### [Linux](storage-how-to-use-files-linux.md)
+### [Mac](storage-file-how-to-use-files-mac.md)  
 ### [Java](storage-java-how-to-use-file-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
-
+### [Creare una condivisione file](storage-file-how-to-create-file-share.md)
+### [Domande frequenti](storage-files-faq.md)
 ## Archiviazione su disco 
 ### [Creare una VM con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 ### [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
@@ -122,6 +127,8 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitorare e risolvere i problemi
+### [Informazioni aggiuntive sul ripristino di emergenza](storage-disaster-recovery-guidance.md)
+### [Backup e ripristino di emergenza per dischi IAAS](storage-backup-and-disaster-recovery-for-azure-iaas-disks.md)
 ### [Risolvere i problemi di Storage Explorer](storage-explorer-troubleshooting.md)
 ### Metriche e registrazione
 #### [Analisi dell'archiviazione](storage-analytics.md)
@@ -132,7 +139,6 @@
 #### [Distribuzione di Gestione risorse](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 #### [Distribuzione classica](storage-cannot-delete-storage-account-container-vhd.md)
 ### [Risolvere i problemi relativi all'archiviazione di file](storage-troubleshoot-file-connection-problems.md)
-### [Informazioni aggiuntive sul ripristino di emergenza](storage-disaster-recovery-guidance.md)
 ## Trasferire i dati
 ### [Spostare dati da e verso Archiviazione](storage-moving-data.md)
 ### [AzCopy in Windows](storage-use-azcopy.md)

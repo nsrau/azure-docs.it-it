@@ -1,6 +1,6 @@
 ---
 title: Automatizzare il ripristino di emergenza per le condivisioni di file StorSimple con Azure Site Recovery | Microsoft Docs
-description: Descrive i passaggi e le procedure consigliate per la creazione di una soluzione di ripristino di emergenza per le condivisioni file ospitate nell&quot;archiviazione Microsoft Azure StorSimple.
+description: Descrive i passaggi e le procedure consigliate per la creazione di una soluzione di ripristino di emergenza per le condivisioni file ospitate nell'archiviazione Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/09/2017
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 19346f2e4f2860258c421d76729abeb82f0e8987
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b4d575587eec1bcf43c33c7faeb8360ec67b5214
 ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
@@ -124,7 +123,7 @@ Vedere la [documentazione di Azure Site Recovery](../site-recovery/site-recovery
    > In questo modo, le condivisioni file saranno temporaneamente non disponibili.
    >
    >
-2. [Abilitare la protezione delle macchine virtuali](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) della VM del file server dal Portale di Azure Site Recovery.
+2. [Abilitare la protezione delle macchine virtuali](../site-recovery/site-recovery-hyper-v-site-to-azure.md) della VM del file server dal Portale di Azure Site Recovery.
 3. Quando viene avviata la sincronizzazione iniziale, è possibile riconnettere nuovamente la destinazione. Passare all'iniziatore iSCSI, selezionare un dispositivo StorSimple e fare clic su **Connetti**.
 4. Quando la sincronizzazione è completa e lo stato della VM è **Protetta**, selezionare la VM, selezionare la scheda **Configura** e aggiornare di conseguenza la rete della VM (si tratta della rete di cui faranno parte le VM sottoposte a failover). Se la scheda non viene visualizzata, la sincronizzazione è ancora in corso.
 

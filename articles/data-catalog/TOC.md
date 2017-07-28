@@ -20,6 +20,8 @@
 ## [Gestire gli asset di dati](data-catalog-how-to-manage.md)
 ## [Salvare le ricerche e aggiungere asset di dati](data-catalog-how-to-save-pin.md)
 ## [Configurare il glossario aziendale](data-catalog-how-to-business-glossary.md)
+## [Proteggere l'accesso al catalogo dati](data-catalog-how-to-secure-catalog.md)
+## [Visualizzare gli asset di dati correlati](data-catalog-how-to-view-related-data-assets.md) 
 
 # Riferimento
 ## [REST](/rest/api/datacatalog/)

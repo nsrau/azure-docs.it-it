@@ -3,8 +3,8 @@ title: Introduzione alle app per dispositivi mobili di Azure per Xamarin.Android
 description: Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Xamarin Android.
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
+ms.author: glenga
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.contentlocale: it-it
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Creare un'app per Xamarin.Android
@@ -41,8 +41,8 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di creare un account di Azure, passare alla pagina in cui è possibile [provare il servizio app](https://azure.microsoft.com/try/app-service/mobile/).  È possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Creare un back-end dell'app per dispositivi mobili di Azure
 Seguire questa procedura per creare un back-end dell'app per dispositivi mobili.
@@ -56,19 +56,19 @@ Seguire questa procedura per creare un back-end dell'app per dispositivi mobili.
 
 ## <a name="download-and-run-the-xamarinandroid-app"></a>Scaricare ed eseguire l'app per Xamarin.Android
 1. In **Download and run your Xamarin.Android project** (Scarica ed esegui il progetto Xamarin.Android) scegliere il pulsante **Download** (Scarica).
-   
+
       Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 2. Premere **F5** per compilare il progetto e avviare l'app.
 3. Nell'app digitare un testo significativo, ad esempio *Complete the tutorial* quindi fare clic sul pulsante **Add**.
-   
+
     ![][10]
-   
+
     I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app per dispositivi mobili e i dati vengono visualizzati nell'elenco.
-   
+
    > [!NOTE]
    > È possibile esaminare il codice che accede al back-end per app mobili per eseguire una query e inserire i dati trovati nel file C# ToDoActivity.cs.
-   > 
-   > 
+   >
+   >
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere la sincronizzazione offline all'app](app-service-mobile-xamarin-android-get-started-offline-data.md)

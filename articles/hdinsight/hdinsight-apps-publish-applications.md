@@ -1,5 +1,5 @@
 ---
-title: Pubblicare applicazioni HDInsight | Documentazione Microsoft
+title: Pubblicare applicazioni HDInsight in Azure | Microsoft Docs
 description: Informazioni su come creare e pubblicare applicazioni HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 1a7dabcbfdc1977e747fd30cfc0383d6c5f7f5a0
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 6aa66cac35bc317fc87003e6c3d824544c53de88
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -41,7 +42,7 @@ Prima di inviare l'applicazione personalizzata al marketplace, è necessario cre
 È anche necessario registrare l'account per sviluppatore. Vedere [Pubblicare un'offerta in Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) e [Creare un account di Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
 ## <a name="define-application"></a>Definire l'applicazione
-La pubblicazione di applicazioni in Azure Marketplace richiede due passaggi.  Prima si definisce un file **createUiDef.json** per indicare i cluster con cui è compatibile l'applicazione e quindi si pubblica il modello dal portale di Azure. Il seguente è un file createUiDef.json di esempio.
+La pubblicazione di applicazioni in Azure Marketplace richiede due passaggi.  Prima si definisce un file **createUiDef.json** per indicare i cluster con cui è compatibile l'applicazione e quindi si pubblica il modello dal portale di Azure. La sezione seguente rappresenta un file createUiDef.json di esempio.
 
     {
         "handler": "Microsoft.HDInsight",
@@ -77,7 +78,7 @@ Ogni volta che un'applicazione viene installata in un cluster, esistente o nuovo
   > 
 Lo script di installazione deve avere le caratteristiche seguenti:
 1. Assicurarsi che lo script sia idempotente. Le chiamate multiple alo script devono produrre lo stesso risultato.
-2. Lo script deve disporre di versioni correttamente. Usare un percorso diverso per lo script quando si aggiorna o si testano le modifiche in modo che i clienti che tentando di installare l'applicazione non saranno interessati. 
+2. Lo script deve disporre di versioni correttamente. Usare un percorso diverso per lo script quando si aggiorna o si testano le modifiche in modo che i clienti che tentano di installare l'applicazione non siano interessati. 
 3. Aggiungere registrazioni adeguate agli script in ogni punto. In genere i log degli script sono l'unico modo per eseguire il debug di problemi di installazione dell'applicazione.
 4. Assicurarsi che le chiamate ai servizi esterni o le risorse dispongano di tentativi adeguati in modo che l'installazione non subisca i problemi di rete temporanei.
 5. Se lo script avvia i servizi sui nodi, verificare che i servizi siano monitorati e configurati per l'avvio automatico in caso di riavvio del nodo.

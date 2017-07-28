@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 06/01/2017
 ms.author: eugenesh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 54b8e16504e1170058dd021f7f7e2fba7b99bba7
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 80ede2ffc7380145e3bfca48abf0d05f0a79585a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -182,9 +182,10 @@ Il rilevamento delle modifiche integrato è supportata a partire dalle seguenti 
 * SQL Server 2008 R2 e versioni successive, se si utilizza SQL Server nelle macchine virtuali di Azure.
 * Database SQL di Azure V12, se si utilizza il database SQL di Azure SQL.
 
-Quando si usano i criteri di rilevamento delle modifiche integrati di SQL, non specificare criteri di rilevamento dell'eliminazione dei dati separati, perché questi ultimi includono il supporto predefinito per l'identificazione delle righe eliminate.
-
-Questi criteri possono essere usati solo con le tabelle, non con le viste. Prima di poter usare questi criteri, è necessario abilitare il rilevamento delle modifiche per la tabella in uso. Per le istruzioni, vedere [Abilitare e disabilitare il rilevamento delle modifiche](https://msdn.microsoft.com/library/bb964713.aspx) .
+> [!IMPORTANT] 
+> Questi criteri possono essere usati solo con le tabelle, ma non con le visualizzazioni. Prima di poter usare questi criteri, è necessario abilitare il rilevamento delle modifiche per la tabella in uso. Per istruzioni, vedere [Abilitare e disabilitare il rilevamento delle modifiche](https://msdn.microsoft.com/library/bb964713.aspx) .
+> 
+> Inoltre, è possibile usare questo criterio se la tabella usa una chiave primaria, ovvero una chiave primaria contenente più di una colonna.  
 
 Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indicato di seguito:
 
@@ -197,6 +198,8 @@ Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indi
            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
       }
     }
+
+Quando si usano i criteri di rilevamento delle modifiche integrati di SQL, non specificare criteri di rilevamento dell'eliminazione dei dati separati, perché questi ultimi includono il supporto predefinito per l'identificazione delle righe eliminate. Tuttavia, affinché le operazioni di eliminazione vengano rilevate "auto-magicamente", la chiave del documento nell'indice di ricerca deve essere la stessa della chiave primaria nella tabella SQL. 
 
 <a name="HighWaterMarkPolicy"></a>
 

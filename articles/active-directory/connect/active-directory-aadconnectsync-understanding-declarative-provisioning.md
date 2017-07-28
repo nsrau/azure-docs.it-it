@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
 ms.openlocfilehash: 5b715ec247183fc1b8cb3fa485612bb0f992b5cf
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/27/2017
 
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
@@ -162,10 +163,4 @@ Per questo scenario è necessario modificare l'ambito delle regole di sincronizz
 **Argomenti di riferimento**
 
 * [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

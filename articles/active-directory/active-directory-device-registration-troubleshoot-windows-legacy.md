@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 49af838d750ba61694bdb28a83ee6e531627527d
 ms.contentlocale: it-it
 ms.lasthandoff: 03/10/2017
-
 
 ---
 # <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad-for-windows-down-level-clients"></a>Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio in Azure AD per client di livello inferiore di Windows 

@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con GitHub | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e GitHub.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e GitHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.reviewer: jeedes
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
+ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Esercitazione: Integrazione di Azure Active Directory con GitHub
@@ -126,10 +127,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 4. Nella sezione **User Attributes** (Attributi utente) selezionare **User Identifier** (Identificatore utente) come user.mail.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
-     
+    
 5. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
-     ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
 6. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
 
@@ -167,9 +168,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. **URL di accesso**: immettere il **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) nella sezione **Configura GitHub** in Azure AD
 
-      b. **Autorità di certificazione**: immettere l'**ID entità SAML** dalla sezione **Configura GitHub** in Azure AD
+    b. **Autorità di certificazione**: immettere l'**ID entità SAML** dalla sezione **Configura GitHub** in Azure AD
 
-       c. **Public Certificate** (Certificato pubblico): aprire il certificato scaricato da Azure AD in blocco note e copiare il contenuto incluso tra "BEGIN CERTIFICATE" ed "END CERTIFICATE".
+    c. **Public Certificate** (Certificato pubblico): aprire il certificato scaricato da Azure AD in blocco note e copiare il contenuto incluso tra "BEGIN CERTIFICATE" ed "END CERTIFICATE".
 
     ![Impostazioni](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 

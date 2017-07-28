@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/25/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4ae08f16db8c0b8cd2e918d25aa546f1da615af1
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 42229b338063634480551f26896963d8add5e071
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -35,11 +36,12 @@ Nei casi in cui gli utenti esterni non vengono inseriti nell'elenco, potrebbero 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un utente guest B2B non compare nella selezione utenti di SharePoint Online/OneDrive 
  
 La possibilità di cercare gli utenti guest esistenti nella selezione utenti di SharePoint Online è disattivata per impostazione predefinita per corrispondenza con il comportamento legacy.
-È possibile abilitarla usando l'impostazione "ShowPeoplePickerSuggestionsForGuestUsers" a livello di tenant e raccolta di siti. Può essere impostata tramite i cmdlet Set-SPOTenant e Set-SPOSite, che consentono ai membri di cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SPO di cui si è già stato eseguito il provisioning.
+
+È possibile abilitare questa funzionalità usando l'impostazione "ShowPeoplePickerSuggestionsForGuestUsers" a livello di tenant e di raccolta siti. Può essere impostata con i cmdlet Set-SPOTenant e Set-SPOSite, che consentono ai membri di cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SPO di cui si è già stato eseguito il provisioning.
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Gli inviti sono stati disabilitati per la directory
 
-Se si riceve un messaggio di errore che indica che non si è autorizzati a invitare utenti, verificare che l'account utente abbia le autorizzazioni necessarie per invitare utenti esterni. A tale scopo è possibile usare le impostazioni utente:
+Se si riceve una notifica che indica che non si è autorizzati a invitare utenti, verificare che l'account utente abbia le autorizzazioni necessarie per invitare utenti esterni in Impostazioni utente:
 
 ![](media/active-directory-b2b-troubleshooting/external-user-settings.png)
 
@@ -57,13 +59,13 @@ Questo si verifica quando si invitano utenti la cui organizzazione usa Azure Act
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>L'utente esterno non esiste già in un dominio federato
 
-Nei casi in cui l'utente esterno usa una soluzione di federazione in cui l'autenticazione viene eseguita in locale e l'utente non esiste già in Azure Active Directory, non è possibile invitare l'utente.
+Se si usa l'autenticazione con federazione e l'utente non esiste già in Azure Active Directory, non è possibile invitare l'utente.
 
 Per risolvere questo problema, l'amministratore dell'utente esterno deve sincronizzare l'account dell'utente con Azure Active Directory.
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>In che modo "\#", che in genere è un carattere non valido, viene sincronizzato con Azure AD?
 
-"\#" è un carattere riservato negli UPN per Collaborazione B2B di Azure AD o per gli utenti esterni (vale a dire che user@contoso.com invitato diventa user_contoso.com#EXT@fabrikam.onmicrosoft.com). Non è quindi consentito l'accesso al portale di Azure a "\#" negli UPN locali.
+Negli UPN, "\#" è un carattere riservato per Collaborazione B2B di Azure AD o per gli utenti esterni, perché l'account invitato user@contoso.com diventa user_contoso.com#EXT@fabrikam.onmicrosoft.com. Non è quindi consentito l'accesso al portale di Azure a \# negli UPN locali. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Viene visualizzato un errore durante l'aggiunta di utenti esterni a un gruppo sincronizzato
 
@@ -75,7 +77,12 @@ L'invitato deve rivolgersi al provider di servizi Internet o controllare il filt
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Il messaggio personalizzato a volte non viene incluso con i messaggi di invito
 
-Per garantire la conformità con le leggi sulla privacy, le API non includono messaggi personalizzati nell'invito tramite posta elettronica quando il mittente dell'invito non dispone di un indirizzo di posta elettronica nell'organizzazione risorse (noto anche come tenancy che emette l’invito) o quando un'entità servizio app invia l'invito. Se si tratta di uno scenario importante per l'utente, è possibile impedire all'API di inviare l'invito tramite posta elettronica e inviarlo tramite un meccanismo di posta elettronica di propria scelta. È necessario richiedere consulenza legale alla propria organizzazione per assicurarsi che qualsiasi messaggio di posta elettronica inviato in questo modo sia conforme alle leggi sulla privacy.
+Per garantire la conformità alle leggi sulla privacy, le API non includono messaggi personalizzati nell'invito tramite posta elettronica nei casi seguenti:
+
+- Il mittente dell'invito non ha un indirizzo di posta elettronica nel tenant che emette l'invito
+- Un'entità servizio app invia l'invito
+
+Se questo scenario è importante per l'utente, è possibile eliminare il messaggio di posta elettronica di invito dell'API e inviarlo tramite il meccanismo di posta elettronica preferito. Richiedere al consulente legale della propria organizzazione di verificare che qualsiasi messaggio di posta elettronica inviato in questo modo sia conforme alle leggi sulla privacy.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

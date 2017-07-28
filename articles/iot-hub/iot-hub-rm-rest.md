@@ -1,6 +1,6 @@
 ---
-title: Creare un hub IoT di Azure con l&quot;API REST del provider di risorse | Documentazione Microsoft
-description: Come usare l&quot;API REST del provider di risorse per creare un hub IoT.
+title: Creare un hub IoT di Azure con l'API REST del provider di risorse | Documentazione Microsoft
+description: Come usare l'API REST del provider di risorse per creare un hub IoT.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -19,7 +19,6 @@ ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
 ms.openlocfilehash: 61ff425266ddd6fe6f9dbe03890257bcb9c84376
 ms.contentlocale: it-it
 ms.lasthandoff: 05/16/2017
-
 
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Creare un hub IoT con l'API REST del provider di risorse (.NET)
@@ -72,6 +71,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 

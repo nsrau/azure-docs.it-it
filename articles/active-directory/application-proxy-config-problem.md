@@ -1,5 +1,5 @@
 ---
-title: Problema durante la creazione di un&quot;applicazione Proxy di applicazione | Microsoft Docs
+title: Problema durante la creazione di un'applicazione Proxy di applicazione | Microsoft Docs
 description: Come risolvere i problemi di creazione di applicazioni Proxy di applicazione nel portale di amministrazione di Azure AD
 services: active-directory
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 7551c290858251b6dbbd131049dbee14e5353785
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

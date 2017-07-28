@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.reviewer: jairoc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 16543c7bb7b6b236dcc24093c9963bc218ca1fa6
 ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Messaggio "Non è possibile accedervi da qui" in un dispositivo Windows
@@ -47,7 +47,7 @@ Se l'amministratore ha configurato un criterio di accesso condizionale, è possi
 
 ![Messaggi "Non è possibile accedervi da qui" per browser non supportati](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
 
-L'unica correzione consiste nell'usare un browser supportato dall'applicazione per la piattaforma del dispositivo in uso. Per un elenco completo dei browser supportati, vedere [Browser supportati](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+L'unica correzione consiste nell'usare un browser supportato dall'applicazione per la piattaforma del dispositivo in uso. Per un elenco completo dei browser supportati, vedere [Browser supportati](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
 
 
 ## <a name="supported-versions-of-windows"></a>Versioni di Windows supportate

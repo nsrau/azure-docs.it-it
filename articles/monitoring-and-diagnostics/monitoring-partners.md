@@ -2,7 +2,7 @@
 title: Integrazioni partner in Monitoraggio di Azure | Microsoft Docs
 description: "Informazioni sui partner del monitoraggio di Azure e sulle modalità di accesso alla documentazione per l'integrazione."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 5914e8be1cf2671da7af1d190811e0e809039135
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure

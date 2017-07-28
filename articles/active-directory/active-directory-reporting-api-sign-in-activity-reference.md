@@ -1,9 +1,9 @@
 ---
-title: "Riferimento API del report sull&quot;attività di accesso di Azure Active Directory | Microsoft Docs"
-description: "Riferimento API del report sull&quot;attività di accesso di Azure Active Directory"
+title: "Riferimento API del report sull'attività di accesso di Azure Active Directory | Microsoft Docs"
+description: "Riferimento API del report sull'attività di accesso di Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 077c39d1a6f61aba7b184ee616a93f30cdb7d12c
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Riferimento API del report sull'attività di accesso di Azure Active Directory
@@ -29,10 +29,9 @@ L'obiettivo di questo argomento è fornire informazioni di riferimento sull' **A
 
 Vedere:
 
-* [Attività di accesso](active-directory-reporting-azure-portal.md#sign-in-activities) .
+* [Attività di accesso](active-directory-reporting-azure-portal.md#activity-reports) .
 * [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md) .
 
-Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="who-can-access-the-api-data"></a>Chi può accedere ai dati dell'API?
 * Utenti ed entità servizio nel ruolo di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza

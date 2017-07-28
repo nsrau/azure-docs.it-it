@@ -12,10 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-translationtype: Human Translation
-ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
-ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
+ms.contentlocale: it-it
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -29,16 +30,16 @@ I costi per l'utilizzo in corso di Azure Active Directory B2C (o Azure AD B2C) v
 https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Passaggio 1: Creare un tenant Azure AD B2C
-
-La prima operazione da eseguire è la creazione del tenant B2C. Se il tenant B2C di destinazione è già stato creato, è possibile ignorare questo passaggio. [Introduzione ad Azure AD B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
+La prima operazione da eseguire è la creazione del tenant B2C. Se il tenant B2C di destinazione è già stato creato, è possibile ignorare questo passaggio. [Introduzione ad Azure AD B2C](active-directory-b2c-get-started.md)
 
 ## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Passaggio 2: Aprire il portale di Azure nel tenant di Azure AD che mostra la sottoscrizione di Azure
-Passare all'indirizzo portal.azure.com. Passare al tenant di Azure AD che mostra la sottoscrizione di Azure che si vuole usare. Questo tenant di Azure AD è diverso dal tenant B2C. Nel portale di Azure fare clic sul nome dell'account nell'angolo superiore destro del dashboard e selezionare il tenant di Azure AD. Per continuare è necessaria una sottoscrizione di Azure. [Ottenere una sottoscrizione di Azure](https://account.windowsazure.com/signup?showCatalog=True)
+Passare al [portale di Azure](https://portal.azure.com). Passare al tenant di Azure AD che mostra la sottoscrizione di Azure che si vuole usare. Questo tenant di Azure AD è diverso dal tenant B2C. Nel portale di Azure fare clic sul nome dell'account nell'angolo superiore destro del dashboard e selezionare il tenant di Azure AD. Per continuare è necessaria una sottoscrizione di Azure. [Ottenere una sottoscrizione di Azure](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Passaggio al tenant di Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Passaggio 3: Creare una risorsa Tenant B2C in Azure Marketplace
 Per aprire Marketplace, fare clic sulla relativa icona o sul segno "+" verde nell'angolo superiore sinistro del dashboard.  Cercare e selezionare Azure Active Directory B2C. Selezionare Crea.
+
 ![Selezionare Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
 ![Cercare AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
@@ -75,12 +76,5 @@ Facendo clic sulla risorsa Tenant B2C è possibile:
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato questa procedura per ogni tenant B2C, i costi vengono addebitati alla sottoscrizione di Azure in base al Contratto Enterprise o Azure Direct.
 - Esaminare l'utilizzo e la fatturazione all'interno della sottoscrizione di Azure selezionata
-- Esaminare i report dettagliati sull'utilizzo giornaliero con l'[API di segnalazione dell'utilizzo](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
-
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
+- Esaminare i report dettagliati sull'utilizzo giornaliero con l'[API di segnalazione dell'utilizzo](active-directory-b2c-reference-usage-reporting-api.md)
 

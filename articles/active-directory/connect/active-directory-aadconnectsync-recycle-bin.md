@@ -1,6 +1,6 @@
 ---
 title: 'Servizio di sincronizzazione Azure AD Connect: abilitare il Cestino di Active Directory | Microsoft Docs'
-description: "Questo argomento consiglia l&quot;utilizzo della funzionalità Cestino di Active Directory con Azure AD Connect."
+description: "Questo argomento consiglia l'utilizzo della funzionalità Cestino di Active Directory con Azure AD Connect."
 services: active-directory
 keywords: Cestino di Active Directory, eliminazione accidentale, ancoraggio di origine
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9778db69e94e9f1d033cc8c16fdb9554df3eddcc
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Servizio di sincronizzazione Azure AD Connect: abilitare il Cestino di Active Directory
@@ -47,3 +47,4 @@ Questa funzionalità consente di ripristinare gli oggetti utente di Azure AD eff
 * [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+

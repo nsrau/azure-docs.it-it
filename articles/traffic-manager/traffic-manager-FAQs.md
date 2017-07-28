@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2017
+ms.date: 06/15/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8c4c8db3cf57537dd77d33b3ded2dc24167f511f
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 44762864e0a5adf568fcd4928b48661196f05b9e
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -55,7 +56,7 @@ Il metodo Prestazioni instrada il traffico all'endpoint disponibile più vicino.
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Quali protocolli di applicazione possono essere usati con Gestione traffico?
 
-Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestione traffico funziona a livello di DNS. Dopo il completamento della ricerca DNS, i client si connettono all'endpoint dell'applicazione direttamente, non tramite Gestione traffico. La connessione può pertanto usare un protocollo dell'applicazione. Tuttavia, i controlli dell'integrità degli endpoint di Gestione traffico richiedono un endpoint HTTP o HTTPS. L'endpoint per un controllo di integrità può essere diverso da quello dell'endpoint dell'applicazione a cui si connettono i client.
+Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestione traffico funziona a livello di DNS. Dopo il completamento della ricerca DNS, i client si connettono all'endpoint dell'applicazione direttamente, non tramite Gestione traffico. La connessione può pertanto usare qualsiasi protocollo dell'applicazione. Se come protocollo di monitoraggio si seleziona TCP, i controlli dell'integrità dell'endpoint eseguiti da Gestione traffico non richiedono l'uso dei protocolli dell'applicazione. Se si sceglie di verificare l'integrità usando un protocollo dell'applicazione, l'endpoint deve poter rispondere alle richieste HTTP o HTTPS GET.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>È possibile usare Gestione traffico con un nome di dominio di tipo "naked" (senza www)?
 
@@ -68,9 +69,20 @@ Per risolvere questo problema, è consigliabile usare un reindirizzamento HTTP p
 Il supporto completo per i domini naked in Gestione traffico è riportato nel backlog delle funzionalità. È possibile registrare il supporto per questa funzionalità [votandolo sul sito dei commenti della community](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Gestione traffico tiene conto dell'indirizzo della subnet client quando si gestiscono query DNS? 
-No, in questa fase Gestione traffico tiene conto dell'indirizzo IP di origine della query DNS che riceve, che nella maggior parte dei casi è l'indirizzo IP del resolver DNS, solo durante l'esecuzione di ricerche dei metodi di routing Geografico e Prestazioni.  
+No, attualmente Gestione traffico tiene conto solo dell'indirizzo IP di origine della query DNS che riceve, che in genere è l'indirizzo IP del resolver DNS, durante l'esecuzione di ricerche dei metodi di routing Geografico e Prestazioni.  
 In particolare, in [RFC7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) (RFC7871 – Subnet client nelle query DNS), che indica un [meccanismo di estensione per DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) che può trasferire l'indirizzo della subnet client dai resolver che lo supportano ai server DNS, non è attualmente supportata in Gestione traffico. È possibile registrare il supporto per la richiesta di questa funzionalità sul [sito di commenti e suggerimenti della community](https://feedback.azure.com/forums/217313-networking).
 
+
+### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Cos'è la durata TTL del DNS e che impatto ha sugli utenti?
+
+Quando una query DNS viene ricevuta da Gestione traffico, nella risposta viene impostato un valore chiamato Durata (TTL). Questo valore, espresso in secondi, indica ai resolver DNS a valle il tempo di memorizzazione della risposta nella cache. Sebbene ciò non garantisca che i resolver memorizzino il risultato nella cache, la memorizzazione consente loro di rispondere a ogni successiva query usando la cache, invece di inoltrare la query ai server DNS di Gestione traffico. Di seguito è illustrato l'impatto sulle risposte:
+- Una durata TTL maggiore riduce il numero di query che raggiunge i server DNS di Gestione traffico; ciò contribuisce a ridurre i costi per il cliente, poiché il numero di query gestite incide sulla fatturazione.
+- Una durata TTL maggiore può potenzialmente ridurre il tempo necessario per eseguire una ricerca DNS.
+- Una durata TTL maggiore implica anche che i dati possono non riflettere le informazioni di integrità più recenti ottenute da Gestione traffico tramite gli agenti che eseguono il sondaggio.
+
+### <a name="how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses"></a>Come impostare una durata TTL maggiore o minore per le risposte di Gestione traffico?
+
+A livello di singolo profilo, è possibile impostare una durata TTL del DNS minima di 0 secondi e massima di 2.147.483.647 secondi, ovvero l'intervallo massimo conforme a [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt ). Una durata TTL pari a 0 indica che i resolver DNS a valle non memorizzano nella cache le risposte alle query; tutte le query vengono ricevute dai server DNS di Gestione traffico per essere risolte.
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Metodi geografico di routing del traffico di Gestione traffico
 
@@ -78,15 +90,15 @@ In particolare, in [RFC7871 – Client Subnet in DNS Queries](https://tools.ietf
 Il tipo di routing Geografico può essere usato in qualsiasi scenario in cui un cliente di Azure abbia bisogno di distinguere gli utenti in base alle aree geografiche. Ad esempio, tramite il metodo di routing del traffico Geografico è possibile offrire agli utenti di una determinata area un'esperienza utente diversa rispetto a quelli di altre aree. Un altro esempio è la necessità di garantire la conformità con requisiti dei dati locali che richiedono di servire gli utenti di una determinata area solo con gli endpoint di tale area.
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quali sono le aree supportate da Gestione traffico per il routing geografico? 
-La gerarchia di paese/area geografica utilizzata da Gestione traffico è reperibile [qui](traffic-manager-geographic-regions.md). La pagina verrà aggiornata con ogni modifica, ma è possibile recuperare le stesse informazioni anche a livello programmatico usando l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+La gerarchia di paese/area geografica utilizzata da Gestione traffico è reperibile [qui](traffic-manager-geographic-regions.md). La pagina viene aggiornata con ogni modifica apportata, ma è possibile recuperare le stesse informazioni anche a livello programmatico usando l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>In che modo Gestione traffico determina da dove un utente sta eseguendo una query? 
-Gestione traffico esamina l'indirizzo IP di origine della query (probabilmente un sistema di risoluzione DNS locale starà eseguendo la query per conto dell'utente) e usa un indirizzo IP interno per eseguire il mapping delle aree al fine di determinare la posizione. Questa mappa viene aggiornata regolarmente per tenere conto delle modifiche di Internet. 
+Gestione traffico esamina l'indirizzo IP di origine della query (probabilmente un sistema di risoluzione DNS locale che esegue la query per conto dell'utente) e usa un indirizzo IP interno per eseguire il mapping delle aree al fine di determinare la posizione. Questa mappa viene aggiornata regolarmente per tenere conto delle modifiche di Internet. 
 
-### <a name="is-it-guaranteed-that-traffic-manager-will-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>È garantito che Gestione traffico determini correttamente l'esatta posizione geografica dell'utente in ogni caso?
+### <a name="is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>È garantito che in ogni caso Gestione traffico determini correttamente l'esatta posizione geografica dell'utente?
 No, Gestione traffico non può garantire che l'area geografica che si deduce dall'indirizzo IP di origine di una query DNS corrisponda sempre alla posizione dell'utente, per i motivi seguenti: 
 
-- In primo luogo, come indicato nella domanda precedente, l'indirizzo IP di origine visualizzato è quello di un resolver DNS che esegue la ricerca per conto dell'utente. La posizione geografica del resolver DNS è un proxy valido per la posizione geografica dell'utente ma può anche essere diversa, a seconda della superficie del servizio resolver DNS e dello specifico servizio resolver DNS che un cliente sceglie di usare. Ad esempio, un cliente che si trova in Malaysia può specificare nelle impostazioni del dispositivo l'uso di un servizio resolver DNS il cui server DNS a Singapore potrebbe essere scelto per gestire le risoluzioni di query per l'utente o il dispositivo specifico. In questo caso, Gestione traffico visualizzerà solo l'indirizzo IP del resolver corrispondente alla località Singapore. Vedere anche le domande frequenti precedenti, disponibili in questa pagina, relative al supporto dell'indirizzo della subnet client.
+- In primo luogo, come indicato nella domanda precedente, l'indirizzo IP di origine visualizzato è quello di un resolver DNS che esegue la ricerca per conto dell'utente. La posizione geografica del resolver DNS è un proxy valido per la posizione geografica dell'utente ma può anche essere diversa, a seconda della superficie del servizio resolver DNS e dello specifico servizio resolver DNS che un cliente sceglie di usare. Ad esempio, un cliente che si trova in Malaysia può specificare nelle impostazioni del dispositivo l'uso di un servizio resolver DNS il cui server DNS a Singapore potrebbe essere scelto per gestire le risoluzioni di query per l'utente o il dispositivo specifico. In questo caso, Gestione traffico può visualizzare solo l'indirizzo IP del resolver corrispondente alla località Singapore. Vedere anche le domande frequenti precedenti, disponibili in questa pagina, relative al supporto dell'indirizzo della subnet client.
 
 - In secondo luogo, Gestione traffico usa una mappa interna per tradurre l'indirizzo IP nell'area geografica. Anche se questa mappa viene convalidata e aggiornata in modo continuativo per aumentarne la precisione e tenere conto della natura in costante evoluzione di Internet, è comunque possibile che le informazioni contenute non rappresentino esattamente la posizione geografica di tutti gli indirizzi IP.
 
@@ -95,19 +107,22 @@ No, Gestione traffico non può garantire che l'area geografica che si deduce dal
 No, il percorso dell'endpoint non impone alcuna restrizione in merito alle aree a cui può essere mappato. Ad esempio è possibile che tutti gli utenti dell'India siano indirizzati a un endpoint dell'area Stati Uniti centrali di Azure.
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>È possibile assegnare aree geografiche agli endpoint in un profilo che non è configurato per eseguire il routing geografico? 
-Sì, se il metodo di routing di un profilo non è Geografico è possibile usare l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/) per assegnare aree geografiche agli endpoint del profilo. Nel caso di profili con un tipo di routing non geografico, questa configurazione verrà ignorata. Se si cambia un profilo di questo tipo nel tipo a routing geografico in un secondo momento, Gestione traffico userà quei mapping.
+
+Sì, se il metodo di routing di un profilo non è Geografico è possibile usare l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/) per assegnare aree geografiche agli endpoint del profilo. Nel caso di profili con un tipo di routing non geografico, questa configurazione viene ignorata. Se si cambia un profilo di questo tipo nel tipo a routing geografico in un secondo momento, Gestione traffico userà quei mapping.
 
 
-### <a name="when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic-i-am-getting-an-error"></a>Quando si tenta di cambiare il metodo di routing di un profilo esistente in geografico, si riceve un errore?
-Deve esserci almeno un'area mappata per tutti gli endpoint in un profilo con routing geografico. Per convertire un profilo esistente al tipo di routing geografico è innanzitutto necessario associare aree geografiche a tutti gli endpoint tramite l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/) prima di cambiare il tipo di routing in geografico. Se si usa il portale, è necessario innanzitutto eliminare gli endpoint, cambiare il metodo di routing del profilo in geografico e quindi aggiungere gli endpoint con i relativi mapping di area geografica. 
+### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Perché si riceve un errore quando si tenta di cambiare il metodo di routing di un profilo esistente in geografico?
+
+Deve esserci almeno un'area mappata per tutti gli endpoint in un profilo con routing geografico. Per convertire un profilo esistente al tipo di routing geografico è innanzitutto necessario associare aree geografiche a tutti gli endpoint tramite l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/) prima di cambiare il tipo di routing in geografico. Se si usa il portale, eliminare innanzitutto gli endpoint, cambiare il metodo di routing del profilo in geografico e quindi aggiungere gli endpoint con i relativi mapping di area geografica. 
 
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Perché è decisamente consigliato che i clienti creino profili nidificati anziché endpoint in un profilo con il routing geografico abilitato? 
-Un'area può essere assegnata a un solo endpoint all'interno di un profilo se usa il tipo di routing geografico. Se tale endpoint non è un tipo annidato con un profilo figlio collegato, nel caso l'endpoint perdesse l'integrità, Gestione traffico continuerà a inviare traffico a esso in quanto l'alternativa di non inviare alcun traffico non è migliore. Gestione traffico non esegue il failover su un altro endpoint, anche quando l'area assegnata è "padre" dell'area assegnata all'endpoint danneggiato (ad esempio, se un endpoint che include l'area Spagna perde la sua integrità, non si eseguirà il failover su un altro endpoint con assegnata l'area Europa). Lo scopo di tutto questo è garantire che Gestione traffico rispetti i confini geografici che un cliente ha stabilito nel proprio profilo. Per ottenere il vantaggio del failover su un altro endpoint quando un endpoint perde la sua integrità, è consigliabile assegnare le aree geografiche a profili annidati con più endpoint all'interno singoli endpoint. In questo modo se un endpoint nel profilo figlio annidato non funziona, il traffico può eseguire il failover su un altro endpoint all'interno dello stesso profilo figlio annidato.
+
+Un'area può essere assegnata a un solo endpoint all'interno di un profilo se usa il tipo di routing geografico. Se tale endpoint non è un tipo annidato con un profilo figlio collegato, nel caso l'endpoint perdesse l'integrità, Gestione traffico continuerà a inviare traffico a esso in quanto l'alternativa di non inviare alcun traffico non è migliore. Gestione traffico non esegue il failover su un altro endpoint, anche quando l'area assegnata è "padre" dell'area assegnata all'endpoint danneggiato. Ad esempio, se un endpoint che include l'area Spagna perde la sua integrità, non si eseguirà il failover su un altro endpoint con assegnata l'area Europa. Lo scopo di tutto questo è garantire che Gestione traffico rispetti i confini geografici che un cliente ha stabilito nel proprio profilo. Per ottenere il vantaggio del failover su un altro endpoint quando un endpoint perde la sua integrità, è consigliabile assegnare le aree geografiche a profili annidati con più endpoint all'interno invece di singoli endpoint. In questo modo se un endpoint nel profilo figlio annidato non funziona, il traffico può eseguire il failover su un altro endpoint all'interno dello stesso profilo figlio annidato.
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Ci sono restrizioni sulla versione API che supporta questo tipo di routing?
 
-Sì, solo l'API versione 2017-03-01 e versioni successive supportano il routing di tipo geografico. Le versioni precedenti dell'API non possono essere usate per creare profili con routing di tipo Geografico o assegnare aree geografiche agli endpoint. Se viene usata una versione precedente dell'API per recuperare i profili da una sottoscrizione di Azure, non verranno restituiti profili con routing di tipo Geografico. Inoltre, quando si usano versioni precedenti dell'API, tutti i profili restituiti che hanno endpoint con un'area geografica assegnata non mostreranno l'area geografica assegnata.
+Sì, solo l'API versione 2017-03-01 e versioni successive supportano il routing di tipo geografico. Le versioni precedenti dell'API non possono essere usate per creare profili con routing di tipo Geografico o assegnare aree geografiche agli endpoint. Se viene usata una versione precedente dell'API per recuperare i profili da una sottoscrizione di Azure, non vengono restituiti profili con routing di tipo Geografico. Inoltre, quando si usano versioni precedenti dell'API, tutti i profili restituiti che hanno endpoint con un'area geografica assegnata non mostreranno l'area geografica assegnata.
 
 
 
@@ -117,10 +132,8 @@ Sì, solo l'API versione 2017-03-01 e versioni successive supportano il routing 
 
 L'uso di endpoint di più sottoscrizioni non è possibile con app Web di Azure. Per le app Web di Azure è necessario che ogni nome di dominio personalizzato usato con app Web venga usato solo all'interno di una singola sottoscrizione. Non è possibile usare app Web da più sottoscrizioni con lo stesso nome di dominio.
 
-Per altri tipi di endpoint, è possibile utilizzare Gestione traffico con gli endpoint da più di una sottoscrizione. La configurazione di Gestione traffico varia a seconda che si usi il modello di distribuzione classica o l'esperienza Resource Manager.
+Per altri tipi di endpoint, è possibile utilizzare Gestione traffico con gli endpoint da più di una sottoscrizione. In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse tramite il [controllo di accesso in base al ruolo di Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
 
-* In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse tramite il [controllo di accesso in base al ruolo di Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
-* Nell'interfaccia del modello di distribuzione classica Gestione traffico richiede che tutti i servizi cloud e le app Web configurati come endpoint di Azure si trovino nella stessa sottoscrizione del profilo di Gestione traffico. È possibile aggiungere endpoint del servizio cloud di altre sottoscrizioni a Gestione traffico come endpoint esterni. Questi endpoint esterni vengono fatturati come endpoint di Azure e non in base alla tariffa degli endpoint esterni.
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>È possibile usare Gestione traffico con slot di "staging" del servizio cloud?
 
@@ -135,15 +148,6 @@ Gestione traffico risponde con il nome DNS dell'endpoint. Per supportare un endp
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>È possibile usare Gestione traffico con più app Web nella stessa area?
 
 In genere, Gestione traffico viene usato per indirizzare il traffico ad applicazioni distribuite in aree diverse. Tuttavia, può anche essere usato in un'applicazione che abbia più distribuzioni nella stessa area. Gli endpoint di Azure di Gestione traffico non permettono l'aggiunta di più endpoint di app Web della stessa area di Azure allo stesso profilo di Gestione traffico.
-
-I passaggi seguenti offrono una soluzione alternativa a questo vincolo:
-
-1. Verificare che gli endpoint si trovino in unità di scala diverse dell'app Web. Un nome di dominio deve eseguire il mapping a un unico sito in un'unità di scala specificata. Di conseguenza, due app Web nella stessa unità di scala non possono condividere un profilo di Gestione traffico.
-2. Aggiungere il nome di dominio personale come nome host personalizzato a ogni app Web. Ogni App Web deve trovarsi in un'unità di scala diversa. Tutte le app Web devono appartenere alla stessa sottoscrizione.
-3. Aggiungere un unico endpoint di app Web al profilo di Gestione traffico, come endpoint di Azure.
-4. Aggiungere gli altri endpoint di app Web al profilo di Gestione traffico come endpoint esterni. È possibile aggiungere endpoint esterni solo usando il modello di distribuzione di Resource Manager.
-5. Nel proprio dominio personale creare un record CNAME DNS che punti al nome DNS del profilo di Gestione traffico (<...>.trafficmanager.net).
-6. Accedere al sito tramite il nome di dominio personalizzato anziché dal nome DNS del profilo di Gestione traffico.
 
 ##  <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
 
@@ -178,6 +182,28 @@ Gestione traffico non prevede alcuna convalida di certificati, tra cui:
 * I certificati SNI sul lato server non sono supportati
 * I certificati client non sono supportati
 
+### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>È possibile usare Gestione traffico anche se l'applicazione non supporta HTTP o HTTPS?
+
+Sì. Specificando TCP come protocollo di monitoraggio, Gestione traffico può avviare una connessione TCP e attendere una risposta dall'endpoint. Se l'endpoint risponde alla richiesta di connessione chiedendo di stabilire la connessione entro il periodo di timeout, l'endpoint viene contrassegnato come integro.
+
+### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Quali sono le risposte specifiche richieste dall'endpoint quando si usa il monitoraggio TCP?
+
+Se si usa il monitoraggio TCP, Gestione traffico avvia un handshake TCP a tre vie, inviando una richiesta SYN all'endpoint sulla porta specificata. Quindi attende la risposta dall'endpoint per il periodo di tempo specificato nelle impostazioni di timeout. Se l'endpoint risponde alla richiesta SYN con una risposta SYN-ACK entro il periodo di timeout specificato nelle impostazioni di monitoraggio, tale endpoint viene considerato integro. Se viene ricevuta la risposta SYN-ACK, Gestione traffico reimposta la connessione inviando in risposta un RST.
+
+### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>Con quale velocità Gestione traffico sposta gli utenti da un endpoint considerato non integro?
+
+Per controllare il comportamento del profilo di Gestione traffico in caso di failover sono disponibili le impostazioni seguenti:
+- È possibile specificare una maggiore frequenza di sondaggio degli endpoint da parte di Gestione traffico impostando l'intervallo di sondaggio su 10 secondi. Ciò assicura che un eventuale endpoint non integro venga rilevato il prima possibile. 
+- È possibile specificare il tempo di attesa prima della scadenza di una richiesta di controllo di integrità. Il valore di timeout minimo è 5 sec.
+- È possibile specificare il numero di errori che può verificarsi prima che l'endpoint sia contrassegnato come non integro. Se il valore specificato è pari a 0, l'endpoint viene contrassegnato come non integro al primo controllo di integrità non riuscito. Usando questo valore minimo, tuttavia, gli endpoint possono risultare esclusi dalla rotazione in caso di problemi temporanei che si verificano al momento dell'esecuzione del sondaggio.
+- È possibile impostare la durata TTL della risposta DNS su un valore pari a 0. In questo modo i resolver DNS non possono memorizzare la risposta nella cache e ogni nuova query ottiene una risposta che include le informazioni sull'integrità più aggiornate disponibili a Gestione traffico.
+
+Con queste impostazioni Gestione traffico può segnalare i failover entro 10 secondi dal rilevamento della mancata integrità dell'endpoint ed eseguire una query DNS in base al profilo corrispondente.
+
+### <a name="how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile"></a>Come specificare diverse impostazioni di monitoraggio per i diversi endpoint in un profilo?
+
+Le impostazioni di monitoraggio di Gestione traffico sono configurate a livello di profilo. Se è necessario usare un'impostazione di monitoraggio diversa per un unico endpoint, è consigliabile configurare tale endpoint come [profilo annidato](traffic-manager-nested-profiles.md), con impostazioni di monitoraggio diverse da quelle del profilo padre.
+
 ### <a name="what-host-header-do-endpoint-health-checks-use"></a>Quali intestazione host viene usata per i controlli di integrità degli endpoint?
 
 Gestione traffico usa le intestazioni host nei controlli di integrità HTTP e HTTPS. L'intestazione host usata da Gestione traffico è il nome dell'endpoint di destinazione configurato nel profilo. Il valore usato nell'intestazione host non può essere specificato separatamente dalla proprietà target.
@@ -210,6 +236,12 @@ L'elenco seguente contiene gli indirizzi IP da cui possono provenire i controlli
 * 13.75.152.253
 * 104.41.187.209
 * 104.41.190.203
+
+### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Qual è il numero di controlli di integrità previsto per un endpoint da parte di Gestione traffico?
+
+Il numero di controlli di integrità eseguiti da Gestione traffico sull'endpoint dipende dagli elementi seguenti:
+- Il valore impostato per l'intervallo di monitoraggio; un intervallo inferiore indica un maggior numero di richieste che raggiungono l'endpoint in un determinato periodo di tempo.
+- Il numero di posizioni da cui hanno origine i controlli di integrità; gli indirizzi IP da cui possono avere origine tali controlli sono elencati nella domanda precedente.
 
 ## <a name="traffic-manager-nested-profiles"></a>Profili annidati di Gestione traffico
 

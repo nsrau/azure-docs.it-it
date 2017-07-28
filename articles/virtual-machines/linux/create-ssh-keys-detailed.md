@@ -3,7 +3,7 @@ title: Procedura dettagliata per creare una coppia di chiavi SSH per le macchine
 description: Passaggi aggiuntivi per creare una coppia di chiavi SSH pubblica e privata per le VM Linux in Azure, con certificati specifici per i diversi casi d'uso.
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: dlepow
 manager: timlt
 editor: 
 tags: 
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
-ms.author: rasquill
+ms.author: danlep
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 0cb70d36bd6e8d4cf5fcd5ed4a3e85c42f3cf81d
 ms.contentlocale: it-it
 ms.lasthandoff: 06/30/2017
-
 
 ---
 

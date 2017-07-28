@@ -1,6 +1,6 @@
 ---
 title: Dimensioni delle macchine virtuali Linux di Azure - Utilizzo generico | Documentazione Microsoft
-description: Elenca le diverse dimensioni disponibili per l&quot;utilizzo generico per le macchine virtuali Linux in Azure.
+description: Elenca le diverse dimensioni disponibili per l'utilizzo generico per le macchine virtuali Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 07/17/2017
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 409d2df32906ee75eaa85042e8b1278dc31f0638
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -90,7 +90,7 @@ Se si imposta `resourceGroup` sul nome di un gruppo di risorse che non esiste, l
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per distribuire il modello di esempio, è possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure. È necessario usare una versione di Azure PowerShell o dell'interfaccia della riga di comando di Azure a partire da maggio 2017. Gli esempi presuppongono che l'utente abbia salvato il modello in locale come file denominato **crossrgdeployment.json**.
+Per distribuire il modello di esempio, è possibile usare il portale, Azure PowerShell o l'interfaccia della riga di comando di Azure. Per Azure PowerShell o l'interfaccia della riga di comando di Azure è necessario usare una versione di maggio 2017 o successiva. Gli esempi presuppongono che l'utente abbia salvato il modello in locale come file denominato **crossrgdeployment.json**.
 
 Per PowerShell:
 
@@ -117,6 +117,42 @@ az group deployment create \
 ```
 
 Al termine della distribuzione, vengono visualizzati due gruppi di risorse. Ogni gruppo di risorse contiene un account di archiviazione.
+
+## <a name="use-resourcegroup-function"></a>Usare la funzione resourceGroup()
+
+Per le distribuzioni tra gruppi di risorse, la [funzione resouceGroup()](resource-group-template-functions-resource.md#resourcegroup) viene risolta in modo diverso in base al modo in cui si specifica il modello annidato. 
+
+Se si incorpora un modello in un altro modello, la funzione resouceGroup() nel modello annidato si risolve nel gruppo di risorse padre. Un modello incorporato usa il formato seguente:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "embeddedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "template": {
+        ...
+        resourceGroup() refers to parent resource group
+    }
+}
+```
+
+Se si crea un collegamento a un modello separato, la funzione resouceGroup() nel modello collegato si risolve nel gruppo di risorse annidato. Un modello collegato usa il formato seguente:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "linkedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        ...
+        resourceGroup() in linked template refers to linked resource group
+    }
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 40fe0ae04eb94322356ed19773512e3bc383639c
 ms.contentlocale: it-it
 ms.lasthandoff: 05/18/2017
 
@@ -58,7 +58,7 @@ Al termine dell'esecuzione del failover degli endpoint dell'applicazione e del d
 Se si verifica un'interruzione nell'area secondaria, il collegamento di replica tra il database primario e quello secondario è sospeso, ma il failover non viene attivato perché il database primario non è interessato. In questo caso la disponibilità dell'applicazione non viene modificata, ma l'applicazione risulta esposta a un rischio maggiore se entrambe le aree hanno esito negativo una dopo l'altra.
 
 > [!NOTE]
-> Si consigliano solo configurazioni di distribuzione con un'unica area DR. Infatti la maggior parte delle geografie di Azure ha due aree. Queste configurazioni non proteggeranno l'applicazione da un errore irreparabile di entrambe le aree. Nell'improbabile eventualità di un errore di questo genere, è possibile recuperare i database in una terza area con un'[operazione di ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Per il ripristino di emergenza è consigliabile la configurazione con la distribuzione di applicazioni limitata a due aree. Infatti la maggior parte delle geografie di Azure ha solo due aree. Questa configurazione non proteggerà l'applicazione da un errore simultaneo irreparabile di entrambe le aree.  Nell'improbabile eventualità di un errore di questo genere, è possibile recuperare i database in una terza area con un'[operazione di ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
 Dopo che è stata ridotta l'entità dell'interruzione, il database secondario viene automaticamente risincronizzato con quello primario. Durante la sincronizzazione, le prestazioni di quello primario potrebbero essere leggermente rallentate a seconda della quantità di dati da sincronizzare. Il diagramma seguente illustra un'interruzione nell'area secondaria.

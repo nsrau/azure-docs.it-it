@@ -20,7 +20,6 @@ ms.openlocfilehash: 384066affe46bfd2917a3a14e4cfa7d2fc8a25f1
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
 # <a name="service-bus-management-libraries"></a>Librerie di gestione del bus di servizio
@@ -49,9 +48,8 @@ Nel corso di queste esercitazioni vengono forniti un `AppId` (ID client), un `Te
 Il modello di modifica delle risorse del bus di servizio segue un protocollo comune:
 
 1. Ottenere un token da Azure Active Directory usando la libreria **Microsoft.IdentityModel.Clients.ActiveDirectory**.
-
    ```csharp
-   var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+   var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```

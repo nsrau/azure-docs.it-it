@@ -13,6 +13,5 @@
 ### [Introduzione all'app](microsoft-authenticator-app-how-to.md)
 ### [Accedere tramite il telefono](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Domande frequenti](microsoft-authenticator-app-faq.md)
-
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

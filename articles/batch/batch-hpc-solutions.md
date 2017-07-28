@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0bab12648a31b416bd7ceca75f0f83f5da226bad
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Batch e soluzioni HPC per carichi di lavoro di elaborazione su larga scala
@@ -93,7 +93,7 @@ In questa sezione sono illustrati i servizi di calcolo, gestione dati, rete e se
 I servizi di calcolo di Azure sono alla base di una soluzione Big Compute e i diversi servizi offrono vantaggi per scenari diversi. A livello di base, questi servizi offrono modalità diverse alle applicazioni per l'esecuzione in istanze di calcolo basate su macchine virtuali fornite da Azure tramite la tecnologia Hyper-V di Windows Server. Queste istanze possono eseguire strumenti e sistemi operativi Linux e Windows standard e personalizzati. Azure offre un'ampia gamma di [dimensioni delle istanze](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con diverse configurazioni di core CPU, memoria, capacità del disco e altre caratteristiche. In base alle proprie esigenze, è possibile ridimensionare le istanze a migliaia di core e quindi passare a un piano inferiore quando sono necessarie meno risorse.
 
 > [!NOTE]
-> Usare le [istanze a elevato calcolo, ad esempio la serie H](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) di Azure per migliorare le prestazioni e la scalabilità di carichi di lavoro HPC. Queste istanze supportano anche applicazioni MPI parallele che richiedono una rete di applicazione a bassa latenza e a velocità elevata. Sono anche disponibili le macchine virtuali di [serie N](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) con GPU NVIDIA per espandere l'intervallo di scenari di elaborazione e la visualizzazione in Azure.  
+> Usare le [istanze a elevato calcolo, ad esempio la serie H](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) di Azure per migliorare le prestazioni e la scalabilità di carichi di lavoro HPC. Queste istanze supportano anche applicazioni MPI parallele che richiedono una rete di applicazione a bassa latenza e a velocità elevata. Sono anche disponibili le macchine virtuali di [serie N](../virtual-machines/windows/sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con GPU NVIDIA per espandere l'intervallo di scenari di elaborazione e la visualizzazione in Azure.  
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: Problema nella configurazione dell&quot;accesso Single Sign-On basato su password per un&quot;applicazione non inclusa nella raccolta | Microsoft Docs
-description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell&quot;accesso Single Sign-On basato su password per applicazioni personalizzate non incluse nella raccolta delle applicazioni di Azure AD
+title: Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta | Microsoft Docs
+description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell'accesso Single Sign-On basato su password per applicazioni personalizzate non incluse nella raccolta delle applicazioni di Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 2fc922cb591bcd9ef333fbe3d77ee3dd03005915
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: 6dafec65b2e8091954cae39994d0013d9fd06558
-ms.lasthandoff: 12/22/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 58ddf3913a5d00ee9a89a1fa112f3d55d9a815ed
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
@@ -27,12 +28,17 @@ La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente d
 
 Questo articolo consente di configurare l'**account aziendale o dell'istituto di istruzione**. Se si vuole abilitare la verifica in due passaggi di un account Microsoft personale, vedere [Informazioni sulla verifica in due passaggi](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-## <a name="determine-how-you-will-use-multi-factor-authentication"></a>Scelta della modalità di utilizzo dell’autenticazione a più fattori
-La verifica in due passaggi richiede due tipi di identificazione all'accesso. Prima verranno chiesti il nome utente e la password, secondo la procedura consueta. Quindi si verrà contattati al numero di telefono indicato per verificare la validità del tentativo di accesso.  
+## <a name="set-up-your-account"></a>Configurare l'account
 
-Per iniziare il processo di configurazione, provare ad accedere all'account personale seguendo la procedura consueta. Se l'amministratore ha configurato l'account per la verifica in due passaggi, verrà chiesto di avviare il processo di registrazione automatica. Iniziare il processo facendo clic su **Configuralo subito**
+Quando il reparto IT richiede all'utente di iniziare a usare la verifica in due passaggi, verrà visualizzata una schermata che dice **Your admin has required that you set up this account for additional secuirty verification** (L'amministratore richiede di configurare questo account per la verifica di sicurezza aggiuntiva):
 
 ![Configurazione](./media/multi-factor-authentication-end-user-first-time/first.png)
+
+Per iniziare, selezionare **Set it up now.** (Avvia la configurazione adesso.)
+
+Se all'accesso non viene visualizzata una schermata simile alla seguente, seguire le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) per trovare la pagina delle impostazioni in cui è possibile gestire le opzioni di verifica. 
+
+## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Decidere come verificare gli accessi
 
 La prima domanda posta nel processo di registrazione è relativa alla modalità di contatto desiderata. Esaminare le opzioni nella tabella e passare alla procedura di configurazione per ogni metodo tramite i collegamenti.
 
@@ -48,16 +54,19 @@ L'uso di questo metodo richiede l'installazione di un'app di autenticazione sul 
 1. Selezionare **App per dispositivi mobili** dall'elenco a discesa.
 2. Selezionare l'opzione **Ricevi notifiche per la verifica** o **Use verification code** (Usa codice di verifica), quindi selezionare **Configura**.
 
-    ![Schermata della verifica aggiuntiva di sicurezza](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+   ![Schermata della verifica aggiuntiva di sicurezza](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+
 3. Sul telefono o sul tablet aprire l'app e selezionare **+** per aggiungere un account. Sui dispositivi Android selezionare i tre puntini, quindi **Aggiungi account**.
 4. Specificare che si desidera aggiungere un account aziendale o dell'istituto di istruzione. Viene aperto lo scanner di codici a matrice sul telefono. Se la fotocamera non funziona correttamente, è possibile selezionare di inserire manualmente le informazioni della società. Per ulteriori informazioni, vedere l'articolo su come [aggiungere manualmente un account](#add-an-account-manually).  
 5. Eseguire la scansione dell'immagine del codice QR visualizzata nella schermata di configurazione dell'app mobile.  Fare clic su **Done** (Fine) per chiudere la schermata del codice QR.  
 
-    ![Schermata di codice QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+   ![Schermata di codice QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+
 6. Una volta completata l'attivazione sul telefono, selezionare **Contact me**(Contattami).  Viene inviata una notifica o un codice di verifica al telefono cellulare. Selezionare **Verifica**.  
 7. Se richiesto dall'azienda, immettere il PIN per approvare la verifica di accesso.
 
-    ![Casella per l'immissione di un PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
+   ![Casella per l'immissione di un PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
+
 8. Al termine dell'immissione del PIN, selezionare **Chiudi**. A questo punto, la verifica avrà esito positivo.
 9. Si consiglia di immettere il proprio numero di telefono cellulare, nel caso in cui si perda l'accesso all'app per dispositivi mobili. Specificare il paese dall'elenco a discesa e immettere il numero di telefono cellulare nella casella accanto al paese. Selezionare **Avanti**.
 10. A questo punto viene chiesto di configurare le password dell'app per le app che non sono browser, come Outlook 2010 o versioni precedenti, o per l'app di posta elettronica nativa nei dispositivi Apple. Alcune app non supportano la verifica in due passaggi. Se non si usano queste app, fare clic su **Fine** e ignorare i passaggi successivi.

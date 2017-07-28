@@ -20,6 +20,6 @@
 ## [Guide alla progettazione della soluzione ibrida di gestione delle identità](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 

@@ -31,6 +31,7 @@
 ## Gestisci
 ### [Cmdlet di PowerShell per Batch](batch-powershell-cmdlets-get-started.md)
 ### [Interfaccia della riga di comando di Azure](batch-cli-get-started.md)
+#### [Eseguire processi batch senza codice](batch-cli-templates.md)
 #### [Creare un account Batch](./scripts/batch-cli-sample-create-account.md)
 #### [Aggiungere un'applicazione](./scripts/batch-cli-sample-add-application.md)
 #### [Gestire i pool](./scripts/batch-cli-sample-manage-pool.md)

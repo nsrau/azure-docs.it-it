@@ -20,7 +20,6 @@ ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
 ms.contentlocale: it-it
 ms.lasthandoff: 05/05/2017
 
-
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
@@ -76,7 +75,7 @@ I passaggi seguenti consentono di creare le impostazioni a livello di directory,
 5. Infine, applicare le impostazioni:
   
   ```
-  New-AzureADDirectorySetting -DirectorySetting $settings
+  New-AzureADDirectorySetting -DirectorySetting $setting
   ```
 
 Al termine, il cmdlet restituisce l'ID del nuovo oggetto Settings:

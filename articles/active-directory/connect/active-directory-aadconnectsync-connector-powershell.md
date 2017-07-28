@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
 ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/06/2017
 
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Documentazione tecnica sul connettore Windows PowerShell
@@ -342,9 +343,4 @@ Sostituire il nome del connettore Windows PowerShell per il segnaposto {Connecto
 [pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

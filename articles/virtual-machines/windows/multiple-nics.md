@@ -1,6 +1,6 @@
 ---
-title: "Creare una VM Windows con più schede di interfaccia di rete | Microsoft Docs"
-description: "Informazioni su come creare una VM Windows con più schede di interfaccia di rete collegate usando i modelli di Azure PowerShell o Resource Manager."
+title: "Creare e gestire VM Windows in Azure che usano più schede di interfaccia di rete | Microsoft Docs"
+description: "Informazioni su come creare e gestire una VM Windows a cui sono collegate più schede di interfaccia di rete usando i modelli di Azure PowerShell o Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -12,205 +12,233 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/14/2017
+ms.date: 07/05/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 6918b206c637e1e0ad99b472c6a45a4fc343dc6d
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 92f5181dbf36ef0f7e2568d557faa7c5f2144ad9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="create-a-windows-vm-with-multiple-nics"></a>Creare una VM Windows con più schede di interfaccia di rete
-È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end, oppure disporre di una rete dedicata a una soluzione di monitoraggio o di backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Per informazioni dettagliate, incluse quelle sulla creazione di più schede di rete all'interno degli script di PowerShell, consultare la sezione dedicata alla [distribuzione di macchine virtuali con più schede di rete](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Le differenti [dimensioni della macchina virtuale](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
+# <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Creare e gestire una macchina virtuale Windows che ha più schede di interfaccia di rete
+Alle macchine virtuali (VM) in Azure possono essere collegate più schede di interfaccia di rete virtuale. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. Questo articolo illustra come creare una macchina virtuale a cui sono collegate più schede di interfaccia di rete e come aggiungere o rimuovere le schede di interfaccia di rete da una VM esistente. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
 
-## <a name="create-core-resources"></a>Creare le risorse principali
-Verificare di aver prima [installato e configurato la versione più recente di Azure PowerShell](/powershell/azure/overview). Accedere all'account di Azure:
+Per informazioni dettagliate, incluse quelle sulla creazione di più schede di interfaccia di rete negli script di PowerShell, vedere [Distribuzione di macchine virtuali con più schede di interfaccia di rete](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
 
-```powershell
-Login-AzureRmAccount
-```
+## <a name="prerequisites"></a>Prerequisiti
+Verificare di aver prima [installato e configurato la versione più recente di Azure PowerShell](/powershell/azure/overview).
 
-Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `myVM`.
+Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
 
-Creare prima un gruppo di risorse. Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `WestUs`:
 
-```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
-```
-
-Creare un account di archiviazione in cui salvare le VM. Nell'esempio seguente viene creato un nuovo account di archiviazione denominato `mystorageaccount`:
+## <a name="create-a-vm-with-multiple-nics"></a>Creare una macchina virtuale con più NIC
+Creare prima un gruppo di risorse. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *EastUs*:
 
 ```powershell
-$storageAcc = New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "mystorageaccount" `
-    -Kind "Storage" -SkuName "Premium_LRS" 
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## <a name="create-virtual-network-and-subnets"></a>Creare la rete virtuale e le subnet
-Definire due subnet per la rete virtuale: una per il traffico front-end e l'altra per il traffico di back-end. Nell'esempio seguente vengono definite due subnet chiamate `mySubnetFrontEnd` e `mySubnetBackEnd`:
+### <a name="create-virtual-network-and-subnets"></a>Creare la rete virtuale e le subnet
+Negli scenari comuni una rete virtuale ha due o più subnet. Una subnet può essere dedicata al traffico front-end e l'altra al traffico back-end. Per connettersi a entrambe le subnet, si usano quindi più schede di interfaccia di rete nella VM.
 
-```powershell
-$mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
-    -AddressPrefix "192.168.1.0/24"
-$mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
-    -AddressPrefix "192.168.2.0/24"
-```
+1. Definire due subnet della rete virtuale con [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). L'esempio seguente definisce le subnet per *mySubnetFrontEnd* e *mySubnetBackEnd*:
 
-Creare una rete virtuale e le subnet. Nell'esempio seguente viene creata una rete virtuale chiamata `myVnet`:
+    ```powershell
+    $mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
+        -AddressPrefix "192.168.1.0/24"
+    $mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
+        -AddressPrefix "192.168.2.0/24"
+    ```
 
-```powershell
-$myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "myVnet" -AddressPrefix "192.168.0.0/16" `
-    -Subnet $mySubnetFrontEnd,$mySubnetBackEnd
-```
+2. Creare la rete virtuale e le subnet con [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). L'esempio seguente crea una rete virtuale denominata *myVnet*:
+
+    ```powershell
+    $myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+        -Location "EastUs" `
+        -Name "myVnet" `
+        -AddressPrefix "192.168.0.0/16" `
+        -Subnet $mySubnetFrontEnd,$mySubnetBackEnd
+    ```
 
 
-## <a name="create-multiple-nics"></a>Creare più schede di rete
-Creare due schede di interfaccia di rete, quindi collegarne una alla subnet di front-end e l'altra alla subnet di back-end. Nell'esempio seguente vengono create due schede di interfaccia di rete chiamate `myNic1` e `myNic2`:
+### <a name="create-multiple-nics"></a>Creare più schede di rete
+Creare due schede di interfaccia di rete con [New AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Collegare una scheda di interfaccia di rete alla subnet front-end e l'altra alla subnet back-end. L'esempio seguente crea le schede di interfaccia di rete denominate *myNic1* e *myNic2*:
 
 ```powershell
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
 $myNic1 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "myNic1" -SubnetId $frontEnd.Id
+    -Name "myNic1" `
+    -Location "EastUs" `
+    -SubnetId $frontEnd.Id
 
 $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "myNic2" -SubnetId $backEnd.Id
+    -Name "myNic2" `
+    -Location "EastUs" `
+    -SubnetId $backEnd.Id
 ```
 
-In genere è necessario creare anche un [gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md) o un [servizio di bilanciamento del carico](../../load-balancer/load-balancer-overview.md) per gestire e distribuire il traffico tra le VM. L'articolo dettagliato sulla [macchina virtuale con più schede di rete](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) offre una guida alla creazione di un gruppo di sicurezza di rete e all'assegnazione delle schede di rete.
+In genere è necessario creare anche un [gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md) o un [servizio di bilanciamento del carico](../../load-balancer/load-balancer-overview.md) per gestire e distribuire il traffico tra le VM. L'articolo dettagliato sulla [macchina virtuale con più schede di interfaccia di rete](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) offre una guida alla creazione di un gruppo di sicurezza di rete e all'assegnazione delle schede di interfaccia di rete.
 
-## <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
-Ora è possibile iniziare con la configurazione della macchina virtuale. Ad ogni dimensione della macchina virtuale corrisponde un limite del numero totale di schede di rete che è possibile aggiungere. Ulteriori informazioni sulle [dimensioni delle macchine Virtuali di Windows](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
+Ora è possibile iniziare con la configurazione della macchina virtuale. Ad ogni dimensione della macchina virtuale corrisponde un limite del numero totale di schede di rete che è possibile aggiungere. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](sizes.md).
 
-Per prima cosa, impostare le credenziali della VM sulla variabile `$cred` come indicato di seguito:
+1. Impostare le credenziali della VM sulla variabile `$cred` come indicato di seguito:
 
-```powershell
-$cred = Get-Credential
-```
+    ```powershell
+    $cred = Get-Credential
+    ```
 
-Nell'esempio seguente viene definita una VM chiamata `myVM` e viene usata una dimensione della VM che supporta fino a due schede di interfaccia di rete (`Standard_DS2_v2`):
+2. Definire la VM con [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). L'esempio seguente definisce una VM denominata *myVM* e usa una dimensione della VM che supporta fino a due schede di interfaccia di rete (*Standard_DS3_v2*):
 
-```powershell
-$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2_v2"
-```
+    ```powershell
+    $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
+    ```
 
-Creare il resto del file config della VM. Nell'esempio seguente viene creata una VM di Windows Server 2012 R2:
+3. Creare il resto della configurazione della VM con [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) e [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). L'esempio seguente crea una VM Windows Server 2016:
 
-```powershell
-$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName "myVM" `
-    -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "MicrosoftWindowsServer" `
-    -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
-```
+    ```powershell
+    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig `
+        -Windows `
+        -ComputerName "myVM" `
+        -Credential $cred `
+        -ProvisionVMAgent `
+        -EnableAutoUpdate
+    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig `
+        -PublisherName "MicrosoftWindowsServer" `
+        -Offer "WindowsServer" `
+        -Skus "2016-Datacenter" `
+        -Version "latest"
+   ```
 
-Collegare le due schede di rete create in precedenza:
+4. Collegare le due schede di interfaccia di rete create prima con [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
 
-```powershell
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
-```
+    ```powershell
+    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
+    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
+    ```
 
-Configurare l'archiviazione e il disco virtuale per la nuova macchina virtuale:
+5. Creare infine la VM con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
-```powershell
-$blobPath = "vhds/WindowsVMosDisk.vhd"
-$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
-$diskName = "windowsvmosdisk"
-$vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $diskName -VhdUri $osDiskUri `
-    -CreateOption "fromImage"
-```
-
-Infine, creare una macchina virtuale:
-
-```powershell
-New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "WestUS"
-```
+    ```powershell
+    New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
+    ```
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Aggiungere una scheda di interfaccia di rete a una VM esistente
+Per aggiungere una scheda di interfaccia di rete virtuale a una VM esistente, si dealloca la VM, si aggiunge la scheda di interfaccia di rete virtuale, quindi si avvia la VM.
 
-È ora possibile aggiungere una scheda di interfaccia di rete a una VM esistente. Per usare questa funzionalità, è necessario prima di tutto deallocare la VM usando il cmdlet Stop-AzureRmVM seguente.
+1. Deallocare la VM con [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). L'esempio seguente dealloca la VM denominata *myVM* in *myResourceGroup*:
 
-```powershell
-Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-Ottenere quindi la configurazione esistente della VM tramite il cmdlet Get-AzureRmVM:
+2. Ottenere la configurazione esistente della VM con [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). L'esempio seguente ottiene le informazioni relative alla macchina virtuale denominata *myVM* in *myResourceGroup*:
 
-```powershell
-$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-È possibile creare una nuova scheda di interfaccia di rete nella **stessa rete virtuale come VM**, come mostrato all'inizio di questo articolo, o collegare una scheda di interfaccia di rete esistente. In questo caso si presuppone che si stia collegando una scheda di interfaccia di rete esistente `MyNic3` nella rete virtuale. 
+3. L'esempio seguente crea una scheda di interfaccia di rete virtuale con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface), denominata *myNic3* e collegata *mySubnetBackEnd*. La scheda di interfaccia di rete virtuale viene quindi collegata alla VM denominata *myVM* in *myResourceGroup* con [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
 
-```powershell
-$nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
-Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    # Get info for the back end subnet
+    $myVnet = Get-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
+    $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 
-> [!NOTE]
-> Una delle schede di interfaccia di rete in una VM con più schede di interfaccia di rete deve essere impostata come primaria. Impostiamo pertanto la nuova scheda di interfaccia di rete come primaria. Se la precedente scheda di interfaccia di rete nella VM è primaria, non è necessario specificare il parametro -Primary. Se si vuole cambiare la scheda di interfaccia di rete primaria nella VM, attenersi alla procedura seguente.
+    # Create a virtual NIC
+    $myNic3 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+        -Name "myNic3" `
+        -Location "EastUs" `
+        -SubnetId $backEnd.Id
 
-```powershell
-$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    # Get the ID of the new virtual NIC and add to VM
+    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
+    Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    ```
 
-# Find out all the NICs on the VM and find which one is Primary
-$vm.NetworkProfile.NetworkInterfaces
+    ### <a name="primary-virtual-nics"></a>Schede di interfaccia di rete virtuale primarie
+    Una delle schede di interfaccia di rete in una VM con più schede di interfaccia di rete deve essere primaria. Se una delle schede di interfaccia di rete virtuale esistenti nella VM è già impostata come primaria, è possibile saltare questo passaggio. L'esempio seguente presuppone che due schede di interfaccia di rete virtuale siano ora presenti in una VM e che si voglia aggiungere la prima scheda di interfaccia di rete (`[0]`) come primaria:
+        
+    ```powershell
+    # List existing NICs on the VM and find which one is primary
+    $vm.NetworkProfile.NetworkInterfaces
+    
+    # Set NIC 0 to be primary
+    $vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
+    $vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+    
+    # Update the VM state in Azure
+    Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
+    ```
 
-# Set the NIC 0 to be primary
-$vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
-$vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+4. Avviare la VM con [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
 
-# Update the VM state in Azure
-Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+    ```
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Rimuovere una scheda di interfaccia di rete da una VM esistente
+Per rimuovere una scheda di interfaccia di rete virtuale da una VM esistente, si dealloca la VM, si rimuove la scheda di interfaccia di rete virtuale, quindi si avvia la VM.
 
-È possibile rimuovere una scheda di interfaccia di rete da una VM. Per usare questa funzionalità, è necessario prima di tutto deallocare la VM usando il cmdlet Stop-AzureRmVM seguente.
+1. Deallocare la VM con [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). L'esempio seguente dealloca la VM denominata *myVM* in *myResourceGroup*:
 
-```powershell
-Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-Ottenere quindi la configurazione esistente della VM tramite il cmdlet Get-AzureRmVM:
+2. Ottenere la configurazione esistente della VM con [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). L'esempio seguente ottiene le informazioni relative alla macchina virtuale denominata *myVM* in *myResourceGroup*:
 
-```powershell
-$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-È possibile a questo punto visualizzare tutte le schede di interfaccia di rete nella VM e copiare il nome di quella che si intende rimuovere.
+3. Ottenere informazioni sulla rimozione della scheda di interfaccia di rete con [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). L'esempio seguente ottiene informazioni su *myNic3*:
 
-```powershell
-$vm.NetworkProfile.NetworkInterfaces
-Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
-    Update-AzureRmVm -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    # List existing NICs on the VM if you need to determine NIC name
+    $vm.NetworkProfile.NetworkInterfaces
 
-## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Creazione di più schede di rete utilizzando i modelli di Resource Manager
-I modelli di Azure Resource Manager utilizzano i file JSON dichiarativi per definire l'ambiente. È possibile consultare una [panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). I modelli di Resource Manager offrono un modo di creare più istanze di una risorsa durante la distribuzione, come ad esempio la creazione di più schede di rete. Utilizzare *Copia* per specificare il numero di istanze da creare:
+    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
+    ```
+
+4. Rimuovere la scheda di interfaccia di rete con [Remove-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface) e quindi aggiornare la VM con [Update-AzureRmVm](/powershell/module/azurerm.compute/update-azurermvm). L'esempio seguente rimuove *myNic3* ottenuta da `$nicId` nel passaggio precedente:
+
+    ```powershell
+    Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
+        Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    ```   
+
+5. Avviare la VM con [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
+
+    ```powershell
+    Start-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```   
+
+## <a name="create-multiple-nics-with-templates"></a>Creare più schede di interfaccia di rete con i modelli
+I modelli di Azure Resource Manager offrono un modo di creare più istanze di una risorsa durante la distribuzione, come ad esempio la creazione di più schede di interfaccia di rete. I modelli di Resource Manager usano i file JSON dichiarativi per definire l'ambiente. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). È possibile usare *copy* per specificare il numero di istanze da creare:
 
 ```json
 "copy": {
-    "name": "multiplenics"
+    "name": "multiplenics",
     "count": "[parameters('count')]"
 }
 ```
 
-Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../../resource-group-create-multiple.md). 
+Per altre informazioni, vedere [Creazione di più istanze con *copy*](../../resource-group-create-multiple.md). 
 
-È inoltre possibile utilizzare un `copyIndex()` per poi aggiungere un numero al nome di una risorsa, che consente di creare `myNic1`, `MyNic2`, e così via. Di seguito viene riportato un esempio di aggiunta del valore di indice:
+È anche possibile usare `copyIndex()` per aggiungere un numero a un nome di risorsa. È quindi possibile creare *myNic1*, *MyNic2* e così via. Il codice seguente illustra un esempio di aggiunta del valore di indice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+È possibile consultare un esempio completo di [creazione di più schede di interfaccia di rete tramite i modelli di Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Assicurarsi di consultare [Dimensioni delle macchine virtuali di Windows](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) durante il tentativo di creazione di una macchina virtuale con più schede di rete. Prestare attenzione al numero massimo di schede di rete supportato per ogni dimensione della macchina virtuale. 
+Vedere [Dimensioni per le macchine virtuali Windows](sizes.md) se si deve creare una VM con più schede di interfacce di rete. Prestare attenzione al numero massimo di schede di interfaccia di rete supportato per ogni dimensione della macchina virtuale. 
 
 
 

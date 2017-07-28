@@ -14,21 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: bba03cfb21e8eebdbf67152de9c6e2da6f22f5a2
-ms.lasthandoff: 02/16/2017
+ms.author: plarsen; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introduzione al connettore DB2
 Microsoft Connector for DB2 connette le app per la logica alle risorse archiviate in un database IBM DB2. Il connettore include un client Microsoft per comunicare con computer server DB2 remoti su una rete TCP/IP, tra cui: database cloud, ad esempio IBM Bluemix dashDB o IBM DB2 per Windows in esecuzione nella virtualizzazione Azure, e database locali tramite il gateway dati locale. Vedere l'[elenco](connectors-create-api-db2.md#supported-db2-platforms-and-versions) delle piattaforme e delle versioni di IBM DB2 supportate (in questo argomento).
-
-> [!NOTE]
-> Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica. 
-> 
-> 
 
 Il connettore DB2 supporta le operazioni di database seguenti:
 
@@ -174,7 +170,7 @@ Il connettore può accedere a un database DB2 cloud.
 2. Nell'elenco dei **trigger** fare clic su **Ricorrenza**. 
 3. Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**. 
 4. Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
-5. Nell'elenco delle **azioni **digitare **db2** nella casella di modifica** Cercare altre azioni** e quindi fare clic su **DB2 - Inserisci riga - anteprima**.
+5. Nell'elenco delle **azioni** digitare **db2** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **DB2 - Inserisci riga - anteprima**.
 6. Nell'azione **DB2 - Ottieni righe (anteprima)** fare clic su **Cambia connessione**. 
 7. Nel riquadro di configurazione **Connessioni**selezionare una connessione, ad esempio, selezionare **hisdemo2**.
    
@@ -271,133 +267,6 @@ Il connettore può accedere a un database DB2 cloud.
     
     ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
 
-## <a name="technical-details"></a>Dettagli tecnici
-## <a name="actions"></a>Azioni
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. Il connettore di database DB2 include le azioni seguenti. 
-
-| Azione | Descrizione |
-| --- | --- |
-| [GetRow](connectors-create-api-db2.md#get-row) |Recupera una singola riga da una tabella DB2 |
-| [GetRows](connectors-create-api-db2.md#get-rows) |Recupera righe da una tabella DB2 |
-| [InsertRow](connectors-create-api-db2.md#insert-row) |Inserisce una nuova riga in una tabella DB2 |
-| [DeleteRow](connectors-create-api-db2.md#delete-row) |Elimina una riga da una tabella DB2 |
-| [GetTables](connectors-create-api-db2.md#get-tables) |Recupera le tabelle da un database DB2 |
-| [UpdateRow](connectors-create-api-db2.md#update-row) |Aggiorna una riga esistente in una tabella DB2 |
-
-### <a name="action-details"></a>Informazioni dettagliate sulle azioni
-In questa sezione si vedranno i dettagli relativi a ogni azione, incluse le proprietà di input obbligatorie o facoltative e gli output corrispondenti associati al connettore.
-
-#### <a name="get-row"></a>Ottenere la riga
-Recupera una singola riga da una tabella DB2.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella DB2 |
-| id* |ID di riga |Identificatore univoco della riga da recuperare |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Item
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Ottieni righe
-Recupera righe da una tabella DB2.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella DB2 |
-| $skip |Ignora conteggio |Numero di elementi da ignorare (impostazione predefinita = 0) |
-| $top |Numero massimo di Get |Numero massimo di elementi da recuperare (impostazione predefinita = 256) |
-| $filter |Query di filtro |Query di filtro ODATA per limitare il numero di elementi |
-| $orderby |Ordina per |Query orderBy ODATA per specificare l'ordine degli elementi |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-ItemsList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Inserisci riga
-Inserisce una nuova riga in una tabella DB2.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella DB2 |
-| item* |Riga |Riga da inserire nella tabella specificata in DB2 |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Item
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Elimina riga
-Elimina una riga da una tabella DB2.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella DB2 |
-| id* |ID di riga |Identificatore univoco della riga da eliminare |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Nessuna.
-
-#### <a name="get-tables"></a>Ottieni tabelle
-Recupera le tabelle da un database DB2.  
-
-Non sono disponibili parametri per questa chiamata. 
-
-##### <a name="output-details"></a>Dettagli dell'output
-TablesList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Aggiorna riga
-Aggiorna una riga esistente in una tabella DB2.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella DB2 |
-| id* |ID di riga |Identificatore univoco della riga da aggiornare |
-| item* |Riga |Riga con i valori aggiornati |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Item
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Risposte HTTP
-Quando si effettuano chiamate alle diverse azioni, è possibile ottenere determinate risposte. La tabella seguente indica le risposte e le relative descrizioni:  
-
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Non autorizzata |
-| 403 |Accesso negato |
-| 404 |Non trovato |
-| 500 |Errore interno del server. Si è verificato un errore sconosciuto |
-| default |Operazione non riuscita. |
-
 ## <a name="supported-db2-platforms-and-versions"></a>Piattaforme e versioni di DB2 supportate
 Il connettore supporta le piattaforme e le versioni di IBM DB2 seguenti, nonché i prodotti compatibili con IBM DB2 (ad esempio, IBM Bluemix dashDB) che supportano DRDA (Distributed Relational Database Architecture) SQLAM (SQL Access Manager) versione 10 e 11:
 
@@ -408,6 +277,10 @@ Il connettore supporta le piattaforme e le versioni di IBM DB2 seguenti, nonché
 * IBM DB2 per i 7.1
 * IBM DB2 per LUW 11
 * IBM DB2 per LUW 10.5
+
+## <a name="connector-specific-details"></a>Dettagli specifici del connettore
+
+Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).

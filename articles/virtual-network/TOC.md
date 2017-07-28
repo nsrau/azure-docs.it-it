@@ -4,9 +4,10 @@
 ## [Peering di rete virtuale](virtual-network-peering-overview.md)
 ## [Continuità aziendale](virtual-network-disaster-recovery-guidance.md)
 ## [Domande frequenti](virtual-networks-faq.md)
-## Indirizzamento IP
-### [Gestione risorse](virtual-network-ip-addresses-overview-arm.md)
-### [Classico](virtual-network-ip-addresses-overview-classic.md)
+## [Indirizzamento IP](virtual-network-ip-addresses-overview-arm.md)
+## Classico
+### [Indirizzamento IP](virtual-network-ip-addresses-overview-classic.md)
+### [Elenchi di controllo di accesso](virtual-networks-acl.md)
 
 # Attività iniziali
 ## [Creare la prima rete virtuale](virtual-network-get-started-vnet-subnet.md)
@@ -43,7 +44,11 @@
 ##### [PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [CLI](virtual-network-create-udr-classic-cli.md)
 
-### [Peering di rete virtuale](virtual-network-create-peering.md)
+### Peering di rete virtuale
+#### [Stesso modello di distribuzione e stessa sottoscrizione](virtual-network-create-peering.md)
+#### [Stesso modello di distribuzione e diversa sottoscrizione](create-peering-different-subscriptions.md)
+#### [Modelli di distribuzione diversi e stessa sottoscrizione](create-peering-different-deployment-models.md)
+#### [Modelli di distribuzione diversi e diverse sottoscrizioni](create-peering-different-deployment-models-subscriptions.md)
 
 ### Macchine virtuali
 #### Creare una VM con un indirizzo IP pubblico statico
@@ -95,17 +100,17 @@
 ##### [Applicazione di esempio](virtual-networks-sample-app.md)
 
 ## Configurare
-
-### Elenchi di controllo di accesso
-#### [Portale classico](virtual-networks-acl.md)
-#### [PowerShell](virtual-networks-acl-powershell.md)
 ### Macchine virtuali
 #### [Aggiungere o rimuovere interfacce di rete](virtual-network-network-interface-vm.md)
 #### [Risoluzione dei nomi per macchine virtuali e servizi cloud](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 #### [Ottimizzare la velocità effettiva della rete](virtual-network-optimize-network-bandwidth.md)
 #### [Visualizzare e modificare i nomi host](virtual-networks-viewing-and-modifying-hostnames.md)
+### Classico
+#### Elenchi di controllo di accesso
+##### [Portale](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [PowerShell](virtual-networks-acl-powershell.md)
 
-## Gestire
+## Manage
 ### [Reti virtuali](virtual-network-manage-network.md)
 #### [Subnet](virtual-network-manage-subnet.md)
 #### [Peering](virtual-network-manage-peering.md)
@@ -132,6 +137,7 @@
 #### [Portale](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Test della velocità effettiva](virtual-network-bandwidth-testing.md)
+### [Non è possibile eliminare le reti virtuali](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Riferimento
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
@@ -152,7 +158,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog sulle reti](http://azure.microsoft.com/blog/topics/networking)
 ## [Forum sulle reti](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-network)

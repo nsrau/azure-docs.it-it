@@ -1,5 +1,5 @@
 ---
-title: Il caricamento dell&quot;applicazione del proxy di applicazione impiega troppo tempo | Microsoft Docs
+title: Il caricamento dell'applicazione del proxy di applicazione impiega troppo tempo | Microsoft Docs
 description: Risoluzione dei problemi delle prestazioni di caricamento della pagina con il proxy di applicazione di Azure AD
 services: active-directory
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: e172f55d45bccfd126928225eb9f78da61a670d3
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

@@ -34,6 +34,7 @@
 ###[Provider di cache di output](cache-aspnet-output-cache-provider.md)
 ## Manage
 ###[Configurare nel portale](cache-configure.md)
+###[Configurare la replica geografica](cache-how-to-geo-replication.md)
 ###[Importare/esportare dati](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[Pianificare gli aggiornamenti](cache-administration.md#schedule-updates)
@@ -55,7 +56,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/cache/)
 ## [Esempi di Cache Redis](cache-redis-samples.md)
 

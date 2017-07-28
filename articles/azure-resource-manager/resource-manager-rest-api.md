@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-translationtype: Human Translation
-ms.sourcegitcommit: 76864bfc1b59cfc4e6f39094c08394fe32482d17
-ms.openlocfilehash: b7957c52877b262506013a422cd1511dd0ee79a4
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -36,7 +37,7 @@ Questo articolo non esamina ogni API esposta in Azure, ma usa alcune operazioni 
 
 ## <a name="authentication"></a>Autenticazione
 L'autenticazione per Resource Manager viene gestita da Azure Active Directory (AD). Per connettersi a un'API, prima di tutto è necessario eseguire l'autenticazione con Azure AD per ricevere un token di autenticazione che è possibile passare a ogni richiesta. Poiché si descrive una chiamata reale direttamente all'API REST, si presuppone che non si desideri eseguire l'autenticazione tramite una richiesta di nome utente e password. Si suppone inoltre che l'utente non usi i meccanismi di autenticazione a due fattori. Verranno quindi create una cosiddetta applicazione Azure AD e un'entità servizio che verranno usate per l'accesso. Si ricordi tuttavia che Azure AD supporta diverse procedure di autenticazione e che tutte possono essere usate per recuperare il token di autenticazione necessario per le richieste API successive.
-Per istruzioni dettagliate, vedere [Create Azure AD Application and Service Principle](resource-group-create-service-principal-portal.md) (Creare un'applicazione e un'entità servizio di Azure AD).
+Per istruzioni dettagliate, vedere [Creare un'applicazione e un'entità servizio di Azure AD](resource-group-create-service-principal-portal.md).
 
 ### <a name="generating-an-access-token"></a>Generazione di un token di accesso
 L'autenticazione in Azure AD viene eseguita chiamando Azure AD, all'indirizzo login.microsoftonline.com. Per eseguire l'autenticazione, sono necessarie le informazioni seguenti:

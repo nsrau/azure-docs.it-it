@@ -3,8 +3,8 @@ title: Risolvere i problemi relativi alle disconnessioni VPN da sito a sito di A
 description: Informazioni su come risolvere il problema per cui la connessione VPN da sito a sito viene periodicamente interrotta.
 services: vpn-gateway
 documentationcenter: na
-author: genlin
-manager: willchen
+author: chadmath
+manager: cshepard
 editor: 
 tags: 
 ms.service: vpn-gateway

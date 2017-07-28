@@ -13,28 +13,29 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 05/24/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f629eeb6f12c8785cab2585190f70e98b02fa5b4
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 307373c75bbb87cec683f7a3097f8f159c9d5e61
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
 
 
-# <a name="self-service-sign-up-portal-for-azure-ad-b2b-collaboration"></a>Portale di iscrizione self-service per Collaborazione B2B di Azure AD
+# <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portale self-service per l'iscrizione a Collaborazione B2B di Azure AD
 
-I clienti possono eseguire molte operazioni con le funzionalità incorporate nei prodotti ed esposte tramite le nostre esperienze di amministrazione IT nel [portale di Azure](https://portal.azure.com) e il [pannello di accesso alle applicazioni](https://myapps.microsoft.com) per utenti non amministratori. Le aziende hanno tuttavia bisogno di personalizzare il flusso di lavoro di onboarding per gli utenti B2B in base alle esigenze della propria organizzazione. È possibile farlo con la [nostra API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+I clienti possono eseguire molte operazioni con le funzionalità predefinite esposte tramite il [portale di Azure](https://portal.azure.com) per gli amministratori IT e il [pannello di accesso alle applicazioni](https://myapps.microsoft.com) per gli utenti finali. Le aziende hanno tuttavia bisogno di personalizzare il flusso di lavoro di onboarding per gli utenti B2B in base alle esigenze della propria organizzazione. È possibile farlo con la [nostra API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
-Nel corso delle conversazioni intrattenute con molti clienti, un'esigenza comune è risultata più evidente rispetto a tutte le altre: l'organizzazione che invia gli inviti potrebbe non sapere (o vuole sapere) in anticipo quali singoli collaboratori esterni hanno bisogno dell’accesso alle proprie risorse. In questo caso è necessario un modo che consenta agli utenti delle aziende partner possano eseguire l’iscrizione automatica mediante un set di criteri controllati dall’organizzazione che li invita. Ciò è possibile tramite le API, pertanto è stato pubblicato in Github un progetto del tipo: [progetto di esempio Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+Nel corso delle conversazioni intrattenute con i clienti, un'esigenza comune risulta più evidente rispetto a tutte le altre. L'organizzazione che emette inviti potrebbe non sapere in anticipo quali singoli collaboratori esterni avranno bisogno di accedere alle risorse. È quindi necessario un modo che consenta agli utenti delle aziende partner di effettuare l'iscrizione con un set di criteri controllati dall'organizzazione che emette gli inviti. Questo scenario è possibile tramite le API ed è quindi stato pubblicato un [progetto Github di esempio](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) a tale scopo.
 
-Il progetto Github illustra come le organizzazioni possano usare le API e offrire ai partner di fiducia una funzionalità di iscrizione self-service basata su criteri, con regole che determinano per quali app devono ottenere l’accesso. In questo modo, gli utenti partner possono ottenere l'accesso alle giuste risorse in qualsiasi momento e in modo sicuro, ma senza che qualcuno all’interno dell’organizzazione che li invita debba eseguire manualmente il loro onboarding. È possibile distribuire facilmente il progetto con un solo clic su un pulsante in una sottoscrizione di Azure di propria scelta. Provalo!
+Il progetto Github illustra come le organizzazioni possono usare le API e offrire ai partner attendibili una funzionalità di iscrizione self-service basata su criteri, con regole che determinano le app a cui potranno accedere. Gli utenti partner possono ottenere l'accesso alle risorse quando necessario, in modo sicuro, senza che l'organizzazione che emette l'invito debba eseguirne manualmente l'onboarding. È possibile distribuire facilmente il progetto in una sottoscrizione di Azure di propria scelta.
 
 ## <a name="as-is-code"></a>Codice cosi com’è
 
-Tenere presente che questo codice viene fornito come esempio per illustrare l'uso dell'API di invito B2B di Azure Active Directory. Deve essere preferibilmente personalizzato dal team di sviluppo o da un partner ed esaminato prima di essere distribuito in uno scenario di produzione.
+Tenere presente che questo codice viene reso disponibile come esempio per illustrare l'utilizzo dell'API di invito B2B di Azure Active Directory. Deve essere preferibilmente personalizzato dal team di sviluppo o da un partner ed esaminato prima di essere distribuito in uno scenario di produzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -43,6 +43,7 @@
 ### [Installare e configurare Trend Micro Deep Security come servizio](install-trend.md)
 ### [Configurare un set di disponibilità](configure-availability.md)
 ### [Ridimensionare una VM Windows create nel modello di distribuzione classica](resize-vm.md)
+### [Manutenzione](planned-maintenance-schedule.md)
 
 ## Manage
 ### [Migrazione dal modello classico a Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -55,7 +56,6 @@
 ## Pianificazione
 ### [Informazioni sulle immagini](about-images.md)
 ### [Dimensioni delle VM](../../virtual-machines-windows-sizes.md)
-#### [Informazioni sulle macchine virtuali serie H e serie A a elevato utilizzo di calcolo](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Manutenzione pianificata per le VM di Azure](../../virtual-machines-windows-planned-maintenance.md)
 ### [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -70,11 +70,7 @@
 #### [Inviare processi da locale ad Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Configurare Oracle Data Guard per Azure](configure-oracle-data-guard.md)
-####[Configurare Oracle GoldenGate per Azure](configure-oracle-goldengate.md)
-####[Considerazioni varie sulle immagini](oracle-considerations.md)
-####[Elenco di immagini VM Oracle](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
@@ -85,9 +81,10 @@
 ### [Accedere a un'applicazione](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Problemi della distribuzione classica con la creazione di una nuova VM](troubleshoot-deployment-new-vm.md)
 ### [Problemi della distribuzione classica con il riavvio o il ridimensionamento di una VM esistente](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Reimpostare la password RDP](reset-rdp.md)
+### [Reimpostare la password RDP](reset-rdp.md)
+### [Collegare un disco rigido virtuale alla VM di risoluzione dei problemi](troubleshoot-recovery-disks-portal.md)
 
-# Riferimento
+# riferimento
 ## [PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
 ## [Java](/java/api)
@@ -99,7 +96,7 @@
 ## [REST di archiviazione](/rest/api/storageservices)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Disponibilità internazionale](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

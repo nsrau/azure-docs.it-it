@@ -16,30 +16,26 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 12c89a6fcbb6d299b64e6b0ec9d1dba29bb41d16
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1dfaa7ade664e43dcb9aa788b0197ca17e6ec4cc
 ms.contentlocale: it-it
 
 
 ---
 
-<a id="create-an-application-express" class="xliff"></a>
-
-## Creare un'applicazione (Rapida)
+## <a name="create-an-application-express"></a>Creare un'applicazione (Rapida)
 È ora necessario registrare l'applicazione nel *portale di registrazione delle applicazioni Microsoft*:
 1. Registrare l'applicazione tramite il [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)
 2.  Immettere un nome per l'applicazione e l'indirizzo di posta elettronica
 3.  Assicurarsi che l'opzione per l'installazione guidata sia selezionata
 4.  Seguire le istruzioni per ottenere l'ID dell'applicazione e incollarlo nel codice
 
-<a id="add-your-application-registration-information-to-your-solution-advanced" class="xliff"></a>
-
-### Aggiungere le informazioni di registrazione dell'applicazione alla soluzione (Avanzata)
+### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Aggiungere le informazioni di registrazione dell'applicazione alla soluzione (Avanzata)
 È ora necessario registrare l'applicazione nel *portale di registrazione delle applicazioni Microsoft*:
 1. Passare al [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app) per registrare un'applicazione
 2. Immettere un nome per l'applicazione e l'indirizzo di posta elettronica 
 3. Assicurarsi che l'opzione per l'installazione guidata sia deselezionata
-4. Fare clic su `Add Platforms`, selezionare `Native Application` e quindi fare clic su Salva
+4. Fare clic su `Add Platform`, selezionare `Native Application` e quindi fare clic su Salva
 5. Copiare il GUID nell'ID applicazione, tornare a Visual Studio, aprire `App.xaml.cs` e sostituire `your_client_id_here` con l'ID applicazione appena registrato:
 
 ```csharp

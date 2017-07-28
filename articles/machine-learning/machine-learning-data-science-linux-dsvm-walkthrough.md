@@ -1,6 +1,6 @@
 ---
-title: Analisi scientifica dei dati in una macchina virtuale Linux per l&quot;analisi scientifica dei dati | Documentazione Microsoft
-description: "Come eseguire varie attività comuni di analisi scientifica dei dati con la macchina virtuale Linux per l&quot;analisi scientifica dei dati."
+title: Analisi scientifica dei dati in una macchina virtuale Linux per l'analisi scientifica dei dati | Documentazione Microsoft
+description: "Come eseguire varie attività comuni di analisi scientifica dei dati con la macchina virtuale Linux per l'analisi scientifica dei dati."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev;paulsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 80e0b0cb5193d5a0c3782e2e6371b91441780347
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="data-science-on-the-linux-data-science-virtual-machine"></a>Analisi scientifica dei dati in una macchina virtuale Linux per l'analisi scientifica dei dati

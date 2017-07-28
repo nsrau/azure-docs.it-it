@@ -20,7 +20,6 @@ ms.openlocfilehash: a9023448c4ced1edf54c84bb103454cbd76fbfba
 ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
 
-
 ---
 
 # <a name="event-hubs-management-libraries"></a>Librerie di gestione di Hub eventi
@@ -49,7 +48,7 @@ Il modello di modifica delle risorse di Hub eventi segue un protocollo comune:
 
 1. Ottenere un token dall'istanza di Azure Active Directory che usa la libreria `Microsoft.IdentityModel.Clients.ActiveDirectory`.
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",

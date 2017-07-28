@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Hub di notifica per le app della piattaforma UWP (Universal Windows Platform) |Documentazione Microsoft
-description: Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un&quot;applicazione della piattaforma UWP (Universal Windows Platform).
+description: Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione della piattaforma UWP (Universal Windows Platform).
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
@@ -14,16 +14,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d59348a0f794b3989fe9b1ce457b2f7a85b3b7a9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9353ad6df121ebd2e92a5d34214c32e852ed60a3
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Introduzione ad Hub di notifica per le app della piattaforma UWP (Universal Windows Platform)
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un'app della piattaforma UWP (Universal Windows Platform).
 
 In questa esercitazione si creerà un'app di Windows Store vuota che riceve notifiche push tramite Servizi notifica Push Windows (WNS). Al termine, sarà possibile usare l’hub di notifica per trasmettere le notifiche push a tutti i dispositivi che eseguono l'app.
@@ -49,31 +51,31 @@ Per inviare notifiche push ad app UWP è necessario associare l'app a Windows St
 1. Se l'app non è ancora stata registrata, passare a [Windows Dev Center](https://dev.windows.com/overview), accedere con il proprio account Microsoft e quindi fare clic su **Crea una nuova app**.
 2. Digitare un nome per l'app e fare clic su **Riserva nome dell'app**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
    
-       This creates a new Windows Store registration for your app.
+   Verrà creata una nuova registrazione a Windows Store per l'app.
 3. In Visual Studio creare un nuovo progetto di app di Windows Store in Visual C# usando il modello **App vuota** e quindi fare clic su **OK**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
 4. Accettare le impostazioni predefinite per le versioni minima e di destinazione della piattaforma.
 5. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app di Windows Store, scegliere **Store**, quindi fare clic su **Associa applicazione a Store**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
 
-       The **Associate Your App with the Windows Store** wizard appears.
+   Viene visualizzata la procedura guidata **Associa l'applicazione con Windows Store** .
 
 1. Nella procedura guidata fare clic su **Accedi** e quindi accedere con il proprio account Microsoft.
 2. Fare clic sull'app registrata nel passaggio 2, fare clic su **Avanti** e quindi su **Associa**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
    
-       This adds the required Windows Store registration information to the application manifest.
+   Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
 3. Nella pagina di [Windows Dev Center](http://go.microsoft.com/fwlink/p/?LinkID=266582) per la nuova app fare clic su **Servizi**, **Notifiche push** e quindi su sito dei **servizi Live** in **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Apps** (Servizi notifica Push Windows (WNS) e app per dispositivi mobili di Microsoft Azure).
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
 4. Nella pagina di registrazione dell'app, prendere nota della password di **Segreti applicazione** e del **valore di SID pacchetto** presente nelle impostazioni della piattaforma **Windows Store**.
    
-       ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
 
      > [AZURE.WARNING]
     Il segreto applicazione e il SID di pacchetto sono importanti credenziali di sicurezza. Non condividere questi valori con altri utenti né distribuirli con l'app.
@@ -136,7 +138,7 @@ L'hub di notifica è ora configurato per l'uso con Servizi notifica Push Windows
     In questo modo si garantisce che il valore di ChannelURI venga registrato nell'hub di notifica a ogni avvio dell'applicazione.
 6. Premere **F5** per eseguire l'app. Verrà visualizzata una finestra di dialogo popup contenente la chiave di registrazione.
    
-       ![][19]
+     ![][19]
 
 L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
@@ -160,7 +162,7 @@ Per inviare notifiche tramite un'applicazione console .NET seguire questa proced
 
 1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Aggiungi** e **Nuovo progetto**, quindi in **Visual C#** fare clic su **Windows**, su **Applicazione console** e infine su **OK**.
    
-       ![][13]
+     ![][13]
    
     Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata.
 2. In Visual Studio fare clic su **Strumenti**, selezionare **Gestione pacchetti NuGet** e quindi **Console di Gestione pacchetti**.
@@ -198,7 +200,7 @@ Per inviare notifiche tramite un'applicazione console .NET seguire questa proced
          Console.ReadLine();
 7. Fare clic con il pulsante destro del mouse sul progetto di applicazione console in Visual Studio e fare clic su **Imposta come progetto di avvio** per impostarlo come progetto di avvio. Premere quindi **F5** per eseguire l'applicazione.
    
-       ![][14]
+     ![][14]
    
     Tutti i dispositivi registrati riceveranno una notifica di tipo avviso popup. Facendo clic o toccando il banner dell'avviso popup l'app viene caricata.
 
@@ -220,14 +222,9 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 <!-- URLs. -->
 
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [catalogo degli avvisi popup]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

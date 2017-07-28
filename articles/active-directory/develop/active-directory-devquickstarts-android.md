@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 590e2bc759567cf3d679e261592dff1e699ba295
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 746cad19093fd2a1ad23ddd9412394f8d9da331c
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Integrare Azure AD in un'app per Android
@@ -174,7 +173,7 @@ Se si usa il plug-in M2Eclipse, è possibile specificare la dipendenza nel file 
             ....
         <application/>
 
-4. Creare un'istanza di AuthenticationContext nell'attività principale. I dettagli di questa chiamata non rientrano dell'ambito di questo argomento, ma come punto di partenza è possibile vedere l'[esempio relativo al client nativo Android](https://github.com/AzureADSamples/NativeClient-Android). Nell'esempio seguente SharedPreferences è la cache predefinita e il formato di Authority è `https://login.windows.net/yourtenant.onmicrosoft.com`:
+4. Creare un'istanza di AuthenticationContext nell'attività principale. I dettagli di questa chiamata non rientrano dell'ambito di questo argomento, ma come punto di partenza è possibile vedere l'[esempio relativo al client nativo Android](https://github.com/AzureADSamples/NativeClient-Android). Nell'esempio seguente SharedPreferences è la cache predefinita e il formato di Authority è `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`:
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -264,7 +263,7 @@ Il manifesto dell'app deve avere le autorizzazioni seguenti per usare gli accoun
 ### <a name="authority-url-and-ad-fs"></a>URL dell'autorità e AD FS
 Active Directory Federation Services (AD FS) non è riconosciuto come servizio token di sicurezza di produzione, quindi è necessario disattivare l'individuazione dell'istanza e passare false al costruttore AuthenticationContext.
 
-L'URL dell'autorità richiede un'istanza del servizio token di sicurezza e il nome del [tenant](https://login.windows.net/yourtenant.onmicrosoft.com).
+L'URL dell'autorità richiede un'istanza del servizio token di sicurezza e il nome del [tenant](https://login.microsoftonline.com/yourtenant.onmicrosoft.com).
 
 ### <a name="querying-cache-items"></a>Esecuzione di query sugli elementi della cache
 ADAL fornisce una cache predefinita in SharedPrefrecens con alcune semplici funzioni di query nella cache. È possibile ottenere la cache corrente da AuthenticationContext con:

@@ -1,6 +1,6 @@
 ---
 title: Gateway del protocollo Azure IoT | Microsoft Docs
-description: "Come usare un gateway di protocollo IoT di Azure per estendere le funzionalità dell&quot;hub IoT e il supporto del protocollo per consentire ai dispositivi di connettersi all&quot;hub usando protocolli non supportati dall&quot;hub IoT in modo nativo."
+description: "Come usare un gateway di protocollo IoT di Azure per estendere le funzionalità dell'hub IoT e il supporto del protocollo per consentire ai dispositivi di connettersi all'hub usando protocolli non supportati dall'hub IoT in modo nativo."
 services: iot-hub
 documentationcenter: 
 author: kdotchkoff
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 07/11/2017
 ms.author: kdotchko
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1a8dd3d024fbe1e85a43c5b4f98901ab59c5797f
 ms.openlocfilehash: e0a7c813da53bc6ab49a456f13227b62725c5fc4
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Supportare altri protocolli per l'hub IoT
@@ -49,9 +50,4 @@ Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, ve
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

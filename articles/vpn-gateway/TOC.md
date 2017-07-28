@@ -61,6 +61,9 @@
 ### [PowerShell (classico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configurare un gateway VPN (versione classica)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [SKU del gateway (versione precedente)](vpn-gateway-about-skus-legacy.md)
+## Configurare dispositivi VPN di terze parti
+### [Panoramica e configurazione di Azure](vpn-gateway-3rdparty-device-config-overview.md)
+### [Esempio: dispositivo Cisco ASA (IKEv2/senza BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## Risoluzione dei problemi
 ### [Convalidare la velocità effettiva della VPN verso una rete virtuale](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Impostazioni di un dispositivo firewall o una VPN suggerita dalla community](vpn-gateway-third-party-settings.md)
@@ -84,7 +87,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway)

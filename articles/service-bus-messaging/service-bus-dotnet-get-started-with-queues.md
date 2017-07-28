@@ -20,16 +20,11 @@ ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
 ms.contentlocale: it-it
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-service-bus-queues" class="xliff"></a>
-
-# Introduzione alle code del bus di servizio
+# <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Contenuto dell'esercitazione
+## <a name="what-will-be-accomplished"></a>Contenuto dell'esercitazione
 Questa esercitazione illustra i passaggi seguenti:
 
 1. Creare uno spazio dei nomi del bus di servizio usando il portale di Azure.
@@ -37,50 +32,36 @@ Questa esercitazione illustra i passaggi seguenti:
 3. Scrivere un'applicazione console per inviare un messaggio.
 4. Scrivere un'applicazione console per ricevere i messaggi inviati nel passaggio precedente.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 1. [Visual Studio 2015 o versione successiva](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
 2. Una sottoscrizione di Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Creare uno spazio dei nomi tramite il portale di Azure
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Creare uno spazio dei nomi tramite il portale di Azure
 Se è già stato creato uno spazio dei nomi di messaggistica del bus di servizio, passare alla sezione [Creare una coda usando il portale di Azure](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-queue-using-the-azure-portal" class="xliff"></a>
-
-## 2. Creare una coda usando il portale di Azure
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Creare una coda usando il portale di Azure
 Se è già stata creata una coda del bus di servizio, passare alla sezione [Inviare messaggi alla coda](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-<a id="3-send-messages-to-the-queue" class="xliff"></a>
-
-## 3. Inviare messaggi alla coda
+## <a name="3-send-messages-to-the-queue"></a>3. Inviare messaggi alla coda
 Per inviare messaggi alla coda, si scrive un'applicazione console C# in Visual Studio.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Creare un'applicazione console
+### <a name="create-a-console-application"></a>Creare un'applicazione console
 
 Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Aggiungere il pacchetto NuGet del bus di servizio
+### <a name="add-the-service-bus-nuget-package"></a>Aggiungere il pacchetto NuGet del bus di servizio
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
 2. Fare clic sulla scheda **Esplora**, cercare **Bus di servizio di Microsoft Azure** e quindi selezionare l'elemento **WindowsAzure.ServiceBus**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
    
     ![Selezionare un pacchetto NuGet][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-queue" class="xliff"></a>
-
-### Scrivere il codice per inviare un messaggio alla coda
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Scrivere il codice per inviare un messaggio alla coda
 1. Aggiungere l'istruzione `using` seguente all'inizio del file Program.cs.
    
     ```csharp
@@ -95,7 +76,6 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
 
-    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
     client.Send(message);
@@ -126,7 +106,6 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);
@@ -141,9 +120,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
    
       ![Dimensioni dei messaggi][queue-message]
 
-<a id="4-receive-messages-from-the-queue" class="xliff"></a>
-
-## 4. Ricezione di messaggi dalla coda
+## <a name="4-receive-messages-from-the-queue"></a>4. Ricezione di messaggi dalla coda
 
 1. Per ricevere i messaggi inviati, creare una nuova applicazione console e aggiungere un riferimento al pacchetto NuGet del bus di servizio, come per l'applicazione mittente precedente.
 2. Aggiungere l'istruzione `using` seguente all'inizio del file Program.cs.
@@ -204,9 +181,7 @@ Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)*
 
 Congratulazioni. È stata creata una coda ed è stato inviato e ricevuto un messaggio.
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Vedere il [repository GitHub con esempi](https://github.com/Azure/azure-service-bus/tree/master/samples) che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio.
 

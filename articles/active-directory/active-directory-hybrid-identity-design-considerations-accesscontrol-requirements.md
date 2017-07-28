@@ -1,6 +1,6 @@
 ---
-title: "Considerazioni di progettazione dell&quot;identità ibrida di Azure Active Directory - Determinare i requisiti di controllo di accesso | Documentazione Microsoft"
-description: "Illustra gli elementi fondamentali dell&quot;identità e specifica i requisiti di accesso alle risorse previsti per gli utenti in un ambiente ibrido."
+title: "Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Determinare i requisiti di controllo di accesso | Documentazione Microsoft"
+description: "Illustra gli elementi fondamentali dell'identità e specifica i requisiti di accesso alle risorse previsti per gli utenti in un ambiente ibrido."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 032467e0885d574a7b0f4a1c043e1800e5cc4071
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/28/2016
 
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di controllo di accesso per una soluzione di identità ibrida
@@ -79,10 +80,5 @@ Sebbene l'autenticazione e l'autorizzazione costituiscano elementi essenziali pe
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

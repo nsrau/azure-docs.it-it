@@ -1,6 +1,6 @@
 ---
 title: Come configurare una nuova applicazione multi-tenant | Microsoft Docs
-description: Informazioni su come configurare un&quot;applicazione multi-tenant e sul funzionamento di tali applicazioni
+description: Informazioni su come configurare un'applicazione multi-tenant e sul funzionamento di tali applicazioni
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 68db9635e274d76127021ff95d38570b980048f3
+ms.contentlocale: it-it
 ms.lasthandoff: 04/11/2017
-
 
 ---
 

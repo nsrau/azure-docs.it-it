@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/18/2017
+ms.date: 05/22/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 8c18a6898aa25bbc04040cf2b5c3d05ce0af035e
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: d408c0565c0ed81fc97cc2b3976a4fc233e31302
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -164,26 +165,94 @@ Gli account utente non anonimi consentono di abilitare il protocollo SSH senza p
 
 Per creare account utente non anonimi in Batch, aggiungere una raccolta di account utente al pool. I frammenti di codice seguenti illustrano come creare account utente non anonimi in .NET, Java e Python in un pool, sia con privilegi di amministratore che senza. Gli esempi creano pool usando la configurazione del servizio cloud, ma si usa lo stesso approccio quando si crea un pool di Windows o Linux tramite la configurazione della macchina virtuale.
 
-#### <a name="batch-net-example"></a>Esempio per Batch .NET
+#### <a name="batch-net-example-windows"></a>Esempio per Batch .NET (Windows)
 
 ```csharp
 CloudPool pool = null;
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
+// Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicated: 3,                                                         
+    targetDedicatedComputeNodes: 3,                                                         
     virtualMachineSize: "small",                                                
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 
+// Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
 {
-    new UserAccount(AdminUserAccountName, AdminPassword, ElevationLevel.Admin),
-    new UserAccount(NonAdminUserAccountName, NonAdminPassword, ElevationLevel.NonAdmin),
+    new UserAccount("adminUser", "xyz123", ElevationLevel.Admin),
+    new UserAccount("nonAdminUser", "123xyz", ElevationLevel.NonAdmin),
 };
- 
-pool.Commit();
+
+// Commit the pool.
+await pool.CommitAsync();
 ```
+
+#### <a name="batch-net-example-linux"></a>Esempio per Batch .NET (Linux)
+
+```csharp
+CloudPool pool = null;
+
+// Obtain a collection of all available node agent SKUs.
+List<NodeAgentSku> nodeAgentSkus =
+    batchClient.PoolOperations.ListNodeAgentSkus().ToList();
+
+// Define a delegate specifying properties of the VM image to use.
+Func<ImageReference, bool> isUbuntu1404 = imageRef =>
+    imageRef.Publisher == "Canonical" &&
+    imageRef.Offer == "UbuntuServer" &&
+    imageRef.Sku.Contains("14.04");
+
+// Obtain the first node agent SKU in the collection that matches
+// Ubuntu Server 14.04. 
+NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
+    sku.VerifiedImageReferences.Any(isUbuntu1404));
+
+// Select an ImageReference from those available for node agent.
+ImageReference imageReference =
+    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1404);
+
+// Create the virtual machine configuration to use to create the pool.
+VirtualMachineConfiguration virtualMachineConfiguration =
+    new VirtualMachineConfiguration(imageReference, ubuntuAgentSku.Id);
+
+Console.WriteLine("Creating pool [{0}]...", poolId);
+
+// Create the unbound pool.
+pool = batchClient.PoolOperations.CreatePool(
+    poolId: poolId,
+    targetDedicatedComputeNodes: 3,                                             
+    virtualMachineSize: "Standard_A1",                                      
+    virtualMachineConfiguration: virtualMachineConfiguration);                  
+
+// Add named user accounts.
+pool.UserAccounts = new List<UserAccount>
+{
+    new UserAccount(
+        name: "adminUser",
+        password: "xyz123",
+        elevationLevel: ElevationLevel.Admin,
+        linuxUserConfiguration: new LinuxUserConfiguration(
+            uid: 12345,
+            gid: 98765,
+            sshPrivateKey: new Guid().ToString()
+            )),
+    new UserAccount(
+        name: "nonAdminUser",
+        password: "123xyz",
+        elevationLevel: ElevationLevel.NonAdmin,
+        linuxUserConfiguration: new LinuxUserConfiguration(
+            uid: 45678,
+            gid: 98765,
+            sshPrivateKey: new Guid().ToString()
+            )),
+};
+
+// Commit the pool.
+await pool.CommitAsync();
+```
+
 
 #### <a name="batch-java-example"></a>Esempio per Batch Java
 

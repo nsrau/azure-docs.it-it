@@ -1,6 +1,6 @@
 ---
 title: Gestione e personalizzazione di Active Directory Federation Services con Azure AD Connect | Microsoft Docs
-description: Gestione di AD FS con Azure AD Connect e personalizzazione dell&quot;esperienza utente di accesso ad AD FS con Azure AD Connect e PowerShell.
+description: Gestione di AD FS con Azure AD Connect e personalizzazione dell'esperienza utente di accesso ad AD FS con Azure AD Connect e PowerShell.
 keywords: AD FS, ADFS, gestione di AD FS, AAD Connect, Connect, accesso, personalizzazione di AD FS, ripristino trust, O365, federazione, relying party
 services: active-directory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/4/2016
-ms.author: anandy
-translationtype: Human Translation
+ms.date: 07/18/2017
+ms.author: billmath
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
 ms.openlocfilehash: 2a64405c0862d09dd487d260a651123eafbcaf99
+ms.contentlocale: it-it
 ms.lasthandoff: 04/10/2017
-
 
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect

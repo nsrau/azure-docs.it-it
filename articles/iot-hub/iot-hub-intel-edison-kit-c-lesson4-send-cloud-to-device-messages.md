@@ -1,10 +1,10 @@
 ---
 title: 'Connettere Intel Edison (C) ad Azure IoT: lezione 4: Ricevere i messaggi | Documentazione Microsoft'
-description: "Un&quot;applicazione di esempio viene eseguita in Edison e monitora i messaggi in ingresso dall&quot;hub IoT. Una nuova attività gulp invia messaggi a Edison dall&quot;hub IoT per far lampeggiare il LED."
+description: "Un'applicazione di esempio viene eseguita in Edison e monitora i messaggi in ingresso dall'hub IoT. Una nuova attività gulp invia messaggi a Edison dall'hub IoT per far lampeggiare il LED."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: led di controllo arduino dal web, led di controllo arduino tramite web
 ROBOTS: NOINDEX
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
 ms.openlocfilehash: b4d76eeb1bc0b406800c89c4952900350d8eafa8
+ms.contentlocale: it-it
 ms.lasthandoff: 01/25/2017
-
 
 ---
 # <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Eseguire un'applicazione di esempio per ricevere messaggi da cloud a dispositivo

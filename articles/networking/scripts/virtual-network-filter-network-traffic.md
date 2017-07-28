@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Filtrare il traffico di rete della VM | Documentazione Microsoft
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Filtrare il traffico di rete della VM in ingresso e in uscita.
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Filtrare il traffico di rete della VM | Documentazione Microsoft
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Filtrare il traffico di rete della VM in ingresso e in uscita.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 07/07/2017
 ms.author: jdial
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ab477bcdd2e20f4196fbe74f0d956b2011a5cf05
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68ee013cff4e0be15af30239e0314f779f50177a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -35,7 +35,7 @@ Questo script di esempio crea una rete virtuale con subnet front-end e back-end.
 ## <a name="sample-script"></a>Script di esempio
 
 
-[!code-azurecli[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filtrare il traffico di rete della VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filtrare il traffico di rete della VM")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 

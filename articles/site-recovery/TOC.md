@@ -122,6 +122,7 @@
 ### [Gestire server di elaborazione con scalabilità orizzontale](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Gestire server vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Rimuovere server e disabilitare la protezione](site-recovery-manage-registration-and-protection.md)
+### [Eliminare un insieme di credenziali dei servizi di ripristino](delete-vault.md)
 
 ## Monitorare e risolvere i problemi
 ### [Problemi di replica da Azure ad Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)

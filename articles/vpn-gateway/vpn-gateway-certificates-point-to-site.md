@@ -1,5 +1,5 @@
 ---
-title: 'Creare certificati autofirmati per connessioni da punto a sito: PowerShell: Azure | Microsoft Docs'
+title: 'Generare ed esportare certificati autofirmati per connessioni da punto a sito: PowerShell: Azure | Microsoft Docs'
 description: Questo articolo contiene i passaggi per creare un certificato radice autofirmato, esportare la chiave pubblica e generare certificati client con PowerShell in Windows 10.
 services: vpn-gateway
 documentationcenter: na
@@ -13,40 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 05/23/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 1bfcb8683669770d6dd927cbde53a683bbc1d56e
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: a7594c37a5d8b92144a1984d58ededd04927d189
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell"></a>Generare ed esportare i certificati per le connessioni da punto a sito usando PowerShell
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Generare ed esportare i certificati per le connessioni da punto a sito usando PowerShell su Windows 10
 
-Questo articolo mostra come creare un certificato radice autofirmato e generare i certificati client. Il presente articolo non contiene le istruzioni di configurazione da punto a sito o le domande frequenti relative alla configurazione da punto a sito. Tali informazioni sono reperibili selezionando dall'elenco uno dei seguenti articoli relativi alla configurazione da punto a sito:
+Le connessioni da punto a sito usano certificati per l'autenticazione. Questo articolo illustra come creare un certificato radice autofirmato e generare i certificati client usando PowerShell su Windows 10. Per le procedure di configurazione da punto a sito, ad esempio come caricare i certificati radice, selezionare uno degli articoli "Configurare da punto a sito" dell'elenco seguente:
 
 > [!div class="op_single_selector"]
 > * [Create self-signed certificates - PowerShell](vpn-gateway-certificates-point-to-site.md) (Creare certificati autofirmati - PowerShell)
-> * [Create self-signed certificates - Makecert](vpn-gateway-certificates-point-to-site-makecert.md) (Creare certificati autofirmati - MakeCert)
+> * [Creare certificati autofirmati - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [Configure Point-to-Site - Resource Manager - Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) (Eseguire una configurazione da punto a sito - Resource Manager - Portale di Azure)
 > * [Configurazione da punto a sito - Gestione risorse - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Configure Point-to-Site - Classic - Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md) (Eseguire una configurazione da punto a sito - Classica - Portale di Azure)
 > 
 > 
 
-Le connessioni da punto a sito usano certificati per l'autenticazione. Quando si configura una connessione da punto a sito è necessario caricare la chiave pubblica (file con estensione .cer) di un certificato radice in Azure. I certificati client, inoltre, sono generati dal certificato radice e installati in ogni computer client che si connette alla VNet. Il certificato client permette al client di autenticarsi.
 
+È necessario eseguire i passaggi descritti in questo articolo in un computer che esegue Windows 10. I cmdlet di PowerShell usati per generare i certificati fanno parte del sistema operativo Windows 10 e non funzionano in altre versioni di Windows. Il computer Windows 10 deve solo generare i certificati. Dopo aver generato i certificati, è possibile caricarli o installarli in qualsiasi sistema operativo client supportato. 
 
-> [!NOTE]
-> È necessario eseguire i passaggi descritti in questo articolo in un computer che esegue Windows 10. I cmdlet PowerShell necessari per generare i certificati fanno parte del sistema operativo Windows 10 e non funzionano in altre versioni di Windows. Questi cmdlet sono necessari solo per la generazione dei certificati. Dopo aver generato i certificati, è possibile installarli in qualsiasi sistema operativo client supportato. Se non si ha accesso a un computer con Windows 10, è possibile usare MakeCert per generare i certificati. I certificati generati con MakeCert, tuttavia, sono compatibili con le connessioni da punto a sito ma non con SHA-2. Per istruzioni su MakeCert, vedere [Create certificates using makecert](vpn-gateway-certificates-point-to-site-makecert.md) (Creare certificati mediante MakeCert). I certificati creati usando PowerShell o MakeCert possono essere installati in qualsiasi [sistema operativo client supportato](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq), non solo nel sistema operativo usato per crearli.
-> 
->
+Se non si ha accesso a un computer con Windows 10, è possibile usare [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) per generare i certificati. Tuttavia MakeCert non può generare certificati SHA-2, ma solo SHA-1. I certificati SHA-1 sono ancora validi per le connessioni da punto a sito, ma SHA-1 usa un hash di crittografia è meno complesso di SHA-2. Per questi motivi, è consigliabile usare, se possibile, le procedure PowerShell. I certificati generati con uno dei due metodi possono essere installati in qualsiasi sistema operativo client [supportato](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 ## <a name="rootcert"></a>Creare un certificato radice autofirmato
 
-La procedura seguente mostra come creare un certificato radice autofirmato usando PowerShell in Windows 10. I cmdlet e i parametri utilizzati in questi passaggi fanno parte del sistema operativo Windows 10 e non di una versione di PowerShell. Questo non significa che i certificati creati possono essere installati solo su Windows 10. Possono essere installati in qualsiasi client supportato. Per informazioni sui client supportati, vedere le [Domande frequenti sulla configurazione da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
+Usare il cmdlet New-SelfSignedCertificate per creare un certificato radice autofirmato. Per altre informazioni sui parametri, vedere [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 1. Da un computer che esegue Windows 10 aprire una console di Windows PowerShell con privilegi elevati.
 2. Usare l'esempio seguente per creare il certificato radice autofirmato. L'esempio seguente crea un certificato radice autofirmato denominato "P2SRootCert" che viene installato automaticamente in "Certificati-Utente corrente\Personale\Certificati". È possibile visualizzare il certificato aprendo *certmgr.msc* o *Gestire i certificati utente*.
@@ -62,7 +59,7 @@ La procedura seguente mostra come creare un certificato radice autofirmato usand
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-Il file exported.cer deve essere caricato in Azure. Per istruzioni, vedere [Configurare una connessione da punto a sito](vpn-gateway-howto-point-to-site-rm-ps.md#upload).
+Il file exported.cer deve essere caricato in Azure. Per istruzioni, vedere [Configurare una connessione da punto a sito](vpn-gateway-howto-point-to-site-rm-ps.md#upload). Per aggiungere un certificato radice attendibile aggiuntivo, vedere [questa sezione](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert) dell'articolo.
 
 ### <a name="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional"></a>Esportare il certificato radice autofirmato e la chiave pubblica per archiviarli (facoltativo)
 
@@ -74,7 +71,7 @@ Ogni computer client che si connette a una rete virtuale usando la soluzione Da 
 
 I passaggi seguenti illustrano come generare un certificato client da un certificato radice autofirmato. È possibile generare più certificati client dallo stesso certificato radice. Quando si generano certificati client con la procedura seguente, il certificato client viene installato automaticamente nel computer che è stato usato per generare il certificato. Se si vuole installare un certificato client in un altro computer client, è possibile esportare il certificato.
 
-Per generare certificati client tramite la seguente procedura con PowerShell, è richiesto Windows 10. I cmdlet e i parametri utilizzati in questi passaggi fanno parte del sistema operativo Windows 10 e non di una versione di PowerShell. Questo non significa che i certificati creati possono essere installati solo su Windows 10. Per informazioni sui client supportati, vedere le [Domande frequenti sulla configurazione da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
+Gli esempi usano il cmdlet New-SelfSignedCertificate per generare un certificato client con scadenza in un anno. Per informazioni aggiuntive sui parametri, ad esempio l'impostazione di un valore di scadenza diverso per i certificati client, vedere [New SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1"></a>Esempio 1
 
@@ -101,12 +98,12 @@ Se si creano certificati client aggiuntivi o non si usa la stessa sessione di Po
   ```
 2. Individuare il nome dell'oggetto nell'elenco restituito e quindi copiare in un file di testo l'identificazione personale che si trova accanto a esso. Nell'esempio seguente ci sono due certificati. Il nome CN è il nome del certificato radice autofirmato da cui si desidera generare un certificato figlio. In questo caso "P2SRootCert".
 
-        Thumbprint                                Subject
-
-        AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
-        7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
-
-
+  ```
+  Thumbprint                                Subject
+  
+  AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
+  7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
+  ```
 3. Dichiarare una variabile per il certificato radice usando l'identificazione personale del passaggio precedente. Sostituire THUMBPRINT con l'identificazione personale del certificato radice autofirmato da cui si desidera generare un certificato figlio.
 
   ```powershell
@@ -117,8 +114,7 @@ Se si creano certificati client aggiuntivi o non si usa la stessa sessione di Po
 
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
-  ```    
-
+  ```
 4.  Modificare ed eseguire l'esempio per generare un certificato client. Se si esegue l'esempio seguente senza modificarlo, il risultato è un certificato client denominato "P2SChildCert". Se si desidera assegnare un nome diverso al certificato figlio, modificare il valore CN. Non modificare il TextExtension quando si esegue questo esempio. Il certificato client generato viene installato automaticamente in "Certificati-Utente corrente\Personale\Certificati" nel computer in uso.
 
   ```powershell
@@ -132,7 +128,6 @@ Se si creano certificati client aggiuntivi o non si usa la stessa sessione di Po
 ## <a name="clientexport"></a>Esportare un certificato client   
 
 [!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
-    
 
 ## <a name="install"></a>Installare un certificato client esportato
 

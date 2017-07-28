@@ -14,45 +14,56 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/08/2016
 ms.author: kmouss
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ffc9a84a3a89b37f772826c612f4fa9abadc1a0e
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 9b2fe579113d6ca6bfd27d82eb9d4657657d44ff
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="enable-or-disable-azure-vm-monitoring"></a>Abilitare o disabilitare il monitoraggio delle VM di Azure
-Questa sezione descrive come abilitare o disabilitare il monitoraggio nelle macchine virtuali in esecuzione in Azure. Per impostazione predefinita, il monitoraggio è abilitato nelle macchine virtuali di Azure se distribuite dal [portale di Azure](https://portal.azure.com) e grafici sul monitoraggio vengono forniti per impostazione predefinita ogni minuto. È possibile abilitare o disabilitare il monitoraggio usando il portale o l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (l'interfaccia della riga di comando di Azure). 
+
+Questa sezione descrive come abilitare o disabilitare il monitoraggio nelle macchine virtuali in esecuzione in Azure. È possibile abilitare o disabilitare il monitoraggio usando il portale o l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (l'interfaccia della riga di comando di Azure).
+
+> [!IMPORTANT]
+> Questo documento descrive la versione 2.3 dell'estensione Diagnostica per Linux, che è stata deprecata. La versione 2.3 sarà supportata fino al 30 giugno 2018.
+>
+> È invece possibile abilitare la versione 3.0 dell'estensione Diagnostica per Linux. Per altre informazioni, vedere [la documentazione](./diagnostic-extension.md).
 
 ## <a name="enable--disable-monitoring-through-the-azure-portal"></a>Abilitare/Disabilitare il monitoraggio dal portale di Azure
-È possibile abilitare il monitoraggio della VM di Azure, che fornisce dati sull'istanza ogni minuto (sono incluse le modifiche dell'archivio). Dati di diagnostica dettagliati sono quindi disponibili per la VM nei grafici del portale o tramite l'API. Per impostazione predefinita, nel portale di Azure il monitoraggio è abilitato, ma è possibile disattivarlo come illustrato di seguito. È possibile abilitare il monitoraggio mentre la VM si trova nello stato in corso di esecuzione o arrestato.
 
-* Aprire il portale di Azure all'indirizzo **[https://portal.azure.com](https://portal.azure.com)**
+È possibile abilitare il monitoraggio della VM di Azure, che fornisce dati sull'istanza ogni minuto (sono incluse le modifiche dell'archivio). Dati di diagnostica dettagliati sono quindi disponibili per la VM nei grafici del portale o tramite l'API. Per impostazione predefinita, il portale di Azure consente di abilitare il monitoraggio basato su host di un set limitato di metriche. È possibile abilitare il monitoraggio delle metriche dalla macchina virtuale mentre questa si trova nello stato in corso di esecuzione o arrestato.
+
+* Aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 * Nel riquadro di spostamento a sinistra fare clic su Macchine virtuali.
-* Nell'elenco Macchine virtuali selezionare un'istanza in esecuzione o arrestata. Verrà aperto il pannello Macchina virtuale.
-* Fare clic su "Tutte le impostazioni".
-* Fare clic su "Diagnostica".
+* Nell'elenco Macchine virtuali selezionare un'istanza in esecuzione o arrestata. Verrà visualizzato il pannello "Macchina virtuale".
+* Fare clic su Tutte le impostazioni.
+* Fare clic su Diagnostica.
 * Impostare lo stato su Sì o No. In questo pannello è anche possibile selezionare il livello di dettagli di monitoraggio che si vuole abilitare per la macchina virtuale.
-
-[Azure.Note] L'impostazione Sì di Diagnostica è quella predefinita quando si crea una nuova macchina virtuale.
 
 ![Abilitare/Disabilitare il monitoraggio dal portale di Azure.][1]
 
 ## <a name="enable--disable-monitoring-with-azure-cli"></a>Abilitare/Disabilitare il monitoraggio con l'interfaccia della riga di comando di Azure
+
 Per abilitare il monitoraggio per una VM di Azure.
 
-* Creare un file denominato, ad esempio, PrivateConfig.json con il contenuto seguente.
-        { "storageAccountName":"account di archiviazione per ricevere i dati", "storageAccountKey":"chiave dell'account" }
-* Eseguire il comando dell'interfaccia della riga di comando di Azure seguente:
-  
-        azure vm extension set myvm LinuxDiagnostic Microsoft.OSTCExtensions 2.0 --private-config-path PrivateConfig.json
+* Creare un file denominato, ad esempio, PrivateConfig.json:
 
-[Azure.Note] È possibile passare dalla versione 2.0 a una successiva, se disponibile. 
+```json
+{
+        "storageAccountName":"the storage account to receive data",
+        "storageAccountKey":"the key of the account"
+}
+```
 
-Per altri dettagli sulla configurazione della metrica di monitoraggio ed esempi, vedere il documento **[Uso dell'estensione di diagnostica Linux per monitorare le prestazioni delle VM Linux e i dati di diagnostica](classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Abilitare l'estensione tramite l'interfaccia della riga di comando di Azure.
+
+```azurecli
+azure vm extension set myvm LinuxDiagnostic Microsoft.OSTCExtensions 2.3 --private-config-path PrivateConfig.json
+```
+
+Per altre informazioni vedere [Uso dell'estensione Diagnostica per Linux per monitorare le prestazioni e i dati di diagnostica di una macchina virtuale Linux](classic/diagnostic-extension-v2.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Image references-->
 [1]: ./media/vm-monitoring/portal-enable-disable.png
-
-
 

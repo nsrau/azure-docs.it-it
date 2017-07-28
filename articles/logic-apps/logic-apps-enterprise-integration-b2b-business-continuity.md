@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e28c1410145d8da168a73e74251ac037997d1752
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 97864ade77fc694bd1eababe22e6eeb4b9d6e11e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -45,7 +45,7 @@ I carichi di lavoro B2B coinvolgono le transazioni di denaro, come ad esempio gl
 
 4. La continuità aziendale nell'account di integrazione delle app per la logica è pensata per il supporto basato sui protocolli B2B - X12, AS2 ed EDIFACT.  Per trovare la procedura dettagliata, selezionare i rispettivi collegamenti.
 
-5. Si consiglia di distribuire tutte le risorse dell'area primaria anche in un'area secondaria. Le risorse dell'area primaria includono il database SQL di Azure o Azure DocumentDB, il bus di servizio di Azure o hub eventi di Azure Service Bus o l'Hub eventi di Azure usati per la messaggistica, Gestione API di Azure e la funzionalità di App per la logica del Servizio app di Azure.   
+5. Si consiglia di distribuire tutte le risorse dell'area primaria anche in un'area secondaria. Le risorse dell'area primaria includono il database SQL di Azure o Azure Cosmos DB, il bus di servizio di Azure o l'Hub eventi di Azure usati per la messaggistica, Gestione API di Azure e la funzionalità di App per la logica del Servizio app di Azure.   
 
 6. Stabilire una connessione dall'area primaria a quella secondaria. Per eseguire il pull dello stato di esecuzione dall'area primaria, creare un'app per la logica nell'area secondaria, che deve avere un trigger e un'azione. Il trigger deve connettersi all'account di integrazione dell'area primaria, mentre l'azione deve connettersi all'account di integrazione dell'area secondaria. In base all'intervallo di tempo, il trigger esegue il sondaggio della tabella sullo stato di esecuzione dell'area primaria ed esegue il pull dei nuovi record, se presenti. L'azione li aggiorna nell'account di integrazione dell'area secondaria. Questa operazione consente di ottenere lo stato di runtime incrementale dall'area primaria a quella secondaria.
 
@@ -69,71 +69,73 @@ Per eseguire il fallback a un'area primaria quando è disponibile, seguire quest
 
 ## <a name="x12"></a>X12 
 La continuità aziendale per i documenti EDI X12 si basa sui numeri di controllo:
-* Numeri di controllo ricevuti, ossia messaggi in ingresso, dai partner  
-* Numeri di controllo generati, ovvero messaggi in uscita, e inviati ai partner 
-    
-    > [!Tip]
+
+> [!Tip]
     > È anche possibile usare [il modello di avvio rapido X12](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) per creare app per la logica. La creazione degli account di integrazione primari e secondari è un prerequisito per l'uso del modello. Il modello consente di creare 2 app per la logica, una per i numeri di controllo ricevuti e l'altra per i numeri di controllo generati. I trigger e le azioni corrispondenti vengono creati nelle app per la logica collegando il trigger all'account di integrazione primario e l'azione a quello secondario.
-    > 
+    >
     >
 
-### <a name="control-numbers-received-from-partners"></a>Numeri di controllo ricevuti dai partner
+Prerequisiti: selezionare le impostazioni per la verifica dei duplicati nelle impostazioni di ricezione del contratto X12 per abilitare DR alla ![ricerca X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png) dei messaggi in ingresso  
 
-1. Attivare i controlli duplicati nelle impostazioni di ricezione del contratto   
-![Ricerca X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
+1. Creare un'[app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) nell'area secondaria.    
 
-2. Creare un'[app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) nell'area secondaria. 
-
-3. Cercare in **X12** e selezionare **X12- Quando viene modificato un numero di controllo ricevuto**.   
-![Ricerca X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN1.png)
-
-4. Il trigger richiede di stabilire una connessione con l'account di integrazione. Il trigger deve connettersi all'account di integrazione dell'area primaria. Inserire un nome di connessione, selezionare l'**account di integrazione dell'area primaria** dall'elenco e fare clic su **Crea**.  
-![Nome dell'account di integrazione dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN2.png)
-
-5. L'impostazione **DateTime per avviare la sincronizzazione dei numeri di controllo** è facoltativa. Il campo **Frequenza** può essere impostato su **Giorno**, **Ora**, **Minuto** o **Secondo** con un intervallo.  
-![DateTime e Frequenza](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN3.png)
-
-6. Selezionare **Nuovo passaggio** > **Aggiungi un'azione**.    
-![Aggiungi un'azione](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN4.png)
-
-7. Cercare in **X12** e selezionare **X12 - Aggiungi o aggiorna un numero di controllo ricevuto**.   
-![Modifica dei numeri di controllo ricevuti](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN5.png)
-
-8. Per collegare un'azione a un account di integrazione dell'area secondaria, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'**account di integrazione dell'area secondaria** dall'elenco e fare clic su **Crea**.   
-![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN6.png)
-
-9. Selezionare il contenuto dinamico e salvare l'app per la logica. 
-![Contenuto dinamico](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN7.png)
-
-10. In base all'intervallo di tempo, il trigger esegue il sondaggio della tabella dei numeri di controllo ricevuti dell'area primaria ed esegue il pull dei nuovi record. L'azione li aggiorna nell'account di integrazione dell'area secondaria. Se non ci sono aggiornamenti disponibili, lo stato del trigger appare come **Ignorato**.
-![Tabella dei numeri di controllo](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN8.png)
-
-### <a name="control-numbers-generated-and-sent-to-partners"></a>Numeri di controllo generati e inviati ai partner
-1. Creare un'[app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) nell'area secondaria.
-
-2. Cercare in **X12** e selezionare **X12 - Quando viene modificato un numero di controllo generato**.  
-![Modifica dei numeri di controllo generati](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN1.png)
+2. Cercare in **X12** e selezionare **X12 - Quando viene modificato un numero di controllo**.   
+![Ricerca X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
 
 3. Il trigger richiede di stabilire una connessione con l'account di integrazione. Il trigger deve connettersi all'account di integrazione dell'area primaria. Inserire un nome di connessione, selezionare l'**account di integrazione dell'area primaria** dall'elenco e fare clic su **Crea**.   
-![Nome dell'account di integrazione dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN2.png) 
+![Nome dell'account di integrazione dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
-4. L'impostazione **DateTime per avviare la sincronizzazione dei numeri di controllo** è facoltativa. Il campo **Frequenza** può essere impostato su **Giorno**, **Ora**, **Minuto** o **Secondo** con un intervallo.  
-![DateTime e Frequenza](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN3.png)  
+4. L'impostazione **DateTime per avviare la sincronizzazione dei numeri di controllo** è facoltativa. Il campo **Frequenza** può essere impostato su **Giorno**, **Ora**, **Minuto** o **Secondo** con un intervallo.   
+![DateTime e Frequenza](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-5. Selezionare **Nuovo passaggio** > **Aggiungi un'azione**.  
-![Aggiungi un'azione](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN4.png)
+5. Selezionare **Nuovo passaggio** > **Aggiungi un'azione**.    
+![Aggiungi un'azione](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-6. Cercare in **X12** e selezionare **X12 - Aggiungi o aggiorna un numero di controllo generato**.   
-![Aggiunta o aggiornamento di numeri di controllo generati](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN5.png)
+6. Cercare in **X12** e selezionare **X12 - Aggiungi o aggiorna numeri di controllo**.   
+![Modifica dei numeri di controllo ricevuti](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
-7. Per collegare un'azione a un account di integrazione secondario, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'**account di integrazione dell'area secondaria** dall'elenco e fare clic su **Crea**.   
-![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN6.png)
+7. Per collegare un'azione a un account di integrazione dell'area secondaria, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'**account di integrazione dell'area secondaria** dall'elenco e fare clic su **Crea**.   
+![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-8. Selezionare il contenuto dinamico e salvare l'app per la logica. 
-![Contenuto dinamico](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN7.png)
+8. Selezionare il contenuto dinamico e salvare l'app per la logica.   
+![Contenuto dinamico](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
 
-9. In base all'intervallo di tempo, il trigger esegue il sondaggio della tabella dei numeri di controllo ricevuti dell'area primaria ed esegue il pull dei nuovi record. L'azione li aggiorna nell'account di integrazione dell'area secondaria. Se non ci sono aggiornamenti disponibili, lo stato del trigger appare come **Ignorato**.  
-![Tabella dei numeri di controllo](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN8.png)
+9. In base all'intervallo di tempo, il trigger esegue il sondaggio della tabella dei numeri di controllo ricevuti dell'area primaria ed esegue il pull dei nuovi record. L'azione li aggiorna nell'account di integrazione dell'area secondaria. Se non ci sono aggiornamenti disponibili, lo stato del trigger appare come **Ignorato**.   
+![Tabella dei numeri di controllo](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+
+In base all'intervallo di tempo, lo stato di runtime incrementale viene replicato dall'area primaria a quella secondaria. Durante un evento di emergenza, quando l'area primaria non è disponibile, dirigere il traffico verso l'area secondaria per assicurare la continuità aziendale. 
+
+## <a name="edifact"></a>EDIFACT 
+La continuità aziendale per i documenti EDI EDIFACT si basa sui numeri di controllo:
+
+Prerequisiti: selezionare le impostazioni per la verifica dei duplicati nelle impostazioni di ricezione del contratto EDIFACT per abilitare DR per i messaggi in ingresso     
+![Ricerca EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+
+1. Creare un'[app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) nell'area secondaria.    
+
+2. Cercare in **EDIFACT** e selezionare **EDIFACT - Quando viene modificato un numero di controllo**.     
+![Ricerca EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
+
+4. Il trigger richiede di stabilire una connessione con l'account di integrazione. Il trigger deve connettersi all'account di integrazione dell'area primaria. Inserire un nome di connessione, selezionare l'**account di integrazione dell'area primaria** dall'elenco e fare clic su **Crea**.    
+![Nome dell'account di integrazione dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
+
+5. L'impostazione **DateTime per avviare la sincronizzazione dei numeri di controllo** è facoltativa. Il campo **Frequenza** può essere impostato su **Giorno**, **Ora**, **Minuto** o **Secondo** con un intervallo.    
+![DateTime e Frequenza](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+
+6. Selezionare **Nuovo passaggio** > **Aggiungi un'azione**.    
+![Aggiungi un'azione](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+
+7. Cercare in **EDIFACT** e selezionare **EDIFACT - Aggiungi o aggiorna numeri di controllo**.   
+![Modifica dei numeri di controllo ricevuti](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+
+8. Per collegare un'azione a un account di integrazione dell'area secondaria, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'**account di integrazione dell'area secondaria** dall'elenco e fare clic su **Crea**.   
+![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+
+9. Selezionare il contenuto dinamico e salvare l'app per la logica.   
+![Contenuto dinamico](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn5.png)
+
+10. In base all'intervallo di tempo, il trigger esegue il sondaggio della tabella dei numeri di controllo ricevuti dell'area primaria ed esegue il pull dei nuovi record. L'azione li aggiorna nell'account di integrazione dell'area secondaria. Se non ci sono aggiornamenti disponibili, lo stato del trigger appare come **Ignorato**.   
+![Tabella dei numeri di controllo](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
 In base all'intervallo di tempo, lo stato di runtime incrementale viene replicato dall'area primaria a quella secondaria. Durante un evento di emergenza, quando l'area primaria non è disponibile, dirigere il traffico verso l'area secondaria per assicurare la continuità aziendale. 
 
@@ -148,30 +150,31 @@ La continuità aziendale per i documenti che usano il protocollo AS2 si basai su
 1. Creare un'[app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) nell'area secondaria.  
 
 2. Cercare in **AS2** e selezionare **AS2 -When a MIC value is created** (AS2 - Quando viene creato un valore MIC).   
-![Ricerca in AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid1.png)
+![Ricerca in AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
 
 3. Il trigger richiede di stabilire una connessione con l'account di integrazione. Il trigger deve connettersi all'account di integrazione dell'area primaria. Inserire un nome di connessione, selezionare l'**account di integrazione dell'area primaria** dall'elenco e fare clic su **Crea**.   
-![Nome dell'account di integrazione dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid2.png)
+![Nome dell'account di integrazione dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
 4. L'impostazione **DateTime per avviare la sincronizzazione del valore MIC** è facoltativa. Il campo **Frequenza** può essere impostato su **Giorno**, **Ora**, **Minuto** o **Secondo** con un intervallo.   
-![DateTime e Frequenza](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid3.png)
+![DateTime e Frequenza](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
 
 5. Selezionare **Nuovo passaggio** > **Aggiungi un'azione**.  
-![Aggiungi un'azione](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid4.png)
+![Aggiungi un'azione](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
 6. Cercare in **AS2** e selezionare **AS2 - Add or update a MIC** (AS2 - Aggiungi o aggiorna un MIC).  
-![Aggiunta o aggiornamento MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid5.png)
+![Aggiunta o aggiornamento MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
 7. Per collegare un'azione a un account di integrazione secondario, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'**account di integrazione dell'area secondaria** dall'elenco e fare clic su **Crea**.    
-![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid6.png)
+![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
 8. Selezionare il contenuto dinamico e salvare l'app per la logica.   
-![Contenuto dinamico](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid7.png)
+![Contenuto dinamico](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid7.png)
 
 9. In base all'intervallo di tempo, il trigger esegue il sondaggio della tabella dell'area primaria ed esegue il pull dei nuovi record. L'azione li aggiorna nell'account di integrazione dell'area secondaria. Se non ci sono aggiornamenti disponibili, lo stato del trigger appare come **Ignorato**.  
-![Tabella dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid8.png)
+![Tabella dell'area primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
 
 In base all'intervallo di tempo, lo stato di runtime incrementale viene replicato dall'area primaria a quella secondaria. Durante un evento di emergenza, quando l'area primaria non è disponibile, dirigere il traffico verso l'area secondaria per assicurare la continuità aziendale. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md).   

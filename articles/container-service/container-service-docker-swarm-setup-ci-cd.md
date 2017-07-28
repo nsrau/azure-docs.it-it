@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c5e05a8693bd000010013922ed6f2a127e998efe
-ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 86472a523b457d6fe06940accba0794e2d37395e
 ms.contentlocale: it-it
-ms.lasthandoff: 12/14/2016
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -231,3 +231,4 @@ Dopo aver completato la configurazione, è il momento di testare la nuova pipeli
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni su CI/CD con Visual Studio Team Services, vedere la [panoramica sulla compilazione di VSTS](https://www.visualstudio.com/docs/build/overview).
+

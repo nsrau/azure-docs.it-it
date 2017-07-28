@@ -21,8 +21,6 @@
 #### [Archivio code e servizi connessi](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Archivio tabelle e servizi connessi](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Configurare i pacchetti per la compilazione continua e la distribuzione
-#### [Visual Studio Team Services e Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS e Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurare le regole del traffico per un ruolo](cloud-services-enable-communication-role-instances.md)
 ### [Gestire eventi del ciclo di vita dei servizi cloud](cloud-services-role-lifecycle-dotnet.md)
@@ -114,7 +112,7 @@
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/cloud-services/)

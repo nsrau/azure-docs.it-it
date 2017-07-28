@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 8f544b781bbf11214183bc0f46215bb9e16c9f55
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 330f733440932a769eb0fe6031cd0d947a820080
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -40,9 +40,9 @@ Quando si aggiunge questo connettore alle app per la logica, è necessario acced
 
 Dopo aver creato la connessione, immettere le proprietà di Office 365 Users, ad esempio l'ID utente. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
-## <a name="view-the-swagger"></a>Visualizzare il file Swagger
+## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-Vedere i [dettagli del file Swagger](/connectors/officeusers/).
+Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/officeusers/).
 
 ## <a name="more-connectors"></a>Altri connettori
 Tornare all' [elenco di API](apis-list.md).

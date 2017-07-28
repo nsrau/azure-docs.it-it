@@ -1,6 +1,6 @@
 ---
-title: Problemi durante l&quot;accesso a un&quot;applicazione locale tramite il proxy di applicazione di Azure AD | Microsoft Docs
-description: "Risoluzione dei problemi comuni riscontrati quando non si è in grado di accedere a un&quot;applicazione locale integrata con Azure AD tramite il proxy di applicazione di Azure AD"
+title: Problemi durante l'accesso a un'applicazione locale tramite il proxy di applicazione di Azure AD | Microsoft Docs
+description: "Risoluzione dei problemi comuni riscontrati quando non si è in grado di accedere a un'applicazione locale integrata con Azure AD tramite il proxy di applicazione di Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 18c6e8cfff3647c05cc11c79c6740ef9493828f9
+ms.contentlocale: it-it
 ms.lasthandoff: 04/11/2017
-
 
 ---
 

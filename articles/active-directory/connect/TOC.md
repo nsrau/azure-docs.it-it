@@ -38,6 +38,7 @@
 ##### [Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Limitazioni correnti](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Come funziona?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Blocco intelligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Domande frequenti](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Supporto di più domini per la federazione](active-directory-aadconnect-multiple-domains.md)
@@ -105,6 +106,6 @@
 
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Domande frequenti su Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Deprecazione di DirSync](active-directory-aadconnect-dirsync-deprecated.md)

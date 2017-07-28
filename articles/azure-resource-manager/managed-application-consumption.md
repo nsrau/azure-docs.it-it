@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 2763da60fe25f2ca55603ecfcbbcefe3e368c25d
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 041254b07584a52ae92e603f60a439050b747af1
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -49,8 +49,7 @@ az group create --name managedResourceGroup --location westcentralus
 Successivamente, usare il comando seguente per distribuire il file applianceMainTemplate.json in mainResourceGroup:
 
 ```azurecli
-az group deployment --name managedAppDeployment --resourceGroup mainResourceGroup 
-      --templateUri  
+az group deployment create --name managedAppDeployment --resourceGroup mainResourceGroup --templateUri  
 ```
 
 Quando viene eseguito il modello precedente, vengono richiesti i valori dei parametri definiti nel modello. Oltre ai parametri richiesti per il provisioning delle risorse in un modello, sono necessari due valori di parametri chiave:
@@ -94,9 +93,9 @@ Questo comando restituisce la definizione dell'appliance. È necessario il valor
 
 Il supporto per l'utilizzo di applicazioni gestite pubblicate dai fornitori di software indipendenti è disponibile anche nel portale. È possibile seguire questa procedura:
 
-Selezionare l'applicazione gestita dal pannello Crea del portale di Azure.
+Selezionare l'applicazione gestita dal catalogo di servizi dal pannello Crea del portale di Azure.
 
-![](./media/managed-application-consumption/create-blade.png)
+![](./media/managed-application-consumption/create-service-catalog-managed-application.png)
 
 Verrà visualizzato l'elenco di offerte dei vari fornitori di software indipendenti o partner. Scegliere quale creare e fare clic su "Crea".
 

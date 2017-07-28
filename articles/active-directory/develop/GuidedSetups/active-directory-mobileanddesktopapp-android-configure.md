@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 9b23f34300248ff87ed4a6abbeb6cfdda6570581
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 945b09ccdb7537987da33d32d94a3ccacd829ffd
 ms.contentlocale: it-it
 
 
@@ -35,7 +35,7 @@ ms.contentlocale: it-it
 1. Passare al [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app) per registrare un'applicazione
 2. Immettere un nome per l'applicazione e l'indirizzo di posta elettronica 
 3. Assicurarsi che l'opzione per l'installazione guidata sia deselezionata
-4. Fare clic su `Add Platforms`, selezionare `Native Application` e quindi fare clic su Salva
+4. Fare clic su `Add Platform`, selezionare `Native Application` e quindi fare clic su Salva
 5.  Aprire `MainActivity` (in `app` > `java` > *`{host}.{namespace}`*)
 6.  Sostituire *[Enter the application Id here]* nella riga che inizia con `final static String CLIENT_ID` con l'ID dell'applicazione appena registrata:
 

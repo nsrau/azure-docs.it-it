@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: f14bc4e8091eb1f0dccb761d9df1c931b9b77732
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae0261134b8d4a934048f58d6c679a48a904950b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funzioni numeriche per i modelli di Azure Resource Manager
@@ -92,7 +91,7 @@ L'esempio seguente aggiunge due parametri.
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | Type | Valore |
+| Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -195,7 +194,7 @@ L'esempio seguente mostra come dividere un parametro per un altro parametro.
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | Type | Valore |
+| Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -277,7 +276,7 @@ L'esempio seguente converte il valore del parametro fornito dall'utente in inter
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | Type | Valore |
+| Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -327,9 +326,9 @@ L'esempio seguente mostra come usare la funzione min con una matrice e un elenco
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Type | Valore |
+| Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -379,9 +378,9 @@ L'esempio seguente mostra come usare la funzione max con una matrice e un elenco
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Type | Valore |
+| Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -440,7 +439,7 @@ L'esempio seguente restituisce il resto della divisione di un parametro per un a
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | Type | Valore |
+| Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -499,7 +498,7 @@ L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | Type | Valore |
+| Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -557,7 +556,7 @@ L'esempio seguente mostra come sottrarre un parametro da un altro parametro.
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | Type | Valore |
+| Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

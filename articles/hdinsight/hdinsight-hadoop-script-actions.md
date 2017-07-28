@@ -1,6 +1,6 @@
 ---
-title: Sviluppo di azioni script con HDInsight| Documentazione Microsoft
-description: "Informazioni su come personalizzare i cluster Hadoop con Azione script. L&quot;azione script può essere usata per installare software aggiuntivi in esecuzione in un cluster Hadoop o per modificare la configurazione delle applicazioni installate in un cluster."
+title: Sviluppo di azioni script con HDInsight - Azure | Documentazione Microsoft
+description: "Informazioni su come personalizzare i cluster Hadoop con Azione script. L'azione script può essere usata per installare software aggiuntivi in esecuzione in un cluster Hadoop o per modificare la configurazione delle applicazioni installate in un cluster."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 989f45eed033409b1ade183827719acdd9a4b0b4
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 04f79442b72a58abb0eba9c2162e0b7b9d390e41
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Sviluppare script di Azione script per HDInsight nei cluster basati su Windows
@@ -29,7 +29,7 @@ Informazioni su come scrivere script di Azione script per HDInsight Per informaz
 
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Per informazioni sull'uso di azioni script con cluster basati su Linux, vedere [Sviluppo di azioni script con HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Per informazioni sull'uso di azioni script con cluster basati su Linux, vedere [Sviluppo di azioni script con HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
 >
 >
 
@@ -46,7 +46,7 @@ L'azione script può essere usata per installare software aggiuntivi in esecuzio
 >
 
 ## <a name="sample-scripts"></a>Script di esempio
-Per la creazione di cluster HDInsight in un sistema operativo Windows, l'azione script è uno script di Azure PowerShell. Di seguito è riportato uno script di esempio per configurare i file di configurazione del sito:
+Per la creazione di cluster HDInsight nel sistema operativo Windows, l'azione Script è uno script di Azure PowerShell. Lo script seguente è un esempio di configurazione dei file di configurazione sito:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -93,11 +93,11 @@ Per la creazione di cluster HDInsight in un sistema operativo Windows, l'azione 
 
     Write-HDILog "$configFileName has been configured."
 
-Lo script accetta quattro parametri, il nome del file di configurazione, la proprietà da modificare, il valore da impostare e una descrizione. Ad esempio:
+Lo script accetta quattro parametri, il nome del file di configurazione, la proprietà da modificare, il valore da impostare e una descrizione. ad esempio:
 
     hive-site.xml hive.metastore.client.socket.timeout 90
 
-Questi parametri imposteranno il valore hive.metastore.client.socket.timeout su 90 nel file hive-site.xml.  Il valore predefinito è 60 secondi.
+Questi parametri impostano il valore hive.metastore.client.socket.timeout su 90 nel file hive-site.xml.  Il valore predefinito è 60 secondi.
 
 Lo script di esempio è disponibile anche all'indirizzo [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
 
@@ -118,7 +118,7 @@ HDInsight fornisce diversi script di esempio per installare componenti aggiuntiv
 >
 
 ## <a name="helper-methods-for-custom-scripts"></a>Metodi helper per gli script personalizzati
-I metodi di supporto di Azione script sono utilità che è possibile usare durante la scrittura di script personalizzati. Questi vengono definiti all'indirizzo [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1)e possono essere inclusi negli script mediante la procedura seguente:
+I metodi di supporto di Azione script sono utilità che è possibile usare durante la scrittura di script personalizzati. Questi metodi vengono definiti all'indirizzo [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1)e possono essere inclusi negli script mediante l'esempio seguente:
 
     # Download config action module from a well-known directory.
     $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
@@ -179,7 +179,7 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 
     HDInsight ha un'architettura attivo/passivo per la disponibilità elevata, in cui un nodo head è in modalità attiva (dove sono in esecuzione i servizi HDInsight) e l'altro è in modalità standby (dove non sono in esecuzione i servizi HDInsight). I nodi passano dalla modalità attiva a quella passiva e viceversa quando i servizi HDInsight vengono interrotti. Se un'azione script viene usata per installare i servizi in entrambi i nodi head per la disponibilità elevata, tenere presente che il meccanismo di failover di HDInsight non sarà in grado di eseguire automaticamente il failover di questi servizi installati dall'utente. Quindi, se è richiesta la disponibilità elevata per i servizi installati dall'utente nei nodi head di HDInsight, questi servizi devono avere un proprio meccanismo di failover se sono in modalità attivo/passivo oppure essere in modalità attivo/attivo.
 
-    Il comando dell'azione Script di HDInsight viene eseguito su entrambi i nodi head quando il ruolo di questi nodi viene specificato nel parametro *ClusterRoleCollection* descritto in precedenza. Pertanto, quando si progetta uno script personalizzato, assicurarsi che lo script tenga conto di questa impostazione. Per evitare problemi, è preferibile non installare e avviare gli stessi servizi in entrambi i nodi head, dove è possibile che entrino in competizione l'uno con l'altro. Tenere presente, inoltre, che quando viene ricreata l'immagine sono possibili perdite di dati: è quindi necessario che il software installato mediante l'azione script sia resiliente a eventi di questo tipo. Le applicazioni devono essere progettate per usare dati a disponibilità elevata distribuiti in molti nodi. Si noti che è possibile ricreare allo stesso tempo l'immagine di 1/5 dei nodi di un cluster.
+    Il comando dell'azione Script di HDInsight viene eseguito su entrambi i nodi head quando il ruolo di questi nodi viene specificato nel parametro *ClusterRoleCollection* descritto in precedenza. Pertanto, quando si progetta uno script personalizzato, assicurarsi che lo script tenga conto di questa impostazione. Per evitare problemi, è preferibile non installare e avviare gli stessi servizi in entrambi i nodi head, dove è possibile che entrino in competizione l'uno con l'altro. Tenere anche presente che, quando viene ricreata l'immagine, sono possibili perdite di dati: è quindi necessario che il software installato mediante l'azione script sia resiliente a eventi di questo tipo. Le applicazioni devono essere progettate per usare dati a disponibilità elevata distribuiti in molti nodi. Si noti che è possibile ricreare allo stesso tempo l'immagine di 1/5 dei nodi di un cluster.
 * Configurare i componenti personalizzati per l'uso dell'archivio BLOB di Azure
 
     I componenti personalizzati installati nei nodi del cluster possono avere una configurazione predefinita per l'uso dell'archiviazione in un file system distribuito Hadoop (HDFS). Modificare la configurazione in modo che venga usato l'archivio BLOB di Azure. Quando si ricrea l'immagine di un cluster, il file system HDFS viene formattato e tutti i dati archiviati vengono eliminati. Se invece si usa l'archivio BLOB di Azure, i dati vengono mantenuti.
@@ -188,7 +188,7 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 Questa sezione fornisce indicazioni sull'implementazione di alcuni dei modelli di utilizzo comuni che si potrebbero riscontrare durante la scrittura dello script personalizzato.
 
 ### <a name="configure-environment-variables"></a>Configurare le variabili di ambiente
-Spesso nello sviluppo delle azioni script risulterà necessario impostare alcune variabili di ambiente. Ad esempio, uno scenario molto comune è quello in cui si scarica un file binario da un sito esterno, lo si installa nel cluster e si aggiunge il percorso di installazione alla variabile di ambiente 'PATH'. Il seguente frammento di codice mostra come impostare le variabili di ambiente nello script personalizzato.
+Spesso nello sviluppo delle azioni script risulta necessario impostare alcune variabili di ambiente. Ad esempio, uno scenario molto comune è quello in cui si scarica un file binario da un sito esterno, lo si installa nel cluster e si aggiunge il percorso di installazione alla variabile di ambiente 'PATH'. Il seguente frammento di codice mostra come impostare le variabili di ambiente nello script personalizzato.
 
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
@@ -205,7 +205,7 @@ In questo esempio, è necessario assicurarsi che il contenitore 'somecontainer' 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Passare i parametri al cmdlet Add-AzureRmHDInsightScriptAction
 Per passare più parametri al cmdlet Add-AzureRmHDInsightScriptAction, è necessario formattare il valore di stringa per contenere tutti i parametri per lo script. Ad esempio:
 
-    "-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+    "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
 oppure
 

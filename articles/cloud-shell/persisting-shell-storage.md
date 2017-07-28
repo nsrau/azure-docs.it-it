@@ -12,21 +12,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 540cd10066e055e2dc132445b9adba5a4112d63a
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 9f5883a2a611b986aa305087084d05d6fab1ab7d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
 # <a name="persisting-files-in-azure-cloud-shell"></a>Impostazione della persistenza dei file in Azure Cloud Shell
-Al primo avvio, Azure Cloud Shell richiede alla sottoscrizione di creare automaticamente un account di archiviazione con ridondanza locale e una condivisione file di Azure.
+Al primo avvio, Azure Cloud Shell richiede alla sottoscrizione di creare automaticamente un account di archiviazione con ridondanza locale e una condivisione file di Azure. La sottoscrizione deve avere accesso alla creazione di un account di archiviazione per poter accedere a Cloud Shell.
 
 ![](media/storage-prompt.png)
 
+## <a name="how-it-works"></a>Funzionamento
 ### <a name="three-resources-will-be-created-on-your-behalf-in-a-supported-region-nearest-to-you"></a>Verranno create per conto dell'utente tre risorse nell'area supportata più vicina:
 1. Gruppo di risorse denominato: `cloud-shell-storage-<region>`
 2. Account di archiviazione denominato: `cs-uniqueGuid`
@@ -42,6 +43,9 @@ Viene eseguito il mapping di `/Home/<User>/clouddrive` a `fileshare.storage.wind
  
 > [!Note]
 > Tutti i file della directory $Home, come le chiavi SSH, vengono mantenuti nell'immagine del disco utente archiviato nella condivisione file montata. Applicare le procedure consigliate quando si rendono persistenti le informazioni nella directory $Home e nella condivisione file montata.
+
+### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Limitare la creazione di risorse con i criteri delle risorse di Azure
+L'account di archiviazione è contrassegnato con "ms-resource-usage:azure-cloud-shell". Se l'organizzazione desidera impedire agli utenti di creare gli account di archiviazione per Cloud Shell, creare i [criteri delle risorse di Azure per i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) attivati dalla chiave e dal valore specificati.
 
 ## <a name="using-clouddrive"></a>Uso di clouddrive
 Cloud Shell consente agli utenti di eseguire un comando denominato `clouddrive` che consente di aggiornare manualmente la condivisione file montata in Cloud Shell.
@@ -132,6 +136,6 @@ La directory `clouddrive` viene sincronizzata con il pannello di archiviazione d
 Ora si dovrebbe vedere il file accessibile nella directory clouddrive in Cloud Shell.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Guida introduttiva a Cloud Shell](quickstart.md) 
-[Informazioni su Archiviazione file di Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-[Informazioni sui tag di archiviazione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 
+[Avvio rapido di Cloud Shell](quickstart.md) <br>
+[Informazioni sull'archiviazione file di Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Informazioni sui tag di archiviazione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

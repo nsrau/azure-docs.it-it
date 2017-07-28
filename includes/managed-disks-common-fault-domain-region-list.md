@@ -18,12 +18,15 @@
 | Regno Unito meridionale            | 2                       |
 | Regno Unito occidentale             | 2                       |
 |                     |                         |
-| Asia orientale           | 3                       |
+| Asia orientale           | 2                       |
 | Asia sudorientale     | 2                       |
 | Giappone orientale          | 2                       |
 | Giappone occidentale          | 2                       |
 | India meridionale         | 2                       |
 | India centrale       | 2                       |
+| India occidentale          | 2                       |
+| Corea centrale       | 2                       |
+| Corea meridionale         | 2                       |
 |                     |                         |
 | Australia orientale      | 2                       |
 | Australia sudorientale | 2                       |

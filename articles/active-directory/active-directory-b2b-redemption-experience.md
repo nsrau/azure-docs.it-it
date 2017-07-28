@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/01/2017
+ms.date: 05/24/2017
 ms.author: sasubram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: fd02c79d967c5076353f1f9219c22f068b56fb1d
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: aea802af038786c58d9640333458ad88fe8f90bd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -32,9 +32,10 @@ ms.lasthandoff: 05/02/2017
 Per gli utenti con account Azure AD o account Microsoft esistenti, l'esperienza di riscatto è semplice quanto l'accesso.
 
 ## <a name="social-id-user-first-time-redemption"></a>Primo riscatto dell'ID utente per social network
-Collaborazione B2B di Azure AD semplifica l'uso di qualsiasi indirizzo di posta elettronica per il riscatto. È possibile esaminare l'esperienza di riscatto quando si usa un indirizzo di posta elettronica non Microsoft per Collaborazione B2B. Si tratta di un flusso di riscatto più complesso, perché richiede la creazione di un account al momento del riscatto. Per altre informazioni, guardare il video seguente:
+Collaborazione B2B di Azure AD semplifica l'uso di qualsiasi indirizzo di posta elettronica per il riscatto. Esaminare l'esperienza di riscatto quando si usa un indirizzo di posta elettronica non Microsoft per Collaborazione B2B. Il flusso di riscatto è più complesso, perché potrebbe essere necessario creare un account in fase di riscatto. Per altre informazioni, guardare il video seguente:
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

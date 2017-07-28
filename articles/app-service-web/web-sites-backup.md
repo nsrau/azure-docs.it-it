@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
+ms.author: cephalin;aelnably
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 673ea14ff534f237e06dd1d00586dad5736792d5
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 891359514e776e169bf05df7b84d2b99306f98bf
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -59,32 +59,35 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Creare un backup manuale
-1. Nel [Portale di Azure](https://portal.azure.com) passare al pannello dell'app, selezionare **Impostazioni**, quindi **Backup**. Viene visualizzato il pannello **Backup** .
+1. Nel [portale di Azure](https://portal.azure.com) passare al pannello dell'app e selezionare **Backup**. Viene visualizzato il pannello **Backup** .
    
     ![Pagina Backups][ChooseBackupsPage]
    
    > [!NOTE]
-   > Se viene visualizzato questo messaggio, fare clic per aggiornare il piano di servizio app prima di procedere con i backup.
-   > Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md).  
-   > ![Scelta dell'account di archiviazione](./media/web-sites-backup/01UpgradePlan.png)
+   > Se viene visualizzato il messaggio seguente, fare clic per aggiornare il piano di servizio app prima di procedere con i backup.
+   > Per altre informazioni, vedere [Scalare un'app Web in Servizio app di Azure](web-sites-scale.md) .  
+   > ![Scelta dell'account di archiviazione](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
-2. Nel pannello **Backup** fare clic su **Archiviazione: non configurata** per configurare un account di archiviazione.
+
+2. Nel pannello **Backup** fare clic su **Configura**
+![Fare clic su Configura](./media/web-sites-backup/ClickConfigure1.png)
+3. Nel pannello **Configurazione backup** fare clic su **Archiviazione: non configurata** per configurare un account di archiviazione.
    
-    ![Scelta dell'account di archiviazione][ChooseStorageAccount]
-3. Scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app di cui eseguire il backup. È anche possibile creare un nuovo account di archiviazione o un nuovo contenitore nei rispettivi pannelli. Al termine, fare clic su **Seleziona**.
+    ![Scegliere l'account di archiviazione][ChooseStorageAccount]
+4. Scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app da sottoporre a backup. Se si desidera, è possibile creare un nuovo account di archiviazione o un nuovo contenitore nei rispettivi pannelli. Al termine, fare clic su **Seleziona**.
    
-    ![Scegliere l'account di archiviazione](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. Nel pannello **Configura impostazioni di backup** rimasto aperto fare clic su **Impostazioni database**, quindi selezionare i database da includere nei backup (database SQL, MySQL o PostgreSQL), quindi fare clic su **OK**.  
+    ![Scegliere l'account di archiviazione](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+5. Nel pannello **Configurazione backup** rimasto aperto è possibile configurare **Backup database**, quindi selezionare i database da includere nei backup (database SQL o MySQL), quindi fare clic su **OK**.  
    
-    ![Scegliere l'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase.png)
+    ![Scegliere l'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > Per visualizzare un database nell'elenco, è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni dell'applicazione** per l'app.
    > 
    > 
-5. Nel pannello **Configura impostazioni di backup** fare clic su **Salva**.    
-6. Nella barra dei comandi del pannello **Backup** fare clic su **Esegui backup ora**.
+6. Nel pannello **Configurazione backup** fare clic su **Salva**.    
+7. Nel pannello **Backup** fare clic su **Backup**.
    
     ![Pulsante BackUp Now][BackUpNow]
    
@@ -95,24 +98,12 @@ Dopo avere configurato l'account di archiviazione e il contenitore è possibile 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Configurazione dei backup automatici
-1. Nel pannello **Backup** fare clic su **Pianificazione: non configurata**. 
+1. Nel pannello **Configurazione backup** impostare **Backup pianificato** su **Sì**. 
    
-    ![Scelta dell'account di archiviazione](./media/web-sites-backup/05ScheduleBackup.png)
-2. Nel pannello **Impostazioni di pianificazione backup** impostare **Backup pianificati** su **Attivato**, quindi configurare la pianificazione dei backup come desiderato e fare clic su **OK**.
+    ![Scegliere l'account di archiviazione](./media/web-sites-backup/05ScheduleBackup1.png)
+2. Verranno visualizzate le opzioni di pianificazione backup. Impostare **Backup pianificati** su **Sì**, quindi configurare la pianificazione dei backup come desiderato e fare clic su **OK**.
    
     ![Abilitazione dei backup automatici][SetAutomatedBackupOn]
-3. Nel pannello **Configura impostazioni di backup** rimasto aperto fare clic su **Impostazioni di archiviazione**, quindi scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app di cui eseguire il backup. È anche possibile creare un nuovo account di archiviazione o un nuovo contenitore nei rispettivi pannelli. Al termine, fare clic su **Seleziona**.
-   
-    ![Scegliere l'account di archiviazione](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. Nel pannello **Configura impostazioni di backup** fare clic su **Impostazioni database**, quindi selezionare i database da includere nei backup (database SQL, MySQL r PostgreSQL), quindi fare clic su **OK**. 
-   
-    ![Scegliere l'account di archiviazione](./media/web-sites-backup/03ConfigureDatabase.png)
-   
-   > [!NOTE]
-   > Per visualizzare un database nell'elenco, è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** del pannello **Impostazioni dell'applicazione** per l'app.
-   >  Se si usa [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app), l'elenco non conterrà alcun database elencati poiché la stringa di connessione non è esposta nel portale nelle **impostazioni dell'applicazione**
-   > 
-5. Nel pannello **Configura impostazioni di backup** fare clic su **Salva**.    
 
 <a name="partialbackups"></a>
 
@@ -128,7 +119,7 @@ I backup parziali consentono di scegliere esattamente i file di cui eseguire il 
 ### <a name="exclude-files-from-your-backup"></a>Escludere file dal backup
 Si supponga di avere un'app che contiene file di log e immagini statiche di cui è stato eseguito un backup e che nos si intende modificare. In questi casi è possibile escludere le cartelle e i file dall'archiviazione nei backup futuri. Per escludere file e cartelle dai backup, creare un file `_backup.filter` nella cartella `D:\home\site\wwwroot` dell'applicazione. Specificare l'elenco di file e cartelle da escludere in questo file. 
 
-Un modo semplice per accedere ai file consiste nell'usare Kudu. Fare clic su **Strumenti avanzati -> Vai** affinché l'App Web acceda a Kudu.
+Un modo semplice per accedere ai file consiste nell'usare Kudu. Fare clic su **Strumenti avanzati -> Vai** perché l'app Web acceda a Kudu.
 
 ![Uso del portale con Kudu][kudu-portal]
 
@@ -173,19 +164,19 @@ Per informazioni sul ripristino di un'app da un backup, vedere [Ripristinare un'
 
 
 <!-- IMAGES -->
-[ChooseBackupsPage]:./media/web-sites-backup/01ChooseBackupsPage.png
-[ChooseStorageAccount]:./media/web-sites-backup/02ChooseStorageAccount.png
-[IncludedDatabases]:./media/web-sites-backup/03IncludedDatabases.png
-[BackUpNow]:./media/web-sites-backup/04BackUpNow.png
-[BackupProgress]:./media/web-sites-backup/05BackupProgress.png
-[SetAutomatedBackupOn]:./media/web-sites-backup/06SetAutomatedBackupOn.png
-[Frequency]:./media/web-sites-backup/07Frequency.png
-[StartDate]:./media/web-sites-backup/08StartDate.png
-[StartTime]:./media/web-sites-backup/09StartTime.png
-[SaveIcon]:./media/web-sites-backup/10SaveIcon.png
-[ImagesFolder]:./media/web-sites-backup/11Images.png
-[LogsFolder]:./media/web-sites-backup/12Logs.png
-[GhostUpgradeWarning]:./media/web-sites-backup/13GhostUpgradeWarning.png
+[ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage1.png
+[ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount-1.png
+[IncludedDatabases]: ./media/web-sites-backup/03IncludedDatabases.png
+[BackUpNow]: ./media/web-sites-backup/04BackUpNow1.png
+[BackupProgress]: ./media/web-sites-backup/05BackupProgress.png
+[SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn1.png
+[Frequency]: ./media/web-sites-backup/07Frequency.png
+[StartDate]: ./media/web-sites-backup/08StartDate.png
+[StartTime]: ./media/web-sites-backup/09StartTime.png
+[SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
+[ImagesFolder]: ./media/web-sites-backup/11Images.png
+[LogsFolder]: ./media/web-sites-backup/12Logs.png
+[GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
 [kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
 
 

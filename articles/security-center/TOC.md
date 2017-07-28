@@ -19,6 +19,7 @@
 
 ## Prevenzione
 ### [Impostare i criteri di sicurezza](security-center-policies.md)
+### [Accesso JIT (Just-in-Time)](security-center-just-in-time.md)
 ### [Implementare le raccomandazioni sulla sicurezza](security-center-recommendations.md)
 
 ### [Raccomandazioni sulle applicazioni](security-center-application-recommendations.md)
@@ -71,7 +72,7 @@
 ## [Sicurezza di Azure](/azure/security/)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog su sicurezza, privacy e conformità per Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Prezzi](security-center-pricing.md)
 ## [Panoramica del servizio](https://azure.microsoft.com/services/security-center/)

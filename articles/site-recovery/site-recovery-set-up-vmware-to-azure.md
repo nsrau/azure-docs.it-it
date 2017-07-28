@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fd331d805c0c6ddcfb492db2902a8e53b23dcab3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ Questo articolo descrive come configurare l'ambiente locale per avviare la repli
 
 Nell'articolo si presuppone che siano già stati creati gli elementi seguenti:
 - Insieme di credenziali di Servizi di ripristino nel [portale di Azure](http://portal.azure.com "Portale di Azure").
-- Account dedicato in VMware vCenter che può essere usato per l'[individuazione automatica](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
+- Account dedicato in VMware vCenter che può essere usato per l'[individuazione automatica](./site-recovery-vmware-to-azure.md).
 - Macchina virtuale nella quale installare il server di configurazione.
 
 ## <a name="configuration-server-minimum-requirements"></a>Requisiti minimi per il server di configurazione

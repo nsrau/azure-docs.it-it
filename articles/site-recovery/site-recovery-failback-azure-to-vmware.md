@@ -14,12 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 795dd0c05daf560e5a271fef5356eb83d72a6112
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Eseguire il failback di server fisici e macchine virtuali VMware nel sito locale
@@ -70,7 +69,7 @@ Quando si esegue il failback in una posizione alternativa, i dati vengono ripris
 ## <a name="prerequisites"></a>Prerequisiti
 * Per eseguire il failback di server fisici e macchine virtuali VMware, è necessario un ambiente VMware. Il failback in un server fisico non è supportato.
 * Per eseguire il failback, è necessaria una rete di Azure creata al momento dell'impostazione iniziale della protezione. Il failback richiede una connessione VPN o ExpressRoute dalla rete di Azure in cui si trovano le macchine virtuali di Azure al sito locale.
-* Se le macchine virtuali in cui si vuole eseguire il failback sono gestite da un server vCenter, assicurarsi di disporre delle autorizzazioni necessarie per l'individuazione di macchine virtuali nei server vCenter. Per altre informazioni, vedere [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* Se le macchine virtuali in cui si vuole eseguire il failback sono gestite da un server vCenter, assicurarsi di disporre delle autorizzazioni necessarie per l'individuazione di macchine virtuali nei server vCenter. Per altre informazioni, vedere [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 * Se in una macchina virtuale sono presenti snapshot, la riprotezione ha esito negativo. È possibile eliminare gli snapshot o i dischi.
 * Prima di eseguire il failback, creare i componenti seguenti:
   * **Creare un server di elaborazione in Azure**. Questo componente è una macchina virtuale di Azure da creare e lasciare in esecuzione durante il failback. È possibile eliminare la macchina al termine del failback.
@@ -110,7 +109,7 @@ Se le macchine virtuali sono state protette come risorse classiche (ovvero la ma
  * Il nome dell'immagine è *Microsoft Azure Site Recovery Process Server V2*. Selezionare **Classica** come modello di distribuzione.
 
        ![Select "Classic" as the Process Server deployment model](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
- * Installare il server di elaborazione seguendo le istruzioni in [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
+ * Installare il server di elaborazione seguendo le istruzioni in [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 7. Se si seleziona la rete di Azure *Resource Manager*, distribuire il server di elaborazione immettendo le informazioni seguenti:
 
   * Nome del gruppo di risorse a cui si vuole distribuire il server.
@@ -123,7 +122,7 @@ Se le macchine virtuali sono state protette come risorse classiche (ovvero la ma
 
     ![Immettere le informazioni nella finestra di dialogo "Aggiungere il server di elaborazione"](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
-8. Fare clic su **OK**. Questa operazione attiva un processo che crea una macchina virtuale del tipo di distribuzione Resource Manager durante l'installazione del server di elaborazione. Per registrare il server nel server di configurazione, eseguire il programma di installazione all'interno della macchina virtuale seguendo le istruzioni in [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Viene anche attivato un processo di distribuzione del server di elaborazione.
+8. Fare clic su **OK**. Questa operazione attiva un processo che crea una macchina virtuale del tipo di distribuzione Resource Manager durante l'installazione del server di elaborazione. Per registrare il server nel server di configurazione, eseguire il programma di installazione all'interno della macchina virtuale seguendo le istruzioni in [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md). Viene anche attivato un processo di distribuzione del server di elaborazione.
 
   Il server di elaborazione è riportato nella scheda **Server di configurazione** > **Server associati** > **Server di elaborazione**.
 
@@ -142,7 +141,7 @@ Il server di destinazione master riceve i dati di failback. Il server viene inst
 1. Se si sta configurando il server di destinazione master su Windows, aprire la pagina di avvio rapido dalla macchina virtuale su cui si sta installando il server di destinazione master.
 2. Scaricare il file di installazione per l'installazione guidata unificata di Azure Site Recovery.
 3. Eseguire la configurazione, quindi in **Prima di iniziare** selezionare **Add additional process servers to scale out deployment** (Aggiungere server di elaborazione per aumentare le istanze di distribuzione).
-4. Completare la procedura guidata come per la [configurazione del server di gestione](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Nella pagina **Dettagli del server di configurazione** specificare l'indirizzo IP del server di destinazione master e immettere una passphrase per accedere alla macchina virtuale.
+4. Completare la procedura guidata come per la [configurazione del server di gestione](site-recovery-vmware-to-azure-classic.md). Nella pagina **Dettagli del server di configurazione** specificare l'indirizzo IP del server di destinazione master e immettere una passphrase per accedere alla macchina virtuale.
 
 ### <a name="set-up-a-linux-vm-as-the-master-target-server"></a>Configurare una macchina virtuale Linux come server di destinazione master
 Per configurare il server di gestione che esegue il server di destinazione master come macchina virtuale Linux, installare il sistema operativo di base CentOS 6.6. Successivamente, recuperare gli ID SCSI per ogni disco rigido SCSI, installare alcuni pacchetti aggiuntivi e apportare alcune modifiche personalizzate.
@@ -232,7 +231,7 @@ Al termine del commit i dati dovrebbero trovarsi nuovamente nel sito locale, ma 
 Al termine della riprotezione, la VM viene replicata in Azure ed è possibile eseguire il failover.
 
 ### <a name="resolve-common-failback-issues"></a>Risolvere i problemi comuni di failback
-* Se si esegue l'individuazione di vCenter con utente di sola lettura e la protezione delle macchine virtuali, il processo funziona e il failover viene eseguito. Durante la riprotezione, failover ha esito negativo perché non è possibile individuare gli archivi dati. Non verranno quindi visualizzati gli archivi dati elencati durante la riprotezione. Per risolvere questo problema, è possibile aggiornare le credenziali di vCenter usando un account appropriato che abbia le autorizzazioni, quindi ripetere il processo. Per altre informazioni, vedere [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* Se si esegue l'individuazione di vCenter con utente di sola lettura e la protezione delle macchine virtuali, il processo funziona e il failover viene eseguito. Durante la riprotezione, failover ha esito negativo perché non è possibile individuare gli archivi dati. Non verranno quindi visualizzati gli archivi dati elencati durante la riprotezione. Per risolvere questo problema, è possibile aggiornare le credenziali di vCenter usando un account appropriato che abbia le autorizzazioni, quindi ripetere il processo. Per altre informazioni, vedere [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 * Quando si esegue il failback di una macchina virtuale Linux e l'esecuzione è locale, si nota che il pacchetto di gestione reti viene disinstallato dal computer. Tale installazione si verifica perché, quando la macchina virtuale viene ripristinata in Azure, il pacchetto di gestione reti viene rimosso.
 * Se per la configurazione di una macchina virtuale viene usato un indirizzo IP statico e viene eseguito il failover in Azure, l'indirizzo IP viene acquisito tramite DHCP. Quando il failover viene eseguito di nuovo in locale, la macchina virtuale continua a usare il protocollo DHCP per acquisire l'indirizzo IP. Se necessario, accedere manualmente al computer e impostare l'indirizzo IP torna su un indirizzo statico.
 * Se si usa l'edizione gratuita di ESXi 5.5 o di vSphere 6 Hypervisor, sarà possibile eseguire il failover, ma non eseguire il failback. Per abilitare il failback, scegliere l'aggiornamento alla licenza di valutazione del programma.

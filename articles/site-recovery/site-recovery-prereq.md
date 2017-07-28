@@ -1,6 +1,6 @@
 ---
 title: Prerequisiti per la replica in Azure con Azure Site Recovery | Microsoft Docs
-description: Questo articolo riepiloga i prerequisiti per la replica di macchine virtuali e computer fisici in Azure tramite il servizio Azure Site Recovery.
+description: In questo articolo vengono riepilogati i prerequisiti per la replica di macchine virtuali e computer fisici in Azure tramite il servizio Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -12,24 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/27/2017
+ms.date: 06/23/2017
 ms.author: rajanaki
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5ff598af73b6be727753ecac5b99f28bae19a417
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 1ed0bfe4f1b77db00dc858f010f72e084e77039e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 ---
 
-#  <a name="prerequisites-for-replication-to-azure-by-using-azure-site-recovery"></a>Prerequisiti per la replica in Azure con Azure Site Recovery
+#  <a name="prerequisites-for-replication-from-on-premises-to-azure-using-azure-site-recovery"></a>Prerequisiti per la replica da locale ad Azure con Azure Site Recovery
 
+> [!div class="op_single_selector"]
+> * [Eseguire la replica da Azure ad Azure](site-recovery-azure-to-azure-prereq.md)
+> * [Eseguire la replica da locale ad Azure](site-recovery-prereq.md)
 
-Il servizio Azure Site Recovery contribuisce alla strategia di continuità aziendale e ripristino di emergenza orchestrando la replica dei server fisici locali e delle macchine virtuali sul cloud (Azure) o in un data center secondario. In caso di interruzioni nella località primaria, è possibile eseguire il failover a una località secondaria per mantenere disponibili app e carichi di lavoro. Sarà possibile tornare alla località primaria quando sarà di nuovo operativa. Per altre informazioni su Site Recovery, vedere [Che cos'è Site Recovery?](site-recovery-overview.md).
+Il servizio Azure Site Recovery contribuisce alla strategia di continuità aziendale e ripristino di emergenza orchestrando la replica della macchina virtuale di Azure a un'altra area di Azure e a server fisici locali e delle macchine virtuali sul cloud (Azure) o in un data center secondario. In caso di interruzioni nella località primaria, è possibile eseguire il failover a una località secondaria per mantenere disponibili app e carichi di lavoro. Sarà possibile tornare alla località primaria quando sarà di nuovo operativa. Per altre informazioni su Site Recovery, vedere [Che cos'è Site Recovery?](site-recovery-overview.md).
 
-In questo articolo vengono riepilogati i prerequisiti necessari per avviare la replica di Site Recovery in Azure.
+Questo articolo riepiloga i prerequisiti necessari per avviare la replica di Site Recovery da locale ad Azure.
 
 È possibile inserire commenti nella parte inferiore di questo articolo oppure porre domande tecniche nel [forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
 
 ## <a name="azure-requirements"></a>Requisiti di Azure
 
@@ -67,7 +70,7 @@ Di seguito sono elencati i componenti necessari per il ripristino di emergenza d
 | --- | --- |
 | **Macchine virtuali VMware locali** | Nelle VM replicate devono essere installati e in esecuzione gli strumenti VMware.<br/><br/> Le VM devono essere conformi ai [prerequisiti di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) per la creazione di VM di Azure.<br/><br/>La capacità dei singoli dischi nei computer protetti non deve superare 1,023 GB. <br/><br/>Minimo 2 GB di spazio disponibile sull'unità di installazione richiesto per l'installazione del componente.<br/><br/>La porta 20004 deve essere aperta nel firewall locale della VM se si desidera abilitare la coerenza fra più VM.<br/><br/>I nomi delle macchine devono contenere da 1 a 63 caratteri, ovvero lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero. È possibile modificare il nome di Azure dopo aver abilitato la replica per una macchina.<br/><br/> |
 | **Computer Windows (fisico o VMware)** | Nel computer deve essere in esecuzione un sistema operativo a 64 bit supportato: Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 o versioni successive.<br/><br/> Il sistema operativo deve essere installato nell'unità C e il disco del sistema operativo deve essere un disco di base di Windows, non un disco dinamico. Il disco dati può essere dinamico.<br/><br/>|
-| **Computer Linux** (fisico o VMware) | È necessario un sistema operativo a 64 bit supportato: Red Hat Enterprise Linux 6.7, 6.8, 7.1 o 7.2; Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, o 7.2; Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4.<br/><br/>I file /etc/hosts nei computer protetti devono contenere le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.<br/><br/>Per connettersi a una macchina virtuale di Azure che esegue Linux dopo il failover usando un client Secure Shell (SSH), accertarsi che il servizio Secure Shell nel computer protetto sia impostato per l'avvio automatico all'avvio del sistema e che le regole del firewall permettano una connessione SSH a tale computer.<br/><br/>Nome host, punti di montaggio, nomi dispositivo e percorsi di sistema di Linux e nomi file (ad esempio /etc/, /usr) dovranno essere specificati solo con caratteri dell'alfabeto latino.<br/><br/>Le seguenti directory (se impostate come partizioni, file-system separati) devono essere tutte nello stesso disco (il disco del sistema operativo) nel server di origine:   / (root), /boot, /usr, /usr/local, /var, /ecc.<br/><br/>Le funzionalità XFS v5, ad esempio i checksum di metadati, non sono attualmente supportate da ASR nei file System XFS. Assicurarsi che i file System XFS non usino alcuna funzionalità v5. È possibile usare l'utilità xfs_info per controllare il superblocco XFS per la partizione. Se ftype è impostato su 1, le funzionalità XFSv5 sono in uso.<br/><br/>Nei server Red Hat Enterprise Linux 7 e CentOS 7 l'utilità lsof deve essere installata e disponibile.<br/><br/>
+| **Computer Linux** (fisico o VMware) | È necessario un sistema operativo a 64 bit supportato: Red Hat Enterprise Linux 6.7, 6.8, 7.1 o 7.2; Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, o 7.2; server LTS Ubuntu 14.04, per un elenco delle versioni kernel supportate con Ubuntu controllare i [sistemi operativi supportati](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions); Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4.<br/><br/>I file /etc/hosts nei computer protetti devono contenere le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.<br/><br/>Per connettersi a una macchina virtuale di Azure che esegue Linux dopo il failover usando un client Secure Shell (SSH), accertarsi che il servizio Secure Shell nel computer protetto sia impostato per l'avvio automatico all'avvio del sistema e che le regole del firewall permettano una connessione SSH a tale computer.<br/><br/>Nome host, punti di montaggio, nomi dispositivo e percorsi di sistema di Linux e nomi file (ad esempio /etc/, /usr) dovranno essere specificati solo con caratteri dell'alfabeto latino.<br/><br/>Le seguenti directory (se impostate come partizioni, file-system separati) devono essere tutte nello stesso disco (il disco del sistema operativo) nel server di origine:   / (root), /boot, /usr, /usr/local, /var, /ecc.<br/><br/>Le funzionalità XFS v5, ad esempio i checksum di metadati, non sono attualmente supportate da ASR nei file System XFS. Assicurarsi che i file System XFS non usino alcuna funzionalità v5. È possibile usare l'utilità xfs_info per controllare il superblocco XFS per la partizione. Se ftype è impostato su 1, le funzionalità XFSv5 sono in uso.<br/><br/>Nei server Red Hat Enterprise Linux 7 e CentOS 7 l'utilità lsof deve essere installata e disponibile.<br/><br/>
 
 
 ## <a name="disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager"></a>Ripristino di emergenza in Azure di macchine virtuali Hyper-V (non Virtual Machine Manager)

@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: c0fabf155d4feb6d88ef7d7e087cc1654f44978b
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
-
 
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-windows-vms"></a>Linee guida per l'infrastruttura di archiviazione di Azure per macchine virtuali Windows

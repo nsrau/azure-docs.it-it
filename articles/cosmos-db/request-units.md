@@ -2,24 +2,23 @@
 title: "Unità richiesta e stima della velocità effettiva: Azure Cosmos DB | Microsoft Docs"
 description: "Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in Azure Cosmos DB."
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
-ms.service: Azure Cosmos DB
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: syamk
+ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f263aaad1ba2a902401d8210727f146cb92f4ea8
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
@@ -28,11 +27,11 @@ Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/ca
 ![Calcolatore della velocità effettiva][5]
 
 ## <a name="introduction"></a>Introduzione
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è il database multimodello distribuito a livello globale di Microsoft. Con Azure Cosmos DB non è necessario affittare macchine virtuali, distribuire software o monitorare database. Azure Cosmos DB è gestito e monitorato costantemente dai migliori tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità. Permette di accedere ai dati usando le API preferite, perché supporta in modalità nativa [SQL di DocumentDB](documentdb-sql-query.md) (documenti), MongoDB (documenti), [Archiviazione tabelle di Azure](https://azure.microsoft.com/services/storage/tables/) (chiave-valore) e [Gremlin](https://tinkerpop.apache.org/gremlin.html) (grafi). La valuta di Azure Cosmos DB è costituita dalle unità richiesta (UR). Con le unità richiesta, non è necessario riservare capacità di lettura o scrittura né effettuare il provisioning di CPU, memoria e operazioni di I/O al secondo.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è il database multimodello distribuito a livello globale di Microsoft. Con Azure Cosmos DB non è necessario affittare macchine virtuali, distribuire software o monitorare database. Azure Cosmos DB è gestito e monitorato costantemente dai migliori tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità. Permette di accedere ai dati usando le API preferite, perché supporta in modalità nativa [SQL di DocumentDB](documentdb-sql-query.md) (documenti), MongoDB (documenti), [Archiviazione tabelle di Azure](https://azure.microsoft.com/services/storage/tables/) (chiave-valore) e [Gremlin](https://tinkerpop.apache.org/gremlin.html) (grafi). La valuta di Azure Cosmos DB è costituita dalle unità richiesta (UR). Con le unità richiesta, non è necessario riservare capacità di lettura/scrittura né effettuare il provisioning di CPU, memoria e operazioni di I/O al secondo.
 
 Azure Cosmos DB supporta una serie di API con operazioni diverse, che vanno dalla semplice lettura e scrittura alle query per grafi più complesse. Poiché non tutte le richieste sono uguali, viene loro assegnata una quantità normalizzata di **unità richiesta** in base alla quantità di calcolo necessaria per servire la richiesta. Il numero di unità richiesta per un'operazione è deterministico ed è possibile tenere traccia del numero di unità richiesta utilizzate da qualsiasi operazione in Azure Cosmos DB tramite un'intestazione della risposta. 
 
-Per prestazioni prevedibili, è necessario riservare una velocità effettiva per unità di 100 UR al secondo. Per ogni blocco da 100 UR/sec è possibile collegare un blocco da 1.000 UR/min. Unire il provisioning al secondo e quello al minuto permette di evitare la necessità di effettuare il provisioning per picco e di risparmiare fino al 75% dei costi rispetto a qualsiasi servizio basato unicamente sul provisioning al secondo.
+Per prestazioni prevedibili, è necessario riservare una velocità effettiva in unità di 100 UR/secondo. Per ogni blocco da 100 UR/sec è possibile collegare un blocco da 1.000 UR/min. Unire il provisioning al secondo e quello al minuto permette di evitare la necessità di effettuare il provisioning per carichi di picco e di risparmiare fino al 75% dei costi rispetto a qualsiasi servizio basato unicamente sul provisioning al secondo.
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:  
 

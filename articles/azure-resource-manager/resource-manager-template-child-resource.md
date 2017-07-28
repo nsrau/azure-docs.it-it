@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 06/01/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: d7560b689d7cea56d40ffa2db9542f74a649f9c1
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
+ms.contentlocale: it-it
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -29,6 +30,16 @@ Il formato del tipo della risorsa figlio è: `{resource-provider-namespace}/{par
 Il formato del nome della risorsa figlio è: `{parent-resource-name}/{child-resource-name}`
 
 Il tipo e il nome vengono tuttavia specificati in modo diverso in un modello a seconda che la risorsa sia annidata nella risorsa padre oppure di primo livello. Questo argomento illustra come gestire entrambi gli approcci.
+
+Quando si crea un riferimento completo a una risorsa, l'ordine di combinazione dei segmenti dal tipo e dal nome non è semplicemente una concatenazione dei due elementi.  Dopo lo spazio dei nomi, usare invece una sequenza di coppie *tipo/nome* dal meno specifico al più specifico:
+
+```json
+{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
+```
+
+ad esempio:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` è corretto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` non è corretto
 
 ## <a name="nested-child-resource"></a>Risorsa figlio annidata
 Il modo più semplice per definire una risorsa figlio consiste nell'annidarla nella risorsa padre. L'esempio seguente illustra un database SQL annidato in un'istanza di SQL Server.

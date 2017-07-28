@@ -1,6 +1,6 @@
 ---
 title: Configurare un nome di dominio personalizzato nei servizi cloud | Documentazione Microsoft
-description: Informazioni su come esporre i dati o l&quot;applicazione Azure in un dominio personalizzato configurando le impostazioni DNS.
+description: Informazioni su come esporre i dati o l'applicazione Azure in un dominio personalizzato configurando le impostazioni DNS.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 5834ad4e35894f9417d0319f120c8b74b69b3355
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
