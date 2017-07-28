@@ -1,6 +1,6 @@
 ---
-title: Come configurare l&quot;accesso Single Sign-On federato per un&quot;applicazione della raccolta di Azure AD | Microsoft Docs
-description: Informazioni su come configurare l&quot;accesso Single Sign-On federato per un&quot;applicazione nella raccolta di Azure AD e usare le esercitazioni per eseguire l&quot;operazione rapidamente
+title: Come configurare l'accesso Single Sign-On federato per un'applicazione della raccolta di Azure AD | Microsoft Docs
+description: Informazioni su come configurare l'accesso Single Sign-On federato per un'applicazione nella raccolta di Azure AD e usare le esercitazioni per eseguire l'operazione rapidamente
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: d08db952bcfb6af3b5f175f9bedd8811543cff7d
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 76078566c93f2b0359c1157cdcdb5b15a1402996
+ms.contentlocale: it-it
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -206,6 +206,10 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione agli utenti selezionati.
 
 Dopo un breve periodo di tempo, gli utenti selezionati potranno avviare queste applicazioni usando i metodi illustrati nella sezione Descrizione della soluzione.
+
+## <a name="customizing-the-saml-claims-sent-to-an-application"></a>Personalizzazione delle attestazioni SAML inviate a un'applicazione
+
+Per informazioni su come personalizzare le attestazioni degli attributi SAML inviate all'applicazione, vedere [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) (Mapping di attestazioni in Azure Active Directory).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 44be67cd5c59a57cafd244ce0a49a6fadf44bdda
-ms.openlocfilehash: 8abde97ecb906384cd6e62811fcbb833bdc8be51
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 04e6c03dfd10c7dab50299f8ff0a5313274e4c60
+ms.contentlocale: it-it
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -80,7 +81,7 @@ Per creare un nuovo certificato autofirmato in un computer Windows, aprire una n
 
     New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
 
-Nell'esempio precedente sostituire "contoso100.com" con il nome di dominio DNS del dominio gestito di Servizi di dominio Azure AD.
+Nell'esempio precedente sostituire '*.contoso100.com' con il nome di dominio DNS del dominio gestito di Azure AD Domain Services. Se ad esempio è stato creato un nome di dominio DNS per AD Domain Services denominato 'contoso100.onmicrosoft.com', si dovrà sostituire '*.contoso100.com' con '*.conotoso100.onmicrosoft.com' nello script precedente.
 
 ![Selezionare una directory di Azure AD](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

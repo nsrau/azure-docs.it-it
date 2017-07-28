@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: risoluzione dei problemi relativi alla funzionalità Seamless Single Sign-On | Microsoft Docs"
-description: "Questo argomento descrive come risolvere i problemi della funzionalità Seamless Single Sign-On di Azure Active Directory (Seamless SSO di Azure AD)."
+title: 'Azure AD Connect: risolvere i problemi relativi all''accesso Single Sign-On facile | Microsoft Docs'
+description: Questo argomento descrive come risolvere i problemi dell'accesso Single Sign-On (SSO) facile di Azure Active Directory.
 services: active-directory
-keywords: "che cos&quot;è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
+keywords: "che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
 documentationcenter: 
 author: swkrish
 manager: femila
@@ -12,41 +12,66 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: a543be452abbbe3057a5e275612968cd52c8b7aa
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 4466a5aa1d55b178a584832d03f68d307767d167
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 
-# <a name="how-to-troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Come risolvere i problemi relativi alla funzionalità Seamless Single Sign-On di Azure Active Directory
+# <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
+
+Questo articolo consente di trovare informazioni utili per risolvere i problemi comuni relativi all'accesso Single Sign-On facile di Azure AD.
 
 ## <a name="known-issues"></a>Problemi noti
 
-- Se si esegue la sincronizzazione di più di 30 foreste di Active Directory con Azure AD Connect, la procedura guidata usata per configurare la funzionalità Seamless SSO non funziona correttamente. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-azure-ad-seamless-sso) la funzionalità Seamless SSO nel tenant in uso.
-- Aggiunta degli URL del servizio Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) all'area dei "Siti attendibili" anziché all'area "Intranet locale".
+- Se si esegue la sincronizzazione di 30 o più foreste di Active Directory, non è possibile abilitare l'accesso SSO facile usando Azure AD Connect. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-azure-ad-seamless-sso) la funzionalità nel tenant in uso.
+- L'aggiunta degli URL del servizio Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) alla zona "Siti attendibili" anziché alla zona "Intranet locale" impedisce agli utenti di eseguire l'accesso.
+- L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.
+
+## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivi degli errori di accesso dell'interfaccia di amministrazione di Azure Active Directory
+
+Un buon punto di partenza per la risoluzione dei problemi relativi all'accesso eseguito con la funzionalità di accesso SSO facile è esaminare il [report sull'attività di accesso](../active-directory-reporting-activity-sign-ins.md) nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
+
+![Report sugli accessi](./media/active-directory-aadconnect-sso/sso9.png)
+
+Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
+
+|Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
+| --- | --- | ---
+| 81001 | Il ticket Kerberos dell'utente è troppo grande. | Ridurre l'appartenenza a gruppi dell'utente e riprovare.
+| 81002 | Impossibile convalidare il ticket Kerberos dell'utente. | Vedere l'[elenco di controllo per la risoluzione dei problemi](#troubleshooting-checklist).
+| 81003 | Impossibile convalidare il ticket Kerberos dell'utente. | Vedere l'[elenco di controllo per la risoluzione dei problemi](#troubleshooting-checklist).
+| 81004 | Tentativo di autenticazione Kerberos non riuscito. | Vedere l'[elenco di controllo per la risoluzione dei problemi](#troubleshooting-checklist).
+| 81008 | Impossibile convalidare il ticket Kerberos dell'utente. | Vedere l'[elenco di controllo per la risoluzione dei problemi](#troubleshooting-checklist).
+| 81009 | Impossibile convalidare il ticket Kerberos dell'utente. | Vedere l'[elenco di controllo per la risoluzione dei problemi](#troubleshooting-checklist).
+| 81010 | Non è stato possibile usare l'accesso SSO facile perché il ticket Kerberos dell'utente è scaduto o non è valido. | L'utente deve eseguire l'accesso da un dispositivo aggiunto a un dominio all'interno della rete aziendale.
+| 81011 | Impossibile trovare l'oggetto utente in base alle informazioni nel ticket Kerberos dell'utente. | Usare Azure AD Connect per sincronizzare le informazioni dell'utente in Azure AD.
+| 81012 | L'utente che sta tentando di accedere ad Azure AD è diverso dall'utente che ha eseguito l'accesso al dispositivo. | Accedere da un altro dispositivo.
+| 81013 | Impossibile trovare l'oggetto utente in base alle informazioni nel ticket Kerberos dell'utente. |Usare Azure AD Connect per sincronizzare le informazioni dell'utente in Azure AD. 
 
 ## <a name="troubleshooting-checklist"></a>Elenco di controllo per la risoluzione dei problemi
 
-Per la risoluzione dei problemi relativi alla funzionalità Seamless SSO di Azure AD, usare l'elenco di controllo seguente:
+Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenco di controllo:
 
-1. Controllare se è abilitata la funzionalità Seamless SSO nel tenant nello strumento Azure AD Connect. Se non è possibile abilitare la funzionalità (ad esempio a causa di una porta bloccata), assicurarsi che tutti i [prerequisiti](active-directory-aadconnect-sso.md#pre-requisites) siano soddisfatti. Se i problemi con l'abilitazione della funzionalità persistono, contattare il supporto Microsoft.
-2. Entrambi gli URL di assistenza, https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net, sono definiti all'interno dell'area Intranet.
-3. Assicurarsi che il desktop aziendale sia aggiunto al dominio AD.
-4. Assicurarsi che l'utente sia connesso al desktop mediante un account del dominio AD.
-5. Assicurarsi che l'account dell'utente sia presente in una foresta di Active Directory in cui è stata configurata la funzionalità Seamless SSO.
-6. Assicurarsi che il computer sia connesso alla rete aziendale.
-7. Assicurarsi che l'ora del computer sia sincronizzata con quella di Active Directory e dei controller di dominio e che si discosti di un massimo di 5 minuti da esse.
-8. Eliminare i ticket Kerberos dal loro desktop. È possibile farlo eseguendo il comando **klist purge** al prompt dei comandi. I ticket Kerberos degli utenti sono in genere validi per 12 ore. Possono tuttavia essere configurati in modo diverso in Active Directory.
-9. Esaminare i log di console del browser (in "Strumenti di sviluppo") per determinare i potenziali problemi.
-10. Esaminare anche i [log del controller di dominio](#domain-controller-logs).
+- Verificare se l'accesso SSO facile è abilitato in Azure AD Connect. Se non è possibile abilitare la funzionalità, ad esempio a causa di una porta bloccata, verificare che tutti i [prerequisiti](active-directory-aadconnect-sso-quick-start.md#step-1-check-prerequisites) siano soddisfatti.
+- Verificare che entrambi gli URL di Azure AD https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net facciano parte delle impostazioni della zona Intranet dell'utente.
+- Verificare che il dispositivo aziendale sia aggiunto al dominio AD.
+- Verificare che l'utente sia connesso al dispositivo con un account del dominio AD.
+- Verificare che l'account dell'utente sia presente in una foresta di Active Directory in cui è stato configurato l'accesso SSO facile.
+- Verificare che il dispositivo sia connesso alla rete aziendale.
+- Verificare che l'ora del dispositivo sia sincronizzata con quella di Active Directory e dei controller di dominio e che si discosti al massimo di 5 minuti dalle stesse.
+- Indicare i ticket Kerberos presenti nel dispositivo usando il comando **klist** da un prompt dei comandi. Verificare se sono presenti i ticket emessi per l'account del computer `AZUREADSSOACCT`. I ticket Kerberos degli utenti sono in genere validi per 12 ore. È possibile che siano in uso impostazioni diverse in Active Directory.
+- Eliminare i ticket Kerberos dal dispositivo usando il comando **klist purge** e riprovare.
+- Esaminare i registri della console del browser (in "Strumenti di sviluppo") per determinare se esistono problemi relativi a JavaScript.
+- Esaminare anche i [log del controller di dominio](#domain-controller-logs).
 
 ### <a name="domain-controller-logs"></a>Log del controller di dominio
 
-Se il controllo delle operazioni non riuscite è abilitato sul controller di dominio, ogni volta che un utente esegue l'accesso utilizzando la funzionalità Seamless SSO una voce di sicurezza (evento 4769 associato con l'account computer **AzureADSSOAcc$**) viene registrata nel log eventi. È possibile trovare questi eventi di sicurezza usando la query seguente:
+Se il controllo delle operazioni non riuscite è abilitato nel controller di dominio, ogni volta che un utente esegue l'accesso usando la funzionalità di accesso SSO facile, viene registrata una voce di sicurezza nel registro eventi. È possibile trovare questi eventi di sicurezza usando la query seguente (cercare l'evento **4769** associato all'account computer **AzureADSSOAcc$**):
 
 ```
     <QueryList>
@@ -58,35 +83,32 @@ Se il controllo delle operazioni non riuscite è abilitato sul controller di dom
 
 ## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Reimpostare manualmente la funzionalità Seamless SSO di Azure Active Directory
 
-Se il problema persiste, seguire questa procedura per reimpostare o abilitare manualmente la funzionalità nel tenant:
+Se il problema persiste, seguire questa procedura per reimpostare manualmente la funzionalità nel tenant:
 
-### <a name="1-import-the-seamless-sso-powershell-module"></a>1. Importare il modulo di PowerShell Seamless SSO
+### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Passaggio 1: importare il modulo di PowerShell per l'accesso SSO facile
 
-- Scaricare e installare prima l' [Assistente per l'accesso ai Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-- Scaricare e installare quindi il [modulo di Azure Active Directory a 64 bit per Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-- Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
-- Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
+1. Scaricare e installare prima l'[Assistente per l'accesso ai Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Scaricare e installare quindi il [modulo di Azure Active Directory a 64 bit per Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
+4. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
 
-### <a name="2-get-the-list-of-ad-forests-on-which-seamless-sso-has-been-enabled"></a>2. Ottenere l'elenco di foreste di Active Directory in cui è stata abilitata la funzionalità Seamless SSO
+### <a name="step-2-get-the-list-of-ad-forests-on-which-seamless-sso-has-been-enabled"></a>Passaggio 2: ottenere l'elenco di foreste di Active Directory in cui è stata abilitato l'accesso SSO facile
 
-- In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Dovrebbe essere visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore del tenant di Azure AD.
-- Eseguire la chiamata a `Get-AzureADSSOStatus`. Verrà visualizzato l'elenco di foreste di Active Directory, ovvero l'elenco "Domini", in cui è stata abilitata questa funzionalità.
+1. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Quando richiesto, immettere le proprie credenziali di amministratore del tenant Azure AD.
+2. Eseguire la chiamata a `Get-AzureADSSOStatus`. ll comando consente di visualizzare l'elenco di foreste di Active Directory, ovvero l'elenco "Domini", in cui è stata abilitata questa funzionalità.
 
-### <a name="3-disable-seamless-sso-for-each-ad-forest-that-it-was-set-it-up-on"></a>3. Disabilitare la funzionalità Seamless SSO per ogni foresta di Active Directory in cui era impostata
+### <a name="step-3-disable-seamless-sso-for-each-ad-forest-that-it-was-set-it-up-on"></a>Passaggio 3: disabilitare l'accesso SSO facile per ogni foresta di Active Directory in cui era impostato
 
-- In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Dovrebbe essere visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore del tenant di Azure AD.
-- Eseguire la chiamata a `$creds = Get-Credential`. Dovrebbe essere visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore di dominio per la foresta di Active Directory desiderata.
-- Eseguire la chiamata a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Questa operazione rimuoverà l'account del computer AZUREADSSOACCT dal controller di dominio locale e disabiliterà questa funzionalità per la foresta di Active Directory specifica.
-- Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui è stata configurata la funzionalità.
+1. Eseguire la chiamata a `$creds = Get-Credential`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
+2. Eseguire la chiamata a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Questo comando rimuove l'account computer `AZUREADSSOACCT` dal controller di dominio locale per questa foresta di Active Directory specifica.
+3. Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui è stata configurata la funzionalità.
 
-### <a name="4-enable-seamless-sso-for-each-ad-forest"></a>4. Abilitare la funzionalità Seamless SSO per ogni foresta di Active Directory
+### <a name="step-4-enable-seamless-sso-for-each-ad-forest"></a>Passaggio 4: abilitare l'accesso SSO facile per ogni foresta di Active Directory
 
-- Eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Dovrebbe essere visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore del tenant di Azure AD.
-- Eseguire la chiamata a `Enable-AzureADSSOForest`. Dovrebbe essere visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore di dominio per la foresta di Active Directory desiderata.
-- Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui si desidera configurare la funzionalità.
+1. Eseguire la chiamata a `Enable-AzureADSSOForest`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
+2. Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui si vuole configurare la funzionalità.
 
-### <a name="5-enable-seamless-sso-on-your-tenant"></a>5. Abilitare la funzionalità Seamless SSO nel tenant
+### <a name="step-5-enable-the-feature-on-your-tenant"></a>Passaggio 5. Abilitare la funzionalità nel tenant
 
-- Eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Dovrebbe essere visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore del tenant di Azure AD.
-- Eseguire la chiamata a `Enable-AzureADSSO` e digitare "true" al prompt `Enable: ` per attivare la funzionalità nel tenant in uso.
+Eseguire la chiamata a `Enable-AzureADSSO` e digitare "true" al prompt `Enable: ` per attivare la funzionalità nel tenant in uso.
 

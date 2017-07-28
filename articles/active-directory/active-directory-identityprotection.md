@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory Identity Protection | Microsoft Docs
-description: "Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un&quot;identità o un dispositivo compromesso e di proteggere un&quot;identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso."
+description: "Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un'identità o un dispositivo compromesso e di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso."
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 06/24/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 483e77f598beaeb924197e3eb301a26da33a3f1f
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 8132b4844260a997e62effd167f2f1206f3edbcd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
@@ -82,7 +82,7 @@ Per bilanciare il carico delle attività di gestione per l'implementazione di Id
 | :--                          | ---                                |  ---   |
 | Amministratore globale         | Accesso completo a Identity Protection, implementazione di Identity Protection| |
 | Amministratore della sicurezza       | Accesso completo a Identity Protection | Implementazione di Identity Protection, reimpostazione delle password per un utente |
-| Ruolo con autorizzazioni di lettura per la sicurezza              | Accesso in sola lettura a Identity Protection | Implementazione di Identity Protection, modiche agli utenti, configurazione dei criteri, reimpostazione delle password |
+| Ruolo con autorizzazioni di lettura per la sicurezza              | Accesso in sola lettura a Identity Protection | Implementazione di Identity Protection, correzione degli utenti, configurazione dei criteri, reimpostazione delle password |
 
 
 

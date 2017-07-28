@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti su Azure Active Directory Connect Healtht | Microsoft Docs
-description: "Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull&quot;uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto."
+description: "Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
-ms.openlocfilehash: 233691d19aa2553744f92af17f7ecf9fda2290e0
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 1f1c453267ea17d749a251539f4232131dae53d3
+ms.contentlocale: it-it
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
@@ -138,6 +139,44 @@ No, il controllo non deve essere abilitato nei server proxy applicazione Web.
 **D: In che modo vengono risolti gli avvisi di Azure AD Connect Health?**
 
 Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizione di esito positivo. Gli agenti di Azure AD Connect Health rilevano e segnalano periodicamente al servizio le condizioni di esito positivo. Per alcuni avvisi, l'eliminazione è basata sul tempo. In altri termini, se entro 72 ore dalla generazione dell'avviso non viene osservata la stessa condizione di errore, l'avviso viene automaticamente risolto.
+
+**D: Viene visualizzato l'avviso "La richiesta di autenticazione di test (transazione sintetica) non è riuscita a ottenere un token." Come si risolve il problema?**
+
+Azure AD Connect Health per AD FS genera questo avviso quando l'agente installato in un server AD FS non riesce a ottenere un token in quanto parte di una transazione sintetica avviata dall'agente stesso. L'agente di Azure AD Connect Health usa il contesto di sistema locale e tenta di ottenere un token per un self relying party. Si tratta di un test di tipo catch-all per assicurarsi che AD FS sia in uno stato di rilascio di token.
+
+Spesso questo test ha esito negativo perché l'agente di Azure AD Connect Health non può risolvere il nome della farm AD FS. Questa situazione può verificarsi se i server AD FS si trovano dietro un bilanciamento del carico di rete e la richiesta viene avviata da un nodo che si trova dietro il bilanciamento del carico, in contrapposizione a un client normale che si trova davanti al bilanciamento del carico. Questo problema può essere risolto aggiornando il file "hosts" in "C:\Windows\System32\drivers\etc" per includere l'indirizzo IP del server AD FS o un indirizzo IP di loopback (127.0.0.1) per il nome della farm AD FS, come ad esempio sts.contoso.com. Quando si aggiunge il file host, la chiamata di rete viene messa in corto circuito, consentendo in tal modo all'agente di Azure AD Connect Health di ottenere il token.
+
+**D: Viene ricevuto un messaggio di posta elettronica che indica che il computer non ha le patch corrette per gli attacchi ransomeware recenti. Qual è il motivo per cui si riceve tale messaggio di posta elettronica?**
+
+Il servizio di Azure AD Connect Health ha analizzato tutti i computer di cui esegue il monitoraggio per verificare che le patch necessarie siano installate. Se almeno un computer non dispone delle patch critiche, viene inviato tale messaggio di posta elettronica agli amministratori del tenant. Per arrivare a tale decisione, è stata usata la logica seguente.
+1. Trovare tutti gli hotfix installati nel computer.
+2. Controllare se è presente almeno uno degli hotfix inclusi nell'elenco definito.
+3. Se sì, il computer è protetto. In caso contrario, il computer è a rischio di attacco.
+
+Per eseguire manualmente questo controllo, è possibile usare lo script di PowerShell seguente. In questo modo viene implementata la logica precedente.
+
+```
+Function CheckForMS17-010 ()
+{
+    $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
+
+    #checks the computer it's run on if any of the listed hotfixes are present
+    $hotfix = Get-HotFix -ComputerName $env:computername | Where-Object {$hotfixes -contains $_.HotfixID} | Select-Object -property "HotFixID"
+
+    #confirms whether hotfix is found or not
+    if (Get-HotFix | Where-Object {$hotfixes -contains $_.HotfixID})
+    {
+        "Found HotFix: " + $hotfix.HotFixID
+    } else {
+        "Didn't Find HotFix"
+    }
+}
+
+CheckForMS17-010
+
+```
+
+
 
 ## <a name="related-links"></a>Collegamenti correlati
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

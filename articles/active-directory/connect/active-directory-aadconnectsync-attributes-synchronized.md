@@ -1,6 +1,6 @@
 ---
 title: Attributi sincronizzati da Azure AD Connect | Documentazione Microsoft
-description: Fornisce l&quot;elenco degli attributi sincronizzati con Azure Active Directory.
+description: Fornisce l'elenco degli attributi sincronizzati con Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 07/17/2017
+ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 08df9939eb31c224d62d96a0d034d1cda10ba270
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 32b5e5a8025be3381e20aad0b22289b2c641f74e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
@@ -54,6 +53,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | assistant |X |X | | |
+| altRecipient |X | | |Richiede la build 1.1.552.0 o successiva di Azure AD Connect. |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
@@ -432,6 +432,7 @@ Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi a
 | msExchUCVoiceMailSettings |X | | |Abilitare la messaggistica unificata - Segreteria telefonica online: usata dall'integrazione di Microsoft Lync Server per indicare a Lync Server locale che tra i servizi online dell'utente è presente la segreteria telefonica. |
 | msExchUserHoldPolicies |X | | |Blocco per controversia legale: consente ai servizi cloud di determinare gli utenti per i quali è attivato un blocco per controversia legale. |
 | proxyAddresses |X |X |X |Viene inserito solo l'indirizzo x500 da Exchange Online. |
+| publicDelegates |X | | |Consente di concedere a una cassetta postale di Exchange Online i diritti SendOnBehalfTo degli utenti con cassette postali di Exchange locali. Richiede la build 1.1.552.0 o successiva di Azure AD Connect. |
 
 ## <a name="exchange-mail-public-folder"></a>Cartelle pubbliche della posta di Exchange
 Questi attributi vengono sincronizzati da Active Directory locale ad Azure AD quando si sceglie di abilitare **Cartelle pubbliche della posta di Exchange**.

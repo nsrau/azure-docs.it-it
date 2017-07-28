@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/14/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: b29633d93484950d6657fc1d618fa0f1a2d5c01a
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 1d3c9023ff4d3a722363d38d3c927fb7f4304448
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -35,7 +35,9 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **Amministratore fatturazione**: effettua acquisti, gestisce le sottoscrizioni, gestisce i ticket di supporto e monitora l'integrità del servizio.
 
-* **Amministratore di conformità**: gli utenti con questo ruolo hanno autorizzazioni di gestione nel Centro sicurezza e conformità di Office 365 e nell'Interfaccia di amministrazione di Exchange. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1).
+* **Amministratore di conformità**: gli utenti con questo ruolo hanno autorizzazioni di gestione nel Centro sicurezza e conformità di Office 365 e nell'interfaccia di amministrazione di Exchange. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+
+* **Amministratore di accesso condizionale**: gli utenti con questo ruolo hanno la possibilità di gestire le impostazioni di accesso condizionale di Azure Active Directory.
 
 * **Amministratore del servizio CRM**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft CRM Online, quando il servizio è presente, nonché la possibilità di gestire i ticket di supporto e monitorare l'integrità del servizio. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -102,11 +104,15 @@ Sono disponibili i ruoli di amministratore seguenti:
 | --- | --- |
 |<p>Visualizzare informazioni aziendali e sugli utenti</p><p>Gestire ticket di supporto di Office</p><p>Eseguire operazioni di fatturazione e acquisto per prodotti Office</p> |<p>Reimpostare le password utente</p><p>Creare e gestire visualizzazioni utente</p><p>Creare, modificare ed eliminare utenti e gruppi e gestire licenze utente</p><p>Gestire domini</p><p>Gestire informazioni aziendali</p><p>Delegare ruoli amministrativi ad altri</p><p>Usare la sincronizzazione delle directory</p><p>Visualizzare i log di controllo</p>|
 
+### <a name="conditional-access-administrator"></a>Amministratore di accesso condizionale
+| Operazione consentita | Operazione non consentita |
+| --- | --- |
+|<p>Visualizzare informazioni aziendali e sugli utenti</p><p>Gestire le impostazioni di accesso condizionale</p> |<p>Reimpostare le password utente</p><p>Creare e gestire visualizzazioni utente</p><p>Creare, modificare ed eliminare utenti e gruppi e gestire licenze utente</p><p>Gestire domini</p><p>Gestire informazioni aziendali</p><p>Delegare ruoli amministrativi ad altri</p><p>Usare la sincronizzazione delle directory</p><p>Visualizzare i log di controllo</p>|
+
 ### <a name="global-administrator"></a>Amministratore globale
 | Operazione consentita | Operazione non consentita |
 | --- | --- |
-| <p>Visualizzare informazioni aziendali e sugli utenti</p><p>Gestire ticket di supporto di Office</p><p>Eseguire operazioni di fatturazione e acquisto per prodotti Office</p><p>Reimpostare le password utente</p>
-<p>Reimpostare le password di altri amministratori</p> <p>Creare e gestire visualizzazioni utente</p><p>Creare, modificare ed eliminare utenti e gruppi e gestire licenze utente</p><p>Gestire domini</p><p>Gestire informazioni aziendali</p><p>Delegare ruoli amministrativi ad altri</p><p>Usare la sincronizzazione delle directory</p><p>Abilitare o disabilitare l'autenticazione a più fattori</p><p>Visualizzare i log di controllo</p> |N/D |
+|<p>Visualizzare informazioni aziendali e sugli utenti</p><p>Gestire ticket di supporto di Office</p><p>Eseguire operazioni di fatturazione e acquisto per prodotti Office</p><p>Reimpostare le password utente</p><p>Reimpostare le password di altri amministratori</p><p>Creare e gestire visualizzazioni utente</p><p>Creare, modificare ed eliminare utenti e gruppi e gestire licenze utente</p><p>Gestire domini</p><p>Gestire informazioni aziendali</p><p>Delegare ruoli amministrativi ad altri</p><p>Usare la sincronizzazione delle directory</p><p>Abilitare o disabilitare l'autenticazione a più fattori</p><p>Visualizzare i log di controllo</p> |<p>N/D</p>|
 
 ### <a name="password-administrator"></a>Amministratore password
 | Operazione consentita | Operazione non consentita |
@@ -156,6 +162,17 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 
 ## <a name="assign-or-remove-administrator-roles"></a>Assegnare o rimuovere ruoli di amministratore
 Per informazioni su come assegnare ruoli amministrativi a un utente in Azure Active Directory, vedere [Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="deprecated-roles"></a>Ruoli deprecati
+
+I ruoli seguenti non devono essere usati. Questi ruoli sono stati deprecati e verranno rimossi da Azure AD in futuro.
+
+* Amministratore di licenze ad hoc
+* Autore di utenti verificati tramite posta elettronica
+* Aggiunta di dispositivi
+* Gestione dispositivi
+* Utenti di dispositivi
+* Aggiunta di dispositivi all'area di lavoro
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su come cambiare gli amministratori per una sottoscrizione di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing-add-change-azure-subscription-administrator.md)

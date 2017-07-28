@@ -1,6 +1,6 @@
 ---
-title: Compilare i gruppi in modo dinamico in base agli attributi utente in Azure Active Directory | Microsoft Docs
-description: Procedura per creare regole avanzate per l&quot;appartenenza ai gruppi, inclusi i parametri e gli operatori supportati per le regole delle espressioni.
+title: Compilare i gruppi in modo dinamico in base agli attributi degli oggetti in Azure Active Directory | Microsoft Docs
+description: Procedura per creare regole avanzate per l'appartenenza ai gruppi, inclusi i parametri e gli operatori supportati per le regole delle espressioni.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 06/19/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: dac95b5866aa165587009062064ca135b9255ab2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="populate-groups-dynamically-based-on-user-attributes"></a>Compilare i gruppi in modo dinamico in base agli attributi utente 
+
+# <a name="populate-groups-dynamically-based-on-object-attributes"></a>Compilare i gruppi in modo dinamico in base agli attributi degli oggetti 
 Il portale di Azure classico offre la possibilità di consentire appartenenze dinamiche basate su attributi più complesse ai gruppi di Azure Active Directory, ovvero Azure AD.  
 
-Quando gli attributi di un utente cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica degli attributi dell'utente attiverà aggiunte o rimozioni nel gruppo. Se un utente soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfa più la regola di un gruppo di cui è membro, viene rimosso come membro da tale gruppo.
+Quando gli attributi di un oggetto cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica degli attributi dell'utente o del dispositivo attiverà aggiunte o rimozioni nel gruppo. Se un utente o un dispositivo soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfa più la regola di un gruppo di cui è membro, viene rimosso come membro da tale gruppo.
 
 > [!NOTE]
 > È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365. 
@@ -57,6 +59,7 @@ Di seguito sono riportati alcuni esempi di regola avanzata con il formato corret
 
 Per l'elenco completo dei parametri supportati e degli operatori delle regole di espressione, vedere le sezioni riportate di seguito.
 
+
 Si noti che la proprietà deve avere come prefisso il tipo di oggetto corretto, ovvero user o device.
 La convalida della regola seguente avrà esito negativo: mail –ne null
 
@@ -86,6 +89,8 @@ Nella tabella seguente sono elencati tutti gli operatori delle regole di espress
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
 | Corrispondente |-match |
+| In | -in |
+| Non incluso | -notIn |
 
 ## <a name="operator-precedence"></a>Precedenza degli operatori
 
@@ -100,6 +105,14 @@ Si noti che le parentesi non sono sempre necessarie. Le parentesi devono essere 
 Equivale a:
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
+
+## <a name="using-the--in-and--notin-operators"></a>Uso degli operatori -In e -notIn
+
+Per confrontare il valore di un attributo utente con una serie di valori diversi è possibile usare gli operatori -In o -notIn. Di seguito è illustrato un esempio con l'operatore -In:
+
+    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+
+Si noti l'uso di "[" e "]" all'inizio e alla fine dell'elenco di valori. Questa condizione restituisce True se il valore di user.department è uguale a uno dei valori nell'elenco.
 
 ## <a name="query-error-remediation"></a>Correzione degli errori di query
 Nella tabella seguente sono elencati errori potenziali e indica come correggerli se si verificano
@@ -151,6 +164,7 @@ Operatori consentiti
 | mailNickName |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
 | mobile |Qualsiasi valore stringa o $null |(user.mobile -eq "valore") |
 | objectId |GUID dell'oggetto utente |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | Identificatore di sicurezza (SID) locale per gli utenti sincronizzati da un ambiente locale al cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Nessuno DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualsiasi valore stringa o $null |(user.physicalDeliveryOfficeName -eq "valore") |
 | postalCode |Qualsiasi valore stringa o $null |(user.postalCode -eq "valore") |
@@ -219,11 +233,12 @@ Per includere una proprietà multivalore in una regola, usare l'operatore "-any"
     dove "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il parametro objectID del manager. L'ID oggetto è disponibile in Azure AD nella **scheda Profilo** della pagina utente dell'utente che rappresenta il manager.
 5. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Possono essere necessari alcuni minuti per il popolamento iniziale del gruppo.
 
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso degli attributi per creare regole per gli oggetti dispositivo
+# <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso degli attributi per creare regole per gli oggetti dispositivo
 È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. È possibile usare gli attributi del dispositivo seguenti:
 
 | Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
+| accountEnabled |true false |(device.accountEnabled -eq true) |
 | displayName |Qualsiasi valore stringa. |(device.displayName - eq "Iphone di Rob") |
 | deviceOSType |Qualsiasi valore stringa. |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |Qualsiasi valore stringa. |(device.OSVersion -eq "9.1") |
@@ -239,7 +254,8 @@ Per includere una proprietà multivalore in una regola, usare l'operatore "-any"
 | isRooted |true false null |(device.isRooted -eq true) |
 | managementType |Qualsiasi valore stringa. |(device.managementType -eq "") |
 | organizationalUnit |Qualsiasi valore stringa. |(device.organizationalUnit -eq "") |
-| deviceId |un deviceId valido |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| deviceId |un deviceId valido |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId |un objectId AAD valido |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > Impossibile creare le regole di dispositivo usando l'elenco a discesa "regola semplice" nel portale di Azure classico.
