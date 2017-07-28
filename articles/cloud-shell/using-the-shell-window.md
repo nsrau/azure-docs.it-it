@@ -1,5 +1,5 @@
 ---
-title: Uso della finestra Azure Cloud Shell (anteprima) | Documentazione Microsoft
+title: Uso della finestra Azure Cloud Shell (anteprima) | Microsoft Docs
 description: Informazioni sulla finestra Azure Cloud Shell.
 services: 
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/14/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 69316d271fc4847565d183293013580b61695731
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 024f2ea5ba574444bc096d655a8aa9f313f7f2fe
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -32,9 +32,10 @@ Alla chiusura di una sessione, assicurarsi di chiudere ogni finestra della sessi
 
 ## <a name="restart-cloud-shell"></a>Riavviare Cloud Shell
 ![](media/recycle.png)
-* Fare clic sull'icona di riavvio sulla barra degli strumenti per reimpostare Cloud Shell.
+> [!WARNING]
+> Il riavvio della Cloud Shell reimposta lo stato della macchina e qualsiasi file non persistente nella condivisione file andrà perso.
 
-> ![AVVISO] Il riavvio della Cloud Shell reimposta lo stato della macchina e qualsiasi file non persistente in clouddrive andrà perso.
+* Fare clic sull'icona di riavvio sulla barra degli strumenti per reimpostare Cloud Shell.
 
 ## <a name="minimize--maximize-cloud-shell-window"></a>Ridurre e ingrandire la finestra Cloud Shell
 ![](media/minmax.png)
