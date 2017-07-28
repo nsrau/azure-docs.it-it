@@ -224,7 +224,7 @@ Per gli avvisi OMS, è possibile creare elementi di lavoro associati nelle origi
 
     ![Schermata di Log Analytics](./media/log-analytics-itsmc/itsmc-work-items-for-oms-alerts.png)
 
-3. Nella finestra **Aggiungi regola di avviso**, inserire i dettagli necessari per **Nome**, **Gravità**,  **	Query di ricerca** e **Criteri avvisi** (misurazione dell'intervallo di tempo/metrica).
+3. Nella finestra **Aggiungi regola di avviso**, inserire i dettagli necessari per **Nome**, **Gravità**,  **Query di ricerca** e **Criteri avvisi** (misurazione dell'intervallo di tempo/metrica).
 4. Selezionare **Sì** per **Azioni ITSM**.
 5. Selezionare la connessione ITSM dall'elenco **Selezionare una connessione**.
 6. Specificare i dettagli richiesti.
