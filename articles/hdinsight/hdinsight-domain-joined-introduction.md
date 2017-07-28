@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 21078a82e979af251a08bca70d623c80949d064a
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9f6de5b516da110b93a1e0cddf835b2bcec77bb7
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -29,8 +30,9 @@ Fino a questo momento, Azure HDInsight ha supportato solo un unico amministrator
 
 > [!NOTE]
 > Le nuove funzionalità descritte in questa anteprima sono disponibili solo nei cluster HDInsight basati su Linux per i carichi di lavoro di Hive. Altri carichi di lavoro, ad esempio HBase, Spark, Storm e Kafka, verranno abilitati nelle versioni future.
->
->
+
+> [!IMPORTANT]
+> Oozie non è abilitato in HDInsight aggiunto al dominio.
 
 ## <a name="benefits"></a>Vantaggi
 La protezione aziendale si basa su quattro importanti pilastri: protezione perimetrale, autenticazione, autorizzazione e crittografia.

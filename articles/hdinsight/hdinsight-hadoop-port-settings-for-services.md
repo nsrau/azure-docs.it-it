@@ -1,5 +1,5 @@
 ---
-title: Porte usate da HDInsight | Documentazione Microsoft
+title: Porte usate da servizi di Hadoop in HDInsight - Azure | Documentazione Microsoft
 description: Un elenco di porte usate dai servizi Hadoop in esecuzione su HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/17/2017
+ms.date: 06/02/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 3bf5ff732b03a1ecffb4e149d7805a6216ab0019
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: ffd8c494d821d41532c9a31613b10b521ff4d86b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="ports-and-uris-used-by-hdinsight"></a>Porte e URI usati da HDInsight
+# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Porte usate dai servizi Hadoop su HDInsight
 
 Questo documento fornisce un elenco delle porte usate dai servizi Hadoop in esecuzione nei cluster HDInsight basati su Linux. Fornisce anche informazioni sulle porte usate per connettersi al cluster tramite SSH.
 
@@ -105,8 +105,8 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 
 | Service | Nodi | Port | Protocol | Descrizione |
 | --- | --- | --- | --- | --- |
-| HiveServer2 |Nodi head |10001 |Thrift |Servizio per la connessione a livello di programmazione ad Hive (Thrift/JDBC) |
-| Metastore Hive |Nodi head |9083 |Thrift |Servizio per la connessione a livello di programmazione ai metadati Hive (Thrift/JDBC) |
+| HiveServer2 |Nodi head |10001 |Thrift |Servizio per la connessione ad Hive (Thrift/JDBC) |
+| Metastore Hive |Nodi head |9083 |Thrift |Servizio per la connessione ai metadati Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Porte WebHCat
 
@@ -152,4 +152,8 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 | Gestore |Nodi di lavoro |9092 |[Protocollo di trasmissione Kafka](http://kafka.apache.org/protocol.html) |Usato per la comunicazione di client |
 | &nbsp; |Nodi Zookeeper |2181 |&nbsp; |La porta usata dai client per connettersi a ZooKeeper |
 
+### <a name="spark-ports"></a>Porte Spark
 
+| Service | Nodi | Port | Protocol | Descrizione |
+| --- | --- | --- | --- | --- |
+| Server Spark Thrift |Nodi head |10002 |Thrift |Servizio per la connessione a Spark SQL (Thrift/JDBC) |

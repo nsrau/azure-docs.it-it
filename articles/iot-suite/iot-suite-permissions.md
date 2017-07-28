@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 06/09/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 5f2615b3df14c82147ff8a2cd997458756581d01
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 518e6a481ab6385b03dd3ddc2e155fb724e677fe
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -43,13 +43,29 @@ I ruoli AAD controllano la capacità di provisioning delle soluzioni preconfigur
 
 Per altre informazioni sui ruoli di amministratore in AAD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory][lnk-aad-admin]. L'articolo corrente è incentrato sui ruoli della directory di **Amministratore globale** e **Utente** usati dalle soluzioni preconfigurate.
 
-**Amministratore globale:** in un tenant di AAD possono essere presenti molti amministratori globali. Quando si crea un tenant di AAD, si è per impostazione predefinita l'amministratore globale del tenant. L'amministratore globale può eseguire il provisioning di una soluzione preconfigurata e gli viene assegnato un ruolo **Admin** per l'applicazione all'interno di tenant di AAD. Tuttavia, se un altro utente nello stesso tenant di AAD crea un'applicazione, il ruolo predefinito concesso all'amministratore globale è **ReadOnly**. Gli amministratori globali possono assegnare agli utenti dei ruoli per le applicazioni tramite il [Portale di Azure][lnk-portal].
+### <a name="global-administrator"></a>Amministratore globale
 
-**Utente:** per ogni tenant di AAD possono essere presenti molti utenti del dominio. Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata tramite il sito [azureiotsuite.com][lnk-azureiotsuite]. Il ruolo predefinito concesso per l'applicazione di cui effettuano il provisioning è **Admin**. È possibile creare un'applicazione usando lo script build.cmd nella repository [azure-iot-remote-monitoring][lnk-rm-github-repo] oppure [azure-iot-predictive-maintenance][lnk-pm-github-repo]. Tuttavia, il ruolo predefinito che viene concesso è **ReadOnly** perché non è stata concessa l'autorizzazione per assegnare i ruoli. Se un altro utente nel tenant di AAD crea un'applicazione, gli verrà assegnato il ruolo **ReadOnly** per impostazione predefinita per l'applicazione. Non è possibile i assegnare ruoli per le applicazioni, quindi non è possibile aggiungere utenti o ruoli per gli utenti per un'applicazione anche se ne hanno effettuato il provisioning.
+Per ogni tenant di AAD possono essere presenti più amministratori globali:
 
-**Utente guest:** per ogni tenant AAD possono essere presenti molti utenti guest. Gli utenti guest hanno un set di diritti limitato nel tenant di AAD. Di conseguenza, gli utenti guest non possono effettuare il provisioning di una soluzione preconfigurata nel tenant di AAD.
+* Quando si crea un tenant di AAD, si è per impostazione predefinita l'amministratore globale del tenant.
+* L'amministratore globale può eseguire il provisioning di una soluzione preconfigurata e gli viene assegnato un ruolo **Admin** per l'applicazione all'interno di tenant di AAD.
+* Se un altro utente nello stesso tenant di AAD crea un'applicazione, il ruolo predefinito concesso all'amministratore globale è **ReadOnly**.
+* Gli amministratori globali possono assegnare agli utenti dei ruoli per le applicazioni tramite il [portale di Azure][lnk-portal].
 
-Per altre informazioni, vedere le seguenti risorse:
+### <a name="domain-user"></a>Utente di dominio
+
+Per ogni tenant di AAD possono essere presenti molti utenti del dominio:
+
+* Un utente di dominio può effettuare il provisioning di una soluzione preconfigurata tramite il sito [azureiotsuite.com][lnk-azureiotsuite]. Per impostazione predefinita, all'utente di dominio viene concesso il ruolo di **Amministratore** nell'applicazione in cui è stato eseguito il provisioning.
+* Un utente di dominio può creare un'applicazione usando lo script build.cmd nel repository [azure-iot-remote-monitoring][lnk-rm-github-repo], [azure-iot-predictive-maintenance][lnk-pm-github-repo] oppure [azure-iot-connected-factory][lnk-cf-github-repo]. Tuttavia, il ruolo predefinito concesso all'utente di dominio è **ReadOnly**, perché un utente di dominio non dispone dell'autorizzazione per assegnare i ruoli.
+* Se un altro utente nel tenant di AAD crea un'applicazione, all'utente di dominio viene assegnato il ruolo **ReadOnly** per impostazione predefinita per l'applicazione.
+* Un utente di dominio non può assegnare ruoli per le applicazioni, quindi non può aggiungere utenti o ruoli per gli utenti di un'applicazione anche se ne è stato effettuato il provisioning.
+
+### <a name="guest-user"></a>Utente guest
+
+Per ogni tenant AAD possono essere presenti molti utenti guest. Gli utenti guest hanno un set di diritti limitato nel tenant di AAD. Di conseguenza, gli utenti guest non possono effettuare il provisioning di una soluzione preconfigurata nel tenant di AAD.
+
+Per altre informazioni sugli utenti e i ruoli in AAD, vedere le risorse seguenti:
 
 * [Creare utenti in Azure AD][lnk-create-edit-users]
 * [Assegnare utenti alle app][lnk-assign-app-roles]
@@ -58,13 +74,13 @@ Per altre informazioni, vedere le seguenti risorse:
 
 I ruoli di amministrazione di Azure controllano la possibilità di eseguire il mapping di una sottoscrizione di Azure a un tenant di AD.
 
-È possibile trovare informazioni sui ruoli Co-amministratore, Amministratore del servizio e Amministratore account di Azure nell'articolo [Come aggiungere o modificare i ruoli Co-amministratore, Amministratore del servizio e Amministratore account di Azure][lnk-admin-roles].
+È possibile trovare altre informazioni sui ruoli di amministratore nell'articolo [Come aggiungere o modificare i ruoli Co-amministratore, Amministratore del servizio e Amministratore account di Azure][lnk-admin-roles].
 
 ## <a name="application-roles"></a>Ruoli applicazione
 
 I ruoli applicazione controllano l'accesso ai dispositivi nella soluzione preconfigurato.
 
-Nell'applicazione sono presenti due ruoli definiti e un ruolo implicito creati quando si effettua il provisioning di una soluzione preconfigurata.
+In un'applicazione su cui è stato eseguito il provisioning sono stati definiti due ruoli e uno implicito:
 
 * **Admin:** dispone di autorizzazioni complete per aggiungere, gestire, rimuovere i dispositivi e modificare le impostazioni.
 * **ReadOnly:** è possibile visualizzare i dispositivi, le regole, le azioni, i processi e i dati di telemetria.
@@ -99,7 +115,7 @@ Per modificare i ruoli per un utente, è necessario essere un amministratore glo
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Un utente o membro di dominio del tenant di AAD ha creato una soluzione preconfigurata. Come gli viene assegnato un ruolo per l'applicazione?
 
-L'utente deve chiedere a un amministratore globale di assegnargli un ruolo di amministratore globale nel tenant di AAD per ottenere le autorizzazioni per assegnare ruoli agli utenti oppure chiedere a un amministratore globale di assegnargli un ruolo. Se si vuole modificare il tenant di AAD in cui è stata distribuita la soluzione preconfigurata, vedere la domanda successiva.
+Contattare l'amministratore globale per diventare amministratore globale del tenant di AAD e assegnare ruoli agli utenti. In alternativa, contattare l'amministratore globale per assegnare direttamente un ruolo. Se si vuole modificare il tenant di AAD in cui è stata distribuita la soluzione preconfigurata, vedere la domanda successiva.
 
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Come si cambia il tenant AAD a cui sono assegnate l'applicazione e soluzione preconfigurata di monitoraggio remoto?
 
@@ -135,6 +151,7 @@ Per altre informazioni su IoT Suite, vedere come [personalizzare una soluzione p
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
+[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/

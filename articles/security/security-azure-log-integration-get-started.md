@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 04/07/2017
+ms.date: 05/20/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 2752ae92fbbbb284756215a53dcab054881bd08a
-ms.lasthandoff: 04/13/2017
+ms.custom: azlog
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 02b3095bb77a122fddd74e636395628333a13936
+ms.contentlocale: it-it
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -31,9 +33,9 @@ Questo articolo presenta un'introduzione a Integrazione log di Azure concentrand
 >[!NOTE]
 >La possibilità di portare l'output dell'integrazione dei log di Azure nel SIEM viene fornita dal SIEM stesso. Per altre informazioni vedere l'articolo [Azure Log Integration SIEM configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) (Passaggi per la configurazione di SIEM con Integrazione log di Azure).
 
-Deve essere chiaro che il servizio Integrazione log di Azure viene eseguito in un computer fisico o virtuale dotato del sistema operativo Windows Server 2008 R2 o versioni successive (le versioni preferite sono Windows Server 2012 R2 o Windows Server 2016). 
+Deve essere chiaro che il servizio Integrazione log di Azure viene eseguito in un computer fisico o virtuale dotato del sistema operativo Windows Server 2008 R2 o versioni successive (le versioni preferite sono Windows Server 2012 R2 o Windows Server 2016).
 
-Il computer fisico può essere eseguito in locale (o in un sito host). Se si sceglie di eseguire il servizio Integrazione log di Azure in una macchina virtuale, tale macchina virtuale può essere in locale o in un cloud pubblico, come Microsoft Azure. 
+Il computer fisico può essere eseguito in locale (o in un sito host). Se si sceglie di eseguire il servizio Integrazione log di Azure in una macchina virtuale, tale macchina virtuale può essere in locale o in un cloud pubblico, come Microsoft Azure.
 
 La macchina fisica o virtuale che esegue il servizio Integrazione log di Azure richiede la connettività di rete per il cloud pubblico di Azure. I passaggi riportai in questo articolo forniscono i dettagli della configurazione.
 
@@ -41,12 +43,20 @@ La macchina fisica o virtuale che esegue il servizio Integrazione log di Azure r
 Come minimo l'installazione di AzLog richiede i seguenti elementi:
 * Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Un **account di archiviazione** che può essere usato per la registrazione diagnostica di Windows Azure (è possibile usare un account di archiviazione preconfigurato o crearne uno nuovo: più avanti in questo articolo è descritto come configurare l'account di archiviazione)
+  >[!NOTE]
+  A seconda dello scenario, potrebbe non essere necessario un account di archiviazione. Per lo scenario di diagnostica di Azure illustrato in questo articolo è necessario.
 * **Due sistemi**: un computer in cui verrà eseguito il servizio Integrazione log di Azure e un computer che verrà monitorato e le sue informazioni di registrazione saranno inviate al computer del servizio Azlog.
    * Un computer che si desidera monitorare: si tratta di una VM eseguita come [macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-overview.md)
    * Un computer in cui verrà eseguito il servizio di integrazione dei log di Azure; questo computer raccoglierà tutte le informazioni dei log che verranno successivamente importate nel SIEM.
     * Questo sistema può essere locale o in Microsoft Azure.  
     * Deve eseguire un versione x64 di Windows Server 2008 R2 SP1 o versione successiva e avere installato .NET 4.5.1. È possibile determinare la versione di .NET installata seguendo l'articolo intitolato [Procedura: determinare le versioni di .NET Framework installate](https://msdn.microsoft.com/library/hh925568)  
     Deve disporre di connettività all'account di archiviazione di Azure utilizzato per la registrazione diagnostica di Azure. Microsoft fornirà le istruzioni su come verificare la connettività più avanti in questo articolo
+
+Per una rapida dimostrazione del processo di creazione di una macchina virtuale tramite il portale di Azure, vedere il video seguente.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Create-a-Virtual-Machine/player]
+
+
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 Durante il test di Integrazione log di Azure è possibile usare qualsiasi sistema che soddisfi i requisiti minimi del sistema operativo. Tuttavia, per un ambiente di produzione, il carico potrebbe richiedere una pianificazione per aumentare o scalare orizzontalmente.
@@ -79,6 +89,10 @@ I dati di telemetria raccolti sono:
 * Metriche relative al numero di query e di eventi elaborati
 * Statistiche sulle opzioni della riga di comando Azlog.exe che vengono usate
 
+Il processo di installazione è illustrato nel video seguente.
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Install-Azure-Log-Integration/player]
+
+
 
 ## <a name="post-installation-and-validation-steps"></a>Passaggi successivi all'installazione e di convalida
 Dopo aver completato la routine di installazione di base si può procedere con i passaggi successivi all'installazione e di convalida:
@@ -97,7 +111,7 @@ Verrà visualizzata una schermata simile alla figura seguente. </br></br>
 
       ![Impostazioni di Diagnostica di Azure](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
       >[!NOTE]
-      Se il monitoraggio non è stato abilitato durante la creazione della macchina virtuale sarà possibile abilitarlo come illustrato in precedenza. 
+      Se il monitoraggio non è stato abilitato durante la creazione della macchina virtuale sarà possibile abilitarlo come illustrato in precedenza.
 5. Ora si tornerà al computer con l'integrazione dei log di Azure. È necessario verificare di disporre della connettività all'account di archiviazione dal sistema in cui è stato installato Integrazione log di Azure. Il computer fisico o la macchina virtuale che esegue il servizio Integrazione log di Azure deve accedere all'account di archiviazione per recuperare le informazioni registrate da Diagnostica di Azure configurate in ciascuno dei sistemi monitorati.  
   1. È possibile scaricare Azure Storage Explorer [qui](http://storageexplorer.com/).
   2. Eseguire la routine di installazione
@@ -139,6 +153,10 @@ Eseguire i passaggi seguenti per ottenere la chiave di archiviazione:
 >[!NOTE]  
 Attendere 60 minuti quindi visualizzare gli eventi che vengono estratti dall'account di archiviazione. Per visualizzarli, aprire **Visualizzatore eventi > Registri di Windows > Eventi inoltrati** nell'integratore Azlog.
 
+Di seguito è disponibile un video che illustra i passaggi descritti in precedenza.
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
+
+
 ## <a name="what-if-data-is-not-showing-up-in-the-forwarded-events-folder"></a>Se i dati non vengono visualizzati nella cartella Eventi inoltrati?
 Se, dopo un'ora, i dati non vengono visualizzati nella cartella **Eventi inoltrati** , procedere come segue:
 
@@ -153,6 +171,7 @@ Se, dopo un'ora, i dati non vengono visualizzati nella cartella **Eventi inoltra
   </ol>
 3. Verificare che l'account di archiviazione aggiunto nel comando **Azlog source add** sia elencato quando si esegue il comando **Azlog source list**.
 4. Passare a **Visualizzatore eventi > Registri di Windows > Applicazione** per vedere se sono presenti errori segnalati dall'integrazione del log di Azure.
+
 
 Se si verificano problemi durante l'installazione e la configurazione, aprire una [richiesta di supporto](../azure-supportability/how-to-create-azure-support-request.md) e selezionare **Integrazione log** come servizio per cui si richiede il supporto.
 

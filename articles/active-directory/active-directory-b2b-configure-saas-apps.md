@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 42f93a638ea0bb5139063b76b223fd811ba58fb4
-ms.openlocfilehash: 98bf824831f60a70877e8c41f8b60c339df173d6
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -81,7 +82,7 @@ Al termine della configurazione nell'app Dropbox, gli utenti guest o membro rice
 
 1. Aggiungere l'app Box dalle app aziendali.
 
-2. Configurare l'accesso Single Sign-On seguendo questa procedura:
+2. Configurare l'accesso Single Sign-On nell'ordine seguente:
 
   ![Configurare Single Sign-On per Box](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
@@ -94,7 +95,7 @@ Al termine della configurazione nell'app Dropbox, gli utenti guest o membro rice
 
  d. Per iniziare a configurare il tenant di Box.com per l'uso di Azure AD come provider di identità, scaricare il file di metadati e quindi salvarlo nell'unità locale.
 
- e. Inoltrare il file di metadati al team di supporto di Box, che configurerà l'accesso Single Sign-On.
+ e. Inoltrare il file di metadati al team di supporto di Box, che configura l'accesso Single Sign-On.
 
 3. Per la configurazione automatica degli utenti in Azure AD, nel riquadro sinistro selezionare **Provisioning** e quindi **Autorizza**.
 

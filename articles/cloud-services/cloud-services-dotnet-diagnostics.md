@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/25/2016
+ms.date: 05/22/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 226e86703843b026d20123543cf5311a5355aad4
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 333d2f26ce043a167fb84858c8327cb39e868ffa
+ms.contentlocale: it-it
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -32,7 +33,7 @@ In questo articolo si presuppone che l'utente disponga di una sottoscrizione di 
 
 ### <a name="step-1-create-a-worker-role"></a>Passaggio 1: Creare un ruolo di lavoro
 1. Avviare **Visual Studio**.
-2. Creare un nuovo progetto **Servizio cloud di Azure** dal modello **Cloud** per .NET Framework 4.5.  Assegnare al progetto il nome "WadExample" e fare clic su OK.
+2. Creare un progetto **Servizio cloud di Azure** dal modello **Cloud** per .NET Framework 4.5.  Assegnare al progetto il nome "WadExample" e fare clic su OK.
 3. Selezionare **Ruolo di lavoro** e fare clic su OK. Verrà creato il progetto.
 4. In **Esplora soluzioni** fare doppio clic sul file delle proprietà **WorkerRole1**.
 5. Nella scheda **Configurazione** deselezionare **Abilita diagnostica** per disabilitare Diagnostica 1.0 (Azure SDK 2.4 e versioni precedenti).
@@ -132,7 +133,7 @@ namespace WorkerRole1
 4. Nella finestra di dialogo **Crea servizio cloud e account di archiviazione** immettere un valore in **Nome** (ad esempio, "WadExample") e selezionare un'area o un gruppo di affinità.
 5. Impostare **Ambiente** su **Gestione temporanea**.
 6. Modificare le altre **impostazioni** nel modo appropriato e fare clic su **Pubblica**.
-7. Al termine della distribuzione, verificare nel portale di Azure classico che lo stato del servizio cloud sia **In esecuzione** .
+7. Al termine della distribuzione, verificare nel portale di Azure che lo stato del servizio cloud sia **In esecuzione**.
 
 ### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Passaggio 4: Creare il file di configurazione della diagnostica e installare l'estensione
 1. Scaricare la definizione dello schema del file di configurazione pubblico eseguendo il comando PowerShell seguente:
@@ -186,7 +187,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ```
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>Passaggio 6: Esaminare i dati di telemetria
-In **Esplora server** di Visual Studio passare all'account di archiviazione di wadexample. Dopo 5 minuti dall'inizio dell'esecuzione del servizio cloud, dovrebbero essere visualizzate le tabelle **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Fare doppio clic su una delle tabelle per visualizzare i dati di telemetria raccolti.
+In **Esplora server** di Visual Studio passare all'account di archiviazione di wadexample. Dopo cinque (5) minuti dall'inizio dell'esecuzione del servizio cloud, dovrebbero essere visualizzate le tabelle **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Fare doppio clic su una delle tabelle per visualizzare i dati di telemetria raccolti.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
@@ -197,7 +198,7 @@ Il file di configurazione della diagnostica definisce i valori usati per inizial
 Se si verificano problemi, vedere l'argomento relativo alla [risoluzione dei problemi di Diagnostica di Azure](../azure-diagnostics-troubleshooting.md) per informazioni sui problemi comuni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Vedere un elenco di articoli sulla diagnostica di Azure relativi a macchine virtuali](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) per modificare i dati raccolti, risolvere i problemi o ottenere altre informazioni sulla diagnostica in generale.
+[Vedere un elenco di articoli correlati sulla diagnostica delle macchine virtuali di Azure](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) per modificare i dati raccolti, risolvere i problemi o ottenere altre informazioni sulla diagnostica in generale.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

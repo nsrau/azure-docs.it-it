@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 63f1c468b5f8f4b0bb298cb67adea8c01b065427
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 6b4bbb13dbb86f82dd6a70acaccfcf38eec951c6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Panoramica di Azure Cloud Shell (anteprima)
@@ -77,4 +77,11 @@ Il computer che ospita Cloud Shell è gratuito, con il prerequisito di una condi
 
 ## <a name="supported-browsers"></a>Browser supportati
 Cloud Shell è consigliato per Chrome, Microsoft Edge e Safari. Cloud Shell è supportato per Chrome, Firefox, Safari, IE e Microsoft Edge, ma è soggetto a impostazioni specifiche del browser.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+* Durante la creazione della risorsa di archiviazione viene visualizzato l'errore 409 MissingSubscriptionRegistration.
+  * Questo errore indica che la sottoscrizione non è registrata per lo spazio dei nomi di archiviazione. Seguire [queste istruzioni dettagliate](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound) e provare di nuovo.
+* Quando si usa una sottoscrizione di Azure Active Directory, non è possibile creare la risorsa di archiviazione a causa dell'errore 400 DisallowedOperation.
+  * Le sottoscrizioni di AD non dispongono di accesso per la creazione di risorse di Azure. Usare una sottoscrizione di Azure in grado di creare risorse di archiviazione.
+
 Per le limitazioni note specifiche, vedere le [limitazioni di Cloud Shell](limitations.md).

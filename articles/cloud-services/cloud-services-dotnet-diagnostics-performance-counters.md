@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 55623820a74b5226471d642e9b960480f25b4390
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: b4357150d0be21672d0b8e212c4ea1a7bec99412
+ms.contentlocale: it-it
+ms.lasthandoff: 05/23/2017
 
 
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>Creare e usare contatori di prestazioni in un'applicazione Azure
 Questo articolo descrive i vantaggi dei contatori delle prestazioni e come inserirli nell'applicazione Azure. È possibile usarli per raccogliere dati, trovare colli di bottiglia e ottimizzare le prestazioni del sistema e dell'applicazione.
 
-I contatori delle prestazioni disponibili per Windows Server, IIS e ASP.NET possono anche essere usati per raccogliere dati e per determinare l'integrità delle macchine virtuali, dei ruoli di lavoro e dei ruoli Web di Azure. È anche possibile creare e usare contatori delle prestazioni personalizzati.  
+I contatori delle prestazioni disponibili per Windows Server, IIS e ASP.NET possono essere raccolti e usati anche per determinare l'integrità di ruoli Web, ruoli di lavoro e macchine virtuali di Azure. È anche possibile creare e usare contatori delle prestazioni personalizzati.  
 
 È possibile esaminare i dati dei contatori delle prestazioni
 
@@ -31,7 +33,7 @@ I contatori delle prestazioni disponibili per Windows Server, IIS e ASP.NET poss
 2. Con System Center Operations Manager con Azure Management Pack
 3. Con altri strumenti di monitoraggio che accedono ai dati di diagnostica trasferiti ad Archiviazione di Azure. Per altre informazioni, vedere [Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) .  
 
-Per altre informazioni sul monitoraggio delle prestazioni dell'applicazione nel [portale di Azure classico](http://manage.azure.com/), vedere [Come monitorare i servizi cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+Per altre informazioni sul monitoraggio delle prestazioni dell'applicazione nel [portale di Azure](http://portal.azure.com/), vedere [Come monitorare i servizi cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
 Per ulteriori indicazioni dettagliate sulla creazione di una strategia di registrazione e traccia e sull'utilizzo della diagnostica e di altre tecniche per risolvere i problemi e ottimizzare le applicazioni Azure, vedere le [procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx).
 
@@ -43,7 +45,7 @@ Azure fornisce un subset dei contatori delle prestazioni disponibili per Windows
 
 | Categoria contatore: oggetto (istanza) | Nome contatore | Riferimento |
 | --- | --- | --- |
-| Eccezioni CLR .NET (*globale*) |# Eccezioni/sec |Contatori delle prestazioni delle eccezioni |
+| Eccezioni CLR .NET (*globale*) |N. eccezioni/sec |Contatori delle prestazioni delle eccezioni |
 | Memoria CLR .NET (*globale*) |Percentuale tempo in GC |Contatori delle prestazioni di memoria |
 | ASP.NET |Riavvii applicazione |Contatori delle prestazioni per ASP.NET |
 | ASP.NET |Tempo di esecuzione della richiesta |Contatori delle prestazioni per ASP.NET |
@@ -74,8 +76,8 @@ Azure include il supporto per creare e modificare contatori delle prestazioni pe
 
 > [!NOTE]
 > Il codice che apporta le modifiche ai contatori delle prestazioni personalizzati deve avere autorizzazioni di esecuzione elevate. Se il codice è in un ruolo Web o in un ruolo di lavoro, il ruolo deve includere il tag <Runtime executionContext="elevated" /> nel file ServiceDefinition.csdef per la corretta inizializzazione del ruolo.
-> 
-> 
+>
+>
 
 È possibile inviare i dati dei contatori delle prestazioni personalizzati alla risorsa di archiviazione di Azure con l'agente di diagnostica.
 
@@ -88,8 +90,8 @@ Ogni istanza dei contatori delle prestazioni configurati viene registrata con un
 
 > [!NOTE]
 > A seconda della latenza della coda e della frequenza di trasferimento dell'agente di diagnostica, i dati dei contatori delle prestazioni più recenti nell'account di archiviazione potrebbero essere scaduti da alcuni minuti.
-> 
-> 
+>
+>
 
 ## <a name="enable-performance-counters-using-diagnostics-configuration-file"></a>Abilitare i contatori delle prestazioni con il file di configurazione della diagnostica
 Usare la procedura seguente per abilitare i contatori delle prestazioni nell'applicazione Azure.
@@ -98,7 +100,7 @@ Usare la procedura seguente per abilitare i contatori delle prestazioni nell'app
 Questa sezione presuppone che il monitor di diagnostica sia stato importato nell'applicazione e che il file di configurazione della diagnostica sia stato aggiunto alla soluzione Visual Studio (diagnostics.wadcfg in SDK 2.4 e versioni precedenti o diagnostics.wadcfgx in SDK 2.5 e versioni successive). Per altre informazioni, vedere i passaggi 1 e 2 in [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](cloud-services-dotnet-diagnostics.md).
 
 ## <a name="step-1-collect-and-store-data-from-performance-counters"></a>Passaggio 1: Raccogliere e archiviare i dati dei contatori delle prestazioni
-Dopo avere aggiunto il file della diagnostica alla soluzione Visual Studio è possibile configurare la raccolta e l'archiviazione dei dati dei contatori delle prestazioni in un'applicazione Azure. Questa operazione viene eseguita tramite l'aggiunta di contatori delle prestazioni nel file della diagnostica. I dati di diagnostica, inclusi i dati dei contatori delle prestazioni, vengono innanzitutto raccolti nell'istanza e quindi salvati in modo permanente nella tabella WADPerformanceCountersTable del servizio tabelle di Azure, pertanto è necessario specificare l'account di archiviazione nell'applicazione. Se si esegue il test dell'applicazione in locale nell'emulatore di calcolo, è anche possibile archiviare i dati di diagnostica in locale nell'emulatore di archiviazione. Prima di archiviare i dati di diagnostica è necessario passare al [portale di Azure classico](http://manage.windowsazure.com/) e creare un account di archiviazione. È consigliabile creare l'account di archiviazione nella stessa area geografica in cui si trova l'applicazione Azure per evitare di sostenere costi di larghezza di banda esterna e ridurre la latenza.
+Dopo avere aggiunto il file della diagnostica alla soluzione Visual Studio, è possibile configurare la raccolta e l'archiviazione dei dati dei contatori delle prestazioni in un'applicazione Azure. Questa operazione viene eseguita tramite l'aggiunta di contatori delle prestazioni nel file della diagnostica. I dati di diagnostica, inclusi i dati dei contatori delle prestazioni, vengono innanzitutto raccolti nell'istanza e quindi salvati in modo permanente nella tabella WADPerformanceCountersTable del servizio tabelle di Azure, pertanto è necessario specificare l'account di archiviazione nell'applicazione. Se si esegue il test dell'applicazione in locale nell'emulatore di calcolo, è anche possibile archiviare i dati di diagnostica in locale nell'emulatore di archiviazione. Prima di archiviare i dati di diagnostica è necessario passare al [portale di Azure](http://portal.azure.com/) e creare un account di archiviazione classico. È consigliabile creare l'account di archiviazione nella stessa area geografica in cui si trova l'applicazione Azure. Mantenendo l'applicazione e l'account di archiviazione di Azure nella stessa area geografica, si evita il pagamento di costi per la larghezza di banda esterna e si riduce la latenza.
 
 ### <a name="add-performance-counters-to-the-diagnostics-file"></a>Aggiungere i contatori delle prestazioni nel file della diagnostica
 È possibile usare diversi contatori. L'esempio seguente comprende diversi contatori delle prestazioni consigliati per il monitoraggio dei ruoli Web e di lavoro.
@@ -136,7 +138,7 @@ L'attributo bufferQuotaInMB, che specifica la quantità massima di spazio di arc
 
 L'attributo scheduledTransferPeriod, che specifica l'intervallo tra i trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino. Negli esempi seguenti è impostato su PT30M (30 minuti). Un valore di impostazione troppo basso, ad esempio 1 minuto, del periodo di trasferimento influisce negativamente sulle prestazioni dell'applicazione in produzione, ma può risultare utile per l'esecuzione rapida della diagnostica in fase di test. Il periodo di trasferimento pianificato deve essere sufficientemente basso da garantire che i dati di diagnostica non vengano sovrascritti nell'istanza, ma anche sufficientemente alto da non influire sulle prestazioni dell'applicazione.
 
-L'attributo counterSpecifier specifica il contatore delle prestazioni per la raccolta. L'attributo sampleRate specifica la frequenza con cui raccogliere i dati del contatore delle prestazioni, in questo caso 30 secondi.
+L'attributo counterSpecifier specifica il contatore delle prestazioni di cui raccogliere i dati. L'attributo sampleRate specifica la frequenza con cui raccogliere i dati del contatore delle prestazioni, in questo caso 30 secondi.
 
 Una volta aggiunti i contatori delle prestazioni di cui raccogliere i dati, salvare le modifiche nel file diagnostica. Sarà quindi necessario specificare l'account di archiviazione nel quale verranno salvati in modo permanente i dati di diagnostica.
 
@@ -147,13 +149,13 @@ Per Azure SDK 2.5 l'account di archiviazione può essere specificato nel file di
 
 > [!NOTE]
 > Queste istruzioni si applicano solo ad Azure SDK 2.4 e versioni precedenti. Per Azure SDK 2.5 l'account di archiviazione può essere specificato nel file diagnostics.wadcfgx.
-> 
-> 
+>
+>
 
 Per impostare le stringhe di connessione:
 
-1. Aprire il file ServiceConfiguration.Cloud.cscfg usando l'editor di testo preferito e impostare la stringa di connessione per l'account di archiviazione. I valori *AccountName* e *AccountKey* sono disponibili nel dashboard dell'account di archiviazione sul portale di Azure classico, in Gestisci chiavi.
-  
+1. Aprire il file ServiceConfiguration.Cloud.cscfg usando l'editor di testo preferito e impostare la stringa di connessione per l'account di archiviazione. I valori *AccountName* e *AccountKey* sono disponibili nel dashboard dell'account di archiviazione del portale di Azure, in Chiavi di accesso.
+
     ```xml
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>"/>
@@ -161,7 +163,7 @@ Per impostare le stringhe di connessione:
     ```
 2. Salvare il file ServiceConfiguration.Cloud.cscfg.
 3. Aprire il file ServiceConfiguration.Local.cscfg e verificare che UseDevelopmentStorage sia impostato su true.
-   
+
     ```xml
     <ConfigurationSettings>
       <Settingname="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true"/>
@@ -179,13 +181,13 @@ Per creare un semplice contatore delle prestazioni personalizzato denominato "\M
 
 1. Aprire il file di definizione del servizio (CSDEF) dell'applicazione.
 2. Aggiungere l'elemento Runtime all'elemento WebRole o WorkerRole per consentire l'esecuzione con privilegi elevati:
-   
+
     ```xml
     <runtime executioncontext="elevated"/>
     ```
 3. Salvare il file.
-4. Aprire il file della diagnostica (diagnostics.wadcfg in SDK 2.4 e versioni precedenti o diagnostics.wadcfgx in SDK 2.5 e versioni successive) e aggiungere quanto segue a DiagnosticMonitorConfiguration: 
-   
+4. Aprire il file della diagnostica (diagnostics.wadcfg in SDK 2.4 e versioni precedenti o diagnostics.wadcfgx in SDK 2.5 e versioni successive) e aggiungere quanto segue a DiagnosticMonitorConfiguration:
+
     ```xml
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
       <PerformanceCounterConfiguration counterSpecifier="\MyCustomCounterCategory\MyButton1Counter" sampleRate="PT30S"/>
@@ -193,37 +195,37 @@ Per creare un semplice contatore delle prestazioni personalizzato denominato "\M
     ```
 5. Salvare il file.
 6. Creare la categoria dei contatori delle prestazioni personalizzati nel metodo OnStart del ruolo prima di richiamare base.OnStart. Nell'esempio C# seguente viene creata una categoria personalizzata, nel caso in cui non esista già:
-   
+
     ```csharp
     public override bool OnStart()
     {
       if (!PerformanceCounterCategory.Exists("MyCustomCounterCategory"))
       {
          CounterCreationDataCollection counterCollection = new CounterCreationDataCollection();
-   
+
          // add a counter tracking user button1 clicks
          CounterCreationData operationTotal1 = new CounterCreationData();
          operationTotal1.CounterName = "MyButton1Counter";
          operationTotal1.CounterHelp = "My Custom Counter for Button1";
          operationTotal1.CounterType = PerformanceCounterType.NumberOfItems32;
          counterCollection.Add(operationTotal1);
-   
+
          PerformanceCounterCategory.Create(
            "MyCustomCounterCategory",
            "My Custom Counter Category",
            PerformanceCounterCategoryType.SingleInstance, counterCollection);
-   
+
          Trace.WriteLine("Custom counter category created.");
       }
       else {
         Trace.WriteLine("Custom counter category already exists.");
       }
-   
+
     return base.OnStart();
     }
     ```
 7. Aggiornare i contatori all'interno dell'applicazione. Nell'esempio seguente viene aggiornato un contatore delle prestazioni personalizzato per gli eventi Button1_Click:
-   
+
     ```csharp
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -244,7 +246,7 @@ I dati dei contatori delle prestazioni personalizzati verranno ora raccolti dal 
 ## <a name="step-3-query-performance-counter-data"></a>Passaggio 3: Eseguire query sui dati dei contatori delle prestazioni
 Dopo che l'applicazione è stata distribuita ed è in esecuzione, il monitoraggio diagnostica inizierà a raccogliere i dati dei contatori delle prestazioni e a salvarli in modo permanente nell'archiviazione di Azure. Usare strumenti come Esplora server in Visual Studio, [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) o [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) di Cerebrata per visualizzare i dati dei contatori delle prestazioni nella tabella WADPerformanceCountersTable. A livello di codice è anche possibile eseguire una query sul servizio tabelle usando [C#](../storage/storage-dotnet-how-to-use-tables.md), [Java](../storage/storage-java-how-to-use-table-storage.md), [Node.js](../storage/storage-nodejs-how-to-use-table-storage.md), [Python](../storage/storage-python-how-to-use-table-storage.md), [Ruby](../storage/storage-ruby-how-to-use-table-storage.md) o [PHP](../storage/storage-php-how-to-use-table-storage.md).
 
-Nell'esempio C# seguente viene illustrato come eseguire una semplice query sulla tabella WADPerformanceCountersTable e come salvare i dati di diagnostica in un file CSV. Dopo aver salvato i contatori delle prestazioni in un file CSV, è possibile utilizzare le funzionalità grafiche di Microsoft Excel o altri strumenti per visualizzare i dati. Ricordarsi di aggiungere un riferimento a Microsoft.WindowsAzure.Storage.dll, che è stato incluso in Azure SDK per .NET a partire dalla versione di ottobre 2012. L'assembly viene installato nella directory %Programmi%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\.
+Nell'esempio C# seguente viene illustrato come eseguire una query di base sulla tabella WADPerformanceCountersTable e come salvare i dati di diagnostica in un file CSV. Dopo aver salvato i contatori delle prestazioni in un file CSV, è possibile usare le funzionalità grafiche di Microsoft Excel o altri strumenti per visualizzare i dati. Ricordarsi di aggiungere un riferimento a Microsoft.WindowsAzure.Storage.dll, che è stato incluso in Azure SDK per .NET a partire dalla versione di ottobre 2012. L'assembly viene installato nella directory %Programmi%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\.
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -320,9 +322,4 @@ public class PerformanceCountersEntity : TableEntity
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Visualizzare altri articoli sulla diagnostica di Azure](../azure-diagnostics.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Individuare il successivo hop con Network Watcher di Azure - Interfaccia della riga di comando di Azure | Documentazione Microsoft
+title: Individuare l&quot;hop successivo con Azure Network Watcher - Interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
 description: "Questo articolo descrive come individuare il tipo di hop successivo e l&quot;indirizzo IP tramite la funzionalità Hop successivo dell&quot;interfaccia della riga di comando di Azure."
 services: network-watcher
 documentationcenter: na
@@ -14,26 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 49939946f887c51fbc2a135c28236407f5569f48
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d1ee6870ba0188ff2c473e4cca12a5bdc1f97d3d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
 
-# <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli"></a>Individuare il tipo di hop successivo tramite la funzionalità Hop successivo di Network Watcher di Azure usando l'interfaccia della riga di comando di Azure
+# <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Individuare il tipo di hop successivo tramite la funzionalità Hop successivo di Azure Network Watcher usando l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
 > - [Portale di Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
-> - [CLI](network-watcher-check-next-hop-cli.md)
+> - [Interfaccia della riga di comando 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+> - [Interfaccia della riga di comando 2.0](network-watcher-check-next-hop-cli.md)
 > - [API REST di Azure](network-watcher-check-next-hop-rest.md)
-
 
 Hop successivo è una funzionalità di Network Watcher che consente di recuperare il tipo di hop successivo e l'indirizzo IP in base a una macchina virtuale specificata. La funzionalità è utile per determinare se il traffico in uscita da una macchina virtuale attraversa gateway, Internet o reti virtuali per arrivare alla propria destinazione.
 
-Questo articolo usa l'interfaccia della riga di comando di Azure 1.0 multipiattaforma, disponibile per Windows, Mac e Linux. Network Watcher usa attualmente l'interfaccia della riga di comando di Azure 1.0 per il supporto dell'interfaccia della riga di comando.
+Questo articolo usa l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse, ovvero l'interfaccia della riga di comando di Azure 2.0, disponibile per Windows, Mac e Linux.
+
+Per eseguire i passaggi indicati in questo articolo è necessario [installare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (interfaccia della riga di comando di Azure)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -48,10 +51,13 @@ Lo scenario illustrato in questo articolo usa la funzionalità Hop successivo di
 
 ## <a name="get-next-hop"></a>Ottenere l'hop successivo
 
-Per ottenere l'hop successivo viene usato il cmdlet `azure netowrk watcher next-hop`. Al cmdlet vengono passati il gruppo di risorse di Network Watcher, l'ID della macchina virtuale, l'indirizzo IP di origine e l'indirizzo IP di destinazione. Nell'esempio seguente, l'indirizzo IP di destinazione corrisponde a una macchina virtuale in un'altra rete virtuale. Tra le due reti virtuali esiste un gateway di rete virtuale.
+Per ottenere l'hop successivo viene usato il cmdlet `az network watcher show-next-hop`. Al cmdlet vengono passati il gruppo di risorse di Network Watcher, l'ID della macchina virtuale, l'indirizzo IP di origine e l'indirizzo IP di destinazione. Nell'esempio seguente, l'indirizzo IP di destinazione corrisponde a una macchina virtuale in un'altra rete virtuale. Tra le due reti virtuali esiste un gateway di rete virtuale.
+
+Se questa operazione non è stata ancora eseguita, installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure usando il comando [az login](/cli/azure/#login). Quindi, eseguire il comando seguente:
 
 ```azurecli
-azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t targetResourceId -a <source-ip> -d <destination-ip>
+az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>
+
 ```
 
 > [!NOTE]
@@ -61,9 +67,12 @@ Se la macchina virtuale è dotata di più schede NIC e su una qualsiasi delle sc
 
 Al termine vengono forniti i risultati. Viene inoltre restituito l'indirizzo IP dell'hop successivo e il tipo di risorsa corrispondente.
 
-```
-data:    Next Hop Ip Address             : 10.0.1.2
-info:    network watcher next-hop command OK
+```azurecli
+{
+    "nextHopIpAddress": null,
+    "nextHopType": "Internet",
+    "routeTableId": "System Route"
+}
 ```
 
 L'elenco seguente mostra i valori NextHopType attualmente disponibili:

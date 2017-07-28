@@ -1,6 +1,6 @@
 ---
-title: Creare cluster Azure HDInsight (Hadoop) usando .NET | Microsoft Docs
-description: Informazioni su come creare cluster Hadoop, HBase, Storm o Spark su Linux per HDInsight tramite l&quot;SDK HDInsight .NET.
+title: Creare cluster Hadoop con .NET - Azure HDInsight | Microsoft Docs
+description: Informazioni su come creare cluster Hadoop, HBase, Storm o Spark su Linux per HDInsight tramite l'SDK HDInsight .NET.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -17,11 +17,10 @@ ms.workload: big-data
 ms.date: 04/27/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 173869858ba7891fcea8a0207e9b192b81ae4840
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 823508c0bd9e379361dd26f70b3960259a8d4292
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Creare cluster basati su Linux in HDInsight tramite .NET SDK
@@ -230,7 +229,7 @@ static void Main(string[] args)
 
     var coreConfigs = new Dictionary<string, string>
     {
-        {"fs.defaultFS", string.Format("wasbs://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
+        {"fs.defaultFS", string.Format("wasb://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
         {
             string.Format("fs.azure.account.key.{0}", ExistingStorageName),
             ExistingStorageKey

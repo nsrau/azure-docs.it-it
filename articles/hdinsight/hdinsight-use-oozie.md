@@ -14,13 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 10726bdaf1aa0a98276747868771999625ccf5e5
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +32,7 @@ Questo articolo illustra come usare Apache Oozie per definire un flusso di lavor
 
 Apache Oozie è un sistema di flusso di lavoro/coordinamento che consente di gestire i processi Hadoop. È integrato nello stack di Hadoop e supporta i processi Hadoop per Apache MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Può anche essere usato per pianificare processi specifici di un sistema, come i programmi Java o gli script della shell.
 
-Il flusso di lavoro che si implementerà seguendo le istruzioni di questa esercitazione contiene due azioni:
+Il flusso di lavoro implementato seguendo le istruzioni di questa esercitazione contiene due azioni:
 
 ![Diagramma del flusso di lavoro][img-workflow-diagram]
 
@@ -69,7 +70,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
   
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Definire il flusso di lavoro di Oozie e il relativo script HiveQL
-Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XML Process Definition Language). Il nome del file del flusso di lavoro predefinito è *workflow.xml*. Di seguito è riportato il file del flusso di lavoro che verrà utilizzato in questa esercitazione.
+Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XML Process Definition Language). Il nome del file del flusso di lavoro predefinito è *workflow.xml*. Di seguito è riportato il file del flusso di lavoro che verrà usato in questa esercitazione.
 
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
@@ -128,13 +129,13 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 Nel flusso di lavoro vengono definite due azioni. L'azione start-to è *RunHiveScript*. Se l'azione viene eseguita correttamente, l'azione successiva è *RunSqoopExport*.
 
-RunHiveScript è caratterizzato da diverse variabili. I valori verranno passati quando si invia il processo Oozie dalla workstation con Azure PowerShell.
+RunHiveScript è caratterizzato da diverse variabili. I valori vengono passati quando si invia il processo Oozie dalla workstation usando Azure PowerShell.
 
 <table border = "1">
 <tr><th>Variabili del flusso di lavoro</th><th>Descrizione</th></tr>
 <tr><td>${jobTracker}</td><td>Specifica l'URL dell'utilità di analisi dei processi Hadoop. In HDInsight versione 3.0 o 2.1 usare <strong>jobtrackerhost: 9010</strong>.</td></tr>
 <tr><td>${nameNode}</td><td>Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo del file system predefinito, ad esempio <i>wasbs://&lt;nomecontenitore&gt;@&lt;nomeaccountarchiviazione&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Consente di specificare il nome della coda alla quale verrà inviato il processo. Usare il nome <strong>predefinito</strong>.</td></tr>
+<tr><td>${queueName}</td><td>Specifica il nome della coda alla quale viene inviato il processo. Usare il nome <strong>predefinito</strong>.</td></tr>
 </table>
 
 <table border = "1">
@@ -147,7 +148,7 @@ RunHiveScript è caratterizzato da diverse variabili. I valori verranno passati 
 <table border = "1">
 <tr><th>Variabile azione Sqoop</th><th>Descrizione</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Specifica la stringa di connessione del database SQL di Azure.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Specifica la tabella del database SQL di Azure in cui verranno esportati i dati.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>Specifica la tabella del database SQL di Azure in cui vengono esportati i dati.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Specifica la cartella di output per l'istruzione INSERT OVERWRITE di Hive. È la stessa cartella dell'esportazione tramite Sqoop (export-dir).</td></tr>
 </table>
 
@@ -171,7 +172,7 @@ Nello script vengono usate tre variabili:
 
 Il file di definizione del flusso di lavoro (workflow.xml in questa esercitazione) passa questi valori allo script HiveQL in fase di esecuzione.
 
-Il file del flusso di lavoro e il file HiveQL vengono archiviati in un contenitore BLOB.  Lo script di PowerShell che verrà utilizzato più avanti in questa esercitazione copierà entrambi i file nell'account di archiviazione predefinito. 
+Il file del flusso di lavoro e il file HiveQL vengono archiviati in un contenitore BLOB.  Lo script di PowerShell che verrà usato più avanti in questa esercitazione copia entrambi i file nell'account di archiviazione predefinito. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>Invio di processi Oozie tramite PowerShell
 Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei processi Oozie. È possibile usare il cmdlet **Invoke-RestMethod** per richiamare i servizi Web di Oozie. L'API dei servizi Web di Oozie è una API HTTP REST JSON. Per altre informazioni sull'API dei servizi Web di Oozie, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
@@ -581,7 +582,7 @@ Lo script è il seguente.  È possibile eseguire lo script da Windows PowerShell
 
 **Per ripetere l'esecuzione dell'esercitazione**
 
-Per eseguire nuovamente il flusso di lavoro sarà necessario eliminare gli elementi seguenti:
+Per eseguire nuovamente il flusso di lavoro, è necessario eliminare gli elementi seguenti:
 
 * Il file di output dello script Hive
 * I dati nella tabella log4jLogsCount

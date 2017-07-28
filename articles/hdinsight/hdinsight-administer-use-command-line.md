@@ -1,5 +1,5 @@
 ---
-title: Gestire i cluster Hadoop tramite l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
+title: 'Gestire i cluster Hadoop tramite l&quot;interfaccia della riga di comando di Azure: Azure HDInsight | Microsoft Docs'
 description: Informazioni su come usare l&quot;interfaccia della riga di comando di Azure per gestire i cluster Hadoop in Azure HDInsight. L&quot;interfaccia della riga di comando di Azure funziona in Windows, Mac e Linux.
 services: hdinsight
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c8067e582dd7e20b4ca35771123303de6c4a4ef6
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 5102d44ebd447b638ab6e26fa1826bad224ed6c3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---

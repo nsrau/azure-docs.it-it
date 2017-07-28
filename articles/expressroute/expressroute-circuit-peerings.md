@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/14/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 729c89e26e0c2da3ec88b554645091997dea4552
-ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: cb88ce2960d63b8a1c5861913b2095bcc977938f
+ms.contentlocale: it-it
+ms.lasthandoff: 06/15/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuiti e domini di routing ExpressRoute
@@ -26,7 +27,7 @@ ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 ## <a name="expressroute-circuits"></a>Circuiti ExpressRoute
-Un *circuito ExpressRoute* rappresenta una connessione logica tra un'infrastruttura locale e i servizi cloud Microsoft tramite un provider di connettività. È possibile ordinare più circuiti ExpressRoute. Ogni circuito può trovarsi nella stessa area o in aree diverse e può essere connesso alle proprie risorse mediante diversi provider di connettività. 
+Un *circuito ExpressRoute* rappresenta una connessione logica tra un'infrastruttura locale e i servizi cloud Microsoft tramite un provider di connettività. È possibile ordinare più circuiti ExpressRoute. Ciascun circuito può essere nella stessa regione o in regioni diverse, e può essere collegato ai locali tramite provider di connettività diversi. 
 
 I circuiti ExpressRoute non sono mappati ad alcuna entità fisica. Un circuito è identificato in modo univoco da un GUID standard denominato chiave di servizio. La chiave di servizio è l'unica informazione scambiata tra Microsoft, il provider di connettività e l'utente. Non è un segreto usato ai fini della sicurezza. Esiste un mapping 1:1 tra un circuito ExpressRoute e la chiave di servizio.
 
@@ -74,7 +75,7 @@ La tabella seguente confronta i tre domini di routing.
 | **Indirizzi IP per l'interfaccia di routing** |Indirizzi IP pubblici e RFC1918 |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |
 | **Supporto per Hash MD5** |Sì |Sì |Sì |
 
-È possibile scegliere di abilitare uno o più domini di routing come parte del rispettivo circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft al DMZ.
+È possibile scegliere di abilitare uno o più domini di routing come parte del circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft al DMZ.
 
 Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tre coppie di sessioni BGP (una coppia per ogni tipo di peering). Le coppie di sessioni BGP forniscono un collegamento a disponibilità elevata. Se si stabilisce la connessione tramite provider di connettività di livello 2, l'utente sarà responsabile della configurazione e della gestione del routing. È possibile ottenere più informazioni esaminando i [flussi di lavoro](expressroute-workflows.md) per la configurazione di ExpressRoute.
 
@@ -85,10 +86,5 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
   * [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configurare il routing (peering del circuito)](expressroute-howto-routing-classic.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

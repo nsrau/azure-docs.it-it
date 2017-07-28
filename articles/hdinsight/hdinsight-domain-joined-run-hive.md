@@ -1,5 +1,5 @@
 ---
-title: Configurare criteri Hive in HDInsight aggiunto al dominio | Documentazione Microsoft
+title: Configurare criteri Hive in HDInsight aggiunto al dominio - Azure | Microsoft Docs
 description: Informazioni su...
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 213b6b5274ebde8cc460829ff1edc96a66eef994
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: de537d5e39dd0d3f75ff802948c7372e4d65d127
+ms.contentlocale: it-it
+ms.lasthandoff: 06/13/2017
 
 
 ---

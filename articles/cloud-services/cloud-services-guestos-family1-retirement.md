@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/21/2017
+ms.date: 5/21/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: 578059c397319147c8716e2152901dfdc15a28cd
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -35,9 +36,9 @@ I servizi cloud sono interessati se si verifica una delle seguenti condizioni:
 
 1. Nel file ServiceConfiguration.cscfg del servizio cloud è specificato esplicitamente il valore "osFamily = "1".
 2. Nel file ServiceConfiguration.cscfg per il servizio cloud non è specificato esplicitamente alcun valore per osFamily. Attualmente viene usato il valore predefinito "1" in questo caso.
-3. Il valore della famiglia di sistemi operativi guest indicato nel portale di Azure classico è "Windows Server 2008".
+3. Il valore della famiglia di sistemi operativi guest indicato nel portale di Azure è "Windows Server 2008".
 
-Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Per altre informazioni sullo script, vedere l'articolo relativo alla [fine vita della famiglia di sistemi operativi guest di Azure 1 di giugno 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
+Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Per altre informazioni sullo script, vedere [Azure Guest OS Family 1 End of Life: June 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx) (Fine vita della famiglia di sistemi operativi guest di Azure 1 di giugno 2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -74,5 +75,4 @@ I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più suppo
 
 ## <a name="next-steps"></a>Passaggi successivi
 Esaminare le [versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md)più recenti.
-
 

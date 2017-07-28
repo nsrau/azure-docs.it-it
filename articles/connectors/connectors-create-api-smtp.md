@@ -1,10 +1,10 @@
 ---
-title: SMTP| Documentazione Microsoft
+title: Connettore SMTP per App per la logica di Azure | Microsoft Docs
 description: Creare app per la logica con Servizio app di Azure. Connettersi a SMTP per inviare messaggi di posta elettronica.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
@@ -14,10 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: 3a0fdef111fbd4a9f7491e247f2236cf70b89dca
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 1cf96bbf8bd215d7ddb3c99860a5cb4e668be3c2
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +29,7 @@ Connettersi a SMTP per inviare messaggi di posta elettronica.
 Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-smtp"></a>Connettersi a un server SMTP
-Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a un server SMTP, è necessaria innanzitutto una *connessione* SMTP. Per creare una connessione, è necessario fornire le credenziali che si usano normalmente per accedere al servizio a cui si vuole connettersi. Pertanto, nell'esempio di SMTP, per creare la connessione SMTP sono necessarie le credenziali riguardanti il nome della connessione, l'indirizzo del server SMTP e le informazioni di accesso utente. [Altre informazioni sulle connessioni]()  
+Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a un server SMTP, è necessaria prima di tutto una *connessione* SMTP. Per creare una connessione, immettere le credenziali che si usano normalmente per accedere al servizio a cui si vuole connettersi. Nell'esempio SMTP è quindi necessario immettere le credenziali per nome della connessione, indirizzo del server SMTP e informazioni sull'accesso utente per creare la connessione a SMTP.  
 
 ### <a name="create-a-connection-to-smtp"></a>Creare una connessione a SMTP
 > [!INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
@@ -64,63 +66,9 @@ Ora che il trigger è stato aggiunto, seguire questi passaggi per aggiungere un'
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 6. Salvare il lavoro per attivare il flusso di lavoro.  
 
-## <a name="technical-details"></a>Dettagli tecnici
-Ecco i dettagli sui trigger, le azioni e le risposte che la connessione supporta:
+## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-## <a name="smtp-triggers"></a>Trigger di SMTP
-SMTP non supporta trigger. 
+Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/smtpconnector/).
 
-## <a name="smtp-actions"></a>Azioni di SMTP
-SMTP supporta le azioni seguenti:
-
-| Azione | Descrizione |
-| --- | --- |
-| [Invia messaggio di posta elettronica](connectors-create-api-smtp.md#send-email) |Questa operazione invia un messaggio di posta elettronica a uno o più destinatari. |
-
-### <a name="action-details"></a>Informazioni dettagliate sulle azioni
-Ecco i dettagli delle azioni per questo connettore con le relative risposte:
-
-### <a name="send-email"></a>Invia messaggio di posta elettronica
-Questa operazione invia un messaggio di posta elettronica a uno o più destinatari. 
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| To |To |Specificare gli indirizzi di posta elettronica separati da punto e virgola come recipient1@domain.com;recipient2@domain.com |
-| CC |cc |Specificare gli indirizzi di posta elettronica separati da punto e virgola come recipient1@domain.com;recipient2@domain.com |
-| Oggetto |Oggetto |Oggetto del messaggio di posta elettronica |
-| Corpo |Corpo |Corpo del messaggio di posta elettronica |
-| Da |Da |Indirizzo di posta elettronica del mittente come sender@domain.com |
-| IsHtml |È HTML |Inviare il messaggio di posta elettronica in formato HTML (true/false) |
-| Bcc |bcc |Specificare gli indirizzi di posta elettronica separati da punto e virgola come recipient1@domain.com;recipient2@domain.com |
-| Importance |Importance |Importanza del messaggio di posta elettronica (Alta, Normale, Bassa) |
-| ContentData |Dati sul contenuto degli allegati |Contenuto dei dati (con codifica base64 per i flussi e invariato per le stringhe) |
-| ContentType |Tipo del contenuto degli allegati |Tipo di contenuto |
-| ContentTransferEncoding |Codifica di trasferimento del contenuto per gli allegati |Codifica di trasferimento del contenuto (base64 o none) |
-| FileName |Nome di file degli allegati |Nome file |
-| ContentId |ID contenuto degli allegati |ID contenuto |
-
-* indica che la proprietà è obbligatoria
-
-## <a name="http-responses"></a>Risposte HTTP
-Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti codici di stato HTTP: 
-
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Non autorizzata |
-| 403 |Accesso negato |
-| 404 |Non trovato |
-| 500 |Errore interno del server. Si è verificato un errore sconosciuto. |
-| default |Operazione non riuscita. |
-
-## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+## <a name="more-connectors"></a>Altri connettori
+Tornare all' [elenco di API](apis-list.md).

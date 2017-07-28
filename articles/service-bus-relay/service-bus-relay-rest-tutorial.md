@@ -12,30 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2017
+ms.date: 06/17/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 8296e88024109e35379faa67ca887e6d2c52a6c5
-ms.openlocfilehash: 41bba4608fd7e3d0b16cbf0d846f5f65a071ad20
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Esercitazione su REST per l'inoltro WCF di Azure
+
 Questa esercitazione descrive come creare una semplice applicazione host di inoltro di Azure che espone un'interfaccia basata su REST. REST consente ai client Web, ad esempio un Web browser, di accedere all'API del bus di servizio tramite richieste HTTP.
 
-In questa esercitazione viene usato il modello di programmazione REST di Windows Communication Foundation (WCF) per creare un servizio REST nel bus di servizio. Per altre informazioni, vedere [Modello di programmazione HTTP Web WCF](https://msdn.microsoft.com/library/bb412169.aspx) e [Progettazione e implementazione di servizi](https://msdn.microsoft.com/library/ms729746.aspx) nella documentazione di WCF.
+In questa esercitazione viene usato il modello di programmazione REST di Windows Communication Foundation (WCF) per creare un servizio REST nel bus di servizio. Per altre informazioni, vedere [Modello di programmazione HTTP Web WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) e [Progettazione e implementazione di servizi](/dotnet/framework/wcf/designing-and-implementing-services) nella documentazione di WCF.
 
-## <a name="step-1-create-a-service-namespace"></a>Passaggio 1: Creare uno spazio dei nomi del servizio
+## <a name="step-1-create-a-namespace"></a>Passaggio 1: Creare uno spazio dei nomi
 
 Per usare le funzionalità del servizio d'inoltro di Azure, è prima necessario creare uno spazio dei nomi del servizio. Uno spazio dei nomi funge da contenitore di ambito in cui indirizzare le risorse di Azure nell'applicazione. Seguire le [istruzioni qui](relay-create-namespace-portal.md) per creare uno spazio dei nomi di inoltro.
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Passaggio 2: definire un contratto di servizio WCF basato su REST da usare con il servizio di inoltro di Azure
+
 Quando si crea un servizio basato su REST WCF, è necessario definire il contratto. Il contratto specifica quali operazioni sono supportate dall'host. Un'operazione di servizio può essere considerata come un metodo del servizio Web. I contratti vengono creati definendo un'interfaccia C++, C# o Visual Basic. Ogni metodo dell'interfaccia corrisponde a un'operazione di servizio specifico. L'attributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve essere applicato a ogni interfaccia e l'attributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve essere applicato a ogni operazione. Se un metodo di un'interfaccia che ha [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) non ha [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), non viene esposto. Il codice usato per eseguire queste attività viene illustrato nell'esempio che segue la procedura.
 
 La differenza principale tra un contratto di WCF e un contratto di tipo REST è costituita dall'aggiunta di una proprietà all'attributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Questa proprietà consente di eseguire il mapping di un metodo dell'interfaccia a un metodo su altro lato dell'interfaccia. In tal caso, si userà [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) per collegare un metodo a HTTP GET. In questo modo il bus di servizio può recuperare e interpretare in modo accurato i comandi inviati all'interfaccia.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Per creare un contratto con un'interfaccia
+
 1. Aprire Visual Studio come amministratore: fare clic con il pulsante destro del mouse sul programma nel menu **Start** e quindi fare clic su **Esegui come amministratore**.
 2. Creare un nuovo progetto di applicazione console. Scegliere il menu **File**, selezionare **Nuovo** e quindi **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#**, selezionare il modello **Applicazione console** e denominarlo **ImageListener**. Usare il valore predefinito **Percorso**. Fare clic su **OK** per creare il progetto.
 3. Per un progetto C#, Visual Studio crea un file `Program.cs`. Questa classe contiene un metodo `Main()` vuoto, necessario per una corretta compilazione del progetto di applicazione console.
@@ -558,9 +562,9 @@ Dopo aver compilato la soluzione, effettuare le operazioni seguenti per eseguire
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo avere creato un'applicazione che usa il servizio di inoltro del bus di servizio, vedere gli articoli seguenti per altre informazioni sul servizio di inoltro di Azure:
 
-* [Panoramica dell'architettura del bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Panoramica dell'architettura del bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Panoramica del servizio di inoltro di Azure](relay-what-is-it.md)
-* [Come usare il servizio di inoltro WCF con .NET](service-bus-dotnet-how-to-use-relay.md)
+* [Come usare il servizio di inoltro WCF con .NET](relay-wcf-dotnet-get-started.md)
 
 [Azure portal]: https://portal.azure.com
 

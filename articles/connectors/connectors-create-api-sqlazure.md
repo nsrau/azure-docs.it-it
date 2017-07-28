@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: ce3a622db8667df8b3f1d1391c2aa0d7e1e012a5
-ms.lasthandoff: 02/16/2017
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,11 +32,6 @@ Con il database SQL è possibile:
 * Usare le azioni per ottenere una riga di dati, inserire una nuova riga e persino eliminare una riga. Ad esempio, quando viene creato un record in Dynamics CRM Online (trigger), inserire una riga in un database SQL di Azure (azione). 
 
 Questo argomento illustra come usare il connettore database SQL in un'app per la logica ed elenca le azioni.
-
-> [!NOTE]
-> Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica. 
-> 
-> 
 
 Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) e [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
@@ -72,152 +68,9 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
    > 
 5. Scegliere **Salva** nell'angolo in alto a sinistra della barra degli strumenti per salvare le modifiche. L'app per la logica viene salvata e può essere attivata automaticamente.
 
-## <a name="technical-details"></a>Dettagli tecnici
-## <a name="sql-database-actions"></a>Azioni del database SQL
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. Il connettore del database SQL include le azioni seguenti. 
+## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-| Azione | Description |
-| --- | --- |
-| [ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure) |Esegue una stored procedure in SQL |
-| [GetRow](connectors-create-api-sqlazure.md#get-row) |Recupera una riga singola da una tabella SQL |
-| [GetRows](connectors-create-api-sqlazure.md#get-rows) |Recupera righe da una tabella SQL |
-| [InsertRow](connectors-create-api-sqlazure.md#insert-row) |Inserisce una nuova riga in una tabella SQL |
-| [DeleteRow](connectors-create-api-sqlazure.md#delete-row) |Elimina una riga da una tabella SQL |
-| [GetTables](connectors-create-api-sqlazure.md#get-tables) |Recupera le tabelle da un database SQL |
-| [UpdateRow](connectors-create-api-sqlazure.md#update-row) |Aggiorna una riga esistente in una tabella SQL |
-
-### <a name="action-details"></a>Informazioni dettagliate sulle azioni
-In questa sezione si vedranno i dettagli relativi a ogni azione, incluse le proprietà di input obbligatorie o facoltative e gli output corrispondenti associati al connettore.
-
-#### <a name="execute-stored-procedure"></a>Esegui stored procedure
-Esegue una stored procedure in SQL.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| procedure* |Nome della stored procedure |Il nome della stored procedure da eseguire |
-| parameters* |Parametri di input |I parametri sono dinamici e basati sulla stored procedure selezionata. <br/><br/> Ad esempio, se si usa il database di esempio Adventure Works, scegliere la stored procedure *ufnGetCustomerInformation*. Viene visualizzato il parametro di input **ID cliente**. Immettere "6" o uno degli altri ID cliente. |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-ProcedureResult: riporta il risultato dell'esecuzione della stored procedure
-
-| Nome proprietà | Tipo di dati | Descrizione |
-| --- | --- | --- |
-| OutputParameters |oggetto |Valori di output dei parametri |
-| ReturnCode |integer |Codice restituito di una routine |
-| ResultSets |oggetto |Set di risultati |
-
-#### <a name="get-row"></a>Ottenere la riga
-Recupera una riga singola da una tabella SQL.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella SQL |
-| id* |ID di riga |Identificatore univoco della riga da recuperare |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Item
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Ottieni righe
-Recupera righe da una tabella SQL.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella SQL |
-| $skip |Ignora conteggio |Numero di elementi da ignorare (impostazione predefinita = 0) |
-| $top |Numero massimo di Get |Numero massimo di elementi da recuperare (impostazione predefinita = 256) |
-| $filter |Query di filtro |Query di filtro ODATA per limitare il numero di elementi |
-| $orderby |Ordina per |Query orderBy ODATA per specificare l'ordine degli elementi |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-ItemsList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Inserisci riga
-Inserisce una nuova riga in una tabella SQL.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella SQL |
-| item* |Riga |Riga da inserire nella tabella specificata in SQL |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Item
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Elimina riga
-Elimina una riga da una tabella SQL.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella SQL |
-| id* |ID di riga |Identificatore univoco della riga da eliminare |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Nessuna.
-
-#### <a name="get-tables"></a>Ottieni tabelle
-Recupera le tabelle da un database SQL.  
-
-Non sono disponibili parametri per questa chiamata. 
-
-##### <a name="output-details"></a>Dettagli dell'output
-TablesList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Aggiorna riga
-Aggiorna una riga esistente in una tabella SQL.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella SQL |
-| id* |ID di riga |Identificatore univoco della riga da aggiornare |
-| item* |Riga |Riga con i valori aggiornati |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Item
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Risposte HTTP
-Quando si effettuano chiamate alle diverse azioni, è possibile ottenere determinate risposte. La tabella seguente indica le risposte e le relative descrizioni:  
-
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Non autorizzata |
-| 403 |Accesso negato |
-| 404 |Non trovato |
-| 500 |Errore interno del server. Si è verificato un errore sconosciuto |
-| default |Operazione non riuscita. |
+Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).

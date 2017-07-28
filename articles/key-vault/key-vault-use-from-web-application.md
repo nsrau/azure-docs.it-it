@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2a7f2cb27cb4ed2d23fee09d53f85283a8592b3a
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: d095bcfe37baefa90cf79bb48bff3f703ce1dad7
+ms.contentlocale: it-it
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -135,7 +136,9 @@ Se si dispone di un'app Web di Azure, è ora possibile aggiungere i valori effet
 4. Aggiungere un certificato a un'applicazione Web
 
 **Ottenere o creare un certificato** Per i nostri scopi rendiamo un certificato di prova. Ecco un paio di comandi che è possibile utilizzare in un prompt dei comandi sviluppatore per creare un certificato. Cambiare la directory in cui si vuole creare i file del certificato.  Inoltre, per la data di inizio e di fine del certificato usare la data corrente più 1 anno.
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+
+    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+    pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 Prendere nota della data finale e della password per il formato .pfx (in questo esempio: 31/07/2016 e test123). Saranno necessarie più avanti.
 

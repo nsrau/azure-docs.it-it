@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 953a99a1fc09a960c94eebbc0486e4782e5dd87c
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -62,9 +62,9 @@ Ora che il trigger è stato aggiunto, seguire questi passaggi per aggiungere un'
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 6. Salvare il lavoro e creare un nuovo file in Dropbox per attivare il flusso di lavoro.  
 
-## <a name="view-the-swagger"></a>Visualizzare il file Swagger
+## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-Vedere i [dettagli del file Swagger](/connectors/dropbox/).
+Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/dropbox/).
 
 ## <a name="more-connectors"></a>Altri connettori
 Tornare all' [elenco di API](apis-list.md).

@@ -1,6 +1,6 @@
 ---
-title: Query Hive con Hadoop Tools per Visual Studio | Documentazione Microsoft
-description: Informazioni su come usare Hive con Hadoop in HDInsight tramite gli strumenti di Visual Studio Hadoop.
+title: Hive con strumenti Data Lake (Hadoop) per Visual Studio - Azure HDInsight | Microsoft Docs
+description: Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query Apache Hive con Apache Hadoop in Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,29 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 05/22/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 125531d8d52d4e27951a9e6cae0c50582c5b110e
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: d2aa7985bbaea318fa075cb128da3a58dce5ef92
+ms.contentlocale: it-it
+ms.lasthandoff: 05/23/2017
 
 
 ---
-# <a name="run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a>Eseguire query Hive usando gli strumenti di HDInsight per Visual Studio
+# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Hive usando gli strumenti Data Lake per Visual Studio
 
-[!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
-
-Informazioni su come inviare query Hive a un cluster HDInsight usando gli strumenti di HDInsight per Visual Studio.
+Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query su Apache Hive. Gli strumenti Data Lake consentono di creare, inviare e monitorare facilmente query Hive in Hadoop in HDInsight di Azure.
 
 ## <a id="prereq"></a>Prerequisiti
-
-Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti.
 
 * Un cluster Azure HDInsight (Hadoop in HDInsight)
 
   > [!IMPORTANT]
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * Visual Studio (una delle versioni seguenti):
 
@@ -70,7 +67,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
    * `CREATE EXTERNAL TABLE`: crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
 
      > [!NOTE]
-     > È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
+     > Usa le tabelle esterne se si prevede che i dati sottostanti verranno aggiornati da un'origine esterna. Ad esempio, un processo MapReduce o un servizio di Azure.
      >
      > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
@@ -115,7 +112,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 8. Nella barra degli strumenti selezionare **Invia** per eseguire il processo. Usare **Stato processo** per accertarsi che il processo sia stato completato correttamente.
 
-9. Per verificare che il processo abbia creato una nuova tabella, usare **Esplora server** ed espandere **Azure** > **HDInsight** > il proprio cluster HDInsight > **Hive Databases** > **(Database Hive) Predefinito**. Vengono elencate la tabella **errorLogs** e la tabella **log4jLogs**.
+9. Per verificare che il processo abbia creato la tabella, usare **Esplora server** ed espandere **Azure** > **HDInsight** > il proprio cluster HDInsight > **Database Hive** > **Predefinito**. Vengono elencate la tabella **errorLogs** e la tabella **log4jLogs**.
 
 ## <a id="nextsteps"></a>Passaggi successivi
 

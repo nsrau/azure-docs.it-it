@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 347984aae91a9fa99f88001effe2cba49f92deb9
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 6fbe0dbe159fecb73833260d18aade7d294f040f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -72,5 +72,6 @@ Eliminare il gruppo di risorse e tutte le risorse al suo interno: <br>
 Eseguire `az group delete -n MyRG`
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni sull'Impostazione della persistenza di una risorsa di archiviazione in Cloud Shell](persisting-shell-storage.md) [Learn about Azure CLI 2.0] (Informazioni sull'interfaccia della riga di comando di Azure 2.0) (https://docs.microsoft.com/cli/azure/) [Informazioni su Archiviazione file di Azure] (https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-
+[Informazioni sull'archiviazione permanente su Cloud Shell](persisting-shell-storage.md) <br>
+[Informazioni sull'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Informazioni sull'archiviazione file di Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>

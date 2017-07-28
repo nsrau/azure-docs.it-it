@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 76f59384db37967a9210ba5efa49b25788d21cdc
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e66a3390c08b66e0f2f38725425cd78a36004118
+ms.contentlocale: it-it
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -112,7 +113,7 @@ Nella procedura seguente viene descritto come collegare una nuova istanza di dat
     ![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. Fare clic su **Crea una nuova risorsa** o **Collega una risorsa esistente**.
-5. Scegliere il tipo di risorsa da collegare. Nel [portale di Azure classico](http://manage.windowsazure.com/)fare clic su **Database SQL**. (il portale di Azure classico in anteprima non supporta il collegamento di un account di archiviazione a un servizio cloud).
+5. Scegliere il tipo di risorsa da collegare. Nel [portale di Azure classico](http://manage.windowsazure.com/)fare clic su **Database SQL**. Solo il portale di Azure classico supporta il collegamento di un account di archiviazione a un servizio cloud.
 6. Per completare la configurazione del database, seguire le istruzioni nella guida per l'area **SQL Databases** del portale di Azure classico.
 
     È possibile seguire l'avanzamento dell'operazione di collegamento nell'area dei messaggi.

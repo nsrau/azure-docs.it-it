@@ -1,5 +1,5 @@
 ---
-title: 'Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore | Documentazione Microsoft'
+title: 'Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore - Azure | Microsoft Docs'
 description: Informazioni sui messaggi di errore che vengono visualizzati durante l&quot;amministrazione di HDInsight con PowerShell e sulle operazioni da eseguire per risolvere i problemi.
 services: hdinsight
 tags: azure-portal
@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
-ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
-ms.lasthandoff: 02/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 3031644e2975fd59edff13c7a9da1efa418e8abd
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -97,7 +98,7 @@ Ora è possibile usare Excel per filtrare e ordinare in base alle esigenze. Ovvi
 **Per usare Visual Studio**
 
 1. Aprire Visual Studio.
-2. Scegliere **Cloud Explorer** dal menu **Visualizza** oppure fare semplicemente clic su **CTRL+\,**CTRL+X.
+2. Scegliere **Cloud Explorer** dal menu **Visualizza** oppure fare semplicemente clic su **CTRL+\,** CTRL+X.
 3. In **Cloud Explorer** selezionare **Tipi di risorse**.  L'altra opzione disponibile è **Gruppi di risorse**.
 4. Espandere **Account di archiviazione**, l'account di archiviazione predefinito per il cluster e quindi **Tabelle**.
 5. Fare doppio clic su **hadoopservicelog**.

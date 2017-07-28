@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: bbea08798a601989d06774475cb25ee67e99add6
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 41cb5ffab9bd3a3bed75ffdb6a7383ca1690f810
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -32,67 +32,76 @@ ms.lasthandoff: 05/26/2017
 > - [Interfaccia della riga di comando 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
-I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base a regole, scheda di rete a cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo), e se il traffico è consentito o meno.
+I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Questi log di flusso sono scritti in formato JSON e contengono informazioni importanti, tra cui: 
+
+- Flussi in ingresso e in uscita in base a ciascuna regola.
+- La scheda di interfaccia di rete che si applica al flusso.
+- Informazioni a 5 tuple sul flusso, IP di origine/destinazione, porta di origine/destinazione, protocollo.
+- Indica se il traffico è stato consentito o negato.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher. Lo scenario presuppone inoltre che esista e possa essere usato un gruppo di risorse con una macchina virtuale valida.
+Questo scenario presuppone il completamento dei passaggi descritti in [Creare un'istanza di Azure Network Watcher](network-watcher-create.md). Lo scenario presuppone anche che l'utente possieda un gruppo di risorse con una macchina virtuale valida.
 
 ## <a name="register-insights-provider"></a>Registrare il provider Insights
 
-Per il corretto funzionamento della registrazione dei flussi, è necessario registrare il provider **Microsoft.Insights**. Per registrare il provider, passare a **Sottoscrizioni** e selezionare la sottoscrizione per la quale si vuole abilitare i log dei flussi. Nel pannello **Sottoscrizione** selezionare **Provider di risorse**. Spostarsi nell'elenco di provider e verificare che il provider **microsoft.insights** sia registrato. Se non lo è, fare clic su **Registra**.
+Per il corretto funzionamento della registrazione dei flussi, è necessario registrare il provider **Microsoft.Insights**. Registrare il provider seguendo la procedura seguente: 
 
-![visualizzare i provider][providers]
+1. Passare a **Sottoscrizioni** e selezionare la sottoscrizione per la quale si vuole abilitare i log dei flussi. 
+2. Nel pannello **Sottoscrizione** selezionare **Provider di risorse**. 
+3. Osservare l'elenco di provider e verificare che il provider **microsoft.insights** sia registrato. In caso contrario selezionare **Registra**.
+
+![Visualizzare i provider][providers]
 
 ## <a name="enable-flow-logs"></a>Abilitare i log di flusso
 
-Questi passaggi descrivono l'abilitazione dei log di flusso in un gruppo di sicurezza di rete.
+Questi passaggi descrivono il processo di abilitazione dei log di flusso in un gruppo di sicurezza di rete.
 
 ### <a name="step-1"></a>Passaggio 1
 
-Passare a un'istanza di Network Watcher e selezionare **Log dei flussi**
+Passare a un'istanza di Network Watcher e selezionare **Log del flusso del NSG**.
 
 ![Panoramica dei log di flusso][1]
 
 ### <a name="step-2"></a>Passaggio 2
 
-Selezionare un gruppo di sicurezza di rete dall'elenco facendovi clic sopra.
+Selezionare un gruppo di sicurezza di rete dall'elenco.
 
 ![Panoramica dei log di flusso][2]
 
 ### <a name="step-3"></a>Passaggio 3 
 
-Nel pannello **Impostazioni dei log dei flussi** impostare lo stato su **On** e configurare un account di archiviazione.  Al termine, fare clic su **OK** e **Salva**.
+Nel pannello **Impostazioni dei log dei flussi** impostare lo stato su **On** (Attivo) e configurare un account di archiviazione.  Al termine, fare clic su **OK**. Selezionare quindi **Salva**.
 
 ![Panoramica dei log di flusso][3]
 
 ## <a name="download-flow-logs"></a>Scaricare i log di flusso
 
-I log di flusso vengono salvati in un account di archiviazione. Per visualizzare i log di flusso è necessario scaricarli.
+I log di flusso vengono salvati in un account di archiviazione. Scaricare i log di flusso per visualizzarli.
 
 ### <a name="step-1"></a>Passaggio 1
 
-Per scaricare i log di flusso, fare clic su **È possibile scaricare i log dei flussi dagli account di archiviazione configurati**.  Viene mostrata la visualizzazione dell'account di archiviazione in cui è possibile passare al log e scaricarlo.
+Per scaricare i log di flusso, fare clic su **È possibile scaricare i log dei flussi dagli account di archiviazione configurati**. Con questo passaggio si accede a una visualizzazione dell'account di archiviazione in cui è possibile scegliere i log per il download.
 
-![Impostazioni dei log dei flussi][4]
+![Impostazioni dei log di flusso][4]
 
 ### <a name="step-2"></a>Passaggio 2
 
-Passare all'account di archiviazione corretto e quindi scegliere **Contenitori** > **insights-log-networksecuritygroupflowevent**
+Passare all'account di archiviazione corretto. Selezionare quindi **Contenitori** > **insights-log-networksecuritygroupflowevent**.
 
-![Impostazioni dei log dei flussi][5]
+![Impostazioni dei log di flusso][5]
 
 ### <a name="step-3"></a>Passaggio 3
 
-Eseguire il drill down nel percorso del log di flusso, selezionare il log di flusso e fare clic su **Download**.
+Passare al percorso del log di flusso, selezionarlo e quindi selezionare **Scarica**.
 
-![Impostazioni dei log dei flussi][6]
+![Impostazioni dei log di flusso][6]
 
-Per informazioni sulla struttura del log, leggere la [panoramica sul log di flusso del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
+Per informazioni sulla struttura del log, leggere [Panoramica sul log di flusso del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [visualizzare i log di flusso con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Informazioni su come [visualizzare i log di flusso NSG con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
 <!-- Image references -->
 [1]: ./media/network-watcher-nsg-flow-logging-portal/figure1.png
@@ -102,3 +111,4 @@ Informazioni su come [visualizzare i log di flusso con Power BI](network-watcher
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
 [providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
+

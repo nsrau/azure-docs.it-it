@@ -15,9 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 259c59133499a4a3beb0e5f6f3700944df5ab8a9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
+ms.contentlocale: it-it
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -75,7 +77,7 @@ Il grafico seguente è un subset dei limiti tratto da [Limiti dei servizi in Ric
 
 | Risorsa | Free | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Contratto di servizio (SLA) |No <sup>1</sup> |Sì |sì |sì |sì |Sì |
+| Contratto di servizio (SLA) |No <sup>1</sup> |Sì |Sì |Sì |Sì |Sì |
 | Limiti per gli indici |3 |5 |50 |200 |200 |1000 <sup>2</sup> |
 | Limiti per i documenti |10.000 in totale |1 milione per servizio |15 milioni per partizione |60 milioni per partizione |120 milioni per partizione |1 milione per indice |
 | Partizioni massime |N/D |1 |12 |12 |12 |3 <sup>2</sup> |
@@ -83,14 +85,14 @@ Il grafico seguente è un subset dei limiti tratto da [Limiti dei servizi in Ric
 | Repliche massime |N/D |3 |12 |12 |12 |12 |
 | Query al secondo |N/D |~3 per replica |~15 per replica |~60 per replica |>60 per replica |>60 per replica |
 
-<sup>1</sup> Gli SKU Gratuito e Anteprima non includono contratti di servizio. I contratti di servizio vengono applicati quando uno SKU è disponibile a livello generale.
+<sup>1</sup> Con il Contratto di servizio non sono incluse funzionalità di anteprima e il livello gratuito. Per tutti i livelli fatturabili, i contratti di servizio diventano effettivi quando viene effettuato il provisioning di una ridondanza sufficiente per il servizio. Per il Contratto di servizio di query (lettura) sono necessarie due o più repliche. Per il contratto di servizio di query e indicizzazione (lettura-scrittura) sono necessarie tre o più repliche. Il numero di partizioni non è un fattore di cui tiene conto il Contratto di servizio. 
 
 <sup>2</sup> S3 e S3 HD sono supportati da un'infrastruttura identica ad alta capacità, tuttavia ciascuno raggiunge il limite massimo in modi diversi. S3 è destinato a un numero minore di indici di dimensioni molto grandi. Di conseguenza, il limite massimo è associato alle risorse (2,4 TB per ogni servizio). S3 HD è destinato a un numero elevato di indici di dimensioni molto ridotte. A 1000 indici, S3 HD raggiunge il limite in termini di vincoli di indice. Se l'utente è un cliente S3 HD che richiede più di 1000 indici, può contattare il supporto tecnico Microsoft per informazioni su come procedere.
 
 ## <a name="eliminate-skus-that-dont-meet-requirements"></a>Eliminare gli SKU che non soddisfano i requisiti
 Le domande seguenti consentono di prendere la decisione corretta per gli SKU per il carico di lavoro.
 
-1. Si hanno requisiti in termini di **contratti di servizio** ? Restringere la decisione sugli SKU alle tipologie Basic o Standard (non anteprima).
+1. Si hanno requisiti in termini di **contratti di servizio** ? È possibile usare qualsiasi livello fatturabile (di base o superiore), ma è necessario configurare il servizio per la ridondanza. Per il Contratto di servizio di query (lettura) sono necessarie due o più repliche. Per il contratto di servizio di query e indicizzazione (lettura-scrittura) sono necessarie tre o più repliche. Il numero di partizioni non è un fattore di cui tiene conto il Contratto di servizio.
 2. **Quanti indici** sono necessari? Una delle variabili principali che influiscono sulla decisione per gli SKU è il numero di indici supportato da ogni SKU. Il supporto degli indici è notevolmente diverso nei piani tariffari più bassi. Il requisito relativo al numero di indici può essere determinante nella scelta dello SKU.
 3. **Quanti documenti** verranno caricati in ogni indice? Il numero e le dimensioni dei documenti determinano le dimensioni finali dell'indice. Supponendo che si possano stimare le dimensioni previste dell'indice, è possibile confrontare tale numero con le dimensioni della partizione per ogni SKU, estese per il numero di partizioni necessarie per archiviare un indice di tali dimensioni.
 4. **Qual è il carico di query previsto**? Dopo aver determinato i requisiti di archiviazione, prendere in considerazione i carichi di lavoro di query. S2 ed entrambi gli SKU S3 offrono una velocità effettiva quasi equivalente, ma i requisiti in termini di contratto di servizio escludono gli SKU di anteprima.
@@ -113,9 +115,4 @@ Dopo aver determinato lo SKU corretto, continuare con la procedura:
 
 * [Creare un servizio di ricerca nel portale](search-create-service-portal.md)
 * [Modificare l'allocazione di partizioni e repliche per la scalabilità del servizio](search-capacity-planning.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 07eddeb35c2b88b2de08270d9ff5de317cc09ec7
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: db658319637f1a45616091e034a0fc4db44885d4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/22/2017
 
 ---
 
@@ -101,8 +101,8 @@ Le voci possono essere lunghe.  Per visualizzarle meglio è possibile esportarle
 
 Per altre informazioni sullo strumento Analytics, vedere [qui](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
-^[!NOTE]
-La community ha sviluppato un visualizzatore di eventi userjourney per supportare gli sviluppatori di identità.  Non è supportato da Microsoft ed reso disponibile esclusivamente così com'è.  Legge l'istanza di Application Insights e restituisce una visualizzazione strutturata degli eventi userjourney.  Ottenere il codice sorgente e distribuirlo nella soluzione.
+>[!NOTE]
+>La community ha sviluppato un visualizzatore di eventi userjourney per supportare gli sviluppatori di identità.  Non è supportato da Microsoft ed reso disponibile esclusivamente così com'è.  Legge l'istanza di Application Insights e restituisce una visualizzazione strutturata degli eventi userjourney.  Ottenere il codice sorgente e distribuirlo nella soluzione.
 
 [Repository GitHub di esempi di criteri personalizzate non supportati e strumenti correlati](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 

@@ -1,5 +1,5 @@
 ---
-title: Usare un&quot;azione script per installare Solr in HDInsight basati su Linux | Documentazione Microsoft
+title: Usare un'azione script per installare Solr in HDInsight basato su Linux | Documentazione Microsoft
 description: Informazioni su come installare Solr nei cluster HDInsight Hadoop basati su Linux utilizzando azioni di Script.
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/23/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 9035dd639433f1edc628db85f1663add4abfdbd3
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: cac69c443fd03cfd347e18166ae15b57dbd844c3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -32,7 +32,7 @@ Informazioni su come installare Solr in Azure HDInsight usando un'azione script.
     > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 > [!IMPORTANT]
-> Lo script di esempio usato in questo documento crea un cluster Solr con una configurazione specifica. Per configurare il cluster Solr con raccolte, partizioni, schemi, repliche diverse e così via, sarà necessario modificare lo script e i file binari di Solr.
+> Lo script di esempio usato in questo documento installa Solr 4.9 con una configurazione specifica. Per configurare il cluster Solr con raccolte, partizioni, schemi, repliche diverse e così via, sarà necessario modificare lo script e i file binari di Solr.
 
 ## <a name="whatis"></a>Che cos'è Solr
 
@@ -47,7 +47,7 @@ Informazioni su come installare Solr in Azure HDInsight usando un'azione script.
 
 Questo script apporta le modifiche seguenti al cluster HDInsight:
 
-* Installa Solr in `/usr/hdp/current/solr`
+* Installa Solr 4.9 in `/usr/hdp/current/solr`
 * Crea un utente **solrusr**, usato per eseguire il servizio Solr
 * Imposta **solrusr** come proprietario di `/usr/hdp/current/solr`.
 * Aggiunge una configurazione [Upstart](http://upstart.ubuntu.com/) che avvia automaticamente Solr.

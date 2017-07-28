@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/13/2017
+ms.date: 05/23/2017
 ms.author: sasubram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 9397e197c25c43fc2dfc37ef4fd005cea8a02003
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: bfedbbf8b26e1b129584a6a644e64a15635f5723
 ms.contentlocale: it-it
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -44,7 +44,7 @@ Sì. Per altre informazioni sull'uso della funzionalità di caricamento dei file
 È possibile personalizzare quasi tutti gli elementi del processo del mittente dell'invito usando le [API di invito B2B](active-directory-b2b-api.md).
 
 ### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>L'utente invitato esterno può lasciare l'organizzazione dopo essere stato invitato?
-Un'utente invitato esterno, attualmente, non può lasciare l'organizzazione dopo essere stato invitato.
+L'amministratore dell'organizzazione che emette l'invito può eliminare un utente guest di Collaborazione B2B dalla propria directory, ma l'utente guest non può lasciare autonomamente la directory di tale organizzazione. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>Gli utenti guest possono reimpostare il metodo di autenticazione a più fattori?
 Sì. Gli utenti guest possono reimpostare il metodo di autenticazione a più fattori nello stesso modo in cui lo fanno gli utenti normali.
@@ -53,20 +53,20 @@ Sì. Gli utenti guest possono reimpostare il metodo di autenticazione a più fat
 L'organizzazione che emette l'invito esegue l'autenticazione a più fattori. L'organizzazione che emette l'invito deve assicurarsi che l'organizzazione abbia un numero sufficiente di licenze per i propri utenti B2B che usano l'autenticazione a più fattori.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>Che cosa accade se un'organizzazione partner ha già configurato l'autenticazione a più fattori? È possibile considerare attendibile l'autenticazione a più fattori già presente e non usare la nuova autenticazione a più fattori?
-Questa funzionalità è stata pianificata per una versione successiva. Al momento è possibile selezionare partner specifici da escludere dall'autenticazione a più fattori dell'organizzazione che invia l'invito.
+Questa funzionalità è prevista per una versione futura. Sarà quindi possibile selezionare partner specifici da escludere dall'autenticazione a più fattori dell'organizzazione che emette l'invito.
 
 ### <a name="how-can-i-use-delayed-invitations"></a>Come si usano gli inviti posticipati?
-Un'organizzazione può vole aggiungere gli utenti di Collaborazione B2B, effettuarne il provisioning alle applicazioni che richiedono il provisioning e quindi inviare gli inviti. A tale scopo, è possibile usare le API dell'invito di Collaborazione B2B per personalizzare il flusso di lavoro di caricamento.
+Un'organizzazione può vole aggiungere gli utenti di Collaborazione B2B, effettuarne il provisioning alle applicazioni che richiedono il provisioning e quindi inviare gli inviti. È possibile usare l'API di invito di Collaborazione B2B per personalizzare il flusso di lavoro di onboarding.
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>È possibile fare in modo che un utente guest diventi amministratore con limitazioni?
 Certo. Per altre informazioni, vedere [Aggiunta di utenti guest a un ruolo](active-directory-users-assign-role-azure-portal.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Collaborazione B2B di Azure AD consente agli utenti di B2B di accedere al portale di Azure?
-Gli utenti di Collaborazione B2B non avranno bisogno di accedere al portale di Azure a meno che non siano assegnati a un ruolo Amministratore con limitazioni o Amministratore globale. Tuttavia, gli utenti di Collaborazione B2B a cui è stato assegnato il ruolo di amministratore globale o di amministratori con limitazioni possono accedere al portale. Se un utente guest a cui non è assegnato nessuno di questi ruoli di amministratore accede al portale, l'utente potrebbe essere in grado di accedere a determinate parti dell'esperienza. Il ruolo di utente guest ha determinate autorizzazioni nella directory.
+A meno che a un utente non sia assegnato il ruolo di amministratore con limitazioni o amministratore globale, gli utenti di Collaborazione B2B non avranno bisogno di accedere al portale di Azure. Tuttavia, gli utenti di Collaborazione B2B a cui è stato assegnato il ruolo di amministratore globale o di amministratori con limitazioni possono accedere al portale. Se un utente guest a cui non è assegnato nessuno di questi ruoli di amministratore accede al portale, l'utente potrebbe essere in grado di accedere a determinate parti dell'esperienza. Il ruolo di utente guest ha determinate autorizzazioni nella directory.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>È possibile bloccare l'accesso al portale di Azure per gli utenti guest?
 È possibile usarlo. Quando si configura questo criterio, prestare attenzione e non bloccare accidentalmente l'accesso ai membri e agli amministratori.
-Per bloccare l'accesso dell'utente guest per al [portale di Azure](https://portal.azure.com), usare un criterio di accesso condizionale nell'API Gestione dei servizi di Windows Azure:
+Per bloccare l'accesso dell'utente guest al [portale di Azure](https://portal.azure.com), usare un criterio di accesso condizionale nell'API del modello di distribuzione classica di Microsoft Azure:
 1. Modificare il gruppo **All Users** (Tutti gli utenti) in modo che contenga solo i membri.
   ![schermata di modifica del gruppo](media/active-directory-b2b-faq/modify-all-users-group.png)
 2. Creare un gruppo dinamico che contenga utenti guest.
@@ -79,21 +79,27 @@ Per bloccare l'accesso dell'utente guest per al [portale di Azure](https://porta
 Sì. Sia l'autenticazione a più fattori che gli account di posta elettronica degli utenti sono supportati per la Collaborazione B2B di Azure AD.
 
 ### <a name="do-you-plan-to-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>È previsto il supporto della reimpostazione della password per gli utenti di Collaborazione B2B di Azure AD?
-Sì. Di seguito i dettagli da ricordare sulla reimpostazione della password self-service per un utente B2B che viene invitato in una tenancy delle risorse da una propria tenancy di identità:
+Sì. Di seguito sono riportati dettagli importanti per la reimpostazione password self-service per gli utenti B2B invitati da un'organizzazione partner:
  
-* La reimpostazione della password self-service viene eseguita solo nella tenancy di identità dell'utente B2B.
-* Se la tenancy di identità è un account Microsoft, viene usato il meccanismo di reimpostazione della password self-service per gli account Microsoft.
-* Se la tenancy di identità è una tenancy JIT o virale, viene inviato un messaggio di posta elettronica per la reimpostazione della password.
-* Per altri tenancy, viene seguita la procedura per la reimpostazione della password self-service standard per gli utenti B2B. Come componente della reimpostazione della password self-service per gli utenti B2B, nel contesto della risorsa, la tenancy è bloccata. 
+* La reimpostazione password self-service viene eseguita solo nel tenant dell'identità dell'utente B2B.
+* Se il tenant dell'identità è un account Microsoft, viene usato il meccanismo di reimpostazione password self-service degli account Microsoft.
+* Se il tenant dell'identità è un tenant JIT o "virale", viene inviato un messaggio di posta elettronica per la reimpostazione della password.
+* Per gli altri tenant, per gli utenti B2B viene seguito il processo di reimpostazione password self-service standard. Come componente della reimpostazione della password self-service per gli utenti B2B, nel contesto della risorsa, la tenancy è bloccata. 
 
-### <a name="is-password-reset-available-for-users-in-a-viral-tenant"></a>La reimpostazione della password è disponibile per gli utenti in un tenant virale?
-No.
+### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>La reimpostazione della password è disponibile per gli utenti guest in un tenant JIT o "virale" che hanno accettato gli inviti con un indirizzo di posta elettronica aziendale o dell'istituto di istruzione senza avere un account Azure AD preesistente?
+Sì. Può essere inviato un messaggio di posta elettronica di reimpostazione della password che consente all'utente di reimpostare la password nella tenancy JIT.
 
 ### <a name="does-microsoft-dynamics-crm-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics CRM offre supporto online per Collaborazione B2B di Azure AD?
 Microsoft Dynamics CRM, attualmente, non offre supporto online per Collaborazione B2B di Azure AD. Tuttavia si prevede di supportare questa funzione in futuro.
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Qual è la durata di una password iniziale per un nuovo utente di Collaborazione B2B?
-Azure AD ha requisiti fissi per il set di caratteri, la complessità della password e il blocco account che si applicano equamente a tutti gli account utente cloud di Azure AD. Gli account utente cloud sono account non federati con un altro provider di identità, ad esempio Account Microsoft, Facebook, Active Directory Federation Services o anche un altro tenant cloud, nel caso di Collaborazione B2B. Per gli account federati, i criteri password dipendono dai criteri applicati nella tenancy locale e dalle impostazioni dell'account Microsoft dell'utente.
+Azure AD ha requisiti fissi per il set di caratteri, la complessità della password e il blocco account che si applicano equamente a tutti gli account utente cloud di Azure AD. Gli account utente cloud sono account non federati con un altro provider di identità, ad esempio: 
+* Account Microsoft
+* Facebook
+* Active Directory Federation Services
+* Un altro tenant cloud (per Collaborazione B2B)
+
+Per gli account federati, i criteri password dipendono dai criteri applicati nella tenancy locale e dalle impostazioni dell'account Microsoft dell'utente.
 
 ### <a name="an-organization-might-want-to-have-different-experiences-in-their-applications-for-tenant-users-and-guest-users-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-correct-model-to-use"></a>Per un'organizzazione potrebbe essere necessario avere esperienze diverse nelle applicazioni per gli utenti tenant e gli utenti guest. Ci sono linee guida standard per questo? La presenza dell'attestazione del provider di identità è il modello corretto da usare?
  Un utente guest può usare qualsiasi provider di identità per eseguire l'autenticazione. Per altre informazioni, vedere [Proprietà di un utente di Collaborazione B2B](active-directory-b2b-user-properties.md). Utilizzare la proprietà **UserType** per determinare l'esperienza utente. L'attestazione **UserType** non è attualmente inclusa nel token. Le applicazioni devono usare l'API Graph per eseguire una query nella directory per l'utente e ottenere lo UserType.
@@ -104,9 +110,9 @@ Microsoft ascolta sempre commenti e suggerimenti su come migliorare la Collabora
 Invitiamo anche l'utente a inviarci le proprie idee e a votare le funzionalità future nelle [Idee per Collaborazione B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>È possibile inviare un invito che viene riscattato automaticamente, in modo che l'utente possa "iniziare subito"? Oppure l'utente deve sempre fare clic sull'URL di riscatto?
-Gli inviti inviati da un utente dell'organizzazione che invita, che è a suo volta membro dell'organizzazione invitata, ovvero l'organizzazione dell'utente B2B, non devono essere riscattati dall'utente B2B.
+Gli inviti inviati da un utente dell'organizzazione che emette l'invito che è anche membro dell'organizzazione partner non devono essere riscattati dall'utente B2B.
 
-A tale scopo, è consigliabile invitare un utente dell'organizzazione invitata ad unirsi all'organizzazione che invita. [Aggiungere l'utente al ruolo mittente dell'invito guest nell'organizzazione delle risorse](active-directory-b2b-add-guest-to-role.md). L'utente può invitare altri utenti nell'organizzazione invitata tramite l'interfaccia utente di accesso, gli script di PowerShell o le API. In questo modo, all'utente B2B di questa organizzazione non è richiesto di riscattare l'invito.
+È consigliabile invitare un utente dell'organizzazione partner a unirsi all'organizzazione che emette l'invito. [Aggiungere l'utente al ruolo mittente dell'invito guest nell'organizzazione delle risorse](active-directory-b2b-add-guest-to-role.md). Questo utente può invitare altri utenti nell'organizzazione partner usando l'interfaccia utente di accesso, script di PowerShell o API. Per gli utenti di Collaborazione B2B di tale organizzazione non è quindi necessario riscattare gli inviti.
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>Come funziona Collaborazione B2B quando il partner invitato usa la federazione per aggiungere la propria autenticazione locale?
 Se il partner ha un tenant di Azure AD federato all'infrastruttura di autenticazione locale,viene automaticamente applicato l'accesso Single Sign-On (SSO) locale. Se il partner non ha un tenant di Azure AD, viene creato un account Azure AD per i nuovi utenti. 
