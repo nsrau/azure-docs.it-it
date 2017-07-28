@@ -17,10 +17,10 @@ ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: da03dc8afa58ddfe97301dabed186ed325410937
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 2f1d68c7127324477cfc8b87df0fd82dee7cd1d6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -51,13 +51,13 @@ La regola avanzata che è possibile creare per le appartenenze dinamiche ai grup
 * Operatore binario
 * Costante destra
 
-Una regola avanzata completa simile alla seguente: (parametroSinistro operatoreBinario "CostanteDestra"), dove le parentesi di apertura e chiusura sono obbligatorie per racchiudere l'intera espressione binaria, le virgolette doppie sono obbligatorie per la costante a destra e la sintassi del parametro a sinistra è utente.proprietà. Una regola avanzata può includere più espressioni binarie separate dagli operatori logici -and, -or e -not.
+Una regola avanzata completa ha un aspetto simile al seguente: (leftParameter binaryOperator "RightConstant"), dove le parentesi di apertura e chiusura sono facoltative per l'intera espressione binaria, le virgolette doppie sono anch'esse facoltative e sono obbligatorie solo per la costante a destra quando si tratta di una stringa e la sintassi del parametro a sinistra è user.property. Una regola avanzata può includere più espressioni binarie separate dagli operatori logici -and, -or e -not.
 
 Di seguito sono riportati alcuni esempi di regola avanzata con il formato corretto:
-
-* (user.department -eq "Vendite") -or (user.department -eq "Marketing")
-* (user.department -eq "Vendite") -and -not (user.jobTitle -contains "SDE")
-
+```
+(user.department -eq "Sales") -or (user.department -eq "Marketing")
+(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+```
 Per l'elenco completo dei parametri supportati e degli operatori delle regole di espressione, vedere le sezioni riportate di seguito. Per gli attributi usati per le regole di dispositivo, vedere [Uso degli attributi per creare regole per gli oggetti dispositivo](#using-attributes-to-create-rules-for-device-objects).
 
 La lunghezza totale del corpo della regola avanzata non può superare i 2048 caratteri.
@@ -81,6 +81,31 @@ Nella tabella seguente sono elencati tutti gli operatori delle regole di espress
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
 | Corrispondente |-match |
+| In | -in |
+| Non incluso | -notIn |
+
+## <a name="operator-precedence"></a>Precedenza degli operatori
+
+Tutti gli operatori sono elencati di seguito in base alla precedenza, dal minore al maggiore. Gli operatori sulla stessa riga hanno la stessa precedenza. -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+
+Tutti gli operatori possono essere usati con o senza trattino come prefisso.
+
+Si noti che le parentesi non sono sempre necessarie. Le parentesi devono essere aggiunte solo quando la precedenza non rispetta i requisiti specifici, ad esempio:
+```
+   user.department –eq "Marketing" –and user.country –eq "US"
+```
+Equivale a:
+```
+   (user.department –eq "Marketing") –and (user.country –eq "US")
+```
+## <a name="using-the--in-and--notin-operators"></a>Uso degli operatori -In e -notIn
+
+Per confrontare il valore di un attributo utente con una serie di valori diversi è possibile usare gli operatori -In o -notIn. Di seguito è illustrato un esempio con l'operatore -In:
+```
+    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+```
+Si noti l'uso di "[" e "]" all'inizio e alla fine dell'elenco di valori. Questa condizione restituisce True se il valore di user.department è uguale a uno dei valori nell'elenco.
+
 
 ## <a name="query-error-remediation"></a>Correzione degli errori di query
 Nella tabella seguente sono elencati errori potenziali e indica come correggerli se si verificano
@@ -104,8 +129,8 @@ Operatori consentiti
 
 | Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
-| accountEnabled |true false |user.accountEnabled -eq true) |
-| dirSyncEnabled |true false null |(user.dirSyncEnabled -eq true) |
+| accountEnabled |true false |user.accountEnabled -eq true |
+| dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 Operatori consentiti
@@ -118,6 +143,8 @@ Operatori consentiti
 * -notContains
 * -match
 * -notMatch
+* -in
+* -notIn
 
 | Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
@@ -133,6 +160,7 @@ Operatori consentiti
 | mailNickName |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
 | mobile |Qualsiasi valore stringa o $null |(user.mobile -eq "valore") |
 | objectId |GUID dell'oggetto utente |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | ID di sicurezza (SID) locale per gli utenti sincronizzati da un ambiente locale al cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Nessuno DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualsiasi valore stringa o $null |(user.physicalDeliveryOfficeName -eq "valore") |
 | postalCode |Qualsiasi valore stringa o $null |(user.postalCode -eq "valore") |
@@ -157,57 +185,101 @@ Operatori consentiti
 | otherMails |Qualsiasi valore stringa. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## <a name="multi-value-properties"></a>Proprietà multivalore
+Operatori consentiti
+
+* -any (soddisfatto quando almeno un elemento della raccolta corrisponde alla condizione)
+* -all (soddisfatto quando tutti gli elementi della raccolta corrispondono alla condizione)
+
+| Proprietà | Valori | Utilizzo |
+| --- | --- | --- |
+| assigendPlans |Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+
+Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. È possibile usare gli operatori -any e -all per applicare una condizione rispettivamente a uno o a tutti gli elementi della raccolta. ad esempio:
+
+assignedPlans è una proprietà multivalore che elenca tutti i piani di servizio assegnati all'utente. L'espressione riportata di seguito selezionerà gli utenti che hanno il piano di servizio Exchange Online (Piano 2) con lo stato abilitato:
+
+```
+user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+L'identificatore GUID identifica il piano di servizio Exchange Online (Piano 2).
+
+> [!NOTE]
+> Questa espressione è utile per identificare tutti gli utenti per i quali è stata abilitata una funzionalità di Office 365 o di un altro servizio online Microsoft. Ad esempio, per identificarli come destinatari di un determinato set di criteri.
+
+L'espressione seguente selezionerà tutti gli utenti che hanno un piano di servizio qualsiasi associato al servizio Intune (identificato dal nome di servizio "SCO"):
+```
+user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+## <a name="use-of-null-values"></a>Uso dei valori Null
+
+Per specificare un valore Null in una regola, è possibile usare "null" o $null. Esempio:
+```
+   user.mail –ne null
+```
+equivale a
+```
+   user.mail –ne $null
+   ```
+
 ## <a name="extension-attributes-and-custom-attributes"></a>Attributi di estensione ed attributi personalizzati
 Gli attributi di estensione e gli attributi personalizzati sono supportati nelle regole di appartenenza dinamica.
 
 Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15.
 Ecco un esempio di regola che usa un attributo di estensione:
-
+```
 (user.extensionAttribute15 -eq "Marketing")
-
+```
 Gli attributi personalizzati vengono sincronizzati dall'istanza locale di Windows Server AD o da un'applicazione SaaS collegata e hanno il formato "user.extension_[GUID]\__[Attributo]", dove [GUID] è l'identificatore univoco in AAD per l'applicazione che ha creato l'attributo in AAD e [Attributo] è il nome dell'attributo creato.
 Ecco un esempio di regola che usa un attributo personalizzato:
-
+```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
-
+```
 È possibile trovare il nome dell'attributo personalizzato nella directory eseguendo una query sull'attributo nell'utente con Esplora grafico e cercando il nome dell'attributo.
 
 ## <a name="direct-reports-rule"></a>Regola per i dipendenti diretti
-Ora è possibile popolare i membri di un gruppo in base all'attributo di manager di un utente.
+È possibile creare un gruppo contenente tutti i dipendenti diretti di un manager. Quando i dipendenti diretti del manager cambieranno, l'appartenenza al gruppo verrà automaticamente modificata.
 
-**Per configurare un gruppo come gruppo "Manager"**
+> [!NOTE]
+> 1. Per il corretto funzionamento della regola, verificare che la proprietà **Manager ID** sia impostata correttamente sugli utenti inclusi nel tenant. È possibile controllare il valore corrente per un utente nella **scheda Profilo**.
+> 2. Questa regola supporta solo i dipendenti **diretti**. Attualmente non è possibile creare un gruppo per una gerarchia nidificata, ad esempio un gruppo che include dipendenti diretti e i relativi dipendenti.
 
-1. Eseguire i passaggi da 1 a 5 in [Per creare la regola avanzata](#to-create-the-advanced-rule) e selezionare **Utente dinamico** come **Tipo di appartenenza**.
+**Per configurare il gruppo**
+
+1. Eseguire i passaggi da 1 a 5 illustrati nella sezione [Per creare la regola avanzata](#to-create-the-advanced-rule) e selezionare **Utente dinamico** come **Tipo di appartenenza**.
 2. Nel pannello **Dynamic membership rules** (Regole di appartenenza dinamica) immettere la regola con la sintassi seguente:
 
-    Dipendenti diretti per *Dipendenti diretti per {obectID_of_manager}*. Ecco un esempio di regola valida per dipendenti diretti:
+    *Dipendenti diretti per "{obectID_of_manager}"*
 
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-
-    dove "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il parametro objectID del manager. L'ID oggetto è disponibile in Azure AD nella **scheda Profilo** della pagina utente dell'utente che rappresenta il manager.
-3. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Possono essere necessari alcuni minuti per il popolamento iniziale del gruppo.
+    Esempio di una regola valida:
+```
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
+3. Dopo aver salvato la regola, tutti gli utenti con il valore Manager ID specificato verranno aggiunti al gruppo.
 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso degli attributi per creare regole per gli oggetti dispositivo
 È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. È possibile usare gli attributi del dispositivo seguenti:
 
 | Proprietà              | Valori consentiti                  | Utilizzo                                                       |
 |-------------------------|---------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
 | displayName             | Qualsiasi valore stringa.                | (device.displayName - eq "Iphone di Rob")                       |
 | deviceOSType            | Qualsiasi valore stringa.                | (device.deviceOSType -eq "IOS")                             |
 | deviceOSVersion         | Qualsiasi valore stringa.                | (device.OSVersion -eq "9.1")                                |
-| isDirSynced             | true false null                 | (device.isDirSynced -eq "true")                             |
-| isManaged               | true false null                 | (device.isManaged -eq "false")                              |
-| isCompliant             | true false null                 | (device.isCompliant -eq "true")                             |
 | deviceCategory          | Qualsiasi valore stringa.                | (device.deviceCategory -eq "")                              |
 | deviceManufacturer      | Qualsiasi valore stringa.                | (device.deviceManufacturer -eq "Microsoft")                 |
 | deviceModel             | Qualsiasi valore stringa.                | (device.deviceModel -eq "IPhone 7+")                        |
 | deviceOwnership         | Qualsiasi valore stringa.                | (device.deviceOwnership -eq "")                             |
 | domainName              | Qualsiasi valore stringa.                | (device.domainName -eq "contoso.com")                       |
 | enrollmentProfileName   | Qualsiasi valore stringa.                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false null                 | (device.deviceOSType -eq "true")                            |
+| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
 | managementType          | Qualsiasi valore stringa.                | (device.managementType -eq "")                              |
 | organizationalUnit      | Qualsiasi valore stringa.                | (device.organizationalUnit -eq "")                          |
-| deviceId                | un deviceId valido                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| deviceId                | un deviceId valido                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | un objectId AAD valido            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 
 

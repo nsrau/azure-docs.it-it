@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 4836593cf11deb50463778d457227804cb3f0b56
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
-# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chiamate da servizio a servizio tramite l'identità utente delegato nel flusso on-behalf-of
+# Chiamate da servizio a servizio tramite l'identità utente delegato nel flusso on-behalf-of
 Il flusso on-behalf-of di OAuth 2.0 viene usato quando un'applicazione richiama un servizio o un'API Web, che a sua volta deve chiamare un altro servizio o un'altra API Web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. Per eseguire richieste autenticate al servizio downstream, il servizio di livello intermedio deve assicurarsi un token di accesso da Azure Active Directory (Azure AD) per conto dell'utente.
 
-## <a name="on-behalf-of-flow-diagram"></a>Diagramma del flusso on-behalf-of
+## Diagramma del flusso on-behalf-of
 Si supponga che l'utente sia stato autenticato in un'applicazione usando il [flusso di concessione del codice di autorizzazione OAuth 2.0](active-directory-protocols-oauth-code.md). A questo punto, l'applicazione contiene un token di accesso (token A) con le richieste dell'utente e il consenso per accedere all'API Web di livello intermedio (API A). L'API A deve ora eseguire una richiesta autenticata all'API Web downstream (API B).
 
 I passaggi che seguono costituiscono il flusso on-behalf-of e vengono descritti con l'aiuto del diagramma seguente.
@@ -39,9 +40,9 @@ I passaggi che seguono costituiscono il flusso on-behalf-of e vengono descritti 
 4. Il token B viene impostato nell'intestazione di autorizzazione della richiesta all'API B.
 5. I dati della risorsa protetta vengono restituiti dall'API B.
 
-## <a name="register-the-application-and-service-in-azure-ad"></a>Registrare l'applicazione e il servizio in Azure AD
+## Registrare l'applicazione e il servizio in Azure AD
 Registrare sia l'applicazione client che il servizio di livello intermedio in Azure AD.
-### <a name="register-the-middle-tier-service"></a>Registrare il servizio di livello intermedio
+### Registrare il servizio di livello intermedio
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra in alto fare clic sull'account e nell'elenco **Directory** scegliere il tenant di Active Directory in cui si vuole registrare l'applicazione.
 3. Fare clic su **Altri servizi** nella barra di spostamento a sinistra e scegliere **Azure Active Directory**.
@@ -49,7 +50,7 @@ Registrare sia l'applicazione client che il servizio di livello intermedio in Az
 5. Immettere un nome descrittivo per l'applicazione e selezionare il tipo di applicazione. In base al tipo di applicazione, impostare l'URL di accesso o l'URL di reindirizzamento sull'URL di base. Fare clic su **Crea** per creare l'applicazione.
 6. Sempre nel portale di Azure scegliere l'applicazione e fare clic su **Impostazioni**. Nel menu Impostazioni scegliere **Chiavi** e aggiungere una chiave. Selezionare una durata della chiave di 1 o 2 anni. Quando si salva la pagina, viene visualizzato il valore della chiave. È necessario copiare e salvare tale valore in un luogo sicuro in quanto servirà in seguito per configurare le impostazioni dell'applicazione nell'implementazione. Il valore della chiave non viene più visualizzato e non è in alcun modo recuperabile in un secondo momento, pertanto è necessario prenderne nota nel momento in cui è visibile nel portale di Azure.
 
-### <a name="register-the-client-application"></a>Registrare l'applicazione client
+### Registrare l'applicazione client
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra in alto fare clic sull'account e nell'elenco **Directory** scegliere il tenant di Active Directory in cui si vuole registrare l'applicazione.
 3. Fare clic su **Altri servizi** nella barra di spostamento a sinistra e scegliere **Azure Active Directory**.
@@ -57,19 +58,23 @@ Registrare sia l'applicazione client che il servizio di livello intermedio in Az
 5. Immettere un nome descrittivo per l'applicazione e selezionare il tipo di applicazione. In base al tipo di applicazione, impostare l'URL di accesso o l'URL di reindirizzamento sull'URL di base. Fare clic su **Crea** per creare l'applicazione.
 6. Configurare le autorizzazioni per l'applicazione. Nel menu Impostazioni scegliere la sezione **Autorizzazioni necessarie**, fare clic su **Aggiungi**, quindi **Selezionare un'API** e digitare il nome del servizio di livello intermedio nella casella di testo. Fare quindi clic su **Selezionare le autorizzazioni** e selezionare "Accedi a *nome servizio*".
 
-### <a name="configure-known-client-applications"></a>Configurare applicazioni client note
+### Configurare applicazioni client note
 In questo scenario, il servizio di livello intermedio non ha alcuna interazione utente per ottenere il consenso dell'utente per accedere all'API downstream. La possibilità di concedere l'accesso all'API downstream deve quindi essere presentata in anticipo, come parte del passaggio relativo al consenso durante l'autenticazione.
 Seguire a tale scopo la procedura sottostante per associare in modo esplicito la registrazione dell'app client in Azure AD con la registrazione del servizio di livello intermedio, che unisce il consenso richiesto sia dal client sia dal livello intermedio in una singola finestra di dialogo.
 1. Passare alla registrazione del servizio di livello intermedio e fare clic su **Manifesto** per aprire l'editor manifesto.
 2. Nel manifesto individuare la proprietà di matrice `knownClientApplications` e aggiungere l'ID client dell'applicazione client come elemento.
 3. Salvare il manifesto facendo clic su Salva.
 
-## <a name="service-to-service-access-token-request"></a>Richiesta del token di accesso da servizio a servizio
+## Richiesta del token di accesso da servizio a servizio
 Per richiedere un token di accesso, eseguire una richiesta HTTP POST all'endpoint di Azure AD specifico del tenant con i parametri seguenti.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
+L'applicazione client può scegliere di essere protetta da un segreto condiviso oppure da un certificato.
+
+### Primo caso: richiesta del token di accesso con un segreto condiviso
+Quando si usa un segreto condiviso, una richiesta di token di accesso da servizio a servizio contiene i parametri seguenti:
 
 | Parametro |  | Descrizione |
 | --- | --- | --- |
@@ -81,7 +86,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 | requested_token_use |Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
 | scope |Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per OpenID Connect, è necessario specificare l'ambito **openid**.|
 
-### <a name="example"></a>Esempio
+#### Esempio
 La richiesta HTTP POST seguente richiede un token di accesso per l'API Web https://graph.windows.net. `client_id` identifica il servizio che richiede il token di accesso.
 
 ```
@@ -100,7 +105,43 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## <a name="service-to-service-access-token-response"></a>Risposta del token di accesso da servizio a servizio
+### Secondo caso: richiesta del token di accesso con un certificato
+Una richiesta di token di accesso da servizio a servizio con un certificato contiene i parametri seguenti:
+
+| Parametro |  | Descrizione |
+| --- | --- | --- |
+| grant_type |Obbligatoria | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |Obbligatoria | Il valore del token usato nella richiesta. |
+| client_id |Obbligatoria | L'ID app assegnato al servizio chiamante durante la registrazione con Azure AD. Per trovare l'ID app nel portale di gestione di Azure, fare clic su **Active Directory**, selezionare la directory e quindi fare clic sul nome dell'applicazione. |
+| client_assertion_type |Obbligatoria |Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| client_assertion |Obbligatoria | Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione.  Leggere l'articolo relativo alle [credenziali basate su certificato](active-directory-certificate-credentials.md) per informazioni sulla registrazione del certificato e il formato dell'asserzione.|
+| resource |Obbligatoria | L'URI dell'ID app del servizio ricevente (risorsa protetta). Per trovare l'URI dell'ID app, nel portale di gestione di Azure fare clic su **Active Directory**, selezionare la directory, fare clic sul nome dell'applicazione, scegliere **Tutte le impostazioni** e quindi fare clic su **Proprietà**. |
+| requested_token_use |Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
+| scope |Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per OpenID Connect, è necessario specificare l'ambito **openid**.|
+
+Si noti che i parametri sono quasi uguali a quelli usati nella richiesta tramite segreto condiviso, con l'eccezione del parametro client_secret che viene sostituito da due parametri: client_assertion_type e client_assertion.
+
+#### Esempio
+La richiesta HTTP POST seguente richiede un token di accesso per l'API Web https://graph.windows.net con un certificato. `client_id` identifica il servizio che richiede il token di accesso.
+
+```
+// line breaks for legibility only
+
+POST /oauth2/token HTTP/1.1
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
+&client_id=625391af-c675-43e5-8e44-edd3e30ceb15
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&resource=https%3A%2F%2Fgraph.windows.net
+&assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2Rkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tLzE5MjNmODYyLWU2ZGMtNDFhMy04MWRhLTgwMmJhZTAwYWY2ZCIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzI2MDM5Y2NlLTQ4OWQtNDAwMi04MjkzLTViMGM1MTM0ZWFjYi8iLCJpYXQiOjE0OTM0MjMxNTIsIm5iZiI6MTQ5MzQyMzE1MiwiZXhwIjoxNDkzNDY2NjUyLCJhY3IiOiIxIiwiYWlvIjoiWTJaZ1lCRFF2aTlVZEc0LzM0L3dpQndqbjhYeVp4YmR1TFhmVE1QeG8yYlN2elgreHBVQSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiJiMzE1MDA3OS03YmViLTQxN2YtYTA2YS0zZmRjNzhjMzI1NDUiLCJhcHBpZGFjciI6IjAiLCJlX2V4cCI6MzAyNDAwLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJEVXpYbkdKMDJIUk0zRW5pbDFxdjZCakxTNUllQy0tQ2ZpbzRxS1MzNEc4IiwidGlkIjoiMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiIiwidW5pcXVlX25hbWUiOiJuYXZ5YUBkZG9iYWxpYW5vdXRsb29rLm9ubWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidmVyIjoiMS4wIn0.R-Ke-XO7lK0r5uLwxB8g5CrcPAwRln5SccJCfEjU6IUqpqcjWcDzeDdNOySiVPDU_ZU5knJmzRCF8fcjFtPsaA4R7vdIEbDuOur15FXSvE8FvVSjP_49OH6hBYqoSUAslN3FMfbO6Z8YfCIY4tSOB2I6ahQ_x4ZWFWglC3w5mK-_4iX81bqi95eV4RUKefUuHhQDXtWhrSgIEC0YiluMvA4TnaJdLq_tWXIc4_Tq_KfpkvI004ONKgU7EAMEr1wZ4aDcJV2yf22gQ1sCSig6EGSTmmzDuEPsYiyd4NhidRZJP4HiiQh-hePBQsgcSgYGvz9wC6n57ufYKh2wm_Ti3Q
+&requested_token_use=on_behalf_of
+&scope=openid
+```
+
+## Risposta del token di accesso da servizio a servizio
 Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri seguenti.
 
 | Parametro | Descrizione |
@@ -114,7 +155,7 @@ Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri se
 | id_token |Il token ID richiesto. Il servizio chiamante può usarlo per verificare l'identità dell'utente e avviare una sessione con l'utente. |
 | refresh_token |Il token di aggiornamento per il token di accesso richiesto. Il servizio chiamante può usare questo token per richiedere un altro token di accesso dopo la scadenza di quello corrente. |
 
-### <a name="success-response-example"></a>Esempio di risposta di esito positivo
+### Esempio di risposta di esito positivo
 L'esempio seguente mostra una risposta di esito positivo a una richiesta di token di accesso per l'API Web https://graph.windows.net.
 
 ```
@@ -132,7 +173,7 @@ L'esempio seguente mostra una risposta di esito positivo a una richiesta di toke
 }
 ```
 
-### <a name="error-response-example"></a>Esempio di risposta con errore
+### Esempio di risposta con errore
 Quando si tenta di acquisire un token di accesso per l'API downstream, se questa dispone di criteri di accesso condizionale, ad esempio l'autenticazione a più fattori impostata, l'endpoint del token di Azure AD restituisce una risposta con errore. Il servizio di livello intermedio dovrebbe segnalare l'errore all'applicazione client in modo che questa possa fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
 
 ```
@@ -147,17 +188,17 @@ Quando si tenta di acquisire un token di accesso per l'API downstream, se questa
 }
 ```
 
-## <a name="use-the-access-token-to-access-the-secured-resource"></a>Usare il token di accesso per accedere alla risorsa protetta
+## Usare il token di accesso per accedere alla risorsa protetta
 Il servizio di livello intermedio può ora usare il token acquisito in precedenza per eseguire richieste autenticate all'API Web downstream, impostando il token nell'intestazione `Authorization`.
 
-### <a name="example"></a>Esempio
+### Esempio
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## Passaggi successivi
 Altre informazioni sul protocollo OAuth 2.0 e su un altro modo per eseguire l'autenticazione da servizio a servizio usando le credenziali del client.
 * [Service to service auth using OAuth 2.0 client credentials grant in Azure AD](active-directory-protocols-oauth-service-to-service.md) (Autenticazione da servizio a servizio tramite la concessione delle credenziali client OAuth 2.0 in Azure AD)
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)

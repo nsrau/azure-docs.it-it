@@ -1,6 +1,6 @@
 ---
-title: Problema nella configurazione dell&quot;accesso Single Sign-On federato per un&quot;applicazione nella raccolta di Azure AD | Microsoft Docs
-description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell&quot;accesso Single Sign-On federato per applicazioni SAML incluse nella raccolta delle applicazioni di Azure AD
+title: Problema nella configurazione dell'accesso Single Sign-On federato per un'applicazione nella raccolta di Azure AD | Microsoft Docs
+description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell'accesso Single Sign-On federato per applicazioni SAML incluse nella raccolta delle applicazioni di Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b4d3d114f6947639ef865861337ce9f2a6452e76
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: b8c189865c27566e3265f14eb54cb5ea4a005dc5
+ms.contentlocale: it-it
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -104,6 +104,10 @@ Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire
 8.  Passare alla sezione **Certificato di firma SAML** e quindi fare clic sul valore della colonna **Download**. A seconda di quale applicazione richiede la configurazione dell'accesso Single Sign-On, è visibile l'opzione per scaricare il codice XML dei metadati o l'opzione per scaricare il certificato.
 
 Azure AD non fornisce URL per ottenere i metadati. I metadati possono essere recuperati solo come file XML.
+
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Informazioni sulla personalizzazione delle attestazioni SAML inviate a un'applicazione
+
+Per informazioni su come personalizzare le attestazioni degli attributi SAML inviate all'applicazione, vedere [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) (Mapping di attestazioni in Azure Active Directory).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)

@@ -1,0 +1,37 @@
+- name: Istanze di contenitore
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Istanze di contenitore di Azure
+      href: container-instances-overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Creare l'istanza di contenitore
+      href: container-instances-quickstart.md
+- name: Esercitazioni
+  items:
+    - name: Creare e distribuire un contenitore
+      items:
+        - name: '1: Creare un''immagine del contenitore'
+          href: container-instances-tutorial-prepare-app.md
+        - name: '2: Creare un registro contenitori'
+          href: container-instances-tutorial-prepare-acr.md
+        - name: '3: Distribuire l''app'
+          href: container-instances-tutorial-deploy-app.md
+- name: Concetti
+  items:
+    - name: Relazione con agenti di orchestrazione
+      href: container-instances-orchestrator-relationship.md
+- name: Guide alle procedure
+  items:
+    - name: Gruppi di più contenitori
+      href: container-instances-multi-container-group.md
+    - name: Gestione dello stato con le condivisioni file di Azure
+      href: container-instances-mounting-azure-files-volume.md
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Aree di disponibilità
+      href: 'https://azure.microsoft.com/regions/services/'

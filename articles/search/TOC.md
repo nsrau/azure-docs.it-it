@@ -31,8 +31,9 @@
 ### [Aggiornare l'SDK](search-dotnet-sdk-migration.md)
 ### [Aggiornare l'API REST](search-api-migration.md)
 ### [Modellare tipi di dati complessi](search-howto-complex-data-types.md)
+### [Gestire gli aggiornamenti simultanei](search-howto-concurrency.md)
 
-## Gestire
+## Gestisci
 ### Gestire Ricerca di Azure
 #### [Portale di Azure](search-manage.md)
 #### [PowerShell](search-manage-powershell.md)
@@ -75,7 +76,7 @@
 
 # Risorse
 ## [Versioni dell'API](search-api-versions.md)
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/search/)
 ## [REST del servizio (anteprima)](search-api-2015-02-28-preview.md)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=search)

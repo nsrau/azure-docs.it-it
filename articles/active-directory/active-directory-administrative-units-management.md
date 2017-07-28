@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5bf0e7f631a86a9d413415ab73e03fa00a0e9325
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 355ae7a13ab3d32b69a2b90e5410d5fc90fb6916
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -28,7 +28,7 @@ Questo articolo descrive le unità amministrative, un nuovo contenitore di risor
 Ciò risulta utile nelle organizzazioni con divisioni indipendenti, ad esempio, una grande università è costituita da molte scuole autonome (facoltà di gestione aziendale, facoltà di ingegneria, ecc.) indipendenti tra loro. Tali divisioni dispongono dei propri amministratori IT che controllano l'accesso, gestiscono gli utenti e impostano i criteri in modo specifico per la propria facoltà. Gli amministratori centrali desiderano essere in grado di concedere a questi amministratori di divisione autorizzazioni sugli utenti delle proprie divisioni. In particolare, utilizzando questo esempio, un amministratore centrale può, ad esempio, creare un'unità amministrativa per una facoltà particolare (facoltà di gestione aziendale) e popolarla con solo gli utenti della facoltà. Quindi un amministratore centrale può aggiungere il personale IT della facoltà di gestione aziendale a un ruolo con ambito, ovvero, concedere al personale IT della facoltà di gestione aziendale autorizzazioni amministrative solo per l'unità amministrativa della facoltà.
 
 > [!IMPORTANT]
-> È possibile creare e utilizzare unità amministrative solo se si abilita Azure Active Directory Premium. Per altre informazioni, vedere [Introduzione a Azure AD Premium](active-directory-get-started-premium.md).
+> È possibile assegnare ruoli di amministratore con ambito unità amministrativa solo se si abilita Azure Active Directory Premium. Per altre informazioni, vedere [Introduzione a Azure AD Premium](active-directory-get-started-premium.md).
 >
 
 
