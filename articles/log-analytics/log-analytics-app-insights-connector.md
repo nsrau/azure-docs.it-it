@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/18/2017
 ms.author: banders
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 297c85d2aa5609729e394dc527fb3a1ca5810ffa
 ms.contentlocale: it-it
 ms.lasthandoff: 06/30/2017
-
 
 ---
 
@@ -86,6 +85,8 @@ Fare clic sul riquadro **Application Insights** per aprire il dashboard **Applic
 ![Dashboard Application Insights](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
 Il dashboard include i pannelli mostrati nella tabella. Ogni panello elenca fino a 10 elementi corrispondenti ai criteri del pannello per lo scope e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Colonna** | **Descrizione** |
 | --- | --- |

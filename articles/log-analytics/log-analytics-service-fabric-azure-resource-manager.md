@@ -20,7 +20,6 @@ ms.openlocfilehash: 6f864581fe1d1771371d6805407cb881fedb4187
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Valutare le applicazioni e i microservizi Service Fabric con il portale di Azure
 
@@ -78,6 +77,8 @@ Seguendo la stessa procedura descritta sopra, immettere i parametri necessari e 
 ### <a name="viewing-performance-data"></a>Visualizzazione dei dati sulle prestazioni
 Per visualizzare i dati sulle prestazioni dai nodi:
 </br>
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 * Avviare l'area di lavoro di Log Analytics dal portale di Azure.
 

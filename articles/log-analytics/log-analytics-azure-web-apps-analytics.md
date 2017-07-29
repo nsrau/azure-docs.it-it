@@ -20,7 +20,6 @@ ms.openlocfilehash: 90d0b7e3f49daa33ab8c617d07ba9098cdda751f
 ms.contentlocale: it-it
 ms.lasthandoff: 05/12/2017
 
-
 ---
 
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualizzare i dati di analisi per le metriche di tutte le risorse app Web di Azure
@@ -92,6 +91,8 @@ Quando si aggiunge la soluzione Analisi app Web di Azure all'area di lavoro, il 
 ### <a name="view-azure-web-apps-analytics-information"></a>Visualizzare le informazioni di Analisi app Web di Azure
 
 Fare clic sul riquadro **Analisi app Web di Azure** per aprire il dashboard di **Analisi app Web di Azure**. Il dashboard include i pannelli nella tabella seguente. Ogni panello elenca fino a dieci elementi corrispondenti ai criteri del pannello per l'ambito e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Colonna | Descrizione |
 | --- | --- |

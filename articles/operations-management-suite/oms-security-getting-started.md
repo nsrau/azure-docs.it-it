@@ -13,14 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 07/18/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introduzione alla soluzione Sicurezza e controllo di Operations Management Suite
@@ -73,6 +72,8 @@ Gli scenari di risposta agli eventi imprevisti e indagini per scopi legali potra
 ![Record di sicurezza nel tempo](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
 Quando si fa clic su questo riquadro, viene aperto il pannello **Ricerca** che mostra il risultato di una query per gli **Eventi di sicurezza** (Type=SecurityEvents) con dati basati sugli ultimi sette giorni, come illustrato di seguito:
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Record di sicurezza nel tempo](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
