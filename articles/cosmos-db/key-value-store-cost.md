@@ -1,9 +1,9 @@
 ---
 title: 'Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi | Microsoft Docs'
-description: Informazioni sui costi ridotti correlati all&quot;uso di Azure Cosmos DB come archivio di valori chiave.
+description: Informazioni sui costi ridotti correlati all'uso di Azure Cosmos DB come archivio di valori chiave.
 keywords: archivio di valori chiave
 services: cosmos-db
-author: ArnoMicrosoft
+author: mimig1
 manager: jhubbard
 editor: 
 tags: 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: acomet
+ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: c7d01eee1ba10599ca24291bb71cd7fdc6455f0e

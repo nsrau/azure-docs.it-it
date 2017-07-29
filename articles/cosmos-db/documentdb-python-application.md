@@ -4,7 +4,7 @@ description: Esaminare un'esercitazione del database sull'utilizzo di Azure Cosm
 keywords: Sviluppo di applicazioni, Python Flask, applicazione Web Python, sviluppo Web Python
 services: cosmos-db
 documentationcenter: python
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
@@ -14,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: syamk
+ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: bdfc077bbb7f23c3a52cd42f45878f6f50a27bae
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Creare un'applicazione Web Python Flask con Azure Cosmos DB

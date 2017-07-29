@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 07/18/2017
 ms.author: banders
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
@@ -151,7 +151,10 @@ Se si desidera visualizzare dati aggiuntivi sulla creazione di VM dell'host ESXi
 #### <a name="common-search-queries"></a>Query di ricerca comuni
 La soluzione include altre query utili che aiutano a gestire gli host ESXi, ad esempio elevate quantità di spazio di archiviazione, latenza di archiviazione ed errori di percorso.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![query](./media/log-analytics-vmware/queries.png)
+
 
 #### <a name="save-queries"></a>Salvataggio delle query
 Il salvataggio delle query di ricerca è una funzionalità standard di OMS e può aiutare a conservare eventuali query utili. Dopo aver creato una query che si ritiene utile, salvarla facendo clic su **Preferiti**. Salvando una query, è possibile usarla di nuovo in un secondo momento dalla pagina [Dashboard personale](log-analytics-dashboards.md) in cui è possibile creare i dashboard personalizzati.
