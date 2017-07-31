@@ -21,11 +21,9 @@ ms.contentlocale: it-it
 ms.lasthandoff: 07/12/2017
 
 ---
-# Modificare le impostazioni dell'interfaccia di rete DATA 0 in un dispositivo StorSimple serie 8000
-<a id="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device" class="xliff"></a>
+# <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modificare le impostazioni dell'interfaccia di rete DATA 0 in un dispositivo StorSimple serie 8000
 
-## Panoramica
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Panoramica
 
 Il dispositivo Microsoft Azure StorSimple ha sei interfacce di rete, da DATI 0 a DATI 5. L'interfaccia DATI 0 è sempre configurata tramite l'interfaccia di Windows PowerShell o la console seriale ed è automaticamente abilitata per il cloud. Si noti che non è possibile configurare l'interfaccia di rete DATA 0 con il portale di Azure.
 
@@ -36,12 +34,10 @@ Dopo aver letto questa esercitazione, si sarà in grado di:
 * Modificare l'impostazione di rete di DATI 0 tramite la configurazione guidata
 * Modificare le impostazioni di rete di DATI 0 con il cmdlet `Set-HcsNetInterface`
 
-## Modificare le impostazioni di rete di DATI 0 tramite la configurazione guidata
-<a id="modify-data-0-network-settings-through-setup-wizard" class="xliff"></a>
+## <a name="modify-data-0-network-settings-through-setup-wizard"></a>Modificare le impostazioni di rete di DATI 0 tramite la configurazione guidata
 È possibile riconfigurare le impostazioni di rete di DATI 0 connettendosi all'interfaccia di Windows PowerShell del dispositivo StorSimple e avviando una sessione di configurazione guidata. Eseguire i passaggi seguenti per modificare le impostazioni di DATI 0:
 
-#### Per modificare le impostazioni di rete di DATI 0 tramite la configurazione guidata
-<a id="to-modify-data-0-network-settings-through-setup-wizard" class="xliff"></a>
+#### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>Per modificare le impostazioni di rete di DATI 0 tramite la configurazione guidata
 1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la **password di amministratore del dispositivo**. La password predefinita è `Password1`.
 2. Al prompt dei comandi digitare:
    
@@ -51,12 +47,10 @@ Dopo aver letto questa esercitazione, si sarà in grado di:
 > [!NOTE]
 > Gli IP fissi dei controller dovranno essere riconfigurati tramite il pannello **Impostazioni di rete** del dispositivo StorSimple nel portale di Azure. Per ulteriori informazioni, andare a [Modificare le interfacce di rete](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 
-## Modificare le impostazioni di rete di DATI 0 tramite il cmdlet Set-HcsNetInterface
-<a id="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet" class="xliff"></a>
+## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>Modificare le impostazioni di rete di DATI 0 tramite il cmdlet Set-HcsNetInterface
 Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell'utilizzo del cmdlet `Set-HcsNetInterface` . Il cmdlet viene eseguito dall'interfaccia di Windows PowerShell del dispositivo StorSimple. Quando si usa questa procedura, gli indirizzi IP fissi del controller possono essere anche configurati in questa posizione. Eseguire i passaggi seguenti per modificare le impostazioni di DATI 0: 
 
-#### Per modificare le impostazioni di rete di DATI 0 tramite il cmdlet Set-HcsNetInterface
-<a id="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet" class="xliff"></a>
+#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Per modificare le impostazioni di rete di DATI 0 tramite il cmdlet Set-HcsNetInterface
 1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la password di amministratore del dispositivo. La password predefinita è `Password1`.
 2. Al prompt dei comandi digitare:
    
@@ -72,8 +66,7 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
      
      Per altre informazioni su come usare questo cmdlet, vedere le [informazioni di riferimento sui cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688161.aspx).
 
-## Passaggi successivi
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Passaggi successivi
 * Per configurare interfacce di rete diverse da DATA 0, vedere l'articolo su come [configurare le impostazioni di rete nel portale di Azure](storsimple-8000-modify-device-config.md). 
 * Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
 
