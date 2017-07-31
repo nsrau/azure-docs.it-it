@@ -22,12 +22,8 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="configuring-an-app-service-environment" class="xliff"></a>
-
-# Configurazione di un ambiente del servizio app
-<a id="overview" class="xliff"></a>
-
-## Panoramica
+# <a name="configuring-an-app-service-environment"></a>Configurazione di un ambiente del servizio app
+## <a name="overview"></a>Panoramica
 A livello generale, un ambiente del servizio app di Azure è costituito da vari componenti principali:
 
 * Risorse di calcolo in esecuzione nel servizio ospitato dell'ambiente del servizio app
@@ -36,9 +32,7 @@ A livello generale, un ambiente del servizio app di Azure è costituito da vari 
 * Una rete virtuale di Azure classica (V1) o di Resource Manager (V2) 
 * Una subnet in cui viene eseguito il servizio ospitato dell'ambiente del servizio app
 
-<a id="compute-resources" class="xliff"></a>
-
-### Risorse di calcolo
+### <a name="compute-resources"></a>Risorse di calcolo
 Le risorse di calcolo vengono usate per quattro pool di risorse.  Ogni ambiente del servizio app contiene un set di front-end e tre pool di lavoro possibili. Non è necessario usare tutti e tre i pool di lavoro. Se si vuole, è possibile usarne solo uno o due.
 
 Gli host nei pool di risorse (front-end e ruoli di lavoro) non sono direttamente accessibili per i tenant. Non è possibile usare Remote Desktop Protocol (RDP) per connettersi a essi, modificarne il provisioning o eseguire attività amministrative.
@@ -74,19 +68,13 @@ Se le app richiedono dimensioni delle risorse di calcolo superiori, le indicazio
 
 Se si vogliono impostare regole di ridimensionamento automatico in base alle metriche del pool di risorse di calcolo, tenere presente il tempo necessario per il provisioning. Per altri dettagli sul ridimensionamento automatico degli ambienti del servizio app, vedere [Come configurare il ridimensionamento automatico in un ambiente del servizio app][ASEAutoscale].
 
-<a id="storage" class="xliff"></a>
-
-### Archiviazione
+### <a name="storage"></a>Archiviazione
 Ogni ambiente del servizio app è configurato con 500 GB di spazio di archiviazione. Questo spazio viene usato da tutte le app incluse nell'ambiente. Lo spazio di archiviazione fa parte dell'ambiente del servizio app e non è possibile cambiare l'impostazione per usare il proprio spazio di archiviazione. Se si apportano modifiche al routing o alla sicurezza della rete virtuale, è necessario consentire l'accesso ad Archiviazione di Azure. In caso contrario, l'ambiente del servizio app non può funzionare.
 
-<a id="database" class="xliff"></a>
-
-### Database
+### <a name="database"></a>Database
 Il database contiene le informazioni che definiscono l'ambiente, nonché tutti i dettagli sulle app in esso eseguite. Anche questo fa parte della sottoscrizione di Azure. L'utente non ha la possibilità di modificare queste informazioni direttamente. Se si apportano modifiche al routing o alla sicurezza della rete virtuale, è necessario consentire l'accesso a SQL Azure. In caso contrario, l'ambiente del servizio app non può funzionare.
 
-<a id="network" class="xliff"></a>
-
-### Rete
+### <a name="network"></a>Rete
 La rete virtuale usata con l'ambiente del servizio app può essere una rete creata durante la creazione dell'ambiente o in precedenza. Se la subnet viene creata durante la creazione dell'ambiente del servizio app, l'ambiente apparterrà allo stesso gruppo di risorse della rete virtuale. Se è necessario che il gruppo di risorse usato dall'ambiente del servizio app sia diverso da quello della rete virtuale, occorre creare l'ambiente del servizio app usando un modello di Resource Manager.
 
 Esistono alcune restrizioni per la rete virtuale usata per un ambiente del servizio app:
@@ -106,18 +94,14 @@ Poiché il servizio app di Azure viene inserito nella rete virtuale, le app ospi
 
 Se la rete virtuale è configurata con una VPN ExpressRoute, è necessario tenere conto di alcune esigenze di routing specifiche di un ambiente del servizio app. Alcune configurazioni di route definite dall'utente sono incompatibili con un ambiente del servizio app. Per altri dettagli sull'esecuzione di un ambiente del servizio app in una rete virtuale con ExpressRoute, vedere [Esecuzione di un ambiente del servizio app in una rete virtuale con ExpressRoute][ExpressRoute].
 
-<a id="securing-inbound-traffic" class="xliff"></a>
-
-#### Protezione del traffico in ingresso
+#### <a name="securing-inbound-traffic"></a>Protezione del traffico in ingresso
 Per controllare il traffico in ingresso all'ambiente del servizio app esistono due metodi principali.  È possibile usare gruppi di sicurezza di rete (NSG) per controllare gli indirizzi IP che potranno accedere all'ambiente del servizio app, come descritto nell'articolo [Come controllare il traffico in ingresso a un ambiente del servizio app](app-service-app-service-environment-control-inbound-traffic.md) , nonché configurare l'ambiente del servizio app con un servizio di bilanciamento del carico interno.  Queste funzionalità possono anche essere usate contemporaneamente, se si vuole limitare l'accesso usando gruppi di sicurezza di rete per un ambiente del servizio app con servizio di bilanciamento del carico interno.
 
 Quando si crea un ambiente del servizio app, verrà creato un indirizzo VIP nella rete virtuale.  Esistono due tipi di indirizzo VIP: esterno e interno.  Quando si crea un ambiente del servizio app con un indirizzo VIP esterno, le app nell'ambiente saranno accessibili tramite un indirizzo IP instradabile su Internet. Quando si seleziona un indirizzo VIP interno, l'ambiente del servizio app verrà configurato con un servizio di bilanciamento del carico interno e non sarà accessibile direttamente da Internet.  In un ambiente del servizio app con servizio di bilanciamento del carico interno è comunque necessario un indirizzo VIP esterno, ma viene usato solo per l'accesso a scopo di gestione e di manutenzione di Azure.  
 
 Durante la creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno si specifica il sottodominio usato dall'ambiente ed è necessario gestire un proprio DNS per il sottodominio specificato.  Poiché si imposta il nome del sottodominio, è necessario anche gestire il certificato usato per l'accesso HTTPS.  Al termine della creazione dell'ambiente del servizio app verrà richiesto di specificare il certificato.  Per altre informazioni sulla creazione e sull'uso di un ambiente del servizio app con servizio di bilanciamento del carico interno, vedere [Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][ILBASE]. 
 
-<a id="portal" class="xliff"></a>
-
-## di Microsoft Azure
+## <a name="portal"></a>di Microsoft Azure
 È possibile gestire e monitorare l'ambiente del servizio app usando l'interfaccia utente del portale di Azure. Se è stato creato un ambiente del servizio app, nella barra laterale verrà probabilmente visualizzato il simbolo dei servizi app, usato per rappresentare gli ambienti del servizio app nel portale di Azure:
 
 ![Simbolo degli ambienti del servizio app][1]
@@ -128,9 +112,7 @@ Per aprire l'interfaccia utente in cui sono elencati tutti gli ambienti del serv
 
 Il primo pannello mostra alcune proprietà dell'ambiente del servizio app e un grafico di metriche per ogni pool di risorse. Alcune delle proprietà visualizzate nel blocco **Informazioni di base** sono anche collegamenti ipertestuali che consentono di aprire il pannello associato. Se si seleziona il nome **Rete virtuale** , ad esempio, verrà aperta l'interfaccia utente associata alla rete virtuale in cui viene eseguito l'ambiente del servizio app. I collegamenti **Piani di servizio app** e **App** consentono di aprire i pannelli contenenti gli elementi corrispondenti inclusi nell'ambiente del servizio app.  
 
-<a id="monitoring" class="xliff"></a>
-
-### Monitoraggio
+### <a name="monitoring"></a>Monitoraggio
 I grafici consentono di visualizzare un'ampia gamma di metriche delle prestazioni in ogni pool di risorse. Per il pool front-end, è possibile monitorare l'utilizzo medio di CPU e memoria. Per i pool di lavoro, è possibile monitorare la quantità usata e la quantità disponibile.
 
 I ruoli di lavoro in un pool di lavoro possono essere usati da più piani di servizio app. Poiché il carico di lavoro non viene distribuito nello stesso modo in cui viene distribuito per i server front-end, l'utilizzo di CPU e memoria non offre informazioni particolarmente utili. È più importante tenere traccia del numero dei ruoli di lavoro usati e disponibili, soprattutto se si gestisce il sistema perché venga usato da altri.  
@@ -143,9 +125,7 @@ Le metriche illustrate sopra sono le metriche dell'ambiente del servizio app. So
 
 In un ambiente del servizio app, tutti i piani di servizio app sono dedicati. Di conseguenza, le uniche app in esecuzione negli host allocati al piano di servizio app sono le app incluse in quello stesso piano. Per verificare i dettagli del piano di servizio app, visualizzare il piano da uno degli elenchi nell'interfaccia utente dell'ambiente del servizio app oppure da **Browse App Service plans** (Esplora piani di servizio app), in cui sono elencati tutti i piani.   
 
-<a id="settings" class="xliff"></a>
-
-### Impostazioni
+### <a name="settings"></a>Impostazioni
 Il pannello dell'ambiente del servizio app include una sezione **Impostazioni** che contiene diverse funzionalità importanti.
 
 **Impostazioni** > **Proprietà**: il pannello **Impostazioni** viene aperto automaticamente quando si visualizza il pannello dell'ambiente del servizio app. Nella parte superiore è disponibile la voce **Proprietà**. In questa sezione sono presenti alcune voci visualizzate anche nella sezione **Informazioni di base**. Le voci particolarmente utili sono **Indirizzo IP virtuale** e **Indirizzo IP in uscita**.
@@ -160,9 +140,7 @@ Il pannello di base per ogni pool di risorse mostra un grafico con le metriche r
 
 ![Interfaccia utente Impostazioni dei pool di lavoro][5]
 
-<a id="portal-scale-capabilities" class="xliff"></a>
-
-### Funzionalità di ridimensionamento del portale
+### <a name="portal-scale-capabilities"></a>Funzionalità di ridimensionamento del portale
 Le operazioni di ridimensionamento disponibili sono tre:
 
 * Modifica del numero di indirizzi IP dell'ambiente del servizio app disponibili per l'utilizzo con IP SSL
@@ -183,9 +161,7 @@ Per usare le funzionalità di ridimensionamento automatico o manuale in un pool 
 
 ![Interfaccia utente Impostazione Piano][7]
 
-<a id="fault-tolerance-considerations" class="xliff"></a>
-
-## Considerazioni sulla tolleranza di errore
+## <a name="fault-tolerance-considerations"></a>Considerazioni sulla tolleranza di errore
 Un ambiente del servizio app può essere configurato per usare fino a 55 risorse di calcolo totali. Di queste 55 risorse di calcolo, solo 50 possono essere usate per ospitare i carichi di lavoro. I motivi sono due. Esiste un minimo di 2 risorse di calcolo front-end.  Ne rimangono quindi 53 per supportare l'allocazione dei pool di lavoro. Per garantire la tolleranza di errore, è necessario avere una risorsa di calcolo aggiuntiva allocata in base alle regole seguenti:
 
 * Per ogni pool di lavoro è necessaria almeno 1 risorsa di calcolo aggiuntiva non disponibile per l'assegnazione di un carico di lavoro.
@@ -206,16 +182,12 @@ Il footprint minimo include 2 server front-end e 2 ruoli di lavoro.  In base all
 
 L'aspetto della tolleranza di errore è importante e deve essere tenuto in considerazione in caso di ridimensionamento al di sopra di determinate soglie. Se si vuole aggiungere capacità a partire da 20 istanze, passare a 22 o più perché con 21 non viene aggiunta altra capacità. Lo stesso vale in caso di superamento di 40 istanze. Anche in questo caso, il valore successivo per aggiungere capacità è 42.  
 
-<a id="deleting-an-app-service-environment" class="xliff"></a>
-
-## Eliminazione di un ambiente del servizio app
+## <a name="deleting-an-app-service-environment"></a>Eliminazione di un ambiente del servizio app
 Per eliminare un ambiente del servizio app, è sufficiente usare l'azione **Elimina** nella parte superiore del pannello dell'ambiente del servizio app. In questo caso, verrà richiesto di immettere il nome dell'ambiente del servizio app per confermare che si vuole procedere con l'operazione. Si noti che quando si elimina un ambiente del servizio app, viene eliminato anche tutto il relativo contenuto.  
 
 ![Interfaccia utente per l'eliminazione di un ambiente del servizio app][9]  
 
-<a id="getting-started" class="xliff"></a>
-
-## Introduzione
+## <a name="getting-started"></a>Introduzione
 Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).

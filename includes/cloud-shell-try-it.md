@@ -1,7 +1,5 @@
 
-<a id="launch-azure-cloud-shell" class="xliff"></a>
-
-## Avviare Azure Cloud Shell
+## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
 Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **Cloud Shell** nel menu nel riquadro in alto a destra nel [portale di Azure](https://portal.azure.com).
 
