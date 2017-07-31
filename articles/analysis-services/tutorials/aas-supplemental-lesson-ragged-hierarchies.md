@@ -22,8 +22,7 @@ ms.contentlocale: it-it
 ms.lasthandoff: 05/05/2017
 
 ---
-<a id="supplemental-lesson---ragged-hierarchies" class="xliff"></a>
-# Lezione supplementare: gerarchie incomplete
+# <a name="supplemental-lesson---ragged-hierarchies"></a>Lezione supplementare: gerarchie incomplete
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,17 +34,14 @@ I modelli tabulari a livello di compatibilità 1400 offrono un'altra proprietà 
   
 Tempo previsto per il completamento dell'esercitazione:**20 minuti**  
   
-<a id="prerequisites" class="xliff"></a>
-## Prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti  
 L'argomento di questa lezione supplementare fa parte di un'esercitazione sulla creazione di modelli tabulari. Prima di eseguire le attività di questa lezione supplementare, è necessario avere completato tutte le lezioni precedenti o avere completato il progetto modello di esempio Adventure Works Internet Sales. 
 
 Se il progetto Adventure Works Internet Sales è stato creato nell'ambito dell'esercitazione, non contiene ancora dati o gerarchie incomplete. Per completare questa lezione supplementare, è quindi necessario creare prima il problema aggiungendo alcune tabelle, creare relazioni, colonne calcolate, una misura e una nuova gerarchia organizzativa. Questa operazione richiede circa 15 minuti. Basteranno poi pochi minuti per risolvere il problema.  
 
-<a id="add-tables-and-objects" class="xliff"></a>
-## Aggiungere tabelle e oggetti
+## <a name="add-tables-and-objects"></a>Aggiungere tabelle e oggetti
   
-<a id="to-add-new-tables-to-your-model" class="xliff"></a>
-### Per aggiungere nuove tabelle al modello
+### <a name="to-add-new-tables-to-your-model"></a>Per aggiungere nuove tabelle al modello
   
 1.  In Esplora modelli tabulari espandere **Origini dati** e quindi fare clic con il pulsante destro del mouse sulla connessione > **Importa nuove tabelle**.
   
@@ -116,8 +112,7 @@ Se il progetto Adventure Works Internet Sales è stato creato nell'ambito dell'e
 
     Come si può vedere nella tabella pivot, la gerarchia mostra righe incomplete. Sono presenti molte righe con membri vuoti.
 
-<a id="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property" class="xliff"></a>
-## Per correggere la gerarchia incompleta impostando la proprietà Nascondi membri
+## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Per correggere la gerarchia incompleta impostando la proprietà Nascondi membri
 
 1.  In **Esplora modelli tabulari** espandere **Tabelle** > **DimEmployee** > **Gerarchie** > **Organizzazione**.
 
@@ -131,8 +126,7 @@ Se il progetto Adventure Works Internet Sales è stato creato nell'ambito dell'e
 
     La tabella è ora completa.
 
-<a id="see-also" class="xliff"></a>
-## Vedere anche   
+## <a name="see-also"></a>Vedere anche   
 [Lezione 9: Creare gerarchie](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Lezione supplementare: Sicurezza dinamica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Lezione supplementare: Righe di dettaglio](../tutorials/aas-supplemental-lesson-detail-rows.md)  
