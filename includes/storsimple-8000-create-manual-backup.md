@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/20/2017-->
 
-#### Per creare un backup manuale
-<a id="to-create-a-manual-backup" class="xliff"></a>
+#### <a name="to-create-a-manual-backup"></a>Per creare un backup manuale
 
 1. Passare al servizio Gestione dispositivi StorSimple, quindi fare clic su **Dispositivi**. Nell'elenco tabulare di dispositivi selezionare il dispositivo. Passare a **Impostazioni > Gestisci > Criteri di backup**.
 

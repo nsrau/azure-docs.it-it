@@ -1,5 +1,4 @@
-#### Per creare endpoint pubblici nell'appliance cloud
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
+#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Per creare endpoint pubblici nell'appliance cloud
 
 1. Accedere al portale di Azure.
 2. Andare a **Macchine virtuali**, quindi selezionare e fare clic sulla macchina virtuale che viene usata come appliance cloud.

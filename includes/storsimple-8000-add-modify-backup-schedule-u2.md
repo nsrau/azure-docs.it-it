@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### Per aggiungere o modificare una pianificazione di backup StorSimple
-<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Per aggiungere o modificare una pianificazione di backup StorSimple
 
 1. Andare al dispositivo StorSimple e fare clic su **Criteri di backup**.
 
