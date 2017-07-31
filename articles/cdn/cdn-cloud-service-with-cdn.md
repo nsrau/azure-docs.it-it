@@ -31,9 +31,7 @@ ms.lasthandoff: 07/06/2017
 * Flusso di lavoro di distribuzione unificato per l'applicazione Web e il contenuto gestito dalla rete CDN
 * Integrazione di creazione di bundle e minimizzazione ASP.NET con la rete CDN di Azure
 
-<a id="what-you-will-learn" class="xliff"></a>
-
-## Contenuto dell'esercitazione
+## <a name="what-you-will-learn"></a>Contenuto dell'esercitazione
 In questa esercitazione si apprenderà come:
 
 * [Integrare un endpoint della rete CDN di Azure con il servizio cloud e rendere disponibile il contenuto statico nella pagine Web dalla rete CDN di Azure](#deploy)
@@ -42,14 +40,10 @@ In questa esercitazione si apprenderà come:
 * [Rendere disponibile contenuto in bundle e minimizzato attraverso la rete CDN di Azure, mantenendo comunque l'esperienza di debug degli script in Visual Studio](#bundling)
 * [Configurare il fallback di script e file CSS quando la rete CDN di Azure è offline](#fallback)
 
-<a id="what-you-will-build" class="xliff"></a>
-
-## Obiettivo di compilazione
+## <a name="what-you-will-build"></a>Obiettivo di compilazione
 Verrà distribuito un ruolo Web del servizio cloud usando il modello MVC di ASP.NET predefinito, si aggiungerà il codice per gestire il contenuto da una rete CDN di Azure integrata, ad esempio un'immagine, i risultati dell'azione del controller e i file JavaScript e CSS predefiniti, e si scriverà anche il codice per configurare il meccanismo di fallback per i bundle serviti nel caso in cui la rete CDN non sia in linea.
 
-<a id="what-you-will-need" class="xliff"></a>
-
-## Prerequisiti
+## <a name="what-you-will-need"></a>Prerequisiti
 Per completare questa esercitazione, è necessario disporre dei prerequisiti seguenti:
 
 * Un [account Microsoft Azure](/account/)
@@ -65,9 +59,7 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 
 <a name="deploy"></a>
 
-<a id="deploy-a-cloud-service" class="xliff"></a>
-
-## Distribuire un servizio cloud
+## <a name="deploy-a-cloud-service"></a>Distribuire un servizio cloud
 In questa sezione verrà distribuito il modello di applicazione MVC di ASP.NET predefinito in Visual Studio 2015 a un ruolo Web del servizio cloud, che verrà quindi integrato con un nuovo endpoint CDN. Seguire le istruzioni riportate di seguito:
 
 1. In Visual Studio 2015 creare un nuovo servizio cloud di Azure dalla barra dei menu **File > Nuovo > Progetto > Cloud > Servizio cloud di Azure**. Assegnargli un nome e fare clic su **OK**.
@@ -108,9 +100,7 @@ In questa sezione verrà distribuito il modello di applicazione MVC di ASP.NET p
    > 
    > 
 
-<a id="create-a-new-cdn-profile" class="xliff"></a>
-
-## Creare un nuovo profilo di rete CDN
+## <a name="create-a-new-cdn-profile"></a>Creare un nuovo profilo di rete CDN
 Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo contiene uno o più endpoint della rete CDN.  Si consiglia di usare più profili per organizzare gli endpoint della rete CDN tramite il dominio internet, l’applicazione web o altri criteri.
 
 > [!TIP]
@@ -120,9 +110,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-<a id="create-a-new-cdn-endpoint" class="xliff"></a>
-
-## Creare un nuovo endpoint della rete CDN
+## <a name="create-a-new-cdn-endpoint"></a>Creare un nuovo endpoint della rete CDN
 **Per creare un nuovo endpoint della rete CDN per l'account di archiviazione**
 
 1. Nel [portale di gestione di Azure](https://portal.azure.com)passare al profilo di rete CDN.  Lo si potrebbe aver bloccato nel dashboard nel passaggio precedente.  Se così non fosse, è possibile trovarlo facendo clic su **Esplora**, quindi su **Profili rete CDN** e facendo clic sul profilo in cui si prevede di aggiungere l'endpoint.
@@ -151,9 +139,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
    > 
    > 
 
-<a id="test-the-cdn-endpoint" class="xliff"></a>
-
-## Testare l'endpoint della rete CDN
+## <a name="test-the-cdn-endpoint"></a>Testare l'endpoint della rete CDN
 Quando lo stato di pubblicazione è **Completato**, aprire una finestra del browser e passare a **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. Nella configurazione illustrata, questo URL è il seguente:
 
     http://camservice.azureedge.net/Content/bootstrap.css
@@ -187,9 +173,7 @@ L'alternativa consiste nel determinare quale contenuto rendere disponibile dalla
 
 <a name="caching"></a>
 
-<a id="configure-caching-options-for-static-files-in-your-cloud-service" class="xliff"></a>
-
-## Configurare le opzioni di memorizzazione nella cache dei file statici nel servizio cloud
+## <a name="configure-caching-options-for-static-files-in-your-cloud-service"></a>Configurare le opzioni di memorizzazione nella cache dei file statici nel servizio cloud
 Con l'integrazione della rete CDN di Azure nel servizio cloud è possibile specificare in che modo si vuole memorizzare il contenuto statico nella cache dell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config* dal progetto di ruolo Web (ad esempio, WebRole1) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il linguaggio XML seguente configura la scadenza della cache entro tre giorni.  
 
     <system.webServer>
@@ -218,9 +202,7 @@ Nella sezione [Gestire il contenuto dalle azioni del controller attraverso la re
 
 <a name="controller"></a>
 
-<a id="serve-content-from-controller-actions-through-azure-cdn" class="xliff"></a>
-
-## Gestire il contenuto dalle azioni del controller attraverso la rete CDN di Azure
+## <a name="serve-content-from-controller-actions-through-azure-cdn"></a>Gestire il contenuto dalle azioni del controller attraverso la rete CDN di Azure
 Quando si integra un ruolo Web del servizio cloud nella rete CDN di Azure, è relativamente facile gestire il contenuto dalle azioni del controller attraverso la rete CDN di Azure. Invece di rendere disponibile il servizio cloud direttamente attraverso la rete CDN (come descritto sopra), [Maarten Balliauw](https://twitter.com/maartenballiauw) mostra come farlo con un divertente controller MemeGenerator nel video sulla [riduzione della latenza sul Web con la rete CDN di Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN), che viene riprodotto semplicemente in questo articolo.
 
 Si supponga di volere generare nel servizio cloud dei meme basati su un'immagine di un giovane Chuck Norris (foto di [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)), come questa:
@@ -387,9 +369,7 @@ Nella sezione successiva verrà illustrato come gestire gli script e i file CSS 
 
 <a name="bundling"></a>
 
-<a id="integrate-aspnet-bundling-and-minification-with-azure-cdn" class="xliff"></a>
-
-## Integrazione di creazione di bundle e minimizzazione ASP.NET con la rete CDN di Azure
+## <a name="integrate-aspnet-bundling-and-minification-with-azure-cdn"></a>Integrazione di creazione di bundle e minimizzazione ASP.NET con la rete CDN di Azure
 Gli script e i fogli di stile CSS cambiano in maniera non frequente e sono i principali candidati per la cache della rete CDN di Azure. Il modo più semplice per integrare la creazione di bundle e la minimizzazione con la rete CDN di Azure consiste nel rendere disponibile l'intero ruolo Web. Tuttavia, poiché potrebbe non essere auspicabile, verrà illustrato come procedere pur mantenendo l'esperienza desiderata dallo sviluppatore per quanto riguarda la creazione di bundle e la minimizzazione ASP.NET, ad esempio:
 
 * Ottima esperienza della modalità di debug
@@ -508,9 +488,7 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
 
 <a name="fallback"></a>
 
-<a id="fallback-mechanism-for-cdn-urls" class="xliff"></a>
-
-## Meccanismo di fallback per gli URL della rete CDN
+## <a name="fallback-mechanism-for-cdn-urls"></a>Meccanismo di fallback per gli URL della rete CDN
 Se si verifica un errore nell'endpoint della rete CDN di Azure per un motivo qualsiasi, è consigliabile configurare l'accesso della pagina Web al server Web di origine come opzione di fallback per il caricamento di JavaScript o Bootstrap. Un conto è perdere le immagini nel sito a causa della mancata disponibilità della rete CDN, un altro è perdere funzionalità essenziali della pagina fornite dagli script e dai fogli di stile.
 
 La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una proprietà denominata [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) che consente di configurare il meccanismo di fallback per l'errore della rete CDN. Per usare questa proprietà, seguire i passaggi descritti di seguito:
@@ -614,9 +592,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
     Poiché però la prima parte dell'espressione || restituirà sempre true (nella riga subito sopra), la funzione document.write() non verrà mai eseguita.
 
-<a id="more-information" class="xliff"></a>
-
-## Altre informazioni
+## <a name="more-information"></a>Altre informazioni
 * [Panoramica della Rete per la distribuzione di contenuti (CDN) di Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 * [Uso della rete CDN di Azure](cdn-create-new-endpoint.md)
 * [Creazione di aggregazioni e minimizzazione ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)

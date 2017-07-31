@@ -24,17 +24,13 @@ ms.lasthandoff: 07/06/2017
 
 ---
 
-<a id="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell" class="xliff"></a>
-
-# Spostare una VM Windows da Amazon Web Services (AWS) ad Azure usando PowerShell
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Spostare una VM Windows da Amazon Web Services (AWS) ad Azure usando PowerShell
 
 Se si stanno valutando le macchine virtuali di Azure per l'hosting dei carichi di lavoro, è possibile esportare un'istanza di VM Windows di Amazon Web Services (AWS) EC2 esistente e quindi caricare il disco rigido virtuale in Azure. Dopo il caricamento del disco rigido virtuale è possibile creare una nuova VM in Azure dal disco rigido virtuale. 
 
 Questo argomento illustra lo spostamento di una singola VM da AWS ad Azure. Per spostare VM da AWS ad Azure su larga scala, vedere [Eseguire la migrazione delle macchine virtuali in Amazon Web Services (AWS) ad Azure con Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
-<a id="prepare-the-vm" class="xliff"></a>
-
-## Preparare la macchina virtuale 
+## <a name="prepare-the-vm"></a>Preparare la macchina virtuale 
  
 È possibile caricare dischi rigidi virtuali generalizzati e specializzati in Azure. Entrambi i tipi richiedono prima di tutto la preparazione della macchina virtuale prima dell'esportazione da AWS. 
 
@@ -50,9 +46,7 @@ Questo argomento illustra lo spostamento di una singola VM da AWS ad Azure. Per 
     * Assicurarsi che la macchina virtuale sia configurata per eseguire il pull dell'indirizzo IP e delle impostazioni DNS tramite DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio.  
 
 
-<a id="export-and-download-the-vhd" class="xliff"></a>
-
-## Esportare e scaricare il disco rigido virtuale 
+## <a name="export-and-download-the-vhd"></a>Esportare e scaricare il disco rigido virtuale 
 
 Esportare l'istanza EC2 in un disco rigido virtuale in un bucket Amazon S3. Seguire la procedura illustrata nell'argomento [Exporting an Instance as a VM Using VM Import/Export](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) (Esportazione di un'istanza come VM tramite l'importazione/esportazione della VM) della documentazione di Amazon ed eseguire il comando [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) per esportare l'istanza EC2 in un file di disco rigido virtuale. 
 
@@ -69,9 +63,7 @@ Dopo l'esportazione del disco rigido virtuale, seguire le istruzioni disponibili
 > AWS applica addebiti per il trasferimento di dati per il download del disco rigido virtuale. Per altre informazioni, vedere [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) (Prezzi di Amazon S3).
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 È ora possibile caricare il disco rigido virtuale in Azure e creare una nuova VM. 
 

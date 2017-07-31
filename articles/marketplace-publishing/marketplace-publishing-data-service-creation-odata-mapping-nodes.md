@@ -22,9 +22,7 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl" class="xliff"></a>
-
-# Informazioni sullo schema di nodi per il mapping di un servizio Web esistente a OData tramite CSDL
+# <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Informazioni sullo schema di nodi per il mapping di un servizio Web esistente a OData tramite CSDL
 > [!IMPORTANT]
 > **In questo momento non stiamo più caricando nuovi editori di servizi dati. I nuovi servizi dati non saranno approvati per l'elencazione.** Se si dispone di un'applicazione aziendale SaaS che si vuole pubblicare in AppSource, è possibile trovare altre informazioni [qui](https://appsource.microsoft.com/partners). Se si dispone di un'applicazione IaaS o di un servizio per gli sviluppatori che si vuole pubblicare in Azure Marketplace, è possibile trovare altre informazioni [qui](https://azure.microsoft.com/marketplace/programs/certified/).
 >
@@ -32,9 +30,7 @@ ms.lasthandoff: 07/06/2017
 
 Questo documento chiarisce la struttura dei nodi per il mapping di un protocollo OData a CSDL. È importante notare che la struttura dei nodi è costituita da XML ben formato. Pertanto, durante la progettazione del mapping a OData è possibile applicare gli schemi radice, padre e figlio.
 
-<a id="ignored-elements" class="xliff"></a>
-
-## Elementi ignorati
+## <a name="ignored-elements"></a>Elementi ignorati
 Di seguito sono elencati gli elementi CSDL di alto livello (nodi XML) che non vengono usati dal back-end di Azure Marketplace durante l'importazione dei metadati del servizio Web. Tali elementi possono essere presenti, ma vengono ignorati.
 
 | Elemento | Scope |
@@ -51,9 +47,7 @@ Di seguito sono elencati gli elementi CSDL di alto livello (nodi XML) che non ve
 
 Di seguito vengono illustrate in dettaglio le modifiche (elementi aggiunti e ignorati) apportate ai diversi nodi XML CSDL.
 
-<a id="functionimport-node" class="xliff"></a>
-
-## Nodo FunctionImport
+## <a name="functionimport-node"></a>Nodo FunctionImport
 Un nodo FunctionImport rappresenta un solo URL (punto di ingresso) che espone un servizio all'utente finale. Il nodo consente di descrivere la modalità di indirizzamento dell'URL, i parametri disponibili per l'utente finale e il modo in cui questi parametri vengono forniti.
 
 Per informazioni dettagliate su questo nodo, vedere [qui][Elemento FunctionImport (CSDL)](https://msdn.microsoft.com/library/cc716710.aspx)
@@ -155,9 +149,7 @@ Ulteriori nodi figlio, non trattati dalla documentazione CSDL, all'interno del n
 
 **d:ErrorMessage** : estensione facoltativa di OData
 
-<a id="parameter-node" class="xliff"></a>
-
-## Nodo Parameter
+## <a name="parameter-node"></a>Nodo Parameter
 Questo nodo rappresenta un solo parametro esposto come parte del modello URI o del corpo della richiesta specificato nel nodo FunctionImport.
 
 Una pagina dettagliata molto utile sul nodo "Elemento Parameter" è disponibile [qui](http://msdn.microsoft.com/library/ee473431.aspx). Usare l'elenco a discesa **Other Version** (Altra versione) per selezionare una versione diversa se necessario per visualizzare la documentazione. *Esempio:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
@@ -180,9 +172,7 @@ Di seguito sono riportati gli attributi che sono stati aggiunti alla specifica C
 | **d: Nullable** *(facoltativo)* |Consente di definire se un parametro può essere null. Il valore predefinito è true. I parametri che vengono esposti come parte del percorso nel modello URI, tuttavia, non possono essere null. Se l'attributo è impostato su false per questi parametri, l'input dell'utente viene ignorato. **Esempio:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
 | **d:SampleValue** *(facoltativo)* |Valore di esempio da visualizzare come nota nell'interfaccia utente del client.  È possibile aggiungere più valori separati da una barra verticale, ad esempio "a |
 
-<a id="entitytype-node" class="xliff"></a>
-
-## Nodo EntityType
+## <a name="entitytype-node"></a>Nodo EntityType
 Questo nodo rappresenta uno dei tipi restituiti da Marketplace all'utente finale. Il nodo contiene inoltre il mapping dell'output restituito dal servizio del provider di contenuti ai valori restituiti all'utente finale.
 
 Per informazioni dettagliate su questo nodo, vedere [qui](http://msdn.microsoft.com/library/bb399206.aspx). Usare l'elenco a discesa **Other Version** (Altra versione) per selezionare una versione diversa se necessario per visualizzare la documentazione.
@@ -206,9 +196,7 @@ In questo caso l'espressione XPath sarebbe /foo/bar, poiché ciascun nodo della 
 
 **Key** : questo attributo viene ignorato da Marketplace. I servizi Web basati su REST, in genere, non espongono una chiave primaria.
 
-<a id="property-node" class="xliff"></a>
-
-## Nodo Property
+## <a name="property-node"></a>Nodo Property
 Questo nodo contiene una proprietà del record.
 
 Informazioni dettagliate su questo nodo sono disponibili all'indirizzo [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx). Usare l'elenco a discesa **Other Version** (Altra versione) per selezionare una versione diversa se necessario per visualizzare la documentazione. *Esempio:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
@@ -264,9 +252,7 @@ Per ottenere il nodo baz0 dal servizio del provider di contenuti, l'espressione 
 
 **d:DatabaseDataType** : tipo di dati della colonna nel database, ad esempio tipo di dati SQL. Vedere Esempio di CSDL di DataService
 
-<a id="supported-parametersproperty-types" class="xliff"></a>
-
-## Tipi di parametri e proprietà supportati
+## <a name="supported-parametersproperty-types"></a>Tipi di parametri e proprietà supportati
 Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è distinzione tra maiuscole e minuscole.
 
 | Tipi primitivi | Descrizione |
@@ -284,9 +270,7 @@ Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è
 | Int64 |Rappresenta un valore intero con segno a 64 bit |
 | String |Rappresenta dati di tipo carattere a lunghezza fissa o variabile |
 
-<a id="see-also" class="xliff"></a>
-
-## Vedere anche
+## <a name="see-also"></a>Vedere anche
 * Per comprendere meglio nel suo complesso il processo del mapping OData e il suo scopo, nonché per esaminare le definizioni, le strutture e le istruzioni, leggere l'articolo [relativo al mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping.md) .
 * Per esaminare gli esempi, consultare il codice di esempio e apprendere la sintassi del codice e il contesto, leggere l'articolo [relativo agli esempi di mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md) .
 * Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).

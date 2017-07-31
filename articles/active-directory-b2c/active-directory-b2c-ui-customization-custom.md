@@ -21,31 +21,23 @@ ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
 ---
-<a id="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy" class="xliff"></a>
-
-# Azure Active Directory B2C: configurare la personalizzazione dell'interfaccia utente in un criterio personalizzato
+# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configurare la personalizzazione dell'interfaccia utente in un criterio personalizzato
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Dopo aver completato questo articolo si avrà un criterio personalizzato per l'iscrizione e l'accesso con il proprio marchio e aspetto. Con Azure Active Directory B2C (Azure AD B2C) si ottiene il controllo quasi completo del contenuto HTML e CSS presentato agli utenti. Quando si usa un criterio personalizzato, si configura la personalizzazione dell'interfaccia utente in XML anziché usare i controlli nel portale di Azure. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, completare [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md). È necessario disporre di un criterio personalizzato di lavoro per l'iscrizione e l'accesso con account locali.
 
-<a id="page-ui-customization" class="xliff"></a>
-
-## Personalizzazione dell'interfaccia utente della pagina
+## <a name="page-ui-customization"></a>Personalizzazione dell'interfaccia utente della pagina
 
 Con la funzionalità di personalizzazione dell'interfaccia utente della pagina, è possibile definire l'aspetto di qualsiasi criterio personalizzato. È anche possibile mantenere la coerenza visiva e del marchio tra l'applicazione e Azure AD B2C.
 
 Ecco come funziona: Azure AD B2C esegue il codice nel browser del cliente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/). In primo luogo, specificare un URL nel criterio personalizzato con contenuto HTML personalizzato. Azure AD B2C unisce elementi dell'interfaccia utente con il contenuto HTML caricato dall'URL e quindi visualizza la pagina al cliente.
 
-<a id="create-your-html5-content" class="xliff"></a>
-
-## Creare il contenuto HTML5
+## <a name="create-your-html5-content"></a>Creare il contenuto HTML5
 
 Creare il contenuto HTML con il nome del marchio del prodotto nel titolo.
 
@@ -68,9 +60,7 @@ Creare il contenuto HTML con il nome del marchio del prodotto nel titolo.
 
 2. Incollare il frammento di codice copiato in un editor di testo e quindi salvare il file con il nome *customize-ui.html*.
 
-<a id="create-an-azure-blob-storage-account" class="xliff"></a>
-
-## Creare un account di archiviazione BLOB di Azure
+## <a name="create-an-azure-blob-storage-account"></a>Creare un account di archiviazione BLOB di Azure
 
 >[!NOTE]
 > In questo articolo verrà usato l'archivio BLOB di Azure per ospitare il contenuto. È possibile scegliere di ospitare il contenuto in un server Web, ma è necessario [abilitare la condivisione di risorse tra le origini (CORS) nel server Web](https://enable-cors.org/server.html).
@@ -92,9 +82,7 @@ Per ospitare il contenuto HTML nell'archivio Blob, seguire questa procedura:
 13. Fare clic su **Crea** per creare l'account di archiviazione.  
     Quando la distribuzione è terminata, il pannello dell'**account di archiviazione** si aprirà automaticamente.
 
-<a id="create-a-container" class="xliff"></a>
-
-## Creare un contenitore
+## <a name="create-a-container"></a>Creare un contenitore
 
 Per creare un contenitore pubblico nell'archivio BLOB seguire questa procedura:
 
@@ -111,9 +99,7 @@ Per creare un contenitore pubblico nell'archivio BLOB seguire questa procedura:
 11. Accanto a **URL** fare clic su **Copia**.
 12. Incollare l'URL copiato in un browser e andare al sito. Se il sito non è accessibile, assicurarsi che il tipo di accesso del contenitore sia impostato su **BLOB**.
 
-<a id="configure-cors" class="xliff"></a>
-
-## Configurare CORS
+## <a name="configure-cors"></a>Configurare CORS
 
 Configurare l'archivio BLOB per la condivisione di risorse tra le origini (CORS) seguendo questa procedura:
 
@@ -129,9 +115,7 @@ Configurare l'archivio BLOB per la condivisione di risorse tra le origini (CORS)
 7. Per **Tempo trascorso massimo (secondi)**, digitare **200**.
 8. Fare clic su **Aggiungi**.
 
-<a id="test-cors" class="xliff"></a>
-
-## Testare CORS
+## <a name="test-cors"></a>Testare CORS
 
 Verificare che tutte le operazioni preliminari siano state completate seguendo questa procedura:
 
@@ -139,9 +123,7 @@ Verificare che tutte le operazioni preliminari siano state completate seguendo q
 2. Fare clic su **Send Request** (Invia richiesta).  
     Se si riceve un messaggio d'errore, verificare che le [impostazioni CORS](#configure-cors) siano corrette. Potrebbe anche essere necessario cancellare la cache del browser o aprire una sessione di esplorazione anonima premendo Ctrl+Maiusc+P.
 
-<a id="modify-your-sign-up-or-sign-in-custom-policy" class="xliff"></a>
-
-## Modificare i criteri personalizzati di iscrizione o di accesso
+## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Modificare i criteri personalizzati di iscrizione o di accesso
 
 Sotto il tag *\<TrustFrameworkPolicy\>* di primo livello dovrebbe essere presente il tag *\<BuildingBlocks\>*. All'interno dei tag *\<BuildingBlocks\>* aggiungere un tag *\<ContentDefinitions\>* copiando l'esempio seguente. Sostituire *your_storage_account* con il nome del proprio account di archiviazione.
 
@@ -155,26 +137,20 @@ Sotto il tag *\<TrustFrameworkPolicy\>* di primo livello dovrebbe essere present
   </BuildingBlocks>
   ```
 
-<a id="upload-your-updated-custom-policy" class="xliff"></a>
-
-## Caricare il criterio personalizzato aggiornato
+## <a name="upload-your-updated-custom-policy"></a>Caricare il criterio personalizzato aggiornato
 
 1. Nel [portale di Azure](https://portal.azure.com) [passare al contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi aprire il pannello **Azure AD B2C**.
 2. Fare clic su **Tutti i criteri**.
 3. Fare clic su **Carica il criterio**.
 4. Caricare `SignUpOrSignin.xml` con il tag *\<ContentDefinitions\>* aggiunto in precedenza.
 
-<a id="test-the-custom-policy-by-using-run-now" class="xliff"></a>
-
-## Testare i criteri personalizzati tramite **Esegui adesso**
+## <a name="test-the-custom-policy-by-using-run-now"></a>Testare i criteri personalizzati tramite **Esegui adesso**
 
 1. Nel pannello **Azure AD B2C** passare a **Tutti i criteri**.
 2. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-<a id="reference" class="xliff"></a>
-
-## Riferimento
+## <a name="reference"></a>Riferimento
 
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
 
@@ -207,9 +183,7 @@ Nella sezione [Modificare i criteri personalizzati di iscrizione o di accesso](#
 | *api.selfasserted.profileupdate* | **Pagina di aggiornamento del profilo**. Questa pagina contiene un modulo che gli utenti possono usare per aggiornare il profilo. Questa pagina è simile alla pagina di iscrizione dell'account di social networking, a eccezione dei campi di immissione della password. |
 | *api.signuporsignin* | **Pagina unificata per l'iscrizione o l'accesso**. Questa pagina consente di gestire sia l'iscrizione che l'accesso degli utenti, che possono usare provider di identità aziendali, provider di identità basati su social network come Facebook o Google+ o account locali.  |
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sugli elementi dell'interfaccia utente che è possibile personalizzare, vedere la [guida di riferimento per la personalizzazione dell'interfaccia utente per i criteri predefiniti](active-directory-b2c-reference-ui-customization.md).
 
