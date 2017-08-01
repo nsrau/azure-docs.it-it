@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-#### Per aggiungere un criterio di backup per StorSimple
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-add-a-storsimple-backup-policy"></a>Per aggiungere un criterio di backup per StorSimple
 
 1. Andare al dispositivo StorSimple e fare clic su **Criteri di backup**.
 
@@ -13,7 +12,7 @@
    
    1. **Seleziona dispositivo** viene popolato automaticamente in base al dispositivo selezionato.
    
-   2. Specificare un **nome** per i criteri di backup che contenga tra i 3 e i 150 caratteri.
+   2. Specificare un **nome** per i criteri di backup che contenga tra i 3 e i 150 caratteri. Dopo essere stati creati, i criteri non possono essere rinominati.
        
    3. Per assegnare volumi ai criteri di backup, selezionare **Aggiungi volumi** e nell'elenco tabulare dei volumi fare clic sulle caselle di controllo per assegnare uno o più volumi ai criteri di backup.
 

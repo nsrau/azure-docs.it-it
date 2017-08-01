@@ -1,6 +1,6 @@
 ---
-title: 'Lezione supplementare dell&quot;esercitazione su Azure Analysis Services: sicurezza dinamica | Microsoft Docs'
-description: Descrive come usare la sicurezza dinamica tramite filtri di riga nell&quot;esercitazione su Azure Analysis Services.
+title: 'Lezione supplementare dell''esercitazione su Azure Analysis Services: sicurezza dinamica | Microsoft Docs'
+description: Descrive come usare la sicurezza dinamica tramite filtri di riga nell'esercitazione su Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4e97a558ae1a2601b5275a73164b483351f03857
 ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lezione supplementare: Sicurezza dinamica
