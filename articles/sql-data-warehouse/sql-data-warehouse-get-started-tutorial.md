@@ -23,28 +23,24 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-# Introduzione a SQL Data Warehouse
-<a id="get-started-with-sql-data-warehouse" class="xliff"></a>
+# <a name="get-started-with-sql-data-warehouse"></a>Introduzione a SQL Data Warehouse
 
 Questa esercitazione mostra come effettuare il provisioning e caricare i dati in Azure SQL Data Warehouse. Verranno illustrati anche i concetti di base relativi a scalabilità, sospensione e ottimizzazione. Al termine, sarà possibile eseguire query ed esplorare il data warehouse.
 
 **Tempo previsto per il completamento:** per il completamento di questa esercitazione end-to-end con codice di esempio sono necessari circa 30 minuti, dopo avere soddisfatto i prerequisiti. 
 
-## Prerequisiti
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione presuppone una familiarità con i concetti di base di SQL Data Warehouse. Se sono necessarie informazioni introduttive, vedere [Informazioni su Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md) 
 
-### Iscrizione a Microsoft Azure
-<a id="sign-up-for-microsoft-azure" class="xliff"></a>
+### <a name="sign-up-for-microsoft-azure"></a>Iscrizione a Microsoft Azure
 Se non si ha ancora un account Microsoft Azure, crearne uno per usare questo servizio. Se si ha già un account, è possibile ignorare questo passaggio. 
 
 1. Passare alle pagine dell'account [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Creare un account Azure gratuito o acquistare un account.
 3. Seguire le istruzioni
 
-### Installare i driver del client SQL e gli strumenti appropriati
-<a id="install-appropriate-sql-client-drivers-and-tools" class="xliff"></a>
+### <a name="install-appropriate-sql-client-drivers-and-tools"></a>Installare i driver del client SQL e gli strumenti appropriati
 
 La maggior parte degli strumenti del client SQL può connettersi a SQL Data Warehouse usando JDBC, ODBC o ADO.NET. A causa del numero elevato di funzionalità di T-SQL supportate da SQL Data Warehouse, alcune applicazioni client non sono completamente compatibili con SQL Data Warehouse.
 
@@ -54,8 +50,7 @@ Se si esegue un sistema operativo Windows, è consigliabile usare [Visual Studio
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Creare un SQL Data Warehouse
-<a id="create-a-sql-data-warehouse" class="xliff"></a>
+## <a name="create-a-sql-data-warehouse"></a>Creare un SQL Data Warehouse
 
 SQL Data Warehouse è un tipo di database speciale, progettato per l'elaborazione parallela massiva (MPP, Massively Parallel Processing). Il database viene distribuito in più nodi ed elabora le query in parallelo. SQL Data Warehouse ha un nodo di controllo che orchestra le attività di tutti i nodi. I nodi stessi usano il database SQL per gestire i dati.  
 
@@ -63,8 +58,7 @@ SQL Data Warehouse è un tipo di database speciale, progettato per l'elaborazion
 > La creazione di un'istanza di SQL Data Warehouse può avere come risultato un nuovo servizio fatturabile.  Per altre informazioni, vedere [SQL Data Warehouse Prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
-### Creare un data warehouse
-<a id="create-a-data-warehouse" class="xliff"></a>
+### <a name="create-a-data-warehouse"></a>Creare un data warehouse
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Nuovo** > **Database** > **SQL Data Warehouse**.
@@ -95,14 +89,12 @@ SQL Data Warehouse è un tipo di database speciale, progettato per l'elaborazion
 
 5. Attendere il completamento della distribuzione del data warehouse. Il processo richiede normalmente qualche minuto. Il portale invia una notifica che indica quando il data warehouse è pronto per l'uso. 
 
-## Connettersi a SQL Data Warehouse
-<a id="connect-to-sql-data-warehouse" class="xliff"></a>
+## <a name="connect-to-sql-data-warehouse"></a>Connettersi a SQL Data Warehouse
 
 Questa esercitazione usa SQL Server Management Studio (SSMS) per la connessione al data warehouse. È possibile connettersi a SQL Data Warehouse tramite questi connettori supportati: ADO.NET, JDBC, ODBC e PHP. È possibile che le funzionalità siano limitate per gli strumenti non supportati da Microsoft.
 
 
-### Ottenere informazioni di connessione
-<a id="get-connection-information" class="xliff"></a>
+### <a name="get-connection-information"></a>Ottenere informazioni di connessione
 
 Per connettersi al data warehouse, è necessario usare il server logico di SQL Server creato in [Prerequisiti].
 
@@ -127,13 +119,11 @@ Se non si verificano errori, si dovrebbe essere connessi al server logico di SQL
 Verrà ora illustrata la creazione di altri account di accesso e utenti.
 
 
-## Creare un utente database
-<a id="create-a-database-user" class="xliff"></a>
+## <a name="create-a-database-user"></a>Creare un utente database
 
 In questo passaggio viene creato un account utente per accedere al data warehouse. Viene illustrato anche come consentire all'utente di eseguire query con una quantità elevata di memoria e di risorse della CPU.
 
-### Note sulle classi di risorse per l'allocazione di risorse alle query
-<a id="notes-about-resource-classes-for-allocating-resources-to-queries" class="xliff"></a>
+### <a name="notes-about-resource-classes-for-allocating-resources-to-queries"></a>Note sulle classi di risorse per l'allocazione di risorse alle query
 
 - Per proteggere i dati, non usare l'amministratore del server per eseguire query nei database di produzione. Questo account ha una quantità di privilegi superiore rispetto agli altri utenti e usarlo per eseguire operazioni sui dati utente comporta rischi per i dati. Poiché l'amministratore del server deve eseguire operazioni di gestione, esegue operazioni solo con una allocazione ridotta della memoria e di risorse della CPU. 
 
@@ -141,8 +131,7 @@ In questo passaggio viene creato un account utente per accedere al data warehous
 
 - Per ottimizzare la compressione dei dati, potrebbe essere necessario che l'utente carichi i dati con allocazioni di risorse grandi o molto grandi. Per altre informazioni sulle classi di risorse, vedere [qui](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
-### Creare un account che possa controllare un database
-<a id="create-an-account-that-can-control-a-database" class="xliff"></a>
+### <a name="create-an-account-that-can-control-a-database"></a>Creare un account che possa controllare un database
 
 Poiché l'accesso è stato eseguito come amministratore del server, si è autorizzati a creare account di accesso e utenti.
 
@@ -174,8 +163,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, si è autori
     > Se il nome del database include trattini, assicurarsi di racchiuderlo tra parentesi. 
     >
 
-### Concedere all'utente allocazioni di risorse medie
-<a id="give-the-user-medium-resource-allocations" class="xliff"></a>
+### <a name="give-the-user-medium-resource-allocations"></a>Concedere all'utente allocazioni di risorse medie
 
 1. Eseguire questo comando T-SQL per rendere l'utente membro della classe di risorse media, denominata mediumrc. 
 
@@ -191,8 +179,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, si è autori
     ![Accedere con il nuovo account](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-## Caricare dati dall'archiviazione BLOB di Azure
-<a id="load-data-from-azure-blob-storage" class="xliff"></a>
+## <a name="load-data-from-azure-blob-storage"></a>Caricare dati dall'archiviazione BLOB di Azure
 
 È ora possibile caricare i dati nel data warehouse. Questo passaggio illustra come caricare i dati relativi ai taxi di New York City da un BLOB pubblico di archiviazione di Azure. 
 
@@ -201,8 +188,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, si è autori
 - Per riferimento futuro, per informazioni su come ottenere i dati nell'archivio BLOB di Azure o come caricarli direttamente dall'origine in SQL Data Warehouse, vedere la [panoramica del caricamento](sql-data-warehouse-overview-load.md).
 
 
-### Definire i dati esterni
-<a id="define-external-data" class="xliff"></a>
+### <a name="define-external-data"></a>Definire i dati esterni
 
 1. Creare una chiave master. È necessario creare una chiave master solo una volta per ogni database. 
 
@@ -433,8 +419,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, si è autori
     ;
 ```
 
-### Importare i dati dall'archivio BLOB di Azure.
-<a id="import-the-data-from-azure-blob-storage" class="xliff"></a>
+### <a name="import-the-data-from-azure-blob-storage"></a>Importare i dati dall'archivio BLOB di Azure.
 
 SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELECT (CTAS). Questa istruzione crea una nuova tabella in base ai risultati di un'istruzione SELECT. La nuova tabella ha le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT.  In questo modo è possibile importare dati dall'archivio BLOB di Azure in SQL Data Warehouse.
 
@@ -556,13 +541,11 @@ SQL Data Warehouse supporta un'istruzione chiave denominata CREATE TABLE AS SELE
     ![Visualizzare i dati caricati](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## Ottimizzare le prestazioni di query
-<a id="improve-query-performance" class="xliff"></a>
+## <a name="improve-query-performance"></a>Ottimizzare le prestazioni di query
 
 È possibile procedere in diversi modi per migliorare le prestazioni di query e ottenere prestazioni ad alta velocità da SQL Data Warehouse.  
 
-### Vedere l'effetto del ridimensionamento sulle prestazioni di query
-<a id="see-the-effect-of-scaling-on-query-performance" class="xliff"></a> 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Vedere l'effetto del ridimensionamento sulle prestazioni di query 
 
 Un modo per migliorare le prestazioni di query è il ridimensionamento delle risorse, modificando il livello di servizio DWU per il data warehouse. Ogni livello di servizio ha un costo maggiore, ma è possibile ridurre o sospendere le risorse in qualsiasi momento. 
 
@@ -602,8 +585,7 @@ Prima di tutto, ridurre le dimensioni a 100 DWU, in modo da ottenere informazion
 > Questo perché SQL Data Warehouse fa uso dell'elaborazione parallela massiva (Massively Parallel Processing, MPP). Le query che eseguono analisi o funzioni analitiche su milioni di righe mostrano tutta l'efficacia di Azure SQL Data Warehouse.
 >
 
-### Vedere l'effetto delle statistiche sulle prestazioni di query
-<a id="see-the-effect-of-statistics-on-query-performance" class="xliff"></a>
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>Vedere l'effetto delle statistiche sulle prestazioni di query
 
 1. Eseguire una query che consente il join della tabella Date alla tabella Trip
 
@@ -655,8 +637,7 @@ Prima di tutto, ridurre le dimensioni a 100 DWU, in modo da ottenere informazion
 
 3. Eseguire di nuovo la query da Prerequisiti ed esaminare eventuali differenze tra le prestazioni. Anche se le differenze tra le prestazioni di query non saranno significative come nell'aumento delle prestazioni, si dovrebbe notare una maggiore velocità. 
 
-## Passaggi successivi
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Passaggi successivi
 
 È ora possibile eseguire query ed esplorare. Vedere le procedure consigliate o i suggerimenti.
 
@@ -664,8 +645,7 @@ Al termine dell'esplorazione, ricordare di sospendere l'istanza. In produzione �
 
 ![Sospendi](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Vedere anche
-<a id="useful-readings" class="xliff"></a>
+## <a name="useful-readings"></a>Vedere anche
 
 [Gestione della concorrenza e del carico di lavoro][]
 
