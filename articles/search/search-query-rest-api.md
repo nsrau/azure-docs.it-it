@@ -1,5 +1,5 @@
 ---
-title: Eseguire query su un indice di Ricerca di Azure con l&quot;API REST | Documentazione Microsoft
+title: 'Eseguire query su un indice: API REST e Ricerca di Azure | Microsoft Docs'
 description: Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare e ordinare i risultati della ricerca.
 services: search
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
 ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 

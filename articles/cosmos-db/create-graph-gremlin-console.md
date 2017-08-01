@@ -1,8 +1,8 @@
 ---
 title: 'Esercitazione su Azure Cosmos DB: Creare, eseguire query e attraversare nella console Gremlin di Apache TinkerPop | Microsoft Docs'
-description: Guida di avvio rapido ad Azure Cosmos DB per creare vertici, archi e query usando l&quot;API Graph di Azure Cosmos DB.
+description: Guida di avvio rapido ad Azure Cosmos DB per creare vertici, archi e query usando l'API Graph di Azure Cosmos DB.
 services: cosmos-db
-author: AndrewHoh
+author: dennyglee
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 06/10/2017
-ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 44972270a13f5ab5b3aa22557b36e80ae406a4a6
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 82ddc351359318dab82c95d3e3b9b97ba3e3b4a8
 ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Creare, eseguire query e attraversare un grafo nella console Gremlin
@@ -47,20 +47,25 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connettersi al servizio app
-1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione *remote-secure.yaml* nella directory *apache-tinkerpop-gremlin-console-3.2.4/conf*.
+1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory apache-tinkerpop-gremlin-console-3.2.4/conf.
 2. Immettere le configurazioni per *Hosts*, *Port*, *Username*, *Password*, *ConnectionPool* e *Serializer*:
 
     Impostazione|Valore consigliato|Descrizione
     ---|---|---
-    Hosts|***.graphs.azure.com|URI del servizio Graph, che può essere recuperato dal portale di Azure
-    Port|443|Impostare su 443
-    Username|*Nome utente*|Risorsa in formato `/dbs/<db>/colls/<coll>`.
-    Password|*Chiave master primaria*|Chiave master primaria per Azure Cosmos DB
-    ConnectionPool|{enableSsl: true}|Impostazione del pool di connessione per SSL
-    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Impostare su questo valore
+    hosts|[***.graphs.azure.com]|Vedere lo screenshot di seguito. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.<br><br>Questo valore può anche essere recuperato dalla scheda Chiavi, usando il valore dell'URI senza https://, sostituendo documents con graphs e rimuovendo la parte :443/ finale.
+    port|443|Impostare su 443.
+    username|*Nome utente*|Risorsa nel formato `/dbs/<db>/colls/<coll>`, dove `<db>` è il nome del database e `<coll>` è il nome della raccolta.
+    password|*Chiave primaria*| Vedere il secondo screenshot di seguito. Si tratta della chiave primaria, che può essere recuperata dalla pagina Chiavi del portale di Azure nella casella Chiave primaria. Per copiare il valore, usare il pulsante di copia a sinistra della casella.
+    connectionPool|{enableSsl: true}|Impostazione del pool di connessioni per SSL.
+    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Impostare questo valore ed eliminare qualsiasi interruzione di riga `\n` quando si incolla il valore.
 
-3. Nel terminale eseguire *bin/gremlin.bat* o *bin/gremlin.sh* per avviare la [console Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
-4. Nel terminale eseguire *:remote connect tinkerpop.server conf/remote-secure.yaml* per connettersi al servizio app.
+    Per il valore Hosts, copiare il valore **URI Gremlin** dalla pagina **Panoramica**: ![Visualizzare e copiare il valore URI Gremlin nella pagina Panoramica del portale di Azure](./media/create-graph-gremlin-console/gremlin-uri.png)
+
+    Per il valore Password, copiare la **chiave primaria** dalla pagina **Chiavi**: ![Visualizzare e copiare la chiave primaria nella pagina Chiavi del portale di Azure](./media/create-graph-gremlin-console/keys.png)
+
+
+3. Nel terminale eseguire `bin/gremlin.bat` o `bin/gremlin.sh` per avviare la [console Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
+4. Nel terminale eseguire `:remote connect tinkerpop.server conf/remote-secure.yaml` per connettersi al servizio app.
 
 L'installazione è riuscita. Al termine della configurazione, è possibile iniziare a eseguire alcuni comandi della console.
 
@@ -70,12 +75,12 @@ Provare un comando count () semplice. Digitare quanto segue al prompt nella cons
 ```
 
 > [!TIP]
-> Si noti il prefisso ***:>*** che precede il testo e g.V().count(). 
+> Si noti `:>` prima del testo `g.V().count()`. 
 >
 > Si tratta di una parte del comando che è necessario digitare. È importante quando si usa la console Gremlin con Azure Cosmos DB.  
 >
-> Se il prefisso :> viene omesso, la console esegue il comando in locale, spesso su un grafo in memoria.
-> L'uso di ***:>*** indica alla console di eseguire un comando remoto, in questo caso su Cosmos DB (l'emulatore localhost o un'istanza di Azure).
+> Se il prefisso `:>` viene omesso, la console esegue il comando in locale, spesso su un grafo in memoria.
+> L'uso di `:>` indica alla console di eseguire un comando remoto, in questo caso su Cosmos DB (l'emulatore localhost o un'istanza di Azure).
 
 
 ## <a name="create-vertices-and-edges"></a>Creare vertici e archi

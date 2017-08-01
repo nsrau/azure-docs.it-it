@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aefec15c72c6cf8389a29b03be70abb4c7f020b9
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Impostare i criteri di sicurezza nel Centro sicurezza di Azure
@@ -43,7 +42,7 @@ Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti d
     ![Definizione dei criteri](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. Il pannello **Criteri di sicurezza** per la sottoscrizione selezionata viene aperto con un set di opzioni. Le opzioni disponibili in questo pannello sono:
 
-   * **Criteri di prevenzione**: usare questa opzione per configurare criteri per ogni sottoscrizione o gruppo di risorse.  
+   * **Criteri di prevenzione**: usare questa opzione per configurare criteri per ogni sottoscrizione.  
    * **Notifica di posta elettronica**: usare questa opzione per configurare una notifica di posta elettronica che viene inviata alla prima occorrenza giornaliera di un avviso e per gli avvisi di elevata gravità. Le preferenze di posta elettronica possono essere configurate solo per i criteri della sottoscrizione. Per altre informazioni su come configurare una notifica di posta elettronica, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md) .
    * **Piano tariffario**: usare questa opzione per aggiornare il piano tariffario selezionato. Per altre informazioni sui prezzi, vedere [Centro sicurezza Prezzi](security-center-pricing.md).
 4. Verificare che l'opzione **Raccogli dati dalle macchine virtuali** sia **Sì**. Questa opzione abilita la raccolta automatica dei log per le risorse nuove ed esistenti tramite Microsoft Monitoring Agent, lo stesso agente usato da Operations Management Suite e dal servizio Log Analytics. I dati raccolti dall'agente verranno archiviati in una o più aree di lavoro di Log Analytics esistenti associate alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda dell'area geografica della macchina virtuale.

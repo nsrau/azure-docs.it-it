@@ -15,17 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Set di scalabilità VM di Azure e dischi gestiti
 
-I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure supportano ora macchine virtuali con dischi gestiti. L'uso di dischi gestiti con i set di scalabilità presenta diversi vantaggi, tra cui:
+I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure supportano macchine virtuali con dischi gestiti. L'uso di dischi gestiti con i set di scalabilità presenta diversi vantaggi, tra cui:
 
 * Non è più necessario creare in anticipo e gestire gli account di archiviazione per archiviare i dischi del sistema operativo per i set di scalabilità delle macchine virtuali.
 
@@ -44,13 +43,9 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 In alternativa, è possibile esaminare il [repository di Modelli di avvio rapido di Azure in GitHub](https://github.com/Azure/azure-quickstart-templates) e consultare le cartelle contenenti `vmss` per vedere esempi preesistenti di modelli di distribuzione di set di scalabilità. Per individuare quali modelli usano già i dischi gestiti, è possibile fare riferimento a [questo elenco](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
-## <a name="api-versions"></a>Versioni dell'API
-
-I set di scalabilità con dischi gestiti richiedono l'API Microsoft.Compute versione `2016-04-30-preview` o successiva. I set di scalabilità con dischi non gestiti continueranno a funzionare come sempre, anche nelle nuove versioni API che supportano il disco gestito. Tuttavia, i set di scalabilità con dischi non gestiti non godranno dei vantaggi dei dischi gestiti, anche in queste nuove versioni API.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui dischi gestiti in generale, consultare [questo articolo](../storage/storage-managed-disks-overview.md).
+Per altre informazioni sui dischi gestiti in generale, vedere [questo articolo](../storage/storage-managed-disks-overview.md).
 
 Per informazioni su come convertire un modello di Resource Manager per eseguire il provisioning dei set di scalabilità con i dischi gestiti, consultare [questo articolo](./virtual-machine-scale-sets-convert-template-to-md.md). Le stesse modifiche applicate ai modelli di Resource Manager si applicano anche all'API REST di Azure.
 

@@ -1,6 +1,6 @@
 ---
 title: Introduzione alle connessioni ibride di inoltro di Azure in .NET | Documentazione Microsoft
-description: Come scrivere un&quot;applicazione console in C# per le connessioni ibride
+description: Scrivere un'applicazione console C# per le connessioni ibride di inoltro di Azure.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -12,32 +12,34 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: d27016559ede5d810d7efcec2a3abc78334f0f0a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1af23bfd46dd7d3781505473f7c1d86e65ea9bc7
 ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="get-started-with-relay-hybrid-connections"></a>Introduzione alle connessioni ibride di inoltro
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Questa esercitazione offre un'introduzione alle [connessioni ibride di inoltro di Azure](relay-what-is-it.md#hybrid-connections) e illustra come creare un'applicazione client che invia messaggi a un'applicazione listener corrispondente. 
+Questa esercitazione offre un'introduzione alle [connessioni ibride di inoltro di Azure](relay-what-is-it.md#hybrid-connections) e illustra come usare .NET per creare un'applicazione client che invia messaggi a un'applicazione listener corrispondente. 
 
 ## <a name="what-will-be-accomplished"></a>Contenuto dell'esercitazione
-Dato che le connessioni ibride richiedono sia un componente client che un componente server, nel corso dell'esercitazione vengono create due applicazioni console. Procedura:
+Dato che le connessioni ibride richiedono sia un componente client che un componente server, nel corso dell'esercitazione vengono create due applicazioni console. Di seguito sono riportati i passaggi necessari:
 
 1. Creare uno spazio dei nomi di inoltro usando il portale di Azure.
-2. Creare una connessione ibrida usando il portale di Azure.
+2. Creare una connessione ibrida nello spazio dei nomi usando il portale di Azure.
 3. Scrivere un'applicazione console server (listener) per ricevere messaggi.
 4. Scrivere un'applicazione console client (mittente) per inviare messaggi.
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. [Visual Studio 2015 o versione successiva](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2015.
+
+Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
+
+1. [Visual Studio 2015 o versione successiva](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
 2. Una sottoscrizione di Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]

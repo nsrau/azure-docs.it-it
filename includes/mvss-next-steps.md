@@ -6,4 +6,6 @@ Questa serie di esercitazioni può essere avviata dall'[articolo sul modello di 
 
 È possibile vedere come modificare il [modello di set di scalabilità a validità minima](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) per [distribuire il set di scalabilità con un'immagine personalizzata](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
 
+È possibile vedere come modificare il [modello di set di scalabilità a validità minima](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) per [distribuire un set di scalabilità Linux con scalabilità automatica basata su guest](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md).
+
 Per informazioni più generali al riguardo, vedere la [panoramica sui set di scalabilità](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).

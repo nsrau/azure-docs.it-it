@@ -4,9 +4,9 @@ Quando si crea un gateway di rete virtuale è necessario specificare il codice S
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-###  <a name="workloads"></a>Carichi di lavoro di produzione e** di sviluppo e test
+###  <a name="workloads"></a>Carichi di lavoro di produzione *e* di sviluppo e test
 
-A causa delle differenze in termini di contratti di servizio e set di funzionalità, per i carichi di produzione **e di sviluppo e test è consigliabile usare SKU diversi, come descritto di seguito:
+A causa delle differenze in termini di contratti di servizio e set di funzionalità, per i carichi di produzione *e* di sviluppo e test è consigliabile usare SKU diversi, come descritto di seguito:
 
 | **Carico di lavoro**                       | **SKU**               |
 | ---                                | ---                    |
@@ -22,9 +22,11 @@ I nuovi SKU del gateway semplificano i set di funzionalità offerti nei gateway:
 
 | **SKU**| **Funzionalità**|
 | ---    | ---         |
-| VpnGw1<br>VpnGw2<br>VpnGw3|VPN basato su route fino a 30 tunnel* <br>P2S, BGP, attivo-attivo, IPsec personalizzato/criterio IKE, coesistenza ExpressRoute/VPN <br><br>* È possibile configurare "PolicyBasedTrafficSelectors" per la connessione di un gateway VPN basato su route (VpnGw1, VpnGw2, VpnGw3) a più dispositivi firewall locali basati su criteri. Per informazioni dettagliate, vedere [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Connettere gateway VPN a più dispositivi VPN basati su criteri tramite PowerShell). |
 |Basic   | Basato su route: 10 tunnel con P2S<br>Basato su criteri (IKEv1): 1 tunnel; nessun P2S|
+| VpnGw1, VpnGw2, VpnGw3 |VPN basata su route fino a 30 tunnel (*) <br>P2S, BGP, attivo-attivo, IPsec personalizzato/criterio IKE, coesistenza ExpressRoute/VPN |
 |        |             |
+
+(*) È possibile configurare "PolicyBasedTrafficSelectors" per la connessione di un gateway VPN basato su route (VpnGw1, VpnGw2, VpnGw3) a più dispositivi firewall locali basati su criteri. Per informazioni dettagliate, vedere [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Connettere gateway VPN a più dispositivi VPN basati su criteri tramite PowerShell).
 
 ###  <a name="resize"></a>Ridimensionamento degli SKU di gateway
 

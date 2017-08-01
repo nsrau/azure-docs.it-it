@@ -15,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a05c878f876eadc5160ef9765f764595cade76a9
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cad933cc453f1bfdbf29914ca3a9a6029108e70f
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurare una connessione gateway VPN tra reti virtuali usando l'interfaccia della riga di comando di Azure
 
-Questo articolo descrive come creare una connessione gateway VPN tra reti virtuali. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager e usano l'interfaccia della riga di comando di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
+Questo articolo descrive come creare una connessione gateway VPN tra reti virtuali. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. Quando si connettono reti virtuali da sottoscrizioni diverse, non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory. I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager e usano l'interfaccia della riga di comando di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -257,7 +256,7 @@ Ora sono disponibili due reti virtuali con i gateway VPN. Il passaggio successiv
 
 ![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, Le reti virtuali si trovano in sottoscrizioni diverse. I passaggi di questa configurazione permettono di aggiungere un'altra connessione tra reti virtuali per connettere TestVNet1 e TestVNet5.
+In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, Le reti virtuali si trovano in sottoscrizioni diverse. Non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory. I passaggi di questa configurazione permettono di aggiungere un'altra connessione tra reti virtuali per connettere TestVNet1 e TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Passaggio 5: Creare e configurare TestVNet1
 

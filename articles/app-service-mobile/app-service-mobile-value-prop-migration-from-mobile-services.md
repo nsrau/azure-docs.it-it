@@ -3,8 +3,8 @@ title: "In che modo può essere utile il servizio app per gli utenti di Servizi 
 description: "Informazioni sui vantaggi che il servizio app può portare ai progetti di Servizi mobili esistenti."
 services: app-service\mobile
 documentationcenter: ios
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
-ms.lasthandoff: 12/08/2016
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="getting-started"> </a>In che modo può essere utile il servizio app per gli utenti di Servizi mobili?
@@ -28,7 +28,7 @@ Il servizio mobile esistente è al sicuro e continuerà ad essere supportato. Vi
 * Offerte semplificate e più economiche per app che includono client sia Web che mobili.
 * Nuove funzionalità host che includono processi Web, CName personalizzati e monitoraggio migliorato.
 * Integrazione chiavi in mano con Gestione traffico.
-* Connettività con risorse locali e VPN usando reti virtuali e connessioni ibride.
+* Connettività alle risorse locali e alle VPN attraverso reti virtuali e connessioni ibride.
 * Monitoraggio, avvisi e risoluzione dei problemi delle app con NewRelic o AppInsights
 * Spettro più ampio di risorse di calcolo sottostanti e prezzi.
 * Scalabilità automatica predefinita, bilanciamento del carico e monitoraggio delle prestazioni.
@@ -46,7 +46,7 @@ Nel *servizio app di Azure* il codice back-end dell'*app per dispositivi mobili*
 * (Per Node. js) Sfruttare qualsiasi libreria JavaScript pura dell'ecosistema di Node, incluse le librerie comuni di MVC.
 
 ## <a name="access-on-premises-data-using-vnet"></a>Accesso ai dati locali tramite reti virtuali
-Con Servizi mobili è oggi già possibile usare connessioni ibride per accedere alle risorse locali. Vi sono tuttavia alcune situazioni in cui una soluzione VPN è preferibile. Con il *servizio app di Azure* , è possibile usare la rete virtuale di Azure per il codice back-end delle app per dispositivi mobili.
+Con Servizi mobili è già possibile usare le connessioni ibride per accedere alle risorse locali. Vi sono tuttavia alcune situazioni in cui una soluzione VPN è preferibile. Con il *servizio app di Azure* , è possibile usare la rete virtuale di Azure per il codice back-end delle app per dispositivi mobili.
 
 ## <a name="use-your-favorite-backend-language"></a>Uso del linguaggio back-end preferito
 Il *servizio app di Azure* offre un supporto più ampio e avanzato per le piattaforme ASP.NET e Node. js, incluso l'accesso ai runtime più recenti.
@@ -64,5 +64,4 @@ Backup automatico del back-end e del database. Il codice e i dati sono sempre al
 Con il *servizio app di Azure* è ora possibile creare più ambienti privati di test e staging per le app per dispositivi mobili. Usare questi ambienti per testare le app prima della distribuzione. Passaggio alla produzione con tempo di inattività pari a zero. Le app Web sono precaricate per garantire la miglior esperienza utente possibile.
 
 È possibile iniziare a usare il *servizio app* sperimentando i vantaggi per il servizio mobile esistente seguendo questa [esercitazione](app-service-mobile-migrating-from-mobile-services.md).
-
 

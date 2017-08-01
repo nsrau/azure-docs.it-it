@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure
@@ -41,7 +41,7 @@ In ogni sottoscrizione è possibile concedere fino a 2000 assegnazioni di ruolo.
    
     ![Screenshot del pannello Utenti: accesso ereditato e assegnato](./media/role-based-access-control-configure/view-access.png)
 
-Si noti che per alcuni utenti l'accesso è stato **assegnato**, mentre per altri è stato **ereditato**. L'accesso viene assegnato in modo specifico al gruppo di risorse oppure ereditato da un'assegnazione nella sottoscrizione padre.
+Si noti che l'ambito di alcuni ruoli è **Questa risorsa**, mentre quello di altri è **Ereditato** da un altro ambito. L'accesso viene assegnato in modo specifico al gruppo di risorse oppure ereditato da un'assegnazione nella sottoscrizione padre.
 
 > [!NOTE]
 > Gli utenti con i ruoli Amministratore sottoscrizione classico e Coamministratore sono considerati proprietari della sottoscrizione nel nuovo modello Controllo degli accessi in base al ruolo.
@@ -60,9 +60,10 @@ Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione
 Dopo aver aggiunto un'assegnazione di ruolo, viene visualizzato il pannello **Utenti** .
 
 ## <a name="remove-access"></a>Rimuovere un accesso
-1. Usare le caselle di controllo del pannello Controllo di accesso per selezionare uno o più assegnazioni di ruolo.
+1. Passare il puntatore del mouse sul nome dell'assegnazione da rimuovere. Accanto al nome verrà visualizzata una casella di controllo.
+2. Usare le caselle di controllo per selezionare una o più assegnazioni di ruolo.
 2. Selezionare **Rimuovi**.  
-3. Verrà visualizzata una casella popup in cui viene richiesto di confermare l'azione. Selezionare **Sì** per rimuovere le assegnazioni di ruolo.
+3. Selezionare **Sì** per confermare la rimozione.
 
 Le assegnazioni ereditate non possono essere rimosse. Se si desidera rimuovere un'assegnazione ereditata, è necessario eseguire questa operazione laddove è stata creata l'assegnazione di ruolo. Nella colonna **Ambito**, accanto a **Ereditato** è presente un collegamento che consente di visualizzare le risorse in cui è stato assegnato questo ruolo. Passare alla risorsa inclusa nell'elenco per rimuovere l'assegnazione di ruolo.
 

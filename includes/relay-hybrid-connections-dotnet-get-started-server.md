@@ -1,12 +1,15 @@
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
-* Avviare Visual Studio e creare una nuova applicazione console.
+
+Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)**.
 
 ### <a name="add-the-relay-nuget-package"></a>Aggiungere il pacchetto NuGet di inoltro
+
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
 2. Fare clic sulla scheda **Sfoglia**, quindi cercare "Microsoft.Azure.Relay" e selezionare l'elemento **Inoltro di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
 
 ### <a name="write-some-code-to-receive-messages"></a>Scrivere codice per ricevere messaggi
-1. Sostituire le istruzioni `using` esistenti all'inizio del file Program.cs con le istruzioni seguenti:
+
+1. Sostituire le istruzioni `using` esistenti all'inizio del file Program.cs con le istruzioni `using` seguenti:
    
     ```csharp
     using System;
@@ -15,7 +18,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Aggiungere costanti alla classe `Program` per i dettagli della connessione ibrida. Sostituire i segnaposto tra parentesi con i valori specifici ottenuti durante la creazione della connessione ibrida. Usare il nome completo dello spazio dei nomi:
+2. Aggiungere costanti alla classe `Program` per i dettagli della connessione ibrida. Sostituire i segnaposto tra parentesi con i valori ottenuti durante la creazione della connessione ibrida. Usare il nome completo dello spazio dei nomi:
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -23,7 +26,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Aggiungere il nuovo metodo seguente, denominato `ProcessMessagesOnConnection`, alla classe `Program`:
+3. Aggiungere il metodo seguente, denominato `ProcessMessagesOnConnection`, alla classe `Program`:
    
     ```csharp
     // Method is used to initiate connection
@@ -74,7 +77,7 @@
         await relayConnection.CloseAsync(cts.Token);
     }
     ```
-4. Aggiungere un altro nuovo metodo, denominato `RunAsync`, alla classe `Program`, come indicato di seguito:
+4. Aggiungere un altro metodo denominato `RunAsync` alla classe `Program`, come indicato di seguito:
    
     ```csharp
     private static async Task RunAsync()
@@ -119,13 +122,13 @@
         await listener.CloseAsync(cts.Token);
     }
     ```
-5. Aggiungere la riga di codice seguente al metodo `Main` nella classe `Program`.
+5. Aggiungere la riga di codice seguente al metodo `Main` nella classe `Program`:
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
-    Il file Program.cs sarà simile al seguente:
+    Al termine, il file Program.cs avrà l'aspetto seguente:
    
     ```csharp
     namespace Server

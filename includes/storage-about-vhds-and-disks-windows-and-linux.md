@@ -1,7 +1,5 @@
 
-<a id="about-vhds" class="xliff"></a>
-
-## Informazioni sui dischi rigidi virtuali
+## <a name="about-vhds"></a>Informazioni sui dischi rigidi virtuali
 
 I dischi rigidi virtuali utilizzati in Azure sono file con estensione .vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. Per ulteriori dettagli sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Per informazioni su Archiviazione Premium, vedere l'articolo relativo alle [prestazioni elevate di Archiviazione Premium e macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
@@ -17,35 +15,28 @@ Prima di poter eliminare un file con estensione .vhd di origine, sarà necessari
 > Se si elimina un file con estensione .vdh di origine dalla memoria o l'account di archiviazione, Microsoft non può recuperare tali dati.
 > 
 
-<a id="types-of-disks" class="xliff"></a>
+## <a name="types-of-disks"></a>Tipi di dischi 
 
-## Tipi di dischi 
+I dischi di Azure sono stati progettati per il 99,999% di disponibilità. I dischi di Azure hanno offerto in modo costante una durabilità di livello aziendale, con una percentuale di frequenza di errori annualizzata pari a ZERO, ovvero la migliore del settore.
 
-Durante la creazione di dischi è possibile scegliere tra due livelli di prestazioni per l'archiviazione: Archiviazione Standard e Archiviazione Premium. I dischi possono essere di due tipi, gestiti e non gestiti, e possono risiedere in entrambi i livelli di prestazioni.  
+Durante la creazione di dischi è possibile scegliere tra due livelli di prestazioni per l'archiviazione: Archiviazione Standard e Archiviazione Premium. I dischi possono essere di due tipi, gestiti e non gestiti, e possono risiedere in entrambi i livelli di prestazioni.
 
-<a id="standard-storage" class="xliff"></a>
 
-### Archiviazione standard 
+### <a name="standard-storage"></a>Archiviazione standard 
 
 Archiviazione Standard è supportata da unità disco rigido e offre un'archiviazione conveniente con buone prestazioni. Per Archiviazione Standard è possibile scegliere tra archiviazione replicata in locale in un data center o con ridondanza geografica con i data center primario e secondario. Per altre informazioni sulla replica dell'archiviazione, vedere [Replica di Archiviazione di Azure](../articles/storage/storage-redundancy.md). 
 
 Per altre informazioni sull'uso di Archiviazione Standard con dischi di macchina virtuale, vedere l'articolo relativo ad [Archiviazione Standard e dischi](../articles/storage/storage-standard-storage.md).
 
-<a id="premium-storage" class="xliff"></a>
-
-### Archiviazione Premium 
+### <a name="premium-storage"></a>Archiviazione Premium 
 
 Archiviazione Premium è supportata da unità SSD e offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. È possibile usare Archiviazione Premium con macchine virtuali di Azure serie DS, DSv2, GS, Ls o FS. Per altre informazioni, vedere [Archiviazione Premium](../articles/storage/storage-premium-storage.md).
 
-<a id="unmanaged-disks" class="xliff"></a>
-
-### Dischi non gestiti
+### <a name="unmanaged-disks"></a>Dischi non gestiti
 
 I dischi non gestiti sono quelli di tipo tradizionale usati dalle macchine virtuali. Con tali dischi è possibile creare un account di archiviazione personale e specificarlo durante la creazione del disco. Assicurarsi di non inserire troppi dischi nello stesso account di archiviazione, per non superare gli [obiettivi di scalabilità](../articles/storage/storage-scalability-targets.md) dell'account di archiviazione, ad esempio 20.000 IOPS, limitando di conseguenza le macchine virtuali. Con i dischi non gestiti è necessario ottimizzare l'uso di uno o più account di archiviazione per ottenere migliori prestazioni dalle macchine virtuali.
 
-<a id="managed-disks" class="xliff"></a>
-
-### Dischi gestiti 
+### <a name="managed-disks"></a>Dischi gestiti 
 
 Il servizio Managed Disks gestisce in background le operazioni di creazione e gestione dell'account di archiviazione ed elimina la necessità di preoccuparsi dei limiti di scalabilità dell'account di archiviazione. È sufficiente specificare le dimensioni del disco e il livello di prestazioni, Standard o Premium, e Azure si occuperà della creazione e della gestione del disco. Anche se si aggiungono dischi o si ridimensiona la macchina virtuale, non è necessario preoccuparsi dello spazio di archiviazione usato. 
 
@@ -53,9 +44,7 @@ Il servizio Managed Disks gestisce in background le operazioni di creazione e ge
 
 È consigliabile usare Azure Managed Disks per le nuove macchine virtuali e convertire i dischi non gestiti esistenti in dischi gestiti, per sfruttare le numerose funzionalità disponibili in Managed Disks.
 
-<a id="disk-comparison" class="xliff"></a>
-
-### Confronto dei dischi
+### <a name="disk-comparison"></a>Confronto dei dischi
 
 La tabella seguente permette di scegliere mettendo a confronto i livelli Premium e Standard per i dischi gestiti e quelli non gestiti.
 

@@ -4,7 +4,6 @@ description: Illustra il significato di tenant di Azure AD e come gestire Azure 
 services: active-directory
 documentationcenter: 
 author: curtand
-writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -12,13 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 07/20/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
-ms.lasthandoff: 12/08/2016
-
+ms.reviewer: jeffsta
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Amministrare la directory di Azure AD
@@ -55,7 +56,7 @@ Se, ad esempio, in origine è stata effettuata l'iscrizione a una sottoscrizione
 Per altre informazioni sull'integrazione della directory locale con Azure AD, vedere [Integrazione di directory](active-directory-aadconnect.md).
 
 ### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Associare una directory di Azure AD a una nuova sottoscrizione di Azure
-È possibile associare una nuova sottoscrizione di Azure alla stessa directory che autentica l'accesso per una sottoscrizione esistente di Office 365 o Microsoft Intune. Accedere al portale di gestione di Azure usando l'account aziendale o dell'istituto di istruzione. Il portale di gestione restituisce un messaggio che indica che non è stato possibile trovare sottoscrizioni per tale account. Selezionare **Iscrizione ad Azure**e la directory sarà disponibile per l'amministrazione all'interno del portale. Per altre informazioni, vedere [Gestire la directory per la sottoscrizione di Office 365 in Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
+È possibile associare una nuova sottoscrizione di Azure alla stessa directory che autentica l'accesso per una sottoscrizione esistente di Office 365 o Microsoft Intune. Accedere al portale di Azure usando l'account aziendale o dell'istituto di istruzione. Il portale restituisce un messaggio che indica che non è stato possibile trovare sottoscrizioni per tale account. Selezionare **Iscrizione ad Azure**e la directory sarà disponibile per l'amministrazione all'interno del portale. Per altre informazioni, vedere [Gestire la directory per la sottoscrizione di Office 365 in Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 Per un video sulle domande comuni sull'uso di Azure AD, vedere la pagina relativa alle [domande comuni su iscrizione, accesso e uso di Azure Active Directory](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
 
@@ -76,7 +77,7 @@ L'uso di Azure AD non comporta costi aggiuntivi. La directory è una risorsa gra
 Per modificare il nome visualizzato della directory, fare clic sulla directory nel portale e quindi su **Configura**. Come illustrato più avanti in questo argomento, è possibile aggiungere una nuova directory o eliminarne una non più necessaria. Per associare la sottoscrizione a una directory diversa, fare clic sull'estensione **Impostazioni** nel riquadro di spostamento a sinistra e nella parte inferiore della pagina **Sottoscrizioni** fare clic su **Modifica Directory**. È anche possibile creare un dominio personalizzato usando un nome DNS registrato anziché il dominio predefinito *.onmicrosoft.com, che è preferibile usare con un servizio come SharePoint Online.
 
 ## <a name="how-can-i-manage-directory-data"></a>Come gestire i dati di directory
-Un amministratore di una o più sottoscrizioni di servizi cloud Microsoft può usare il portale di gestione di Azure, il portale degli account di Microsoft Intune o l'interfaccia di amministrazione di Office 365 per gestire i dati di directory dell'organizzazione. È anche possibile scaricare ed eseguire i cmdlet del [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) per gestire i dati archiviati in Azure AD.
+Un amministratore di una o più sottoscrizioni di servizi cloud Microsoft può usare l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com), il portale degli account di Microsoft Intune o l'interfaccia di amministrazione di Office 365 per gestire i dati di directory dell'organizzazione. È anche possibile scaricare ed eseguire i cmdlet del [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) per gestire i dati archiviati in Azure AD.
 
 Da uno di questi portali (o cmdlet), è possibile:
 
@@ -84,7 +85,7 @@ Da uno di questi portali (o cmdlet), è possibile:
 * Gestire i servizi cloud correlati sottoscritti dall'organizzazione
 * Configurare l'integrazione locale con il servizio di directory
 
-Il portale di gestione di Azure, l'interfaccia di amministrazione di Office 365, il portale degli account di Microsoft Intune e i cmdlet di Azure AD leggono e scrivono tutti in una singola istanza condivisa di Azure AD associata alla directory dell'organizzazione, come illustrato nella figura seguente. In questo modo, i portali (o i cmdlet) funzionano come interfaccia front-end che effettua il pull dei dati della directory e/o li modifica.
+L'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com), l'interfaccia di amministrazione di Office 365, il portale degli account di Microsoft Intune e i cmdlet di Azure AD leggono e scrivono tutti in una singola istanza condivisa di Azure AD associata alla directory dell'organizzazione, come illustrato nella figura seguente. In questo modo, i portali (o i cmdlet) funzionano come interfaccia front-end che effettua il pull dei dati della directory o li modifica.
 
 ![][2]
 
@@ -94,7 +95,7 @@ Quando si apporta una modifica ai dati dell'organizzazione usando uno dei portal
 Se, ad esempio, è stata usata l'interfaccia di amministrazione di Office 365 per impedire a un utente di effettuare l'accesso, tale azione impedirà l'accesso dell'utente a qualsiasi altro servizio attualmente sottoscritto dall'organizzazione. Se si recupera lo stesso account utente nel contesto del portale degli account di Microsoft Intune, sarà possibile vedere che l'utente è bloccato.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Come è possibile aggiungere e gestire più directory?
-È possibile aggiungere una directory di Azure AD nel portale di gestione di Azure. Selezionare l'estensione **Active Directory** a sinistra e fare clic su **Aggiungi**.
+È possibile aggiungere una directory di Azure AD nel [portale di Azure AD classico](https://manage.windowsazure.com). Nel riquadro **Panoramica** selezionare l'estensione **Active Directory** a sinistra e quindi fare clic su **Nuovo**.
 
 È possibile gestire ogni directory come una risorsa completamente indipendente. Ciascuna directory è infatti un peer con funzionalità complete e indipendente dal punto di vista logico dalle altre directory gestite. Non vi è alcuna relazione padre-figlio tra le directory. Questa indipendenza tra le directory include l'indipendenza delle risorse, l'indipendenza amministrativa e l'indipendenza della sincronizzazione.
 
@@ -116,7 +117,7 @@ Si noti, inoltre, che a differenza di altre risorse di Azure, le proprie directo
 Un amministratore globale può eliminare una directory di Azure AD dal portale. Quando una directory viene eliminata, vengono eliminate anche tutte le risorse in essa contenute. Prima di procedere all'eliminazione, è quindi opportuno verificare che la directory non sia più necessaria.
 
 > [!NOTE]
-> Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com,, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
+> Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
 > 
 > 
 
@@ -130,7 +131,7 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 * Alla directory non possono essere associate sottoscrizioni per i Microsoft Online Services, ad esempio Microsoft Azure, Office 365 o Azure AD Premium. Se, ad esempio, in Azure è stata creata una directory predefinita, non è possibile eliminare la directory se la propria sottoscrizione di Azure si basa ancora su di essa per l'autenticazione. Analogamente, non è possibile eliminare una directory se la sottoscrizione di un altro utente è associata a tale directory. Per associare la sottoscrizione a una directory diversa, accedere al portale di gestione di Azure e fare clic su **Impostazioni** nel pannello di navigazione a sinistra. Nella parte inferiore della pagina **Sottoscrizioni** fare clic su **Modifica Directory**. Per altre informazioni sulle sottoscrizioni Azure, vedere [Associazione delle sottoscrizioni di Azure ad Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 > [!NOTE]
-> Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com,, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
+> Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, non deve tentare di eliminare la propria home directory. Ad esempio, se l'utente ha eseguito l'accesso come joe@contoso.onmicrosoft.com, non può eliminare la directory che ha contoso.onmicrosoft.com come dominio predefinito.
 > 
 > 
 
