@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 658616d1979e617a7d80a989b8e80246a9091fdf
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installare Giraph nei cluster HDInsight Hadoop e usarlo per elaborare grafici su vasta scala
@@ -98,19 +97,21 @@ Dopo aver creato il cluster, usare la procedura seguente per eseguire l'esempio 
 
 1. Connettersi al cluster HDInsight usando SSH:
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Usare il comando seguente per creare un file denominato **tiny_graph.txt**:
 
-    ```
+    ```bash
     nano tiny_graph.txt
     ```
 
     Usare il testo seguente come contenuto del file:
 
-    ```
+    ```text
     [0,0,[[1,1],[3,3]]]
     [1,0,[[0,1],[2,2],[3,1]]]
     [2,0,[[1,2],[4,4]]]
@@ -128,13 +129,13 @@ Dopo aver creato il cluster, usare la procedura seguente per eseguire l'esempio 
 
 4. Usare il codice seguente per archiviare i dati nell'archiviazione primaria del cluster HDInsight:
 
-    ```
+    ```bash
     hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt
     ```
 
 5. Eseguire l'esempio SimpleShortestPathsComputation con il comando seguente:
 
-    ```
+    ```bash
     yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
     ```
 
@@ -156,7 +157,7 @@ Dopo aver creato il cluster, usare la procedura seguente per eseguire l'esempio 
 
 6. Al termine del processo, i risultati vengono archiviati nella directory **/example/out/shortestpaths**. I file di output iniziano con **part-m-** e terminano con un numero che indica il primo file, il secondo e così via. Usare il comando seguente per visualizzare l'output:
 
-    ```
+    ```bash
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 
