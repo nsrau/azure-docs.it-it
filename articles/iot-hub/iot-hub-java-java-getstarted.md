@@ -1,6 +1,6 @@
 ---
 title: Introduzione all'hub IoT di Azure (Java) | Microsoft Docs
-description: "Come inviare messaggi da un dispositivo a un hub IoT cloud di Azure tramite gli SDK IoT di Azure per Java. È necessario creare un'app di simulazione del dispositivo per inviare messaggi, un'app di servizio per registrare il dispositivo nel registro di identità e un'app di servizio per leggere i messaggi dal dispositivo al cloud nell'hub IoT."
+description: Informazioni su come inviare messaggi da dispositivo a cloud all'hub IoT di Azure usando IoT SDK per Java. Creare un dispositivo simulato e app di servizio per registrare il dispositivo, inviare messaggi e leggere messaggi dall'hub IoT.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -15,23 +15,20 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7b44762ffea876d628886192376b6275bbc0b83b
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 0c8a4b518c6946781c2340f79ab479612b595c74
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="connect-your-simulated-device-to-your-iot-hub-using-java" class="xliff"></a>
-
-# Connettere il dispositivo simulato all'hub IoT usando Java
+# <a name="connect-your-device-to-your-iot-hub-using-java"></a>Connettere il dispositivo all'hub IoT usando Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Al termine di questa esercitazione si avranno tre app di console Java:
 
-* **create-device-identity**, che crea un'identità di dispositivo e una chiave di sicurezza associata per connettere l'app per dispositivo simulato.
-* **read-d2c-messages**, che consente di visualizzare i dati di telemetria inviati dall'app per dispositivo simulato.
+* **create-device-identity**, che crea un'identità di dispositivo e una chiave di sicurezza associata per connettere l'app per dispositivi.
+* **read-d2c-messages**, che visualizza i dati di telemetria inviati dall'app per dispositivi.
 * **simulated-device**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio di telemetria ogni secondo usando il protocollo MQTT.
 
 > [!NOTE]
@@ -51,9 +48,7 @@ Prendere infine nota del valore presente in **Chiave primaria**. Fare clic su **
 
 L'hub IoT è stato creato. Si conoscono il nome host dell'hub IoT, la stringa di connessione dell'hub IoT, la chiave primaria dell'hub IoT, il nome e l'endpoint compatibili con l'hub eventi necessari per completare l'esercitazione.
 
-<a id="create-a-device-identity" class="xliff"></a>
-
-## Creare un'identità del dispositivo
+## <a name="create-a-device-identity"></a>Creare un'identità del dispositivo
 In questa sezione si scriverà un'app console Java che crea un'identità del dispositivo nel registro delle identità dell'hub IoT. Un dispositivo non può connettersi all'hub IoT a meno che non abbia una voce nel registro di identità. Per altre informazioni, vedere la sezione **Registro di identità** della [Guida per gli sviluppatori dell'hub IoT][lnk-devguide-identity]. Quando si esegue questa app console vengono generati un ID dispositivo univoco e una chiave con cui il dispositivo può identificarsi quando invia messaggi da dispositivo a cloud all'hub IoT.
 
 1. Creare una cartella vuota denominata iot-java-get-started. Nella cartella iot-java-get-started creare un progetto Maven denominato **create-device-identity** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
@@ -98,6 +93,7 @@ In questa sezione si scriverà un'app console Java che crea un'identità del dis
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "myFirstJavaDevice";
     ```
+[!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
 8. Modificare la firma del metodo **main** includendo le eccezioni come segue:
 
@@ -168,9 +164,7 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
 > [!NOTE]
 > Il registro di identità dell'hub IoT archivia solo le identità del dispositivo per abilitare l'accesso sicuro all'hub. Archivia le chiavi e gli ID dispositivo da usare come credenziali di sicurezza e un flag di abilitazione/disabilitazione che consente di disabilitare l'accesso per un singolo dispositivo. Se l'app deve archiviare altri metadati specifici del dispositivo, dovrà usare un'archiviazione specifica per app. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'hub IoT][lnk-devguide-identity].
 
-<a id="receive-device-to-cloud-messages" class="xliff"></a>
-
-## Ricezione di messaggi da dispositivo a cloud
+## <a name="receive-device-to-cloud-messages"></a>Ricezione di messaggi da dispositivo a cloud
 
 In questa sezione si crea un'app console di Java che legge i messaggi da dispositivo a cloud dall'hub IoT. Un hub IoT espone un endpoint compatibile con l'[hub eventi][lnk-event-hubs-overview] per abilitare la lettura dei messaggi dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. L'esercitazione [Elaborare messaggi dispositivo a cloud][lnk-process-d2c-tutorial] illustra come elaborare i messaggi dispositivo a cloud su vasta scala. L'esercitazione [Introduzione all'hub eventi][lnk-eventhubs-tutorial] offre altre informazioni su come elaborare i messaggi da hub eventi ed è applicabile agli endpoint compatibili con l'hub eventi dell'hub IoT.
 
@@ -309,10 +303,7 @@ In questa sezione si crea un'app console di Java che legge i messaggi da disposi
     mvn clean package -DskipTests
     ```
 
-<a id="create-a-simulated-device-app" class="xliff"></a>
-
-## Creare un'app di dispositivo simulato
-
+## <a name="create-a-device-app"></a>Creare un'app per dispositivi
 In questa sezione si crea un'app console di Java che simula un dispositivo che invia messaggi da dispositivo a cloud a un hub IoT.
 
 1. Nella cartella iot-java-get-started creata nella sezione *Creare un'identità del dispositivo* creare un progetto Maven denominato **simulated-device** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
@@ -383,9 +374,8 @@ In questa sezione si crea un'app console di Java che simula un dispositivo che i
       }
     }
     ```
-
-9. Aggiungere la classe **EventCallback** annidata seguente nella classe **App** per visualizzare lo stato di acknowledgement restituito dall'hub IoT quando elabora un messaggio proveniente dall'app per dispositivo simulato. Questo metodo invia anche una notifica al thread principale dell'app quando il messaggio è stato elaborato:
-
+9. Aggiungere la classe **EventCallback** annidata seguente nella classe **App** per visualizzare lo stato di acknowledgement restituito dall'hub IoT quando elabora un messaggio proveniente dall'app per dispositivi. Questo metodo invia anche una notifica al thread principale dell'app quando il messaggio è stato elaborato:
+   
     ```java
     private static class EventCallback implements IotHubEventCallback {
       public void execute(IotHubStatusCode status, Object context) {
@@ -472,9 +462,7 @@ In questa sezione si crea un'app console di Java che simula un dispositivo che i
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri per i tentativi, ad esempio un backoff esponenziale, come illustrato nell'articolo di MSDN [Transient Fault Handling][lnk-transient-faults] (Gestione degli errori temporanei).
 
-<a id="run-the-apps" class="xliff"></a>
-
-## Eseguire le app
+## <a name="run-the-apps"></a>Eseguire le app
 
 A questo punto è possibile eseguire le app.
 
@@ -498,11 +486,8 @@ A questo punto è possibile eseguire le app.
 
     ![Riquadro Utilizzo del portale di Azure con il numero dei messaggi inviati all'hub IoT][43]
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
-
-In questa esercitazione è stato configurato un nuovo hub IoT nel Portale di Azure ed è stata quindi creata un'identità del dispositivo nel registro di identità dell'hub IoT. Questa identità del dispositivo è stata usata per consentire all'app per dispositivo simulato di inviare all'hub IoT messaggi dispositivo a cloud. È stata anche creata un'app che visualizza i messaggi ricevuti dall'hub IoT.
+## <a name="next-steps"></a>Passaggi successivi
+In questa esercitazione è stato configurato un nuovo hub IoT nel Portale di Azure ed è stata quindi creata un'identità del dispositivo nel registro di identità dell'hub IoT. Questa identità del dispositivo è stata usata per consentire all'app per dispositivi di inviare messaggi da dispositivo a cloud all'hub IoT. È stata anche creata un'app che visualizza i messaggi ricevuti dall'hub IoT.
 
 Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare altri scenari IoT, vedere:
 
