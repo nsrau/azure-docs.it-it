@@ -1,6 +1,6 @@
 ---
-title: Caricamento di dati in Ricerca di Azure tramite l&quot;API REST | Documentazione Microsoft
-description: Informazioni su come caricare dati in un indice di Ricerca di Azure tramite l&quot;API REST.
+title: 'Caricare dati: API REST e Ricerca di Azure | Microsoft Docs'
+description: Informazioni su come caricare dati in un indice di Ricerca di Azure tramite l'API REST.
 services: search
 documentationcenter: 
 author: ashmaka
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -179,9 +181,4 @@ Per altre informazioni su azioni sui documenti e risposte di esito positivo/erro
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-query-overview.md) .
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

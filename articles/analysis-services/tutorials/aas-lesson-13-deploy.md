@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione su Azure Analysis Services - Lezione 13: Distribuire | Microsoft Docs'
-description: Descrive come distribuire il progetto per l&quot;esercitazione in Azure Analysis Services.
+description: Descrive come distribuire il progetto per l'esercitazione in Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,27 +13,31 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 8e3e1be572aa66ab46f894a2e5f395d1e6f2ea23
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Lezione 13: Distribuire
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In questa lezione verranno configurate le proprietà per la distribuzione, ovvero verranno specificati il server di Analysis Services in Azure o il server di Analysis Services di SQL Server vNext e un nome per il modello. Verrà quindi descritta la procedura per distribuire il modello in tale istanza. Dopo aver distribuito il modello, gli utenti possono connettersi a esso tramite un'applicazione client per la creazione di report. Per altre informazioni, vedere [Distribuire in Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
+In questa lezione vengono configurate le proprietà della distribuzione, specificando un server di Azure Analysis Services come destinazione per la distribuzione e un nome per il modello. Verrà quindi descritta la procedura per distribuire il modello in tale istanza. Dopo aver distribuito il modello, gli utenti possono connettersi a esso tramite un'applicazione client per la creazione di report. Per altre informazioni, vedere [Distribuire in Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
 Tempo previsto per il completamento della lezione: **cinque minuti**  
   
 ## <a name="prerequisites"></a>Prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 12: Analizzare in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
-**Importante:** se il database di esempio AdventureWorksDW2014 è stato installato in un'istanza di SQL Server locale e si distribuisce il modello in un server Azure Analysis Services, è richiesto un [gateway dati locale](../analysis-services-gateway.md).
+> [!IMPORTANT]  
+> È necessario avere [autorizzazioni di amministratore](../analysis-services-server-admins.md) per l'istanza remota del server Analysis Services per eseguire la distribuzione.  
+
+> [!IMPORTANT]  
+> Se il database di esempio AdventureWorksDW2014 è stato installato in un'istanza di SQL Server locale e si distribuisce il modello in un server Azure Analysis Services, è richiesto un [gateway dati locale](../analysis-services-gateway.md).
   
 ## <a name="deploy-the-model"></a>Distribuire il modello  
   
@@ -42,12 +46,9 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
   
 1.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **AW Internet Sales** e quindi scegliere **Proprietà**.  
   
-2.  Nella finestra di dialogo **Pagine delle proprietà di AW Internet Sales**, in **Server di distribuzione**, immettere il nome di un server Analysis Services in Azure o locale nella proprietà **Server**.  
+2.  Nella finestra di dialogo **Pagine delle proprietà di AW Internet Sales** in **Server di distribuzione** nella proprietà **Server** immettere il server completo.  
 
     ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
- 
-    > [!IMPORTANT]  
-    > È necessario disporre delle autorizzazioni di amministratore nell'istanza remota di Analysis Services per eseguire la distribuzione.  
   
 3.  Nella proprietà **Database** digitare **Adventure Works Internet Sales**.  
   
@@ -61,7 +62,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
 
 2.  Fare clic con il pulsante destro del mouse sul progetto **AW Internet Sales** e quindi scegliere **Distribuisci**.
 
-    Durante la distribuzione in Azure Analysis Services potrebbe essere richiesto di immettere le proprie credenziali. Immettere nome e password dell'account dell'organizzazione, ad esempio nancy@adventureworks.com. Questo account deve essere incluso nel gruppo Admins nell'istanza del server.
+    Durante la distribuzione in Azure Analysis Services potrebbe essere richiesto di immettere le proprie credenziali. Immettere nome e password dell'account dell'organizzazione, ad esempio nancy@adventureworks.com. Questo account deve essere incluso nel gruppo Admins del server.
   
     Verrà visualizzata la finestra di dialogo Distribuisci con indicazione dello stato della distribuzione dei metadati e di ogni tabella inclusa nel modello.  
     
@@ -77,9 +78,8 @@ Congratulazioni. Sono state completate le attività di creazione e distribuzione
   
   
 ## <a name="whats-next"></a>Passaggi successivi
-*  [Lezione supplementare: Sicurezza dinamica](../tutorials/aas-supplemental-lesson-dynamic-security.md)
-
-*  [Lezione supplementare: Righe di dettaglio](../tutorials/aas-supplemental-lesson-detail-rows.md)
-
-*  [Lezione supplementare: Gerarchie incomplete](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+[Connettersi con Power BI Desktop](../analysis-services-connect-pbi.md)   
+[Lezione supplementare: Sicurezza dinamica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Lezione supplementare: Righe di dettaglio](../tutorials/aas-supplemental-lesson-detail-rows.md)   
+[Lezione supplementare: Gerarchie incomplete](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
 

@@ -113,6 +113,10 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 * Il traffico della richiesta dell’applicazione in uscita dal computer client per la macchina virtuale di Azure.
 * Il traffico di risposta dell’applicazione in ingresso dalla macchina virtuale di Azure.
 
+## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Passaggio 4 Se non è possibile accedere all'applicazione, usare la verifica IP per controllare le impostazioni. 
+
+Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 

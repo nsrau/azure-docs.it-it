@@ -4,7 +4,7 @@
 2. Vengono visualizzati i tag esistenti per la risorsa. Se in precedenza non sono stati applicati tag, l'elenco è vuoto. 
 
      ![Visualizzare i tag esistenti nei pannelli della risorsa e del gruppo di risorse](./media/resource-manager-tag-resources/existing-tags.png)
-3. Per aggiungere un tag, digitare una chiave e un valore o selezionarne uno esistente dal menu a discesa. Selezionare **Salva**.
+3. Per aggiungere un tag, digitare un nome e un valore oppure selezionarne uno esistente nel menu a discesa. Selezionare **Salva**.
 
      ![Aggiungere un nuovo tag](./media/resource-manager-tag-resources/tag-resources.png)
 3. Per visualizzare tutte le risorse con un valore di tag, selezionare **>** (Altri servizi) e immettere **Tag** nella casella di testo del filtro. Selezionare **Tag** tra le opzioni disponibili.

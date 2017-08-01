@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -48,7 +48,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 
-2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS** e verificare che sia selezionato il modello di distribuzione **Resource Manager**. Selezionare il pulsante **Create** . 
+2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**. 
 
 3. Immettere le informazioni relative alla macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH**. Quando si incolla la chiave pubblica SSH, prestare attenzione a rimuovere gli eventuali spazi iniziali o finali. Al termine fare clic su **OK**.
 
@@ -58,7 +58,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
     ![Screenshot che mostra le dimensioni delle VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Nel pannello delle impostazioni selezionare **Sì** in **Usa dischi gestiti**, mantenere i valori predefiniti per le altre impostazioni e fare clic su **OK**.
+5. Nel pannello delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
 6. Nella pagina del riepilogo fare clic su **OK** per avviare la distribuzione della macchina virtuale.
 

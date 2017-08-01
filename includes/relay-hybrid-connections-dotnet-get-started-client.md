@@ -1,12 +1,15 @@
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
-* Avviare Visual Studio e creare una nuova applicazione console.
+
+Avviare Visual Studio e creare un nuovo progetto **App console (.NET Framework)**.
 
 ### <a name="add-the-relay-nuget-package"></a>Aggiungere il pacchetto NuGet di inoltro
+
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
 2. Fare clic sulla scheda **Sfoglia**, quindi cercare "Microsoft.Azure.Relay" e selezionare l'elemento **Inoltro di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
 
 ### <a name="write-some-code-to-send-messages"></a>Scrivere codice per inviare messaggi
-1. Sostituire le istruzioni `using` esistenti all'inizio del file Program.cs con le istruzioni seguenti:
+
+1. Sostituire le istruzioni `using` esistenti all'inizio del file Program.cs con le istruzioni `using` seguenti:
    
     ```csharp
     using System;
@@ -15,7 +18,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Aggiungere costanti alla classe `Program` per i dettagli della connessione ibrida. Sostituire i segnaposto tra parentesi con i valori specifici ottenuti durante la creazione della connessione ibrida. Usare il nome completo dello spazio dei nomi:
+2. Aggiungere costanti alla classe `Program` per i dettagli della connessione ibrida. Sostituire i segnaposto tra parentesi con i valori ottenuti durante la creazione della connessione ibrida. Usare il nome completo dello spazio dei nomi:
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -23,7 +26,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Aggiungere il nuovo metodo seguente alla classe `Program`:
+3. Aggiungere il metodo seguente alla classe `Program`:
    
     ```csharp
     private static async Task RunAsync()

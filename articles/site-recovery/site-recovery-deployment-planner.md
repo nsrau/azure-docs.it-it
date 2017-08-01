@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/29/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
@@ -456,7 +455,9 @@ Il foglio di lavoro Input offre una panoramica dell'ambiente VMware profilato.
 **VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Yes**\* è per i casi in cui la VM è idonea per l'[Archiviazione Premium di Azure](https://aka.ms/premium-storage-workload). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Ad esempio:
 * <128 GB rientrano nella categoria P10.
 * Da 128 GB a 512 GB rientrano nella categoria P20.
-* Da 512 GB a 1023 GB rientrano nella categoria P30.
+* Da 512 GB a 1024 GB rientrano nella categoria P30.
+* Da 1025 GB a 2048 GB rientrano nella categoria P40.
+* Da 2049 GB a 4095 GB rientrano nella categoria P50.
 
 Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene alla categoria P20 o P30, ma le dimensioni lo associano a un tipo di disco di archiviazione Premium inferiore, lo strumento contrassegna tale VM con **Yes**\*. Lo strumento consiglia anche di modificare le dimensioni del disco di origine per renderlo idoneo al tipo di disco di archiviazione Premium raccomandato oppure di modificare il tipo di disco di destinazione dopo il failover.
 
@@ -494,7 +495,8 @@ Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene al
 
 **VM Compatibility** (Compatibilità VM): indica perché la VM è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](https://aka.ms/azure-storage-scalbility-performance) pubblicati, possono essere uno dei seguenti:
 
-* Dimensioni disco superiori a 1023 GB. Archiviazione di Azure non supporta attualmente dimensioni superiori a 1 TB.
+* Dimensioni disco superiori a 4095 GB. Archiviazione di Azure attualmente non supporta dischi dati di dimensioni superiori a 4095 GB.
+* Disco del sistema operativo superiore a 2048 GB. Archiviazione di Azure attualmente non supporta dischi del sistema operativo di dimensioni superiori a 2048 GB.
 * Il tipo di avvio è EFI. Azure Site Recovery supporta attualmente solo macchine virtuali con tipo di avvio BIOS.
 
 * Le dimensioni totali della VM (replica + failover di test) superano i limiti supportati dall'account di archiviazione (35 TB). Questa incompatibilità si verifica in genere quando un singolo disco della VM ha una caratteristica di prestazioni che supera i limiti massimi supportati da Azure o da Site Recovery per l'archiviazione Standard. In questo caso la VM rientra nell'area dell'archiviazione Premium. Le dimensioni massime supportate da un account di archiviazione Premium sono tuttavia pari a 35 TB e non è possibile proteggere una singola VM su più account di archiviazione. Si noti anche che, quando un failover di test viene eseguito in una VM protetta, viene eseguito nello stesso account di archiviazione in cui è in corso la replica. In questo caso, configurare il doppio delle dimensioni del disco per far sì che la replica prosegua e il failover di test venga completato in parallelo.
@@ -560,6 +562,15 @@ Per aggiornare Deployment Planner, seguire questa procedura:
 
 
 ## <a name="version-history"></a>Cronologia delle versioni
+
+### <a name="131"></a>1.3.1
+Ultimo aggiornamento: 19 luglio 2017
+
+È stata aggiunta la nuova funzionalità seguente:
+
+* Aggiunta del supporto per dischi di dimensioni superiori a 1 TB nella generazione di report. È ora possibile usare Deployment Planner per pianificare la replica di macchine virtuali con dischi di dimensioni superiori a 1 TB (fino a 4095 GB).
+Per altre informazioni, vedere il post di blog sul [supporto di dischi di grandi dimensioni in Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/).
+
 
 ### <a name="13"></a>1.3
 Ultimo aggiornamento: 9 maggio 2017

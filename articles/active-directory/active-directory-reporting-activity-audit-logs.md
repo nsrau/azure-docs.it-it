@@ -1,5 +1,4 @@
 ---
-
 title: "Report delle attività di controllo nel portale di Azure Active Directory | Microsoft Docs"
 description: "Introduzione ai report delle attività di controllo nel portale di Azure Active Directory"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
@@ -131,7 +130,7 @@ Quando si seleziona **Gruppo** come **Tipo di risorsa attività**, si ottiene un
 
 Il filtro **Attività** filtro si basa sulla categoria e sul tipo di risorsa attività selezionati. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
 
-È possibile ottenere l'elenco di tutte le attività di controllo usando l'API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, dove $tenantdomain è il nome del dominio. In alternativa, vedere l'articolo relativo agli [eventi del report di controllo](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+È possibile ottenere l'elenco di tutte le attività di controllo usando l'API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, dove $tenantdomain è il nome del dominio. In alternativa, vedere l'articolo relativo agli [eventi del report di controllo](active-directory-reporting-audit-events.md).
 
 
 ## <a name="audit-logs-shortcuts"></a>Collegamenti ai log di controllo
@@ -185,6 +184,7 @@ Per esaminare semplicemente i dati di controllo relativi alle applicazioni, è d
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).
+
+Per una panoramica della creazione di report, vedere [Creazione di report in Azure Active Directory](active-directory-reporting-azure-portal.md).
 
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: accd5c55e7adafd5a387bf420660b808335192e6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creare una funzione attivata da un webhook GitHub
@@ -104,5 +104,9 @@ Il webhook ora è configurato per attivare la funzione quando un nuovo commento 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata creata una funzione che viene eseguita quando viene ricevuta una richiesta da un webhook GitHub. 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Per altre informazioni sui trigger webhook, vedere [Binding HTTP e webhook di Funzioni di Azure](functions-bindings-http-webhook.md).
+È stata creata una funzione che viene eseguita quando viene ricevuta una richiesta da un webhook GitHub.
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Per altre informazioni sui trigger webhook, vedere [Associazioni HTTP e webhook in Funzioni di Azure](functions-bindings-http-webhook.md).
+

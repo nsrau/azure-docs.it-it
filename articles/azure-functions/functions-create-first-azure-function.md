@@ -1,6 +1,6 @@
 ---
 title: Creare la prima funzione nel portale di Azure | Microsoft Docs
-description: Informazioni su come creare la prima funzione di Azure per l&quot;esecuzione senza server tramite il portale di Azure.
+description: Informazioni su come creare la prima funzione di Azure per l'esecuzione senza server tramite il portale di Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/08/2017
+ms.date: 07/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ed096cf202a85f44755c9eee110b1b7c5c4074ad
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
@@ -64,17 +63,15 @@ Viene creata una funzione nel linguaggio prescelto usando il modello per una fun
 
     ![Creare l'URL della funzione dal portale di Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Incollare l'URL per la richiesta HTTP nella barra degli indirizzi del browser. Aggiungere la stringa di query `&name=<yourname>` all'URL ed eseguire la richiesta. Di seguito viene illustrata la risposta nel browser alla richiesta GET restituita dalla funzione:
+2. Incollare l'URL della funzione nella barra degli indirizzi del browser. Aggiungere la stringa di query `&name=<yourname>` all'URL e premere il tasto `Enter` per eseguire la richiesta. L'esempio seguente riporta la risposta restituita dalla funzione nel browser Edge:
 
     ![Risposta della funzione nel browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     L'URL della richiesta include una chiave necessaria per impostazione predefinita per accedere a una funzione tramite HTTP.   
 
-## <a name="view-the-function-logs"></a>Visualizzare i log di funzione 
+3. Quando viene eseguita la funzione, vengono scritte nei log informazioni di traccia. Per visualizzare l'output di traccia dell'esecuzione precedente, tornare alla funzione nel portale e fare clic sulla freccia verso l'alto nella parte inferiore della schermata per espandere **Log**. 
 
-Quando viene eseguita la funzione, vengono scritte nei log informazioni di traccia. Per visualizzare l'output di traccia dell'esecuzione precedente, tornare alla funzione nel portale e fare clic sulla freccia verso l'alto nella parte inferiore della schermata per espandere **Log**. 
-
-![Visualizzatore log di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Visualizzatore log di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

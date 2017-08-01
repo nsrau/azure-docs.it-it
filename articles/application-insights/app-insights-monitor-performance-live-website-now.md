@@ -1,5 +1,5 @@
 ---
-title: Monitorare un&quot;app Web ASP.NET live con Azure Application Insights | Microsoft Docs
+title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Microsoft Docs
 description: "Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure."
 services: application-insights
 documentationcenter: .net
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentare app Web in fase di esecuzione con Application Insights
@@ -42,10 +41,10 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 | [Eccezioni più dettagliate](app-insights-asp-net-exceptions.md) | |Sì |
 | [Diagnostica delle dipendenze](app-insights-asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
 | [Contatori delle prestazioni di sistema](app-insights-performance-counters.md) |Sì |Sì |
-| [API per telemetria personalizzata][api] |Sì | |
-| [Integrazione log di traccia](app-insights-asp-net-trace-logs.md) |Sì | |
-| [Visualizzazione pagina e dati utente](app-insights-javascript.md) |Sì | |
-| Ricompilazione del codice non necessaria |No | |
+| [API per telemetria personalizzata][api] |Sì |No |
+| [Integrazione log di traccia](app-insights-asp-net-trace-logs.md) |Sì |No |
+| [Visualizzazione pagina e dati utente](app-insights-javascript.md) |Sì |No |
+| Ricompilazione del codice necessaria |Sì | No |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Monitorare un'app Web live di Azure

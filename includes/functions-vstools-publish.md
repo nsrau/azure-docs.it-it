@@ -16,10 +16,6 @@ Nella finestra **Crea servizio app** usare le impostazioni di hosting specificat
 | **[Piano di servizio app](../articles/azure-functions/functions-scale.md)** | Piano a consumo | Quando si crea un nuovo piano, assicurarsi di scegliere **A consumo** in **Dimensioni**.  |
 | **[Account di archiviazione](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Nome globalmente univoco | Usare un account di archiviazione esistente o crearne uno nuovo.   |
 
-Fare clic su **Crea** per creare un'app per le funzioni con queste impostazioni in Azure. 
-
-Al termine del provisioning, fare clic su **Pubblica** per distribuire il codice del progetto nella nuova app per le funzioni. 
+Fare clic su **Crea** per creare un'app per le funzioni con queste impostazioni in Azure. Al termine del provisioning prendere nota del valore di **URL sito**, che è l'indirizzo dell'app per le funzioni in Azure. 
 
 ![Runtime locale di Azure](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
-
-Prendere nota del valore di **URL sito**, che è l'indirizzo dell'app per le funzioni in Azure. 

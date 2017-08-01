@@ -1,9 +1,9 @@
 ---
-title: Creare un&quot;applicazione .NET Azure Cosmos DB tramite l&quot;API Graph | Microsoft Docs
+title: Creare un'applicazione .NET Azure Cosmos DB tramite l'API Graph | Microsoft Docs
 description: Presenta un esempio di codice .NET che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: Creare un'applicazione .NET tramite l'API Graph
@@ -104,19 +103,23 @@ Ecco una breve analisi di ciò che accade nell'app. Aprire il file Program.cs. C
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Azure Cosmos DB nel [portale di Azure](http://portal.azure.com/) fare clic su **Chiavi** nel riquadro di spostamento a sinistra e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro dello schermo per copiare l'URI e la chiave primaria nel file `App.config` nel passaggio seguente.
+1. Nell'account Azure Cosmos DB nel portale di Azure fare clic su **Panoramica** nel riquadro di spostamento a sinistra. È possibile copiare il valore **URI Gremlin** nel file App.config nel passaggio successivo. 
 
-    ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-graph-dotnet/keys.png)
+    ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-graph-dotnet/gremlin-uri.png)
 
-2. In Visual Studio 2017 aprire il file `App.config`. 
+    Se il valore **URI Gremlin** è vuoto, è possibile generare il valore dalla pagina **Chiavi** del portale, usando il valore **URI**, rimuovendo https:// e sostituendo documents con graphs. 
 
-3. Copiare il valore di URI dal portale (usando il pulsante di copia) e impostarlo come valore della chiave di endpoint in `App.config`. 
+2. In Visual Studio 2017 aprire il file App.config. 
 
-    `<add key="Endpoint" value="FILLME.documents.azure.com:443" />`
+3. Copiare il valore **URI Gremlin** dal portale e impostarlo come valore della chiave di endpoint in App.config. 
 
-4. Copiare quindi il valore di CHIAVE PRIMARIA dal portale e impostarlo come valore di authKey in `App.config`. 
+    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
+
+4. Nel portale di Azure fare clic su **Chiavi** nel menu di spostamento sinistro, copiare il valore di **CHIAVE PRIMARIA** dal portale e impostarlo come valore della chiave AuthKey in App.config, quindi salvare le modifiche. 
 
     `<add key="AuthKey" value="FILLME" />`
+
+    ![Visualizzare e copiare una chiave primaria nella pagina Chiavi del portale di Azure](./media/create-graph-dotnet/keys.png)
 
 L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione a PowerShell per Azure Batch | Documentazione Microsoft
+title: Introduzione a PowerShell per Azure Batch | Microsoft Docs
 description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gestire le risorse Batch.
 services: batch
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -201,7 +202,7 @@ Creare ora il pool e specificare l'oggetto di riferimento pacchetto come argomen
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-Per altre informazioni sui pacchetti dell'applicazione, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
+Per altre informazioni sui pacchetti dell'applicazione, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
 
 > [!IMPORTANT]
 > Per usare i pacchetti dell'applicazione è necessario [collegare un account di archiviazione di Azure](#linked-storage-account-autostorage) all'account Batch.
@@ -238,6 +239,6 @@ Le proprietà del pool saranno ora aggiornate nel servizio Batch. Per distribuir
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per la sintassi dettagliata ed esempi dei cmdlet, vedere le [informazioni di riferimento sui cmdlet per Azure Batch](/powershell/module/azurerm.batch/#batch).
-* Per altre informazioni sulle applicazioni e sui pacchetti dell'applicazione in Batch, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
+* Per altre informazioni sulle applicazioni e sui pacchetti dell'applicazione in Batch, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
 
 

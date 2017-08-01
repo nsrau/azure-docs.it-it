@@ -20,7 +20,7 @@
 | Criteri | 1.000.000<sup>(6)</sup> |
 | Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>7</sup> |
   
-<sup>1</sup> Le unità riservate S3 non sono disponibili in India occidentale.
+<sup>1</sup> Le unità riservate S3 non sono disponibili in India occidentale. Se il cliente modifica il tipo, ad esempio da S2 a S1, i limiti massimi per le UR vengono reimpostati. 
 
 <sup>2</sup> Questo numero include i processi in coda, terminati, attivi e annullati. Non include invece i processi eliminati. È possibile eliminare i processi obsoleti usando **IJob.Delete** o la richiesta HTTP **DELETE**.
 
@@ -43,6 +43,6 @@ A partire dal 15 maggio 2017, le dimensioni massime supportate per un singolo BL
 
 | Unità riservata multimediale | Dimensioni massime input (GB)| 
 | --- | --- | 
-|S1    | 325|
-|S2    | 640|
-|S3    | 260|
+|S1 | 325|
+|S2 | 640|
+|S3 | 260|

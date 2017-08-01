@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: e420d192b6c60aad7523948762ff2762970583ed
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: c67169f296f2f13b9ee87180f126fb1dcf10fbea
 ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager
@@ -144,9 +143,10 @@ Creare un file JSON denominato **ADFTutorialARM.json** nella cartella **C:\ADFGe
             "properties": {
                   "type": "HDInsightOnDemand",
                   "typeProperties": {
+                    "version": "3.5",
                     "clusterSize": 1,
                     "timeToLive": "00:05:00",
-                    "osType": "windows",
+                    "osType": "Linux",
                     "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
                   }
             }
@@ -247,8 +247,8 @@ Creare un file JSON denominato **ADFTutorialARM.json** nella cartella **C:\ADFGe
                       "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
                 }
                   ],
-                  "start": "2016-10-01T00:00:00Z",
-                  "end": "2016-10-02T00:00:00Z",
+                  "start": "2017-07-01T00:00:00Z",
+                  "end": "2017-07-02T00:00:00Z",
                   "isPaused": false
               }
           }
@@ -421,9 +421,10 @@ Per informazioni dettagliate sulle proprietà JSON usate per definire un servizi
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
+            "version": "3.5",
             "clusterSize": 1,
             "timeToLive": "00:05:00",
-            "osType": "windows",
+            "osType": "Linux",
             "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
         }
     }
@@ -431,7 +432,7 @@ Per informazioni dettagliate sulle proprietà JSON usate per definire un servizi
 ```
 Tenere presente quanto segue: 
 
-* Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile creare automaticamente un cluster HDInsight **basato su Linux** . Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . 
+* Data Factory crea automaticamente un cluster HDInsight **basato su Linux** con il codice JSON precedente. Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . 
 * È possibile usare il **proprio cluster HDInsight** anziché un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) .
 * Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
   
@@ -554,8 +555,8 @@ Viene definita una pipeline che trasforma i dati eseguendo lo script Hive in un 
             "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
         }
         ],
-        "start": "2016-10-01T00:00:00Z",
-        "end": "2016-10-02T00:00:00Z",
+        "start": "2017-07-01T00:00:00Z",
+        "end": "2017-07-02T00:00:00Z",
         "isPaused": false
     }
 }

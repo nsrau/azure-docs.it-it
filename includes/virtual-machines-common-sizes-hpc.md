@@ -12,16 +12,16 @@ Oltre alla sostanziale potenza della CPU, la serie H offre diverse opzioni per r
 
 ACU: 290-300
 
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Larghezza di banda della rete/scheda NIC max |
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Schede di interfaccia di rete max |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16x500 |2/alta |
-| Standard_H16 |16 |112 |2000 |32 |32x500 |4/molto alta |
-| Standard_H8m |8 |112 |1000 |16 |16x500 |2/alta |
-| Standard_H16m |16 |224 |2000 |32 |32x500 |4/molto alta |
-| Standard_H16r* |16 |112 |2000 |32 |32x500 |4/molto alta |
-| Standard_H16mr* |16 |224 |2000 |32 |32x500 |4/molto alta |
+| Standard_H8 |8 |56 |1000 |16 |16x500 |2  |
+| Standard_H16 |16 |112 |2000 |32 |32x500 |4 |
+| Standard_H8m |8 |112 |1000 |16 |16x500 |2  |
+| Standard_H16m |16 |224 |2000 |32 |32x500 |4  |
+| Standard_H16r* |16 |112 |2000 |32 |32x500 |4  |
+| Standard_H16mr* |16 |224 |2000 |32 |32x500 |4 |
 
-*Con supporto di RDMA
+*Per le applicazioni MPI, la rete back-end RDMA dedicata viene abilitata dalla rete InfiniBand FDR, che offre latenza estremamente bassa e larghezza di banda elevata.
 
 <br>
 
@@ -31,14 +31,14 @@ ACU: 290-300
 
 ACU: 225
 
-| Dimensione | Core CPU | Memoria: GiB | Unità HDD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
+| Dimensione | Core CPU | Memoria: GiB | Unità HDD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Schede di interfaccia di rete max|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16x500 |2/alta |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4/molto alta |
-| Standard_A10 |8 |56 |382 |16 |16x500 |2/alta |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4/molto alta |
+| Standard_A8* |8 |56 |382 |16 |16x500 |2 |
+| Standard_A9* |16 |112 |382 |16 |16x500 |4 |
+| Standard_A10 |8 |56 |382 |16 |16x500 |2  |
+| Standard_A11 |16 |112 |382 |16 |16x500 |4 |
 
-*Con supporto di RDMA
+*Per le applicazioni MPI, la rete back-end RDMA dedicata viene abilitata dalla rete InfiniBand FDR, che offre latenza estremamente bassa e larghezza di banda elevata.
 
 <br>
 

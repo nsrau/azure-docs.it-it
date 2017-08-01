@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/19/2017
 ms.author: kaanan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 6286e059da7df95303bca00b5910632302bd19b7
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: af9285946fc25840c5419ee095e08bf155579ae1
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# Partner e località di peering per ExpressRoute
-<a id="expressroute-partners-and-peering-locations" class="xliff"></a>
+# <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
 > [!div class="op_single_selector"]
 > * [Località per provider](expressroute-locations.md)
@@ -39,8 +37,7 @@ ExpressRoute è supportato in tutte le aree e le località di Azure. La mappa se
 
 Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopolitica se è stata effettuata la connessione ad almeno una località per ExpressRoute entro l'area geopolitica.
 
-### Aree di Azure e località ExpressRoute in un'area geopolitica
-<a id="azure-regions-to-expressroute-locations-within-a-geopolitical-region" class="xliff"></a>
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Aree di Azure e località ExpressRoute in un'area geopolitica
 La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRoute in un'area geopolitica.
 
 | **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
@@ -54,8 +51,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **India** |India occidentale, India centrale, India Meridionale |Chennai, Mumbai |
 | **Corea del Sud** |Corea centrale, Corea meridionale |Busan, Seoul |
 
-### Aree e confini geopolitici per cloud nazionali
-<a id="regions-and-geopolitical-boundaries-for-national-clouds" class="xliff"></a>
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Aree e confini geopolitici per cloud nazionali
 Nella tabella seguente vengono fornite informazioni su aree e confini geopolitici per cloud nazionali.
 
 | **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
@@ -71,8 +67,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 La tabella seguente mostra le località per provider di servizi. Per visualizzare i provider disponibili in base alla località, vedere la tabella dei [provider di servizi per località](expressroute-locations-providers.md#locations).
 
 
-### Produzione Azure
-<a id="production-azure" class="xliff"></a>
+### <a name="production-azure"></a>Produzione Azure
 | **Provider di servizi** | **Microsoft Azure** | **Office 365 e Dynamics 365** | **Località** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Supportato |Supportato |Melbourne, Sydney |
@@ -96,7 +91,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[InterCloud](https://www.intercloud.com/)** |Supportato |Supportato |Amsterdam, Londra, Singapore, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supportato |Supportato |Osaka, Tokyo |
 | **Internet Solutions - Cloud Connect** |Supportato |Supportato |Amsterdam, Londra |
-| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supportato |Supportato |Amsterdam, Londra, Parigi |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supportato |Supportato |Amsterdam, Dublino, Londra, Parigi |
 | **Jisc** |Supportato |Supportato |Londra |
 | **KINX** |Supportato |Supportato |Seul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Supportato | Supportato | Amsterdam | 
@@ -107,8 +102,8 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Dati di nuova generazione](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Supportato |Supportato |Newport(Wales) |
 | **NEXTDC** |Supportato |Supportato |Melbourne, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Supportato |Supportato |Londra, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
-| **NTT SmartConnect** |Presto disponibile |Presto disponibile |Osaka |
-| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Supportato |Supportato |Amsterdam, Hong Kong, Londra, Parigi+, Silicon Valley, Singapore, Sydney, Washington DC |
+| **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Supportato |Supportato |Osaka |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Supportato |Supportato |Amsterdam, Hong Kong, Londra, Parigi, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Supportato |Supportato |Hong Kong - R.A.S. |
 | **Sejong Telecom** |Supportato |Supportato |Seul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supportato |Supportato |Chennai |
@@ -128,11 +123,9 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 
  **+** indica disponibile a breve
 
-### Ambiente cloud nazionale
-<a id="national-cloud-environment" class="xliff"></a>
+### <a name="national-cloud-environment"></a>Ambiente cloud nazionale
 
-### Cloud del governo degli Stati Uniti
-<a id="us-government-cloud" class="xliff"></a>
+### <a name="us-government-cloud"></a>Cloud del governo degli Stati Uniti
 | **Provider di servizi** | **Microsoft Azure** | **Office 365** | **Località** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supportato |Supportato |Chicago, Washington DC |
@@ -141,16 +134,14 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supportato | Supportato | Chicago, Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Supportato |Supportato |Chicago, Dallas, New York, Washington DC |
 
-### Cina
-<a id="china" class="xliff"></a>
+### <a name="china"></a>Cina
 | **Provider di servizi** | **Microsoft Azure** | **Office 365** | **Località** |
 | --- | --- | --- | --- |
 | **China Telecom** |Supportato |Non supportato |Pechino, Shanghai |
 
 Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn/home/features/expressroute/).
 
-### Germania
-<a id="germany" class="xliff"></a>
+### <a name="germany"></a>Germania
 | **Provider di servizi** | **Microsoft Azure** | **Office 365** | **Località** |
 | --- | --- | --- | --- |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Supportato |Non supportato |Berlino+, Francoforte |
@@ -159,8 +150,7 @@ Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn
 | **Interxion** |Supportato |Non supportato |Francoforte |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supportato  | Non supportato | Berlino |
 
-## Connettività con provider di scambio
-<a id="connectivity-through-exchange-providers" class="xliff"></a>
+## <a name="connectivity-through-exchange-providers"></a>Connettività con provider di scambio
 
 Se il provider di connettività non è incluso nelle sezioni precedenti, sarà comunque possibile creare una connessione.
 
@@ -178,8 +168,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 * Ordinare a un circuito ExpressRoute con scambio come provider di connettività di connettersi a Microsoft.
   * Per configurare la connettività, eseguire la procedura illustrata in [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) .
 
-## Connettività con provider di servizi aggiuntivi
-<a id="connectivity-through-additional-service-providers" class="xliff"></a>
+## <a name="connectivity-through-additional-service-providers"></a>Connettività con provider di servizi aggiuntivi
 
 | **Provider di connettività** | **Exchange** | **Località** |
 | --- | --- | --- |
@@ -189,6 +178,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | Londra |
+| **[BroadBand Tower, Inc.](http://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tokyo |
 | **[C3ntro Telecom](http://www.c3ntro.com/data/cloud-conectivity/)** | Equinix, Megaport | Dallas |
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)** | Equinix | Dallas, Silicon Valley, Washington DC | 
@@ -216,20 +206,18 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | Chicago, Silicon Valley, Washington DC |
 | **Zain** |Equinix |Londra|
 | **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Madrid |
-| **[Zirro](https://zirro.com/services/)**| Equinix | Toronto, Montreal |
+| **[Zirro](https://zirro.com/services/)**| Equinix | Montreal, Toronto |
 
-## Connettività con provider di data center
-<a id="connectivity-through-datacenter-providers" class="xliff"></a>
+## <a name="connectivity-through-datacenter-providers"></a>Connettività con provider di data center
 | **Provider** | **Exchange** |
 | --- | --- |
-| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/)** | Megaport |
+| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport |
 | **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |
 | **[RagingWire Data Centers](http://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | Console |
 | **[T5 Datacenters](http://t5datacenters.com/network-cloud-connect/)** | Console |
 
-## Connettività con le reti nazionali per la ricerca e l'istruzione
-<a id="connectivity-through-national-research-and-education-networks-nren" class="xliff"></a>
+## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Connettività con le reti nazionali per la ricerca e l'istruzione
 
 | **Provider**|
 | --- |
@@ -245,8 +233,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 
 * Se il provider di connettività non è elencato qui, verificare se è connesso a uno dei partner di scambio di ExpressRoute indicati sopra.
 
-## Integratori di sistemi ExpressRoute
-<a id="expressroute-system-integrators" class="xliff"></a>
+## <a name="expressroute-system-integrators"></a>Integratori di sistemi ExpressRoute
 L'abilitazione della connettività privata per soddisfare le proprie esigenze può risultare complessa, in base alle dimensioni della rete. Per ottenere supporto per l'onboarding in ExpressRoute, è possibile collaborare con uno degli Integratori di sistemi elencati nella seguente tabella.
 
 | **Integratore di sistemi** | **Continente** |
@@ -271,8 +258,7 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |
 
 
-## Passaggi successivi
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 * Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 

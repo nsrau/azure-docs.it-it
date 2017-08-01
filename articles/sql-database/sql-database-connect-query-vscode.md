@@ -18,10 +18,10 @@ ms.topic: hero-article
 ms.date: 06/20/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: ca0b1dc8fdf13112510574741a319f0fbebadf93
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4076b1e7ab3a70009217a1deff72da4bff0dc871
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -61,7 +61,7 @@ Non è necessaria alcuna configurazione speciale.
 
 Non è necessaria alcuna configurazione speciale.
 
-## <a name="get-connection-information"></a>Ottenere informazioni di connessione
+## <a name="sql-server-connection-information"></a>Informazioni di connessione SQL Server
 
 Ottenere le informazioni di connessione necessarie per connettersi al database SQL di Azure. Nelle procedure successive saranno necessari il nome completo del server, il nome del database e le informazioni di accesso.
 
@@ -69,7 +69,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
 3. Nella pagina **Panoramica** per il database, verificare il nome completo del server, come mostrato nell'immagine seguente. È possibile passare il puntatore sul nome del server per visualizzare l'opzione **Fare clic per copiare**.
 
-   ![informazioni di connessione](./media/sql-database-get-started-portal/server-name.png) 
+   ![informazioni di connessione](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password. 
 
